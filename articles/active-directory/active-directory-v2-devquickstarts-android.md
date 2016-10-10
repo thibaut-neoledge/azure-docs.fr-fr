@@ -32,7 +32,7 @@ Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scéna
 
 
 ## Téléchargez le code à partir de GitHub
-Le code associé à ce didacticiel est stocké [sur GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) ou la cloner :
+Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) ou la cloner :
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
@@ -197,4 +197,4 @@ Une fois que vous avez été authentifié, sélectionnez le bouton **Request Pro
 
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [Security TechCenter](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

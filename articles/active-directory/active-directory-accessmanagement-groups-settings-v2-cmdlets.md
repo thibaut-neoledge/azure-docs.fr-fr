@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 # Applets de commande de la version préliminaire d’Azure Active Directory pour la gestion de groupe
 
-Le document suivant fournit des exemples montrant comment utiliser PowerShell pour gérer des groupes dans Azure Active Directory (Azure AD). Il fournit également des informations sur la configuration du module de la version préliminaire d’Azure AD PowerShell. Vous devez tout d’abord [télécharger le module Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+Le document suivant fournit des exemples montrant comment utiliser PowerShell pour gérer des groupes dans Azure Active Directory (Azure AD). Il fournit également des informations sur la configuration du module de la version préliminaire d’Azure AD PowerShell. Vous devez tout d’abord [télécharger le module Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=828627).
 
 ## Installation du module Azure AD PowerShell
 
@@ -223,4 +223,4 @@ Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans 
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

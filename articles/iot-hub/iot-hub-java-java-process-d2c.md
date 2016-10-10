@@ -726,8 +726,8 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [stockage d’objets blob Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[file d’attente Azure Service Bus]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[file d’attente Azure Service Bus]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Guide du développeur Azure IoT Hub - Appareil vers cloud]: iot-hub-devguide.md#d2c
 
@@ -760,4 +760,4 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-create-an-iot-hub]: iot-hub-java-java-getstarted.md#create-an-iot-hub
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

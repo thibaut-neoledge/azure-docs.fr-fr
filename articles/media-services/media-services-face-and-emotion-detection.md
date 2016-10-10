@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Détection des visages et des émotions avec Azure Media Analytics"
+	pageTitle="Détection des visages et des émotions avec Azure Media Analytics | Microsoft Azure"
 	description="Cette rubrique illustre la détection faciale et d’émotions avec Azure Media Analytics."
 	services="media-services"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
  
 #Détection des visages et des émotions avec Azure Media Analytics
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Le processeur multimédia **Azure Media Face Detector** vous permet de compter, de suivre le mouvement, voire de mesurer la participation du public ainsi que ses réactions en analysant les expressions faciales. Ce service présente deux fonctionnalités :
 
@@ -537,4 +537,4 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

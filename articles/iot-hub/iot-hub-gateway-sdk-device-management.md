@@ -43,7 +43,7 @@ Il existe trois appareils IoT connectés à IoT Hub dans cette solution :
 
 ### Logiciel de passerelle
 
-Le logiciel de passerelle s’exécute en tant que service sur la carte Edison. Deux appareils simulés génèrent des données de télémétrie de température. Le module de mappage mappe ces appareils simulés sur les appareils enregistrés avec IoT Hub et le module HTTP gère la communication avec le point de terminaison IoT Hub. L’article [Kit de développement logiciel (SDK) de passerelle IoT (version bêta) : envoyer des messages appareil-à-cloud avec un appareil simulé][lnk-gateway-scenario] décrit en détail ce scénario.
+Le logiciel de passerelle s’exécute en tant que service sur la carte Edison. Deux appareils simulés génèrent des données de télémétrie de température. Le module de mappage mappe ces appareils simulés sur les appareils enregistrés avec IoT Hub et le module IoT Hub gère la communication avec le point de terminaison IoT Hub. L’article [Kit de développement logiciel (SDK) de passerelle IoT (version bêta) : envoyer des messages appareil-à-cloud avec un appareil simulé][lnk-gateway-scenario] décrit en détail ce scénario.
 
 ### Client de gestion des appareils
 
@@ -425,4 +425,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

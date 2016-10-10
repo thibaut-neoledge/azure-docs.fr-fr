@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="09/13/2016"
 	ms.author="guybo"/>
 
 #Déployer une application LAMP à l’aide de l’extension CustomScript Azure pour Linux#
@@ -81,7 +81,7 @@ Créez également un fichier JSON qui décrit comment télécharger le script à
 
 Vous pouvez maintenant utiliser la commande suivante pour déployer l’extension CustomScript Linux sur la machine virtuelle distante à l’aide de l’interface de ligne de commande Azure.
 
-    azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
+    azure vm extension set -c "./public_config.json" lamp-vm CustomScript Microsoft.Azure.Extensions 2.0
 
 La commande précédente télécharge et exécute le script *install\_lamp.sh* sur la machine virtuelle appelée *lamp-vm*.
 
@@ -93,8 +93,8 @@ La commande précédente télécharge et exécute le script *install\_lamp.sh* s
 
 Vous pouvez vérifier l’exécution du script personnalisé en examinant le fichier journal sur la machine virtuelle distante. Établissez une connexion SSH à *lamp-vm*, puis affichez la dernière partie du fichier journal avec la commande suivante.
 
-    cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
-    tail -f extension.log
+    cd /var/log/azure/customscript
+    tail -f handler.log
 
 Après avoir exécuté l’extension CustomScript, vous pouvez accéder à la page PHP que vous avez créée pour plus d’informations. La page PHP de l’exemple de cet article est *http://lamp-vm.cloudapp.net/phpinfo.php*.
 
@@ -110,4 +110,4 @@ Voici quelques ressources supplémentaires pour l’interface de ligne de comman
 
 [Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

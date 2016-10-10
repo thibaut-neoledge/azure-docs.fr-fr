@@ -13,14 +13,24 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="ggailey"/>
+	ms.date="09/23/2016"
+	ms.author="adrianha"/>
 
 # Comment utiliser la bibliothèque cliente Apache Cordova pour Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [plug-in Apache Cordova pour Azure Mobile Apps]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un serveur principal, créer une table et télécharger un projet Apache Cordova prédéfini. Dans ce guide, nous nous concentrons sur le plug-in Apache Cordova côté client.
+
+## Plateformes prises en charge
+
+Ce kit de développement logiciel (SDK) prend en charge Apache Cordova 6.0.0 et version ultérieure sur les appareils iOS, Android et Windows. La prise en charge de la plate-forme est la suivante :
+
+* API Android 19-24 (KitKat jusqu’à Nougat)
+* iOS 8.0 et versions ultérieures.
+* Windows Phone 8.0
+* Windows Phone 8.1
+* Plateforme Windows universelle
 
 ##<a name="Setup"></a>Configuration et conditions préalables
 
@@ -33,6 +43,7 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 Pour plus d’informations sur la création de [votre première application Apache Cordova], consultez la documentation officielle.
 
 [AZURE.INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
+
 
 ##<a name="auth"></a>Procédure : authentification des utilisateurs
 
@@ -49,26 +60,33 @@ Deux flux d’authentification sont pris en charge : un flux serveur et un flux
 
 ###<a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes
 
-Plusieurs types d’applications Apache Cordova utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth. Cela pose des problèmes, car le service d’authentification sait uniquement comment utiliser votre service par défaut. L’utilisation de l’émulateur Ripple, l’exécution de votre service localement ou dans un autre Azure App Service avec une redirection vers Azure App Service pour l’authentification, ou Live Reload avec Ionic, en sont des exemples. Suivez ces instructions pour ajouter vos paramètres régionaux à la configuration :
+Plusieurs types d’applications Apache Cordova utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth. Les flux d’interface utilisateur OAuth posent des problèmes car le service d’authentification sait uniquement comment utiliser votre service par défaut. Voici quelques exemples de problèmes causés par les flux d’interface utilisateur OAuth :
+
+- L’émulateur Ripple.
+- Live recharger avec Ionic.
+- Exécution locale du backend mobile
+- Exécution du backend mobile dans une autre instance Azure App Service que celle fournissant l’authentification.
+
+Suivez ces instructions pour ajouter vos paramètres régionaux à la configuration :
 
 1. Connectez-vous au [portail Azure].
 2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre application mobile.
-3. Cliquez sur **Outils**.
+3. Cliquez sur **Outils**
 4. Cliquez sur **Explorateur de ressources** dans le menu OBSERVER, puis cliquez sur **Atteindre**. Une nouvelle fenêtre ou un nouvel onglet s’ouvre.
 5. Développez les nœuds **config**, **authsettings** pour votre site dans le volet de navigation de gauche.
-6. Cliquez sur **Modifier**.
-7. Recherchez l’élément "allowedExternalRedirectUrls". Il est défini sur Null. Modifiez-le comme suit :
+6. Cliquez sur **Modifier**
+7. Recherchez l’élément "allowedExternalRedirectUrls". Il peut être défini sur null ou sur un tableau de valeurs. Remplacez la valeur par la valeur suivante :
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    Remplacez les URL par les URL de votre service. Par exemple, "http://localhost:3000" (pour le service Node.js) ou "http://localhost:4400" (pour le service Ripple). Il s’agit seulement d’exemples. Votre situation, y compris pour les services mentionnés dans les exemples, peut être différente.
+    Remplacez les URL par les URL de votre service. Par exemple, "http://localhost:3000" (pour le service Node.js) ou "http://localhost:4400" (pour le service Ripple). Il s’agit seulement d’exemples d’URL. Votre situation, y compris pour les services mentionnés dans les exemples, peut être différente.
 8. Cliquez sur le bouton **Lecture/Écriture** dans le coin supérieur droit de l’écran.
 9. Cliquez sur le bouton vert **PUT**.
 
-Les paramètres sont alors enregistrés. Ne fermez pas la fenêtre du navigateur avant la fin de l’enregistrement des paramètres. Vous devez également ajouter ces URL de bouclage aux paramètres de CORS :
+Les paramètres sont alors enregistrés. Ne fermez pas la fenêtre du navigateur avant la fin de l’enregistrement des paramètres. Ajoutez également ces URL de bouclage aux paramètres de CORS pour votre App Service :
 
 1. Connectez-vous au [portail Azure].
 2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre application mobile.
@@ -82,7 +100,7 @@ L’application des nouveaux paramètres prend environ 10 à 15 secondes.
 
 ##<a name="register-for-push"></a>Procédure : inscription aux notifications Push
 
-Installez le plug-in [phonegap-plugin-push] pour gérer les notifications Push. Vous pouvez l’ajouter facilement en exécutant la commande `cordova plugin add` sur la ligne de commande, ou par le biais du programme d’installation de plug-in Git dans Visual Studio. Le code suivant dans votre application Apache Cordova inscrit votre appareil aux notifications Push :
+Installez le plug-in [phonegap-plugin-push] pour gérer les notifications Push. Vous pouvez ajouter ce plugin facilement en exécutant la commande `cordova plugin add` sur la ligne de commande, ou par le biais du programme d’installation de plug-in Git dans Visual Studio. Le code suivant dans votre application Apache Cordova inscrit votre appareil aux notifications Push :
 
 ```
 var pushOptions = {
@@ -121,7 +139,7 @@ pushHandler.on('error', function (error) {
 });
 ```
 
-Utilisez le Kit de développement logiciel (SDK) Notification Hubs pour envoyer des notifications Push à partir du serveur. Vous ne devez jamais envoyer de notifications Push directement à partir de clients, car cela peut favoriser le déclenchement d’une attaque par déni de service contre Notification Hubs ou le PNS.
+Utilisez le Kit de développement logiciel (SDK) Notification Hubs pour envoyer des notifications Push à partir du serveur. N’envoyez jamais de notifications Push directement depuis les clients. Cela risquerait de déclencher une attaque par déni de service au niveau des concentrateurs de notification ou de PNS. Le PNS pourrait bannir votre trafic en réponse à ces attaques.
 
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com
@@ -137,4 +155,4 @@ Utilisez le Kit de développement logiciel (SDK) Notification Hubs pour envoyer 
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [documentation de l’objet Query]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

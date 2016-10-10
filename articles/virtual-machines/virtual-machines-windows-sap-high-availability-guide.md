@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver sur machines virtuelles Windows – Guide de haute disponibilité | Microsoft Azure"
    description="SAP NetWeaver sur machines virtuelles Windows – Guide de haute disponibilité"
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-windows"
+   documentationCenter=""
    authors="goraco"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="goraco"/>
 
@@ -1290,7 +1290,7 @@ Si vous souhaitez conserver les ports par défaut pour l’équilibrage de charg
 
 - Pour **Système ABAP** - numéro d’instance **ASCS** **00**
 - Pour **Système Java** - numéro d’instance **SCS** **01**
-- Pour **Système ABAP+Java** - numéro d’instance **ASCS** **00** et numéro d’instance **SCS** **01**
+- Pour **Système ABAP+Java** - numéro d’instance **ASCS****00** et numéro d’instance **SCS** **01**
 
 Si vous souhaitez utiliser d’autres numéros d’instance que 00 pour l’instance ASCS ABAP et 01 pour l’instance SCS Java, vous devez tout d’abord modifier les règles d’équilibrage de charge interne Azure par défaut, comme décrit dans : **[Modification des règles d’équilibrage de charge interne (ILB) Azure ASCS/SCS par défaut][sap-ha-guide-8.9]**.
 
@@ -1432,4 +1432,4 @@ Le disque partagé est maintenant monté sur le nœud B du cluster. SIOS DataKee
 
 _**Figure 62 :** SIOS DataKeeper : réplication du volume local du nœud B vers le nœud A du cluster_
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -147,7 +147,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
     e. Dans le portail Azure Classic, copiez la valeur **Modifier l’URL de mot de passe**, puis collez-la dans la zone de texte **Modifier l’URL de mot de passe**.
 
-    e. Cliquez sur **Save**.
+    f. Cliquez sur **Enregistrer**.
 
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
 
@@ -314,4 +314,4 @@ Lorsque vous cliquez sur la vignette @Task dans le volet d’accès, vous devez 
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

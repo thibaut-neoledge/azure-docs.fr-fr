@@ -7,7 +7,7 @@ Si le format est défini sur **TextFormat**, vous pouvez spécifier les proprié
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------- | -------- | 
 | columnDelimiter | Caractère utilisé pour séparer les colonnes dans un fichier. | Un seul caractère est autorisé. La valeur par défaut est virgule (,). | Non |
-| rowDelimiter | Caractère utilisé pour séparer les lignes dans un fichier. | Un seul caractère est autorisé. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »] en lecture, et « \\r\\n » en écriture. | Non |
+| rowDelimiter | Caractère utilisé pour séparer les lignes dans un fichier. | Un seul caractère est autorisé. La valeur par défaut est l’une des valeurs suivantes : [« \\r\\n », « \\r », « \\n »] en lecture et « \\r\\n » en écriture. | Non |
 | escapeChar | Caractère spécial utilisé pour échapper au délimiteur de colonnes dans le contenu du fichier d’entrée. <br/><br/>Vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Un seul caractère est autorisé. Aucune valeur par défaut. <br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (par exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d’échappement et utiliser la chaîne « Hello$, world » dans la source. | Non | 
 | quoteChar | Le caractère utilisé pour entourer de guillemets une valeur de chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette propriété s’applique aux jeux de données d’entrée et de sortie.<br/><br/>Vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. | Un seul caractère est autorisé. Aucune valeur par défaut. <br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (par exemple : « Hello, world »), vous pouvez définir " (guillemet droit) comme caractère de guillemet et utiliser la chaîne "Hello, world" dans la source. | Non |
 | nullValue | Un ou plusieurs caractères utilisés pour représenter une valeur null. | Un ou plusieurs caractères. Les valeurs par défaut sont « \\N » et « NULL » en lecture, et « \\N » en écriture. | Non |
@@ -36,7 +36,7 @@ L'exemple suivant illustre certaines des propriétés de format pour TextFormat.
 	    }
 	},
 
-Pour utiliser escapeChar à la place de quoteChar, remplacez la ligne contenant quoteChar par ce qui suit :
+Pour utiliser escapeChar à la place de quoteChar, remplacez la ligne contenant quoteChar par l’escapeChar suivant :
 
 	"escapeChar": "$",
 
@@ -46,7 +46,7 @@ Pour utiliser escapeChar à la place de quoteChar, remplacez la ligne contenant 
 
 - Vous copiez à partir d’une source hors fichier vers un fichier texte et vous souhaitez ajouter une ligne d’en-tête qui contient les métadonnées de schéma (par exemple : schéma SQL). Définissez **firstRowAsHeader** sur true dans le jeu de données de sortie pour ce scénario.
 - Vous copiez à partir d’un fichier texte contenant une ligne d’en-tête vers un récepteur hors fichier et souhaitez supprimer cette ligne. Définissez **firstRowAsHeader** sur true dans le jeu de données d’entrée.
-- Vous copiez à partir d’un fichier texte et souhaitez ignorer quelques lignes au début qui ne sont ni des données ni un en-tête. Spécifiez **skipLineCount** pour indiquer le nombre de lignes à ignorer. Si le reste du fichier contient une ligne d’en-tête, vous pouvez également spécifier **firstRowAsHeader**. Si **skipLineCount** et **firstRowAsHeader** sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée
+- Vous copiez à partir d’un fichier texte et souhaitez ignorer quelques lignes au début, qui ne contiennent ni données, ni informations d’en-tête. Spécifiez **skipLineCount** pour indiquer le nombre de lignes à ignorer. Si le reste du fichier contient une ligne d’en-tête, vous pouvez également spécifier **firstRowAsHeader**. Si **skipLineCount** et **firstRowAsHeader** sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée
 
 ### Définition d'AvroFormat
 Si le format est défini sur AvroFormat, il est inutile de spécifier des propriétés dans la section Format de la section typeProperties. Exemple :
@@ -241,7 +241,7 @@ Si le format est défini sur OrcFormat, il est inutile de spécifier des propri�
 
 	"format":
 	{
-	    "type": "OrcFormat",
+	    "type": "OrcFormat"
 	}
 
 > [AZURE.IMPORTANT] Si vous ne copiez pas les fichiers ORC **tels quels** entre les magasins de données locaux et cloud, vous devez installer JRE 8 (Java Runtime Environment) sur votre machine de passerelle. La passerelle 64 bits requiert un environnement JRE 64 bits et que la passerelle 32 bits nécessite un environnement JRE 32 bits. Ces deux versions sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=808605). Sélectionnez la bonne version.
@@ -251,4 +251,19 @@ Notez les points suivants :
 -	Les types de données complexes ne sont pas pris en charge (STRUCT, MAP, LIST, UNION)
 -	Le fichier ORC a trois [options liées à la compression](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) : NONE, ZLIB, SNAPPY. Data Factory prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier ORC, Data Factory choisit ZLIB, qui est la valeur par défaut pour ORC. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
 
-<!---HONumber=AcomDC_0907_2016-->
+### Spécification de ParquetFormat
+Si le format est défini sur ParquetFormat, il est inutile de spécifier des propriétés dans la section Format de la section typeProperties. Exemple :
+
+	"format":
+	{
+	    "type": "ParquetFormat"
+	}
+
+> [AZURE.IMPORTANT] Si vous ne copiez pas les fichiers Parquet **tels quels** entre les magasins de données locaux et cloud, vous devez installer JRE 8 (Java Runtime Environment) sur votre machine de passerelle. La passerelle 64 bits requiert un environnement JRE 64 bits et que la passerelle 32 bits nécessite un environnement JRE 32 bits. Ces deux versions sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=808605). Sélectionnez la bonne version.
+
+Notez les points suivants :
+
+-	Les types de données complexes ne sont pas pris en charge (MAP, LIST)
+-	Le fichier Parquet offre les options de compression suivantes : NONE, SNAPPY, GZIP et LZO. Data Factory prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier Parquet, Data Factory choisit SNAPPY, qui est la valeur par défaut pour le format Parquet. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
+
+<!---HONumber=AcomDC_0928_2016-->

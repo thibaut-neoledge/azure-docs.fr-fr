@@ -37,13 +37,13 @@ Login-AzureRmAccount
 
 Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Azure PowerShell obtient alors tous les abonnements associés à ce compte et utilise par défaut le premier.
 
-Si vous disposez de plusieurs abonnements, vous devrez peut-être en spécifier un en particulier, celui qui a été utilisé pour créer votre coffre de clés Azure. Saisissez la commande suivante pour afficher les abonnements de votre compte :
+Si vous disposez de plusieurs abonnements, vous devrez peut-être en spécifier un en particulier, celui qui a été utilisé pour créer votre Azure Key Vault. Tapez la commande suivante pour afficher les abonnements de votre compte :
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Ensuite, pour spécifier l’abonnement associé au coffre de clés auquel vous allez vous connecter, saisissez :
+Ensuite, pour spécifier l’abonnement associé au coffre de clés que vous allez consigner, tapez :
 
 ```powershell
 Set-AzureRmContext -SubscriptionId <subscriptionID> 
@@ -241,7 +241,7 @@ Une fois cette option est activée, les journaux d’audit commencent la collect
 
 > [REMARQUE AZURE] Vous pouvez accéder aux informations de journalisation au plus 10 minutes après l’opération sur le coffre de clés. Dans la plupart des cas, ce sera plus rapide.
 
-L’étape suivante consiste à [créer une file d’attente Azure Service Bus](../service-bus/service-bus-dotnet-get-started-with-queues.md). C’est dans celle-ci que les journaux d’audit de coffre de clés sont envoyés. Une fois placée dans la file d’attente, l’application logique récupère et agit sur ces journaux. La création d’un Service Bus est relativement simple et en voici les étapes principales :
+L’étape suivante consiste à [créer une file d’attente Azure Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). C’est dans celle-ci que les journaux d’audit de coffre de clés sont envoyés. Une fois placée dans la file d’attente, l’application logique récupère et agit sur ces journaux. La création d’un Service Bus est relativement simple et en voici les étapes principales :
 
 1. Créez un espace de noms Service Bus (si vous avez déjà un et que vous souhaitez l’utiliser ici, passez à l’étape 2).
 2. Recherchez le Service Bus dans le portail, puis sélectionnez l’espace de noms dans lequel vous souhaitez créer la file d’attente.
@@ -424,4 +424,4 @@ Pour l’action, choisissez _Office 365 - Envoyer un message électronique_. Ren
 
 À ce stade, vous disposez d’un pipeline de bout en bout qui, une fois par minute, recherche les nouveaux journaux d’audit de coffre de clés. Lorsqu’un nouveau journal est trouvé, il le place dans une file d’attente Service Bus. L’application logique est déclenchée dès qu’un nouveau message arrive dans la file d’attente et, si l’appid dans l’événement ne correspond à l’ID de l’application appelante, elle envoie un message électronique.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

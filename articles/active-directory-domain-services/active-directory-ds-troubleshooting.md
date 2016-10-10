@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire des services Azure Active Directory Domain : guide de dépannage | Microsoft Azure"
+	pageTitle="Services de domaine Azure Active Directory : guide de dépannage | Microsoft Azure"
 	description="Guide de dépannage pour les services de domaine Azure Active Directory"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
-# Services de domaine Azure AD *(version préliminaire)* - Guide de dépannage
+# Services de domaine Azure AD : guide de dépannage
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
 
 
 ### Vous ne pouvez pas activer les services de domaine Azure AD pour votre annuaire Azure AD
-Si vous vous trouvez dans une situation dans laquelle vous essayez d’activer les services de domaine Azure AD pour votre annuaire et que cette opération échoue, procédez comme suit :
+Si vous essayez d’activer les services de domaine Azure AD pour votre annuaire et que cette opération échoue, procédez comme suit :
 
-- Vérifiez qu’aucun domaine existant avec le même nom de domaine n’est disponible sur ce réseau virtuel. Supposons par exemple qu’un domaine appelé « contoso.com » soit déjà disponible sur le réseau virtuel sélectionné. Vous essayez ensuite d’activer un domaine géré par les services de domaine Azure AD portant le même nom de domaine (soit « contoso.com ») sur ce réseau virtuel. Vous rencontrez un échec lorsque vous essayez d’activer les services de domaine Azure AD en raison des conflits de noms de domaine sur ce réseau virtuel. Dans ce cas, vous devez utiliser un autre nom pour configurer votre domaine géré par les services de domaine Azure AD. Vous pouvez également annuler l’approvisionnement du domaine existant, puis passer à l’activation des services de domaine Azure AD.
+- Vérifiez qu’aucun domaine existant avec le même nom de domaine n’est disponible sur ce réseau virtuel. Supposons par exemple qu’un domaine appelé « contoso.com » soit déjà disponible sur le réseau virtuel sélectionné. Par la suite, vous essayez d’activer un domaine géré par les services de domaine Azure AD portant le même nom de domaine (soit « contoso.com ») sur ce réseau virtuel. Vous rencontrez un échec lorsque vous essayez d’activer les services de domaine Azure AD en raison des conflits de noms de domaine sur ce réseau virtuel. Dans ce cas, vous devez utiliser un autre nom pour configurer votre domaine géré par les services de domaine Azure AD. Vous pouvez également annuler l’approvisionnement du domaine existant, puis passer à l’activation des services de domaine Azure AD.
 
 - Vérifiez si votre annuaire Azure AD contient une application nommée « Synchronisation des services de domaine Azure AD ». Si cette application existe, vous devez la supprimer, puis réactiver les services de domaine Azure AD. Pour vérifier la présence de cette application et la supprimer le cas échant, procédez comme suit :
 
-  1. Accédez au **portail de gestion Azure** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+  1. Accédez au **portail Azure Classic** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
   2. Sélectionnez le nœud **Active Directory** dans le volet gauche.
   3. Sélectionnez le client Azure AD (annuaire) pour lequel vous souhaitez activer les services de domaine Azure AD.
   4. Accédez à l’onglet **Applications**.
@@ -37,15 +37,19 @@ Si vous vous trouvez dans une situation dans laquelle vous essayez d’activer l
 
 
 ### Les utilisateurs sont incapables de se connecter aux services de domaine Asure AD gérés
-Si vous rencontrez une situation dans laquelle un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de se connecter au domaine géré nouvellement créé, effectuez les étapes de dépannage suivantes :
+Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de se connecter au domaine géré nouvellement créé, effectuez les étapes de dépannage suivantes :
+
+- Essayez de vous connecter en utilisant le format UPN (par exemple, « joeuser@contoso.com ») au lieu du format SAMAccountName (« CONTOSO\\joeuser »). Parfois, le format SAMAccountName peut être généré automatiquement pour les utilisateurs dont le préfixe UPN est trop long ou identique à un autre utilisateur sur le domaine géré. Le format UPN garantit des données uniques au sein d’Azure AD.
+
+> [AZURE.NOTE] Nous vous recommandons d’utiliser le format UPN pour vous connecter au domaine géré des services de domaine Azure AD.
 
 - Assurez-vous d'avoir [activé la synchronisation du mot de passe](active-directory-ds-getting-started-password-sync.md) selon les étapes décrites dans le guide de mise en route.
 
 - **Comptes externes** : assurez-vous que le compte d’utilisateur affecté n’est pas un compte externe dans le locataire Azure AD. Les exemples de comptes externes incluent les comptes Microsoft (par exemple, 'joe@live.com') ou les comptes d'utilisateurs d'un annuaire Azure AD externe. Dans la mesure où les services de domaine Azure AD n’ont pas d'informations d'identification pour ces comptes d'utilisateurs, ces utilisateurs ne peuvent pas se connecter au domaine géré.
 
-- **Préfixe UPN trop long** : assurez-vous que le préfixe UPN du compte d’utilisateur affecté (par exemple, la première partie de l’UPN) dans votre client Azure AD comporte moins de 20 caractères. Par exemple, pour l’UPN « joereallylongnameuser@contoso.com », le préfixe (« joereallylongnameuser ») est composé de plus de 20 caractères et ce compte ne sera pas disponible dans le domaine géré de services de domaine Azure AD.
+- **Préfixe UPN trop long** : assurez-vous que le préfixe UPN du compte d’utilisateur affecté (la première partie de l’UPN) dans votre client Azure AD comporte moins de 20 caractères. Par exemple, pour l’UPN « joereallylongnameuser@contoso.com », le préfixe (« joereallylongnameuser ») est composé de plus de 20 caractères et ce compte n’est pas disponible dans le domaine géré.
 
-- **Préfixe UPN en double** : assurez-vous qu’aucun autre compte d’utilisateur dans votre client Azure AD n’a le même préfixe UPN (par exemple, la première partie de l’UPN) que celui du compte d’utilisateur affecté. Par exemple, si vous avez deux comptes d’utilisateurs « joeuser@finance.contoso.com » et « joeuser@engineering.contoso.com », les deux utilisateurs rencontreront des problèmes de connexion au domaine géré. Cela peut également se produire si l’un des comptes d’utilisateurs est un compte externe (par ex. « joeuser@live.com »). Nous recherchons une solution à ce problème.
+- **Préfixe UPN en double** : assurez-vous qu’aucun autre compte d’utilisateur dans votre client Azure AD n’a le même préfixe UPN (la première partie de l’UPN) que celui du compte d’utilisateur affecté. Par exemple, si vous avez deux comptes d’utilisateurs « joeuser@finance.contoso.com » et « joeuser@engineering.contoso.com », les deux utilisateurs rencontrent des problèmes de connexion au domaine géré. Ce problème peut également se produire si l’un des comptes d’utilisateurs est un compte externe (par exemple, « joeuser@live.com »). Nous recherchons une solution à ce problème.
 
 - **Comptes synchronisés** : si les comptes d’utilisateurs affectés sont synchronisés à partir d’un annuaire local, vérifiez que les points suivants sont respectés :
     - Vous avez déployé la [dernière version recommandée d’Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect) ou procédé à la mise à jour vers cette version.
@@ -64,4 +68,4 @@ Si vous rencontrez une situation dans laquelle un ou plusieurs utilisateurs de v
 ### Nous contacter
 Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](active-directory-ds-contact-us.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

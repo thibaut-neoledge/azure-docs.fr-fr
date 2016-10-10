@@ -131,7 +131,6 @@ Les mots de passe doivent comporter de 8 à 123 caractères et répondre à 3 de
 
 Les noms mots de passe suivants ne sont pas autorisés :
 
-Les noms mots de passe suivants ne sont pas autorisés
 <table>
 	<tr>
 		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
@@ -141,4 +140,4 @@ Les noms mots de passe suivants ne sont pas autorisés
 	</tr>
 </table>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

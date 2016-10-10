@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="Markvi"/>
 
 # Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.
 
 Vous pouvez utiliser une stratégie de groupe Active Directory pour configurer vos appareils joints à un domaine Windows 8.1 pour qu’ils s’inscrivent automatiquement auprès d’Azure AD. Pour configurer la stratégie de groupe, vous devez disposer d'au moins un ordinateur Windows Server 2012 R2 ou Windows 8.1 joint à un domaine et doté de la fonctionnalité de gestion des stratégies de groupe. Une fois la stratégie de groupe activée pour votre domaine, tout utilisateur du domaine qui se connecte à l’ordinateur est automatiquement inscrit en mode silencieux auprès d’un objet d’appareil dans Azure AD. Il y a un objet d’appareil dans Azure AD pour chaque utilisateur inscrit de l’appareil physique. Lisez et veillez à satisfaire les conditions requises pour l’inscription automatique des appareils auprès d’Azure Active Directory pour les appareils joints à un domaine Windows.
+
+>[AZURE.NOTE]
+ Pour les dernières informations sur la configuration de l’inscription automatique des appareils, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
+
+
 
 ## Configurer la stratégie de groupe pour les appareils joints à un domaine Windows 8.1
 
@@ -61,4 +66,4 @@ La stratégie de groupe autorise une tâche planifiée sur le système qui s’e
 - [Inscription automatique auprès d’Azure Active Directory d’appareils Windows 10 joints à un domaine](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/22/2016"
 	ms.author="v-donglo"/>
 
 # Comment déployer un service web dans plusieurs régions
@@ -28,7 +28,7 @@ Le tarif est spécifique à chaque région et vous devez donc définir un profil
 2. Cliquez sur l’option de menu **Abonnements**.
 3. Sur la page de présentation des abonnements, cliquez sur **nouveau**.
 4. Dans la liste déroulante **Abonnement**, sélectionnez l’abonnement dans lequel résidera le nouveau plan.
-5. Dans la liste déroulante **Région**, sélectionnez une région pour le nouvel plan. Les options du plan de la région sélectionnée apparaissent dans la section **Plan Options** (Option du plan) de la page.
+5. Dans la liste déroulante **Région**, sélectionnez une région pour le nouveau plan. Les options du plan de la région sélectionnée apparaissent dans la section **Plan Options** (Option du plan) de la page.
 6. Dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources pour le plan. Pour plus d’informations sur les groupes de ressources, consultez [Gérer les ressources Azure sur le portail](../azure-portal/resource-group-portal.md).
 7. Dans **Plan Name** (Nom du plan), tapez le nom du plan.
 8. Sous **Plan Options** (Options du plan), cliquez sur le niveau de facturation du nouveau plan.
@@ -49,4 +49,4 @@ Le tarif est spécifique à chaque région et vous devez donc définir un profil
 10. Dans la liste déroulante **Plan de tarification**, sélectionnez un plan dans la région que vous avez sélectionnée à l’étape 8.
 11. Cliquez sur**Copy**.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

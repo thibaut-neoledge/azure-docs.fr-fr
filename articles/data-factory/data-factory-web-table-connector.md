@@ -3,7 +3,7 @@
 	description="Découvrez comment transférer des données à partir d’une table locale dans une page web à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Déplacer des données depuis une source de table web à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l’activité de copie d’une fabrique de données Azure pour copier des données depuis une table dans une page web vers un autre magasin de données. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une table web vers d’autres magasins de données, mais pas l’inverse.
 
-> [AZURE.NOTE] Pour l’instant, ce connecteur Web prend uniquement en charge l’extraction du contenu d’une table à partir d’une page HTML.
+> [AZURE.NOTE] Pour l’instant, ce connecteur web prend uniquement en charge l’extraction du contenu d’une table à partir d’une page HTML.
 
-## Exemple : copie de données à partir d’une table web vers un objet blob Azure
+## Exemple : copie de données à partir d’une table web vers un objet blob Azure
 
 L’exemple ci-dessous présente les éléments suivants :
 
@@ -53,7 +53,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 	}
 
 
-**Service lié Azure Storage**
+**Service lié Azure Storage**
 
 	{
 	  "name": "AzureStorageLinkedService",
@@ -65,7 +65,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 	  }
 	}
 
-**Jeu de données d’entrée WebTable ** La définition de la propriété **external** sur **true** et la spécification de la stratégie **externalData** (facultative) informent le service Data Factory qu’il s’agit d’une table qui est externe à la fabrique de données et non produite par une activité dans la fabrique de données.
+**Jeu de données d’entrée** La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à Data Factory et non produit par une activité dans Data Factory.
 
 > [AZURE.NOTE] Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page).
 
@@ -91,7 +91,7 @@ L’exemple suivant indique comment copier des données à partir d’une table 
 
 **Jeu de données de sortie d’objet Blob Azure**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
+Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
 
 	{
 	    "name": "AzureBlobOutput",
@@ -224,7 +224,7 @@ path | URL relative de la ressource qui contient la table. | Non. Quand le chemi
 index | Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page). | Oui
 
 
-**Exemple :**
+**Exemple :**
 
 	{
 	    "name": "WebTableInput",
@@ -243,13 +243,13 @@ index | Index de la table dans la ressource. Pour savoir comment obtenir l’ind
 	    }
 	}
 
-## WebSource : propriétés de type de l’activité de copie
+## WebSource : propriétés de type de l’activité de copie
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
-Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
+En revanche, les propriétés disponibles dans la section typeProperties de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
-En cas d’activité de copie quand la source est de type **WebSource**, aucune propriété supplémentaire n’est prise en charge.
+Actuellement, lorsque la source de l’activité de copie est de type **WebSource**, aucune propriété supplémentaire n’est prise en charge.
 
 ## Obtenir l’index d’une table dans une page HTML
 
@@ -273,7 +273,7 @@ En cas d’activité de copie quand la source est de type **WebSource**, aucune 
 
 	![Bouton Éditeur avancé](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
 
-6. Dans la boîte de dialogue Éditeur avancé, le numéro en regard de « Source » est l’index.
+6. Dans la boîte de dialogue Éditeur avancé, le numéro en regard de « Source » est l’index.
 
 	![Éditeur avancé - Index](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
 
@@ -287,4 +287,4 @@ Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https:/
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

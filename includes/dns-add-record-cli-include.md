@@ -39,6 +39,11 @@ Dans cet exemple, nous utilisons le nom de jeu d’enregistrements « @ » pour 
 
 	azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+#### Créer un jeu d’enregistrements PTR avec un seul enregistrement  
+Dans ce cas, « my-arpa-zone.com » indique la zone ARPA représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP.
+
+	azure network dns record-set add-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"   
+
 #### Créer un jeu d’enregistrements SRV avec un seul enregistrement
 
 Si vous créez un enregistrement SRV à la racine de la zone, vous pouvez spécifier « \_service » et « \_protocol » dans le nom de l’enregistrement. Il est inutile d’inclure « @ » dans le nom de l’enregistrement.
@@ -54,4 +59,4 @@ Si vous créez un enregistrement SRV à la racine de la zone, vous pouvez spéci
 
 	azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

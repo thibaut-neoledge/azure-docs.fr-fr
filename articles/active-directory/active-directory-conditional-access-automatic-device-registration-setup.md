@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="markvi"/>
 
 
@@ -30,8 +30,6 @@ Les mises à jour, telles que l’autorisation d’utilisation d’un compte pro
 L’inscription est prise en charge dans les versions précédentes de Windows, notamment :
 
 - Windows 8.1
-
-- Windows 8.0
 
 - Windows 7
 
@@ -212,9 +210,6 @@ Pour cela, vous devez disposer d’une émission de règles de transformation qu
 
 Où **<RPObjectName>** est le nom de l’objet de partie de confiance de votre objet d’approbation de partie de confiance Azure Active Directory. Cet objet est généralement nommé plateforme d’identité Microsoft Office 365.
 
-
-
-
  
 
 ## Déploiement 
@@ -223,15 +218,15 @@ Une fois les conditions préalables remplies, les ordinateurs joints à un domai
 
 Les ordinateurs Mise à jour anniversaire Windows 10 et Windows Server 2016 joints à un domaine s’inscriront automatiquement auprès d’Azure AD lors du prochain redémarrage ou de la prochaine connexion utilisateur à Windows. Les nouveaux ordinateurs qui sont joints au domaine s’inscriront auprès d’Azure AD lors du redémarrage suivant l’opération de jonction de domaine.
 
-> [AZURE.NOTE] Les ordinateurs Mise à jour Windows 10 de novembre 2015 joints à un domaine s’inscriront automatiquement auprès d’Azure AD uniquement si l’objet de stratégie de groupe de déploiement est défini. Pour plus d’informations, consultez la section suivante.
+> [AZURE.NOTE] Les ordinateurs Windows 10 joints à un domaine s’inscriront automatiquement auprès d’Azure AD uniquement si l’objet de stratégie de groupe de déploiement est défini. Pour plus d’informations, consultez la section suivante.
 
 Pour contrôler le déploiement de l’enregistrement automatique des ordinateurs Windows 10/Windows Server 2016 joints à un domaine, vous pouvez utiliser un objet de stratégie de groupe à cet effet. Pour le déploiement de l’inscription automatique des ordinateurs non Windows 10 joints à un domaine, un package Windows Installer peut être déployé sur les ordinateurs sélectionnés.
 
-> [AZURE.NOTE] La stratégie de groupe pour le contrôle du déploiement déclenche également l’inscription des ordinateurs Windows 8.1 joints à un domaine. Vous pouvez choisir d’utiliser la stratégie pour l’inscription des ordinateurs Windows 8.1 joints à un domaine ou si vous utilisez plusieurs versions de Windows (y compris Windows 7, 8.0 ou Windows Server), vous pouvez choisir d’activer l’enregistrement de tous vos ordinateurs non Windows 10/Windows Server 2016 à l’aide du package Windows Installer.
+> [AZURE.NOTE] La stratégie de groupe pour le contrôle du déploiement déclenche également l’inscription des ordinateurs Windows 8.1 joints à un domaine. Vous pouvez choisir d’utiliser la stratégie pour l’inscription des ordinateurs Windows 8.1 joints à un domaine ou si vous utilisez plusieurs versions de Windows (notamment Windows 7 ou Windows Server), vous pouvez choisir d’activer l’enregistrement de tous vos ordinateurs non Windows 10/Windows Server 2016 à l’aide du package Windows Installer.
 
 ### Objet de stratégie de groupe pour contrôler le déploiement de l’inscription automatique 
 
-Pour contrôler le déploiement de l’enregistrement automatique des ordinateurs joints au domaine auprès d’Azure AD, vous pouvez déployer les ordinateurs joints au domaine de registre de stratégie de groupe comme appareils sur les ordinateurs que vous souhaitez enregistrer. Par exemple, vous pouvez déployer la stratégie basée sur un groupe de sécurité ou vers une unité d’organisation (UO).
+Pour contrôler le déploiement de l’enregistrement automatique des ordinateurs joints au domaine auprès d’Azure AD, vous pouvez déployer les ordinateurs joints au domaine de registre de stratégie de groupe comme appareils sur les ordinateurs que vous souhaitez enregistrer. Par exemple, vous pouvez déployer la stratégie basée sur un groupe de sécurité ou sur une unité d’organisation (UO).
 
 Pour définir la stratégie, exécutez les opérations suivantes :
 
@@ -257,7 +252,7 @@ Pour définir la stratégie, exécutez les opérations suivantes :
 
 ## Package MSI pour les ordinateurs non Windows 10  
 
-Pour enregistrer les ordinateurs joints à un domaine exécutant Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2, un package Windows Installer (.msi) est disponible au téléchargement :
+Pour enregistrer les ordinateurs joints à un domaine exécutant Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2, un package Windows Installer (.msi) est disponible au téléchargement :
 
 - [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
 - [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
@@ -272,4 +267,4 @@ Le programme d’installation crée une tâche planifiée sur le système, qui s
 
 - [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

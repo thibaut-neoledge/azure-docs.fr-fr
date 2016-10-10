@@ -9,12 +9,12 @@
 	tags="azure-classic-portal"/>
 
 <tags 
-ms.service="active-directory" 
-ms.workload="identity" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="06/23/2016"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/27/2016"
 
 	ms.author="femila"/>
 
@@ -45,10 +45,10 @@ En plus des avantages décrits antérieurement, le fait que les utilisateurs joi
 
 Les entreprises peuvent fournir des comptes gérés sur le cloud uniquement aux organisations et sociétés partenaires. Ces partenaires peuvent ensuite accéder facilement aux applications et aux ressources d’entreprise avec l’authentification unique. Ce scénario s’applique aux utilisateurs qui accèdent aux ressources principalement dans le cloud, comme Office 365 ou les applications SaaS qui s’appuient sur Azure AD pour l’authentification.
 
-### Configuration requise
+### Composants requis
 **Au niveau de l’entreprise (administrateur)**
 
-*	Abonnement Azure avec Azure Active Directory  
+*	Abonnement Azure avec Azure Active Directory
 
 **Au niveau de l’utilisateur**
 
@@ -67,7 +67,7 @@ Les entreprises peuvent fournir des comptes gérés sur le cloud uniquement aux 
 ## Activation de BYOD (Apportez votre propre appareil) dans votre organisation pour Windows 10
 Vous pouvez configurer vos employés et utilisateurs afin qu’ils utilisent leurs appareils personnels Windows (BYOD) pour accéder aux applications et ressources de l’entreprise. Vos utilisateurs peuvent ajouter leurs comptes Azure AD (professionnels ou scolaires) à un appareil Windows personnel pour accéder aux ressources de manière sécurisée et conforme.
 
-### Configuration requise
+### Composants requis
 **Au niveau de l’entreprise (administrateur)**
 
 *	Abonnement Azure AD
@@ -93,4 +93,4 @@ Vous pouvez configurer vos employés et utilisateurs afin qu’ils utilisent leu
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

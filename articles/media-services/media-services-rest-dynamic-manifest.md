@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Création de filtres avec l’API REST Media Services Azure" 
-	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective."
+	pageTitle="Création de filtres avec l’API REST Azure Media Services | Microsoft Azure" 
+	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d’un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective."
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako;cenkdin"/>
 
 #Création de filtres avec l’API REST Media Services Azure
@@ -374,4 +374,4 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

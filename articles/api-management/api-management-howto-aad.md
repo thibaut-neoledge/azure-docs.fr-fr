@@ -48,7 +48,7 @@ Entrez le nom de l’application, sélectionnez **Application web et/ou API web*
 
 ![Nouvelle application Azure Active Directory][api-management-new-aad-application-1]
 
-Dans **URL de connexion**, copiez l’**URL de redirection** dans la section **Azure Active Directory** de l’onglet **Identités externes** du portail des éditeurs et supprimez le suffixe **-aad** à la fin de l’URL. Dans cet exemple, la valeur de **URL de connexion** est `https://aad03.portal.current.int-azure-api.net/signin`.
+Pour **URL de connexion**, entrez l’URL de connexion de votre portail des développeurs. Dans cet exemple, la valeur de **URL de connexion** est `https://aad03.portal.current.int-azure-api.net/signin`.
 
 Dans **URL d’ID de l’application**, entrez le domaine par défaut ou un domaine personnalisé pour Azure Active Directory et ajoutez une chaîne unique. Dans cet exemple, le domaine par défaut de **https://contoso5api.onmicrosoft.com** est utilisé avec le suffixe **/api** spécifié.
 
@@ -227,4 +227,4 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 
 [Connexion au portail des développeurs avec un compte Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

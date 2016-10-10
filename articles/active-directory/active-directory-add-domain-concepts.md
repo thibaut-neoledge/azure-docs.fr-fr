@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -54,7 +54,7 @@ Le nom de domaine principal d’un répertoire est le nom de domaine présélect
 
 Un nom de domaine doit être vérifié dans Azure AD avant de pouvoir être utilisé par un autre service Microsoft Online Service, comme Exchange Online, SharePoint Online et Intune. Ces autres services requièrent généralement qu’un administrateur ajoute au moins une entrée DNS spécifique au service.
 
-Une application web Azure utilise son propre mécanisme pour vérifier la propriété d’un domaine. Un domaine doit être vérifié pour une utilisation avec Azure AD, même s’il a été précédemment vérifié pour une utilisation par une application web Azure dans un abonnement qui s’appuie sur Azure AD. Une application web Azure peut utiliser un nom de domaine qui a été vérifié dans un autre répertoire que le répertoire qui sécurise l’application web.
+Une application web Azure utilise son propre mécanisme pour vérifier la propriété d’un domaine. Pour une utilisation avec Azure AD, un domaine doit être vérifié, même s’il a précédemment été vérifié pour une utilisation par une application web Azure dans un abonnement qui s’appuie sur Azure AD. Une application web Azure peut utiliser un nom de domaine qui a été vérifié dans un autre répertoire que le répertoire qui sécurise l’application web.
 
 ## Gestion des noms de domaine
 
@@ -68,4 +68,4 @@ Les tâches de gestion de domaine peuvent être effectuées à partir du portail
 
 -   [Utilisation d’API Graph Azure AD pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Référence des paramètres d’itinérance Windows 10
@@ -38,11 +38,11 @@ En règle générale, les paramètres Windows se synchronisent par défaut, cepe
 ## Vue d’ensemble des paramètres Windows
 Les groupes de paramètres suivants sont disponibles pour les utilisateurs finaux et servent à activer/désactiver la synchronisation des paramètres sur les appareils Windows 10.
 
-- Thème : Arrière-plan du Bureau, Vignette de l’utilisateur, Position de la barre des tâches, etc. 
-- Paramètres Internet Explorer : Historique de navigation, URL saisies, Favoris, etc. 
-- Mots de passe : [Stockage sécurisé des informations d’identification Windows](https://technet.microsoft.com/library/jj554668.aspx), et notamment des profils Wi-Fi 
-- Préférences linguistiques : Dictionnaire, Paramètres de langue système 
-- Options d’ergonomie : Narrateur, Loupe, Clavier visuel 
+- Thème : Arrière-plan du Bureau, Vignette de l’utilisateur, Position de la barre des tâches, etc.
+- Paramètres Internet Explorer : Historique de navigation, URL saisies, Favoris, etc.
+- Mots de passe : [Stockage sécurisé des informations d’identification Windows](https://technet.microsoft.com/library/jj554668.aspx), et notamment des profils Wi-Fi
+- Préférences linguistiques : Dictionnaire, Paramètres de langue système
+- Options d’ergonomie : Narrateur, Loupe, Clavier visuel
 - Autres paramètres Windows : consultez les détails de Paramètres Windows
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
@@ -176,4 +176,4 @@ Les entrées internes dans la colonne Groupe de paramètres font référence aux
 
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

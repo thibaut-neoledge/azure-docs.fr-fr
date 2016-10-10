@@ -22,6 +22,12 @@
 
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend et créer une table. Dans ce guide, nous nous concentrons sur l’utilisation du backend mobile dans les applications web HTML/JavaScript.
 
+## Plateformes prises en charge
+
+Nous limitons la prise en charge aux versions actuelles ainsi qu’aux dernières versions des principaux navigateurs : Google Chrome, Microsoft Edge, Microsoft Internet Explorer et Mozilla Firefox. Le Kit de développement logiciel (SDK) devrait fonctionner avec n’importe quel navigateur relativement récent.
+
+Le package est distribué comme un module JavaScript universel et prend donc en charge les format Globals, AMD et CommonJS.
+
 ##<a name="Setup"></a>Configuration et conditions préalables
 
 Ce guide part du principe que vous avez créé un serveur principal avec une table. Ce guide suppose que la table a le même schéma que les tables dans ces didacticiels.
@@ -73,7 +79,7 @@ L’exécution locale peut entraîner des problèmes car, par défaut, l’authe
 4. Cliquez sur **Aller** pour ouvrir l’Explorateur de ressources pour votre application mobile principale dans une fenêtre ou un nouvel onglet.
 5. Développez le nœud **config** > **authsettings** pour votre application.
 6. Cliquez sur le bouton **Modifier** pour activer la modification de la ressource.
-7. Trouvez l’élément **allowedExternalRedirectUrls**, qui doit être null. Modifiez-le comme suit :
+7. Trouvez l’élément **allowedExternalRedirectUrls**, qui doit être null. Ajoutez vos URL dans un tableau :
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -103,4 +109,4 @@ Après que le serveur principal sera mis à jour, vous serez en mesure d’utili
 [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [documentation de l’objet Query]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

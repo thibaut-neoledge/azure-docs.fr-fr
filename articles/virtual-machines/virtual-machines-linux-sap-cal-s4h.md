@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Déployer S/4 HANA ou BW/4 HANA sur Microsoft Azure | Microsoft Azure" 
-description="Déployer S/4 HANA ou BW/4 HANA sur Microsoft Azure" 
+pageTitle="Déployer S/4 HANA ou HANA BW/4 sur une machine virtuelle Azure | Microsoft Azure" 
+description="Déployer S/4 HANA ou HANA BW/4 sur une machine virtuelle Azure" 
 services="virtual-machines-linux" 
 documentationCenter="" 
 authors="hermanndms" 
@@ -88,4 +88,4 @@ Il est à présent possible de se connecter à la solution via le bouton de conn
 
 Une autre option consiste à se connecter à la machine virtuelle Windows cliente et de commencer la SAP GUI préconfigurée.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

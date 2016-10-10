@@ -3,7 +3,7 @@
 	description="Les administrateurs peuvent choisir de faire inscrire automatiquement et en mode silencieux les appareils joints à un domaine Windows auprès d’Azure Active Directory (Azure AD)."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="Markvi"
 	manager="swadhwa"
 	editor=""/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
 
 En tant qu’administrateur, vous pouvez choisir d’inscrire automatiquement et en mode silencieux des appareils joints à votre domaine Windows auprès d’Azure Active Directory (Azure AD). Ceci peut être utile si vous avez configuré des stratégies d’accès conditionnel basées sur les appareils à des applications Office 365 ou à des applications gérées localement par AD FS. Vous pouvez en savoir plus sur les scénarios d’inscription d’appareils en lisant la [Présentation de l’inscription d’appareils auprès d’Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
+
+>AZURE.NOTE Pour les dernières informations sur la configuration de l’inscription automatique des appareils, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 L’inscription automatique d’appareils auprès d’Azure Active Directory est disponible pour les ordinateurs Windows 7 et Windows 8.1 qui ont été joints à un domaine Active Directory. Il s’agit en général d’appareils détenus par des entreprises et qui ont été fournis à des travailleurs de l’information.
 
@@ -34,7 +36,7 @@ Déployez AD FS et connectez-vous à Azure Active Directory à l’aide d’Azu
 4. Sous l’onglet **Règles de transformation d’émission**, sélectionnez **Ajouter une règle**.
 5. Sélectionnez **Envoyer les revendications en utilisant une règle personnalisée** dans la zone de liste déroulante **Règle de revendication**. Sélectionnez **Suivant**.
 6. Tapez *Règle de revendication de méthode d’authentification* dans la zone de texte **Nom de la règle de revendication :**.
-7. Tapez la règle de revendication suivante dans la zone de texte **Règle de revendication** :
+7. Tapez la règle de revendication suivante dans la zone de texte **Règle de revendication** :
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
@@ -105,4 +107,4 @@ Pour en savoir plus sur le déploiement de l'inscription d'appareils avec AD FS
 - [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Inscription automatique auprès d’Azure Active Directory d’appareils Windows 10 joints à un domaine](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

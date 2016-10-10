@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/29/2016" 
 	ms.author="anwestg"/>
 
 # Livre blanc sur les offres Azure App Service Web Apps pour les entreprises #
@@ -47,9 +47,9 @@ App Service Web Apps est une solution de choix pour héberger ces applications, 
 
 Une autre approche consiste à utiliser votre investissement existant en local. Dans cet exemple, mettant en scène un système de notes de frais des employés, vous voulez gérer votre banque de données dans votre propre infrastructure interne, que cela soit motivé par l'intégration avec les systèmes internes (rapports, salaires, facturation, etc.) ou pour respecter une exigence de gouvernance informatique. Web Apps fournit plusieurs méthodes pour vous connecter à votre infrastructure locale :
 
-- [App Service Environments](app-service-app-service-environment-intro.md) : App Service Environments (ASE) constituent une nouvelle fonctionnalité Premium qui a été récemment ajoutée à l'offre App Service de Microsoft Azure. ASEs fournissent un environnement totalement isolé et dédié pour l'exécution sécurisée des applications Azure App Service à grande échelle, tout en offrant un isolement et un accès réseau sécurisé.
-- [Connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) : ces fonctionnalités de Microsoft Azure BizTalk Services permettent à Web Apps de se connecter à des ressources locales en toute sécurité, par exemple SQL Server, MySQL, des API web et des services web personnalisés.
-- [Intégration au réseau virtuel](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) : l’intégration de Web Apps à Azure Virtual Network vous permet de connecter votre application web à un réseau virtuel Azure, lequel peut être connecté à votre infrastructure locale par le biais d’un réseau privé virtuel de site à site.
+- [App Service Environments](app-service-app-service-environment-intro.md) : App Service Environments (ASE) constituent une nouvelle fonctionnalité Premium qui a été récemment ajoutée à l'offre App Service de Microsoft Azure. ASEs fournissent un environnement totalement isolé et dédié pour l'exécution sécurisée des applications Azure App Service à grande échelle, tout en offrant un isolement et un accès réseau sécurisé.
+- [Connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) : ces fonctionnalités de Microsoft Azure BizTalk Services permettent à Web Apps de se connecter à des ressources locales en toute sécurité, par exemple SQL Server, MySQL, des API web et des services web personnalisés.
+- [Intégration au réseau virtuel](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) : l’intégration de Web Apps à Azure Virtual Network vous permet de connecter votre application web à un réseau virtuel Azure, lequel peut être connecté à votre infrastructure locale par le biais d’un réseau privé virtuel de site à site.
 
 Le diagramme suivant représente un exemple de solution puissante dotée d'options de connectivité pour des ressources locales. Le premier exemple montre comment procéder à l'aide des fonctionnalités standard d'Azure App Service et le second exemple montre comment procéder à l'aide de l'offre Premium, App Service Environments.
 
@@ -107,7 +107,7 @@ La première étape pour migrer une application métier vers Web Apps consiste �
 
 #### Éléments à prendre en compte ####
 
-Pendant la migration de l’application depuis un environnement local, vous devez garder à l’esprit quelques contraintes de Web Apps. Voici certains points clés à connaître pour migrer des applications web vers Web Apps ([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)) :
+Pendant la migration de l’application depuis un environnement local, vous devez garder à l’esprit quelques contraintes de Web Apps. Voici certains points clés à connaître pour migrer des applications web vers Web Apps ([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)) :
 
 -	Liaisons de port : Web Apps ne prend en charge que le port 80 pour le trafic HTTP et le port 443 pour le trafic HTTPS. Si votre application utilise un autre port, après la migration, elle utilisera le port 80 pour le trafic HTTP et le port 443 pour le trafic HTTPS. C'est souvent un problème sans conséquence, car il est courant d'utiliser différents ports dans les déploiements pour éviter l'utilisation de noms de domaine, en particulier dans les environnements de développement et de test
 -	Authentification : Web Apps prend en charge l’authentification anonyme par défaut et l’authentification par formulaire lorsqu’une application le spécifie. Il ne propose l’authentification Windows que lorsque l’application est intégrée à Azure Active Directory et AD FS. Cette fonctionnalité est abordée plus en détail [ici](http://aka.ms/azurebizapp).
@@ -116,7 +116,7 @@ Pendant la migration de l’application depuis un environnement local, vous deve
 -	Utilisation des bibliothèques COM : Web Apps n’autorise pas l’enregistrement de composants COM sur la plateforme. Par conséquent, si l’application utilise des composants COM, ceux-ci doivent être réécrits dans du code pris en charge et déployés avec l’application.
 -	Filtres ISAPI : Web Apps prend en charge les filtres ISAPI. Ils doivent être déployés dans le cadre de l’application et enregistrés dans le fichier web.config de l’application web. Pour plus d’informations, consultez la page [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md).
 
-Une fois ces éléments pris en compte, votre application web est prête pour le cloud. Et ne vous inquiétez pas si certains critères ne sont pas entièrement remplis, l'outil de migration s'attachera à procéder à la meilleure migration possible.
+Une fois ces éléments pris en compte, votre application web est prête pour le cloud. Et ne vous inquiétez pas si certains critères ne sont pas entièrement remplis, l’outil de migration s’attachera à procéder à la meilleure migration possible.
 
 Les prochaines étapes du processus de migration visent à créer une application web App Service et une base de données SQL Azure. Il existe plusieurs tailles d’instance Web Apps avec un nombre variable de cœurs de processeur et de quantités de mémoire vive disponibles. Faites vos choix en fonction des besoins de votre application web. Pour obtenir plus d’informations et des prix, consultez la page [http://aka.ms/azurewebsitesskus](/pricing/details/websites/). De même, la base de données SQL Microsoft Azure répond à tous les besoins d'une entreprise avec différents niveaux de service et de performance pour satisfaire les exigences. Pour plus d’informations, consultez la page [http://aka.ms/azuresqldbskus](/pricing/details/sql-database/). Une fois créée, l’application est téléchargée dans App Service Web Apps par FTP ou par WebDeploy, puis déplacez la base de données.
 
@@ -159,4 +159,4 @@ Pour plus d’informations sur le service Azure App Service Web Apps, visitez le
  
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

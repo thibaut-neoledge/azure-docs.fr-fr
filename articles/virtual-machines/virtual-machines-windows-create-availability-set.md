@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 
@@ -70,7 +70,7 @@ Cet exemple crée un groupe à haute disponibilité dans le groupe de ressources
 Pour plus d’informations, consultez [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
 
 
-## Résolution de problèmes
+## Résolution des problèmes
 
 - Lorsque vous créez une machine virtuelle, si le groupe à haute disponibilité que vous voulez utiliser n’est pas dans la liste déroulante du portail, elle a peut-être été créée dans un autre groupe de ressources. Si vous ne connaissez pas le groupe de ressources pour votre groupe à haute disponibilité, cliquez sur Parcourir > Groupes à haute disponibilité dans le menu Hub pour afficher la liste de vos groupes à haute disponibilité et les groupes de ressources auxquels ils appartiennent.
 
@@ -79,4 +79,4 @@ Pour plus d’informations, consultez [New-AzureRmAvailabilitySet](https://msdn.
 
 Ajout de stockage supplémentaire à votre machine virtuelle en ajoutant un [disque de données](virtual-machines-windows-attach-disk-portal.md) supplémentaire.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

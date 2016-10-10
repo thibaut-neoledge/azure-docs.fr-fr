@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Vue d'ensemble du modèle de licence Widevine" 
-	description="Cette rubrique donne un aperçu d'un modèle de licence Widevine utilisé pour configurer des licences Widevine." 
+	pageTitle="Vue d’ensemble du modèle de licence Widevine | Microsoft Azure" 
+	description="Cette rubrique donne un aperçu d’un modèle de licence Widevine utilisé pour configurer des licences Widevine." 
 	authors="juliako" 
 	manager="erikre" 
 	editor="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
-#Vue d'ensemble du modèle de licence Widevine
+#Vue d’ensemble du modèle de licence Widevine
 
 ##Vue d'ensemble
 
@@ -107,7 +107,7 @@ policy\_overrides. renew\_with\_usage | booléen, true ou false |Indique que la 
 
 Nom | Valeur | Description
 ---|---|---
-provider\_session\_token | Chaîne encodée Base64 |Ce jeton de session est passé à la licence et se trouvera dans les renouvellements suivants. Le jeton de session n'est pas persistante au-delà des sessions. 
+provider\_session\_token | Chaîne encodée Base64 |Ce jeton de session est passé à la licence et se trouvera dans les renouvellements suivants. Le jeton de session n'est pas persistant au-delà des sessions. 
 provider\_client\_token | Chaîne encodée Base64 | Jeton client à renvoyer dans la réponse de la licence. Si la demande de licence contient un jeton client, cette valeur est ignorée. Le jeton client persistera au-delà des sessions de la licence.
 override\_provider\_client\_token | booléen. true ou false |Si la valeur est false et si la demande de licence contient un jeton client, utilisez le jeton de la demande même si un jeton client a été spécifié dans cette structure. Si la valeur est true, utilisez toujours le jeton spécifié dans cette structure.
 
@@ -210,4 +210,4 @@ L'exemple suivant montre comment utiliser les API .NET pour configurer une licen
 
 [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

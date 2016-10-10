@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob | Microsoft Azure" 
-	description="Découvrez comment autoriser l’accès anonyme aux conteneurs et aux objets Blob et comment utiliser un programme pour y accéder." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob | Microsoft Azure"
+	description="Découvrez comment autoriser l’accès anonyme aux conteneurs et aux objets Blob et comment utiliser un programme pour y accéder."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/27/2016"
+	ms.author="michaelhauss;jwillis;tamram"/>
 
 # Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob
 
@@ -47,11 +47,11 @@ Vous pouvez définir les autorisations du conteneur de différentes manières :
 Pour définir les autorisations du conteneur à partir du [portail Azure](https://portal.azure.com), procédez comme suit :
 
 1. Accédez au tableau de bord de votre compte de stockage.
-2. Dans la liste, sélectionnez le nom du conteneur. Notez que vous devez cliquer à droite de la colonne Nom pour sélectionner le nom du conteneur. Lorsque vous cliquez sur le nom, vous accédez aux objets Blob du conteneur.
-3. Sélectionnez **Modifier** dans la barre d’outils.
-4. Dans la boîte de dialogue **Modifier les métadonnées du conteneur**, sélectionnez le niveau d’autorisations dans le champ **Accès**, comme illustré dans la capture d’écran ci-dessous.
+2. Dans la liste, sélectionnez le nom du conteneur. Cliquer sur le nom expose les objets blob dans le conteneur choisi
+3. Sélectionnez **Stratégie d’accès** dans la barre d’outils.
+4. Dans le champ **Type d’accès**, sélectionnez le niveau d’autorisation de votre choix, comme illustré dans la capture d’écran ci-dessous.
 
-	![Boîte de dialogue Modifier les métadonnées du conteneur](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-1.png)
+	![Boîte de dialogue Modifier les métadonnées du conteneur](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### Définition des autorisations du conteneur par un programme à l’aide de .NET
 
@@ -155,4 +155,4 @@ Le tableau suivant indique les opérations pouvant être appelées par les utili
 - [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md)
 - [Délégation de l'accès avec une signature d'accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

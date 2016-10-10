@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory avec SAP HANA Cloud Platform
@@ -116,7 +116,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     4.  Pour générer une paire de clés **Signature Key** et **Signing Certificate**, cliquez sur**Generate Key Pair**.
     5.  Pour **Principal Propagation**, sélectionnez **Disabled**.
     6.  Pour **Force Authentication**, sélectionnez **Disabled**.
-    7.  Cliquez sur **Enregistrer**.
+    7.  Cliquez sur **Save**.
 
 9.  Cliquez sur l’onglet **Trusted Identity Provider**, puis sur **Add Trusted Identity Provider**.
 
@@ -140,9 +140,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
         |Assertion Attribute| Principal Attribute|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| firstname|--------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| lastname|-----------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| firstname|--------------------|--------------------| 
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| lastname|-----------| 
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]La configuration des attributs dépend de la façon dont sont développées les applications sur HCP, en l’occurrence des attributs qu’elles attendent dans la réponse SAML et avec quel nom (Principal Attribute) elles accèdent à cet attribut dans le code.
     >  
@@ -158,7 +158,7 @@ Comme étape facultative, vous pouvez configurer des groupes basés sur une asse
 
 >[AZURE.NOTE]L’utilisation de SAP HANA Cloud Platform vous permet d’attribuer de manière dynamique un ou plusieurs utilisateurs à un ou plusieurs rôles dans vos applications SAP HANA Cloud Platform, en fonction des valeurs des attributs de l’assertion SAML 2.0. Par exemple, si l’assertion contient l’attribut « *contract=temporaire* », vous souhaiterez peut-être que tous les utilisateurs affectés soient ajoutés au groupe « *TEMPORAIRE* ». Le groupe « *TEMPORAIRE* » peut contenir un ou plusieurs rôles d’une ou plusieurs applications déployées dans votre compte SAP HANA Cloud Platform.
 >  
->Utilisez des groupes basés sur une assertion si vous souhaitez affecter en masse plusieurs utilisateurs à un ou plusieurs rôles d’applications dans votre compte SAP HANA Cloud Platform. Si vous ne souhaitez attribuer qu’un seul utilisateur ou un petit nombre d’utilisateurs à un ou des rôles spécifiques, nous vous recommandons de les attribuer directement dans l’onglet « **Autorisations** » de SAP HANA Cloud Platform Cockpit.
+>Utilisez des groupes basés sur une assertion si vous souhaitez affecter en masse plusieurs utilisateurs à un ou plusieurs rôles d’applications dans votre compte SAP HANA Cloud Platform. Si vous ne souhaitez attribuer qu’un seul utilisateur ou un petit nombre d’utilisateurs à un ou des rôles spécifiques, nous vous recommandons de les attribuer directement dans l’onglet « **Autorisations** » de SAP HANA Cloud Platform Cockpit.
 
 ##Affectation d’un rôle à un utilisateur
   
@@ -196,4 +196,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

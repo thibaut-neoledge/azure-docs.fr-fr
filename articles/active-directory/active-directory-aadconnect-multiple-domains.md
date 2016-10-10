@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -153,4 +153,4 @@ Utilisez les étapes suivantes pour ajouter une revendication personnalisée pou
 ![Remplacer la revendication](./media/active-directory-multiple-domains/sub2.png)
 5.	Cliquez sur OK. Cliquez sur Appliquer. Cliquez sur OK. Fermez Gestion AD FS.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

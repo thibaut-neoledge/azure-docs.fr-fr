@@ -430,7 +430,7 @@ Quelle que soit son utilité, tout morceau de code a régulièrement besoin d’
 
 La mise en file d’attente est une idée simple : une application place un message dans une file d’attente afin qu’il soit ensuite lu par une autre application. Si votre application requiert juste ce service simple, les files d’attente Azure peuvent se révéler être le meilleur choix.
 
-Compte tenu de la croissance qu'a connue Azure, les files d'attente Azure Storage et Service Bus fournissent des services de mise en file d'attente similaires. Les raisons qui peuvent vous inciter à utiliser l’une plutôt que l’autre sont présentées dans le document technique [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Files d’attente Azure et files d’attente Service Bus : comparaison et différences"). Dans de nombreux scénarios, celles-ci peuvent être utilisées indifféremment.
+Compte tenu de la croissance qu'a connue Azure, les files d'attente Azure Storage et Service Bus fournissent des services de mise en file d'attente similaires. Les raisons qui peuvent vous inciter à utiliser l’une plutôt que l’autre sont présentées dans le document technique [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](http://msdn.microsoft.com/library/azure/hh767287.aspx). Dans de nombreux scénarios, celles-ci peuvent être utilisées indifféremment.
 
 **Scénarios relatifs aux files d’attente**
 
@@ -606,4 +606,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

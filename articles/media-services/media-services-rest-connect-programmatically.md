@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connexion à un compte Media Services à l’aide de l’API REST" 
+	pageTitle="Connexion à un compte Media Services à l’aide de l’API REST | Microsoft Azure" 
 	description="Cette rubrique montre comment se connecter à Media Services avec l’API REST." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -53,7 +53,7 @@ Pour accéder à Media Services directement par le biais de l’API REST, obtene
 
 L’exemple suivant montre l’en-tête et le corps de demande HTTP qui permet de récupérer un jeton.
 
-**En-tête** :
+**En-tête** :
 
 	POST https://wamsprodglobal001acs.accesscontrol.windows.net/v2/OAuth2-13 HTTP/1.1
 	Content-Type: application/x-www-form-urlencoded
@@ -64,7 +64,7 @@ L’exemple suivant montre l’en-tête et le corps de demande HTTP qui permet d
 	Accept: application/json
 
 	
-**Corps** :
+**Corps** :
 
 Il convient de vérifier les valeurs client\_id et client\_secret dans le corps de cette demande ; client\_id et client\_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte.
 
@@ -112,7 +112,7 @@ Notez que l’URI racine pour le téléchargement de fichiers de ressources est 
 
 L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services (https://media.windows.net/). La demande obtient une redirection 301 en réponse. La demande suivante utilise le nouvel URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).
 
-**Demande HTTP** :
+**Demande HTTP** :
 	
 	GET https://media.windows.net/ HTTP/1.1
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
@@ -121,7 +121,7 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 	Host: media.windows.net
 
 
-**Réponse HTTP** :
+**Réponse HTTP** :
 	
 	HTTP/1.1 301 Moved Permanently
 	Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
@@ -147,7 +147,7 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
 
-**Réponse HTTP** :
+**Réponse HTTP** :
 	
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -177,4 +177,4 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

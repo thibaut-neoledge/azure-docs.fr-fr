@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Configurer des groupes de disponibilité Always On dans une machine virtuelle Azure avec PowerShell
 
 > [AZURE.SELECTOR]
-- [Resource Manager : mode automatique](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager : modèle](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager : mode manuel](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Classic : interface utilisateur](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classic : PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -52,7 +52,7 @@ Ce didacticiel est destiné à vous présenter les étapes nécessaires pour ins
 
 ## Connexion à votre abonnement Azure et création du réseau virtuel
 
-1. Dans une fenêtre PowerShell sur votre ordinateur local, importez le module Azure, téléchargez un fichier de paramètres de publication sur votre ordinateur, et connectez votre session PowerShell à votre abonnement Azure en important les paramètres de publication téléchargés.
+1. Dans une fenêtre PowerShell sur votre ordinateur local, importez le module Azure, téléchargez un fichier de paramètres de publication sur votre ordinateur, puis connectez votre session PowerShell à votre abonnement Azure en important les paramètres de publication téléchargés.
 
 		Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
 		Get-AzurePublishSettingsFile
@@ -128,7 +128,7 @@ Ce didacticiel est destiné à vous présenter les étapes nécessaires pour ins
 		  </VirtualNetworkConfiguration>
 		</NetworkConfiguration>
 
-1. Créez un compte de stockage associé au groupe d’affinités que vous avez créé, et définissez-le comme compte de stockage actif dans votre abonnement.
+1. Créez un compte de stockage associé au groupe d’affinités que vous avez créé, puis définissez-le comme compte de stockage actif dans votre abonnement.
 
 		New-AzureStorageAccount `
 			-StorageAccountName $storageAccountName `
@@ -272,7 +272,7 @@ Le serveur du contrôleur de domaine est maintenant correctement configuré. Ens
 
 	L’adresse IP **10.10.0.4** est généralement affectée à la première machine virtuelle que vous créez dans le sous-réseau **10.10.0.0/16** de votre réseau virtuel Azure. Vous devez vérifier qu’il s’agit bien de l’adresse de votre serveur contrôleur de domaine en exécutant la commande **IPCONFIG**.
 
-1. Exécutez les commandes redirigées suivantes pour créer la première machine virtuelle dans le cluster WSFC, nommé **ContosoQuorum** :
+1. Exécutez les commandes redirigées suivantes pour créer la première machine virtuelle dans le cluster WSFC, nommé **ContosoQuorum** :
 
 		New-AzureVMConfig `
 			-Name $quorumServerName `
@@ -630,4 +630,4 @@ Vous avez correctement implémenté SQL Server Always On en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver sur machines virtuelles Linux – Guide de planification et d’implémentation | Microsoft Azure"
    description="SAP NetWeaver sur machines virtuelles Linux – Guide de planification et d’implémentation"
-   services="virtual-machines-linux,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -712,7 +712,7 @@ Vous trouverez plus d’informations sur Azure ExpressRoute et les offres ici :
 
 ExpressRoute permet d’utiliser plusieurs abonnements Azure via un seul circuit ExpressRoute, comme décrit ici
 
-* <https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/> 
+* <https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/>
 * <https://azure.microsoft.com/documentation/articles/expressroute-howto-circuit-arm/>
 
 
@@ -831,9 +831,9 @@ ___
 > ![Windows][Logo_Windows] Windows
 >
 > Les paramètres de Windows (tels que le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep. 
-[comment]: <> (MSSedusch > See more details here :) 
-[comment]: <> (MShermannd TODO first link is about classic model. Didn’t find an Azure docu article) 
-[comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) 
+[comment]: <> (MSSedusch > See more details here :)
+[comment]: <> (MShermannd TODO first link is about classic model. Didn't find an Azure docu article)
+[comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>)
 [comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
 >
 > ![Linux][Logo_Linux] Linux
@@ -856,7 +856,7 @@ Une méthode de déploiement courante consiste à déplacer une machine virtuell
 Les exigences à respecter pour la préparation de votre propre disque de machine virtuelle Azure sont les suivantes :
 
 * À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage.
-[comment]: <> (MShermannd TODO have to check if CLI also converts to static )
+[comment]: <> (MShermannd  TODO have to check if CLI also converts to static )
 * Il doit être au format VHD fixe. Les disques durs virtuels ou les disques durs virtuels au format VHDx ne sont pas encore pris en charge sur Azure. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Les disques durs virtuels montés sur la machine virtuelle, et devant être montés de nouveau sur celle-ci dans Azure, doivent également être au format VHD fixe. La même limite de taille du disque du système d’exploitation s’applique également aux disques de données. Les disques durs virtuels peuvent avoir une taille maximale de 1 To. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Ajoutez un autre compte local doté de privilèges d’administrateur, pouvant être utilisé par le support technique Microsoft ou pouvant être affecté en tant que contexte d’exécution pour les services et les applications, jusqu’à ce que la machine virtuelle soit déployée et des utilisateurs plus appropriés puissent être utilisés.
@@ -882,7 +882,7 @@ Les fichiers VHD contenant un système d’exploitation généralisé sont égal
 Les exigences à respecter pour la préparation de votre propre image de machine virtuelle Azure sont les suivantes :
 
 * À l’origine, la taille maximale du disque dur virtuel contenant le système d’exploitation était seulement de 127 Go. Cette limite a été repoussée en mars 2015. Désormais, la taille du disque dur virtuel contenant le système d’exploitation peut aller jusqu’à 1 To, comme tout disque dur virtuel hébergé sur Azure Storage.
-[comment]: <> (MShermannd TODO have to check if CLI also converts to static )
+[comment]: <> (MShermannd  TODO have to check if CLI also converts to static )
 * Il doit être au format VHD fixe. Les disques durs virtuels ou les disques durs virtuels au format VHDx ne sont pas encore pris en charge sur Azure. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Les disques durs virtuels montés sur la machine virtuelle, et devant être montés de nouveau sur celle-ci dans Azure, doivent également être au format VHD fixe. La même limite de taille du disque du système d’exploitation s’applique également aux disques de données. Les disques durs virtuels peuvent avoir une taille maximale de 1 To. Les disques durs virtuels dynamiques seront convertis en disques durs virtuels statiques lorsque vous chargez le disque dur virtuel avec les applets de commande PowerShell ou l’interface CLI
 * Étant donné que tous les utilisateurs du domaine inscrits en tant qu’utilisateurs dans la machine virtuelle n’existent pas dans le cas d’un déploiement cloud uniquement, il se peut que des services tels que les comptes de domaine ne fonctionnent pas une fois l’image déployée dans Azure (voir le chapitre [Cloud uniquement : déploiement de machines virtuelles dans Azure sans dépendances du réseau local du client][planning-guide-2.1] dans ce document). Cela s’applique particulièrement aux comptes qui sont utilisés pour exécuter des services tels que les applications SGBD ou SAP. Par conséquent, vous devez remplacer ces comptes de domaine avec des comptes locaux de machine virtuelle et supprimer les comptes de domaine locaux dans la machine virtuelle. La conservation des utilisateurs du domaine local dans l’image de machine virtuelle ne constitue pas un problème lorsque la machine virtuelle est déployée dans le cas d’une connexion entre différents locaux (voir le chapitre [Intersite : déploiement d’une ou plusieurs machines virtuelles SAP dans Azure, dans lequel une intégration complète au réseau local est nécessaire][planning-guide-2.2] dans ce document).
@@ -912,7 +912,7 @@ Si la préparation de la machine virtuelle permet à cette dernière d’être g
 
 ___
 
-[comment]: <> (MShermannd TODO have to find better articles / docu about generalizing the VMs for ARM )
+[comment]: <> (MShermannd  TODO have to find better articles / docu about generalizing the VMs for ARM )
 > ![Windows][Logo_Windows] Windows
 >
 > La dernière étape consiste à se connecter à une machine virtuelle à l’aide d’un compte d’administrateur. Ouvrez une fenêtre de commande Windows en tant qu’« administrateur ». Accédez à ...\\Windows\\system32\\sysprep et exécutez sysprep.exe. Une petite fenêtre s’affiche. Il est important de cocher l’option « Généraliser » (vide par défaut) et de faire passer l’option d’extinction de sa valeur par défaut (Redémarrer) à « Arrêt ». Cette procédure suppose que le processus sysprep est exécuté localement dans le SE invité d’une machine virtuelle. Si vous souhaitez exécuter la procédure avec une machine virtuelle en cours d’exécution dans Azure, suivez les étapes décrites dans [cet article][virtual-machines-windows-capture-image].
@@ -1119,7 +1119,7 @@ Dans l’idéal, la gestion de la structure d’une machine virtuelle et des dis
 
 ![Configuration de référence de la machine virtuelle IaaS Azure pour SAP][planning-guide-figure-1300]
 
-[comment]: <> (MShermannd TODO describe Linux structure )
+[comment]: <> (MShermannd  TODO describe Linux structure  )
 
 ___
 
@@ -1301,7 +1301,7 @@ L’hypothèse est que vous avez créé une image de machine virtuelle, comme le
 
 La séquence d’événements pour implémenter le scénario ressemble à ceci :
 
-[comment]: <> (MShermannd TODO have to provide ARM sample / description using json template + clarification regarding unique VM name within ARM virtual network )
+[comment]: <> (MShermannd  TODO have to provide ARM sample / description using json template + clarification regarding unique VM name within ARM virtual network  )   
 ##### PowerShell
 
 * Création d’un groupe de ressources pour chaque paysage de formation et de démonstration
@@ -1944,4 +1944,4 @@ Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 * La sauvegarde des instances de boîte de dialogue SAP n’est pas très utile, dans la mesure où il est généralement plus rapide de redéployer des instances de boîte de dialogue simples.
 * La sauvegarde de la machine virtuelle qui contient le répertoire global du système SAP, et tous les profils des différentes instances, est utile et doit être effectuée avec la sauvegarde Windows ou, par exemple, tar sous Linux. Dans la mesure où il existe des différences entre Windows Server 2008 (R2) et Windows Server 2012 (R2), qui facilitent la sauvegarde à l’aide des versions les plus récentes de Windows Server, nous vous recommandons d’exécuter Windows Server 2012 (R2) en tant que système d’exploitation invité Windows.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

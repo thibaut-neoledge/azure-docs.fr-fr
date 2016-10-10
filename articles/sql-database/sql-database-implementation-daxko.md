@@ -18,7 +18,7 @@
    
 # Daxko/CSI a utilisé Azure pour accélérer son cycle de développement et améliorer ses performances et ses services clients
 
-![Logo](./media/sql-database-case-study-daxko/csidaxkologo25.png)
+![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko/CSI Software était confronté à un défi : sa clientèle des centres de fitness et de loisirs augmentait rapidement, grâce au succès de sa solution complète de logiciels d’entreprise, mais le personnel informatique de l’entreprise rencontrait des difficultés pour faire face aux besoins d’infrastructure informatique liés au développement de la clientèle. La société était de plus en plus gênée par l’augmentation de la charge opérationnelle, en particulier pour la gestion de ses bases de données. Pire encore, cette surcharge rognait les ressources de développement de nouvelles initiatives, notamment les nouvelles fonctionnalités de mobilité des logiciels de la société.
 
@@ -75,7 +75,7 @@ SpectrumNG utilise des rôles Web. L’application étant multilocataire, un ser
 Pour le niveau web de son service, CSI Software tire parti de la montée en charge Azure, en fonction de la date et de l’heure. Les ressources disponibles sont automatiquement augmentées pour gérer une utilisation plus importante pendant les heures de travail, selon le fuseau horaire des différents centres de données régionaux. Les ressources sont également programmées pour descendre en puissance le week-end, lorsque les besoins des clients sont plus limités.
 
      
-![La figure 1](./media/sql-database-case-study-daxko/figure1.png)
+![Architecture Daxko/CSI](./media/sql-database-implementation-daxko/figure1.png)
 
 Figure 1 : Un rôle de travail des services cloud tire des données structurées d’Azure SQL Database et des données semi-structurées du Stockage Table. Les utilisateurs de SpectrumNG interagissent avec ces données par le biais du rôle web des services cloud.
 
@@ -105,4 +105,4 @@ Azure SQL Database n’est pas une aubaine que pour les clients SpectrumNG, qui 
 
 - Pour plus d’informations sur la mise à l’échelle automatique, consultez [Mise à l’échelle des services cloud](../cloud-services/cloud-services-how-to-scale.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

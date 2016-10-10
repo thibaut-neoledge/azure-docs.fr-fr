@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="09/22/2016"
 	ms.author="jahogg;tamram"/>
 
 # Gestion de l’accès concurrentiel dans Microsoft Azure Storage
@@ -86,40 +86,40 @@ Le service de stockage prend également en charge des en-têtes conditionnels su
 
 Le tableau suivant résume les opérations de conteneurs qui acceptent les en-têtes conditionnels tels que **If-Match** dans la demande et qui renvoient une valeur ETag dans la réponse.
 
-Opération |Renvoie une valeur ETag de conteneur|	Accepte les en-têtes conditionnels|
-------------|-----------------------|------------------------------------|
-Create Container|	Oui|	Non|
-Get Container Properties|	Oui|	Non|
-Get Container Metadata|	Oui|	Non|
-Set Container Metadata|	Oui|	Oui|
-Get Container ACL|	Oui|	Non|
-Set Container ACL|	Oui|	Oui (*)|
-Delete Container| Non| Oui|
-Lease Container| Oui| Oui|
-List Blobs| Non| Non 
+| Opération | Renvoie une valeur ETag de conteneur | Accepte les en-têtes conditionnels |
+|:-------------------------|:-----------------------------|:----------------------------|
+| Create Container | Oui | Non |
+| Get Container Properties | Oui | Non |
+| Get Container Metadata | Oui | Non |
+| Set Container Metadata | Oui | Oui |
+| Get Container ACL | Oui | Non |
+| Set Container ACL | Oui | Oui (*) |
+| Delete Container | Non | Oui |
+| Lease Container | Oui | Oui |
+| List Blobs | Non | Non |
 
 (*) Les autorisations définies par SetContainerACL sont mises en cache et les mises à jour apportées à ces autorisations sont diffusées dans un délai de 30 secondes, période pendant laquelle la cohérence des mises à jour n’est pas garantie.
 
 Le tableau suivant résume les opérations d'objets blob qui acceptent les en-têtes conditionnels tels que **If-Match** dans la demande et qui renvoient une valeur ETag dans la réponse.
 
-Opération |Renvoie une valeur ETag |Accepte les en-têtes conditionnels|
------------|-------------------|----------------------------|
-Put Blob|	Oui|	Oui|
-Get Blob|	Oui|	Oui|
-Get Blob Properties|	Oui|	Oui|
-Set Blob Properties|	Oui|	Oui|
-Get Blob Metadata|	Oui|	Oui|
-Set Blob Metadata|	Oui|	Oui|
-Lease Blob (*)| Oui| Oui|
-Snapshot Blob| Oui| Oui|
-Copy Blob| Oui| Oui (pour les objets blob sources et de destination)|
-Abort Copy Blob| Non| Non|
-Delete Blob| Non| Oui|
-Put Block| Non| Non|
-Put Block List| Oui| Oui|
-Get Block List| Oui| Non|
-Put Page| Oui| Oui|
-Get Page Ranges| Oui| Oui
+| Opération | Renvoie une valeur ETag | Accepte les en-têtes conditionnels |
+|:--------------------|:-------------------|:--------------------------------------|
+| Put Blob | Oui | Oui |
+| Get Blob | Oui | Oui |
+| Get Blob Properties | Oui | Oui |
+| Set Blob Properties | Oui | Oui |
+| Get Blob Metadata | Oui | Oui |
+| Set Blob Metadata | Oui | Oui |
+| Lease Blob (*) | Oui | Oui |
+| Snapshot Blob | Oui | Oui |
+| Copie d'un objet blob | Oui | Oui (pour les objets blob source et de destination) |
+| Abort Copy Blob | Non | Non |
+| Delete Blob | Non | Oui |
+| Put Block | Non | Non |
+| Put Block List | Oui | Oui |
+| Get Block List | Oui | Non |
+| Put Page | Oui | Oui |
+| Get Page Ranges | Oui | Oui |
 
 
 (*) L'opération Lease Blob n'entraîne pas la modification de la balise ETag d'un objet blob.
@@ -284,4 +284,4 @@ Pour plus d’informations concernant Azure Storage, consultez la page :
 - Prise en main du Stockage [Blob](storage-dotnet-how-to-use-blobs.md), [Table](storage-dotnet-how-to-use-tables.md), [File d’attente](storage-dotnet-how-to-use-queues.md) et [Fichier](storage-dotnet-how-to-use-files.md)
 - Architecture de stockage – [Stockage Azure : service de stockage cloud à haute disponibilité et à forte cohérence](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

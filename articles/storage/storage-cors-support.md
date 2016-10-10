@@ -3,7 +3,7 @@
 	description="Découvrez comment activer la prise en charge du service CORS pour les services de stockage Microsoft Azure."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="cbrooks"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="cbrooks;tamram"/>
 
 # Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
 
@@ -195,4 +195,4 @@ Les demandes préliminaires infructueuses ne seront pas facturés.
 
 [Spécification du Partage des ressources cross-origin (W3C)](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

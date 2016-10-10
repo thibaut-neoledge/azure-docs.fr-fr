@@ -1,60 +1,34 @@
 
-Les fonctionnalités clés de ces instances sont les suivantes :
+## Fonctionnalités clés
 
-* **Matériel hautes performances** : le matériel du centre de données Azure exécutant ces instances a été conçu et optimisé pour les applications nécessitant des ressources réseau et de calcul importantes, notamment les applications par lot pour du calcul hautes performances (HPC), la modélisation et les simulations à grande échelle.
+* **Matériel hautes performances** : ces instances sont conçues et optimisées pour des applications nécessitant des ressources réseau et de calcul importantes, notamment des applications de traitement par lot et de calcul hautes performances (HPC), la modélisation et les simulations à grande échelle.
 
-* **Connexion réseau RDMA pour les applications MPI** : configurez les instances A8 et A9 pour communiquer avec d’autres instances A8 et A9 sur un réseau haut débit à faible latence dans Azure, basé sur la technologie d’accès direct à la mémoire à distance (RDMA). Cette fonctionnalité peut améliorer les performances de certaines applications MPI (Message Passing Interface) Linux et Windows.
+    Pour plus d’informations sur les spécifications de base, les capacités de stockage et les disques, voir [Tailles de machines virtuelles](virtual-machines-linux-sizes.md). Plus d’informations sur le processeur Intel Xeon E5-2667 v3 (utilisé dans la série H) et le processeur Intel Xeon E5-2670 (utilisé pour les tailles A8 à A11), notamment les extensions de jeu d’instructions prises en charge, voir sur le site web Intel.com.
 
-* **Prise en charge des clusters HPC** : déployez un logiciel de gestion de cluster et de planification des travaux sur les instances A8, A9, A10 et A11 dans Azure pour créer un cluster HPC autonome ou pour ajouter de la capacité à un cluster local.
+* **Conçu pour les clusters HPC** : déployez plusieurs instances nécessitant beaucoup de ressources système dans Azure pour créer un cluster HPC autonome ou pour augmenter la capacité d’un cluster local. Si vous le souhaitez, déployez des outils de gestion cluster et de planification des tâches. Ou bien, utilisez les instances de travail nécessitant beaucoup de ressources système dans un autre service Azure tel qu’Azure Batch.
 
->[AZURE.NOTE]Les instances A10 et A11 ont les mêmes optimisations et spécifications en matière de performances que les instances A8 et A9. Cependant, elles n’incluent pas l’accès au réseau RDMA dans Azure. Ces instances sont conçues pour les applications de calcul hautes performances qui n’ont pas besoin d’une communication constante et à latence faible entre les nœuds. Ces applications sont également appelées applications paramétriques ou massivement parallèles.
+* **Connexion réseau RDMA pour applications MPI** : un sous-ensemble d’instances nécessitant beaucoup de ressources système (H16r, H16mr, A8 et A9) offre une deuxième interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Cette interface s’ajoute à l’interface réseau Azure standard disponible pour d’autres tailles de machine virtuelle.
 
-
-## Spécifications
-
-### Processeur et mémoire
-
-Les instances de calcul intensif Azure A8, A9, A10 et A11 ont pour caractéristiques une vitesse élevée, des processeurs multicœurs et de grandes quantités de mémoire, comme le montre le tableau suivant.
-
-Taille | UC | Mémoire
-------------- | ----------- | ----------------
-A8 et A10 | Intel Xeon E5-2670<br/>8 cœurs à 2,6 GHz | DDR3-1600 MHz<br/>56 Go
-A9 et A11 | Intel Xeon E5-2670<br/>16 cœurs à 2,6 GHz | DDR3-1600 MHz<br/>112 Go
+    Cette interface permet aux instances prenant en charge RDMA de communiquer entre elles sur un réseau InfiniBand, opérant à des vitesses FDR pour les machines virtuelles H16r et H16mr, et à des vitesses QDR pour les machines virtuelles A8 et A9. Les fonctionnalités RDMA exposées dans ces machines virtuelles peuvent améliorer l’extensibilité et les performances de certaines applications Linux et MPI Windows . Pour connaître les conditions requises, voir la section [Accès au réseau RDMA](#access-to-the-rdma-network) dans cet article.
 
 
->[AZURE.NOTE]Vous pouvez trouver des informations plus détaillées, y compris les extensions du jeu d’instructions pris en charge, sur le site Web Intel.com.
-
-### Adaptateurs réseau
-
-Les instances A8 et A9 ont deux cartes réseau, qui se connectent aux réseaux Azure principaux suivants.
-
-
-Réseau | Description
--------- | -----------
-Ethernet 10 Gbits/s | Se connecte aux services Azure (comme le stockage Azure et Azure Virtual Network) et à Internet
-Principal 32 Gbits/s, compatible RDMA | Permet une communication des applications haut débit à latence faible entre les instances au sein d’un même service cloud ou d’un même groupe à haute disponibilité. Réservé uniquement au trafic MPI.
-
-
->[AZURE.IMPORTANT]Consultez la section [Accès au réseau RDMA](#access-to-the-rdma-network) de cet article afin de connaître les exigences supplémentaires des applications MPI pour accéder au réseau RDMA.
-
-Les instances A10 et A11 ont une seule carte réseau Ethernet 10 Gbits/s qui se connecte aux services Azure et à Internet.
 
 ## Points à prendre en considération pour le déploiement
 
 * **Abonnement Azure** : pour déployer un plus grand nombre d’instances de calcul intensif, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
 
-* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs de votre abonnement Azure, qui est, par défaut, de 20 cœurs par abonnement (si vous utilisez le modèle de déploiement classique) ou de 20 cœurs par région (si vous utilisez le modèle de déploiement Resource Manager). Pour obtenir une augmentation du quota, ouvrez un ticket de support gratuit comme indiqué dans [Présentation des limites et des augmentations Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). (Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.)
+* **Tarification et la disponibilité** : les tailles de machines virtuelles nécessitant beaucoup de ressources système sont proposées uniquement au niveau de tarification standard. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
 
-    >[AZURE.NOTE]Si vous avez des besoins de capacité à grande échelle, contactez le support Azure. Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Quel que soit votre quota, vous êtes facturé seulement pour les cœurs que vous utilisez.
+* **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs de votre abonnement Azure, qui est, par défaut, de 20 cœurs par abonnement (si vous utilisez le modèle de déploiement classique) ou de 20 cœurs par région (si vous utilisez le modèle de déploiement Resource Manager). Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../articles/azure-supportability/how-to-create-azure-support-request.md) gratuitement. (Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.)
 
-* **Réseau virtuel** : aucun [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/) Azure n’est requis pour utiliser les instances qui nécessitent beaucoup de ressources système. Cependant, vous pouvez avoir besoin d’au moins un réseau virtuel Azure dans le cloud pour bon nombre de scénarios, ou d’une connexion de site à site si vous devez accéder à des ressources locales, par exemple à un serveur de licences d’application. Si nécessaire, créez un réseau virtuel avant de déployer les instances. L’ajout d’une machine virtuelle A8, A9, A10 ou A11 à un réseau virtuel dans un groupe d’affinités n’est pas pris en charge.
+    >[AZURE.NOTE]Si vous avez des besoins de capacité à grande échelle, contactez le support Azure. Les quotas d’Azure sont des limites de crédit et non des garanties de capacité. Quel que soit votre quota, vous êtes facturé uniquement pour les cœurs que vous utilisez.
 
-* **Service cloud ou groupe à haute disponibilité** : pour vous connecter via le réseau RDMA, les machines virtuelles de taille A8 et A9 doivent être déployées dans le même service cloud (si vous utilisez le modèle de déploiement classique) ou le même groupe à haute disponibilité (si vous utilisez le modèle de déploiement Azure Resource Manager).
+* **Réseau virtuel** : aucun [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/) Azure n’est requis pour utiliser les instances qui nécessitent beaucoup de ressources système. Cependant, vous pouvez avoir besoin d’au moins un réseau virtuel Azure cloud pour bon nombre de scénarios de déploiement, ou d’une connexion de site à site si vous devez accéder à des ressources locales telles qu’un serveur de licences d’application. Si nécessaire, créez un réseau virtuel avant de déployer les instances. L’ajout de machines virtuelles nécessitant beaucoup de ressources système à un réseau virtuel dans un groupe d’affinités n’est pas pris en charge.
 
-* **Tarification** : les tailles de machine virtuelle A8 à A11 sont uniquement disponibles dans le niveau tarifaire Standard.
+* **Service cloud ou groupe à haute disponibilité** : pour utiliser le réseau RDMA Azure, déployez les machines virtuelles prenant en charge RDMA dans le même service cloud (si vous utilisez le modèle de déploiement classique) ou le même groupe à haute disponibilité (si vous utilisez le modèle de déploiement Azure Resource Manager). Si vous utilisez Azure Batch, les machines virtuelles prenant en charge RDMA doivent être dans le même pool.
 
-* **Redimensionnement** : vous ne pouvez pas redimensionner une instance d'une taille différente de A8 à A11 pour l'une des tailles d'instance de calcul intensif (A8 à 11) et vous ne pouvez pas redimensionner une instance de calcul intensif sur une taille de calcul non intensif. Cela est dû au matériel spécialisé et aux optimisations des performances qui sont spécifiques aux instances de calcul intensif.
+* **Redimensionnement** : en raison du matériel spécialisé utilisé dans les instances nécessitant beaucoup de ressources système, vous pouvez redimensionner ces instances uniquement au sein de la même famille de taille (série H ou série A nécessitant beaucoup de ressources système). Par exemple, vous pouvez redimensionner une machine virtuelle de la série H uniquement d’une seule taille en une autre de cette même série. Le redimensionnement d’une taille ne nécessitant pas beaucoup de ressources système en une taille nécessitant beaucoup de ressources système n’est pas pris en charge.
 
-* **Espace d’adressage réseau RDMA** : le réseau RDMA dans Azure réserve l’espace d’adressage 172.16.0.0/16. Si vous envisagez d'exécuter des applications MPI sur des instances A8 et A9 dans un réseau virtuel Azure, assurez-vous que l'espace d'adressage du réseau virtuel ne chevauche pas le réseau RDMA.
+* **Espace d’adressage réseau RDMA** : le réseau RDMA dans Azure réserve l’espace d’adressage 172.16.0.0/16. Si vous exécutez des applications MPI sur des instances déployées dans un réseau virtuel Azure, assurez-vous que l’espace d’adressage du réseau virtuel ne chevauche pas le réseau RDMA.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

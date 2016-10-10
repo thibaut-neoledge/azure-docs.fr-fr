@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc"/>
 
 # Planification et conception de la passerelle VPN
@@ -46,20 +46,13 @@ Le tableau suivant peut vous aider à déterminer la meilleure option de connect
 
 ### <a name="gwrequire"></a>Configuration requise de la passerelle par type de VPN et SKU
 
+[AZURE.INCLUDE [VPN-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-Lorsque vous créez une passerelle VPN, vous devez spécifier la référence (SKU) de passerelle que vous voulez utiliser. Il existe 3 références (SKU) de passerelle VPN :
-
-- De base
-- Standard
-- Hautes performances
+Pour plus d’informations sur les références (SKU) de passerelle, consultez [Paramètres de passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-
-
-### <a name="aggthroughput"></a>Types de passerelle et débit total estimé
-
-Le tableau ci-dessous présente les types de passerelle et le débit total estimé. Le débit total estimé peut être un facteur décisif pour votre conception. La tarification varie en fonction des différents SKU de passerelle. Pour plus d'informations sur la tarification, consultez la [tarification de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Cette table s’applique aux modèles de déploiement classique et Resource Manager.
+<br> Le tableau ci-dessous présente les types de passerelle et le débit total estimé. Le débit total estimé peut être un facteur décisif pour votre conception. La tarification varie en fonction des différents SKU de passerelle. Pour plus d'informations sur la tarification, consultez la [tarification de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Cette table s’applique aux modèles de déploiement classique et Resource Manager.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -161,4 +154,4 @@ Pour plus d’informations susceptibles de vous aider dans votre conception, voi
 
 Pour plus d’informations sur les paramètres de passerelle spécifiques, voir [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="ryansoc"/>
 
 
@@ -22,6 +22,7 @@
 
 ##  Machines virtuelles
 
+###  Considérations sur les données
 
 Les informations suivantes identifient les limites d’Azure Government pour les machines virtuelles Azure :
 
@@ -33,4 +34,4 @@ Pour plus d’informations, consultez la <a href=https://azure.microsoft.com/doc
 
 Pour obtenir des informations supplémentaires et des mises à jour, veuillez vous inscrire au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government</a>.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

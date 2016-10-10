@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="06/08/2016"
+   ms.date="09/22/2016"
    ms.author="danlep"/>
 
-# Big Compute dans Azure : ressources techniques pour Batch et HPC (calcul haute performance)
-Il s'agit d'un guide de ressources techniques pour vous aider à exécuter vos charges de travail à grande échelle en parallèle, par lots et HPC (calculs complexes) dans Azure. Étendez vos charges de travail existantes HPC ou Batch dans le cloud Azure ou créez des solutions Big Compute dans Azure à l'aide d'une variété de services Azure.
+# Big Compute dans Azure : ressources techniques pour Batch et calcul haute performance 
+Voici un guide des ressources techniques destiné à vous aider à exécuter vos charges de travail à grande échelle en parallèle, par lots et HPC (calcul haute performance) dans Azure. Étendez vos charges de travail existantes HPC ou Batch dans le cloud Azure ou créez des solutions Big Compute à l’aide d’une variété de services Azure.
 
 ## Options de solutions
 
@@ -30,7 +30,7 @@ Découvrez les options Big Compute dans Azure et choisissez l'approche adaptée 
 
 ## Azure Batch
 
-[Batch](https://azure.microsoft.com/services/batch/) est un service de plateforme qui permet d’adapter facilement vos applications Linux et Windows au cloud et d’exécuter des tâches sans avoir à configurer ni gérer un planificateur de travail et de cluster. Utilisez le Kit de développement logiciel (SDK) pour intégrer les applications clientes à Azure Batch dans plusieurs langages, effectuer une copie intermédiaire des données dans Azure et générer des pipelines d'exécution du travail.
+[Batch](https://azure.microsoft.com/services/batch/) est un service de plateforme qui permet d’adapter facilement vos applications Linux et Windows au cloud et d’exécuter des tâches sans avoir à configurer ni gérer un planificateur de travail et de cluster. Utilisez le Kit de développement logiciel (SDK) pour intégrer les applications clientes à Azure Batch dans plusieurs langages, effectuer une copie intermédiaire des données dans Azure et générer des pipelines d’exécution du travail.
 
 * [Documentation](https://azure.microsoft.com/documentation/services/batch/)
 
@@ -87,9 +87,9 @@ Ces modèles Azure permettent de déployer des clusters HPC Linux.
 
 * [Forum MPI](https://social.microsoft.com/Forums/fr-FR/home?forum=windowshpcmpi)
 
-## Instances de calcul intensif
+## Instances nécessitant beaucoup de ressources système
 
-Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-windows-sizes.md), y compris des instances [A8 et A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) nécessitant beaucoup de ressources système et capables de se connecter à un réseau RDMA principal pour exécuter vos charges de travail HPC Linux et Windows.
+Azure propose [plusieurs tailles de machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md), y compris des instances [nécessitant beaucoup de ressources système](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) et capables de se connecter à un réseau RDMA principal pour exécuter vos charges de travail HPC Linux et Windows.
 
 
 * [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
@@ -101,6 +101,8 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-windows-s
 ## Exemples et démonstrations
 
 * [Exemples de code C# et Python Azure Batch](https://github.com/Azure/azure-batch-samples)
+
+* Kit de ressources [Batch Shipyard](https://azure.github.io/batch-shipyard/) pour faciliter le déploiement de charges de travail Dockerized de type batch
 
 * [Test de SUSE Linux Enterprise Server pour HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
@@ -118,7 +120,11 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-windows-s
 
 * [Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)
 
+* [App Service](https://azure.microsoft.com/documentation/services/app-service/)
+
 * [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
+
+* [Fonctions](https://azure.microsoft.com/documentation/services/functions/)
 
 ## Plans d'architecture
 
@@ -132,7 +138,7 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-windows-s
 
 ## Témoignages client
 
-* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
 
@@ -157,4 +163,4 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-windows-s
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](https://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

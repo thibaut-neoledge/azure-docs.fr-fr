@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services" 
+	pageTitle="CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Microsoft Azure et Azure Media Services | Microsoft Azure" 
 	description="En savoir plus sur la licence du kit de portage Smooth Streaming client Microsoft®." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
-#CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services
+#CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Microsoft Azure et Azure Media Services
 
 ##Mots-clés
  
@@ -24,7 +24,7 @@ Azure Active Directory, Azure Media Services, Azure Media Player, Chiffrement dy
 
 ##Dans cet article
 
-Les rubriques traitées dans cet article sont les suivantes :
+Les rubriques traitées dans cet article sont les suivantes :
 
 - [Introduction](media-services-cenc-with-multidrm-access-control.md#introduction)
 	- [Présentation de cet article](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
@@ -33,7 +33,7 @@ Les rubriques traitées dans cet article sont les suivantes :
 - [Implémentation](media-services-cenc-with-multidrm-access-control.md#implementation)
 	- [Procédures de mise en œuvre](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
 	- [Des problèmes de mise en œuvre](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
-- [Rubriques supplémentaires pour l'implémentation](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
+- [Rubriques supplémentaires pour l’implémentation](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
 	- [HTTP ou HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
 	- [Substitution de la clé de signature Azure Active Directory](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
 	- [Où se trouve le jeton d’accès ?](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
@@ -70,7 +70,7 @@ L’objectif de cet article inclut les éléments suivants :
 
 1. fourniture d’une conception de référence du sous-système de gestion des droits numériques avec CENC multi-DRM ;
 1. fourniture d’une implémentation de référence sur la plateforme Microsoft Azure/Azure Media Services ;
-1. commentaires de certaines rubriques relatives à la conception et l’implémentation.
+1. Commentaires de certaines rubriques relatives à la conception et l’implémentation.
 
 Dans cet article, « multi DRM » aborde les thèmes suivants :
 
@@ -94,7 +94,7 @@ Il existe un compromis entre la complexité de la logique du service et la compl
 
 Pour effectuer votre sélection, prenez en compte les faits suivants :
 
-- PlayReady est implémenté en mode natif dans tous les appareils Windows, sur certains appareils Android, et est disponibles via les kits de développement logiciel (SDK) sur pratiquement n'importe quelle plate-forme
+- PlayReady est implémenté en mode natif dans tous les appareils Windows, sur certains appareils Android, et est disponible via les kits de développement logiciel (SDK) sur pratiquement n'importe quelle plate-forme
 - Widevine est implémenté en mode natif dans chaque appareil Android, dans Chrome, et dans certains autres appareils
 - FairPlay est disponible uniquement sur iOS et les clients Mac OS ou via iTunes.
 
@@ -153,17 +153,17 @@ Plusieurs à plusieurs|Combinaison des deux scénarios ci-dessus : un jeu de cl
 
 Autre facteur important à prendre en compte : l’utilisation des licences persistantes et non persistantes.
 
-Pourquoi les ces considérations sont-elles importantes ?
+Pourquoi ces considérations sont-elles importantes ?
 
 Elles ont un impact direct sur le coût de distribution de la licence si vous utilisez le cloud public pour la distribution de licence. Prenons deux cas différents pour illustrer le cas :
 
 
 
-1. Abonnement mensuel : utiliser une licence permanente et un mappage clé à ressource 1 à plusieurs. Par exemple, pour tous les films pour enfant, nous utilisons une clé de contenu unique pour le chiffrement. Dans ce cas :
+1. Abonnement mensuel : utilisation d’une licence persistante et d’un mappage clé à ressource 1 à plusieurs. Par exemple, pour tous les films pour enfant, nous utilisons une clé de contenu unique pour le chiffrement. Dans ce cas :
 
 	Nombre total de licences requis pour tous les films/appareils = 1
 
-1. Abonnement mensuel : utilisation d’une licence non persistante et du mappage 1 à 1 entre la clé de contenu et la ressource de contenu. Dans ce cas :
+1. Abonnement mensuel : utilisation d’une licence non persistante et du mappage 1 à 1 entre la clé de contenu et la ressource de contenu. auquel cas :
 
 	Nombre total de licences requis pour tous les films/appareils = [nombre de films # regardés] x [# de séances]
 
@@ -292,7 +292,7 @@ La mise en œuvre peut présenter certains « pièges ». Nous espérons que l
 
 	Depuis l’ajout de la prise en charge de JWT (AAD) en plus des SWT (ACS), la valeur par défaut de TokenType est TokenType.JWT. Si vous utilisez SWT/ACS, vous devez la définir à TokenType.SWT.
 
-## Rubriques supplémentaires pour l'implémentation
+## Rubriques supplémentaires pour l’implémentation
 Ensuite, nous aborderons certaines rubriques supplémentaires de notre conception et de l’implémentation.
 
 ###HTTP ou HTTPS ?
@@ -442,15 +442,15 @@ Vous pouvez contacter l’un des auteurs pour qu’un compte soit créé ou ajou
 
 Vous trouverez ci-dessous les captures d’écran de pages de connexion différentes utilisées par les différents comptes de domaine.
 
-Le **compte de domaine client Azure personnalisé** : dans ce cas, vous pouvez voir la page de connexion personnalisée du domaine client Azure AD.
+Le **compte de domaine client Azure personnalisé** : dans ce cas, vous pouvez voir la page de connexion personnalisée du domaine client Azure AD.
 
 ![Compte de domaine client Azure AD personnalisé](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**Compte de domaine Microsoft avec carte à puce** : dans ce cas, vous voyez la page de connexion personnalisée par Microsoft corporate IT avec authentification à deux facteurs.
+**Compte de domaine Microsoft avec carte à puce** : dans ce cas, vous voyez la page de connexion personnalisée par Microsoft corporate IT avec authentification à deux facteurs.
 
 ![Compte de domaine client Azure AD personnalisé](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
-**Compte Microsoft (MSA)** : dans ce cas, vous allez voir la page de connexion de Microsoft Account pour les consommateurs.
+**Compte Microsoft (MSA)** : dans ce cas, vous allez voir la page de connexion de Microsoft Account pour les consommateurs.
 
 ![Compte de domaine client Azure AD personnalisé](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
@@ -468,7 +468,7 @@ L’écran suivant illustre les plug-ins du lecteur et la prise en charge MSE/EM
 
 EME dans Microsoft Edge et IE 11 sur Windows 10 permet d’appeler [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) sur les appareils Windows 10 compatibles. PlayReady SL3000 déverrouille le flux de contenu premium améliorées (4K, HDR, etc.) et les nouveaux modèles de distribution de contenu (première fenêtre de contenu amélioré).
 
-Concentrez-vous sur les appareils Windows : PlayReady est le seul DRM dans le matériel disponible sur les appareil Windows (PlayReady SL3000). Un service de diffusion en continu peut utiliser PlayReady via EME ou via une application UWP, et offrir ainsi une meilleure qualité vidéo à l'aide de PlayReady SL3000 par rapport à un autre DRM. En règle générale, le contenu 2K transite via Chrome ou Firefox et le contenu 4K via Microsoft Edge/IE11 ou une application UWP sur le même appareil (selon les paramètres de service et l'implémentation).
+Concentrez-vous sur les appareils Windows : PlayReady est le seul DRM dans le matériel disponible sur les appareils Windows (PlayReady SL3000). Un service de diffusion en continu peut utiliser PlayReady via EME ou via une application UWP, et offrir ainsi une meilleure qualité vidéo à l'aide de PlayReady SL3000 par rapport à un autre DRM. En règle générale, le contenu 2K transite via Chrome ou Firefox et le contenu 4K via Microsoft Edge/IE11 ou une application UWP sur le même appareil (selon les paramètres de service et l'implémentation).
 
 
 #### Utilisation d’EME pour Widevine
@@ -522,4 +522,4 @@ Dans ce document, nous avons abordé les sujets des DRM natives multiples, et un
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

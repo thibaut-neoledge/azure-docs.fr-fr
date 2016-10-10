@@ -53,8 +53,12 @@ Pour commencer, [téléchargez le package de cluster autonome](service-fabric-cl
                 "CertificateIssuerThumbprint" : "[Thumbprint]",
                 "IsAdmin": true
             }]
+			"HttpApplicationGatewayCertificate":{
+                "Thumbprint": "[Thumbprint]",
+                "X509StoreName": "My"
+			}
         }
-    },
+    }
 
 Cette section décrit les certificats nécessaires pour la sécurisation de votre cluster Windows autonome. Pour activer la sécurité basée sur les certificats, affectez la valeur *X509* aux paramètres **ClusterCredentialType** et **ServerCredentialType**.
 
@@ -68,6 +72,7 @@ Le tableau suivant répertorie les certificats dont vous aurez besoin pour la co
 |ServerCertificate|Ce certificat est présenté au client lorsqu’il tente de se connecter à ce cluster. Pour plus de commodité, vous pouvez choisir d’utiliser le même certificat pour les éléments *ClusterCertificate* et *ServerCertificate*. Vous pouvez utiliser deux certificats de serveur différents : un certificat principal et un certificat secondaire pour la mise à niveau. Définissez le Thumbprint du certificat principal dans la section **Thumbprint**, et celui du certificat secondaire, dans les variables **ThumbprintSecondary**. |
 |ClientCertificateThumbprints|Il s’agit du jeu de certificats que vous souhaitez installer sur les clients authentifiés. Il peut y avoir plusieurs certificats clients installés sur les machines qui seront autorisées à accéder au cluster. Définissez le Thumbprint de chaque certificat dans la variable **CertificateThumbprint**. Si vous affectez la valeur *true* au paramètre **IsAdmin**, le client sur lequel ce certificat est installé peut effectuer des activités de gestion d’administrateur sur le cluster. Si **IsAdmin** est *false*, le client ayant ce certificat peut effectuer uniquement les actions autorisées pour les droits d’accès utilisateur, généralement en lecture seule. Pour plus d’informations sur les rôles, consultez [Contrôle d’accès en fonction du rôle (RBAC)](service-fabric-cluster-security.md/#role-based-access-control-rbac). |
 |ClientCertificateCommonNames|Définissez le nom commun du premier certificat client pour **CertificateCommonName**. L’élément **CertificateIssuerThumbprint** est l’empreinte numérique relative à l’émetteur de ce certificat. Pour en savoir plus sur les noms communs et l’émetteur, consultez la section [Utilisation des certificats](https://msdn.microsoft.com/library/ms731899.aspx).|
+|HttpApplicationGatewayCertificate|Il s’agit d’un certificat facultatif à spécifier si vous souhaitez sécuriser votre passerelle d’application HTTP. Assurez-vous que reverseProxyEndpointPort est défini dans nodeTypes, si vous utilisez ce certificat.|
 
 Voici un exemple de configuration de cluster dans lequel les certificats de client, de serveur et de cluster ont été fournis.
 
@@ -262,4 +267,4 @@ Pour supprimer le cluster, appelez la commande suivante :
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

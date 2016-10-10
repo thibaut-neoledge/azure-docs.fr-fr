@@ -17,8 +17,14 @@
 	ms.author="spelluru"/>
 
 # Planification et exécution avec Data Factory
+Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory.
 
-Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. Cet article s’appuie sur la [Création de pipelines](data-factory-create-pipelines.md) et la [Création de jeux de données](data-factory-create-datasets.md). Il suppose que vous avez des notions de base sur les concepts de modèle de données Data Factory, dont l’activité, les pipelines, les services connexes et les groupes de données.
+## Composants requis
+Cet article suppose que vous avez des notions de base sur les concepts de modèle de données Data Factory, dont l’activité, les pipelines, les services connexes et les groupes de données. Pour les concepts de base d’Azure Data Factory, consultez les articles suivants :
+
+- [Présentation de Data Factory](data-factory-introduction.md)
+- [Pipelines](data-factory-create-pipelines.md)
+- [Groupes de données](data-factory-create-datasets.md)
 
 ## Planification d’une activité
 
@@ -37,7 +43,7 @@ Pour la fenêtre d’activité en cours d’exécution, vous pouvez accéder à 
 
 La propriété **scheduler** prend en charge les mêmes sous-propriétés que la propriété **availability** dans un jeu de données. Consultez [Disponibilité du jeu de données](data-factory-create-datasets.md#Availability) pour plus de détails. Exemples : planification à un décalage spécifique, définition du mode pour faire coïncider le traitement au début ou à la fin de l’intervalle de la fenêtre d’activité.
 
-Vous pouvez spécifier les propriétés du planificateur pour une activité, mais cela est facultatif. Si vous définissez une propriété, elles devront correspondre à la cadence que vous spécifiez dans la définition du jeu de données de sortie. À ce stade, le jeu de données de sortie est ce qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée.
+Vous pouvez spécifier les propriétés du **planificateur** pour une activité, mais cette propriété est **facultative**. Si vous définissez une propriété, elles devront correspondre à la cadence que vous spécifiez dans la définition du jeu de données de sortie. À ce stade, le jeu de données de sortie est ce qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée.
 
 ## Jeux de données et tranches de données de série chronologique
 
@@ -60,9 +66,9 @@ Vous pouvez accéder à l’intervalle de temps associé à la tranche actuelle 
 
 Actuellement Data Factory exige que le calendrier spécifié dans l’activité corresponde exactement à la planification spécifiée dans la **disponibilité** du jeu de données de sortie. Ainsi, **WindowStart**, **WindowEnd** et **SliceStart** et **SliceEnd** font toujours correspondre la même période de temps et une tranche de sortie unique.
 
-Pour plus d’informations sur les différentes propriétés disponibles dans la section Disponibilité, reportez-vous à [Création de jeux de données](data-factory-create-datasets.md).
+Pour plus d’informations sur les différentes propriétés disponibles dans la section Disponibilité, consultez [Création de jeux de données](data-factory-create-datasets.md).
 
-## Déplacement de données d’une base de données SQL Azure vers un stockage Blob Azure en utilisant l’activité de copie
+## Déplacement des données à partir de SQL Database vers le stockage blob
 
 Mettons quelque chose en place en créant un pipeline qui copie les données d’une table de base de données SQL Azure vers un stockage sur objet blob Azure toutes les heures.
 
@@ -216,26 +222,23 @@ Après avoir déployé le pipeline, l’objet blob Azure est renseigné comme su
 -	Fichier mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt sans données.
 
 
-## Création d’une tranche de données, définition de la période active pour un pipeline et exécution simultanée des tranches
+## Période active pour le pipeline
 
 [Création de Pipelines](data-factory-create-pipelines.md) a présenté le concept de période active pour un pipeline spécifié par la définition des propriétés **start** et **end**.
 
 Vous pouvez définir la date de début pour la période d’activité du pipeline dans le passé. Data Factory calcule (remplit postérieurement) automatiquement toutes les tranches de données dans le passé automatiquement et commence à les traiter.
 
-Vous pouvez configurer les tranches de données pour qu’elles s’exécutent en parallèle. Vous pouvez le faire en définissant la propriété **concurrency** dans la section relative aux stratégies de l’activité JSON, comme indiqué dans [Création de pipelines](data-factory-create-pipelines.md).
+## Traitement en parallèle des tranches de données
+Vous pouvez configurer des tranches de données pour qu’elles soient exécutées en parallèle en définissant la propriété **concurrency** dans la section relative à la stratégie de l’activité JSON. Pour plus d’informations sur cette propriété, consultez [Création de pipelines](data-factory-create-pipelines.md).
 
-## Réexécution d’une tranche de données ayant échoué et suivi automatique de la dépendance des données
-
+## Réexécuter une tranche de données ayant échoué 
 Vous pouvez surveiller l’exécution des tranches visuellement, avec tous les détails. Pour plus d’informations, consultez [Surveillance et gestion des pipelines à l’aide des](data-factory-monitor-manage-pipelines.md) panneaux du portail Azure (ou) de l’application [Surveillance et gestion](data-factory-monitor-manage-app.md).
 
 Prenons l’exemple suivant, il montre les deux activités. Activity1 génère un jeu de données chronologique avec des tranches en sortie qui sont consommées en tant qu’entrée Activity2 pour générer le jeu de données de série de chronologie de la sortie finale.
 
 ![Tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
-<br/>
-
 Le diagramme montre que, parmi les trois tranches récentes, il y a eu un échec, ce qui a généré une tranche 9 à 10 h pour Dataset2. Data Factory effectue automatiquement le suivi de la dépendance du jeu de données. Par conséquent, il ne lance pas l’activité sur la tranche 9 à 10 h en aval.
-
 
 Les outils de surveillance et de gestion Data Factory vous permettent d’examiner en détail les journaux de diagnostic pour la tranche ayant échoué, et de trouver facilement la cause du problème pour le régler. Une fois le problème résolu, vous pouvez facilement lancer l’exécution de l’activité afin de générer la tranche ayant échoué. Pour plus d’informations sur la façon de lancer les réexécutions et comprendre les transitions d’état des tranches de données, consultez [Surveillance et gestion des pipelines à l’aide des panneaux du portail Azure (ou) de ](data-factory-monitor-manage-pipelines.md)[l’application Surveillance et gestion](data-factory-monitor-manage-app.md).
 
@@ -262,7 +265,7 @@ Comme mentionné plus tôt, les activités peuvent être dans le même pipeline.
 ![Chaînage des activités dans le même pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
 ### Copier de manière séquentielle
-Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Si, par exemple, vous avez deux activités de copie dans un pipeline : (ActivitédeCopie1 et ActivitédeCopie2) avec les jeux de données de sortie de données d’entrée suivants.
+Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Si, par exemple, vous avez deux activités de copie dans un pipeline : (ActivitédeCopie1 et ActivitédeCopie2) avec les jeux de données de sortie de données d’entrée suivants :
 
 Activitédecopie1
 
@@ -581,7 +584,7 @@ Prenons en compte un autre scénario. Supposez que vous avez une activité Hive 
 
 L’approche simple consistant pour Data Factory à déterminer des tranches d’entrée appropriées à traiter en alignant la période de temps de la tranche de données en sortie ne fonctionne plus.
 
-Vous devez spécifier (pour chaque exécution d’activité que Data Factory doit utiliser) les tranches de données de la semaine précédente pour les jeux de données d’entrée. Vous pouvez le faire à l’aide de fonctions Data Factory comme indiqué dans l’extrait de code suivant.
+Vous devez spécifier (pour chaque exécution d’activité que Data Factory doit utiliser) les tranches de données de la semaine précédente pour les jeux de données d’entrée. Vous utilisez les fonctions Azure Data Factory comme indiqué dans l’extrait de code suivant pour implémenter ce comportement.
 
 **Entrée1 : Azure Blob**
 
@@ -731,7 +734,7 @@ Pour générer une tranche de jeu de données en exécutant une activité, Data 
 
 L’intervalle de temps des jeux de données d’entrée requis pour générer la tranche de jeu de données de sortie s’appelle la *période de dépendance*.
 
-Une exécution d’activité génère une tranche de jeu de données seulement après que les tranches de données dans les jeux de données d’entrée au sein de la période de dépendance sont disponibles. Cela signifie que toutes les tranches d’entrée constituant la période de dépendance doivent être à l’état **prêt** pour que la tranche de jeu de données de sortie puisse être générée par l’exécution de l’activité.
+Une exécution d’activité génère une tranche de jeu de données seulement après que les tranches de données dans les jeux de données d’entrée au sein de la période de dépendance sont disponibles. En d’autres termes, toutes les tranches d’entrée constituant la période de dépendance doivent être à l’état **Prêt** pour que la tranche de jeu de données de sortie puisse être générée par l’exécution de l’activité.
 
 Pour générer la tranche de jeu de données [**début**, **fin**], une fonction mettant en adéquation la tranche de jeu de données avec la période de dépendance doit exister. Cette fonction est essentiellement une formule qui convertit le début et la fin de la tranche de jeu de données au début et à la fin de la période de dépendance. Plus formellement :
 
@@ -740,7 +743,7 @@ Pour générer la tranche de jeu de données [**début**, **fin**], une fonction
 
 **F** et **g** sont des fonctions de mappage qui calculent le début et la fin de la période de dépendance pour chaque activité d’entrée.
 
-Comme on le voit dans les exemples, la période de dépendance est identique à la période de la tranche de données à produire. Dans ces cas, Data Factory calcule automatiquement les tranches d’entrée qui se situent dans la période de dépendance.
+Comme on le voit dans les exemples, la période de dépendance est identique à la période de la tranche de données qui est produite. Dans ces cas, Data Factory calcule automatiquement les tranches d’entrée qui se situent dans la période de dépendance.
 
 Par exemple, dans l’exemple d’agrégation où la sortie est générée quotidiennement et des données d’entrée sont disponibles toutes les heures, la période de tranche de données est de 24 heures. Data Factory recherche les tranches d’entrée chaque heure pour chaque intervalle et rend la tranche de sortie dépendante d’une tranche d’entrée.
 
@@ -752,7 +755,7 @@ Un jeu de données peut avoir une stratégie de validation définie qui spécifi
 
 Dans ce cas, une fois que la tranche a terminé l’exécution, l’état de la tranche de sortie devient **Attente** avec un sous-état **Validation**. Une fois les tranches validées, l’état de la tranche passe à **prêt**.
 
-Si une tranche de données a été générée mais n’a pas réussi la validation, l’activité s’exécute pour les tranches en aval en fonction de la tranche dont la validation a échoué et n’est pas traitée.
+Si une tranche de données a été générée mais n’a pas réussi la validation, l’activité s’exécute pour les tranches en aval dépendant de cette tranche qui ne sont pas traitées.
 
 Les différents états des tranches de données dans Data Factory sont couverts dans l’article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
 
@@ -835,4 +838,4 @@ Notez les points suivants :
 - La vue schématique n’affiche pas les pipelines à usage unique (onetime). Ce comportement est normal.
 - Les pipelines à usage unique ne peuvent pas être mis à jour. Vous pouvez cloner un pipeline à usage unique, le renommer, mettre à jour ses propriétés et le déployer pour en créer un autre.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

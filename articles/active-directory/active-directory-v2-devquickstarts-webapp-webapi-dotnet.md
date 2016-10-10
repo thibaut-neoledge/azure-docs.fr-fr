@@ -20,10 +20,13 @@
 
 Avec le point de terminaison v2.0, vous pouvez rapidement ajouter une authentification à vos applications Web et à vos API Web, avec prise en charge pour les comptes Microsoft personnels, ainsi que pour les comptes professionnels ou scolaires. Ici, nous allons créer une application web MVC qui connecte les utilisateurs à l’aide d’OpenID Connect, avec l’aide de l’intergiciel OWIN de Microsoft. L’application web obtiendra des jetons d’accès OAuth 2.0 pour une API web sécurisée par OAuth 2.0 qui permet d’exécuter des opérations de création, lecture et suppression dans la « To Do List » (Liste des tâches) d’un utilisateur.
 
-> [AZURE.NOTE]
-	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
+> [AZURE.WARNING]
+	Ce didacticiel utilise actuellement une bibliothèque cliente obsolète, non prise en charge, `Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory` (ADAL Experimental). Nous travaillons à la mise à jour de ce didacticiel vers la bibliothèque en version préliminaire `Microsoft.Identity.Client` (MSAL). En attendant, nous vous recommandons de remplacer l’utilisation de la bibliothèque ADAL Experimental dans ce didacticiel par MSAL. Vous trouverez plus d’informations sur les options à votre disposition pour choisir une bibliothèque cliente dans notre [article sur les limitations](active-directory-v2-limitations.md).
 
 Ce didacticiel s’intéresse principalement à l’utilisation d’ADAL pour récupérer et utiliser des jetons d’accès dans une application Web, dont la description complète est disponible [ici](active-directory-v2-flows.md#web-apps). Afin de vous renseigner sur la configuration requise, apprenez dans un premier temps comment [ajouter une connexion de base à une application Web](active-directory-v2-devquickstarts-dotnet-web.md) ou comment [sécuriser de manière appropriée une application Web](active-directory-v2-devquickstarts-dotnet-api.md).
+
+> [AZURE.NOTE]
+	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
 
 ## Télécharger l’exemple de code
 
@@ -201,4 +204,4 @@ Pour obtenir des ressources supplémentaires, consultez :
 
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

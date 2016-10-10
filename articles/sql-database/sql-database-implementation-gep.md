@@ -18,9 +18,9 @@
 
 # Azure donne à GEP une portée mondiale et une plus grande efficacité
 
-![Logo GEP](./media/sql-database-case-study-gep/geplogo.png)
+![Logo GEP](./media/sql-database-implementation-gep/geplogo.png)
 
-GEP propose des logiciels et des services qui permettent aux leaders de l’approvisionnement dans le monde entier d’optimiser leur impact sur les opérations, les stratégies et les performances financières de leur entreprise. En complément des services de conseils et des services gérés, la société propose SMART by GEP®, une plateforme cloud de logiciels d’approvisionnement complète. Toutefois, elle s’est heurtée à des limites pour prendre en charge des solutions comme SMART by GEP avec ses propres centres de données locaux : les investissements requis étaient exorbitants, et les exigences réglementaires dans d’autres pays les auraient rendus plus colossaux encore. En passant au cloud, GEP a libéré des ressources informatiques, ce qui lui a permis de moins se soucier des opérations informatiques et de se concentrer davantage sur le développement de nouvelles sources de valeur ajoutée pour ses clients dans le monde entier.
+GEP propose des logiciels et des services qui permettent aux leaders de l’approvisionnement dans le monde entier d’optimiser leur impact sur les opérations, les stratégies et les performances financières de leur entreprise. En complément des services de conseils et des services gérés, la société propose SMART by GEP®, une plateforme cloud de logiciels d’approvisionnement complète. Toutefois, elle s’est heurtée à des limites pour prendre en charge des solutions comme SMART by GEP avec ses propres centres de données locaux : les investissements requis étaient exorbitants, et les exigences réglementaires dans d’autres pays les auraient rendus plus colossaux encore. En passant au cloud, GEP a libéré des ressources informatiques, ce qui lui a permis de moins se soucier des opérations informatiques et de se concentrer davantage sur le développement de nouvelles sources de valeur ajoutée pour ses clients dans le monde entier.
 
 ## Développement de services et croissance avec Azure
 
@@ -48,7 +48,7 @@ En tirant parti des centres de données Azure dans le monde entier, GEP peut fac
 
 GEP a conçu SMART by GEP dès le départ dans Azure. Parmi les principales motivations de GEP figuraient l’évolutivité supérieure, les temps d’arrêt réduits et les coûts de maintenance moindres dont la société bénéficiait avec Azure SQL Database, par rapport à ce qu’elle pouvait atteindre en local. Toutefois, une fois passée au cloud, elle a découvert de nouvelles opportunités de développement dans le cloud, notamment le prototypage rapide et l’ingénierie lean, pour mieux répondre aux besoins des clients. Le développement dans Azure a permis à GEP de se débarrasser du casse-tête des licences logicielles que ses développeurs rencontraient parfois en local. Azure SQL Database est le cœur de SMART by GEP, bien que GEP utilise de nombreux autres services Azure pour continuer à améliorer facilement et rapidement SMART by GEP.
 
-![La figure 1](./media/sql-database-case-study-gep/figure1.png) Figure 1. L’architecture SMART by GEP
+![Architecture SMART by GEP](./media/sql-database-implementation-gep/figure1.png) Figure 1. L’architecture SMART by GEP
 
 ## Données structurées
 
@@ -107,8 +107,4 @@ Depuis la migration des centres de données locaux vers Azure et la création in
 - Sathyan Narasingh, responsable de l’ingénierie, GEP
 - Deepa Velukutty, architecte de base de données, GEP
 
-![Logo SMART](./media/sql-database-case-study-gep/smartbygeplogo.png)
-
-![Logo GEP](./media/sql-database-case-study-gep/geplogo.png)
-
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

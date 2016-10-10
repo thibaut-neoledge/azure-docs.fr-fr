@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory à ServiceNow
@@ -58,7 +58,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 6.  Dans la **zone de recherche**, entrez **ServiceNow**.
 
-    ![Galerie d’applications](./media/active-directory-saas-servicenow-tutorial/IC701016.png "Galerie d'applications")
+    ![Galerie d’applications](./media/active-directory-saas-servicenow-tutorial/IC701016.png "Galerie d’applications")
 
 7.  Dans le volet des résultats, sélectionnez **ServiceNow**, puis cliquez sur **Terminer** pour ajouter l’application.
 
@@ -116,7 +116,7 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
     c. Dans la zone de texte **The field on the user table that...**, entrez **user\_name**.
 
-    d. Cliquez sur **Enregistrer**.
+    d. Cliquez sur **Save**.
 
 
 
@@ -157,12 +157,12 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC7694976.png "Configurer l’authentification unique")
 
-1. Dans la boîte de dialogue **Identity Providers**, cliquez sur **New** :
+1. Dans la boîte de dialogue **Identity Providers**, cliquez sur **New** :
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configurer l’authentification unique")
 
 
-1. Dans la boîte de dialogue **Identity Providers**, cliquez sur **SAML2 Update1?** :
+1. Dans la boîte de dialogue **Identity Providers**, cliquez sur **SAML2 Update1?** :
 
     ![Configurer l’authentification unique](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configurer l’authentification unique")
 
@@ -245,7 +245,7 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
      e. Cliquez sur le bouton **Suivant** pour ouvrir la page **Étapes suivantes**.
 
-     f. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes du répertoire dans cette application** ».
+     f. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes du répertoire dans cette application** ».
 
 	![Étapes suivantes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Étapes suivantes")
 
@@ -277,7 +277,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-servicenow-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 
 ## Ressources supplémentaires
@@ -285,4 +285,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

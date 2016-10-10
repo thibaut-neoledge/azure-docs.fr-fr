@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -36,7 +36,7 @@ Il existe deux cas d'utilisation de SCIM dans Azure Active Directory :
 
 Azure Active Directory peut être configuré pour attribuer automatiquement des utilisateurs et des groupes aux applications qui implémentent un service Web [Système de gestion d'identités inter-domaines 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) et acceptent des jetons de porteur OAuth pour l'authentification. Dans la spécification SCIM 2.0, applications doivent satisfaire aux conditions suivantes :
 
-* Prend en charge la création d'utilisateurs et/ou de groupes, conformément à la section 3.3 du protocole SCIM.  
+* Prend en charge la création d'utilisateurs et/ou de groupes, conformément à la section 3.3 du protocole SCIM.
 
 * Prend en charge la modification d'utilisateurs et/ou de groupes avec des demandes de correctifs, conformément à la section 3.5.2 du protocole SCIM.
 
@@ -52,7 +52,7 @@ Azure Active Directory peut être configuré pour attribuer automatiquement des 
 
 Vous devez vérifier avec votre fournisseur d'application ou la documentation du fournisseur de votre application la conformité à ces exigences.
  
-###Prise en main
+###Mise en route
 
 Les applications qui prennent en charge le profil SCIM décrit ci-dessus peuvent être connectées à Azure Active Directory à l'aide de la fonctionnalité « Personnaliser » de l'application dans la galerie d'applications Azure AD. Une fois connecté, Azure AD exécute toutes les 5 minutes un processus de synchronisation au cours duquel il interroge le point de terminaison de SCIM de l'application pour les utilisateurs et les groupes assignés, et les crée ou les modifie en fonction des détails de l'attribution.
 
@@ -67,11 +67,11 @@ Les applications qui prennent en charge le profil SCIM décrit ci-dessus peuvent
 4.	Dans l'écran qui s'affiche, sélectionnez le deuxième bouton **Configurer l'approvisionnement de comptes**.
 5.	Dans le champ **URL du point de terminaison d’approvisionnement**, entrez l’URL du point de terminaison SCIM de l’application.
 6.	Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ **Jeton d’authentification (facultatif)**. Si ce champ est laissé vide, Azure AD inclura un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d’identité peuvent valider ce jeton émis par Azure AD.
-7.	Cliquez sur **Suivant**, puis sur le bouton **Démarrer le test** pour qu'Azure Active Directory essaie de se connecter au point de terminaison SCIM. Si les tentatives échouent, les informations de diagnostic seront affichées.  
+7.	Cliquez sur **Suivant**, puis sur le bouton **Démarrer le test** pour qu'Azure Active Directory essaie de se connecter au point de terminaison SCIM. Si les tentatives échouent, les informations de diagnostic seront affichées.
 8.	Si les tentatives de connexion à l'application aboutissent, cliquez sur **Suivant** sur les écrans restants, puis sur **Terminer** pour quitter la boîte de dialogue.
 9.	Dans l'écran qui s'affiche, sélectionnez le troisième bouton **Affecter des comptes**. Dans la section Utilisateurs et groupes qui en résulte, affectez les utilisateurs ou les groupes que vous souhaitez configurer pour lesquels vous souhaitez configurer l’application.
 10.	Une fois les utilisateurs et les groupes affectés, cliquez sur l'onglet **Configurer** près du bord supérieur de l'écran.
-11.	Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé (On). 
+11.	Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé (On).
 12.	Sous **Outils**, cliquez sur **Redémarrer l'approvisionnement de compte** pour lancer le processus d'approvisionnement.
 
 Notez que 5 à 10 minutes peuvent s’écouler avant que le processus de déploiement commence à envoyer des demandes au point de terminaison SCIM. Un récapitulatif des tentatives de connexion est fourni sur l’onglet tableau de bord de l’application, et un rapport d’activité sur l’approvisionnement et les erreurs de configuration peut être téléchargé depuis l’onglet Rapports de l’annuaire.
@@ -114,9 +114,9 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 
 5.	Générez le projet FileProvisioningAgent.
 6.	Lancez l'application d'invite de commandes de Windows (en tant qu'administrateur) et utilisez la commande **cd** pour modifier le répertoire en votre dossier **\\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug**.
-7.	Exécutez la commande ci-dessous en remplaçant <ip-address> par l'IP ou le nom de domaine de l'ordinateur Windows.
+7.	Exécutez la commande ci-dessous en remplaçant <adresse-ip> par l’IP ou le nom de domaine de l’ordinateur Windows.
 
-    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
+    FileAgnt.exe http://<adresse-ip>:9000 TargetFile.csv
 
 8.	Dans Windows, sous **Paramètres Windows > Paramètres Internet & réseau**, sélectionnez **Pare-feu Windows > Paramètres avancés**, et créez une **règle de trafic entrant** qui autorise l’accès entrant au port 9000.
 9.	Si l’ordinateur Windows est placé derrière un routeur, ce dernier doit être configuré pour exécuter une traduction NAT entre son port 9000 présenté à Internet et le port 9000 sur la machine Windows. Cela est obligatoire si l’on veut qu’Azure AD puisse accéder à ce point de terminaison dans le cloud.
@@ -131,12 +131,12 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 ![][2]
 
 4.	Dans l'écran qui s'affiche, sélectionnez le deuxième bouton **Configurer l'approvisionnement de comptes**.
-5.	Dans la boîte de dialogue, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. Le résultat pourrait être le suivant http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, où <ip-address> est l'adresse IP Internet exposée.  
-6.	Cliquez sur **Suivant**, puis sur le bouton **Démarrer le test** pour qu'Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, les informations de diagnostic seront affichées.  
+5.	Dans la boîte de dialogue, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. Le résultat pourrait être le suivant http://testmachine.contoso.com:9000 ou http://<adresse-ip>:9000/, où <adresse-ip> est l’adresse IP Internet exposée.
+6.	Cliquez sur **Suivant**, puis sur le bouton **Démarrer le test** pour qu'Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, les informations de diagnostic seront affichées.
 7.	Si les tentatives de connexion à votre service Web aboutissent, cliquez sur **Suivant** sur les écrans restants, puis cliquez sur **Terminer** pour quitter la boîte de dialogue.
 8.	Dans l'écran qui s'affiche, sélectionnez le troisième bouton **Affecter des comptes**. Dans la section Utilisateurs et groupes qui en résulte, affectez les utilisateurs ou les groupes que vous souhaitez configurer pour lesquels vous souhaitez configurer l’application.
 9.	Une fois les utilisateurs et les groupes affectés, cliquez sur l'onglet **Configurer** près du bord supérieur de l'écran.
-10.	Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé (On). 
+10.	Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé (On).
 11.	Sous **Outils**, cliquez sur **Redémarrer l'approvisionnement de compte** pour lancer le processus d'approvisionnement.
 
 Notez que 5 à 10 minutes peuvent s’écouler avant que le processus de déploiement commence à envoyer des demandes au point de terminaison SCIM. Un récapitulatif des tentatives de connexion est fourni sur l’onglet tableau de bord de l’application, et un rapport d’activité sur l’approvisionnement et les erreurs de configuration peut être téléchargé depuis l’onglet Rapports de l’annuaire.
@@ -435,9 +435,9 @@ Dans l’exemple de requête pour un utilisateur avec une valeur d’attribut ex
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
 * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
-* correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
+* correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"]
 
-**2 :** si la réponse à une requête du service pour un utilisateur avec une valeur d’attribut externalId correspondant à la valeur d’attribut mailNickname d’un utilisateur dans Azure Active Directory ne renvoie aucun utilisateur, Azure Active Directory demande que le service approvisionne un utilisateur correspondant à celui d’Azure Active Directory. Voici un exemple de requête :
+**2 :** si la réponse à une requête du service pour un utilisateur avec une valeur d’attribut externalId correspondant à la valeur d’attribut mailNickname d’un utilisateur dans Azure Active Directory ne renvoie aucun utilisateur, Azure Active Directory demande que le service d’approvisionne un utilisateur correspondant à celui d’Azure Active Directory. Voici un exemple de requête :
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -677,9 +677,9 @@ L’objet fourni comme valeur d’argument resourceIdentifier a ces valeurs de p
 
 La figure ci-dessous contient les messages qu’Azure Active Directory va envoyer à un service SCIM pour gérer le cycle de vie d’un groupe dans un autre magasin d’identités. Ces messages diffèrent des messages appartenant aux utilisateurs de trois manières :
 
-* Le schéma d'une ressource de groupe est identifié en tant que http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
-* Les demandes d’extraction de groupes préciseront que l’attribut des membres doit être exclu des ressources fournies en réponse à la demande.  
-* Les requêtes permettant de déterminer si un attribut de référence a une certaine valeur seront des requêtes sur les attributs membres.  
+* Le schéma d'une ressource de groupe est identifié en tant que http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.
+* Les demandes d’extraction de groupes préciseront que l’attribut des membres doit être exclu des ressources fournies en réponse à la demande.
+* Les requêtes permettant de déterminer si un attribut de référence a une certaine valeur seront des requêtes sur les attributs membres.
 
 ![][5] *Figure : séquence d'approvisionnement et d'annulation de l'approvisionnement d'un groupe*
 
@@ -702,4 +702,4 @@ La figure ci-dessous contient les messages qu’Azure Active Directory va envoye
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

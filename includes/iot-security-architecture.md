@@ -4,7 +4,7 @@ Lorsque vous concevez un système, il est important de comprendre les menaces po
 
 ## La sécurité commence par un modèle de menace
  
-Microsoft a recours depuis longtemps à des modèles de menace pour ses produits, et a rendu publiquement disponible le processus de modélisation des menaces de la société. L’expérience de la société démontre que la modélisation présente des avantages inattendus qui vont bien au-delà de la compréhension immédiate des menaces les plus préoccupantes. Par exemple, elle permet également d’ouvrir une discussion avec d’autres personnes non-membres de l’équipe de développement, ce qui peut conduire à de nouvelles idées et à des améliorations du produit.
+Microsoft a recours depuis longtemps à des modèles de menace pour ses produits, et a rendu publiquement disponible le processus de modélisation des menaces de l’entreprise. L’expérience de la société démontre que la modélisation présente des avantages inattendus qui vont bien au-delà de la compréhension immédiate des menaces les plus préoccupantes. Par exemple, elle permet également d’ouvrir une discussion avec d’autres personnes non-membres de l’équipe de développement, ce qui peut conduire à de nouvelles idées et à des améliorations du produit.
   
 L’objectif de la modélisation des menaces est de comprendre comment une personne malveillante peut être en mesure de compromettre un système avant de s’assurer que les préventions appropriées sont en place. La modélisation des menaces impose à l’équipe de conception de tenir compte des préventions lors de la conception du système plutôt qu’à l’issue de son déploiement. Ce point est extrêmement important, car dans la pratique modifier des solutions de défense de la sécurité sur une multitude de périphériques est infaisable, sujet aux erreurs et rend les clients vulnérables.
 
@@ -13,7 +13,7 @@ De nombreuses équipes de développement font un excellent travail en prenant en
 
 ### Quand mettre en place un modèle de menace
 
-La [modélisation des menaces](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) apporte davantage de valeur si elle est incorporée dans la phase de conception. Lors de la conception, vous bénéficiez d’une plus grande flexibilité pour apporter les modifications qui élimineront les menaces. L’élimination des menaces au cours de la conception est en effet le résultat souhaité. C’est en effet bien plus facile que d’ajouter des préventions, les tester et s’assurer qu’elles restent en cours. Par ailleurs, procéder à de telles éliminations n’est pas toujours possible. Il est plus difficile d’éliminer des menaces lorsqu’un produit progresse dans son cycle de vie, et cela nécessite plus de travail et des compromis plus difficiles que la mise en place d’une modélisation des espaces au début du développement.
+La [modélisation des menaces](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) apporte davantage de valeur si elle est incorporée dans la phase de conception. Lors de la conception, vous bénéficiez d’une plus grande flexibilité pour apporter les modifications qui élimineront les menaces. L’élimination des menaces au cours de la conception est en effet le résultat souhaité. C’est en effet bien plus facile que d’ajouter des préventions, les tester et s’assurer qu’elles restent en cours. Par ailleurs, procéder à de telles éliminations n’est pas toujours possible. Il est plus difficile d’éliminer des menaces lorsqu’un produit progresse dans son cycle de vie, et cela nécessite plus de travail et des compromis beaucoup plus difficiles que la mise en place d’une modélisation des espaces au début du développement.
 
 ### Quels éléments inclure dans le modèle de menace
 
@@ -153,7 +153,7 @@ Dans chacune des catégories présentées dans l’architecture Azure IoT, nous 
 
 **Déni de service (D)** : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
 
-**Falsification (T)** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant la clé ont été mis à la disposition des programmes illicites. Par exemple, une personne malveillante peut tirer parti des éléments de clé extraits pour intercepter et supprimer des données du périphérique sur le chemin de communication et les remplacer par des données erronées authentifiées avec les éléments de clé volés.
+**Falsification (T)** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant la clé ont été mis à la disposition des programmes illicites. Par exemple, une personne malveillante peut tirer parti des éléments de clé extraits pour intercepter et supprimer des données de l’appareil sur le chemin de communication, et les remplacer par des données erronées authentifiées avec les éléments de clé volés.
 
 **Divulgation d’informations (I)** : si l’appareil exécute des logiciels manipulés, ces derniers peuvent potentiellement créer une fuite des données vers des tiers non autorisés. Par exemple, une personne malveillante peut tirer parti des éléments de clé extraits pour les injecter dans le chemin de communication entre le périphérique et un contrôleur, une passerelle de champ ou une passerelle cloud afin de détourner les informations.
 
@@ -172,17 +172,17 @@ Voici quelques exemples de menaces existant dans cette catégorie :
 
 Usurpation d’identité : une personne malveillante peut extraire les éléments de clé de chiffrement d’un périphérique, au niveau logiciel ou matériel, et par la suite, accéder au système avec un autre périphérique physique ou virtuel sous l’identité du périphérique dont elle a pris les éléments de clé.
 
-**Déni de service ** : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
+**Déni de service** : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement mises hors-service ne signalera pas de données du tout.
 
-**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
 
 **Falsification** : une caméra de surveillance qui affiche une image (en spectre visible) d’un couloir vide peut être forcée à afficher une photo de ce couloir. Un capteur de détection de fumée ou d’incendie peut signaler la présence d’une personne utilisant un briquet. Dans les deux cas, le périphérique peut s’avérer techniquement tout à fait fiable pour le système, alors qu’il rapporte des informations manipulées.
 
 **Falsification** : une personne malveillante peut tirer parti des éléments de clé extraits pour intercepter et supprimer des données de l’appareil sur le chemin de communication et les remplacer par des données erronées authentifiées avec les éléments de clé volés.
 
-**Falsification ** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
+**Falsification** : une personne malveillante peut remplacer partiellement ou totalement un logiciel s’exécutant sur l’appareil, permettant ainsi potentiellement à ce logiciel d’endosser l’identité véritable de l’appareil si les éléments de clé ou les fonctions de chiffrement contenant les éléments de clé ont été mis à la disposition des programmes illicites.
    
-**Divulgation d’informations ** : si l’appareil exécute des logiciels manipulés, ceux-ci peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
+**Divulgation d’informations** : si l’appareil exécute des logiciels manipulés, ceux-ci peuvent potentiellement créer une fuite des données vers des tiers non autorisés.
 
 **Divulgation d’informations**: une personne malveillante peut tirer parti des éléments de clé extraits pour les injecter dans le chemin de communication entre l’appareil et un contrôleur, une passerelle de champ ou une passerelle cloud afin de détourner des informations.
 
@@ -218,7 +218,9 @@ Voici quelques exemples de menaces existant dans cette catégorie :
 
 **Usurpation d’identité** : une personne malveillante peut intercepter ou remplacer partiellement la diffusion et usurper l’identité du donneur d’ordre (intercepteur)
 
-**Falsification** : une personne malveillante peut intercepter ou remplacer partiellement la diffusion et envoyer des informations erronées. Divulgation d’informations : une personne malveillante peut écouter une diffusion et obtenir des informations sans autorisation. Déni de service : une personne malveillante peut brouiller le signal de diffusion et bloquer la distribution d’informations
+**Falsification** : une personne malveillante peut intercepter ou partiellement remplacer la diffusion et envoyer de fausses informations.
+
+**Divulgation d’informations :** une personne malveillante peut écouter une diffusion et obtenir des informations sans autorisation. **Déni de service :** une personne malveillante peut brouiller le signal de diffusion et bloquer la distribution d’informations.
 
 #### Storage
 
@@ -241,7 +243,7 @@ Une passerelle cloud est essentiellement un élément logiciel personnalisé qui
 
 Un système de contrôle (ou contrôleur) est une solution logicielle qui interagit avec un périphérique, une passerelle de champ ou une passerelle cloud afin de contrôler un ou plusieurs périphériques et/ou de collecter et/ou de stocker et/ou d’analyser les données de périphérique à des fins de présentation ou à des fins de contrôle ultérieur. Les systèmes de contrôle sont les seules entités s’inscrivant dans le cadre de cette discussion, qui peuvent faciliter immédiatement l’interaction avec des personnes. Les surfaces de contrôle physique intermédiaires sur les périphériques sont l’exception, par exemple un commutateur qui permet de désactiver le périphérique ou de modifier d’autres propriétés, et pour lequel il n’existe pas d’équivalent fonctionnel accessible numériquement.
 
-Les surfaces de contrôle physique intermédiaires sont des surfaces où une sorte de logique limite la fonction de la surface de contrôle physique, par exemple une fonction équivalente peut être lancée à distance ou des conflits d’entrée avec des saisies distantes peuvent être évités. Ces surfaces de contrôle intermédiaires sont conceptuellement attachées à un système de contrôle local qui exploite la même fonctionnalité sous-jacente que tout autre système de contrôle à distance auquel le périphérique peut être connecté en parallèle. Pour connaître les principales menaces auxquelles le cloud computing est exposé, consultez la page [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/).
+Les surfaces de contrôle physique intermédiaires sont des surfaces où une sorte de logique limite la fonction de la surface de contrôle physique, par exemple une fonction équivalente peut être lancée à distance ou des conflits d’entrée avec des saisies distantes peuvent être évités. Ces surfaces de contrôle intermédiaires sont conceptuellement attachées à un système de contrôle local qui exploite la même fonctionnalité sous-jacente que tout autre système de contrôle à distance auquel le périphérique peut être connecté en parallèle. Pour connaître les principales menaces auxquelles le cloud computing est exposé, consultez [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/).
 
 
 ## Ressources supplémentaires
@@ -252,4 +254,4 @@ Pour plus d’informations, reportez-vous aux articles suivants :
 - [Microsoft Azure IoT reference architecture (Architecture de référence Microsoft Azure IoT)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/23/2016"
    ms.author="cherylmc" />
 
 # Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell
@@ -24,8 +24,7 @@
 
 Azure propose actuellement deux modèles de gestion : le modèle classique et le modèle Resource Manager (RM). Si vous utilisez Azure depuis un certain temps, vous avez probablement des machines virtuelles et des rôles d’instance Azure exécutés dans un réseau virtuel classique. Il est possible que vos nouvelles machines virtuelles et instances de rôle s’exécutent dans un réseau virtuel créé dans Resource Manager. Cet article vous guide dans le processus de connexion de réseaux virtuels classiques à des réseaux virtuels Resource Manager afin de permettre aux ressources situées dans les modèles de déploiement distincts de communiquer entre elles via une connexion de passerelle.
 
-Vous pouvez créer une connexion entre des réseaux virtuels situés dans des abonnements différents, des régions différentes et des modèles de déploiement différents. Vous pouvez également connecter des réseaux virtuels qui disposent déjà de connexions à des réseaux locaux, à condition que la passerelle avec laquelle ils ont été configurés soit dynamique ou basée sur un itinéraire. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article. 
-[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
+Vous pouvez créer une connexion entre des réseaux virtuels situés dans des abonnements différents, des régions différentes et des modèles de déploiement différents. Vous pouvez également connecter des réseaux virtuels qui disposent déjà de connexions à des réseaux locaux, à condition que la passerelle avec laquelle ils ont été configurés soit dynamique ou basée sur un itinéraire. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article. [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## Avant tout chose
 
@@ -39,7 +38,7 @@ Avant de commencer, vérifiez les points suivants :
 
 ### <a name="exampleref"></a>Exemples de paramètres
 
-Vous pouvez utiliser les exemples de paramètres comme référence lors de l’utilisation des applets de commande PowerShell dans les étapes suivantes.
+Vous pouvez utiliser les exemples de paramètres comme référence lors de l’utilisation des applets de commande PowerShell.
 
 **Paramètres de réseau virtuel classique**
 
@@ -47,20 +46,20 @@ Nom du réseau virtuel = ClassicVNet <br> Emplacement = États-Unis de l’Ouest
 
 **Paramètres de réseau virtuel Resource Manager**
 
-Nom du réseau virtuel = RMVNet <br> Groupe de ressources = RG1 <br> Espaces d’adresses du réseau virtuel = 192.168.1.0/16 <br> Sous-réseau 1 = 192.168.1.0/24 <br> Sous-réseau de passerelle = 192.168.0.0/26 <br> Emplacement = États-Unis de l’Est<br> Nom d’adresse IP publique de la passerelle = gwpip <br> Passerelle de réseau local = ClassicVNetLocal <br> Nom de la passerelle de réseau virtuel = RMGateway <br> Configuration d’adressage IP de la passerelle = gwipconfig
+Nom du réseau virtuel = RMVNet <br> Groupe de ressources = RG1 <br> Espaces d’adresses du réseau virtuel = 192.168.0.0/16 <br> Sous-réseau 1 = 192.168.1.0/24 <br> Sous-réseau de passerelle = 192.168.0.0/26 <br> Emplacement = États-Unis de l’Est<br> Nom d’adresse IP publique de la passerelle = gwpip <br> Passerelle de réseau local = ClassicVNetLocal <br> Nom de la passerelle de réseau virtuel = RMGateway <br> Configuration d’adressage IP de la passerelle = gwipconfig
 
 
 ## <a name="createsmgw"></a>Section 1 : Configurer le réseau virtuel classique
 
 ### Partie 1 : Télécharger votre fichier de configuration réseau
 
-1. Dans la console PowerShell, connectez-vous à votre compte Azure. Cette applet de commande vous invite à saisir vos informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l'applet de commande télécharge vos paramètres de compte pour qu'ils soient reconnus par Azure PowerShell. Vous allez utiliser les applets de commande PowerShell de gestion des services pour mener à bien cette partie de la configuration.
+1. Dans la console PowerShell avec des droits élevés, connectez-vous à votre compte Azure. Les applets de commande suivantes vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l'applet de commande télécharge vos paramètres de compte pour qu'ils soient reconnus par Azure PowerShell. Vous allez utiliser les applets de commande PowerShell de gestion des services pour mener à bien cette partie de la configuration.
 
 		Add-AzureAccount
 
 2. Exportez votre fichier de configuration réseau Azure en exécutant la commande suivante. Vous pouvez modifier l’emplacement d’exportation du fichier si nécessaire. Vous allez modifier le fichier, puis l’importer vers Azure.
 
-		Get-AzureVNetConfig -ExportToFile c:\AzureNet\NetworkConfig.xml
+		Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 3. Ouvrez le fichier .xml que vous avez téléchargé pour le modifier. Pour obtenir un exemple de fichier de configuration réseau, consultez le [schéma de configuration réseau](https://msdn.microsoft.com/library/jj157100.aspx).
  
@@ -92,7 +91,7 @@ Le site de réseau local que vous ajoutez représente le réseau virtuel RM auqu
     <LocalNetworkSites>
       <LocalNetworkSite name="RMVNetLocal">
         <AddressSpace>
-          <AddressPrefix>192.168.1.0/16</AddressPrefix>
+          <AddressPrefix>192.168.0.0/16</AddressPrefix>
         </AddressSpace>
         <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
       </LocalNetworkSite>
@@ -114,7 +113,7 @@ Dans cette section, nous spécifions le site de réseau local auquel vous souhai
 
 Enregistrez le fichier, puis importez-le dans Azure en exécutant la commande ci-dessous. Assurez-vous que vous modifiez le chemin d'accès selon les besoins de votre environnement.
 
-		Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\ClassicVNet.xml
+		Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 
 Un résultat similaire au résultat suivant, indiquant que l’importation a réussi, doit s’afficher.
 
@@ -122,25 +121,15 @@ Un résultat similaire au résultat suivant, indiquant que l’importation a ré
 		--------------------        -----------                      ---------------                                                
 		Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### Partie 6 : Créer la passerelle de réseau virtuel 
+### Partie 6 : Créer la passerelle 
 
-Vous pouvez créer votre passerelle de réseau virtuel soit à l’aide du portail Classic, soit à l’aide de PowerShell. À l’heure actuelle, il n’est pas possible de créer une passerelle classique dans le portail Azure.
+Vous pouvez créer la passerelle de réseau virtuel à l’aide du portail Classic ou de PowerShell.
 
-#### Pour créer votre passerelle dans le portail Classic
-
-1. Dans le [portail Classic](https://manage.windowsazure.com), accédez à **Réseaux** et cliquez sur le réseau virtuel classique pour lequel vous souhaitez créer une passerelle de réseau virtuel. La page principale de votre réseau virtuel s’ouvre.
-2. Cliquez sur **Tableau de bord** en haut de la page pour passer à la page Tableau de bord.
-3. En bas de la page Tableau de bord, cliquez sur **Créer la passerelle**, puis sur **Routage dynamique**.
-4. Cliquez sur **Oui** pour lancer la création de votre passerelle.
-5. Attendez que la passerelle soit créée. Cette opération peut parfois prendre 45 minutes ou plus.
-6. Une fois la passerelle créée, vous pouvez afficher l’adresse IP de la passerelle dans la page **Tableau de bord**. Il s’agit de l’adresse IP publique de votre passerelle. Notez ou copiez l’adresse IP publique. Elle vous servira ultérieurement lors de la création du réseau local pour la configuration de votre réseau virtuel Resource Manager.
-7. Vous pouvez éventuellement utiliser cette applet de commande pour récupérer les paramètres de votre passerelle et vérifier l’état de la passerelle : `Get-AzureVirtualNetworkGateway`
-
-#### Pour créer votre passerelle à l’aide de PowerShell
-
-Pour créer votre passerelle à l’aide de PowerShell, utilisez l’exemple suivant.
+L’exemple suivant montre comment créer une passerelle de routage dynamique :
 
 	New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
+
+Vous pouvez vérifier l’état de la passerelle à l’aide de l’applet de commande `Get-AzureVNetGateway`.
 
 
 ## <a name="creatermgw"></a>Section 2 : Configurer la passerelle du réseau virtuel Resource Manager
@@ -169,7 +158,7 @@ Pour créer une passerelle VPN pour le réseau virtuel RM, suivez les instructio
 			-Location "West US" -AddressPrefix "10.0.0.0/24" `
 			-GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
 
-3. **Demandez qu’une adresse IP publique** soit allouée à la passerelle VPN de votre réseau virtuel Azure Resource Manager. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle VPN Azure change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN Azure.<br> cette étape, nous définissons également une variable qui sera utilisée à une étape ultérieure.
+3. **Demandez qu’une adresse IP publique** soit allouée à la passerelle de réseau virtuel pour le réseau virtuel Resource Manager. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. L’adresse IP est allouée de façon dynamique à la passerelle de réseau virtuel. Néanmoins, cela ne signifie pas que l’adresse IP est modifiée. L’adresse IP de la passerelle de réseau virtuel change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de la passerelle.<br>Dans cette étape, nous définissons également une variable qui sera utilisée à une étape ultérieure.
 
 
 		$ipaddress = New-AzureRmPublicIpAddress -Name gwpip `
@@ -192,7 +181,7 @@ Pour créer une passerelle VPN pour le réseau virtuel RM, suivez les instructio
 		-Name gwipconfig -SubnetId $subnet.id `
 		-PublicIpAddressId $ipaddress.id
 	
-7. **Créez la passerelle du réseau virtuel Resource Manager** en exécutant la commande suivante. `-VpnType` doit être défini sur *RouteBased*.
+7. **Créez la passerelle de réseau virtuel Resource Manager** en exécutant la commande suivante. `-VpnType` doit être défini sur *RouteBased*. L’exécution de cette opération peut prendre 45 minutes, voire davantage.
 
 		New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
 		-Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
@@ -233,7 +222,7 @@ La création d’une connexion entre les passerelles nécessite PowerShell. Vous
 		
 	Add-AzureAccount
 
-1. **Définissez votre clé partagée** en exécutant l’exemple suivant. Dans cet exemple, `-VNetName` est le nom du réseau virtuel classique et `-LocalNetworkSiteName` est le nom que vous avez spécifié pour le réseau local lors de sa configuration dans le portail Classic. `-SharedKey` est une valeur que vous pouvez générer et spécifier. La valeur que vous spécifiez ici doit être la même que celle spécifiée à l’étape suivante lors de la création de votre connexion. La réponse de cet exemple doit afficher l’état Successful (Opération réussie).
+1. **Définissez votre clé partagée** en exécutant l’exemple suivant. Dans cet exemple, `-VNetName` est le nom du réseau virtuel classique et `-LocalNetworkSiteName` est le nom que vous avez spécifié pour le réseau local lors de sa configuration dans le portail Classic. `-SharedKey` est une valeur que vous pouvez générer et spécifier. La valeur que vous spécifiez ici doit être la même que celle spécifiée à l’étape suivante lors de la création de votre connexion. La réponse de cet exemple doit afficher l’**état Successful** (Opération réussie).
 
 		Set-AzureVNetGatewayKey -VNetName ClassicVNet `
 		-LocalNetworkSiteName RMVNetLocal -SharedKey abc123
@@ -262,4 +251,4 @@ Consultez les détails du Forum Aux Questions pour plus d’informations sur les
 
 [AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

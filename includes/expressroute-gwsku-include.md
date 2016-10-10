@@ -1,8 +1,11 @@
-Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Lorsque la passerelle de réseau virtuel est créée, elle est conçu comme du matériel virtuel. Lorsque vous sélectionnez une référence SKU de passerelle supérieure, une puissance de traitement supplémentaire est affectée à la passerelle pour acheminer le trafic et, dans le cas d’une passerelle VPN, traiter le chiffrement du VPN.
+Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Si vous sélectionnez une référence SKU de passerelle supérieure, la quantité de ressources processeur et de bande passante réseau allouées à la passerelle augmente. Par conséquent, la passerelle peut prendre en charge un débit réseau plus élevé sur le réseau virtuel.
 
 Les passerelles de réseau virtuel ExpressRoute peuvent utiliser les références SKU suivantes :
 
 - Standard
 - HighPerformance
+- UltraPerformance
 
-<!---HONumber=AcomDC_0921_2016-->
+>[AZURE.IMPORTANT] La passerelle ExpressRoute UltraPerformance est actuellement disponible dans les régions Centre des États-Unis et Centre Ouest des États-Unis, et elle peut être liée à des circuits ExpressRoute situés à Chicago et à Dallas. D’autres emplacements ExpressRoute et régions Azure seront disponibles dans les prochaines semaines.
+
+<!---HONumber=AcomDC_0928_2016-->

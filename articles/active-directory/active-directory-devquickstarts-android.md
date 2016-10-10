@@ -32,6 +32,8 @@ Pour les clients Android qui doivent accéder à des ressources protégées, Azu
 
 Pour commencer, vous avez besoin d’un client Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application. Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
 
+> [AZURE.TIP] Essayez la version préliminaire de notre nouveau [portail des développeurs](https://identity.microsoft.com/Docs/Android) qui vous permettra de devenir opérationnel avec Azure Active Directory en quelques minutes ! Le portail des développeurs vous guidera tout au long du processus d’inscription d’une application et d’intégration d’Azure AD dans votre code. Une fois terminé, vous disposerez d’une application simple qui peut authentifier les utilisateurs dans votre client et d’un serveur principal qui peut accepter les jetons et effectuer la validation.
+
 ## Étape 1 : Téléchargement et exécution de l’exemple de serveur TODO d’API REST Node.js
 
 Cet exemple est écrit spécifiquement pour fonctionner avec notre exemple existant pour la création d’une API REST TODO avec un seul client pour Microsoft Azure Active Directory. Il s’agit d’un composant requis pour le démarrage rapide.
@@ -270,8 +272,8 @@ Vous pouvez appeler **acquireTokenSilent** pour gérer la mise en cache et l’a
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker** :
-  l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
+11. **Broker** : 
+l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit de ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -284,13 +286,13 @@ Vous pouvez appeler **acquireTokenSilent** pour gérer la mise en cache et l’a
  ```java
  String brokerAccount =  mContext.getBrokerUser();
  ```
- L’utilisateur de Service Broker est renvoyé si le compte est valide.
+L’utilisateur de Service Broker est renvoyé si le compte est valide.
 
  Votre manifeste d’application doit disposer des autorisations requises pour utiliser des comptes AccountManager : http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 Cette procédure pas à pas devrait vous permettre d’effectuer correctement l’intégration avec Azure Active Directory. Pour d’autres exemples, consultez le référentiel AzureADSamples/ sur GitHub.
@@ -457,4 +459,4 @@ En savoir plus sur l’[Activation de l'authentification unique entre applicatio
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

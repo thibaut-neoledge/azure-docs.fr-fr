@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="jwillis;tamram"/>
 
 # Création d’un instantané d’objet blob
 
@@ -174,4 +174,4 @@ Dans le scénario 4, l'objet blob de base a été complètement mis à jour et n
 
 Pour obtenir des exemples supplémentaires d’utilisation de Blob Storage, consultez [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Vous pouvez télécharger un exemple d’application et l’exécuter ou parcourir le code sur GitHub.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

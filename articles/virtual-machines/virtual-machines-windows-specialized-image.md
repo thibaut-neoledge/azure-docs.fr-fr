@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Création d’une copie d’une machine virtuelle Windows dans le modèle de déploiement Azure Resource Manager
@@ -32,7 +32,7 @@ Assurez-vous de disposer des composants requis suivants avant de commencer la pr
 
 - **Vous disposez d’une machine virtuelle Azure exécutant Windows** créée à l’aide du modèle de déploiement classique ou du modèle de déploiement Resource Manager. Vous avez configuré le système d’exploitation et les disques de données associés, et effectué d’autres procédures de personnalisation, telles que l’installation des applications requises. Vous utiliserez cette machine virtuelle pour créer la copie. Si vous avez besoin d’aide pour créer cette machine virtuelle, voir [Création d’une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell](virtual-machines-windows-ps-create.md).
 
-- Vous avez installé **Azure PowerShell 1.0 ou version ultérieure** sur votre machine et vous êtes connecté à votre abonnement Azure. Pour plus d’informations, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+- Vous avez installé **Azure PowerShell 1.0 ou version ultérieure** sur votre ordinateur et vous êtes connecté à votre abonnement Azure. Pour plus d’informations, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 - Vous avez téléchargé et installé l’**utilitaire AzCopy**. Pour plus d’informations sur cet utilitaire, consultez la rubrique [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../storage/storage-use-azcopy.md).
 
@@ -126,4 +126,4 @@ Pour vous connecter à votre nouvelle machine virtuelle, accédez à la machine 
 
 Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, consultez [Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0928_2016-->

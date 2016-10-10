@@ -110,7 +110,7 @@ Dans l’étendue d’Azure DevTest Labs, il existe deux types de rôles pour d�
 ### Comment puis-je créer un rôle pour permettre aux utilisateurs d’effectuer une tâche spécifique ?
 Vous trouverez ici un article complet sur la façon de créer des rôles personnalisés et d’affecter des autorisations à ce rôle. Voici un exemple de script qui crée le rôle « Utilisateur avancé DevTest Labs », qui a l’autorisation de démarrer et d’arrêter toutes les machines virtuelles dans le laboratoire :
  
-	$policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User") 
+	$policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User" 
 	$policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*') 
 	$policyRoleDef.Id = $null 
 	$policyRoleDef.Name = "DevTest Labs Advance User" 
@@ -119,7 +119,7 @@ Vous trouverez ici un article complet sur la façon de créer des rôles personn
 	$policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action") 
-	$policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)  
+	$policyRoleDef = New-AzureRmRoleDefinition -Role $policyRoleDef  
  
 ### Azure DevTest Labs est-il intégré à ma chaîne d’outils CI/CD ? 
 Si vous utilisez VSTS, il existe une [extension des tâches Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) qui vous permet d’automatiser votre pipeline de versions dans Azure DevTest Labs. Voici quelques-unes des utilisations de cette extension :
@@ -244,4 +244,4 @@ Reportez-vous à ce billet de blog [How to troubleshoot failing Artifacts in Azu
 ### Pourquoi mon réseau virtuel existant n’est pas enregistré correctement ?  
 Il se peut que votre nom de réseau virtuel contienne des points. Si tel est le cas, essayez de supprimer les points ou remplacez-les par des tirets, puis réessayez d’enregistrer le réseau virtuel.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

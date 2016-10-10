@@ -5,7 +5,7 @@ Liste de référence de configuration :
 - Nom du réseau virtuel : « TestVNet »
 - Espace d’adressage du réseau virtuel : 192.168.0.0/16
 - Groupe de ressources : « TestRG »
-- Nom du sous-réseau 1 : « FrontEnd » 
+- Nom du sous-réseau 1 : « FrontEnd »
 - Espace d’adressage du sous-réseau 1 : « 192.168.0.0/16 »
 - Nom de sous-réseau de passerelle : « GatewaySubnet » Vous devez toujours nommer un sous-réseau de passerelle *GatewaySubnet*.
 - Espace d'adressage du sous-réseau de passerelle : « 192.168.200.0/26 »
@@ -19,7 +19,7 @@ Liste de référence de configuration :
 
 ## Ajout d’une passerelle
 
-1. Connectez-vous à votre abonnement Azure. 
+1. Connectez-vous à votre abonnement Azure.
 
 		Login-AzureRmAccount
 		Get-AzureRmSubscription 
@@ -70,7 +70,9 @@ Utilisez la commande suivante pour vérifier que la passerelle a été créée.
 
 ## Redimensionner une passerelle
 
-Il existe 3 [références de passerelle](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Vous pouvez utiliser la commande suivante pour modifier la référence de passerelle à tout moment.
+Il existe un certain nombre de [Références (SKU) de passerelle](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Vous pouvez utiliser la commande suivante pour modifier la référence de passerelle à tout moment.
+
+>[AZURE.IMPORTANT] Cette commande ne fonctionne pas pour la passerelle UltraPerformance. Pour modifier votre passerelle en passerelle UltraPerformance, commencez par supprimer la passerelle ExpressRoute, puis créez une passerelle UltraPerformance. Pour mettre à niveau votre passerelle à partir d’une passerelle UltraPerformance, commencez par supprimer la passerelle UltraPerformance, puis créez-en une.
 
 	$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
@@ -81,4 +83,4 @@ Utilisez la commande suivante pour supprimer une passerelle.
 
 	Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

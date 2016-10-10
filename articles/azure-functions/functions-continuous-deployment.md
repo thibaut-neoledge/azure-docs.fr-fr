@@ -1,7 +1,7 @@
 <properties
    pageTitle="Déploiement continu pour Azure Functions | Microsoft Azure"
    description="Utilisez les fonctionnalités de déploiement continu d’Azure App Service pour publier vos fonctions Azure."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/15/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
 
 # Déploiement continu pour Azure Functions 
@@ -48,7 +48,9 @@ Utilisez la procédure suivante pour configurer le déploiement continu d’une 
 1. Dans votre application de fonction dans le [portail Azure Functions](https://functions.azure.com/signin), cliquez sur **Function app settings** (Paramètres de l’application de fonction) > **Configurer l’intégration continue** > **Installation**.
 
 	![Configurer un déploiement continu](./media/functions-continuous-deployment/setup-deployment.png)
-
+	
+	![Configurer un déploiement continu](./media/functions-continuous-deployment/setup-deployment-1.png)
+	
 	Vous pouvez également accéder au panneau Déploiements à partir du démarrage rapide des fonctions en cliquant sur **Start from source control** (Démarrer à partir du contrôle de code source).
 
 2. Dans le panneau Déploiements, cliquez sur **Choisir une source**, renseignez les informations pour la source de déploiement que vous avez choisie, puis cliquez sur **OK**.
@@ -128,4 +130,4 @@ Avant de pouvoir télécharger des fichiers à partir de votre application de fo
 
 [GitHub]: https://github.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

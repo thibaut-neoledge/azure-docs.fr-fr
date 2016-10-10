@@ -70,7 +70,7 @@ Pensez à la communication asynchrone intervenant entre des services faiblement 
 
 Une variante de cette fonctionnalité utilise Azure Storage (objets blob, tables, files d’attente) ou les files d’attente Service Bus en tant qu’emplacements de basculement des appels échoués de la base de données. Par exemple, un appel synchrone au sein d’une application vers un autre service (comme la Base de données SQL Azure) échoue de façon répétée. Vous pouvez être en mesure de sérialiser ces données en instances de stockage durable. Ultérieurement, lors de la remise en ligne du service ou de la base de données, l’application peut de nouveau envoyer la requête à partir du stockage. Cependant, dans ce modèle, l’emplacement intermédiaire n’est pas une composante constante du workflow applicatif. Il est utilisé uniquement dans les scénarios de défaillance.
 
-Dans les deux scénarios, une communication asynchrone et un stockage intermédiaire empêchent que la panne d’un service principal n’arrête l’intégralité de l’application. Les files d’attente font office d’intermédiaires logiques. Pour plus d’informations sur la sélection du service approprié de file d’attente, consultez [Files d’attente Azure et files d’attente Service Bus : comparaison et différences](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
+Dans les deux scénarios, une communication asynchrone et un stockage intermédiaire empêchent que la panne d’un service principal n’arrête l’intégralité de l’application. Les files d’attente font office d’intermédiaires logiques. Pour plus d’informations sur la sélection du service approprié de file d’attente, consultez [Files d’attente Azure et files d’attente Service Bus : comparaison et différences](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 ###Logique de détection des erreurs et de nouvelle tentative
 
@@ -143,4 +143,4 @@ Il est important de noter que l’extensibilité du service cloud affecte direct
 
 Cet article fait partie d’une série d’articles axés sur la [récupération d’urgence et la haute disponibilité des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). Le prochain article de cette série est [Récupération d’urgence des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

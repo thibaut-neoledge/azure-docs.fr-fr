@@ -3,7 +3,7 @@
 	description="Mettez en place une passerelle de données pour déplacer vos données entre un emplacement local et le cloud. Utilisez la passerelle de gestion des données dans Azure Data Factory pour déplacer vos données." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/30/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Passerelle de gestion de données
 La passerelle de gestion des données est un agent client que vous devez installer dans votre environnement local pour permettre la copie des données entre le cloud et les magasins de données locaux. Les magasins de données locaux pris en charge par Data Factory sont répertoriés dans la section [Sources de données prises en charge](data-factory-data-movement-activities.md##supported-data-stores).
@@ -86,7 +86,7 @@ La passerelle de gestion des données peut être installée comme suit :
 7. Dans la page **Prêt pour l’installation**, cliquez sur **Installer**.
 8. Cliquez sur **Terminer** pour terminer l’installation.
 9. Obtenez la clé à partir du portail Azure. Pour des instructions pas à pas, consultez la section suivante.
-10. Sur la page **Enregistrer passerelle** du **Gestionnaire de configuration de passerelle de gestion de données** en cours d’exécution sur votre machine, procédez comme suit :
+10. Sur la page **Enregistrer la passerelle** du **Gestionnaire de configuration de passerelle de gestion de données** en cours d’exécution sur votre machine, procédez comme suit :
 	1. Collez la clé dans le texte.
 	2. Éventuellement, cliquez sur **Afficher la clé de passerelle** pour afficher le texte de la clé.
 	3. Cliquez sur **S'inscrire**.
@@ -142,7 +142,7 @@ Au niveau du pare-feu Windows, ces ports de sortie sont normalement activés. Si
 
 Assurez-vous que les règles de pare-feu sont correctement activées sur le pare-feu d’entreprise, sur le pare-feu Windows de l’ordinateur de passerelle, ainsi que sur le magasin de données lui-même. Activer ces règles permet à la passerelle de se connecter correctement à la source et au récepteur. Activez les règles pour chaque magasin de données impliqué dans l’opération de copie.
 
-Par exemple, pour copier à partir d’un **magasin de données local vers un récepteur de base de données SQL Azure ou un récepteur Azure SQL Data Warehouse**, vous devez effectuer les opérations suivantes :
+Par exemple, pour copier à partir d’une **banque de données locale vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse**, effectuez les opérations suivantes :
 
 - Autorisez le trafic **TCP** sortant sur le port **1433** pour le pare-feu Windows et les pare-feu d’entreprise
 - Configurez les paramètres de pare-feu du serveur SQL Azure pour ajouter l’adresse IP de l’ordinateur de passerelle à la liste d’adresses IP autorisées.
@@ -182,7 +182,7 @@ Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Ge
 Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy HTTP, la passerelle utilise le paramètre du proxy dans diahost.exe.config. Si aucun proxy n’est spécifié dans diahost.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy. La procédure suivante fournit des instructions pour mettre à jour le fichier de configuration.
 
 1.	Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config pour sauvegarder le fichier d’origine.
-2.	Lancez Notepad.exe en tant qu’administrateur, puis ouvrez le fichier texte C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config. La balise par défaut pour system.net apparaît comme suit :
+2.	Lancez Notepad.exe en tant qu’administrateur, puis ouvrez le fichier texte C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config. La balise par défaut pour system.net apparaît dans le code suivant :
 
 			<system.net>
 				<defaultProxy useDefaultCredentials="true" />
@@ -208,7 +208,7 @@ Outre ces points, vous devez également vous assurer que Microsoft Azure figure 
 Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, et que la passerelle ne peut pas se connecter à Data Factory pour s’authentifier. Reportez-vous à la section précédente pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés.
 
 1.	Lorsque vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
-2.	Lorsque vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Lorsque vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Passerelle de gestion des données », des messages d’erreur tels que les suivants s’affichent : `Unable to connect to the remote server` `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
+2.	Lorsque vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Lorsque vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Passerelle de gestion des données », des messages d’erreur tels que le suivant s’affichent : `Unable to connect to the remote server` `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### Ouvrir le port 8050 pour le chiffrement des informations d’identification 
 Le port de trafic entrant **8050** est utilisé par l’application **Définition des informations d’identification** pour relayer les informations d’identification à la passerelle lorsque vous configurez un service lié local dans le portail Azure. Lors de l’installation de la passerelle, l’installation de la passerelle de gestion des données ouvre cette dernière par défaut sur l’ordinateur de passerelle.
@@ -236,14 +236,14 @@ Vous pouvez installer la mise à jour immédiatement ou attendre que la passerel
 
 ![Mise à jour dans DMG Configuration Manager](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
 
-Le message de notification dans la barre d’état système se présente comme suit :
+Le message de notification dans la barre d’état système se présenterait comme l’image suivante :
 
 ![Message de barre d’état système](./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png)
 
 Vous voyez s’afficher la progression de l’opération de mise à jour (manuelle ou automatique) dans la barre d’état système. À la prochaine ouverture du Gestionnaire de configuration de passerelle, un message s’affiche dans la barre de notification, vous indiquant que la passerelle a été mise à jour, et contenant un lien vers la rubrique relative aux [nouveautés](data-factory-gateway-release-notes.md).
 
 ### Pour activer/désactiver une fonctionnalité de mise à jour automatique
-Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique de la manière suivante :
+Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique comme suit :
 
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
 2. Accédez au dossier C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\PowerShellScript.
@@ -262,7 +262,7 @@ Une fois la passerelle installée, vous pouvez lancer le Gestionnaire de configu
 - Exécutez l’exécutable **ConfigManager.exe** dans le dossier : **C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared**.
  
 ### page d'accueil
-La page d’accueil permet d’effectuer les opérations suivantes :
+La page d’accueil permet d’effectuer les actions suivantes :
 
 - Afficher l’état de la passerelle (connectée au service cloud ou non, etc.).
 - **Inscrire** à l’aide d’une clé à partir du portail.
@@ -271,7 +271,7 @@ La page d’accueil permet d’effectuer les opérations suivantes :
 - Afficher la date de la **dernière mise à jour** de la passerelle.
 
 ### Page Paramètres
-La page Paramètres permet d’effectuer les opérations suivantes :
+La page Paramètres permet d’effectuer les actions suivantes :
 
 - Afficher, modifier et exporter le **certificat** utilisé par la passerelle. Ce certificat est utilisé pour chiffrer les informations d’identification de la source de données.
 - Modifier le **port HTTPS** du point de terminaison. La passerelle ouvre un port pour définir les informations d’identification de la source de données.
@@ -279,7 +279,7 @@ La page Paramètres permet d’effectuer les opérations suivantes :
 - Afficher le **Certificat SSL** qui est utilisé pour la communication SSL entre le portail et la passerelle pour définir les informations d’identification pour les sources de données.
 
 ### Page Diagnostics
-La page Diagnostics permet d’effectuer les opérations suivantes :
+La page Diagnostics permet d’effectuer les actions suivantes :
 
 - Activer la **journalisation** détaillée, afficher les journaux dans l’observateur d’événements et envoyer des journaux à Microsoft en cas de défaillance.
 - **Tester la connexion** à une source de données.
@@ -296,7 +296,7 @@ Cette page d’aide affiche les informations suivantes :
 - Pour plus d’informations, vous pouvez consulter les journaux de la passerelle contenus dans les journaux des événements Windows. Vous les trouverez à l’aide de **l’Observateur d’événements** de Windows sous **Journaux des applications et services** > **Passerelle de gestion des données**. Lors de la résolution des problèmes liés à la passerelle, recherchez des événements d’erreur au niveau de l’observateur d’événements.
 - Si la passerelle cesse de fonctionner lorsque vous **modifiez le certificat**, redémarrez le **service de passerelle de gestion des données** à l’aide de l’outil Gestionnaire de configuration de passerelle de gestion des données Microsoft ou de l’applet du Panneau de configuration Services. Si l’erreur persiste, vous devrez peut-être attribuer des autorisations explicites à l’utilisateur du service de passerelle de gestion des données pour lui donner accès au certificat dans le Gestionnaire de certificats (certmgr.msc). Le compte d’utilisateur par défaut du service est **NT Service\\DIAHostService**.
 - Si l’application **Gestionnaire d’informations d’identification** ne parvient pas à **chiffrer** les informations d’identification lorsque vous cliquez sur le bouton Chiffrer dans Data Factory Editor, vérifiez que vous exécutez cette application sur **l’ordinateur de passerelle**. Si ce n’est pas le cas, exécutez l’application sur l’ordinateur passerelle et essayez de chiffrer les informations d’identification.
-- Si vous voyez des erreurs liées à la connexion à la banque de données ou au pilote, procédez comme suit :
+- Si vous voyez des erreurs liées à la connexion à la banque de données ou au pilote, procédez comme suit :
 	- Lancez le **Gestionnaire de configuration de la passerelle de gestion des données** sur l’ordinateur de passerelle.
 	- Basculez vers l’onglet **Diagnostics**
 	- Sélectionnez/Saisissez les valeurs appropriées pour les champs dans le groupe **Tester la connexion à une source de données locale à l’aide de cette passerelle**
@@ -310,15 +310,15 @@ Si vous rencontrez des problèmes avec la passerelle et que vous contactez le Su
 1. Basculez vers l’onglet **Diagnostics** du Gestionnaire de configuration de passerelle.
  
 	![Passerelle de gestion des données - Onglet Diagnostics](media/data-factory-data-management-gateway/data-management-gateway-diagnostics-tab.png)
-2. Cliquez sur le lien **Envoyer des journaux** pour afficher la boîte de dialogue suivante.
+2. Cliquez sur le lien **Envoyer des journaux** pour afficher la boîte de dialogue suivante :
 
 	![Passerelle de gestion de données - Envoyer des journaux](media/data-factory-data-management-gateway/data-management-gateway-send-logs-dialog.png)
 3. (facultatif) Cliquez sur **Afficher les journaux** pour consulter les journaux dans l’observateur d’événements.
 4. (facultatif) Cliquez sur **Confidentialité** pour consulter la déclaration de confidentialité des services en ligne Microsoft.
-3. Une fois que vous êtes satisfait de ce que vous allez charger, cliquez sur **Envoyer des journaux** pour envoyer les journaux des sept derniers jours à Microsoft en vue de la résolution des problèmes. L’état de l’opération d’envoi des journaux devrait s’afficher comme indiqué sur l’image suivante.
+3. Une fois que vous êtes satisfait de ce que vous allez charger, cliquez sur **Envoyer des journaux** pour envoyer les journaux des sept derniers jours à Microsoft en vue de la résolution des problèmes. L’état de l’opération d’envoi des journaux devrait s’afficher comme indiqué sur l’image suivante :
 
 	![Passerelle de gestion de données - État de l’opération Envoyer des journaux](media/data-factory-data-management-gateway/data-management-gateway-send-logs-status.png)
-4. Une fois l’opération terminée, la boîte de dialogue de l’image suivante s’affiche.
+4. Une fois l’opération terminée, la boîte de dialogue de l’image suivante s’affiche :
 	
 	![Passerelle de gestion de données - État de l’opération Envoyer des journaux](media/data-factory-data-management-gateway/data-management-gateway-send-logs-result.png)
 5. Notez **l’ID du rapport** et partagez-le avec le Support Microsoft. L’ID du rapport permet de localiser les journaux de la passerelle que vous avez téléchargés pour la résolution des problèmes. L’ID du rapport est également enregistré dans l’Observateur d’événements pour référence. Vous pouvez le trouver en recherchant l’ID d’événement « 25 » et en vérifiant la date et l’heure.
@@ -397,7 +397,7 @@ Cette section décrit les opérations pour déplacer une passerelle client d’u
  
 	![Spécifier le certificat](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
-	Vous pouvez exporter un certificat à partir de l’ancienne passerelle en procédant comme suit : lancez le Gestionnaire de configuration de passerelle de gestion des données sur l’ancien panneau, basculez vers l’onglet **certificat** cliquez sur le bouton **Exporter** et suivez les instructions.
+	Vous pouvez exporter un certificat à partir de l’ancienne passerelle en procédant comme suit : lancez le Gestionnaire de configuration de passerelle de gestion des données sur l’ancien panneau, basculez vers l’onglet **Certificat**, cliquez sur le bouton **Exporter** et suivez les instructions.
 10. Une fois l’inscription de la passerelle terminée, vous devez voir **Inscription** définie sur **Inscrit** et **État** sur la valeur **Démarré** de la page d’accueil du Gestionnaire de configuration de passerelle.
 
 ## Chiffrement des informations d’identification 
@@ -409,7 +409,7 @@ Pour chiffrer les informations d’identification dans Data Factory Editor, proc
 3. Entrez le nom du serveur pour la propriété **Data Source** dans **connectionString**.
 4. Entrez le nom de la base de données pour la propriété **Initial Catalog** dans **connectionString**.
 5. Cliquez sur le bouton **Chiffrer** dans la barre de commandes qui lance l’application ClickOnce **Gestionnaire d’informations d’identification**. La boîte de dialogue **Définition des informations d’identification** doit s’afficher. ![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
-6. Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :
+6. Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :
 	1.	Sélectionnez l’**authentification** que le service de Data Factory doit utiliser pour se connecter à la base de données.
 	2.	Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME**.
 	3.	Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**.
@@ -496,4 +496,4 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 ## Étapes suivantes
 - Consultez la page [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md). Dans cette procédure pas à pas, vous créez un pipeline qui utilise la passerelle qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure AD à ScreenSteps
@@ -76,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-screensteps-tutorial/IC778520.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à ScreenSteps** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.ScreenSteps.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à ScreenSteps** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.ScreenSteps.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-screensteps-tutorial/IC778521.png "Configurer l’URL de l’application")
 
@@ -168,4 +168,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

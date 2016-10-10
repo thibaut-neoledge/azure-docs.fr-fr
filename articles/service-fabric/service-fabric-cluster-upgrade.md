@@ -1,6 +1,6 @@
 <properties
    pageTitle="Mise à niveau d'un cluster Service Fabric | Microsoft Azure"
-   description="Mettez à niveau le code et/ou la configuration Service Fabric qui exécute un cluster Service Fabric, y compris la mise à niveau de certificat, l'ajout de ports d'application, les correctifs de système d'exploitation, etc. À quoi vous attendre lors de l'exécution des mises à niveau ?"
+   description="Mettez à niveau le code et/ou la configuration Service Fabric qui exécute un cluster Service Fabric. Cela inclut le mode de mise à jour du cluster, la mise à niveau de certificats, l’ajout de ports d’application, l’application des correctifs de système d’exploitation, etc. À quoi vous attendre lors de l'exécution des mises à niveau ?"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/13/2016"
+   ms.date="09/22/2016"
    ms.author="chackdan"/>
 
 
@@ -21,13 +21,104 @@
 
 Un cluster Azure Service Fabric est une ressource que vous possédez mais qui est en partie gérée par Microsoft. Cet article décrit ce qui est géré automatiquement et ce que vous pouvez configurer vous-même.
 
-## Configuration du cluster qui est gérée automatiquement
+## Contrôle de la version de la structure qui s’exécute sur votre cluster
 
-Microsoft tient à jour le code de l'infrastructure et la configuration exécutés dans un cluster. Nous effectuons des mises à niveau automatiques surveillées du logiciel en fonction des besoins. Ces mises à niveau peuvent concerner le code, la configuration ou les deux. Pour garantir que votre application ne subit aucun impact ou un impact minimal en raison de ces mises à niveau, nous effectuons les mises à niveau en trois phases, comme suit.
+Vous pouvez définir votre cluster de façon à recevoir des mises à niveau de structure automatiques, lorsque Microsoft publie une nouvelle version, ou opter pour la sélection de la version de structure prise en charge que vous voulez associer à votre cluster.
+
+Pour ce faire, définissez la configuration de cluster « upgradeMode » sur le portail, ou utilisez Resource Manager lors de la création ou ultérieurement, sur un cluster activé.
+
+>[AZURE.NOTE] Faites en sorte que votre cluster exécute systématiquement une version prise en charge de la structure. Lorsque nous annonçons le lancement d’une nouvelle version de Service Fabric, la version précédente est signalée comme étant en fin de vie 60 jours minimum après la date de lancement. Les nouvelles versions sont annoncées [sur le blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). La nouvelle version peut alors être sélectionnée.
+
+Un événement d’intégrité est généré 14 jours avant la date d’expiration de la version qu’exécute votre cluster. Il place le cluster dans un état d’avertissement. Ce dernier conserve cet état tant que vous n’avez pas effectué de mise à niveau vers une version prise en charge.
+
+
+### Définition du mode de mise à niveau via le portail 
+
+Vous pouvez définir le cluster sur le mode Manuel ou Automatique lors de la création du cluster.
+
+![Create\_Manualmode][Create_Manualmode]
+
+Vous pouvez définir le cluster sur le mode Automatique ou Manuel dans le cas d’un cluster activé, à l’aide de l’expérience de gestion.
+
+#### Mise à niveau vers une nouvelle version sur un cluster défini sur le mode Manuel, via le portail
+ 
+Pour effectuer la mise à niveau vers une nouvelle version, il vous suffit de sélectionner la version disponible dans la liste déroulante, puis d’enregistrer. La mise à niveau de Service Fabric est lancée automatiquement. Les stratégies de contrôle d’intégrité du cluster (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la mise à niveau.
+
+Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Faites dérouler ce document pour en savoir plus sur la définition de ces stratégies de contrôle d’intégrité personnalisées.
+
+Une fois que vous avez corrigé les problèmes entraînant la restauration, vous devez initier à nouveau la mise à niveau, en suivant la procédure décrite précédemment.
+
+![Manage\_Automaticmode][Manage_Automaticmode]
+
+### Définition du mode de mise à niveau via un modèle Resource Manager 
+
+Ajoutez la configuration « upgradeMode » dans la définition de ressource Microsoft.ServiceFabric/clusters et définissez le paramètre « clusterCodeVersion » sur l’une des versions de structure prises en charge, comme indiqué ci-dessous, puis déployez le modèle. Les valeurs valides pour l’élément « upgradeMode » sont « Manuel » ou « Automatique ».
+ 
+![ARMUpgradeMode][ARMUpgradeMode]
+
+#### Mise à niveau vers une nouvelle version sur un cluster défini sur le mode Manuel, via un modèle Resource Manager
+ 
+Lorsque le cluster est en mode Manuel, si vous voulez effectuer une mise à niveau vers une nouvelle version, modifiez le paramètre « clusterCodeVersion » en indiquant une version prise en charge et en la déployant. Le déploiement du modèle lance la mise à niveau de la structure automatiquement. Les stratégies de contrôle d’intégrité du cluster (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la mise à niveau.
+
+Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Faites dérouler ce document pour en savoir plus sur la définition de ces stratégies de contrôle d’intégrité personnalisées.
+
+Une fois que vous avez corrigé les problèmes entraînant la restauration, vous devez initier à nouveau la mise à niveau, en suivant la procédure décrite précédemment.
+
+### Obtenir la liste de toutes les versions disponibles pour tous les environnements dans le cas d’un abonnement donné
+
+Exécutez la commande suivante. La sortie doit ressembler à ce qui suit.
+
+Le paramètre « supportExpiryUtc » vous indique lorsqu’une version donnée arrive à expiration ou a expiré. La version la plus récente n’est pas associée à une date valide. Elle a donc la valeur « 9999-12-31T23:59:59.9999999 », qui signifie simplement que la date d’expiration n’est pas encore définie.
+
+```REST
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/clusterVersions?api-version= 2016-09-01
+
+Output:
+{
+                  "value": [
+                    {
+                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
+                      "name": "5.0.1427.9490",
+                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
+                      "properties": {
+                        "codeVersion": "5.0.1427.9490",
+                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
+                        "environment": "Windows"
+                      }
+                    },
+                    {
+                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
+                      "name": "5.1.1427.9490",
+                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+                      "properties": {
+                        "codeVersion": "5.1.1427.9490",
+                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+                        "environment": "Windows"
+                      }
+                    },
+                    {
+                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
+                      "name": "4.4.1427.9490",
+                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+                      "properties": {
+                        "codeVersion": "4.4.1427.9490",
+                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+                        "environment": "Linux"
+                      }
+                    }
+                  ]
+                }
+
+
+```
+
+## Comportement de mise à niveau de la structure lorsque le mode de mise à niveau du cluster est Automatique
+
+Microsoft tient à jour le code de l'infrastructure et la configuration exécutés dans un cluster. Nous effectuons des mises à niveau automatiques surveillées du logiciel en fonction des besoins. Ces mises à niveau peuvent concerner le code, la configuration ou les deux. Pour garantir que votre application n’est pas affectée par ces mises à niveau, ou l’est au minimum, nous effectuons ces dernières en plusieurs phases :
 
 ### Phase 1 : Une mise à niveau est effectuée à l'aide de toutes les stratégies d'intégrité du cluster
 
-Pendant cette phase, les mises à niveau traitent un domaine de mise à niveau à la fois et les applications qui étaient en cours d'exécution dans le cluster continuent à fonctionner sans interruption. Les stratégies d'intégrité du cluster (une combinaison de l'intégrité du nœud et l'intégrité de toutes les applications en cours d'exécution dans le cluster) sont respectées pendant la durée de la mise à niveau.
+Pendant cette phase, les mises à niveau traitent un domaine de mise à niveau à la fois et les applications qui étaient en cours d'exécution dans le cluster continuent à fonctionner sans interruption. Les stratégies de contrôle d’intégrité du cluster (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la mise à niveau.
 
 Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Un message électronique est envoyé au propriétaire de l’abonnement. Le message électronique contient les informations suivantes :
 
@@ -55,7 +146,7 @@ Si les stratégies d'intégrité du cluster sont respectées, la mise à niveau 
 
 ### Phase 3 : Une mise à niveau est effectuée à l'aide de stratégies d'intégrité agressives
 
-Les stratégies d'intégrité de cette phase visent à compléter la mise à niveau plutôt qu’à protéger l'intégrité des applications. Très peu de mises à niveau du cluster se terminent par cette phase. Si votre cluster atteint cette phase, il est très probable que votre application devienne défectueuse et/ou ne soit plus disponible.
+Les stratégies d'intégrité de cette phase visent à compléter la mise à niveau plutôt qu’à protéger l'intégrité des applications. Un nombre très faible de mises à niveau du cluster se termine par cette phase. Si votre cluster atteint cette phase, il est très probable que votre application devienne défectueuse et/ou ne soit plus disponible.
 
 Comme pour les deux autres phases, les mises à niveau de la Phase 3 traitent un domaine de mise à niveau à la fois.
 
@@ -67,7 +158,7 @@ Si les stratégies d'intégrité du cluster sont respectées, la mise à niveau 
 
 ## Configurations de cluster que vous contrôlez
 
-Voici les configurations que vous pouvez modifier sur un cluster en direct.
+Outre la possibilité de définir le mode de mise à niveau du cluster, voici les configurations que vous pouvez modifier sur un cluster activé.
 
 ### Certificats
 
@@ -92,7 +183,7 @@ Pour ouvrir un nouveau port sur toutes les machines virtuelles dans un type de n
 
     Ajoutez une nouvelle règle au même équilibrage de charge à l'aide de la sonde créée à l'étape précédente.
 
-    ![Capture d'écran qui illustre l'ajout d'une nouvelle règle à un équilibrage de charge sur le portail.][AddingLBRules]
+    ![Ajout d’une nouvelle règle à un équilibrage de charge sur le portail][AddingLBRules]
 
 
 ### Propriétés de positionnement
@@ -105,6 +196,18 @@ Pour chaque type de nœud, vous pouvez ajouter des propriétés de positionnemen
 
 Pour chaque type de nœud, vous pouvez ajouter des mesures de capacité personnalisées que vous souhaitez utiliser dans vos applications pour créer un rapport sur la charge. Pour plus d’informations sur l’utilisation de métriques de capacité pour créer un rapport sur la charge, consultez les documents Gestionnaire de ressources de cluster Service Fabric sur la [Description de votre cluster](service-fabric-cluster-resource-manager-cluster-description.md) et les [Métriques et charge](service-fabric-cluster-resource-manager-metrics.md).
 
+### Paramètres de mise à niveau de la structure : stratégies de contrôle d’intégrité
+
+Vous pouvez spécifier des stratégies de contrôle d’intégrité personnalisées pour la mise à niveau de la structure. Si vous avez défini votre cluster sur une mise à niveau automatique de la structure, ces stratégies sont appliquées lors de la phase 1 de cette mise à niveau. Si vous avez défini votre cluster sur une mise à niveau manuelle de la structure, ces stratégies sont appliquées chaque fois que vous sélectionnez une nouvelle version, ce qui amène le système à déclencher la mise à niveau de la structure dans votre cluster. Si vous ne remplacez pas les stratégies, les valeurs par défaut sont utilisées.
+
+Vous pouvez spécifier des stratégies de contrôle d’intégrité personnalisées ou passer en revue les paramètres actuels dans le panneau Fabric Upgrade (Mise à niveau de la structure), en sélectionnant les paramètres de mise à niveau avancés. L’image suivante vous explique comment procéder.
+
+![Gérer les stratégies de contrôle d’intégrité personnalisées][HealthPolices]
+
+### Personnaliser les paramètres de la structure pour votre cluster
+
+Consultez les [paramètres de la structure du cluster Service Fabric](service-fabric-cluster-fabric-settings.md) pour savoir quels éléments vous pouvez personnaliser et connaître la procédure à suivre pour ce faire.
+
 ### Correctifs de système d'exploitation sur les machines virtuelles qui composent le cluster
 
 Cette fonctionnalité sera à l’avenir automatisée. Mais, pour le moment, vous êtes chargé de corriger vos machines virtuelles. Vous devez effectuer cette opération sur une seule machine virtuelle à la fois, afin de ne pas en arrêter plusieurs à la fois.
@@ -114,7 +217,7 @@ Cette fonctionnalité sera à l’avenir automatisée. Mais, pour le moment, vou
 Si vous devez mettre à niveau l'image du système d'exploitation sur les machines virtuelles du cluster, vous devez procéder une machine virtuelle à la fois. Vous êtes responsable de cette mise à niveau, rien n’est actuellement automatisé à ce sujet.
 
 ## Étapes suivantes
-
+- Découvrez comment personnaliser certains [paramètres de structure de cluster Service Fabric](service-fabric-cluster-fabric-settings.md).
 - Découvrez comment [mettre votre cluster à l’échelle](service-fabric-cluster-scale-up-down.md).
 - Découvrez les [mises à niveau de l’application](service-fabric-application-upgrade.md).
 
@@ -122,5 +225,9 @@ Si vous devez mettre à niveau l'image du système d'exploitation sur les machin
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
+[HealthPolices]: ./media/service-fabric-cluster-upgrade/Manage_AutomodeWadvSettings.PNG
+[ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
+[Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
+[Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

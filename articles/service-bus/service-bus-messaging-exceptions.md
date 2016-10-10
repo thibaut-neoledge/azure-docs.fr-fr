@@ -137,8 +137,8 @@ Pour obtenir la référence complète sur Service Bus et l’API .NET Event Hubs
 
 Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/service-bus/), consultez les rubriques qui suivent.
 
-- [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
+- [Présentation de la messagerie Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Architecture de Service Bus](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -22,7 +22,7 @@ Logic Apps propose un ensemble complet d’outils et de modèles afin de garanti
 
 ## Stratégies de nouvelle tentative
 
-Le type de gestion des erreurs et des exceptions le plus simple consiste à utiliser une stratégie de nouvelle tentative. Cette stratégie définit si l’action doit faire l’objet d’une nouvelle tentative en cas d’expiration ou d’échec de la demande initiale (toute demande ayant entraîné une réponse 429 ou 5xx). Par défaut, toutes les actions font l’objet de 3 tentatives supplémentaires sur des intervalles de 20 secondes. Par conséquent, si la première demande reçoit une réponse `500 Internal Server Error`, le moteur de flux de travail s’interrompt pendant 20 secondes, puis tente à nouveau d’exécuter la demande. Si à l’issue de toutes les tentatives, la réponse renvoie toujours une exception ou un échec, le flux de travail continue et marque l’état de l’action comme `Failed`.
+Le type de gestion des erreurs et des exceptions le plus simple consiste à utiliser une stratégie de nouvelle tentative. Cette stratégie définit si l’action doit faire l’objet d’une nouvelle tentative en cas d’expiration ou d’échec de la demande initiale (toute demande ayant entraîné une réponse 429 ou 5xx). Par défaut, toutes les actions font l’objet de 4 tentatives supplémentaires sur des intervalles de 20 secondes. Par conséquent, si la première demande reçoit une réponse `500 Internal Server Error`, le moteur de flux de travail s’interrompt pendant 20 secondes, puis tente à nouveau d’exécuter la demande. Si à l’issue de toutes les tentatives, la réponse renvoie toujours une exception ou un échec, le flux de travail continue et marque l’état de l’action comme `Failed`.
 
 Vous pouvez configurer des stratégies de nouvelle tentative dans les **entrées** d’une action en particulier. Une stratégie de nouvelle tentative peut être configurée pour effectuer jusqu’à 4 tentatives avec des intervalles d’1 heure. Des détails complémentaires sur les propriétés d’entrée sont [disponibles sur MSDN][retryPolicyMSDN].
 
@@ -207,4 +207,4 @@ Les modèles ci-dessus sont très utiles pour gérer les erreurs et les exceptio
 <!-- References -->
 [retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

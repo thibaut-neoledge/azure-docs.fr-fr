@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="robinsh"/>
+	ms.author="cbrooks;robinsh"/>
 
 #Guide de sécurité Azure Storage
 
@@ -632,4 +632,4 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
 
 	Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

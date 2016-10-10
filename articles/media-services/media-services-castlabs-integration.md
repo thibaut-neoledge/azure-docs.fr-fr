@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services" 
+	pageTitle="Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services | Microsoft Azure" 
 	description="Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences castLabs." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="Mingfeiy;willzhan;Juliako"/>
 
 
@@ -87,7 +87,7 @@ Pour utiliser l'application console :
 
 4.	Utilisez un AssetId pour nommer l'élément multimédia dans le système castLabs (ligne 44 dans le fichier Program.cs).
 
-	Vous devez définir AssetId pour **castLabs** ; il doit s'agir d'une chaîne alphanumérique unique.
+	Vous devez définir AssetId pour **castLabs** ; il doit s'agir d'une chaîne alphanumérique unique.
 
 5.	Exécutez le programme.
 
@@ -122,4 +122,4 @@ Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine)
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

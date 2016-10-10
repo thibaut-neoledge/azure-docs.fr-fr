@@ -4,7 +4,7 @@
     services="storage"
     documentationCenter="na"
     authors="aungoo-msft"
-    manager=""
+    manager="tadb"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/25/2016"
-    ms.author="aungoo-msft"/>
+    ms.date="09/21/2016"
+    ms.author="aungoo;robinsh"/>
 
 
 # Migration vers le stockage Premium Azure
@@ -58,7 +58,7 @@ Il existe trois types de disque qui peuvent être utilisés avec votre machine v
 
 |Type de disque de stockage Premium|P10|P20|P30|
 |:---:|:---:|:---:|:---:|
-|Taille du disque|128 Go|512 Go|1024 Go (1 To)|
+|Taille du disque|128 Go|512 Go|1024 Go (1 To)|
 |IOPS par disque|500|2 300|5 000|
 |Débit par disque|100 Mo par seconde|150 Mo par seconde|200 Mo par seconde|
 
@@ -79,7 +79,7 @@ En fonction de votre charge de travail, déterminez si les disques de données s
 #### Stratégie de mise en cache du disque
 Par défaut, la stratégie de mise en cache du disque est *Lecture seule* pour tous les disques de données Premium et *Lecture-écriture* pour le disque du système d’exploitation Premium attaché à la machine virtuelle. Ce paramètre de configuration est recommandé pour optimiser les performances des E/S de votre application. Pour les disques de données en écriture seule ou avec d'importantes opérations d'écriture (par ex., les fichiers journaux de SQL Server), désactivez la mise en cache du disque pour de meilleures performances de l'application. Les paramètres du cache pour les disques de données existants peuvent être mis à jour à l’aide du [portail Azure](https://portal.azure.com) ou du paramètre *- HostCaching* de l’applet de commande *Set-AzureDataDisk*.
 
-#### Emplacement
+#### Lieu
 Choisissez un emplacement où le stockage Azure Premium est disponible. Pour obtenir des informations à jour sur les emplacements disponibles, consultez [Services Azure par région](https://azure.microsoft.com/regions/#services). Les machines virtuelles situées dans la même région que le compte de stockage qui stocke les disques de la machine virtuelle offrent des performances supérieures que si elles se trouvent dans des régions distinctes.
 
 #### Autres paramètres de configuration de machine virtuelle Azure
@@ -94,7 +94,7 @@ La section suivante fournit des instructions pour préparer les disques durs vir
 - Un disque de système d’exploitation qui peut être utilisé avec une instance unique de machine virtuelle Azure.
 - Un disque de données qui peut être joint à une machine virtuelle Azure pour un stockage persistant.
 
-### Conditions préalables
+### Composants requis
 
 Pour migrer vos machines virtuelles, vous devez :
 
@@ -680,4 +680,4 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

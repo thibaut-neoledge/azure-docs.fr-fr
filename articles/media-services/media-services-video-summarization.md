@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo"
+	pageTitle="Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo | Microsoft Azure"
 	description="La synthèse d’une vidéo peut vous aider à créer des synthèses de longues vidéos en sélectionnant automatiquement des extraits intéressants à partir de la vidéo source. Elle est utile quand vous voulez offrir une présentation rapide de ce qui se trouve dans une vidéo longue."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
 
 #Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo
@@ -273,4 +273,4 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Connecter des machines virtuelles Windows créées avec le modèle de déploiement classique à un réseau virtuel ou à un service cloud
@@ -33,4 +33,4 @@ Si vous placez vos machines virtuelles dans le même service cloud autonome, vou
 
 Une fois que vous avez créé une machine virtuelle, il convient de lui [ajouter un disque de données](virtual-machines-windows-classic-attach-disk.md) pour que vos services et charges de travail disposent d’un emplacement de stockage des données.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Didacticiel : Intégration d’Azure Active Directory avec Rally Software
@@ -90,13 +90,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 7.  Cliquez sur le bouton **Action** dans la barre d’outils située sur la droite, puis sélectionnez **Edit Subscription**.
 
-8.  Dans la page **Subscription**, procédez comme suit, puis cliquez sur **Save & Close**.
+8.  Dans la page **Subscription**, procédez comme suit, puis cliquez sur **Save & Close** :
 
     ![Authentification](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Authentification")
 
     1.  Sélectionnez **Rally or SSO authentication** dans la liste déroulante Authentication.
     2.  Dans la page **Configurer l’authentification unique sur Rally Software** du portail Azure Classic, copiez la valeur de **ID de fournisseur d’identité** et collez-la dans la zone de texte **Identity Provider URL**
-    3.  Dans la page **Configurer l’authentification unique sur Rally Software** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**.
+    3.  Dans la page **Configurer l’authentification unique sur Rally Software** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**.
 
 9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -117,7 +117,7 @@ Pour AAD les utilisateurs puissent se connecter, ils doivent être approvisionn�
 
 4.  Dans la section **Create User**, procédez comme suit :
 
-    ![Créer un utilisateur](./media/active-directory-saas-rally-software-tutorial/IC781040.png "Créer un utilisateur")
+    ![Create User](./media/active-directory-saas-rally-software-tutorial/IC781040.png "Create User")
 
     1.  Dans la zone de texte **User Name**, tapez le nom de l’utilisateur Azure AD que vous souhaitez approvisionner.
     2.  Dans la zone de texte **Email Address**, tapez l’adresse de messagerie de l’utilisateur Azure AD que vous souhaitez approvisionner.
@@ -143,4 +143,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

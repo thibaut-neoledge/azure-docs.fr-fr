@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 
@@ -47,7 +47,7 @@ Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce 
 - **aggregatewordcount** : programme map/reduce basé sur un agrégat qui compte les mots contenus dans les fichiers d’entrée
 - **aggregatewordhist** : programme map/reduce basé sur un agrégat qui calcule l’histogramme des mots contenus dans les fichiers d’entrée
 - **bbp** : programme map/reduce qui utilise Bailey-Borwein-Plouffe pour calculer la valeur exacte de Pi
-- **dbcount** : exemple de tâche qui compte le nombre d’affichages de pages d’une base de données
+- **dbcount** : exemple de tâche qui compte les journaux d’affichage de pages stockés dans une base de données.
 - **distbbp** : programme map/reduce qui utilise une formule de type BBP pour calculer la valeur exacte de Pi
 - **grep** : programme map/reduce basé sur un agrégat qui compte les correspondances des expressions régulières dans l’entrée
 - **joint** : tâche qui génère des jeux de données à partition égale, triés sur la jointure
@@ -93,7 +93,7 @@ Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce 
 
         Usage: wordcount <in> [<in>...] <out>
 
-    Celui-ci indique que vous pouvez fournir plusieurs chemins d’accès d’entrée pour les documents source. Le chemin d’accès final est l’endroit où se trouve la sortie (nombre de mots dans les documents source).
+    Cela indique que vous pouvez fournir plusieurs chemins d’accès d’entrée pour les documents sources. Le chemin d’accès final correspond à l’emplacement de stockage de la sortie (nombre de mots dans les documents sources).
 
 4. Pour compter tous les mots figurant dans les carnets de Léonard De Vinci qui sont fournis comme exemples de données avec votre cluster, utilisez les éléments suivants :
 
@@ -101,7 +101,7 @@ Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce 
 
     L’entrée de cette tâche est lue dans **wasbs:///example/data/gutenberg/davinci.txt**.
 
-    La sortie de cet exemple est stockée dans **wasbs:///example/data/davinciwordcount**.
+    La sortie de cet exemple est stocké dans **wasbs:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE] Comme indiqué dans l’aide de l’exemple wordcount, vous pouvez également spécifier plusieurs fichiers d’entrée. Par exemple, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` compte les mots figurant dans les fichiers davinci.txt et ulysses.txt.
 
@@ -111,7 +111,7 @@ Les clusters HDInsight sur Linux fournissent un ensemble d’exemples MapReduce 
 
     Cela concatène tous les fichiers de sortie générés par la tâche et les affiche. Pour cet exemple de base, il n’existe qu’un seul fichier. Toutefois, dans le cas de plusieurs fichiers, cette commande effectue une itération pour chacun d’eux.
 
-    À partir de cette commande, vous devez voir une sortie similaire à ce qui suit :
+    Le résultat ressemble à ce qui suit :
 
         zum     1
         zur     1
@@ -162,7 +162,7 @@ Le contenu doit être identique à ce qui suit :
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## PI (π)
+## Pi (π)
 
 L’exemple de Pi utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi. Des points placés aléatoirement à l’intérieur d’un carré unitaire se retrouvent également à l’intérieur d’un cercle inscrit dans ce carré avec une probabilité égale à l’aire du cercle, Pi/4. La valeur de Pi peut être estimée à partir de la valeur de 4R, où R est le rapport entre le nombre de points situés à l’intérieur du cercle et le nombre total de points situés à l’intérieur du carré. Plus l'échantillon de points est grand, plus l'estimation est précise.
 
@@ -236,4 +236,4 @@ Dans cet article, vous avez appris à exécuter les exemples inclus avec les clu
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

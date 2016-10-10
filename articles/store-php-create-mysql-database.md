@@ -19,7 +19,7 @@
 
 # Création et connexion à une base de données MySQL dans Azure
 
-Ce guide montre comment créer une base de données MySQL dans le [portail Azure](https://portal.azure.com) (fournisseur [ClearDB](http://www.cleardb.com/)) et s’y connecter à partir d’une application web en PHP s’exécutant dans [Azure App Service](./app-service/app-service-value-prop-what-is.md).
+Ce tutoriel vous montre comment créer une base de données MySQL sur le [Portail Azure](https://portal.azure.com) (fournisseur [ClearDB](http://www.cleardb.com/)) et s’y connecter à partir d’une application web en PHP s’exécutant dans [Azure App Service](./app-service/app-service-value-prop-what-is.md).
 
 > [AZURE.NOTE] Vous pouvez également créer une base de données MySQL dans le cadre d’un [modèle d’application Marketplace](./app-service-web/app-service-web-create-web-app-from-marketplace.md).
 
@@ -56,17 +56,18 @@ Pour créer une base de données MySQL dans le portail Azure, procédez comme su
 
 	Une autre fenêtre contextuelle s’affiche une fois le déploiement réussi. Le portail ouvre aussi automatiquement le panneau de votre base de données MySQL.
 
-## Se connecter à votre base de données MySQL à partir d’une application web PHP dans Azure
+<a name="connect"></a>
+## Connexion à la base de données MySQL
 
-Pour afficher les informations de connexion de votre nouvelle base de données MySQL, cliquez simplement sur **Propriétés**. Si vous ne voyez pas le panneau **Paramètres**, cliquez sur **Paramètres** > **Propriétés**.
+Pour afficher les informations de connexion de votre nouvelle base de données MySQL, cliquez simplement sur **Propriétés** sur le panneau de votre application web.
 	
 ![Création d'une base de données MySQL dans Azure - panneau Base de données MySQL](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)
 
 Vous pouvez désormais utiliser ces informations de connexion dans n’importe quelle application web. Cliquez [ici](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql) pour obtenir un exemple d’utilisation des informations de connexion à partir d’une simple application PHP.
 
-### Connecter une application web Laravel (à partir du didacticiel de prise en main de PHP)
+## Connecter une application web Laravel (à partir du didacticiel de prise en main de PHP)
 
-Supposons que vous venez de terminer le didacticiel [Create, configure, and deploy a PHP web app to Azure](./app-service-web/app-service-web-php-get-started.md) (Créer, configurer et déployer une application web PHP sur Azure) et que vous disposez d’une application web [Laravel](https://www.laravel.com/) exécutée dans Azure. Vous pouvez alors facilement ajouter des fonctionnalités de base de données à votre application Laravel. Pour ce faire, procédez simplement comme suit :
+Supposons que vous venez de terminer le didacticiel [Create, configure, and deploy a PHP web app to Azure](./app-service-web/app-service-web-php-get-started.md) (Créer, configurer et déployer une application web PHP sur Azure) et que vous disposez d’une application web [Laravel](https://www.laravel.com/) exécutée dans Azure. Vous pouvez facilement ajouter des fonctionnalités de base de données à votre application Laravel. Pour ce faire, procédez simplement comme suit :
 
 >[AZURE.NOTE] La procédure suivante suppose que vous avez terminé le didacticiel [Create, configure, and deploy a PHP web app to Azure](./app-service-web/app-service-web-php-get-started.md) (Créer, configurer et déployer une application web PHP sur Azure).
 
@@ -139,4 +140,4 @@ Supposons que vous venez de terminer le didacticiel [Create, configure, and depl
 
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

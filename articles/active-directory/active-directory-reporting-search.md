@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -40,7 +40,7 @@ Connexions à partir d’appareils potentiellement infectés | Non
 Activité de connexion anormale | Non
 Utilisateurs ayant une activité de connexion anormale | Non
 Utilisateurs avec des informations d’identification volées | Non
-Rapport d’audit | Oui
+Rapport d'audit | Oui
 Activité de réinitialisation de mot de passe | Oui
 Activité de l’enregistrement de la réinitialisation de mot de passe | Oui
 Activité de groupes en libre-service | Oui
@@ -50,12 +50,12 @@ Activité d’approvisionnement de compte | Oui
 Erreurs de configuration de compte | Non
 Utilisation de RMS | Non
 Utilisateurs RMS les plus actifs | Non
-Utilisation d’un périphérique RMS | Non
+Utilisation d’un appareil RMS | Non
 
 
 ## En savoir plus
 
  - [Rapports Azure Active Directory](active-directory-view-access-usage-reports.md)
- - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
+ - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

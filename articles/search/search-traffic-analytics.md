@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/19/2016" 
+	ms.date="09/23/2016" 
 	ms.author="betorres"
 />
 
@@ -29,22 +29,22 @@ Vous aurez besoin d’un compte de stockage situé dans la même région et le m
 
 > [AZURE.IMPORTANT] Des frais standard s’appliquent à ce compte de stockage.
 
-Une fois activé, les données commencent à circuler vers votre compte de stockage en 5 à 10 minutes dans ces 2 conteneurs d’objets blob :
+Vous pouvez activer la recherche de l’analyse du trafic sur le portail ou via PowerShell. Une fois activé, les données commencent à circuler vers votre compte de stockage en 5 à 10 minutes dans ces deux conteneurs d’objets blob :
 
     insights-logs-operationlogs: search traffic logs
     insights-metrics-pt1m: aggregated metrics
 
 
-### 1\. Utiliser le portail
-Ouvrez votre service Azure Search dans le [portail Azure](http://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
+### A. Utiliser le portail
+Ouvrez votre service de recherche Azure dans le [portail Azure](http://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
 
 ![][1]
 
-Sélectionnez-la pour ouvrir un nouveau panneau. Définissez l’état sur **Activé**, sélectionnez le compte Azure Storage dans lequel sont copiées vos données et choisissez les données à copier : journaux et/ou mesures. Nous vous recommandons de copier les journaux et les mesures. Vous pouvez définir la stratégie de rétention de vos données entre 1 et 365 jours. Si vous ne souhaitez pas appliquer de stratégie de rétention afin de conserver les données indéfiniment, définissez la durée de rétention (en jours) sur 0.
+Définissez l’état sur **Activé**, sélectionnez le compte Azure Storage à utiliser et choisissez les données à copier : journaux et/ou mesures. Nous vous recommandons de copier les journaux et les mesures. Vous pouvez définir la stratégie de rétention de vos données entre 1 et 365 jours. Si vous ne souhaitez pas conserver les données indéfiniment, définissez la durée de rétention (jours) sur 0.
 
 ![][2]
 
-### 2\. Utiliser PowerShell
+### B. Utiliser PowerShell
 
 Tout d’abord, assurez-vous que les derniers [applets de commande Azure PowerShell](https://github.com/Azure/azure-powershell/releases) sont installés.
 
@@ -65,44 +65,44 @@ Les données sont stockées dans des objets blob Azure Storage au format JSON.
 
 Il y a un seul objet blob par heure et par conteneur.
   
-Exemple de chemin d’accès : `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
+Exemple de chemin d’accès : `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 ### Journaux
 
-Les objets blob de journaux contiennent les journaux du trafic de votre service de recherche. Chaque objet blob a un objet racine appelé **records** qui contient un tableau d’objets du journal. Chaque objet blob contient des enregistrements sur toutes les opérations effectuées au cours de la même heure.
+Les objets blob de journaux contiennent les journaux du trafic de votre service de recherche. Chaque objet blob a un objet racine appelé **enregistrements** qui contient un tableau d’objets du journal. Chaque objet blob comporte des enregistrements relatifs à l’ensemble de l’opération qui s’est déroulée au cours de la même heure.
 
 ####Schéma du journal
 
 Nom |Type |Exemple |Remarques 
 ------|-----|----|-----
-time |datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération
-resourceId |string |« /SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource
-operationName |string |« Query.Search » |Nom de l’opération
-operationVersion |string |« 2015-02-28 »|Version d’API utilisée
-category |string |« OperationLogs » |constant 
-resultType |string |« Success » |Valeurs possibles : Réussite ou Échec 
+time |datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération
+resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource
+operationName |string |« Query.Search » |Nom de l’opération
+operationVersion |string |« 2015-02-28 »|Version d’API utilisée
+category |string |« OperationLogs » |constant 
+resultType |string |« Success » |Valeurs possibles : Réussite ou Échec 
 resultSignature |int |200 |Code de résultat HTTP 
 durationMS |int |50 |Durée de l’opération en millisecondes 
-properties |objet |voir ci-dessous |Objet contenant des données propres à l’opération
+properties |objet |consultez le tableau suivant |Objet contenant des données propres à l’opération
 
 ####Schéma de propriétés
 
 |Nom |Type |Exemple |Remarques|
 |------|-----|----|-----|
-|Description|string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
-|Interroger |string |« ?search=AzureSearch&$count=true&api-version=2015-02-28 » |Paramètres de requête |
+|Description|string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
+|Interroger |string |« ?search=AzureSearch&$count=true&api-version=2015-02-28 » |Paramètres de requête |
 |Documents |int |42 |Nombre de documents traités|
-|IndexName |string |« testindex »|Nom de l’index associé à l’opération |
+|IndexName |string |« testindex »|Nom de l’index associé à l’opération |
 
 ### Mesures
 
 Les objets blob de mesures contiennent des valeurs agrégées pour votre service de recherche. Chaque fichier a un seul objet racine appelé **records** qui contient un tableau d’objets de mesure. Cet objet racine contient les mesures de chaque minute pendant laquelle les données étaient disponibles.
 
-Mesures disponibles :
+Mesures disponibles :
 
-- SearchLatency : délai nécessaire au service de recherche pour traiter les requêtes de recherche, agrégé par minute.
-- SearchQueriesPerSecond : nombre de requêtes de recherche reçues par seconde, agrégé par minute.
-- ThrottledSearchQueriesPercentage : pourcentage de requêtes de recherche qui ont été limitées, agrégé par minute.
+- SearchLatency : délai nécessaire au service de recherche pour traiter les requêtes de recherche, agrégé par minute.
+- SearchQueriesPerSecond : nombre de requêtes de recherche reçues par seconde, agrégé par minute.
+- ThrottledSearchQueriesPercentage : pourcentage de requêtes de recherche qui ont été limitées, agrégé par minute.
 
 > [AZURE.IMPORTANT] La limitation se produit lorsque trop de requêtes sont envoyées, épuisant ainsi la capacité de ressource configurée du service. Vous pouvez ajouter d’autres réplicas à votre service.
 
@@ -111,18 +111,18 @@ Mesures disponibles :
 |Nom |Type |Exemple |Remarques|
 |------|-----|----|-----|
 |resourceId |string |« /SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-|metricName |string |« Latency » |Nom de la mesure |
-|time|datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
+|metricName |string |« Latency » |Nom de la mesure |
+|time|datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
 |average |int |64|Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
 |minimum |int |37 |Valeur minimale des échantillons bruts dans l’intervalle de temps de la mesure |
 |maximum |int |78 |Valeur maximale des échantillons bruts dans l’intervalle de temps de la mesure |
 |total |int |258 |Valeur totale des échantillons bruts dans l’intervalle de temps de la mesure |
 |count |int |4 |Nombre d’échantillons bruts utilisés pour générer la mesure |
-|timegrain |string |« PT1M » |Fragment de temps de la mesure au format ISO 8601|
+|timegrain |string |« PT1M » |Fragment de temps de la mesure au format ISO 8601|
 
-Toutes les mesures sont consignées dans des intervalles d’une minute. Cela signifie que chacune des mesures affichera les valeurs minimales, maximales et moyennes par minute.
+Toutes les mesures sont consignées dans des intervalles d’une minute. Chaque mesure expose des valeurs minimales, maximales et moyennes par minute.
 
-Dans le cas de la mesure SearchQueriesPerSecond, la valeur minimale correspondra à la valeur la plus faible des requêtes de recherche par seconde qui a été enregistrée pendant cette minute ; il en va de même pour la valeur maximale. La moyenne représentera l’agrégat de ces valeurs pour toute la minute. Imaginez ce scénario : pendant une minute, vous pouvez avoir 1 seconde de charge très élevée, qui représentera votre valeur SearchQueriesPerSecond maximale, puis 58 secondes de charge moyenne, et enfin une seconde avec une seule requête, qui représentera la valeur minimale.
+Dans le cas de la mesure SearchQueriesPerSecond, la valeur minimale correspondra à la valeur la plus faible des requêtes de recherche par seconde qui a été enregistrée pendant cette minute. Il en va de même pour la valeur maximale. La moyenne représentera l’agrégat de ces valeurs pour toute la minute. Imaginez ce scénario : pendant une minute, vous pouvez avoir 58 secondes de charge très élevée, qui représentera votre valeur SearchQueriesPerSecond maximale, puis 58 secondes de charge moyenne, et enfin une seconde avec une seule requête, qui représentera la valeur minimale.
 
 Pour ThrottledSearchQueriesPercentage, les valeurs minimales, maximales, moyennes et totales seront identiques : il s’agit du pourcentage de requêtes de recherche qui ont été limitées, en fonction du nombre total de requêtes de recherche pendant une minute.
 
@@ -138,9 +138,9 @@ Comme point de départ, nous vous recommandons d’utiliser [Power BI](https://p
 
 ![][4]
 
-#### Power BI Desktop
+#### Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/fr-FR/desktop) : explorez vos données et créez vos propres visualisations pour vos données. Nous fournissons ci-après une requête de démarrage pour vous aider.
+[Power BI Desktop](https://powerbi.microsoft.com/fr-FR/desktop) : explorez vos données et créez vos propres visualisations pour vos données. Consultez la requête de démarrage dans la section suivante :
 
 1. Ouvrez un nouveau rapport Power BI Desktop.
 2. Sélectionnez Obtention des données -> Plus...
@@ -188,7 +188,7 @@ Comme point de départ, nous vous recommandons d’utiliser [Power BI](https://p
 
 8. Cliquez sur Terminé.
 
-9. Sélectionnez maintenant « insights-metrics-pt1m » dans la liste de requêtes sur la gauche, puis ouvrez à nouveau l’éditeur avancé. Conservez les deux premières lignes et remplacez le reste par la requête suivante :
+9. Sélectionnez maintenant « insights-metrics-pt1m » dans la liste de requêtes sur la gauche, puis ouvrez à nouveau l’éditeur avancé. Conservez les deux premières lignes et remplacez le reste par la requête suivante :
 
 	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
@@ -210,7 +210,7 @@ Comme point de départ, nous vous recommandons d’utiliser [Power BI](https://p
 
 10. Cliquez sur Terminé, puis sélectionnez Fermer et appliquer dans l’onglet Accueil.
 
-11. Vos données pour les 30 derniers jours sont maintenant prêtes à être consommées. Continuez et créez quelques [visualisations](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-report-view/).
+11. Vos données pour les 30 derniers jours sont maintenant prêtes à être consommées. Continuez et créez quelques [visualisations](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-report-view/).
 
 ## Étapes suivantes
 
@@ -228,4 +228,4 @@ En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, 
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

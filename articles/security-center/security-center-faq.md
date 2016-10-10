@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/21/2016"
    ms.author="terrylan"/>
 
 # FAQ du Centre de sécurité Azure
@@ -121,10 +121,10 @@ Si vous souhaitez :
 ### Quelles ressources Azure sont surveillées par Azure Security Center ?
 Azure Security Center surveille les ressources Azure suivantes :
 
-- Virtual Machines (y compris Cloud Services)
+- Machines virtuelles (VM) (y compris [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 - Réseaux virtuels Azure
 - Service SQL Azure
-- Solutions de partenaires intégrées à votre abonnement Azure, par exemple pare-feu d’applications web
+- Solutions de partenaires intégrées à votre abonnement Azure, par exemple pare-feu d’applications web sur les machines virtuelles et sur [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
 
 ## Machines virtuelles
 
@@ -159,4 +159,4 @@ Le remplissage des données d’analyse peut prendre un certain temps (général
 
 L’agent de machine virtuelle doit être installé sur les machines virtuelles pour activer la collecte des données. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. Pour plus d’informations sur l’installation de l’agent de machine virtuelle sur d’autres machines virtuelles, consultez l’article de blog [Agent de machine virtuelle et extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

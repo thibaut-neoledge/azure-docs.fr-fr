@@ -13,21 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="09/24/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 
 # Prise en main de la détection de menaces
 
 > [AZURE.SELECTOR]
-- [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
+- [Audit](sql-data-warehouse-auditing-overview.md)
 - [Détection de menaces](sql-data-warehouse-security-threat-detection.md)
-- [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
-- [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Vue d’ensemble de l’audit](sql-data-warehouse-auditing-overview.md)
-- [Audit des clients de niveau inférieur](sql-data-warehouse-auditing-downlevel-clients.md)
-
-
 
 ## Vue d'ensemble
 
@@ -99,4 +93,4 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

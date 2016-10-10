@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -74,7 +74,7 @@ Si vous recevez l’erreur **Impossible de se connecter au serveur distant**, ce
 
 Si le proxy n’est pas configuré correctement, une erreur apparaît : ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png) ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-Erreur | Texte d’erreur | Commentaire
+Error | Texte d’erreur | Commentaire
 ---- | ---- | ---- |
 403 | Interdit | Le proxy n’a pas été ouvert pour l’URL demandée. Revisitez la configuration du proxy et vérifiez que les [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) ont été ouvertes.
 407 | Authentification proxy requise | Une connexion au serveur proxy était requise, et aucune connexion n’a été établie. Si le serveur proxy requiert une authentification, assurez-vous que celle-ci a été configurée dans le fichier machine.config. Vérifiez également que vous utilisez des comptes de domaine pour l’utilisateur qui exécute l’Assistant, ainsi que pour le compte de service.
@@ -175,4 +175,4 @@ Cette erreur apparaît quand l’Assistant de connexion ne peut pas accéder au 
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

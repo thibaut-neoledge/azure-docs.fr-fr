@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Portail Azure](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell - ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 - [Portail Classic](site-recovery-hyper-v-site-to-azure-classic.md)
 
 Lisez cet article pour apprendre à déployer Site Recovery afin de répliquer des machines virtuelles Hyper-V dans Azure lorsque les hôtes Hyper-V ne sont pas gérés dans des clouds System Center Virtual Machine Manager (VMM).
@@ -300,4 +300,4 @@ Exécutez un test de basculement, en procédant comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

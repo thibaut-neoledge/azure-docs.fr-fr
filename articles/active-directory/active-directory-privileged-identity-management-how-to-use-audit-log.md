@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/22/2016"
    ms.author="kgremban"/>
 
 # Comment utiliser le journal d’audit dans Azure AD Privileged Identity Management
 
-Vous pouvez utiliser le journal d’audit Privileged Identity Management (PIM) pour voir toutes les activations et affectations d’utilisateur dans un laps de temps donné.
+Vous pouvez utiliser le journal d’audit Privileged Identity Management (PIM) pour voir toutes les activations et affectations d’utilisateur dans un laps de temps donné. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre client, notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’accès et d’utilisation d’Azure Active Directory.](active-directory-view-access-usage-reports.md)
 
 ## Accéder au journal d’audit
 À partir du [portail Azure](https://portal.azure.com) et du tableau de bord, sélectionnez l’application **Azure AD Privileged Identity Management**. De là, vous pouvez accéder au journal d’audit en cliquant sur **Gérer les rôles privilégiés** > **Historique d’audit** dans le tableau de bord PIM.
@@ -32,12 +32,12 @@ Utilisez les boutons **temps**, **action** et **rôle** boutons pour trier le jo
 Les colonnes dans la liste du journal d’audit sont les suivantes :
 
 - **Demandeur** : personne qui a demandé l’activation de rôle ou la modification. Si la valeur est « Système Azure », consultez le journal d'audit Azure pour plus d'informations.
-- **Utilisateur** : l'utilisateur qui active un rôle ou y est affecté.
-- **Rôle** : le rôle affecté ou activé par l'utilisateur.
+- **Utilisateur** : l’utilisateur qui active un rôle ou y est affecté.
+- **Rôle** : le rôle affecté ou activé par l’utilisateur.
 - **Action** : les mesures prises par le demandeur. Ceci peut inclure l'attribution, la non-attribution, l’activation ou la désactivation.
 - **Heure** : heure à laquelle l’action s’est produite.
 - **Motif** : tout texte éventuellement entré dans le champ de motif pendant l’activation.
-- **Expiration** : concerne uniquement l'activation de rôles.
+- **Expiration** : concerne uniquement l’activation de rôles.
 
 ## Filtrer le journal d’audit
 
@@ -60,4 +60,4 @@ Cochez (ou décochez) la case **Rôle** en regard de chaque rôle à inclure dan
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

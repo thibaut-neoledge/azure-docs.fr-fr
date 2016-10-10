@@ -158,7 +158,7 @@ Contrairement au cas de la machine virtuelle du serveur d’applications, quatre
 SAP HANA nécessite des paramètres de noyau Linux spécifiques, qui ne font pas partie des images de galerie Azure standard et doivent être définis manuellement. Il existe une note SAP spécifique qui décrit les paramètres.
 
 
-Note SAP SAP HANA DB : Recommended OS settings for SLES 12 / SLE for SAP Applications 12 (Paramètres de système d’exploitation recommandés pour SLES 12 / SLE for SAP Applications 12) : [ Note SAP 2205917](https://launchpad.support.sap.com/#/notes/2205917)
+Note SAP SAP HANA DB : Recommended OS settings for SLES 12 / SLES for SAP Applications 12 (Paramètres de système d’exploitation recommandés pour SLES 12 / SLE for SAP Applications 12) : [ Note SAP 2205917](https://launchpad.support.sap.com/#/notes/2205917)
 
 Vous trouverez également une autre rubrique sur le cache de page, dans le cadre de l’exécution de SAP HANA sur SLES, en cliquant [ici](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache) : chapitre 6.1 Kernel: Page-Cache Limit (Noyau : limite de cache de page).
 
@@ -484,4 +484,4 @@ Enfin, après l’installation du serveur d’applications SAP et de l’interfa
 
 * Téléchargement de la plateforme HANA SP12 sur le SAP Service Marketplace : ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Spécification d'ingestion en direct au format MP4 fragmenté Azure Media Services" 
+	pageTitle="Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services | Microsoft Azure" 
 	description="Cette spécification décrit le protocole et le format requis pour l'ingestion de diffusion en continu en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Microsoft Azure Media Services fournit le service de diffusion en continu en direct qui permet aux clients de diffuser en continu des événements en direct et de diffuser du contenu en temps réel en utilisant Microsoft Azure en tant que plateforme cloud. Ce document explique également les pratiques recommandées en matière de création de mécanismes d'ingestion en direct extrêmement redondants et robustes." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"     
+	ms.date="09/26/2016"     
 	ms.author="cenkdin;juliako"/>
 
-#Spécification d'ingestion en direct au format MP4 fragmenté Azure Media Services
+#Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services
 
 Cette spécification décrit le protocole et le format requis pour l'ingestion de diffusion en continu en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Microsoft Azure Media Services fournit le service de diffusion en continu en direct qui permet aux clients de diffuser en continu des événements en direct et de diffuser du contenu en temps réel en utilisant Microsoft Azure en tant que plateforme cloud. Ce document explique également les pratiques recommandées en matière de création de mécanismes d'ingestion en direct extrêmement redondants et robustes.
 
@@ -221,4 +221,4 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

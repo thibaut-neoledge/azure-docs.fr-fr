@@ -27,7 +27,7 @@
 
 Découvrez comment gérer un [pool de bases de données élastique](sql-database-elastic-pool.md) à l’aide de C&#x23;.
 
-Pour connaître les codes d’erreur courants, consultez la page [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md).
+Pour connaître les codes d’erreur courants, consultez la page [Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md)
 
 Les exemples ci-dessous utilisent la [bibliothèque SQL Database pour .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), de sorte que vous devez l’installer avant de continuer si elle n’est pas déjà installée. Vous pouvez installer cette bibliothèque en exécutant la commande suivante dans la [console du Gestionnaire de package](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
 
@@ -108,7 +108,7 @@ Les bibliothèques suivantes sont requises pour l’exécution de cet exemple. V
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Créez une application console et remplacez le contenu de Program.cs par le code suivant. Pour obtenir l’ID client requis et les valeurs associées, consultez l’article [Inscrire votre application et obtenir les valeurs du client requises pour connecter votre application à Base de données SQL](sql-database-client-id-keys.md).
+Créez une application console et remplacez le contenu de Program.cs par le code suivant. Pour récupérer l’ID client et les valeurs associées requises, consultez la section [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../resource-group-authenticate-service-principal.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -430,4 +430,4 @@ Créez une application console et remplacez le contenu de Program.cs par le code
 - [Quand utiliser un pool de base de données élastique ?](sql-database-elastic-pool-guidance.md)
 - Consultez [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md) : utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

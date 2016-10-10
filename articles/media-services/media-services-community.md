@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vue d’ensemble de la communauté Azure Media Services"
+	pageTitle="Vue d’ensemble de la communauté Azure Media Services | Microsoft Azure"
 	description="Cette page de la communauté Azure Media Services (AMS) aborde les diverses manières d’obtenir des mises à jour relatives à AMS, d’afficher de nouvelles vidéos et de nouveaux podcasts, de poser des questions et de faire des commentaires. "
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 # Communauté Azure Media Services  
@@ -63,4 +63,4 @@ Azure Media Player|ampinfo@microsoft.com
 Azure Media Explorer|amse@microsoft.com
 Concepteur de flux de travail|mepd@microsoft.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

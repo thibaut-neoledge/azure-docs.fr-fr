@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Configuration de groupes de disponibilité Always On dans Azure VM - Classic
 
 > [AZURE.SELECTOR]
-- [Resource Manager : mode automatique](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager : modèle](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager : mode manuel](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Classic : interface utilisateur](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classic : PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -51,7 +51,7 @@ Notez qu'il s'agit d'une configuration possible. Par exemple, vous pouvez rédui
 
 Ce didacticiel part des principes suivants :
 
-- Vous disposez déjà d’un compte Azure.
+- vous disposez déjà d’un compte Azure ;
 
 - Vous savez déjà comment approvisionner une machine virtuelle SQL Server classique de la galerie de machines virtuelles avec l’interface graphique utilisateur.
 
@@ -63,7 +63,7 @@ Ce didacticiel part des principes suivants :
 
 Vous commencez avec un nouveau compte d'essai Azure. Une fois que vous avez terminé la configuration de votre compte, vous devez vous trouver dans l’écran d’accueil du portail Azure Classic.
 
-1. Cliquez sur le bouton **Nouveau** dans l'angle inférieur gauche de la page, comme illustré ci-dessous.
+1. Cliquez sur le bouton **Nouveau** dans l'angle inférieur gauche de la page, comme illustré ci-dessous.
 
 	![Cliquez sur Nouveau dans le portail](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665511.gif)
 
@@ -120,19 +120,19 @@ Dans les étapes suivantes, vous allez configurer la machine ContosoDC comme co
 
 	![Boîte de dialogue Ajouter des rôles](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784624.png)
 
-1. Cliquez sur **Suivant** jusqu'à ce que vous atteigniez la section **Confirmation**. Cochez la case **Redémarrer automatiquement le serveur de destination, si nécessaire**.
+1. Cliquez sur **Suivant** jusqu'à ce que vous atteigniez la section **Confirmation**. Cochez la case **Redémarrer automatiquement le serveur de destination, si nécessaire**.
 
 1. Cliquez sur **Installer**.
 
 1. Une fois les fonctionnalités installées, retournez dans le tableau de bord **Gestionnaire de serveur**.
 
-1. Sélectionnez la nouvelle option **AD DS** dans le volet gauche.
+1. Sélectionnez la nouvelle option **AD DS** dans le volet gauche.
 
-1. Cliquez sur le lien **Plus** dans la barre d'avertissement jaune.
+1. Cliquez sur le lien **Plus** dans la barre d'avertissement jaune.
 
 	![Boîte de dialogue AD DS sur une machine virtuelle du serveur DNS](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784625.png)
 
-1. Dans la colonne **Action** de la boîte de dialogue **Tous les détails de la tâche serveur**, cliquez sur **Promouvoir ce serveur en contrôleur de domaine**.
+1. Dans la colonne **Action** de la boîte de dialogue **Tous les détails de la tâche serveur**, cliquez sur **Promouvoir ce serveur en contrôleur de domaine**.
 
 1. Dans l'**Assistant de configuration des services de domaine Active Directory**, utilisez les valeurs suivantes :
 
@@ -143,13 +143,13 @@ Dans les étapes suivantes, vous allez configurer la machine ContosoDC comme co
 
 1. Cliquez sur **Suivant** pour parcourir les autres pages de l'Assistant. Sur la page **Vérification de la configuration requise**, vérifiez que vous voyez le message suivant : **Toutes les vérifications de la configuration requise ont donné satisfaction**. Notez que vous devez examiner les messages d'avertissement applicables, mais il est possible de poursuivre l'installation.
 
-1. Cliquez sur **Installer**. La machine virtuelle **ContosoDC** redémarre automatiquement.
+1. Cliquez sur **Installer**. La machine virtuelle **ContosoDC** redémarre automatiquement.
 
 ## Configuration des comptes de domaine
 
 Les étapes suivantes configurent les comptes Active Directory (AD) pour une utilisation ultérieure.
 
-1. Reconnectez-vous à la machine **ContosoDC**.
+1. Reconnectez-vous à la machine **ContosoDC**.
 
 1. Dans **Gestionnaire de serveur**, sélectionnez **Outils**, puis cliquez sur **Centre d'administration Active Directory**.
 
@@ -176,7 +176,7 @@ Les étapes suivantes configurent les comptes Active Directory (AD) pour une u
 
 	![Propriétés de l'utilisateur CORP](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784627.png)
 
-1. Sélectionnez **Extensions**, puis cliquez sur le bouton **Avancé** de l'onglet **Sécurité**.
+1. Sélectionnez **Extensions**, puis cliquez sur le bouton **Avancé** de l'onglet **Sécurité**.
 
 1. Dans la fenêtre **Paramètres de sécurité avancés pour corp**. Cliquez sur **Ajouter**.
 
@@ -205,9 +205,9 @@ Créez ensuite trois machines virtuelles, dont un nœud de cluster WSFC et deu
 
 >[AZURE.NOTE] La configuration précédente suggère des machines virtuelles de niveau STANDARD, car les machines de niveau DE BASE ne prennent pas en charge les points de terminaison à équilibrage de charge nécessaires pour créer ultérieurement un écouteur de groupe de disponibilité. De plus, les tailles de machines suggérées ici sont destinées au test des groupes de disponibilité dans les machines virtuelles Azure. Pour optimiser les performances des charges de travail de production, consultez les recommandations relatives à la taille des ordinateurs SQL Server et à la configuration dans [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-Une fois les trois machines virtuelles entièrement configurées, vous devez les attacher au domaine **corp.contoso.com** et accorder à CORP\\Install des droits d’administration sur les machines. Pour ce faire, procédez comme suit pour chacune des trois machines virtuelles.
+Une fois les trois machines virtuelles entièrement configurées, vous devez les attacher au domaine **corp.contoso.com** et accorder à CORP\\Install des droits d’administration sur les machines. Pour ce faire, procédez comme suit pour chacune des trois machines virtuelles.
 
-1. Tout d'abord, modifiez l'adresse de serveur DNS par défaut. Commencez par télécharger le fichier Bureau à distance (RDP) de chaque machine virtuelle dans votre répertoire local en sélectionnant la machine virtuelle dans la liste en cliquant sur le bouton **Connexion**. Pour sélectionner une machine virtuelle, cliquez partout sauf sur la première cellule de la ligne, comme illustré ci-dessous.
+1. Tout d'abord, modifiez l'adresse de serveur DNS par défaut. Commencez par télécharger le fichier Bureau à distance (RDP) de chaque machine virtuelle dans votre répertoire local en sélectionnant la machine virtuelle dans la liste en cliquant sur le bouton **Connexion**. Pour sélectionner une machine virtuelle, cliquez partout sauf sur la première cellule de la ligne, comme illustré ci-dessous.
 
 	![Téléchargement du fichier RDP](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC664953.jpg)
 
@@ -227,13 +227,13 @@ Une fois les trois machines virtuelles entièrement configurées, vous devez le
 
 1. Sélectionnez Utiliser l’adresse de serveur DNS suivante et spécifiez **10.10.2.4** dans **Serveur DNS préféré**.
 
-1. L’adresse **10.10.2.4** est celle attribuée à une machine virtuelle dans le sous-réseau 10.10.2.0/24 dans un réseau virtuel Azure, et cette machine virtuelle est **ContosoDC**. Pour vérifier l’adresse IP de **ContosoDC**, exécutez **nslookup contosodc** à l’invite de commandes, comme indiqué ci-dessous.
+1. L’adresse **10.10.2.4** est celle attribuée à une machine virtuelle dans le sous-réseau 10.10.2.0/24 dans un réseau virtuel Azure, et cette machine virtuelle est **ContosoDC**. Pour vérifier l’adresse IP de **ContosoDC**, exécutez **nslookup contosodc** à l’invite de commandes, comme indiqué ci-dessous.
 
 	![Utilisation de NSLOOKUP pour trouver l'adresse IP du contrôleur de domaine](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC664954.jpg)
 
 1. Cliquez sur **OK**, puis sur **Fermer** pour valider les modifications. Vous pouvez maintenant joindre la machine virtuelle à **corp.contoso.com**.
 
-1. De retour dans la fenêtre **Serveur local**, cliquez sur le lien **WORKGROUP**.
+1. De retour dans la fenêtre **Serveur local**, cliquez sur le lien **WORKGROUP**.
 
 1. Dans **Nom de l'ordinateur**, cliquez sur **Modifier**.
 
@@ -255,11 +255,11 @@ Une fois les trois machines virtuelles entièrement configurées, vous devez le
 
 1. Dans la fenêtre **Gestion de l’ordinateur**, développez **Utilisateurs et groupes locaux**, puis sélectionnez **Groupes**.
 
-1. Double-cliquez sur le groupe **Administrateurs**.
+1. Double-cliquez sur le groupe **Administrateurs**.
 
-1. Dans la boîte de dialogue **Propriétés de Administrateurs**, cliquez sur le bouton **Ajouter**.
+1. Dans la boîte de dialogue **Propriétés de Administrateurs**, cliquez sur le bouton **Ajouter**.
 
-1. Entrez l’utilisateur **CORP\\Install**, puis cliquez sur **OK**. À l’invite d’informations d’identification, utilisez le compte **AzureAdmin** avec le mot de passe **Contoso!000**.
+1. Entrez l’utilisateur **CORP\\Install**, puis cliquez sur **OK**. À l’invite d’informations d’identification, utilisez le compte **AzureAdmin** avec le mot de passe **Contoso!000**.
 
 1. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de Administrateurs**.
 
@@ -267,13 +267,13 @@ Une fois les trois machines virtuelles entièrement configurées, vous devez le
 
 1. Dans le tableau de bord **Gestionnaire de serveur**, cliquez sur **Ajouter des rôles et fonctionnalités**.
 
-1. Dans l’**Assistant d’ajout de rôles et fonctionnalités**, cliquez sur **Suivant** jusqu'à ce que vous atteigniez la page **Fonctionnalités**.
+1. Dans l’**Assistant d’ajout de rôles et fonctionnalités**, cliquez sur **Suivant** jusqu'à ce que vous atteigniez la page **Fonctionnalités**.
 
 1. Sélectionnez **Clustering de basculement**. Lorsque vous y êtes invité, ajoutez toutes les autres fonctionnalités.
 
 	![Ajout de la fonctionnalité de Clustering de basculement à la machine virtuelle](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784631.png)
 
-1. Cliquez sur **Suivant**, puis sur **Installer** dans la page **Confirmation**.
+1. Cliquez sur **Suivant**, puis sur **Installer** dans la page **Confirmation**.
 
 1. Lorsque l’installation de la fonctionnalité de **Clustering de basculement** est terminée, cliquez sur **Fermer**.
 
@@ -327,11 +327,11 @@ Suivez les étapes ci-dessous pour accomplir les tâches de configuration compl�
 |Point d'accès pour l'administration du cluster|Tapez **Cluster1** dans **Nom de cluster**.|
 |Confirmation|Utilisez les valeurs par défaut, sauf si vous utilisez des espaces de stockage. Consultez la remarque qui suit ce tableau.|
 
-	>[AZURE.WARNING] Si vous utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739), qui regroupent plusieurs disques dans des pools de stockage, vous devez décocher la case **Ajouter la totalité du stockage au cluster** sur la page **Confirmation**. Si vous ne décochez pas cette option, les disques virtuels sont détachés pendant le processus de clustering. Par conséquent, ils n’apparaissent pas non plus dans le Gestionnaire de disque ou dans l'explorateur, jusqu'à ce que les espaces de stockage soient supprimés du cluster et rattachés à l'aide de PowerShell.
+	>[AZURE.WARNING] Si vous utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739), qui regroupent plusieurs disques dans des pools de stockage, vous devez décocher la case **Ajouter la totalité du stockage au cluster** sur la page **Confirmation**. Si vous ne décochez pas cette option, les disques virtuels sont détachés pendant le processus de clustering. Par conséquent, ils n’apparaissent pas non plus dans le Gestionnaire de disque ou dans l'explorateur, jusqu'à ce que les espaces de stockage soient supprimés du cluster et rattachés à l'aide de PowerShell.
 
 1. Dans le volet gauche, développez **Gestionnaire du cluster de basculement**, puis cliquez sur **Cluster1.corp.contoso.com**.
 
-1. Dans le volet central, faites défiler jusqu'à la section **Ressources principales du cluster** et développez les détails de **Nom : Cluster1**. Les ressources **Nom** et **Adresse IP** doivent toutes deux être à l’état **Échec**. La ressource d’adresse IP ne peut pas être mise en ligne, car le cluster a la même adresse IP que la machine elle-même, qui est une adresse dupliquée.
+1. Dans le volet central, faites défiler jusqu'à la section **Ressources principales du cluster** et développez les détails de **Nom : Cluster1**. Les ressources **Nom** et **Adresse IP** doivent toutes deux être à l’état **Échec**. La ressource d’adresse IP ne peut pas être mise en ligne, car le cluster a la même adresse IP que la machine elle-même, qui est une adresse dupliquée.
 
 1. Cliquez avec le bouton droit sur la ressource **Adresse IP** en échec, puis cliquez sur **Propriétés**.
 
@@ -349,17 +349,17 @@ Suivez les étapes ci-dessous pour accomplir les tâches de configuration compl�
 
 1. Sur la page **Avertissement de Validation**, cliquez sur **Non** (dans un scénario de production vous devez effectuer les essais de validation). Cliquez ensuite sur **Suivant**.
 
-1. Dans la page **Confirmation**, cliquez sur **Suivant** pour ajouter les nœuds.
+1. Dans la page **Confirmation**, cliquez sur **Suivant** pour ajouter les nœuds.
 
 	>[AZURE.WARNING] Si vous utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739), qui regroupent plusieurs disques dans des pools de stockage, vous devez décocher la case **Ajouter la totalité du stockage disponible au cluster**. Si vous ne décochez pas cette option, les disques virtuels sont détachés pendant le processus de clustering. Par conséquent, ils n’apparaissent pas non plus dans le Gestionnaire de disque ou dans l'explorateur, jusqu'à ce que les espaces de stockage soient supprimés du cluster et rattachés à l'aide de PowerShell.
 
-1. Une fois les nœuds ajoutés au cluster, cliquez sur **Terminer**. Le Gestionnaire du cluster de basculement doit maintenant indiquer que votre cluster a trois nœuds, répertoriés dans le conteneur **Nœuds**.
+1. Une fois les nœuds ajoutés au cluster, cliquez sur **Terminer**. Le Gestionnaire du cluster de basculement doit maintenant indiquer que votre cluster a trois nœuds, répertoriés dans le conteneur **Nœuds**.
 
 1. Déconnectez-vous de la session Bureau à distance.
 
 ## Préparer les instances de SQL Server pour le groupe de disponibilité
 
-Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1** et **contosoSQL2** :
+Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1** et **contosoSQL2** :
 
 - Ajouter une connexion pour **NT AUTHORITY\\System** avec les autorisations nécessaires pour l’instance SQL Server par défaut
 
@@ -371,7 +371,7 @@ Dans cette section, vous effectuerez les opérations suivantes sur **ContosoSQL1
 
 - Modifier le compte de service SQL Server pour **CORP\\SQLSvc1** et **CORP\\SQLSvc2**, respectivement
 
-Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez les étapes pour **ContosoSQL1** et **ContosoSQL2** :
+Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les étapes ci-dessous les traitent dans l'ordre. Suivez les étapes pour **ContosoSQL1** et **ContosoSQL2** :
 
 1. Si vous ne vous êtes pas déconnecté de la session Bureau à distance pour la machine virtuelle, faites-le maintenant.
 
@@ -393,7 +393,7 @@ Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les
 
 	- Afficher l'état du serveur
 
-1. Ensuite, ajoutez **CORP\\Install** comme rôle **sysadmin** à l’instance SQL Server par défaut. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur **Connexions**, puis cliquez sur **Nouvelle connexion**.
+1. Ensuite, ajoutez **CORP\\Install** comme rôle **sysadmin** à l’instance SQL Server par défaut. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur **Connexions**, puis cliquez sur **Nouvelle connexion**.
 
 1. Tapez **CORP\\Install** dans **Nom de connexion**.
 
@@ -407,11 +407,11 @@ Ces actions peuvent être effectuées dans n'importe quel ordre. Néanmoins, les
 
 1. Dans la page **Programme**, sélectionnez **Ce chemin d'accès au programme** et saisissez **%ProgramFiles%\\Microsoft SQL Server\\MSSQL12.MSSQLSERVER\\MSSQL\\Binn\\sqlservr.exe** dans la zone de texte (si vous suivez ces instructions avec SQL Server 2012, le répertoire de SQL Server est **MSSQL11.MSSQLSERVER**). Cliquez ensuite sur **Suivant**.
 
-1. Dans la page **Action**, sélectionnez **Autoriser la connexion** et cliquez sur **Suivant**.
+1. Dans la page **Action**, sélectionnez **Autoriser la connexion** et cliquez sur **Suivant**.
 
-1. Dans la page **Profil**, acceptez les paramètres par défaut et cliquez sur **Suivant**.
+1. Dans la page **Profil**, acceptez les paramètres par défaut et cliquez sur **Suivant**.
 
-1. Dans la page **Nom**, spécifiez un nom pour la règle, par exemple **SQL Server (règle de programme)** dans la zone de texte **Nom**, puis cliquez sur **Terminer**.
+1. Dans la page **Nom**, spécifiez un nom pour la règle, par exemple **SQL Server (règle de programme)** dans la zone de texte **Nom**, puis cliquez sur **Terminer**.
 
 1. Ensuite, activez la fonctionnalité **Groupes de disponibilité Always On**. À partir de l’écran d’**accueil**, lancez le **Gestionnaire de configuration SQL Server**.
 
@@ -435,7 +435,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 - Sauvegarde complète et sauvegarde du journal des transactions de la base de données
 
-- restauration de la version complète et de sauvegardes des journaux vers **ContosoSQL2** avec l'option **NORECOVERY** ;
+- restauration de la version complète et de sauvegardes des journaux vers **ContosoSQL2** avec l'option **NORECOVERY** ;
 
 - Création du groupe de disponibilité (**AG1**) avec validation synchrone, basculement automatique et réplicas secondaires lisibles
 
@@ -465,7 +465,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 1. Puis, effectuez une sauvegarde complète de la base de données. Dans l'**Explorateur d'objets**, développez **Bases de données**, cliquez sur **MyDB1**, pointez sur **Tâches**, puis cliquez sur **Sauvegarder**.
 
-1. Dans la section **Source**, laissez la valeur de **Type de sauvegarde** sur **Complet**. Dans la section **Destination**, cliquez sur **Supprimer** afin de supprimer le chemin d’accès de fichier par défaut correspondant au fichier de sauvegarde.
+1. Dans la section **Source**, laissez la valeur de **Type de sauvegarde** sur **Complet**. Dans la section **Destination**, cliquez sur **Supprimer** afin de supprimer le chemin d’accès de fichier par défaut correspondant au fichier de sauvegarde.
 
 1. Dans la section **Destination**, cliquez sur **Ajouter**.
 
@@ -481,7 +481,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur **Bases de données**, puis cliquez sur **Restaurer une base de données**.
 
-1. Dans la section **Source**, sélectionnez **Unité**, puis cliquez sur le bouton **…**.
+1. Dans la section **Source**, sélectionnez **Unité**, puis cliquez sur le bouton **…**.
 
 1. Dans **Sélectionner les unités de sauvegarde**, cliquez sur **Ajouter**.
 
@@ -495,7 +495,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 	![Lancer l'Assistant Nouveau groupe de disponibilité](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665523.gif)
 
-1. Sur la page **Introduction**, cliquez sur **Suivant**. Dans la page **Spécifier le nom du groupe de disponibilité**, tapez **AG1** dans **Nom du groupe de disponibilité**, puis cliquez à nouveau sur **Suivant**.
+1. Sur la page **Introduction**, cliquez sur **Suivant**. Dans la page **Spécifier le nom du groupe de disponibilité**, tapez **AG1** dans **Nom du groupe de disponibilité**, puis cliquez à nouveau sur **Suivant**.
 
 	![Assistant Nouveau groupe de disponibilité, spécifier le nom du groupe de disponibilité](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665524.gif)
 
@@ -519,11 +519,11 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 	![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665529.gif)
 
-1. Dans la page **Validation**, cliquez sur **Suivant**. Cette page doit ressembler à l’illustration ci-dessous. Un avertissement concernant la configuration de l’écouteur s’affiche, car aucun écouteur du groupe de disponibilité n’est configuré. Vous pouvez ignorer cet avertissement, étant donné que ce didacticiel ne configure pas d’écouteur. Pour configurer l’écouteur après avoir terminé ce didacticiel, voir [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+1. Dans la page **Validation**, cliquez sur **Suivant**. Cette page doit ressembler à l’illustration ci-dessous. Un avertissement concernant la configuration de l’écouteur s’affiche, car aucun écouteur du groupe de disponibilité n’est configuré. Vous pouvez ignorer cet avertissement, étant donné que ce didacticiel ne configure pas d’écouteur. Pour configurer l’écouteur après avoir terminé ce didacticiel, voir [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 	![Assistant Nouveau groupe de disponibilité, validation](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665530.gif)
 
-1. Dans la page **Résumé**, cliquez sur **Terminer**, puis patientez pendant que l'Assistant configure le nouveau groupe de disponibilité. Dans la page **Progression**, vous pouvez cliquer sur **Plus de détails** pour afficher la progression détaillée. Une fois l’Assistant terminé, examinez la page **Résultats** pour vérifier que le groupe de disponibilité a bien été créé, comme illustré ci-dessous, puis cliquez sur **Fermer** pour quitter l’assistant.
+1. Dans la page **Résumé**, cliquez sur **Terminer**, puis patientez pendant que l'Assistant configure le nouveau groupe de disponibilité. Dans la page **Progression**, vous pouvez cliquer sur **Plus de détails** pour afficher la progression détaillée. Une fois l’Assistant terminé, examinez la page **Résultats** pour vérifier que le groupe de disponibilité a bien été créé, comme illustré ci-dessous, puis cliquez sur **Fermer** pour quitter l’assistant.
 
 	![Assistant Nouveau groupe de disponibilité, résultats](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665531.gif)
 
@@ -537,7 +537,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Voici une présen
 
 1. Revenez au **Gestionnaire de serveur**, sélectionnez **Outils**, puis lancez le **Gestionnaire du cluster de basculement**.
 
-1. Développez **Cluster1.corp.contoso.com**, puis développez **Services et applications**. Sélectionnez **Rôles** et notez que le rôle du groupe de disponibilité **AG1** a été créé. Notez que AG1 n'a pas d’adresse IP permettant aux clients de base de données de se connecter au groupe de disponibilité, car vous n'avez pas configuré d’écouteur. Vous pouvez vous connecter directement au nœud principal pour les opérations de lecture-écriture et au nœud secondaire pour les requêtes en lecture seule.
+1. Développez **Cluster1.corp.contoso.com**, puis développez **Services et applications**. Sélectionnez **Rôles** et notez que le rôle du groupe de disponibilité **AG1** a été créé. Notez que AG1 n'a pas d’adresse IP permettant aux clients de base de données de se connecter au groupe de disponibilité, car vous n'avez pas configuré d’écouteur. Vous pouvez vous connecter directement au nœud principal pour les opérations de lecture-écriture et au nœud secondaire pour les requêtes en lecture seule.
 
 	![Groupe de disponibilité dans le Gestionnaire du cluster de basculement](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665534.gif)
 
@@ -548,4 +548,4 @@ Vous avez correctement implémenté SQL Server Always On en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

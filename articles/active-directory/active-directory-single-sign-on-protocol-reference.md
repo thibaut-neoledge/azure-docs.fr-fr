@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/28/2016"
 	ms.author="priyamo"/>
 
 # Protocole SAML d’authentification unique
 
-Cet article vous permet de vous familiariser avec les demandes et réponses d’authentification SAML 2.0 prises en charge par Azure Active Directory (Azure AD) dans le cadre de l’authentification unique.
+Cet article traite des demandes et réponses d’authentification SAML 2.0 prises en charge par Azure Active Directory (Azure AD) dans le cadre de l’authentification unique.
 
 Le schéma de protocole ci-dessous décrit la séquence d’authentification unique. Le service cloud (le fournisseur de services) utilise une liaison de redirection HTTP pour transmettre un élément `AuthnRequest` (demande d’authentification) à Azure AD (le fournisseur d’identité). Azure AD utilise ensuite une liaison HTTP POST pour valider un élément `Response` auprès du service cloud.
 
@@ -98,7 +98,7 @@ N’incluez pas d’élément `Signature` dans les éléments `AuthnRequest`, ca
 
 Azure AD ignore l’élément `Subject` des éléments `AuthnRequest`.
 
-## Response
+## Réponse
 
 Lorsqu’une demande d’authentification aboutit, Azure AD publie une réponse au service cloud. Exemple de réponse à une tentative réussie d’authentification :
 
@@ -145,7 +145,7 @@ Lorsqu’une demande d’authentification aboutit, Azure AD publie une réponse 
 </samlp:Response>
 ```
 
-### Response
+### Réponse
 
 L’élément `Response` inclut le résultat de la demande d’autorisation. Azure AD définit les valeurs `ID`, `Version` et `IssueInstant` dans l’élément `Response`. Il définit également les attributs suivants :
 
@@ -162,23 +162,7 @@ Exemple de réponse contenant l’élément Issuer :
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### Signature
-
-Azure AD signe l’élément `Response` lorsque l’authentification aboutit. L’élément `Signature` contient une signature numérique que l’application peut utiliser pour authentifier la source et vérifier l’intégrité de la réponse.
-
-Azure AD utilise la clé de signature spécifiée dans l’élément `IDPSSODescriptor` de son document de métadonnées. Pour plus d’informations, consultez le [document de métadonnées de fédération](active-directory-federation-metadata.md).
-
-Azure AD signe également l’élément `Assertion`, mais les deux éléments Signature sont indépendants.
-
-Exemple d’élément `Signature` contenu dans la réponse :
-
-```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-    ...
-  </ds:Signature>
-```
-
-### Statut
+### État
 
 L’élément `Status` indique si l’authentification a abouti ou échoué. Il inclut l’élément `StatusCode`, qui lui-même contient un code ou un ensemble de codes imbriqués représentant l’état de la demande. Il inclut également l’élément `StatusMessage`, qui contient des messages d’erreur personnalisés générés pendant le processus d’authentification.
 
@@ -284,7 +268,7 @@ Contient les revendications sur l’objet ou l’utilisateur. L’extrait suivan
 ```		
 
 - **Revendication Name** : la valeur de l’attribut `Name` (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) est le nom d’utilisateur principal de l’utilisateur authentifié, tel que `testuser@managedtenant.com`.
-- **Réclamation ObjectIdentifier** : la valeur de l’attribut `ObjectIdentifier` (`http://schemas.microsoft.com/identity/claims/objectidentifier`) est l’élément `ObjectId` de l’objet de répertoire représentant l’utilisateur authentifié dans Azure AD. `ObjectId` est un identifiant sûr, immuable, globalement unique et réutilisable de l’utilisateur authentifié.
+- **Réclamation ObjectIdentifier** : la valeur de l’attribut `ObjectIdentifier` (`http://schemas.microsoft.com/identity/claims/objectidentifier`) est l’élément `ObjectId` de l’objet d’annuaire représentant l’utilisateur authentifié dans Azure AD. `ObjectId` est un identifiant sûr, immuable, globalement unique et réutilisable de l’utilisateur authentifié.
 
 #### AuthnStatement
 
@@ -301,4 +285,4 @@ Cet élément déclare que le sujet de l’assertion a été authentifié par un
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

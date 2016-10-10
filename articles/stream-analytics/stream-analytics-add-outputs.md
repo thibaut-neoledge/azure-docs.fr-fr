@@ -14,12 +14,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Comment configurer les sorties de données pour les tâches Stream Analytics
 
-Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs sorties de données qui définissent une connexion à un récepteur de données existant. Quand votre tâche Stream Analytics traite et transforme les données entrantes, un flux d’événements de sortie de données est écrit dans la sortie de votre tâche.
+Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs sorties de données qui définissent une connexion à un récepteur de données existant. Quand votre travail Stream Analytics traite et transforme les données entrantes, un flux d’événements de sortie de données est écrit dans la sortie de votre travail.
 
 Les sorties de données Stream Analytics peuvent servir de source aux tableaux de bord ou aux alertes en temps réel, déclencher des workflows de déplacement ou simplement archiver les données pour le traitement par lot ultérieurement. Stream Analytics bénéficie d'une intégration de première classe avec plusieurs services Azure, qui sont expliqués en détail ici.
 
@@ -29,7 +29,7 @@ Pour ajouter une sortie à votre tâche Stream Analytics :
 
     ![Ajout de sorties](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
 
-    Dans le portail Azure, cliquez sur le titre **Sorties** de votre tâche Stream Analytics.
+    Dans le portail Azure, cliquez sur la mosaïque **Sorties** de votre travail Stream Analytics.
 
     ![Ajout de sorties dans le portail Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
@@ -66,4 +66,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

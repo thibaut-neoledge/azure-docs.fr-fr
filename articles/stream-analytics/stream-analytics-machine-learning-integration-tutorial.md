@@ -16,7 +16,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/08/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"
 />
 
@@ -145,4 +145,4 @@ Vous pouvez également afficher les mesures liées à la fonction Azure Machine 
 
     ![Stream Analytics Machine Learning, affichage du moniteur Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

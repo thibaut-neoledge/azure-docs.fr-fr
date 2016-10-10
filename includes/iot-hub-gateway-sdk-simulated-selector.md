@@ -27,7 +27,7 @@ Le diagramme suivant montre les principaux composants de l'exemple, notamment le
 ![][1]
 
 
-> [AZURE.NOTE] Les modules ne s’échangent pas directement les messages. Les modules publient des messages vers un bus de messages interne qui remet les messages aux autres modules à l'aide d'un mécanisme d'abonnement comme indiqué dans le diagramme ci-dessous. Pour plus d’informations, consultez la rubrique [Prise en main du Kit de développement logiciel (SDK) de passerelle][lnk-gw-getstarted].
+> [AZURE.NOTE] Les modules ne s’échangent pas directement les messages. Les modules publient des messages vers un répartiteur interne qui remet les messages aux autres modules à l’aide d’un mécanisme d’abonnement comme indiqué dans le diagramme ci-dessous. Pour plus d’informations, consultez la rubrique [Prise en main du Kit de développement logiciel (SDK) de passerelle][lnk-gw-getstarted].
 
 ### Module d'ingestion de protocole
 
@@ -69,3 +69,4 @@ Au lieu d'ouvrir une connexion vers IoT Hub pour chaque appareil simulé, ce mod
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
 
+<!---HONumber=AcomDC_0928_2016-->

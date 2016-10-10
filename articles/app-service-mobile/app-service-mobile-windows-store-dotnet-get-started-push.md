@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/15/2016"
+	ms.date="09/25/2016"
 	ms.author="glenga"/>
 
 # Ajouter des notifications Push à votre application Windows
@@ -40,9 +40,9 @@ Pour pouvoir envoyer des notifications Push vers des applications Windows à par
     
 2. Dans l'Assistant, cliquez sur **Suivant**, connectez-vous à votre compte Microsoft, saisissez un nom pour votre application dans **Réserver un nouveau nom d'application**, puis cliquez sur **Réserver**.
 
-3. Une fois l’inscription de l’application créée, sélectionnez le nouveau nom d’application, cliquez sur **Suivant**, puis sur **Associer**. Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.
+3. Une fois l’inscription de l’application créée, sélectionnez le nouveau nom d’application, cliquez sur **Suivant**, puis sur **Associer**. Les informations d'inscription au Windows Store requises sont ajoutées au manifeste de l'application.
 
-7. Accédez au [Centre de développement Windows](https://dev.windows.com/fr-FR/overview), connectez-vous à l'aide de votre compte Microsoft, cliquez sur la nouvelle inscription d'application dans **Mes applications**, puis développez **Services** > **Notifications Push**.
+7. Accédez au [Centre de développement Windows](https://dev.windows.com/fr-FR/overview), connectez-vous à l'aide de votre compte Microsoft, cliquez sur la nouvelle inscription d'application dans **Mes applications**, puis développez **Services** > **Notifications Push**.
 
 8. Sur la page **Notifications Push**, cliquez sur **Site des services Live** sous **Microsoft Azure Mobile Services**.
 
@@ -71,7 +71,7 @@ Maintenant que les notifications push sont activées dans l'application, vous de
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
 
-3. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel à **InsertAsync** :
+3. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l’appel à **InsertAsync** :
 
 	    // Get the settings for the server project.
 	    HttpConfiguration config = this.Configuration;
@@ -168,7 +168,7 @@ Ensuite, votre application doit s’inscrire pour les notifications Push au dém
 		using System.Threading.Tasks;
         using Windows.Networking.PushNotifications;
 
-2. Dans le même fichier, ajoutez la définition de la méthode **InitNotificationsAsync** à la classe **App** :
+2. Dans le même fichier, ajoutez la définition de la méthode **InitNotificationsAsync** à la classe **App** :
 
         private async Task InitNotificationsAsync()
         {
@@ -223,4 +223,4 @@ Vous pouvez poursuivre avec l’un des didacticiels suivants :
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

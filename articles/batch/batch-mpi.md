@@ -55,7 +55,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 En outre, les tâches multi-instances s’exécutent *uniquement* sur les nœuds des **pools créés après le 14 décembre 2015**.
 
-> [AZURE.TIP] Lorsque vous utilisez des [nœuds de calcul de taille A8 ou A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) dans le pool Batch, votre application MPI peut tirer parti du réseau d’accès direct à la mémoire à distance (RDMA) haute performance d’Azure. Vous pouvez voir la liste complète des tailles de nœud de calcul disponibles pour les pools Azure Batch dans [Tailles de services cloud](./../cloud-services/cloud-services-sizes-specs.md).
+> [AZURE.TIP] Lorsque vous utilisez une [Taille compatible RDMA](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) comme A9 pour les nœuds de calcul dans votre pool Batch, votre application MPI peut tirer parti du réseau d’accès direct à la mémoire à distance (RDMA) haute performance d’Azure. Vous pouvez voir la liste complète des tailles de nœud de calcul disponibles pour les pools Azure Batch dans [Tailles de services cloud](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Utiliser une tâche StartTask pour l’installation de l’application MPI
 
@@ -275,4 +275,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Présentation multi-instances"
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

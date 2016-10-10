@@ -24,6 +24,13 @@ Dans cet exemple, nous utilisons le nom de jeu d’enregistrements « @ » pour 
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
+### Créer un jeu d’enregistrements PTR avec un seul enregistrement
+Dans ce cas, « my-arpa-zone.com » indique la zone ARPA représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP.
+
+	$rs = New-AzureRmDnsRecordSet -Name "10" -RecordType PTR -Ttl 3600 -ZoneName my-arpa-zone.com -ResourceGroupName MyAzureResourceGroup
+	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ptrdname "myservice.contoso.com"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
+
 ### Créer un jeu d’enregistrements SRV avec un seul enregistrement
 
 Si vous créez un enregistrement SRV à la racine de la zone, spécifiez simplement *\_service* et *\_protocol* dans le nom de l’enregistrement. Il est inutile d’inclure « @ » dans le nom de l’enregistrement.
@@ -38,4 +45,4 @@ Si vous créez un enregistrement SRV à la racine de la zone, spécifiez simplem
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

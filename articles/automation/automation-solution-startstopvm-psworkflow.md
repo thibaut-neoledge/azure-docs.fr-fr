@@ -66,7 +66,7 @@ Les runbooks ont tous les paramètres suivants. Vous devez fournir des valeurs p
 | Paramètre | Type | Obligatoire | Description |
 |:---|:---|:---|:---|
 | ServiceName | string | Non | Si une valeur est fournie, toutes les machines virtuelles portant ce nom de service sont démarrées ou arrêtées. Si aucune valeur n’est fournie, toutes les machines virtuelles classiques dans l’abonnement Azure sont démarrées ou arrêtées. |
-| AzureSubscriptionIdAssetName | string | Non | Contient le nom de la [ressource variable](#installing-and-configuring-the-scenario) qui contient l’ID d’abonnement de votre abonnement Azure. Si vous ne spécifiez aucune valeur, la valeur *AzureSubscriptionId* est utilisée. |
+| AzureSubscriptionIdAssetName | string | Non | Contient le nom de la [ressource variable](#installing-and-configuring-the-scenario) qui contient l’ID de votre abonnement Azure. Si vous ne spécifiez aucune valeur, la valeur *AzureSubscriptionId* est utilisée. |
 | AzureCredentialAssetName | string | Non | Contient le nom de la [ressource d’informations d’identification](#installing-and-configuring-the-scenario) qui contient les informations d’identification pour le runbook à utiliser. Si vous ne spécifiez aucune valeur, la valeur *AzureCredential* est utilisée. |
 
 ### Démarrage des runbooks
@@ -87,9 +87,9 @@ Les Runbooks [généreront un message](automation-runbook-output-and-messages.md
 | Start-AzureVMs | Machine virtuelle déjà en cours d’exécution | MyVM déjà en cours d’exécution |
 | Start-AzureVMs | Demande de démarrage de la machine virtuelle envoyée avec succès | MyVM démarrée |
 | Start-AzureVMs | Échec de la demande de démarrage de la machine virtuelle | MyVM n’a pas pu démarrer |
-| Stop-AzureVMs | Machine virtuelle déjà en cours d’exécution | MyVM déjà arrêtée |
-| Stop-AzureVMs | Demande de démarrage de la machine virtuelle envoyée avec succès | MyVM démarrée |
-| Stop-AzureVMs | Échec de la demande de démarrage de la machine virtuelle | MyVM n’a pas pu démarrer |
+| Stop-AzureVMs | Machine virtuelle déjà arrêtée | MyVM déjà arrêtée |
+| Stop-AzureVMs | Demande d’arrêt de la machine virtuelle envoyée avec succès | MyVM arrêtée |
+| Stop-AzureVMs | Échec de la demande d’arrêt de la machine virtuelle | Échec de l’arrêt de MyVM |
 
 Par exemple, l’extrait de code suivant d’un runbook tente de démarrer toutes les machines virtuelles portant le nom de service *MyServiceName*. Si l’une des demandes de démarrage échoue, des mesures peuvent être prises.
 
@@ -193,4 +193,4 @@ Les lignes suivantes passent en revue chaque machine virtuelle. Premièrement, l
 - Pour en savoir plus sur l’utilisation de runbooks enfants, consultez la rubrique [Runbooks enfants dans Azure Automation](automation-child-runbooks.md)
 - Pour en savoir plus sur les messages de sortie pendant l’exécution d’un runbook et la journalisation pour le dépannage, consultez la rubrique [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

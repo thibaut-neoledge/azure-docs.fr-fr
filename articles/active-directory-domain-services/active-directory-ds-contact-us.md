@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire des services de domaine Azure Active Directory : Nous contacter | Microsoft Azure"
+	pageTitle="Services de domaine Azure Active Directory : nous contacter | Microsoft Azure"
 	description="Contactez l’équipe produit des Services de domaine Azure AD"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 
-# Services de domaine Azure AD (version préliminaire) - Nous contacter
+# Services de domaine Azure AD : nous contacter
 
-## Nous contacter
+## Contacter l’équipe produit
 Si vous rencontrez des problèmes avec votre domaine géré, vérifiez si les étapes décrites dans le [guide de dépannage](active-directory-ds-troubleshooting.md) apportent une solution. Si les problèmes persistent, n’hésitez pas à nous contacter.
 
 Vous pouvez nous envoyer un e-mail à : [Commentaires sur les services de domaine Azure AD](mailto:aaddsfb@microsoft.com).
@@ -36,4 +36,4 @@ Nous apprécions vos commentaires sur les Services de domaine Azure AD via le **
 
 Veillez à ajouter les termes **« AADDS »** avant votre question ou commentaire, afin de nous permettre d’y accéder.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

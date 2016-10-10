@@ -17,9 +17,13 @@
    ms.author="subramar"/>
 
 
-
-
 # Mise à niveau d’applications Service Fabric à l’aide de PowerShell
+
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+- [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+
+<br/>
 
 L'approche de la mise à niveau la plus fréquemment utilisée et recommandée est la mise à niveau propagée surveillée. Azure Service Fabric surveille l’intégrité de l’application en cours de mise à niveau sur la base d’un ensemble de stratégies de contrôle d’intégrité. Une fois qu’un domaine de mise à jour a été mis à niveau, Service Fabric évalue l’intégrité de l’application et passe au domaine de mise à jour suivant ou fait échouer la mise à niveau, en fonction des stratégies de contrôle d’intégrité.
 
@@ -135,4 +139,4 @@ Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de
 
 Résolvez les problèmes courants de mise à niveau de l’application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

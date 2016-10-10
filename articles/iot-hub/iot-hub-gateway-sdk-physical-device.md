@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/31/2016"
-     ms.author="cstreet"/>
+     ms.date="08/29/2016"
+     ms.author="andbuc"/>
 
 
 # Kit de développement logiciel (SDK) de passerelle IoT (version bêta) : envoyer des messages appareil vers cloud avec un appareil réel à l’aide de Linux
@@ -41,9 +41,10 @@ Lorsque vous exécutez la passerelle, celle-ci :
 La passerelle contient les modules suivants :
 
 - Un *module BLE* qui interagit avec un appareil BLE pour recevoir les données de température à partir de l’appareil et envoyer des commandes à l’appareil.
-- Un *module enregistreur* qui génère des diagnostics du bus de messages.
+- Un *module cloud-à-appareil BLE* qui traduit les messages JSON provenant du cloud en instructions BLE pour le *module BLE*.
+- Un *module enregistreur* qui consigne tous les messages de passerelle.
 - Un *module de mappage d’identité* qui effectue la traduction entre les adresses MAC de l’appareil BLE et les identités des appareils Azure IoT Hub.
-- Un *module HTTP IoT Hub* qui transfère les données de télémétrie sur un hub IoT et reçoit les commandes de l’appareil à partir d’un hub IoT.
+- Un *module IoT Hub* qui transfère les données de télémétrie sur un hub IoT et reçoit les commandes de l’appareil à partir d’un hub IoT.
 - Un *module d’imprimante BLE* qui interprète les données de télémétrie fournies par l’appareil BLE et imprime des données mises en forme sur la console pour permettre la résolution des problèmes et le débogage.
 
 ### Flux des données sur la passerelle
@@ -55,20 +56,21 @@ Le diagramme de blocs suivant illustre le pipeline du flux de téléchargement d
 Les étapes qu’un élément de télémétrie suit lors de son transfert entre un appareil BLE et IoT Hub sont les suivantes :
 
 1. L’appareil BLE génère un exemple de température et l’envoie au module BLE de la passerelle via Bluetooth.
-2. Le module BLE reçoit l’exemple et le publie dans le bus de messages, avec l’adresse MAC de l’appareil.
-3. Le module de mappage d’identité récupère ce message dans le bus de messages et utilise une table interne pour convertir l’adresse MAC de l’appareil en une identité d’appareil IoT Hub (un ID d’appareil et une clé d’appareil). Il publie ensuite un nouveau message sur le bus de messages contenant les exemples de données de température, l’adresse MAC de l’appareil, l’ID de l’appareil et la clé de l’appareil.
-4. Le module HTTP IoT Hub reçoit ce nouveau message (généré par le module de mappage d’identité) à partir du bus de messages et le publie sur IoT Hub.
-5. Le module enregistreur consigne tous les messages reçus du bus de messages dans un fichier sur le disque.
+2. Le module BLE reçoit l’exemple et le publie dans le répartiteur avec l’adresse MAC de l’appareil.
+3. Le module de mappage d’identité récupère ce message et utilise une table interne pour convertir l’adresse MAC de l’appareil en une identité d’appareil IoT Hub (un ID d’appareil et une clé d’appareil). Il publie ensuite un nouveau message contenant les exemples de données de température, l’adresse MAC de l’appareil, l’ID de l’appareil et la clé de l’appareil.
+4. Le module IoT Hub reçoit ce nouveau message (généré par le module de mappage d’identité) et le publie dans IoT Hub.
+5. Le module enregistreur consigne tous les messages reçus du répartiteur dans un fichier sur le disque.
 
 Le diagramme de blocs suivant illustre le pipeline du flux des données de commandes de l’appareil :
 
 ![](media/iot-hub-gateway-sdk-physical-device/gateway_ble_command_data_flow.png)
 
-1. Le module HTTP IoT Hub interroge régulièrement IoT Hub pour savoir s’il existe de nouveaux messages de commande.
-2. Lorsque le module HTTP IoT Hub reçoit un nouveau message de commande, il le publie sur le bus de messages.
-3. Le module de mappage d’identité récupère le message de commande à partir du bus de messages et utilise une table interne pour convertir l’ID d’appareil IoT Hub en une adresse MAC d’appareil. Il publie ensuite un nouveau message sur le bus de messages contenant l’adresse MAC de l’appareil cible dans le mappage des propriétés du message.
-4. Le module BLE récupère ce message et exécute l’instruction d’E/S en communiquant avec l’appareil BLE.
-5. Le module enregistreur consigne tous les messages reçus du bus de messages dans un fichier sur le disque.
+1. Le module IoT Hub interroge régulièrement IoT Hub pour savoir s’il existe de nouveaux messages de commande.
+2. Lorsque le module IoT Hub reçoit un nouveau message de commande, il le publie sur le répartiteur.
+3. Le module de mappage d’identité récupère le message de commande et utilise une table interne pour convertir l’ID d’appareil IoT Hub en adresse MAC d’appareil. Il publie ensuite un nouveau message contenant l’adresse MAC de l’appareil cible dans le mappage des propriétés du message.
+4. Le module cloud-à-appareil BLE récupère ce message et le traduit en instruction BLE correcte pour le module BLE. Il publie ensuite un nouveau message.
+5. Le module BLE récupère ce message et exécute l’instruction d’E/S en communiquant avec l’appareil BLE.
+6. Le module enregistreur consigne tous les messages reçus du répartiteur dans un fichier sur le disque.
 
 ## Préparation du matériel
 
@@ -283,17 +285,18 @@ L’exemple de configuration de l’appareil BLE suppose qu’il s’agit d’un
 }
 ```
 
-#### Module HTTP IoT Hub
+#### Module IoT Hub
 
 Ajoutez le nom de votre IoT Hub. La valeur de suffixe est généralement **azure-devices.net** :
 
 ```json
 {
   "module name": "IoTHub",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothubhttp/libiothubhttp_hl.so",
+  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothub/libiothub_hl.so",
   "args": {
     "IoTHubName": "<<Azure IoT Hub Name>>",
-    "IoTHubSuffix": "<<Azure IoT Hub Suffix>>"
+    "IoTHubSuffix": "<<Azure IoT Hub Suffix>>",
+    "Transport": "HTTP"
   }
 }
 ```
@@ -324,6 +327,26 @@ Ajoutez l’adresse MAC de votre appareil SensorTag, ainsi que l’ID et la clé
     "module path": "/home/root/azure-iot-gateway-sdk/build/samples/ble_gateway_hl/ble_printer/libble_printer.so",
     "args": null
 }
+```
+
+#### Configuration de routage
+
+La configuration suivante permet de s’assurer que :
+- Le module **Logger** reçoit et consigne tous les messages.
+- Le module **SensorTag** envoie les messages aux modules **mapping** et **BLE Printer**.
+- Le module **mapping** envoie les messages à envoyer à votre hub IoT au module **IoTHub**.
+- Le module **IoTHub** renvoie les messages au module **mapping**.
+- Le module de **mapping** renvoie les messages au module **SensorTag**.
+
+```json
+"links" : [
+    {"source" : "*", "sink" : "Logger" },
+    {"source" : "SensorTag", "sink" : "mapping" },
+    {"source" : "SensorTag", "sink" : "BLE Printer" },
+    {"source" : "mapping", "sink" : "IoTHub" },
+    {"source" : "IoTHub", "sink" : "mapping" },
+    {"source" : "mapping", "sink" : "SensorTag" }
+  ]
 ```
 
 Pour exécuter l’exemple, vous exécutez le fichier binaire **ble\_gateway\_hl** en transférant le chemin d’accès au fichier de configuration JSON. Si vous avez utilisé le fichier **gateway\_sample.json**, la commande à exécuter ressemble à cela :
@@ -428,4 +451,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

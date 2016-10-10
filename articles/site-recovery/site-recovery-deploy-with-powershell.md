@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="bsiva"/>
 
 # Réplication vers Azure de machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide de PowerShell et du déploiement classique
@@ -42,7 +42,7 @@ Si vous rencontrez des problèmes pour mettre en œuvre ce scénario, posez vos 
 
 ## Avant de commencer
 
-Assurez-vous que les conditions préalables sont remplies :
+Assurez-vous que les conditions préalables sont remplies :
 
 ### Conditions préalables pour Azure
 
@@ -51,39 +51,39 @@ Assurez-vous que les conditions préalables sont remplies :
 - Vous devez vous assurer que les machines virtuelles que vous souhaitez protéger sont conformes à la [configuration requise pour les machines virtuelle Azure](site-recovery-best-practices.md#virtual-machines).
 
 ### Configuration requise pour VMM
-- Vous aurez besoin d'un serveur VMM exécuté sur System Center 2012 R2.
-- Vous aurez besoin d'au moins un cloud sur le serveur VMM que vous souhaitez protéger. Le coud doit contenir :
-	- un ou plusieurs groupes hôtes VMM ;
-	- un ou plusieurs serveurs hôtes Hyper-V ou clusters dans chaque groupe hôte ;
+- Vous aurez besoin d'un serveur VMM exécuté sur System Center 2012 R2.
+- Vous aurez besoin d'au moins un cloud sur le serveur VMM que vous souhaitez protéger. Le coud doit contenir :
+	- un ou plusieurs groupes hôtes VMM ;
+	- un ou plusieurs serveurs hôtes Hyper-V ou clusters dans chaque groupe hôte ;
 	- une ou plusieurs machines virtuelles sur le serveur Hyper-V source.
 
 ### Conditions préalables liées à Hyper-V
 
-- Les serveurs hôtes Hyper-V doivent exécuter au moins Windows Server 2012 avec le rôle Hyper-V et les dernières mises à jour doivent être installées.
+- Les serveurs hôtes Hyper-V doivent exécuter au moins Windows Server 2012 avec le rôle Hyper-V et les dernières mises à jour doivent être installées.
 - Si vous utilisez Hyper-V dans un cluster, notez que le service Broker du cluster n'est pas créé automatiquement si vous avez un cluster basé sur des adresses IP statiques. Vous devez configurer manuellement le service Broker du cluster. Pour ce faire, dans le Gestionnaire de serveur > Gestionnaire du cluster de basculement, connectez-vous au cluster, cliquez sur **Configurer un rôle** et sélectionnez **Service Broker de réplication Hyper-V** dans l'écran **Sélectionner un rôle** de l'Assistant Haute disponibilité.
 - Tout cluster ou serveur hôte Hyper-V pour lequel vous souhaitez gérer la protection doit être inclus dans un cloud VMM.
 
 ### Conditions préalables liées au mappage réseau
-Quand vous protégez des machines virtuelles dans Azure, le mappage réseau effectue un mappage entre les réseaux de machines virtuelles sur le serveur VMM source et les réseaux Azure cibles pour permettre ce qui suit :
+Quand vous protégez des machines virtuelles dans Azure, le mappage réseau effectue un mappage entre les réseaux de machines virtuelles sur le serveur VMM source et les réseaux Azure cibles pour permettre ce qui suit :
 
 - Toutes les machines qui basculent sur le même réseau peuvent se connecter les unes aux autres, quel que soit le plan de récupération auquel elles appartiennent.
 - Si une passerelle réseau est configurée sur le réseau Azure cible, les machines virtuelles peuvent se connecter à d'autres machines virtuelles locales.
 - Si vous ne configurez pas le mappage réseau, seules les machines virtuelles qui basculent dans le même plan de récupération pourront se connecter les unes aux autres après le basculement vers Azure.
 
-Si vous souhaitez déployer le mappage réseau, les conditions suivantes doivent être remplies :
+Si vous souhaitez déployer le mappage réseau, les conditions suivantes doivent être remplies :
 
 - Les machines virtuelles que vous souhaitez protéger sur le serveur VMM source doivent être connectées à un réseau de machines virtuelles. Ce réseau doit être lié à un réseau logique lui-même associé au cloud.
 - Un réseau Azure auquel les machines virtuelles répliquées peuvent se connecter après le basculement. Vous sélectionnerez ce réseau au moment du basculement. Le réseau doit être dans la même région que votre abonnement Azure Site Recovery.
-- [En savoir plus](site-recovery-network-mapping.md) sur le mappage réseau :
+- [En savoir plus](site-recovery-network-mapping.md) sur le mappage réseau :
 
 ###Conditions préalables pour PowerShell
 Assurez-vous qu’Azure PowerShell est prêt à l’emploi. Si vous utilisez déjà PowerShell, vous devrez passer à la version 0.8.10 ou ultérieure. Pour plus d'informations sur la configuration de PowerShell, consultez la section [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md). Une fois PowerShell configuré, vous pouvez afficher toutes les applets de commande disponibles pour le service [ici](https://msdn.microsoft.com/library/dn850420.aspx).
 
 Pour obtenir des conseils sur l'utilisation des applets de commande, par exemple la façon dont les valeurs de paramètres, les entrées et les sorties sont gérées dans Azure PowerShell, consultez la section [Prise en main des applets de commande Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
-## Étape 1 : Définition de l’abonnement 
+## Étape 1 : Définition de l’abonnement 
 
-Dans PowerShell, exécutez ces applets de commande :
+Dans PowerShell, exécutez ces applets de commande :
 
 ```
 $UserName = "<user@live.com>"
@@ -97,11 +97,11 @@ $AzureSubscription = Select-AzureSubscription -SubscriptionName $AzureSubscripti
 
 ```
 
-Remplacez les éléments entre « < > » par vos informations spécifiques.
+Remplacez les éléments entre « < > » par vos informations spécifiques.
 
-## Étape 2 : Création d’un coffre Site Recovery
+## Étape 2 : Création d’un coffre Site Recovery
 
-Dans PowerShell, remplacez les éléments entre « < > » par vos informations spécifiques, et exécutez ces commandes :
+Dans PowerShell, remplacez les éléments entre « < > » par vos informations spécifiques, et exécutez ces commandes :
 
 ```
 
@@ -118,11 +118,11 @@ $vault = Get-AzureSiteRecoveryVault -Name $VaultName;
 
 ```
 
-## Étape 3 : Génération d’une clé d'inscription du coffre
+## Étape 3 : Génération d’une clé d'inscription du coffre
 
 Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléchargé et installé le fournisseur Azure Site Recovery sur le serveur VMM, vous utiliserez cette clé pour inscrire le serveur VMM dans le coffre.
 
-1.	Récupérez le fichier de configuration du coffre et définissez le contexte :
+1.	Récupérez le fichier de configuration du coffre et définissez le contexte :
 	
 	```
 	
@@ -134,7 +134,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 	
 	```
 	
-2.	Définissez le contexte du coffre en exécutant les commandes suivantes :
+2.	Définissez le contexte du coffre en exécutant les commandes suivantes :
 	
 	```
 	
@@ -143,9 +143,9 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 	
 	```
 
-## Étape 4 : Installation du fournisseur Azure Site Recovery
+## Étape 4 : Installation du fournisseur Azure Site Recovery
 
-1.	Sur la machine VMM, créez un répertoire en exécutant la commande suivante :
+1.	Sur la machine VMM, créez un répertoire en exécutant la commande suivante :
 	
 	```
 	
@@ -161,7 +161,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 	
 	```
 	
-3.	Installez le fournisseur à l’aide de la commande suivante :
+3.	Installez le fournisseur à l’aide de la commande suivante :
 	
 	```
 	
@@ -185,7 +185,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 	
 	Attendez que l'installation se termine.
 	
-4.	Inscrivez le serveur dans le coffre à l'aide de la commande suivante :
+4.	Inscrivez le serveur dans le coffre à l'aide de la commande suivante :
 	
 	```
 	
@@ -196,9 +196,9 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 	
 	```
 	
-## Étape 5 : Création d’un compte de stockage Azure
+## Étape 5 : Création d’un compte de stockage Azure
 
-Si vous n'avez pas de compte de stockage Azure, créez un compte avec activation de la géo-réplication en exécutant la commande suivante :
+Si vous n'avez pas de compte de stockage Azure, créez un compte avec activation de la géo-réplication en exécutant la commande suivante :
 
 ```
 
@@ -212,11 +212,11 @@ New-AzureStorageAccount -StorageAccountName $StorageAccountName -Label $StorageA
 Le compte de stockage doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement.
 
 
-## Étape 6 : Installation de l'agent Azure Recovery Services
+## Étape 6 : Installation de l'agent Azure Recovery Services
 
 À partir du portail Azure, installez l'agent Azure Recovery Services sur chaque serveur hôte Hyper-V situé dans les clouds VMM que vous souhaitez protéger.
 
-Exécutez la commande suivante sur l’ensemble des hôtes VMM :
+Exécutez la commande suivante sur l’ensemble des hôtes VMM :
 
 ```
 
@@ -225,9 +225,9 @@ marsagentinstaller.exe /q /nu
 ```
 
 
-## Étape 7 : Configuration des paramètres de protection de cloud
+## Étape 7 : Configuration des paramètres de protection de cloud
 
-1.	Créez un profil de protection cloud pour Azure en exécutant la commande suivante :
+1.	Créez un profil de protection cloud pour Azure en exécutant la commande suivante :
 	
 	```
 	
@@ -236,7 +236,7 @@ marsagentinstaller.exe /q /nu
 	
 	```
 	
-2.	Récupérez un conteneur de protection en exécutant les commandes suivantes :
+2.	Récupérez un conteneur de protection en exécutant les commandes suivantes :
 	
 	```
 	
@@ -245,7 +245,7 @@ marsagentinstaller.exe /q /nu
 	
 	```
 	
-3.	Lancez l'association du conteneur de protection avec le cloud :
+3.	Lancez l'association du conteneur de protection avec le cloud :
 	
 	```
 	
@@ -253,7 +253,7 @@ marsagentinstaller.exe /q /nu
 	
 	```
 	
-4.	Une fois la tâche terminée, exécutez la commande suivante :
+4.	Une fois la tâche terminée, exécutez la commande suivante :
 
 	
 		$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
@@ -263,7 +263,7 @@ marsagentinstaller.exe /q /nu
 		}
 
 
-5.	Une fois la tâche terminée, exécutez la commande suivante :
+5.	Une fois la tâche terminée, exécutez la commande suivante :
 
 	
 		Do
@@ -285,7 +285,7 @@ marsagentinstaller.exe /q /nu
 
 Pour vérifier que l'opération est terminée, suivez les étapes décrites dans la section [Suivi de l'activité](#monitor).
 
-## Étape 8 : Configuration du mappage réseau
+## Étape 8 : Configuration du mappage réseau
 Avant de commencer le mappage réseau, vérifiez que les machines virtuelles sur le serveur VMM source sont connectées à un réseau de machines virtuelles. En outre, vous devez créer un ou plusieurs réseaux virtuels Azure. Notez que plusieurs réseaux de machines virtuelles peuvent être mappés à un seul réseau Azure.
 
 Notez que si le réseau cible a plusieurs sous-réseaux et que l'un d'entre eux a le même nom que le sous-réseau où se trouve la machine virtuelle source, la machine virtuelle de réplication sera connectée à ce sous-réseau cible après le basculement. S’il n’existe aucun sous-réseau cible avec un nom correspondant, la machine virtuelle sera connectée au premier sous-réseau du réseau.
@@ -300,7 +300,7 @@ La deuxième commande récupère le réseau Site Recovery pour le premier serveu
 
 	$Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
 
-La troisième commande extrait vos abonnements Azure à l'aide de l'applet de commande Get-AzureSubscription, puis stocke cette valeur dans la variable $Subscriptions.
+La troisième commande extrait vos abonnements Azure à l’aide de l’applet de commande Get-AzureSubscription, puis stocke cette valeur dans la variable $Subscriptions.
 
 	$Subscriptions = Get-AzureSubscription
 
@@ -319,9 +319,9 @@ L'applet de commande finale crée un mappage entre le réseau principal et le r�
 	New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
 
-## Étape 9 : Activation de la protection des machines virtuelles
+## Étape 9 : Activation de la protection des machines virtuelles
 
-Dès lors que les serveurs, les clouds et les réseaux ont été configurés correctement, vous pouvez activer la protection pour les machines virtuelles du cloud. Notez les points suivants :
+Dès lors que les serveurs, les clouds et les réseaux ont été configurés correctement, vous pouvez activer la protection pour les machines virtuelles du cloud. Notez les points suivants :
 
 Les machines virtuelles doivent répondre à la [configuration requise pour les machines virtuelles Azure](site-recovery-best-practices.md#virtual-machines).
 
@@ -329,20 +329,20 @@ Pour activer la protection, vous devez définir les propriétés du système d'e
 
 
 	
-1.	Afin d’activer la protection, exécutez la commande suivante pour récupérer le conteneur de protection :
+1.	Afin d’activer la protection, exécutez la commande suivante pour récupérer le conteneur de protection :
 		
 		$ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
 	
 
 	
-2. Récupérez l’entité de protection (machine virtuelle) en exécutant les commandes suivantes :
+2. Récupérez l’entité de protection (machine virtuelle) en exécutant les commandes suivantes :
 	
 	
 		$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 		
 	
 		
-3. Activez la récupération d’urgence de la machine virtuelle en exécutant la commande suivante :
+3. Activez la récupération d’urgence de la machine virtuelle en exécutant la commande suivante :
 
 
 	
@@ -352,7 +352,7 @@ Pour activer la protection, vous devez définir les propriétés du système d'e
 	
 ## Tester votre déploiement
 
-Pour tester votre déploiement, vous pouvez exécuter un test de basculement pour une seule machine virtuelle, ou créer un plan de récupération comportant plusieurs machines virtuelles et exécuter sur lui un test de basculement. Il simule votre mécanisme de basculement et de récupération dans un réseau isolé. Notez les points suivants :
+Pour tester votre déploiement, vous pouvez exécuter un test de basculement pour une seule machine virtuelle, ou créer un plan de récupération comportant plusieurs machines virtuelles et exécuter sur lui un test de basculement. Il simule votre mécanisme de basculement et de récupération dans un réseau isolé. Notez les points suivants :
 
 - Si vous voulez vous connecter à la machine virtuelle dans Azure avec le Bureau à distance après le basculement, activez Connexion Bureau à distance sur la machine virtuelle avant d’exécuter le test de basculement.
 - Après le basculement, vous utiliserez une adresse IP publique pour vous connecter à la machine virtuelle dans Azure avec le Bureau à distance. Dans ce cas, assurez-vous qu'aucune de vos stratégies de domaine ne vous empêche de vous connecter à une machine virtuelle avec une adresse publique.
@@ -361,7 +361,7 @@ Pour vérifier que l'opération est terminée, suivez les étapes décrites dans
 
 ### Créer un plan de récupération
 
-1. Créez un fichier .xml comme modèle pour votre plan de récupération en utilisant les données ci-dessous, puis enregistrez-le sous « C:\\RPTemplatePath.xml ».
+1. Créez un fichier .xml comme modèle pour votre plan de récupération en utilisant les données ci-dessous, puis enregistrez-le sous « C:\\RPTemplatePath.xml ».
 2. Modifiez l'Id, Name, PrimaryServerId et SecondaryServerId du nœud RecoveryPlan.
 3. Modifiez le PrimaryProtectionEntityId du nœud ProtectionEntity (vmid pour VMM).
 4. Vous pouvez ajouter davantage de machines virtuelles en ajoutant des nœuds ProtectionEntity.
@@ -397,14 +397,14 @@ Pour vérifier que l'opération est terminée, suivez les étapes décrites dans
 	
 
 	
-4. Remplissez les données du modèle :
+4. Remplissez les données du modèle :
 	
 		
 		$TemplatePath = "C:\RPTemplatePath.xml";
 	
 
 	
-5. Créez le RecoveryPlan :
+5. Créez le RecoveryPlan :
 
 		$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
 	
@@ -412,12 +412,12 @@ Pour vérifier que l'opération est terminée, suivez les étapes décrites dans
 	
 ### Exécution d’un test de basculement
 
-1.	Récupérez l'objet RecoveryPlan en exécutant la commande suivante :
+1.	Récupérez l'objet RecoveryPlan en exécutant la commande suivante :
 
 		$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
 
 	
-2.	Lancez le test de basculement en exécutant la commande suivante :
+2.	Lancez le test de basculement en exécutant la commande suivante :
 	
 	
 		$jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
@@ -449,4 +449,4 @@ Utilisez les commandes suivantes pour suivre l’activité. Vous devez attendre 
 
 [Découvrez plus](https://msdn.microsoft.com/library/dn850420.aspx) d'informations sur les applets de commande PowerShell Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

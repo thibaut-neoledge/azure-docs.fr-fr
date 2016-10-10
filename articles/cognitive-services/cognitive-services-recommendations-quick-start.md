@@ -60,7 +60,7 @@ Au cours de cette tâche, vous allez vous inscrire au service de l’API de reco
 
 1. Pour **Type d’API**, sélectionnez **Recommandations**.
 
-1. Pour **Niveau tarifaire**, vous pouvez sélectionner un plan. Vous pouvez sélectionner le niveau **Gratuit** pour 10 000 transactions/mois**. Il s'agit d'un plan gratuit : c’est donc un bon moyen d’essayer le système. Une fois en production, nous vous recommandons de prendre en compte votre volume de demandes et de modifier votre type de plan en conséquence.
+1. Pour **Niveau tarifaire**, vous pouvez sélectionner un plan. Vous pouvez sélectionner le niveau **Gratuit** pour 10 000 transactions/mois. Il s'agit d'un plan gratuit : c’est donc un bon moyen d’essayer le système. Une fois en production, nous vous recommandons de prendre en compte votre volume de demandes et de modifier votre type de plan en conséquence. (Remarque : vous ne pouvez avoir qu’un seul abonnement de niveau Gratuit à la fois)
 
 1. Sélectionnez un **Groupe de ressources**, ou créez-en un nouveau si vous n'en avez pas.
 
@@ -168,4 +168,4 @@ Consultez la [documentation Obtenir des recommandations d’articles](http://go.
 ### Et ensuite ?
 Félicitations si vous êtes arrivé jusqu’ici ! Pour en savoir plus, vous pouvez consulter la [Référence de l'API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348). Si vous avez des questions, n'hésitez pas à nous contacter au mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

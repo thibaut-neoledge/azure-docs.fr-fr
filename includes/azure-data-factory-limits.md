@@ -3,11 +3,11 @@ Data Factory est un service mutualisé qui possède, par défaut, les limites s
 **Ressource** | **Limite par défaut** | **Limite maximale**
 -------- | ------------- | -------------
 fabriques de données d’un abonnement Azure | 50 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-pipelines dans une fabrique de données | 100 | 2 500
-jeux de données dans une fabrique de données | 500 | 5 000
+pipelines dans une fabrique de données | 2 500 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+jeux de données dans une fabrique de données | 5 000 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 tranches simultanées par jeu de données | 10 | 10
 octets par objet pour les objets pipeline <sup>1</sup> | 200 Ko | 2 000 Ko
-octets par objet pour les objets dataset et linkedservice <sup>1</sup> | 30 Ko | 2 000 Ko
+octets par objet pour les objets jeu de données et service lié <sup>1</sup> | 100 Ko | 2 000 Ko
 champs par objet | 100 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 octets par nom de champ ou identificateur | 2 Ko | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 octets par champ | 30 Ko | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
@@ -18,7 +18,6 @@ Nombre de nouvelles tentatives pour les exécutions d’activités de pipeline |
 
 <sup>2</sup> Les cœurs HDInsight à la demande sont alloués en dehors de l’abonnement qui contient la fabrique de données. Par conséquent, la limite indiquée ci-dessus correspond à la limite appliquée par Data Factory pour les cœurs HDInsight à la demande et est différente de la limite associée à votre abonnement Azure.
 
-
 **Ressource** | **Limite inférieure par défaut** | **Limite minimale**
 -------- | ------------------- | -------------
 Intervalle de planification | 15 minutes | 15 minutes
@@ -28,6 +27,6 @@ Délai d’expiration des nouvelles tentatives | 1 seconde | 1 seconde
 
 ### Limites d’appels du service web
 
-Azure Resource Manager comprend des limites pour les appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager fixe des limites aux appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../azure-subscription-service-limits.md#resource-group-limits).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

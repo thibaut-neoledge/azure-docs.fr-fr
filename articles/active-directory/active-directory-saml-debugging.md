@@ -1,9 +1,9 @@
 <properties 
     pageTitle="Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory | Microsoft Azure" 
-    description="Découvrez comment déboguer une authentification unique basée sur SAML aux applications dans Azure Active Directory" 
+    description="Découvrez comment déboguer une authentification unique basée sur SAML aux applications dans Azure Active Directory " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -23,7 +23,7 @@ La réponse d'Azure AD qui contient le jeton SAML est généralement celle qui 
  
 Vous pouvez afficher le jeton SAML en sélectionnant cette ligne, puis **Inspecteurs > WebForms** dans le volet droit. À partir de là, cliquez sur la valeur **SAMLResponse** et sélectionnez **Send to TextWizard**. Puis sélectionnez **From Base64** à partir du menu **Transform** pour décoder le jeton et afficher son contenu.
  
-**Remarque** : pour afficher le contenu de cette requête HTTP, Fiddler peut vous inviter à configurer le déchiffrement du trafic HTTPS, que vous devez effectuer.
+**Remarque** : pour afficher le contenu de cette requête HTTP, Fiddler peut vous inviter à configurer le déchiffrement du trafic HTTPS, que vous devez effectuer.
 
 ## Articles connexes
 
@@ -34,4 +34,4 @@ Vous pouvez afficher le jeton SAML en sélectionnant cette ligne, puis **Inspect
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

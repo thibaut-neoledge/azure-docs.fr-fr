@@ -14,13 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/22/2016"
 	ms.author="hawong"/>
 
 # Didacticiel de Power BI pour DocumentDB : visualiser les données à l'aide du connecteur Power BI
+
 [PowerBI.com](https://powerbi.microsoft.com/) est un service en ligne qui vous permet de créer et partager des tableaux de bord et des rapports à partir de données véritablement significatives pour vous et votre organisation. Power BI Desktop est un outil de création de rapports dédié qui vous permet de récupérer des données à partir de diverses sources, de les fusionner et de les transformer, de créer de puissants rapports et visualisations, puis de publier ces rapports sur Power BI. Grâce à la dernière version de Power BI Desktop, vous pouvez maintenant vous connecter à votre compte DocumentDB via le connecteur DocumentDB pour Power BI.
 
-Dans ce didacticiel pour Power BI, nous allons passer en revue les différentes étapes qui vous permettront de vous connecter à un compte DocumentDB dans Power BI Desktop, d’accéder à une collection à partir de laquelle extraire des données à l’aide du Navigateur, de convertir les données JSON en tableau en utilisant l’éditeur de requête de Power BI Desktop, et de générer et publier un rapport sur PowerBI.com.
+Dans ce didacticiel pour Power BI, nous allons passer en revue les différentes étapes qui vous permettront de vous connecter à un compte DocumentDB dans Power BI Desktop, d’accéder à une collection à partir de laquelle extraire des données à l’aide du Navigateur, de convertir les données JSON en tableau en utilisant l’éditeur de requête de Power BI Desktop, et de générer et publier un rapport sur PowerBI.com.
 
 Après avoir terminé ce didacticiel pour Power BI, vous serez en mesure de répondre aux questions suivantes :
 
@@ -39,7 +40,7 @@ Avant de suivre les instructions de ce didacticiel pour Power BI, assurez-vous d
 	- Le compte de démonstration comprend les données relatives au volcan présentées dans ce didacticiel. Ce compte de démonstration n’est lié à aucun contrat de niveau de service et est réservé uniquement à des fins de démonstration. Nous nous réservons le droit d’apporter à tout moment des modifications à ce compte de démonstration sans préavis et sans raison, y compris sans toutefois s’y limiter, à résilier le compte, à modifier la clé d’accès, à restreindre l’accès, à modifier et supprimer les données.
 		- URL :https://analytics.documents.azure.com
 		- Clé en lecture seule : MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR + YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw ==
-	- Sinon, créez votre propre compte ; pour cela, consultez l’article [Création d’un compte de base de données DocumentDB avec le portail Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Ensuite, pour obtenir des exemples de données de volcan semblables à celles utilisées dans ce didacticiel (mais qui ne contiennent pas les blocs GeoJSON), consultez le [site NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) puis importez les données à l’aide de l’[outil de migration de données DocumentDB](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+	- Sinon, créez votre propre compte ; pour cela, consultez l’article [Création d’un compte DocumentDB NoSQL à l’aide du Portail Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Ensuite, pour obtenir des exemples de données de volcan semblables à celles utilisées dans ce didacticiel (mais qui ne contiennent pas les blocs GeoJSON), consultez le [site NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) puis importez les données à l’aide de l’[outil de migration de données DocumentDB](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 
 Pour partager vos rapports dans PowerBI.com, vous devez disposer d’un compte sous PowerBI.com. Pour en savoir plus sur la version gratuite de Power BI et sur Power BI Pro, visitez le site [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
@@ -86,25 +87,24 @@ Prêt à vous lancer ? Allons-y.
 
 	![Power BI Desktop - Obtenir des données - Connecteur Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
-6. Spécifiez l’URL du point de terminaison du compte DocumentDB dont vous souhaitez récupérer les données (voir ci-dessous), puis cliquez sur **OK**. Vous pouvez récupérer l’URL dans la zone URI du panneau **Clés** du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus. Pour plus d’informations, consultez la page relative aux [Clés](documentdb-manage-account.md#keys).
+6. Spécifiez l’URL du point de terminaison du compte DocumentDB dont vous souhaitez récupérer les données (voir ci-dessous), puis cliquez sur **OK**. Vous pouvez récupérer l’URL dans la zone URI du panneau **[Clés](documentdb-manage-account.md#keys)** du portail Azure. Sinon, vous pouvez utiliser le compte de démonstration, auquel cas l’URL est la suivante : `https://analytics.documents.azure.com`.
 
-
-	*Remarque : dans ce didacticiel, nous n’allons pas spécifier ni le nom de la base de données, ni le nom de la collection ni l’instruction SQL car ces champs sont facultatifs. Nous allons utiliser le Navigateur pour sélectionner la base de données et la collection afin d’identifier la provenance des données.*
+	Laissez les champs facultatifs du nom de la base de données, du nom de la collection et de l’instruction vides. Nous allons utiliser le Navigateur pour sélectionner la base de données et la collection afin d’identifier la provenance des données.
 
     ![Didacticiel de Power BI pour DocumentDB - Connecteur Power BI - Fenêtre de connexion](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 
-7. Si vous vous connectez pour la première fois à ce point de terminaison, le système vous demandera la clé du compte. Entrez la clé du compte et cliquez sur **Se connecter**.
+7. Si vous vous connectez pour la première fois à ce point de terminaison, le système vous demandera la clé du compte. Vous pouvez récupérer l’URL dans la zone **Clé primaire** du panneau **[Clés en lecture seule](documentdb-manage-account.md#keys)** du portail Azure. Sinon, vous pouvez utiliser le compte de démonstration, auquel cas la clé est la suivante : `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`. Entrez la clé du compte et cliquez sur **Se connecter**.
 
-	*Remarque : nous vous recommandons d’utiliser la clé en lecture seule lorsque vous créez des rapports, ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels. La clé en lecture seule est disponible à partir du panneau correspondant du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus.*
+	nous vous recommandons d’utiliser la clé en lecture seule lorsque vous créez des rapports, ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels. La clé en lecture seule est disponible à partir du panneau [Clés](documentdb-manage-account.md#keys) du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus.
 
     ![Didacticiel de Power BI pour DocumentDB - Connecteur Power BI - Clé de compte](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
 8. Une fois le compte connecté, le **Navigateur** s’affiche. Le **Navigateur** affiche une liste des bases de données attachées au compte.
-9. Sélectionnez puis développez la base de données d’où proviennent les données du rapport. Vous obtenez la liste des collections attachées à la base de données.  
+9. Sélectionnez puis développez la base de données d’où proviennent les données du rapport. Si vous utilisez le compte de démonstration, sélectionnez **volcanodb**.
 
-10. À présent, sélectionnez une collection d’où vous allez récupérer les données (par exemple, volcano1).
+10. À présent, sélectionnez une collection d’où vous allez récupérer les données. Si vous utilisez le compte de démonstration, sélectionnez **volcano1**.
 
-	*Remarque : le volet d’aperçu affiche une liste des éléments d’**enregistrement**. Dans Power BI, un Document est représenté sous la forme d’un type d’**enregistrement**. De même, un bloc JSON imbriqué à l’intérieur d’un document est également considéré comme un **enregistrement**.*
+	le volet d’aperçu affiche une liste des éléments d’**enregistrement**. Dans Power BI, un Document est représenté sous la forme d’un type d’**enregistrement**. De même, un bloc JSON imbriqué à l’intérieur d’un document est également considéré comme un **enregistrement**.
 
     ![Didacticiel de Power BI pour DocumentDB - Connecteur Power BI - Fenêtre du navigateur](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
 
@@ -128,15 +128,15 @@ Prêt à vous lancer ? Allons-y.
 
 6. Le volet central affiche maintenant une colonne de coordonnées de type **Liste**. Comme indiqué au début de ce didacticiel, les données GeoJSON utilisées dans ce didacticiel sont de type « Point », avec des valeurs de latitude et longitude enregistrées dans le tableau de coordonnées.
 
-	*Remarque : l’élément coordinates[0] représente la longitude et l’élément coordinates[1] la latitude.* ![Didacticiel de Power BI pour DocumentDB - Connecteur Power BI - Liste des coordonnées](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
+	L’élément coordinates[0] représente la longitude et l’élément coordinates[1] la latitude. ![Didacticiel de Power BI pour DocumentDB - Connecteur Power BI - Liste des coordonnées](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 
 7. Pour mettre à plat le tableau de coordonnées, nous allons créer une **colonne personnalisée** appelée LatLong. Sélectionnez le ruban **Add column** (Ajouter une colonne), puis cliquez sur **Add Custom Column** (Ajouter une colonne personnalisée). La fenêtre **Add Custom Column** (Ajouter une colonne personnalisée) s’affiche.
 
 8. Indiquez un nom pour la nouvelle colonne, par exemple LatLong.
 
-9. Spécifiez ensuite la formule personnalisée à appliquer à la nouvelle colonne. Dans notre exemple, nous allons concaténer les valeurs de latitude et longitude séparées par une virgule, comme indiqué ci-dessous, à l’aide de la formule suivante : Text.From([coordinates]{1})&","&Text.From([coordinates]{0}). Cliquez sur **OK**.
+9. Spécifiez ensuite la formule personnalisée à appliquer à la nouvelle colonne. Dans notre exemple, nous allons concaténer les valeurs de latitude et longitude séparées par une virgule, comme indiqué ci-dessous, à l’aide de la formule suivante : `Text.From([Document.Location.coordinates]{1})&","&Text.From([Document.Location.coordinates]{0})`. Cliquez sur **OK**.
 
-    *Remarque : pour plus d’informations sur le langage DAX (Data Analysis Expressions) et notamment sur les fonctions DAX, consultez la page [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop) (en anglais).*
+    Pour plus d’informations sur le langage DAX (Data Analysis Expressions) et notamment sur les fonctions DAX, consultez la page [DAX Basic in Power BI Desktop (Dax de base dans Power BI Desktop)](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
 
     ![Didacticiel de Power BI pour DocumentDB - Connecteur Power BI - Ajouter une colonne personnalisée](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
@@ -144,7 +144,13 @@ Prêt à vous lancer ? Allons-y.
 
 	![Didacticiel de Power BI pour DocumentDB - Connecteur Power BI - Colonne LatLong personnalisée](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
 
-11. Nous avons terminé de convertir les données au format tabulaire. Vous pouvez tirer parti de toutes les fonctionnalités disponibles dans l’éditeur de requête pour modeler et transformer des données dans DocumentDB. Par exemple, vous pouvez modifier le type de données pour le champ Altitude en **Nombre décimal** en modifiant le **Type de données** sur le ruban **Accueil**.
+    Si vous recevez une erreur dans la nouvelle colonne, assurez-vous que les étapes appliquées sous les Paramètres de requête correspondent à la figure suivante :
+
+    ![Les étapes appliquées doivent être Source, Navigation, Expanded Document, Expanded Document.Location, Added Custom](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-applied-steps.png)
+
+    Si vos étapes sont différentes, supprimez les étapes supplémentaires et essayez d’ajouter de nouveau la colonne personnalisée.
+
+11. Nous avons terminé de convertir les données au format tabulaire. Vous pouvez tirer parti de toutes les fonctionnalités disponibles dans l’éditeur de requête pour modeler et transformer des données dans DocumentDB. Si vous utilisez l’exemple, modifiez le type de données pour le champ Altitude en **Nombre entier**, en modifiant le **Type de données** sur le ruban **Accueil**.
 
     ![Didacticiel de Power BI pour DocumentDB - Connecteur Power BI - Modifier le type de colonne](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
 
@@ -172,9 +178,9 @@ Vous trouverez ci-dessous les principales étapes de création d’un rapport de
 1. Dans notre exemple, nous allons créer une vue cartographique indiquant l’emplacement de chaque volcan. Dans le volet **Visualisations**, cliquez sur le type d’élément visuel « carte », comme illustré dans la capture d’écran ci-dessus. Le type d’élément visuel « carte » devrait s’afficher dans la zone de dessin **Rapport**. Le volet **Visualisations** doit également afficher un ensemble de propriétés associées au type d’élément visuel « carte ».
 
 2. Maintenant, faites glissez et déplacez le champ LatLong du volet **Champs** vers la propriété **Emplacement** du volet **Visualisations**.
-3. Faites glissez le champ Nom du volcan vers la propriété **Légende**.  
+3. Faites glissez le champ Nom du volcan vers la propriété **Légende**.
 
-4. Puis déplacez le champ Altitude vers la propriété **Valeurs**.
+4. Ensuite, faites glisser le champ Altitude sur la propriété **Taille**.
 
 5. Vous devriez maintenant voir une carte contenant un ensemble de bulles qui indiquent l’emplacement de chaque volcan, la taille de la bulle étant proportionnelle à l’altitude des volcans.
 
@@ -187,11 +193,53 @@ Pour partager votre rapport, vous devez disposer d’un compte dans PowerBI.com.
 
 1. Dans Power BI Desktop, cliquez sur le ruban **Accueil**.
 2. Cliquez sur **Publier**. Vous devrez entrer le nom d’utilisateur et le mot de passe associés à votre compte PowerBI.com.
-3. Une fois les informations d’identification authentifiées, le rapport est publié dans votre compte PowerBI.com.
-4. Vous pouvez ensuite partager votre rapport dans PowerBI.com.
+3. Une fois les informations d’identification authentifiées, le rapport est publié sur la destination sélectionnée.
+4. Cliquez sur **Open 'PowerBITutorial.pbix' in Power BI (Ouvrir PowerBITutorial.pbix dans Power BI)** pour consulter et partager votre rapport sur PowerBI.com.
+
+    ![Publication réussie sur Power BI ! Ouvrir le didacticiel dans Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
+
+## Créer un tableau de bord dans PowerBI.com
+
+Maintenant que vous disposez d’un rapport, partageons-le dans PowerBI.com.
+
+Lorsque vous publiez votre rapport à partir de Power BI Desktop sur PowerBI.com, des éléments **Rapport** et **Jeu de données** sont générés dans votre client PowerBI.com. Par exemple, après la publication d’un rapport nommé **PowerBITutorial** sur PowerBI.com, un élément PowerBITutorial s’affiche dans les sections **Rapports** et **Jeux de données** de PowerBI.com.
+
+   ![Capture d’écran des nouveau rapport et jeu de données dans PowerBI.com](./media/documentdb-powerbi-visualize/documentdb-powerbi-reports-datasets.png)
+
+Pour créer un tableau de bord partageable, cliquez sur le bouton **Épingler une page dynamique** de votre rapport PowerBI.com.
+
+   ![Capture d’écran des nouveau rapport et jeu de données dans PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-pin-live-tile.png)
+
+Ensuite, suivez les instructions de [Pin a tile from a report (Épingler une vignette d’un rapport)](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) afin de créer un tableau de bord.
+
+Vous pouvez également apporter des modifications ad hoc au rapport avant de créer un tableau de bord. Toutefois, il est recommandé d’utiliser Power BI Desktop pour effectuer les modifications et republier le rapport sur PowerBI.com.
+
+## Actualiser les données dans PowerBI.com
+
+Il existe deux manières d’actualiser les données, le modèle ad hoc et la planification.
+
+Pour une actualisation ad hoc, cliquez sur les éclipses (…) en regard du **Jeu de données**, par exemple PowerBITutorial. Une liste d’actions doit s’afficher, comprenant notamment **Actualiser maintenant**. Cliquez sur **Actualiser maintenant** pour actualiser les données.
+
+![Capture d’écran de la fenêtre Actualiser maintenant dans PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-refresh-now.png)
+
+Pour procéder à une actualisation planifiée, procédez comme suit.
+
+1. Cliquez sur **Planifier l’actualisation**dans la liste d’actions. ![Capture d’écran de la fenêtre Planifier l’actualisation de PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-schedule-refresh.png)
+
+2. Dans la page **Paramètres**, développez **Informations d’identification de la source de données**.
+
+3. Cliquez sur **Modifier les informations d’identification**.
+
+    La fenêtre contextuelle de configuration apparaît.
+
+4. Entrez la clé de connexion au compte DocumentDB pour ce jeu de données, puis cliquez sur **Se connecter**.
+
+5. Développez **Planifier l’actualisation**, puis définissez le calendrier que vous souhaitez actualiser pour le jeu de données.
+  
+6. Cliquez sur **Appliquer** ; vous avez terminé la configuration de l’actualisation planifiée.
 
 ## Étapes suivantes
-- Cliquez [ici](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) pour en savoir plus sur Power BI.
-- Pour en savoir plus sur DocumentDB, cliquez [ici](https://azure.microsoft.com/documentation/services/documentdb/).
+- Pour plus d’informations sur Power BI, consultez la section [Get started with Power BI (Prise en main de Power BI)](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+- Pour plus d’informations sur DocumentDB, consultez la [page d’accueil de la documentation DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

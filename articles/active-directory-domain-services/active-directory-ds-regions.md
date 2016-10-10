@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire des services de domaine Azure Active Directory : régions prises en charge | Microsoft Azure"
+	pageTitle="Services de domaine Azure Active Directory : régions prises en charge | Microsoft Azure"
 	description="Régions Azure prises en charge pour les services de domaine Azure Active Directory"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
-# Services de domaine Azure AD *(version préliminaire)*
+# Services de domaine Azure AD : régions prises en charge
 
 Pour savoir où les services de domaine Azure AD sont disponibles, consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
+	ms.date="09/26/2016"   
 	ms.author="juliako"/>
  
 #Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique 
@@ -350,4 +350,4 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

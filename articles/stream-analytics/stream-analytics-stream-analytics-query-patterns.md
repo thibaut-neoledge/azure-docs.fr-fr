@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 
@@ -25,7 +25,7 @@
 Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête de type SQL présenté dans le guide [Référence du langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). Cet article décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et sera mis à jour avec de nouveaux modèles de manière continue.
 
 ## Exemple de requête : conversions de types de données
-**Description** : définir les types des propriétés sur le flux d'entrée. Par exemple, le poids de la voiture arrive sur le flux d'entrée sous forme de chaînes et doit être converti en INT pour effectuer la synthèse SUM.
+**Description** : définissez les types des propriétés sur le flux d’entrée. Par exemple, le poids de la voiture arrive sur le flux d’entrée sous forme de chaîne, et doit être converti en INT pour exécuter la fonction SUM.
 
 **Entrée** :
 
@@ -55,7 +55,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 
 
 ## Exemple de requête : utilisation de Like/Not like pour déterminer la correspondance de modèle
-**Description** : vérification qu'une valeur de champ sur l'événement correspond à un certain modèle, par exemple renvoyer les immatriculations commençant par A et se terminant par 9
+**Description** : vérifiez qu’une valeur de champ sur l’événement correspond à un certain profil. Par exemple, renvoyez les plaques d’immatriculation commençant par A et se terminant par 9
 
 **Entrée** :
 
@@ -84,7 +84,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 **Explication** : utilisation de l'instruction LIKE pour vérifier que la valeur du champ LicensePlate commence par A, suivi d’une chaîne de zéro caractère ou plus et se termine par 9.
 
 ## Exemple de requête : spécification de la logique pour différentes casses/valeurs (instructions CASE)
-**Description** : fourniture de calculs différents pour un champ en fonction de certains critères. Par exemple, fourniture d’une description de chaîne pour le nombre de voitures de la même marque, avec une casse spéciale pour 1.
+**Description** : fournissez un calcul différent pour un champ en fonction de certains critères. Par exemple, fournissez une description de chaîne pour le nombre de voitures de la même marque avec une casse spéciale pour 1.
 
 **Entrée** :
 
@@ -118,7 +118,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 **Explication** : la clause CASE permet de fournir un calcul différent en fonction de certains critères (dans ce cas, le nombre de voitures dans la fenêtre d'agrégation).
 
 ## Exemple de requête : envoi de données vers plusieurs sorties
-**Description** : envoi de données vers plusieurs cibles de sortie depuis un projet unique. Par exemple, une analyse des données pour une alerte de seuil et l’archivage de tous les événements pour le stockage d'objets blob
+**Description** : envoyez des données à plusieurs cibles de sortie à partir d’un travail unique. Par exemple, analysez des données relatives à une alerte basée sur un seuil et archivez tous les événements dans Stockage Blob.
 
 **Entrée** :
 
@@ -183,7 +183,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
 ## Exemple de requête : comptage des valeurs uniques
-**Description** : compter les valeurs de champ uniques qui apparaissent dans le flux de données dans une fenêtre de temps. Par exemple, combien de voitures de marques différentes sont passées au péage pendant une fenêtre de 2 secondes ?
+**Description** : comptez le nombre de valeurs de champ uniques qui apparaissent dans le flux au cours d’une fenêtre de temps. Par exemple, combien de voitures d’une même marque ont franchi le péage dans une fenêtre de temps de 2 secondes ?
 
 **Entrée** :
 
@@ -226,7 +226,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 **Explication :** une agrégation initiale est effectuée pour obtenir les marques uniques avec leur nombre dans la fenêtre. Ensuite, nous effectuons une agrégation du nombre de marques obtenues. Étant donné que toutes les valeurs uniques dans une fenêtre obtiennent le même horodatage, la deuxième fenêtre d'agrégation doit être minime afin de ne pas agréger 2 fenêtres de la première étape.
 
 ## Exemple de requête : déterminer si une valeur a changé#
-**Description** : examiner une valeur précédente pour déterminer si elle est différente de la valeur actuelle. Par exemple, la voiture actuellement sur la voie de péage est-elle de la même marque que la voiture précédente ?
+**Description** : examinez une valeur précédente pour déterminer si elle diffère de la valeur actuelle. Par exemple, la voiture actuellement sur la voie de péage est-elle de la même marque que la voiture précédente ?
 
 **Entrée** :
 
@@ -353,7 +353,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 **Explication** : la requête comprend deux étapes, la première servant à rechercher l'horodatage le plus récent dans une plage de 10 minutes. La deuxième étape joint les résultats de la première requête avec des flux de données d'origine pour rechercher les événements qui correspondent aux derniers horodatages dans chaque fenêtre.
 
 ## Exemple de requête : détection de l’absence d’événements
-**Description** : vérifier qu’un flux de données n’a aucune valeur correspondant à un critère donné. Par exemple, 2 voitures consécutives de la même marque sont-elles entrées sur la voie de péage en 90 secondes ?
+**Description** : vérifiez qu’un flux ne contient aucune valeur correspondant à certains critères. Par exemple, 2 voitures consécutives de la même marque se sont-elles engagées dans la voie de péage en 90 secondes ?
 
 **Entrée** :
 
@@ -386,7 +386,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 **Explication** : utilisez LAG pour lire le flux d’entrée de l’événement précédent et obtenir la valeur de la marque. Comparez-la ensuite à la valeur de Make de l’événement actuel, créez une sortie si elles sont identiques, et utilisez LAG pour obtenir des données sur la voiture précédente.
 
 ## Exemple de requête : détection de la durée entre des événements
-**Description** : rechercher la durée d’un événement donné. Par exemple, en fonction d’un parcours web, déterminer le temps passé sur une fonctionnalité.
+**Description** : trouvez la durée d’un événement donné. Par exemple, sur la base d’un parcours web, déterminez le temps passé sur une fonctionnalité.
 
 **Entrée** :
   
@@ -415,7 +415,7 @@ Les requêtes Azure Stream Analytics sont exprimées dans un langage de requête
 **Explication** : utilisez la fonction LAST pour récupérer la dernière valeur d’heure quand le type d’événement est « Démarrer ». Notez que la fonction LAST utilise PARTITION BY [user] pour indiquer que le résultat doit être calculé par utilisateur unique. La requête a un seuil maximal de 1 heure pour la différence de temps entre les événements « Démarrer » et « Terminer » (LIMIT DURATION(hour, 1)), mais ce seuil est configurable en fonction des besoins.
 
 ## Exemple de requête : détection de la durée d’une condition
-**Description** : déterminer sur quelle période un problème s’est produit. Par exemple, supposons qu’un bogue entraînant un poids incorrect pour toutes les voitures (d’un poids supérieur à 20 000 livres) se produit et que nous voulons calculer la durée du bogue.
+**Description** : déterminez le temps pendant lequel une condition s’est produite. Par exemple, supposons qu’à la suite d’un bogue, le poids de toutes les voitures est incorrect (supérieur à 1 tonne). Nous voulons calculer la durée du bogue.
 
 **Entrée** :
 
@@ -514,4 +514,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

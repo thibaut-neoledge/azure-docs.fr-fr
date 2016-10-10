@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/26/2016"
 	ms.author="carlasab"/>
 
 
@@ -125,7 +125,7 @@ Si vous migrez vers une machine virtuelle Azure existante, les opérations de co
 		- Nom d’utilisateur
 		- Nouveau mot de passe
 		- Confirmer le mot de passe
-		- Emplacement
+		- Lieu
 		- Taille.
  	- En outre, cliquez ici pour accepter le certificat généré automatiquement pour cette nouvelle Machine virtuelle Microsoft Azure, puis cliquez sur OK.
 
@@ -180,4 +180,4 @@ Pour plus d’informations sur l’exécution de SQL Server sur des machines vir
 
 Pour obtenir des instructions sur la création d’une machine virtuelle Azure SQL Server à partir d’une image capturée, consultez la page [Tips & Tricks on ‘cloning’ Azure SQL virtual machines from captured images](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) (Trucs et astuces sur le « clonage » des machines virtuelles Azure SQL à partir d’images capturées) du blog des ingénieurs CSS SQL Server.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

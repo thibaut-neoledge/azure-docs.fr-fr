@@ -69,7 +69,7 @@ Dans cet exemple, il existe un abonnement qui contient les éléments suivants 
 
 ## Itinéraire défini par l’utilisateur (UDR)
 
-Chaque sous-réseau dans Azure peut être lié à une table d’UDR utilisée pour définir le mode d’acheminement du trafic dans ce sous-réseau. Si aucun UDR n’est défini, Azure utilise les itinéraires par défaut pour autoriser le trafic d’un sous-réseau à un autre. Pour mieux comprendre les UDR, consultez Présentation des itinéraires définis par l’utilisateur et du transfert IP.
+Chaque sous-réseau dans Azure peut être lié à une table d’UDR utilisée pour définir le mode d’acheminement du trafic dans ce sous-réseau. Si aucun UDR n’est défini, Azure utilise les itinéraires par défaut pour autoriser le trafic d’un sous-réseau à un autre. Pour mieux comprendre les itinéraires définis par l’utilisateur, consultez [Présentation des itinéraires définis par l’utilisateur et du transfert IP](./virtual-networks-udr-overview.md#ip-forwarding).
 
 Pour assurer la communication transite par l’appliance de pare-feu appropriée, conformément à la dernière exigence ci-dessus, vous devez créer la table suivante contenant les UDR de **azurevnet**.
 
@@ -178,4 +178,4 @@ Pour déployer ce scénario, suivez la procédure générale suivante.
 4.	Approvisionnez le tunnel reliant **onpremvnet** à **azurevnet**.
 5.	Une fois toutes les ressources approvisionnées, ouvrez une session sur **onpremvm2** et envoyez la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

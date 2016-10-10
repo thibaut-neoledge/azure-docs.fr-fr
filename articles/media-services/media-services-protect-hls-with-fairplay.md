@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utiliser Azure Media Services pour diffuser en continu votre contenu HLS protégé avec Apple FairPlay" 
+	pageTitle="Protéger votre contenu HLS avec Apple FairPlay et/ou Microsoft PlayReady | Microsoft Azure" 
 	description="Cette rubrique fournit une vue d’ensemble et montre comment utiliser Azure Media Services pour chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) avec Apple FairPlay. Elle montre également comment utiliser le service de distribution de licences Media Services pour fournir des licences FairPlay aux clients." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,22 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016"
+	ms.date="09/27/2016"
 	ms.author="juliako"/>
 
-#Utiliser Azure Media Services pour diffuser en continu votre contenu HLS protégé avec Apple FairPlay 
+# Protéger votre contenu HLS avec Apple FairPlay et/ou Microsoft PlayReady
 
 Azure Media Services vous permet de chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) avec les formats suivants :
 
-- **Clé en clair de l’enveloppe AES-128** : le segment entier est chiffré à l’aide du mode **AES-128 CBC**. Le déchiffrement du flux est pris en charge par iOS et le lecteur OSX en mode natif. Pour plus d’informations, consultez [cet article](media-services-protect-with-aes128.md).
+- **Clé en clair de l’enveloppe AES-128**
 
-- **Apple FairPlay** - Les échantillons audio et vidéo individuels sont chiffrés à l'aide du mode **AES-128 CBC**. **FairPlay Streaming** (FPS) est intégré dans les systèmes d'exploitation de l’appareil, avec prise en charge native sur iOS et Apple TV. Safari sur OS X active FPS à l'aide de la prise en charge d'interface Encrypted Media Extensions (EME).
+	Le segment entier est chiffré à l’aide du mode **AES-128 CBC**. Le déchiffrement du flux est pris en charge par iOS et le lecteur OSX en mode natif. Pour plus d’informations, consultez [cet article](media-services-protect-with-aes128.md).
 
-L'image suivante montre le flux de travail « Chiffrement dynamique FairPlay ».
+- **Apple FairPlay**
+
+	Les échantillons audio et vidéo individuels sont chiffrés à l’aide du mode **AES-128 CBC**. **FairPlay Streaming** (FPS) est intégré dans les systèmes d'exploitation de l’appareil, avec prise en charge native sur iOS et Apple TV. Safari sur OS X active FPS à l'aide de la prise en charge d'interface Encrypted Media Extensions (EME).
+- **Microsoft PlayReady**
+
+L’image suivante montre le flux de travail **CHLS + FairPlay et/ou chiffrement dynamique PlayReady**.
 
 ![Protéger avec FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
 Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynamiquement votre contenu HLS avec Apple FairPlay. Elle montre également comment utiliser le service de distribution de licences Media Services pour fournir des licences FairPlay aux clients.
+
+>[AZURE.NOTE] Si vous souhaitez également chiffrer votre contenu HLS avec PlayReady, vous devez créer une clé commune et l’associer à votre ressource. Vous devez également configurer la stratégie d’autorisation de la clé de contenu, comme décrit dans la rubrique [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md) (Utilisation du chiffrement commun dynamique PlayReady).
 
 	
 ## Conditions requises et éléments à prendre en compte
@@ -115,6 +122,20 @@ Les clients peuvent développer des lecteurs à l’aide du SDK iOS. Pour pouvoi
 
 >[AZURE.NOTE] Azure Media Player ne prend pas en charge la lecture FairPlay dès le départ. Les clients doivent se procurer l’exemple de lecteur à partir du compte de développeur Apple pour mettre en œuvre la lecture FairPlay sur MAC OS X.
  
+##URL de diffusion
+
+Si votre ressource a été chiffrée avec plusieurs DRM, vous devez utiliser une balise de chiffrement dans l’URL de diffusion en continu : (format=’m3u8-aapl’, encryption=’xxx’).
+
+Les considérations suivantes s'appliquent :
+
+- Seul zéro ou un type de chiffrement peut être spécifié.
+- Le type de chiffrement ne doit pas être spécifié dans l’url si un seul chiffrement a été appliqué à la ressource.
+- Le type de chiffrement ne tient pas compte de la casse.
+- Les types de chiffrement suivants peuvent être spécifiés :
+	- **cenc**: chiffrement commun (Playready ou Widevine)
+	- **des CBC-aapl** : Fairplay
+	- **cbc** : chiffrement de l’enveloppe AES.
+
 
 ##Exemple .NET
 
@@ -550,4 +571,4 @@ L'exemple suivant illustre la fonctionnalité introduite dans le Kit de dévelop
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

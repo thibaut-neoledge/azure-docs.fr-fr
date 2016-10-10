@@ -1,6 +1,6 @@
 
 <properties 
-	pageTitle="Gestion des entités Media Services avec l’API REST" 
+	pageTitle="Gestion des entités Media Services avec l’API REST | Microsoft Azure" 
 	description="Découvrez comment gérer des entités Media Services avec l'API REST" 
 	authors="juliako" 
 	manager="dwrede" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Gestion des entités Media Services avec l’API REST
@@ -175,4 +175,4 @@ L’exemple suivant montre comment supprimer un localisateur qui était utilisé
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

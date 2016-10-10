@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="MarkVi"/>
 
 # Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7
 
 En tant qu’administrateur, vous pouvez configurer vos appareils joints à un domaine Windows 7 pour qu’ils s’inscrivent automatiquement auprès d’Azure AD. Pour cela, vous devez déployer le package logiciel d’inscription d’appareils sur les appareils joints à un domaine Windows 7 à l’aide d’un système de distribution de logiciels comme System Center Configuration Manager. Veillez à lire et à satisfaire aux conditions requises répertoriées dans l’inscription automatique des appareils auprès d’Azure Active Directory pour les appareils joints à un domaine Windows.
+
+>[AZURE.NOTE]
+ Pour les dernières informations sur la configuration de l’inscription automatique des appareils, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ##Installation du package logiciel d’inscription des appareils sur des appareils joints à un domaine Windows 7
 
@@ -60,4 +63,4 @@ Le journal des événements Windows sur l’ordinateur Windows 7 affiche des me
 - [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Inscription automatique auprès d’Azure Active Directory d’appareils Windows 10 joints à un domaine](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

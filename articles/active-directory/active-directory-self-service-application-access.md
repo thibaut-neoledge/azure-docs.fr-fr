@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -29,7 +29,7 @@ L’accès à l’application en libre-service est une fonctionnalité d’[Azur
 
 Aujourd’hui cette fonctionnalité est prise en charge pour toutes les applications préintégrées et personnalisées qui prennent en charge les connexions fédérées ou basées sur un mot de passe de session unique dans la [Galerie d’applications Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/), et notamment les applications telles que Salesforce, échange, Google Apps, entre autres. Cet article explique comment :
 
-* Configuration de l’accès des applications en libre-service pour les utilisateurs finaux, notamment la configuration d’un workflow d’approbation facultatif 
+* Configuration de l’accès des applications en libre-service pour les utilisateurs finaux, notamment la configuration d’un workflow d’approbation facultatif
 * Déléguer la gestion de l’accès à des applications spécifiques pour les personnes de votre organisation les plus concernées et leur permettre d’utiliser le volet d’accès Azure AD pour approuver les demandes d’accès, attribuer directement l’accès aux utilisateurs sélectionnés ou (éventuellement) les informations d’identification pour l’accès à l’application lorsque l’authentification par mot de passe est configurée
 
 
@@ -95,11 +95,11 @@ La vignette **Configurer** apparaît uniquement si l’application a été confi
 
 ![][3]
 
-* **Les utilisateurs se connectent avec leurs propres mots de passe** : dans ce mode, les utilisateurs affectés connaissent le nom d’utilisateur et les mots de passe de l’application et sont invités à les saisir lors de leur première connexion à l’application. Cela correspond aux cas d’authentification unique par mot de passe, dans lesquels [les utilisateurs gèrent les informations d’authentification](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+* **Les utilisateurs se connectent avec leurs propres mots de passe** : dans ce mode, les utilisateurs affectés connaissent le nom d’utilisateur et les mots de passe de l’application et sont invités à les saisir lors de leur première connexion à l’application. Cela correspond aux cas d’authentification unique par mot de passe, dans lesquels [les utilisateurs gèrent les informations d’authentification](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-* **Les utilisateurs sont automatiquement connectés lorsqu’ils utilisent des comptes séparés que je gère** : dans ce mode, les utilisateurs affectés ne sont pas tenus de saisir ou de connaître leurs informations d’identification spécifiques au moment de se connecter à l’application. Au lieu de cela, l’approbateur définit les informations d’identification pour chaque utilisateur après l’affectation d’accès à l’aide avec la vignette **Ajouter un utilisateur**. Lorsque l’utilisateur clique sur l’application dans le volet d’accès ou Office 365, il est automatiquement connecté à l’aide des informations d’identification définies par l’approbateur. Cela correspond au cas d’authentification unique par mot de passe dans lesquels ce sont [les administrateurs qui gèrent les informations d’identification](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+* **Les utilisateurs sont automatiquement connectés lorsqu’ils utilisent des comptes séparés que je gère** : dans ce mode, les utilisateurs affectés ne sont pas tenus de saisir ou de connaître leurs informations d’identification spécifiques au moment de se connecter à l’application. Au lieu de cela, l’approbateur définit les informations d’identification pour chaque utilisateur après l’affectation d’accès à l’aide avec la vignette **Ajouter un utilisateur**. Lorsque l’utilisateur clique sur l’application dans le volet d’accès ou Office 365, il est automatiquement connecté à l’aide des informations d’identification définies par l’approbateur. Cela correspond au cas d’authentification unique par mot de passe dans lesquels ce sont [les administrateurs qui gèrent les informations d’identification](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-* **Les utilisateurs sont automatiquement connectés lorsqu’ils utilisent un compte unique que je gère** : il s’agit d’un cas spécial et il convient de l’utiliser lorsque des utilisateurs affectés doivent se voir accorder un accès avec un compte partagé unique. Le cas d’utilisation le plus courant concerne les applications de médias sociaux, où une organisation possède un compte « société » et où plusieurs utilisateurs doivent effectuer des mises à jour. Cela correspond également au cas d’authentification unique par mot de passe dans lesquels ce sont [les administrateurs qui gèrent les informations d’identification](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Toutefois, après avoir sélectionné cette option, l’approbateur est invité à entrer le nom d’utilisateur et le mot de passe pour le compte partagé unique. Une fois l’opération terminée, tous les utilisateurs affectés seront connectés à l’aide de ce compte lorsque vous cliquez sur l’application sur leur volet d’accès Azure AD ou sur Office 365.
+* **Les utilisateurs sont automatiquement connectés lorsqu’ils utilisent un compte unique que je gère** : il s’agit d’un cas spécial et il convient de l’utiliser lorsque des utilisateurs affectés doivent se voir accorder un accès avec un compte partagé unique. Le cas d’utilisation le plus courant concerne les applications de médias sociaux, où une organisation possède un compte « société » et où plusieurs utilisateurs doivent effectuer des mises à jour. Cela correspond également au cas d’authentification unique par mot de passe dans lesquels ce sont [les administrateurs qui gèrent les informations d’identification](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Toutefois, après avoir sélectionné cette option, l’approbateur est invité à entrer le nom d’utilisateur et le mot de passe pour le compte partagé unique. Une fois l’opération terminée, tous les utilisateurs affectés seront connectés à l’aide de ce compte lorsque vous cliquez sur l’application sur leur volet d’accès Azure AD ou sur Office 365.
 
 ##Ressources supplémentaires
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
@@ -109,4 +109,4 @@ La vignette **Configurer** apparaît uniquement si l’application a été confi
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

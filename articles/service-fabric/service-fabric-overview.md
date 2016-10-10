@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/03/2016"
+   ms.date="09/22/2016"
    ms.author="mfussell"/>
 
 # Vue d'ensemble de Service Fabric
@@ -41,7 +41,7 @@ Pour plus d’informations sur l’approche microservices, consultez [Pourquoi a
 ## Créer des clusters Service Fabric n'importe où
 Vous pouvez créer des clusters Service Fabric dans de nombreux environnements, notamment Azure ou locaux, sous Windows Server ou sous Linux. En outre, l’environnement de développement dans le Kit de développement logiciel (SDK) est identique à l’environnement de production, sans aucun émulateur impliqué. En d’autres termes, s’il s’exécute sur votre cluster de développement local, il se déploie sur le même cluster dans d’autres environnements.
 
-Pour plus d’informations sur la création locale de clusters, consultez [Création d’un cluster sous Windows Server ou Linux](service-fabric-deploy-anywhere.md) ou, pour créer un cluster Azure par le biais du portail Azure, consultez [cette rubrique](service-fabric-cluster-creation-via-portal.md).
+Pour en savoir plus sur la création de clusters en local, voir [Création d’un cluster sous Windows Server ou Linux](service-fabric-deploy-anywhere.md) ou, pour créer un cluster Azure par l’intermédiaire du portail Azure, voir [cette rubrique](service-fabric-cluster-creation-via-portal.md).
 
 ![Plateforme Service Fabric][Image1]
 
@@ -110,4 +110,4 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

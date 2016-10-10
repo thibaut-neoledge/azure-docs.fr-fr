@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2016"
+   ms.date="09/26/2016"
    ms.author="dkshir;chackdan"/>
 
 
@@ -25,15 +25,20 @@ Cet article vous guide tout au long des étapes de création locale d’un clust
 
 >[AZURE.NOTE] Ce package Windows Server autonome peut contenir des fonctionnalités qui sont actuellement en version préliminaire et n’est pas pris en charge pour les charges de production. Pour afficher la liste de fonctionnalités en version préliminaire, faites défiler jusqu’à la fin de ce document. [Cliquez ici](http://go.microsoft.com/fwlink/?LinkID=733084) si vous souhaitez télécharger une copie du CLUF (Contrat de Licence Utilisateur Final).
 
+
+<a id="getsupport"></a>
+## Obtenir de l’aide pour le package autonome Service Fabric
+
+- Interrogez la Communauté sur le package autonome Service Fabric pour Windows Server dans le [forum Azure Service Fabric.](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=AzureServiceFabric?)
+
+- Ouvrez un ticket pour obtenir le [support professionnel Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146). En savoir plus sur le [support professionnel Microsoft](https://support.microsoft.com/fr-FR/gp/offerprophone?wa=wsignin1.0).
+
 <a id="downloadpackage"></a>
 ## Télécharger le package autonome Service Fabric
 
 
 [Téléchargez le package autonome Service Fabric pour Windows Server 2012 R2 et ultérieur](http://go.microsoft.com/fwlink/?LinkId=730690), nommé *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
->[AZURE.NOTE] Si vous utilisez des navigateurs Internet Explorer ou Microsoft Edge pour télécharger ce package, vous devez ajouter le site [http://download.microsoft.com](http://download.microsoft.com) aux sites de confiance dans l’intranet pour empêcher que la balise Zones ne soit écrite dans les fichiers lorsque le fichier zip est téléchargé
-
- ![TustedZone][TrustedZone]
 
 Vous trouverez les fichiers suivants dans le package de téléchargement :
 
@@ -46,12 +51,15 @@ Vous trouverez les fichiers suivants dans le package de téléchargement :
 |ClusterConfig.Windows.MultiMachine.json|Exemple de fichier de configuration de cluster qui contient tous les paramètres pour un cluster avec plusieurs machines virtuelles/ordinateurs sécurisé, utilisant la sécurité Windows, notamment les informations de chaque ordinateur du cluster sécurisé. Le cluster est sécurisé à l’aide d[’identités Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
 |ClusterConfig.x509.DevCluster.json|Exemple de fichier de configuration de cluster qui contient tous les paramètres pour un cluster de développement avec machine virtuelle/ordinateur unique à trois nœuds sécurisé, notamment les informations de chaque nœud du cluster. Le cluster est sécurisé à l’aide de certificats x509.|
 |ClusterConfig.x509.MultiMachine.json|Exemple de fichier de configuration de cluster qui contient tous les paramètres pour le cluster à plusieurs machines virtuelles/ordinateurs sécurisé, notamment les informations de chaque nœud du cluster sécurisé. Le cluster est sécurisé à l’aide de certificats x509.|
-|EULA.txt|Les termes du contrat de licence pour l’utilisation du package Windows Server autonome Microsoft Azure Service Fabric. [Cliquez ici](http://go.microsoft.com/fwlink/?LinkID=733084) si vous souhaitez télécharger une copie du CLUF (Contrat de Licence Utilisateur Final).|
+|EULA\_ENU.txt|Les termes du contrat de licence pour l’utilisation du package Windows Server autonome Microsoft Azure Service Fabric. [Cliquez ici](http://go.microsoft.com/fwlink/?LinkID=733084) si vous souhaitez télécharger une copie du CLUF (Contrat de Licence Utilisateur Final).|
 |Readme.txt|Lien vers les notes de publication et des instructions d’installation de base. Il s’agit d’une partie des instructions que vous trouverez dans cette page.|
 |CreateServiceFabricCluster.ps1|Script PowerShell qui crée le cluster à l’aide des paramètres figurant dans le fichier ClusterConfig.json.|
 |RemoveServiceFabricCluster.ps1|Script PowerShell qui supprime un cluster à l’aide des paramètres figurant dans le fichier ClusterConfig.json.|
+|ThirdPartyNotice.rtf |Informations sur le logiciel tiers du package.|
 |AddNode.ps1|Script PowerShell pour l’ajout d’un nœud à un cluster déployé existant.|
 |RemoveNode.ps1|Script PowerShell pour la suppression d’un nœud d’un cluster déployé existant.|
+|CleanFabric.ps1|Script PowerShell pour supprimer une installation autonome Fabric de l’ordinateur actuel. Les installations MSI précédentes doivent être supprimées à l’aide de leur propre programme de désinstallation associé.|
+|TestConfiguration.ps1|Script PowerShell pour l’analyse de l’infrastructure comme spécifié dans le cluster. JSON.|
 
 
 ## Planifier et préparer le déploiement de cluster
@@ -64,13 +72,16 @@ Vous allez créer un cluster Service Fabric sur les ordinateurs que vous avez po
 ### Étape 2 : préparer les ordinateurs pour répondre aux conditions préalables
 Conditions préalables pour chaque ordinateur que vous souhaitez ajouter au cluster :
 
-- 4 Go de mémoire minimum recommandés
+- 16 Go de RAM minimum recommandés
+- 40 Go d’espace disque disponible minimum recommandé
+- 4 cœurs d’unité centrale minimum recommandés
 - Connectivité réseau : assurez-vous que les ordinateurs sont sur un réseau/des réseaux sécurisé(s).
 - Windows Server 2012 R2 ou Windows Server 2012 ([KB2858668](https://support.microsoft.com/kb/2858668) doit être installé).
 - [.NET Framework 4.5.1 ou une version ultérieure](https://www.microsoft.com/download/details.aspx?id=40773), installation complète.
 - [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell).
 - L’administrateur de cluster déployant et configurant le cluster doit disposer de [privilèges d’administrateur](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) sur chaque ordinateur.
 - Le [service RemoteRegistry](https://technet.microsoft.com/library/cc754820) doit être exécuté sur tous les ordinateurs.
+- Vous ne pouvez pas installer Service Fabric sur un contrôleur de domaine
 
 ### Étape 3 : déterminer la taille initiale du cluster
 Le runtime Service Fabric est déployé sur chaque nœud d’un cluster Service Fabric autonome, et les nœuds sont membres du cluster. Un déploiement de production type comprend un nœud par instance du système d’exploitation (physique ou virtuel). La taille de cluster est déterminée par vos besoins métier. Toutefois, vous devez disposer d’une taille minimale de cluster de trois nœuds (ordinateurs/machines virtuelles). À des fins de développement, vous pouvez avoir plusieurs nœuds sur un ordinateur donné. Dans un environnement de production, Service Fabric ne prend en charge qu’un seul nœud par ordinateur physique ou virtuel.
@@ -111,10 +122,38 @@ Le cluster est décrit dans un fichier *ClusterConfig.json*. Pour plus d’infor
 
 |**Paramètres de configuration**|**Description**|
 |-----------------------|--------------------------|
-|NodeTypes|Les types de nœuds permettent de séparer vos nœuds de cluster en différents groupes. Un cluster doit comprendre au moins un NodeType. Tous les nœuds d’un groupe ont les caractéristiques communes suivantes. <br> *Name* : il s’agit du nom du type de nœud. <br> *EndPoints* : il s’agit de différents points de terminaison (ports) nommés qui sont associés à ce type de nœud. Vous pouvez utiliser n’importe quel numéro de port, tant qu’il n’entre en conflit avec aucun autre élément dans ce manifeste et n’est pas déjà en cours d’utilisation par d’autres programmes sur les ordinateurs/machines virtuelles <br> *PlacementProperties* : elles décrivent les propriétés pour ce type de nœud que vous utiliserez ensuite comme contraintes de placement pour les services système ou vos services. Ces propriétés sont des paires clé/valeur définies par l'utilisateur qui fournissent des métadonnées supplémentaires pour un nœud donné. La présence d’un disque dur ou d’une carte graphique sur le nœud, le nombre de rotations du disque dur, les noyaux et d’autres propriétés physiques sont des exemples de propriétés du nœud. <br> *Capacities* - les capacités du nœud définissent le nom et la quantité d’une ressource spécifique disponible sur un nœud particulier pour consommation. Par exemple, un nœud peut définir qu’il possède la capacité pour une mesure appelée « MemoryInMb » et qu’il dispose de 2 048 Mo de mémoire disponible par défaut. Ces capacités permettent de garantir que les services qui nécessitent une quantité spécifique de ressources sont placés sur des nœuds dans lesquels ces ressources restent disponibles au cours de l’exécution.|
-|Nœuds|Les détails de chacun des nœuds qui feront partie du cluster (type de nœud, nom de nœud, adresse IP, domaine d’erreur et domaine de mise à niveau du nœud). Les ordinateurs sur lesquels vous souhaitez créer le cluster doivent être répertoriés ici avec leur adresse IP. <br> Si vous utilisez les mêmes adresses IP pour tous les nœuds, un cluster à boîtier unique est créé. Vous pouvez l’utiliser à des fins de test. Les clusters à boîtier unique ne doivent pas servir au déploiement de charges de travail de production.|
+|**NodeTypes**|Les types de nœuds permettent de séparer vos nœuds de cluster en différents groupes. Un cluster doit comprendre au moins un NodeType. Tous les nœuds d’un groupe ont les caractéristiques communes suivantes : <br> **Name** : il s’agit du nom de type de nœud. <br> **Endpoints Ports** : il s’agit de différents points de terminaison (ports) nommés qui sont associés à ce type de nœud. Vous pouvez utiliser n’importe quel numéro de port, tant qu’il n’entre pas en conflit avec un autre élément de ce manifeste et qu’il n’est pas déjà utilisé par une autre application en cours d’exécution sur l’ordinateur/la machine virtuelle. <br> **Placement Properties** : il s’agit des propriétés pour ce type de nœud, qui serviront de contraintes de positionnement pour les services système ou pour vos services. Ces propriétés sont des paires clé/valeur définies par l’utilisateur qui fournissent des métadonnées supplémentaires pour un nœud donné. La présence d’un disque dur ou d’une carte graphique sur le nœud, le nombre de rotations du disque dur, les noyaux et d’autres propriétés physiques sont des exemples de propriétés du nœud. <br> **Capacities** : les capacités du nœud définissent le nom et la quantité d’une ressource spécifique disponible sur un nœud particulier pour consommation. Par exemple, un nœud peut définir qu’il possède la capacité pour une mesure appelée « MemoryInMb » et qu’il dispose de 2 048 Mo de mémoire disponible par défaut. Ces capacités sont utilisées au moment de l’exécution pour garantir que les services qui nécessitent une quantité spécifique de ressources sont placés sur des nœuds où ces ressources sont disponibles dans la quantité requise.<br>**IsPrimary** : si plusieurs NodeType sont définis, vérifiez qu’un seul est défini comme primaire avec la valeur *true* ; c’est là que les services système s’exécutent. Tous les autres types de nœuds doivent avoir la valeur *false*.|
+|**Nœuds**|Il s’agit des détails de chacun des nœuds qui font partie du cluster (type de nœud, nom de nœud, adresse IP, domaine d’erreur et domaine de mise à niveau du nœud). Les ordinateurs sur lesquels vous souhaitez créer le cluster doivent être répertoriés ici avec leur adresse IP. <br> Si vous utilisez la même adresse IP pour tous les nœuds, un cluster à boîtier unique est créé. Vous pouvez l’utiliser à des fins de test. N’utilisez pas les clusters à boîtier unique pour le déploiement de charges de travail de production.|
 
-### Étape 2 : exécuter le script de création de cluster
+### Étape 5 : Exécuter le Script TestConfiguration
+
+Ce script teste votre infrastructure telle que définie dans le cluster. JSON pour vérifier que vous disposez des autorisations nécessaires, que les ordinateurs sont connectés entre eux, etc. afin que le déploiement puisse s’effectuer correctement. Il s’agit essentiellement d’un outil d’analyse des meilleures pratiques. Nous continuerons à ajouter des validations à cet outil au fil du temps pour le rendre plus efficace.
+
+Ce script peut être exécuté sur n’importe quel ordinateur disposant d’un accès administrateur à tous les ordinateurs qui sont répertoriés en tant que nœuds dans le fichier de configuration du cluster. L’ordinateur sur lequel ce script est exécuté peut faire partie du cluster ou non.
+
+```powershell
+
+PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer.5.3.202.9494> .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
+Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer.5.3.202.9494\DeploymentTraces
+Running Best Practices Analyzer...
+Best Practices Analyzer completed successfully.
+
+
+LocalAdminPrivilege        : True
+IsJsonValid                : True
+IsCabValid                 : True
+RequiredPortsOpen          : True
+RemoteRegistryAvailable    : True
+FirewallAvailable          : True
+RpcCheckPassed             : True
+NoConflictingInstallations : True
+FabricInstallable          : True
+Passed                     : True 
+
+
+```
+
+### Étape 3 : Exécuter le script de création de cluster
 Une fois que vous avez modifié la configuration de cluster dans le document JSON et ajouté toutes les informations de nœud, exécutez le script PowerShell de création de cluster *CreateServiceFabricCluster.ps1* à partir du dossier de package et transmettez-lui le chemin du fichier de configuration JSON et acceptez le CLUF (Contrat de Licence Utilisateur Final).
 
 Ce script peut être exécuté sur n’importe quel ordinateur disposant d’un accès administrateur à tous les ordinateurs qui sont répertoriés en tant que nœuds dans le fichier de configuration du cluster. L’ordinateur sur lequel ce script est exécuté peut faire partie du cluster ou non.
@@ -122,17 +161,17 @@ Ce script peut être exécuté sur n’importe quel ordinateur disposant d’un 
 ```
 #Create an unsecured local development cluster
 
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA true
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
 ```
 ```
 #Create an unsecured multi-machine cluster
 
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA true
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
 ```
 
 >[AZURE.NOTE] Les journaux de déploiement sont disponibles localement sur une machine virtuelle/un ordinateur sur lequel vous avez exécuté le script PowerShell CreateServiceFabricCluster. Ils se trouvent dans un sous-dossier nommé « DeploymentTraces » sous le dossier où vous avez exécuté la commande Powershell. En outre, pour voir si Service Fabric a été déployé correctement sur un ordinateur, vous pouvez rechercher les fichiers installés dans le répertoire C:\\ProgramData et vérifier si les processus FabricHost.exe et Fabric.exe sont mentionnés comme étant en cours d’exécution dans le Gestionnaire des tâches.
 
-### Étape 3 : se connecter au cluster
+### Étape 4 : Se connecter au cluster
 
 Reportez-vous à [ce document](service-fabric-connect-to-secure-cluster.md) pour obtenir des instructions de connexion à un cluster sécurisé.
 
@@ -145,7 +184,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 
 ```
-### Étape 4 : Afficher Service Fabric Explorer
+### Étape 5 : Afficher Service Fabric Explorer
 
 Désormais, vous pouvez vous connecter au cluster avec Service Fabric Explorer directement à partir de l’un des ordinateurs avec http://localhost:19080/Explorer/index.html ou à distance avec http://<*adresse\_IP\_ordinateur*>:19080/Explorer/index.html
 
@@ -166,9 +205,43 @@ Ce script peut être exécuté sur n’importe quel ordinateur disposant d’un 
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json   
 ```
 
+<a id="telemetry"></a>
+## Données de télémétrie recueillies et comment se désabonner
+
+Par défaut, le produit collecte les données de télémétrie sur l’utilisation de Service Fabric en vue de l’améliorer. L’outil d’analyse des meilleures pratiques qui s’exécute dans le cadre de l’installation contrôle la connectivité à [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Si le service n’est pas joignable, la configuration échoue, sauf si vous vous désabonnez de la télémétrie.
+
+1) Le pipeline de télémétrie essaye de charger les données suivantes sur [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) une fois par jour. Ce meilleur téléchargement n’a aucun impact sur la fonctionnalité de cluster. Les données de télémétrie sont envoyées uniquement à partir du nœud qui exécute le service Failover Manager principal. Aucun autre nœud n’envoie des données de télémétrie.
+
+2) La télémétrie se compose des éléments suivants.
+
+1.            Nombre de services,
+1.            Nombre de ServiceTypes
+1.            Nombre de Applications
+1.            Nombre de ApplicationUpgrades
+1.            Nombre de FailoverUnits
+1.            Nombre de InBuildFailoverUnits
+1.            Nombre de UnhealthyFailoverUnits
+1.            Nombre de Replicas
+1.            Nombre de InBuildReplicas
+1.            Nombre de StandByReplicas
+1.            Nombre de OfflineReplicas
+1.            CommonQueueLength
+1.            QueryQueueLength
+1.            FailoverUnitQueueLength
+1.            CommitQueueLength
+1.            Nombre de nœuds
+1.            IsContextComplete : True/False
+1.            ClusterId : GUID généré de manière aléatoire pour chaque cluster
+1.            ServiceFabricVersion
+1.             Adresse IP de la machine virtuelle/Machine à partir de laquelle les données de télémétrie sont téléchargées
+
+
+Afin de désactiver les données de télémétrie, dans l’élément « properties » de votre configuration de cluster, ajoutez « enableTelemetry » : false
+
+<a id="previewfeatures"></a>
 ## Fonctionnalités préliminaires incluses dans ce package
 
-L’ensemble du package est actuellement en version préliminaire.
+Aucune.
 
 ## Étapes suivantes
 - [Paramètres de configuration pour un cluster Windows autonome](service-fabric-cluster-manifest.md)
@@ -181,4 +254,4 @@ L’ensemble du package est actuellement en version préliminaire.
 <!--Image references-->
 [TrustedZone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

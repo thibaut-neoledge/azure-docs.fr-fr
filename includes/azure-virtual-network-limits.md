@@ -1,4 +1,4 @@
-Les limites suivantes s'appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement.
+Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement.
 
 Ressource| Limite par défaut | Limite maximale
 --- | --- | --- 
@@ -18,9 +18,9 @@ Adresse IP virtuelle privée (ILB) par déploiement | 1 | 1
 Listes de contrôle d'accès (ACL) par point de terminaison | 50 | 50
 
 
-#### Limites de réseau – Azure Resource Manager
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau – Azure Resource Manager
 
-Les limites suivantes s'appliquent uniquement aux ressources de réseau gérées par le biais d'Azure Resource Manager par région par abonnement.
+Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement.
 
 Ressource| Limite par défaut | Limite maximale
 --- | --- | ---
@@ -38,9 +38,9 @@ Adresses IP publiques (statiques) | 20 | contacter le support technique
 Équilibreurs de charge (internes et accessibles sur Internet) | 100 | contacter le support technique
 Règles d’équilibrage de charge par équilibreur de charge | 150 | 150
 Adresse IP frontale publique par équilibreur de charge | 5 | contacter le support technique
-Adresse IP frontale privée par équilibreur de charge | 1 | contacter le support technique
-Passerelles d'application | 50 | 50
+Adresse IP frontale privée par équilibreur de charge | 30 | contacter le support technique
+Passerelles d’application | 50 | 50
 
 Pour accroître les limites par défaut, contactez le support technique.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

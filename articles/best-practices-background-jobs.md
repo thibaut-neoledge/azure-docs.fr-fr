@@ -318,7 +318,7 @@ Les tâches en arrière-plan doivent offrir des performances suffisantes pour é
 - [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (billet de blog)
 - [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (vidéo)
 - [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-- [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](./service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Activation des diagnostics dans un service cloud](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

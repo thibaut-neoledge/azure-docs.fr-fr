@@ -2,18 +2,18 @@
    pageTitle="SAP NetWeaver sur machines virtuelles Windows – Guide de déploiement SGBD | Microsoft Azure"
    description="SAP NetWeaver sur machines virtuelles Windows – Guide de déploiement SGBD"
    services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -1365,4 +1365,4 @@ Tous les autres sujets généraux, notamment les groupes à haute disponibilité
 
 Voir également le chapitre [Résumé – SQL Server général pour SAP sur Azure][dbms-guide-5.8].
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

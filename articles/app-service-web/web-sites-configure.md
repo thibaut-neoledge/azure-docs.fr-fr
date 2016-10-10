@@ -148,8 +148,9 @@ Pour afficher vos noms de domaine, cliquez sur **Tous les paramètres** > **Doma
 
 ### Déploiements
 
-- Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications web dans Azure App Service].
+- Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications web dans Azure App Service](./web-sites-deploy.md).
 - Emplacements de déploiement Consultez [Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)].
+
 
 Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètres** > **Emplacements de déploiement**.
 
@@ -189,4 +190,4 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

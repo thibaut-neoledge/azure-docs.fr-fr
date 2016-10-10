@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
@@ -60,99 +60,32 @@ Les tableaux ci-dessous montrent des variables en lecture-écriture et en lectur
 
 Vous pouvez **obtenir** et **définir** les valeurs de ces variables définies par le service pour gérer le nombre de nœuds de calcul dans un pool :
 
-<table>
-  <tr>
-    <th>Variables définies par le service<br/>en lecture-écriture</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>$TargetDedicated</td>
-    <td>Nombre <b>cible</b> de <b>nœuds de calcul dédiés</b> pour le pool. Il s’agit du nombre de nœuds de calcul auquel le pool doit être mis à l’échelle. Il s’agit d’un nombre «&#160;cible&#160;» dans la mesure où il est possible qu’un pool ne puisse pas atteindre le nombre cible de nœuds. Cela peut se produire si le nombre cible de nœuds est modifié de nouveau par une évaluation de la mise à l’échelle automatique suivante avant que le pool n’ait atteint la cible initiale. Cela peut également se produire si un nœud de compte ou un quota principal Batch est atteint avant que le nombre cible de nœuds ne le soit.</td>
-  </tr>
-  <tr>
-    <td>$NodeDeallocationOption</td>
-    <td>Action exécutée lorsque des nœuds de calcul sont supprimés d’un pool. Les valeurs possibles sont les suivantes&#160;:
-      <br/>
-      <ul>
-        <li><p><b>requeue</b>&#160;: arrête immédiatement les tâches et les replace dans la file d’attente des travaux pour qu’elles soient replanifiées.</p></li>
-        <li><p><b>terminate</b>&#160;: arrête immédiatement les tâches et les supprime de la file d’attente des travaux.</p></li>
-        <li><p><b>taskcompletion</b>&#160;: attend la fin des tâches en cours d’exécution, puis supprime le nœud du pool.</p></li>
-        <li><p><b>retaineddata</b>&#160;: attend que toutes les données de tâche locales conservées sur le nœud aient été nettoyées avant de supprimer le nœud du pool.</p></li>
-      </ul></td>
-   </tr>
-</table>
+| Variables définies par le service en lecture-écriture | Description |
+| --- | --- |
+| $TargetDedicated | Nombre **cible** de **nœuds de calcul dédiés** pour le pool. Il s’agit du nombre de nœuds de calcul auquel le pool doit être mis à l’échelle. Il s’agit d’un nombre « cible » dans la mesure où il est possible qu’un pool ne puisse pas atteindre le nombre cible de nœuds. Cela peut se produire si le nombre cible de nœuds est modifié de nouveau par une évaluation de la mise à l’échelle automatique suivante avant que le pool n’ait atteint la cible initiale. Cela peut également se produire si un nœud de compte ou un quota principal Batch est atteint avant que le nombre cible de nœuds ne le soit. |
+| $NodeDeallocationOption | Action exécutée lorsque des nœuds de calcul sont supprimés d’un pool. Les valeurs possibles sont :<ul><li>**requeue** : arrête immédiatement les tâches et les replace dans la file d’attente des travaux pour qu’elles soient replanifiées.<li>**terminate** : arrête immédiatement les tâches et les supprime de la file d’attente des travaux.<li>**taskcompletion** : attend la fin des tâches en cours d’exécution, puis supprime le nœud du pool.<li>**retaineddata** : attend que toutes les données de tâche locales conservées sur le nœud aient été nettoyées avant de supprimer le nœud du pool.</ul> |
 
 Vous pouvez **obtenir** la valeur des variables définies par le service ci-après pour effectuer des ajustements basés sur les métriques à partir du service Batch :
 
-<table>
-  <tr>
-    <th>Lecture seule<br/>définies par le service<br/>variables</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>$CPUPercent</td>
-    <td>Pourcentage moyen d’utilisation du processeur.</td>
-  </tr>
-  <tr>
-    <td>$WallClockSeconds</td>
-    <td>Nombre de secondes consommées.</td>
-  </tr>
-  <tr>
-    <td>$MemoryBytes</td>
-    <td>Nombre moyen de mégaoctets utilisés.</td>
-  <tr>
-    <td>$DiskBytes</td>
-    <td>Nombre moyen de gigaoctets utilisés sur les disques locaux.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadBytes</td>
-    <td>Nombre d’octets lus.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteBytes</td>
-    <td>Nombre d’octets écrits.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadOps</td>
-    <td>Nombre d’opérations de lecture sur disque effectuées.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteOps</td>
-    <td>Nombre d’opérations d’écriture sur disque effectuées.</td>
-  </tr>
-  <tr>
-    <td>$NetworkInBytes</td>
-    <td>Nombre d’octets entrants.</td>
-  </tr>
-  <tr>
-    <td>$NetworkOutBytes</td>
-    <td>Nombre d’octets sortants.</td>
-  </tr>
-  <tr>
-    <td>$SampleNodeCount</td>
-    <td>Nombre de nœuds de calcul.</td>
-  </tr>
-  <tr>
-    <td>$ActiveTasks</td>
-    <td>Nombre de tâches à l’état actif.</td>
-  </tr>
-  <tr>
-    <td>$RunningTasks</td>
-    <td>Nombre de tâches en cours d’exécution.</td>
-  </tr>
-  <tr>
-    <td>$SucceededTasks</td>
-    <td>Nombre de tâches ayant abouti.</td>
-  </tr>
-  <tr>
-    <td>$FailedTasks</td>
-    <td>Nombre de tâches ayant échoué.</td>
-  </tr>
-  <tr>
-    <td>$CurrentDedicated</td>
-    <td>Nombre actuel de nœuds de calcul dédiés.</td>
-  </tr>
-</table>
+| Variables définies par le service en lecture seule | Description |
+| --- | --- |
+| $CPUPercent | Pourcentage moyen d’utilisation du processeur. |
+| $WallClockSeconds | Nombre de secondes consommées. |
+| $MemoryBytes | Nombre moyen de mégaoctets utilisés. |
+| $DiskBytes | Nombre moyen de gigaoctets utilisés sur les disques locaux. |
+| $DiskReadBytes | Nombre d’octets lus. |
+| $DiskWriteBytes | Nombre d’octets écrits. |
+| $DiskReadOps | Nombre d’opérations de lecture sur disque effectuées. |
+| $DiskWriteOps | Nombre d’opérations d’écriture sur disque effectuées. |
+| $NetworkInBytes | Nombre d’octets entrants. |
+| $NetworkOutBytes | Nombre d’octets sortants. |
+| $SampleNodeCount | Nombre de nœuds de calcul. |
+| $ActiveTasks | Nombre de tâches à l’état actif. |
+| $RunningTasks | Nombre de tâches en cours d’exécution. |
+| $PendingTasks | Somme de $ActiveTasks et de $RunningTasks. |
+| $SucceededTasks | Nombre de tâches ayant abouti. |
+| $FailedTasks | Nombre de tâches ayant échoué. |
+| $CurrentDedicated | Nombre actuel de nœuds de calcul dédiés. |
 
 > [AZURE.TIP] Les variables en lecture seule définies par le service qui sont illustrées ci-dessus sont des *objets* qui fournissent diverses méthodes pour accéder aux données qui leur sont associées. Consultez la section [Obtenir des échantillons de données](#getsampledata) ci-dessous pour plus d’informations.
 
@@ -188,7 +121,7 @@ Ces **types** sont pris en charge dans une formule.
 
 ## Opérations
 
-Les **opérations** autorisées sur les types répertoriés ci-dessus sont les suivantes :
+Les **opérations** autorisées sur les types répertoriés ci-dessus sont les suivantes.
 
 | Opération | Opérateurs pris en charge | Type de résultat |
 | ------------------------------------- | --------------------- | ------------- |
@@ -200,20 +133,20 @@ Les **opérations** autorisées sur les types répertoriés ci-dessus sont les s
 | timeinterval *opérateur* timeinterval | +, - | timeinterval |
 | timeinterval *opérateur* timestamp | + | timestamp |
 | timestamp *opérateur* timeinterval | + | timestamp |
-| timestamp *opérateur* timestamp | - | timeinterval |
-| *opérateur*double | -, ! | double |
-| *opérateur*timeinterval | - | timeinterval |
-| double *opérateur* double | <, <=, ==, >=, >, != | double |
-| string *opérateur* string | <, <=, ==, >=, >, != | double |
-| timestamp *opérateur* timestamp | <, <=, ==, >=, >, != | double |
-| timeinterval *opérateur* timeinterval | <, <=, ==, >=, >, != | double |
+| timestamp *opérateur* timestamp | - | timeinterval | 
+| *opérateur*double | -, ! | double | 
+| *opérateur*timeinterval | - | timeinterval | 
+| double *opérateur* double | <, <=, ==, >=, >, != | double | 
+| string *opérateur* string | <, <=, ==, >=, >, != | double | 
+| timestamp *opérateur* timestamp | <, <=, ==, >=, >, != | double | 
+| timeinterval *opérateur* timeinterval | <, <=, ==, >=, >, != | double | 
 | double *opérateur* double | &&, &#124;&#124; | double |
 
 Lorsque vous testez un double avec un opérateur ternaire (`double ? statement1 : statement2`), la valeur différente de zéro est **true**, et zéro est **false**.
 
 ## Fonctions
 
-Les **fonctions** prédéfinies disponibles pour la définition d’une formule de mise à l’échelle automatique sont les suivantes :
+Les **fonctions** prédéfinies disponibles pour la définition d’une formule de mise à l’échelle automatique sont les suivantes.
 
 | Fonction | Type de retour | Description
 | --------------------------------- | ------------- | --------- |
@@ -249,44 +182,13 @@ Les formules de mise à l’échelle automatique agissent sur les données métr
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
-<table>
-  <tr>
-    <th>Méthode</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GetSample()</td>
-    <td><p>La méthode <b>GetSample()</b> renvoie un vecteur d’échantillons de données.
-	<p>Un échantillon correspond à 30&#160;secondes de données de métrique. En d’autres termes, des échantillons sont obtenus toutes les 30&#160;secondes, mais comme noté ci-dessus, il existe un délai entre le moment où un échantillon est collecté et le moment où il est disponible pour une formule. Par conséquent, tous les échantillons pour une période donnée ne sont pas forcément disponibles pour évaluation par une formule.
-        <ul>
-          <li><p><b>doubleVec GetSample(double count)</b>&#160;: spécifie le nombre d’échantillons à obtenir à partir des échantillons collectés les plus récents.</p>
-				  <p>GetSample(1) renvoie le dernier échantillon disponible. Pour les métriques comme $CPUPercent, toutefois, cette fonction ne doit pas être utilisée, car il est impossible de savoir <em>quand</em> l’échantillon a été collecté. Il peut s’agir d’un événement récent ou plus ancien en raison de problèmes système. Dans ce cas de figure, il est préférable d’utiliser un intervalle de temps, comme indiqué ci-dessous.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>&#160;: spécifie un délai d’exécution pour la collecte des échantillons de données. Elle spécifie éventuellement le pourcentage d’échantillons qui doivent être disponibles dans le délai d’exécution demandé.</p>
-          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> doit renvoyer 20&#160;échantillons si tous les échantillons des dix dernières minutes sont présents dans l’historique CPUPercent. Cependant, si la dernière minute de l’historique n’est pas disponible, seuls 18&#160;échantillons seraient renvoyés, auquel cas&#160;:<br/>
-		  &#160;&#160;&#160;&#160;la commande <em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> échouerait, car seuls 90&#160;% des échantillons sont disponibles&#160;;<br/>
-		  &#160;&#160;&#160;&#160;la commande <em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> aboutirait.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>&#160;: spécifie un délai d’exécution pour la collecte des données avec une heure de début et une heure de fin.</p></li></ul>
-		  <p>Comme indiqué ci-dessus, il existe un délai entre le moment où un échantillon est collecté et le moment où il est disponible pour une formule. Cet aspect doit être pris en compte lorsque vous utilisez la méthode <em>GetSample</em>. Reportez-vous à la méthode <em>GetSamplePercent</em> ci-dessous.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePeriod()</td>
-    <td>Retourne la période des échantillons considérés dans un jeu de données d’échantillon historiques.</td>
-  </tr>
-	<tr>
-		<td>Count()</td>
-		<td>Renvoie le nombre total d’échantillons dans l’historique des métriques.</td>
-	</tr>
-  <tr>
-    <td>HistoryBeginTime()</td>
-    <td>Retourne l’horodateur du plus ancien échantillon de données disponible pour la métrique.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePercent()</td>
-    <td><p>Retourne le pourcentage d’échantillons disponibles pour un intervalle de temps donné. Par exemple&#160;:</p>
-    <p><b>doubleVec GetSamplePercent ((timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime])</b>
-	<p>Comme la méthode GetSample échoue si le pourcentage d’échantillons retourné est inférieur au samplePercent spécifié, vous pouvez utiliser la méthode GetSamplePercent pour procéder d’abord à une vérification. Vous pouvez ensuite effectuer une autre action si des échantillons insuffisants sont présents, sans arrêter l’évaluation de la mise à l’échelle automatique.</p></td>
-  </tr>
-</table>
+| Méthode | Description |
+| --- | --- |
+| GetSample() | La méthode `GetSample()` renvoie un vecteur d’échantillons de données.<br/><br/>Un échantillon correspond à 30 secondes de données de métrique. En d’autres termes, des échantillons sont obtenus toutes les 30 secondes, mais comme noté ci-dessus, il existe un délai entre le moment où un échantillon est collecté et le moment où il est disponible pour une formule. Par conséquent, tous les échantillons pour une période donnée ne sont pas forcément disponibles pour évaluation par une formule.<ul><li>`doubleVec GetSample(double count)`<br/>Spécifie le nombre d’échantillons à obtenir à partir des échantillons collectés les plus récents.<br/><br/>`GetSample(1)` renvoie le dernier échantillon disponible. Pour les métriques comme `$CPUPercent`, toutefois, cette fonction ne doit pas être utilisée, car il est impossible de savoir *quand* l’échantillon a été collecté. Il peut s’agir d’un événement récent ou plus ancien en raison de problèmes système. Dans ce cas de figure, il est préférable d’utiliser un intervalle de temps, comme indiqué ci-dessous.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Spécifie un délai d’exécution pour la collecte des échantillons de données. Spécifie éventuellement le pourcentage d’échantillons qui doivent être disponibles dans le délai d’exécution demandé.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` doit renvoyer 20 échantillons si tous les échantillons des dix dernières minutes sont présents dans l’historique CPUPercent. Cependant, si la dernière minute de l’historique n’est pas disponible, seuls 18 échantillons seraient renvoyés, Dans ce cas :<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` échouerait, car seuls 90 % des échantillons sont disponibles.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` réussirait.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Spécifie un délai d’exécution pour la collecte des données avec une heure de début et une heure de fin.<br/><br/>Comme indiqué ci-dessus, il existe un délai entre le moment où un échantillon est collecté et le moment où il est disponible pour une formule. Cet aspect doit être pris en compte lorsque vous utilisez la méthode `GetSample`. Consultez `GetSamplePercent` ci-dessous.|
+| GetSamplePeriod() | Retourne la période des échantillons considérés dans un jeu de données d’échantillon historiques. |
+| Count() | Renvoie le nombre total d’échantillons dans l’historique des métriques. |
+| HistoryBeginTime() | Retourne l’horodateur du plus ancien échantillon de données disponible pour la métrique. |
+| GetSamplePercent() |Retourne le pourcentage d’échantillons disponibles pour un intervalle de temps donné. Par exemple : <br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Comme la méthode `GetSample` échoue si le pourcentage d’échantillons retourné est inférieur au `samplePercent` spécifié, vous pouvez utiliser la méthode `GetSamplePercent` pour procéder d’abord à une vérification. Vous pouvez ensuite effectuer une autre action si des échantillons insuffisants sont présents, sans arrêter l’évaluation de la mise à l’échelle automatique.|
 
 ### Échantillons, pourcentage d’échantillonnage et méthode *GetSample()*
 
@@ -294,7 +196,7 @@ La principale opération d’une formule de mise à l’échelle automatique vis
 
 **Exemples**
 
-Le service Batch prélève régulièrement des *échantillons* des mesures de tâches et de ressources pour les rendre disponibles pour vos formules de mise à l’échelle automatique. Ces échantillons sont enregistrés toutes les 30 secondes par le service Batch. Cependant, un temps de latence entraîne généralement un retard entre l’enregistrement de ces échantillons et leur mise à disposition (en lecture) pour vos formules de mise à l’échelle automatique. En outre, en raison de différents facteurs tels que les problèmes de réseau ou d’autres problèmes d’infrastructure, il arrive que des échantillons ne soient pas enregistrés pendant un intervalle donné. C’est ce que l’on appelle les échantillons « manquants ».
+Le service Batch prélève régulièrement des *échantillons* de métriques de tâches et de ressources pour les mettre à la disposition de vos formules de mise à l’échelle automatique. Ces échantillons sont enregistrés toutes les 30 secondes par le service Batch. Cependant, un temps de latence entraîne généralement un retard entre l’enregistrement de ces échantillons et leur mise à disposition (en lecture) pour vos formules de mise à l’échelle automatique. En outre, en raison de différents facteurs tels que les problèmes de réseau ou d’autres problèmes d’infrastructure, il arrive que des échantillons ne soient pas enregistrés pendant un intervalle donné. C’est ce que l’on appelle les échantillons « manquants ».
 
 **Pourcentage d’échantillonnage**
 
@@ -304,7 +206,7 @@ Prenons l’exemple d’un intervalle de 10 minutes. Comme les échantillons so
 
 **Méthode GetSample() et plages d’échantillons**
 
-Vos formules de mise à l’échelle automatique vont agrandir et réduire vos pools : ajout ou suppression de nœuds. Comme les nœuds vous coûtent de l’argent, vous souhaitez vous assurer que vos formules utiliseront une méthode d’analyse intelligente basée sur des données suffisantes. Par conséquent, nous vous recommandons d’utiliser une analyse des types de tendance dans vos formules. Cela augmentera ou réduira vos pools en fonction d’une *plage* d’échantillons collectés.
+Vos formules de mise à l’échelle automatique vont agrandir et réduire vos pools : ajout ou suppression de nœuds. Comme les nœuds vous coûtent de l’argent, vous souhaitez vous assurer que vos formules utiliseront une méthode d’analyse intelligente basée sur des données suffisantes. Par conséquent, nous vous recommandons d’utiliser une analyse des types de tendance dans vos formules. Ce type augmentera ou réduira vos pools en fonction d’une *plage* d’échantillons collectés.
 
 Pour ce faire, utilisez `GetSample(interval look-back start, interval look-back end)` pour retourner un **vecteur** d’échantillons :
 
@@ -322,11 +224,11 @@ Pour plus de sécurité, vous pouvez forcer *l’échec* d’une évaluation de 
 
 Il est également important, en raison du délai de disponibilité des échantillons dont nous avons parlé ci-dessus, de toujours spécifier une plage horaire avec une heure de début différée antérieure à une minute. En effet, il faut environ une minute aux échantillons pour se propager dans le système, ce qui signifie que les échantillons situés dans la plage `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` ne seront généralement pas disponibles. Là encore, vous pouvez utiliser le paramètre pourcentage de `GetSample()` pour forcer une exigence de pourcentage d’échantillon particulière.
 
-> [AZURE.IMPORTANT] Nous **vous recommandons vivement** **d’éviter de vous appuyer *uniquement* sur `GetSample(1)` dans vos formules de mise à l’échelle automatique**, car la méthode `GetSample(1)` dit globalement au service Batch : « Donne-moi le dernier échantillon disponible, peu importe depuis combien de temps il est disponible ». Dans la mesure où il s’agit uniquement d’un simple échantillon (potentiellement ancien), il risque de ne pas être représentatif de l’état récent de la tâche ou de la ressource. Si vous utilisez tout de même `GetSample(1)`, veillez à l’intégrer dans une instruction plus générale pour éviter de l’utiliser comme unique point de données sur lequel reposera votre formule.
+> [AZURE.IMPORTANT] Nous **vous recommandons vivement** **d’éviter de vous appuyer *uniquement* sur `GetSample(1)` dans vos formules de mise à l’échelle automatique**, car la méthode `GetSample(1)` dit globalement au service Batch : « Donne-moi le dernier échantillon disponible, quelle que soit son ancienneté ». Dans la mesure où il s’agit uniquement d’un simple échantillon (potentiellement ancien), il risque de ne pas être représentatif de l’état récent de la tâche ou de la ressource. Si vous utilisez tout de même `GetSample(1)`, veillez à l’intégrer dans une instruction plus générale pour éviter de l’utiliser comme unique point de données sur lequel reposera votre formule.
 
 ## Mesures
 
-Vous pouvez utiliser les deux métriques de **ressource** et de **tâche** lorsque vous définissez une formule. Vous ajustez le nombre cible de nœuds dédiés dans le pool en fonction des données métriques que vous obtenez et évaluez. Consultez la section [Variables](#variables) ci-dessus pour plus d’informations sur chaque métrique.
+Vous pouvez utiliser à la fois les métriques de **ressource** et de **tâche** lorsque vous définissez une formule. Vous ajustez le nombre cible de nœuds dédiés dans le pool en fonction des données métriques que vous obtenez et évaluez. Consultez la section [Variables](#variables) ci-dessus pour plus d’informations sur chaque métrique.
 
 <table>
   <tr>
@@ -361,6 +263,7 @@ Vous pouvez utiliser les deux métriques de **ressource** et de **tâche** lorsq
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
+      <li>$PendingTasks</li>
       <li>$SucceededTasks</li>
 			<li>$FailedTasks</li></ul></p>
 		</td>
@@ -375,11 +278,11 @@ Vous construisez une formule de mise à l’échelle automatique en formulant de
 2. Réduire le nombre cible de nœuds de calcul dans un pool si l’utilisation du processeur est faible.
 3. Toujours réduire le nombre maximal de nœuds à 400.
 
-Pour *augmenter* le nombre de nœuds en cas d’utilisation intensive du processeur, nous définissons l’instruction qui renseigne une variable définie par l’utilisateur ($TotalNodes) en utilisant une valeur équivalente à 110 pour cent du nombre cible actuel de nœuds si l’utilisation moyenne du processeur minimale au cours des 10 dernières minutes a été supérieure à 70 pour cent :
+Pour *augmenter* le nombre de nœuds en cas d’utilisation intensive de l’UC, nous définissons l’instruction qui renseigne une variable définie par l’utilisateur ($TotalNodes) en utilisant une valeur équivalente à 110 pour cent du nombre cible actuel de nœuds si l’utilisation moyenne de l’UC minimale au cours des 10 dernières minutes a été supérieure à 70 pour cent :
 
 `$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
-L’instruction suivante définit la même variable sur 90 pour cent du nombre cible actuel de nœuds si l’utilisation moyenne du processeur au cours des 60 dernières minutes était *inférieure à* 20 pour cent. Cela réduit le nombre cible en cas d’utilisation faible du processeur. Notez que cette instruction fait également référence à la variable définie par l’utilisateur *$TotalNodes* à partir de l’instruction ci-dessus.
+L’instruction suivante définit la même variable sur 90 pour cent du nombre cible actuel de nœuds si l’utilisation moyenne de l’UC au cours des 60 dernières minutes était *inférieure à* 20 pour cent. Cela réduit le nombre cible en cas d’utilisation faible du processeur. Notez que cette instruction fait également référence à la variable définie par l’utilisateur *$TotalNodes* à partir de l’instruction ci-dessus.
 
 `$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 
@@ -405,9 +308,9 @@ Pour activer la mise à l’échelle automatique lors de la création d’un poo
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx) : une fois que cette méthode .NET a été appelée pour créer un pool, vous pouvez définir les propriétés [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) et [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) du pool pour activer la mise à l’échelle automatique.
 - [Ajout d’un pool à un compte](https://msdn.microsoft.com/library/azure/dn820174.aspx) : les éléments enableAutoScale et autoScaleFormula sont utilisés dans cette requête d’API REST afin de configurer la mise à l’échelle automatique pour le pool lors de la création de ce dernier.
 
-> [AZURE.IMPORTANT] Si vous créez un pool compatible avec une mise à l’échelle automatique en utilisant l’une des techniques ci-dessus, le paramètre *targetDedicated* du pool ne doit **pas** être spécifié. Notez également que si vous souhaitez redimensionner manuellement un pool compatible avec une mise à l’échelle automatique (par exemple, avec [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), vous devez dans un premier temps **désactiver** la mise à l’échelle automatique dans le pool avant de le redimensionner.
+> [AZURE.IMPORTANT] Si vous créez un pool compatible avec une mise à l’échelle automatique en utilisant l’une des techniques ci-dessus, le paramètre *targetDedicated* du pool ne doit **pas** être spécifié. Notez également que, si vous souhaitez redimensionner manuellement un pool compatible avec une mise à l’échelle automatique (par exemple, avec [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), vous devez dans un premier temps **désactiver** la mise à l’échelle automatique dans le pool avant de le redimensionner.
 
-L’extrait de code suivant illustre la création d’un pool compatible avec une mise à l’échelle automatique ([CloudPool][net_cloudpool]) à l’aide de la bibliothèque [.NET Batch][net_api]. La formule de mise à l’échelle automatique du pool définit le nombre cible de nœuds sur cinq les lundis, et sur un les autres jours de la semaine. En outre, l’intervalle de mise à l’échelle automatique est défini sur 30 minutes (voir [Intervalle de mise à l’échelle automatique](#automatic-scaling-interval) ci-dessous). Dans cet extrait de code et les autres extraits de cet article, « myBatchClient » est une instance entièrement initialisée de [BatchClient][net_batchclient].
+L’extrait de code suivant illustre la création d’un pool compatible avec une mise à l’échelle automatique ([CloudPool][net_cloudpool]) à l’aide de la bibliothèque [.NET Batch][net_api]. La formule de mise à l’échelle automatique du pool définit le nombre cible de nœuds sur cinq les lundis, et sur un les autres jours de la semaine. En outre, l’intervalle de mise à l’échelle automatique est défini sur 30 minutes (consultez [Intervalle de mise à l’échelle automatique](#automatic-scaling-interval) ci-dessous). Dans cet extrait de code et les autres extraits de cet article, « myBatchClient » est une instance entièrement initialisée de [BatchClient][net_batchclient].
 
 ```
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -430,7 +333,7 @@ L’intervalle doit être compris entre cinq minutes et 168 heures. Si un inte
 
 ## Activer la mise à l’échelle automatique après la création d’un pool
 
-Si vous avez déjà configuré un pool avec un nombre de nœuds de calcul spécifié à l’aide du paramètre *targetDedicated*, vous pouvez mettre à jour ce pool par la suite afin d’y activer la mise à l’échelle automatique. Pour effectuer cette opération, vous pouvez utiliser l’une des méthodes suivantes :
+Si vous avez déjà configuré un pool avec un nombre de nœuds de calcul spécifié à l’aide du paramètre *targetDedicated*, vous pourrez mettre à jour ce pool par la suite afin d’y activer la mise à l’échelle automatique. Pour effectuer cette opération, vous pouvez utiliser l’une des méthodes suivantes :
 
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] \: cette méthode .NET nécessite l’ID d’un pool existant et la formule de mise à l’échelle automatique à appliquer au pool.
 - [Activer la mise à l’échelle automatique dans un pool][rest_enableautoscale] \: cette requête d’API REST nécessite l’ID du pool existant dans l’URI et la formule de mise à l’échelle automatique dans le corps de la requête.
@@ -593,7 +496,7 @@ Formule dans l’extrait de code ci-dessus :
 
 ## Étapes suivantes
 
-* L’article [Optimiser l’utilisation des ressources de calcul Azure Batch avec les tâches de nœud simultanées](batch-parallel-node-tasks.md) contient des informations sur la façon dont vous pouvez effectuer plusieurs tâches simultanément sur les nœuds de calcul de votre pool. En plus de la mise à l’échelle automatique, cette fonctionnalité peut aider à réduire la durée du travail pour certaines charges de travail et vous permettre d’économiser de l’argent.
+* L’article [Optimiser l’utilisation des ressources de calcul Azure Batch avec des tâches de nœud simultanées](batch-parallel-node-tasks.md) contient des informations sur la façon dont vous pouvez effectuer plusieurs tâches simultanément sur les nœuds de calcul de votre pool. En plus de la mise à l’échelle automatique, cette fonctionnalité peut aider à réduire la durée du travail pour certaines charges de travail et vous permettre d’économiser de l’argent.
 
 * Afin d’améliorer encore l’efficacité, assurez-vous que votre application Batch interroge le service Batch de la manière la plus optimale qui soit. Dans [Interroger efficacement le service Azure Batch](batch-efficient-list-queries.md), vous allez apprendre à limiter la quantité de données qui transitent par le réseau lorsque vous interrogez l’état des milliers de nœuds de calcul ou de tâches potentiels.
 
@@ -611,4 +514,4 @@ Formule dans l’extrait de code ci-dessus :
 [rest_autoscaleinterval]: https://msdn.microsoft.com/fr-FR/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->
