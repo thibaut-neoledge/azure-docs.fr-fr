@@ -61,6 +61,7 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 - Cache Redis
 - Scheduler
 - Search
+- Service Bus
 - Storage
 - Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 - Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées.
@@ -257,4 +258,4 @@ Dans le corps de la requête, vous indiquez le groupe de ressources cible et les
 - Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du Portail Azure pour gérer les ressources](./azure-portal/resource-group-portal.md).
 - Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

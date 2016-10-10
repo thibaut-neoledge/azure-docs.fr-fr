@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -102,11 +102,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 8.  Dans la page **Sécurité**, cliquez sur l’onglet **Admin & Agents**.
 
-9.  Sélectionnez **Single sign-on (SSO) and SAML**, puis **SAML**.
+9.  Sélectionnez **Single sign-on (SSO) and SAML**, puis **SAML**.
 
-10. Dans la page **Configurer l’authentification unique sur Zendesk** du portail Azure AD, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **SAML SSO URL**.
+10. Dans la page **Configurer l’authentification unique sur Zendesk** du portail Azure AD, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **SAML SSO URL**.
 
-11. Dans la page **Configurer l’authentification unique sur Zendesk** du portail Azure AD, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Remote Logout URL**.
+11. Dans la page **Configurer l’authentification unique sur Zendesk** du portail Azure AD, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Remote Logout URL**.
 
     ![Authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Authentification unique")
 
@@ -158,4 +158,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

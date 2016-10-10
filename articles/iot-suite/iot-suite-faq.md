@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="06/27/2016"
+  ms.date="09/26/2016"
   ms.author="araguila"/>
    
 # Forum Aux Questions (FAQ) relatives à IoT Suite
@@ -51,7 +51,7 @@ Deux. Vous pouvez créer uniquement deux cartes Bing - Transactions internes - N
 
 4. Une fois le déploiement local ou cloud effectué, recherchez dans votre dossier racine le fichier *.user.config créé. Ouvrez ce fichier dans un éditeur de texte.
 
-5. Modifiez la ligne suivante en y incluant la valeur que vous avez copiée pour votre clé QueryKey :
+5. Modifiez la ligne suivante en y incluant la valeur que vous avez copiée de votre clé QueryKey :
    
   `<setting name="MapApiQueryKey" value="" />`
 
@@ -82,4 +82,4 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

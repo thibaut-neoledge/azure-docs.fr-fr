@@ -4,7 +4,7 @@
 	keywords="copier des données, déplacement des données, migration des données, transférer des données"
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="spelluru"/>
+	ms.date="09/22/2016"
+	ms.author="jingwang"/>
 
 # Déplacer des données à l’aide de l’activité de copie
 
@@ -54,23 +54,14 @@ Consultez la page [Déplacement de données entre des sources locales et le clou
 Vous pouvez également déplacer des données depuis/vers des magasins de données pris en charge hébergés sur des machines virtuelles IaaS Azure avec la passerelle de gestion des données. Dans ce cas, vous pouvez installer la passerelle de gestion des données sur la même machine virtuelle Azure que le magasin de données lui-même ou sur une machine virtuelle distincte ayant accès au magasin de données.
 
 ## Banques de données et formats pris en charge
-L'activité de copie les données d'un magasin de données source vers un magasin de données de récepteur. Data Factory prend en charge les magasins de données suivants. Les données de n’importe quelle source peuvent être écrites dans n’importe quel récepteur. Cliquez sur une banque de données pour découvrir comment copier des données depuis/vers cette banque.
-
-Catégorie | Banque de données | Prise en charge en tant que source | Prise en charge en tant que récepteur
-:------- | :--------- | :------------------ | :-----------------
-Les tables Azure | [Stockage d'objets blob Azure](data-factory-azure-blob-connector.md) <br/> [Azure Data Lake Store](data-factory-azure-datalake-connector.md) <br/> [Base de données SQL Azure](data-factory-azure-sql-connector.md) <br/> [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) <br/> [Stockage de table Azure](data-factory-azure-table-connector.md) <br/> [Azure DocumentDB](data-factory-azure-documentdb-connector.md) <br/> | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓
-Bases de données | [SQL Server](data-factory-sqlserver-connector.md)* <br/> [Oracle](data-factory-onprem-oracle-connector.md)* <br/> [MySQL](data-factory-onprem-mysql-connector.md)* <br/> [DB2](data-factory-onprem-db2-connector.md)* <br/> [Teradata](data-factory-onprem-teradata-connector.md)* <br/> [PostgreSQL](data-factory-onprem-postgresql-connector.md)* <br/> [Sybase](data-factory-onprem-sybase-connector.md)* <br/>[Cassandra](data-factory-onprem-cassandra-connector.md)* <br/>[MongoDB](data-factory-on-premises-mongodb-connector.md)*<br/>[Amazon Redshift](data-factory-amazon-redshift-connector.md) | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓<br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | ✓ <br/> ✓ <br/> &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp;<br/> &nbsp;<br/> &nbsp; <br/>&nbsp;
-Fichier | [Système de fichiers](data-factory-onprem-file-system-connector.md)* <br/> [HDFS](data-factory-hdfs-connector.md)* <br/> [Amazon S3](data-factory-amazon-simple-storage-service-connector.md) | ✓ <br/> ✓ <br/> ✓ | ✓ <br/> &nbsp;<br/>&nbsp;
-Autres | [Salesforce](data-factory-salesforce-connector.md)<br/> [ODBC générique](data-factory-odbc-connector.md)* <br/> [OData générique](data-factory-odata-connector.md) <br/> [Table web (table au format HTML)](data-factory-web-table-connector.md) <br/> [GE Historian](data-factory-odbc-connector.md#ge-historian-store)* | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp;<br/> &nbsp;
-
-> [AZURE.NOTE] Les banques de données signalées par un astérisque (*) peuvent être locales ou résider sur une instance Azure IaaS. Elles nécessitent que vous installiez une [passerelle de gestion des données](data-factory-data-management-gateway.md) sur un ordinateur local ou Azure IaaS.
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 Si vous devez déplacer des données vers ou à partir d’un magasin de données qui n’est pas pris en charge par l’activité de copie, utilisez une **activité personnalisée** dans Data Factory avec votre propre logique de copie/déplacement des données. Pour plus d’informations sur la création et l’utilisation d’une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
 
 ### Formats de fichiers pris en charge
 Vous pouvez utiliser l’activité de copie pour copier des fichiers tels quels entre deux banques de données basées sur des fichiers comme un objet blob Azure, un système de fichiers et le système de fichiers HDFS. Pour ce faire, vous pouvez ignorer la [section format](data-factory-create-datasets.md) dans les définitions des jeux de données d’entrée et de sortie. Les données sont copiées efficacement, sans sérialisation/désérialisation.
 
-L’activité de copie permet également de lire et d’écrire dans les fichiers aux formats spécifiés : texte, Avro, ORC et JSON. Vous pouvez effectuer les activités de copie suivantes, par exemple :
+L’activité de copie permet également de lire et d’écrire dans les fichiers aux formats spécifiés : texte, Avro, ORC, Parquet et JSON. Vous pouvez effectuer les activités de copie suivantes, par exemple :
 
 -	Copier des données au format texte (CSV) provenant d’objets blob Azure et les écrire dans une base de données SQL Azure.
 -	copier des fichiers au format texte (CSV) provenant d’un système de fichiers local et les écrire dans des objets blob Azure au format Avro.
@@ -185,11 +176,11 @@ Les magasins de données ont différents types de systèmes natifs. L’activit�
 1. Conversion de types natifs source en types .NET.
 2. Conversion de types .NET en types récepteur natifs.
 
-L mappage d'un système de type natif donné en .NET pour un magasin de données se trouve dans les articles de magasin de données respectifs. (Cliquez sur le lien spécifié dans la table [Magasins de données pris en charge](#supported-data-stores)). Vous pouvez utiliser ces mappages pour déterminer les types appropriés lors de la création de vos tables afin d'exécuter les conversions adaptées lors de l'activité de copie.
+Le mappage d’un système de type natif donné en .NET pour une banque de données se trouve dans les articles de banque de données respectifs. (Cliquez sur le lien spécifié dans la table [Magasins de données pris en charge](#supported-data-stores)). Vous pouvez utiliser ces mappages pour déterminer les types appropriés lors de la création de vos tables afin d'exécuter les conversions adaptées lors de l'activité de copie.
 
 
 ## Étapes suivantes
 - Pour en savoir plus sur l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - Consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur le déplacement des données depuis une banque de données locale vers une banque de données cloud.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

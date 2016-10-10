@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -92,7 +92,7 @@ Chaque type d’objet est présenté sous la forme d’une partition et configur
 
 ![schema1a](./media/active-directory-aadconnectsync-connector-genericsql/schema1a.png)
 
-**Méthode de détection du type d’objet** : le connecteur prend en charge ces méthodes de détection de type objet.
+**Méthode de détection du type d’objet** : le connecteur prend en charge ces méthodes de détection de type objet.
 
 - **Valeur fixe** : fournit la liste des types d’objets avec une liste séparée par des virgules. Par exemple : `User,Group,Department`. ![schema1b](./media/active-directory-aadconnectsync-connector-genericsql/schema1b.png)
 - **Table/Vue/Procédure stockée** : fournissez le nom de table/vue/procédure stockée, puis le nom de colonne qui fournit la liste des types d’objets. Si vous utilisez une procédure stockée, fournissez également des paramètres pour celle-ci au format **[nom]:[Direction]:[Valeur]**. Placez chacun des paramètres sur une ligne distincte (utilisez Ctrl + Entrée pour créer une ligne). ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
@@ -103,7 +103,7 @@ Sur cette page, vous allez configurer la façon dont les noms et les types d’a
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
 
-**Méthode de détection de type d’attribut** : le connecteur prend en charge ces méthodes de détection de type attribut avec chaque type d’objet détecté dans l’écran schéma 1.
+**Méthode de détection de type d’attribut** : le connecteur prend en charge ces méthodes de détection de type attribut avec chaque type d’objet détecté dans l’écran schéma 1.
 
 - **Table/Vue/Procédure stockée** : indiquez le nom de table/vue/procédure stockée qui doit être utilisé pour trouver les noms d’attribut. Si vous utilisez une procédure stockée, fournissez également des paramètres pour celle-ci au format **[nom]:[Direction]:[Valeur]**. Placez chaque paramètre sur une ligne distincte (utilisez Ctrl + Entrée pour créer une nouvelle ligne). Pour détecter les noms d’attribut dans un attribut à valeurs multiples, fournissez une liste séparée par des virgules des tables ou des vues. Les scénarios à valeurs multiples ne sont pas pris en charge si les tables parent et enfant ont les mêmes noms de colonnes.
 - **Requête SQL** : cette option permet de fournir une requête SQL qui renvoie une seule colonne avec les noms d’attributs, par exemple, `SELECT [Column Name] FROM TABLENAME`. La colonne retournée doit être de type chaîne (varchar).
@@ -145,7 +145,7 @@ La page Paramètres globaux sert à configurer l’importation différentielle, 
 
 Le connecteur SQL générique prend en charge les méthodes suivantes pour l’importation différentielle :
 
-- **Déclencheur** : consultez [Génération de vues différentielles à l’aide de déclencheurs](https://technet.microsoft.com/library/cc708665.aspx).
+- **Déclencheur** : consultez [Génération de vues différentielles à l’aide de déclencheurs](https://technet.microsoft.com/library/cc708665.aspx).
 - **Filigrane** : il s’agit d’une approche numérique qui peut être utilisée avec n’importe quelle base de données. La requête en filigrane est prérenseignée en fonction du fournisseur de base de données. Une colonne de filigrane doit être présente sur chaque tableau/vue affichée. Cette colonne doit assurer les insertions et les mises à jour des tables, de même que les tables dépendantes (à valeurs multiples ou enfants). Les horloges entre le service de synchronisation et le serveur de base de données doivent être synchronisées. Dans le cas contraire, certaines entrées de l’importation différentielle peuvent être omises. Limite :
     - La stratégie de filigrane ne prend pas en charge les objets supprimés.
 - **Instantané** : (fonctionne uniquement avec Microsoft SQL Server) [Génération de vues différentielles à l’aide d’instantanés](https://technet.microsoft.com/library/cc720640.aspx)
@@ -153,7 +153,7 @@ Le connecteur SQL générique prend en charge les méthodes suivantes pour l’i
     - Le point d’ancrage et l’attribut de nom unique doivent faire partie de la clé primaire de l’objet sélectionné dans la table.
     - La requête SQL n’est pas prise en charge pendant l’importation et l’exportation avec suivi des modifications.
 
-**Paramètres supplémentaires** : spécifiez le fuseau horaire du serveur de base de données qui indique où se situe le serveur de base de données. Cette valeur est utilisée pour prendre en charge les différents formats d’attributs de date et heure.
+**Paramètres supplémentaires** : spécifiez le fuseau horaire du serveur de base de données qui indique où se situe le serveur de base de données. Cette valeur est utilisée pour prendre en charge les différents formats d’attributs de date et heure.
 
 Le connecteur stocke toujours les valeurs de date et date/heure au format UTC. Pour être en mesure d’établir une conversion correcte de la date et de l’heure, le fuseau horaire du serveur de base de données et le format utilisé doivent être spécifiés. Le format doit être exprimé au format .Net.
 
@@ -161,7 +161,7 @@ Pendant l’exportation, chaque attribut data/heure doit être fourni au connect
 
 ![globalparameters2](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters2.png)
 
-**Configuration de mot de passe** : le connecteur fournit des fonctionnalités de synchronisation de mot de passe et prend en charge la définition et la modification du mot de passe.
+**Configuration de mot de passe** : le connecteur fournit des fonctionnalités de synchronisation de mot de passe et prend en charge la définition et la modification du mot de passe.
 
 Le connecteur propose deux méthodes pour prendre en charge la synchronisation de mot de passe :
 
@@ -267,4 +267,4 @@ Si vous choisissez l’option Requête SQL, l’exportation nécessite 3 procéd
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

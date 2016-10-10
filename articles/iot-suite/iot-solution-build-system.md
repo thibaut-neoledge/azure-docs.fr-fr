@@ -79,7 +79,7 @@ Installer :
 
 -   [Kit de développement logiciel (SDK) Azure Service Fabric](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Requis pour générer l’extension de [microservice](../service-fabric/service-fabric-get-started.md).
 
-En outre, vérifiez que vous avez les extensions Visual Studio adéquates. Sous **Outils**, vous pouvez voir **Android, iOS, Xamarin, etc**. Dans le cas contraire, ouvrez le Panneau de configuration, puis sélectionnez **Programmes et fonctionnalités** > **Microsoft** > **Visual Studio 2015** > **Modifier**. Sous **Développement multiplateforme**, sélectionnez **C#/.Net (Xamarin)**. Par la même occasion, vérifiez que **GitHub** est installé.
+En outre, vérifiez que vous avez les extensions Visual Studio adéquates. Sous **Outils**, vous pouvez voir **Android, iOS, Xamarin, etc**. Dans le cas contraire, ouvrez le Panneau de configuration, puis sélectionnez **Programmes et fonctionnalités** > **Microsoft** > **Visual Studio 2015** > **Modifier**. Sous **Développement multiplateforme**, sélectionnez **C#/.Net (Xamarin)**. Par la même occasion, vérifiez que **Git pour Windows** est installé.
 
 ### Ordinateur de développement Mac
 
@@ -462,4 +462,4 @@ Nous espérons recevoir bientôt de vos nouvelles.
 
 Nous vous recommandons de consulter le [Guide de référence MyDriving](http://aka.ms/mydrivingdocs), qui offre une description complète de la conception du système et de ses composants.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

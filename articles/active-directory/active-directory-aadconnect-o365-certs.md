@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -84,9 +84,7 @@ Dans la sortie de Get-MsolFederationProperty ou Get-AdfsCertificate, vérifiez l
 
 | AutoCertificateRollover | Certificats synchronisés avec Azure AD | Les métadonnées de fédération sont accessibles publiquement | Validité | Action |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| Oui | Oui | Oui | - | Aucune action n’est requise. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). |
-| Oui | Non | - | Moins de 15 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
-| Non | - | - | Moins de 30 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
+| Oui | Oui | Oui | - | Aucune action n’est requise. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). | | Oui | Non | - | Moins de 15 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). | | Non | - | - | Moins de 30 jours | Renouveler immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
 
 [-] N’a pas d’importance
 
@@ -163,4 +161,4 @@ Si vous avez configuré votre batterie de serveurs AD FS et l’approbation Azur
 
 Pour plus d’informations, consultez [Réparation de l’approbation](./active-directory-aadconnect-federation-management.md#repairing-the-trust).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

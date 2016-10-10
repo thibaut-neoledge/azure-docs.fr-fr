@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 # Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365
 
@@ -44,4 +44,4 @@ Q : quand la stratégie d’accès conditionnel aux services Office 365 sera-t
 
 R : à l’heure actuelle, l’accès conditionnel aux services Office 365 est limité aux applications riches sur l’appareil. La feuille de route indique d’étendre la stratégie d’accès conditionnel aux utilisateurs qui accèdent aux services depuis les navigateurs.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

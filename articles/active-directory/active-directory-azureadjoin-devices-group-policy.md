@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10
@@ -29,7 +29,7 @@ La jonction de domaine dans Windows 10 offrira les avantages suivants après la
 - authentification forte et connexion pratique pour les comptes professionnels ou scolaires avec Microsoft Passport et Windows Hello ;
 - possibilité de restreindre l’accès aux appareils conformes aux paramètres de stratégie de groupe des appareils de l’organisation.
 
-## Configuration requise
+## Composants requis
 
 La jonction de domaine demeure utile. Toutefois, pour bénéficier des avantages d’Azure AD pour l’authentification unique, de l’itinérance des paramètres avec un compte professionnel ou scolaire et de l’accès au Windows Store avec un compte professionnel ou scolaire, vous aurez besoin des éléments suivants :
 
@@ -123,21 +123,12 @@ Les ordinateurs Windows 10 procèdent à l’authentification à l’aide de l�
 
 ### Étape 2 : configuration de l'inscription automatique des appareils via la stratégie de groupe dans Active Directory
 
-Vous pouvez utiliser une stratégie de groupe dans Active Directory pour configurer vos appareils Windows 10 joints au domaine de manière qu’ils s’inscrivent automatiquement auprès d’Azure AD. Pour cela, utilisez les instructions pas à pas suivantes :
+Vous pouvez utiliser une stratégie de groupe dans Active Directory pour configurer vos appareils Windows 10 joints au domaine de manière qu’ils s’inscrivent automatiquement auprès d’Azure AD.
 
-1. 	Ouvrez le Gestionnaire de serveur et accédez à **Outils** > **Gestion des stratégies de groupe**.
-2.	Dans Gestion des stratégies de groupe, accédez au nœud du domaine qui correspond au domaine où vous voulez activer Rejoindre Azure AD.
-3.	Cliquez avec le bouton droit sur **Objets de stratégie de groupe**, puis sélectionnez **Nouveau**. Nommez votre objet de stratégie de groupe, par exemple Jonction automatique d'Azure AD. Cliquez sur **OK**.
-4.	Cliquez avec le bouton droit sur votre nouvel objet de stratégie de groupe, puis sélectionnez **Modifier**.
-5.	Accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d'administration** > **Composants Windows** > **Jonction d'espace de travail**.
-6.	Cliquez avec le bouton droit sur **Joindre automatiquement les ordinateurs clients à l’espace de travail** et sélectionnez **Modifier**.
-7.	Sélectionnez la case d’option **Activé**, puis cliquez sur **Appliquer**. Cliquez sur **OK**.
-8.	Liez l’objet de stratégie de groupe à un emplacement de votre choix. Pour activer cette stratégie pour tous les appareils Windows 10 joints au domaine de votre organisation, liez l’objet de stratégie de groupe au domaine. Par exemple :
- - Une unité d’organisation spécifique dans Active Directory où les ordinateurs Windows 10 joints au domaine seront situés
- - Un groupe de sécurité spécifique contenant des ordinateurs Windows 10 joints au domaine, qui sera inscrit automatiquement auprès d’Azure AD
-
->[AZURE.NOTE]
-Ce modèle de stratégie de groupe a été renommé dans Windows 10. Si vous exécutez l’outil de stratégie de groupe à partir d’un ordinateur Windows 10, la stratégie s’affiche comme suit : <br> **Enregistrer les ordinateurs appartenant au domaine en tant qu’appareils**<br>. Elle se trouve à l’emplacement suivant :<br> ***Configuration ordinateur/Stratégies/Modèles d’administration/Composants Windows/Inscription d’appareil***
+> [AZURE.NOTE]
+Pour les dernières informations sur la configuration de l’inscription automatique des appareils, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
+>
+> Ce modèle de stratégie de groupe a été renommé dans Windows 10. Si vous exécutez l’outil de stratégie de groupe à partir d’un ordinateur Windows 10, la stratégie s’affiche comme suit : <br> **Enregistrer les ordinateurs appartenant au domaine en tant qu’appareils**<br>. Elle se trouve à l’emplacement suivant :<br> ***Configuration ordinateur/Stratégies/Modèles d’administration/Composants Windows/Inscription d’appareil***
 
 
 ## Informations supplémentaires
@@ -147,4 +138,4 @@ Ce modèle de stratégie de groupe a été renommé dans Windows 10. Si vous ex�
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

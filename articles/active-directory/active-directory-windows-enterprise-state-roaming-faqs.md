@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # FAQ sur l’itinérance des paramètres et des données
@@ -40,7 +40,7 @@ Dans Windows 8 et Windows 8.1, la synchronisation des paramètres a toujours u
 
 Le compte principal est défini en tant que compte utilisé pour se connecter à Windows. Il peut s’agir d’un compte Microsoft, d’un compte Azure Active Directory (Azure AD), d’un compte Active Directory local ou d’un compte local. En plus du compte principal, les utilisateurs de Windows 10 peuvent ajouter à leur appareil un ou plusieurs comptes cloud. Un compte secondaire est généralement un compte Microsoft, Active Directory, ou un autre compte tel que Gmail ou Facebook. Ces comptes secondaires permettent d’accéder à des services supplémentaires tels que l’authentification unique et le Windows Store, mais ne prennent pas en charge la synchronisation des paramètres.
 
-Dans Windows 10, vous pouvez utiliser uniquement le compte principal de l’appareil pour synchroniser les paramètres (voir [Comment passer de la synchronisation des paramètres de compte Microsoft dans Windows 8 à la synchronisation des paramètres Azure AD dans Windows 10 ?](active-directory-windows-enterprise-state-roaming-faqs.md#Comment passer de la synchronisation des paramètres de compte Microsoft dans Windows 8 à la synchronisation des paramètres Azure AD dans Windows 10 )).
+Dans Windows 10, vous pouvez utiliser uniquement le compte principal de l’appareil pour synchroniser les paramètres (voir [Comment passer de la synchronisation des paramètres de compte Microsoft dans Windows 8 à la synchronisation des paramètres Azure AD dans Windows 10 ?] (active-directory-windows-enterprise-state-roaming-faqs.md#Comment passer de la synchronisation des paramètres de compte Microsoft dans Windows 8 à la synchronisation des paramètres Azure AD dans Windows 10 )).
 
 Les données des différents comptes d’utilisateur du périphérique ne sont jamais mélangées. Il existe deux règles de synchronisation des paramètres :
 
@@ -124,7 +124,7 @@ Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’ab
 - Vous devez installer la mise à jour cumulative de juillet pour Windows 10 (build 10586.494 ou version ultérieure) pour bénéficier de la synchronisation des favoris Internet Explorer.
 - Les données protégées par la Protection des informations Windows ne sont pas synchronisées via Enterprise State Roaming. En outre, les machines sur lesquelles la Protection des informations Windows est activée ne peuvent pas voir leurs thèmes synchronisés.
 - Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser les données si l’authentification multifacteur Azure (MFA) est configurée.
-    - Si votre appareil est configuré pour requérir [l’authentification multifacteur](multi-factor-authentication.md) sur le portail Azure Active Directory, la synchronisation des paramètres lors de la connexion à un appareil Windows 10 à l’aide d’un mot de passe peut échouer. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Microsoft Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Office 365.
+    - Si votre appareil est configuré pour requérir [l’authentification multifacteur](multi-factor-authentication.md) sur le portail Azure Active Directory, la synchronisation des paramètres lors de la connexion à un appareil Windows 10 à l’aide d’un mot de passe peut échouer. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Windows Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Office 365.
     - La synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel Multi-Factor Authentication des services Active Directory Federation Services et le jeton d’accès de l’appareil expire. Veillez à vous déconnecter et à vous connecter en utilisant le code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Office 365.
 
 - Si un ordinateur est joint au domaine avec l’inscription automatique aux appareils Azure Active Directory, la synchronisation peut échouer si l’ordinateur est hors site pendant de longues périodes et que l’authentification de domaine ne peut pas s’exécuter. Pour résoudre ce problème, connectez l’ordinateur à un réseau d’entreprise afin que la synchronisation puisse reprendre.
@@ -136,4 +136,4 @@ Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’ab
 - [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

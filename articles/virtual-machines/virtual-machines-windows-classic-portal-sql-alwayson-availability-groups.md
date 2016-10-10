@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Configuration de groupes de disponibilité Always On dans Azure VM - Classic
 
 > [AZURE.SELECTOR]
-- [Resource Manager : mode automatique](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager : modèle](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager : mode manuel](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Classic : interface utilisateur](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classic : PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -51,7 +51,7 @@ Notez qu'il s'agit d'une configuration possible. Par exemple, vous pouvez rédui
 
 Ce didacticiel part des principes suivants :
 
-- Vous disposez déjà d’un compte Azure.
+- vous disposez déjà d’un compte Azure ;
 
 - Vous savez déjà comment approvisionner une machine virtuelle SQL Server classique de la galerie de machines virtuelles avec l’interface graphique utilisateur.
 
@@ -548,4 +548,4 @@ Vous avez correctement implémenté SQL Server Always On en créant un groupe de
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [SQL Server sur Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

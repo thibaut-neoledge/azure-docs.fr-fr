@@ -18,7 +18,7 @@
 
 # Azure et Linux
 
-Microsoft Azure propose une gamme croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, mobiles, la mise en réseau, le stockage et le web. En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions. Microsoft Azure fournit une plate-forme évolutive de cloud computing qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local. Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
+Microsoft Azure propose une gamme croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, mobiles, la mise en réseau, le stockage et le web. En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions. Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local. Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
 
 Si vous êtes familiarisé avec les différentes fonctionnalités d’Amazon AWS, vous pouvez examiner le [document de mappage de définition](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) Azure vs AWS.
 
@@ -100,11 +100,11 @@ Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microso
 ## Installation sur Azure
 Pour commencer à utiliser Azure, vous avez besoin d’un compte Azure, de l’interface de ligne de commande Azure installée et d’une paire de clés SSH (publique et privée).
 
-## Création d’un compte
+## Inscrivez-vous pour obtenir un compte
 La première étape pour utiliser Azure Cloud consiste à créer un compte Azure. Accédez sur la page [Création d’un compte Azure](https://azure.microsoft.com/pricing/free-trial/) pour commencer.
 
 ## Installer l’interface de ligne de commande
-Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web. Pour gérer Azure Cloud par ligne de commande, vous installez `azure-cli`. Installez [l’interface de ligne de commande Azure](../xplat-cli-install.md) sur votre station de travail Mac ou Linux.
+Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web. Pour gérer Azure Cloud via la ligne de commande, installez l’`azure-cli`. Installez [l’interface de ligne de commande Azure](../xplat-cli-install.md) sur votre station de travail Mac ou Linux.
 
 ## Création d’une paire de clés SSH
 Vous avez maintenant un compte Azure, le portail web Azure et l’interface de ligne de commande Azure. L’étape suivante consiste à créer une paire de clés SSH utilisée pour exécuter SSH dans Linux sans utiliser de mot de passe. [Créez des clés SSH sur Linux et Mac](virtual-machines-linux-mac-create-ssh-keys.md) pour activer les connexions sans mot de passe et améliorer la sécurité.
@@ -112,13 +112,13 @@ Vous avez maintenant un compte Azure, le portail web Azure et l’interface de l
 ## Prise en main de Microsoft Azure sur Linux
 Avec la configuration de votre compte Azure, l’interface de ligne de commande Azure installée et les clés SSH créées, vous êtes maintenant prêt à créer une infrastructure dans Azure Cloud. La première tâche consiste à créer quelques machines virtuelles.
 
-## Création d’une machine virtuelle sur l’interface de ligne de commande
-La création d’une machine virtuelle Linux sur l’interface de ligne de commande est un moyen rapide de déployer une machine virtuelle sans quitter le terminal que vous utilisez. Tout ce que vous pouvez spécifier sur le portail web est disponible via un commutateur ou un indicateur de ligne de commande.
+## Créer une machine virtuelle à l’aide de l’interface de ligne de commande
+La création d’une machine virtuelle Linux à l’aide de l’interface de ligne de commande est un moyen rapide de déployer une machine virtuelle sans quitter le terminal que vous utilisez. Tout ce que vous pouvez spécifier sur le portail web est disponible via un commutateur ou un indicateur de ligne de commande.
 
 - [Créer une machine virtuelle Linux à l’aide de l’interface de ligne de commande](virtual-machines-linux-quick-create-cli.md)
 
 ## Créer une machine virtuelle dans le portail
-La création d’une machine virtuelle sur le portail web Azure consiste à facilement définir les différentes options à la souris pour accéder à un déploiement. Au lieu d’utiliser des indicateurs de ligne de commande ou des commutateurs, vous pouvez afficher une jolie disposition d’options et de paramètres. Tous les éléments disponibles via l’interface de ligne de commande sont également disponibles sur le portail.
+La création d’une machine virtuelle sur le portail web Azure consiste à facilement définir les différentes options à l’aide de la souris pour accéder à un déploiement. Au lieu d’utiliser des indicateurs de ligne de commande ou des commutateurs, vous pouvez afficher une belle disposition d’options et de paramètres. Tous les éléments disponibles au moyen de l’interface de ligne de commande sont également disponibles sur le portail.
 
 - [Créer une machine virtuelle Linux à l’aide du portail](virtual-machines-linux-quick-create-portal.md)
 
@@ -158,10 +158,10 @@ La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vo
 
 ## Étapes suivantes
 
-Vous avez maintenant une vue d’ensemble de Linux sur Azure. L’étape suivante consiste à aller plus loin et créer plusieurs machines virtuelles !
+Vous avez maintenant une vue d’ensemble de Linux sur Azure. L’étape suivante consiste à aller plus loin et créer quelques machines virtuelles.
 
 - [Création d'une machine virtuelle Linux sur Azure à l’aide du portail](virtual-machines-linux-quick-create-portal.md)
 
 - [Créer une machine virtuelle Linux sur Azure à l’aide de l’interface de ligne de commande (CLI)](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

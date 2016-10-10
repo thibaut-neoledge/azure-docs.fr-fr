@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 #Rotation des informations d'identification pour les entrées et les sorties dans des travaux Stream Analytics
@@ -43,8 +43,8 @@ Pour les autres entrées/sorties, passez à la partie 2.
 6.  Copiez la clé qui vient d’être générée : ![graphic5][graphic5]
 7.  Passez à la partie 2.
 
-###Event Hubs
-1.  Accédez à l’extension Service Bus dans le portail de gestion Azure : ![graphic6][graphic6]
+###Hubs d’événements
+1.  Dans le portail de gestion Azure, accédez à l’extension Service Bus : ![graphic6][graphic6]
 2.  Recherchez l’espace de noms Service Bus utilisé par votre travail et accédez-y : ![graphic7][graphic7]
 3.  Si votre travail utilise une stratégie d’accès partagé sur l’espace de noms Service Bus, passez à l’étape 6
 4.  Accédez à l’onglet Hubs d’événements : ![graphic8][graphic8]
@@ -60,17 +60,17 @@ Pour les autres entrées/sorties, passez à la partie 2.
 
 >[AZURE.NOTE] Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail de gestion Azure, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
 
-1.  Accédez à l’extension Bases de données SQL dans le portail de gestion Azure : ![graphic14][graphic14]
+1.  Dans le portail de gestion Azure, accédez à l’extension SQL Database : ![graphic14][graphic14]
 2.  Recherchez la base de données SQL utilisée par votre travail et **cliquez sur le lien du serveur** sur la même ligne : ![graphic15][graphic15]
 3.  Cliquez sur la commande Gérer : ![graphic16][graphic16]
 4.  Tapez Base de données principale : ![graphic17][graphic17]
-5.  Tapez votre nom d’utilisateur, votre mot de passe et cliquez sur Ouvrir une session : ![graphic18][graphic18]
+5.  Tapez votre nom d’utilisateur, votre mot de passe, puis cliquez sur Ouvrir une session : ![graphic18][graphic18]
 6.  Cliquez sur Nouvelle requête : ![graphic19][graphic19]
 7.  Tapez la requête suivante en remplaçant <login\_name> par votre nom d’utilisateur et <enterStrongPasswordHere> par votre nouveau mot de passe : `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8.  Cliquez sur Exécuter : ![graphic20][graphic20]
 9.  Revenez à l’étape 2 et, cette fois, cliquez sur la base de données : ![graphic21][graphic21]
 10. Cliquez sur la commande Gérer : ![graphic22][graphic22]
-11. Tapez votre nom d’utilisateur, votre mot de passe et cliquez sur Ouvrir une session : ![graphic23][graphic23]
+11. Tapez votre nom d’utilisateur, votre mot de passe, puis cliquez sur Ouvrir une session : ![graphic23][graphic23]
 12. Cliquez sur Nouvelle requête : ![graphic24][graphic24]
 13. Tapez la requête suivante en remplaçant <nom\_utilisateur> par le nom avec lequel vous souhaitez identifier cette connexion dans le contexte de cette base de données (vous pouvez fournir la même valeur que celle attribuée à <nom\_utilisateur>, par exemple) et en remplaçant <nom\_connexion> par votre nouveau nom d’utilisateur : `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Cliquez sur Exécuter : ![graphic25][graphic25]
@@ -78,7 +78,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 16. Passez à la partie 2.
 
 ##Partie 2 – Arrêt du travail Stream Analytics
-1.  Accédez à l’extension Stream Analytics sur le portail de gestion Azure : ![graphic26][graphic26]
+1.  Dans le portail de gestion Azure, accédez à l’extension Stream Analytics : ![graphic26][graphic26]
 2.  Recherchez votre travail et accédez-y : ![graphic27][graphic27]
 3.  Accédez à l’onglet Entrées ou à l’onglet Sorties selon que vous remplacez les informations d’identification d’une entrée ou d’une sortie. ![graphic28][graphic28]
 4.  Cliquez sur la commande d’arrêt et vérifiez que le travail s’est arrêté : ![graphic29][graphic29] Attendez que le travail s’arrête.
@@ -198,4 +198,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

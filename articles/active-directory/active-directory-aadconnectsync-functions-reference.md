@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="StevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -25,19 +25,19 @@ Si une fonction est surchargée et accepte plusieurs syntaxes, toutes les syntax
 
 Les types s’expriment avec la syntaxe suivante :
 
-- **bin** : binaire
-- **bool** : booléen
-- **dt** : date/heure UTC
-- **enum** : énumération des constantes connues
-- **exp** : expression, qui est censée correspondre à une valeur booléenne
+- **bin** : binaire
+- **bool** : booléen
+- **dt** : date/heure UTC
+- **enum** : énumération des constantes connues
+- **exp** : expression, qui est censée correspondre à une valeur booléenne
 - **mvbin** : binaire à valeurs multiples
 - **mvstr** : chaîne à valeurs multiples
 - **mvref** : référence à valeurs multiples
-- **num** : numérique
+- **num** : numérique
 - **ref** : référence
 - **str** : chaîne
-- **var** : variante de (quasiment) tout autre type
-- **void** : ne retourne aucune valeur
+- **var** : variante de (quasiment) tout autre type
+- **void** : ne retourne aucune valeur
 
 Les fonctions ayant pour type **mvbin**, **mvstr** et **mvref** ne peuvent fonctionner que sur les attributs à valeurs multiples. Les fonctions avec **bin**, **str** et **ref** fonctionnent sur des attributs à valeur unique et à valeurs multiples.
 
@@ -162,12 +162,12 @@ Renvoie l’indice dans l’attribut à plusieurs valeurs où la chaîne a été
 
 **Syntaxe :**`str ConvertFromBase64(str source)` - part du principe que l’encodage utilisé est Unicode `str ConvertFromBase64(str source, enum Encoding)`
 
-- source : chaîne encodée Base64  
+- source : chaîne encodée Base64
 - En codage : Unicode, ASCII, UTF8
 
 **Exemple** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Les deux exemples renvoient « *Hello world!* »
+Les deux exemples renvoient « *Hello world!* »
 
 ----------
 ### ConvertFromUTF8Hex
@@ -408,7 +408,7 @@ Les deux exemples renvoient « *Hello world!* »
 ----------
 ### IsEmpty
 
-**Description:** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
+**Description : ** La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
 
 **Syntaxe :** `bool IsEmpty(var Expression)`
 
@@ -867,4 +867,4 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

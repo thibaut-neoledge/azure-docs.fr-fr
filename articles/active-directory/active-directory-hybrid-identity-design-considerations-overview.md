@@ -4,7 +4,7 @@
 	documentationCenter=""
 	services="active-directory"
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -36,7 +36,7 @@ Vous pouvez utiliser ce guide pour apprendre à concevoir une solution d'identit
 
 L'illustration ci-dessus est un exemple de solution d'identité hybride qui exploite les services cloud et les intègre aux fonctionnalités locales afin de garantir une expérience unique pour le processus d'authentification de l'utilisateur final et de faciliter la gestion de ces ressources par le service informatique. Bien que ce scénario puisse être très courant, le modèle d'identité hybride de chaque entreprise est probablement différent de l'exemple illustré dans la Figure 1 en raison de la diversité des exigences. Ce guide propose une série d'étapes et de tâches que vous pouvez suivre pour concevoir une solution d'identité hybride qui réponde aux exigences spécifiques de votre organisation. Au fil des étapes et des tâches suivantes, le guide présente les technologies et les options appropriées à votre disposition pour satisfaire aux exigences de niveau de qualité fonctionnelle et de qualité de service de votre organisation.
 
-**Hypothèses** : vous avez un peu d'expérience avec Windows Server, les services de domaine Active Directory et Azure Active Directory. Dans ce document, nous supposons que vous cherchez à savoir en quoi ces solutions peuvent répondre aux besoins de votre entreprise de façon autonome ou dans une solution intégrée.
+**Hypothèses** : vous avez un peu d'expérience avec Windows Server, les services de domaine Active Directory et Azure Active Directory. Dans ce document, nous supposons que vous cherchez à savoir en quoi ces solutions peuvent répondre aux besoins de votre entreprise de façon autonome ou dans une solution intégrée.
 
 ## Présentation des considérations relatives à la conception
 Ce document propose un ensemble d'étapes et de tâches que vous pouvez suivre pour concevoir la solution d'identité hybride idéale en fonction de vos exigences. Les étapes sont présentées dans un ordre précis. Cependant, les considérations relatives à la conception que vous découvrirez dans les étapes suivantes pourront vous amener à revenir sur les décisions que vous aurez prises dans les étapes précédentes, en raison de conflits sur les choix de conception. Tout est mis en œuvre pour vous avertir des risques de conflits de conception tout au long du document.
@@ -55,4 +55,4 @@ Vous pouvez télécharger une version pdf du guide sur les considérations pour 
 
                                                              
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

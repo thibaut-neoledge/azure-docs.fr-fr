@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor="curtand"/>
 
 <tags
@@ -51,7 +51,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
 ### Comptes
 - Un compte d’administrateur général Azure AD pour l’annuaire Azure AD auquel vous souhaitez effectuer l’intégration Il doit s’agir d’un **compte scolaire ou d’organisation** et non d’un **compte Microsoft**.
 - Un compte d’administrateur d’entreprise pour votre annuaire Active Directory local si vous utilisez la configuration rapide ou effectuez une mise à niveau depuis DirSync.
-- [Comptes Active Directory](active-directory-aadconnect-accounts-permissions.md) si vous utilisez le chemin d’installation des paramètres personnalisés.
+- [Comptes dans Active Directory](active-directory-aadconnect-accounts-permissions.md) si vous utilisez le chemin d’installation des paramètres personnalisés.
 
 ### Configuration du serveur Azure AD Connect
 - Si l’authentification MFA est activée pour vos administrateurs généraux, l’URL **https://secure.aadcdn.microsoftonline-p.com** doit figurer dans la liste des sites de confiance. Si elle n’y figure pas, vous devrez l’ajouter avant de passer le test de l’authentification MFA. Vous pouvez utiliser Internet Explorer pour l’ajouter à vos sites de confiance.
@@ -197,4 +197,4 @@ La configuration minimale requise pour les ordinateurs exécutant les services d
 ## Étapes suivantes
 En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

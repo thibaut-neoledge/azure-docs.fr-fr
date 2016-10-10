@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Utilisation d’appareils Windows 10 sur votre lieu de travail
@@ -110,8 +110,8 @@ L’expérience utilisateur de Windows 10 offre des points d’entrée pour cha
 Pour déployer Azure AD joindre pour un ensemble d’utilisateurs, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD.
-- Pour accéder à davantage de fonctionnalités, vous avez besoin d’un abonnement Azure AD Premium, par exemple l’inscription du système de gestion des périphériques mobiles.
-- Un système de gestion des périphériques mobiles, par exemple, un abonnement Microsoft Intune, une gestion des périphériques mobiles pour Office 365 ou un système offert par l’un des fournisseurs de gestion de périphériques mobiles partenaires et qui soit intégré à Azure AD (consultez la section [Forum Aux Questions](#frequently-asked-questions) à la fin de cet article pour plus d’informations).
+- Pour accéder à davantage de fonctionnalités, vous avez besoin d’un abonnement Azure AD Premium, par exemple l’inscription automatique au système de gestion des appareils mobiles.
+- Un système de gestion des appareils mobiles, par exemple, un abonnement Microsoft Intune, un système de gestion des appareils mobiles pour Office 365 ou un système offert par l’un des fournisseurs de gestion d’appareils mobiles partenaires et qui soit intégré à Azure AD (consultez la section [Forum Aux Questions](#frequently-asked-questions) à la fin de cet article pour plus d’informations).
 
 Dans le cas d’installations hybrides, il est vivement recommandé de déployer Azure AD Connect pour étendre le répertoire local vers Azure AD.
 
@@ -132,7 +132,7 @@ Pour plus d’informations sur la jonction de domaine dans Windows 10, consultez
 Pour autoriser l’utilisation d’appareils personnels (autrement dit le BYOD ou « Bring Your Own Device) avec des comptes professionnels ou scolaires, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD.
-- Pour accéder à davantage de fonctionnalités, vous avez besoin d’un abonnement Azure AD Premium, par exemple l’inscription du système de gestion des périphériques mobiles.
+- Pour accéder à davantage de fonctionnalités, vous avez besoin d’un abonnement Azure AD Premium, par exemple l’inscription automatique au système de gestion des appareils mobiles.
 
 ## Conditions d’utilisation de Microsoft Passport
 
@@ -177,4 +177,4 @@ Les utilisateurs procédant à une mise à niveau depuis des appareils Windows 
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="SSalahAhmed"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -17,7 +17,7 @@
 	ms.author="saah;kenhoff"/>
 
 # Connexions après plusieurs échecs
-Ce rapport indique les utilisateurs qui sont parvenus à se connecter, mais après plusieurs tentatives de connexion infructueuses. Les causes possibles sont :
+Ce rapport indique les utilisateurs qui sont parvenus à se connecter, mais après plusieurs tentatives de connexion infructueuses. Les causes possibles sont :
 
 - L’utilisateur a oublié son mot de passe</li><li>Son mot de passe lui a été dérobé
 
@@ -28,4 +28,4 @@ Les résultats de ce rapport vous indiqueront le nombre de tentatives consécuti
 
 ![Connexions après plusieurs échecs](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

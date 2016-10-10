@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services" 
+	pageTitle="Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services | Microsoft Azure" 
 	description="Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences Axinom." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="willzhan;Mingfeiy;rajputam;Juliako"/>
 
 #Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services  
@@ -207,6 +207,6 @@ ID de clé de contenu|Doit être inclus dans le cadre de la valeur de la revendi
 
 ###Remerciements 
 
-Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Kristjan Jõgi of Axinom, Mingfei Yan et Amit Rajput.
+Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Kristjan Jõgi d’Axinom, Mingfei Yan et Amit Rajput.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion des éléments multimédias Media Services sur plusieurs comptes de stockage" 
+	pageTitle="Gestion des éléments multimédias Media Services sur plusieurs comptes de stockage | Microsoft Azure" 
 	description="Cet article vous donne des conseils sur la gestion des éléments multimédias Media Services dans plusieurs comptes de stockage." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@ Media Services utilise la valeur de la propriété **IAssetFile.Name** lors de l
 
 ##Pour associer un compte de stockage à l'aide de l'API REST de gestion des services Azure
 
-Actuellement, le seul moyen d'associer plusieurs comptes de stockage consiste à utiliser l'[API REST de gestion des services Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). L'exemple de code indiqué dans la rubrique [Procédure : utiliser l'API REST de gestion de Media Services](https://msdn.microsoft.com/library/azure/dn167656.aspx) définit la méthode **AttachStorageAccountToMediaServiceAccount** qui associe un compte de stockage au compte Media Services spécifié. Le code indiqué dans cette même rubrique définit la méthode **ListStorageAccountDetails** qui répertorie tous les comptes de stockage associés au compte Media Services spécifié.
+Actuellement, le seul moyen d'associer plusieurs comptes de stockage consiste à utiliser l'[API REST de gestion des services Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). L’exemple de code indiqué dans la rubrique [Procédure : utiliser l’API REST de gestion de Media Services](https://msdn.microsoft.com/library/azure/dn167656.aspx) définit la méthode **AttachStorageAccountToMediaServiceAccount** qui associe un compte de stockage au compte Media Services spécifié. Le code indiqué dans cette même rubrique définit la méthode **ListStorageAccountDetails** qui répertorie tous les comptes de stockage associés au compte Media Services spécifié.
 
 
 ##Pour gérer des éléments multimédias Media Services dans plusieurs comptes de stockage
@@ -259,4 +259,4 @@ Le code suivant utilise le dernier Kit de développement logiciel (SDK) Media Se
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

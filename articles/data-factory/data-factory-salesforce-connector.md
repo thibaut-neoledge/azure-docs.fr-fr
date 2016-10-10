@@ -3,7 +3,7 @@
 	description="Découvrez comment déplacer des données depuis Salesforce à l’aide d’Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
-	ms.author="spelluru"/>
+	ms.date="09/26/2016"
+	ms.author="jingwang"/>
 
 # Déplacer des données depuis Salesforce à l’aide d’Azure Data Factory
 Cet article décrit la façon dont vous pouvez utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis Salesforce vers n’importe quel magasin de données répertorié dans la colonne du récepteur du tableau [Sources et récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores). Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
@@ -97,7 +97,7 @@ Cet exemple utilise le service lié **Salesforce**. Consultez la section [Servic
 		}
 	}
 
-La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
 
 > [AZURE.IMPORTANT] La partie « \_\_c » du nom de l’API est requise pour tout objet personnalisé.
 
@@ -209,20 +209,20 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 ## Propriétés de type RelationalSource
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d’entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d’activités.
 
-Par contre, les propriétés disponibles dans la section typeProperties de l’activité varient avec chaque type d’activité et dans le cas de l’activité de copie, elles varient selon les types de sources et de récepteurs.
+En revanche, les propriétés qui sont disponibles dans la section typeProperties de l’activité varient pour chaque type d’activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Salesforce), les propriétés suivantes sont disponibles dans la section typeProperties :
+Dans l’activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Salesforce), les propriétés suivantes sont disponibles dans la section typeProperties :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| query | Utilise la requête personnalisée pour lire des données. | Une requête SQL-92 ou une requête [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.fr-FR.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Par exemple : select * from MyTable\_\_c. | Non (si l’attribut **tableName** de l’élément **dataset** est spécifié) |
+| query | Utilise la requête personnalisée pour lire des données. | Une requête SQL-92 ou une requête [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.fr-FR.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Par exemple : `select * from MyTable__c`. | Non (si l’attribut **tableName** de l’élément **dataset** est spécifié) |
 
-> [AZURE.IMPORTANT] La partie « \_\_c » du nom de l’API est requise pour tout objet personnalisé.<br> Lorsque vous spécifiez une requête qui inclut la clause **where** sur la colonne DateTime, utilisez le langage SOQL. Par exemple : $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), ou une requête SQL, par exemple : $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
+> [AZURE.IMPORTANT] La partie « \_\_c » du nom de l’API est requise pour tout objet personnalisé.<br> Lorsque vous spécifiez une requête qui inclut la clause **where** sur la colonne DateTime, utilisez le langage SOQL. Par exemple : `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
 
 ![Connexion Salesforce - Data Factory - Nom de l’API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Récupération de données à partir d’un rapport Salesforce
-Vous pouvez récupérer des données à partir de rapports Salesforce en spécifiant la requête en tant que {call « <nom du rapport> »}, par exemple, « query » : « {call « TestReport »} ».
+Vous pouvez récupérer des données à partir de rapports Salesforce en spécifiant la requête en tant que `{call "<report name>"}`, par exemple, `"query": "{call "TestReport"}"`.
 
 ## Limites des requêtes Salesforce
 Salesforce prend en charge un nombre limité de requêtes d’API totales et de requêtes d’API simultanées. Pour plus de détails, consultez la section « API Request Limits » (Limites de requête d’API) du document [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/fr-FR/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites des développeurs Salesforce).
@@ -261,4 +261,4 @@ URL | String
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

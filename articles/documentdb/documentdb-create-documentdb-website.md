@@ -2,7 +2,7 @@
 	pageTitle="Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager | Microsoft Azure" 
 	description="Découvrez comment déployer un compte DocumentDB, Azure App Service Web Apps et un exemple d’application web avec un modèle Azure Resource Manager." 
 	services="documentdb, app-service\web" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/02/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager
 
@@ -33,7 +33,7 @@ Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux ques
 
 Avant de suivre les instructions de ce didacticiel, assurez-vous de disposer des éléments suivants :
 
-- Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement](https://azure.microsoft.com/pricing/purchase-options/), les [offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) ou la [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
+- Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d’informations sur l’obtention d’un abonnement, consultez les pages [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/), [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) ou [Version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
 ##<a id="CreateDB"></a>Étape 1 : téléchargement des fichiers de modèle ##
 Commençons par télécharger les fichiers de modèle que nous utiliserons dans ce didacticiel.
@@ -141,4 +141,4 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 >[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

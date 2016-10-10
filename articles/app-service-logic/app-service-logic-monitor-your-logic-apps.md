@@ -33,6 +33,8 @@ Voici quelques sections de ce panneau qui sont utiles :
 	- La sous-section **Historique du déclencheur** répertorie toutes les activités de déclencheur de cette application logique. Les activités de déclencheur peuvent être les suivantes : une vérification « ignorée » de l’ajout de nouvelle données (par exemple pour voir si un nouveau ficher a été ajouté à FTP) ; « Opération réussie » signifie que des données ont été retournées pour déclencher une application logique ou « Échec » correspond à une erreur de la configuration.
 - La section **Diagnostics** vous permet d’afficher les détails et les événements d’exécution, et de vous abonner aux [alertes Azure](#adding-azure-alerts).
 
+>[AZURE.NOTE] Tous les détails et les événements d’exécution sont chiffrés au repos dans le service Logic App. Ils sont uniquement déchiffrés lorsqu’un utilisateur souhaite les consulter. L'accès à ces événements peut également être contrôlé par le contrôle d'accès en fonction du rôle (RBAC) Azure.
+
 ### Afficher les détails d’exécution
 
 Cette liste d’exécutions indique **l’État**, **l’Heure de début** et la **Durée** de l’exécution spécifique. Sélectionnez n’importe quelle ligne pour afficher les détails de cette exécution.
@@ -47,8 +49,8 @@ Si vous avez besoin de détails supplémentaires comme **l’ID de corrélation*
 
 Outre les détails fournis par le portail Azure et l’API REST ci-dessus, vous pouvez configurer votre application logique afin d’utiliser les diagnostics Azure pour obtenir des détails et un débogage enrichis.
 
-1. Cliquez sur la section **Diagnostics** du panneau de l’application logique.
-1. Cliquez pour configurer les **Paramètres de diagnostic**.
+1. Cliquez sur la section **Diagnostics** du panneau de l’application logique
+1. Cliquez pour configurer les **Paramètres de diagnostic**
 1. Configurez un Event Hub ou un compte de stockage vers lequel émettre des données.
 
 	![Paramètres des diagnostics Azure](./media/app-service-logic-monitor-your-logic-apps/diagnostics.png)
@@ -138,4 +140,4 @@ Vous pouvez tirer parti de ces données de télémétrie de l’Event Hub ou du 
 - [Création d’un modèle de déploiement d’applications logiques](app-service-logic-create-deploy-template.md)
 - [Fonctionnalités d’intégration d'entreprise](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

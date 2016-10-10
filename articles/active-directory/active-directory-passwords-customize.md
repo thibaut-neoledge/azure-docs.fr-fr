@@ -202,9 +202,8 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                 </p>
                 <ul>
                   <li class="unordered">
-												Si la valeur est Non, tous les utilisateurs de votre annuaire peuvent s’inscrire à la réinitialisation du mot de passe à l’adresse <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
-                  <li class="unordered">
-												Si la valeur est Oui, seuls les utilisateurs spécifiés dans le contrôle <strong>Groupe pouvant effectuer la réinitialisation des mots de passe</strong> peuvent s’inscrire à la réinitialisation du mot de passe à l’adresse <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
+                    Ce paramètre n’affecte pas l’accès des utilisateurs au portail d’inscription de réinitialisation du mot de passe. Si l’option <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est définie sur <strong>oui</strong>, tous les utilisateurs de votre annuaire peuvent s’inscrire à la réinitialisation du mot de passe à l’adresse <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Portail de réinitialisation du mot de passe&#160;:</strong>
@@ -245,7 +244,8 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                 </p>
                 <ul>
                   <li class="unordered">
-												Si <strong>Limiter l’accès à la réinitialisation des mots de passe</strong> est défini sur <strong>Oui</strong>, seuls les utilisateurs de ce groupe peuvent s’inscrire à la réinitialisation du mot de passe. <br><br></li>
+                    Ce paramètre n’affecte pas l’accès des utilisateurs au portail d’inscription de réinitialisation du mot de passe. Si l’option <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est définie sur <strong>oui</strong>, tous les utilisateurs de votre annuaire peuvent s’inscrire à la réinitialisation du mot de passe à l’adresse <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Portail de réinitialisation du mot de passe&#160;:</strong>
@@ -270,12 +270,6 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                 <p>(Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Remarque&#160;:</strong>
                 </p>
@@ -875,4 +869,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

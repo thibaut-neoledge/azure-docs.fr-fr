@@ -13,7 +13,7 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="02/29/2016"
-      ms.author="minet" />
+      ms.author="minet;robinsh" />
 
 
 # Utilisation du stockage de fichiers Azure avec Linux
@@ -45,7 +45,7 @@ Lorsque vous créez une machine virtuelle Linux dans Azure, vous pouvez spécifi
 - CentOS 7+
 - Debian 8
 - openSUSE 13.2+
-- SUSE Linux Enterprise Server 12
+- SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Image Premium)
 
 ## Montage du partage de fichiers ##
@@ -64,7 +64,7 @@ Veuillez noter que 0777 représente un code d’autorisation de fichier/répert
 
 De même, pour conserver le montage d’un partage de fichiers après le redémarrage, vous pouvez ajouter un paramètre comme ci-dessous dans votre répertoire /etc/fstab :
 
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
 Par exemple, si vous avez créé une machine virtuelle Azure à l'aide de l'image Linux Ubuntu Server 15.04 (disponible dans la galerie d'images Azure), vous pouvez monter le fichier comme indiqué ci-dessous :
 
@@ -140,4 +140,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

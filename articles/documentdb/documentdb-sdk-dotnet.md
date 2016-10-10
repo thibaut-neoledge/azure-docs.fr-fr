@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2016" 
+	ms.date="09/27/2016" 
 	ms.author="rnagpal"/>
 
 # API DocumentDB et Kits de développement logiciel (SDK) 
@@ -31,15 +31,22 @@
 <table>
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**Documentation de l'API**</td><td>[Documentation de référence de l'API .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
-<tr><td>**Exemples**</td><td>[Exemples de code .NET](documentdb-dotnet-samples.md)</td></tr>
-<tr><td>**Prise en main**</td><td>[Prise en main du Kit SDK .NET DocumentDB](documentdb-get-started.md)</td></tr>
-<tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec DocumentDB](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Exemples**</td><td>[Exemples de code .NET] (documentdb-dotnet-samples.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Prise en main du Kit SDK .NET DocumentDB] (documentdb-get-started.md)</td></tr>
+<tr><td>** Didacticiel d’application web **</td><td>[Développement d’applications web avec DocumentDB] (documentdb-dotnet-application.md)</td></tr>
 <tr><td>**Infrastructure actuellement prise en charge**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## Notes de publication
 
 > [AZURE.IMPORTANT] Vous pouvez recevoir une System.NotSupportedException lors de l’interrogation de collections partitionnées. Pour éviter cette erreur, désactivez l’option « Préférer 32 bits » dans la fenêtre Propriétés de votre projet, sous l’onglet Build.
+
+### <a name="1.10.0"/>[1\.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
+
+  - Ajout de la prise en charge de la connectivité directe pour les collections partitionnées.
+  - Amélioration des performances pour le niveau de cohérence en fonction de l’obsolescence.
+  - Ajout de la prise en charge de LINQ pour StringEnumConverter, IsoDateTimeConverter et UnixDateTimeConverter lors de la traduction de prédicats.
+  - Divers correctifs de bogues de kits de développement logiciel (SDK).
 
 ### <a name="1.9.5"/>[1\.9.5](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.5)
 
@@ -132,7 +139,7 @@
   - Ajout de la prise en charge de l’indexation et des requêtes spatiales
     - Nouvel espace de noms Microsoft.Azure.Documents.Spatial pour la sérialisation/désérialisation des types de données spatiales comme Point et Polygon
     - Nouvelle classe SpatialIndex pour l’indexation des données GeoJSON stockées dans DocumentDB
-  - **[Résolu]** : requête SQL incorrecte générée à partir de l’expression linq [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
+  - **[Résolu]** : requête SQL incorrecte générée à partir de l’expression linq [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="1.2.0"/>[1\.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
 - Dépendance de Newtonsoft.Json v5.0.7
@@ -140,9 +147,9 @@
   - Prise en charge du fournisseur LINQ pour OrderBy() ou OrderByDescending()
   - IndexingPolicy pour prendre en charge la clause Order By
   
-		**NB : modification avec rupture possible** 
+		**NB: Possible breaking change** 
   
-    	Si vous avez un code qui configure les collections avec une stratégie d'indexation personnalisée, vous devrez le mettre à jour de sorte qu'il prenne en charge la nouvelle classe IndexingPolicy. Si vous n'avez pas de stratégie d'indexation personnalisée, cette modification ne vous affecte pas.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Prise en charge du partitionnement des données à l’aide des nouvelles classes HashPartitionResolver et RangePartitionResolver et de IPartitionResolver
@@ -168,37 +175,13 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le service.
 
 > [AZURE.WARNING]
-Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour .NET antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
+Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour .NET antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
  
 <br/>
  
 | Version | Date de lancement | Date de suppression 
 | ---	  | ---	         | ---
-| [1\.9.5](#1.9.5) | 1er septembre 2016 |--- 
-| [1\.9.4](#1.9.4) | 24 août 2016 |--- 
-| [1\.9.3](#1.9.3) | 15 août 2016 |--- 
-| [1\.9.2](#1.9.2) | 23 juillet 2016 |--- 
-| 1.9.1 | Déconseillé |--- 
-| 1.9.0 | Déconseillé |--- 
-| [1\.8.0](#1.8.0) | 14 juin 2016 |--- 
-| [1\.7.1](#1.7.1) | 6 mai 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 avril 2016 |--- 
-| [1\.6.3](#1.6.3) | 8 avril 2016 |--- 
-| [1\.6.2](#1.6.2) | 29 mars 2016 |--- 
-| [1\.5.3](#1.5.3) | 19 février 2016 |--- 
-| [1\.5.2](#1.5.2) | 14 décembre 2015 |--- 
-| [1\.5.1](#1.5.1) | 23 novembre 2015 |--- 
-| [1\.5.0](#1.5.0) | 5 octobre 2015 |--- 
-| [1\.4.1](#1.4.1) | 25 août 2015 |--- 
-| [1\.4.0](#1.4.0) | 13 août 2015 |--- 
-| [1\.3.0](#1.3.0) | 5 août 2015 |--- 
-| [1\.2.0](#1.2.0) | 6 juillet 2015 |--- 
-| [1\.1.0](#1.1.0) | 30 avril 2015 |--- 
-| [1\.0.0](#1.0.0) | 8 avril 2015 |--- 
-| [Version préliminaire 0.9.3](#0.9.x-preview) | 12 mars 2015 | 29 février 2016 
-| [Version préliminaire 0.9.2](#0.9.x-preview) | Janvier 2015 | 29 février 2016 
-| [Version préliminaire .9.1](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016 
-| [Version préliminaire 0.9.0](#0.9.x-preview) | 21 août 2014 | 29 février 2016
+| [1\.10.0](#1.10.0) | 27 septembre 2016 |--- | [1\.9.5](#1.9.5) | 1er septembre 2016 |--- | [1\.9.4](#1.9.4) | 24 août 2016 |--- | [1\.9.3](#1.9.3) | 15 août 2016 |--- | [1\.9.2](#1.9.2) | 23 juillet 2016 |--- | 1.9.1 | Déconseillé |--- | 1.9.0 | Déconseillé |--- | [1\.8.0](#1.8.0) | 14 juin 2016 |--- | [1\.7.1](#1.7.1) | 6 mai 2016 |--- | [1\.7.0](#1.7.0) | 26 avril 2016 |--- | [1\.6.3](#1.6.3) | 8 avril 2016 |--- | [1\.6.2](#1.6.2) | 29 mars 2016 |--- | [1\.5.3](#1.5.3) | 19 février 2016 |--- | [1\.5.2](#1.5.2) | 14 décembre 2015 |--- | [1\.5.1](#1.5.1) | 23 novembre 2015 |--- | [1\.5.0](#1.5.0) | 5 octobre 2015 |--- | [1\.4.1](#1.4.1) | 25 août 2015 |--- | [1\.4.0](#1.4.0) | 13 août 2015 |--- | [1\.3.0](#1.3.0) | 5 août 2015 |--- | [1\.2.0](#1.2.0) | 6 juillet 2015 |--- | [1\.1.0](#1.1.0) | 30 avril 2015 |--- | [1\.0.0](#1.0.0) | 8 avril 2015 |--- | [Version préliminaire 0.9.3](#0.9.x-preview) | 12 mars 2015 | 29 février 2016 | [Version préliminaire 0.9.2](#0.9.x-preview) | Janvier 2015 | 29 février 2016 | [Version préliminaire .9.1](#0.9.x-preview) | 13 octobre 2014 | 29 février 2016 | [Version préliminaire 0.9.0](#0.9.x-preview) | 21 août 2014 | 29 février 2016
 
 ## Forum Aux Questions
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -207,4 +190,4 @@ Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pou
 
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

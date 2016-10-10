@@ -22,7 +22,11 @@ Pour charger une machine virtuelle Windows locale sur Azure, vous devez prépare
 
 ## Préparer le disque virtuel
 
->[AZURE.NOTE] Azure ne prend pas en charge le nouveau format VHDX. Le disque dur virtuel doit être de taille fixe, pas dynamique. Si nécessaire, les instructions ci-dessous décrivent la conversion de disques VHDX ou dynamiques. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go.
+>[AZURE.NOTE] 
+Azure prend en charge uniquement les [machines virtuelles de génération 1](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) au format de fichier de disque dur virtuel. Azure ne prend pas en charge le nouveau format VHDX.
+>
+> Le disque dur virtuel doit être de taille fixe, pas dynamique. Si nécessaire, les instructions ci-dessous décrivent la conversion de disques VHDX ou dynamiques. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go.
+
 
 Vérifiez que le disque dur virtuel Windows fonctionne correctement sur le serveur local. Résolvez toute erreur dans la machine virtuelle elle-même avant d’effectuer une conversion ou un chargement sur Azure.
 
@@ -319,4 +323,4 @@ Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. 
 
 - [Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

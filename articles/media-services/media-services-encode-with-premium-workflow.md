@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Encodage avancé avec Media Encoder Premium Workflow" 
+	pageTitle="Encodage avancé avec Media Encoder Premium Workflow | Microsoft Azure" 
 	description="Découvrez comment encoder avec Media Encoder Premium Workflow. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Encodage avancé avec Media Encoder Premium Workflow
 
->[AZURE.NOTE] Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n'est pas disponible en Chine.
+>[AZURE.NOTE] Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine.
 
 Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
 
@@ -26,7 +26,7 @@ Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur M
 
 Microsoft Azure Media Services lance le processeur multimédia **Media Encoder Premium Workflow**. Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium.
 
-Vous trouverez dans les rubriques suivantes des détails concernant **Media Encoder Premium Workflow** :
+Vous trouverez dans les rubriques suivantes des détails concernant **Media Encoder Premium Workflow** :
 
 - [Formats pris en charge par le flux de travail Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) : présente les formats et les codecs pris en charge par **Media Encoder Premium Workflow**.
 
@@ -278,4 +278,4 @@ Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur M
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

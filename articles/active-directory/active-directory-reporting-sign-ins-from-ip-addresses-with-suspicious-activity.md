@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="SSalahAhmed"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -17,9 +17,9 @@
 	ms.author="saah; kenhoff"/>
 
 # Connexions à partir d’adresses IP affichant une activité suspecte
-Ce rapport affiche les connexions à partir d’adresses IP où une activité suspecte a été détectée. Dans ce cas, les activités suspectes sont définies comme un rapport entre échecs et réussites de connexion anormalement élevé, ce qui peut indiquer qu’une adresse IP est utilisée à des fins malveillantes.
+Ce rapport affiche les connexions à partir d’adresses IP où une activité suspecte a été détectée. Dans ce cas, les activités suspectes sont définies comme un rapport entre échecs et réussites de connexion anormalement élevé, ce qui peut indiquer qu’une adresse IP est utilisée à des fins malveillantes.
 
 
 ![Connexions à partir d’adresses IP affichant une activité suspecte](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

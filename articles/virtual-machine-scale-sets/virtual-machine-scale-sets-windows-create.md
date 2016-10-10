@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/25/2016"
 	ms.author="davidmu"/>
 
 # Créer un jeu de mise à l’échelle de machine virtuelle Windows à l’aide d’Azure PowerShell
@@ -25,7 +25,7 @@ Il vous faudra environ 30 minutes pour effectuer les étapes décrites dans cet 
 
 ## Étape 1 : installer Azure PowerShell
 
-Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment installer la dernière version d’Azure PowerShell, sélectionner l’abonnement à utiliser et vous connecter à votre compte Azure.
+Pour plus d’informations sur l’installation de la dernière version d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Sélectionnez l’abonnement à utiliser et connectez-vous à votre compte Azure.
 
 ## Étape 2 : Créer des ressources
 
@@ -84,9 +84,9 @@ Un jeu de mise à l'échelle de machine virtuelle doit figurer dans un groupe de
 
 ### Compte de stockage
 
-Un compte de stockage est utilisé par une machine virtuelle pour stocker le disque du système d’exploitation et les données de diagnostic utilisées pour la mise à l’échelle. Lorsque cela est possible, il est recommandé d’utiliser un compte de stockage pour chaque machine virtuelle créée dans un jeu identique. Dans le cas contraire, ne prévoyez pas plus de 20 machines virtuelles par compte de stockage. L’exemple présenté dans cet article montre 3 comptes de stockage créés pour 3 machines virtuelles dans un groupe identique.
+Un compte de stockage est utilisé par une machine virtuelle pour stocker le disque du système d’exploitation et les données de diagnostic utilisées pour la mise à l’échelle. Il est recommandé d’utiliser un compte de stockage pour 20 machines virtuelles créées dans un jeu de mise à l’échelle. Les jeux de mise à l’échelle étant conçus pour être facilement extensibles, créez le nombre de comptes de stockage nécessaires pour le nombre maximal de machines virtuelles que votre jeu de mise à l’échelle doit atteindre. L’exemple présenté dans cet article montre 3 comptes de stockage créés, ce qui permet au jeu de mise à l’échelle de croître confortablement jusqu’à 60 machines virtuelles.
 
-1. Remplacez la valeur de **saName** par le nom que vous souhaitez utiliser pour le compte de stockage, puis créez la variable : 
+1. Remplacez la valeur de **saName** par le nom que vous souhaitez utiliser pour le compte de stockage, puis créez la variable :
 
         $saName = "storage account name"
         
@@ -133,7 +133,7 @@ Un compte de stockage est utilisé par une machine virtuelle pour stocker le dis
 
 Un réseau virtuel est requis pour les machines virtuelles dans le jeu de mise à l'échelle.
 
-1. Remplacez la valeur de **$subName** par le nom que vous souhaitez utiliser pour le sous-réseau du réseau virtuel, puis créez la variable : 
+1. Remplacez la valeur de **$subName** par le nom que vous souhaitez utiliser pour le sous-réseau du réseau virtuel, puis créez la variable :
 
         $subName = "subnet name"
         
@@ -155,7 +155,7 @@ Un réseau virtuel est requis pour les machines virtuelles dans le jeu de mise �
 
 Avant de pouvoir créer une interface réseau, vous devez créer une adresse IP publique.
 
-1. Remplacez la valeur de **$domName** par l'étiquette du nom de domaine que vous souhaitez utiliser avec votre adresse IP publique, puis créez la variable :  
+1. Remplacez la valeur de **$domName** par l'étiquette du nom de domaine que vous souhaitez utiliser avec votre adresse IP publique, puis créez la variable :
 
         $domName = "domain name label"
         
@@ -179,7 +179,7 @@ Avant de pouvoir créer une interface réseau, vous devez créer une adresse IP 
 
 Maintenant que vous disposez de l'adresse IP publique, vous pouvez créer l'interface réseau.
 
-1. Remplacez la valeur de **$nicName** par le nom que vous souhaitez utiliser pour l’interface réseau, puis créez la variable : 
+1. Remplacez la valeur de **$nicName** par le nom que vous souhaitez utiliser pour l’interface réseau, puis créez la variable :
 
         $nicName = "network interface name"
         
@@ -191,7 +191,7 @@ Maintenant que vous disposez de l'adresse IP publique, vous pouvez créer l'inte
 
 Vous disposez de toutes les ressources dont vous avez besoin pour la configuration du jeu de mise à l’échelle. Nous allons donc le créer.
 
-1. Remplacez la valeur de **$ipName** par le nom que vous souhaitez utiliser pour la configuration de l’adresse IP, puis créez la variable : 
+1. Remplacez la valeur de **$ipName** par le nom que vous souhaitez utiliser pour la configuration de l’adresse IP, puis créez la variable :
 
         $ipName = "IP configuration name"
         
@@ -205,7 +205,7 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
         
 3. Créez la configuration pour votre jeu de mise à l’échelle :
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
         
     Cet exemple montre la création d’un jeu de mise à l’échelle avec 3 machines virtuelles. Consultez la rubrique [Vue d’ensemble des groupes identiques dde machines virtuelles](virtual-machine-scale-sets-overview.md) pour en savoir plus sur la capacité des jeux de mise à l’échelle. Cette étape inclut également la définition de la taille (appelée SkuName) des machines virtuelles dans le jeu. Consultez la rubrique [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md) pour trouver une taille adaptée à vos besoins.
     
@@ -228,7 +228,7 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
 
 #### Profil de système d’exploitation
 
-1. Remplacez la valeur de **$computerName** par le préfixe de nom d’ordinateur que vous souhaitez utiliser, puis créez la variable : 
+1. Remplacez la valeur de **$computerName** par le préfixe de nom d’ordinateur que vous souhaitez utiliser, puis créez la variable :
 
         $computerName = "computer name prefix"
         
@@ -246,7 +246,7 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
 
 #### Profil de stockage
 
-1. Remplacez la valeur de **$storageProfile** par le nom que vous souhaitez utiliser pour le profil de stockage, puis créez la variable :  
+1. Remplacez la valeur de **$storageProfile** par le nom que vous souhaitez utiliser pour le profil de stockage, puis créez la variable :
 
         $storageProfile = "storage profile name"
         
@@ -313,4 +313,4 @@ Utilisez ces ressources pour explorer le jeu de mise à l'échelle de machine vi
 - Vous pouvez configurer la mise à l'échelle automatique de votre groupe identique à l'aide des informations fournies dans la rubrique [Mise à l’échelle automatique et groupes identiques de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md)
 - Pour en savoir plus sur la mise à l’échelle verticale, consultez l’article [Mise à l’échelle verticale avec des groupes identiques de machines virtuelles](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

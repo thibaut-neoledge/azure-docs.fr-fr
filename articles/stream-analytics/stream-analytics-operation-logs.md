@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Débogage des travaux Stream Analytics à l’aide des journaux des opérations et de service
@@ -45,13 +45,13 @@ Pour accéder manuellement aux journaux des opérations pour Stream Analytics et
 
 ## Rechercher des journaux d’audit dans le portail Azure ##
 
-Pour rechercher des journaux d’opérations pour votre tâche Stream Analytics dans le portail Azure, cliquez sur **Parcourir**, puis sélectionnez **Journaux d’audit**.
+Pour rechercher des journaux d’opérations pour votre travail Stream Analytics dans le portail Azure, cliquez sur **Parcourir**, puis sélectionnez **Journaux d’audit**.
 
-  ![Sélection Stream Analytics dans le portail Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
+  ![Sélection de Stream Analytics dans le portail Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
 
 Cette action ouvre un panneau répertoriant les événements survenus au cours des sept derniers jours pour toutes les ressources de votre abonnement. Vous pouvez filtrer ces informations pour afficher les événements d’un type ou d’un intervalle de temps spécifique en cliquant sur la commande **Filtrer**.
 
-  ![Sélection Stream Analytics dans le portail Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
+  ![Sélection de Stream Analytics dans le portail Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
 
 ## Obtenir les détails d’un journal
 
@@ -79,7 +79,7 @@ Dans le portail Azure, vous pouvez filtrer par niveau de message pour afficher l
 
   ![Débogage du portail Azure](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)
 
-Vous pouvez sélectionner l’une des erreurs et cliquer sur **Détails** pour obtenir plus d’informations sur l’erreur. Certains messages d'erreur fournissent également des informations sur la façon d'atténuer le problème.
+Vous pouvez sélectionner l’une des erreurs et cliquer sur **Détails** pour obtenir plus d’informations sur l’erreur. Certains messages d’erreur fournissent également des informations sur la façon d’atténuer le problème.
 
   ![Détails de l'opération](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="08/08/2016"
+    ms.date="09/22/2016"
     ms.author="magoedte" />
 
 # Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)
@@ -77,6 +77,41 @@ Pour vérifier le bon fonctionnement du script configuré dans votre compte Auto
 
     Cette commande renvoie les informations de stockage pour l’espace de travail OMS spécifié. Nous voulons à présent vérifier que les informations de stockage existent bien pour le compte d’automatisation que nous avons spécifié précédemment et que l’objet **State** indique la valeur **OK**.<br> ![Résultats de l’applet de commande Get-AzureRmOperationalInsightsStorageInsights](media/automation-manage-send-joblogs-log-analytics/automation-posh-getstorageinsights-results.png).
 
+
+## Enregistrements Log Analytics
+
+Automation crée deux types d’enregistrements dans le référentiel OMS.
+
+### Journaux de travail
+
+Propriété | Description|
+----------|----------|
+Time | Date et heure d’exécution du travail du runbook.|
+resourceId | Spécifie le type de ressource dans Azure. Pour Automation, la valeur est le compte Automation associé au runbook.|
+operationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur sera Job.|
+resultType | L’état du travail du runbook. Les valeurs possibles sont :<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded|
+resultDescription | Décrit l’état résultant du travail du runbook. Les valeurs possibles sont :<br>- Job is started<br>- Job Failed<br>- Job Completed|
+CorrelationId | GUID représentant l’ID de corrélation du travail du runbook.|
+Catégorie | Classification du type de données. Pour Automation, la valeur est JobLogs.|
+RunbookName | Nom du runbook.|
+JobId | GUID représentant l’ID du travail du runbook.|
+Appelant | Ce qui a initié l’opération. Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.|
+
+### Flux de travail
+Propriété | Description|
+----------|----------|
+Time | Date et heure d’exécution du travail du runbook.|
+resourceId | Spécifie le type de ressource dans Azure. Pour Automation, la valeur est le compte Automation associé au runbook.|
+operationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur sera Job.|
+resultType | L’état du travail du runbook. Les valeurs possibles sont :<br>- InProgress|
+resultDescription | Inclut le flux de sortie du runbook.|
+CorrelationId | GUID représentant l’ID de corrélation du travail du runbook.|
+Catégorie | Classification du type de données. Pour Automation, la valeur est JobStreams.|
+RunbookName | Nom du runbook.|
+JobId | GUID représentant l’ID du travail du runbook.|
+Appelant | Ce qui a initié l’opération. Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.| 
+StreamType | Type de flux de travail. Les valeurs possibles sont :<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose|
+
 ## Affichage d’Automation Logs dans Log Analytics 
 
 Maintenant que vous avez commencé à envoyer vos journaux de travaux Automation à Log Analytics, nous allons voir comment vous pouvez utiliser ces journaux dans OMS.
@@ -114,6 +149,7 @@ Vous pouvez enfin souhaiter visualiser l’historique de vos travaux dans le tem
 
 `Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1day` <br> ![Graphique d’état de travail historique OMS](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+
 ## Résumé
 
 En envoyant vos données d’état et de flux de travail Automation à Log Analytics, vous pouvez obtenir plus de détails sur l’état de vos travaux Automation en définissant des alertes qui vous avertissent en cas de problème, et en personnalisant vos tableaux de bord à l’aide de requêtes avancées afin de visualiser les résultats de votre runbook, l’état de votre travail de runbook ainsi que d’autres indicateurs clés ou métriques associés. Toutes ces informations vous permettent d’obtenir une meilleure visibilité opérationnelle et de résoudre plus rapidement les incidents.
@@ -126,4 +162,4 @@ En envoyant vos données d’état et de flux de travail Automation à Log Analy
 - Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)
 - Pour en savoir plus sur OMS Log Analytics et sur les sources de collecte de données, consultez [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md) (Vue d’ensemble de la collecte de données Azure Storage dans Log Analytics)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

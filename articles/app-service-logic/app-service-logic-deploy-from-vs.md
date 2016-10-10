@@ -24,10 +24,11 @@ Bien que le [portail Azure](https://portal.azure.com/) vous offre un excellent m
 
 Voici les étapes à suivre pour installer et configurer les outils Visual Studio pour Logic Apps.
 
-### Configuration requise
+### Composants requis
 
 - [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - [Dernier kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) (2.9.1 ou supérieur)
+- [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 - Accès au web lors de l’utilisation du concepteur intégré
 
 ### Installer les outils Visual Studio pour Logic Apps
@@ -105,4 +106,4 @@ Enfin, après avoir configuré votre application, vous pouvez procéder directem
 - [Logic Apps vous permet d’automatiser vos processus métiers](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Apprenez à intégrer vos systèmes avec Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

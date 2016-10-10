@@ -280,7 +280,7 @@ R1. Un délai maximal de 15 minutes est nécessaire pour que l’état du travai
 
 **Q2. En cas d’échec d’un travail de sauvegarde, combien de temps faut-il pour déclencher une alerte ?**
 
-R2. Une alerte est générée dans les 5 minutes suivant l’échec de la sauvegarde Azure.
+R2. Une alerte est générée dans les 20 minutes suivant l’échec de la sauvegarde Azure.
 
 **Q3. Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?**
 
@@ -300,4 +300,4 @@ R3 Voici les cas pour lesquels la notification ne sera pas envoyée afin de réd
 - Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

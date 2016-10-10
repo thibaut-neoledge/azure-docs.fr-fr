@@ -4,8 +4,8 @@
 | [Ajouter une connexion à une application Android](active-directory-v2-devquickstarts-android.md) | [Ajouter une connexion à une SPA AngularJS (.NET)](active-directory-v2-devquickstarts-angular-dotnet.md) | [Applications mobiles avec OAuth 2.0](active-directory-v2-protocols-oauth-code.md) |
 | [Ajouter une connexion à une application de bureau Windows](active-directory-v2-devquickstarts-wpf.md) | [Ajouter une connexion à une application .NET MVC](active-directory-v2-devquickstarts-dotnet-web.md) | [Web Apps avec OpenID Connect](active-directory-v2-protocols-oidc.md) |
 | [Appeler des API Office 365 Rest depuis une application](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | [Ajouter une connexion à une application web Node JS](active-directory-v2-devquickstarts-node-web.md) | [Applications Single Page avec OpenID Connect](active-directory-v2-protocols-implicit.md)
-| | [Sécuriser une API Web .NET](active-directory-v2-devquickstarts-dotnet-api.md) | |
+| | [Sécuriser une API Web .NET](active-directory-v2-devquickstarts-dotnet-api.md) | [Applications démon avec le flux d’informations d’identification du client](active-directory-v2-protocols-oauth-client-creds.md) |
 | | [Sécuriser une API web NodeJS](active-directory-v2-devquickstarts-node-api.md) |
 | | [Appeler des API Office 365 REST depuis le Web](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

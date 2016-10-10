@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 
@@ -121,7 +121,8 @@ Cela va vous aider à intégrer le client Azure AD au répertoire Active Direc
   2.	Installez et exécutez Azure AD Connect : installez Azure AD Connect à l'aide des instructions suivantes, [Installation personnalisée d'Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Vérifiez et gérez la synchronisation des répertoires. Les instructions de l'authentification unique sont disponibles dans cette étape.
   
-  > [AZURE.NOTE] Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
+  > [AZURE.NOTE] 
+  Configurez la fédération avec AD FS comme indiqué dans le document lié ci-dessus. Il est inutile de configurer les fonctionnalités d'aperçu.
 
 
 ## Mettre à niveau le schéma des services de domaine Active Directory
@@ -193,7 +194,7 @@ Pour inscrire des appareils joints à un domaine Windows 7, vous devez déploye
 
 ### Joindre un appareil Android à l’aide du service Azure Active Directory Device Registration
 
-La [rubrique Azure Authenticator pour Android](active-directory-conditional-access-azure-authenticator-app.md) comporte des instructions sur l'installation de l'application Azure Authenticator sur votre appareil Android et l'ajout d'un compte professionnel. Quand un compte professionnel est créé avec succès sur un appareil Android, ce dernier est joint à l’espace de travail de l’organisation.
+La [rubrique Azure Authenticator pour Android](active-directory-conditional-access-azure-authenticator-app.md) comporte des instructions sur l’installation de l’application Azure Authenticator sur votre appareil Android et l’ajout d’un compte professionnel. Quand un compte professionnel est créé avec succès sur un appareil Android, ce dernier est joint à l’espace de travail de l’organisation.
 
 ## Vérifier la réécriture des appareils inscrits dans Active Directory
 Vous pouvez utiliser LDP.exe et l’Éditeur ADSI pour afficher les objets d’appareil et ainsi vérifier qu’ils ont bien été réécrits dans votre service Active Directory. Ces deux outils sont disponibles dans les outils d’administrateur Active Directory.
@@ -230,7 +231,7 @@ Sur votre serveur de fédération, ouvrez une fenêtre de commande Windows Power
     Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage
 Vous devez inscrire votre appareil avant d'accéder à cette application.
 
-**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
+**Si vous utilisez un appareil iOS, cliquez sur ce lien pour joindre votre appareil** :
 
     a href='https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com
 
@@ -251,4 +252,4 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

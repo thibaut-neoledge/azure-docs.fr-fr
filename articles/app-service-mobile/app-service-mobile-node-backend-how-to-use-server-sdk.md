@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="08/02/2016"
-	ms.author="adrianhall"/>
+	ms.date="09/23/2016"
+	ms.author="adrianha"/>
 
 # Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps
 
@@ -33,6 +33,12 @@ Les deux types d’opérations permettent une authentification entre tous les fo
 
 Vous trouverez des exemples de chaque cas de figure dans le [répertoire d’exemples sur GitHub].
 
+## Plateformes prises en charge
+
+Le kit de développement logiciel Node dans Azure Mobile Apps prend en charge la version actuelle de LTS de Node ainsi que les versions ultérieures. Au moment de la rédaction, la dernière version LTS de Node est 4.5.0. Les autres versions de Node peuvent fonctionner, mais elles ne sont pas prises en charge.
+
+Le kit de développement logiciel Node dans Azure Mobile Apps prend en charge deux pilotes de base de données : le pilote node-mssql prend en charge SQL Azure et les instances SQL Server locales. Le pilote sqlite3 prend en charge les bases de données SQLite sur une seule instance.
+
 ### <a name="howto-cmdline-basicapp"></a>Procédure : créer un serveur principal Node.js de base à l’aide de la ligne de commande
 
 Chaque serveur principal Node.js Azure App Service Mobile Apps démarre en tant qu’application ExpressJS. ExpressJS est l’infrastructure de service web la plus populaire pour le serveur principal Node.js. Vous pouvez créer une application [Express] de base de la manière suivante :
@@ -46,7 +52,7 @@ Chaque serveur principal Node.js Azure App Service Mobile Apps démarre en tant 
         cd basicapp
         npm init
 
-    La commande npm init posera une série de questions pour initialiser le projet. Consultez l’exemple ci-dessous pour voir le résultat obtenu.
+    La commande npm init pose une série de questions pour initialiser le projet. Consultez l’exemple pour voir le résultat obtenu :
 
     ![La sortie npm init][0]
 
@@ -71,7 +77,7 @@ Chaque serveur principal Node.js Azure App Service Mobile Apps démarre en tant 
 		// Start listening on HTTP
 		app.listen(process.env.PORT || 3000);
 
-Cette application crée une simple WebAPI optimisée pour les applications mobiles avec un seul point de terminaison (`/tables/TodoItem`) qui fournit un accès non authentifié à un datastore SQL sous-jacent à l’aide d’un schéma dynamique. Cette API est adaptée pour les démarrages rapides de bibliothèques client suivants :
+Cette application crée une WebAPI optimisée pour les applications mobiles avec un seul point de terminaison (`/tables/TodoItem`) qui fournit un accès non authentifié à un datastore SQL sous-jacent à l’aide d’un schéma dynamique. Cette API est adaptée pour les démarrages rapides de bibliothèques client suivants :
 
 - [Android Client QuickStart]
 - [Apache Cordova Client QuickStart]
@@ -81,12 +87,11 @@ Cette application crée une simple WebAPI optimisée pour les applications mobil
 - [Xamarin.Android Client QuickStart]
 - [Xamarin.Forms Client QuickStart]
 
-
 Vous trouverez le code pour cette application de base dans l’[exemple basicapp sur GitHub].
 
 ### <a name="howto-vs2015-basicapp"></a>Procédure : créer un serveur principal Node avec Visual Studio 2015
 
-Visual Studio 2015 requiert une extension pour développer les applications Node.js dans l’IDE. Pour commencer, téléchargez et installez le fichier [Node.js Tools 1.1 pour Visual Studio]. Une fois le programme Node.js Tools pour Visual Studio installé, créez une application Express 4.x :
+Visual Studio 2015 requiert une extension pour développer les applications Node.js dans l’IDE. Pour commencer, installez le fichier [Node.js Tools 1.1 pour Visual Studio]. Une fois le programme Node.js Tools pour Visual Studio installé, créez une application Express 4.x :
 
 1. Ouvrez la boîte de dialogue **New Project** (dans le menu **File** > **New** > **Project...**).
 
@@ -100,13 +105,13 @@ Visual Studio 2015 requiert une extension pour développer les applications No
 
 5. Cliquez avec le bouton droit de la souris sur le nœud **npm** et sélectionnez **Install New npm packages...**.
 
-6. Vous devrez peut-être actualiser le catalogue npm lors de la création de votre première application Node.js. Dans ce cas, une invite s’affiche. Cliquez sur **Refresh**.
+6. Vous devrez peut-être actualiser le catalogue npm lors de la création de votre première application Node.js. Cliquez sur **Actualiser** si nécessaire.
 
 7. Dans la zone de recherche, entrez _azure-mobile-apps_. Cliquez sur le package **azure-mobile-apps 2.0.0**, puis cliquez sur **Install Package**.
 
 	![Installer de nouveaux packages npm][2]
 
-8. Cliquez sur **Close**.
+8. Cliquez sur **Fermer**.
 
 9. Ouvrez le fichier _app.js_ pour ajouter la prise en charge du SDK Azure Mobile Apps. À la ligne 6 des instructions require de la bibliothèque, ajoutez le code suivant :
 
@@ -124,22 +129,19 @@ Visual Studio 2015 requiert une extension pour développer les applications No
 
     Enregistrez le fichier .
 
-10. Exécutez l’application en local (l’API sera disponible sur http://localhost:3000) ou publiez-la dans Azure.
+10. Exécutez l’application en local (l’API est disponible sur http://localhost:3000) ou publiez-la dans Azure.
 
 ### <a name="create-node-backend-portal"></a>Comment : créer un serveur principal Node.js à l’aide du portail Azure
 
-Vous pouvez créer un serveur principal d'application mobile dans le [portail Azure].
-
-Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md). Ce didacticiel contient une version simplifiée de ces instructions et convient mieux aux projets de preuve de concept.
+Vous pouvez créer un serveur principal d'application mobile dans le [portail Azure]. Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md). Ce didacticiel contient une version simplifiée de ces instructions et convient mieux aux projets de preuve de concept.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
 Dans le panneau _Prise en main_, sous **Créer une table API**, sélectionnez **Node.js** en tant que **langue du serveur principal**. Cochez la case indiquant **I acknowledge that this will overwrite all site contents.** (je reconnais que cette action écrasera tout le contenu du site), puis cliquez sur **Créer une table TodoItem**.
 
-
 ### <a name="download-quickstart"></a>Procédure : télécharger le projet de code quickstart du serveur principal Node.js à l’aide de Git
 
-Lorsque vous créez un serveur principal Node.js Mobile App à l’aide du panneau **Démarrage rapide** du portail, un nouveau projet Node.js est créé et déployé sur votre site. Vous pouvez ajouter des tables et des API et modifier les fichiers de code pour le serveur principal Node.js dans le portail. Vous pouvez également utiliser l’un des divers outils de déploiement pour télécharger le projet de serveur principal afin de pouvoir ajouter ou modifier des tables et des API, avant de publier à nouveau le projet. Pour plus d’informations, consultez le [Guide de déploiement d’Azure App Service]. La procédure suivante utilise un référentiel Git pour télécharger le code de projet quickstart.
+Lorsque vous créez un serveur principal Node.js Mobile App à l’aide du panneau **Démarrage rapide** du portail, un projet Node.js est créé et déployé sur votre site. Vous pouvez ajouter des tables et des API et modifier les fichiers de code pour le serveur principal Node.js dans le portail. Vous pouvez également utiliser l’un des divers outils de déploiement pour télécharger le projet de serveur principal afin de pouvoir ajouter ou modifier des tables et des API, avant de publier à nouveau le projet. Pour plus d’informations, consultez le [Guide de déploiement d’Azure App Service]. La procédure suivante utilise un référentiel Git pour télécharger le code de projet quickstart.
 
 1. Si vous ne l’avez pas déjà fait, installez Git. La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
@@ -147,11 +149,11 @@ Lorsque vous créez un serveur principal Node.js Mobile App à l’aide du panne
 
 3. Dans le panneau de votre serveur principal Mobile App, prenez note du paramètre **URL de clone Git**.
 
-4.  Exécutez la commande `git clone` dans un outil de ligne de commande prenant en charge Git à l’aide de l’URL de clone Git, en saisissant si besoin votre mot de passe, comme dans l’exemple suivant :
+4. Exécutez la commande `git clone` à l’aide de l’URL de clone Git, en saisissant si besoin votre mot de passe, comme dans l’exemple suivant :
 
 		$ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-5. Accédez au répertoire local (/todolist dans l’exemple ci-dessus). Vous remarquerez que les fichiers de projet ont été téléchargés. Dans le sous-dossier /tables, vous trouverez un fichier todoitem.json qui définit les autorisations sur la table, ainsi qu’un fichier todoitem.js qui définit les scripts d’opération CRUD pour la table.
+5. Accédez au répertoire local (/todolist dans l’exemple précédent). Vous remarquerez que les fichiers de projet ont été téléchargés. Recherchez le fichier `todoitem.json` dans le répertoire `/tables`. Ce fichier définit les autorisations sur la table. Recherchez également le fichier `todoitem.js` dans le même répertoire, qui définit les scripts de cette opération CRUD pour la table.
 
 6. Après avoir apporté vos modifications aux fichiers de projet, exécutez les commandes suivantes pour ajouter, valider, puis charger les modifications sur le site :
 
@@ -173,11 +175,11 @@ Avant le déploiement, vous devriez prendre connaissance des recommandations sui
 
 ### <a name="howto-enable-homepage"></a>Procédure : activation d’une page d’accueil pour votre application
 
-De nombreuses applications regroupent à la fois des applications web et des applications mobiles ; l’infrastructure ExpressJS vous permet de combiner ces deux facettes. Il peut cependant être préférable, parfois, d’implémenter uniquement une interface mobile. Il est utile de fournir une page d’accueil pour obtenir la garantie que le service d’application fonctionne correctement. Vous pouvez soit fournir votre propre page d’accueil, soit activer une page d’accueil temporaire. Pour activer une page d’accueil temporaire, configurez le constructeur Mobile App comme suit :
+De nombreuses applications regroupent à la fois des applications web et des applications mobiles ; l’infrastructure ExpressJS vous permet de combiner ces deux facettes. Il peut cependant être préférable, parfois, d’implémenter uniquement une interface mobile. Il est utile de fournir une page d’accueil pour obtenir la garantie que le service d’application fonctionne correctement. Vous pouvez soit fournir votre propre page d’accueil, soit activer une page d’accueil temporaire. Pour activer une page d’accueil temporaire, utilisez ce qui suit pour instancier Azure Mobile Apps :
 
     var mobile = azureMobileApps({ homePage: true });
 
-Vous pouvez ajouter ce paramètre à votre fichier `azureMobile.js` si vous voulez que cette option soit disponible uniquement pour un développement en local.
+Si vous voulez que cette option soit disponible uniquement pour un développement en local, vous pouvez ajouter ce paramètre à votre fichier `azureMobile.js`.
 
 ## <a name="TableOperations"></a>Opérations de table 
 
@@ -188,7 +190,7 @@ Le Kit de développement logiciel Node.js Server azure-mobile-apps fournit des m
 | GET /tables/_tablename_ | Extraire tous les enregistrements de la table |
 | GET /tables/_tablename_/:id | Extraire un enregistrement spécifique de la table |
 | POST /tables/_tablename_ | Créer un enregistrement dans la table |
-| PATCH /tables/_tablename_/:id | Mettre à jour un enregistrement existant dans la table |
+| PATCH /tables/_tablename_/:id | Mettre à jour un enregistrement dans la table |
 | DELETE /tables/_tablename_/:id | Supprimer un enregistrement de la table |
 
 Cette WebAPI prend en charge [OData] et étend le schéma de table pour prendre en charge [la synchronisation des données hors connexion].
@@ -233,7 +235,7 @@ Vous en trouverez un exemple complet dans l’[exemple todo sur GitHub].
 
 ### <a name="howto-staticschema"></a>Procédure : définir des tables à l’aide d’un schéma statique
 
-Vous pouvez définir explicitement les colonnes à exposer via la WebAPI. Le SDK Node/js azure-mobile-apps ajoutera automatiquement à la liste que vous fournissez toutes les colonnes supplémentaires requises pour la synchronisation des données hors connexion. Par exemple, les applications clientes QuickStart requièrent une table à deux colonnes : une colonne texte (une chaîne) et une colonne complète (une valeur booléenne). Vous pouvez définir ces colonnes dans le fichier JavaScript de définition de table (situé dans le répertoire de tables) comme suit :
+Vous pouvez définir explicitement les colonnes à exposer via la WebAPI. Le SDK Node/js azure-mobile-apps ajoute automatiquement à la liste que vous fournissez toutes les colonnes supplémentaires requises pour la synchronisation des données hors connexion. Par exemple, les applications clientes QuickStart requièrent une table à deux colonnes : une colonne texte (une chaîne) et une colonne complète (une valeur booléenne). Vous pouvez définir ces colonnes dans le fichier JavaScript de définition de table (situé dans le répertoire de tables) comme suit :
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -276,44 +278,45 @@ Le SDK Node.js Azure Mobile Apps utilise le [package mssql Node] pour établir e
   6. Recherchez le nœud **IPAll**. Dans le champ **TCP Port**, entrez **1433**.
 
 	 	 ![Configure SQL Express for TCP/IP][3]
+
   7. Cliquez sur **OK**. Cliquez sur **OK** dans la boîte de dialogue contextuelle.
   8. Cliquez sur **SQL Server Services** dans le menu de l’arborescence de gauche.
-  9. Cliquez avec le bouton droit sur **SQL Server (SQLEXPRESS)** et sélectionnez **Restart**.
+  9. Cliquez avec le bouton droit sur **SQL Server (SQLEXPRESS)** et sélectionnez **Restart**
   10. Fermez le Gestionnaire de configuration de SQL Server 2014.
 
 3. Exécutez l’instance SQL Server 2014 Management Studio et connectez-vous à votre instance locale de SQL Express.
 
-  1. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur votre instance et sélectionnez **Properties**.
+  1. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur votre instance et sélectionnez **Properties**
   2. Sélectionnez la page **Security**.
   3. Assurez-vous que le **mode d’authentification SQL Server et Windows** est bien sélectionné.
-  4. Cliquez sur **OK**.
+  4. Cliquez sur **OK**
 
   		![Configure SQL Express Authentication][4]
 
   5. Développez **Security** > **Logins** dans l’Explorateur d’objets.
-  6. Cliquez avec le bouton droit sur **Logins** et sélectionnez **New Login...**.
-  7. Entrez un nom de connexion. Sélectionnez **Authentification SQL Server**. Entrez un mot de passe, puis saisissez le même mot de passe dans le champ **Confirm password**. Notez que le mot de passe doit répondre aux exigences de complexité de Windows.
-  8. Cliquez sur **OK**.
+  6. Cliquez avec le bouton droit sur **Logins** et sélectionnez **New Login...**
+  7. Entrez un nom de connexion. Sélectionnez **Authentification SQL Server**. Entrez un mot de passe, puis saisissez le même mot de passe dans le champ **Confirm password**. Le mot de passe doit répondre aux exigences de complexité de Windows.
+  8. Cliquez sur **OK**
 
   		![Add a new user to SQL Express][5]
 
-  9. Cliquez avec le bouton droit sur votre nouveau compte de connexion et sélectionnez **Properties**.
+  9. Cliquez avec le bouton droit sur votre nouveau compte de connexion et sélectionnez **Properties**
   10. Sélectionnez la page **Server Roles**.
   11. Cochez la case en regard du rôle de serveur **dbcreator**.
-  12. Cliquez sur **OK**.
+  12. Cliquez sur **OK**
   13. Fermez SQL Server 2015 Management Studio.
 
 Veillez à enregistrer les nom d’utilisateur et mot de passe que vous avez sélectionnés. Vous devrez peut-être affecter des rôles serveur ou autorisations supplémentaires selon les besoins spécifiques de votre base de données.
 
-L’application Node.js lira la variable d’environnement **SQLCONNSTR\_MS\_TableConnectionString** pour lire la chaîne de connexion de cette base de données. Vous pouvez définir cette variable dans votre environnement. Par exemple, vous pouvez utiliser PowerShell pour définir cette variable d’environnement :
+L’application Node.js lit la variable d’environnement **SQLCONNSTR\_MS\_TableConnectionString** pour la chaîne de connexion de cette base de données. Vous pouvez définir cette variable dans votre environnement. Par exemple, vous pouvez utiliser PowerShell pour définir cette variable d’environnement :
 
     $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdatabase; User Id=azuremobile; Password=T3stPa55word;"
 
-Notez que vous devez accéder à la base de données via une connexion TCP/IP et fournir un nom d’utilisateur et un mot de passe pour vous connecter.
+Accédez à la base de données via une connexion TCP/IP et fournissez un nom d’utilisateur et un mot de passe pour vous connecter.
 
 ### <a name="howto-config-localdev"></a>Procédure : configurer votre projet pour un développement local
 
-Azure Mobile Apps lit un fichier JavaScript appelé _azureMobile.js_ à partir du système de fichiers local. Vous ne devez pas utiliser ce fichier pour configurer le SDK Azure Mobile Apps en production, mais plutôt utiliser les paramètres d’application du [portail Azure]. Le fichier _azureMobile.js_ doit exporter un objet de configuration. Les paramètres les plus courants sont les suivants :
+Azure Mobile Apps lit un fichier JavaScript appelé _azureMobile.js_ à partir du système de fichiers local. N’utilisez pas ce fichier pour configurer le SDK Azure Mobile Apps en production, mais plutôt les paramètres d’application du [portail Azure]. Le fichier _azureMobile.js_ doit exporter un objet de configuration. Les paramètres les plus courants sont les suivants :
 
 - Paramètres de base de données
 - Paramètres de journalisation des diagnostics
@@ -357,7 +360,7 @@ Pour définir un paramètre d’application :
 
 1. Connectez-vous au [portail Azure].
 2. Sélectionnez **Toutes les ressources** ou **App Services**, puis cliquez sur le nom de votre application mobile.
-3. Le panneau Paramètres s'ouvre par défaut. S’il ne s’ouvre pas, cliquez sur **Paramètres**.
+3. Le panneau Paramètres s’ouvre par défaut. Si ce n’est pas le cas, cliquez sur **Paramètres**.
 4. Cliquez sur **Paramètres de l’application** dans le menu GÉNÉRAL.
 5. Accédez à la section Paramètres de l’application.
 6. Si votre paramètre d’application existe déjà, cliquez sur la valeur correspondante pour la modifier.
@@ -380,11 +383,11 @@ L’utilisation de la base de données SQL Azure en tant que datastore est ident
 
 4. Le plan App Service par défaut est sélectionné. Pour modifier votre plan App Service, cliquez sur le plan App Service > **+ Créer nouveau**. Indiquez le nom du nouveau plan App Service et sélectionnez un emplacement approprié. Cliquez sur Niveau de tarification et sélectionnez un niveau de tarification approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d’options de tarification, telles que **Gratuit** et **Partagé**. Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner**. Dans le panneau **Plan App Service**, cliquez sur **OK**.
 
-5. Cliquez sur **Create**. Un serveur principal d’application mobile est créé à l’emplacement où vous allez déployer votre projet de serveur ultérieurement. La configuration d’un serveur principal d’application mobile peut prendre quelques minutes. Une fois le serveur principal d’application mobile configuré, le portail ouvre le panneau **Paramètres** correspondant au serveur principal d’application mobile.
+5. Cliquez sur **Create**. La configuration d’un serveur principal d’application mobile peut prendre quelques minutes. Une fois le serveur principal d’application mobile configuré, le portail ouvre le panneau **Paramètres** correspondant au serveur principal d’application mobile.
 
-Une fois le serveur principal d’application mobile créé, vous pouvez choisir de connecter une base de données SQL existante à votre serveur principal d’application mobile ou de créer une nouvelle base de données SQL. Dans cette section, nous allons créer une nouvelle base de données SQL.
+Une fois le serveur principal d’application mobile créé, vous pouvez choisir de connecter une base de données SQL existante à votre serveur principal d’application mobile ou de créer une nouvelle base de données SQL. Dans cette section, nous créons une base de données SQL.
 
-> [AZURE.NOTE] Si vous avez déjà une base de données dans le même emplacement que le nouveau serveur principal d’application mobile, vous pouvez choisir **Utiliser une base de données** et sélectionner la base de données. Il est déconseillé d’utiliser une base de données dans un autre emplacement en raison de latences plus importantes et de frais de bande passante supplémentaires.
+> [AZURE.NOTE] Si vous avez déjà une base de données dans le même emplacement que le serveur principal d’application mobile, vous pouvez choisir **Utiliser une base de données** et sélectionner la base de données. Il est déconseillé d’utiliser une base de données dans un autre emplacement en raison de latences plus importantes.
 
 6. Dans le nouveau serveur principal d’application mobile, cliquez sur **Paramètres** > **Application mobile** > **Données** > **+Ajouter**.
 
@@ -402,7 +405,7 @@ Une fois le serveur principal d’application mobile créé, vous pouvez choisir
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-La création de la base de données prend quelques minutes. Utilisez la zone **Notifications** pour surveiller la progression du déploiement. Attendez la fin du déploiement avant de continuer. Une fois le déploiement effectué, une chaîne de connexion sera créée pour l’instance de base de données SQL dans les paramètres d’application de votre serveur principal d’application mobile. Vous pouvez voir ce paramètre d’application dans **Paramètres** > **Paramètres de l’application** > **Chaînes de connexion**.
+La création de la base de données prend quelques minutes. Utilisez la zone **Notifications** pour surveiller la progression du déploiement. Attendez la fin du déploiement avant de continuer. Une fois le déploiement effectué, une chaîne de connexion est créée pour l’instance de base de données SQL dans les paramètres d’application de votre serveur principal d’application mobile. Vous pouvez voir ce paramètre d’application dans **Paramètres** > **Paramètres de l’application** > **Chaînes de connexion**.
 
 ### <a name="howto-tables-auth"></a>Procédure : exiger une authentification pour l’accès aux tables
 
@@ -444,9 +447,9 @@ Si la propriété d’accès n’est pas définie, l’accès non authentifié e
 
 ### <a name="howto-tables-getidentity"></a>Procédure : utilisation des revendications d’authentification avec vos tables
 
-Vous pouvez configurer un certain nombre de revendications qui sont demandées lors de la configuration de l'authentification. Ces revendications ne sont normalement pas disponibles via l’objet `context.user`. Toutefois, elles peuvent être récupérées à l'aide de la méthode `context.user.getIdentity()`. La méthode `getIdentity()` renvoie une promesse qui correspond à un objet. L'objet est indexé par la méthode d'authentification (facebook, google, twitter, microsoftaccount ou aad).
+Vous pouvez configurer différentes revendications qui sont demandées lors de la configuration de l'authentification. Ces revendications ne sont normalement pas disponibles via l’objet `context.user`. Toutefois, elles peuvent être récupérées à l'aide de la méthode `context.user.getIdentity()`. La méthode `getIdentity()` renvoie une promesse qui correspond à un objet. L'objet est indexé par la méthode d'authentification (facebook, google, twitter, microsoftaccount ou aad).
 
-Par exemple, si vous configurez l'authentification de compte Microsoft et demandez la revendication des adresses de messagerie, vous pouvez ajouter l'adresse de messagerie à l'enregistrement avec les éléments suivants :
+Par exemple, si vous configurez l'authentification de compte Microsoft et demandez la revendication des adresses de messagerie, vous pouvez ajouter l'adresse de messagerie à l'enregistrement avec le contrôleur de table suivant :
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -507,12 +510,12 @@ Pour voir les revendications disponibles, utilisez un navigateur web pour affich
 
 En plus d’apparaître sur la table, la propriété d’accès peut être utilisée pour contrôler des opérations spécifiques. Il existe quatre opérations :
 
-  - *read* : opération GET RESTful sur la table
-  - *insert* : opération POST RESTful sur la table
-  - *update* : opération PATCH RESTful sur la table
-  - *delete* : opération DELETE RESTful sur la table
+  - *read* : opération GET RESTful sur la table
+  - *insert* : opération POST RESTful sur la table
+  - *update* : opération PATCH RESTful sur la table
+  - *delete* : opération DELETE RESTful sur la table
 
-Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule. Pour ce faire, vous pouvez utiliser la définition de table suivante :
+Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lecture seule :
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -528,7 +531,7 @@ Vous pouvez, par exemple, souhaiter fournir une table non authentifiée en lectu
 
 ### <a name="howto-tables-query"></a>Procédure : ajuster la requête utilisée avec les opérations de table
 
-On attend souvent des opérations de table qu’elles soient capables de fournir une vue restreinte des données. Par exemple, vous pouvez fournir une table marquée avec l’ID de l’utilisateur authentifié, de sorte que cet utilisateur puisse uniquement lire ou mettre à jour ses propres enregistrements. La définition de table suivante offre cette fonctionnalité :
+On attend souvent des opérations de table qu’elles soient capables de fournir une vue restreinte des données. Par exemple, vous pouvez fournir une table marquée avec l’ID de l’utilisateur authentifié, vous permettant uniquement de lire ou de mettre à jour vos propres enregistrements. La définition de table suivante offre cette fonctionnalité :
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -559,13 +562,13 @@ On attend souvent des opérations de table qu’elles soient capables de fournir
 
     module.exports = table;
 
-Les opérations qui exécutent normalement une requête ont une propriété de requête que vous pouvez ajuster avec une clause where. La propriété de requête est un objet [QueryJS] utilisé pour convertir une requête OData en données que le serveur principal pourra traiter. Pour les cas d’égalité simple (voir ci-dessus), vous pouvez utiliser un mappage. Il est également relativement facile d’ajouter des clauses SQL spécifiques :
+Les opérations qui exécutent normalement une requête ont une propriété de requête que vous pouvez ajuster avec une clause where. La propriété de requête est un objet [QueryJS] utilisé pour convertir une requête OData en données que le serveur principal pourra traiter. Pour les cas d’égalité simple (comme dans l’exemple précédent), vous pouvez utiliser un mappage. Vous pouvez également ajouter des clauses SQL spécifiques :
 
     context.query.where('myfield eq ?', 'value');
 
 ### <a name="howto-tables-softdelete"></a>Procédure : configurer une suppression réversible sur une table
 
-La suppression réversible (Soft Delete) ne supprime pas réellement les enregistrements. Elle les marque comme étant supprimés dans la base de données en définissant la colonne supprimée sur true. Le SDK Azure Mobile Apps supprime automatiquement des résultats les enregistrements ainsi supprimés, sauf si le SDK Mobile Client utilise IncludeDeleted(). Pour configurer une table pour une suppression réversible, définissez la propriété softDelete dans le fichier de définition de table. Par exemple :
+La suppression réversible (Soft Delete) ne supprime pas réellement les enregistrements. Elle les marque comme étant supprimés dans la base de données en définissant la colonne supprimée sur true. Le SDK Azure Mobile Apps supprime automatiquement des résultats les enregistrements ainsi supprimés, sauf si le SDK Mobile Client utilise IncludeDeleted(). Pour configurer une table pour une suppression réversible, définissez la propriété `softDelete` dans le fichier de définition de table :
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -588,7 +591,7 @@ La suppression réversible (Soft Delete) ne supprime pas réellement les enregis
 
 	module.exports = table;
 
-Vous devez établir un mécanisme pour purger les enregistrements, à partir d’une application cliente, via un WebJob ou via un mécanisme personnalisé.
+Vous devez établir un mécanisme pour purger les enregistrements, à partir d’une application cliente, via un WebJob, via une fonction Azure ou via une API personnalisée.
 
 ### <a name="howto-tables-seeding"></a>Procédure : alimenter votre base de données
 
@@ -616,9 +619,9 @@ Lorsque vous créez une nouvelle application, vous souhaiterez sans doute alimen
 
 	module.exports = table;
 
-Il est important de noter que l’amorçage de données n’est possible que lorsque la table est créée à l’aide du SDK Azure Mobile Apps. Si la table existe déjà dans la base de données, aucune donnée ne sera injectée dans la table. Si le schéma dynamique est activé, alors le schéma sera déduit des données amorcées.
+L’amorçage de données n’est possible que lorsque la table est créée à l’aide du SDK Azure Mobile Apps. Si la table existe déjà dans la base de données, aucune donnée ne sera injectée dans la table. Si le schéma dynamique est activé, alors le schéma est déduit des données amorcées.
 
-Nous vous recommandons d’appeler explicitement la méthode initialize() pour créer la table au début de l’exécution du service.
+Nous vous recommandons d’appeler explicitement la méthode `tables.initialize()` pour créer la table au début de l’exécution du service.
 
 ### <a name="Swagger"></a>Procédure : activation de la prise en charge de Swagger
 
@@ -634,7 +637,7 @@ Vous préférerez probablement activer la prise en charge de Swagger uniquement 
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Le point de terminaison Swagger se trouve dans http://_yoursite_.azurewebsites.net/swagger. Vous pouvez accéder à l’interface utilisateur Swagger via le point de terminaison `/swagger/ui`. Notez que Swagger génère une erreur pour le point de terminaison / si vous décidez de demander une authentification sur l’ensemble de votre application. Pour obtenir de meilleurs résultats, autorisez les demandes non authentifiées via les paramètres d’authentification et d’autorisation d’Azure App Service. Vous pouvez ensuite contrôler l’authentification en utilisant la propriété `table.access`.
+Le point de terminaison Swagger se trouve dans http://_yoursite_.azurewebsites.net/swagger. Vous pouvez accéder à l’interface utilisateur de Swagger via le point de terminaison `/swagger/ui`. Si vous décidez de demander une authentification sur l’ensemble de votre application, Swagger génère une erreur. Pour obtenir de meilleurs résultats, autorisez les demandes non authentifiées via les paramètres d’authentification et d’autorisation d’Azure App Service. Vous pouvez ensuite contrôler l’authentification en utilisant la propriété `table.access`.
 
 Vous pouvez également ajouter l’option Swagger à votre fichier `azureMobile.js` si vous voulez activer la prise en charge de Swagger uniquement dans le cadre d’un développement en local.
 
@@ -693,7 +696,7 @@ Quand vous vous inscrivez à des notifications Push à partir d’un client auth
 
 ## <a name="CustomAPI"></a>API personnalisées
 
-###  <a name="howto-customapi-basic"></a>Procédure : définir une API personnalisée simple
+###  <a name="howto-customapi-basic"></a>Procédure : définition d'une API personnalisée
 
 
 Outre l’API d’accès aux données via le point de terminaison /tables, Azure Mobile Apps peut fournir une couverture d’API personnalisée. Les API personnalisées sont définies de manière similaire aux définitions de table et sont accessibles à toutes les mêmes fonctionnalités, y compris l’authentification.
@@ -729,7 +732,7 @@ Voici le prototype de définition d’API dérivé de l’exemple d’applicatio
 	// Start listening on HTTP
 	app.listen(process.env.PORT || 3000);
 
-Prenons une API simple qui renvoie la date du serveur à l’aide de la méthode _Date.now()_. Voici le fichier api/date.js :
+Prenons un exemple d’API qui renvoie la date du serveur à l’aide de la méthode _Date.now()_. Voici le fichier api/date.js :
 
 	var api = {
 		get: function (req, res, next) {
@@ -744,7 +747,7 @@ Chaque paramètre correspond à l’un des verbes RESTful standard : GET, POST,
 
 ### <a name="howto-customapi-auth"></a>Procédure : exiger une authentification pour l’accès à une API personnalisée
 
-Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access** :
+Le SDK Azure Mobile Apps implémente l’authentification de la même façon pour le point de terminaison des tables et pour les API personnalisées. Pour ajouter l’authentification à l’API développée dans la section précédente, ajoutez une propriété **access** :
 
 	var api = {
 		get: function (req, res, next) {
@@ -796,7 +799,7 @@ Le Kit de développement logiciel (SDK) Azure Mobile Apps utilise l’[intergici
 	// Start listening on HTTP
 	app.listen(process.env.PORT || 3000);
 
-Vous pouvez ajuster la limite de 50 Mo affichée ci-dessus. Notez que le fichier sera codé en base 64 avant la transmission, ce qui augmentera la taille du téléchargement réel.
+Le fichier est codé en base 64 avant la transmission. Cela augmente la taille du téléchargement réel (et par conséquent la taille dont vous devez tenir compte).
 
 ### <a name="howto-customapi-sql"></a>Procédure : exécution d’instructions SQL personnalisées
 
@@ -839,30 +842,30 @@ Azure App Service fournit plusieurs techniques de débogage et de résolution de
 - [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]
 - [Dépanner un service Azure App dans Visual Studio]
 
-Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic. En interne, le SDK Node.js Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics. Cette option est activée automatiquement si vous activez le mode débogage ou définissez le paramètre d’application **MS\_DebugMode** sur true dans le [portail Azure]. Les journaux générés s’afficheront dans les journaux de diagnostic sur le [portail Azure].
+Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic. En interne, le SDK Node.js Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics. La journalisation est activée automatiquement si vous activez le mode débogage ou définissez le paramètre d’application **MS\_DebugMode** sur true dans le [portail Azure]. Les journaux générés s’affichent dans les journaux de diagnostic sur le [portail Azure].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Procédure : utilisation de l’outil Tables faciles dans le Portail Azure
 
 L’outil Easy Tables du portail vous permet de créer et utiliser des tables directement dans le portail. Vous pouvez même modifier les opérations de table à l’aide de l’éditeur App Service.
 
-Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal, vous pouvez ajouter une nouvelle table ou modifier ou supprimer une table existante. Vous pouvez également voir les données de la table.
+Lorsque vous cliquez sur **Easy Tables** dans vos paramètres de site principal, vous pouvez ajouter, modifier ou supprimer une table. Vous pouvez également voir les données de la table.
 
 ![Utilisation de l’outil Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
 Les commandes suivantes sont disponibles dans la barre de commandes d’une table :
 
-+ **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération. Ce paramètre modifie le fichier de code du projet table.json.
-+ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur App Service.
-+ **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
-+ **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
-+ **Supprimer des lignes** : supprimer des lignes de données spécifiques.
-+ **Afficher les journaux de diffusion en continu** : permet de vous connecter au service de journaux de diffusion en continu de votre site.
++ **Modifier les autorisations** : modifier l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table. Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération.
++ **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur App Service.
++ **Gérer un schéma** : ajouter ou supprimer des colonnes ou modifier l’index de la table.
++ **Effacer la table** : tronque une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
++ **Supprimer des lignes** : supprimer des lignes de données spécifiques.
++ **Afficher les journaux de diffusion en continu** : permet de vous connecter au service de journaux de diffusion en continu de votre site.
 
 ###<a name="work-easy-apis"></a>Procédure : utiliser l’outil Easy APIs dans le portail Azure
 
-L’outil Easy APIs du portail vous permet de créer et utiliser des API personnalisées directement dans le portail. Vous pouvez même modifier des scripts API à l’aide de l’éditeur App Service.
+L’outil Easy APIs du portail vous permet de créer et utiliser des API personnalisées directement dans le portail. Vous pouvez modifier des scripts API à l’aide de l’éditeur App Service.
 
-Lorsque vous cliquez sur **Easy APIs** dans vos paramètres de site principal, vous pouvez ajouter un nouveau point de terminaison d’API personnalisé ou modifier ou supprimer un point de terminaison d’API existant.
+Lorsque vous cliquez sur **Easy APIs** dans vos paramètres de site principal, vous pouvez ajouter modifier ou supprimer un point de terminaison API personnalisé.
 
 ![Utilisation de l’outil Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
@@ -928,4 +931,4 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

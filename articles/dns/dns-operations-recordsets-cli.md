@@ -3,7 +3,7 @@
    description="Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes d’interface de ligne de commande pour les opérations sur les jeux d'enregistrements et les enregistrements."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="jtuliani"
    manager="carmonm"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.date="09/22/2016"
+   ms.author="jtuliani"/>
 
 # Création d’enregistrements et de jeux d’enregistrements DNS à l’aide de l’interface de ligne de commande
 
@@ -153,6 +153,11 @@ La suppression du dernier enregistrement d'un jeu d'enregistrements ne supprime 
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+### Suppression d’un enregistrement PTR d’un jeu d’enregistrements
+Dans ce cas « my-arpa-zone.com » représente la zone ARPA représentant votre plage d’adresses IP. Chaque enregistrement PTR dans cette zone correspond à une adresse IP au sein de cette plage d’adresses IP.
+
+	azure network dns record-set delete-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"
+
 ### Supprimer un enregistrement SRV d’un jeu d’enregistrements
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com"
@@ -178,4 +183,4 @@ Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azu
 
 Si vous voulez utiliser des enregistrements DNS inversés, consultez [Gestion des enregistrements DNS inversés pour vos services à l’aide de l’interface de ligne de commande Azure](dns-reverse-dns-record-operations-cli.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

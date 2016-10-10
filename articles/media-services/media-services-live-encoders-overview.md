@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Comment configurer des encodeurs locaux lorsque Azure Media Services est utilisé pour créer des flux à vitesses de transmission multiples" 
+	pageTitle="Configuration des encodeurs locaux quand Azure Media Services est utilisé pour créer des flux à vitesses de transmission multiples | Microsoft Azure" 
 	description="Cette rubrique répertorie les encodeurs en direct locaux que vous pouvez utiliser pour capturer vos événements en direct et envoyer un flux en direct à débit unique vers des canaux AMS (avec activation de l’encodage en direct) en vue d’un traitement ultérieur. La rubrique contient des liens vers des didacticiels expliquant comment configurer les encodeurs répertoriés." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
@@ -53,4 +53,4 @@ Pour plus d'informations sur la configuration de l’encodeur [Tricaster](http:/
 
 [Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples](media-services-manage-live-encoder-enabled-channels.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

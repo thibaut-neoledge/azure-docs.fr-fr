@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -23,15 +23,15 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer Facebook da
 
 L’intégration de Facebook dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Facebook at Work. 
+- Dans Azure AD, vous pouvez contrôler qui a accès à Facebook at Work.
 - Vous pouvez configurer automatiquement les comptes des utilisateurs auxquels l’accès à Facebook at Work a été accordé.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Facebook at Work (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central. 
+- Vous pouvez gérer vos comptes dans un emplacement central.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 
-## Composants requis 
+## Conditions préalables 
 
 Pour configurer l’intégration d’Azure AD avec CS Stars, vous avez besoin des éléments suivants :
 
@@ -41,7 +41,7 @@ Pour configurer l’intégration d’Azure AD avec CS Stars, vous avez besoin d
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Ajout de Facebook at Work à partir de la galerie
@@ -49,7 +49,7 @@ Pour configurer l’intégration de Facebook at Work avec Azure AD, vous devez 
 
 **Pour ajouter Facebook at Work à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
 
 	![Active Directory][1]
 
@@ -124,4 +124,4 @@ Pour que les utilisateurs AAD approvisionnés puissent voir Facebook at Work sur
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.date="09/21/2016"
+	ms.author="jutang;tamram"/>
 
 # Réplication Azure Storage
 
@@ -37,6 +37,8 @@ Le tableau suivant fournit une vue d’ensemble rapide des différences entre LR
 | Nombre de copies de données conservées sur des nœuds distincts. | 3 | 3 | 6 | 6 |
 
 Consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/) pour connaître les informations de tarification des différentes options de redondance.
+
+>[AZURE.NOTE] Stockage Premium prend en charge uniquement un stockage localement redondant (LRS). Pour plus d’informations sur Stockage Premium, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md).
 
 ## Stockage localement redondant
 
@@ -117,4 +119,4 @@ Lorsque vous activez l’accès en lecture seule à vos données dans la région
 - [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Document SOSP - Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

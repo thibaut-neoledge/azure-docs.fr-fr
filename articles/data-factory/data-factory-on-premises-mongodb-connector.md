@@ -3,7 +3,7 @@
 	description="Découvrez comment déplacer des données depuis une base de données MongoDB à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,11 +14,11 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Déplacer des données depuis MongoDB à l’aide d’Azure Data Factory
 
-Cet article explique comment utiliser l’activité de copie dans une fabrique de données Azure pour déplacer des données entre une base de données MongoDB locale et un autre magasin de données. Cet article s’appuie sur l’article relatif aux [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasin de données sources/récepteurs pris en charge.
+Cet article explique comment utiliser l’activité de copie dans une fabrique de données Azure pour déplacer des données entre une base de données MongoDB locale et un autre magasin de données. Cet article s’appuie sur l’article relatif aux [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de banque de données sources/réceptrices prises en charge.
 
 Le service Data Factory prend en charge la connexion à des sources MongoDB locales à l’aide de la passerelle de gestion des données. Consultez l’article [Passerelle de gestion de données](data-factory-data-management-gateway.md) pour en savoir plus sur la passerelle de gestion des données et l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la configuration de la passerelle pour un pipeline de données afin de déplacer des données.
 
@@ -27,7 +27,7 @@ Le service Data Factory prend en charge la connexion à des sources MongoDB loca
 Actuellement, Data Factory prend uniquement en charge le déplacement de données de MongoDB vers d’autres magasins de données, mais pas l’inverse.
 
 ## Composants requis
-Pour permettre au service Azure Data Factory de se connecter à votre base de données MongoDB locale, vous devez installer ce qui suit :
+Pour permettre au service Azure Data Factory de se connecter à votre base de données MongoDB locale, vous devez installer les composants suivants :
 
 - Une passerelle de gestion de données version 2.0 ou ultérieure sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour obtenir des informations détaillées sur la passerelle de gestion des données.
   
@@ -248,11 +248,11 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 ## Propriétés de type de l’activité de copie
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
-Par contre, les propriétés disponibles dans la section **typeProperties** de l’activité varient avec chaque type d’activité et dans le cas de l’activité de copie, elles varient selon les types de sources et de récepteurs.
+En revanche, les propriétés disponibles dans la section **typeProperties** de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
-Dans le cas d’une activité de copie, lorsque la source est de type **MongoDbSource**, les propriétés suivantes sont disponibles dans la section typeProperties :
+Lorsque la source est de type **MongoDbSource**, les propriétés suivantes sont disponibles dans la section typeProperties :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -263,12 +263,12 @@ Le service Azure Data Factory déduit le schéma à partir d’une collection Mo
 
 ## Mappage de type pour MongoDB
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement les types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
-2. Conversion à partir du type .NET en type de récepteur natif
+2. Conversion de types .NET en types récepteur natifs
 
-Lors du déplacement de données vers MongoDB, les mappages suivants seront utilisés pour passer des types MongoDB aux types .NET.
+Lors du déplacement de données vers MongoDB, les mappages suivants sont utilisés pour passer des types MongoDB aux types .NET.
 
 | Type MongoDB | Type de .NET Framework |
 | ------------------- | ------------------- | 
@@ -286,10 +286,10 @@ Lors du déplacement de données vers MongoDB, les mappages suivants seront util
 > [AZURE.NOTE]  
 Pour en savoir plus sur la prise en charge des tableaux à l’aide de tables virtuelles, reportez-vous à la section [Prise en charge des types complexes à l’aide de tables virtuelles](#support-for-complex-types-using-virtual-tables) ci-dessous.
 
-Les types de données MongoDB suivants ne sont pas pris en charge actuellement : DBPointer, JavaScript, clé max./min., expression régulière, symbole, horodatage, non définie.
+Actuellement, les types de données MongoDB suivants ne sont pas pris en charge : DBPointer, JavaScript, clé max./min., expression régulière, symbole, horodatage, non définie
 
 ## Prise en charge des types complexes à l’aide de tables virtuelles
-Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à votre base de données MongoDB et copier des données à partir de cette dernière. Pour les types complexes tels que des tableaux ou des objets avec des types différents entre les documents, le pilote va de nouveau normaliser les données dans les tables virtuelles correspondantes. En particulier, si une table contient de telles colonnes, le pilote génère les tables virtuelles suivantes :
+Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à votre base de données MongoDB et copier des données à partir de cette dernière. Pour les types complexes tels que des tableaux ou des objets avec des types différents entre les documents, le pilote normalise de nouveau les données dans les tables virtuelles correspondantes. En particulier, si une table contient de telles colonnes, le pilote génère les tables virtuelles suivantes :
 
 -	Une **table de base**, qui contient les mêmes données que la table réelle, à l’exception des colonnes de type complexe. La table de base utilise le même nom que la table réelle qu’elle représente.
 -	Une **table virtuelle** pour chaque colonne de type complexe, qui étend les données imbriquées. Le nom des tables virtuelles est composé du nom de la table réelle, d’un séparateur « \_ » et du nom du tableau ou de l’objet.
@@ -304,17 +304,17 @@ Par exemple, « ExampleTable » ci-dessous est une table MongoDB qui dispose d�
 
 \_id | Nom du client | Factures | Niveau de service | Évaluations
 --- | ------------- | -------- | ------------- | -------
-1111 | ABC | [{invoice\_id:”123”, item:”toaster”, price:”456”, discount:”0.2”}, {invoice\_id:”124”, item:”oven”,price: ”1235”,discount: ”0.2”}] | Silver | [5,6]
-2222 | XYZ | [{invoice\_id:”135”, item:”fridge”,price: ”12543”,discount: ”0.0”}] | Gold | [1,2]
+1111 | ABC | [{invoice\_id:”123”, item:”toaster”, price:”456”, discount:”0.2”}, {invoice\_id:”124”, item:”oven”, price: ”1235”, discount: ”0.2”}] | Silver | [5,6]
+2222 | XYZ | [{invoice\_id:”135”, item:”fridge”, price: ”12543”, discount: ”0.0”}] | Gold | [1,2]
 
-Le pilote génère plusieurs tables virtuelles pour représenter cette table. La première table virtuelle est la table de base ci-dessous nommée « ExampleTable ». La table de base contient toutes les données de la table d’origine, mais les données dans les tableaux ont été omises et seront développées dans les tables virtuelles.
+Le pilote génère plusieurs tables virtuelles pour représenter cette table. La première table virtuelle est la table de base ci-dessous nommée « ExampleTable ». La table de base contient toutes les données de la table d’origine, mais les données dans les tableaux ont été omises et sont développées dans les tables virtuelles.
 
 \_id | Nom du client | Niveau de service
 --- | ------------- | -------------
 1111 | ABC | Silver
 2222 | XYZ | Gold
 
-Les tables suivantes montrent les tables virtuelles qui représentent les tableaux d’origine dans l’exemple. Chacune de ces tables contient les éléments suivants :
+Les tables suivantes montrent les tables virtuelles qui représentent les tableaux d’origine dans l’exemple. Ces tables contiennent les éléments suivants :
 
 - Une référence à la colonne de clé primaire d’origine correspondant à la ligne du tableau d’origine (via la colonne \_id)
 - Une indication de la position des données dans le tableau d’origine
@@ -347,4 +347,4 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 ## Étapes suivantes
 Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la création d’un pipeline de données qui déplace les données à partir d’un magasin de données local vers un magasin de données Azure.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/19/2016"
+   ms.date="09/25/2016"
    ms.author="vturecek"/>
 
 # Création d’un cluster Service Fabric dans Azure à l’aide d’un modèle Azure Resource Manager
@@ -30,6 +30,8 @@ Ce guide vous mène pas à pas à travers les étapes de configuration d’un cl
  - authentification des utilisateurs avec Azure Active Directory (AAD) pour la gestion de clusters.
 
 Un cluster sécurisé est un cluster qui empêche tout accès non autorisé à des opérations de gestion, notamment le déploiement, la mise à niveau et la suppression d’applications, de services et des données qu’ils contiennent. Un cluster non sécurisé est un cluster auquel toute personne peut se connecter à tout moment pour effectuer des opérations de gestion. Bien qu’il soit possible de créer un cluster non sécurisé, il est **vivement recommandé de créer un cluster sécurisé**. Un cluster non sécurisé **ne peut pas être sécurisé ultérieurement**, ce qui implique la création d’un nouveau cluster.
+
+Les concepts appliqués sont les mêmes pour la création de clusters sécurisés, qu’il s’agisse de clusters Linux ou Windows. Pour en savoir plus et pour accéder à des scripts d’assistance dédiés à la création de clusters Linux sécurisés, voir [Créer des clusters sécurisés sur Linux](#secure-linux-clusters).
 
 ## Connexion à Azure
 Ce guide utilise [Azure PowerShell][azure-powershell]. Lorsque vous démarrez une nouvelle session PowerShell, connectez-vous à votre compte Azure et sélectionnez votre abonnement avant d’exécuter des commandes Azure.
@@ -49,7 +51,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ## Configuration d’Azure Key Vault
 
-Cette partie du guide vous présente la création d’un coffre de clés pour un cluster Service Fabric dans Azure et pour des applications Service Fabric. Pour obtenir un guide complet sur Key Vault, reportez-vous à la [prise en main d’Azure Key Vault][key-vault-get-started].
+Cette section vous présente la création d’un Key Vault pour un cluster Service Fabric dans Azure ainsi que pour des applications Service Fabric. Pour obtenir un guide complet sur Key Vault, reportez-vous à la [prise en main d’Azure Key Vault][key-vault-get-started].
 
 Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications. Azure Key Vault permet de gérer des certificats pour des clusters Service Fabric dans Azure. Lorsqu’un cluster est déployé dans Azure, le fournisseur de ressources Azure chargé de la création des clusters Service Fabric extrait les certificats de Key Vault et les installe sur les machines virtuelles du cluster.
 
@@ -59,12 +61,12 @@ Le diagramme suivant illustre la relation entre Key Vault, un cluster Service Fa
 
 ### Création d’un groupe de ressources
 
-La première étape consiste à créer un nouveau groupe de ressources spécifiquement pour le coffre de clés. Il est recommandé de placer le coffre de clés dans son propre groupe de ressources pour vous permettre de supprimer des groupes de ressources de calcul et de stockage (par exemple, le groupe de ressources qui contient votre cluster Service Fabric) sans perdre vos clés et vos secrets. Le groupe de ressources qui contient votre coffre de clés doit se trouver dans la même région que le cluster qui l’utilise.
+La première étape consiste à créer un groupe de ressources dédié au Key Vault. Nous vous recommandons de placer ce Key Vault dans son propre groupe de ressources. Cela vous permet de supprimer les groupes de ressources de calcul et de stockage, y compris le groupe de ressources incluant votre cluster Service Fabric, sans risquer de perdre vos clés et secrets. Le groupe de ressources qui contient votre coffre de clés doit se trouver dans la même région que le cluster qui l’utilise.
 
 ```powershell
 
 	New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
-	WARNING: The output object type of this cmdlet will be modified in a future release.
+	WARNING: The output object type of this cmdlet is going to be modified in a future release.
 	
 	ResourceGroupName : mycluster-keyvault
 	Location          : westus
@@ -131,7 +133,7 @@ Pour cela, le certificat doit répondre aux exigences suivantes :
 
  - Le certificat doit contenir une clé privée.
  - Le certificat doit être créé pour l'échange de clés et pouvoir faire l'objet d'un export au format Personal Information Exchange (.pfx).
- - Le nom d'objet du certificat doit correspondre au domaine servant à accéder au cluster Service Fabric. Cela est nécessaire pour la fourniture de SSL pour les points de terminaison de gestion HTTPS du cluster et Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat SSL auprès d'une autorité de certification pour le domaine `.cloudapp.azure.com`. Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d'une autorité de certification, le nom d'objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour votre cluster.
+ - Le nom d'objet du certificat doit correspondre au domaine servant à accéder au cluster Service Fabric. Cela est nécessaire pour la fourniture de SSL pour les points de terminaison de gestion HTTPS du cluster et Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat SSL auprès d'une autorité de certification pour le domaine `.cloudapp.azure.com`. Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom d’objet de ce certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour votre cluster.
 
 ### Certificats d’application (facultatif)
 
@@ -153,14 +155,14 @@ Pour faciliter ce processus, un module PowerShell est [disponible sur GitHub][se
   PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
   ```
      
-La commande `Invoke-AddCertToKeyVault` dans ce module PowerShell met automatiquement en forme une clé privée de certificat dans une chaîne JSON et la charge vers Key Vault. Il permet d’ajouter le certificat de cluster et tous les certificats d’application supplémentaires à Key Vault. Répétez simplement cette étape pour tous les certificats supplémentaires à installer dans votre cluster.
+La commande `Invoke-AddCertToKeyVault` dans ce module PowerShell met automatiquement en forme une clé privée de certificat dans une chaîne JSON et la charge vers Key Vault. Il permet d’ajouter le certificat de cluster et tous les certificats d’application supplémentaires à Key Vault. Répétez simplement cette étape pour tous les certificats supplémentaires à installer sur votre cluster.
 
 ```powershell
  Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 	
 	Switching context to SubscriptionId <guid>
 	Ensuring ResourceGroup mycluster-keyvault in West US
-	WARNING: The output object type of this cmdlet will be modified in a future release.
+	WARNING: The output object type of this cmdlet is going to be modified in a future release.
 	Using existing valut myvault in West US
 	Reading pfx file from C:\path\to\key.pfx
 	Writing secret to myvault in vault myvault
@@ -177,8 +179,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 ```
 
-
-Il s’agit de toutes les conditions préalables de Key Vault pour la configuration d’un modèle Service Fabric Cluster Resource Manager qui installe des certificats pour l’authentification de nœud, la sécurité des points de terminaison d’administration et les fonctionnalités de sécurité d’application supplémentaires qui utilisent des certificats X.509. À ce stade, vous disposez à présent la configuration suivante dans Azure :
+Les chaînes précédentes constituent les conditions préalables d’un Key Vault pour la configuration d’un modèle Service Fabric Cluster Resource Manager qui installe des certificats pour l’authentification de nœud, l’authentification et la sécurité des points de terminaison d’administration et les fonctionnalités de sécurité d’application supplémentaires qui utilisent des certificats X.509. À ce stade, vous disposez à présent la configuration suivante dans Azure :
 
  - Groupe de ressources Key Vault
    - Key Vault
@@ -189,7 +190,7 @@ Il s’agit de toutes les conditions préalables de Key Vault pour la configurat
 
 AAD permet aux organisations (appelées locataires) de gérer l’accès utilisateur aux applications qui sont réparties entre les applications avec une interface utilisateur de connexion web et les applications avec une expérience client natif. Dans ce document, nous partons du principe que vous avez déjà créé un locataire. Si ce n’est pas le cas, commencez par lire [Obtention d’un client Azure Active Directory][active-directory-howto-tenant].
 
-Un cluster Service Fabric offre différents points d’entrée pour leurs fonctionnalités de gestion, notamment les outils [Service Fabric Explorer][service-fabric-visualizing-your-cluster] et [Visual Studio][service-fabric-manage-application-in-visual-studio]. Par conséquent, vous allez créer deux applications AAD pour contrôler l’accès au cluster, une application web et une application native.
+Un cluster Service Fabric offre différents points d’entrée pour leurs fonctionnalités de gestion, notamment les outils [Service Fabric Explorer][service-fabric-visualizing-your-cluster] et [Visual Studio][service-fabric-manage-application-in-visual-studio]. Par conséquent, vous allez créer deux applications AAD pour contrôler l’accès au cluster : une application web et une application native.
 
 Pour simplifier certaines des étapes impliquées dans la configuration d’AAD avec un cluster Service Fabric, nous avons créé un ensemble de scripts Windows PowerShell.
 
@@ -197,7 +198,7 @@ Pour simplifier certaines des étapes impliquées dans la configuration d’AAD 
 
 1. [Téléchargez les scripts][sf-aad-ps-script-download] sur votre ordinateur.
 
-2. Cliquez avec le bouton droit sur le fichier zip, choisissez **Propriétés**, puis cochez la case **Débloquer** et appliquez.
+2. Cliquez avec le bouton droit sur le fichier zip, choisissez **Propriétés**, puis cochez la case **Débloquer** et appliquez l’action correspondante.
 
 3. Extrayez le fichier zip.
 
@@ -213,16 +214,16 @@ Pour simplifier certaines des étapes impliquées dans la configuration d’AAD 
 
     Le paramètre **ClusterName** est utilisé pour préfixer les applications AAD créées par le script. Il n’a pas à correspondre exactement au nom de cluster proprement dit, car il est uniquement destiné à faciliter le mappage des artefacts AAD au cluster Service Fabric avec lequel ils sont utilisés.
 
-    Le paramètre **WebApplicationReplyUrl** est le point de terminaison par défaut retourné par AAD aux utilisateurs une fois le processus de connexion terminé. La valeur de ce paramètre doit être le point de terminaison Service Fabric Explorer pour votre cluster, qui est par défaut :
+    Le paramètre **WebApplicationReplyUrl** est le point de terminaison par défaut renvoyé par AAD aux utilisateurs une fois le processus de connexion terminé. La valeur de ce paramètre doit être le point de terminaison Service Fabric Explorer pour votre cluster, qui est par défaut :
 
     https://&lt;cluster_domain&gt;:19080/Explorer
 
-    Vous serez invité à vous connecter à un compte qui dispose de privilèges d’administration pour le locataire AAD. Une fois cette opération effectuée, le script continuera de créer les applications web et native pour représenter votre cluster Service Fabric. Si vous examinez les applications du locataire dans le [Portail Azure Classic][azure-classic-portal], vous devez voir deux nouvelles entrées :
+    Vous serez invité à vous connecter à un compte qui dispose de privilèges d’administration pour le locataire AAD. Une fois cette opération effectuée, le script effectue la création des applications web et native pour représenter votre cluster Service Fabric. Si vous examinez les applications du locataire dans le [Portail Azure Classic][azure-classic-portal], vous devez voir deux nouvelles entrées :
 
     - *ClusterName*\_Cluster
     - *ClusterName*\_Client
 
-    Comme le script imprime le Json exigé par le modèle Azure Resource Manager quand vous créez le cluster dans la section suivante, gardez la fenêtre PowerShell ouverte.
+    Comme le script imprime le JSON exigé par le modèle Azure Resource Manager lorsque vous créez le cluster (dans la section suivante), gardez la fenêtre PowerShell ouverte.
 
 ```json
 "azureActiveDirectory": {
@@ -234,17 +235,17 @@ Pour simplifier certaines des étapes impliquées dans la configuration d’AAD 
 
 ## Création d’un modèle Service Fabric Cluster Resource Manager
 
-Dans cette section, la sortie des commandes PowerShell précédents sera utilisée dans un modèle Service Fabric Cluster Resource Manager.
+Dans cette section, la sortie des commandes PowerShell précédentes est utilisée dans un modèle Service Fabric Cluster Resource Manager.
 
 Des exemples de modèles Resource Manager sont disponibles dans [la galerie de modèles de démarrage rapide Azure sur GitHub][azure-quickstart-templates]. Ces modèles peuvent être utilisés comme point de départ pour votre modèle de cluster.
 
 ### Créer le modèle Resource Manager
 
-Ce guide utilise l’exemple de modèle [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype-wad] \(cluster sécurisée 5 nœuds) et ses paramètres du modèle. Téléchargez `azuredeploy.json` et `azuredeploy.parameters.json` sur votre ordinateur et ouvrez les deux fichiers dans votre éditeur de texte préféré.
+Ce guide utilise l’exemple de modèle [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype-wad] (cluster sécurisé 5 nœuds) et ses paramètres du modèle. Téléchargez `azuredeploy.json` et `azuredeploy.parameters.json` sur votre ordinateur et ouvrez les deux fichiers dans votre éditeur de texte préféré.
 
 ### Ajout de certificats
 
-Les certificats sont ajoutés à un modèle Resource Manager de cluster en référençant le coffre de clés qui contient les clés de certificat. Il est recommandé de placer ces valeurs de coffre de clés dans un fichier de paramètres de modèle Resource Manager pour que le fichier de modèle Resource Manager puisse être réutilisable et sans valeur spécifique à un déploiement.
+Les certificats sont ajoutés à un modèle Resource Manager de cluster en référençant le coffre de clés qui contient les clés de certificat. Il est recommandé de placer ces valeurs de Key Vault dans un fichier de paramètres de modèle Resource Manager pour que le fichier de modèle Resource Manager puisse être réutilisable et sans valeur spécifique à un déploiement.
 
 #### Ajouter de tous les certificats à l’osProfile de VMSS
 
@@ -366,7 +367,7 @@ La configuration AAD créée précédemment peut être insérée directement dan
 }
 ```
 
-### Configuration des paramètres de modèle Resource Manager
+### <a "configure-arm" ></a>Configuration des paramètres de modèle Resource Manager
 
 Enfin, utilisez les valeurs de sortie du coffre de clés et les commandes PowerShell AAD pour renseigner le fichier de paramètres :
 
@@ -445,12 +446,13 @@ Si le test du modèle Resource Manager réussit, utilisez la commande PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
+<a name="assign-roles"></a>
 ## Affecter des utilisateurs aux rôles
 
 Une fois que vous avez créé les applications pour représenter votre cluster, vous devez affecter les utilisateurs aux rôles pris en charge par Service Fabric : en lecture seule et administrateur. Pour ce faire, utilisez le [Portail Azure Classic][azure-classic-portal].
 
 1. Accédez à votre locataire et choisissez Applications.
-2. Choisissez l’application web qui portera un nom tel que `myTestCluster_Cluster`.
+2. Choisissez l’application web, qui porte un nom similaire à `myTestCluster_Cluster`.
 3. Cliquez sur l’onglet Utilisateurs.
 4. Choisissez un utilisateur à affecter, puis cliquez sur le bouton **Affecter** situé en bas de l’écran.
 
@@ -462,6 +464,54 @@ Une fois que vous avez créé les applications pour représenter votre cluster, 
 
 >[AZURE.NOTE] Pour plus d’informations sur les rôles dans Service Fabric, consultez [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](service-fabric-cluster-security-roles.md).
 
+ <a name="secure-linux-cluster"></a>
+##  Créer des clusters sécurisés sur Linux
+
+Pour faciliter le processus, un script d’assistance est mis à votre disposition [ici](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux). Pour l’utilisation de ce script d’assistance, nous partons du principe que vous avez déjà installé l’interface de ligne de commande Azure, et qu’elle se trouve sur votre chemin d’accès. Vérifiez que le script dispose des autorisations d’exécution en lançant la commande `chmod +x cert_helper.py` après l’avoir téléchargé. La première étape consiste à se connecter à votre compte Azure à l’aide de l’interface de ligne de commande avec la commande `azure login`. Une fois connecté à votre compte Azure, utilisez l’assistance associée à votre certificat signé par une autorité de certification, comme l’indique la commande suivante :
+
+```sh
+./cert_helper.py [-h] CERT_TYPE [-ifile INPUT_CERT_FILE] [-sub SUBSCRIPTION_ID] [-rgname RESOURCE_GROUP_NAME] [-kv KEY_VAULT_NAME] [-sname CERTIFICATE_NAME] [-l LOCATION] [-p PASSWORD]
+
+The -ifile parameter can take a .pfx or a .pem file as input, with the certificate type (pfx or pem, or ss if it is a self-signed cert).
+The parameter -h prints out the help text.
+```
+
+La sortie de cette commande renvoie les trois chaînes suivantes :
+
+1. la valeur SourceVaultID, qui correspond à l’ID du nouvel élément KeyVault ResourceGroup créé pour vous ;
+
+2. une valeur CertificateUrl pour l’accès au certificat ;
+
+3. une valeur CertificateThumbprint, qui est utilisée pour l’authentification.
+
+
+L’exemple suivant explique comment utiliser la commande :
+
+```sh
+./cert_helper.py pfx -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -sname "mycert" -l "East US" -p "pfxtest"
+```
+L’exécution de la commande précédente génère les trois chaînes suivantes :
+
+```sh
+SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
+CertificateUrl: https://myvault.vault.azure.net/secrets/mycert/00000000000000000000000000000000
+CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
+```
+
+ Le nom d'objet du certificat doit correspondre au domaine servant à accéder au cluster Service Fabric. Cela est nécessaire pour la fourniture de SSL pour les points de terminaison de gestion HTTPS du cluster et Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat SSL auprès d'une autorité de certification pour le domaine `.cloudapp.azure.com`. Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d'une autorité de certification, le nom d'objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour votre cluster.
+
+Voici les entrées requises pour la création d’un cluster Service Fabric sécurisé (sans AAD) comme décrit dans la section [Configuration des paramètres de modèle Resource Manager](#configure-arm). Vous pouvez vous connecter au cluster sécurisé en suivant les instructions permettant d’[authentifier l’accès client à un cluster](service-fabric-connect-to-secure-cluster.md). Les clusters Linux en version préliminaire ne prennent pas en charge l’authentification AAD. Vous pouvez attribuer des rôles d’administrateur et de client comme décrit dans la section [Affecter des utilisateurs aux rôles](#assign-roles). Lorsque vous indiquez les rôles d’administrateur et de client associés à un cluster Linux en version préliminaire, vous devez fournir des empreintes de certificat à des fins d’authentification (et non un nom d’objet, car aucune révocation ou validation de chaîne n’est effectuée dans la version préliminaire).
+
+
+Si vous souhaitez utiliser un certificat auto-signé à des fins de test, vous pouvez utiliser le même script pour générer un certificat auto-signé et le charger dans le KeyVault, en fournissant l’indicateur `ss` au lieu du chemin d’accès et du nom du certificat. Par exemple, consultez la commande suivante pour créer et télécharger un certificat auto-signé :
+
+```sh
+./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest" -subj "mytest.eastus.cloudapp.net" 
+```
+
+Cette commande renvoie les trois mêmes chaînes : SourceVault, CertificateUrl et CertificateThumbprint, qui est utilisée pour créer un cluster Linux sécurisé, ainsi que l’emplacement hébergeant le certificat auto-signé. Vous aurez besoin du certificat auto-signé pour vous connecter au cluster. Vous pouvez vous connecter au cluster sécurisé en suivant les instructions permettant d’[authentifier l’accès client à un cluster](service-fabric-connect-to-secure-cluster.md). Le nom d'objet du certificat doit correspondre au domaine servant à accéder au cluster Service Fabric. Cela est nécessaire pour la fourniture de SSL pour les points de terminaison de gestion HTTPS du cluster et Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat SSL auprès d'une autorité de certification pour le domaine `.cloudapp.azure.com`. Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d'une autorité de certification, le nom d'objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour votre cluster.
+
+Les paramètres fournis par le script d’assistance peuvent être insérés directement dans le portail, comme indiqué dans la section [Création d’un cluster dans le portail Azure](service-fabric-cluster-creation-via-portal.md#create-cluster-portal).
 
 ## Étapes suivantes
 
@@ -488,4 +538,4 @@ Une fois que vous avez créé les applications pour représenter votre cluster, 
 [assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
 [assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/26/2016" 
 	ms.author="nitinme"/>
 
 
@@ -51,24 +51,7 @@ Vous devez installer Python avant de pouvoir installer les blocs-notes Jupyter. 
 
 ## Installer les noyaux et Spark Magic
 
-Dans cette section, vous installez Spark Magic, les noyaux PySpark et Spark, puis vous configurez les noyaux pour qu’ils se connectent à un cluster Apache Spark s’exécutant dans Azure HDInsight.
-
-1. Téléchargez la dernière version préliminaire publique de Spark Magic à partir de [Github](https://github.com/jupyter-incubator/sparkmagic/archive/publicpreview0.5.zip).
-
-2. Décompressez le fichier téléchargé à un emplacement situé sur le disque. Dans les instructions fournies ici, nous faisons référence à ce chemin d’accès sous la forme de `$SPARKMAGIC_PATH`.
-
-2. Exécutez la commande suivante
-
-		pip install -r $SPARKMAGIC_PATH/requirements.txt  
-
-3. Exécutez la commande suivante pour installer Spark Magic.
-
-		pip install -e $SPARKMAGIC_PATH
-
-4. Installez les noyaux PySpark et Spark. Exécutez les commandes suivantes :
-
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/sparkkernel
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/pysparkkernel
+Pour obtenir des instructions sur l’installation des noyaux Spark Magic, PySpark et Spark, consultez la [documentation sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) sur GitHub.
 
 ## Configurer Spark Magic pour accéder au cluster Spark sur HDInsight
 
@@ -97,7 +80,7 @@ Dans cette section, vous configurez Spark Magic que vous avez installé précéd
 		  },
 		  "kernel_scala_credentials" : {
 		    "username": "{USERNAME}",
-		    " base64_password ": "{BASE64ENCODEDPASSWORD}",
+		    "base64_password": "{BASE64ENCODEDPASSWORD}",
 		    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
 		  }
 		}
@@ -185,4 +168,4 @@ Plusieurs raisons peuvent motiver l’installation de Jupyter sur votre ordinate
 
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

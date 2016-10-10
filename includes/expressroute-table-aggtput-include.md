@@ -1,7 +1,8 @@
 | | **Débit de passerelle ExpressRoute** | **Passerelle VPN et ExpressRoute coexistants**|
 |-------------------------------------|-------------------------------------|-----------------------------------------|
-| **Référence De base** | 500 Mbits/s | Non |
+| **Référence (SKU) de base (déconseillée)** | 500 Mbits/s | Non |
 | **Référence Standard** | 1 000 Mbits/s | Oui |
 | **Référence Hautes performances** | 2 000 Mbits/s | Oui |
+| **Référence (SKU) Ultra-Performance** | 10 000 Mbits/s | Oui |
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

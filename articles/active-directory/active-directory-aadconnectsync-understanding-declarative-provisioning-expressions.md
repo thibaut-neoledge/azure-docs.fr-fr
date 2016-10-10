@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -64,11 +64,11 @@ Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom 
 ### Opérateurs
 Vous pouvez utiliser les opérateurs suivants :
 
-- **Comparaison** : <, < =, <>, =, >, > =
-- **Mathématiques** : +, -, *, -
-- **Chaîne** : & (concaténation)
-- **Logiques** : && (et), || (ou)
-- **Ordre d’évaluation** : ( )
+- **Comparaison** : <, < =, <>, =, >, > =
+- **Mathématiques** : +, -, *, -
+- **Chaîne** : & (concaténation)
+- **Logiques** : && (et), || (ou)
+- **Ordre d’évaluation** : ( )
 
 Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le * (signe multiplicateur) n’est pas évalué avant - (soustraction). 2*(5+3) n’est pas la même chose que 2*5+3. Les parenthèses ( ) sont utilisées pour modifier l’ordre d’évaluation lorsqu’un ordre d’évaluation de la gauche vers la droite n’est pas approprié.
 
@@ -92,4 +92,4 @@ Par exemple, `Trim([proxyAddresses])` supprime les espaces de gauche à droite d
 
 - [Azure AD Connect Sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

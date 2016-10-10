@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
-# Création d’une machine virtuelle personnalisée exécutant Windows
+# Créer une machine virtuelle personnalisée exécutant Windows à l’aide du modèle de déploiement classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Pour utiliser le nouveau portail Azure, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](virtual-machines-windows-hero-tutorial.md).
 
 [AZURE.INCLUDE [virtual-machines-common-classic-createportal](../../includes/virtual-machines-common-classic-createportal.md)]
 
@@ -30,4 +30,4 @@
 
 Vous pouvez également [créer une machine virtuelle personnalisée exécutant Linux](virtual-machines-linux-classic-createportal.md) dans le portail Azure Classic.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

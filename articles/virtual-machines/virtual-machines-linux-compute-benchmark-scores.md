@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="07/18/2016"
+ ms.date="09/22/2016"
  ms.author="danlep"/>
 
 # Calcul des scores de test d’évaluation pour les machines virtuelles Linux
@@ -84,15 +84,29 @@ Standard\_GS4 | 16 | 1 | Intel Xeon E5-2698B v3 à 2 GHz | 84 | 194 111 | 4 735
 Standard\_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 à 2 GHz | 84 | 357 396 | 16 228
 
 
+## Série H
+
+Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Itérations/s | StdDev
+------- | ------ | ---- | -------| ---- | ---- | -----
+Standard\_H8 | 8 | 1 | Intel Xeon E5-2667 v3 à 3,2 GHz | 28 | 140 782 | 2 512
+Standard\_H16 | 16 | 2 | Intel Xeon E5-2667 v3 à 3,2 GHz | 35 | 275 289 | 7 110 
+Standard\_H18m | 8 | 1 | Intel Xeon E5-2667 v3 à 3,2 GHz | 28 | 139 071 | 3 988 
+Standard\_H16m | 16 | 2 | Intel Xeon E5-2667 v3 à 3,2 GHz | 28 | 275 988 | 6 963 
+Standard\_H16r | 16 | 2 | Intel Xeon E5-2667 v3 à 3,2 GHz | 28 | 273 982 | 6 069 
+Standard\_H16mr | 16 | 2 | Intel Xeon E5-2667 v3 à 3,2 GHz | 28 | 274 523 | 5 698 
+
+
+
 ## À propos de CoreMark
 
-Les chiffres Linux ont été calculés en exécutant [CoreMark](http://www.eembc.org/coremark/faq.php) sur Ubuntu. CoreMark a été configuré avec le nombre de threads défini sur le nombre de processeurs virtuels et la concurrence définie sur PThreads. Le nombre cible d’itérations a été ajusté en fonction des performances attendues pour fournir un temps d’exécution d’au moins 20 secondes (généralement beaucoup plus long), avec le score final représentant le nombre d’itérations terminées divisé par le nombre de secondes nécessaires à l’exécution du test. Chaque test a été exécuté au moins sept fois sur chaque machine virtuelle. Les tests ont été exécutés en octobre 2015 sur plusieurs machines virtuelles dans chaque région Azure publique où la machine virtuelle était prise en charge à la date d’exécution.
+Les chiffres Linux ont été calculés en exécutant [CoreMark](http://www.eembc.org/coremark/faq.php) sur Ubuntu. CoreMark a été configuré avec le nombre de threads défini sur le nombre de processeurs virtuels et la concurrence définie sur PThreads. Le nombre cible d’itérations a été ajusté en fonction des performances attendues pour fournir un runtime d’au moins 20 secondes (en général, beaucoup plus long). Le score final représente le nombre d’itérations accomplies, divisé par le nombre de secondes nécessaires pour l’exécution du test. Chaque test a été exécuté au moins sept fois sur chaque machine virtuelle. Les tests (sauf pour la série H) ont été exécutés en octobre 2015 sur plusieurs machines virtuelles dans chaque région Azure publique où la machine virtuelle était prise en charge à la date d’exécution.
+
 ## Étapes suivantes
 
 
 
-* Pour plus d’informations sur les capacités de stockage, les détails du disque et d’autres considérations relatives à la sélection parmi les tailles de machines virtuelles, consultez [Tailles des machines virtuelles](virtual-machines-linux-sizes.md).
+* Pour plus d’informations sur les capacités de stockage, les détails du disque et d’autres considérations relatives au choix d’une taille de machine virtuelle, consultez [Tailles des machines virtuelles](virtual-machines-linux-sizes.md).
 
-* Pour exécuter les scripts CoreMark sur les machines virtuelles Linux, téléchargez le [pack de script CoreMark](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
+* Pour exécuter les scripts CoreMark sur les machines virtuelles Linux, téléchargez le [Pack de script CoreMark](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

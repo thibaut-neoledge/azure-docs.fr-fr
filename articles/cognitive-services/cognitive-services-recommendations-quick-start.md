@@ -60,7 +60,7 @@ Au cours de cette tâche, vous allez vous inscrire au service de l’API de reco
 
 1. Pour **Type d’API**, sélectionnez **Recommandations**.
 
-1. Pour **Niveau tarifaire**, vous pouvez sélectionner un plan. Vous pouvez sélectionner le niveau **Gratuit** pour 10 000 transactions/mois**. Il s'agit d'un plan gratuit : c’est donc un bon moyen d’essayer le système. Une fois en production, nous vous recommandons de prendre en compte votre volume de demandes et de modifier votre type de plan en conséquence.
+1. Pour **Niveau tarifaire**, vous pouvez sélectionner un plan. Vous pouvez sélectionner le niveau **Gratuit** pour 10 000 transactions/mois. Il s'agit d'un plan gratuit : c’est donc un bon moyen d’essayer le système. Une fois en production, nous vous recommandons de prendre en compte votre volume de demandes et de modifier votre type de plan en conséquence. (Remarque : vous ne pouvez avoir qu’un seul abonnement de niveau Gratuit à la fois)
 
 1. Sélectionnez un **Groupe de ressources**, ou créez-en un nouveau si vous n'en avez pas.
 
@@ -79,7 +79,7 @@ L'API de recommandations apprendra à partir de votre catalogue et de vos opéra
 
  Vous pouvez télécharger les données [ici](http://aka.ms/RecoSampleData). Copiez et décompressez l’archive MsStoreData.Zip dans un dossier sur votre ordinateur local.
 
- > **Remarque:** l’exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
+ > ** Remarque :** l’exemple de code que vous allez télécharger et exécuter dans la tâche 3 comporte des exemples de données déjà intégrés. Cette tâche est donc facultative. Cela dit, elle vous permettra de télécharger des jeux de données plus réalistes et de mieux comprendre les entrées dans l'API de recommandations.
 
 1.	Examinons maintenant le fichier de catalogue. Naviguez jusqu'à l'emplacement où vous avez copié les données. Ouvrez le fichier de catalogue dans le **bloc-notes**.
 
@@ -168,4 +168,4 @@ Consultez la [documentation Obtenir des recommandations d’articles](http://go.
 ### Et ensuite ?
 Félicitations si vous êtes arrivé jusqu’ici ! Pour en savoir plus, vous pouvez consulter la [Référence de l'API de recommandations](http://go.microsoft.com/fwlink/?LinkId=759348). Si vous avez des questions, n'hésitez pas à nous contacter au mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

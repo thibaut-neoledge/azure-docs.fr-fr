@@ -26,22 +26,22 @@ Ce document décrit les API Microsoft Azure Machine Learning Recommendations.
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ##1\. Présentation générale
-Ce document fait référence aux API. Nous vous recommandons de commencer par consulter le document « Azure Machine Learning Recommendation – Démarrage rapide ».
+Ce document fait référence aux API. Nous vous recommandons de commencer par consulter le document « Azure Machine Learning Recommendation - Démarrage rapide ».
 
 Les API Azure Machine Learning Recommendations peuvent être divisées en groupes logiques comme ci-après :
 
 - <ins>Limitations</ins> : limitations concernant les API Recommandations.
 - <ins>Informations générales</ins> : informations sur l'authentification, l’URI de service et le contrôle de version.
-- <ins>Modèle – De base</ins> : API permettant d'effectuer des opérations de base sur un modèle (par exemple, création, mise à jour et suppression d'un modèle).
-- <ins>Modèle – Avancé</ins> : API permettant d'obtenir des analyses de données avancées sur le modèle.
-- <ins>Règles métiers de modèle</ins> : API permettant de gérer des règles métiers sur les résultats des recommandations de modèle.
-- <ins>Catalogue</ins> : API permettant d'effectuer des opérations de base sur un catalogue de modèles. Un catalogue contient des informations de métadonnées sur les éléments des données d'utilisation.
+- <ins>Modèle – De base</ins> : API permettant d’effectuer des opérations de base sur un modèle (par exemple, création, mise à jour et suppression d’un modèle).
+- <ins>Modèle – Avancé</ins> : API permettant d’obtenir des analyses de données avancées sur le modèle.
+- <ins>Règles métiers de modèle</ins> : API permettant de gérer des règles métiers sur les résultats des recommandations de modèle.
+- <ins>Catalogue</ins> : API permettant d’effectuer des opérations de base sur un catalogue de modèles. Un catalogue contient des informations de métadonnées sur les éléments des données d'utilisation.
 - <ins>Fonctionnalité</ins> : API permettant d’obtenir des analyses sur des éléments du catalogue, ainsi qu’une méthode d’utilisation de ces informations pour créer de meilleures recommandations.
-- <ins>Données d'utilisation</ins> : API permettant d'effectuer des opérations de base sur les données d'utilisation de modèle. Les données d'utilisation dans leur forme élémentaire consistent en des lignes composées de paires de &#60;userId&#62;,&#60;itemId&#62;.
-- <ins>Build</ins> : API permettant de déclencher une build de modèle et d'effectuer des opérations de base en rapport avec cette build. Vous pouvez déclencher une build de modèle dès que vous avez des données d'utilisation utiles.
-- <ins>Recommendation</ins> : API permettant d'utiliser des recommandations au terme de l'exécution de la build d'un modèle.
+- <ins>Données d’utilisation</ins> : API permettant d’effectuer des opérations de base sur les données d’utilisation de modèle. Les données d'utilisation dans leur forme élémentaire consistent en des lignes composées de paires de &#60;userId&#62;,&#60;itemId&#62;.
+- <ins>Build</ins> : API permettant de déclencher une build de modèle et d’effectuer des opérations de base en rapport avec cette build. Vous pouvez déclencher une build de modèle dès que vous avez des données d'utilisation utiles.
+- <ins>Recommendation</ins> : API permettant d’utiliser des recommandations au terme de l’exécution de la build d’un modèle.
 - <ins>Données utilisateur</ins> : API permettant d’extraire des informations relatives aux données d’utilisation de l’utilisateur.
-- <ins>Notifications</ins> : API permettant de recevoir des notifications sur les problèmes liés à vos opérations d'API. (Par exemple, si vous signalez les données d'utilisation via acquisition de données et que la plupart des événements traités échouent, une notification d'erreur est déclenchée.)
+- <ins>Notifications</ins> : API permettant de recevoir des notifications sur les problèmes liés à vos opérations d’API. (Par exemple, si vous signalez les données d'utilisation via acquisition de données et que la plupart des événements traités échouent, une notification d'erreur est déclenchée.)
 
 ##2\. Limitations
 
@@ -100,11 +100,11 @@ Crée une demande de création de modèle.
 | Corps de la requête | AUCUN |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
-- `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
+- `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
 
 OData XML
 
@@ -150,22 +150,22 @@ Crée une demande d'obtention de modèle.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
 Les données du modèle se trouvent sous les éléments suivants :
 
-- `feed/entry/content/properties/Id` : ID unique du modèle.
-- `feed/entry/content/properties/Name` : nom du modèle.
-- `feed/entry/content/properties/Date` : date de création du modèle.
-- `feed/entry/content/properties/Status` : état du modèle. Celui-ci peut avoir l'une des valeurs suivantes :
+- `feed/entry/content/properties/Id`: ID unique du modèle.
+- `feed/entry/content/properties/Name`: nom du modèle.
+- `feed/entry/content/properties/Date`: date de création du modèle.
+- `feed/entry/content/properties/Status`: état du modèle. Celui-ci peut avoir l'une des valeurs suivantes :
     - Created : le modèle est créé, mais il ne contient pas de données de catalogue et d'utilisation.
-	- ReadyForBuild : le modèle est créé et il contient des données de catalogue et d'utilisation.
-- `feed/entry/content/properties/HasActiveBuild` : indique si le modèle a été correctement généré.
-- `feed/entry/content/properties/BuildId` : ID de build active du modèle.
-- `feed/entry/content/properties/Mpr` : classement centile moyen du modèle (MPR, Mean Percentile Ranking). Pour plus d'informations, consultez ModelInsight.
-- `feed/entry/content/properties/UserName` : nom d'utilisateur interne du modèle.
+	- ReadyForBuild : le modèle est créé et contient des données de catalogue et d’utilisation.
+- `feed/entry/content/properties/HasActiveBuild` : indique si le modèle a été correctement généré.
+- `feed/entry/content/properties/BuildId` : ID de build active du modèle.
+- `feed/entry/content/properties/Mpr` : classement centile moyen du modèle (MPR, Mean Percentile Ranking ; pour plus d’informations, voir ModelInsight).
+- `feed/entry/content/properties/UserName` : nom d’utilisateur interne du modèle.
 
 OData XML
 
@@ -213,24 +213,24 @@ Récupère tous les modèles de l'utilisateur actuel.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
-- `feed/entry/content/properties/Id` : ID unique du modèle.
-- `feed/entry/content/properties/Name` : nom du modèle.
-- `feed/entry/content/properties/Date` : date de création du modèle.
-- `feed/entry/content/properties/Status` : état du modèle. Celui-ci peut avoir l'une des valeurs suivantes :
+- `feed/entry/content/properties/Id` : ID unique du modèle.
+- `feed/entry/content/properties/Name` : nom du modèle.
+- `feed/entry/content/properties/Date` : date de création du modèle.
+- `feed/entry/content/properties/Status` : état du modèle. Celui-ci peut avoir l'une des valeurs suivantes :
   - Created : le modèle est créé, mais il ne contient pas de données de catalogue et d'utilisation.
-  - ReadyForBuild : le modèle est créé et il contient des données de catalogue et d'utilisation.
-- `feed/entry/content/properties/HasActiveBuild` : indique si le modèle a été correctement généré.
-- `feed/entry/content/properties/BuildId` : ID de build active du modèle.
-- `feed/entry/content/properties/Mpr` : MPR du modèle (pour plus d'informations, consultez ModelInsight).
-- `feed/entry/content/properties/UserName` : nom d'utilisateur interne du modèle.
-- `feed/entry/content/properties/UsageFileNames` : liste de fichiers d'utilisation du modèle séparés par des virgules.
-- `feed/entry/content/properties/CatalogId` : ID de catalogue du modèle.
-- `feed/entry/content/properties/Description` : description du modèle.
-- `feed/entry/content/properties/CatalogFileName` : nom de fichier de catalogue du modèle.
+  - ReadyForBuild : le modèle est créé et contient des données de catalogue et d’utilisation.
+- `feed/entry/content/properties/HasActiveBuild` : indique si le modèle a été correctement généré.
+- `feed/entry/content/properties/BuildId` : ID de build active du modèle.
+- `feed/entry/content/properties/Mpr` : MPR du modèle (pour plus d’informations, voir ModelInsight).
+- `feed/entry/content/properties/UserName` : nom d’utilisateur interne du modèle.
+- `feed/entry/content/properties/UsageFileNames` : liste de fichiers d’utilisation du modèle séparés par des virgules.
+- `feed/entry/content/properties/CatalogId` : ID de catalogue du modèle.
+- `feed/entry/content/properties/Description` : description du modèle.
+- `feed/entry/content/properties/CatalogFileName` : nom de fichier de catalogue du modèle.
 
 OData XML
 
@@ -268,7 +268,7 @@ OData XML
 
 ###5\.4. Mise à jour du modèle
 
-Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br> <ins>ID de build active</ins> : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br> Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
+Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br> <ins>Identifiant de build active</ins> : pour chaque modèle, chaque build possède un identifiant de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br> Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
 
 | Méthode HTTP | URI |
@@ -282,7 +282,7 @@ Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br
 |||
 | Corps de la requête | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne souhaitez pas définir Description ou ActiveBuildId, supprimez la balise entière.|
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -300,7 +300,7 @@ Supprime un modèle existant par ID.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -344,7 +344,7 @@ Disponible uniquement pour la build de recommandation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -576,12 +576,12 @@ Disponible uniquement pour la build de recommandation.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	Identificateur unique du modèle |
-|	buildId |	Facultatif. Numéro qui identifie une build réussie. |
+|	buildId |	Facultatif ; numéro qui identifie une build réussie. |
 |	apiVersion | 1\.0 |
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -661,7 +661,7 @@ Obtient un exemple du modèle de recommandation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -832,13 +832,13 @@ Voici les types de règles pris en charge :
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
-- `feed/entry/content/properties/Id` : identificateur unique de cette règle.
-- `feed/entry/content/properties/Type` : type de la règle.
-- `feed/entry/content/properties/Parameter` : paramètre de la règle.
+- `feed/entry/content/properties/Id` : identificateur unique de cette règle.
+- `feed/entry/content/properties/Type` : type de la règle.
+- `feed/entry/content/properties/Parameter` : paramètre de la règle.
 
 OData XML
 
@@ -889,29 +889,18 @@ OData XML
 |	apiVersion | 1\.0 |
 |||
 | Corps de la requête | 
-<ins>Chaque fois que vous fournissez des ID d’élément pour des règles métier, veillez à utiliser l’ID externe de l’élément (l’ID que vous avez utilisé dans le fichier de catalogue)</ins><br> 
-<ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
-<ins>Pour ajouter une règle FeatureBlockList :</ins><br> 
-<br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> 
-Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> 
-<ins>Pour ajouter une règle WhiteList :</ins><br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> 
-<ins>Pour ajouter une règle FeatureWhiteList :</ins><br> 
-<br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> 
-Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Chaque fois que vous fournissez des ID d’élément pour des règles métier, veillez à utiliser l’ID externe de l’élément (l’ID que vous avez utilisé dans le fichier de catalogue)</ins><br> <ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureBlockList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Pour ajouter une règle WhiteList :</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Pour ajouter une règle FeatureWhiteList :</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
 L'API retourne la règle qui vient d'être créée avec ses détails. Les chemins d'accès suivants permettent de récupérer les propriétés de la règle :
 
-- `feed/entry/content/properties/Id` : identificateur unique de cette règle.
-- `feed/entry/content/properties/Type` : type de règle (BlockList ou Upsale).
-- `feed/entry/content/properties/Parameter` : paramètre de la règle.
+- `feed/entry/content/properties/Id` : identificateur unique de cette règle.
+- `feed/entry/content/properties/Type` : type de règle (BlockList ou Upsale).
+- `feed/entry/content/properties/Parameter` : paramètre de la règle.
 
 OData XML
 
@@ -951,7 +940,7 @@ OData XML
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -968,7 +957,7 @@ Code d'état HTTP : 200
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1011,7 +1000,7 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 | Corps de la requête | Exemple (avec caractéristiques) :<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1056,18 +1045,18 @@ Récupère tous les éléments de catalogue. Le catalogue sera récupéré page 
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
 La réponse inclut une entrée par élément de catalogue. Chaque entrée comprend les données suivantes :
 
-- `feed/entry/content/properties/ExternalId` : ID externe de l'élément de catalogue, celui fourni par le client.
-- `feed/entry/content/properties/InternalId` : ID interne de l'élément de catalogue, celui généré par Azure Machine Learning Recommendations.
-- `feed/entry/content/properties/Name` : nom de l'élément de catalogue.
-- `feed/entry/content/properties/Category` : catégorie de l'élément de catalogue.
-- `feed/entry/content/properties/Description` : description de l'élément de catalogue.
-- `feed/entry/content/properties/Metadata` : métadonnées de l'élément de catalogue.
+- `feed/entry/content/properties/ExternalId` : ID externe de l’élément de catalogue (fourni par le client).
+- `feed/entry/content/properties/InternalId` : ID interne de l’élément de catalogue (généré par Azure Machine Learning Recommendations).
+- `feed/entry/content/properties/Name` : nom de l’élément de catalogue.
+- `feed/entry/content/properties/Category` : catégorie de l’élément de catalogue.
+- `feed/entry/content/properties/Description` : description de l’élément de catalogue.
+- `feed/entry/content/properties/Metadata` : métadonnées de l’élément de catalogue.
 
 
 OData XML
@@ -1159,18 +1148,18 @@ OData XML
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
 La réponse inclut une entrée par élément de catalogue. Chaque entrée comprend les données suivantes :
 
-- `feed/entry/content/properties/InternalId` : ID interne de l'élément de catalogue, celui généré par Azure Machine Learning Recommendations.
-- `feed/entry/content/properties/Name` : nom de l'élément de catalogue.
-- `feed/entry/content/properties/Rating` – (pour une utilisation ultérieure)
-- `feed/entry/content/properties/Reasoning` – (pour une utilisation ultérieure)
-- `feed/entry/content/properties/Metadata` – (pour une utilisation ultérieure)
-- `feed/entry/content/properties/FormattedRating` – (pour une utilisation ultérieure)
+- `feed/entry/content/properties/InternalId`: ID interne de l’élément de catalogue (généré par Azure Machine Learning Recommendations).
+- `feed/entry/content/properties/Name` : nom de l’élément de catalogue.
+- `feed/entry/content/properties/Rating` (pour une utilisation ultérieure)
+- `feed/entry/content/properties/Reasoning` (pour une utilisation ultérieure)
+- `feed/entry/content/properties/Metadata` (pour une utilisation ultérieure)
+- `feed/entry/content/properties/FormattedRating` (pour une utilisation ultérieure)
 
 OData XML
 
@@ -1216,7 +1205,7 @@ Cette section indique comment télécharger des données d'utilisation à l'aide
 |||
 | Corps de la requête | Données d’utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Oui</td><td>[A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Longueur maximale : 255 </td><td>Identificateur unique d’un utilisateur.</td></tr><tr><td>Item Id</td><td>Oui</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Longueur maximale : 50</td><td>Identificateur unique d’un élément.</td></tr><tr><td>Time</td><td>Non</td><td>Date au format : AAAA/MM/JJTHH:MM:SS (ex. 2013/06/20T10:00:00)</td><td>Heure des données.</td></tr><tr><td>Event</td><td>Non ; s’il est indiqué, la date doit l’être également</td><td>L’un des suivants :<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Taille maximale de fichier : 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1362,7 +1351,7 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
   		</EventData>
 		</Event>
 
-**Réponse** : Code d'état HTTP : 200
+**Réponse** : Code d'état HTTP : 200
 
 ###9\.2. Liste des fichiers d'utilisation de modèle
 Récupère les métadonnées de tous les fichiers d'utilisation du modèle. Les fichiers d'utilisation seront récupérés page par page. Chaque page contient 100 éléments. Si vous souhaitez obtenir des éléments à un index particulier, vous pouvez utiliser le paramètre $skip odata. Par exemple si vous souhaitez obtenir les éléments commençant à la position 100, ajoutez le paramètre $skip = 100 à la requête.
@@ -1378,16 +1367,16 @@ Récupère les métadonnées de tous les fichiers d'utilisation du modèle. Les 
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
 La réponse inclut une entrée par fichier d'utilisation. Chaque entrée comprend les données suivantes :
 
-- `feed\entry\content\properties\Id` : ID du fichier utilisation.
-- `feed\entry\content\properties\Length` : longueur du fichier utilisation en Mo.
-- `feed\entry\content\properties\DateModified` : date de création du fichier d'utilisation.
-- `feed\entry\content\properties\UseInModel` : indique si le fichier d'utilisation est utilisé dans le modèle.
+- `feed\entry\content\properties\Id` : ID du fichier utilisation.
+- `feed\entry\content\properties\Length` : longueur du fichier d’utilisation en Mo.
+- `feed\entry\content\properties\DateModified` : date de création du fichier d’utilisation.
+- `feed\entry\content\properties\UseInModel` : indique si le fichier d’utilisation est utilisé dans le modèle.
 
 OData XML
 
@@ -1445,14 +1434,14 @@ Obtient les statistiques d'utilisation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
 Collection d'éléments clé/valeur. Chaque élément contient la somme des événements d'un type spécifique regroupés par heure.
 
-- `feed\entry[i]\content\properties\Key` : contient l'heure (regroupement par heure) et le type d'événement.
-- `feed\entry[i]\content\properties\Value` : nombre total d'événements.
+- `feed\entry[i]\content\properties\Key` : contient l’heure (regroupement par heure) et le type d’événement.
+- `feed\entry[i]\content\properties\Value` : nombre total d’événements.
 
 OData XML
 
@@ -1528,7 +1517,7 @@ Récupère les 2 premiers Ko de contenu du fichier d'utilisation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1568,7 +1557,7 @@ Récupère le contenu intégral du fichier d'utilisation.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1624,7 +1613,7 @@ Supprime le fichier d'utilisation du modèle spécifié.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1643,7 +1632,7 @@ Supprime tous les fichiers d'utilisation du modèle.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1666,7 +1655,7 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 | Corps de la requête | AUCUN |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1749,7 +1738,7 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 | Corps de la requête | AUCUN |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1910,7 +1899,7 @@ Le tableau ci-dessous décrit les paramètres de build pour une build de recomma
 |||
 | Corps de la requête | S’il est laissé vide, la build s’exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez les paramètres au format XML dans le corps, comme dans l’exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication des paramètres.)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1920,13 +1909,13 @@ Vous ne pouvez pas utiliser de recommandations tant que la build n'est pas termi
 
 État de build valide :
 
-- Create : la demande de build a été créée.
-- Queued : la demande de build a été envoyée et mise en attente.
-- Building : la build est en cours.
-- Success : la build a été correctement exécutée.
-- Error : la build s'est terminée par un échec.
-- Cancelled : la build a été annulée.
-- Cancelling : une demande d’annulation de la build a été envoyée.
+- Create : la demande de build a été créée.
+- Queued : la demande de build a été envoyée et mise en file d’attente.
+- Building : la build est en cours.
+- Success : la build a été correctement exécutée.
+- Error : la build s’est terminée par un échec.
+- Cancelled : la build a été annulée.
+- Cancelling : une demande d’annulation de la build a été envoyée.
 
 
 Notez que l'ID de build se trouve sous le chemin suivant : `Feed\entry\content\properties\Id`
@@ -1986,7 +1975,7 @@ OData XML
 |||
 | Corps de la requête | S’il est laissé vide, la build s’exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez-les au format XML dans le corps, comme dans l’exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication, ainsi que la liste complète des paramètres).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -1996,13 +1985,13 @@ Vous ne pouvez pas utiliser de recommandations tant que la build n'est pas termi
 
 État de build valide :
 
-- Create : le modèle a été créé.
-- Queued : la build de modèle a été déclenchée et mise en file d'attente.
-- Building : le modèle est en cours de génération.
-- Success : la build a été correctement exécutée.
-- Error : la build s'est terminée par un échec.
-- Cancelled : la build a été annulée.
-- Cancelling : la build est en cours d'annulation.
+- Create : le modèle a été créé.
+- Queued : la build de modèle a été déclenchée et mise en file d’attente.
+- Building : le modèle est en cours de génération.
+- Success : la build a été correctement exécutée.
+- Error : la build s’est terminée par un échec.
+- Cancelled : la build a été annulée.
+- Cancelling : la build est en cours d’annulation.
 
 Notez que l'ID de build se trouve sous le chemin suivant : `Feed\entry\content\properties\Id`
 
@@ -2063,34 +2052,34 @@ Récupère les builds et leur état pour un modèle spécifié.
 |	apiVersion |	1\.0 |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
 La réponse inclut une entrée par build. Chaque entrée comprend les données suivantes :
 
-- `feed/entry/content/properties/UserName` : nom de l'utilisateur.
-- `feed/entry/content/properties/ModelName` : nom du modèle.
-- `feed/entry/content/properties/ModelId` : identificateur unique du modèle.
-- `feed/entry/content/properties/IsDeployed` : indique si la build est déployée (« build active »).
-- `feed/entry/content/properties/BuildId` : identificateur unique de la build.
+- `feed/entry/content/properties/UserName`om de l’utilisateur.
+- `feed/entry/content/properties/ModelName` : nom du modèle.
+- `feed/entry/content/properties/ModelId` : identificateur unique du modèle.
+- `feed/entry/content/properties/IsDeployed` : indique si la build est déployée (c’est-à-dire active).
+- `feed/entry/content/properties/BuildId` : identificateur unique de la build.
 - `feed/entry/content/properties/BuildType` : type de build.
-- `feed/entry/content/properties/Status` : état de la build. Celui-ci peut avoir l'une des valeurs suivantes : Error, Building, Queued, Cancelling, Cancelled, Success.
-- `feed/entry/content/properties/StatusMessage` : message d'état détaillé (s'applique uniquement à des états spécifiques).
-- `feed/entry/content/properties/Progress` : progression de l'exécution de la build (%).
-- `feed/entry/content/properties/StartTime` : heure de début de l'exécution de la build.
-- `feed/entry/content/properties/EndTime` : heure de fin de l'exécution de la build.
-- `feed/entry/content/properties/ExecutionTime` : durée de la build.
-- `feed/entry/content/properties/ProgressStep` : détails sur l'étape actuelle d'une build en cours d'exécution.
+- `feed/entry/content/properties/Status` : état de la build. Celui-ci peut avoir l'une des valeurs suivantes : Error, Building, Queued, Cancelling, Cancelled, Success.
+- `feed/entry/content/properties/StatusMessage` : message d’état détaillé (s’applique uniquement à des états spécifiques).
+- `feed/entry/content/properties/Progress` : progression de l’exécution de la build (%).
+- `feed/entry/content/properties/StartTime` : heure de début de l’exécution de la build.
+- `feed/entry/content/properties/EndTime` : heure de fin de l’exécution de la build.
+- `feed/entry/content/properties/ExecutionTime` : durée de la build.
+- `feed/entry/content/properties/ProgressStep` : détails sur l’étape actuelle d’une build en cours d’exécution.
 
 État de build valide :
-- Created : l’entrée de demande de build a été créée.
-- Queued : la demande de build a été déclenchée et mise en attente.
-- Building : la build est en cours.
-- Success : la build a été correctement exécutée.
-- Error : la build s'est terminée par un échec.
-- Cancelled : la build a été annulée.
-- Cancelling : la build est en cours d'annulation.
+- Created : l’entrée de demande de build a été créée.
+- Queued : la demande de build a été déclenchée et mise en file attente.
+- Building : la build est en cours.
+- Success : la build a été correctement exécutée.
+- Error : la build s’est terminée par un échec.
+- Cancelled : la build a été annulée.
+- Cancelling : la build est en cours d’annulation.
 
 Valeurs valides pour le type de build :
 - Rank - Build de classement.
@@ -2147,34 +2136,34 @@ Récupère les états de build de tous les modèles d'un utilisateur.
 |	apiVersion |	1\.0 |
 
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
 La réponse inclut une entrée par build. Chaque entrée comprend les données suivantes :
 
-- `feed/entry/content/properties/UserName` : nom de l'utilisateur.
-- `feed/entry/content/properties/ModelName` : nom du modèle.
-- `feed/entry/content/properties/ModelId` : identificateur unique du modèle.
-- `feed/entry/content/properties/IsDeployed` : indique si la build est déployée.
-- `feed/entry/content/properties/BuildId` : identificateur unique de la build.
+- `feed/entry/content/properties/UserName` : nom de l’utilisateur.
+- `feed/entry/content/properties/ModelName` : nom du modèle.
+- `feed/entry/content/properties/ModelId` : identificateur unique du modèle.
+- `feed/entry/content/properties/IsDeployed` : indique si la build est déployée.
+- `feed/entry/content/properties/BuildId` : identificateur unique de la build.
 - `feed/entry/content/properties/BuildType` : type de build.
-- `feed/entry/content/properties/Status` : état de la build. Celui-ci peut avoir l'une des valeurs suivantes : Error, Building, Queued, Cancelled, Cancelling, Success.
-- `feed/entry/content/properties/StatusMessage` : message d'état détaillé (s'applique uniquement à des états spécifiques).
-- `feed/entry/content/properties/Progress` : progression de l'exécution de la build (%).
-- `feed/entry/content/properties/StartTime` : heure de début de l'exécution de la build.
-- `feed/entry/content/properties/EndTime` : heure de fin de l'exécution de la build.
-- `feed/entry/content/properties/ExecutionTime` : durée de la build.
-- `feed/entry/content/properties/ProgressStep` : détails sur l'étape actuelle d'une build en cours d'exécution.
+- `feed/entry/content/properties/Status` : état de la build. Celui-ci peut avoir l'une des valeurs suivantes : Error, Building, Queued, Cancelled, Cancelling, Success.
+- `feed/entry/content/properties/StatusMessage` : message d’état détaillé (s’applique uniquement à des états spécifiques).
+- `feed/entry/content/properties/Progress` : progression de l’exécution de la build (%).
+- `feed/entry/content/properties/StartTime` : heure de début de l’exécution de la build.
+- `feed/entry/content/properties/EndTime` : heure de fin de l’exécution de la build.
+- `feed/entry/content/properties/ExecutionTime` : durée de la build.
+- `feed/entry/content/properties/ProgressStep` : détails sur l’étape actuelle d’une build en cours d’exécution.
 
 État de build valide :
-- Created : l’entrée de demande de build a été créée.
-- Queued : la demande de build a été déclenchée et mise en attente.
-- Building : la build est en cours.
-- Success : la build a été correctement exécutée.
-- Error : la build s'est terminée par un échec.
-- Cancelled : la build a été annulée.
-- Cancelling : la build est en cours d'annulation.
+- Created : l’entrée de demande de build a été créée.
+- Queued : la demande de build a été déclenchée et mise en file attente.
+- Building : la build est en cours.
+- Success : la build a été correctement exécutée.
+- Error : la build s’est terminée par un échec.
+- Cancelled : la build a été annulée.
+- Cancelling : la build est en cours d’annulation.
 
 
 Valeurs valides pour le type de build :
@@ -2269,8 +2258,8 @@ Récupère les paramètres de build.
 Code d'état HTTP : 200
 
 Cette API retourne une collection d'éléments clé/valeur. Chaque élément représente un paramètre et sa valeur :
-- `feed/entry/content/properties/Key` – Nom du paramètre de la build.
-- `feed/entry/content/properties/Value` – Valeur du paramètre de la build.
+- `feed/entry/content/properties/Key` : nom du paramètre de la build.
+- `feed/entry/content/properties/Value` : valeur du paramètre de la build.
 
 Le tableau ci-dessous décrit la valeur de chaque clé.
 
@@ -2481,10 +2470,10 @@ Code d'état HTTP : 200
 
 
 La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID d’élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l’élément.
+- `Feed\entry\content\properties\Id` : ID d’élément recommandé
+- `Feed\entry\content\properties\Name` : nom de l’élément
 - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations).
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations)
 
 L'exemple de réponse ci-dessous comprend 10 éléments recommandés.
 
@@ -2662,10 +2651,10 @@ Code d'état HTTP : 200
 
 
 La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID d’élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l’élément.
+- `Feed\entry\content\properties\Id` : ID d’élément recommandé
+- `Feed\entry\content\properties\Name` : nom de l’élément
 - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations).
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations)
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2692,12 +2681,12 @@ Code d'état HTTP : 200
 
 
 La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id1` : ID d’élément recommandé.
-- `Feed\entry\content\properties\Name1` : nom de l’élément.
+- `Feed\entry\content\properties\Id1` : ID d’élément recommandé
+- `Feed\entry\content\properties\Name1` : nom de l’élément
 - `Feed\entry\content\properties\Id2` : ID du second élément recommandé (facultatif).
 - `Feed\entry\content\properties\Name2` : nom du second élément (facultatif).
 - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations).
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations)
 
 L’exemple de réponse ci-dessous comprend 3 ensembles d’éléments recommandés.
 
@@ -2784,12 +2773,12 @@ Code d'état HTTP : 200
 
 
 La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id1` : ID d’élément recommandé.
-- `Feed\entry\content\properties\Name1` : nom de l’élément.
+- `Feed\entry\content\properties\Id1` : ID d’élément recommandé
+- `Feed\entry\content\properties\Name1` : nom de l’élément
 - `Feed\entry\content\properties\Id2` : ID du second élément recommandé (facultatif).
 - `Feed\entry\content\properties\Name2` : nom du second élément (facultatif).
 - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations).
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations)
 
 Pour obtenir un exemple de réponse, consultez la section 12.3.
 
@@ -2821,10 +2810,10 @@ Code d'état HTTP : 200
 
 
 La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID d’élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l’élément.
+- `Feed\entry\content\properties\Id` : ID d’élément recommandé
+- `Feed\entry\content\properties\Name` : nom de l’élément
 - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations).
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations)
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2858,10 +2847,10 @@ Code d'état HTTP : 200
 
 
 La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID d’élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l’élément.
+- `Feed\entry\content\properties\Id` : ID d’élément recommandé
+- `Feed\entry\content\properties\Name` : nom de l’élément
 - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations).
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations)
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2893,10 +2882,10 @@ Code d'état HTTP : 200
 
 
 La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID d’élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l’élément.
+- `Feed\entry\content\properties\Id` : ID d’élément recommandé
+- `Feed\entry\content\properties\Name` : nom de l’élément
 - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations).
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations)
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2931,10 +2920,10 @@ Code d'état HTTP : 200
 
 
 La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID d’élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l’élément.
+- `Feed\entry\content\properties\Id` : ID d’élément recommandé
+- `Feed\entry\content\properties\Name` : nom de l’élément
 - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
-- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations).
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, pour expliquer les recommandations)
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2964,8 +2953,8 @@ Récupère la liste des éléments utilisés dans la build active ou dans la bui
 Code d'état HTTP : 200
 
 La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
-- `Feed\entry\content\properties\Id` : ID d’élément recommandé.
-- `Feed\entry\content\properties\Name` : nom de l’élément.
+- `Feed\entry\content\properties\Id` : ID d’élément recommandé
+- `Feed\entry\content\properties\Name` : nom de l’élément
 - `Feed\entry\content\properties\Rating` : N/A.
 - `Feed\entry\content\properties\Reasoning` : N/A.
 
@@ -3025,11 +3014,11 @@ Code d'état HTTP : 200
 OData XML
 
     The response includes one entry per notification. Each entry has the following data:
-		* feed\entry\content\properties\UserName – Internal user name identification.
-		* feed\entry\content\properties\ModelId – Model ID.
-		* feed\entry\content\properties\Message – Notification message.
-		* feed\entry\content\properties\DateCreated – Date that this notification was created in UTC format.
-		* feed\entry\content\properties\NotificationType – Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
+		* feed\entry\content\properties\UserName - Internal user name identification.
+		* feed\entry\content\properties\ModelId - Model ID.
+		* feed\entry\content\properties\Message - Notification message.
+		* feed\entry\content\properties\DateCreated - Date that this notification was created in UTC format.
+		* feed\entry\content\properties\NotificationType - Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -3070,7 +3059,7 @@ Supprime toutes les notifications lues pour un modèle.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -3088,7 +3077,7 @@ Supprime toutes les notifications pour tous les modèles.
 |||
 | Corps de la requête | AUCUN |
 
-**Réponse** :
+**Réponse** :
 
 Code d'état HTTP : 200
 
@@ -3099,4 +3088,4 @@ Code d'état HTTP : 200
 Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br> Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br> Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br> © 2015 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

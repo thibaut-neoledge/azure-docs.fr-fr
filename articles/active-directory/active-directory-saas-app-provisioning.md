@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -116,4 +116,4 @@ Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une pri
 - [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 - [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

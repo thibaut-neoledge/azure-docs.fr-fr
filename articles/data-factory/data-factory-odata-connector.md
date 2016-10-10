@@ -3,7 +3,7 @@
 	description="Apprenez à déplacer des données à partir de sources OData à l’aide d’Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Déplacer des données depuis une source OData à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l'activité de copie d’une fabrique de données Azure pour déplacer des données d’OData vers un autre magasin de données. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
@@ -41,7 +41,7 @@ L’exemple contient les entités de fabrique de données suivantes :
 
 L'exemple copie toutes les heures les données provenant de l’interrogation d'une source OData vers un objet blob Azure. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié OData** : cet exemple utilise l’authentification de base. Consultez la section [Service lié OData](#odata-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié OData** : cet exemple utilise l’authentification de base. Consultez la section [Service lié OData](#odata-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
     {
 		"name": "ODataLinkedService",
@@ -71,7 +71,7 @@ L'exemple copie toutes les heures les données provenant de l’interrogation d'
 
 **Jeu de données d’entrée OData**
 
-La définition de « external » : « true » et la spécification de la stratégie externalData informent le service Data Factory qu'il s'agit d'une table qui est externe à la Data Factory et non produite par une activité dans la Data Factory.
+La définition de « external » : « true» informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à Data Factory et non produit par une activité dans Data Factory.
 	
     {
     	"name": "ODataDataset",
@@ -97,10 +97,10 @@ La définition de « external » : « true » et la spécification de la st
 		}
 	}
 
-Notez que la spécification d’un **chemin d’accès** dans la définition du jeu de données est facultative.
+La spécification d’un **chemin d’accès** dans la définition du jeu de données est facultative.
 
 
-**Jeu de données de sortie d’objet Blob Azure**
+**Jeu de données de sortie Azure Blob**
 
 Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
 
@@ -162,7 +162,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 
 **Pipeline avec activité de copie**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie ci-dessus, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **RelationalSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **query** sélectionne les dernières (nouvelles) données de la source OData.
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **RelationalSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **query** sélectionne les dernières (nouvelles) données de la source OData.
 	
 	{
 	    "name": "CopyODataToBlob",
@@ -209,7 +209,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	}
 
 
-Notez que la spécification de la **requête** dans la définition du pipleline est facultative. L’**URL** que le service Data Factory utilise pour récupérer les données est : URL spécifiée dans le service lié (obligatoire) + chemin d'accès spécifié dans le jeu de données (facultatif) + requête dans le pipeline (facultatif).
+La spécification de la **requête** dans la définition du pipeline est facultative. L’**URL** que le service Data Factory utilise pour récupérer les données est : URL spécifiée dans le service lié (obligatoire) + chemin d'accès spécifié dans le jeu de données (facultatif) + requête dans le pipeline (facultatif).
 
 ## Propriétés du service OData
 
@@ -219,7 +219,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | -------- | ----------- | -------- | 
 | type | La propriété de type doit être définie sur **OData** | Oui |
 | url| URL du service OData. | Oui |
-| authenticationType | Type d’authentification utilisé pour se connecter à la source OData. <br/><br/> Pour la source OData cloud, les valeurs possibles sont Anonyme et De Base ; pour la source OData locale, les valeurs possibles sont Anonyme, De base et Windows. | Oui | 
+| authenticationType | Type d’authentification utilisé pour se connecter à la source OData. <br/><br/> Pour OData dans le cloud, les valeurs possibles sont Anonyme et De base. Pour OData en local, les valeurs possibles sont Anonyme, De base et Windows. | Oui | 
 | username | Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. | Oui (uniquement si vous utilisez l’authentification de base) | 
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. | Oui (uniquement si vous utilisez l’authentification de base) | 
 | gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au service OData local. Indiquez uniquement si vous copiez des données à partir de la source OData locale. | Non |
@@ -288,11 +288,11 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 ## Propriétés du type de l’activité de copie OData
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d'entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
-Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
+En revanche, les propriétés disponibles dans la section typeProperties de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
-Dans le cas d’une activité de copie, quand la source est de type **RelationalSource** (ce qui inclut OData), les propriétés suivantes sont disponibles dans la section typeProperties :
+Lorsque la source est de type **RelationalSource**(qui inclut OData), les propriétés suivantes sont disponibles dans la section typeProperties :
 
 | Propriété | Description | Exemple | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -302,7 +302,7 @@ Dans le cas d’une activité de copie, quand la source est de type **Relational
 
 ### Mappage de type pour OData
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement les types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
@@ -317,4 +317,4 @@ Lorsque que déplacez des données à partir de magasins de données OData, les 
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

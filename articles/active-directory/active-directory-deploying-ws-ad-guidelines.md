@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/04/2016"
+   ms.date="09/27/2016"
    ms.author="femila"/>
 
-# Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Microsoft Azure
+# Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure
 
 Cet article présente les principales différences d’un déploiement en local des services de domaine Windows Server Active Directory (AD DS) et des services de fédération Active Directory (AD FS) par rapport à un déploiement des mêmes outils sur des machines virtuelles Microsoft Azure.
 
@@ -77,15 +77,15 @@ Les adresses dynamiques sont allouées par défaut, mais vous pouvez utiliser l�
 
 Voici une liste non exhaustive de termes référencés dans le présent article concernant diverses technologies Azure.
 
-- **Machines virtuelles Azure** : offre IaaS dans Azure qui permet aux clients de déployer des machines virtuelles exécutant pratiquement n’importe quelle charge de travail classique de serveur local.
+- **Machines virtuelles Azure** : offre IaaS dans Azure qui permet aux clients de déployer des machines virtuelles exécutant pratiquement n’importe quelle charge de travail classique de serveur local.
 
-- **Réseau virtuel Azure** : service de mise en réseau dans Azure qui permet aux clients de créer et gérer des réseaux virtuels dans Azure et de les associer en toute sécurité à leur propre infrastructure réseau locale à l’aide d’un réseau privé virtuel (VPN).
+- **Réseau virtuel Azure** : service de mise en réseau dans Azure qui permet aux clients de créer et gérer des réseaux virtuels dans Azure et de les associer en toute sécurité à leur propre infrastructure réseau locale à l’aide d’un réseau privé virtuel (VPN).
 
-- **Adresse IP virtuelle** : adresse IP Internet qui n’est pas liée à un ordinateur ou à une carte d’interface réseau spécifique. Une adresse IP virtuelle est allouée aux services cloud pour leur permettre de recevoir le trafic réseau qui est redirigé vers une machine virtuelle Azure. Une adresse IP virtuelle est une propriété d’un service cloud qui contient une ou plusieurs machines virtuelles Azure. Notez également qu’un réseau virtuel Azure peut contenir un ou plusieurs services cloud. Les adresses IP virtuelles fournissent des fonctions d’équilibrage de charge.
+- **Adresse IP virtuelle** : adresse IP Internet qui n’est pas liée à un ordinateur ou à une carte d’interface réseau spécifique. Une adresse IP virtuelle est allouée aux services cloud pour leur permettre de recevoir le trafic réseau qui est redirigé vers une machine virtuelle Azure. Une adresse IP virtuelle est une propriété d’un service cloud qui contient une ou plusieurs machines virtuelles Azure. Notez également qu’un réseau virtuel Azure peut contenir un ou plusieurs services cloud. Les adresses IP virtuelles fournissent des fonctions d’équilibrage de charge.
 
-- **Adresse IP dynamique** : adresse IP utilisée uniquement en interne. Elle doit être configurée comme adresse IP statique (à l’aide de l’applet de commande Set-AzureStaticVNetIP) pour les machines virtuelles hébergeant les rôles de serveur DC/DNS.
+- **Adresse IP dynamique** : adresse IP utilisée uniquement en interne. Elle doit être configurée comme adresse IP statique (à l’aide de l’applet de commande Set-AzureStaticVNetIP) pour les machines virtuelles hébergeant les rôles de serveur DC/DNS.
 
-- **Réparation de service** : processus au cours duquel Azure restaure automatiquement l’état d’exécution d’un service après avoir détecté un échec du service. La réparation de service représente un des aspects d’Azure au service de la disponibilité et de la résilience. Bien que cela soit peu probable, le résultat obtenu après un incident de réparation de service pour un contrôleur de domaine exécuté sur une machine virtuelle est semblable à un redémarrage non planifié, mais présente quelques inconvénients :
+- **Réparation de service** : processus au cours duquel Azure restaure automatiquement l’état d’exécution d’un service après avoir détecté un échec du service. La réparation de service représente un des aspects d’Azure au service de la disponibilité et de la résilience. Bien que cela soit peu probable, le résultat obtenu après un incident de réparation de service pour un contrôleur de domaine exécuté sur une machine virtuelle est semblable à un redémarrage non planifié, mais présente quelques inconvénients :
 
  - la carte réseau virtuelle de la machine virtuelle sera modifiée ;
  - l’adresse MAC de la carte réseau virtuelle sera modifiée ;
@@ -176,7 +176,7 @@ Cependant, puisqu’Azure ne fournit pas de fonctionnalités de pare-feu complè
 
 Dans ce cas, la procédure générale pour le déploiement d’AD FS est la suivante :
 
-1. Créer un [réseau virtuel avec une connectivité intersite](../vpn-gateway/vpn-gateway-cross-premises-options.md), à l’aide d’un réseau privé virtuel (VPN) ou d’[ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+1. Créer un réseau virtuel avec une connectivité intersite, à l’aide d’un réseau privé virtuel (VPN) ou [d’ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 2. Déployer des contrôleurs de domaine sur le réseau virtuel. Cette étape est facultative mais recommandée.
 
@@ -263,7 +263,7 @@ La section suivante décrit les scénarios courants de déploiement et met l’a
 
     Par exemple, un service SharePoint accessible sur Internet est déployé sur une machine virtuelle Azure. L’application n’a pas de dépendances sur les ressources du réseau d’entreprise. L’application nécessite Windows Server AD DS, mais NE nécessite PAS le Windows Server AD DS d’entreprise.
 
-2. [AD FS : étendre une application frontale locale prenant en charge les revendications à Internet](#BKMK_CloudOnlyFed).
+2. [AD FS : étendre une application frontale locale prenant en charge les revendications à Internet.](#BKMK_CloudOnlyFed)
 
     Par exemple, une application prenant en charge les revendications qui a été correctement déployée en local et utilisée par les utilisateurs d’entreprise doit devenir accessible à partir d’Internet. L’application doit être accessible directement depuis Internet par des partenaires commerciaux à l’aide de leurs propres identités d’entreprise et par les utilisateurs d’entreprise existants.
 
@@ -281,13 +281,13 @@ SharePoint est déployé sur une machine virtuelle Azure et l’application n’
 
 #### Considérations sur le scénario et comment les domaines technologiques s’appliquent au scénario
 
-- [Topologie du réseau](#BKMK_NetworkTopology) : créez un réseau virtuel Azure sans connectivité entre les différents locaux (également appelée connectivité site à site).
+- [Topologie du réseau](#BKMK_NetworkTopology) : créez un réseau virtuel Azure sans connectivité intersite (également appelée connectivité site à site).
 
-- [Configuration du déploiement du contrôleur de domaine](#BKMK_DeploymentConfig) : déployez un nouveau contrôleur de domaine dans une nouvelle forêt Windows Server Active Directory à seul domaine. Ce déploiement doit être effectué en parallèle du déploiement du serveur DNS Windows.
+- [Configuration du déploiement du contrôleur de domaine](#BKMK_DeploymentConfig) : déployez un nouveau contrôleur de domaine dans une nouvelle forêt Windows Server Active Directory à un seul domaine. Ce déploiement doit être effectué en parallèle du déploiement du serveur DNS Windows.
 
 - [Topologie du site Windows Server Active Directory](#BKMK_ADSiteTopology) : utilisez le site Windows Server Active Directory par défaut (tous les ordinateurs seront dans Default-First-Site-Name).
 
-- [Adressage IP et DNS](#BKMK_IPAddressDNS) :
+- [Adressage IP et DNS](#BKMK_IPAddressDNS) :
 
  - Définissez une adresse IP statique pour le contrôleur de domaine à l’aide de l’applet de commande Set-AzureStaticVNetIP Azure PowerShell.
  - Installez et configurez le serveur DNS Windows Server sur les contrôleurs de domaine sur Azure.
@@ -299,7 +299,7 @@ SharePoint est déployé sur une machine virtuelle Azure et l’application n’
 
 - [Sauvegarde et restauration](#BKMK_BUR) : déterminez l’endroit où vous souhaitez stocker les sauvegardes de l’état du système. Si nécessaire, ajoutez un autre disque de données à la machine virtuelle du contrôleur de domaine pour stocker les sauvegardes.
 
-### <a name="BKMK_CloudOnlyFed"></a>2 AD FS : étendre une application frontale locale prenant en charge les revendications à Internet.
+### <a name="BKMK_CloudOnlyFed"></a>2 AD FS : étendre une application frontale locale prenant en charge les revendications à Internet
 
 ![Fédération avec la connectivité dans différents locaux](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png) **Figure 2**
 
@@ -311,7 +311,7 @@ Dans le but de simplifier et de répondre aux besoins de déploiement et de conf
 
 #### Considérations sur le scénario et comment les domaines technologiques s’appliquent au scénario
 
-- [Topologie du réseau](#BKMK_NetworkTopology) : créez un réseau virtuel Azure et [configurez la connectivité entre les différents locaux](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+- [Topologie du réseau](#BKMK_NetworkTopology) : créez un réseau virtuel Azure et [configurez la connectivité intersite](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
  > [AZURE.NOTE] Pour chacun des certificats Windows Server AD FS, assurez-vous que l’URL définie dans le modèle de certificat et les certificats qui en résultent sont accessibles par les instances Windows Server AD FS s’exécutant sur Azure. Cela peut nécessiter une connectivité entre les différents locaux à des parties de votre infrastructure à clé publique. Par exemple, si un point de terminaison de la liste de révocation de certificats est basé sur LDAP et hébergé exclusivement en local, alors une connectivité entre les différents locaux sera nécessaire. Si cela n’est pas souhaitable, vous pouvez utiliser des certificats émis par une autorité de certification dont la liste de révocation de certificats est accessible sur Internet.
 
@@ -321,7 +321,7 @@ Dans le but de simplifier et de répondre aux besoins de déploiement et de conf
 
     Dans la plupart des scénarios, les serveurs de proxy Windows Server AD FS sont déployés dans une fonctionnalité sur Internet pour des raisons de sécurité, tandis que leurs homologues de fédération Windows Server AD FS restent isolés d’une connectivité directe à Internet. Quel que soit votre scénario de déploiement, vous devez configurer votre service cloud avec une adresse IP virtuelle qui fournira une adresse IP exposée publiquement et le port qui est en mesure d’équilibrer la charge entre vos deux instances STS Windows Server AD FS ou de proxy.
 
-- [Configuration de la haute disponibilité de Windows Server AD FS](#BKMK_ADFSHighAvail) : nous vous recommandons de déployer une batterie de Windows Server AD FS avec au moins deux serveurs pour le basculement et l’équilibrage de charge. Vous pouvez envisager l’utilisation de la base de données interne Windows (WID) pour les données de configuration Windows Server AD FS et vous servir de la fonction d’équilibrage de charge interne d’Azure pour répartir les demandes entrantes sur les serveurs de la batterie.
+- [Configuration de la haute disponibilité de Windows Server AD FS](#BKMK_ADFSHighAvail) : nous vous recommandons de déployer une batterie Windows Server AD FS avec au moins deux serveurs pour le basculement et l’équilibrage de charge. Vous pouvez envisager l’utilisation de la base de données interne Windows (WID) pour les données de configuration Windows Server AD FS et vous servir de la fonction d’équilibrage de charge interne d’Azure pour répartir les demandes entrantes sur les serveurs de la batterie.
 
 Pour plus d’informations, consultez le [Guide de déploiement d’AD DS](https://technet.microsoft.com/library/cc753963).
 
@@ -336,13 +336,13 @@ Une application compatible LDAP est déployée sur une machine virtuelle Azure. 
 
 #### Considérations sur le scénario et comment les domaines technologiques s’appliquent au scénario
 
-- [Topologie du réseau](#BKMK_NetworkTopology) : créez un réseau virtuel Azure avec [une connectivité entre les différents locaux](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+- [Topologie du réseau](#BKMK_NetworkTopology) : créez un réseau virtuel Azure avec [une connectivité intersite](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 - [Méthode d’installation](#BKMK_InstallMethod) : déployez des contrôleurs de domaine réplicas à partir du domaine Windows Server Active Directory d’entreprise. Pour un contrôleur de domaine réplica, vous pouvez installer Windows Server AD DS sur la machine virtuelle et éventuellement utiliser la fonctionnalité d’installation à partir d’un support pour réduire la quantité de données devant être répliquées sur le nouveau contrôleur de domaine lors de l’installation. Pour obtenir un didacticiel, consultez [Installation d’un contrôleur de domaine Active Directory réplica dans Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Même si vous recourez à cette fonctionnalité, il peut être plus efficace de créer le contrôleur de domaine en local et de déplacer l’intégralité du disque dur virtuel dans le cloud plutôt que de répliquer le Windows Server AD DS lors de l’installation. Pour des raisons de sécurité, nous vous recommandons de supprimer le disque dur virtuel du réseau local une fois qu’il a été copié dans Azure.
 
 - [Topologie du site Windows Server Active Directory](#BKMK_ADSiteTopology) : créez un nouveau site Azure dans les sites et services Active Directory. Créez un objet de sous-réseau de Windows Server Active Directory pour représenter le réseau virtuel Azure, puis ajoutez le sous-réseau au site. Créez un nouveau lien de sites comprenant le nouveau site Azure et le site dans lequel le point de terminaison VPN du réseau virtuel Azure se trouve pour contrôler et optimiser le trafic Windows Server Active Directory depuis et vers Azure.
 
-- [Adressage IP et DNS](#BKMK_IPAddressDNS) :
+- [Adressage IP et DNS](#BKMK_IPAddressDNS) :
 
  - Définissez une adresse IP statique pour le contrôleur de domaine à l’aide de l’applet de commande Set-AzureStaticVNetIP Azure PowerShell.
  - Installez et configurez le serveur DNS Windows Server sur les contrôleurs de domaine sur Azure.
@@ -413,18 +413,18 @@ Vous devez définir correctement les sites et les liens des sites afin d’optim
 
 - Le trafic entrant est gratuit.
 
-- Le trafic sortant est facturé, conformément à l’[Aperçu rapide de la tarification Azure](http://azure.microsoft.com/pricing/). Vous pouvez optimiser les propriétés des liens de sites entre les sites locaux et les sites dans le cloud comme suit :
+- Le trafic sortant est facturé, conformément à [l’Aperçu rapide de la tarification Azure](http://azure.microsoft.com/pricing/). Vous pouvez optimiser les propriétés des liens de sites entre les sites locaux et les sites dans le cloud comme suit :
 
  - Si vous utilisez plusieurs réseaux virtuels, configurez les liens de sites et leurs coûts de manière à empêcher Windows Server AD DS de donner la priorité au site Azure plutôt qu’à un autre capable de fournir les mêmes niveaux de service sans frais. Vous pouvez également envisager de désactiver l’option Relier tous les liens de sites (qui est activée par défaut). Cela garantit que seuls les sites connectés directement sont répliqués avec un autre. Les contrôleurs de domaine des sites connectés transitivement ne peuvent plus être répliqués directement entre eux, mais doivent être répliqués via un ou plusieurs sites communs. Si les sites intermédiaires deviennent indisponibles pour une raison quelconque, la réplication entre les contrôleurs de domaine sur les sites connectés transitivement n’a pas lieu même si la connectivité entre les sites est disponible. Enfin, chaque fois que des sections de comportement de réplication transitive restent souhaitables, créez des ponts de liaison de sites appropriés contenant des liens de sites et des sites, par exemple des sites locaux et des sites de réseau d’entreprise.
 
- - [Configurez les coûts des liens des sites](https://technet.microsoft.com/library/cc794882) de manière à éviter le trafic involontaire. Par exemple, si le réglage **Essayer le site le plus proche suivant** est activé, vérifiez que les sites de réseau virtuel ne sont pas les sites les plus proches suivants en augmentant le coût associé de l’objet lien de sites qui connecte le site Azure au réseau d’entreprise.
+ - [Configurez les coûts des liens des sites](https://technet.microsoft.com/library/cc794882) de manière à éviter le trafic involontaire. Par exemple, si le réglage **Essayer le site le plus proche suivant ** est activé, vérifiez que les sites de réseau virtuel ne sont pas les sites les plus proches suivants en augmentant le coût associé de l’objet lien de sites qui connecte le site Azure au réseau d’entreprise.
 
  - Configurez les [intervalles](https://technet.microsoft.com/library/cc794878) et les [planifications](https://technet.microsoft.com/library/cc816906) de liens de sites en fonction des exigences de cohérence et du taux de modifications d’objet. Alignez la planification des réplications avec la tolérance de latence. Les contrôleurs de domaine répliquent uniquement le dernier état d’une valeur, si bien que la diminution de l’intervalle de réplication peut réduire les coûts si le taux de modification d’objet est suffisant.
 
 - Si la réduction des coûts est une priorité, vérifiez que la réplication est planifiée et que la notification de modification n’est pas activée. Il s’agit de la configuration par défaut lors de la réplication entre les sites. Cela n’est pas important si vous déployez un contrôleur de domaine en lecture seule sur un réseau virtuel car ce type de contrôleur de domaine ne réplique aucune modification sortante. Par contre, si vous déployez un contrôleur de domaine accessible en écriture, vous devez vous assurer que le lien de sites n’est pas configuré pour répliquer les mises à jour à une fréquence inutile. Si vous déployez un serveur de catalogue global (GC), assurez-vous que chaque autre site contenant un GC réplique les partitions de domaine à partir d’un contrôleur de domaine source dans un site connecté avec un lien de sites ou des liens de sites dont le coût est inférieur au GC du site Azure.
 
 
-- Il est possible de réduire encore le trafic réseau généré par la réplication entre les sites en modifiant l’algorithme de compression de la réplication. L’algorithme de compression est contrôlé par l’algorithme de compression HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NTDS\\Parameters\\Replicatorde l’entrée de registre REG\_DWORD. La valeur par défaut est 3, qui effectue la corrélation avec l’algorithme de compression Xpress. Vous pouvez remplacer la valeur par 2, ce qui modifie l’algorithme en MSZip. Dans la plupart des cas, la compression augmente, au détriment de l’utilisation du processeur. Pour plus d’informations, voir [How Active Directory replication topology works](https://technet.microsoft.com/library/cc755994) (Fonctionnement de la topologie de réplication Active Directory)
+- Il est possible de réduire encore le trafic réseau généré par la réplication entre les sites en modifiant l’algorithme de compression de la réplication. L’algorithme de compression est contrôlé par l’algorithme de compression HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NTDS\\Parameters\\Replicatorde l’entrée de registre REG\_DWORD. La valeur par défaut est 3, qui effectue la corrélation avec l’algorithme de compression Xpress. Vous pouvez remplacer la valeur par 2, ce qui modifie l’algorithme en MSZip. Dans la plupart des cas, la compression augmente, au détriment de l’utilisation du processeur. Pour plus d’informations, voir [How Active Directory replication topology works](https://technet.microsoft.com/library/cc755994) (Fonctionnement de la topologie de réplication Active Directory).
 
 ### <a name="BKMK_IPAddressDNS"></a>Adressage IP et DNS
 
@@ -558,4 +558,4 @@ Voir [AD FS 2.0 deployment topology considerations](https://technet.microsoft.co
 
 > [AZURE.NOTE] Pour parvenir à l’équilibrage de charge des points de terminaison Windows Server AD FS sur Azure, configurez tous les membres de la batterie de serveurs Windows Server AD FS dans le même service cloud, et utilisez la fonction d’équilibrage de charge d’Azure pour les ports HTTP (80 par défaut) et HTTPS (443 par défaut). Pour plus d’informations, voir [Sonde d’équilibrage de charge Azure](https://msdn.microsoft.com/library/azure/jj151530). L’équilibrage de la charge réseau (NLB) de Windows Server n’est pas pris en charge sur Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

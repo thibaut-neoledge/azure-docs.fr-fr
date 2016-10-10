@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/21/2016"
    ms.author="terrylan"/>
 
 # FAQ du Centre de sécurité Azure
@@ -121,10 +121,10 @@ Si vous souhaitez :
 ### Quelles ressources Azure sont surveillées par Azure Security Center ?
 Azure Security Center surveille les ressources Azure suivantes :
 
-- Virtual Machines (y compris Cloud Services)
+- Machines virtuelles (VM) (y compris [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 - Réseaux virtuels Azure
 - Service SQL Azure
-- Solutions de partenaires intégrées à votre abonnement Azure, par exemple pare-feu d’applications web
+- Solutions de partenaires intégrées à votre abonnement Azure, par exemple pare-feu d’applications web sur les machines virtuelles et sur [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
 
 ## Machines virtuelles
 
@@ -141,9 +141,9 @@ Les machines virtuelles Linux prises en charge sont les suivantes :
 
 - Ubuntu versions 12.04, 14.04, 15.10 et 16.04
 - Debian versions 7 et 8
-- CentOS versions 6.\* et 7.*
-- Red Hat Enterprise Linux (RHEL) versions 6.\* et 7.*
-- SUSE Linux Enterprise Server (SLES) versions 11.\* et 12.*
+- CentOS versions 6.* et 7.*
+- Red Hat Enterprise Linux (RHEL) versions 6.* et 7.*
+- SUSE Linux Enterprise Server (SLES) versions 11.* et 12.*
 
 Les machines virtuelles en cours d’exécution dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur le service cloud, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
@@ -159,4 +159,4 @@ Le remplissage des données d’analyse peut prendre un certain temps (général
 
 L’agent de machine virtuelle doit être installé sur les machines virtuelles pour activer la collecte des données. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. Pour plus d’informations sur l’installation de l’agent de machine virtuelle sur d’autres machines virtuelles, consultez l’article de blog [Agent de machine virtuelle et extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

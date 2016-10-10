@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
+   ms.date="09/27/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
 
-Pour offrir des performances prévisibles à grande échelle, Microsoft Azure SQL Data Warehouse vous permet de contrôler les niveaux de concurrence, ainsi que les allocations de ressources telles que la définition des priorités du processeur et de la mémoire. Cet article vous présente les concepts de gestion de la concurrence et de gestion des charges de travail, en expliquant comment ces deux fonctionnalités ont été implémentées, ainsi que la procédure à suivre pour les contrôler dans votre entrepôt de données. La gestion des charges de travail SQL Data Warehouse a pour but de vous aider à prendre en charge des environnements multi-utilisateurs. Elle n’est pas destinée aux charges de travail mutualisées.
+Pour offrir des performances prévisibles à grande échelle, Microsoft Azure SQL Data Warehouse vous permet de contrôler les niveaux de concurrence, ainsi que les allocations de ressources telles que la définition des priorités du processeur et de la mémoire. Cet article vous présente les concepts de gestion de la concurrence et de gestion des charges de travail, en expliquant comment ces deux fonctionnalités ont été implémentées, ainsi que la procédure à suivre pour les contrôler dans votre entrepôt de données. La gestion de charge de travail SQL Data Warehouse a pour but de vous aider à prendre en charge des environnements multi-utilisateurs. Elle n’est pas destinée aux charges de travail mutualisées.
 
 ## Limites de concurrence
 
@@ -48,9 +48,9 @@ Le tableau suivant décrit les limites des requêtes simultanées et des emplace
 | DW3000 | 32 | 120 |
 | DW6000 | 32 | 240 |
 
-Quand l’un de ces seuils est atteint, les nouvelles requêtes sont mises en file d’attente. SQL Data Warehouse exécute les requêtes en file d’attente d’après le principe du « premier entré premier sorti » à mesure que les autres requêtes sont exécutées et que le nombre de requêtes et d’emplacements passe au-dessous de ces limites.
+Lorsque l’un de ces seuils est atteint, les nouvelles requêtes sont mises en file d’attente et exécutées sur la base du modèle premier entré, premier sorti. À mesure que les requêtes se terminent et que le nombre de requêtes et d’emplacements chute en deçà de la limite, les requêtes mises en file d’attente sont publiées.
 
-> [AZURE.NOTE]  *Certaines* requêtes s’exécutant exclusivement sur les vues de gestion dynamique (DMV) ou les affichages catalogue ne sont régies par aucune des limites de concurrence. Les utilisateurs peuvent surveiller le système quel que soit le nombre de requêtes en cours d’exécution dessus.
+> [AZURE.NOTE]  *Certaines* requêtes s’exécutant exclusivement sur les vues de gestion dynamique (DMV) ou les affichages catalogue ne sont régies par aucune des limites de concurrence. Les utilisateurs peuvent surveiller le système en toutes circonstances, quel que soit le nombre de requêtes en cours d’exécution dessus.
 
 ## Classes de ressources
 
@@ -76,9 +76,9 @@ Pour obtenir un exemple détaillé, consultez [Exemple de modification d’une c
 
 ## Allocation de mémoire
 
-L’augmentation de la classe de ressources d’un utilisateur présente des avantages et des inconvénients. Si vous augmentez la classe de ressources d’un utilisateur, ses requêtes ont accès à davantage de mémoire, peuvent s’exécuter plus rapidement et offrir des classes de ressources supérieures, mais cela réduit également le nombre de requêtes simultanées qui peuvent s’exécuter. Il s’agit d’un compromis entre allouer de grandes quantités de mémoire à une seule requête et permettre l’exécution d’autres requêtes simultanées (qui nécessitent également des allocations de mémoire). Si de grandes quantités de mémoire sont allouées à un utilisateur pour une requête, les autres utilisateurs n’auront pas accès à cette mémoire pour exécuter une requête.
+L’augmentation de la classe de ressources d’un utilisateur présente des avantages et des inconvénients. L’augmentation d’une classe de ressources pour un utilisateur octroiera à ses requêtes un accès à une mémoire supplémentaire, ce qui peut entraîner une accélération de leur exécution. Toutefois, les classes de ressources supérieures sont par ailleurs associées à une réduction du nombre de requêtes simultanées pouvant s’exécuter. Il s’agit d’un compromis entre l’allocation de grandes quantités de mémoire à une seule requête et la permission de l’exécution d’autres requêtes simultanées (qui nécessitent également des allocations de mémoire). Si de grandes quantités de mémoire sont allouées à un utilisateur pour une requête, les autres utilisateurs n’auront pas accès à cette mémoire pour exécuter une requête.
 
-Le tableau suivant mappe la mémoire allouée à chaque distribution par DWU et classe de ressources. Dans SQL Data Warehouse, il existe 60 distributions. Par exemple, une requête en cours d’exécution sur une DW2000 dans la classe de ressources xlargerc a accès à 6 400 Mo de mémoire dans chacune des 60 bases de données distribuées.
+Le tableau suivant mappe la mémoire allouée à chaque distribution par DWU et classe de ressources.
 
 ### Allocations de mémoire par distribution (Mo)
 
@@ -97,7 +97,7 @@ Le tableau suivant mappe la mémoire allouée à chaque distribution par DWU et 
 | DW3000 | 100 | 1 600 | 3 200 | 6 400 |
 | DW6000 | 100 | 3 200 | 6 400 | 12 800 |
 
-Dans l’exemple précédent, un total de 375 Go de mémoire totale (6 400 Mo * 60 distributions / 1 024 pour convertir en Go) sont alloués à une requête en cours d’exécution sur une DW2000 dans la classe de ressources xlargerc sur la totalité de SQL Data Warehouse.
+Dans le tableau précédent, vous constatez qu’une requête s’exécutant sur une DW2000 dans la classe de ressources xlargerc dispose d’un accès à 6 400 Mo de mémoire dans chacune des 60 bases de données distribuées. Dans SQL Data Warehouse, il existe 60 distributions. Par conséquent, pour calculer l’allocation totale de mémoire pour une requête d’une classe de ressources données, les valeurs ci-dessus doivent être multipliées par 60.
 
 ### Allocations de mémoire à l’échelle du système (Go)
 
@@ -116,10 +116,11 @@ Dans l’exemple précédent, un total de 375 Go de mémoire totale (6 400 Mo * 
 | DW3000 | 6 | 94 | 188 | 375 |
 | DW6000 | 6 | 188 | 375 | 750 |
 
+Dans ce tableau d’allocations de mémoire à l’échelle du système, vous pouvez constater qu’une requête s’exécutant sur une DW2000 dans la classe de ressource xlargerc se voit allouer un total de 375 Go de mémoire (6 400 Mo * 60 distributions / 1 024 pour la conversion en Go) sur l’intégralité de votre instance SQL Data Warehouse.
 
 ## Consommation des emplacements de concurrence
 
-SQL Data Warehouse accorde plus de mémoire aux requêtes qui s’exécutent dans des classes de ressources supérieures. La mémoire étant une ressource fixe, plus la mémoire allouée par requête est élevée, moins il est possible de prendre en charge de concurrence. Le tableau suivant reprend tous les concepts précédents dans une vue unique qui présente le nombre d’emplacements de concurrence disponibles par DWU, ainsi que les emplacements consommés par chaque classe de ressources.
+SQL Data Warehouse accorde plus de mémoire aux requêtes qui s’exécutent dans des classes de ressources supérieures. La mémoire est une ressource fixe. Par conséquent, plus la mémoire allouée par requête est importante, plus le nombre de requêtes s’exécutant en simultané est faible. Le tableau suivant reprend tous les concepts précédents dans une vue unique qui présente le nombre d’emplacements de concurrence disponibles par DWU, ainsi que les emplacements consommés par chaque classe de ressources.
 
 ### Allocation et consommation des emplacements de concurrence
 
@@ -149,27 +150,27 @@ Le tableau ci-dessous présente les mappages d’importance pour chaque groupe d
 
 ### Mappage des groupes de charges de travail aux emplacements de concurrence et au niveau d’importance
 
-| Groupes de charges de travail | Mappage d’emplacement de concurrence | Mappage d’importance |
-| :-------------- | :----------------------: | :----------------- |
-| SloDWGroupC00 | 1 | Moyenne |
-| SloDWGroupC01 | 2 | Moyenne |
-| SloDWGroupC02 | 4 | Moyenne |
-| SloDWGroupC03 | 8 | Moyenne |
-| SloDWGroupC04 | 16 | Élevé |
-| SloDWGroupC05 | 32 | Élevé |
-| SloDWGroupC06 | 64 | Élevé |
-| SloDWGroupC07 | 128 | Élevé |
+| Groupes de charges de travail | Mappage d’emplacement de concurrence | Mo / Distribution | Mappage d’importance |
+| :-------------- | :----------------------: | :---------------: | :----------------- |
+| SloDWGroupC00 | 1 | 100 | Moyenne |
+| SloDWGroupC01 | 2 | 200 | Moyenne |
+| SloDWGroupC02 | 4 | 400 | Moyenne |
+| SloDWGroupC03 | 8 | 800 | Moyenne |
+| SloDWGroupC04 | 16 | 1 600 | Élevé |
+| SloDWGroupC05 | 32 | 3 200 | Élevé |
+| SloDWGroupC06 | 64 | 6 400 | Élevé |
+| SloDWGroupC07 | 128 | 12 800 | Élevé |
 
 À partir du graphique **Allocation et consommation des emplacements de concurrence**, vous pouvez constater qu’une DW500 utilise 1, 4, 8 ou 16 emplacements de concurrence pour smallrc, mediumrc, largerc et xlargerc, respectivement. Vous pouvez rechercher ces valeurs dans le graphique précédent pour connaître l’importance de chaque classe de ressources.
 
 ### Mappage d’importance des DW500 aux classes de ressources
 
-| Classe de ressources | Groupe de charges de travail | Emplacements de concurrence utilisés | Importance |
-| :------------- | :------------- | :--------------------: | :--------- |
-| smallrc | SloDWGroupC00 | 1 | Moyenne |
-| mediumrc | SloDWGroupC02 | 4 | Moyenne |
-| largerc | SloDWGroupC03 | 8 | Moyenne |
-| xlargerc | SloDWGroupC04 | 16 | Élevé |
+| Classe de ressources | Groupe de charges de travail | Emplacements de concurrence utilisés | Mo / Distribution | Importance |
+| :------------- | :------------- | :--------------------: | :---------------: | :--------- |
+| smallrc | SloDWGroupC00 | 1 | 100 | Moyenne |
+| mediumrc | SloDWGroupC02 | 4 | 400 | Moyenne |
+| largerc | SloDWGroupC03 | 8 | 800 | Moyenne |
+| xlargerc | SloDWGroupC04 | 16 | 1 600 | Élevé |
 
 
 Vous pouvez utiliser la requête DMV suivante pour examiner en détail les différences d’allocation des ressources mémoire du point de vue du gouverneur de ressources, ou analyser l’utilisation active et historique des groupes de charges de travail lors de la résolution des problèmes.
@@ -429,4 +430,4 @@ Pour plus d’informations sur la gestion de la sécurité et des utilisateurs d
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

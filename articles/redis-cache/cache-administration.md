@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/13/2016"
+	ms.date="09/27/2016"
 	ms.author="sdanie" />
 
 # Comment administrer le Cache Redis Azure
@@ -33,7 +33,7 @@ Les paramètres **d’administration** du Cache Redis Azure vous permettent d’
 
 ## Reboot
 
-Le panneau **Reboot** vous permet de redémarrer un ou plusieurs nœuds de votre cache. Cela vous permet de tester la résilience de votre application en cas d’échec.
+Le panneau **Redémarrer** vous permet de redémarrer un ou plusieurs nœuds de votre cache. Cela vous permet de tester la résilience de votre application en cas d’échec.
 
 ![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
@@ -94,10 +94,13 @@ Le panneau **Planification de mises à jour** vous permet de désigner une fenê
 
 Pour spécifier une fenêtre de maintenance, vérifiez les jours choisis et spécifiez l’heure de début de la fenêtre de maintenance pour chaque jour, puis cliquez sur **OK**. Notez que l’heure de la maintenance est au format UTC.
 
+>[AZURE.NOTE] La fenêtre de maintenance par défaut des mises à jour est de 5 heures. Cette valeur n’est pas configurable à partir du portail Azure, mais vous pouvez la configure dans PowerShell à l’aide du paramètre `MaintenanceWindow` de l’applet de commande [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx). Pour plus d’informations, voir [Puis-je gérer les mises à jour planifiées à l’aide de PowerShell, de l’interface de ligne de commande ou de tout autre outil de gestion ?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
+
 ## Forum aux questions de la planification des mises à jour
 
 -	[Quand les mises à jour sont-elles effectuées si je n’utilise pas la fonctionnalité de planification des mises à jour ?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 -	[Quels types de mises à jour sont exécutés au cours de la fenêtre de maintenance planifiée ?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
+-	[Puis-je gérer les mises à jour planifiées à l’aide de PowerShell, de l’interface de ligne de commande ou de tout autre outil de gestion ?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
 -	[Quels niveaux tarifaires peuvent utiliser la fonctionnalité de planification des mises à jour ?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
 ### Quand les mises à jour sont-elles effectuées si je n’utilise pas la fonctionnalité de planification des mises à jour ?
@@ -108,6 +111,15 @@ Si vous ne spécifiez pas une fenêtre de maintenance, les mises à jour peuvent
 
 Seules les mises à jour du serveur Redis sont exécutées au cours de la fenêtre de maintenance planifiée. La fenêtre de maintenance ne s’applique pas aux mises à jour d’Azure ou du système d’exploitation de la machine virtuelle.
 
+### Puis-je gérer les mises à jour planifiées à l’aide de PowerShell, de l’interface de ligne de commande ou de tout autre outil de gestion ?
+
+Oui, vous pouvez gérer vos mises à jour planifiées à l’aide des applets de commande PowerShell suivantes.
+
+-	[Get-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763835.aspx)
+-	[New-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763834.aspx)
+-	[New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx)
+-	[Remove-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763837.aspx)
+
 ### Quels niveaux tarifaires peuvent utiliser la fonctionnalité de planification des mises à jour ?
 
 La planification des mises à jour n’est disponible que dans le niveau tarifaire Premium.
@@ -116,4 +128,4 @@ La planification des mises à jour n’est disponible que dans le niveau tarifai
 
 -	Découvrez plus de fonctionnalités de [niveau Premium du cache Redis Azure](cache-premium-tier-intro.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
 # Présentation des rapports Informations du vendeur
@@ -92,7 +92,9 @@ Accédez à https://publish.windowsazure.com/ et connectez-vous avec les informa
 **Sélectionnez l’onglet Éditeurs**. ![selectpublisherstab][8]
 
 
-Recherchez l’ID d’éditeur dans l’URL : utilisez cet ID comme mot de passe pour ouvrir votre fichier Excel Informations du vendeur. Il s’agit de votre mot de passe jusqu’à nouvel ordre. Nous vous recommandons d’utiliser Microsoft Office 2013 avec Windows pour lire les classeurs. Certains utilisateurs ont signalé des problèmes liés à l’utilisation de Microsoft Office pour Mac.
+Rechercher l’ID d’éditeur dans l’URL :
+- Utilisez cet ID comme mot de passe pour ouvrir votre fichier Excel Informations du vendeur. Il s’agit de votre mot de passe jusqu’à nouvel ordre.
+- Nous vous recommandons d’utiliser Microsoft Office 2013 avec Windows pour lire les classeurs. Certains utilisateurs ont signalé des problèmes liés à l’utilisation de Microsoft Office pour Mac.
 
 ![publisherid][9]
 
@@ -118,4 +120,4 @@ Si vous avez des questions sur les rapports et les informations, contactez notre
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

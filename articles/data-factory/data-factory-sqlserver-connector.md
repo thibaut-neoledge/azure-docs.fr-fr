@@ -3,7 +3,7 @@
 	description="Apprendre à déplacer des données vers/depuis une base de données SQL Server locale ou une machine virtuelle Azure à l’aide d’Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,11 +14,25 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Déplacement des données vers et depuis SQL Server local ou sur IaaS (Machine virtuelle Azure) à l’aide d’Azure Data Factory
-
 Cet article explique comment utiliser l’activité de copie pour déplacer des de/vers SQL Server vers un autre magasin de données. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données, et les boutiques de données prises en charge comme sources et récepteurs.
+
+## Sources et récepteurs pris en charge
+Consultez le tableau [Banques de données prises en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des banques de données prises en charge en tant que sources et réceptrices pour l’activité de copie. Vous pouvez déplacer des données à partir de toute banque de données source prise en charge vers SQL Server ou à partir de tout SQL Server vers toute banque de données réceptrice prise en charge.
+
+## Création d’un pipeline
+Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/depuis une base de données SQL Server à l’aide de différents outils/API.
+
+- Assistant de copie
+- Portail Azure
+- Visual Studio
+- Azure PowerShell
+- API .NET
+- API REST
+
+Consultez [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées pour créer un pipeline avec activité de copie de différentes manières.
 
 ## Activation de la connectivité
 
@@ -392,6 +406,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser ce
 	}
 
 ## Propriétés du service lié SQL Server
+Dans les exemples, vous avez utilisé un service lié de type **OnPremisesSqlServer** pour lier une base de données SQL Server locale à une fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server local.
 
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Server.
 
@@ -444,16 +459,18 @@ Si le nom d’utilisateur et le mot de passe sont spécifiés, la passerelle les
 Pour plus d'informations sur la définition des informations d'identification pour une source de données SQL Server, consultez [Configuration des informations d'identification et de la sécurité](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)
 
 ## Propriétés de type du jeu de données SQL Server
+Dans les exemples, vous avez utilisé un jeu de données de type **SqlServerTable** pour représenter une table dans une base de données SQL Server.
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d’un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Server, objet Blob Azure, table Azure, etc.).
 
-La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section **typeProperties** pour le jeu de données de type **SqlServerTable** a les propriétés suivantes.
+La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section **typeProperties** pour le jeu de données de type **SqlServerTable** a les propriétés suivantes :
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
 | TableName | Nom de la table dans l’instance de base de données SQL Server à laquelle le service lié fait référence. | Oui |
 
 ## Propriétés de type de l’activité de copie SQL Server
+Si vous déplacez des données à partir d’une base de données SQL Server, vous définissez le type de source dans l’activité de copie sur **SqlSource**. De même, si vous déplacez des données vers une base de données SQL Server, vous définissez le type de récepteur dans l’activité de copie sur **SqlSink**. Cette section fournit une liste de propriétés prises en charge par SqlSource et SqlSink.
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d'entrée et de sortie et les différentes stratégies sont disponibles pour tous les types d'activités.
 
@@ -463,7 +480,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l'ac
 
 ### SqlSource
 
-Lorsqu’une source dans une activité de copie est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Lorsqu’une source dans une activité de copie est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
@@ -488,8 +505,8 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 | -------- | ----------- | -------------- | -------- |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. | intervalle de temps<br/><br/> Exemple : « 00:30:00 » (30 minutes). | Non |
 | writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize | Nombre entier (nombre de lignes) | Non (valeur par défaut : 10000)
-| sqlWriterCleanupScript | Spécifiez une requête pour exécuter l'activité de copie de sorte que les données d'un segment spécifique sont nettoyées. Consultez la section de répétition pour plus de détails. | Une instruction de requête. | Non |
-| sliceIdentifierColumnName | Spécifiez le nom de la colonne que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, et qui est utilisée pour nettoyer les données d’un segment spécifique lors de la réexécution. Consultez la section de répétition pour plus de détails. | Nom d’une colonne avec le type de données binary(32). | Non |
+| sqlWriterCleanupScript | Spécifiez une requête pour exécuter l'activité de copie de sorte que les données d'un segment spécifique sont nettoyées. Consultez la [section sur la répétition](#repeatability-during-copy) pour plus de détails. | Une instruction de requête. | Non |
+| sliceIdentifierColumnName | Spécifiez le nom de la colonne que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, et qui est utilisée pour nettoyer les données d’un segment spécifique lors de la réexécution. Consultez la [section sur la répétition](#repeatability-during-copy) pour plus de détails. | Nom d’une colonne avec le type de données binary(32). | Non |
 | sqlWriterStoredProcedureName | Nom de la procédure stockée qui met à jour/insère les données dans la table cible. | Nom de la procédure stockée. | Non |
 | storedProcedureParameters | Paramètres de la procédure stockée. | Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non |
 | sqlWriterTableType | Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. | Nom de type de table. | Non |
@@ -586,6 +603,8 @@ Notez que la table cible possède une colonne d’identité.
 
 Notez que vos tables source et cible ont des schémas différents (la cible possède une colonne supplémentaire avec identité). Dans ce scénario, vous devez spécifier la propriété **structure** dans la définition du jeu de données cible, qui n’inclut pas la colonne d’identité.
 
+Ensuite, vous mappez les colonnes à partir du jeu de données source vers les colonnes du jeu de données de destination. Consultez la section [Exemples de mappages de colonnes](#column-mapping-samples) pour obtenir un exemple.
+
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 
@@ -650,4 +669,4 @@ Le mappage est identique au mappage du type de données SQL Server pour ADO.NET.
 ## Performances et réglage  
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

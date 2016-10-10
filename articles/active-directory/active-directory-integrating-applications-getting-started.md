@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="ihenkel"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
    <tags
@@ -51,7 +51,7 @@ Avant de vous lancer dans l’intégration des applications avec Azure AD, il es
 
 Vous n’avez peut-être pas les réponses à toutes ces questions à l’avance mais ce n’est pas grave. Ce guide peut vous aider à répondre à certaines de ces questions et à prendre des décisions en connaissance de cause.
 
-## Configuration requise
+## Composants requis
 - Un abonnement Azure et un répertoire Azure Active Directory. Si vous ne disposez pas d’un abonnement Azure, vous pouvez essayer Azure gratuitement pendant 30 jours. [Faites un essai.](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## Intégration des applications avec Azure AD
@@ -89,4 +89,4 @@ Si vous souhaitez ajouter votre application personnalisée à la galerie d’app
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
    description="Résoudre les problèmes de déploiement classiques lorsque vous créez une machine virtuelle Linux dans Azure"
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
@@ -31,19 +31,19 @@
 
 Pour commencer la résolution des problèmes, collectez les journaux d’audit afin d’identifier l’erreur associée au problème.
 
-Dans le portail Azure, cliquez sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Paramètres** > **Journaux d’audit**.
+Dans le portail Azure, cliquez sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Paramètres** > **Journaux d’audit**.
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**O :** si le système d’exploitation est de type Linux généralisé et qu’il est chargé et/ou capturé avec le paramètre généralisé, il n’y aura aucune erreur. De même, si le système d’exploitation est de type Linux spécialisé et qu’il est chargé et/ou capturé avec le paramètre spécialisé, il n’y aura aucune erreur.
+**O :** si le système d’exploitation est de type Linux généralisé et s’il est chargé et/ou capturé avec le paramètre généralisé, il n’y aura aucune erreur. De même, si le système d’exploitation est de type Linux spécialisé et qu’il est chargé et/ou capturé avec le paramètre spécialisé, il n’y aura aucune erreur.
 
 **Erreurs de chargement :**
 
-**N<sup>1</sup> :** si le système d’exploitation est de type Linux généralisé et s’il est chargé avec le paramètre spécialisé, vous obtiendrez une erreur de délai d’attente de déploiement car la machine virtuelle est bloquée à l’étape de déploiement.
+**N<sup>1</sup> :** si le système d’exploitation est de type Linux généralisé et s’il est chargé avec le paramètre spécialisé, vous obtiendrez une erreur de délai d’attente d’approvisionnement, car la machine virtuelle est bloquée à l’étape d’approvisionnement.
 
-**N<sup>2</sup> :** si le système d’exploitation est de type Linux spécialisé et s’il est chargé avec le paramètre généralisé, vous obtiendrez une erreur d’échec de configuration, car la nouvelle machine virtuelle s’exécutera avec le nom de l’ordinateur, le nom d’utilisateur et le mot de passe d’origine.
+**N<sup>2</sup> :** si le système d’exploitation est de type Linux spécialisé et s’il est chargé comme généralisé, vous obtiendrez une erreur d’échec d’approvisionnement, car la nouvelle machine virtuelle est exécutée avec le nom de l’ordinateur, le nom d’utilisateur et le mot de passe d’origine.
 
 **Résolution :**
 
@@ -51,9 +51,9 @@ Pour corriger ces deux erreurs, chargez le disque dur virtuel d’origine, dispo
 
 **Erreurs de capture :**
 
-**N<sup>3</sup> :** si le système d’exploitation est de type Linux généralisé et s’il est capturé avec le paramètre spécialisé, vous obtiendrez une erreur de délai d’attente de configuration, car la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme généralisée.
+**N<sup>3</sup> :** si le système d’exploitation est de type Linux généralisé et s’il est capturé comme spécialisé, vous obtiendrez une erreur de délai d’attente d’approvisionnement, car la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme généralisée.
 
-**N<sup>4</sup> :** si le système d’exploitation est de type Linux spécialisé et s’il est capturé avec le paramètre généralisé, vous obtiendrez une erreur d’échec de configuration, car la nouvelle machine virtuelle s’exécutera avec le nom de l’ordinateur, le nom d’utilisateur et le mot de passe d’origine. En outre, la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme spécialisée.
+**N<sup>4</sup> :** si le système d’exploitation est de type Linux spécialisé et s’il est capturé avec le paramètre généralisé, vous obtiendrez une erreur d’échec d’approvisionnement, car la nouvelle machine virtuelle est exécutée avec le nom de l’ordinateur, le nom d’utilisateur et le mot de passe d’origine. En outre, la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme spécialisée.
 
 **Résolution :**
 
@@ -84,4 +84,4 @@ Selon les contraintes du service cloud que vous utilisez pour créer la machine 
 ## Étapes suivantes
 Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Linux arrêtée ou que vous redimensionnez une machine virtuelle Linux existante dans Azure, consultez [Résoudre les problèmes de déploiement classique liés au redémarrage ou au redimensionnement d’une machine virtuelle Linux existante dans Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

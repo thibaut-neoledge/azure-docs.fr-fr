@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -29,7 +29,7 @@ L’accès à l’application en libre-service est une fonctionnalité d’[Azur
 
 Aujourd’hui cette fonctionnalité est prise en charge pour toutes les applications préintégrées et personnalisées qui prennent en charge les connexions fédérées ou basées sur un mot de passe de session unique dans la [Galerie d’applications Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/), et notamment les applications telles que Salesforce, échange, Google Apps, entre autres. Cet article explique comment :
 
-* Configuration de l’accès des applications en libre-service pour les utilisateurs finaux, notamment la configuration d’un workflow d’approbation facultatif 
+* Configuration de l’accès des applications en libre-service pour les utilisateurs finaux, notamment la configuration d’un workflow d’approbation facultatif
 * Déléguer la gestion de l’accès à des applications spécifiques pour les personnes de votre organisation les plus concernées et leur permettre d’utiliser le volet d’accès Azure AD pour approuver les demandes d’accès, attribuer directement l’accès aux utilisateurs sélectionnés ou (éventuellement) les informations d’identification pour l’accès à l’application lorsque l’authentification par mot de passe est configurée
 
 
@@ -109,4 +109,4 @@ La vignette **Configurer** apparaît uniquement si l’application a été confi
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,9 @@ Utilisez la commande suivante pour vérifier que la passerelle a été créée. 
 
 ## Redimensionner une passerelle
 
-Il existe 3 [références de passerelle](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Vous pouvez utiliser la commande suivante pour modifier la référence de passerelle à tout moment.
+Il existe un certain nombre de [Références (SKU) de passerelle](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Vous pouvez utiliser la commande suivante pour modifier la référence de passerelle à tout moment.
+
+>[AZURE.IMPORTANT] Cette commande ne fonctionne pas pour la passerelle UltraPerformance. Pour modifier votre passerelle en passerelle UltraPerformance, commencez par supprimer la passerelle ExpressRoute, puis créez une passerelle UltraPerformance. Pour mettre à niveau votre passerelle à partir d’une passerelle UltraPerformance, commencez par supprimer la passerelle UltraPerformance, puis créez-en une.
 
 	Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
@@ -24,4 +26,4 @@ Utilisez la commande suivante pour supprimer une passerelle.
 
 	Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

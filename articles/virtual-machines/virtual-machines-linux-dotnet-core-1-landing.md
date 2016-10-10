@@ -1,0 +1,74 @@
+<properties
+   pageTitle="Didacticiel sur DotNet Core pour les machines virtuelles Azure 1 | Microsoft Azure"
+   description="Didacticiel sur DotNet Core pour les machines virtuelles Azure"
+   services="virtual-machines-linux"
+   documentationCenter="virtual-machines"
+   authors="neilpeterson"
+   manager="timlt"
+   editor="tysonn"
+   tags="azure-service-management"/>
+
+<tags
+   ms.service="virtual-machines-linux"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
+   ms.workload="infrastructure"
+   ms.date="09/21/2016"
+   ms.author="nepeters"/>
+
+# Automatisation des déploiements d’applications sur Machines Virtuelles Azure
+
+Cette série en quatre parties détaille le déploiement et la configuration des ressources et applications Azure à l’aide de modèles Azure Resource Manager. Dans cette série, un exemple de modèle est déployé et le modèle de déploiement examiné. L’objectif de cette série est d’informer concernant la relation entre les ressources Azure et de fournir une expérience pratique concernant le déploiement de modèles Azure Resource Manager entièrement intégrés. Ce document suppose que le lecteur dispose d’un niveau de connaissance élémentaire concernant Azure Resource Manager. Avant de commencer ce didacticiel, nous vous recommandons de vous familiariser avec les concepts de base d’Azure Resource Manager.
+
+## Application du Store musique
+
+L’exemple utilisé dans cette série est une application .NET Core simulant une expérience d’achat au Store musique. Cette application peut être déployée sur un système virtuel Linux ou Windows. Des exemples de déploiement ont été créés pour les deux. L’application inclut une application web et une base de données SQL. Avant de lire les articles de cette série, déployez l’application à l’aide du bouton de déploiement figurant sur cette page. Une fois le déploiement achevé, l’architecture Azure/d’application ressemble au diagramme suivant.
+
+Le modèle Resource Manager du Store musique se trouve ici : [Modèle Linux du Store musique](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
+
+![Application du Store musique](./media/virtual-machines-linux-dotnet-core/music-store.png)
+
+Chacun de ces composants, dont le modèle JSON associé, est examiné dans les quatre articles suivants.
+
+- [**Architecture d’applications**](./virtual-machines-linux-dotnet-core-2-architecture.md) : les composants d’application, tels que les sites web et bases de données, doivent être hébergés sur des ressources informatiques Azure telles que des machines virtuelles et des bases de données SQL Azure. Ce document vous guide dans le mappage de vos besoins de calcul à des ressources Azure, et dans le déploiement de celles-ci avec un modèle Azure Resource Manager.
+
+- [**Accès et sécurité**](./virtual-machines-linux-dotnet-core-3-access-security.md) : lors de l’hébergement des applications dans Azure, il est nécessaire de prendre en compte le mode d’accès à l’application et la manière dont les différents composants de celle-ci accèdent les uns aux autres. Ce document détaille la fourniture et la sécurisation de l’accès Internet à une application, ainsi que l’accès entre composants de l’application.
+
+- [**Disponibilité et mise à l’échelle**](./virtual-machines-linux-dotnet-core-4-avalibility-scale.md) : la disponibilité et la mise à l’échelle font référence à la capacité des applications à rester opérationnelles pendant un arrêt de l’infrastructure, et à la capacité d’adapter l’échelle des ressources de calcul à la demande de l’application. Ce document détaille les composants nécessaires au déploiement d’une application à charge équilibrée et hautement disponible.
+
+- [**Déploiement d’application**](./virtual-machines-linux-dotnet-core-5-app-deployment.md) : lors du déploiement d’applications dans Machines Virtuelles Azure, la méthode d’installation des fichiers binaires des applications sur la machine virtuelle doit être prise en compte. Ce document détaille l’automatisation de l’installation d’applications à l’aide d’extensions de script personnalisé pour machine virtuelle Azure.
+
+Lorsque vous développez des modèles Azure Resource Manager, l’objectif est d’automatiser le déploiement d’une infrastructure Azure, ainsi que l’installation et la configuration de toutes les applications hébergées sur celle-ci. Ces articles fournissent un exemple de cette expérience.
+
+## Déploiement de l’application du Store musique
+
+Vous pouvez déployer l’application du Store musique à l’aide de ce bouton.
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fdotnet-core-sample-templates%2Fmaster%2Fdotnet-core-music-linux%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/> </a>
+
+Le modèle Azure Resource Manager requiert les valeurs de paramètre suivantes.
+
+|Nom du paramètre |Description |
+|---|---|
+|SSHKEYDATA | Données de clé SSH utilisées pour sécuriser l’accès à la machine virtuelle. Pour plus d’informations sur la création d’une clé SSH, voir [Création de clés SSH pour machines virtuelles Linux dans Azure](./ virtual-machines-linux-mac-create-ssh-keys.md). |
+|ADMINUSERNAME | Nom d’utilisateur administrateur utilisé sur la machine virtuelle et la base de données Azure SQL Database. |
+|SQLADMINPASSWORD | Mot de passe utilisé sur la base de données Azure SQL Database. |
+|NUMBEROFINSTANCES | Nombre de machines virtuelles à créer. Chacune de ces machines virtuelles héberge l’application web du Store musique, et la charge de tout le trafic est équilibrée sur celles-ci. |
+|PUBLICIPADDRESSDNSNAME | Nom DNS global unique associé à l’adresse IP publique. |
+
+Une fois le déploiement du modèle terminé, accédez à l’adresse IP publique à l’aide d’un navigateur Internet. Le site .Net du Store musique s’affiche.
+
+## Étapes suivantes
+
+<hr>
+
+[Étape 1 : architecture d’application avec les modèles Azure Resource Manager](./virtual-machines-linux-dotnet-core-2-architecture.md)
+
+[Étape 2 : accès et sécurité dans les modèles Azure Resource Manager](./virtual-machines-linux-dotnet-core-3-access-security.md)
+
+[Étape 3 : disponibilité et mise à l’échelle dans les modèles Azure Resource Manager](./virtual-machines-linux-dotnet-core-4-avalibility-scale.md)
+
+[Étape 4 : déploiement d’application avec des modèles Azure Resource Manager](./virtual-machines-linux-dotnet-core-5-app-deployment.md)
+
+<!---HONumber=AcomDC_0928_2016-->

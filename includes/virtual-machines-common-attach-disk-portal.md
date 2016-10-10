@@ -9,7 +9,7 @@
 
 3.	Sélectionnez la machine virtuelle dans la liste.
 
-4. Dans le panneau Machines virtuelles, dans **Essentials**, cliquez sur **Tous les paramètres** > **Disques**.
+4. Dans le panneau Machines virtuelles, dans **Essentials**, cliquez sur **Disques**.
 
 	![Ouverture des paramètres d’un disque](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
 
@@ -43,4 +43,4 @@ Continuez en suivant les instructions pour attacher un disque nouveau ou existan
 
 6.	Après qu’Azure a attaché le disque à la machine virtuelle, le disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

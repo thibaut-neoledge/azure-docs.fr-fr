@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation d'Azure Media Packager pour effectuer des tâches d'empaquetage statique" 
-	description="Cette rubrique présente les différentes tâches qui sont effectuées avec Azure Media Packager." 
+	pageTitle="Utilisation d’Azure Media Packager pour effectuer des tâches d’empaquetage statique | Microsoft Azure" 
+	description="Cette rubrique présente les différentes tâches qui sont effectuées avec Azure Media Packager." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"    
+ 	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 >[AZURE.NOTE]La date de fin de vie de Microsoft Azure Media Packager et Microsoft Azure Media Encryptor a été repoussée au 1er mars 2017. Avant cette date, les fonctionnalités de ces processeurs seront ajoutées à Media Encoder Standard (MES). Les clients recevront des instructions sur la façon de migrer leurs flux de travail pour envoyer des travaux à MES. Des fonctionnalités de chiffrement et de conversion de format peuvent éventuellement être disponibles par le biais de l’empaquetage dynamique et du chiffrement dynamique.
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les appareils de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia. Une fois qu'une vidéo a été encodée, elle peut être placée dans différents conteneurs de fichiers. Le processus destiné à placer des médias encodés dans un conteneur s'appelle « empaquetage ». Par exemple, vous pouvez prendre un fichier MP4 et le convertir en contenu Smooth Streaming ou HLS à l'aide d'Azure Media Packager.
 
@@ -42,7 +42,7 @@ Vous pouvez également utiliser l'empaquetage statique pour effectuer les tâche
 
 ## Validation de fichiers MP4 à débit adaptatif encodés avec des encodeurs externes
 
-Si vous souhaitez utiliser un ensemble de fichiers MP4 à débit adaptatif (débit binaire multiple) non encodés avec les encodeurs Media Services, vous devez valider vos fichiers avant tout traitement supplémentaire. Le gestionnaire Media Services peut valider un élément multimédia qui contient un ensemble de fichiers MP4 et vérifier si l'élément en question peut être empaqueté pour de la diffusion Smooth Streaming ou HLS. Si la tâche de validation échoue, le travail qui traitait la tâche se termine avec une erreur. Le fichier XML qui définit la valeur de présélection de la tâche de validation se trouve dans la rubrique [Présélection de tâches pour Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+Si vous souhaitez utiliser un ensemble de fichiers MP4 à débit adaptatif (débit binaire multiple) non encodés avec les encodeurs Media Services, vous devez valider vos fichiers avant tout traitement supplémentaire. Le gestionnaire Media Services peut valider un élément multimédia qui contient un ensemble de fichiers MP4 et vérifier si l'élément en question peut être empaqueté pour de la diffusion Smooth Streaming ou HLS. Si la tâche de validation échoue, le travail qui traitait la tâche se termine avec une erreur. Le fichier XML qui définit la valeur de présélection de la tâche de validation se trouve dans la rubrique [Présélection de tâches pour Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
 
 >[AZURE.NOTE]Utilisez Media Encoder Standard pour produire ou Media Services Packager pour valider votre contenu afin d’éviter d’éventuels problèmes d’exécution. Si le serveur de streaming à la demande n'est pas en mesure d'analyser vos fichiers sources lors de l'exécution, l'erreur HTTP 1.1 « 415 Type de support non pris en charge » est retournée. L'échec répété d'analyse de vos fichiers sources sur le serveur nuit aux performances du serveur de streaming à la demande et peut réduire la bande passante disponible pour répondre à d'autres demandes. Azure Media Services propose un contrat de niveau de Service (SLA) sur ses services de streaming à la demande ; toutefois, ce contrat SLA ne peut pas être honoré si le serveur est incorrectement utilisé de la manière décrite ci-dessus.
 
@@ -246,7 +246,7 @@ L'exemple de cette section encode un fichier mezzanine (en l'occurrence MP4) en 
 
 Media Services fournit à présent un service pour la distribution de licences Microsoft PlayReady. L'exemple illustré dans cet article indique comment configurer le service de distribution des licences Media Services PlayReady (voir la méthode ConfigureLicenseDeliveryService définie dans le code ci-dessous). Pour plus d'informations sur le service de distribution des licences Media Services PlayReady, consultez la page [Utilisation du chiffrement dynamique et du service de distribution des licences PlayReady](media-services-protect-with-drm.md).
 
->[AZURE.NOTE]Pour proposer du MPEG DASH chiffré avec PlayReady, veillez à utiliser les options CENC en définissant les propriétés useSencBox et adjustSubSamples (décrites dans la rubrique [Présélection de tâche pour Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx)) sur true.
+>[AZURE.NOTE]Pour proposer du MPEG DASH chiffré avec PlayReady, veillez à utiliser les options CENC en définissant les propriétés useSencBox et adjustSubSamples (décrites dans la rubrique [Présélection de tâche pour Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx)) sur true.
 
 
 Veillez à mettre à jour le code suivant pour pointer vers le dossier où se trouve votre fichier MP4 d'entrée,
@@ -1447,4 +1447,4 @@ Veillez à mettre à jour le code suivant pour pointer vers le dossier où se tr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

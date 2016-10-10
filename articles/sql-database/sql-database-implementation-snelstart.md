@@ -18,7 +18,7 @@
 
 # Avec Azure, SnelStart a rapidement développé ses services d’entreprise au rythme de 1 000 nouvelles bases de données Azure SQL Database par mois
 
-![Logo](./media/sql-database-case-study-snelstart/snelstartlogo.png)
+![Logo SnelStart](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 SnelStart crée des logiciels populaires de gestion financière et commerciale pour les petites et moyennes entreprises (PME) aux Pays-Bas. Une équipe de 110 employés, dont 35 dans le service informatique, est au service de ses 55 000 clients. En passant des logiciels de bureau à une offre SaaS (Logiciel-as-a-Service) basée sur Azure, SnelStart a tiré le meilleur parti des services intégrés, en automatisant la gestion grâce à un environnement familier en C# et en optimisant les performances et l’évolutivité grâce à un approvisionnement parfaitement calibré à l’aide de pools de base de données élastiques. L’utilisation d’Azure fournit à SnelStart la fluidité nécessaire pour déplacer les clients mobiles en local et sur le cloud.
 
@@ -80,7 +80,7 @@ Grâce à Azure, SnelStart peut offrir un service plus cohérent à ses clients 
 
 En outre, les services web SnelStart permettent à la fois aux clients et aux comptables d’accéder facilement aux données des pools élastiques Azure SQL Database. Ce modèle SaaS, associé à l’élasticité des bases de données et à Azure Resource Manager, offre à SnelStart des fonctionnalités d’évolutivité qui complètent chaque déploiement Azure. L’implémentation est entièrement automatisée grâce aux bibliothèques de gestion C#.
 
-![La figure 1](./media/sql-database-case-study-snelstart/figure1.png)
+![Architecture SnelStart](./media/sql-database-implementation-snelstart/figure1.png)
 
 Figure 1 : En juin 2016, SnelStart avait plus de 11 000 bases de données et plus de 50 pools de base de données élastiques
  
@@ -105,4 +105,4 @@ SnelStart apprécie également l’étroit partenariat développé avec l’équ
 
 - Pour plus d’informations sur SnelStart, consultez [SnelStart](http://www.snelstart.nl).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

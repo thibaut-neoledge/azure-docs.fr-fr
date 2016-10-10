@@ -2,7 +2,9 @@
 
 Chaque enregistrement DNS a un nom et un type. Les enregistrements sont organisés selon différents types, en fonction des données qu’ils contiennent. Le type le plus courant est un enregistrement « A » qui associe un nom à une adresse IPv4. Un autre type est un enregistrement « MX », qui associe un nom à un serveur de messagerie.
 
-Azure DNS prend en charge tous les types d’enregistrement DNS courants, notamment A, AAAA, CNAME, MX, NS, SOA, SRV et TXT. Les jeux d’enregistrements SOA sont créés automatiquement avec chaque zone. Ils ne peuvent pas être créés séparément. Notez que les enregistrements SPF doivent être créés à l’aide du type d’enregistrement TXT. Pour plus d’informations, voir [cette page](http://tools.ietf.org/html/rfc7208#section-3.1).
+Azure DNS prend en charge tous les types d’enregistrement DNS courants, notamment A, AAAA, CNAME, MX, NS, PTR, SOA, SRV et TXT. Notez les points suivants :
+- Les jeux d’enregistrements SOA sont créés automatiquement avec chaque zone. Ils ne peuvent pas être créés séparément.
+- Les enregistrements SPF doivent être créés à l’aide du type d’enregistrement TXT. Pour plus d’informations, consultez [cette page](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 Dans Azure DNS, les enregistrements sont spécifiés à l’aide de noms relatifs. Le nom de domaine complet inclut le nom de la zone, contrairement au nom relatif. Par exemple, le nom d’enregistrement relatif « www » dans la zone « contoso.com » crée le nom d’enregistrement complet www.contoso.com.
 
@@ -29,4 +31,4 @@ Pour créer un jeu d’enregistrements génériques, utilisez le nom de jeu d’
 
 Les jeux d’enregistrements CNAME ne peuvent pas coexister avec d’autres jeux d’enregistrements portant le même nom. Par exemple, vous ne pouvez pas créer un jeu d’enregistrements CNAME avec le nom relatif « www » et un enregistrement A avec le nom relatif « www » en même temps. Étant donné que l’extrémité de la zone (nom = « @ ») contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau de l’extrémité de la zone. Ces contraintes sont dues aux normes DNS. Il ne s’agit pas de limites d’Azure DNS.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

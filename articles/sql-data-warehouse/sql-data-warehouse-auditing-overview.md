@@ -13,23 +13,16 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016" 
+   ms.date="09/24/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Audit dans Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
+- [Audit](sql-data-warehouse-auditing-overview.md)
 - [Détection de menaces](sql-data-warehouse-security-threat-detection.md)
-- [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
-- [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Vue d’ensemble de l’audit](sql-data-warehouse-auditing-overview.md)
-- [Audit des clients de niveau inférieur](sql-data-warehouse-auditing-downlevel-clients.md)
 
-
-L’audit Azure SQL Data Warehouse effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage.
-
-L’audit peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
+La fonction d’audit de SQL Data Warehouse vous permet d’enregistrer les événements survenus dans votre base de données dans un journal d’audit au sein de votre compte Microsoft Azure Storage. L’audit peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité. Cette fonction s’intègre également dans Microsoft Power BI, afin de faciliter la création d’analyses et de rapports approfondis.
 
 Les outils d'audit permettent et facilitent le respect des normes liées à la conformité, mais ne garantissent pas cette dernière. Pour plus d'informations sur les programmes Azure prenant en charge la conformité aux normes, consultez le <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centre de gestion de la confidentialité Azure</a>.
 
@@ -151,4 +144,4 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azu
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

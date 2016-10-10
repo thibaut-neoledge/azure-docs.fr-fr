@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configuration d’un nouvel appareil avec Azure AD lors de l’installation | Microsoft Azure"
-	description="Rubrique qui explique comment les utilisateurs peuvent configurer Azure AD Join lors de l’introduction de l’interface logicielle lors de la première utilisation."
+	description="Rubrique qui explique comment les utilisateurs peuvent configurer Azure AD Join lors de la première utilisation."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Configuration d’un nouvel appareil avec Azure AD lors de l’installation
@@ -52,4 +52,4 @@ Sous Windows 10, les utilisateurs peuvent joindre leur appareil à Azure Active
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

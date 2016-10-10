@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+	ms.date="08/26/2016" 
+	ms.author="robmcm;asirveda;martinsawicki"/>
 
 # Nouveautés du Kit de ressources Azure pour IntelliJ
 
@@ -23,6 +23,18 @@
 Cet article contient des informations sur les différentes versions et les dernières mises à jour du kit de ressources Azure pour IntelliJ.
 
 > [AZURE.NOTE] Il existe également une boîte à outils Azure pour l’environnement de développement Eclipse. Pour plus d’informations, consultez [Kit de ressources Azure pour Eclipse].
+
+### 26 août 2016
+
+La version d’août 2016 du kit de ressources Azure pour IntelliJ inclut les améliorations suivantes :
+
+* **Distributions personnalisées du JDK**. Le kit de ressources Azure pour IntelliJ prend désormais en charge la spécification et le déploiement d’une version arbitraire du JDK dans votre conteneur Azure WebApp :
+  - Outre les JDK fournis par Azure, vous pouvez également choisir parmi une large sélection de versions Zulu OpenJDK mises à disposition sur Azure par Azul Systems.
+  - Vous pouvez également spécifier votre propre distribution JDK si vous chargez un fichier ZIP sur votre compte de stockage.
+* **Améliorations apportées à l’affichage de l’Explorateur Azure** :
+  - Prise en charge de la gestion des Machines Virtuelles suivant le nouveau modèle Azure Resource Manager : vous pouvez lister, créer et supprimer des machines virtuelles Resource Manager sans quitter l’IDE.
+  - Prise en charge de la gestion d’objets blob des comptes de stockage à l’aide d’Azure Resource Manager, qui complète les fonctionnalités existantes de gestion des comptes de stockage « Classic ».
+* **Microsoft JDBC Driver 6.0 pour SQL Server**. Cette mise à jour inclut le dernier pilote JDBC de Microsoft SQL Server (version 6.0), qui est maintenant inclus en tant que bibliothèque facile à ajouter à vos projets Java, en remplacement de l’ancienne version.
 
 ### 29 juin 2016
 
@@ -73,4 +85,4 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 [Plug-in Outils HDInsight pour IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/12/2016"
+ ms.date="09/27/2016"
  ms.author="larryfr"/>
 
 #Compréhension et résolution des erreurs reçues à partir de WebHCat (Templeton) sur HDInsight
@@ -29,9 +29,9 @@ Lorsque vous utilisez WebHCat (anciennement Templeton) pour travailler avec HDIn
 
 > [AZURE.IMPORTANT] Plusieurs des erreurs répertoriées dans ce document se produisent car une limite maximale configurée a été dépassée. Lorsque l’étape de résolution mentionne que vous pouvez modifier une valeur, vous devez utiliser l’une des méthodes suivantes pour effectuer cette modification :
 
-* Pour les clusters **Windows** : utilisez une action de script pour configurer la valeur lors de la création du cluster. Pour en savoir plus, consultez la rubrique [Développement d’actions de script avec HDInsight](hdinsight-hadoop-script-actions.md).
+* Pour les clusters **Windows** : utilisez une action de script pour configurer la valeur lors de la création du cluster. Pour en savoir plus, consultez la rubrique [Développement d’actions de script avec HDInsight](hdinsight-hadoop-script-actions.md).
 
-* Pour les clusters **Linux** : utilisez Ambari (API REST ou web) pour modifier la valeur. Pour en savoir plus, consultez la rubrique [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
+* Pour les clusters **Linux** : utilisez Ambari (API REST ou web) pour modifier la valeur. Pour en savoir plus, consultez la rubrique [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ###Configuration par défaut
 
@@ -45,7 +45,7 @@ Voici les valeurs de configuration par défaut qui peuvent affecter les performa
 
 ##Trop de demandes
 
-**Code d’état HTTP** : 429
+**Code d’état HTTP** : 429
 
 | Cause : | Résolution : |
 | ----- | ---------- |
@@ -53,7 +53,7 @@ Voici les valeurs de configuration par défaut qui peuvent affecter les performa
 
 ##Serveur non disponible
 
-**Code d’état HTTP** : 503
+**Code d’état HTTP** : 503
 
 | Cause : | Résolution : |
 | ---------------- | ------------------- |
@@ -61,7 +61,7 @@ Voici les valeurs de configuration par défaut qui peuvent affecter les performa
 
 ##Contenu de demande erroné : impossible de trouver la tâche
 
-**Code d’état HTTP** : 400
+**Code d’état HTTP** : 400
 
 | Cause : | Résolution : |
 | ---------------- | ------------------- |
@@ -71,7 +71,7 @@ Voici les valeurs de configuration par défaut qui peuvent affecter les performa
 
 ##Passerelle incorrecte
 
-**Code d’état HTTP** : 502
+**Code d’état HTTP** : 502
 
 | Cause : | Résolution : |
 | ---------------- | ------------------- |
@@ -86,4 +86,4 @@ Voici les valeurs de configuration par défaut qui peuvent affecter les performa
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

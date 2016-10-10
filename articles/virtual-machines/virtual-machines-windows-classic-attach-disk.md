@@ -14,20 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/27/2016"
 	ms.author="cynthn"/>
 
 # Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](virtual-machines-windows-attach-disk-portal.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Pour utiliser le nouveau portail, consultez la rubrique [Attachement d’un disque de données à une machine virtuelle Windows dans le portail Azure](virtual-machines-windows-attach-disk-portal.md).
 
 Si vous avez besoin d'un disque de données supplémentaire, vous pouvez joindre un disque vide ou un disque existant avec des données à une machine virtuelle. Dans les deux cas, les disques sont des fichiers .vhd conservés dans un compte de stockage Azure. Dans le cas d'un nouveau disque, après avoir joint le disque, vous devrez également l'initialiser afin qu'il soit prêt à être utilisé par une machine virtuelle Windows.
 
 Pour en savoir plus sur les disques, consultez la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-windows-about-disks-vhds.md).
-
-## Vidéo de procédure pas à pas
-
-Voici une [vidéo de procédure pas à pas](https://azure.microsoft.com/documentation/videos/attaching-a-data-disk-to-a-windows-vm/) de ce didacticiel.
 
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
@@ -60,4 +56,4 @@ Voici une [vidéo de procédure pas à pas](https://azure.microsoft.com/document
 
 [logon]: virtual-machines-windows-classic-connect-logon.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

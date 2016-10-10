@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation de partenaires pour fournir des licences Widevine à Azure Media Services" 
+	pageTitle="Utilisation de partenaires pour fournir des licences Widevine à Azure Media Services | Microsoft Azure" 
 	description="Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences castLabs." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 #Utilisation de partenaires pour fournir des licences Widevine à Azure Media Services
@@ -47,4 +47,4 @@ Vous pouvez utiliser [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) pou
 
 [Blog de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

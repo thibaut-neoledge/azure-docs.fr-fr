@@ -1,7 +1,7 @@
 <properties
    pageTitle="Utiliser Azure Functions pour effectuer une tâche de nettoyage planifiée | Microsoft Azure"
    description="Utilisez Azure Functions pour créer une fonction C# qui s’exécute en fonction d’un compteur d’événements."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/26/2016"
    ms.author="glenga"/>
    
 # Utiliser Azure Functions pour effectuer une tâche de nettoyage planifiée
@@ -26,7 +26,7 @@ Cette rubrique vous montre comment utiliser Azure Functions pour créer une fonc
 
 Pour créer une fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 
-Cette rubrique montre une commande Transact-SQL qui exécute une opération de nettoyage en bloc dans une table nommée *TodoItems* d’une base de données SQL. Cette même table TodoItems est créée lorsque vous suivez le [Didacticiel de démarrage rapide Azure App Service Mobile Apps](../app-service-mobile/app-service-mobile-ios-get-started.md). Vous pouvez également utiliser une base de données d’exemple. Si vous choisissez d’utiliser une autre table, vous devez modifier la commande.
+Cette rubrique montre une commande Transact-SQL qui exécute une opération de nettoyage en bloc dans une table nommée *TodoItems* d’une base de données SQL Database. Cette même table TodoItems est créée lorsque vous suivez le [Didacticiel de démarrage rapide Azure App Service Mobile Apps](../app-service-mobile/app-service-mobile-ios-get-started.md). Vous pouvez également utiliser une base de données d’exemple. Si vous choisissez d’utiliser une autre table, vous devez modifier la commande.
 
 Vous pouvez obtenir la chaîne de connexion utilisée par un principal Mobile App dans le portail sous **Tous les paramètres** > **Paramètres de l’application** > **Chaînes de connexion** > **Afficher les valeurs des chaînes de connexion** > **MS\_TableConnectionString**. Vous pouvez également obtenir la chaîne de connexion directement à partir d’une base de données SQL dans le portail sous **Tous les paramètres** > **Propriétés** > **Afficher les chaînes de connexion de la base de données** > **ADO.NET (authentification SQL)**.
 
@@ -38,7 +38,7 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
 
 1. Accédez au [Portail Azure Functions](https://functions.azure.com/signin) et connectez-vous avec votre compte Azure.
 
-2. Si vous avez un conteneur de fonctions existant à utiliser, sélectionnez-le dans **Vos conteneurs de fonctions**, puis cliquez sur **Ouvrir**. Pour créer un nouveau conteneur de fonctions, dans **Nom**, tapez le nom unique de votre nouveau conteneur de fonctions ou acceptez le nom généré, sélectionnez votre **Région**, puis cliquez sur **Créer + Prise en main**.
+2. Si vous avez une application de fonction existante à utiliser, sélectionnez-la à partir de **vos applications de fonction**, puis cliquez sur **Ouvrir**. Pour créer un nouveau conteneur de fonctions, dans **Nom**, tapez le nom unique de votre nouveau conteneur de fonctions ou acceptez le nom généré, sélectionnez votre **Région**, puis cliquez sur **Créer + Prise en main**.
 
 3. Dans votre conteneur de fonctions, cliquez sur les **Paramètres Function App** > **Accéder aux paramètres App Service**.
 
@@ -52,7 +52,7 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
 
 ## Créer une fonction déclenchée par un minuteur à partir du modèle
 
-1. Dans votre conteneur de fonctions, cliquez sur **+ Nouvelle fonction** > **TimerTrigger - C#** > **Créer**. Cela crée une fonction avec un nom par défaut, qui s’exécute selon la planification par défaut, c’est-à-dire une fois par minute. 
+1. Dans votre conteneur de fonctions, cliquez sur **+ Nouvelle fonction** > **TimerTrigger - C#** > **Créer**. Cela crée une fonction avec un nom par défaut, qui s’exécute selon la planification par défaut, c’est-à-dire une fois par minute.
 
 	![Créer une nouvelle fonction déclenchée par un minuteur](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 
@@ -95,8 +95,8 @@ Pour plus d’informations sur Azure Functions, consultez ces rubriques.
 
 + [Référence du développeur Azure Functions](functions-reference.md) Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
 + Le didacticiel [Test d’Azure Functions](functions-test-a-function.md) décrit plusieurs outils et techniques permettant de tester vos fonctions.
-+ La rubrique [Comment mettre à l’échelle Azure Functions](functions-scale.md) présente les plans de services disponibles dans Azure Functions, dont le plan de service dynamique, et explique comment choisir le plan adapté à vos besoins.  
++ La rubrique [Comment mettre à l’échelle Azure Functions](functions-scale.md) présente les plans de services disponibles dans Azure Functions, dont le plan de service dynamique, et explique comment choisir le plan adapté à vos besoins.
 
 [AZURE.INCLUDE [Remarque relative à la prise en main](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

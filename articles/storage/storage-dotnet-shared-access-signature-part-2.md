@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="cbrooks;tamram"/>
 
 
 # Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Blob Storage
@@ -189,7 +189,7 @@ Ajoutez une nouvelle méthode qui crée une stratégie d’accès stockée sur u
         container.SetPermissions(permissions);
     }
 
-Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l’appel à **Console.ReadLine()** pour supprimer les stratégies d’accès existantes, puis pour appeler la méthode **CreateSharedAccessPolicy()** :
+Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l’appel à **Console.ReadLine()** pour supprimer les stratégies d’accès existantes, puis pour appeler la méthode **CreateSharedAccessPolicy()** :
 
     //Clear any existing access policies on container.
     BlobContainerPermissions perms = container.GetPermissions();
@@ -219,7 +219,7 @@ Ajoutez une nouvelle méthode pour générer une autre signature d'accès partag
 	    return container.Uri + sasContainerToken;
     }
 
-Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l'appel à **Console.ReadLine()**, pour appeler la méthode **GetContainerSasUriWithPolicy** :
+Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l'appel à **Console.ReadLine()**, pour appeler la méthode **GetContainerSasUriWithPolicy** :
 
     //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
@@ -254,7 +254,7 @@ Ajoutez une nouvelle méthode pour créer un objet blob et générer une signatu
 	    return blob.Uri + sasBlobToken;
     }
 
-Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l'appel à **Console.ReadLine()**, pour appeler la méthode **GetBlobSasUriWithPolicy** :
+Ajoutez les lignes suivantes à la fin de la méthode **Main()**, avant l'appel à **Console.ReadLine()**, pour appeler la méthode **GetBlobSasUriWithPolicy** :
 
     //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
@@ -554,4 +554,4 @@ Exécutez l'application console et observez la sortie pour connaître les opéra
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

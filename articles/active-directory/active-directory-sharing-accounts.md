@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="msStevenPo"
- 	manager="stevenpo"
+ 	manager="femila"
 	editor=""/>
 
  <tags
@@ -73,4 +73,4 @@ Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authen
 - [Protection des applications avec accès conditionnel](active-directory-conditional-access.md)
 - [Gestion des groupes en libre service/accès aux applications en libre-service](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

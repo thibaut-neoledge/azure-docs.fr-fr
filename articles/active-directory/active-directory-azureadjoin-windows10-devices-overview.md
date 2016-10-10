@@ -9,7 +9,7 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="06/23/2016"
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/27/2016"
 
 	ms.author="femila"/>
 
@@ -30,4 +30,4 @@ Les rubriques suivantes fournissent des indications sur l’utilisation des diff
 | Déploiement | [Scénarios d’utilisation et éléments à prendre en compte pour le déploiement d’Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Connexion des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Activation de Microsoft Passport for Work dans l’organisation](active-directory-azureadjoin-passport-deployment.md)<br><br> [Activation d’Enterprise State Roaming pour Windows 10](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Tâches de l’utilisateur | [Configuration d’un nouvel appareil Windows 10 avec Azure AD lors de l’installation](active-directory-azureadjoin-user-frx.md) <br><br> [Configuration d’un appareil Windows 10 avec Azure AD à partir du menu Paramètres](active-directory-azureadjoin-user-upgrade.md) <br><br> [Association d’un appareil Windows 10 personnel à votre organisation](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -33,7 +33,7 @@ Ce groupe est représenté comme un groupe de distribution dans les versions loc
 - Seuls les déploiements d’entreprise basés sur une seule forêt Exchange sont actuellement pris en charge. Si vous avez plusieurs organisations Exchange en local, vous aurez besoin d’une solution GALSync locale pour que ces groupes s’affichent dans vos autres forêts.
 - La fonctionnalité d’écriture différée de groupe ne prend pas en charge les groupes de sécurité ou les groupes de distribution pour l’instant.
 
->[AZURE.NOTE] L’écriture différée sur un groupe nécessite un abonnement Azure AD Premium.
+>[AZURE.NOTE] L’écriture différée des groupes nécessite un abonnement Azure AD Premium.
 
 ## Écriture différée de l’utilisateur
 > [AZURE.IMPORTANT] La fonctionnalité d’écriture différée utilisateur en version préliminaire a été supprimée lors de la mise à jour d’Azure AD Connect en août 2015. Si vous l'avez activée, vous devez désactiver cette fonctionnalité.
@@ -43,4 +43,4 @@ Poursuivez votre [installation personnalisée d’Azure AD Connect](active-direc
 
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

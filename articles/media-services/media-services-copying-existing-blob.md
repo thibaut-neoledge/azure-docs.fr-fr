@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copie d'un objet blob existant dans un élément multimédia Media Services" 
+	pageTitle="Copie d’un objet blob existant dans un élément multimédia Media Services | Microsoft Azure" 
 	description="Cette rubrique montre comment copier un objet blob existant dans un élément multimédia Media Services." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Copie d'un objet blob existant dans un élément multimédia Media Services
 
-Cette rubrique montre comment copier des objets blob à partir d'un compte de stockage dans un nouvel élément multimédia Microsoft Azure Media Services.
+Cette rubrique montre comment copier des objets blob à partir d’un compte de stockage dans un nouvel élément multimédia Microsoft Azure Media Services.
 
-Vos objets blob peuvent exister dans un compte de stockage associé à un compte Media Services ou à un compte de stockage qui n'est pas associé au compte Media Services. Cette rubrique montre comment copier des objets blob à partir d'un compte de stockage dans un élément multimédia Media Services. Notez que vous pouvez également effectuer une copie entre des centres de données. Toutefois, cette opération peut être facturée. Pour plus d'informations sur la tarification, consultez [Transferts de données](https://azure.microsoft.com/pricing/#header-11).
+Vos objets blob peuvent exister dans un compte de stockage associé à un compte Media Services ou à un compte de stockage qui n'est pas associé au compte Media Services. Cette rubrique montre comment copier des objets blob à partir d’un compte de stockage dans un élément multimédia Media Services. Notez que vous pouvez également effectuer une copie entre des centres de données. Toutefois, cette opération peut être facturée. Pour plus d'informations sur la tarification, consultez [Transferts de données](https://azure.microsoft.com/pricing/#header-11).
 
 >[AZURE.NOTE] Vous ne devez pas essayer de modifier le contenu des conteneurs d’objets blob qui ont été générés par Media Services sans utiliser les API Media Services.
 
@@ -30,7 +30,7 @@ Obtenez et exécutez un exemple [ici](https://azure.microsoft.com/documentation/
 
 ##Composants requis
 
-- Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services](media-services-create-account.md).
+- Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Créer un compte Azure Media Services](media-services-create-account.md).
 - Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
 - .NET Framework 4.5.
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
@@ -322,4 +322,4 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

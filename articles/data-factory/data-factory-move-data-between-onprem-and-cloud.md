@@ -4,7 +4,7 @@
     keywords="passerelle de données, intégration de données, déplacer des données, informations d’identification de passerelle"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 Cet article présente l’intégration des données entre les magasins de données locaux et les magasins de données cloud à l’aide de Data Factory. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md) et d’autres articles sur les principaux concepts Data Factory : les [jeux de données](data-factory-create-datasets.md) et les [pipelines](data-factory-create-pipelines.md).
@@ -34,7 +34,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 
 	![Nouveau -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)
   
-6. Dans le panneau **Nouvelle fabrique de données** :
+6. Dans le panneau **Nouvelle fabrique de données** :
 	1. Saisissez **ADFTutorialOnPremDF** dans le champ **Nom**.
 	2. Cliquez sur **RESOURCE GROUP NAME** et sélectionnez **ADFTutorialResourceGroup**. Vous pouvez sélectionner un groupe de ressources existant ou en créer un. Pour créer un groupe de ressources :
 		1. Cliquez sur **Créer un groupe de ressources**.
@@ -100,12 +100,12 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 
 	![Configuration de certificat de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
-	Vous pouvez également effectuer les opérations suivantes dans l’onglet Paramètres :- Afficher ou exporter le certificat utilisé par la passerelle. - Modifier le point de terminaison HTTPS utilisé par la passerelle -
+	Vous pouvez également effectuer les actions suivantes dans l’onglet Paramètres :- Afficher ou exporter le certificat utilisé par la passerelle. - Modifier le point de terminaison HTTPS utilisé par la passerelle -
 9. (facultatif) Basculez sur l’onglet **Diagnostics**, et cochez l’option **Activer la journalisation détaillée** si vous souhaitez activer la journalisation détaillée à utiliser pour résoudre les problèmes de passerelle. Vous trouverez les informations de journalisation dans l’**Observateur d’événements** sous le nœud **Journaux des applications et des services** -> **Passerelle de gestion des données**.
 
 	![Onglet Diagnostic](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
-	Vous pouvez également effectuer les opérations suivantes dans l’onglet **Diagnostics** :
+	Vous pouvez également effectuer les actions suivantes dans l’onglet **Diagnostics** :
 	
 	- Utilisez la section **Tester la connexion** à une source de données locale à l’aide de la passerelle.
 	- Cliquez sur **Afficher les journaux** pour consulter le journal de la passerelle de gestion des données dans une fenêtre de l’Observateur d’événements.
@@ -121,7 +121,7 @@ Au cours de cette étape, vous créez deux services liés : **AzureStorageLinked
 1.	Dans **Data Factory Editor**, cliquez sur **Nouvelle banque de données** sur la barre d’outils, puis sélectionnez **SQL Server**.
 
 	![Nouveau service lié SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
-3.	Dans l’**éditeur JSON**, procédez comme suit :
+3.	Dans l’**éditeur JSON**, procédez comme suit :
 	1. Pour **gatewayName**, spécifiez **adftutorialgateway**.
 	2. Si vous utilisez l’authentification Windows, procédez comme suit :
 		1. Dans **connectionString**, définissez la **sécurité intégrée** sur **true**, spécifiez le **nom du serveur** de la base de données, le **nom de la base de données**, puis supprimez l’**ID utilisateur** et le **mot de passe**.
@@ -157,7 +157,7 @@ Au cours de cette étape, vous créez deux services liés : **AzureStorageLinked
    
  
 ## Créer des jeux de données
-Dans cette étape, vous allez créer des jeux de données d’entrée et de sortie qui représentent les données d’entrée et de sortie pour l’opération de copie (base de données SQL Server locale = > stockage d’objets blob Azure). Avant de créer des jeux de données ou des tables (jeux de données rectangulaires), vous devez effectuer les opérations suivantes (les étapes sont détaillées après la liste) :
+Dans cette étape, vous allez créer des jeux de données d’entrée et de sortie qui représentent les données d’entrée et de sortie pour l’opération de copie (base de données SQL Server locale = > stockage d’objets blob Azure). Avant de créer des jeux de données ou des tables (jeux de données rectangulaires), vous devez effectuer les opérations suivantes (les étapes sont détaillées après la liste) :
 
 - Créez une table nommée **emp** dans la base de données SQL Server que vous avez ajoutée en tant que service lié à la fabrique de données et insérez quelques exemples d’entrées dans la table.
 - Créez un conteneur d’objets blobs nommé **adftutorial** dans le compte de stockage d’objets blobs Azure que vous avez ajouté en tant que service associé à la fabrique de données.
@@ -340,7 +340,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
 	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end** par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
-	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
+	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
 	
 	En spécifiant la période active pour un pipeline, vous définissez la durée pendant laquelle les tranches de données seront traitées, selon les propriétés de **disponibilité** qui ont été définies pour chaque table Azure Data Factory.
 	
@@ -358,7 +358,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
 	![Lien Diagramme](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
-2. Le diagramme ressemble à ce qui suit :
+2. Le diagramme devrait ressembler à l’image suivante :
 
 	![Vue de diagramme](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
@@ -414,4 +414,4 @@ Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se pass
 - Consultez l’article [Data Management Gateway](data-factory-data-management-gateway.md) (Passerelle de gestion des données) pour obtenir des informations détaillées sur la passerelle de gestion des données.
 - Consultez l’article [Copie de données d’un objet blob vers Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour en savoir plus sur l’utilisation de l’activité de copie pour déplacer des données d’une banque de données source vers une banque de données récepteur.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Création d’un compte DocumentDB prenant en charge le protocole MongoDB | Microsoft Azure" 
 	description="Découvrez comment créer un compte DocumentDB prenant en charge le protocole MongoDB (actuellement disponible en version préliminaire)." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Créer un compte DocumentDB prenant en charge le protocole MongoDB à l’aide du portail Azure
 
@@ -48,7 +48,7 @@ Pour créer un compte DocumentDB prenant en charge le protocole MongoDB, procéd
 	![Capture d’écran du panneau du nouveau compte DocumentDB prenant en charge le protocole MongoDB](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-account.png)
 
 
-	- Dans la zone **ID**, entrez un nom pour identifier le compte. Lorsque l’**ID** est validé, une coche verte s’affiche dans la case **ID**. La valeur pour **ID** devient le nom d’hôte dans l’URI. Cet **ID** ne peut contenir que des minuscules, des chiffres, le caractère « - » et doit compter entre 3 et 50 caractères. Notez que *documents.azure.com* sera ajouté au nom du point de terminaison de votre choix. Celui-ci deviendra le point de terminaison de votre compte.
+	- Dans la zone **ID**, entrez un nom pour identifier le compte. Lorsque l’**ID** est validé, une coche verte s’affiche dans la case **ID**. La valeur de **ID** devient le nom d’hôte dans l’URI. Cet **ID** ne peut contenir que des minuscules, des chiffres, le caractère « - » et doit compter entre 3 et 50 caractères. Notez que *documents.azure.com* sera ajouté au nom du point de terminaison de votre choix. Celui-ci deviendra le point de terminaison de votre compte.
 
 	- Dans **Abonnement**, sélectionnez l’abonnement Azure que vous voulez utiliser pour le compte. Si votre compte ne comporte qu’un seul abonnement, ce compte sera sélectionné par défaut.
 
@@ -78,4 +78,4 @@ Pour créer un compte DocumentDB prenant en charge le protocole MongoDB, procéd
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

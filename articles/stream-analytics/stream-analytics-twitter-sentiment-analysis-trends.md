@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/11/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 
@@ -62,7 +62,16 @@ Procédez comme suit pour configurer l’application :
 	[Procédure de génération d’un jeton d’accès OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Notez que vous devez créer une application vide pour générer un jeton.
-3.	Remplacez les valeurs EventHubConnectionString et EventHubName dans le fichier TwitterClient.exe.config par la chaîne de connexion et le nom de votre event hub. La chaîne de connexion copiée précédemment vous donne la chaîne de connexion et le nom du hub d’événements. Par conséquent, pensez à les séparer et à les placer dans le champ approprié.
+3.	Remplacez les valeurs EventHubConnectionString et EventHubName dans le fichier TwitterClient.exe.config par la chaîne de connexion et le nom de votre event hub. La chaîne de connexion copiée précédemment vous donne la chaîne de connexion et le nom du hub d’événements. Par conséquent, pensez à les séparer et à les placer dans le champ approprié. Par exemple, étant donné la chaîne de connexion suivante :
+
+    Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
+
+	Le fichier TwitterClient.exe.config doit contenir vos paramètres comme dans l’exemple ci-dessous :
+
+	add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey" add key="EventHubName" value="yourhub"
+
+	Il est important de noter que le texte « EntityPath = » n’apparaît PAS dans la valeur EventHubName.
+	
 4.	*Facultatif :* définissez les mots clés à rechercher. Par défaut, cette application recherche « Azure, Skype, XBox, Microsoft, Seattle ». Si vous le souhaitez, vous pouvez modifier ces mots clés en changeant les valeurs de twitter\_keywords dans TwitterClient.exe.config.
 5.	Exécutez **TwitterClient.exe** pour démarrer votre application. Vous voyez s’afficher les événements de Tweet tandis que les valeurs CreatedAt, Topic et SentimentScore sont transmises à votre hub d’événements :
 
@@ -75,11 +84,11 @@ Maintenant que nous avons un flux d’événements Tweet diffusé en temps réel
 ### Configuration d’un travail Stream Analytics
 
 1.	Dans le [Portail Azure](https://manage.windowsazure.com/), cliquez sur **NOUVEAU** > **DATA SERVICES** > **STREAM ANALYTICS** > **CRÉATION RAPIDE**.
-2.	Spécifiez les valeurs suivantes, puis cliquez sur **CRÉER UN TRAVAIL STREAM ANALYTICS** :
+2.	Spécifiez les valeurs suivantes, puis cliquez sur **CRÉER UN TRAVAIL STREAM ANALYTICS** :
 
-	* **NOM DU TRAVAIL** : entrez un nom pour le travail.
-	* **RÉGION** : sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le hub d’événements dans la même région pour être certain d’améliorer les performances et de ne pas payer pour un transfert de données entre différentes régions.
-	* **COMPTE DE STOCKAGE** : choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de tous les travaux Stream Analytics en cours d’exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
+	* **NOM DU TRAVAIL** : entrez un nom pour le travail.
+	* **RÉGION** : sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le hub d’événements dans la même région pour être certain d’améliorer les performances et de ne pas payer pour un transfert de données entre différentes régions.
+	* **COMPTE DE STOCKAGE** : choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de tous les travaux Stream Analytics en cours d’exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
 
 3.	Dans le volet gauche, cliquez sur **STREAM ANALYTICS** pour afficher une liste des travaux Stream Analytics. ![Icône du service Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
@@ -92,18 +101,18 @@ Maintenant que nous avons un flux d’événements Tweet diffusé en temps réel
 3.	Sélectionnez **HUB D’ÉVÉNEMENTS**, puis cliquez avec le bouton droit.
 4.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
-	* **ALIAS D’ENTRÉE** : entrez un nom convivial pour cette entrée de travail, comme TwitterStream. Notez que vous utiliserez ce nom dans la requête par la suite. **HUB D’ÉVÉNEMENTS** : si le hub d’événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé le hub d’événements.
+	* **ALIAS D’ENTRÉE** : entrez un nom convivial pour cette entrée de travail, comme TwitterStream. Notez que vous utiliserez ce nom dans la requête par la suite. **HUB D’ÉVÉNEMENTS** : si le hub d’événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé le hub d’événements.
 
 		Si votre hub d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le hub d’événements à partir d’un autre abonnement** et entrez manuellement **l’ESPACE DE NOMS SERVICE BUS**, le **NOM DU HUB D’ÉVÉNEMENTS**, le **NOM DE LA STRATÉGIE DU HUB D’ÉVÉNEMENTS**, la **CLÉ DE STRATÉGIE DU HUB D’ÉVÉNEMENTS** et le **NOMBRE DE PARTITIONS DU HUB D’ÉVÉNEMENTS**.
 
-	* **NOM DU HUB D’ÉVÉNEMENTS** : sélectionnez le nom du hub d’événements.
-	* **NOM DE LA STRATÉGIE DU HUB D’ÉVÉNEMENTS** : sélectionnez la stratégie de hub d’événements créée précédemment dans ce didacticiel.
-	* **GROUPE DE CONSOMMATEURS DU HUB D’ÉVÉNEMENTS** : entrez le nom du groupe de consommateurs créé précédemment dans ce didacticiel.
+	* **NOM DU HUB D’ÉVÉNEMENTS** : sélectionnez le nom du hub d’événements.
+	* **NOM DE LA STRATÉGIE DU HUB D’ÉVÉNEMENTS** : sélectionnez la stratégie de hub d’événements créée précédemment dans ce didacticiel.
+	* **GROUPE DE CONSOMMATEURS DU HUB D’ÉVÉNEMENTS** : entrez le nom du groupe de consommateurs créé précédemment dans ce didacticiel.
 5.	Cliquez avec le bouton droit.
 6.	Spécifiez les valeurs suivantes :
 
-	* **FORMAT DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
-	* **ENCODAGE** : UTF8
+	* **FORMAT DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
+	* **ENCODAGE** : UTF8
 
 7.	Cliquez sur la coche pour ajouter cette source et vérifier que Stream Analytics peut se connecter au hub d’événements.
 
@@ -197,16 +206,16 @@ Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, proc�
 2.	Sélectionnez **STOCKAGE D’OBJETS BLOB**, puis cliquez avec le bouton droit.
 3.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
-	* **ALIAS DE SORTIE** : entrez un nom convivial pour cette sortie de travail.
-	* **ABONNEMENT** : si le stockage d’objets blobs que vous avez créé est situé dans le même abonnement que la tâche Stream Analytics, sélectionnez **Utiliser le compte de stockage de l’abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le stockage associé à un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
-	* **COMPTE DE STOCKAGE** : sélectionnez le nom du compte de stockage.
-	* **CONTENEUR** : sélectionnez le nom du conteneur.
-	* **PRÉFIXE DU NOM DE FICHIER** : entrez un préfixe de fichier à utiliser lors de l’écriture de la sortie de l’objet blob.
+	* **ALIAS DE SORTIE** : entrez un nom convivial pour cette sortie de travail.
+	* **ABONNEMENT** : si le stockage d’objets blobs que vous avez créé est situé dans le même abonnement que la tâche Stream Analytics, sélectionnez **Utiliser le compte de stockage de l’abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le stockage associé à un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
+	* **COMPTE DE STOCKAGE** : sélectionnez le nom du compte de stockage.
+	* **CONTENEUR** : sélectionnez le nom du conteneur.
+	* **PRÉFIXE DU NOM DE FICHIER** : entrez un préfixe de fichier à utiliser lors de l’écriture de la sortie de l’objet blob.
 
 4.	Cliquez avec le bouton droit.
 5.	Spécifiez les valeurs suivantes :
-	* **FORMAT DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
-	* **ENCODAGE** : UTF8
+	* **FORMAT DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
+	* **ENCODAGE** : UTF8
 6.	Cliquez sur le bouton de vérification pour ajouter cette source et vérifier que Stream Analytics peut se connecter au compte de stockage.
 
 ## Démarrage du travail
@@ -236,4 +245,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

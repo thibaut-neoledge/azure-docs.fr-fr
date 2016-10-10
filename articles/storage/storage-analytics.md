@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="fryu;robinsh"/>
 
 # Storage Analytics
 
@@ -146,11 +146,11 @@ Les métriques de transaction sont enregistrées pour les demandes utilisateur e
 
 Les données de capacité sont enregistrées quotidiennement pour le service BLOB d'un compte de stockage et deux entités de table sont écrites. Une entité fournit des statistiques sur les données utilisateur et l'autre, sur le conteneur d'objets blob `$logs` utilisé par Storage Analytics. La table `$MetricsCapacityBlob` inclut les statistiques suivantes :
 
-- **Capacity** : volume de stockage utilisé par le service BLOB du compte de stockage, en octets.
+- **Capacity** : volume de stockage utilisé par le service BLOB du compte de stockage, en octets.
 
-- **ContainerCount** : nombre de conteneurs d'objet blob dans le service BLOB du compte de stockage.
+- **ContainerCount** : nombre de conteneurs d'objet blob dans le service BLOB du compte de stockage.
 
-- **ObjectCount** : nombre d'objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.
+- **ObjectCount** : nombre d'objets blob de blocs ou de pages validés et non validés dans le service BLOB du compte de stockage.
 
 Pour plus d'informations sur les métriques de capacité, consultez [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
 
@@ -208,4 +208,4 @@ Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les 
 - [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

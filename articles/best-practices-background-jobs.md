@@ -107,7 +107,7 @@ Les tâches web Azure s’exécutent dans le bac à sable (sandbox) de l’appli
 
 Les tâches web Azure présentent les caractéristiques suivantes :
 
-- **Sécurité** : les tâches web sont protégées par les informations d’identification sur le déploiement de l’application web.
+- **Sécurité** : les tâches web sont protégées par les informations d’identification sur le déploiement de l’application web.
 - **Types de fichiers pris en charge** : vous pouvez définir les tâches web avec des scripts de commande (.cmd), des fichiers de commandes (.bat), des scripts PowerShell (.ps1), des scripts Shell bash (.sh), des scripts PHP (.php), des scripts Python (.py), du code JavaScript (.js) ou des programmes exécutables (.exe, .jar, etc.).
 - **Déploiement** : vous pouvez déployer les scripts et exécutables à l’aide du portail Azure, du complément [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) pour Visual Studio ou de [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs) (option permettant la création et le déploiement), du [Kit de développement logiciel (SDK) Azure WebJobs](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md), ou via une opération de copie directe aux emplacements suivants :
   - Pour une exécution déclenchée : site/wwwroot/app\_data/jobs/triggered/{job name}
@@ -208,9 +208,9 @@ Si vous décidez d’inclure des tâches en arrière-plan dans une instance de c
 - **Extensibilité** : les tâches en arrière-plan n’ont souvent pas les mêmes exigences d’extensibilité que l’interface utilisateur et les éléments interactifs de l’application. Il peut être nécessaire de mettre l’interface utilisateur à l’échelle pour qu’elle puisse gérer les pics de demande. Les tâches en arrière-plan en attente peuvent alors être exécutées pendant les périodes moins chargées par un nombre plus réduit d’instances de calcul.
 - **Résilience** : l’échec d’une instance de calcul qui héberge simplement des tâches en arrière-plan peut ne pas affecter l’application dans son ensemble s’il est possible de mettre en file d’attente ou de reporter les demandes relatives à ces tâches jusqu’à ce que la tâche soit redevenue disponible. Si l’instance de calcul et/ou les tâches peuvent être redémarrées dans un intervalle approprié, l’échec peut être transparent pour les utilisateurs de l’application.
 - **Sécurité** : les tâches en arrière-plan peuvent avoir des restrictions ou exigences de sécurité différentes par rapport à l’interface utilisateur ou à d’autres éléments de l’application. En utilisant une instance de calcul distincte, vous pouvez spécifier un environnement de sécurité différent pour les tâches. Vous pouvez également utiliser des modèles comme celui de l’opérateur de contrôle d’appels pour isoler les instances de calcul en arrière-plan de l’interface utilisateur, afin d’optimiser la sécurité et la séparation.
-- **Performances** : vous pouvez choisir le type d’instance de calcul des tâches en arrière-plan de façon qu’il réponde précisément aux exigences de ces tâches en termes de performances. Cela peut se traduire par l’utilisation d’une option de calcul moins coûteuse si les tâches ne nécessitent pas les mêmes fonctions de traitement que l’interface utilisateur, ou d’une instance plus volumineuse s’il leur faut davantage de capacité et de ressources.
+- **Performances** : vous pouvez choisir le type d’instance de calcul des tâches en arrière-plan de façon qu’il réponde précisément aux exigences de ces tâches en termes de performances. Cela peut se traduire par l’utilisation d’une option de calcul moins coûteuse si les tâches ne nécessitent pas les mêmes fonctions de traitement que l’interface utilisateur, ou d’une instance plus volumineuse s’il leur faut davantage de capacité et de ressources.
 - **Gestion** : les tâches en arrière-plan ne suivent pas forcément le même rythme de développement et de déploiement que celui du code de l’application principale ou de l’interface utilisateur. Le fait de déployer une instance de calcul distincte peut permettre de simplifier les mises à jour et le contrôle de version.
-- **Coût** : l’ajout d’instances de calcul pour exécuter des tâches en arrière-plan augmente les coûts d’hébergement. Vous devez déterminer soigneusement l’équilibre entre l’ajout de capacité additionnelle et ces coûts supplémentaires.
+- **Coût** : l’ajout d’instances de calcul pour exécuter des tâches en arrière-plan augmente les coûts d’hébergement. Vous devez déterminer soigneusement l’équilibre entre l’ajout de capacité additionnelle et ces coûts supplémentaires.
 
 Pour plus d’informations, consultez [Leader Election Pattern](http://msdn.microsoft.com/library/dn568104.aspx) (Modèle de choix de l’instance responsable) et [Competing Consumers Pattern](http://msdn.microsoft.com/library/dn568101.aspx) (Modèle de consommateurs concurrents).
 
@@ -318,7 +318,7 @@ Les tâches en arrière-plan doivent offrir des performances suffisantes pour é
 - [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (billet de blog)
 - [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (vidéo)
 - [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-- [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](./service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Activation des diagnostics dans un service cloud](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

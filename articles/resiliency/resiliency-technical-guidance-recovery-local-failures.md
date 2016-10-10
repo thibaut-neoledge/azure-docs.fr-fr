@@ -160,7 +160,7 @@ Les applications qui reposent sur Azure bénéficient des fonctionnalités de pl
 
 ###Service Bus
 
-Pour éviter une panne temporaire d’Azure Service Bus, envisagez de créer une file d’attente durable côté client. Cette fonctionnalité utilise temporairement un autre mécanisme stockage local pour stocker les messages qui ne peuvent pas être ajoutés à la file d’attente Service Bus. L’application peut décider comment traiter les messages temporairement stockés après la restauration du service. Pour plus d’informations, consultez [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](../service-bus/service-bus-performance-improvements.md) (en Anglais) et la section [Service Bus (récupération d’urgence)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
+Pour éviter une panne temporaire d’Azure Service Bus, envisagez de créer une file d’attente durable côté client. Cette fonctionnalité utilise temporairement un autre mécanisme stockage local pour stocker les messages qui ne peuvent pas être ajoutés à la file d’attente Service Bus. L’application peut décider comment traiter les messages temporairement stockés après la restauration du service. Pour plus d’informations, consultez [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](../service-bus-messaging/service-bus-performance-improvements.md) (en Anglais) et la section [Service Bus (récupération d’urgence)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###Mobile Services
 
@@ -223,4 +223,4 @@ Par défaut, les données associées à Azure HDInsight sont stockées dans le s
 
 Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération d’une interruption de service à l’échelle de la région](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

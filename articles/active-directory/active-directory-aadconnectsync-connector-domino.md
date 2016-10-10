@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -221,7 +221,7 @@ Si un nouvel assistant nommé **David Alexander** est affecté à cet objet Pers
 
 **Default** : lorsque vous sélectionnez l’option Default, toutes les valeurs de tous les attributs sont importées.
 
-**Multivalued to Single Value** : lorsque vous sélectionnez cette option, un attribut à plusieurs valeurs est converti en un attribut à valeur unique. Si plusieurs valeurs existent, la valeur en haut (en général, c’est aussi la plus récente) est utilisée.
+**Multivalued to Single Value** : lorsque vous sélectionnez cette option, un attribut à plusieurs valeurs est converti en un attribut à valeur unique. Si plusieurs valeurs existent, la valeur en haut (en général, c’est aussi la plus récente) est utilisée.
 
 Par exemple : l’attribut Assistant d’un objet Personne possède les valeurs suivantes :
 
@@ -477,4 +477,4 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma pour le faire a
 
 -	Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="Découvrez comment activer la prise en charge du service CORS pour les services de stockage Microsoft Azure."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="cbrooks"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="cbrooks;tamram"/>
 
 # Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
 
@@ -68,15 +68,15 @@ Voici un exemple de règle CORS spécifiée via une opération Set Service Prope
 
 Chaque élément inclus dans la règle CORS est décrit ci-dessous :
 
-- **AllowedOrigins** : domaines d’origine qui sont autorisés à effectuer une demande auprès du service de stockage via CORS. Le domaine d'origine est celui d'où provient la demande. Notez que l'origine doit correspondance exactement (avec respect de la casse) à l'origine que l'utilisateur envoie au service. Vous pouvez également utiliser le caractère générique « * » pour autoriser tous les domaines d'origine à effectuer des demandes via CORS. Dans l’exemple ci-dessus, les domaines [http://www.contoso.com](http://www.contoso.com) et [http://www.fabrikam.com](http://www.fabrikam.com) peuvent envoyer des demandes au service à l’aide de CORS.
+- **AllowedOrigins** : domaines d’origine qui sont autorisés à effectuer une demande auprès du service de stockage via CORS. Le domaine d'origine est celui d'où provient la demande. Notez que l'origine doit correspondance exactement (avec respect de la casse) à l'origine que l'utilisateur envoie au service. Vous pouvez également utiliser le caractère générique « * » pour autoriser tous les domaines d'origine à effectuer des demandes via CORS. Dans l’exemple ci-dessus, les domaines [http://www.contoso.com](http://www.contoso.com) et [http://www.fabrikam.com](http://www.fabrikam.com) peuvent envoyer des demandes au service à l’aide de CORS.
 
-- **AllowedMethods** : méthodes (verbes de requête HTTP) que le domaine d’origine peut utiliser pour une demande CORS. Dans l'exemple ci-dessus, seules les demandes PUT et GET sont autorisées.
+- **AllowedMethods** : méthodes (verbes de requête HTTP) que le domaine d’origine peut utiliser pour une demande CORS. Dans l'exemple ci-dessus, seules les demandes PUT et GET sont autorisées.
 
-- **AllowedHeaders** : en-têtes de demande que le domaine d’origine peut spécifier dans la demande CORS. Dans l'exemple ci-dessus, tous les en-têtes de métadonnées commençant par x-ms-meta-data, x-ms-meta-target et x-ms-meta-abc sont autorisés. Notez que le caractère générique « * » indique que les en-têtes commençant par le préfixe spécifié sont autorisés.
+- **AllowedHeaders** : en-têtes de demande que le domaine d’origine peut spécifier dans la demande CORS. Dans l'exemple ci-dessus, tous les en-têtes de métadonnées commençant par x-ms-meta-data, x-ms-meta-target et x-ms-meta-abc sont autorisés. Notez que le caractère générique « * » indique que les en-têtes commençant par le préfixe spécifié sont autorisés.
 
-- **ExposedHeaders** : en-têtes de réponse qui peuvent être envoyés dans la réponse à la demande CORS et exposés par le navigateur à l’émetteur de la demande. Dans l'exemple ci-dessus, il est demandé au navigateur d'exposer les en-têtes commençant par x-ms-meta.
+- **ExposedHeaders** : en-têtes de réponse qui peuvent être envoyés dans la réponse à la demande CORS et exposés par le navigateur à l’émetteur de la demande. Dans l'exemple ci-dessus, il est demandé au navigateur d'exposer les en-têtes commençant par x-ms-meta.
 
-- **MaxAgeInSeconds** : durée maximale pendant laquelle un navigateur doit mettre en cache la demande OPTIONS préliminaire.
+- **MaxAgeInSeconds** : durée maximale pendant laquelle un navigateur doit mettre en cache la demande OPTIONS préliminaire.
 
 Les services de stockage Azure prennent en charge la spécification d’en-têtes préfixés pour les éléments **AllowedHeaders** et **ExposedHeaders**. Pour autoriser une catégorie d'en-têtes, vous pouvez spécifier un préfixe commun à cette catégorie. Par exemple, le fait de spécifier *x-ms-meta** comme en-tête préfixé crée une règle qui établit une correspondance avec tous les en-têtes commençant par x-ms-meta.
 
@@ -96,7 +96,7 @@ Quand un service de stockage reçoit une demande préliminaire ou réelle, il é
 
 Les règles CORS sont évaluées comme suit :
 
-1. Tout d’abord, le domaine d’origine de la demande est vérifié par rapport aux domaines répertoriés pour l’élément **AllowedOrigins**. Si le domaine d'origine figure dans la liste ou si tous les domaines sont autorisés avec le caractère générique « * », l'évaluation des règles continue. Si le domaine d'origine ne figure pas dans la liste, la demande échoue.
+1. Tout d’abord, le domaine d’origine de la demande est vérifié par rapport aux domaines répertoriés pour l’élément **AllowedOrigins**. Si le domaine d'origine figure dans la liste ou si tous les domaines sont autorisés avec le caractère générique « * », l'évaluation des règles continue. Si le domaine d'origine ne figure pas dans la liste, la demande échoue.
 
 2. Ensuite, la méthode (ou le verbe HTTP) de la demande est comparée aux méthodes répertoriées dans l’élément **AllowedMethods**. Si la méthode figure dans la liste, l'évaluation des règles continue ; sinon, la demande échoue.
 
@@ -157,7 +157,7 @@ Lorsque le navigateur ou un autre agent utilisateur met en cache la réponse d'u
 
 Le stockage Azure affecte à l’en-tête *Vary* la valeur **Origin** pour les demandes GET/HEAD réelles dans les cas suivants :
 
-- Lorsque l'origine de la demande correspond exactement à l'origine autorisée définie par une règle CORS. Pour qu’il s’agisse d’une correspondance exacte, la règle CORS ne doit pas inclure le caractère générique « * ».
+- Lorsque l'origine de la demande correspond exactement à l'origine autorisée définie par une règle CORS. Pour qu’il s’agisse d’une correspondance exacte, la règle CORS ne doit pas inclure le caractère générique « * ».
 
 - Il n'y a aucune règle correspondant à l'origine de la demande, mais CORS est activé pour le service de stockage.
 
@@ -195,4 +195,4 @@ Les demandes préliminaires infructueuses ne seront pas facturés.
 
 [Spécification du Partage des ressources cross-origin (W3C)](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

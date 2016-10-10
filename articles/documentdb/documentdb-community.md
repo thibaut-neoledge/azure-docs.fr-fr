@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/12/2016"
+  ms.date="09/26/2016"
   ms.author="andrl"/>
 
 # Portail de la communauté
@@ -120,8 +120,9 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 
 | Nom de l'événement | Intervenant | Emplacement | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu et Tara Jana | Atlanta, GA | 26-30 septembre 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
-| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | New York | 26-29 septembre 2016 | [#StrataConf](https://twitter.com/strataconf) |
+| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb)<br><br>[Discours d’ouverture : Enable digital transformation using The Unreasonable Effectiveness of A.C.I.D (Permettre la transformation numérique grâce à l’efficacité redoutable A.C.I.D, Algorithmes, Cloud, IoT, Données) avec Joseph Sirosh](https://myignite.microsoft.com/sessions/34953)<br><br>[Session : Azure DocumentDB at massive scale: Customer success and design patterns (Azure DocumentDB à grande échelle : succès client et modèles de conception) avec Syam Kumar Nair et Andrew Liu](https://myignite.microsoft.com/sessions/3066)<br><br>[Session : Manage IoT assets with Node.js and DocumentDB (Gérer les ressources IoT avec Node.js et DocumentDB) avec Joshua Davis](https://myignite.microsoft.com/sessions/39704)<br><br>[Session : Build smarter and scalable applications using Microsoft Azure Database Services (Développer des applications plus intelligentes et évolutives à l’aide des services de base de données Microsoft Azure) avec Tara Jana et Moshe Gutman](https://myignite.microsoft.com/sessions/2633)| Andrew Liu, Syam Kumar Nair et Tara Jana | Atlanta, GA | 26-30 septembre 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Meetup à Ignite : DocumentDB : Advanced Features for Large-Scale Apps (Fonctionnalités avancées pour les applications à grande échelle)](http://www.meetup.com/Azure-in-the-ATL/events/234252070/) | Andrew Liu, Syam Kumar Nair | Atlanta, GA | 27 septembre 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) [@FlatironCity](https://twitter.com/FlatironCity) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | Venez visiter notre stand ! | New York | 26-29 septembre 2016 | [#StrataConf](https://twitter.com/strataconf) |
 | [Groupe d’utilisateurs .NET Capitale](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, Floride | 3 novembre 2016 | n/a |
 
 
@@ -137,7 +138,8 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 | [Groupe d’utilisateurs d’intégration](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) | Howard S. Edidin | Émission web | 20 juin 2016 | [Les applications logiques prennent-elles en charge la gestion des erreurs ?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |
 | [Réunion : groupe d’utilisateurs Azure du Royaume-Uni](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Andrew Liu | Londres, Royaume-Uni | 12 mai 2016 | n/a
 |[Rencontre : ONETUG, Groupe d’utilisateurs .NET d’Orlando ](http://www.meetup.com/ONETUG/events/230797164/)| Santosh Hari| Orlando, Floride| 12 mai 2016| n/a 
-| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Royaume-Uni | 4-7 mai 2016 | n/a| [Meetup : Groupe de développeurs .NET NYC](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | New York, New York | 21 avril 2016 | n/a |
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Royaume-Uni | 4-7 mai 2016 | n/a| 
+| [Meetup : Groupe de développeurs .NET NYC](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | New York, New York | 21 avril 2016 | n/a |
 | [Groupe d’utilisateurs d’intégration](http://www.integrationusergroup.com/#) | Howard Edidin | Webinaire | 25 avril 2016 | n/a |
 | [Camp d'entraînement Azure mondial : SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, Californie | 16 avril 2016 | n/a |
 | [Camp d'entraînement Azure mondial : Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, Washington | 16 avril 2016 | n/a |
@@ -269,4 +271,4 @@ Assistant | Photo
 
 Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

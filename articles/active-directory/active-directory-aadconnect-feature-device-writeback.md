@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="StevenPo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -130,4 +130,4 @@ Vérifiez la configuration dans Active Directory :
 ## Étapes suivantes
 En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

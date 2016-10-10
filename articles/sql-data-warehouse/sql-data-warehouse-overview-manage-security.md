@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
+   ms.date="09/24/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Sécuriser une base de données dans SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
-- [Détection de menaces](sql-data-warehouse-security-threat-detection.md)
-- [Vue d’ensemble de l’audit](sql-data-warehouse-auditing-overview.md)
-- [Audit des clients de niveau inférieur](sql-data-warehouse-auditing-downlevel-clients.md)
-- [Chiffrement transparent des données (portail)](sql-data-warehouse-encryption-tde.md)
-- [Chiffrement transparent des données (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Authentification](sql-data-warehouse-authentication.md)
+- [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
+- [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 Cet article présente les principes de base de la sécurisation de votre base de données Microsoft Azure SQL Data Warehouse. Plus spécifiquement, cet article vous offre un aperçu sur les ressources dédiées à la limitation de l’accès, à la protection des données et à la surveillance des activités sur une base de données.
 
@@ -83,18 +81,9 @@ La gestion des bases de données et serveurs logiques à partir du portail Azure
 
 ## Chiffrement
 
-Azure SQL Data Warehouse peut vous aider à protéger vos données en les chiffrant lorsqu’elles sont « au repos » ou stockées dans des fichiers de base de données et des sauvegardes, à l’aide d’un [chiffrement transparent des données][]. Vous devez être un administrateur ou un membre du rôle dbmanager dans la base de données master pour activer le chiffrement transparent des données. Pour chiffrer votre base de données, connectez-vous à la base de données MASTER sur votre serveur et exécutez :
+Le chiffrement transparent des données de Microsoft Azure SQL Data Warehouse vous aide à vous protéger contre les menaces d’activités malveillantes, par le biais d’un chiffrement et d’un déchiffrement en temps réel de vos données au repos. Lorsque vous chiffrez votre base de données, les fichiers de sauvegardes et les journaux de transactions associés sont chiffrés, sans que cela ne nécessite de modifications de vos applications. Le chiffrement transparent des données chiffre le stockage d’une base de données entière à l’aide d’une clé symétrique appelée clé de chiffrement de base de données. Dans la base de données SQL, la clé de chiffrement de base de données est protégée par un certificat de serveur intégré. Le certificat de serveur intégré est unique pour chaque serveur de base de données SQL. Microsoft alterne automatiquement ces certificats au moins tous les 90 jours. L’algorithme de chiffrement utilisé par SQL Data Warehouse est AES-256. Pour obtenir une description générale du chiffrement transparent des données, consultez la page [Chiffrement transparent des données (TDE)][].
 
-
-```sql
-ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-```
-
-Vous pouvez également activer le chiffrement transparent des données à partir des paramètres de base de données dans le [portail Azure][]. Pour plus d’informations, consultez [Prise en main du chiffrement transparent des données (TDE)][].
-
-## Audit
-
-Les fonctions d’audit et de suivi des événements de la base de données peuvent vous aider à assurer la conformité aux normes et à identifier toute activité suspecte. La fonction d’audit de SQL Data Warehouse vous permet d’enregistrer les événements survenus dans votre base de données dans un journal d’audit au sein de votre compte Microsoft Azure Storage. Cette fonction s’intègre également dans Microsoft Power BI, afin de faciliter la création d’analyses et de rapports approfondis. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL][].
+Vous pouvez chiffrer votre base de données à l’aide du [portail Azure][Encryption with Portal] ou de [T-SQL][Encryption with TSQL].
 
 ## Étapes suivantes
 
@@ -104,8 +93,8 @@ Pour plus d’informations et des exemples sur la connexion à SQL Data Warehous
 
 <!--Article references-->
 [Se connecter à SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-[Prise en main de l’audit de base de données SQL]: ./sql-data-warehouse-auditing-overview.md
-[Prise en main du chiffrement transparent des données (TDE)]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
 [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
@@ -116,10 +105,10 @@ Pour plus d’informations et des exemples sur la connexion à SQL Data Warehous
 [Gestion des bases de données et connexions dans Base de données SQL Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [autorisations]: https://msdn.microsoft.com/library/ms191291.aspx
 [procédures stockées]: https://msdn.microsoft.com/library/ms190782.aspx
-[chiffrement transparent des données]: https://go.microsoft.com/fwlink/?LinkId=526242
-[portail Azure]: https://portal.azure.com/
+[Chiffrement transparent des données (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans le Portail Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

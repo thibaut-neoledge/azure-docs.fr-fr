@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="07/04/2016"
+     ms.date="09/23/2016"
      ms.author="dobett"/>
 
 # Didacticiel : envoi de messages cloud-à-appareil avec IoT Hub et Node.js
@@ -39,15 +39,15 @@ Vous trouverez des informations supplémentaires sur les messages du cloud vers 
 
 > [AZURE.NOTE] IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (notamment C, Java et Javascript) par le biais des Kits de développement logiciel (SDK) d’appareils Azure IoT. Pour obtenir des instructions détaillées sur la façon de connecter votre appareil au code de ce didacticiel, et à Azure IoT Hub de manière générale, consultez le [Centre de développement Azure IoT].
 
-Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-+ Node.js version 0.12.x ou version ultérieure. <br/> L’article [Prepare your development environment][lnk-dev-setup] \(Préparer votre environnement de développement) décrit comment installer Node.js pour ce didacticiel sur Windows ou sur Linux.
++ Node.js version 0.12.x ou version ultérieure. <br/> L’article [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 
-+ Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure][lnk-free-trial].)
++ Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure][lnk-free-trial].
 
 ## Réception de messages sur le périphérique simulé
 
-Dans cette section, vous allez modifier l’application de l’appareil simulé que vous avez créée dans [Prise en main d’Azure IoT Hub] pour recevoir des messages cloud-à-appareil à partir d’IoT Hub.
+Dans cette section, vous modifiez l’application de l’appareil simulé que vous avez créée dans [Prise en main d’Azure IoT Hub] pour recevoir des messages cloud-à-appareil à partir d’IoT Hub.
 
 1. À l’aide d’un éditeur de texte, ouvrez le fichier SimulatedDevice.js.
 
@@ -79,7 +79,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
 ## Envoi d’un message cloud vers appareil
 
-Dans cette section, vous allez créer une application de console Node.js qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID d’appareil de l’appareil que vous avez ajouté dans le didactiel [Prise en main d’Azure IoT Hub] et de la chaîne de connexion pour votre IoT Hub que vous trouverez sur le [portail Azure].
+Dans cette section, vous allez créer une application de console Node.js qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le didacticiel [Prise en main d’IoT Hub]. Vous avez également besoin de la chaîne de connexion pour votre IoT Hub que vous trouverez dans le [portail Azure].
 
 1. Créez un dossier vide appelé **sendcloudtodevicemessage**. Dans le dossier **sendcloudtodevicemessage**, créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
 
@@ -104,7 +104,7 @@ Dans cette section, vous allez créer une application de console Node.js qui env
     var Message = require('azure-iot-common').Message;
     ```
 
-5. Ajoutez le code suivant au fichier **SendCloudToDeviceMessage.js**, et remplacez la valeur d’espace réservé de chaîne de connexion par la chaîne de connexion pour l’IoT hub que vous avez créé dans le didacticiel [Prise en main d’IoT Hub], et l’espace réservé d’appareil cible par l’ID d’appareil de l’appareil que vous avez ajouté dans le didacticiel [Prise en main d’IoT Hub] \:
+5. Ajoutez le code suivant au fichier **SendCloudToDeviceMessage.js**. Remplacez la valeur d’espace réservé par la chaîne de connexion pour le IoT Hub créé dans le didacticiel [Prise en main d’IoT Hub]. Remplacez l’espace réservé pour l’appareil cible par l’ID de l’appareil ajouté dans le didacticiel [Prise en main d’IoT Hub] \:
 
     ```
     var connectionString = '{iot hub connection string}';
@@ -175,7 +175,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
     ![Exécutez l’application pour envoyer la commande c2d][img-send-command]
 
-    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
+    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
 
 ## Étapes suivantes
 
@@ -202,4 +202,4 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [portail Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

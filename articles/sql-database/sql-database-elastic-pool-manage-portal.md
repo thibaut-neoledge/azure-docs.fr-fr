@@ -31,10 +31,10 @@ Vous pouvez utiliser le portail Azure pour surveiller et gérer un pool de bases
 
 La capture d’écran ci-dessous montre un exemple de pool élastique. L’affichage inclut :
 
-*  Des graphiques pour la surveillance de l’utilisation des ressources du pool élastique et des bases de données que contient ce pool. 
-*  Le bouton **Configurer le pool** pour apporter des modifications au pool élastique. 
+*  Des graphiques pour la surveillance de l’utilisation des ressources du pool élastique et des bases de données que contient ce pool.
+*  Le bouton **Configurer le pool** pour apporter des modifications au pool élastique.
 *  Le bouton **Créer une base de données**, qui permet de créer une base de données et de l’ajouter au pool élastique actuel.
-*  Des tâches élastiques, qui vous aident à gérer un grand nombre de bases de données en exécutant des scripts Transact SQL sur toutes les bases de données d’une liste. 
+*  Des tâches élastiques, qui vous aident à gérer un grand nombre de bases de données en exécutant des scripts Transact SQL sur toutes les bases de données d’une liste.
 
 ![Affichage du pool][2]
 
@@ -56,14 +56,16 @@ Vous pouvez accéder à un pool particulier pour consulter l’utilisation des r
 ### Pour personnaliser l’affichage du graphique
 
 Vous pouvez modifier le graphique et le panneau Métrique pour afficher d’autres métriques, telles que le pourcentage d’UC, le pourcentage d’E/S des données et le pourcentage d’E/S des fichiers journaux utilisés.
- 
+
 2. Dans le panneau Métrique, cliquez sur **Modifier**.
 
 	![Cliquez sur Modifier][6]
 
-- Dans le panneau **Modifier le graphique**, sélectionnez une nouvelle plage de temps (dernière heure, aujourd’hui ou semaine dernière) ou cliquez sur **Personnalisé** pour sélectionner la plage de temps de votre choix au cours des deux dernières semaines. Sélectionnez le type de graphique (bâtons ou linéaire), puis sélectionnez les ressources à surveiller. 
+- Dans le panneau **Modifier le graphique**, sélectionnez une nouvelle plage de temps (dernière heure, aujourd’hui ou semaine dernière) ou cliquez sur **Personnalisé** pour sélectionner la plage de temps de votre choix au cours des deux dernières semaines. Sélectionnez le type de graphique (bâtons ou linéaire), puis sélectionnez les ressources à surveiller.
 
-	![Cliquez sur Modifier](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+> Remarque : seules les mesures présentant la même unité peuvent figurer simultanément dans le graphique. Par exemple, si vous sélectionnez « Pourcentage eDTU », vous serez en mesure de sélectionner d’autres mesures de pourcentage.
+
+	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
 - Cliquez ensuite sur **OK**.
 
@@ -99,7 +101,7 @@ Il est également possible de surveiller des bases de données individuelles pou
 Dans la liste de base de données du panneau **Database Resource Utilization** (Utilisation des ressources des bases de données), vous pouvez rechercher des bases de données spécifiques en parcourant les différentes pages ou en tapant leur nom. Activez la case à cocher pour sélectionner la base de données.
 
 ![Recherchez les bases de données à surveiller][7]
-  
+
 
 ## Ajouter une alerte à une ressource de pool
 
@@ -132,7 +134,7 @@ Vous pouvez ajouter ou supprimer des bases de données dans un pool existant. Le
 
 	![Cliquez sur Ajouter au pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-	
+
 3. Dans le panneau **Ajouter des bases de données**, sélectionnez les bases de données à ajouter au pool. Puis cliquez sur **Sélectionner**.
 
 	![Sélectionnez les bases de données à ajouter](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
@@ -156,7 +158,7 @@ Vous pouvez ajouter ou supprimer des bases de données dans un pool existant. Le
     ![liste des bases de données](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
     Le panneau **Configurer le pool** répertorie maintenant les bases de données sélectionnées à supprimer, avec leur état défini sur **En attente**.
-    
+
     ![Afficher l’aperçu d’ajout et de suppression de base de données](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
 3. Dans le panneau **Configurer le pool**, cliquez sur **Enregistrer**.
@@ -213,4 +215,4 @@ Consultez [Montée en charge avec la base de données SQL Azure](sql-database-el
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

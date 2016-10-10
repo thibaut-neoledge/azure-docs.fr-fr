@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connexion à un compte Media Services à l’aide de l’API REST" 
+	pageTitle="Connexion à un compte Media Services à l’aide de l’API REST | Microsoft Azure" 
 	description="Cette rubrique montre comment se connecter à Media Services avec l’API REST." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -177,4 +177,4 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

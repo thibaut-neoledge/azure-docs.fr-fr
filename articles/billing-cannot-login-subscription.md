@@ -22,17 +22,9 @@
 
 Cet article vous présente certaines des méthodes plus courantes pour résoudre les problèmes de connexion.
 
-> [AZURE.NOTE] Si à un moment donné dans cet article, vous rencontrez un problème et avez besoin d’aide, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide.
+> [AZURE.NOTE] Si à un moment donné dans cet article, vous avez besoin d’aide, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
-## Portails Azure
-
-| Nom | Description | URL |
-|---|---|---|
-| Portail Azure |Emplacement central vous permettant de configurer et de gérer vos ressources Azure | [https://portal.azure.com](https://portal.azure.com) |
-| Portail Azure Classic | Ancien portail Azure |[https://manage.windowsazure.com](https://manage.windowsazure.com) |
-| Centre des comptes Azure | Emplacement central vous permettant d’effectuer le suivi de votre utilisation d’Azure et de gérer votre abonnement |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions) ||
-
-## Symptôme : La page se bloque à l’état de chargement
+## La page se bloque à l’état de chargement
 
 Ce problème peut être dû à un dysfonctionnement qui affecte votre navigateur Internet.
 
@@ -44,17 +36,17 @@ Pour résoudre ce problème, essayez les méthodes suivantes, dans l’ordre ind
 
 	A. Cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sécurité** > **Navigation InPrivate**.
 
-	B. Accédez au [portail Azure](https://portal.azure.com) ou au [portail Azure Classic](https://manage.windowsazure.com), puis connectez-vous au portail.
+	B. Accédez au [Portail Azure](https://portal.azure.com), puis connectez-vous.
 
-## Symptôme : Message d’erreur « Aucun abonnement trouvé »
+## Message d’erreur « Aucun abonnement trouvé »
 
-Ce problème peut se produire si le compte ne dispose pas des droits d’utilisateur suffisants. Un administrateur de compte ne peut accéder qu’au [Centre des comptes](https://account.windowsazure.com/), tandis que les administrateurs de services (SA) et les co-administrateurs (CA) bénéficient uniquement d’un accès au [portail Azure](https://portal.azure.com) ou au [portail Azure Classic](https://manage.windowsazure.com/).
+Ce problème peut se produire si le compte ne dispose pas des droits d’utilisateur suffisants. Un administrateur de compte ne peut accéder qu’au [Centre des comptes](https://account.windowsazure.com/), tandis que les administrateurs de services (SA) et les coadministrateurs (CA) bénéficient uniquement d’un accès au [Portail Azure](https://portal.azure.com).
 
-**Scénario 1 : Le message d’erreur s’affiche dans le portail Azure ou le portail Azure Classic**
+**Scénario 1 : Le message d’erreur s’affiche sur le [Portail Azure](https://portal.azure.com)**
 
 Pour résoudre ce problème, [ajoutez le rôle de co-administrateur ou de propriétaire](billing-add-change-azure-subscription-administrator.md) pour le compte.
 
-**Scénario 2 : Le message d’erreur s’affiche dans le Centre des comptes Azure**
+**Scénario 2 : Le message d’erreur s’affiche dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions)**
 
 Vérifiez si le compte utilisé correspond à l’administrateur du compte. Pour vérifier qui est l’administrateur du compte, procédez comme suit :
 
@@ -63,7 +55,7 @@ Vérifiez si le compte utilisé correspond à l’administrateur du compte. Pour
 3.	Sélectionnez l’abonnement que vous souhaitez vérifier, puis choisissez **Paramètres**.
 4.	Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte**.
 
-## Symptôme : Vous êtes automatiquement connecté en tant qu’utilisateur différent
+## Vous êtes automatiquement connecté comme un autre utilisateur
 
 Ce problème peut se produire si vous utilisez plusieurs comptes utilisateur dans un navigateur Internet.
 
@@ -76,14 +68,14 @@ Pour résoudre le problème, essayez l’une des méthodes suivantes :
 
 -	Accédez au portail Azure en mode de navigation InPrivate. Pour ce faire, cliquez sur **Outils** ![bouton Outils](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sécurité** > **Navigation InPrivate**.
 
-## Compte Microsoft ou compte professionnel
+## Vous devez vous connecter avec un compte professionnel
 
 Votre compte Microsoft correspond à l’adresse de messagerie et au mot de passe que vous utilisez pour vous connecter à n’importe quel programme ou service Windows Live (par exemple, Outlook, Hotmail, MSN ou OneDrive). Vous pouvez configurer un compte Microsoft en utilisant l’une de vos adresses de messagerie personnelles, y compris la messagerie de votre entreprise. Pour plus d’informations, consultez [www.microsoft.com/account](http://www.microsoft.com/account).
 
-Si votre compte est associé à un compte professionnel, sélectionnez l’option de connexion appropriée, comme indiqué ci-dessous. Pour plus d’informations sur l’utilisation des comptes professionnels, consultez la page [Inscription à Azure en tant qu’organisation](./active-directory/sign-up-organization.md).
+La page de connexion par défaut du Portail Azure est pour le compte Microsoft. Si votre compte est associé à un compte professionnel, sélectionnez l’option de connexion appropriée, comme indiqué ci-dessous. Pour plus d’informations sur l’utilisation des comptes professionnels, consultez la page [Inscription à Azure en tant qu’organisation](./active-directory/sign-up-organization.md).
 
 ![page de connexion](./media/billing-cannot-login-subscription/signin.png)
 
 > [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

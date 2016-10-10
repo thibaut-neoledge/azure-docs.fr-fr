@@ -3,7 +3,7 @@
    description="Résoudre les problèmes de déploiement de Resource Manager lors de la création d’une machine virtuelle Windows dans Azure"
    services="virtual-machines-windows, azure-resource-manager"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue, azure-resource-manager"/>
@@ -45,19 +45,19 @@ Pour résoudre les problèmes, commencez par collecter les journaux d’audit af
 
 **Résolution :**
 
-Pour corriger ces deux erreurs, utilisez [Add-AzureRMVhd pour télécharger le disque dur virtuel d’origine](https://msdn.microsoft.com/library/mt603554.aspx), disponible en mode local, avec le même paramétrage que pour le système d’exploitation (généralisé/spécialisé). Pour effectuer un téléchargement de type généralisé, n’oubliez pas d’exécuter d’abord sysprep.
+Pour corriger ces deux erreurs, utilisez [Add-AzureRmVhd pour télécharger le disque dur virtuel d’origine](https://msdn.microsoft.com/library/mt603554.aspx), disponible en mode local, avec le même paramétrage que pour le système d’exploitation (généralisé/spécialisé). Pour effectuer un téléchargement de type généralisé, n’oubliez pas d’exécuter d’abord sysprep.
 
 **Erreurs de capture :**
 
 **N<sup>3</sup> :** si le système d’exploitation est de type Windows généralisé et s’il est capturé avec le paramètre spécialisé, cela entraîne une erreur de délai d’attente de configuration, car la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme généralisée.
 
-**N<sup>4</sup> :** si le système d’exploitation est de type Windows spécialisé et s’il est capturé avec le paramètre généralisé, cela entraîne une erreur d’échec de configuration, car la nouvelle machine virtuelle s’exécute avec le nom de l’ordinateur, le nom d’utilisateur et le mot de passe d’origine. En outre, la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme spécialisée.
+**N<sup>4</sup> :** si le système d’exploitation est de type Windows spécialisé et s’il est capturé avec le paramètre généralisé, cela entraîne une erreur d’échec d’approvisionnement, car la nouvelle machine virtuelle s’exécute avec le nom de l’ordinateur, le nom d’utilisateur et le mot de passe d’origine. En outre, la machine virtuelle d’origine n’est pas utilisable tant qu’elle est marquée comme spécialisée.
 
 **Résolution :**
 
 Pour corriger ces deux erreurs, supprimez l’image actuelle du portail, et [effectuez une nouvelle capture à partir des disques durs virtuels en cours](virtual-machines-windows-capture-image.md), avec le même paramétrage que celui du système d’exploitation (généralisé/spécialisé).
 
-## Problème : Image personnalisée / galerie / marketplace ; échec d’allocation
+## Problème : image personnalisée/de la galerie/de la Place de marché ; échec d’allocation
 Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est épinglée à un cluster qui ne prend pas en charge la taille de machine virtuelle requise ou qui n’a pas d’espace libre suffisant pour prendre en charge la demande.
 
 **Cause 1 :** le cluster ne peut pas prendre en charge la taille de machine virtuelle demandée.
@@ -82,4 +82,4 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
 ## Étapes suivantes
 Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Windows arrêtée ou que vous redimensionnez Windows une machine virtuelle existante dans Azure, consultez [Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

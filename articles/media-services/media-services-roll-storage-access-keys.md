@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="mettre à jour Media Services après la substitution de clés d’accès de stockage" 
+	pageTitle="Mettre à jour Media Services après la substitution de clés d’accès de stockage | Microsoft Azure" 
 	description="Cet article vous donne des conseils sur la mise à jour de Media Services après la substitution de clés d’accès de stockage." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="milangada;cenkdin;juliako"/>
 
-#Procédure : mettre à jour Media Services après la substitution de clés d’accès de stockage
+#Mettre à jour Media Services après la substitution de clés d’accès de stockage
 
 Lorsque vous créez un compte Azure Media Services, vous êtes également invité à sélectionner un compte de stockage Azure qui est utilisé pour stocker votre contenu multimédia. Notez que vous pouvez [ajouter plusieurs comptes de stockage](meda-services-managing-multiple-storage-accounts.md) à votre compte Media Services.
 
@@ -159,4 +159,4 @@ Utilisez la même procédure que celle décrite dans l’[étape 3](media-servi
 
 Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

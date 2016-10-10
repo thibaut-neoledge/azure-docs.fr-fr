@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utiliser Azure Media Services pour diffuser en continu votre contenu HLS protégé avec Apple FairPlay" 
+	pageTitle="Protéger votre contenu HLS avec Apple FairPlay et/ou Microsoft PlayReady | Microsoft Azure" 
 	description="Cette rubrique fournit une vue d’ensemble et montre comment utiliser Azure Media Services pour chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) avec Apple FairPlay. Elle montre également comment utiliser le service de distribution de licences Media Services pour fournir des licences FairPlay aux clients." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,22 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016"
+	ms.date="09/27/2016"
 	ms.author="juliako"/>
 
-#Utiliser Azure Media Services pour diffuser en continu votre contenu HLS protégé avec Apple FairPlay 
+# Protéger votre contenu HLS avec Apple FairPlay et/ou Microsoft PlayReady
 
 Azure Media Services vous permet de chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) avec les formats suivants :
 
-- **Clé en clair de l’enveloppe AES-128** : le segment entier est chiffré à l’aide du mode **AES-128 CBC**. Le déchiffrement du flux est pris en charge par iOS et le lecteur OSX en mode natif. Pour plus d’informations, consultez [cet article](media-services-protect-with-aes128.md).
+- **Clé en clair de l’enveloppe AES-128**
 
-- **Apple FairPlay** - Les échantillons audio et vidéo individuels sont chiffrés à l'aide du mode **AES-128 CBC**. **FairPlay Streaming** (FPS) est intégré dans les systèmes d'exploitation de l’appareil, avec prise en charge native sur iOS et Apple TV. Safari sur OS X active FPS à l'aide de la prise en charge d'interface Encrypted Media Extensions (EME).
+	Le segment entier est chiffré à l’aide du mode **AES-128 CBC**. Le déchiffrement du flux est pris en charge par iOS et le lecteur OSX en mode natif. Pour plus d’informations, consultez [cet article](media-services-protect-with-aes128.md).
 
-L'image suivante montre le flux de travail « Chiffrement dynamique FairPlay ».
+- **Apple FairPlay**
+
+	Les échantillons audio et vidéo individuels sont chiffrés à l’aide du mode **AES-128 CBC**. **FairPlay Streaming** (FPS) est intégré dans les systèmes d'exploitation de l’appareil, avec prise en charge native sur iOS et Apple TV. Safari sur OS X active FPS à l'aide de la prise en charge d'interface Encrypted Media Extensions (EME).
+- **Microsoft PlayReady**
+
+L’image suivante montre le flux de travail **CHLS + FairPlay et/ou chiffrement dynamique PlayReady**.
 
 ![Protéger avec FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
 Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynamiquement votre contenu HLS avec Apple FairPlay. Elle montre également comment utiliser le service de distribution de licences Media Services pour fournir des licences FairPlay aux clients.
+
+>[AZURE.NOTE] Si vous souhaitez également chiffrer votre contenu HLS avec PlayReady, vous devez créer une clé commune et l’associer à votre ressource. Vous devez également configurer la stratégie d’autorisation de la clé de contenu, comme décrit dans la rubrique [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md) (Utilisation du chiffrement commun dynamique PlayReady).
 
 	
 ## Conditions requises et éléments à prendre en compte
@@ -40,10 +47,10 @@ Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynami
 	- S’inscrire au programme [Apple Developer Program](https://developer.apple.com/).
 	- Apple exige que le propriétaire du contenu se procure le [package de déploiement](https://developer.apple.com/contact/fps/). Dans votre demande, indiquez que vous déjà implémenté le module de sécurité des clés (KSM) et que vous avez besoin du package FPS final. Le package FPS final contiendra les instructions à suivre pour générer la certification et obtenir la clé secrète de l’application (ASK), qui vous servira à configurer FairPlay.
 
-	- Kit de développement logiciel (SDK) .NET Azure Media Services version **3.6.0** ou ultérieure.
+	- Kit de développement logiciel (SDK) .NET Azure Media Services version **3.6.0** ou ultérieure.
 
 - Les éléments suivants doivent être définis du côté de la remise de clé AMS :
-	- **App Cert (AC)** : fichier .pfx qui contient la clé privée. Ce fichier est créé par le client et chiffré avec un mot de passe par le même client.
+	- **App Cert (AC)** : fichier .pfx qui contient la clé privée. Ce fichier est créé par le client et chiffré avec un mot de passe par le même client.
 		
 	 	Lorsque le client configure une stratégie de remise de clé, il doit fournir ce mot de passe et le fichier .pfx au format base64.
 
@@ -61,14 +68,14 @@ Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynami
 		
 			"C:\\OpenSSL-Win32\\bin\\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
 		
-	- **Mot de passe App Cert** : mot de passe du client pour créer le fichier .pfx.
-	- **ID de mot de passe App Cert** : le client doit télécharger le mot de passe de la même manière que les autres clés AMS, avec la valeur enum **ContentKeyType.FairPlayPfxPassword**. Dans le résultat, il obtiendra l’ID AMS qu'il doit utiliser dans l'option de stratégie de remise de clé.
-	- **iv** : valeur aléatoire de 16 octets, doit correspondre au vecteur d’initialisation de la stratégie de distribution de ressources. Le client génère le vecteur d'initialisation et le place aux deux endroits : la stratégie de distribution de ressources et l’option de stratégie de remise de clé.
-	- **ASK** : l’ASK (clé secrète de l’application) est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement recevra une ASK unique. Enregistrez une copie de l’ASK et stockez-la dans un endroit sûr. Vous devrez configurer l’ASK comme FairPlayAsk pour Azure Media Services plus tard.
-	-  **ID d’ASK** : obtenu lorsque le client télécharge l’ASK dans AMS. Le client doit télécharger l’ASK avec la valeur enum **ContentKeyType.FairPlayASk**. L’ID AMS sera retourné dans le résultat. C’est cet ID qui doit être utilisé lors de la définition de l’option de stratégie de remise de clé.
+	- **Mot de passe App Cert** : mot de passe du client pour créer le fichier .pfx.
+	- **ID de mot de passe App Cert** : le client doit télécharger le mot de passe de la même manière que les autres clés AMS, avec la valeur enum **ContentKeyType.FairPlayPfxPassword**. Dans le résultat, il obtiendra l’ID AMS qu'il doit utiliser dans l'option de stratégie de remise de clé.
+	- **iv** : valeur aléatoire de 16 octets, doit correspondre au vecteur d’initialisation de la stratégie de distribution de ressources. Le client génère le vecteur d'initialisation et le place aux deux endroits : la stratégie de distribution de ressources et l’option de stratégie de remise de clé.
+	- **ASK** : l’ASK (clé secrète de l’application) est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement recevra une ASK unique. Enregistrez une copie de l’ASK et stockez-la dans un endroit sûr. Vous devrez configurer l’ASK comme FairPlayAsk pour Azure Media Services plus tard.
+	-  **ID d’ASK** : obtenu lorsque le client télécharge l’ASK dans AMS. Le client doit télécharger l’ASK avec la valeur enum **ContentKeyType.FairPlayASk**. L’ID AMS sera retourné dans le résultat. C’est cet ID qui doit être utilisé lors de la définition de l’option de stratégie de remise de clé.
 
 - Les éléments suivants doivent être définis par FPS côté client :
- 	- **App Cert (AC)** : fichier .cer/.der contenant la clé publique que le système d’exploitation utilise pour chiffrer une charge utile. AMS doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
+ 	- **App Cert (AC)** : fichier .cer/.der contenant la clé publique que le système d’exploitation utilise pour chiffrer une charge utile. AMS doit le connaître, car il est requis par le lecteur. Le service de remise de clé le déchiffre à l'aide de la clé privée correspondante.
 
 - Pour lire un flux chiffré FairPlay, vous devez obtenir l’ASK réelle en premier, puis générer un certificat réel. Ce processus crée les 3 composants suivants :
 
@@ -76,7 +83,7 @@ Cette rubrique montre comment utiliser Azure Media Services pour chiffrer dynami
 	-  .pfx et
 	-  le mot de passe du fichier .pfx.
  
-- Clients qui prennent en charge HLS avec chiffrement **AES-128 CBC** : Safari sur OS X, Apple TV, iOS.
+- Clients qui prennent en charge HLS avec chiffrement **AES-128 CBC** : Safari sur OS X, Apple TV, iOS.
 
 ##Étapes de configuration du chiffrement dynamique FairPlay et des services de distribution de licences
 
@@ -115,6 +122,20 @@ Les clients peuvent développer des lecteurs à l’aide du SDK iOS. Pour pouvoi
 
 >[AZURE.NOTE] Azure Media Player ne prend pas en charge la lecture FairPlay dès le départ. Les clients doivent se procurer l’exemple de lecteur à partir du compte de développeur Apple pour mettre en œuvre la lecture FairPlay sur MAC OS X.
  
+##URL de diffusion
+
+Si votre ressource a été chiffrée avec plusieurs DRM, vous devez utiliser une balise de chiffrement dans l’URL de diffusion en continu : (format=’m3u8-aapl’, encryption=’xxx’).
+
+Les considérations suivantes s'appliquent :
+
+- Seul zéro ou un type de chiffrement peut être spécifié.
+- Le type de chiffrement ne doit pas être spécifié dans l’url si un seul chiffrement a été appliqué à la ressource.
+- Le type de chiffrement ne tient pas compte de la casse.
+- Les types de chiffrement suivants peuvent être spécifiés :
+	- **cenc**: chiffrement commun (Playready ou Widevine)
+	- **des CBC-aapl** : Fairplay
+	- **cbc** : chiffrement de l’enveloppe AES.
+
 
 ##Exemple .NET
 
@@ -550,4 +571,4 @@ L'exemple suivant illustre la fonctionnalité introduite dans le Kit de dévelop
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

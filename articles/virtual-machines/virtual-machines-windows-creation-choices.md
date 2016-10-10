@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Différentes méthodes de création de machine virtuelle Windows avec Resource Manager
@@ -47,4 +47,4 @@ Utilisez Visual Studio pour créer, gérer et déployer des machines virtuelles 
 
 [Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

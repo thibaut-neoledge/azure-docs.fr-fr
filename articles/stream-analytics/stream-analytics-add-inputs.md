@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"
 />
 
@@ -32,8 +32,8 @@ Cet article est une étape dans le [parcours d'apprentissage de Stream Analytics
 
 Il existe deux types d’entrées dans Stream Analytics : les flux de données et les données de référence.
 
-- **Flux de données** : les tâches Stream Analytics doivent contenir au moins une entrée de flux de données qui sera traitée et transformée par la tâche. Le stockage d’objets blob Azure et Azure Event Hubs sont pris en charge en tant que sources d’entrée de flux de données. Les hubs d'événements Azure sont utilisés pour collecter les flux d'événements à partir des appareils, services et applications connectés. Le stockage d'objets blob Azure peut être utilisé comme source d'entrée pour la réception de données en bloc en tant que flux.
-- **Données de référence** : Stream Analytics prend en charge un deuxième type d'entrée auxiliaire appelé données de référence. Par opposition aux données en mouvement, ces données sont statiques ou changent lentement. Elles sont généralement utilisées pour effectuer des recherches et des corrélations avec des flux de données pour créer un jeu de données plus riche. Le stockage d’objets blob Azure est la seule source d’entrée prise en charge pour les données de référence.
+- **Flux de données** : les tâches Stream Analytics doivent contenir au moins une entrée de flux de données qui sera traitée et transformée par la tâche. Le stockage d’objets blob Azure et Azure Event Hubs sont pris en charge en tant que sources d’entrée de flux de données. Les hubs d'événements Azure sont utilisés pour collecter les flux d'événements à partir des appareils, services et applications connectés. Le stockage d'objets blob Azure peut être utilisé comme source d'entrée pour la réception de données en bloc en tant que flux.
+- **Données de référence** : Stream Analytics prend en charge un deuxième type d'entrée auxiliaire appelé données de référence. Par opposition aux données en mouvement, ces données sont statiques ou changent lentement. Elles sont généralement utilisées pour effectuer des recherches et des corrélations avec des flux de données pour créer un jeu de données plus riche. Le stockage d’objets blob Azure est la seule source d’entrée prise en charge pour les données de référence.
 
 Pour ajouter une entrée à votre tâche Stream Analytics :
 
@@ -88,4 +88,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

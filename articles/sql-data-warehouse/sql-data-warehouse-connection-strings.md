@@ -13,17 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
+   ms.date="09/24/2016"
    ms.author="sonyama;barbkess"/>
 
 
 # Pilotes pour Azure SQL Data Warehouse
-
-> [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-data-warehouse-connect-overview.md)
-- [Authentification](sql-data-warehouse-authentication.md)
-- [Pilotes](sql-data-warehouse-connection-strings.md)
-
 
 Vous pouvez vous connecter à SQL Data Warehouse avec plusieurs protocoles d’application différents tels que [ADO.NET][], [ODBC][], [PHP][] et [JDBC][]. Voici quelques exemples de chaînes de connexion pour chaque protocole. Vous pouvez également utiliser le portail Azure pour créer votre chaîne de connexion. Pour créer votre chaîne de connexion à l’aide du portail Azure, accédez au panneau de votre base de données, sous *Essentials*, cliquez sur *Afficher les chaînes de connexion de la base de données*.
 
@@ -55,12 +49,12 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Étapes suivantes
 
-Pour commencer à interroger votre entrepôt de données avec Visual Studio et d’autres applications, consultez [Query with Visual Studio (Soumettre des requêtes avec Visual Studio)][].
+Pour commencer à interroger votre entrepôt de données avec Visual Studio et d’autres applications, consultez [Soumettre des requêtes avec Visual Studio][].
 
 <!--Image references-->
 
 <!--Azure.com references-->
- [Query with Visual Studio (Soumettre des requêtes avec Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+ [Soumettre des requêtes avec Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
  
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
@@ -70,4 +64,4 @@ Pour commencer à interroger votre entrepôt de données avec Visual Studio et d
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

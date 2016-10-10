@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Créer une machine virtuelle Windows avec PowerShell et le modèle de déploiement Classic 
@@ -42,7 +42,7 @@ Si ce n’est pas encore fait, installez Azure PowerShell sur votre ordinateur l
 3. Tapez le mot de passe de votre compte.
 4. Cliquez sur **Se connecter**.
 
-## Étape 2 : configurer votre abonnement et votre compte de stockage
+## Étape 2 : Configurer votre abonnement et votre compte de stockage
 
 Pour configurer votre abonnement et votre compte de stockage Azure, exécutez ces commandes à l’invite de commandes Windows PowerShell. Remplacez tous les éléments entre guillemets, y compris les caractères < et >, par les noms appropriés.
 
@@ -108,7 +108,7 @@ Pour un ordinateur Windows autonome, vous pouvez éventuellement spécifier le c
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
- Choisissez un mot de passe fort. Pour en vérifier la force, consultez la page [Password Checker : Utilisation de mots de passe forts](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Choisissez un mot de passe fort. Pour en vérifier la force, consultez la page [Password Checker : Utilisation de mots de passe forts](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 Pour ajouter l’ordinateur Windows à un domaine Active Directory existant, vous pouvez éventuellement spécifier le compte et le mot de passe de l’administrateur local, le domaine, ainsi que le nom et le mot de passe d’un compte de domaine.
 
@@ -170,7 +170,7 @@ Option 2 : créez la machine virtuelle dans un service cloud et un réseau vir
 
 ## Étape 5 : exécuter votre jeu de commandes
 
-Passez en revue le jeu de commandes Azure PowerShell que vous avez créé dans votre éditeur de texte ou dans l’environnement d’écriture de scripts intégré de PowerShell (ISE), constitué de plusieurs blocs de commandes de l’étape 4. Vérifiez que vous avez spécifié toutes les variables nécessaires et qu'elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < et >.
+Passez en revue le jeu de commandes Azure PowerShell que vous avez créé dans votre éditeur de texte ou dans l’environnement d’écriture de scripts intégré de PowerShell (ISE), constitué de plusieurs blocs de commandes de l’étape 4. Vérifiez que vous avez spécifié toutes les variables nécessaires et qu’elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < et >.
 
 Si vous utilisez un éditeur de texte, copiez le jeu de commandes dans le Presse-papiers, puis cliquez avec le bouton droit sur votre invite de commandes Windows PowerShell ouverte. Vous émettez ainsi le jeu de commandes en tant que série de commandes PowerShell et créez votre machine virtuelle Azure. Vous pouvez également exécuter le jeu de commandes dans PowerShell ISE.
 
@@ -262,4 +262,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 Si vous avez besoin d’un disque de système d’exploitation supérieur à 127 Go, vous pouvez [étendre ce dernier](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

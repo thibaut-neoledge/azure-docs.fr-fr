@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@ Azure Media Services fournit les outils dont vous avez besoin pour créer des ap
 
 Microsoft Azure Media Services permet la distribution du contenu dans les formats de diffusion en continu DASH, Smooth Streaming et HLS pour la lecture. Azure Media Player prend en compte des différents formats et lit automatiquement le lien le mieux adapté aux capacités de la plateforme/du navigateur. Microsoft Azure Media Services assure également le chiffrement dynamique des ressources avec le chiffrement PlayReady ou le chiffrement d’enveloppe AES 128 bits. Lorsqu’il est configuré de manière appropriée, Azure Media Player permet le déchiffrement du contenu chiffré avec PlayReady et AES 128 bits.
 
-Pour en savoir plus :
+Pour plus d'informations :
 
 - [Azure Media Player](http://aka.ms/ampinfo)
 - [Documentation d’Azure Media Player](http://aka.ms/ampdocs)
@@ -53,7 +53,7 @@ Vous pouvez également utiliser un des Kits de développement logiciel (SDK) sui
 
 ##Publicité
 
-Azure Media Services assure la prise en charge des insertions publicitaires via la plateforme Windows Media : Infrastructures de lecteur. Des infrastructures de lecteur avec prise en charge des publicités sont disponibles pour les périphériques Windows 8, Silverlight, Windows Phone 8 et iOS. Chaque infrastructure de lecteur contient un exemple de code qui montre comment implémenter une application de lecteur. Il existe trois sortes de publicités différentes que vous pouvez insérer dans votre contenu multimédia :
+Azure Media Services assure la prise en charge des insertions publicitaires via la plateforme Windows Media : Infrastructures de lecteur. Des infrastructures de lecteur avec prise en charge des publicités sont disponibles pour les périphériques Windows 8, Silverlight, Windows Phone 8 et iOS. Chaque infrastructure de lecteur contient un exemple de code qui montre comment implémenter une application de type lecteur. Il existe trois sortes de publicités différentes que vous pouvez insérer dans votre contenu multimédia :
 
 Linéaire : publicité en plein cadre qui interrompt la vidéo principale
 
@@ -81,4 +81,4 @@ Pour en savoir plus sur la prise en charge du sous-titrage et des publicités da
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

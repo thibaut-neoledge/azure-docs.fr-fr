@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Azure Authenticator pour Android
@@ -113,8 +113,8 @@ Sur un appareil Android Samsung, des privilèges d’administrateur d’applicat
 1. Dans **Paramètres**, sous **Système**, sélectionnez **Sécurité**.
 2. Dans **Administration de l’appareil**, cliquez sur **Administrateurs de l’appareil**. Vérifiez que la case en regard de **Azure Authentificator** est décochée.
 
-##Résolution de problèmes
+##Résolution des problèmes
 
 Si vous voyez l’**erreur Keystore**, la raison peut en être que votre écran de verrouillage n’est pas configuré avec un code confidentiel. Pour contourner ce problème, désinstallez l’application Azure Authentificator, configurez un code confidentiel pour votre écran de verrouillage et réinstallez l’application.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

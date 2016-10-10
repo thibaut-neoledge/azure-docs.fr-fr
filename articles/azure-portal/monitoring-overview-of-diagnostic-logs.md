@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/26/2016"
 	ms.author="johnkem"/>
 
 # Présentation des journaux de diagnostic Azure
@@ -69,15 +69,23 @@ Pour activer les journaux de diagnostic via les applets de commande Azure PowerS
 
 Pour activer le stockage des journaux de diagnostic dans un compte de stockage, utilisez cette commande :
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -StorageAccountId [your storage account id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 
 L’ID de compte de stockage est l’ID de ressource pour le compte de stockage auquel vous souhaitez envoyer les journaux.
 
 Pour activer la diffusion en continu des journaux de diagnostic vers un Event Hub, utilisez cette commande :
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 
 L’ID de règle Service Bus est une chaîne au format : `{service bus resource ID}/authorizationrules/{key name}`.
+
+Pour activer l’envoi des journaux de diagnostic à un espace de travail Log Analytics, utilisez cette commande :
+
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+
+Vous pouvez obtenir votre ID d’espace de travail de journal Log Analytics dans le portail Azure.
+
+Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
 Pour activer les journaux de diagnostic via l’interface de ligne de commande Azure, utilisez les commandes suivantes :
 
@@ -93,7 +101,33 @@ Pour activer la diffusion en continu des journaux de diagnostic vers un Event Hu
 
 L’ID de règle Service Bus est une chaîne au format : `{service bus resource ID}/authorizationrules/{key name}`.
 
+Pour activer l’envoi des journaux de diagnostic à un espace de travail Log Analytics, utilisez cette commande :
+
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
+
+Vous pouvez obtenir votre ID d’espace de travail de journal Log Analytics dans le portail Azure.
+
+Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
+
 Pour modifier les paramètres de diagnostic via l’API REST Insights, consultez [ce document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+
+## Gérer les paramètres de diagnostic dans le portail
+
+Pour vous assurer que toutes vos ressources sont correctement configurées avec les paramètres de diagnostic, vous pouvez accéder au panneau **Analyse** du portail et ouvrir le panneau **Journaux de diagnostic**.
+
+![Panneau Journaux de diagnostic dans le portail](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
+
+Vous devrez peut-être cliquer sur « Plus de services » pour trouver le panneau Analyse.
+
+Dans ce panneau, vous pouvez afficher et filtrer toutes les ressources qui prennent en charge les journaux de diagnostic pour voir s’ils ont des diagnostics activés et le compte de stockage, hub d’événement et/ou espace de travail Log Analytics vers lesquels ces journaux circulent.
+
+![Résultats du panneau Journaux de diagnostic dans le portail](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
+
+Cliquer sur une ressource affiche tous les journaux qui ont été stockés dans le compte de stockage et vous donne la possibilité de désactiver ou modifier les paramètres de diagnostic. Cliquez sur l’icône de téléchargement pour télécharger les journaux sur une période donnée.
+
+![Panneau Journaux de diagnostic pour une ressource](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
+
+> [AZURE.NOTE] Les journaux de diagnostic s’affichent dans cette vue uniquement et sont disponibles pour téléchargement si vous avez configuré les paramètres de diagnostic pour les enregistrer dans un compte de stockage.
 
 ## Schéma et services pris en charge pour les journaux de diagnostic
 Le schéma pour les journaux de diagnostic varie en fonction de la ressource et de la catégorie de journal. Vous trouverez ci-dessous les services pris en charge et leur schéma.
@@ -133,10 +167,13 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Journal de performance de la passerelle d’application|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Journal de pare-feu de la passerelle d’application|
 |Microsoft.Search/searchServices|OperationLogs|Journaux des opérations|
+|Microsoft.ServerManagement/nodes|RequestLogs|Journaux de requête|
+|Microsoft.StreamAnalytics/streamingjobs|Exécution|Exécution|
+|Microsoft.StreamAnalytics/streamingjobs|Création|Création|
 
 ## Étapes suivantes
 - [Stream Azure Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) (Diffuser en continu les journaux de diagnostic Azure vers Event Hubs)
 - [Modifier les paramètres de diagnostic via l’API REST Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Analyser les journaux avec OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

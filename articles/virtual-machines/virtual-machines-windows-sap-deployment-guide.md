@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver sur machines virtuelles Windows – Guide de déploiement | Microsoft Azure"
    description="SAP NetWeaver sur machines virtuelles Windows – Guide de déploiement"
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-windows"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -453,22 +453,22 @@ Vous pouvez également créer un déploiement à l’aide de l’un des modèles
 
 Une fois que vous avez ouvert l’un des modèles ci-dessus, le portail Azure vous dirige vers le panneau Modifier les paramètres. Entrez les informations suivantes :
 
-* **sapSystemId** : identifiant du système SAP
-* **osType** : système d’exploitation que vous voulez déployer, par exemple, Windows Server 2012 R2, SLES 12 ou RHEL 7.2
+* **sapSystemId** : identifiant du système SAP
+* **osType** : système d’exploitation que vous voulez déployer, par exemple, Windows Server 2012 R2, SLES 12 ou RHEL 7.2
     * La liste contient uniquement les versions prises en charge par SAP sur Microsoft Azure
-* **sapSystemSize** : taille du système SAP
+* **sapSystemSize** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-* **systemAvailability** : (modèle à 3 niveaux uniquement) disponibilité du système
+* **systemAvailability** : (modèle à 3 niveaux uniquement) disponibilité du système
     * Sélectionnez haute disponibilité si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS seront créés.
 * storageType : (modèle à 2 niveaux uniquement) type de stockage à utiliser.
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section
         * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide SGBD][dbms-guide]
         * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.][storage-premium-storage-preview-portal]
         * [Introduction à Microsoft Azure Storage][storage-introduction]
-* **adminUsername** et **adminPassword** : nom d’utilisateur et mot de passe
+* **adminUsername** et **adminPassword** : nom d’utilisateur et mot de passe
     * Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
-* **newOrExistingSubnet** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
-* **subnetId** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription id`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
+* **newOrExistingSubnet** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
+* **subnetId** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription id`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
 
 Après avoir entré tous les paramètres, sélectionnez l’abonnement et le groupe de ressources à utiliser. Vous pouvez sélectionner un groupe de ressources existant ou en créer un en sélectionnant « + Nouveau » dans le menu déroulant. Si vous créez un groupe de ressources, vous devez également sélectionner la région dans laquelle le groupe de ressources et la machine virtuelle seront créés.
 
@@ -508,23 +508,23 @@ Pour créer un déploiement à l’aide d’une image privée de système d’ex
 
 Une fois que vous avez ouvert l’un des modèles ci-dessus, le portail Azure vous dirige vers le panneau Modifier les paramètres. Entrez les informations suivantes :
 
-* **sapSystemId** : identifiant du système SAP
-* **osType** : type de système d’exploitation à déployer, Windows ou Linux
-* **sapSystemSize** : taille du système SAP
+* **sapSystemId** : identifiant du système SAP
+* **osType** : type de système d’exploitation à déployer, Windows ou Linux
+* **sapSystemSize** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-* **systemAvailability** : (modèle à 3 niveaux uniquement) disponibilité du système
+* **systemAvailability** : (modèle à 3 niveaux uniquement) disponibilité du système
     * Sélectionnez haute disponibilité si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS seront créés.
-* **storageType** : (modèle à 2 niveaux uniquement) type de stockage à utiliser
+* **storageType** : (modèle à 2 niveaux uniquement) type de stockage à utiliser
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section
         * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide SGBD][dbms-guide]
         * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.][storage-premium-storage-preview-portal]
         * [Introduction à Microsoft Azure Storage][storage-introduction]
-* **adminUsername** et **adminPassword** : nom d’utilisateur et mot de passe
+* **adminUsername** et **adminPassword** : nom d’utilisateur et mot de passe
     * Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
-* **userImageVhdUri** : URI du disque dur virtuel de l’image privée du système d’exploitation, par exemple https://`<nom\_compte`>.blob.core.windows.net/vhds/userimage.vhd
-* **userImageStorageAccount** : nom du compte de stockage où l’image privée du système d’exploitation est stockée, par exemple, `<accountname`> dans l’exemple d’URI ci-dessus
-* **newOrExistingSubnet** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
-* **subnetId** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription id`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
+* **userImageVhdUri** : URI du disque dur virtuel de l’image privée du système d’exploitation, par exemple https://`<nom\_compte`>.blob.core.windows.net/vhds/userimage.vhd
+* **userImageStorageAccount** : nom du compte de stockage où l’image privée du système d’exploitation est stockée, par exemple, `<accountname`> dans l’exemple d’URI ci-dessus
+* **newOrExistingSubnet** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
+* **subnetId** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription id`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
 
 Après avoir entré tous les paramètres, sélectionnez l’abonnement et le groupe de ressources à utiliser. Vous pouvez sélectionner un groupe de ressources existant ou en créer un en sélectionnant « + Nouveau » dans le menu déroulant. Si vous créez un groupe de ressources, vous devez également sélectionner la région dans laquelle le groupe de ressources et la machine virtuelle seront créés.
 
@@ -576,18 +576,18 @@ Pour créer un déploiement à l’aide d’un disque privé de système d’exp
 
 Une fois que vous avez ouvert le modèle ci-dessus, le portail Azure vous dirige vers le panneau Modifier les paramètres. Entrez les informations suivantes :
 
-* **sapSystemId** : identifiant du système SAP
-* **osType** : type de système d’exploitation à déployer, Windows ou Linux
-* **sapSystemSize** : taille du système SAP
+* **sapSystemId** : identifiant du système SAP
+* **osType** : type de système d’exploitation à déployer, Windows ou Linux
+* **sapSystemSize** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-* **storageType** : (modèle à 2 niveaux uniquement) type de stockage à utiliser
+* **storageType** : (modèle à 2 niveaux uniquement) type de stockage à utiliser
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section
         * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide SGBD][dbms-guide]
         * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.][storage-premium-storage-preview-portal]
         * [Introduction à Microsoft Azure Storage][storage-introduction]
-* **osDiskVhdUri** : URI du disque de système d’exploitation privé, par exemple https://`<nom\_compte`>.blob.core.windows.net/vhds/osdisk.vhd
-* **newOrExistingSubnet** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
-* **subnetId** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription id`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
+* **osDiskVhdUri** : URI du disque de système d’exploitation privé, par exemple https://`<nom\_compte`>.blob.core.windows.net/vhds/osdisk.vhd
+* **newOrExistingSubnet** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
+* **subnetId** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription id`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
 
 Après avoir entré tous les paramètres, sélectionnez l’abonnement et le groupe de ressources à utiliser. Vous pouvez sélectionner un groupe de ressources existant ou en créer un en sélectionnant « + Nouveau » dans le menu déroulant. Si vous créez un groupe de ressources, vous devez également sélectionner la région dans laquelle le groupe de ressources et la machine virtuelle seront créés.
 
@@ -984,4 +984,4 @@ Pour obtenir une liste complète et à jour des problèmes connus, consultez la 
 
 Si la note SAP [1999351] ne permet pas de résoudre les problèmes, exécutez à nouveau le script de configuration Set-AzureRmVMAEMExtension comme décrit dans le chapitre [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5]. Vous devrez peut-être attendre une heure, car il est possible que les compteurs d’analyse ou de diagnostics de stockage ne soient pas créés immédiatement après avoir été activés. Si le problème persiste, ouvrez un message de support client SAP sur le composant BC-OP-NT-AZR pour Windows ou BC-OP-LNX-AZR pour une machine virtuelle Linux.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="Découvrez comment résoudre les problèmes si votre carte de crédit est refusée lorsque vous essayez de vous inscrire à Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"
@@ -74,4 +74,4 @@ Si vous souhaitez mettre à jour les détails de la carte, modifier ou supprimer
 
 > [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

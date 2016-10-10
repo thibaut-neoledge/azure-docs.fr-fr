@@ -30,7 +30,7 @@ Dans les exemples suivants, utilisez vos propres valeurs pour votre ID ou nom d�
 
 ### Exemple 1
 
-Le fichier de configuration suivant déploie un cluster HPC Pack qui possède un nœud principal avec des bases de données locales et 5 nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Tous les services cloud sont créés directement dans l’emplacement « États-Unis de l’Ouest ». Le nœud principal agit en tant que contrôleur de domaine de la forêt de domaines.
+Le fichier de configuration suivant déploie un cluster HPC Pack qui possède un nœud principal avec des bases de données locales et cinq nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Tous les services cloud sont créés directement dans l’emplacement « États-Unis de l’Ouest ». Le nœud principal agit en tant que contrôleur de domaine de la forêt de domaines.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -68,7 +68,7 @@ Le fichier de configuration suivant déploie un cluster HPC Pack qui possède un
 
 ### Exemple 2
 
-Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster possède 1 nœud principal avec des bases de données locales et 12 nœuds de calcul avec l’extension de machine virtuelle BGInfo appliquée. L’installation automatique des mises à jour Windows est désactivée pour toutes les machines virtuelles dans la forêt de domaines. Tous les services cloud sont créés directement dans l’emplacement East Asia. Les nœuds de calcul sont créés dans 3 services cloud et 3 comptes de stockage (c’est-à-dire, _MyHPCCN-0001_ à _MyHPCCN-0005_ dans _MyHPCCNService01_ et _mycnstorage01_ ; _MyHPCCN-0006_ à _MyHPCCN0010_ dans _MyHPCCNService02_ et _mycnstorage02_ ; et _MyHPCCN-0011_ à _MyHPCCN-0012_ dans _MyHPCCNService03_ et _mycnstorage03_). Les nœuds de calcul sont créés à partir d’une image privée existante capturée depuis un nœud de calcul. Le service d’agrandissement et de réduction automatiques est activé avec des intervalles d’agrandissement et de réduction par défaut.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster possède 1 nœud principal avec des bases de données locales et 12 nœuds de calcul avec l’extension de machine virtuelle BGInfo appliquée. L’installation automatique des mises à jour Windows est désactivée pour toutes les machines virtuelles dans la forêt de domaines. Tous les services cloud sont créés directement dans l’emplacement East Asia. Les nœuds de calcul sont créés dans trois services cloud et trois comptes de stockage (c’est-à-dire, _MyHPCCN-0001_ à _MyHPCCN-0005_ dans _MyHPCCNService01_ et _mycnstorage01_ ; _MyHPCCN-0006_ à _MyHPCCN0010_ dans _MyHPCCNService02_ et _mycnstorage02_ ; et _MyHPCCN-0011_ à _MyHPCCN-0012_ dans _MyHPCCNService03_ et _mycnstorage03_). Les nœuds de calcul sont créés à partir d’une image privée existante capturée depuis un nœud de calcul. Le service d’agrandissement et de réduction automatiques est activé avec des intervalles d’agrandissement et de réduction par défaut.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -132,7 +132,7 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 ### Exemple 3
 
-Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster contient 1 nœud principal, 1 serveur de base de données avec un disque de données de 500 Go, 2 nœuds de répartiteur exécutant le système d’exploitation Windows Server 2012 R2 et 5 nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Le service cloud MyHPCCNService est créé dans le groupe d’affinités *MyIBAffinityGroup*. Tous les autres services cloud sont créés dans le groupe d’affinités *MyAffinityGroup*. L’API REST du planificateur de travaux HPC et le portail web HPC sont activés sur le nœud principal.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster contient un nœud principal, un serveur de base de données avec un disque de données de 500 Go, 2 nœuds de répartiteur exécutant le système d’exploitation Windows Server 2012 R2 et cinq nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Le service cloud MyHPCCNService est créé dans le groupe d’affinités *MyIBAffinityGroup*. Les autres services cloud sont créés dans le groupe d’affinités *MyAffinityGroup*. L’API REST du planificateur de travaux HPC et le portail web HPC sont activés sur le nœud principal.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -188,7 +188,7 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 ### Exemple 4
 
-Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster présente 1 nœud principal avec des bases de données locales, 2 modèles de nœud Azure sont créés et 3 nœuds Azure de taille moyenne sont créés pour le modèle de nœud Azure _AzureTemplate1_. Un fichier de script s’exécutera sur le nœud principal après la configuration de ce dernier.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster présente 2 nœuds principaux avec des bases de données locales, 2 modèles de nœud Azure sont créés et 3 nœuds Azure de taille moyenne sont créés pour le modèle de nœud Azure _AzureTemplate1_. Un fichier de script s’exécute sur le nœud principal après la configuration de ce dernier.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -254,16 +254,16 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 </IaaSClusterConfig>
 ```
 
-## Résolution de problèmes
+## Résolution des problèmes
 
 
-* **Erreur « Le réseau virtuel n’existe pas »** : si vous exécutez le script de déploiement du HPC Pack IaaS pour déployer plusieurs clusters dans Azure simultanément sous un même abonnement, un ou plusieurs déploiements peuvent échouer avec l’erreur « Le réseau virtuel *nom\_VNet* n’existe pas ». Si cette erreur se produit, réexécutez le script de déploiement qui a échoué.
+* **Erreur « Le réseau virtuel n’existe pas »** : si vous exécutez le script pour déployer plusieurs clusters dans Azure simultanément sous un même abonnement, un ou plusieurs déploiements peuvent échouer avec l’erreur « Le réseau virtuel *nom\_VNet* n’existe pas ». Si cette erreur se produit, réexécutez le script de déploiement qui a échoué.
 
-* **Problème d’accès à Internet à partir du réseau virtuel Azure** : si vous créez un cluster HPC Pack avec un nouveau contrôleur de domaine en utilisant le script de déploiement, ou si vous promouvez manuellement une machine virtuelle de nœud principal en contrôleur de domaine, vous pouvez rencontrer des problèmes de connexion des machines virtuelles du réseau virtuel Azure à Internet. Cela peut se produire si un serveur DNS redirecteur est automatiquement configuré sur le contrôleur de domaine et si ce serveur DNS redirecteur ne se résout pas correctement.
+* **Problème d’accès à Internet à partir du réseau virtuel Azure** : si vous créez un cluster avec un nouveau contrôleur de domaine en utilisant le script de déploiement, ou si vous promouvez manuellement une machine virtuelle de nœud principal en contrôleur de domaine, vous pouvez rencontrer des problèmes de connexion des machines virtuelles à Internet. Ce problème peut se produire si un serveur DNS redirecteur est automatiquement configuré sur le contrôleur de domaine et si ce serveur DNS redirecteur ne se résout pas correctement.
 
-    Pour contourner ce problème, ouvrez une session sur le contrôleur de domaine et supprimez le paramètre de configuration du redirecteur ou configurez un serveur DNS redirecteur valide. Pour ce faire, dans le Gestionnaire de serveur, cliquez sur **Outils** > **DNS** pour ouvrir le Gestionnaire DNS, puis double-cliquez sur **Redirecteurs**.
+    Pour contourner ce problème, ouvrez une session sur le contrôleur de domaine et supprimez le paramètre de configuration du redirecteur ou configurez un serveur DNS redirecteur valide. Pour configurer ce paramètre, dans le Gestionnaire de serveur, cliquez sur **Outils** > **DNS** pour ouvrir le Gestionnaire DNS, puis double-cliquez sur **Redirecteurs**.
 
-* **Problèmes d’accès au réseau RDMA à partir de machines virtuelles de taille A8 ou A9** : si vous ajoutez des machines virtuelles à nœud de calcul ou nœud de répartiteur Windows Server de taille A8 ou A9 à l’aide du script de déploiement, vous pouvez rencontrer des problèmes pour la connexion de ces machines virtuelles au réseau d’application RDMA. Cela peut se produire par exemple si l’extension HpcVmDrivers n’est pas installée correctement lorsque les machines virtuelles de taille A8 ou A9 sont ajoutées au cluster. Par exemple, l’extension peut être bloquée à l’état d’installation.
+* **Problèmes d’accès au réseau RDMA à partir de machines virtuelles nécessitant beaucoup de ressources système** : si vous ajoutez des machines virtuelles de calcul ou à nœud de répartiteur Windows Server utilisant une taille compatible RDMA, A8 ou A9 par exemple, vous pouvez rencontrer des problèmes pour la connexion de ces machines virtuelles au réseau d’application RDMA. Cela peut se produire si l’extension HpcVmDrivers n’est pas installée correctement lorsque les machines virtuelles sont ajoutées au cluster. Par exemple, l’extension peut être bloquée à l’état d’installation.
 
     Pour contourner ce problème, vérifiez tout d’abord l’état de l’extension dans les machines virtuelles. Si l’extension n’est pas installée correctement, essayez de supprimer les nœuds de cluster HPC, puis ajoutez de nouveau les nœuds. Par exemple, vous pouvez ajouter des machines virtuelles à nœud de calcul en exécutant le script Add-HpcIaaSNode.ps1 sur le nœud principal.
     
@@ -271,10 +271,10 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 * Essayez d’exécuter une charge de travail test sur le cluster. Pour obtenir un exemple, consultez le [guide de mise en route](https://technet.microsoft.com/library/jj884144) du HPC Pack.
 
-* Pour obtenir un didacticiel qui utilise le script pour créer un cluster et exécuter une charge de travail HPC, consultez [Prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA](virtual-machines-windows-excel-cluster-hpcpack.md).
+* Pour accéder à un didacticiel qui utilise un script de déploiement de cluster et exécute une charge de travail HPC, consultez [Prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA](virtual-machines-windows-excel-cluster-hpcpack.md).
 
 * Essayez les outils de HPC Pack pour démarrer, arrêter, ajouter et supprimer des nœuds de calcul à partir d’un cluster que vous créez. Consultez [Gérer des nœuds de calcul dans un cluster HPC Pack dans Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md).
 
 * Pour se préparer à soumettre des travaux au cluster à partir d’un ordinateur local, consultez [Envoyer des travaux HPC à partir d’un ordinateur local vers un cluster HPC Pack dans Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/22/2016"
 	ms.author="danlep"/>
     
 # Installer l’interface de ligne de commande Microsoft Azure
@@ -23,11 +23,11 @@
 - [PowerShell](powershell-install-configure.md)
 - [Interface de ligne de commande Azure](xplat-cli-install.md)
 
-Installez rapidement l’interface de ligne de commande Azure (Azure CLI) pour bénéficier d’un ensemble de commandes shell open source permettant de créer et gérer les ressources dans Microsoft Azure. Vous avez plusieurs possibilités pour installer la dernière version :
+Installez rapidement l’interface de ligne de commande Azure (Azure CLI) pour bénéficier d’un ensemble de commandes shell open source permettant de créer et gérer les ressources dans Microsoft Azure. Vous avez plusieurs options pour installer ces outils multiplateformes sur votre ordinateur :
 
-* L’installer à partir d’un package npm (nécessite Node.js et npm)
-* Utiliser l’un des packages d’installation fournis pour différents systèmes d’exploitation
-* Installer l’interface de ligne de commande Azure comme conteneur dans un hôte Docker
+* **Package npm** : exécutez npm (le Gestionnaire de package de JavaScript) pour installer le dernier package de l’interface CLI Azure sur votre système d’exploitation ou distribution Linux. Requiert l’installation de node.js et npm sur votre ordinateur.
+* **Programme d’installation** : téléchargez un programme d’installation pour une installation rapide sur Mac ou Windows.
+* **Conteneur Docker** : utilisez la dernière interface CLI dans un conteneur Docker prêt à s’exécuter. Nécessite la présence d’un hôte Docker sur votre ordinateur.
     
 Pour obtenir davantage d’options générales et de contexte, consultez le référentiel du projet sur [GitHub](https://github.com/azure/azure-xplat-cli).
 
@@ -37,33 +37,35 @@ Une fois l’interface de ligne de commande Azure installée, [connectez-vous à
 
 ## Option 1. Installer un package npm
 
-Pour installer l’interface CLI à partir d’un package npm, vous avez besoin des derniers Node.js et npm installés sur votre système. Utilisez la commande suivante pour installer le package de l’interface de ligne de commande Azure. (Sur les distributions Linux, vous devrez peut-être utiliser **sudo** pour parvenir à exécuter la commande __npm__.)
+Pour installer l’interface CLI à partir d’un package npm, vous avez besoin des derniers Node.js et npm installés sur votre système. Utilisez la commande suivante pour installer le package de l’interface de ligne de commande Azure publié sur [npmjs.com](https://www.npmjs.com). (Sur les distributions Linux, vous devrez peut-être utiliser **sudo** pour parvenir à exécuter la commande __npm__.)
 
-	npm install azure-cli -g
+	npm install -g azure-cli
 
-> [AZURE.NOTE]Si vous avez besoin d’installer ou de mettre à jour Node.js et npm pour votre système d’exploitation, consultez la documentation sur [Nodejs.org](https://nodejs.org/en/download/package-manager/). Nous vous recommandons d’installer la dernière version de Node.js LTS (4.x). Si vous utilisez une version antérieure, vous pouvez obtenir des erreurs d’installation. Vous trouverez plus d’informations sur npm à l’adresse [npmjs.com](https://www.npmjs.com/).
+> [AZURE.NOTE]Si vous avez besoin d’installer ou de mettre à jour Node.js et npm sur votre système d’exploitation ou distribution Linux, consultez la documentation sur [Nodejs.org](https://nodejs.org/en/download/package-manager/). Nous vous recommandons d’installer la dernière version de Node.js LTS (4.x). Si vous utilisez une version antérieure, vous pouvez obtenir des erreurs d’installation.
+
+Si vous préférez, téléchargez le dernier [fichier tar][linux-installer] Linux pour le package npm en local. Ensuite, installez le package npm téléchargé comme suit (sur les distributions Linux vous devrez peut-être utiliser **sudo**) :
+
+    npm install -g <path to downloaded tar file>
 
 ## Option 2. Utilisation d’un programme d’installation
 
-Les packages d’installation d’interface de ligne de commande suivants sont également disponibles au téléchargement :
-
+Si vous utilisez un ordinateur Mac ou Windows, les programmes d’installation de l’interface CLI suivants sont disponibles au téléchargement :
 
 * [Programme d’installation Mac OS X][mac-installer]
 
-* [Programme d’installation Windows][windows-installer]
+* [MSI Windows][windows-installer]
 
-* [Fichier tar Linux][linux-installer] \(nécessite Node.js et npm) - Exécutez `sudo npm install -g <path to downloaded tar file>` pour l’installer
+>[AZURE.TIP]Sous Windows, vous pouvez également télécharger [Web Platform Installer](https://go.microsoft.com/?linkid=9828653) pour installer l’interface CLI. Ce programme d’installation vous donne la possibilité d’installer des Kits de développement logiciel (SDK) Azure et des outils de ligne de commande supplémentaires après l’installation de l’interface CLI.
 
 
 ## Option 3. Utiliser un conteneur Docker
 
-Si vous avez défini un hôte Docker, vous pouvez exécuter l’interface de ligne de commande Azure dans un conteneur Docker. Exécutez :
+Si vous avez configuré votre ordinateur comme hôte [Docker](https://docs.docker.com/engine/understanding-docker/), vous pouvez exécuter la dernière interface de ligne de commande Azure dans un conteneur Docker. Exécutez :
 
 ```
 docker run -it microsoft/azure-cli
 ```
 
-Vous trouverez plus d’informations sur Docker à l’adresse [docker.com](https://docs.docker.com/engine/understanding-docker/).
 
 ## Exécution des commandes Azure CLI
 Une fois l’interface de ligne de commande Azure installée, exécutez la commande **azure** depuis l’interface de ligne de commande utilisateur (Bash, Terminal, invite de ligne de commande, etc.). Par exemple, pour exécuter la commande d’aide, saisissez ce qui suit :
@@ -71,7 +73,7 @@ Une fois l’interface de ligne de commande Azure installée, exécutez la comma
 ```
 azure help
 ```
-> [AZURE.NOTE]Dans certaines distributions Linux, vous pouvez recevoir une erreur similaire à `/usr/bin/env: ‘node’: No such file or directory`. Cette erreur est due à l’installation récente de nodejs sous /usr/bin/nodejs. Pour la corriger, créez un lien symbolique vers /usr/bin/node en exécutant cette commande :
+> [AZURE.NOTE]Dans certaines distributions Linux, vous pouvez recevoir une erreur similaire à `/usr/bin/env: ‘node’: No such file or directory`. Cette erreur est due à l’installation récente de Node.js sous /usr/bin/nodejs. Pour la corriger, créez un lien symbolique vers /usr/bin/node en exécutant cette commande :
 
 ```
 sudo ln -s /usr/bin/nodejs /usr/bin/node
@@ -85,7 +87,7 @@ azure --version
 
 Vous avez terminé l’installation. Pour accéder à toutes les commandes de l’interface de ligne de commande et travailler avec vos propres ressources, [connectez-vous à votre abonnement Azure à partir de l’interface de ligne de commande Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE] Lorsque vous utilisez l’interface de ligne de commande Azure pour la première fois, vous voyez un message vous demandant si vous souhaitez autoriser Microsoft à recueillir des informations sur votre utilisation de l’interface de ligne de commande. La participation se fait sur la base du volontariat. Si vous choisissez de participer, vous pouvez arrêter à tout moment en exécutant `azure telemetry --disable`. Pour activer la participation, exécutez `azure telemetry --enable`.
+>[AZURE.NOTE] Lorsque vous utilisez l’interface de ligne de commande Azure pour la première fois, vous voyez un message vous demandant si vous souhaitez autoriser Microsoft à recueillir des informations d’utilisation. La participation se fait sur la base du volontariat. Si vous choisissez de participer, vous pouvez arrêter à tout moment en exécutant `azure telemetry --disable`. Pour activer la participation, exécutez `azure telemetry --enable`.
 
 
 ## Mise à jour de l’interface CLI
@@ -130,4 +132,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

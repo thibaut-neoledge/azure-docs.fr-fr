@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="06/14/2016" 
+    ms.date="09/23/2016" 
     ms.author="b-hoedid"/>
 
 # Notifications relatives aux ressources DocumentDB nouvelles ou modifiées à l’aide de Logic Apps
@@ -52,7 +52,7 @@ Si vous examinez la figure suivante, il existe plusieurs étapes dans le flux de
 
 ![Processus de la logique principale](./media/documentdb-change-notification/main-logic-app-process.png)
 
-La procédure comporte trois étapes :
+La procédure comporte trois étapes :
 
 1. Vous devez obtenir la date/heure UTC actuelles à partir d’une application API. La valeur par défaut est 1 heure avant.
 
@@ -404,7 +404,7 @@ Cette action appelle votre application API pour gérer la conversion.
 	}   
 ```
 
-##### Response
+##### Réponse
 
 ```JSON
 
@@ -483,7 +483,7 @@ La méthode appelée est **QueryForNewPatientDocuments**.
 	}
 ```
 
-##### Response
+##### Réponse
 
 ```JSON
 
@@ -695,7 +695,7 @@ Si vous n’êtes pas familiarisé avec l’utilisation de l’API d’objets bl
 
 ```
 
-##### Response
+##### Réponse
 
 ```JSON
 
@@ -812,7 +812,7 @@ Cette action dépend de l’action **GetDocuments**.
 
 ```
 
-##### Response
+##### Réponse
 
 ```JSON
 
@@ -925,7 +925,7 @@ Le déclencheur est défini pour une périodicité de vingt-quatre heures. L’a
 
 ```
 
-##### Response
+##### Réponse
 
 ```JSON
 
@@ -1156,4 +1156,4 @@ Veuillez télécharger et utiliser le code de l’application logique fourni sur
 
 Pour en savoir plus sur DocumentDB, consultez le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) associé.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

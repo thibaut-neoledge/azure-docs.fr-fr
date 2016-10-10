@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire des services de domaine Azure Active Directory : scénarios de déploiement | Microsoft Azure"
+	pageTitle="Services de domaine Azure Active Directory : scénarios de déploiement | Microsoft Azure"
 	description="Scénarios de déploiement pour les Services de domaine Azure AD"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 
@@ -90,4 +90,4 @@ Azure RemoteApp permet à l’administrateur de Contoso de créer une collection
 
 Pour plus d’informations sur ce scénario de déploiement, consultez l’article du blog des services Bureau à distance intitulé [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx) (en anglais).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

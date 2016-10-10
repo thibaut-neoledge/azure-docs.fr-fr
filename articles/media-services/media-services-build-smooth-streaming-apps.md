@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Didacticiel d'application Windows Store de diffusion en continu lisse" 
+	pageTitle="Didacticiel d’application Windows Store de diffusion en continu lisse | Microsoft Azure" 
 	description="Apprenez à utiliser Azure Media Services pour créer une application Windows Store en C# avec un contrôle MediaElement XML pour lire du contenu de diffusion en continu lisse." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@ Le didacticiel se compose de quatre leçons :
 3. Sélection des flux de diffusion en continu lisse
 4. Sélection des pistes de diffusion en continu lisse
 
-##Configuration requise
+##Composants requis
 
 - Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la [version d'évaluation de Windows 8 Entreprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) sur MSDN.
 - Visual Studio 2012 ou Visual Studio Express 2012 (ou une version ultérieure). La version d'évaluation est disponible [ici](http://www.microsoft.com/visualstudio/11/downloads).
@@ -67,7 +67,7 @@ Nom|Valeur
 Groupe de modèles|Installed/Templates/Visual C#/Windows Store
 Modèle|Application vide (XAML)
 Nom|SSPlayer
-Emplacement|C:\\SSTutorials
+Lieu|C:\\SSTutorials
 Nom de la solution|SSPlayer
 Créer un répertoire pour la solution|(sélectionné)
 
@@ -978,7 +978,7 @@ Vous avez terminé la leçon 4. Dans cette leçon, vous avez ajouté la fonctio
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##Autres ressources :
+##Autres ressources :
 - [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Présentation technique de la diffusion en continu lisse](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
@@ -986,4 +986,4 @@ Vous avez terminé la leçon 4. Dans cette leçon, vous avez ajouté la fonctio
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

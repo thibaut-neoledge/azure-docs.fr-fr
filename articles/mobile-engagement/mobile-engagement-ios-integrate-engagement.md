@@ -42,14 +42,14 @@ Les étapes suivantes permettent d'activer la génération des journaux nécessa
 - Engagement nécessite des infrastructures supplémentaires pour fonctionner : dans l'Explorateur de projets, ouvrez le volet de votre projet et sélectionnez la cible appropriée. Ouvrez ensuite l'onglet **« Build phases »** et, dans le menu **« Link Binary With Libraries »**, ajoutez ces infrastructures :
 
 	-   `UserNotifications.framework` - définissez le lien comme `Optional`
-> -   `AdSupport.framework` - définissez le lien comme `Optional`
-> -   `SystemConfiguration.framework`
-> -   `CoreTelephony.framework`
-> -   `CFNetwork.framework`
-> -   `CoreLocation.framework`
-> -   `libxml2.dylib`
+	-   `AdSupport.framework` - définissez le lien comme `Optional`
+	-   `SystemConfiguration.framework`
+	-   `CoreTelephony.framework`
+	-   `CFNetwork.framework`
+	-   `CoreLocation.framework`
+	-   `libxml2.dylib`
 
-> [AZURE.NOTE] L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA \<ios-sdk-engagement-idfa\> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
+> [AZURE.NOTE] L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA <ios-sdk-engagement-idfa> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
 
 ##Initialiser le SDK Engagement
 
@@ -60,7 +60,7 @@ Vous devez modifier votre délégué d'application :
 		[...]
 		#import "EngagementAgent.h"
 
--   Initialisez Engagement au sein de la méthode **applicationDidFinishLaunching:** ou **application:didFinishLaunchingWithOptions:** :
+-   Initialisez Engagement au sein de la méthode **applicationDidFinishLaunching:** ou **application:didFinishLaunchingWithOptions:** :
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -163,7 +163,7 @@ L'API d'Engagement permet d'utiliser toutes les fonctionnalités avancées d'Eng
 
 Par défaut, Engagement utilise l'[IDFA] pour identifier un utilisateur de manière unique. Toutefois, si vous n'utilisez pas de publicités à un autre endroit dans l'application, cette dernière peut être rejetée par le processus de vérification de la boutique d'applications. La collection de l'IDFA peut être désactivée en ajoutant la macro `ENGAGEMENT_DISABLE_IDFA` du préprocesseur dans votre fichier pch (ou dans le `Build Settings` de votre application). De cette façon, vous garantissez qu'il n'existe aucune référence à `ASIdentifierManager`, `advertisingIdentifier` ou `isAdvertisingTrackingEnabled` dans la génération de l'application.
 
-Intégration dans le fichier **prefix.pch** :
+Intégration dans le fichier **prefix.pch** :
 
 	#define ENGAGEMENT_DISABLE_IDFA
 	...
@@ -213,4 +213,4 @@ L'exemple suivant de `Settings.bundle` montre comment l'implémenter :
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

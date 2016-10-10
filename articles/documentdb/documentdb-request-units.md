@@ -2,7 +2,7 @@
 	pageTitle="Unités de requête dans DocumentDB | Microsoft Azure" 
 	description="Découvrez les besoins en unités de requête dans DocumentDB, et comment les spécifier et les estimer." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 #Unités de requête dans DocumentDB
 Désormais disponible : DocumentDB [calculatrice d’unités de demande](https://www.documentdb.com/capacityplanner). Pour en savoir plus, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs).
@@ -220,4 +220,4 @@ Pour commencer avec le test des performances et de la mise à l’échelle avec 
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

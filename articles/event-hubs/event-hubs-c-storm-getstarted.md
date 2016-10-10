@@ -3,7 +3,7 @@
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en C et à en recevoir dans un cluster Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="sethm"/>
+	ms.author="jotaub;sethm"/>
 
 # Prise en main des hubs d’événements
 
@@ -58,14 +58,14 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Les ressources suivantes sont disponibles pour les applications de développement intégrant des hubs d’événements et Storm.
 
-- Le didacticiel [Analyse des données de capteur avec Storm et HDInsight][] est un didacticiel présentant un scénario complet qui tire parti des hubs d’événements, de Storm et de HBase pour la réception des données de capteur dans un cluster Hadoop.
+- Le didacticiel [Analyse des données de capteur avec Storm et HDInsight][] est un didacticiel présentant un scénario complet qui tire parti des concentrateurs d’événements, de Storm et de HBase pour la réception des données de capteur dans un cluster Hadoop.
 - Le didacticiel [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight][] décrit la marche à suivre pour écrire des pipelines Storm en C#.
 
 <!-- Images. -->
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[portail Azure Classic]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Vue d'ensemble des hubs d'événements]: event-hubs-overview.md
 
@@ -74,4 +74,4 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [Analyse des données de capteur avec Storm et HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

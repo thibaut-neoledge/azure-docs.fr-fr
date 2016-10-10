@@ -3,7 +3,7 @@
 	description="Résoudre les causes courantes des problèmes susceptibles de se produire lors de votre inscription à Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"/>
@@ -87,4 +87,4 @@ Si vous avez déjà activé un abonnement Azure auparavant et que l’activation
 
 > [AZURE.NOTE] Si vous avez d’autres questions, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/05/2016"
+   ms.date="09/22/2016"
    ms.author="skwan;bryanla"/>
 
 #Comment obtenir une certification AppSource pour Azure Active Directory (AD) 
@@ -41,4 +41,4 @@ Utilisez la section commentaires Disqus ci-dessous pour fournir des commentaires
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

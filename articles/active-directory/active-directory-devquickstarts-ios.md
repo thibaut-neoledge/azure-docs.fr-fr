@@ -35,6 +35,8 @@ Pour générer l’application fonctionnelle complète, vous devez :
 
 Pour commencer, téléchargez [la structure de l’application](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Vous avez également besoin d’un client Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application. Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
 
+> [AZURE.TIP] Essayez la version préliminaire de notre nouveau [portail des développeurs](https://identity.microsoft.com/Docs/iOS) qui vous permettra de devenir opérationnel avec Azure Active Directory en quelques minutes ! Le portail des développeurs vous guidera tout au long du processus d’inscription d’une application et d’intégration d’Azure AD dans votre code. Une fois terminé, vous disposerez d’une application simple qui peut authentifier les utilisateurs dans votre client et d’un serveur principal qui peut accepter les jetons et effectuer la validation.
+
 ## *1. Déterminer votre URI de redirection pour iOS*
 
 Afin de pouvoir lancer en toute sécurité vos applications dans certains scénarios d’authentification unique, vous devez créer un **URI de redirection** dans un format particulier. Un URI de redirection permet de garantir que les jetons sont renvoyés vers la bonne application qui les a appelés.
@@ -45,8 +47,8 @@ Le format iOS d’un URI de redirection est le suivant :
 <app-scheme>://<bundle-id>
 ```
 
-- 	**aap-scheme** : il est enregistré dans votre projet XCode. Cela permet aux autres applications de vous appeler. Vous trouverez cela sous Info.plist -> Types d’URL -> Identificateur d’URL. Vous devez en créer une si vous n’en avez pas encore au moins une configurée.
-- 	**bundle-id** : il s’agit de l’identificateur d’offre groupée se trouvant sous « identité » dans les paramètres de votre projet XCode.
+- 	**aap-scheme** : il est enregistré dans votre projet XCode. Cela permet aux autres applications de vous appeler. Vous trouverez cela sous Info.plist -> Types d’URL -> Identificateur d’URL. Vous devez en créer une si vous n’en avez pas encore au moins une configurée.
+- 	**bundle-id** : il s’agit de l’identificateur d’offre groupée se trouvant sous « identité » dans les paramètres de votre projet XCode.
 
 Voici un exemple de code de démarrage rapide : ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
@@ -230,4 +232,4 @@ Vous pouvez à présent aborder d’autres scénarios. Par exemple :
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

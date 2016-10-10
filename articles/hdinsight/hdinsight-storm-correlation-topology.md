@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/05/2016"
+ ms.date="09/27/2016"
  ms.author="larryfr"/>
 
 # Corrélation des événements au fil du temps avec Storm et HBase sur HDInsight
@@ -135,7 +135,7 @@ Ce téléchargement contient les projets C# suivants :
 
 2.	Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **CorrelationTopology**, puis sélectionnez les propriétés.
 
-3.	Dans la fenêtre des propriétés, sélectionnez **Paramètres** et fournissez les informations suivantes. Les cinq premières valeurs doivent être similaires à celles utilisées par le projet **SessionInfo** :
+3.	Dans la fenêtre des propriétés, sélectionnez **Paramètres** et fournissez les informations suivantes. Les cinq premières valeurs doivent être similaires à celles utilisées par le projet **SessionInfo** :
 
 	- 	HBaseClusterURL : URL vers votre cluster HBase. Par exemple, https://myhbasecluster.azurehdinsight.net
 
@@ -204,4 +204,4 @@ Quand vous êtes prêt à arrêter la topologie, revenez au projet **Correlation
 Pour plus d’exemples Storm, consultez la page [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

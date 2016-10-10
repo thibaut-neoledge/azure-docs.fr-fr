@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 
@@ -40,7 +40,7 @@ Pour plus d’informations sur la création et l’utilisation des groupes à ha
 	- **Nom** : le nom doit compter entre 1 et 80 caractères composés de chiffres, de lettres, de points, de traits de soulignement et de tirets. Le premier caractère doit être une lettre ou un chiffre. Le dernier caractère doit être une lettre, un chiffre ou un trait de soulignement.
 	- **Domaines d’erreur** : les domaines d’erreur définissent le groupe de machines virtuelles partageant une source d’alimentation et un commutateur réseau communs. Par défaut, les machines virtuelles sont réparties entre trois domaines d’erreur maximum et peuvent être permutées entre le 1er et le 3e.
 	- **Domaines de mise à jour** : cinq domaines de mise à jour sont assignés par défaut et ils peuvent être définis entre 1 et 20. Les domaines de mise à jour indiquent les groupes de machines virtuelles et les équipements physiques sous-jacents pouvant être redémarrés en même temps. Par exemple, si nous spécifions cinq domaines de mise à jour, dans le cas où un seul groupe à haute disponibilité comprend plus de cinq machines virtuelles, la sixième machine est placée dans le même domaine de mise à jour que la première, la septième dans le même que la deuxième, etc. L’ordre du redémarrage peut ne pas être séquentiel, mais un seul domaine de mise à jour est redémarré à la fois.
-	- **Abonnement** : sélectionnez l’abonnement que vous souhaitez utiliser, si vous en avez plusieurs.
+	- **Abonnement** : sélectionnez l’abonnement que vous souhaitez utiliser, si vous en avez plusieurs.
 	- **Groupe de ressources** : sélectionnez un groupe de ressources existant en cliquant sur la flèche et en sélectionnant un groupe de ressources dans la liste déroulante. Vous pouvez également créer un nouveau groupe de ressources en entrant un nom. Le nom peut contenir les caractères suivants : lettres, chiffres, points, tirets, traits de soulignement et parenthèses ouvrantes et fermantes. Le nom ne peut pas se terminer par un point. Toutes les machines virtuelles dans le groupe à haute disponibilité doivent être créées dans le même groupe de ressources que le groupe à haute disponibilité.
 	- **Emplacement** : sélectionnez un emplacement dans la liste déroulante.
 
@@ -70,7 +70,7 @@ Cet exemple crée un groupe à haute disponibilité dans le groupe de ressources
 Pour plus d’informations, consultez [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
 
 
-## Résolution de problèmes
+## Résolution des problèmes
 
 - Lorsque vous créez une machine virtuelle, si le groupe à haute disponibilité que vous voulez utiliser n’est pas dans la liste déroulante du portail, elle a peut-être été créée dans un autre groupe de ressources. Si vous ne connaissez pas le groupe de ressources pour votre groupe à haute disponibilité, cliquez sur Parcourir > Groupes à haute disponibilité dans le menu Hub pour afficher la liste de vos groupes à haute disponibilité et les groupes de ressources auxquels ils appartiennent.
 
@@ -79,4 +79,4 @@ Pour plus d’informations, consultez [New-AzureRmAvailabilitySet](https://msdn.
 
 Ajout de stockage supplémentaire à votre machine virtuelle en ajoutant un [disque de données](virtual-machines-windows-attach-disk-portal.md) supplémentaire.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

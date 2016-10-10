@@ -30,7 +30,7 @@ Cette section couvre les configurations spécifiques à de larges clusters, comm
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "2016-09-26",
 
-Vous pouvez attribuer un nom convivial à votre cluster Service Fabric en lui assignant la variable **name**. Vous pouvez modifier le valeur **clusterManifestVersion** selon votre configuration ; cette valeur doit être mise à jour avant la mise à niveau de votre configuration Service Fabric. Vous pouvez également conserver la valeur par défaut attribuée à **apiVersion**.
+Vous pouvez attribuer un nom convivial à votre cluster Service Fabric en lui assignant la variable **name**. Vous pouvez modifier la valeur **clusterManifestVersion** selon votre configuration ; cette valeur doit être mise à jour avant la mise à niveau de votre configuration Service Fabric. Vous pouvez également conserver la valeur par défaut attribuée à **apiVersion**.
 
 
 <a id="clusternodes"></a>
@@ -117,10 +117,12 @@ Notez que dans la mesure où un nœud principal exécute une copie unique des se
 ### **nodeTypes**
 La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins un type de nœud doit être spécifié pour un cluster, comme indiqué dans l’extrait de code ci-dessous.
 
-	"nodeTypes": [{
+    "nodeTypes": [{
         "name": "NodeType0",
         "clientConnectionEndpointPort": "19000",
         "clusterConnectionEndpoint": "19001",
+        "leaseDriverEndpointPort": "19002"
+        "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
         "applicationPorts": {
 			"startPort": "20001",
@@ -133,7 +135,7 @@ La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins u
         "isPrimary": true
     }]
 
-La valeur **name** représente le nom convivial de ce type de nœud particulier. Pour créer un nœud de ce type de nœud, vous devez affecter le nom convivial pour ce type de nœud en utilisant la variable **nodeTypeRef**, comme indiqué dans la section [Nœuds sur le cluster](#clusternodes) ci-dessus. Pour chaque type de nœud, vous pouvez définir plusieurs points de terminaison pour la connexion à ce cluster. Vous pouvez choisir n’importe quel numéro de port pour ces points de terminaison de connexion, à condition qu’ils n’entrent pas en conflit avec d’autres points de terminaison de ce cluster. Un cluster avec plusieurs types de nœud inclura un type de nœud principal dont la propriété **isPrimary** est définie sur *true*. Pour les nœuds restants, la propriété **isPrimary** est définie sur *false*. Consultez la rubrique [Considérations en matière de planification de la capacité du cluster Service Fabric](service-fabric-cluster-capacity.md) pour plus d’informations sur les valeurs **nodeTypes** et **reliabilityLevel** selon la capacité de votre cluster, et pour connaître la différence entre les types de nœud principal et non principal.
+La valeur **name** représente le nom convivial de ce type de nœud particulier. Pour créer un nœud de ce type de nœud, vous devez affecter le nom convivial pour ce type de nœud en utilisant la variable **nodeTypeRef**, comme indiqué dans la section [Nœuds sur le cluster](#clusternodes) ci-dessus. Pour chaque type de nœud, vous pouvez définir plusieurs points de terminaison pour la connexion à ce cluster. Vous pouvez choisir n’importe quel numéro de port pour ces points de terminaison de connexion, à condition qu’ils n’entrent pas en conflit avec d’autres points de terminaison de ce cluster. Si vous souhaitez créer un port de passerelle d’application HTTP, vous pouvez spécifier la chaîne « reverseProxyEndpointPort » : [Numéro de port] en plus des autres ports, comme ci-dessus. Un cluster avec plusieurs types de nœud inclura un type de nœud principal dont la propriété **isPrimary** est définie sur *true*. Pour les nœuds restants, la propriété **isPrimary** est définie sur *false*. Consultez la rubrique [Considérations en matière de planification de la capacité du cluster Service Fabric](service-fabric-cluster-capacity.md) pour plus d’informations sur les valeurs **nodeTypes** et **reliabilityLevel** selon la capacité de votre cluster, et pour connaître la différence entre les types de nœud principal et non principal.
 
 
 ### **fabricSettings**
@@ -156,4 +158,4 @@ Nous vous recommandons d’utiliser un lecteur autre que celui du système d’e
 
 Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Création d’un cluster Azure Service Fabric en local ou dans le cloud](service-fabric-cluster-creation-for-windows-server.md) puis passer à la section [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="Ce didacticiel vous apprend à gérer les serveurs et les coffres Azure Backup."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="09/27/2016"
 	ms.author="jimpark;markgal"/>
 
 
@@ -63,7 +63,7 @@ Le filtre **Type** permet de filtrer les valeurs par défaut sur une machine vir
 Exécutez ensuite les tâches suivantes :
 
 - **Autoriser la réinscription** : quand cette option est sélectionnée pour un serveur, vous pouvez utiliser l’**Assistant Inscription** dans l’agent Microsoft Azure Backup local pour inscrire à nouveau le serveur auprès du coffre de sauvegarde. Vous devrez peut-être effectuer cette nouvelle inscription en raison d'une erreur dans le certificat ou de la nécessité de régénérer un serveur.
-- **Supprimer** : permet de supprimer un serveur du coffre de sauvegarde. Toutes les données stockées associées au serveur sont immédiatement supprimées.
+- **Supprimer ** : permet de supprimer un serveur du coffre de sauvegarde. Toutes les données stockées associées au serveur sont immédiatement supprimées.
 
     ![Tâches d’éléments inscrits](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
 
@@ -127,7 +127,7 @@ Dans les **Actions** disponibles à droite de la console de l’agent de sauvega
 
     >[AZURE.NOTE] La définition de la planification de sauvegarde est décrite en détail dans cet [article](backup-azure-backup-cloud-as-tape.md).
 
-6. Sélectionnez **Stratégie de rétention** pour la copie de sauvegarde et cliquez sur **Suivant**.
+6. Sélectionnez la **Stratégie de rétention** pour la copie de sauvegarde et cliquez sur **Suivant**.
 
     ![Sélectionner votre stratégie de rétention](./media/backup-azure-manage-windows-server-classic/select-retention-policy-modify.png)
 
@@ -203,4 +203,4 @@ Pour activer la limitation :
 - Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

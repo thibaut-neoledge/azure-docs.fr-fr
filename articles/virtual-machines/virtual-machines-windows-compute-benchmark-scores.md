@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="07/18/2016"
+ ms.date="09/22/2016"
  ms.author="danlep"/>
 
 # Calcul des scores de test d’évaluation pour les machines virtuelles Windows
@@ -59,13 +59,24 @@ Standard\_G3, Standard\_GS3 | 8 | 1 | Intel Xeon E5-2698B v3 à 2 GHz | 6 | 242\
 Standard\_G4, Standard\_GS4 | 16 | 1 | Intel Xeon E5-2698B v3 à 2 GHz | 15 | 398\.9 | 6\.0
 Standard\_G5, Standard\_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 à 2 GHz | 22 | 762\.8 | 3\.7
 
+## Série H
+
+Taille | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Itérations/s | StdDev
+------- | ------ | ---- | -------| ---- | ---- | -----
+Standard\_H8 | 8 | 1 | Intel Xeon E5-2667 v3 à 3,2 GHz | 5 | 297,4 | 0\.9
+Standard\_H16 | 16 | 2 | Intel Xeon E5-2667 v3 à 3,2 GHz | 5 | 575,8 | 6,8
+Standard\_H8m | 8 | 1 | Intel Xeon E5-2667 v3 à 3,2 GHz | 5 | 297,0 | 1\.2
+Standard\_H16m | 16 | 2 | Intel Xeon E5-2667 v3 à 3,2 GHz | 5 | 572,2 | 3\.9
+Standard\_H16r | 16 | 2 | Intel Xeon E5-2667 v3 à 3,2 GHz | 5 | 573,2 | 2,9
+Standard\_H16mr | 16 | 2 | Intel Xeon E5-2667 v3 à 3,2 GHz | 7 | 569,6 | 2\.8
+
 ## À propos de SPECint
 
-Les chiffres Windows ont été calculés en exécutant [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) sur Windows Server. SPECint a été exécuté à l’aide de l’option de taux de base (SPECint\_rate2006), avec une copie par cœur. SPECint se compose de 12 tests distincts, chacun exécuté trois fois, en prenant la valeur médiane de chaque test et en les pondérant pour former un score composite. Ces tests ont été exécutés sur plusieurs machines virtuelles pour fournir les scores moyens indiqués.
+Les chiffres Windows ont été calculés en exécutant [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) sur Windows Server. SPECint a été exécuté à l’aide de l’option de taux de base (SPECint\_rate2006), avec une copie par cœur. SPECint se compose de 12 tests distincts, chacun exécuté trois fois, en prenant la valeur médiane de chaque test et en les pondérant pour former un score composite. Ces tests ont été exécutés sur plusieurs machines virtuelles pour fournir les scores moyens indiqués.
 
 
 ## Étapes suivantes
 
-* Pour plus d’informations sur les capacités de stockage, les détails du disque et d’autres considérations relatives à la sélection parmi les tailles de machines virtuelles, consultez [Tailles des machines virtuelles](virtual-machines-windows-sizes.md).
+* Pour plus d’informations sur les capacités de stockage, les détails du disque et d’autres considérations relatives au choix d’une taille de machine virtuelle, consultez [Tailles des machines virtuelles](virtual-machines-windows-sizes.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

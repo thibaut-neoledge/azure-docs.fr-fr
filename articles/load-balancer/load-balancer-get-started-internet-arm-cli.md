@@ -17,7 +17,7 @@
    ms.date="08/31/2016"
    ms.author="sewhee" />
 
-# Créer un équilibreur de charge interne à l’aide de l’interface de ligne de commande (CLI) Azure
+# Création d’un équilibreur de charge interne à l’aide de l’interface de ligne de commande Azure
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -306,4 +306,4 @@ Où **nrprg** correspond au groupe de ressources et **nrplb** au nom de l’équ
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -114,7 +114,7 @@ Dans cette section, vous modifiez l’application de l’appareil simulé que vo
 
 4. Enregistrez et fermez le fichier simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
 
-    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] \(Gestion des erreurs temporaires).
+    > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
 
 5. Pour générer l’application **simulated-device** à l’aide de Maven, exécutez la commande suivante à l’invite de commandes dans le dossier simulated-device :
 
@@ -194,7 +194,7 @@ La première tâche consiste à ajouter un projet Maven nommé **process-d2c-mes
 
 La tâche suivante consiste à ajouter une classe **ErrorNotificationHandler** au projet.
 
-1. Utilisez un éditeur de texte pour créer un fichier process-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\ErrorNotificationHandler.java. Ajoutez le code suivant au fichier pour afficher les messages d’erreur à partir de l’instance **EventProcesssorHost** :
+1. Utilisez un éditeur de texte pour créer un fichier process-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\ErrorNotificationHandler.java. Ajoutez le code suivant au fichier pour afficher les messages d’erreur à partir de l’instance **EventProcesssorHost** :
 
     ```
     package com.mycompany.app;
@@ -223,7 +223,7 @@ La méthode **AppendAndCheckPoint** génère d’abord un **blockId** pour le bl
 
 > [AZURE.NOTE] Pour simplifier le code, ce didacticiel utilise un fichier blob unique par partition pour stocker les messages. La solution serait d’implémenter une substitution de fichier, en créant des fichiers supplémentaires lorsqu’ils atteignent une certaine taille ou après un certain laps de temps. N’oubliez pas qu’un objet blob de blocs Azure peut contenir au maximum 195 Go de données.
 
-La tâche suivante consiste à implémenter l’interface **IEventProcessor** :
+La tâche suivante consiste à implémenter l’interface **IEventProcessor** :
 
 1. Utilisez un éditeur de texte pour créer un fichier process-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\EventProcessor.java.
 
@@ -255,7 +255,7 @@ La tâche suivante consiste à implémenter l’interface **IEventProcessor** :
     }
     ```
 
-3. Ajoutez les méthodes suivantes à la classe **EventProcessor** pour implémenter l’interface **IEventProcessor** :
+3. Ajoutez les méthodes suivantes à la classe **EventProcessor** pour implémenter l’interface **IEventProcessor** :
 
     ```
     @Override
@@ -300,7 +300,7 @@ La tâche suivante consiste à implémenter l’interface **IEventProcessor** :
     private EventData latestEventData;
     ```
 
-5. Ajoutez une méthode **AppendAndCheckPoint** avec la signature suivante à la classe **EventProcessor** :
+5. Ajoutez une méthode **AppendAndCheckPoint** avec la signature suivante à la classe **EventProcessor** :
 
     ```
     private void AppendAndCheckPoint(PartitionContext context)
@@ -449,7 +449,7 @@ La dernière tâche du projet **process-d2c-messages** consiste à ajouter du co
     private final static String serviceBusRootUri = ".servicebus.windows.net";
     ```
 
-5. Ajoutez les variables de niveau classe suivantes à la classe **App**. Remplacez **{youreventhubcompatibleendpoint}** par le nom de point de terminaison compatible avec Event Hub. Le nom du point de terminaison ressemble à **ihs....namespace**, vous devez donc supprimer le préfixe **sb://** et le suffixe **.servicebus.windows.net/**. Remplacez **{youreventhubcompatiblename}** par le nom compatible avec Event Hub. Remplacez **{youriothubkey}** par la clé **iothubowner**. Vous avez noté ces valeurs dans la section [Création d’un IoT Hub][lnk-create-an-iot-hub] du didacticiel *Prise en main d’Azure IoT Hub pour Java* :
+5. Ajoutez les variables de niveau classe suivantes à la classe **App**. Remplacez **{youreventhubcompatibleendpoint}** par le nom de point de terminaison compatible avec Event Hub. Le nom du point de terminaison ressemble à **ihs....namespace**, vous devez donc supprimer le préfixe **sb://** et le suffixe **.servicebus.windows.net/**. Remplacez **{youreventhubcompatiblename}** par le nom compatible avec Event Hub. Remplacez **{youriothubkey}** par la clé **iothubowner**. Vous avez noté ces valeurs dans la section [Création d’un IoT Hub][lnk-create-an-iot-hub] du didacticiel *Prise en main d’Azure IoT Hub pour Java* :
 
     ```
     private final static String consumerGroupName = "$Default";
@@ -501,7 +501,7 @@ La dernière tâche du projet **process-d2c-messages** consiste à ajouter du co
     options.setInvokeProcessorAfterReceiveTimeout(true);
     ```
 
-10. Dans la méthode **main**, enregistrez la mise en œuvre **IEventProcessor** avec l’instance **EventProcessorHost** :
+10. Dans la méthode **main**, enregistrez la mise en œuvre **IEventProcessor** avec l’instance **EventProcessorHost** :
 
     ```
     try {
@@ -726,8 +726,8 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [stockage d’objets blob Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[file d’attente Azure Service Bus]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[file d’attente Azure Service Bus]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Guide du développeur Azure IoT Hub - Appareil vers cloud]: iot-hub-devguide.md#d2c
 
@@ -760,4 +760,4 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-create-an-iot-hub]: iot-hub-java-java-getstarted.md#create-an-iot-hub
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

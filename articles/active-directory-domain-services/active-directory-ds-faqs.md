@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire des services de domaine Azure Active Directory : FAQ | Microsoft Azure"
+	pageTitle="Services de domaine Azure Active Directory : FAQ | Microsoft Azure"
 	description="Forum aux questions sur les services de domaine Azure Active Directory"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 # Caractéristiques de la version préliminaire des services de domaine Azure Active Directory : FAQ
@@ -39,18 +39,18 @@ Le déploiement à l’aide de PowerShell ou automatisé des services de domaine
 Non. Les services de domaine Azure AD ne peuvent être configurés que dans le [portail Azure Classic](https://manage.windowsazure.com). Nous prévoyons d’étendre la prise en charge pour le [portail Azure](https://portal.azure.com) à l’avenir.
 
 #### Puis-je ajouter des contrôleurs de domaine à un domaine géré par les services de domaine Azure AD ?
-Non. Le domaine fourni par les services de domaine Azure AD est un domaine géré. Vous n’avez pas besoin d’approvisionner, de configurer ou de gérer par ailleurs les contrôleurs de ce domaine, car ces activités de gestion sont fournies en tant que service par Microsoft. Par conséquent, vous ne pouvez pas ajouter de contrôleurs de domaine supplémentaires (ni en lecture/écriture ni en lecture seule) pour le domaine géré.
+Non. Le domaine fourni par les services de domaine Azure AD est un domaine géré. Vous n’avez pas besoin d’approvisionner, de configurer ou de gérer par ailleurs les contrôleurs de ce domaine, car ces activités de gestion sont fournies en tant que service par Microsoft. Par conséquent, vous ne pouvez pas ajouter de contrôleurs de domaine supplémentaires (en lecture/écriture ou en lecture seule) pour le domaine géré.
 
 ### Administration et opérations
 
 #### Puis-je me connecter au contrôleur de domaine de mon domaine géré à l’aide du Bureau à distance ?
-Non. Comme il s’agit d’un domaine géré, vous ne pouvez pas vous connecter aux contrôleurs de domaine pour le domaine via le Bureau à distance. Les membres du groupe « AAD DC Administrators » peuvent administrer le domaine géré à l’aide des outils d’administration AD, tels que le centre d’administration d’Active Directory (ADAC) ou AD PowerShell. Ces outils sont installés à l’aide de la fonctionnalité « Outils d’administration de serveur distant » sur un serveur Windows joint au domaine géré.
+Non. Vous n’êtes pas autorisé à vous connecter aux contrôleurs de domaine pour le domaine géré, via le Bureau à distance. Les membres du groupe « AAD DC Administrators » peuvent administrer le domaine géré à l’aide des outils d’administration AD, tels que le centre d’administration d’Active Directory (ADAC) ou AD PowerShell. Ces outils sont installés à l’aide de la fonctionnalité « Outils d’administration de serveur distant » sur un serveur Windows joint au domaine géré.
 
 #### J’ai activé les services de domaine Azure AD. Quel compte d’utilisateur dois-je utiliser pour joindre des ordinateurs à ce domaine ?
-Les comptes d’utilisateur que vous avez ajoutés au groupe d’administration (par exemple, « AAD DC Administrators ») peuvent joindre des ordinateurs au domaine. En outre, les utilisateurs de ce groupe disposent d’un accès Bureau à distance aux ordinateurs qui ont été joints au domaine.
+Les utilisateurs que vous avez ajoutés au groupe d’administration (par exemple, « AAD DC Administrators ») peuvent joindre des ordinateurs au domaine. En outre, les utilisateurs de ce groupe disposent d’un accès Bureau à distance aux ordinateurs qui ont été joints au domaine.
 
 #### Puis-je exercer des privilèges d’administrateur de domaine pour le domaine fourni par les services de domaine Azure AD ?
-Non. Dans la mesure où il s’agit d’un service géré, aucun privilège d’administrateur ne vous est accordé sur le domaine. Cela signifie que les privilèges « Administrateur de domaine » et « Administrateur d’entreprise » ne sont pas disponibles dans le domaine. En outre, les groupes d’administrateurs de domaine ou d’administrateurs d’entreprise existants dans votre répertoire Azure AD ne se voient accorder aucun privilège d’administrateur de domaine ou d’entreprise sur le domaine.
+Non. Vous ne disposez pas des privilèges d’administrateur sur le domaine géré. Les privilèges « Administrateur de domaine » et « Administrateur d’entreprise » ne sont pas disponibles pour vous dans le domaine. En outre, les groupes d’administrateurs de domaine ou d’administrateurs d’entreprise existants dans votre répertoire Azure AD ne se voient accorder aucun privilège d’administrateur de domaine ou d’entreprise sur le domaine.
 
 #### Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration Active Directory sur des domaines fournis par les services de domaine Azure AD ?
 Non. Vous ne pouvez pas modifier les appartenances aux groupes dans des domaines pris en charge par les services de domaine Azure AD. Il en va de même pour les attributs d’utilisateur. Vous pouvez toutefois modifier les appartenances aux groupes ou les attributs d’utilisateur dans Azure AD ou sur votre domaine local. Ces modifications sont synchronisées automatiquement avec les services de domaine Azure AD.
@@ -63,13 +63,13 @@ Oui. Les utilisateurs qui appartiennent au groupe « AAD DC Administrators » b�
 
 ### Facturation et disponibilité
 
-#### Ce service est-il payant ?
-Le service est disponible à un prix réduit spécial pour la durée de la période d’évaluation publique. Il sera facturé à taux plein une fois qu’il sera mis à la disposition générale. Pour plus d’informations, consultez la page relative aux prix appliqués.
+#### Les services de domaine Azure AD sont-ils payants ?
+Le service est disponible à un prix réduit spécial pendant la période d’évaluation publique. Il sera facturé à taux plein une fois qu’il sera mis à la disposition générale. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
 #### Le service peut-il être essayé gratuitement ?
 Ce service est inclus dans l’essai gratuit d’Azure. Vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’un mois d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-#### Puis-je obtenir les services de domaine Azure AD dans le cadre d’Enterprise Mobility Suite (EMS) ?
+#### Puis-je obtenir les services de domaine Azure AD dans le cadre d’Enterprise Mobility Suite (EMS) ?
 Non, les services de domaine Azure AD constituent un service Azure avec paiement à l’utilisation et ne font pas partie d’EMS. Les services de domaine Azure AD sont disponibles pour toutes les références SKU d’Azure AD (Gratuit, De base et Premium) et sont facturés à l’heure d’utilisation.
 
 #### Dans quelles régions Azure le service est-il disponible ?
@@ -78,4 +78,4 @@ Pour obtenir la liste des régions Azure où les services de domaine Azure AD s
 #### Quand les services de domaine Azure AD seront-ils mis à la disposition générale ?
 Nous ne pouvons actuellement fournir aucun calendrier quant à la mise à disposition générale du service.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 #  Stream Analytics et Power BI : tableau de bord d'analyse en temps réel pour les données de diffusion en continu
@@ -35,7 +35,7 @@ Dans cet article, découvrez comment créer vos propres outils d’analyse déci
 
 Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Nouveau, Data Services, Stream Analytics, Création rapide**.
 
-Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
+Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
 * **Nom du travail** - entrez un nom pour le travail. Par exemple, **DeviceTemperatures**.
 * **Région** - sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le hub d’événements dans la même région afin d’améliorer les performances et d’éviter le coût d’un transfert de données entre différentes régions.
@@ -57,7 +57,7 @@ Pour ce didacticiel, nous partons du principe que vous utilisez Event Hub comme 
 *	Sélectionnez **Hub d’événements**, puis cliquez avec le bouton droit.
 *	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
   *	**Alias d’entrée** - entrez un nom convivial pour cette entrée de travail. Notez que vous utiliserez ce nom dans la requête par la suite.
-  * **Event Hub** : si l’Event Hub que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé l’Event Hub.
+  * **Event Hub** : si l’Event Hub que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé l’Event Hub.
 *	Si votre hub d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le hub d’événements à partir d’un autre abonnement** et entrez manuellement l’**espace de noms Service Bus**, le **nom du hub d’événements**, le **nom de la stratégie du hub d’événements**, la **clé de stratégie du hub d’événements** et le **nombre de partitions du hub d’événements**.
 
 > [AZURE.NOTE]	Cet exemple utilise le nombre de partitions par défaut : 16.
@@ -148,7 +148,7 @@ Avec cela, vous obtenez automatiquement un graphique comme celui-ci :
 
 ![graphic8][graphic8]
 
-Dans la section valeur, cliquez sur la liste déroulante pour temp et sélectionnez **moyenne** pour la température. Dans le graphique, cliquez sur **visualisation** et choisissez **graphique en courbes** :
+Dans la section valeur, cliquez sur la liste déroulante pour temp et sélectionnez **moyenne** pour la température. Dans le graphique, cliquez sur **visualisation** et choisissez **graphique en courbes** :
 
 ![graphic9][graphic9]
 
@@ -240,4 +240,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

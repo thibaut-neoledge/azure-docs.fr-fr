@@ -41,7 +41,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 - [Installation de la pile LAMP sur une machine virtuelle Linux dans Azure](virtual-machines-linux-create-lamp-stack.md)
 - [Application Web Ruby on Rails sur une machine virtuelle Azure](virtual-machines-linux-classic-ruby-rails-web-app.md)
-- [Installation d’Apache Qpid Proton-C pour AMQP et Service Bus](../service-bus/service-bus-amqp-apache.md)
+- [Installation d’Apache Qpid Proton-C pour AMQP et Service Bus](../service-bus-messaging/service-bus-amqp-apache.md)
 
 ### Bases de données
 - [optimisation des performances de MySQL dans Azure](virtual-machines-linux-classic-optimize-mysql.md)
@@ -189,4 +189,4 @@ Les liens ci-après se rapportent aux blogs Microsoft, aux pages Technet et à d
 
 - [Plug-in Packer pour Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

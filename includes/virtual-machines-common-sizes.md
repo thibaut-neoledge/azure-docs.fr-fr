@@ -1,7 +1,7 @@
 
-Pour connaître les limites générales des machines virtuelles Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../articles/azure-subscription-service-limits.md).
 
-Les tailles standard sont constituées de plusieurs séries : A, D, DS, F, Fs, G et GS. Voici des considérations quant à certaines de ces tailles :
+
+Azure offre le choix entre plusieurs tailles standard. Voici des considérations quant à certaines de ces tailles :
 
 *   Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).
 
@@ -29,14 +29,17 @@ La taille de la machine virtuelle a une incidence sur la tarification. La taille
 Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 
-* Les tailles A8 à A11 sont également connues comme étant des *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+* Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz. Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez l’article [À propos de la série H et de la série A nécessitant beaucoup de ressource système](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 
-*	Les séries Dv2, D, G et DS/GS sont idéales pour les applications qui exigent des processeurs plus rapides, de meilleures performances de disque local, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
+
+* Les séries Dv2, D, G et DS/GS sont idéales pour les applications qui exigent des processeurs plus rapides, de meilleures performances de disque local, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
 
 * Les machines virtuelles de série F sont un excellent choix pour les charges de travail qui exigent des processeurs plus rapides, mais n’ont pas besoin d’autant de mémoire ou de SSD local par cœur de processeur. Les charges de travail telles que l’analyse, les serveurs de jeux, les serveurs web et le traitement par lots tireront avantage de la série F.
 
 *   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <nom de la machine>** ou **Échec de la création de la machine virtuelle <nom de la machine>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une nouvelle machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, consultez [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d'assistance.
+
+* Il se peut également que votre abonnement limite le nombre de cœurs que vous pouvez déployer dans certaines familles de taille. Pour augmenter un quota, contactez le support technique Azure.
 
 
 ## Considérations relatives aux performances
@@ -61,6 +64,7 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de 
 |[F1s-F16s](#fs-series) | 210-250*|
 |[G1-5](#g-series) |180 - 240*|
 |[GS1-5](#gs-series) |180 - 240*|
+|[H](#h-series) |290 - 300*|
 
 
 Les unités ACU signalées par un astérisque (*) utilisent la technologie Intel ® Turbo pour augmenter la fréquence du processeur et améliorer les performances. Cette amélioration des performances peut varier en fonction de la taille et de la charge de travail de la machine virtuelle, et des autres charges de travail en cours d’exécution sur le même hôte.
@@ -95,15 +99,18 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 <br>
 ## Série A - Instances de calcul intensif
 
-Pour plus d’informations et pour connaître les éléments à prendre en compte pour l’utilisation de ces tailles, consultez la page [À propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Pour plus d’informations et pour connaître les éléments à prendre en compte pour l’utilisation de ces tailles, consultez [À propos des machines virtuelles de série H ou de série A nécessitant beaucoup de ressources système](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+
 
 
 | Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque local : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
 |--------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard\_A8 | 8 | 56 | 382 | 16 | 16 x 500 | 2 / Élevée |
-| Standard\_A9 | 16 | 112 | 382 | 16 | 16 x 500 | 4 / Très élevée |
+| Standard\_A8* | 8 | 56 | 382 | 16 | 16 x 500 | 2 / Élevée |
+| Standard\_A9* | 16 | 112 | 382 | 16 | 16 x 500 | 4 / Très élevée |
 | Standard\_A10 | 8 | 56 | 382 | 16 | 16 x 500 | 2 / Élevée |
 | Standard\_A11 | 16 | 112 | 382 | 16 | 16 x 500 | 4 / Très élevée |
+
+*Prenant en charge RDMA
 
 <br>
 ## Série D
@@ -142,7 +149,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en compt
 
 | Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque local : Gio | Disques de données max. | Débit de disque maximal avec mise en cache : E/S par seconde/ Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Cartes réseau (max)/Bande passante réseau |
 |---------------|-----------|--------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
-| Standard\_DS1 | 1 | 3,5 | 7 | 2 | 4 000 / 32 (42) | 3 200 / 32 | 1 / Modérée |
+| Standard\_DS1 | 1 | 3,5 | 7 | 2 | 4 000 / 32 (43) | 3 200 / 32 | 1 / Modérée |
 | Standard\_DS2 | 2 | 7 | 14 | 4 | 8 000 / 64 (86) | 6 400 / 64 | 2 / Élevée |
 | Standard\_DS3 | 4 | 14 | 28 | 8 | 16 000 / 128 (172) | 12 800 / 128 | 4 / Élevée |
 | Standard\_DS4 | 8 | 28 | 56 | 16 | 32 000 / 256 (344) | 25 600 / 256 | 8 / Élevée |
@@ -151,7 +158,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en compt
 | Standard\_DS13 | 8 | 56 | 112 | 16 | 32 000 / 256 (288) | 25 600 / 256 | 8 / Élevée |
 | Standard\_DS14 | 16 | 112 | 224 | 32 | 64 000 / 512 (576) | 51 200 / 512 | 8 / Très élevée |
 
-Mbits/s = 10^6 octets par seconde.
+Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 * Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
@@ -174,7 +181,7 @@ Mbits/s = 10^6 octets par seconde.
 | Standard\_DS14\_v2 | 16 | 112 | 224 | 32 | 64 000 / 512 (576) | 51 200 / 768 | 8 Extrêmement élevé |
 | Standard\_DS15\_v2 | 20 | 140 Go | 280 | 40 | 80 000 / 640 (720) | 64 000 / 960 | 8 Extrêmement élevé |
 
-Mbits/s = 10^6 octets par seconde.
+Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 * Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
@@ -202,7 +209,7 @@ Mbits/s = 10^6 octets par seconde.
 | Standard\_F8s | 8 | 16 | 32 | 16 | 32 000 / 256 (96) | 25 600 / 384 | 8 / Élevée |
 | Standard\_F16s | 16 | 32 | 64 | 32 | 64 000 / 512 (192) | 51 200 / 768 | 8 / Extrêmement élevée |
 
-Mbits/s = 10^6 octets par seconde.
+Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 * Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série Fs peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
@@ -232,12 +239,31 @@ Mbits/s = 10^6 octets par seconde.
 | Standard\_GS4 | 16 | 224 | 2 112 | 32 | 80 000 / 800 (2 112) | 40 000 / 1 000 | 8 / Extrêmement élevée |
 | Standard\_GS5 | 32 | 448 | 4 224 | 64 | 160 000 / 1 600 (4 224) | 80 000 / 2 000 | 8 / Extrêmement élevée |
 
-Mbits/s = 10^6 octets par seconde.
+Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 * Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série GS peut être limité par le nombre, la taille et la répartition des disques attachés.
 
+<br>
+## Série H
+
+Les machines virtuelles de la série H sont des machines virtuelles de calcul haute performance de nouvelles génération, destinées à répondre à des besoins de calcul de haut niveau, par exemple en relation avec la modélisation moléculaire et la dynamique des fluides. Les machines virtuelles à 8 et 16 cœurs reposent sur la technologie de processeur Intel Haswell E5-2667 V3 avec mémoire DDR4 et stockage SSD local.
+
+En plus de la puissance substantielle du processeur, la série H offre différentes options pour des réseaux RDMA à faible latence, en utilisant FDR InfiniBand et plusieurs configurations de mémoire pouvant satisfaire des exigences de calcul nécessitant une mémoire conséquente.
 
 
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Taille du disque SSD local : Gio | Disques de données max. | Débit de disque max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
+|----------------|-----------|-------------|--------------------------|----------------|---------------------------|------------------------------|
+| Standard\_H8 | 8 | 56 | 1 000 | 16 | 16 x 500 | 8 / Élevée |
+| Standard\_H16 | 16 | 112 | 2000 | 32 | 32 x 500 | 8 / Très élevée |
+| Standard\_H8m | 8 | 112 | 1 000 | 16 | 16 x 500 | 8 / Élevée |
+| Standard\_H16m | 16 | 224 | 2000 | 32 | 32 x 500 | 8 / Très élevée |
+| Standard\_H16r* | 16 | 112 | 2000 | 32 | 32 x 500 | 8 / Très élevée |
+| Standard\_H16mr* | 16 | 224 | 2000 | 32 | 32 x 500 | 8 / Très élevée |
+
+
+*Prenant en charge RDMA
+
+<br>
 ## Série N (version préliminaire)
 
 Les tailles NC et NV sont également appelées instances compatibles GPU. Il s’agit de machines virtuelles spécialisées qui incluent des cartes GPU NVIDIA, optimisées pour différents scénarios et cas d’utilisation. Les tailles NV sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, le codage et les scénarios VDI utilisant des infrastructures comme OpenGL et DirectX. Les tailles NC sont optimisées pour les applications nécessitant des ressources réseau et de calcul importantes, les algorithmes, notamment les applications et simulations CUDA et OpenCL.
@@ -268,6 +294,7 @@ Les instances NC sont équipés de modules NVIDIA Tesla K80. Les utilisateurs pe
 
 
 
+<br>
 ## Remarques : Standard A0 - A4 à l’aide de l’interface de ligne de commande et de Powershell 
 
 
@@ -283,6 +310,6 @@ Dans le modèle de déploiement classique, certains noms de tailles de machines 
 ## Étapes suivantes
 
 - En savoir plus sur l’[abonnement Azure et les limites, quotas et contraintes des services](../articles/azure-subscription-service-limits.md).
-- En savoir plus sur [à propos des instances de calcul intensif A8, A9, A10 et A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) pour les charges de travail telles que le calcul haute performance (HPC).
+- Pour des charges de travail telles que le calcul haute performance (HPC), consultez [À propos des machines virtuelles de série H et de série A nécessitant beaucoup de ressources système](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

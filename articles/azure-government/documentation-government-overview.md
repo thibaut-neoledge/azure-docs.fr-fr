@@ -49,24 +49,24 @@ Les principes fondamentaux pour la sécurisation des données client sont :
 
 L’atténuation des risques et le respect des obligations réglementaires donnent un poids et une importance croissants au chiffrement des données. Implémentez le chiffrement de manière efficace pour améliorer les mesures de sécurité actuelles pour le réseau et les applications, et réduire le risque global pour votre environnement cloud.
 
-### {0}{0}Chiffrement au repos
+### <a name="Overview"></a>Chiffrement au repos
 Le chiffrement des données au repos s’applique à la protection du contenu client stocké sur disque. Il existe plusieurs façons de procéder :
 
-### {0}{0}Storage Service Encryption
+### <a name="Overview"></a>Storage Service Encryption
 
 Azure Storage Service Encryption est appliqué au niveau du compte de stockage, ce qui a pour effet de chiffrer automatiquement les objets blob de bloc et les objets blog de pages quand ils sont écrits dans Azure Storage. Les données lues à partir d’Azure Storage sont déchiffrées par le service de stockage avant d’être renvoyées. Utilisez ce processus pour sécuriser vos données sans avoir à modifier ni ajouter de code dans les applications.
 
-### {0}{0}Azure Disk Encryption
+### <a name="Overview"></a>Azure Disk Encryption
 Utilisez Azure Disk Encryption pour chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle Azure. L’intégration avec Azure Key Vault vous permet de contrôler le chiffrement et vous aide à gérer les clés de chiffrement de disque.
 
-### {0}{0}Chiffrement côté client
+### <a name="Overview"></a>Chiffrement côté client
 Le chiffrement côté client est intégré aux bibliothèques clientes de stockage Java et .NET, qui peuvent utiliser les API Azure Key Vault. Cela simplifie l’implémentation. Utilisez Azure Key Vault pour accorder l’accès aux clés secrètes dans Azure Key Vault à des utilisateurs spécifiques à l’aide d’Azure Active Directory.
 
-### {0}{0}Chiffrement en transit
+### <a name="Overview"></a>Chiffrement en transit
 
 Le chiffrement de base disponible pour la connectivité à Azure Government prend en charge le protocole de sécurité TLS (Transport Level Security) 1.2 et les certificats X.509. Les algorithmes de chiffrement de la norme FIPS (Federal Information Processing Standard) 140-2, niveau 1 sont également utilisés pour les connexions réseau de l’infrastructure entre les centres de données Azure Government. Windows Server 2012 R2, les machines virtuelles Windows 8 et les partages de fichiers Azure peuvent utiliser SMB 3.0 pour le chiffrement entre la machine virtuelle et le partage de fichiers. Utilisez le chiffrement côté client pour chiffrer les données avant leur transfert vers un espace de stockage dans une application client, et les déchiffrer après leur transfert à partir de l’espace de stockage.
 
-### {0}{0}Meilleures pratiques pour le chiffrement
+### <a name="Overview"></a>Meilleures pratiques de chiffrement
 
 * Machines virtuelles IaaS : utilisez Azure Disk Encryption. Activez Storage Service Encryption pour chiffrer les fichiers VHD utilisés pour la sauvegarde des disques dans Azure Storage. Notez que cette fonctionnalité chiffre uniquement les nouvelles données écrites. Autrement dit, si vous créez une machine virtuelle et activez ensuite Storage Service Encryption sur le compte de stockage qui contient le fichier VHD, les modifications apportées sont chiffrées, mais pas le fichier VHD d’origine.
 * Chiffrement côté client : il s’agit de la méthode la plus sûre pour chiffrer vos données, car il chiffre les données avant leur transit et il chiffre les données au repos. Toutefois, cette méthode vous oblige à ajouter du code dans vos applications qui utilisent le stockage, ce qui peut ne pas vous convenir. Dans ce cas, vous pouvez utiliser le protocole HTTPS pour vos données en transit, et Storage Service Encryption pour chiffrer les données au repos. Le chiffrement côté client entraîne également une plus grande charge pour le client. Vous devez donc tenir compte de ce paramètre dans vos plans d’extensibilité, en particulier si vous chiffrez et transférez une grande quantité de données.
@@ -89,13 +89,10 @@ Pour plus d’informations, consultez [Key Vault pour Azure Government](/azure-g
 
 L’isolation correspond à l’utilisation de limites, de segmentation et de conteneurs pour que seuls les utilisateurs, services et applications autorisés aient accès aux données. Par exemple, la séparation entre les clients est un mécanisme de sécurité essentiel pour les plateformes de cloud mutualisées comme Microsoft Azure. L’isolation logique permet d’empêcher un client d’interférer avec les opérations d’un autre client.
 
-### {0}{0}Isolation de l’environnement
-L’environnement Azure Government est une instance physique et isolée du réseau qui est distincte du reste du réseau de Microsoft. L’isolation s’effectue à l’aide d’une série de contrôles physiques et logiques qui incluent les éléments suivants :
-* Sécurisation de barrières physiques à l’aide d’appareils biométriques et de caméras.
-* Utilisation d’informations d’identification et d’une authentification multifacteur par le personnel Microsoft nécessitant un accès logique à l’environnement de production.
-* Toute l’infrastructure de service d’Azure Government se trouve aux États-Unis.
+### <a name="Overview"></a>Isolation de l’environnement
+L’environnement Azure Government est une instance physique distincte du reste du réseau de Microsoft. L’isolation s’effectue à l’aide d’une série de contrôles physiques et logiques qui incluent les éléments suivants : Sécurisation de barrières physiques à l’aide d’appareils biométriques et de caméras. Utilisation d’informations d’identification et d’une authentification multifacteur par le personnel Microsoft nécessitant un accès logique à l’environnement de production. Toute l’infrastructure de service d’Azure Government se trouve aux États-Unis.
 
-#### {0}{0}Isolation par client
+#### <a name="Overview"></a>Isolation par client
 Azure implémente le contrôle d’accès réseau et la répartition via l’isolation des réseaux locaux virtuels (VLAN), des listes de contrôle d’accès, des équilibreurs de charge et des filtres IP.
 
 Les clients peuvent isoler davantage leurs ressources au niveau des abonnements, des groupes de ressources, des réseaux virtuels et des sous-réseaux.
@@ -104,4 +101,4 @@ Pour plus d’informations sur l’isolation dans Microsoft Azure, consultez la 
 
 Pour obtenir des informations supplémentaires et des mises à jour, veuillez vous inscrire au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government</a>.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

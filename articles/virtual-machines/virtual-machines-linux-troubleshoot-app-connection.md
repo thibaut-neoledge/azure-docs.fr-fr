@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Un programme ne s’ouvre pas ou un port d’écoute est bloqué sur une machine virtuelle | Microsoft Azure"
-	description="Si vous ne parvenez pas à démarrer ou à utiliser un programme qui s’exécute sur une machine virtuelle Azure, suivez ces étapes pour isoler la source du problème."
+	pageTitle="Résoudre les problèmes d’accès à l’application de machine virtuelle Linux | Microsoft Azure"
+	description="Utilisez ces étapes détaillées de résolution de problèmes pour isoler les problèmes de connexion aux applications s’exécutant sur des machines virtuelles Linux dans Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,12 +14,12 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.topic="support-article"
+	ms.date="09/27/2016"
 	ms.author="iainfou"/>
 
-# Dépannage : impossible de démarrer, d’accéder ou de se connecter à une application exécutée sur une machine virtuelle Azure
+# Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

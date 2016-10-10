@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Filtres et manifestes dynamiques" 
-	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour l’archivage de cette diffusion sélective." 
+	pageTitle="Filtres et manifestes dynamiques | Microsoft Azure" 
+	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d’un flux. Media Services crée des manifestes dynamiques pour l’archivage de cette diffusion sélective." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="cenkdin" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="cenkdin;juliako"/>
 
-#Filtres et manifestes dynamiques
+# Filtres et manifestes dynamiques
 
 À partir de la version 2.11, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d'effectuer des opérations comme les suivantes : lecture d'une section d'une vidéo uniquement (au lieu de la vidéo entière), spécification d'un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l'appareil de votre client (au lieu de tous les rendus associés à l'élément multimédia). Ce filtrage de vos ressources est obtenu via des **manifestes dynamiques** créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
 
-Cette rubrique décrit les scénarios courants dans lesquels l'utilisation de filtres s'avère très utile pour vos clients et établit des liens vers d'autres rubriques qui montrent comment créer par programme de tels filtres (actuellement, vous pouvez créer des filtres avec les API REST uniquement).
+Cette rubrique décrit les scénarios courants dans lesquels l’utilisation de filtres s’avère très utile pour vos clients et établit des liens vers d’autres rubriques qui montrent comment créer par programme de tels filtres (actuellement, vous pouvez créer des filtres avec les API REST uniquement).
 
 ##Vue d'ensemble
 
@@ -126,7 +126,7 @@ Dans l’exemple suivant, un encodeur a été utilisé pour encoder un élément
 
 ##Suppression des pistes de langue
 
-Vos éléments multimédias peuvent inclure plusieurs langues audio telles que l'anglais, l'espagnol, le français, etc. Généralement, le Kit de développement logiciel (SDK) du lecteur gère la sélection de pistes audio par défaut et les pistes audio disponible par sélection de l'utilisateur. Il est difficile de développer ces Kits de développement logiciel (SDK) de lecteur, car différentes implémentations sont requises entre les infrastructures de lecteur propres aux appareils. De plus, sur certaines plateformes, les API de lecteur sont limitées et n'incluent pas de fonctionnalité de sélection audio, ce qui ne permet pas aux utilisateurs de sélectionner ou de modifier la piste audio par défaut. Avec les filtres d'éléments multimédias, vous pouvez contrôler le comportement en créant des filtres qui incluent uniquement les langues audio souhaitées.
+Vos éléments multimédias peuvent inclure plusieurs langues audio telles que l'anglais, l'espagnol, le français, etc. Généralement, le Kit de développement logiciel (SDK) du lecteur gère la sélection de pistes audio par défaut et les pistes audio disponibles par sélection de l'utilisateur. Il est difficile de développer ces Kits de développement logiciel (SDK) de lecteur, car différentes implémentations sont requises entre les infrastructures de lecteur propres aux appareils. De plus, sur certaines plateformes, les API de lecteur sont limitées et n'incluent pas de fonctionnalité de sélection audio, ce qui ne permet pas aux utilisateurs de sélectionner ou de modifier la piste audio par défaut. Avec les filtres d'éléments multimédias, vous pouvez contrôler le comportement en créant des filtres qui incluent uniquement les langues audio souhaitées.
 
 ![Filtrage des pistes de langue][language_filter]
 
@@ -236,4 +236,4 @@ Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

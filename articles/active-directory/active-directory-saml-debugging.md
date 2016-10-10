@@ -1,9 +1,9 @@
 <properties 
     pageTitle="Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory | Microsoft Azure" 
-    description="Découvrez comment déboguer une authentification unique basée sur SAML aux applications dans Azure Active Directory" 
+    description="Découvrez comment déboguer une authentification unique basée sur SAML aux applications dans Azure Active Directory " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -34,4 +34,4 @@ Vous pouvez afficher le jeton SAML en sélectionnant cette ligne, puis **Inspect
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

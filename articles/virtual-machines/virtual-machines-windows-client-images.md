@@ -1,7 +1,7 @@
 <properties
    pageTitle="L’utilisation d’images d’un client Windows pour les scénarios de développement / test | Microsoft Azure"
    description="Comment utiliser les avantages de l’abonnement Visual Studio pour déployer Windows 7/8/10 dans Azure pour des scénarios de développement / de test"
-   services="virtual-machines-windowse"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
    manager="timlt"
@@ -57,4 +57,4 @@ Vous pouvez également voir l’ID d’offre dans [l’onglet « Abonnements »]
 ## Étapes suivantes
 Vous pouvez désormais déployer vos machines virtuelles à l’aide de [PowerShell](virtual-machines-windows-ps-create.md), de [modèles Resource Manager](virtual-machines-windows-ps-template.md) ou de [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

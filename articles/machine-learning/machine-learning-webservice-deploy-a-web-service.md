@@ -13,12 +13,12 @@
    	ms.tgt_pltfrm="na"
    	ms.devlang="na"
    	ms.topic="article"
-   	ms.date="07/06/2016"
+   	ms.date="09/22/2016"
    	ms.author="v-donglo"/>
 
 # Déployer comme un nouveau service web
 
-Microsoft Azure Machine Learning fournit désormais des services web basés sur [Azure Resource Manager](../azure-portal/resource-group-overview.md) permettant de choisir de nouvelles options de plan de facturation et de déployer votre service web dans plusieurs régions.
+Microsoft Azure Machine Learning fournit désormais des services web basés sur [Azure Resource Manager](../resource-group-overview.md) permettant de choisir de nouvelles options de plan de facturation et de déployer votre service web dans plusieurs régions.
 
 Le flux de travail général pour déployer un service web à l’aide des services web Microsoft Azure Machine Learning est le suivant :
 
@@ -57,7 +57,7 @@ La page Démarrage rapide du service web vous donne accès et vous fournit des c
 
 Dans la page Démarrage rapide, cliquez sur Tester le service web dans la section sur les tâches courantes.
 
-Pour tester le service web en tant que service de requête-réponse (RRS) :
+Pour tester le service web en tant que service de requête-réponse (RRS) :
 
 * Cliquez sur **Test** dans la barre de menus.
 * Cliquez sur **Request-Response** (Requête-réponse).
@@ -66,7 +66,7 @@ Pour tester le service web en tant que service de requête-réponse (RRS) :
 
 Vos résultats apparaîtront sur le côté droit de la page.
 
-Pour tester un service web d’exécution de lots (BES), vous utiliserez un fichier CSV :
+Pour tester un service web d’exécution de lots (BES), vous utiliserez un fichier CSV :
 
 * Cliquez sur **Test** dans la barre de menus.
 * Cliquez sur **Lot**.
@@ -77,16 +77,23 @@ L’état de votre test s’affiche sous **Test Batch Jobs** (Tâches de test de
 
 ## Utilisation de votre service web
 
-Lors de leur déploiement en tant que services web, les expériences Azure Machine Learning proposent une API REST, qui peut être exploitée par divers périphériques et plateformes. En effet, l’API REST, très simple, accepte et répond au moyen de messages présentant le format JSON. Le portail Microsoft Azure Machine Learning propose du code que vous pouvez utiliser pour appeler le service web, en R, C# et Python.
+Lors de leur déploiement en tant que services web, les expériences Azure Machine Learning proposent une API REST, qui peut être exploitée par divers périphériques et plateformes. En effet, l’API REST, très simple, accepte et répond au moyen de messages présentant le format JSON. Le portail Microsoft Azure Machine Learning propose du code que vous pouvez utiliser pour appeler le service web, en R, C# et Python.
  
-Sur la page d’utilisation, vous trouverez :
+Sur la page d’utilisation, vous trouverez :
 
 * La clé API et l’URI pour utiliser le service web dans les applications.
 * Des modèles d’application web et Excel pour démarrer le processus d’utilisation.
 * Un exemple de code en langage C#, python et R pour commencer.
 
-Pour plus d’informations sur l’utilisation de services web, consultez [Utilisation d’un service web Azure Machine Learning déployé à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md).
+Pour plus d’informations sur l’utilisation de services web, consultez [Utilisation d’un service web Azure Machine Learning déployé à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md).
 
+## Étapes suivantes
+
+Pour plus d’informations sur l’utilisation des services web, consultez :
+
+[Utilisation d’un service web Azure Machine Learning déployé à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md)
+
+[Services web Azure Machine Learning : déploiement et consommation](machine-learning-deploy-consume-web-service-guide.md)
 
 <!--Image references-->
 [1]: ./media/machine-learning-webservice-deploy-a-web-service/armdeploymentworkflow.png
@@ -94,4 +101,4 @@ Pour plus d’informations sur l’utilisation de services web, consultez [Utili
 
 <!--links-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

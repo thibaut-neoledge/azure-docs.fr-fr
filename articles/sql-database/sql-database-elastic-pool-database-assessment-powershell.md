@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Script PowerShell pour identifier les bases de données uniques adaptées à un pool"
+	pageTitle="Script PowerShell pour identifier les bases de données uniques adaptées à un pool | Microsoft Azure"
 	description="Un pool de bases de données élastique est un ensemble de ressources disponibles partagé par un groupe de bases de données élastiques. Ce document fournit un script PowerShell pour vous aider à évaluer la pertinence de l’utilisation d’un pool de bases de données élastique pour un groupe de bases de données."
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/06/2016"
+	ms.date="09/22/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -24,11 +24,11 @@ Ce script est particulièrement utile pour l’évaluation des bases de données
 
 > [AZURE.IMPORTANT] Vous devez conserver la fenêtre PowerShell ouverte pendant l'exécution du script. Ne fermez pas la fenêtre PowerShell tant que vous n’avez pas exécuté le script pendant la durée nécessaire.
 
-## Configuration requise 
+## Composants requis 
 
 Installez les éléments suivants avant d'exécuter le script :
 
-- les derniers [outils de ligne de commande Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ;
+- La dernière version de Microsoft Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 - le [pack de fonctionnalités SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ### Détails du script
@@ -266,4 +266,4 @@ Une fois le script terminé, il génère le nombre d’eDTU estimé nécessaire 
 
         
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

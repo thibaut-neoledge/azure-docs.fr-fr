@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="micurd"/>
+	ms.date="09/21/2016"
+	ms.author="micurd;tamram"/>
 
 # Transfert de données vers et à partir d’Azure Storage
 
@@ -82,4 +82,4 @@ Quand vous disposez d’applications et de charges de travail locales, vous avez
 
 Consultez [Azure Site Recovery](../site-recovery/site-recovery-overview.md) pour en savoir plus.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

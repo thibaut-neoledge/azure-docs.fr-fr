@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Configuration d’un groupe à haute disponibilité pour des machines virtuelles Windows dans le modèle de déploiement Classic
@@ -27,4 +27,4 @@
 
 Pour d’autres articles sur les déploiements classiques, consultez la page [Articles techniques concernant les machines virtuelles Windows dans le modèle de déploiement Classic](virtual-machines-windows-index.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

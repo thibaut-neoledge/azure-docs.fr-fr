@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview"
+	pageTitle="Indexation de fichiers multimédias avec Azure Media Indexer 2 | Microsoft Azure"
 	description="Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Cette rubrique explique comment utiliser Media Indexer 2 Preview."
 	services="media-services"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="adsolank;juliako;"/>
 
 
 # Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Le processeur multimédia **Azure Media Indexer 2 Preview** permet d’effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes de sous-titrage. Par rapport à la version précédente d’[Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** effectue une indexation plus rapide et offre une prise en charge plus large des langues. Les langues prises en charge sont l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois, le portugais et l’arabe.
 
@@ -289,4 +289,4 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

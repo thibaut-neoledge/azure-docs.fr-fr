@@ -3,7 +3,7 @@
 	description="Découvrez comment vous connecter à un compte DocumentDB prenant en charge le protocole MongoDB (actuellement disponible en version préliminaire). Connectez-vous à l’aide de votre chaîne de connexion MongoDB." 
 	keywords="chaîne de connexion mongodb"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Connexion d’un compte DocumentDB prenant en charge le protocole MongoDB
 
@@ -84,4 +84,4 @@ Comme nous l’avons déjà mentionné, tous les comptes DocumentDB requièrent 
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

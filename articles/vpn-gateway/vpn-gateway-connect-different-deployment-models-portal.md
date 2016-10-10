@@ -41,15 +41,15 @@ Avant de commencer, vérifiez les points suivants :
 
 ### <a name="values"></a>Exemples de paramètres
 
-Vous pouvez utiliser les exemples de paramètres comme référence lors de l’utilisation des applets de commande PowerShell dans les étapes suivantes.
+Vous pouvez utiliser les exemples de paramètres comme référence lors de l’utilisation des applets de commande PowerShell dans les étapes suivantes :
 
 **Paramètres de réseau virtuel classique**
 
-Nom du réseau virtuel = ClassicVNet <br> Emplacement = États-Unis de l’Ouest <br> Espaces d’adresses du réseau virtuel = 10.0.0.0/8 <br> Sous-réseau 1 = 10.0.0.0/11 <br> Sous-réseau de passerelle = 10.32.0.0/29 <br> Nom du réseau local = RMVNetLocal <br>
+Nom du réseau virtuel = ClassicVNet <br> Emplacement = États-Unis de l’Ouest <br> Espaces d’adresses du réseau virtuel = 10.0.0.0/24 <br> Sous-réseau 1 = 10.0.0.0/27 <br> Sous-réseau de passerelle = 10.0.0.32/29 <br> Nom du réseau local = RMVNetLocal <br>
 
 **Paramètres de réseau virtuel Resource Manager**
 
-Nom du réseau virtuel = RMVNet <br> Groupe de ressources = RG1 <br> Espaces d’adresses du réseau virtuel = 192.168.1.0/16 <br> Sous-réseau 1 = 192.168.1.0/24 <br> Sous-réseau de passerelle = 192.168.0.0/26 <br> Emplacement = États-Unis de l’Est<br> Nom de la passerelle de réseau virtuel = RMGateway <br> Nom d’adresse IP publique de la passerelle = gwpip <br> Type de passerelle = VPN <br> Type de VPN = Basé sur un itinéraire <br> Passerelle de réseau local = ClassicVNetLocal <br>
+Nom du réseau virtuel = RMVNet <br> Groupe de ressources = RG1 <br> Espaces d’adresses du réseau virtuel = 192.168.0.0/16 <br> Sous-réseau 1 = 192.168.1.0/24 <br> Sous-réseau de passerelle = 192.168.0.0/26 <br> Emplacement = États-Unis de l’Est<br> Nom de la passerelle de réseau virtuel = RMGateway <br> Nom d’adresse IP publique de la passerelle = gwpip <br> Type de passerelle = VPN <br> Type de VPN = Basé sur un itinéraire <br> Passerelle de réseau local = ClassicVNetLocal <br>
 
 ## <a name="createsmgw"></a>Section 1 : Configurer les paramètres du réseau virtuel classique
 
@@ -156,7 +156,7 @@ Dans cette section, nous créons la connexion entre les réseaux virtuels. Pour 
 		Set-AzureVNetGatewayKey -VNetName ClassicVNet `
 		-LocalNetworkSiteName RMVNetLocal -SharedKey abc123
 
-4. Créez la connexion VPN en exécutant les commandes suivantes.
+4. Créez la connexion VPN en exécutant les commandes suivantes :
 	
 	**Définir les variables**
 
@@ -182,4 +182,4 @@ Consultez les détails du Forum Aux Questions pour plus d’informations sur les
 
 [AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

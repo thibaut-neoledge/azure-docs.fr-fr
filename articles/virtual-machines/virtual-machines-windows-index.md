@@ -62,7 +62,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Tailles de machines virtuelles](virtual-machines-windows-sizes.md)
 
-[À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+[À propos des machines virtuelles de série H ou de calcul intensif de série A](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
 [Maintenance planifiée des machines virtuelles Azure](virtual-machines-windows-planned-maintenance.md)
 
@@ -192,4 +192,4 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Résoudre les problèmes de déploiement Classic liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

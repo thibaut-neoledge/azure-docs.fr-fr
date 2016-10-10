@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
@@ -24,7 +24,7 @@
 - [REST](media-services-rest-get-media-processor.md)
 
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Dans Media Services, un processeur multimédia est un composant qui gère une tâche de traitement spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Le plus souvent, vous devez créer un processeur multimédia lorsque vous créez une tâche visant à encoder, à chiffrer ou à convertir le format du contenu multimédia.
 
@@ -34,7 +34,7 @@ Nom du processeur multimédia|Description|Informations complémentaires
 ---|---|---
 Media Encoder Standard|Fournit des fonctionnalités standard pour l’encodage à la demande. |[Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](media-services-encode-asset.md)
 Media Encoder Premium Workflow|Permet d’exécuter des tâches d’encodage à l’aide de Media Encoder Premium Workflow.|[Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](media-services-encode-asset.md)
-Azure Media Indexer| Permet d’effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes et des mots clés de sous-titrage codé.|[Azure Media Indexer](media-services-index-content.md)
+Azure Media Indexer| Vous permet de faire en sorte que les fichiers et le contenu multimédias puissent faire l'objet d'une recherche, et de générer des pistes de sous-titrage et des mots clés.|[Azure Media Indexer](media-services-index-content.md)
 Azure Media Hyperlapse (version préliminaire)|Permet de lisser les « dégradations » dans votre vidéo avec une stabilisation vidéo. Permet également d’accélérer votre contenu dans un clip consommable.|[Azure Media Hyperlapse](media-services-hyperlapse-content.md)
 Encodeur multimédia Azure|Amorti
 Storage Decryption| Amorti|
@@ -69,4 +69,4 @@ La méthode suivante montre comment obtenir une instance de processeur multiméd
 
 Maintenant que vous savez comment obtenir une instance de processeur multimédia, consultez la rubrique [Encodage d’un élément multimédia](media-services-dotnet-encode-with-media-encoder-standard.md) pour savoir comment utiliser Media Encoder Standard afin d’encoder un élément multimédia.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

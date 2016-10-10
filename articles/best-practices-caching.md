@@ -339,7 +339,7 @@ Il s’agit d’un processus potentiellement complexe, car vous devrez peut-êtr
 
 Chaque paire maître/subordonné doit être proche pour réduire la latence. Toutefois, chaque ensemble de paires peut s’exécuter dans différents centres de données Azure situés dans différentes régions, si vous souhaitez rechercher des données mises en cache à proximité des applications les plus susceptibles de les utiliser. La page relative à l’[exécution de Redis sur une machine virtuelle Linux CentOS dans Windows Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx), accessible sur le site web de Microsoft, présente un exemple décrivant comment créer et configurer un nœud Redis s’exécutant en tant que machine virtuelle Azure.
 
-Notez que si vous implémentez votre propre cache Redis de cette façon, vous êtes responsable de la surveillance, de la gestion et de la sécurisation du service.
+[AZURE.NOTE] Notez que si vous implémentez votre propre cache Redis de cette façon, vous êtes responsable de la surveillance, de la gestion et de la sécurisation du service.
 
 ## Partitionnement d’un cache Redis
 
@@ -935,4 +935,4 @@ Le modèle suivant peut également être pertinent dans votre cas si vous implé
 - Page relative aux [transactions dans Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) dans le référentiel StackExchange.Redis.
 - [Guide de partitionnement des données](http://msdn.microsoft.com/library/dn589795.aspx) sur le site web de Microsoft.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

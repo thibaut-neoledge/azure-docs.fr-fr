@@ -3,7 +3,7 @@
 	description="Accédez à des exemples de prise en charge du protocole MongoDB dans DocumentDB." 
 	keywords="exemples mongodb"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Exemples de prise en charge du protocole MongoDB dans DocumentDB
 Pour utiliser ces exemples, vous devez :
@@ -175,4 +175,4 @@ Vous pouvez utiliser le didacticiel [Création d’une application Web Azure se 
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Insertion de publicités du côté client" 
+	pageTitle="Insertion de publicités du côté client | Microsoft Azure" 
 	description="Cette rubrique montre comment insérer des publicités du côté client." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
 #Insertion de publicités du côté client
 
-Cette rubrique contient des informations sur l'insertion de différents types de publicité du côté client.
+Cette rubrique contient des informations sur l’insertion de différents types de publicité du côté client.
 
 Pour en savoir plus sur la prise en charge du sous-titrage codé et des publicités dans les vidéos en flux live, consultez la page [Normes de sous-titrage codé et d’insertion de publicités prises en charge](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
@@ -35,7 +35,7 @@ Azure Media Services assure la prise en charge des insertions publicitaires via 
 
 Les publicités peuvent être placées à n’importe quel point dans la chronologie de la vidéo principale. Vous devez indiquer au lecteur les publicités à diffuser, ainsi que le moment auquel le faire. Cela s’effectue via un ensemble de fichiers XML standard : Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST) et Digital Video Player Ad Interface Definition (VPAID). Les fichiers VAST spécifient les publicités à afficher. Les fichiers VMAP indiquent quand diffuser les différentes publicités ; ils contiennent le code XML VAST. Les fichiers MAST permettent également de séquencer des publicités contenant aussi du code XML VAST. Les fichiers VPAID définissent une interface entre le lecteur vidéo et la publicité ou le serveur publicitaire.
 
-Chaque infrastructure de lecteur fonctionne différemment et fera l'objet d'une rubrique distincte. Cette rubrique décrit les mécanismes de base d'insertion de publicités. Les applications de lecture vidéo demandent les publicités à un serveur publicitaire. Ce dernier peut répondre de diverses manières :
+Chaque infrastructure de lecteur fonctionne différemment et fera l’objet d’une rubrique distincte. Cette rubrique décrit les mécanismes de base d’insertion de publicités. Les applications de lecture vidéo demandent les publicités à un serveur publicitaire. Ce dernier peut répondre de diverses manières :
 
 - renvoyer un fichier VAST ;
 - renvoyer un fichier VMAP (avec VAST incorporé) ;
@@ -813,4 +813,4 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->
