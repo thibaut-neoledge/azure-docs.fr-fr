@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2016"
+	ms.date="09/30/2016"
 	ms.author="curtand"/>
 
 # Ajout d’une marque de société aux pages de connexion et du volet d’accès
@@ -86,14 +86,33 @@ Vous pouvez personnaliser les éléments suivants sur la page de connexion :
 
 ![][5]
 
- Élément de la page | Emplacement sur la page
-	------------- | -------------
-Logo de bannière | Affiché en haut à droite de la page. Remplace le logo du site de destination auquel vous vous connectez (par exemple Office 365 ou Azure).
-Grande illustration/couleur d’arrière-plan | Affichée à gauche de la page. Remplace l’image du site de destination auquel vous vous connectez. La couleur d’arrière-plan peut s’afficher à la place de la grande illustration pour les connexions à faible bande passante ou lorsque l’écran est étroit.
-Texte de la page de connexion | S’affiche au-dessus du pied de page, lorsque vous devez transmettre des informations avant une connexion avec un compte professionnel ou scolaire. Par exemple, vous pouvez mentionner le numéro de téléphone de votre support technique ou une mention légale.
+
+
+| Élément de la page | Emplacement sur la page |
+|:--            | ---                  |
+|Logo de bannière | Affiché en haut à droite de la page. Remplace le logo du site de destination auquel vous vous connectez (par exemple Office 365 ou Azure).|
+|Grande illustration/couleur d’arrière-plan | Affichée à gauche de la page. Remplace l’image du site de destination auquel vous vous connectez. La couleur d’arrière-plan peut s’afficher à la place de la grande illustration pour les connexions à faible bande passante ou lorsque l’écran est étroit.|
+|Maintenir la connexion | Affiché sous la zone de texte Mot de passe. |
+|Texte de la page de connexion | S’affiche au-dessus du pied de page, lorsque vous devez transmettre des informations avant une connexion avec un compte professionnel ou scolaire. Par exemple, vous pouvez mentionner le numéro de téléphone de votre support technique ou une mention légale.|
+
 
 > [AZURE.NOTE]
 Tous ces éléments sont facultatifs. Par exemple, si vous spécifiez un logo de bannière mais aucune grande illustration, la page de connexion affiche votre logo et l’illustration du site de destination (autrement dit, l’image de l’autoroute de Californie d’Office 365).
+
+
+Sur votre page de connexion, la case à cocher **Maintenir la connexion** permet à un utilisateur de rester connecté lorsqu’il ferme, puis rouvre son navigateur. Elle n’a pas d’effet sur la durée de vie de session. Vous pouvez masquer la case à cocher sur la page de connexion Azure Active Directory.
+
+L’affichage de la case à cocher dépend du réglage du paramètre **Masquer maintenir la connexion**.
+
+![][9]
+
+
+Pour masquer la case à cocher, configurez ce paramètre sur **Masqué**.
+
+> [AZURE.NOTE] Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent de la capacité des utilisateurs à sélectionner cette case à cocher. Si vous configurez ce paramètre sur Masqué, il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
+
+
+
 
 Vous pouvez également traduire tous les éléments de cette page. Une fois que vous avez configuré un jeu d’éléments de personnalisation « par défaut », vous pouvez configurer des versions supplémentaires avec différents paramètres régionaux. Vous pouvez également combiner différents éléments. Vous pouvez par exemple afficher :
 
@@ -218,5 +237,6 @@ Couleur d’arrière-plan de la page de connexion | La couleur d’arrière-plan
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

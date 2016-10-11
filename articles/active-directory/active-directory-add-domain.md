@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/18/2016"
+	ms.date="09/30/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Ajouter un nom de domaine personnalisé à Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Portail Azure](active-directory-domains-add-qzure-portal.md)
+- [Portail Azure Classic](active-directory-add-domain.md)
 
 Votre organisation utilise un ou plusieurs noms de domaine pour mener ses activités, et vos utilisateurs se connectent au réseau d’entreprise en utilisant votre nom de domaine d’entreprise. Maintenant que vous utilisez le logiciel Azure Active Directory (Azure AD), vous pouvez également ajouter votre nom de domaine d’entreprise à ce dernier. Cette tâche vous permet d’attribuer des noms de répertoire qui sont familiers à vos utilisateurs, comme « alice@contoso.com ». Le processus est simple :
 
@@ -28,7 +32,7 @@ Votre organisation utilise un ou plusieurs noms de domaine pour mener ses activi
 
 ## Ajouter un nom de domaine personnalisé à votre annuaire
 
-1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com/) en utilisant le compte d’un administrateur général de votre annuaire Azure AD.
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) avec un compte d’administrateur général pour votre annuaire Azure AD.
 
 2. Dans **Active Directory**, ouvrez votre annuaire et sélectionnez l’onglet **Domaines**.
 
@@ -48,15 +52,15 @@ L’étape suivante pour utiliser votre nom de domaine personnalisé avec Azure 
 
 2.  Mettez à jour le fichier de zone DNS pour le domaine en ajoutant l’entrée DNS fournie par Azure AD. Cette entrée DNS permet à Azure AD de vérifier que vous êtes le propriétaire du domaine. Elle ne modifiera aucun comportement comme le routage du courrier ou l’hébergement web.
 
-Pour plus d’informations sur cette procédure d’ajout de l’entrée DNS, voir [Instructions pour ajouter une entrée DNS à des Bureaux d’enregistrement DNS courants](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Pour plus d’informations sur cette procédure d’ajout de l’entrée DNS, voir [Instructions pour ajouter une entrée DNS à des Bureaux d’enregistrement DNS courants](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
 
 ## Vérifier le nom de domaine avec Azure AD.
 
 Une fois que vous avez ajouté l’entrée DNS, vous êtes prêt à vérifier le nom de domaine avec Azure AD.
 
-Si l’Assistant **Ajouter un domaine** est toujours ouvert, sélectionnez **Vérifier** sur sa troisième page. Lorsque vous sélectionnez **Vérifier**, Azure AD recherche l’entrée DNS dans le fichier de zone DNS pour le domaine. Azure AD ne peut vérifier le nom de domaine qu’une fois les enregistrements DNS propagés. Cette propagation ne prend généralement que quelques secondes, mais peut parfois nécessiter une heure ou davantage. Si la vérification ne fonctionne pas la première fois, réessayez ultérieurement.
+Si l’Assistant **Ajouter un domaine** est toujours ouvert, sélectionnez **Vérifier** dans sa troisième page. Lorsque vous sélectionnez **Vérifier**, Azure AD recherche l’entrée DNS dans le fichier de zone DNS du domaine. Azure AD ne peut vérifier le nom de domaine qu’une fois les enregistrements DNS propagés. Cette propagation ne prend généralement que quelques secondes, mais peut parfois nécessiter une heure ou davantage. Si la vérification ne fonctionne pas la première fois, réessayez ultérieurement.
 
-Si l’Assistant **Ajouter un domaine** n’est plus ouvert, vous pouvez vérifier le domaine dans le [Portail Azure Classic](https://manage.windowsazure.com/) :
+Si l’Assistant **Ajouter un domaine** n’est plus ouvert, vous pouvez vérifier le domaine dans le [portail Azure Classic](https://manage.windowsazure.com/) :
 
 1.  Connectez-vous à l’aide d’un compte d’administrateur général de votre annuaire Azure AD.
 
@@ -64,11 +68,11 @@ Si l’Assistant **Ajouter un domaine** n’est plus ouvert, vous pouvez vérifi
 
 3.  Sélectionnez le nom de domaine que vous souhaitez vérifier, puis choisissez **Vérifier** dans la barre de commandes.
 
-4. Sélectionnez **Vérifier** dans la boîte de dialogue pour effectuer la vérification.
+4. Pour effectuer la vérification, sélectionnez **Vérifier** dans la boîte de dialogue.
 
 Vous pouvez désormais [affecter des noms d’utilisateur incluant votre nom de domaine personnalisé](active-directory-add-domain-add-users.md).
 
-## Résolution des problèmes
+## Résolution de problèmes
 
 Si vous ne parvenez pas à vérifier un nom de domaine personnalisé, essayez d’effectuer les opérations ci-après. Nous irons de la plus courante à la moins courante.
 
@@ -91,4 +95,4 @@ Si votre organisation utilise plusieurs noms de domaine personnalisés, tels que
 -   [Afficher la marque de votre société lorsque vos utilisateurs se connectent](active-directory-add-company-branding.md)
 -   [Utiliser PowerShell pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

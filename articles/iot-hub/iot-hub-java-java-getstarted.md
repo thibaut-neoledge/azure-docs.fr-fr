@@ -40,7 +40,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Dans la dernière étape, prenez note de la **clé primaire**, puis cliquez sur **Messagerie**. Dans le panneau **Messagerie**, notez le **Nom compatible avec les hubs d’événements** et le **Point de terminaison compatible avec les hubs d’événements**. Ces trois valeurs sont nécessaires pour créer votre application **read-d2c-messages**.
 
-![][6]
+![Panneau de messagerie IoT Hub du portail Azure][6]
 
 Maintenant, vous avez créé votre IoT Hub et vous disposez du nom d’hôte IoT Hub, de la chaîne de connexion IoT Hub, de la clé principale IoT Hub, du nom compatible avec les hubs d’événements et du point de terminaison compatible avec les hubs d’événements, dont vous avez besoin pour terminer ce didacticiel.
 
@@ -379,7 +379,7 @@ Dans cette section, vous allez créer une application console Java qui simule un
           Random rand = new Random();
           
           while (!stopThread) {
-            double currentWindSpeed = avgWindSpeed + rand.nextDouble()* 4 - 2;
+            double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
             telemetryDataPoint.deviceId = deviceId;
             telemetryDataPoint.windSpeed = currentWindSpeed;
@@ -445,7 +445,7 @@ Vous êtes maintenant prêt à exécuter les applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![Application cliente Java du service IoT Hub pour surveiller les messages appareil-à-cloud][7]
 
 2. À l’invite de commandes du dossier simulated-device, exécutez la commande suivante pour commencer à analyser votre IoT hub :
 
@@ -453,11 +453,11 @@ Vous êtes maintenant prêt à exécuter les applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![Application cliente Java des appareils IoT Hub pour envoyer les messages appareil-à-cloud][8]
 
 3. La vignette **Utilisation** du [portail Azure][lnk-portal] indique le nombre de messages envoyés au hub :
 
-    ![][43]
+    ![Vignette Utilisation du portail Azure indiquant le nombre de messages envoyés à IoT Hub][43]
 
 ## Étapes suivantes
 
@@ -481,13 +481,13 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages des 
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -495,4 +495,4 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages des 
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

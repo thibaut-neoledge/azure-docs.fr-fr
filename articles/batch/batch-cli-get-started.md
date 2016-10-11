@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 # Prise en main de l’interface de ligne de commande Azure Batch
 
 L’interface de ligne de commande Azure (Azure CLI) multiplateforme vous permet de gérer vos comptes et ressources Batch comme les pools, les travaux et les tâches dans des interfaces de commande Linux, Mac et Windows. Avec l’interface de ligne de commande Azure, vous pouvez effectuer nombre des tâches (et écrire leur script) que vous réalisez avec les API Batch, le portail Azure et les applets de commande PowerShell pour Batch.
 
-Cet article est basé sur l’interface de ligne de commande Azure version 0.10.3.
+Cet article est basé sur l’interface de ligne de commande Azure version 0.10.5.
 
 ## Composants requis
 
@@ -215,19 +215,39 @@ Pour créer une application et ajouter une version de package :
 
 **Activez** le package :
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Définissez la **version par défaut** pour l’application :
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Déployer un package d’application
 
 Vous pouvez spécifier un ou plusieurs packages d’application pour le déploiement lorsque vous créez un pool. Lorsque vous spécifiez un package lors de la création du pool, il est déployé sur chaque nœud lorsque le nœud rejoint le pool. Les packages sont également déployés lorsqu’un nœud est redémarré ou réinitialisé.
 
-Cette commande spécifie un package lors de la création du pool, qui est déployé lorsque chaque nœud rejoint le nouveau pool :
+Spécifiez l’option `--app-package-ref` lors de la création d’un pool pour déployer un package d’application sur les nœuds du pool dès qu’ils rejoignent le pool. L’option `--app-package-ref` accepte une liste délimitée par des points-virgules des ID d’application à déployer sur les nœuds de calcul.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-Actuellement, vous ne pouvez pas spécifier la version de package à déployer à l’aide des options de ligne de commande. Vous devez tout d’abord définir une version par défaut de l’application à l’aide du portail Azure avant de l’attribuer à un pool. Pour plus d’informations sur la définition d’une version par défaut, consultez l’article [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md). Vous pouvez, toutefois, spécifier une version par défaut si vous utilisez un [fichier JSON](#json-files) à la place des options de ligne de commande lorsque vous créez un pool.
+Lorsque vous créez un pool à l’aide des options de ligne de commande, vous ne pouvez pas pour le moment spécifier *quelle* version de package d’application déployer sur les nœuds de calcul, par exemple « 1.10-beta3 ». Par conséquent, vous devez spécifier une version par défaut de l’application avec `azure batch application set [options] --default-version <version-id>` avant de créer le pool (voir la section précédente). Vous pouvez toutefois spécifier une version de package pour le pool si vous utilisez un [fichier JSON](#json-files) à la place des options de ligne de commande lorsque vous créez le pool.
+
+Pour plus d’informations sur les packages d’application, consultez [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md).
 
 >[AZURE.IMPORTANT] Pour utiliser les packages d’application, vous devez commencer par [lier un compte de stockage Azure](#linked-storage-account-autostorage) à votre compte Batch.
+
+### Mise à jour des packages d’applications d’un pool
+
+Pour mettre à jour les applications affectées à un pool existant, exécutez la commande `azure batch pool set` avec l’option `--app-package-ref` :
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+Pour déployer le nouveau package d’application sur des nœuds de calcul se trouvant déjà dans un pool existant, vous devez redémarrer ou réinitialiser ces nœuds :
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] Vous pouvez obtenir une liste des nœuds d’un pool, ainsi que leurs ID de nœud, avec `azure batch node list`.
+
+Gardez à l’esprit que vous devez déjà avoir configuré l’application avec une version par défaut avant le déploiement (`azure batch application set [options] --default-version <version-id>`).
 
 ## Conseils de dépannage
 
@@ -254,4 +274,4 @@ Cette section est destinée à vous fournir les ressources qu’il convient d’
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_1005_2016-->

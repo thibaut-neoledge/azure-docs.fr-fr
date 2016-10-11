@@ -24,7 +24,7 @@ Ce didacticiel explique comment créer une application Java et comment la déplo
 
 ## Composants requis
 
-1. Le [kit 8 de développeur Java] \(ou version ultérieure)
+1. Le [kit 8 de développeur Java] (ou version ultérieure)
 1. [Maven] doit être installé sur votre ordinateur de développement
 1. [Git] doit être installé sur votre ordinateur de développement
 1. Un abonnement payant ou une [version d’évaluation gratuite] dans [Microsoft Azure]
@@ -338,4 +338,4 @@ Pour plus d’informations sur l’utilisation de Java dans Azure, consultez le 
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

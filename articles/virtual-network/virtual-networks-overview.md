@@ -17,7 +17,7 @@
 
 # Présentation du réseau virtuel
 
-Un réseau virtuel Azure (VNet) est une représentation de votre propre réseau dans le cloud. Il s’agit d’un isolement logique du cloud Azure dédié à votre abonnement. Vous pouvez contrôler complètement les blocs d’adresses IP, les paramètres DNS, les stratégies de sécurité et les tables de routage de ce réseau. Vous pouvez également segmenter votre réseau en plusieurs sous-réseaux et lancer des machines virtuelles IaaS Azure et/ou des [services Cloud (instances de rôle PaaS)](../cloud-services/cloud-services-choose-me.md). En outre, vous pouvez connecter le réseau virtuel à votre réseau local à l’aide des [options de connectivité](../vpn-gateway/vpn-gateway-cross-premises-options.md) disponibles dans Azure. En bref, vous pouvez développer votre réseau sur Azure et maîtriser totalement vos blocs d’adresses IP avec les que procurent la mise à l’échelle d’entreprise d’Azure.
+Un réseau virtuel Azure (VNet) est une représentation de votre propre réseau dans le cloud. Il s’agit d’un isolement logique du cloud Azure dédié à votre abonnement. Vous pouvez contrôler complètement les blocs d’adresses IP, les paramètres DNS, les stratégies de sécurité et les tables de routage de ce réseau. Vous pouvez également segmenter votre réseau en plusieurs sous-réseaux et lancer des machines virtuelles IaaS Azure et/ou des [services Cloud (instances de rôle PaaS)](../cloud-services/cloud-services-choose-me.md). En outre, vous pouvez connecter le réseau virtuel à votre réseau local à l’aide des [options de connectivité](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) disponibles dans Azure. En bref, vous pouvez développer votre réseau sur Azure et maîtriser totalement vos blocs d’adresses IP avec les que procurent la mise à l’échelle d’entreprise d’Azure.
 
 Pour mieux comprendre les réseaux virtuels, examinez la figure ci-dessous, qui illustre un réseau local simplifié.
 
@@ -83,7 +83,7 @@ Par exemple, les NSG peuvent être utilisés pour assurer la sécurité sur votr
 Les appliances virtuelles dépendent des [itinéraires définis par l’utilisateur et du transfert d’IP](virtual-networks-udr-overview.md).
 
 ## Limites
-Il existe des limites pour le nombre de réseaux virtuels autorisés dans un abonnement, veuillez vous reporter à la section [Limites de mise en réseau Azure](../azure-subscription-service-limits.md#networking-limits) pour plus d’informations.
+Il existe des limites pour le nombre de réseaux virtuels autorisés dans un abonnement. Veuillez vous reporter à la section [Limites de mise en réseau Azure](../azure-subscription-service-limits.md#networking-limits) pour plus d’informations.
 
 ## Tarification
 L’utilisation de réseaux virtuels dans Azure ne génère pas de frais supplémentaires. Les instances de calcul lancées dans le réseau virtuel seront facturées à un tarif standard, comme l’indique la section [Tarification liée aux machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/). Les [passerelles VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) et les [adresses IP publiques](https://azure.microsoft.com/pricing/details/ip-addresses/) utilisées dans le réseau virtuel peuvent également être facturés au tarif standard.
@@ -95,4 +95,4 @@ L’utilisation de réseaux virtuels dans Azure ne génère pas de frais supplé
 - En savoir plus sur les [groupes de sécurité réseau](virtual-networks-nsg.md).
 - En savoir plus sur les [Itinéraires définis par l’utilisateur et le transfert IP](virtual-networks-udr-overview.md).
 
-<!-----HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

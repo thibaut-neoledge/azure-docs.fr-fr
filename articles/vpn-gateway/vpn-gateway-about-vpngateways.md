@@ -34,7 +34,7 @@ Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau vi
 
 ## SKU de passerelle
 
-[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] Pour plus d’informations sur les références de passerelle, consultez [Références (SKU) de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Le tableau ci-dessous présente les types de passerelle et le débit total estimé. Cette table s’applique aux modèles de déploiement classique et Resource Manager.
 
@@ -148,4 +148,4 @@ Planifiez votre configuration de passerelle VPN. Consultez la page [Planificatio
 
  
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Envoi de notifications Push avec Azure Notification Hubs sur Windows Phone
@@ -136,7 +136,7 @@ Pour voir un exemple d’envoi de notifications Push au moyen des [API REST](htt
 
 4. Cliquez sur **Outils**, sur **Library Package Manager**, puis sur **Console du gestionnaire de package**.
 
-	La Console du Gestionnaire de package apparaît.
+	La console du gestionnaire de package s'affiche.
 
 5.  Dans la fenêtre **Console du gestionnaire de package**, affectez votre nouveau projet d’application console comme **Projet par défaut**, puis exécutez la commande suivante dans la fenêtre de console :
 
@@ -214,9 +214,9 @@ Découvrez plus en détail comment utiliser Notification Hubs dans [Recommandati
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Use Notification Hubs to push notifications to users (Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs)]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-phone-send-breaking-news.md
+[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [catalogue toast]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [catalogue de modèles de vignette]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [didacticiel Notification Hubs - Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_1005_2016-->

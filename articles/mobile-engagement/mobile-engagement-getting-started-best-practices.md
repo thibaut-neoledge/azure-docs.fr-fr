@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="07/07/2016"
+	ms.date="10/04/2016"
 	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Guide de prise en main et meilleures pratiques
@@ -356,7 +356,7 @@ Testez de manière approfondie tous les types de comportement de notification qu
 
 #### Paramétrage
 
-La configuration d’Azure Mobile Engagement est très simple. Toute la documentation relative à l’interface utilisateur est disponible sur le site web Azure Mobile Engagement, sur la page [Comment naviguer dans l’interface utilisateur](mobile-engagement-user-interface.md).
+La configuration d’Azure Mobile Engagement est très simple. Toute la documentation relative à l’interface utilisateur est disponible sur le site web Azure Mobile Engagement, sur la page [Comment naviguer dans l’interface utilisateur](mobile-engagement-user-interface-home.md).
 
 Il est recommandé de commencer par configurer les rôles et les appartenances aux rôles appropriés pour votre projet. Cela vous permet de gérer l’accès à la plateforme pour tous les utilisateurs. Vos rôles peuvent inclure :
 
@@ -407,4 +407,4 @@ Après avoir acquis un peu d’expérience, vous pouvez envisager d’ajouter le
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_1005_2016-->

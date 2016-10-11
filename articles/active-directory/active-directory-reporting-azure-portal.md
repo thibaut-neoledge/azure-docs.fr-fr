@@ -13,10 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 # Création de rapports Azure Active Directory - version préliminaire
+
+> [AZURE.SELECTOR]
+- [Portail Azure](active-directory-reporting-azure-portal.md)
+- [Portail Azure Classic](active-directory-reporting-guide.md)
 
 *Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
@@ -216,4 +220,4 @@ Une autre méthode de filtrage des entrées d’un journal d’audit consiste à
 
 Consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

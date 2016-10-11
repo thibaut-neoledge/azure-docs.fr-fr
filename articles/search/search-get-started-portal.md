@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main d’Azure Search | Microsoft Azure  | Prise en main d’Azure Search | DocumentDB | Service de recherche cloud" 
-	description="Créez votre première solution de recherche Azure Search à l’aide de ce didacticiel pas à pas. Apprenez à créer un index Azure Search à l’aide de données DocumentDB. Cet exercice se base sur le portail, ne nécessite pas de code, et utilise l’assistant Importation." 
+	pageTitle="Prise en main d’Azure Search | Microsoft Azure | DocumentDB | Service de recherche cloud" 
+	description="Apprenez à créer votre premier index Azure Search à l’aide de ce didacticiel pas à pas et des exemples de données DocumentDB. Cet exercice se base sur le portail, ne nécessite pas de code et utilise l’assistant Importation." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="08/29/2016" 
+	ms.date="10/03/2016" 
 	ms.author="heidist"/>
 
 # Prise en main d’Azure Search dans le portail
@@ -23,14 +23,14 @@ Cet article est une présentation sans code de Microsoft Azure Search, à l’
 
 Le didacticiel prend l’exemple d’une [base de données Azure DocumentDB](#apdx-sampledata) que vous pouvez créer simplement avec nos données et instructions. Mais vous pouvez également adapter ces étapes aux données de votre base de données DocumentDB ou SQL.
 
-> [AZURE.NOTE] Ce didacticiel de prise en main nécessite un [abonnement Azure](../../includes/free-trial-note.md) et un [service Recherche Azure](search-create-service-portal.md).
+> [AZURE.NOTE] Ce didacticiel de prise en main nécessite un [abonnement Azure](/pricing/free-trial/?WT.mc_id=A261C142F) et un [service Recherche Azure](search-create-service-portal.md).
  
 ## Recherche de votre service
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Cliquez sur le tableau de bord des services de votre service Azure Search. Voici quelques façons d'afficher le tableau de bord.
-	- Dans la barre de lancement, cliquez sur **Services de recherche**. La barre de lancement répertorie tous les services fournis par votre abonnement. Si un service de recherche a été défini, vous verrez **Services de recherche** dans la liste.
+	- Dans la barre de lancement, cliquez sur **Services de recherche**. La barre de lancement répertorie tous les services fournis par votre abonnement. Si un service de recherche a été défini, **Services de recherche** apparaît dans la liste.
 	- Dans la barre de lancement, cliquez sur **Parcourir**, puis tapez « recherche » dans la zone de recherche afin de générer une liste de tous les services de recherche créés dans vos abonnements.
 
 ## Vérifier l’espace disponible
@@ -39,11 +39,11 @@ De nombreux clients commencent avec le service gratuit. Cette version est limit�
 
 ## Création d’un index et chargement des données
 
-Les requêtes de recherche se répètent sur un *index* contenant les données de recherche, les métadonnées et les constructions utilisées pour l’optimisation de certains comportements de recherche. Dans un premier temps, vous devez définir et remplir un index.
+Les requêtes de recherche se répètent sur un *index* contenant les données de recherche, les métadonnées et les constructions utilisées pour l’optimisation de certains comportements de recherche. Dans un premier temps, définissez et remplissez un index.
 
 Il existe plusieurs façons de créer un index. Si vos données se trouvent dans un magasin qu’Azure Search peut analyser (comme Azure SQL Database, SQL Server sur une machine virtuelle Azure, ou DocumentDB), vous pouvez créer et remplir un index très facilement à l’aide d’un *indexeur*.
 
-Pour maintenir cette tâche sur le portail, nous allons supposer que les données de DocumentDB sont analysables à l’aide d’un indexeur via l’assistant **Importer des données**.
+Pour maintenir cette tâche sur le portail, nous utilisons les données de DocumentDB qui sont analysables à l’aide d’un indexeur via l’assistant **Importer des données**.
 
 Avant toute chose, créez une [base de données DocumentDB exemple](#apdx-sampledata) que vous pourrez utiliser avec ce didacticiel, puis revenez à cette section pour effectuer les étapes suivantes.
 
@@ -52,13 +52,13 @@ Avant toute chose, créez une [base de données DocumentDB exemple](#apdx-sample
 
 1. Dans votre tableau de bord de service Azure Search, cliquez sur **Importer des données** dans la barre de commandes pour lancer un assistant qui crée et remplit un index.
 
-  ![][7]
+    ![][7]
 
 2. Dans l’assistant, cliquez sur **Source de données** > **DocumentDB** > **Nom**, puis entrez le nom de la source de données. Une source de données est un objet de connexion pouvant être utilisé avec d’autres indexeurs dans Azure Search. Une fois que vous la créez, elle devient disponible en tant que « source de données existante » dans votre service.
 
-3. Choisissez votre compte DocumentDB existant, ainsi que la base de données et la collection. Si vous utilisez les exemples de données que nous vous fournissons, la définition de votre source de données doit ressembler à ceci :
+3. Choisissez votre compte DocumentDB existant, ainsi que la base de données et la collection. Si vous utilisez les exemples de données que nous vous fournissons, la définition de votre source de données doit ressembler à ceci :
 
-  ![][2]
+    ![][2]
 
 Notez que nous ignorons la requête. En effet, cette fois-ci, nous n’implémentons pas le suivi des modifications dans notre jeu de données. Si votre jeu de données contient un champ effectuant le suivi des mises à jour d’un enregistrement, vous pouvez configurer un indexeur Azure Search afin d’utiliser le suivi des modifications pour les mises à jour sélectives de votre index.
 
@@ -169,7 +169,7 @@ Les instructions suivantes vous donnent des conseils généraux, mais ne sont pa
 6. Répétez l’opération pour obtenir le lot de fichiers suivant jusqu’à ce que vous ayez téléchargé le dernier, 669.json.
 7. Cliquez sur **Explorateur de requête** pour vérifier que les données sont téléchargées afin de répondre aux exigences de téléchargement de l’Explorateur de documents.
 
-Pour ce faire, une solution simple consiste à modifier la requête par défaut afin qu’elle sélectionne les 300 premiers éléments (ce jeu de données en contient moins de 300).
+Pour ce faire, vous pouvez utiliser la requête par défaut, mais vous pouvez aussi la modifier afin qu’elle sélectionne les 300 premiers éléments (ce jeu de données en contient moins de 300).
 
 Vous devriez obtenir la sortie JSON, en commençant par le document n° 386 et en terminant par le document n° 669. Une fois les données chargées, vous pouvez [revenir aux étapes de cette procédure pas à pas](#defineDS) pour créer un index à l’aide de l’**Assistant Importer des données**.
 
@@ -183,4 +183,4 @@ Vous devriez obtenir la sortie JSON, en commençant par le document n° 386 et 
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

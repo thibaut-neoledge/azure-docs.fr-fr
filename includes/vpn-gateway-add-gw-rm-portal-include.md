@@ -1,31 +1,34 @@
-1. Dans le portail, accédez à **Nouveau** > **Mise en réseau** > **Passerelle de réseau virtuel**. Cette opération ouvre le panneau **Créer une passerelle de réseau virtuel**.
+1. Dans le portail, accédez à **Nouveau**. Tapez « passerelle de réseau virtuel » dans la zone de recherche. Recherchez **passerelle de réseau virtuel** dans la zone de recherche et cliquez sur l’entrée. Cette opération ouvre le panneau **Créer une passerelle de réseau virtuel**.
+2. Cliquez sur **Créer** en bas du panneau **Passerelle de réseau virtuel**. Le panneau **Créer une passerelle de réseau virtuel** s’ouvre. Renseignez les valeurs de la passerelle de réseau virtuel.
 
-	![Passerelle](./media/vpn-gateway-add-gw-rm-portal-include/creategw250.png)
+	![Créer les champs du panneau de la passerelle de réseau virtuel](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Créer les champs du panneau de la passerelle de réseau virtuel")
 
-2. Dans le panneau **Créer une passerelle de réseau virtuel**, attribuez un nom à votre passerelle dans le champ **Nom**. Cela ne revient pas au même que de nommer un sous-réseau de passerelle. Il s’agit du nom de l’objet de passerelle que vous allez créer.
+3. **Nom** : nommez votre passerelle. Cela ne revient pas au même que de nommer un sous-réseau de passerelle. Il s’agit du nom de l’objet de passerelle que vous créez.
 
-3. Renseignez le champ **Emplacement** de manière à ce qu’il pointe vers l’emplacement où se trouve votre réseau virtuel. Si vous ne le faites pas, la liste des réseaux virtuels n’affiche pas votre réseau virtuel.
+4. **Type de passerelle** : sélectionnez **VPN**. Les passerelles VPN utilisent le type de passerelle de réseau virtuel **VPN**.
+
+5. Dans **Type de réseau privé virtuel** : sélectionnez le type de VPN spécifié pour votre configuration. La plupart des configurations requièrent un type de VPN basé sur un itinéraire.
+
+6. **Référence** : sélectionnez la référence de passerelle dans la liste déroulante. Les références répertoriées dans la liste déroulante dépendent du type de VPN que vous sélectionnez.
+
+7. **Emplacement** : définissez le champ **Emplacement** pour pointer sur l’emplacement dans lequel le réseau virtuel est situé.
  
-4. Choisissez ensuite le réseau virtuel auquel vous souhaitez ajouter cette passerelle. Cliquez sur **Réseau virtuel** pour ouvrir le panneau **Choisir un réseau virtuel**. Sélectionnez le réseau virtuel. Pour que le réseau virtuel apparaisse dans la liste, il doit déjà comporter un sous-réseau de passerelle valide.
+8. Choisissez le réseau virtuel auquel vous souhaitez ajouter cette passerelle. Cliquez sur **Réseau virtuel** pour ouvrir le panneau **Choisir un réseau virtuel**. Sélectionnez le réseau virtuel. Si vous ne voyez pas votre réseau virtuel, assurez-vous que le champ **Emplacement** pointe sur la région dans laquelle se trouve votre réseau virtuel.
 
-5. Définissez une adresse IP publique. Cliquez sur **l’adresse IP publique** pour ouvrir le panneau **Choisir une adresse IP publique**. Cliquez sur **Créer** pour ouvrir le panneau **Créer une adresse IP publique**. Donnez à un nom à votre adresse IP publique. Cette opération crée un objet d’adresse IP publique à laquelle une adresse IP publique sera être affectée dynamiquement. <br>Cliquez sur **OK** pour enregistrer vos modifications.
+9. Définissez une adresse IP publique. Cliquez sur **l’adresse IP publique** pour ouvrir le panneau **Choisir une adresse IP publique**. Cliquez sur **Créer** pour ouvrir le panneau **Créer une adresse IP publique**. Donnez à un nom à votre adresse IP publique. Ce panneau crée un objet d’adresse IP publique à laquelle une adresse IP publique sera affectée dynamiquement.<br>Cliquez sur **OK** pour enregistrer vos modifications dans ce panneau.
 
-5. Dans **Type de passerelle**, sélectionnez le type de passerelle spécifié pour votre configuration.
+10. **Abonnement** : vérifiez que l’abonnement approprié est sélectionné.
 
-6. Dans **Type de réseau privé virtuel**, sélectionnez le type de VPN spécifié pour votre configuration.
+11. **Groupe de ressources** : ce paramètre est déterminé par le réseau virtuel que vous sélectionnez.
 
-7. Dans **Abonnement**, vérifiez que l’abonnement approprié est sélectionné.
+12. Ne changez pas **l’emplacement** après avoir spécifié les paramètres ci-dessus.
 
-8. Le **Groupe de ressources** est déterminé par le réseau virtuel que vous sélectionnez.
+13. Vérifiez les paramètres. Vous pouvez sélectionner **Épingler au tableau de bord** en bas du panneau si vous souhaitez que votre passerelle apparaisse sur le tableau de bord.
 
-9. N’ajustez pas **l’emplacement** après avoir spécifié les paramètres ci-dessus.
+14. Cliquez sur **Créer** pour créer la passerelle. Les paramètres sont alors validés et la vignette « Déploiement d’une passerelle de réseau virtuel » s’affiche sur le tableau de bord. La création d’une passerelle peut prendre jusqu’à 45 minutes Vous devrez peut-être actualiser la page du portail pour que l’état terminé apparaisse.
 
-10. À ce stade, votre panneau ressemble au graphique de l’étape 1. Vérifiez que les paramètres correspondent aux paramètres de votre propre configuration. Vous pouvez sélectionner **Épingler au tableau de bord** en bas du panneau si vous souhaitez que votre passerelle apparaisse sur le tableau de bord.
+	![Déploiement d’une passerelle de réseau virtuel](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Déploiement d’une passerelle de réseau virtuel")
 
-11. Cliquez sur **Créer** pour créer la passerelle. Les paramètres sont alors validés et la vignette « Déploiement d’une passerelle de réseau virtuel » s’affiche sur le tableau de bord. La création d’une passerelle peut prendre jusqu’à 45 minutes Vous devrez peut-être actualiser la page du portail pour que l’état terminé apparaisse.
+11. Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît comme un appareil connecté. Vous pouvez cliquer sur l’appareil connecté (votre passerelle de réseau virtuel) pour afficher davantage d’informations.
 
-	![Passerelle](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
-
-11. Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît comme un appareil connecté. Vous pouvez cliquer sur le périphérique connecté (votre passerelle de réseau virtuel) pour afficher davantage d’informations.
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

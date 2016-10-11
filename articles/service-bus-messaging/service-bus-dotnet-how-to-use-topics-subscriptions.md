@@ -151,6 +151,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 Vous pouvez également créer des abonnements de rubrique à l’aide de la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Les abonnements sont nommés et peuvent être assortis d'un filtre facultatif qui limite l'ensemble des messages transmis à la file d'attente virtuelle de l'abonnement.
 
+> [AZURE.IMPORTANT] Pour que les messages soient reçus par un abonnement, vous devez créer cet abonnement avant d’envoyer des messages vers la rubrique. S’il n’y a aucun abonnement à une rubrique, cette dernière supprime ces messages.
+
 ### Création d’un abonnement avec le filtre par défaut (MatchAll)
 
 Si aucun filtre n’est spécifié lors de la création d’un abonnement, le filtre **MatchAll** est utilisé par défaut. Lorsque vous utilisez le filtre **MatchAll**, tous les messages publiés dans la rubrique sont placés dans la file d’attente virtuelle de l’abonnement. Dans l'exemple suivant, l'abonnement « AllMessages » qui est créé utilise le filtre par défaut **MatchAll**.
@@ -327,4 +329,4 @@ Maintenant que vous connaissez les principes de base des rubriques et des abonne
   [Didacticiel .NET sur la messagerie répartie Service Bus]: service-bus-brokered-tutorial-dotnet.md
   [Exemples Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

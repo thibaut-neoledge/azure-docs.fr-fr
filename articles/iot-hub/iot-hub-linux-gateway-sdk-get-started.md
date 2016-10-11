@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prendre en main le Kit de développement logiciel (SDK) de passerelle IoT Hub | Microsoft Azure"
-	description="Procédure pas à pas du Kit de développement logiciel (SDK) de passerelle Azure IoT Hub sous Linux pour illustrer les concepts clés que vous devez comprendre lorsque vous utilisez le Kit de développement logiciel (SDK) de passerelle Azure IoT Hub."
+	description="Ce guide sur le Kit de développement logiciel (SDK) de passerelle Azure IoT Hub fait appel à Linux pour illustrer les concepts clés que vous devez comprendre lorsque vous utilisez le Kit de développement logiciel (SDK) de passerelle Azure IoT Hub."
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -83,4 +83,4 @@ Avant de commencer, vous devez [configurer votre environnement de développement
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

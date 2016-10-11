@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Envoi de notifications Push vers iOS avec Azure Notification Hubs
@@ -461,7 +461,7 @@ Pour tester les notifications Push sur iOS, vous devez déployer l’application
 
 ##Étapes suivantes
 
-Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos appareils iOS inscrits. Nous vous suggérons de poursuivre votre apprentissage en passant au didacticiel [Azure Notification Hubs notifie les utilisateurs pour iOS avec backend .NET] qui vous guidera dans la création d’un serveur principal pour l’envoi de notifications Push à l’aide de balises.
+Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos appareils iOS inscrits. Nous vous suggérons de poursuivre votre apprentissage en passant au didacticiel [Azure Notification Hubs notifie les utilisateurs pour iOS avec backend .NET], qui vous guidera à travers la création d’un serveur principal pour l’envoi de notifications Push à l’aide de balises.
 
 Si vous souhaitez segmenter vos utilisateurs par groupes d’intérêt, vous pouvez passer au didacticiel [Utilisation de Notification Hubs pour diffuser les dernières nouvelles].
 
@@ -502,10 +502,10 @@ Pour obtenir des informations générales sur Notification Hubs, consultez [Reco
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Azure Notification Hubs notifie les utilisateurs pour iOS avec backend .NET]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-ios-send-breaking-news.md
+[Azure Notification Hubs notifie les utilisateurs pour iOS avec backend .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Guide de programmation des notifications locales et push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->
