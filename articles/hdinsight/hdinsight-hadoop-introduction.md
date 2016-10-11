@@ -253,7 +253,7 @@ Ces outils décisionnels peuvent s’avérer utiles lors de vos analyses de donn
 
 * [Connexion d’Excel à Hadoop à l’aide de Power Query](hdinsight-connect-excel-power-query.md) : apprenez à connecter Excel au compte de stockage Azure dans lequel sont stockées les données associées à votre cluster HDInsight via Microsoft Power Query pour Excel. Station de travail Windows requise. Compatible avec les clusters basés sur Windows ou Linux.
 
-* [Connexion d’Excel à Hadoop à l’aide du pilote ODBC Microsoft Hive](hdinsight-connect-excel-hive-ODBC-driver.md) : apprenez à importer des données à partir de HDInsight avec le pilote ODBC Microsoft Hive. Station de travail Windows requise. Compatible avec les clusters basés sur Windows ou Linux.
+* [Connexion d’Excel à Hadoop à l’aide du pilote ODBC Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md) : apprenez à importer des données à partir de HDInsight avec le pilote ODBC Microsoft Hive. Station de travail Windows requise. Compatible avec les clusters basés sur Windows ou Linux.
 
 * [Plateforme cloud de Microsoft](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx) : découvrez Power BI pour Office 365, téléchargez la version d’évaluation de SQL Server, et configurez SharePoint Server 2013 et SQL Server BI.
 
@@ -268,4 +268,4 @@ Ces outils décisionnels peuvent s’avérer utiles lors de vos analyses de donn
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

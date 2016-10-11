@@ -20,9 +20,7 @@
 	
 # Déployer votre première application web Java dans Azure en 5 minutes
 
-Dans ce didacticiel, vous découvrirez comment déployer une application web Java simple dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
-App Service permet de créer des applications web, des [back-ends d’applications mobiles](/documentation/learning-paths/appservice-mobileapps/) 
-et des [applications API](../app-service-api/app-service-api-apps-why-best-platform.md).
+Dans ce didacticiel, vous découvrirez comment déployer une application web Java simple dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). App Service permet de créer des applications web, des [back-ends d’applications mobiles](/documentation/learning-paths/appservice-mobileapps/) et des [applications API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 Vous allez :
 
@@ -33,9 +31,7 @@ Vous allez :
 ## Conditions préalables
 
 - Obtenir un client FTP/FTPS, tel que [FileZilla](https://filezilla-project.org/).
-- Obtenir un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez 
-[demander un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou 
-[activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Obtenir un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [demander un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Vous pouvez [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
 
@@ -52,8 +48,7 @@ Vous allez :
 
     - **Nom de l’application** : tapez un nom unique.
     - **Groupe de ressources** : sélectionnez **Créer** et donnez un nom au groupe de ressources.
-    - **Plan App Service/Emplacement** : cliquez sur cette option pour la configurer, puis cliquez sur **Créer** pour définir le nom, l’emplacement et 
-    le niveau tarifaire du plan App Service. N’hésitez pas à utiliser le niveau tarifaire **Gratuit**.
+    - **Plan App Service/Emplacement** : cliquez sur cette option pour la configurer, puis cliquez sur **Créer** pour définir le nom, l’emplacement et le niveau tarifaire du plan App Service. N’hésitez pas à utiliser le niveau tarifaire **Gratuit**.
 
     Lorsque vous avez terminé, le panneau de création de votre application doit ressembler à ceci :
 
@@ -111,8 +106,7 @@ Vous allez :
 
     Cliquez sur **OK** pour remplacer le fichier dans Azure.
 
-    >[AZURE.NOTE] Conformément au comportement par défaut de Tomcat, le nom de fichier **ROOT.war** dans /site/wwwroot/webapps vous donne l’application web racine 
-    (http://*&lt;appname>*.azurewebsites.net) et le nom de fichier ***&lt;nomquelconque>*.war** vous donne une application web nommée (http://*&lt;appname>*.azurewebsites.net/*&lt;nomquelconque>*).
+    >[AZURE.NOTE] Conformément au comportement par défaut de Tomcat, le nom de fichier **ROOT.war** dans /site/wwwroot/webapps vous donne l’application web racine (http://*&lt;appname>*.azurewebsites.net) et le nom de fichier ***&lt;nomquelconque>*.war** vous donne une application web nommée (http://*&lt;appname>*.azurewebsites.net/*&lt;nomquelconque>*).
 
 Et voilà ! Votre application Java s’exécute désormais dans Azure. Dans votre navigateur, accédez à http://*&lt;appname>*.azurewebsites.net pour le voir à l’œuvre.
 
@@ -122,15 +116,13 @@ Chaque fois que vous avez besoin d’effectuer une mise à jour, il vous suffit 
 
 ## Étapes suivantes
 
-[Créez une application web Java à partir d’un modèle dans Azure Marketplace](app-service-web-java-get-started.md#marketplace). Vous pouvez obtenir votre propre conteneur Tomcat entièrement personnalisable et profiter de l’interface de gestion familière.
+[Créez une application web Java à partir d’un modèle dans Azure Marketplace](web-sites-java-get-started.md#marketplace). Vous pouvez obtenir votre propre conteneur Tomcat entièrement personnalisable et profiter de l’interface de gestion familière.
 
 Déboguez votre application web Azure directement dans [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) ou [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
 Ou faites-en plus avec votre première application web. Par exemple :
 
-- Essayez [d’autres méthodes de déploiement de votre code dans Azure](../app-service-web/web-sites-deploy.md). Par exemple, pour effectuer un déploiement à partir de l’un de vos référentiels GitHub, sélectionnez simplement 
-**GitHub** au lieu de **Référentiel Git local** dans les **Options de déploiement**.
-- Donnez une nouvelle dimension à votre application Azure. Authentifiez vos utilisateurs. Faites évoluer sa capacité en fonction de la demande. Configurez des alertes de performance. Tout cela en seulement quelques clics. Consultez l’article 
-[Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
+- Essayez [d’autres méthodes de déploiement de votre code dans Azure](../app-service-web/web-sites-deploy.md). Par exemple, pour effectuer un déploiement à partir de l’un de vos référentiels GitHub, sélectionnez simplement **GitHub** au lieu de **Référentiel Git local** dans les **Options de déploiement**.
+- Donnez une nouvelle dimension à votre application Azure. Authentifiez vos utilisateurs. Faites évoluer sa capacité en fonction de la demande. Configurez des alertes de performance. Tout cela en seulement quelques clics. Consultez l’article [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
 
-<!----HONumber=AcomDC_0920_2016-->
+<!---HONumber=AcomDC_1005_2016-->

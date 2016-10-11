@@ -20,7 +20,7 @@
 # Création d’un compte DocumentDB NoSQL à l’aide du Portail Azure
 
 > [AZURE.SELECTOR]
-- [Portail Azure](documntdb-create-account.md)
+- [Portail Azure](documentdb-create-account.md)
 - [Interface de ligne de commande Azure et Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
 Pour créer une base de données avec Microsoft Azure DocumentDB, vous devez :
@@ -33,7 +33,7 @@ Vous pouvez créer un compte DocumentDB avec le Portail Azure, à l’aide de mo
 Vous débutez avec DocumentDB ? Regardez [cette](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vidéo de quatre minutes réalisée par Scott Hanselman pour voir comment effectuer les tâches les plus courantes dans le portail en ligne.
 
 1.	Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2.	Dans la barre de lancement, cliquez sur **Nouveau**, **Données + stockage**, puis **DocumentDB (NoSQL)**.
+2.	Dans la barre de lancement, cliquez sur **Nouveau**, **Données + stockage** puis **DocumentDB (NoSQL)**.
 
 	![Capture d’écran du portail Azure, proposant d’autres services et DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -41,7 +41,7 @@ Vous débutez avec DocumentDB ? Regardez [cette](https://azure.microsoft.com/doc
 
 	![Capture d’écran du panneau Nouveau DocumentDB](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
 
-	- Dans la zone **ID**, entrez un nom pour identifier le compte DocumentDB. Lorsque **l’ID** est validé, une coche verte s’affiche dans la case **ID**. La valeur **ID** devient le nom d’hôte dans l’URI. Cet **ID** ne peut contenir que des minuscules, des chiffres, le caractère « - » et doit compter entre 3 et 50 caractères. Notez que *documents.azure.com* est ajouté au nom du point de terminaison de votre choix. Celui-ci devient le point de terminaison de votre compte DocumentDB.
+	- Dans la zone **ID**, entrez un nom pour identifier le compte DocumentDB. Lorsque l’**ID** est validé, une coche verte s’affiche dans la case **ID**. La valeur de **ID** devient le nom d’hôte dans l’URI. Cet **ID** ne peut contenir que des minuscules, des chiffres, le caractère « - » et doit compter entre 3 et 50 caractères. Notez que *documents.azure.com* est ajouté au nom du point de terminaison de votre choix. Celui-ci devient le point de terminaison de votre compte DocumentDB.
 
     - Dans la zone **API NoSQL**, sélectionnez le modèle de programmation à utiliser :
         - **DocumentDB** : l’API DocumentDB est disponible via les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) .NET, Java, Node.js, Python et JavaScript, ainsi que HTTP [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), et offre un accès par programme à toutes les fonctionnalités de DocumentDB.
@@ -50,7 +50,7 @@ Vous débutez avec DocumentDB ? Regardez [cette](https://azure.microsoft.com/doc
 
 	- Dans **Abonnement**, sélectionnez l’abonnement Azure à utiliser avec le compte DocumentDB. Si votre compte ne comporte qu’un seul abonnement, ce compte sera sélectionné par défaut.
 
-	- Dans **Groupe de ressources**, sélectionnez ou créez un groupe de ressources pour votre compte DocumentDB. Par défaut, un nouveau groupe de ressources est créé. Pour plus d’informations, consultez [Utilisation du Portail Azure pour gérer vos ressources Azure](../articles/azure-portal/resource-group-portal.md).
+	- Dans **Groupe de ressources**, sélectionnez ou créez un groupe de ressources pour votre compte DocumentDB. Par défaut, un nouveau groupe de ressources est créé. Pour plus d’informations, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../articles/azure-portal/resource-group-portal.md).
 
 	- Utilisez **Emplacement** pour indiquer l’emplacement géographique de l’hébergement de votre compte DocumentDB.
 
@@ -58,11 +58,11 @@ Vous débutez avec DocumentDB ? Regardez [cette](https://azure.microsoft.com/doc
 
 	![Création rapide de bases de données - capture d’écran du hub de notifications, indiquant que le compte DocumentDB est en cours de création](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-4.png)
 
-	![Capture d’écran du hub de notifications montrant le compte DocumentDB créé avec succès et déployé vers un groupe de ressources - notification du créateur de base de données en ligne](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-5.png)
+	![Capture d’écran du hub de notifications montrant le compte DocumentDB créé avec succès et déployé vers un groupe de ressources - notification du créateur de base de données en ligne](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-5.png)
 
 5.	Une fois le compte DocumentDB créé, il est immédiatement utilisable avec les paramètres par défaut. La cohérence par défaut du compte DocumentDB est définie sur **Par session**. Vous pouvez modifier la cohérence par défaut en cliquant sur **Cohérence par défaut** dans le menu de ressources. Pour en savoir plus sur les niveaux de cohérence proposés par DocumentDB, consultez [Niveaux de cohérence dans DocumentDB](documentdb-consistency-levels.md).
 
-    ![Capture d’écran du panneau Groupe de ressources - commencer le développement d’applications](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-6.png)
+    ![Capture d’écran du panneau Groupe de ressources - commencer le développement d’applications](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-6.png)
 
     ![Capture d’écran du panneau Niveau de cohérence - Cohérence de session](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-7.png)
 
@@ -93,4 +93,4 @@ Pour en savoir plus sur DocumentDB, explorez les ressources suivantes :
 -	[Parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modèle de ressources hiérarchiques et concepts de DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

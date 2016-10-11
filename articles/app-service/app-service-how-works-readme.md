@@ -26,6 +26,7 @@ Azure App Service est un service cloud conçu pour résoudre les problèmes prat
 * implémenter, déployer et publier des API avec API Apps ;
 * lier entre elles les applications métier dans des flux de travail et transformer les données avec Logic Apps.
 
+
 Tous les types d’application s’appuient sur la plateforme Web App évolutive et flexible, qui permet aux développeurs de bénéficier d’une expérience optimisée du cycle de vie complet allant de la conception d’application à la maintenance d’application. Les fonctionnalités liées au cycle de vie permettent d’effectuer les opérations suivantes :
 
 * Création rapide d’application : commencer à partir de zéro ou sélectionner un package OSS dans Azure Marketplace.
@@ -39,4 +40,4 @@ Ensemble, les fonctionnalités d’App Service permettent aux développeurs de s
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

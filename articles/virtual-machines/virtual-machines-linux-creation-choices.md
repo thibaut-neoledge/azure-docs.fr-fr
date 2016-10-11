@@ -130,4 +130,4 @@ Si vous avez besoin de personnalisations spécifiques, vous pouvez utiliser une 
 
 - Étapes rapides pour [réinitialiser un mot de passe ou des clés SSH et gérer les utilisateurs](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

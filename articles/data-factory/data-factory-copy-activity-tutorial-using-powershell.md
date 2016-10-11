@@ -19,12 +19,13 @@
 # Didacticiel : Créer un pipeline avec l'activité de copie à l'aide d'Azure PowerShell
 > [AZURE.SELECTOR]
 - [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 - [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
+
 
 Dans ce didacticiel, vous créez et surveillez une fabrique de données Azure à l’aide d’applets de commande Azure PowerShell. Le pipeline de la fabrique de données que vous créez dans ce didacticiel utilise une activité de copie pour copier les données d’un objet blob Azure vers une base de données SQL Azure.
 
@@ -463,4 +464,4 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

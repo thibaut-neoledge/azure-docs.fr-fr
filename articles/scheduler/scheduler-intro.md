@@ -3,8 +3,8 @@
  description="Azure Scheduler vous permet de façon déclarative de décrire des actions à exécuter dans le cloud. Ensuite, il planifie et exécute ces actions automatiquement."
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 # Présentation d’Azure Scheduler
 
@@ -50,4 +50,4 @@ Scheduler vous permet de créer, de mettre à jour, de supprimer, d’afficher e
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

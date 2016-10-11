@@ -19,12 +19,13 @@
 # Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’API REST
 > [AZURE.SELECTOR]
 - [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 - [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
+
 
 Ce didacticiel vous montre comment créer et surveiller une fabrique de données Azure à l’aide de l’API REST. Le pipeline de la fabrique de données utilise une activité de copie pour copier les données d’un objet Stockage Blob Azure vers une base de données Azure SQL Database.
 
@@ -491,4 +492,4 @@ Dans ce didacticiel, vous avez utilisé une API REST pour créer une fabrique de
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

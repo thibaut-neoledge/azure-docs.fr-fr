@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/20/2016"
+	ms.date="10/03/2016"
 	ms.author="maheshu"/>
 
 # Créer ou sélectionner un réseau virtuel pour les services de domaine Azure AD
@@ -23,7 +23,7 @@
 
 
 ## Tâche 2 : créer un réseau virtuel Azure
-La tâche de configuration suivante consiste à créer un réseau virtuel Azure dans lequel vous souhaitez activer les services de domaine Azure AD. Si vous souhaitez utiliser un réseau virtuel existant, vous pouvez ignorer cette étape.
+La tâche de configuration suivante consiste à créer un réseau virtuel Azure et un sous-réseau à l’intérieur de celui-ci. Vous activez Azure AD Domain Services dans ce sous-réseau de votre réseau virtuel. Si vous souhaitez utiliser un réseau virtuel existant, vous pouvez ignorer cette étape.
 
 > [AZURE.NOTE] Assurez-vous que le réseau virtuel Azure que vous créez ou que vous choisissez d’utiliser avec les services de domaine Azure AD appartient à une région Azure qui est prise en charge par les services de domaine Azure AD. Consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
 
@@ -35,6 +35,8 @@ Effectuez les étapes de configuration suivantes pour créer un réseau virtuel 
 
 2. Sélectionnez le nœud **Réseaux** dans le volet gauche.
 
+    ![Nœud Réseaux](./media/active-directory-domain-services-getting-started/networks-node.png)
+
 3. Cliquez sur **NOUVEAU** dans le volet des tâches en bas de la page.
 
     ![Nœud Réseaux virtuels](./media/active-directory-domain-services-getting-started/virtual-networks.png)
@@ -45,7 +47,7 @@ Effectuez les étapes de configuration suivantes pour créer un réseau virtuel 
 
     ![Réseau virtuel : création rapide](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 
-6. Spécifiez un **Nom** pour votre réseau virtuel. Vous pouvez également choisir de configurer l’**Espace d’adressage** ou le **Nombre maximal de machines virtuelles** pour ce réseau. Vous pouvez laisser le paramètre du serveur DNS sur « Aucun » pour l’instant. Ce paramètre sera actualisé une fois que vous aurez activé les services de domaine Azure AD.
+6. Spécifiez un **Nom** pour votre réseau virtuel. Vous pouvez également choisir de configurer l’**Espace d’adressage** ou le **Nombre maximal de machines virtuelles** pour ce réseau. Vous pouvez laisser le paramètre **Serveur DNS** défini sur Aucun pour l’instant. Vous pourrez mettre à jour ce paramètre après avoir activé Azure AD Domain Services.
 
 7. Vérifiez que vous sélectionnez une région Azure prise en charge dans la liste déroulante **Emplacement**. Consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
 
@@ -53,9 +55,18 @@ Effectuez les étapes de configuration suivantes pour créer un réseau virtuel 
 
     ![Créer un réseau virtuel pour les services de domaine Azure AD.](./media/active-directory-domain-services-getting-started/create-vnet.png)
 
+9. Une fois le réseau virtuel créé, sélectionnez-le et cliquez sur l’onglet **CONFIGURER**.
+
+    ![Créer un sous-réseau](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
+
+10. Accédez à la section **Espace d’adresses du réseau virtuel**. Cliquez sur **Ajouter un sous-réseau** et spécifiez un sous-réseau nommé **AaddsSubnet**. Cliquez sur **Enregistrer** pour créer le sous-réseau.
+
+    ![Créer un sous-réseau pour Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
+
+
 <br>
 
 ## Tâche 3 : activer les services de domaine Azure AD
 La tâche de configuration suivante consiste à [activer les services de domaine Azure AD](active-directory-ds-getting-started-enableaadds.md).
 
-<!-----HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

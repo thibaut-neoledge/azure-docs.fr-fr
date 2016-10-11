@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc"/>
 
 # Création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Azure
@@ -54,23 +54,22 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez utiliser les exemples de valeurs de configuration suivantes :
 
-- Nom du réseau virtuel : TestVNet1
-- Espace d’adressage :10.11.0.0/16 et 10.12.0.0/16
-- Sous-réseaux :
+- **Nom du réseau virtuel :** TestVNet1
+- **Espace d’adressage :** 10.11.0.0/16 et 10.12.0.0/16
+- **Sous-réseaux :**
 	- FrontEnd : 10.11.0.0/24
 	- BackEnd : 10.12.0.0/24
 	- GatewaySubnet : 10.12.255.0/27
-- Groupe de ressources : TestRG1
-- Emplacement : Est des États-Unis
-- Serveur DNS : 8.8.8.8
-- Nom de passerelle : VNet1GW
-- Adresse IP publique : VNet1GWIP
-- Type de VPN : Route-based
-- Type de connexion : Site-to-site (IPsec)
-- Type de passerelle : VPN
-- Nom de passerelle de réseau local : Site2
-- Nom de connexion : VNet1toSite2
-
+- **Groupe de ressources :** TestRG1
+- **Emplacement :** Est des États-Unis
+- **Serveur DNS :** 8.8.8.8
+- **Nom de passerelle :** VNet1GW
+- **Adresse IP publique :** VNet1GWIP
+- **Type de VPN :** Basé sur un itinéraire
+- **Type de connexion :** Site à site (IPsec)
+- **Type de passerelle :** VPN
+- **Nom de passerelle de réseau local :** Site2
+- **Nom de connexion :** VNet1toSite2
 
 
 ## 1\. Créez un réseau virtuel 
@@ -89,29 +88,24 @@ Vous pouvez ajouter des sous-réseaux et des espaces d’adressage supplémentai
 
 ## <a name="dns"></a>3. Spécifier un serveur DNS
 
-Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lorsque vous spécifiez votre serveur DNS.
-
 ### Pour spécifier un serveur DNS
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4\. Créer un sous-réseau de passerelle
 
-Avant de connecter votre réseau virtuel à une passerelle, vous devez créer le sous-réseau de passerelle pour le réseau virtuel auquel vous souhaitez vous connecter. Le sous-réseau de passerelle que vous créez doit être nommé *GatewaySubnet*, sinon il ne fonctionnera pas correctement.
-
-Le préfixe de sous-réseau de passerelle pour certaines configurations requiert un sous-réseau de /28 ou plus pour prendre en charge le nombre d’adresses IP requises dans le pool. Cela signifie que le préfixe de sous-réseau de passerelle doit être /28, /27, /26, etc. Vous souhaiterez peut-être créer un sous-réseau plus grand afin de prendre en charge les éventuels ajouts de configuration futurs.
+Avant de connecter votre réseau virtuel à une passerelle, vous devez créer le sous-réseau de passerelle pour le réseau virtuel auquel vous souhaitez vous connecter. Si possible, il est préférable de créer un sous-réseau de passerelle à l’aide d’un bloc CIDR de /28 ou /27 afin de fournir suffisamment d’adresses IP pour satisfaire les exigences de configuration future supplémentaires.
 
 Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lorsque vous créez votre sous-réseau de passerelle.
 
 ### Pour créer un sous-réseau de passerelle
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5\. Créer une passerelle de réseau virtuel
 
-Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lorsque vous créez votre passerelle.
+Si vous créez cette configuration dans le cadre d’un exercice, vous pouvez vous reporter aux [exemples de valeurs de configuration](#values).
 
 ### Pour créer une passerelle de réseau virtuel
 
@@ -119,9 +113,9 @@ Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous 
 
 ## 6\. Créer une passerelle de réseau local
 
-La *passerelle de réseau local* fait généralement référence à votre emplacement local. Donnez à la passerelle de réseau local un nom qui sera utilisé par Azure pour la référencer.
+La « passerelle de réseau local » fait généralement référence à votre emplacement local. Donnez à la passerelle de réseau local un nom qui sera utilisé par Azure pour la référencer.
 
-Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [valeurs](#values) lorsque vous créez votre site local.
+Si vous créez cette configuration dans le cadre d’un exercice, vous pouvez vous reporter aux [exemples de valeurs de configuration](#values).
 
 ### Pour créer une passerelle de réseau local
 
@@ -154,4 +148,4 @@ Vous pouvez vérifier votre connexion VPN dans le portail ou à l’aide de Powe
 
 - Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

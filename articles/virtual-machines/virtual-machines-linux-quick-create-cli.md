@@ -19,9 +19,9 @@
 
 # Créer une machine virtuelle Linux sur Azure à l’aide de l’interface de ligne de commande (CLI)
 
-Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande `azure vm quick-create` dans l’interface de ligne de commande (CLI) Azure. La commande `quick-create` déploie une machine virtuelle à l’intérieur d’une infrastructure sécurisée de base que vous pouvez utiliser comme prototype ou pour tester rapidement un concept. L’article requiert
+Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande `azure vm quick-create` dans l’interface de ligne de commande (CLI) Azure. La commande `quick-create` déploie une machine virtuelle à l’intérieur d’une infrastructure sécurisée de base que vous pouvez utiliser comme prototype ou pour tester rapidement un concept. L’article requiert :
 
-- un compte Azure ([obtenir une version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/))
+- un compte Azure ([obtenir une version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/)).
 
 - [l’interface de ligne de commande Azure (CLI)](../xplat-cli-install.md) connectée à `azure login`.
 
@@ -31,7 +31,7 @@ Vous pouvez également déployer rapidement une machine virtuelle Linux à l’a
 
 ## Commandes rapides
 
-L’exemple suivant montre comment déployer une machine virtuelle CoreOS et comment attacher votre clé SSH (Secure Shell) (vos arguments peuvent être différents).
+L’exemple suivant montre comment déployer une machine virtuelle CoreOS et comment attacher votre clé SSH (Secure Shell) (vos arguments peuvent être différents) :
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
@@ -41,7 +41,7 @@ Les sections suivantes expliquent la commande et ses exigences à l’aide du se
 
 ## Alias de création rapide de machine virtuelle
 
-Un moyen rapide de choisir une distribution consiste à utiliser les alias d’interface de ligne de commande Azure mappés sur les distributions de système d’exploitation les plus courantes. Le tableau suivant répertorie les alias (à partir de la version 0.10 de l’interface de ligne de commande Azure). Tous les déploiements qui utilisent `quick-create` par défaut sur les machines virtuelles qui sont prises en charge par le stockage SSD, et qui offrent un approvisionnement plus rapide et un accès au disque hautes performances. (Ces alias représentent une infime partie des distributions disponibles dans Azure. Trouvez d’autres images dans Azure Marketplace en [faisant une recherche](virtual-machines-linux-cli-ps-findimage.md) ou en [chargeant votre image personnalisée](virtual-machines-linux-create-upload-generic.md).)
+Un moyen rapide de choisir une distribution consiste à utiliser les alias d’interface de ligne de commande Azure mappés sur les distributions de système d’exploitation les plus courantes. Le tableau suivant répertorie les alias (à partir de la version 0.10 de l’interface de ligne de commande Azure). Tous les déploiements qui utilisent `quick-create` par défaut sur les machines virtuelles prises en charge par le stockage SSD, et qui offrent un approvisionnement plus rapide et un accès au disque hautes performances. (Ces alias représentent une infime partie des distributions disponibles dans Azure. Trouvez d’autres images dans Azure Marketplace en [faisant une recherche](virtual-machines-linux-cli-ps-findimage.md) ou en [chargeant votre image personnalisée](virtual-machines-linux-create-upload-generic.md).)
 
 | Alias | Éditeur | Offer | SKU | Version |
 |:----------|:----------|:-------------|:------------|:--------|
@@ -56,15 +56,15 @@ Les sections suivantes utilisent l’alias `UbuntuLTS` pour l’option **ImageUR
 
 ## Procédure pas à pas
 
-Le précédent exemple `quick-create` appelait uniquement l’indicateur `-M` pour identifier la clé publique SSH à charger lors de la désactivation des mots de passe SSH. Par conséquent, vous êtes invité à entrer les éléments suivants :
+Le précédent exemple `quick-create` appelait uniquement l’indicateur `-M` pour identifier la clé publique SSH à charger lors de la désactivation des mots de passe SSH. Par conséquent, vous êtes invité à entrer les arguments suivants :
 
 - nom du groupe de ressources (toute chaîne convient généralement pour votre premier groupe de ressources Azure)
 - Nom de la machine virtuelle
-- emplacement (westus ou westeurope sont de bonnes valeurs par défaut)
+- emplacement (`westus` ou `westeurope` sont des valeurs par défaut appropriées)
 - linux (pour indiquer à Azure le système d’exploitation souhaité)
 - username
 
-Les éléments suivants spécifient toutes les valeurs, ainsi aucune autre invite n’est requise. Dans la mesure où vous avez un `~/.ssh/id_rsa.pub` en tant que fichier de clé publique au format ssh-rsa, il fonctionne comme suit.
+L’exemple suivant spécifie toutes les valeurs, ainsi aucune autre invite n’est requise. Dans la mesure où vous avez un `~/.ssh/id_rsa.pub` en tant que fichier de clé publique au format ssh-rsa, il fonctionne comme suit :
 
 ```bash
 azure vm quick-create \
@@ -77,7 +77,7 @@ azure vm quick-create \
 -Q UbuntuLTS
 ```
 
-La sortie doit ressembler au bloc de sortie suivant.
+La sortie doit ressembler au bloc de sortie suivant :
 
 ```bash
 info:    Executing command vm quick-create
@@ -155,13 +155,13 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Connectez-vous à votre machine virtuelle à l’aide de l’adresse IP publique répertoriée dans la sortie. Vous pouvez également utiliser le nom de domaine complet (FQDN) répertorié.
+Connectez-vous à votre machine virtuelle à l’aide de l’adresse IP publique répertoriée dans la sortie. Vous pouvez également utiliser le nom de domaine complet (FQDN) répertorié :
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
 
-Le processus de connexion doit ressembler à ceci :
+Le processus de connexion doit ressembler au bloc de sortie suivant :
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
@@ -205,4 +205,4 @@ La commande `azure vm quick-create` permet de déployer rapidement une machine v
 
 Vous pouvez également [utiliser le pilote Azure `docker-machine` avec plusieurs commandes pour créer rapidement une machine virtuelle Linux comme un hôte docker](virtual-machines-linux-docker-machine.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

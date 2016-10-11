@@ -20,8 +20,8 @@
 # Configuration d’une connexion de réseau virtuel à réseau virtuel pour Resource Manager à l’aide de PowerShell
 
 > [AZURE.SELECTOR]
-- [Portail Azure Classic](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [PowerShell - Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Classic - Portail Classic](virtual-networks-configure-vnet-to-vnet-connection.md)
 
 Cet article vous guidera au long des étapes de création d’une connexion entre des réseaux virtuels dans le modèle de déploiement Resource Manager à l’aide d’une passerelle VPN. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents.
 
@@ -29,24 +29,23 @@ Cet article vous guidera au long des étapes de création d’une connexion entr
 ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 
-### Outils et modèles de déploiement pour les connexions de réseau virtuel à réseau virtuel
+### Modèles et méthodes de déploiement pour les connexions de réseau virtuel à réseau virtuel
 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Une connexion de réseau virtuel à réseau virtuel peut être configurée dans les deux modèles de déploiement et à l’aide de différents outils. Pour plus d’informations, consultez le tableau suivant. Nous mettons à jour ce tableau à mesure que de nouveaux articles, de nouveaux modèles de déploiement et des outils supplémentaires sont disponibles pour cette configuration. Quand un article est disponible, ce tableau contient un lien vers celui-ci.
+Une connexion de réseau virtuel à réseau virtuel peut être configurée dans les deux modèles de déploiement et à l’aide de différents outils. Nous mettons à jour le tableau suivant à mesure que de nouveaux articles et des outils supplémentaires sont disponibles pour cette configuration. Quand un article est disponible, ce tableau contient un lien vers celui-ci.<br><br>
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-
 #### Homologation de réseaux virtuels
 
-Vous pouvez utiliser l’homologation de réseau virtuel pour créer votre connexion dans la mesure où votre configuration de réseau virtuel répond à certaines exigences. L’homologation de réseau virtuel n’utilise pas de passerelle de réseau virtuel. [L’homologation de réseau virtuel](../virtual-network/virtual-network-peering-overview.md) est actuellement proposée dans sa version préliminaire.
+[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 ## À propos des connexions de réseau virtuel à réseau virtuel
 
-La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN Azure pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Les réseaux virtuels que vous connectez peuvent être situés dans différentes régions. Ou dans différents abonnements. Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant.
+La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN Azure pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Les réseaux virtuels que vous connectez peuvent être situés dans différentes régions. Ou dans différents abonnements. Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant :
 
 
 ![À propos des connexions](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
@@ -453,7 +452,7 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
 
 3. **[Abonnement 1]** Créer la connexion TestVNet1 à TestVNet5
 
-	Dans cette étape, vous créez la connexion de TestVNet1 à TestVNet5. La différence réside dans le fait que $vnet5gw ne peut pas être obtenu directement, car il se trouve dans un abonnement différent. Vous devez créer un objet PowerShell avec les valeurs communiquées par Abonnement 1 dans les étapes précédentes. Remplacez le nom, l’ID et la clé partagée par vos propres valeurs. Il est important que la clé partagée corresponde aux deux connexions. La création d’une connexion peut prendre quelques instants.
+	Dans cette étape, vous créez la connexion de TestVNet1 à TestVNet5. La différence réside dans le fait que $vnet5gw ne peut pas être obtenu directement, car il se trouve dans un abonnement différent. Vous devez créer un objet PowerShell avec les valeurs communiquées par Abonnement 1 dans les étapes précédentes. Utilisez l’exemple ci-dessous. Remplacez le nom, l’ID et la clé partagée par vos propres valeurs. Il est important que la clé partagée corresponde aux deux connexions. La création d’une connexion peut prendre quelques instants.
 
 	Veillez à vous connecter à Abonnement 1.
 	
@@ -484,4 +483,4 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
 - Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) pour connaître les différentes étapes.
 - Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP sur des passerelles VPN](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

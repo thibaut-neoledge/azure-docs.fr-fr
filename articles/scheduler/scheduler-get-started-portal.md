@@ -3,8 +3,8 @@
  description="Prise en main d’Azure Scheduler dans le portail Azure"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/10/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 # Prise en main d’Azure Scheduler dans le portail Azure
 
@@ -182,4 +182,4 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion pr�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

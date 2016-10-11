@@ -3,7 +3,7 @@
    description="Apprenez à créer des zones DNS pour Azure DNS étape par étape, afin d’héberger votre domaine DNS à l’aide de l’interface de ligne de commande"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Création d’une zone Azure DNS à l’aide de l’interface de ligne de commande
 
@@ -42,25 +42,25 @@ Vous pouvez installer l’interface de ligne de commande Azure pour Windows, Lin
 
 Toutes les commandes du fournisseur réseau peuvent être exécutées sur l’interface de ligne de commande à l'aide de la commande suivante :
 
-	Azure network
+	azure network
 
 ### 2\. Passage en mode CLI
 
 Azure DNS utilise Azure Resource Manager. Veillez à utiliser le mode d’interface de ligne de commande pour exécuter les commandes ARM.
 
-	Azure config mode arm
+	azure config mode arm
 
 ### 3\. Connexion à votre compte Azure
 
 Vous devez indiquer vos informations d’identification. Gardez à l’esprit que vous ne pouvez utiliser que des comptes ORGID.
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4\. Sélection de l’abonnement
 
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5\. Créer un groupe de ressources
 
@@ -68,14 +68,14 @@ Azure Resource Manager requiert que tous les groupes de ressources spécifient u
 
 Ignorez cette étape si vous utilisez un groupe de ressources existant.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6\. S’inscrire
 
 Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être enregistré auprès de ce fournisseur de ressources, pour que vous puissiez utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois par abonnement.
 
-	Azure provider register --namespace Microsoft.Network
+	azure provider register --namespace Microsoft.Network
 
 
 ## Étape 2 : création d’une zone DNS
@@ -91,7 +91,7 @@ L’exemple ci-dessous permet de créer une zone DNS appelée *contoso.com* dans
 
 Utilisez l’exemple pour créer votre zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### Création d’une zone DNS et de balises
 
@@ -99,7 +99,7 @@ L’interface de ligne de commande Azure DNS prend en charge les balises des zon
 
 Utilisez l’exemple ci-dessous pour créer une zone DNS et des balises, en remplaçant les valeurs indiquées par vos propres valeurs.
 
-	Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+	azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Affichage des enregistrements
 
@@ -185,4 +185,4 @@ L’exemple suivant utilise DIG pour interroger le domaine contoso.com à l’ai
 
 Après avoir créé une zone DNS, créez [des jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md) pour démarrer la résolution des noms pour votre domaine Internet.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

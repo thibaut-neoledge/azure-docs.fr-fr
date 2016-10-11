@@ -24,6 +24,7 @@ La vidéo suivante de 5 minutes présente Azure App Service Web Apps.
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
 
+
 ## Qu’est-ce qu’une application web dans App Service ?
 
 Dans App Service, une *application web* constitue les ressources de calcul fournies par Azure pour l’hébergement d’un site ou d’une application web.
@@ -62,4 +63,4 @@ Pour démarrer en déployant un exemple de code vers une nouvelle application we
 
 Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

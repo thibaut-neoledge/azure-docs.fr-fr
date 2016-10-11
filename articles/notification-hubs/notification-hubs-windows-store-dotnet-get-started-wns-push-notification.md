@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/21/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Prise en main de Notification Hubs pour les applications de plateforme Windows universelle
@@ -267,11 +267,11 @@ Pour obtenir des informations générales sur Notification Hubs, consultez la se
 
 <!-- URLs. -->
 
-[Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [Catalogue de modèles de toast]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [Catalogue de modèles de vignette]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [Vue d’ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

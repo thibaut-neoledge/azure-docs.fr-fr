@@ -24,7 +24,7 @@ Apache Storm est un système de calcul en temps réel, évolutif, distribué, à
 
 > [AZURE.NOTE] Les étapes décrites dans cet article créent un cluster HDInsight Linux. Pour savoir comment créer un cluster Storm Windows sur HDInsight, consultez le [Didacticiel Apache Storm : prise en main de l’exemple Storm Starter à l’aide de l’analyse de données sur HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Avant de commencer
+## Composants requis
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -37,6 +37,10 @@ Vous devez disposer de ce qui suit pour suivre jusqu’au bout ce didacticiel St
     - **Clients Linux, Unix ou OS X** : consultez la page [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 	- **Clients Windows** : consultez la page [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+### Exigences de contrôle d’accès
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Créer un cluster Storm
 
@@ -192,4 +196,4 @@ Si vous êtes déjà familiarisé avec le développement de topologies basées s
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

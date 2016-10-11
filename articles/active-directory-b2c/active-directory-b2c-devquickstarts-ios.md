@@ -151,9 +151,9 @@ Penchez-nous plus avant sur ces éléments.
 
 Pour les éléments `authURL`, `loginURL`, `bhh` et `tokenURL`, vous remarquerez que vous devez indiquer votre nom de client. Il s’agit du nom de votre client B2C qui vous a été affecté. Par exemple, `kidventusb2c.onmicrosoft.com`. Si vous utilisez nos bibliothèques d’identité Microsoft Azure open source, nous extrairons ces données pour vous à l’aide de notre point de terminaison des métadonnées. Nous avons effectué le travail d’extraction de ces valeurs pour vous.
 
-Pour plus d’informations sur les noms de client B2C, voir [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md).
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-La valeur `keychain` est le conteneur qu’utilisera la bibliothèque NXOAuth2Client pour créer un trousseau afin de stocker vos jetons. Si vous souhaitez obtenir l’authentification unique entre de nombreuses applications, vous pouvez spécifier le même porte-clés dans chacune de vos applications, ainsi que demander l’utilisation de ce porte-clés dans vos droits Xcode. Cela est décrit dans la documentation Apple.
+La valeur `keychain` est le conteneur qu’utilisera la bibliothèque NXOAuth2Client afin de créer un trousseau pour le stockage de vos jetons. Si vous souhaitez obtenir l’authentification unique entre de nombreuses applications, vous pouvez spécifier le même porte-clés dans chacune de vos applications, ainsi que demander l’utilisation de ce porte-clés dans vos droits Xcode. Cela est décrit dans la documentation Apple.
 
 La variable `<policy name>` à la fin de chaque URL indique les emplacements où vous avez placé la stratégie créée ci-dessus. L’application appellera ces stratégies en fonction du flux.
 
@@ -161,11 +161,11 @@ L’élément `taskAPI` est le point de terminaison REST que nous appellerons av
 
 Le reste de ces valeurs est requis pour utiliser la bibliothèque et simplement créer des emplacements pour que vous puissiez traiter des valeurs dans le contexte.
 
-À présent que nous avons créé le fichier `settings.plist`, nous devons le coder pour le lire.
+Maintenant que nous avons créé le fichier `settings.plist`, nous avons besoin d’écrire le code permettant de le lire.
 
 ## Configurer une classe AppData pour lire nos paramètres
 
-Nous allons créer un fichier simple qui analyse simplement le fichier `settngs.plist` que nous avons créé ci-dessus, puis rendre ces paramètres disponibles pour n’importe quelle classe à l’avenir. Étant donné que nous ne souhaitons pas créer une nouvelle copie des données chaque fois que ces dernières sont demandées par une classe, nous allons utiliser un modèle Singleton et nous contenter de renvoyer la même instance créée chaque fois qu’une demande porte sur des paramètres.
+Nous allons créer un fichier simple qui se contente d’analyser le fichier `settngs.plist` que nous avons créé ci-dessus, puis rendre ces paramètres disponibles pour n’importe quelle classe à l’avenir. Étant donné que nous ne souhaitons pas créer une nouvelle copie des données chaque fois que ces dernières sont demandées par une classe, nous allons utiliser un modèle Singleton et nous contenter de renvoyer la même instance créée chaque fois qu’une demande porte sur des paramètres.
 
 * Créez un fichier `AppData.h` :
 
@@ -232,7 +232,7 @@ Nous allons créer un fichier simple qui analyse simplement le fichier `settngs.
 
 ## Configurer la bibliothèque NXOAuth2Client dans votre AppDelegate
 
-La bibliothèque NXOAuthClient requiert des valeurs pour sa configuration. Une fois cette opération terminée, vous pouvez utiliser le jeton acquis pour appeler l’API REST. Étant donné que nous savons que l’élément `AppDelegate` sera appelé chaque fois que nous chargeons l’authentification, il est judicieux de placer nos valeurs de configuration dans ce fichier.
+La bibliothèque NXOAuthClient requiert des valeurs pour sa configuration. Une fois cette opération terminée, vous pouvez utiliser le jeton acquis pour appeler l’API REST. Comme nous savons que l’élément `AppDelegate` sera appelé chaque fois que nous chargeons l’authentification, il est judicieux de placer nos valeurs de configuration dans ce fichier.
 * Ouvrez le fichier `AppDelegate.m`.
 
 * Importez certains fichiers d’en-tête que nous utiliserons par la suite.
@@ -291,7 +291,7 @@ Ensuite, prenez soin de l’appeler dans l’AppDelegate sous la méthode `didFi
 ```
 
 
-## Créez une classe `LoginViewController` que nous utiliserons pour gérer les demandes d’authentification.
+## Créez une classe `LoginViewController` qui sera utilisée pour gérer les demandes d’authentification.
 
 Nous utilisons un affichage web pour la connexion du compte. Cela nous permet d’inviter l’utilisateur à utiliser des facteurs supplémentaires comme les SMS (s’ils sont configurés) ou de renvoyer les messages d’erreur à l’utilisateur. Ici, nous allons définir l’affichage web, puis écrire ultérieurement le code pour gérer les rappels qui surviendront dans l’affichage web à partir du service d’identité Microsoft.
 
@@ -520,7 +520,7 @@ Comme vous pouvez le voir à partir de ce code, nous allons créer deux méthode
 
 À présent que nous avons configuré notre interface, ajoutons l’implémentation réelle :
 
-* Créez un `GraphAPICaller.m file`.
+* Créez un fichier `GraphAPICaller.m file`.
 
 ```objc
 @implementation GraphAPICaller
@@ -640,10 +640,10 @@ Notez la façon dont les tâches sont stockées par utilisateur sur l’API, dan
 
 ## Étapes suivantes
 
-Vous pouvez maintenant aborder des rubriques B2C plus sophistiquées. Vous pouvez essayer :
+Vous pouvez maintenant passer à des rubriques B2C plus poussées. Vous pouvez essayer :
 
 [Appel d’une API web Node.js depuis une application web Node.js]()
 
 [Personnalisation de l’expérience utilisateur pour une application B2C]()
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

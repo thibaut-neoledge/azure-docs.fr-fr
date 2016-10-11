@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="07/22/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Envoi de notifications push vers des applications Chrome avec Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Cette rubrique vous montre comment utiliser Azure Notification Hubs pour envoyer des notifications push vers une application Chrome qui seront affichées dans le contexte du navigateur Google Chrome. Dans ce didacticiel, nous allons créer une application Chrome qui reçoit des notifications push à l’aide de [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/).
+Cette rubrique vous explique comment utiliser Azure Notification Hubs pour envoyer vers une application Chrome des notifications Push qui seront affichées dans le contexte du navigateur Google Chrome. Dans ce didacticiel, nous allons créer une application Chrome qui reçoit des notifications push à l’aide de [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/).
 
 >[AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
@@ -388,7 +388,7 @@ La structure générale de dossier pour ce projet doit ressembler à ceci : ![Ap
 
 1. Dans Visual Studio, dans le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**. Sous **Visual C#**, cliquez sur **Windows** et **Application Console**, puis cliquez sur **OK**. Un projet d'application console est créé.
 
-2. Dans le menu **Outils**, cliquez sur **Gestionnaire de package de bibliothèques**, puis sur **Console du Gestionnaire de package**. La Console du Gestionnaire de package apparaît.
+2. Dans le menu **Outils**, cliquez sur **Gestionnaire de package de bibliothèques**, puis sur **Console du Gestionnaire de package**. La console du gestionnaire de package s'affiche.
 
 3. Dans la fenêtre de console, exécutez la commande suivante :
 
@@ -434,7 +434,7 @@ La structure générale de dossier pour ce projet doit ressembler à ceci : ![Ap
 
 En savoir plus sur Notification Hubs dans la [Vue d’ensemble de Notification Hubs].
 
-Pour cibler les utilisateurs spécifiques, reportez-vous au didacticiel [Notification des utilisateurs via Azure Notification Hubs].
+Pour cibler des utilisateurs spécifiques, reportez-vous au didacticiel [Notification des utilisateurs via Azure Notification Hubs].
 
 Pour segmenter vos utilisateurs par groupes d’intérêt, vous pouvez suivre le didacticiel [Dernières nouvelles via Azure Notification Hubs].
 
@@ -474,7 +474,7 @@ Pour segmenter vos utilisateurs par groupes d’intérêt, vous pouvez suivre le
 [bibliothèque crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Notification des utilisateurs via Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Dernières nouvelles via Azure Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Notification des utilisateurs via Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Dernières nouvelles via Azure Notification Hubs]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

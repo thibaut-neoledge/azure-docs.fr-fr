@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Prise en main d'Azure Data Lake Store avec l'interface de ligne de commande Azure
@@ -37,36 +37,40 @@ L’interface de ligne de commande Azure est implémentée dans Node.js. Elle pe
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 - **Azure CLI** - Consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour obtenir des informations sur l’installation et la configuration. N'oubliez pas de redémarrer votre ordinateur une fois l'interface de ligne de commande installée.
+
+## Authentification
+
+Pour l’authentification auprès de Data Lake Store, cet article utilise une approche plus simple où vous vous connectez en tant qu’utilisateur final. Le niveau d’accès au compte et au système de fichiers Data Lake Store est alors régi par le niveau d’accès de l’utilisateur connecté. Cependant, il existe d’autres approches pour l’authentification auprès de Data Lake Store, à savoir **l’authentification de l’utilisateur final** ou **l’authentification de service à service**. Pour plus d’informations sur l’authentification et la procédure associée, consultez [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Authentification auprès de Data Lake Store à l’aide d’Azure Active Directory).
 
 ##Connexion à votre abonnement Azure
 
-Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la méthode __login__.
+1. Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la méthode `azure login`.
+
+2. Répertoriez les abonnements associés à votre compte à l’aide de la commande `azure account list`.
+
+		info:    Executing command account list
+		data:    Name              Id                                    Current
+		data:    ----------------  ------------------------------------  -------
+		data:    Azure-sub-1       ####################################  true
+		data:    Azure-sub-2       ####################################  false
+
+	Dans la sortie ci-dessus, **Azure-sub-1** est actuellement activé, et l’autre abonnement est **Azure-sub-2**.
+
+3. Sélectionnez l’abonnement avec lequel vous souhaitez travailler. Pour travailler avec l’abonnement Azure-sub-2, utilisez la commande `azure account set`.
+
+		azure account set Azure-sub-2
 
 
 ## Créer un compte Azure Data Lake Store
 
 Ouvrez une invite de commande, un shell ou une session de terminal et exécutez les commandes suivantes.
 
-1. Connectez-vous à votre abonnement Azure :
-
-		azure login
-
-	Vous serez invité à ouvrir une page Web et à saisir un code d'authentification. Suivez les instructions figurant dans cette page pour vous connecter à votre abonnement Azure.
-
 2. Passez en mode Gestionnaire de ressources Azure en exécutant la commande suivante :
 
 		azure config mode arm
 
-
-3. Affichez la liste des abonnements Azure pour votre compte.
-
-		azure account list
-
-
-4. Si vous possédez plusieurs abonnements Azure, utilisez la commande suivante pour définir l’abonnement que les commandes de l’interface de ligne de commande Azure utiliseront :
-
-		azure account set <subscriptionname>
 
 5. Créez un groupe de ressources. Dans la commande suivante, définissez des valeurs de paramètre que vous souhaitez utiliser.
 
@@ -188,4 +192,4 @@ Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

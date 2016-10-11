@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="09/29/2016" 
 	ms.author="raynew"/>
 
 #  Qu’est-ce que Site Recovery ?
@@ -30,9 +30,9 @@ Site Recovery est un service Azure qui participe à votre stratégie de continui
 
 Azure dispose de deux [modèles de déploiement](../resource-manager-deployment-model.md) différents pour créer et utiliser des ressources : le modèle Azure Resource Manager et le modèle classique de gestion des services. De plus, Azure propose deux portails : le [portail Azure Classic](https://manage.windowsazure.com/), qui prend en charge le modèle de déploiement classique, et le [portail Azure](https://portal.azure.com), qui gère les deux modèles de déploiement.
 
-Site Recovery est disponible dans le portail classique et le portail Azure. Dans le Portail Azure Classic, vous pouvez prendre en charge Site Recovery avec le modèle classique de gestion des services. Dans le portail Azure, vous pouvez prendre en charge les déploiements classiques et Ressource Manager. [En savoir plus](site-recovery-overview.md#site-recovery-in-the-azure-portal) sur le déploiement à l’aide du portail Azure.
+Site Recovery est disponible dans le portail Azure Classic et dans le portail Azure. Dans le Portail Azure Classic, vous pouvez prendre en charge Site Recovery avec le modèle classique de gestion des services. Dans le portail Azure, vous pouvez prendre en charge les déploiements classiques et Ressource Manager. [En savoir plus](site-recovery-overview.md#site-recovery-in-the-azure-portal) sur le déploiement à l’aide du portail Azure.
 
-Les informations contenues dans cet article s’appliquent aux déploiements classiques et de portail Azure. Les différences sont indiquées, le cas échéant.
+Les informations contenues dans cet article s’appliquent aux déploiements du portail Azure Classic et du portail Azure. Les différences sont indiquées, le cas échéant.
 
 
 ## Pourquoi utiliser Azure Site Recovery ? 
@@ -81,4 +81,4 @@ Site Recovery peut contribuer à la continuité des activités et à la récupé
 - Pour en savoir plus sur l’architecture de Site Recovery, consultez l’article [Comment Azure Site Recovery fonctionne-t-il ?](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

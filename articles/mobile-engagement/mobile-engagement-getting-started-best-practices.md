@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="07/07/2016"
+	ms.date="10/04/2016"
 	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Guide de prise en main et meilleures pratiques
@@ -222,11 +222,11 @@ Vous bénéficiez ainsi de nombreuses opportunités d’engagement avec les util
 
 Différents types et formats de notification Push :
 
-1. **Annonces** : ces notifications vous permettent d’envoyer des messages publicitaires aux utilisateurs à des moments différents (en dehors de l’application, dans l’application ou à tout moment).
-2. **Sondages** : ces notifications vous permettent de rassembler des informations sur les utilisateurs finaux en leur posant des questions. Vous disposez ensuite de ces réponses lors de la création de critères pour cibler les utilisateurs finaux.
-3. **Push de données** : ces notifications vous permettent d’envoyer un fichier de données binaire ou base 64 pour mettre à jour l’application. Les informations contenues dans un Push de données sont envoyées à votre application pour personnaliser l’expérience des utilisateurs au sein de votre application. Votre application doit être conçue pour prendre en charge les données contenues dans un Push de données.
-4. **Vignettes (Windows Phone uniquement)** : ces notifications vous permettent d’utiliser les services de notifications Push Microsoft (MPNS) pour envoyer des notifications Push natives contenant des données XML. (Prises en charge depuis la version 0.9.0 du Kit de développement logiciel (SDK). La charge utile finale des vignettes ne peut excéder 32 kilo-octets.) Le message apparaît directement sur la vignette de votre panneau.
-5. **Vue web** : fenêtre contextuelle comprenant du contenu web. Cette fenêtre contextuelle apparaît une fois que l'utilisateur final a cliqué sur la notification push. Une vue web favorise l'interaction avec l'utilisateur final.
+1. **Annonces** : ces notifications vous permettent d’envoyer des messages publicitaires aux utilisateurs à des moments différents (en dehors de l’application, dans l’application ou à tout moment).
+2. **Sondages** : ces notifications vous permettent de rassembler des informations sur les utilisateurs finaux en leur posant des questions. Vous disposez ensuite de ces réponses lors de la création de critères pour cibler les utilisateurs finaux.
+3. **Push de données** : ces notifications vous permettent d’envoyer un fichier de données binaire ou base 64 pour mettre à jour l’application. Les informations contenues dans un Push de données sont envoyées à votre application pour personnaliser l’expérience des utilisateurs au sein de votre application. Votre application doit être conçue pour prendre en charge les données contenues dans un Push de données.
+4. **Vignettes (Windows Phone uniquement)** : ces notifications vous permettent d’utiliser les services de notifications Push Microsoft (MPNS) pour envoyer des notifications Push natives contenant des données XML. (Prises en charge depuis la version 0.9.0 du Kit de développement logiciel (SDK). La charge utile finale des vignettes ne peut excéder 32 kilo-octets.) Le message apparaît directement sur la vignette de votre panneau.
+5. **Vue web** : fenêtre contextuelle comprenant du contenu web. Cette fenêtre contextuelle apparaît une fois que l'utilisateur final a cliqué sur la notification push. Une vue web favorise l'interaction avec l'utilisateur final.
  
 >[AZURE.NOTE] Assurez-vous que le contenu que vous envoyez sous forme de notifications Push respecte les instructions de la plateforme correspondante (iOS, Android, Windows) pour le développement d’applications et l’envoi de notifications Push.
 
@@ -356,7 +356,7 @@ Testez de manière approfondie tous les types de comportement de notification qu
 
 #### Paramétrage
 
-La configuration d’Azure Mobile Engagement est très simple. Toute la documentation relative à l’interface utilisateur est disponible sur le site web Azure Mobile Engagement, sur la page [Comment naviguer dans l’interface utilisateur](mobile-engagement-user-interface.md).
+La configuration d’Azure Mobile Engagement est très simple. Toute la documentation relative à l’interface utilisateur est disponible sur le site web Azure Mobile Engagement, sur la page [Comment naviguer dans l’interface utilisateur](mobile-engagement-user-interface-home.md).
 
 Il est recommandé de commencer par configurer les rôles et les appartenances aux rôles appropriés pour votre projet. Cela vous permet de gérer l’accès à la plateforme pour tous les utilisateurs. Vos rôles peuvent inclure :
 
@@ -407,4 +407,4 @@ Après avoir acquis un peu d’expérience, vous pouvez envisager d’ajouter le
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_1005_2016-->

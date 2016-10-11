@@ -100,7 +100,7 @@ Le fichier **package.json** est l'un des fichiers créés à la racine du projet
 
 	![Capture d'écran de l'onglet package.json](./media/documentdb-nodejs-application/image17.png)
 
-       Ce code indique à Node (et à Azure ultérieurement) que votre application dépend de ces modules supplémentaires.
+	Ce code indique à Node (et à Azure ultérieurement) que votre application dépend de ces modules supplémentaires.
 
 ## <a name="_Toc395783180"></a>Étape 4 : utilisation du service DocumentDB dans une application Node
 
@@ -568,4 +568,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](https
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->
