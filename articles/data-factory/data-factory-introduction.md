@@ -79,4 +79,4 @@ Didacticiel | Description
 [Build a data pipeline to move data between two cloud data stores (Créer un pipeline de données pour déplacer des données entre deux banques de données cloud)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | Dans ce didacticiel, vous créez une fabrique de données avec un pipeline qui **déplace des données** de Blob Storage vers la base de données SQL.
 [Build a data pipeline to move data between an on-premises data store and a cloud data store using Data Management Gateway (Créer un pipeline de données pour déplacer des données entre une banque de données locale et une banque de données cloud à l’aide de la passerelle de gestion des données)](data-factory-move-data-between-onprem-and-cloud.md) | Dans ce didacticiel, vous créez une fabrique de données avec un pipeline qui **déplace des données** d’une base de données SQL Server **locale** vers un objet blob Azure. Dans le cadre de la procédure pas à pas, vous installez et configurez la passerelle de gestion des données sur votre ordinateur. 
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->
