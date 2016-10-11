@@ -52,7 +52,7 @@ Dans cette section, vous créez une application console Windows qui crée une id
 
 	![Fenêtre du gestionnaire de package Nuget][11]
 
-4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
+4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
 
 		using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Common.Exceptions;
@@ -62,7 +62,7 @@ Dans cette section, vous créez une application console Windows qui crée une id
 		static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
 		private static async Task AddDeviceAsync()
         {
@@ -81,7 +81,7 @@ Dans cette section, vous créez une application console Windows qui crée une id
 
 	Cette méthode crée une identité d’appareil avec l’ID **myFirstDevice**. (si cet ID d’appareil existe déjà dans le registre, le code récupère simplement les informations d’appareil existantes). L’application affiche ensuite la clé primaire pour cette identité. Vous utilisez cette clé dans l’appareil simulé pour vous connecter à votre IoT Hub.
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
 		registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         AddDeviceAsync().Wait();
@@ -107,7 +107,7 @@ Dans cette section, vous créez une application console Windows qui lit les mess
 
 3. Dans la fenêtre **Gestionnaire de package Nuget**, recherchez **WindowsAzure.ServiceBus**, cliquez sur **Installer** et acceptez les conditions d’utilisation. Cette procédure lance le téléchargement, l’installation et ajoute une référence à [Azure Service Bus][lnk-servicebus-nuget] avec toutes ses dépendances. Ce package permet à l’application de se connecter au point de terminaison compatible Event Hubs sur votre IoT hub.
 
-4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
+4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
 
         using Microsoft.ServiceBus.Messaging;
         using System.Threading;
@@ -118,7 +118,7 @@ Dans cette section, vous créez une application console Windows qui lit les mess
         static string iotHubD2cEndpoint = "messages/events";
         static EventHubClient eventHubClient;
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
         private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
         {
@@ -136,7 +136,7 @@ Dans cette section, vous créez une application console Windows qui lit les mess
 
     Cette méthode utilise une instance **EventHubReceiver** pour recevoir des messages à partir de toutes les partitions de réception Appareil vers cloud IoT Hub. Notez la manière dont vous transmettez un paramètre `DateTime.Now` lorsque vous créez l’objet **EventHubReceiver** pour qu’il reçoive uniquement les messages envoyés après son démarrage. Dans un environnement de test, ce filtre permet de voir l’ensemble des messages en cours. Dans un environnement de production, votre code doit faire en sorte qu’il traite tous les messages. Pour plus d’informations, voir le didacticiel [Traiter les messages des appareils vers le cloud IoT Hub][lnk-process-d2c-tutorial].
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
         Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
@@ -171,7 +171,7 @@ Dans cette section, vous créez une application console Windows qui simule un ap
 
 3. Dans la fenêtre **Gestionnaire de package Nuget**, cliquez sur **Parcourir**, puis recherchez **Microsoft.Azure.Devices.Client**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices.Client**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT - Device SDK Nuget][lnk-device-nuget] et ses dépendances.
 
-4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
+4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
 
 		using Microsoft.Azure.Devices.Client;
         using Newtonsoft.Json;
@@ -182,7 +182,7 @@ Dans cette section, vous créez une application console Windows qui simule un ap
         static string iotHubUri = "{iot hub hostname}";
         static string deviceKey = "{device key}";
 
-6. Ajoutez la méthode suivante à la classe **Program** :
+6. Ajoutez la méthode suivante à la classe **Program** :
 
 		private static async void SendDeviceToCloudMessagesAsync()
         {
@@ -210,7 +210,7 @@ Dans cette section, vous créez une application console Windows qui simule un ap
 
 	Cette méthode envoie un nouveau message Appareil vers cloud toutes les secondes. Le message contient un objet JSON sérialisé avec l’ID de l’appareil et un nombre généré de manière aléatoire pour simuler un anémomètre.
 
-7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
         Console.WriteLine("Simulated device\n");
         deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey));

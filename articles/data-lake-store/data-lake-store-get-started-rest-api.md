@@ -51,7 +51,7 @@ Dans ce scénario, l’application invite l’utilisateur à se connecter. Toute
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] L’URI <REDIRECT-URI> doit être codée pour être utilisée dans une URL. Par conséquent, pour https://localhost, utilisez `https%3A%2F%2Flocalhost`)
+	>[AZURE.NOTE] L’URI \<REDIRECT-URI> doit être codée pour être utilisée dans une URL. Par conséquent, pour https://localhost, utilisez `https%3A%2F%2Flocalhost`)
 
 	Pour les besoins de ce didacticiel, vous pouvez remplacer les valeurs d’espace réservé de l’URL ci-dessus et la coller dans la barre d’adresse d’un navigateur web. Vous serez redirigé pour vous authentifier à l’aide de vos informations de connexion Azure. Lorsque vous êtes connecté, la réponse s’affiche dans la barre d’adresse du navigateur. La réponse présente le format suivant :
 		
@@ -66,7 +66,7 @@ Dans ce scénario, l’application invite l’utilisateur à se connecter. Toute
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] Dans ce cas, il n’est pas nécessaire de coder l’URI <REDIRECT-URI>.
+	>[AZURE.NOTE] Dans ce cas, il n’est pas nécessaire de coder l’URI \<REDIRECT-URI>.
 
 3. La réponse est un objet JSON contenant un jeton d’accès (par exemple, `"access_token": "<ACCESS_TOKEN>"`) et un jeton d’actualisation (par exemple, `"refresh_token": "<REFRESH_TOKEN>"`). Votre application utilise le jeton d’accès pour accéder à Azure Data Lake Store et le jeton d’actualisation pour obtenir un autre jeton d’accès lorsque l’un d’eux expire.
 

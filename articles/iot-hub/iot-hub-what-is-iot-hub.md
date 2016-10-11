@@ -29,7 +29,7 @@ L’article [Comparaison entre IoT Hub et Event Hubs][lnk-compare] décrit les d
 
 ![Azure IoT Hub comme passerelle cloud dans une solution Internet des objets][img-architecture]
 
-> [AZURE.NOTE] Pour une étude approfondie de l’architecture IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Services Microsoft Azure IoT : Architecture de référence).
+> [AZURE.NOTE] Pour une étude approfondie de l’architecture IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] \(Services Microsoft Azure IoT : Architecture de référence).
 
 ## Défis liés à la connectivité des appareils IoT
 

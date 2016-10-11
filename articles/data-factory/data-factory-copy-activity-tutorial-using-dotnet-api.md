@@ -445,7 +445,7 @@ Vous devez avoir les quatre valeurs suivantes après ces étapes :
         John, Doe
 		Jane, Doe
 	 
-17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **Entrée**.
+17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **Entrée**.
 18. Utilisez le portail Azure pour vérifier que la fabrique de données **APITutorialFactory** est créée avec les artefacts suivants :
 	- Service lié : **LinkedService\_AzureStorage**
 	- Jeu de données : **DatasetBlobSource** et **DatasetBlobDestination**.

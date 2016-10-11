@@ -14,7 +14,7 @@ Le diagramme suivant montre une architecture de solution IoT classique. Il n’i
 
 ![Architecture de solution IoT][img-solution-architecture]
 
-> [AZURE.NOTE] Pour une étude approfondie de l’architecture IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Services Microsoft Azure IoT : Architecture de référence).
+> [AZURE.NOTE] Pour une étude approfondie de l’architecture IoT, consultez le document [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] \(Services Microsoft Azure IoT : Architecture de référence).
 
 ### Connectivité des appareils
 
