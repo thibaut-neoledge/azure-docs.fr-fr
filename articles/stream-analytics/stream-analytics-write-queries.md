@@ -52,7 +52,7 @@ Vous pouvez vérifier que votre requête se comporte comme prévu en l'exécutan
 
     ![Tester les données de requête](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
-3.	Accédez à un fichier de test. Plusieurs exemples de fichiers sont disponibles sur [github](données https://github.com/Azure/azure-stream-analytics/tree/master/Sample) et vous pouvez également récupérer des données d’exemple à partir de vos propres entrées de flux de données avec la fonction Exemples de données de l’onglet des entrées.
+3.	Accédez à un fichier de test. Plusieurs exemples de fichiers sont disponibles sur [github](https://github.com/Azure/azure-stream-analytics/tree/master/Sample) et vous pouvez également récupérer des données d’exemple à partir de vos propres entrées de flux de données avec la fonction Exemples de données de l’onglet des entrées.
 
     ![Entrée de requête](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)
 

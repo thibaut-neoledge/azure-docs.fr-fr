@@ -502,14 +502,14 @@ Des exemples sont fournis pour les modèles suivants d’authentification géré
 
 Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour initier l’authentification des utilisateurs à partir du client via l’authentification Azure Active Directory.
 
-1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel Configurer votre application App Service pour utiliser la connexion Azure Active Directory. Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
+1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory]. Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
 2. Dans Visual Studio ou Xamarin Studio, ouvrez votre projet et ajoutez une référence au package NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Au cours de la recherche, incluez les versions préliminaires.
 3. Ajoutez le code suivant à votre application, en fonction de la plateforme utilisée. Dans chaque cas, effectuez les remplacements suivants :
 
-	* Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Vous devez utiliser le format https://login.windows.net/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [[portail Azure Classic]].
+	* Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Vous devez utiliser le format https://login.windows.net/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [portail Azure Classic].
 	* Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir l’ID client sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
 	* Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
-	* Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à \_https://contoso.azurewebsites.net/.auth/login/done_.
+	* Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison _/.auth/login/done_ de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à _https://contoso.azurewebsites.net/.auth/login/done_.
 	
 	Voici le code nécessaire pour chaque plateforme :
 	
@@ -927,7 +927,7 @@ Pour prendre en charge votre scénario d’application en particulier, vous devr
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Ajout de notifications push à votre application]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Inscrire votre application pour utiliser un compte Microsoft pour l’authentification]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Configurer votre application App Service pour utiliser la connexion Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [Référence du client .NET Azure Mobile Apps]: https://msdn.microsoft.com/fr-FR/library/azure/mt419521(v=azure.10).aspx
@@ -956,7 +956,7 @@ Pour prendre en charge votre scénario d’application en particulier, vous devr
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/fr-FR/library/azure/dn250579(v=azure.10).aspx
 [portail Azure]: https://portal.azure.com/
-[[portail Azure Classic]]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/fr-FR/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
