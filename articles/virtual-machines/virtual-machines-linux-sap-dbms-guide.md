@@ -539,7 +539,9 @@ Ils doivent être configurés lors du déploiement des machines virtuelles, comm
 Si nous voulons créer des configurations haute disponibilité de déploiements SGBD (indépendamment de la fonctionnalité de haute disponibilité de SGBD utilisée), les machines virtuelles du SGBD devront :
 
 * Ajouter les machines virtuelles au même réseau virtuel Azure (<https://azure.microsoft.com/documentation/services/virtual-network/>)
-* Les machines virtuelles de la configuration haute disponibilité doivent aussi se trouver sur le même sous-réseau. La résolution de noms entre les différents sous-réseaux n’est pas possible dans les déploiements cloud uniquement ; seule la résolution IP fonctionnera. Avec une connectivité de site à site ou ExpressRoute pour des déploiements entre différents locaux, un réseau comportant au moins un sous-réseau sera déjà établi. La résolution de noms sera effectuée selon les stratégies AD et l’infrastructure réseau locales. [comment]: <> (MSSedusch TODO Test if still true in ARM)
+* Les machines virtuelles de la configuration haute disponibilité doivent aussi se trouver sur le même sous-réseau. La résolution de noms entre les différents sous-réseaux n’est pas possible dans les déploiements cloud uniquement ; seule la résolution IP fonctionnera. Avec une connectivité de site à site ou ExpressRoute pour des déploiements entre différents locaux, un réseau comportant au moins un sous-réseau sera déjà établi. La résolution de noms sera effectuée selon les stratégies AD et l’infrastructure réseau locales.
+
+[comment]: <> (MSSedusch TODO Test if still true in ARM)
 
 #### Adresses IP
 Il est recommandé de configurer les machines virtuelles de manière résiliente pour les configurations haute disponibilité. Dans Azure, s’appuyer sur des adresses IP pour atteindre les partenaires de haute disponibilité au sein de la configuration haute disponibilité n’est pas fiable, à moins d’utiliser des adresses IP fixes. Il existe deux concepts d’« arrêt » dans Azure :
