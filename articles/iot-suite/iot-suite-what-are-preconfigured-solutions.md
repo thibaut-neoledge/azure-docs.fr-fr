@@ -34,7 +34,8 @@ Le tableau suivant montre le mappage entre les solutions et des fonctionnalités
 
 | Solution | Ingestion de données | Identité d’appareil | Commande et contrôle | Règles et actions | Analyse prédictive |
 |------------------------|-----|-----|-----|-----|-----|
-| [Surveillance à distance][lnk-getstarted-preconfigured] | Oui | Oui | Oui | Oui | - | | [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
+| [Surveillance à distance][lnk-getstarted-preconfigured] | Oui | Oui | Oui | Oui | - |
+| [Maintenance prédictive][lnk-predictive-maintenance] | Oui | Oui | Oui | Oui | Oui |
 
 - *Données* : entrer des données à l'échelle dans le cloud.
 - *Identité d'appareil* : gérer les identités uniques de chaque appareil connecté.
