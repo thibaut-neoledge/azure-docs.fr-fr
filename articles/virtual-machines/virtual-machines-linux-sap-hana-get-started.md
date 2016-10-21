@@ -260,7 +260,8 @@ En cas de problème avec la connexion RDP, essayez de redémarrer (éventuelleme
 
 Si le redémarrage de xrdp, tel que décrit ci-dessus, ne fonctionne pas, vérifiez la présence d’un fichier .pid et supprimez-le, le cas échéant :
 
-  Vérifiez /var/run et recherchez xrdp.pid. Supprimez-le, puis essayez à nouveau de redémarrer.
+  Vérifiez /var/run et recherchez xrdp.pid.   
+  Supprimez-le, puis essayez à nouveau de redémarrer.
 
 
 

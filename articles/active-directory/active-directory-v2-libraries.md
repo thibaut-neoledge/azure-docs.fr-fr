@@ -20,7 +20,7 @@
 # Azure Active Directory (AD) v2.0 et bibliothèques d’authentification
 Le point de terminaison Azure AD v2.0 prend en charge les protocoles OAuth 2.0 et OpenID Connect 1.0 standard. Plusieurs bibliothèques de Microsoft et d’autres fournisseurs peuvent être utilisées avec le point de terminaison v2.0.
 
-Lorsque vous créez une application qui utilise le point de terminaison v2.0, nous vous recommandons d’utiliser des bibliothèques écrites par des experts du domaine du protocole qui respectent une méthodologie de cycle de vie de développement de la sécurité (SDL), [telle que celle respectée par Microsoft]\[Microsoft-SDL]. Si vous décidez de coder à la main la prise en charge des protocoles, nous vous recommandons de suivre la méthodologie SDL et de respecter soigneusement les considérations relatives à la sécurité que vous trouverez dans les spécifications des normes pour chaque protocole.
+Lorsque vous créez une application qui utilise le point de terminaison v2.0, nous vous recommandons d’utiliser des bibliothèques écrites par des experts du domaine du protocole qui respectent une méthodologie de cycle de vie de développement de la sécurité (SDL), [telle que celle respectée par Microsoft][Microsoft-SDL]. Si vous décidez de coder à la main la prise en charge des protocoles, nous vous recommandons de suivre la méthodologie SDL et de respecter soigneusement les considérations relatives à la sécurité que vous trouverez dans les spécifications des normes pour chaque protocole.
 
 ## Types de bibliothèques
 Il existe deux types de bibliothèques qui fonctionnent avec le point de terminaison v2.0 :
