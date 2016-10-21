@@ -1,6 +1,6 @@
 <properties
-  pageTitle="Sondes personnalisées de l’équilibreur de charge et surveillance de l’état d’intégrité | Microsoft Azure"
-  description="Découvrez comment utiliser les sondes personnalisées pour l’équilibreur de charge Azure afin de surveiller les instances situées derrière un équilibreur de charge"
+  pageTitle="Load Balancer custom probes and monitoring health status | Microsoft Azure"
+  description="Learn how to use custom probes for Azure Load Balancer to monitor instances behind Load Balancer"
   services="load-balancer"
   documentationCenter="na"
   authors="sdwheeler"
@@ -17,77 +17,82 @@
   ms.date="08/25/2016"
   ms.author="sewhee" />
 
-# Sondes d’équilibreur de charge
 
-L’équilibreur de charge Azure permet de surveiller l’intégrité des instances de serveur à l’aide de sondes. Quand une sonde ne répond pas, l’équilibreur de charge n’envoie plus de nouvelles connexions à l’instance défectueuse. Les connexions existantes ne sont pas affectées et les nouvelles connexions sont envoyées aux instances saines.
+# <a name="load-balancer-probes"></a>Load Balancer probes
 
-Les rôles de service cloud (rôles de travail et rôles Web) utilisent un agent invité pour la surveillance par sonde. Des sondes personnalisées TCP ou HTTP doivent être configurées quand vous utilisez des machines virtuelles derrière un équilibreur de charge.
+Azure Load Balancer offers the capability to monitor the health of server instances by using probes. When a probe fails to respond, Load Balancer stops sending new connections to the unhealthy instance. The existing connections are not affected, and new connections are sent to healthy instances.
 
-## Présentation du nombre et du délai d’expiration des sondes
+Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring. TCP or HTTP custom probes must be configured when you use virtual machines behind Load Balancer.
 
-Le comportement des sondes dépend des éléments suivants :
+## <a name="understand-probe-count-and-timeout"></a>Understand probe count and timeout
 
-- Le nombre de sondes ayant réussi qui permet à une instance d’être étiquetée comme étant en cours d’exécution.
-- Le nombre de sondes ayant échoué qui permet à une instance d’être étiquetée comme n’étant pas en cours d’exécution.
+Probe behavior depends on:
 
-Le délai d’attente divisé par la valeur de fréquence de la sonde est égal à SuccessFailCount qui détermine si une instance est supposée être en cours d’exécution ou non. Dans le portail Azure, le délai d’expiration est défini sur deux fois la valeur de la fréquence.
+- The number of successful probes that allow an instance to be labeled as up.
+- The number of failed probes that cause an instance to be labeled as down.
 
-La configuration de sonde de toutes les instances à charge équilibrée pour un point de terminaison (jeu d’équilibrage de la charge) doit être identique. Cela signifie que vous ne pouvez pas avoir de configuration de sonde différente pour chaque instance de rôle ou machine virtuelle du même service hébergé pour une combinaison de points de terminaison donnée. Par exemple, chaque instance doit avoir des délais d’expiration et des ports locaux identiques.
+The timeout divided by the probe frequency value is equal to SuccessFailCount which determines whether an instance is assumed to be up or down. In the Azure portal, the timeout is set to two times the value of the frequency.
+
+The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. This means you cannot have a different probe configuration for each role instance or virtual machine in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
 
 
->[AZURE.IMPORTANT] Une sonde d’équilibreur de charge utilise une adresse IP 168.63.129.16. Cette adresse IP publique facilite la communication vers les ressources de plateforme internes pour le scénario « Apportez votre propre réseau virtuel IP Azure ». L’adresse IP publique virtuelle 168.63.129.16 est utilisée dans toutes les régions et ne change pas. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local. Elle ne doit pas être considérée comme un risque de sécurité, car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si vous ne l’autorisez pas, un comportement inattendu peut se produire dans divers scénarios comme la configuration de la même plage d’adresses IP 168.63.129.16 et l’obtention de plusieurs adresses IP identiques.
+>[AZURE.IMPORTANT] A Load Balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions and will not change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a message from that address. If you do not do this, there will be unexpected behavior in a variety of scenarios like configuring the same IP address range of 168.63.129.16 and having duplicated IP addresses.
 
-## En savoir plus sur les types de sondes
+## <a name="learn-about-the-types-of-probes"></a>Learn about the types of probes
 
-### Sonde d’agent invité
+### <a name="guest-agent-probe"></a>Guest agent probe
 
-Cette sonde est disponible pour Azure Cloud Services uniquement. L’équilibreur de charge utilise l’agent invité de la machine virtuelle, puis écoute et répond avec une réponse HTTP 200 OK uniquement si l’instance est prête (c.-à-d., si l’état de l’instance n’est pas Occupé, Recyclage ou Arrêté).
+This probe is available for Azure Cloud Services only. Load Balancer utilizes the guest agent inside the virtual machine, and then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state (that is, not in another state such as Busy, Recycling, or Stopping).
 
-Pour plus d’informations, consultez [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/jj151530.asp) (configuration du fichier de définition de service (csdef) pour les sondes d’intégrité) ou [Création d’un équilibreur de charge accessible sur Internet pour les services cloud](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
+For more information, see [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/jj151530.asp) or [Get started creating an Internet-facing load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
 
-### Dans quelles conditions une sonde d’agent invité marque-t-elle une instance comme étant défectueuse ?
+### <a name="what-makes-a-guest-agent-probe-mark-an-instance-as-unhealthy?"></a>What makes a guest agent probe mark an instance as unhealthy?
 
-Si l’agent invité ne répond pas avec HTTP 200 OK, l’équilibreur de charge marque l’instance comme ne répondant pas et arrête d’envoyer du trafic vers cette instance. L’équilibreur de charge continue d’effectuer un test ping sur l’instance. Si l’agent invité répond avec HTTP 200, l’équilibreur de charge renvoie du trafic vers cette instance.
+If the guest agent fails to respond with HTTP 200 OK, the Load Balancer marks the instance as unresponsive and stops sending traffic to that instance. Load Balancer continues to ping the instance. If the guest agent responds with an HTTP 200, Load Balancer sends traffic to that instance again.
 
-Quand vous utilisez un rôle web, le code du site web s’exécute généralement dans w3wp.exe, qui n’est pas surveillé par l’agent de structure Azure ou l’agent invité. Cela signifie que les échecs dans w3wp.exe (par exemple, les réponses HTTP 500) ne sont pas signalés à l’agent invité et que l’équilibreur de charge ne sort pas cette instance de la rotation.
+When you use a web role, the website code typically runs in w3wp.exe, which is not monitored by the Azure fabric or guest agent. This means that failures in w3wp.exe (for example, HTTP 500 responses) will not be reported to the guest agent, and Load Balancer will not take that instance out of rotation.
 
-### Sonde HTTP personnalisée
+### <a name="http-custom-probe"></a>HTTP custom probe
 
-La sonde d’équilibreur de charge HTTP personnalisée remplace la sonde de l’agent invité par défaut et vous permet de créer votre propre logique personnalisée pour déterminer l’intégrité de l’instance de rôle. L’équilibreur de charge sonde régulièrement votre point de terminaison (toutes les 15 secondes, par défaut). L’instance est considérée comme faisant partie de la rotation de l’équilibreur de charge si elle répond avec HTTP 200 dans le délai imparti (31 secondes par défaut).
+The custom HTTP Load Balancer probe overrides the default guest agent probe, which means that you can create your own custom logic to determine the health of the role instance. Load Balancer probes your endpoint every 15 seconds, by default. The instance is considered to be in the Load Balancer rotation if it responds with an HTTP 200 within the timeout period (31 seconds by default).
 
-Cela peut être utile pour implémenter votre propre logique afin de supprimer des instances de la rotation de l’équilibreur de charge. Par exemple, vous pouvez décider de supprimer une instance si elle utilise plus de 90 % du processeur et retourne un état autre que 200. Si certains de vos rôles web utilisent w3wp.exe, cela signifie également que vous obtenez une analyse automatique de votre site web, dans la mesure où les défaillances dans votre code de site web renvoient un état autre que 200 à la sonde d’équilibreur de charge.
+This can be useful if you want to implement your own logic to remove instances from Load Balancer rotation. For example, you could decide to remove an instance if it is above 90% CPU and returns a non-200 status. If you have web roles that use w3wp.exe, this also means you get automatic monitoring of your website, because failures in your website code will return a non-200 status to the Load Balancer probe.
 
->[AZURE.NOTE] La sonde HTTP personnalisée prend en charge les chemins relatifs et le protocole HTTP uniquement. HTTPS n’est pas pris en charge.
+>[AZURE.NOTE] The HTTP custom probe supports relative paths and HTTP protocol only. HTTPS is not supported.
 
-### Dans quelles conditions une sonde HTTP personnalisée marque-t-elle une instance comme étant défectueuse ?
+### <a name="what-makes-an-http-custom-probe-mark-an-instance-as-unhealthy?"></a>What makes an HTTP custom probe mark an instance as unhealthy?
 
-- L’application HTTP retourne un code de réponse HTTP autre que 200 (par exemple, 403, 404 ou 500). Il s’agit d’une reconnaissance positive selon laquelle l’instance d’application doit être mise immédiatement hors service.
+- The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This is a positive acknowledgment that the application instance should be taken out of service right away.
 
-. Le serveur HTTP ne répond pas du tout après le délai d’expiration. Selon la valeur définie pour le délai d’expiration, cela peut signifier que plusieurs demandes d’analyse ne reçoivent pas de réponse avant que celle-ci ne soit marquée comme n’étant pas en cours d’exécution (autrement dit, avant que les sondes SuccessFailCount soient envoyées).
-- 	Le serveur ferme la connexion via une réinitialisation TCP.
+. The HTTP server does not respond at all after the timeout period. Depending on the timeout value that is set, this might mean that multiple probe requests go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
+-   The server closes the connection via a TCP reset.
 
-### Sonde TCP personnalisée
+### <a name="tcp-custom-probe"></a>TCP custom probe
 
-Les sondes TCP établissent une connexion en effectuant une connexion en trois temps au port défini.
+TCP probes initiate a connection by performing a three-way handshake with the defined port.
 
-### Dans quelles conditions une sonde TCP personnalisée marque-t-elle une instance comme étant défectueuse ?
+### <a name="what-makes-a-tcp-custom-probe-mark-an-instance-as-unhealthy?"></a>What makes a TCP custom probe mark an instance as unhealthy?
 
-- Le serveur TCP ne répond pas du tout à la fin du délai d’expiration. La sonde est marquée comme n’étant pas en cours d’exécution en fonction du nombre de demandes d’analyse ayant échoué, qui ont été configurées pour rester sans réponse avant que la sonde soit marquée comme n’étant pas en cours d’exécution.
-- La sonde reçoit une réinitialisation TCP de l’instance de rôle.
+- The TCP server does not respond at all after the timeout period. When the probe is marked as not running depends on the number of failed probe requests that were configured to go unanswered before marking the probe as not running.
+- The probe receives a TCP reset from the role instance.
 
-Pour plus d’informations sur la configuration d’une sonde d’intégrité HTTP ou d’une sonde TCP, consultez [Création d’un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
+For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
 
-## Ajout d’instances saines à la rotation d’équilibrage de charge
+## <a name="add-healthy-instances-back-into-load-balancer-rotation"></a>Add healthy instances back into Load Balancer rotation
 
-Les sondes TCP et HTTP sont considérées comme saines et marquent l’instance de rôle comme saine dans les cas suivants :
+TCP and HTTP probes are considered healthy and mark the role instance as healthy when:
 
-- L’équilibreur de charge reçoit une sonde positive la première fois que la machine virtuelle démarre.
-- Le nombre SuccessFailCount (décrit précédemment) définit la valeur des sondes ayant réussi nécessaires pour marquer l’instance de rôle comme étant saine. Si une instance de rôle a été supprimée, le nombre de sondes ayant réussi successives doit être égal ou supérieur à la valeur de SuccessFailCount pour marquer l’instance de rôle comme étant en cours d’exécution.
+- Load Balancer gets a positive probe the first time the VM boots.
+- The number SuccessFailCount (described earlier) defines the value of successful probes that are required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as running.
 
->[AZURE.NOTE] Si l’intégrité d’une instance de rôle fluctue, l’équilibreur de charge attend plus longtemps avant de remettre l’instance de rôle dans un état d’intégrité normal. Cette opération est effectuée via une stratégie pour protéger l’utilisateur et l’infrastructure.
+>[AZURE.NOTE] If the health of a role instance is fluctuating, Load Balancer waits longer before putting the role instance back in the healthy state. This is done via policy to protect the user and the infrastructure.
 
-## Utiliser l’analytique des journaux pour l’équilibreur de charge
+## <a name="use-log-analytics-for-load-balancer"></a>Use log analytics for Load Balancer
 
-Vous pouvez utiliser l’[analytique des journaux pour l’équilibreur de charge](load-balancer-monitor-log.md) pour vérifier le nombre et l’état d’intégrité des sondes. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
+You can use [log analytics for Load Balancer](load-balancer-monitor-log.md) to check on the probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about Load Balancer health status.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

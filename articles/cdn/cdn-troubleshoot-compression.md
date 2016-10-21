@@ -1,106 +1,112 @@
 <properties
-	pageTitle="Résolution des problèmes de compression de fichiers dans Azure CDN | Microsoft Azure"
-	description="Résolvez les problèmes de compression des fichiers CDN Azure."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Troubleshooting file compression in Azure CDN | Microsoft Azure"
+    description="Troubleshoot issues with Azure CDN file compression."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="casoper"/>
     
-# Résolution des problèmes de compression des fichiers CDN
 
-Cet article vous aide à résoudre les problèmes de [compression des fichiers CDN](cdn-improve-performance.md).
+# <a name="troubleshooting-cdn-file-compression"></a>Troubleshooting CDN file compression
 
-Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
+This article helps you troubleshoot issues with [CDN file compression](cdn-improve-performance.md).
 
-## Symptôme
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get Support**.
 
-La compression pour votre point de terminaison est activée, mais les fichiers sont renvoyés non compressés.
+## <a name="symptom"></a>Symptom
 
->[AZURE.TIP] Pour vérifier si vos fichiers sont retournés sous une forme compressée, vous devez utiliser un outil tel que [Fiddler](http://www.telerik.com/fiddler) ou les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur. Vérifiez les en-têtes de réponse HTTP retournés avec votre contenu CDN mis en cache. S’il existe un en-tête nommé `Content-Encoding` avec une valeur **gzip**, **bzip2**, ou **deflate**, votre contenu est compressé.
+Compression for your endpoint is enabled, but files are being returned uncompressed.
+
+>[AZURE.TIP] To check whether your files are being returned compressed, you need to use a tool like [Fiddler](http://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
 >
->![En-tête d’encodage de contenu](./media/cdn-troubleshoot-compression/cdn-content-header.png)
+>![Content-Encoding header](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 
-## Cause :
+## <a name="cause"></a>Cause
 
-Il existe plusieurs causes possibles, y compris :
+There are several possible causes, including:
 
-- Le contenu demandé n’est pas éligible pour la compression.
-- La compression n’est pas activée pour le type de fichier demandé.
-- La requête HTTP ne comprenait pas un en-tête demandant un type de compression valide.
+- The requested content is not eligible for compression.
+- Compression is not enabled for the requested file type.
+- The HTTP request did not include a header requesting a valid compression type.
 
-## Étapes de dépannage
+## <a name="troubleshooting-steps"></a>Troubleshooting steps
 
-> [AZURE.TIP] Comme lors du déploiement de nouveaux points de terminaison, les modifications de configuration CDN prennent un certain temps à se propager sur le réseau. En règle générale, les modifications sont appliquées dans les 90 minutes. S’il s’agit de la première fois que vous avez configuré la compression pour votre point de terminaison CDN, vous devez envisager d’attendre 1 à 2 heures pour vous assurer que les paramètres de compression ont été transmis aux POP.
+> [AZURE.TIP] As with deploying new endpoints, CDN configuration changes take some time to propagate through the network.  Usually, changes are applied within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
 
-### Vérifier la requête
+### <a name="verify-the-request"></a>Verify the request
 
-Tout d’abord, effectuez une vérification rapide de l’intégrité de la requête. Vous pouvez utiliser les [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur pour afficher les requêtes en cours.
+First, we should do a quick sanity check on the request.  You can use your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) to view the requests being made.
 
-- Vérifiez que la requête est envoyée à l’URL de point de terminaison, `<endpointname>.azureedge.net`, et non à l’origine.
-- Vérifiez que la requête contient un en-tête **Accept-Encoding** et que la valeur de cet en-tête contient **gzip**, **deflate** ou **bzip2**.
+- Verify the request is being sent to your endpoint URL, `<endpointname>.azureedge.net`, and not your origin.
+- Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, or **bzip2**.
 
-> [AZURE.NOTE] Les profils du **CDN Azure fourni par Akamai** prennent uniquement en charge l’encodage **gzip**.
+> [AZURE.NOTE] **Azure CDN from Akamai** profiles only support **gzip** encoding.
 
-![En-têtes de requête CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
+![CDN request headers](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### Vérifier les paramètres de compression (profil CDN Standard)
+### <a name="verify-compression-settings-(standard-cdn-profile)"></a>Verify compression settings (Standard CDN profile)
 
-> [AZURE.NOTE] Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Standard fourni par Verizon** ou du **CDN Azure Standard fourni par Akamai**.
+> [AZURE.NOTE] This step only applies if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Standard from Akamai** profile. 
 
-Accédez à votre point de terminaison dans le [portail Azure](https://portal.azure.com) et cliquez sur le bouton **Configurer**.
+Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and click the **Configure** button.
 
-- Vérifiez que la compression est activée.
-- Vérifiez que le type MIME pour le contenu à compresser est inclus dans la liste des formats compressés.
+- Verify compression is enabled.
+- Verify the MIME type for the content to be compressed is included in the list of compressed formats.
 
-![Paramètres de compression CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
+![CDN compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### Vérifier les paramètres de compression (profil CDN Premium)
+### <a name="verify-compression-settings-(premium-cdn-profile)"></a>Verify compression settings (Premium CDN profile)
 
-> [AZURE.NOTE] Cette étape s’applique uniquement si votre profil CDN est un profil du **CDN Azure Premium fourni par Verizon**.
+> [AZURE.NOTE] This step only applies if your CDN profile is an **Azure CDN Premium from Verizon** profile.
 
-Accédez à votre point de terminaison dans le [portail Azure](https://portal.azure.com) et cliquez sur le bouton **Gérer**. Le portail supplémentaire s’ouvre. Pointez sur l'onglet **HTTP volumineux**, puis pointez sur le menu volant **Paramètres de cache**. Cliquez sur **Compression**.
+Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and click the **Manage** button.  The supplemental portal will open.  Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Click **Compression**. 
 
-- Vérifiez que la compression est activée.
-- Vérifiez que la liste **Types de fichiers** contient une liste séparée par des virgules (sans espace) des types MIME.
-- Vérifiez que le type MIME pour le contenu à compresser est inclus dans la liste des formats compressés.
+- Verify compression is enabled.
+- Verify the **File Types** list contains a comma-separated list (no spaces) of MIME types.
+- Verify the MIME type for the content to be compressed is included in the list of compressed formats.
 
-![Paramètres de compression Premium CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
+![CDN premium compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### Vérifier que le contenu est mis en cache
+### <a name="verify-the-content-is-cached"></a>Verify the content is cached
 
-> [AZURE.NOTE] Cette étape vaut uniquement si votre profil CDN est un profil du **CDN Azure fourni par Verizon** (Standard ou Premium).
+> [AZURE.NOTE] This step only applies if your CDN profile is an **Azure CDN from Verizon** profile (Standard or Premium).
 
-À l’aide des outils de développement de votre navigateur, vérifiez les en-têtes de réponse pour vous assurer que le fichier est mis en cache dans la région où il est demandé.
+Using your browser's developer tools, check the response headers to ensure the file is cached in the region where it is being requested.
 
-- Vérifiez l’en-tête de réponse **Server**. L’en-tête doit être au format **Plateforme (ID serveur/POP)**, comme indiqué dans l’exemple suivant.
-- Vérifiez l’en-tête de réponse **X-Cache**. L’en-tête doit indiquer **HIT**.
+- Check the **Server** response header.  The header should have the format **Platform (POP/Server ID)**, as seen in the following example.
+- Check the **X-Cache** response header.  The header should read **HIT**.  
 
-![En-têtes de réponse CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
+![CDN response headers](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### Vérifier que le fichier respecte les exigences de taille
+### <a name="verify-the-file-meets-the-size-requirements"></a>Verify the file meets the size requirements
 
-> [AZURE.NOTE] Cette étape vaut uniquement si votre profil CDN est un profil du **CDN Azure fourni par Verizon** (Standard ou Premium).
+> [AZURE.NOTE] This step only applies if your CDN profile is an **Azure CDN from Verizon** profile (Standard or Premium).
 
-Afin d’être éligible pour la compression, un fichier doit respecter les exigences de taille suivantes :
+To be eligible for compression, a file must meet the following size requirements:
 
-- Plus de 128 octets.
-- Moins de 1 Mo.
+- Larger than 128 bytes.
+- Smaller than 1 MB.
 
-### Vérifiez la requête sur le serveur d’origine pour un en-tête **Via**
+### <a name="check-the-request-at-the-origin-server-for-a-**via**-header"></a>Check the request at the origin server for a **Via** header
 
-L’en-tête HTTP **Via** indique au serveur web que la requête est transmise par un serveur proxy. Par défaut, des serveurs web Microsoft IIS ne compressent pas les réponses lorsque la requête contient un en-tête **Via**. Pour modifier ce comportement, procédez comme suit :
+The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server.  Microsoft IIS web servers by default do not compress responses when the request contains a **Via** header.  To override this behavior, perform the following:
 
-- **IIS 6** : [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](https://msdn.microsoft.com/library/ms525390.aspx)
-- **IIS 7 et versions ultérieures** : [définissez **noCompressionForHttp10** et **noCompressionForProxies** sur False dans la configuration du serveur](http://www.iis.net/configreference/system.webserver/httpcompression)
+- **IIS 6**: [Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties](https://msdn.microsoft.com/library/ms525390.aspx)
+- **IIS 7 and up**: [Set both **noCompressionForHttp10** and **noCompressionForProxies** to False in the server configuration](http://www.iis.net/configreference/system.webserver/httpcompression)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

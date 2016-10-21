@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Scénarios de test personnalisés | Microsoft Azure"
-   description="Procédure de renforcement de vos services contre les défaillances avec et sans pertes de données"
+   pageTitle="Custom test scenarios | Microsoft Azure"
+   description="How to harden your services against graceful and ungraceful failures."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -16,18 +16,19 @@
    ms.date="05/17/2016"
    ms.author="anmola"/>
 
-# Simuler des défaillances au cours des charges de travail de services
 
-Grâce aux scénarios de testabilité dans Azure Service Fabric, les développeurs n’ont plus à s’inquiéter des erreurs individuelles. Toutefois, certains scénarios nécessitent l’entrelacement explicite de la charge de travail et des défaillances du client. Cet entrelacement interdit toute inactivité du service pendant la défaillance. Compte tenu du niveau de contrôle procuré par la testabilité, il est possible de cibler des points précis de l’exécution de la charge de travail. Cette incorporation d’erreur à différents états de l’application permet d’identifier les bogues et d’améliorer la qualité.
+# <a name="simulate-failures-during-service-workloads"></a>Simulate failures during service workloads
 
-## Exemple de scénario personnalisé
-Ce test présente un scénario où la charge de travail est entrelacée avec des [défaillances avec et sans perte de données](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Pour optimiser les résultats, les erreurs doivent être provoquées au milieu des opérations ou du calcul du service.
+The testability scenarios in Azure Service Fabric enable developers to not worry about dealing with individual faults. There are scenarios, however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults ensures that the service is actually performing some action when failure happens. Given the level of control that testability provides, these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
 
-Penchons-nous sur un exemple de service exposant quatre charges de travail : A, B, C et D. Chacun d’entre eux correspond à un ensemble de flux de travail dédié au calcul, au stockage ou les deux. Par souci de simplicité, nous allons extraire les charges de travail dans notre exemple. Les différentes erreurs exécutées dans cet exemple sont :
-  + RestartNode : erreur avec perte de données pour simuler un redémarrage de machine.
-  + RestartDeployedCodePackage : erreur avec perte de données pour simuler des incidents du processus hôte de service.
-  + RemoveReplica : erreur sans perte de données pour simuler la suppression de réplicas.
-  + MovePrimary : erreur sans perte de données pour simuler des déplacements de réplicas déclenchés par l’équilibreur de charge Service Fabric.
+## <a name="sample-custom-scenario"></a>Sample custom scenario
+This test shows a scenario that interleaves the business workload with [graceful and ungraceful failures](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). The faults should be induced in the middle of service operations or compute for best results.
+
+Let's walk through an example of a service that exposes four workloads: A, B, C, and D. Each corresponds to a set of workflows and could be compute, storage, or a mix. For the sake of simplicity, we will abstract out the workloads in our example. The different faults executed in this example are:
+  + RestartNode: Ungraceful fault to simulate a machine restart.
+  + RestartDeployedCodePackage: Ungraceful fault to simulate service host process crashes.
+  + RemoveReplica: Graceful fault to simulate replica removal.
+  + MovePrimary: Graceful fault to simulate replica moves triggered by the Service Fabric load balancer.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -155,4 +156,8 @@ class Test
 }
 ```
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

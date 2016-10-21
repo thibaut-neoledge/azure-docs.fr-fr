@@ -1,121 +1,127 @@
 <properties
-	pageTitle="Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search | Microsoft Azure"
-	description="La planification des capacités dans Azure Search est fondée sur des combinaisons de ressources informatiques de type partition et réplica, chaque ressource étant facturée en unités de recherche facturables."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="jhubbard"
-	editor=""
+    pageTitle="Scale resource levels for query and indexing workloads in Azure Search | Microsoft Azure"
+    description="Capacity planning in Azure Search is based on combinations of partition and replica computer resources, where each resource is priced in billable search units."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="jhubbard"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.date="08/29/2016"
+    ms.author="heidist"/>
 
-# Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search
 
-Après avoir [choisi une référence (SKU)](search-sku-tier.md) et [configuré un service de recherche](search-create-service-portal.md), l’étape suivante consiste éventuellement à configurer les ressources du service.
+# <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Scale resource levels for query and indexing workloads in Azure Search
 
-Dans Azure Search, un service se voit initialement allouer un niveau minimal de ressources consistant en une partition et un réplica. Pour les niveaux qui le prennent en charge, vous pouvez ajuster progressivement les ressources de calcul en augmentant les partitions si vous avez besoin de plus de stockage et d’E/S, ou de réplicas pour des volumes de requêtes plus importants ou des performances améliorées. Un seul service doit avoir suffisamment de ressources pour gérer toutes les charges de travail (indexation et requêtes). Vous ne pouvez pas subdiviser les charges de travail entre plusieurs services.
+After you [choose a SKU](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally configure service resources.
 
-Les paramètres de mise à l’échelle sont disponibles lorsque vous déployez un service facturable au [niveau De base](http://aka.ms/azuresearchbasic) ou à l’un des [niveaux Standard](search-limits-quotas-capacity.md). Pour les références (SKU) facturables, la capacité est achetée par incréments d’*unités de recherche* (SU) où chaque partition et chaque réplica est considéré comme une SU. Rester en dessous des limites maximales permet d’utiliser moins de SU, avec une facture proportionnellement plus faible. La facturation est en vigueur tant que le service est configuré. Si vous n’utilisez pas temporairement un service, la seule façon d’éviter la facturation consiste à supprimer ce service, puis à le recréer ultérieurement lorsque vous en avez besoin.
+In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and IO, or replicas for larger query volumes or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). You cannot subdivide workloads among multiple services.
 
-Pour augmenter ou modifier l’allocation des réplicas et des partitions, nous vous recommandons l’aide du portail. Le portail applique des limites sur les combinaisons autorisées inférieures aux limites maximales :
+Scale settings are available when you provision a billable service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For billable SKUs, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU apiece. Staying below the maximum limits uses fewer SUs, with a proportionally lower bill. Billing is in effect for as long as the service is provisioned. If you are temporarily not using a service, the only way to avoid billing is by deleting the service, and then recreating it later when you need it.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/), puis sélectionnez le service de recherche.
-2. Dans Paramètres, ouvrez le volet Mettre à l’échelle et utilisez les curseurs pour augmenter ou diminuer le nombre de partitions et de réplicas.
+To increase or change the allocation of replicas and partitions, we recommend using the portal. The portal will enforce limits on allowable combinations that stay below maximum limits:
 
-En règle générale, les applications de recherche ont besoin de plus de réplicas que de partitions, en particulier lorsque les opérations de service favorisent les charges de travail de requête. La section [Haute disponibilité](#HA) explique pourquoi.
+1. Sign in to the [Azure Portal](https://portal.azure.com/) and select the search service.
+2. In Settings, open the Scale blade and use the sliders to increase or decrease the number of partitions and replicas.
 
-> [AZURE.NOTE] Une fois qu’un service est configuré, il ne peut pas être mis à niveau sur place vers une référence (SKU) supérieure. Vous devez créer un service de recherche au nouveau niveau et recharger vos index. Pour obtenir des instructions sur l’approvisionnement du service, voir [Créer un service Azure Search dans le portail](search-create-service-portal.md).
+As a general rule, search applications need more replicas than partitions, particularly when the service operations are biased towards query workloads. The section on [high availability](#HA) explains why.
 
-## Terminologie : partitions et réplicas
+> [AZURE.NOTE] Once a service is provisioned, it cannot be upgraded in place to a higher SKU. You will need to create a new search service at the new tier and reload your indexes. See [Create an Azure Search service in the portal](search-create-service-portal.md) for help with service provisioning.
 
-Les partitions et les réplicas sont les principales ressources qui sous-tendent un service de recherche.
+## <a name="terminology:-partitions-and-replicas"></a>Terminology: partitions and replicas
 
-Les **partitions** fournissent un stockage des index et des E/S pour les opérations de lecture-écriture (par exemple, lors de la reconstruction ou de l’actualisation d’un index).
+Partitions and replicas are the primary resources that back a search service.
 
-Les **réplicas** sont des instances du service de recherche, principalement utilisées pour équilibrer la charge des opérations de requête. Chaque réplica héberge toujours une seule copie d’un index. Si vous avez 12 réplicas, vous aurez 12 copies de chaque index chargées sur le service.
+**Partitions** provide index storage and IO for read-write operations (for example when rebuilding or refreshing an index).
 
-> [AZURE.NOTE] Il n’existe aucun moyen de manipuler ou de gérer directement les index qui s’exécutent sur un réplica. Une copie de chaque index sur chaque réplica fait partie de l’architecture de service.
+**Replicas** are instances of the search service, used primarily to load balance query operations. Each replica always hosts one copy of an index. If you have 12 replicas, you will have 12 copies of every index loaded on the service. 
+
+> [AZURE.NOTE] There is no way to directly manipulate or manage which indexes run on a replica. One copy of each index on every replica is part of the service architecture.
 
 <a id="HA"></a>
-## Haute disponibilité
+## <a name="high-availability"></a>High availability
 
-Nous vous recommandons généralement de démarrer avec une partition et un ou deux réplicas, puis de monter en puissance à mesure que les volumes de requête se créent, jusqu’à atteindre la limite maximale de réplicas et de partitions prise en charge par la référence (SKU). Pour de nombreux services au niveau De base ou S1, une partition offre suffisamment de stockage et d’E/S (15 millions de documents par partition).
+Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build, up to the maximum replicas and partitions supported by the SKU. For many services at the Basic or S1 tiers, one partition provides sufficient storage and IO (at 15 million documents per partition).
 
-Les charges de travail de requêtes s’exécutent principalement sur des réplicas. Vous pouvez demander des réplicas supplémentaires si vous avez besoin d’une haute disponibilité ou d’un débit plus important.
+Query workloads execute primarily on replicas. You most likely require additional replicas if you need more throughput or high availability.
 
-Recommandations générales pour la haute disponibilité :
+General recommendations for high availability are:
 
-- 2 réplicas pour la haute disponibilité des charges de travail en lecture seule (requêtes)
-- 3 réplicas minimum pour la haute disponibilité des charges de travail en lecture-écriture (les requêtes et l’indexation en tant que documents individuels sont ajoutées, mises à jour ou supprimées)
+- 2 replicas for high availability of read-only workloads (queries)
+- 3 or more replicas for high availability of read-write workloads (queries plus indexing as individual documents are added, updated, or deleted)
 
-Les contrats de niveau de service (SLA) pour Azure Search sont ciblés au moment des opérations de requête et des mises à jour d’index qui se composent d’ajout, de mise à jour ou de suppression de documents.
+Service Level Agreements (SLA) for Azure Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
 
-**Disponibilité des index lors d’une reconstruction**
+**Index availability during a rebuild**
 
-La haute disponibilité pour Azure Search se rapporte aux requêtes et aux mises à jour d’index qui n’impliquent pas la reconstruction d’un index. Si l’index nécessite une reconstruction, par exemple si vous ajoutez ou supprimez un champ, modifiez un type de données ou renommez un champ, vous devez reconstruire l’index de la manière suivante : supprimer l’index, recréer l’index, puis recharger les données.
+High availability for Azure Search pertains to queries and index updates that don't involve rebuilding an index. If the index requires a rebuild, for example if you add or deleting a field, change a data type, or rename a field, you would need to rebuild the index by doing the following: delete the index, recreate the index, and reload the data. 
 
-Pour maintenir la disponibilité de l’index pendant une reconstruction, vous devez disposer d’une deuxième copie de l’index déjà en production sur le même service (avec un nom différent) ou d’un index de même nom sur un autre service, et fournir la redirection ou la logique de basculement dans votre code.
+To maintain index availability during a rebuild, you must have a second copy of the index already in production on the same service (with a different name) or a same-named index on a different service, and then provide redirection or fail over logic in your code.
 
-## Récupération d'urgence
+## <a name="disaster-recovery"></a>Disaster recovery
 
-Il n'existe actuellement aucun mécanisme intégré de récupération d'urgence. L’ajout de partitions ou de réplicas ne vous permettra pas d’atteindre les objectifs de récupération d'urgence qui ont été fixés. L’approche la plus courante consiste à intégrer la redondance au niveau du service en configurant un deuxième service de recherche dans une autre région. Comme avec la disponibilité pendant une reconstruction d’index, la redirection ou la logique de basculement doit provenir de votre code.
+Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. The most common approach is to add redundancy at the service level by provisioning a second search service in another region. As with availability during an index rebuild, the redirection or failover logic must come from your code.
 
-## Augmenter les performances des requêtes avec des réplicas
+## <a name="increase-query-performance-with-replicas"></a>Increase query performance with replicas
 
-La latence des requêtes vous permet de découvrir si des réplicas supplémentaires doivent être ajoutés. En règle générale, le premier pas vers l’amélioration des performances des requêtes consiste à ajouter davantage de cette ressource. Lorsque vous ajoutez des réplicas, les copies supplémentaires de l’index sont mises en ligne pour prendre en charge les charges de travail supérieures de requête et équilibrer la charge des requêtes sur plusieurs réplicas.
+Query latency is an indicator that additional replicas are needed. Generally, a first step towards improving query performance is to add more of this resource. As you add replicas, additional copies of the index are brought online to support bigger query workloads and to load balance the requests over the multiple replicas. 
 
-Nous ne pouvons fournir aucune estimation sur les requêtes par seconde (RPS) : les performances des requêtes dépendent de la complexité de la requête et des charges de travail concurrentes. En moyenne, un réplica au niveau de référence (SKU) De base ou S1 peut traiter environ 15 requêtes par seconde, mais le débit sera quelque peu supérieur ou inférieur en fonction de la complexité de la requête (les requêtes à facettes sont plus complexes) et de la latence du réseau. Bien que l'ajout de réplicas entraîne une amélioration de l’évolutivité et des performances, le résultat final n'est pas strictement linéaire : en ajoutant 3 réplicas, le débit ne sera pas forcément multiplié par trois.
+Note that we cannot provide hard estimates on queries per second (QPS): query performance depends on the complexity of the query and competing workloads. On average, a replica at Basic or S1 SKUs can service about 15 QPS, but your throughput will be somewhat higher or lower depending on query complexity (faceted queries are more complex) and network latency. Also, it's important to recognize that while adding replicas will definitely add scale and performance, the end result is not strictly linear: adding 3 replicas does not guarantee triple throughput. 
 
-Pour en savoir plus sur les requêtes par seconde, notamment les approches d’estimation de RPS pour vos charges de travail, voir [Gérer votre service de recherche](search-manage.md).
+To learn about QPS, including approaches for estimating QPS for your workloads, see [Manage your Search service](search-manage.md).
 
-## Améliorer les performances d’indexation avec des partitions
+## <a name="increase-indexing-performance-with-partitions"></a>Increase indexing performance with partitions
 
-Les applications de recherche nécessitant une actualisation des données en temps réel ou presque ont proportionnellement besoin de plus de partitions que de réplicas. L’ajout de partitions répartit les opérations de lecture-écriture sur un plus grand nombre de ressources de calcul. Il vous offre également davantage d’espace disque pour stocker des documents et des index supplémentaires.
+Search applications that require near real-time data refresh will need proportionally more partitions than replicas. Adding partitions spreads read-write operations across a larger number of compute resources. It also gives you more disk space for storing additional indexes and documents.
 
-Plus les index sont grands, plus ils sont longs à interroger. Par conséquent, peut-être constaterez-vous que chaque augmentation incrémentielle des partitions nécessite une augmentation plus faible mais proportionnelle des réplicas. Comme indiqué précédemment, la complexité et le volume de vos requêtes auront une incidence sur la vitesse d’exécution des requêtes.
+Larger indexes take longer to query. As such, you might find that every incremental increase in partitions requires a smaller but proportional increase in replicas. As noted earlier, the complexity of your queries and query volume will factor into how quickly query execution is turned around.
 
-## Niveau de base : combinaisons de partitions et de réplicas
+## <a name="basic-tier:-partition-and-replica-combinations"></a>Basic tier: Partition and replica combinations
 
-Un service De base peut avoir exactement 1 partition et jusqu’à 3 réplicas, pour une limite maximale de 3 unités de recherche. Les seules ressources ajustables sont les réplicas. Comme indiqué précédemment, vous devez disposer d’au moins 2 réplicas pour la haute disponibilité sur des requêtes.
+A Basic service can have exactly 1 partition and up to 3 replicas, for a maximum limit of 3 SUs. The only adjustable resource is replicas. As noted earlier, you need a minimum of 2 replicas for high availability on queries.
 
 <a id="chart"></a>
-## Niveaux Standard : combinaisons de partitions et de réplicas
+## <a name="standard-tiers:-partition-and-replica-combinations"></a>Standard tiers: Partition and replica combinations
 
-Cette table indique les unités de recherche requises pour prendre en charge les combinaisons de réplicas et de partitions soumises à la limite de 36 unités de recherche (SU) (exclut les niveaux De base et S3 HD).
+This table shows the search units required to support combinations of replicas and partitions, subject to the 36 search unit (SU) limit (excludes Basic and S3 HD tiers). 
 
 - |- |- |- |- |- |- |
 ---|----|---|---|---|---|---|
-**12 réplicas**|12 unités de recherche|24 unités de recherche|36 unités de recherche|N/A|N/A|N/A|
-**6 réplicas**|6 unités de recherche|12 unités de recherche|18 unités de recherche|24 unités de recherche|36 unités de recherche|N/A|
-**5 réplicas**|5 unités de recherche|10 unités de recherche|15 unités de recherche|20 unités de recherche|30 unités de recherche|N/A|
-**4 réplicas**|4 unités de recherche|8 SU <|12 unités de recherche|16 unités de recherche|24 unités de recherche|N/|
-**3 réplicas**|3 unités de recherche|6 unités de recherche|9 unités de recherche|12 unités de recherche|18 unités de recherche|36 unités de recherche|
-**2 réplicas**|2 unités de recherche|4 unités de recherche|6 unités de recherche|8 unités de recherche|12 unités de recherche|24 unités de recherche|
-**1 réplica**|1 unité de recherche|2 unités de recherche|3 unités de recherche|4 unités de recherche|6 unités de recherche|12 unités de recherche|
-N/A|**1 partition**|**2 partitions**|**3 partitions** <|**4 partitions**|**6 partitions**|**12 partitions**|
+**12 replicas**|12 SU|24 SU|36 SU|N/A|N/A|N/A|
+**6 replicas**|6 SU|12 SU|18 SU|24 SU|36 SU|N/A|
+**5 replicas**|5 SU|10 SU|15 SU|20 SU|30 SU|N/A|
+**4 replicas**|4 SU|8 SU<|12 SU|16 SU|24 SU|N/|
+**3 replicas**|3 SU|6 SU|9 SU|12 SU|18 SU|36 SU|
+**2 replicas**|2 SU|4 SU|6 SU|8 SU|12 SU|24 SU|
+**1 replica**|1 SU|2 SU|3 SU|4 SU|6 SU|12 SU|
+N/A|**1 Partition**|**2 Partitions**|**3 Partitions**<|**4 Partitions**|**6 Partitions**|**12 Partitions**|
 
-Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site Web Azure. Pour plus d'informations, consultez la rubrique [Tarification](https://azure.microsoft.com/pricing/details/search/).
+Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](https://azure.microsoft.com/pricing/details/search/) for more information.
 
-> [AZURE.NOTE] Le nombre de réplicas et de partitions doit être partagé en 12, de manière égale (plus précisément, 1, 2, 3, 4, 6, 12). Azure Search divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties équitablement sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un nouvel index, chaque partition contiendra 4 partitions de l'index. Le partitionnement d’un index réalisé par Azure Search est un détail d'implémentation, susceptible d’être modifié dans les futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
+> [AZURE.NOTE] The number of replicas and partitions must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 
-## Niveau S3 Haute densité : combinaisons de partitions et de réplicas
+## <a name="s3-high-density:-partition-and-replica-combinations"></a>S3 High Density: Partition and replica combinations
 
-Un service S3 HD peut avoir 1 partition et jusqu’à 12 réplicas, pour une limite maximale de 12 unités de recherche. Les seules ressources ajustables sont les réplicas.
+S3 HD has 1 partition and up to 12 replicas, for a maximum limit of 12 SUs. The only adjustable resource is replicas.
 
-## Calculer les unités de recherche pour des combinaisons de ressources spécifiques : R X P = SU
+## <a name="calculate-search-units-for-specific-resourcing-combinations:-r-x-p-=-su"></a>Calculate Search Units for Specific Resourcing Combinations: R X P = SU
 
-La formule permettant de calculer le nombre d’unités de recherche dont vous avez besoin correspond aux réplicas multipliés par les partitions. Par exemple, 3 réplicas multipliés par 3 partitions sont facturés comme 9 unités de recherche.
+The formula for calculating how many SUs you need is replicas multiplied by partitions. For example, 3 replicas multiplied by 3 partitions is billed as 9 search units.
 
-Au départ, les deux niveaux disposent d’un réplica et d’une partition, considérés comme une unité de recherche (SU). Il s’agit de la seule instance où un réplica et une partition sont comptabilisés comme une seule unité de recherche. Chaque ressource supplémentaire, qu’il s’agisse d’un réplica ou d’une partition, est comptabilisée comme une unité de recherche à part entière.
+Both tiers start with one replica and one partition, counted as one search unit (SU). This is the only instance where both a replica and a partition count as one search unit. Each additional  resource, whether it is a replica or a partition, is counted as its own SU.
 
-Le coût par unité de recherche est déterminé par le niveau. Le coût par unité de recherche pour le niveau de base est inférieur à celui du niveau standard. Consultez la [Tarification](https://azure.microsoft.com/pricing/details/search/) pour connaître les coûts pour chaque niveau.
+Cost per SU is determined by the tier. Cost per SU is lower for the Basic tier than it is for Standard. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

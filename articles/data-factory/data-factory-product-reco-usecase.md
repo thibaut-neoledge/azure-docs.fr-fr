@@ -1,67 +1,71 @@
 <properties 
-	pageTitle="Cas d'utilisation Data Factory - Recommandations de produits" 
-	description="Découvrez un cas d'utilisation implémenté à l'aide d’Azure Data Factory et d'autres services." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Data Factory Use Case - Product Recommendations" 
+    description="Learn about an use case implemented by using Azure Data Factory along with other services." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="sharonlo101" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/01/2016" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/01/2016" 
+    ms.author="shlo"/>
 
-# Cas d’utilisation - Recommandations de produits 
 
-Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite. Consultez la page [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) pour plus de détails. Dans ce document, nous décrivons un cas d’utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l’aide d’Azure Data Factory et d’autres services Cortana Intelligence.
+# <a name="use-case---product-recommendations"></a>Use Case - Product Recommendations 
 
-## Scénario
+Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  See [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) page for details about this suite. In this document, we describe a common use case that Azure users have already solved and implemented using Azure Data Factory and other Cortana Intelligence component services.
 
-Les détaillants en ligne souhaitent généralement inciter leurs clients à acheter des produits en leur présentant les articles qu’ils sont les plus susceptibles d’apprécier et par conséquent d’acheter. Pour ce faire, les détaillants en ligne doivent personnaliser l’expérience en ligne des utilisateurs à l’aide des recommandations de produits personnalisées pour chaque utilisateur particulier. Ces recommandations personnalisées portent sur leurs données de comportement d’achat historiques et actuelles, les informations produit, les marques récemment ajoutées, et les données de segmentation produit et utilisateur. En outre, les détaillants peuvent fournir des recommandations de produits basées sur l'analyse des habitudes d'utilisation globale de tous leurs utilisateurs.
+## <a name="scenario"></a>Scenario
 
-L'objectif est d'optimiser le processus de conversion des visites en ventes effectives et d’augmenter ainsi le chiffre d’affaires. Ils parviennent à effectuer cette conversion en proposant des recommandations de produits contextuelles basées sur les habitudes, les centres d’intérêt et les actions du client. Pour ce cas d’utilisation, nous prenons des détaillants en ligne comme exemple d’entreprises qui souhaitent optimiser pour leurs clients. Cependant, ces principes s'appliquent à toute entreprise cherchant à fidéliser ses clients autour de ses produits et services et à améliorer leur expérience d’achat grâce à des recommandations de produits personnalisées.
+Online retailers commonly want to entice their customers to purchase products by presenting them with products they are most likely to be interested in, and therefore most likely to buy. To accomplish this, online retailers need to customize their user’s online experience by using personalized product recommendations for that specific user. These personalized recommendations are to be made based on their current and historical shopping behavior data, product information, newly introduced brands, and product and customer segmentation data.  Additionally, they can provide the user product recommendations based on analysis of overall usage behavior from all their users combined.
 
-## Défis
+The goal of these retailers is to optimize for user click-to-sale conversions and earn higher sales revenue.  They achieve this conversion by delivering contextual, behavior-based product recommendations based on customer interests and actions. For this use case, we use online retailers as an example of businesses that want to optimize for their customers. However, these principles apply to any business that wants to engage its customers around its goods and services and enhance their customers’ buying experience with personalized product recommendations.
 
-Les détaillants en ligne doivent relever de nombreux défis lorsqu’elles tentent d’implémenter ce type de cas d'utilisation.
+## <a name="challenges"></a>Challenges
 
-Tout d’abord, des données de différentes tailles et formes doivent être ingérées depuis plusieurs sources de données locales et dans le cloud. Ces données comprennent les données de produit, les données historiques de comportement client, et les données utilisateur lorsque ce dernier navigue sur le site du détaillant.
+There are many challenges that online retailers face when trying to implement this type of use case. 
 
-Deuxièmement, les recommandations de produits personnalisées doivent être anticipées et évaluées de manière raisonnable et précise. Outre les informations sur les produits, les marques, les habitudes du client et les données du navigateur, les détaillants en ligne doivent également afficher les commentaires d’anciens clients afin d’aider l’utilisateur à mieux cibler les produits qui lui conviennent.
+First, data of different sizes and shapes must be ingested from multiple data sources, both on-premises and in the cloud. This data includes product data, historical customer behavior data, and user data as the user browses the online retail site. 
 
-Troisièmement, les recommandations doivent être immédiatement communiquées à l'utilisateur pour garantir une expérience d'achat et de navigation transparente, avec les informations les plus récentes et les plus pertinentes.
+Second, personalized product recommendations must be reasonably and accurately calculated and predicted. In addition to product, brand, and customer behavior and browser data, online retailers also need to include customer feedback on past purchases to factor in the determination of the best product recommendations for the user. 
 
-Enfin, les détaillants doivent mesurer l'efficacité de leur approche par un suivi des ventes croisées et incitatives réalisées, et ajuster leurs prochaines recommandations.
+Third, the recommendations must be immediately deliverable to the user to provide a seamless browsing and purchasing experience, and provide the most recent and relevant recommendations. 
 
-## Vue d’ensemble de la solution
+Finally, retailers need to measure the effectiveness of their approach by tracking overall up-sell and cross-sell click-to-conversion sales successes, and adjust to their future recommendations.
 
-Cet exemple de cas d’utilisation a été résolu et implémenté par de vrais utilisateurs Azure avec Azure Data Factory et d’autres services Cortana Intelligence, y compris [HDInsight](https://azure.microsoft.com/services/hdinsight/) et [Power BI](https://powerbi.microsoft.com/).
+## <a name="solution-overview"></a>Solution Overview
 
-Le détaillant en ligne utilise un magasin d'objets blob Azure, un serveur SQL local, une base de données SQL Azure et un mini-Data Warehouse relationnel options de stockage des données tout au long du flux de travail. Le magasin d'objets blob contient des informations sur les clients, des données sur les habitudes des clients et des informations sur les produits. Les informations sur les produits incluent des informations sur les marques de produits ainsi qu’un catalogue de produits stocké localement dans un SQL Data Warehouse.
+This example use case has been solved and implemented by real Azure users by using Azure Data Factory and other Cortana Intelligence component services, including [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/).
 
-Toutes les données sont combinées et chargées dans un système de recommandations de produit pour fournir des recommandations personnalisées selon les intérêts et les actions du client à mesure que l'utilisateur parcourt le catalogue de produits sur le site web. Le client peut également voir des produits liés à celui qu'il recherche, selon des modèles d'utilisation du site web qui ne sont spécifiques à aucun utilisateur.
+The online retailer uses an Azure Blob store, an on-premises SQL server, Azure SQL DB, and a relational data mart as their data storage options throughout the workflow.  The blob store contains customer information, customer behavior data, and product information data. The product information data includes product brand information and a product catalog stored on-premises in a SQL data warehouse. 
 
-![diagramme de cas d'utilisation](./media/data-factory-product-reco-usecase/diagram-1.png)
+All the data is combined and fed into a product recommendation system to deliver personalized recommendations based on customer interests and actions, while the user browses products in the catalog on the website. The customers also see products that are related to the product they are looking at based on overall website usage patterns that are not related to any one user.
 
-Des gigaoctets de fichiers journaux web bruts sont générés chaque jour sous forme de fichiers semi-structurés, à partir du site web du détaillant en ligne. Les fichiers journaux web bruts et les informations sur les clients et le catalogue de produits sont transmises régulièrement à un stockage d'objets blob Azure en utilisant le déplacement de données déployées globalement Data Factory comme service. Les fichiers journaux bruts de la journée sont partitionnés (par année et mois) dans le stockage d’objets blob pour un stockage à long terme. [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) sert à partitionner les fichiers journaux bruts dans le magasin d’objets blob et à traiter les journaux ingérés à l’échelle à l’aide de scripts Hive et Pig. Les données de journal web partitionnées sont alors traitées pour extraire les entrées nécessaires pour un système de recommandation, afin de générer les recommandations de produits personnalisées.
+![use case diagram](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-Le système de recommandation utilisé pour Machine Learning dans cet exemple est une plateforme de recommandation Machine Learning open source d’[Apache Mahout](http://mahout.apache.org/). N’importe quel modèle [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ou modèle personnalisé peut être appliqué au scénario. Le modèle Mahout sert à prédire la similarité entre des éléments présents sur le site web en fonction de modèles d'utilisation globaux, et à générer des recommandations personnalisées selon un utilisateur individuel.
+Gigabytes of raw web log files are generated daily from the online retailer’s website as semi-structured files. The raw web log files and the customer and product catalog information is ingested regularly into an Azure Blob storage using Data Factory’s globally deployed data movement as a service. The raw log files for the day are partitioned (by year and month) in blob storage for long-term storage.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) is used to partition the raw log files in the blob store and process the ingested logs at scale using both Hive and Pig scripts. The partitioned web logs data is then processed to extract the needed inputs for a machine learning recommendation system to generate the personalized product recommendations.
 
-Enfin, le jeu de résultats des recommandations de produits personnalisées est déplacé vers un mini-Data Warehouse relationnel afin d’être utilisé par le site web du détaillant. Le jeu de résultats peut également être accessible directement depuis le stockage d’objets blob par une autre application, ou déplacé vers des magasins supplémentaires pour d'autres consommateurs et cas d'utilisation.
+The recommendation system used for the machine learning in this example is an open source machine learning recommendation platform from [Apache Mahout](http://mahout.apache.org/).  Any [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) or custom model can be applied to the scenario.  The Mahout model is used to predict the similarity between items on the website based on overall usage patterns, and to generate the personalized recommendations based on the individual user.
 
-## Avantages
+Finally, the result set of personalized product recommendations is moved to a relational data mart for consumption by the retailer website.  The result set could also be accessed directly from blob storage by another application, or moved to additional stores for other consumers and use cases.
 
-En optimisant leur stratégie de recommandation de produits et en l’alignant sur les objectifs commerciaux, la solution répond aux besoins de merchandising et de marketing du détaillant en ligne. En outre, ils peuvent faire fonctionner et gérer le flux de travail de recommandation de produits de manière efficace, fiable et économique. L’approche leur permet de mettre à jour facilement leur modèle et d’optimiser son efficacité sur la base des mesures de ventes concrétisées. Grâce à Azure Data Factory, ils ont pu se débarrasser de leur système de gestion manuelle des ressources de cloud, à la fois long et coûteux, pour passer à une gestion des ressources de cloud à la demande. Ainsi, ils ont été en mesure de gagner du temps et de l’argent, et de réduire le temps de déploiement de la solution. Ils ont pu visualiser et dépanner facilement les vues de lignage des données et l'intégrité du service opérationnel grâce à une interface utilisateur de surveillance et gestion Data Factory intuitive, disponible sur le portail Azure. Leur solution peut maintenant être planifiée et gérée de sorte que les données terminées sont produites et transmises de façon fiable aux utilisateurs. Par ailleurs, les données et les dépendances de traitement sont gérées automatiquement, sans intervention humaine.
+## <a name="benefits"></a>Benefits
 
-Grâce à cette expérience d'achat personnalisée, le détaillant en ligne a créé une expérience client plus compétitive et plus attrayante, augmentant ainsi les ventes et la satisfaction globale des clients.
+By optimizing their product recommendation strategy and aligning it with business goals, the solution met the online retailer’s merchandising and marketing objectives. Additionally, they were able to operationalize and manage the product recommendation workflow in an efficient, reliable, and cost effective manner. The approach made it easy for them to update their model and fine-tune its effectiveness based on the measures of sales click-to-conversion successes. By using Azure Data Factory, they were able to abandon their time consuming and expensive manual cloud resource management and move to on-demand cloud resource management. Therefore, they were able to save time, money, and reduce their time to solution deployment. Data lineage views and operational service health became easy to visualize and troubleshoot with the intuitive Data Factory monitoring and management UI available from the Azure portal. Their solution can now be scheduled and managed so that finished data is reliably produced and delivered to users, and data and processing dependencies are automatically managed without human intervention.
+
+By providing this personalized shopping experience, the online retailer created a more competitive, engaging customer experience and therefore increase sales and overall customer satisfaction.
 
 
 
   
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

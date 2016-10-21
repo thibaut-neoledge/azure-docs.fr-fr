@@ -1,270 +1,274 @@
 <properties
-	pageTitle="Livraison continue avec Visual Studio Team Services dans Azure | Microsoft Azure"
-	description="Découvrez comment configurer vos projets d'équipe Visual Studio Team Services afin de les générer et de les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des Cloud Services."
-	services="cloud-services"
-	documentationCenter=".net"
-	authors="mlearned"
-	manager="douge"
-	editor=""/>
+    pageTitle="Continuous delivery with Visual Studio Team Services in Azure | Microsoft Azure"
+    description="Learn how to configure your Visual Studio Team Services team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services."
+    services="cloud-services"
+    documentationCenter=".net"
+    authors="mlearned"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="mlearned"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="07/06/2016"
+    ms.author="mlearned"/>
 
-# Diffusion continue sur Azure au moyen de Visual Studio Team Services
 
-Vous pouvez configurer vos projets Visual Studio Team Services afin de les générer et de les déployer automatiquement sur des applications Web Azure ou des Cloud Services. (Pour plus d'informations sur la procédure à suivre pour configurer un système de génération et de déploiement continus au moyen d'un serveur TFS *local*, consultez la rubrique [Remise continue pour Cloud Services dans Azure](cloud-services-dotnet-continuous-delivery.md).)
+# <a name="continuous-delivery-to-azure-using-visual-studio-team-services"></a>Continuous delivery to Azure using Visual Studio Team Services
 
-Ce didacticiel part du principe que vous avez déjà installé Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure sur votre système. Si Visual Studio 2013 n'est pas déjà installé, téléchargez-le en choisissant le lien **Test gratuit de Visual Studio** sur [www.visualstudio.com](http://www.visualstudio.com). Pour installer le Kit de développement logiciel (SDK) Azure, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=239540).
+You can configure your Visual Studio Team Services team projects to automatically build and deploy to Azure web apps or cloud services.  (For information on how to set up a continuous build and deploy system using an *on-premises* Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](cloud-services-dotnet-continuous-delivery.md).)
 
-> [AZURE.NOTE] Vous avez besoin d’un compte Visual Studio Team Services pour suivre ce didacticiel : vous pouvez [ouvrir un compte Visual Studio Team Services gratuit](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Team Services, suivez ces étapes.
+> [AZURE.NOTE] You need an Visual Studio Team Services account to complete this tutorial: You can [open a Visual Studio Team Services account for free](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
-## 1 : Création d'un projet d'équipe
+To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Team Services, follow these steps.
 
-Suivez les instructions disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=512980) pour créer votre projet d'équipe et l'associer à Visual Studio. Cette procédure pas à pas part du principe que vous utilisez TFVC (Team Foundation Version Control) en tant que solution de contrôle de code source. Si vous souhaitez utiliser Git pour le contrôle de version, consultez [la version Git de cette procédure pas à pas](http://go.microsoft.com/fwlink/p/?LinkId=397358).
+## <a name="1:-create-a-team-project"></a>1: Create a team project
 
-## 2 : Archivage d'un projet dans le contrôle de code source
+Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
-1. Dans Visual Studio, ouvrez la solution à déployer, ou créez-en une. Vous pouvez déployer une application Web ou un service cloud (application Azure) en suivant les étapes de cette procédure. Si vous voulez créer une solution, créez un projet de service cloud Azure ou ASP.NET MVC. Vérifiez que le projet cible .NET Framework 4 ou 4.5, et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail, et choisissez Application Internet pour le rôle Web. Lorsque vous y êtes invité, choisissez **Application Internet**. Si vous voulez créer une application Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la rubrique [Création d’une application Web ASP.NET dans Azure App Service](../app-service-web/web-sites-dotnet-get-started.md).
+## <a name="2:-check-in-a-project-to-source-control"></a>2: Check in a project to source control
 
-	> [AZURE.NOTE] Actuellement, Visual Studio Team Services ne prend en charge que les déploiements CI des applications web Visual Studio. Les projets de site web n’entrent pas dans ce cadre.
+1. In Visual Studio, open the solution you want to deploy, or create a new one.
+You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.
+If you want to create a new solution, create a new Azure Cloud Service project, or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
+If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC. See [Create an ASP.NET web app in Azure App Service](../app-service-web/web-sites-dotnet-get-started.md).
 
-1. Ouvrez le menu contextuel pour la solution et sélectionnez **Ajouter la solution au contrôle de code source**.
+    > [AZURE.NOTE] Visual Studio Team Services only support CI deployments of Visual Studio Web Applications at this time. Web Site projects are out of scope.
 
-	![][5]
+1. Open the context menu for the solution, and choose **Add Solution to Source Control**.
 
-1. Acceptez ou modifiez les valeurs par défaut et choisissez le bouton **OK**. Au terme du processus, les icônes du contrôle de code source apparaissent dans l'**Explorateur de solutions**.
+    ![][5]
 
-	![][6]
+1. Accept or change the defaults and choose the **OK** button. Once the process completes, source control icons appear in **Solution Explorer**.
 
-1. Ouvrez le menu contextuel de la solution et choisissez **Archiver**.
+    ![][6]
 
-	![][7]
+1. Open the shortcut menu for the solution, and choose **Check In**.
 
-1. Dans la zone **Modifications en attente** de **Team Explorer**, tapez un commentaire pour l'archivage et choisissez le bouton **Archiver**.
+    ![][7]
 
-	![][8]
+1. In the **Pending Changes** area of **Team Explorer**, type a comment for the check-in and choose the **Check In** button.
 
-	Notez les options à inclure ou exclure quand vous archivez des modifications spécifiques. Si des modifications voulues sont exclues, choisissez le lien **Tout inclure**.
+    ![][8]
 
-	![][9]
+    Note the options to include or exclude specific changes when you check in. If desired changes are excluded, choose the **Include All** link.
 
-## 3 : Connexion du projet à Azure
+    ![][9]
 
-1. Maintenant que vous disposez d’un projet d’équipe Visual Studio Team Services contenant du code source, vous êtes prêt à connecter votre projet d’équipe à Azure. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône **+** en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Team Services**.
+## <a name="3:-connect-the-project-to-azure"></a>3: Connect the project to Azure
 
-	![][10]
+1. Now that you have a VS Team Services team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), select your cloud service or web app, or create a new one by choosing the **+** icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Team Services** link.
 
-1. Dans l'Assistant, tapez le nom de votre compte Visual Studio Team Services dans la zone de texte et cliquez sur le lien **Autoriser maintenant**. Vous serez peut-être invité à vous connecter.
+    ![][10]
 
-	![][11]
+1. In the wizard, type the name of your Visual Studio Team Services account in the textbox and click the **Authorize Now** link. You might be asked to sign in.
 
-1. Dans la boîte de dialogue contextuelle **Demande de connexion**, choisissez le bouton **Accepter** pour autoriser Azure à configurer votre projet d’équipe dans Visual Studio Team Services.
+    ![][11]
 
-	![][12]
+1. In the **Connection Request** pop-up dialog, choose the **Accept** button to authorize Azure to configure your team project in VS Team Services.
 
-1. Si le processus d'autorisation aboutit, une zone déroulante affiche une liste de vos projets Visual Studio Team Services. Choisissez le nom du projet d'équipe que vous avez créé aux étapes précédentes et choisissez la coche de l'Assistant.
+    ![][12]
 
-	![][13]
+1. When authorization succeeds, you see a dropdown containing a list of your Visual Studio Team Services team projects. Choose  the name of team project that you created in the previous steps, and then choose the wizard's checkmark button.
 
-1. Une fois votre projet lié, des instructions s'affichent pour vous permettre d'archiver les modifications dans votre projet d'équipe Visual Studio Team Services. Lors du prochain archivage, Visual Studio Team Services générera et déploiera votre projet sur Azure. Essayez maintenant en cliquant sur le lien **Archiver depuis Visual Studio**, puis sur le lien **Lancer Visual Studio** (ou le bouton **Visual Studio** équivalent en bas de l'écran du portail).
+    ![][13]
 
-	![][14]
+1. After your project is linked, you will see some instructions for checking in changes to your Visual Studio Team Services team project.  On your next check-in, Visual Studio Team Services will build and deploy your project to Azure.  Try this now by clicking the **Check In from Visual Studio** link, and then the **Launch Visual Studio** link (or the equivalent **Visual Studio** button at the bottom of the portal screen).
 
-## 4 : Déclenchement d'une régénération et redéploiement de votre projet
+    ![][14]
 
-1. Dans Visual Studio **Team Explorer**, choisissez le lien **Explorateur du contrôle de code source**.
+## <a name="4:-trigger-a-rebuild-and-redeploy-your-project"></a>4: Trigger a rebuild and redeploy your project
 
-	![][15]
+1. In Visual Studio's **Team Explorer**, choose the **Source Control Explorer** link.
 
-1. Accédez à votre fichier solution et ouvrez-le.
+    ![][15]
 
-	![][16]
+1. Navigate to your solution file and open it.
 
-1. Dans l'**Explorateur de solutions**, ouvrez un fichier et modifiez-le. Par exemple, modifiez le fichier `_Layout.cshtml` sous le dossier Views\\Shared dans un rôle Web MVC.
+    ![][16]
 
-	![][17]
+1. In **Solution Explorer**, open up a file and change it. For example, change the file `_Layout.cshtml` under the Views\\Shared folder in an MVC web role.
 
-1. Modifiez le logo du site et appuyez sur **Ctrl+S** pour enregistrer le fichier.
+    ![][17]
 
-	![][18]
+1. Edit the logo for the site and choose **Ctrl+S** to save the file.
 
-1. Dans **Team Explorer**, choisissez le lien **Modifications en attente**.
+    ![][18]
 
-	![][19]
+1. In **Team Explorer**, choose the **Pending Changes** link.
 
-1. Entrez un commentaire et choisissez le bouton **Archiver**.
+    ![][19]
 
-	![][20]
+1. Enter a comment and then choose the **Check In** button.
 
-1. Choisissez le bouton **Accueil** pour revenir à la page d'accueil de **Team Explorer**.
+    ![][20]
 
-	![][21]
+1. Choose the **Home** button to return to the **Team Explorer** home page.
 
-1. Choisissez le lien **Builds** pour afficher les builds en cours.
+    ![][21]
 
-	![][22]
+1. Choose the **Builds** link to view the builds in progress.
 
-	**Team Explorer** indique qu’une build est disponible pour archivage.
+    ![][22]
 
-	![][23]
+    **Team Explorer** shows that a build has been triggered for your check-in.
 
-1. Double-cliquez sur le nom de la build en cours pour afficher un journal détaillé lors du processus de génération.
+    ![][23]
 
-	![][24]
+1. Double-click the name of the build in progress to view a detailed log as the build progresses.
 
-1. Pendant la création de la build, examinez la définition de build qui a été créée lorsque vous avez lié TFS à Azure au moyen de l'Assistant. Ouvrez le menu contextuel de la définition de build et choisissez **Modifier la définition de build**.
+    ![][24]
 
-	![][25]
+1. While the build is in-progress, take a look at the build definition that was created when you linked TFS to Azure by using the wizard.  Open the shortcut menu for the build definition and choose **Edit Build Definition**.
 
-	Dans l’onglet **Déclencher**, vous allez voir que la définition de build prévoit par défaut un processus de génération pour chaque archivage.
+    ![][25]
 
-	![][26]
+    In the **Trigger** tab, you will see that the build definition is set to build on every check-in by default.
 
-	Dans l'onglet **Processus**, vous pouvez voir que l'environnement de déploiement est défini sur le nom de votre service cloud ou application Web. Si vous utilisez des applications Web, les propriétés affichées seront différentes de celles figurant ici.
+    ![][26]
 
-	![][27]
+    In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web app. If you are working with web apps, the properties you see will be different from those shown here.
 
-1. Spécifiez des valeurs pour les propriétés si vous souhaitez d'autres valeurs que celles par défaut. Les propriétés pour la publication Azure se trouvent dans la section **Déploiement**.
+    ![][27]
 
-	Le tableau suivant présente les propriétés disponibles dans la section **Déploiement** :
+1. Specify values for the properties if you want different values than the defaults. The properties for Azure publishing are in the **Deployment** section.
 
-	|Propriété|Valeur par défaut|
-	|---|---|
-	|Autoriser les certificats non approuvés|Si cette propriété a la valeur false, des certificats SSL doivent être signés par une autorité racine.|
-	|Autoriser la mise à niveau|Permet au déploiement de mettre à jour un déploiement existant au lieu d'en créer un. Conserve l'adresse IP.|
-	|Ne pas supprimer|Si cette propriété a la valeur true, ne remplacez pas un déploiement sans rapport (la mise à niveau est autorisée).|
-	|Chemin d'accès des paramètres de déploiement|Chemin d’accès à votre fichier .pubxml pour un site Web, relatif au dossier racine du référentiel. Ignorée pour les services cloud.|
-	|Environnement de déploiement SharePoint|Identique au nom du service.|
-	|Environnement de déploiement Azure|Nom de l'application Web ou du service cloud.|
+    The following table shows the available properties in the **Deployment** section:
 
-1. Si vous utilisez plusieurs configurations de service (fichiers .cscfg), vous pouvez spécifier la configuration du service désiré dans le paramètre **Build, Advanced, MSBuild arguments**. Par exemple, pour utiliser ServiceConfiguration.Test.cscfg, définissez l'option de ligne d'argument MSBuild `/p:TargetProfile=Test`.
+  	|Property|Default Value|
+  	|---|---|
+  	|Allow Untrusted Certificates|If false, SSL certificates must be signed by a root authority.|
+  	|Allow Upgrade|Allows the deployment to update an existing deployment instead of creating a new one. Preserves the IP address.|
+  	|Do Not Delete|If true, do not overwrite an existing unrelated deployment (upgrade is allowed).|
+  	|Path to Deployment Settings|The path to your .pubxml file for a web app, relative to the root folder of the repo. Ignored for cloud services.|
+  	|Sharepoint Deployment Environment|The same as the service name.|
+  	|Azure Deployment Environment|The web app or cloud service name.|
 
-	![][38]
+1. If you are using multiple service configurations (.cscfg files), you can specify the desired service configuration in the **Build, Advanced, MSBuild arguments** setting. For example, to use ServiceConfiguration.Test.cscfg, set MSBuild arguments line option `/p:TargetProfile=Test`.
 
-	À ce stade, la création de la build doit être terminée.
+    ![][38]
 
-	![][28]
+    By this time, your build should be completed successfully.
 
-1. Si vous double-cliquez sur le nom de la build, Visual Studio affiche un **Résumé de la build**, y compris tous les résultats de test provenant de projets de test unitaires associés.
+    ![][28]
 
-	![][29]
+1. If you double-click the build name, Visual Studio shows a **Build Summary**, including any test results from associated unit test projects.
 
-1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), vous pouvez afficher le déploiement associé sous l’onglet **Déploiements** quand l’environnement intermédiaire est sélectionné.
+    ![][29]
 
-	![][30]
+1. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), you can view the associated deployment on the **Deployments** tab when the staging environment is selected.
 
-1.	Accédez à l'URL de votre site. Dans le cas d'une application Web, cliquez simplement sur le bouton **Parcourir** dans la barre de commandes. Dans le cas d'un service cloud, choisissez l'URL dans la section **Aperçu rapide** de la page **Tableau de bord** représentant l'environnement intermédiaire d'un service cloud. Les déploiements résultant de l'intégration continue de services cloud sont publiés dans l'environnement intermédiaire par défaut. Vous pouvez changer cela en définissant la propriété **Environnement du service cloud de substitution** sur **Production**. Cet écran indique où se trouve l'URL de site dans la page de tableau de bord du service cloud.
+    ![][30]
 
-	![][31]
+1.  Browse to your site's URL. For a web app, just click the **Browse** button on the command bar. For a cloud service, choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment for a cloud service. Deployments from continuous integration for cloud services are published to the Staging environment by default. You can change this by setting the **Alternate Cloud Service Environment** property to **Production**. This screenshot shows where the site URL is on the cloud service's dashboard page.
 
-	Un nouvel onglet de navigateur apparaît pour afficher votre site en cours d'exécution.
+    ![][31]
 
-	![][32]
+    A new browser tab will open to reveal your running site.
 
-	Pour les services cloud, si vous apportez d'autres modifications à votre projet, vous déclenchez d'autres builds et vous accumulez plusieurs déploiements. Le plus récent est marqué comme étant actif.
+    ![][32]
 
-	![][33]
+    For cloud services, if you make other changes to your project, you trigger more builds, and you will accumulate multiple deployments. The latest one marked as Active.
 
-## 5 : Redéploiement d'une build antérieure
+    ![][33]
 
-Cette étape (facultative) s'applique aux services cloud. Dans le portail Azure Classic, choisissez un déploiement antérieur et cliquez sur le bouton **Redéployer** pour revenir à un archivage antérieur de votre site. Notez que cela déclenche une nouvelle génération dans TFS et crée une entrée dans l’historique de votre déploiement.
+## <a name="5:-redeploy-an-earlier-build"></a>5: Redeploy an earlier build
+
+This step applies to cloud services and is optional. In the Azure classic portal, choose an earlier deployment and then choose the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS and create a new entry in your deployment history.
 
 ![][34]
 
-## 6 : Modification du déploiement de production
+## <a name="6:-change-the-production-deployment"></a>6: Change the Production deployment
 
-Cette étape s'applique uniquement aux services cloud, pas aux applications Web. Une fois que vous êtes prêt, vous pouvez promouvoir l'environnement intermédiaire en environnement de production en choisissant le bouton **Swap** dans le portail Azure Classic. L'environnement intermédiaire récemment déployé passe à l'état de production et l'environnement de production précédent, le cas échéant, devient un environnement intermédiaire. Le déploiement actif peut être différent pour les environnements de production et intermédiaire, mais l'historique de déploiement des builds récentes est identique quel que soit l'environnement.
+This step applies only to cloud services, not web apps. When you are ready, you can promote the Staging environment to the production environment by choosing the **Swap** button in the Azure classic portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.
 
 ![][35]
 
-## 7 : Exécution de tests unitaires
+## <a name="7:-run-unit-tests"></a>7: Run unit tests
 
-Cette étape s'applique uniquement aux applications Web, et non aux services cloud. Pour mettre en place un « portail de qualité » dans votre déploiement, vous pouvez exécuter des tests unitaires. S'ils échouent, vous pouvez interrompre le déploiement.
+This step applies only to web apps, not cloud services. To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.
 
-1.  Dans Visual Studio, ajoutez un projet de test unitaire.
+1.  In Visual Studio, add a unit test project.
 
-	![][39]
+    ![][39]
 
-1.  Ajoutez les références de projet au projet que vous souhaitez tester.
+1.  Add project references to the project you want to test.
 
-	![][40]
+    ![][40]
 
-1.  Ajoutez quelques tests unitaires. Pour commencer, essayez de réaliser un faux test qui réussira toujours.
+1.  Add some unit tests. To get started, try a dummy test that will always pass.
 
-		```
-		using System;
-		using Microsoft.VisualStudio.TestTools.UnitTesting;
+        ```
+        using System;
+        using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-		namespace UnitTestProject1
-		{
-		    [TestClass]
-		    public class UnitTest1
-		    {
-		        [TestMethod]
-		        [ExpectedException(typeof(NotImplementedException))]
-		        public void TestMethod1()
-		        {
-		            throw new NotImplementedException();
-		        }
-		    }
-		}
-		```
+        namespace UnitTestProject1
+        {
+            [TestClass]
+            public class UnitTest1
+            {
+                [TestMethod]
+                [ExpectedException(typeof(NotImplementedException))]
+                public void TestMethod1()
+                {
+                    throw new NotImplementedException();
+                }
+            }
+        }
+        ```
 
-1.  Modifiez la définition de la build, choisissez l'onglet **Processus** et étendez le nœud de **test**.
+1.  Edit the build definition, choose the **Process** tab, and expand the **Test** node.
 
-1.  Définissez le paramètre **Fail build on test failure** sur True. Cela signifie que le déploiement ne sera pas réalisé à moins que le test ne réussisse.
+1.  Set the **Fail build on test failure** to True. This means that the deployment won't occur unless the tests pass.
 
-	![][41]
+    ![][41]
 
-1.  Placez une nouvelle build dans la file d'attente.
+1.  Queue a new build.
 
-	![][42]
+    ![][42]
 
-	![][43]
+    ![][43]
 
-1. Pendant que la build est en cours de traitement, suivez sa progression.
+1. While the build is proceeding, check on its progress.
 
-	![][44]
+    ![][44]
 
-	![][45]
+    ![][45]
 
-1. Lorsque la build est terminée, consultez les résultats de test.
+1. When the build is done, check the test results.
 
-	![][46]
+    ![][46]
 
-	![][47]
+    ![][47]
 
-1.  Essayez de créer un nouveau test qui échouera. Ajoutez un nouveau test en copiant le premier, en le renommant et en plaçant en commentaire la ligne de code indiquant que NotImplementedException est une exception attendue.
+1.  Try creating a test that will fail. Add a new test by copying the first one, rename it, and comment out the line of code that states NotImplementedException is an expected exception.
 
-		```
-		[TestMethod]
-		//[ExpectedException(typeof(NotImplementedException))]
-		public void TestMethod2()
-		{
-		    throw new NotImplementedException();
-		}
-		```
+        ```
+        [TestMethod]
+        //[ExpectedException(typeof(NotImplementedException))]
+        public void TestMethod2()
+        {
+            throw new NotImplementedException();
+        }
+        ```
 
-1. Archivez le changement pour mettre une nouvelle build dans la file d'attente.
+1. Check in the change to queue a new build.
 
-	![][48]
+    ![][48]
 
-1. Consultez les résultats du test pour obtenir des détails sur l'échec.
+1. View the test results to see details about the failure.
 
-	![][49]
+    ![][49]
 
-	![][50]
+    ![][50]
 
-## Étapes suivantes
-Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consultez [Exécuter des tests unitaires dans votre build](http://go.microsoft.com/fwlink/p/?LinkId=510474). Si vous utilisez Git, consultez les rubriques [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) et [Déploiement continu vers Azure App Service](../app-service-web/app-service-continuous-deployment.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+## <a name="next-steps"></a>Next steps
+For more about unit testing in Visual Studio Team Services, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Continuous deployment to Azure App Service](../app-service-web/app-service-continuous-deployment.md).  For more information about Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -317,4 +321,8 @@ Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consu
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Activer l’agent de machine virtuelle dans le Centre de sécurité Azure | Microsoft Azure"
-   description="Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Activer l’agent de machine virtuelle**."
+   pageTitle="Enable VM Agent in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendation **Enable VM Agent**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,38 +13,45 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="10/17/2016"
    ms.author="terrylan"/>
 
-# Activer l’agent de machine virtuelle dans le Centre de sécurité Azure
 
-L’agent de machine virtuelle doit être installé sur les machines virtuelles pour [activer la collecte des données](security-center-enable-data-collection.md). Le Centre de sécurité Azure vous permet de voir quelles machines virtuelles nécessitent l’agent de machine virtuelle et vous recommandera d’activer l’agent sur ces machines virtuelles.
+# <a name="enable-vm-agent-in-azure-security-center"></a>Enable VM Agent in Azure Security Center
 
-L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle.
+The VM Agent must be installed on virtual machines (VMs) in order to [enable data collection](security-center-enable-data-collection.md).  Azure Security Center enables you to see which VMs require the VM Agent and will recommend that you enable the VM Agent on those VMs.
+
+The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.
 
 
-> [AZURE.NOTE] Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
 
-## Implémenter la recommandation
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-1. Dans le panneau **Recommandations** , sélectionnez **Activer l’agent de machine virtuelle**. ![Activer l’agent de machine virtuelle][1]
+1. In the **Recommendations blade**, select **Enable VM Agent**.
+![Enable VM Agent][1]
 
-2. Cette opération ouvre le panneau **L’agent de machine virtuelle est manquant ou ne répond pas**. Ce panneau répertorie les machines virtuelles qui nécessitent l’agent de machine virtuelle. Suivez les instructions dans le panneau pour installer l’agent de machine virtuelle. ![L’agent de machine virtuelle est manquant][2]
+2. This opens the blade **VM Agent Is Missing Or Not Responding**. This blade lists the VMs that require the VM Agent. Follow the instructions on the blade to install the VM agent.
+![VM Agent is missing][2]
 
-## Voir aussi
+## <a name="see-also"></a>See also
 
-Pour plus d’informations sur Security Center, consultez :
+To learn more about Security Center, see the following:
 
-- [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-- [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
-- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-- [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
-- [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
+- [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-vm-agent/enable-vm-agent.png
 [2]: ./media/security-center-enable-vm-agent/vm-agent-is-missing.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

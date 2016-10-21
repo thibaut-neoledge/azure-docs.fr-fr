@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Vue d’ensemble de la sécurité Azure | Microsoft Azure"
-   description="Le site d’informations sur la sécurité Microsoft Azure sur Azure.com est conçu spécifiquement pour fournir des réponses techniques à vos questions sur la sécurité Azure."
+   pageTitle="Azure security overview | Microsoft Azure"
+   description="The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,34 +16,39 @@
    ms.date="08/09/2016"
    ms.author="terrylan"/>
 
-# Vue d’ensemble de la sécurité d’Azure
 
-Le site d’informations sur la sécurité Microsoft Azure sur Azure.com est conçu spécifiquement pour fournir des réponses techniques à vos questions sur la sécurité Azure. Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure protège sa propre infrastructure, consultez le [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
+# <a name="azure-security-overview"></a>Azure security overview
 
-Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services consiste à tirer parti de la large gamme de fonctionnalités et d’outils de sécurité disponibles. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée.
+The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions. If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
 
-Cette page et ce site évolueront au fur et à mesure que de nouveaux services Azure seront publiés et que les services existants seront mis à jour. Nos offres de sécurité sont en constante amélioration, et nous vous présenterons ici les détails techniques de ces améliorations. Nous vous recommandons de revenir consulter ce site régulièrement pour découvrir les nouveautés !
+We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
 
-## Utiliser le site d’informations sur la sécurité Azure
-Si vous regardez sur le côté gauche de la page, vous voyez une collection de catégories de rubriques de sécurité. Cliquez ou appuyez sur la rubrique pour voir les articles dans cette catégorie.
+This page, and this site, will evolve as new Azure services come online and existing services are updated. Our security offerings constantly improve and we’ll share the technical details of those improvements here. We recommend that you return to this site regularly and see what’s new!
 
-À chaque catégorie correspond un article Vue d’ensemble. L’objectif de cet article est de vous fournir un résumé de ce qu’Azure peut offrir en termes de sécurité pour cette catégorie. Les articles Vue d’ensemble vous aident à comprendre les produits, services et fonctionnalités disponibles dans Azure que vous pouvez utiliser pour améliorer la sécurité de vos déploiements. Ces articles Vue d’ensemble contiennent de nombreux liens vers du contenu technique qui vous permettra d’en savoir plus sur les rubriques et de découvrir comment les implémenter.
+## <a name="using-the-azure-security-information-site"></a>Using the Azure Security Information Site
+When you look on the left side of the page, you see a collection of categories of security topics. Click or tap the topic to see the articles we have for that category.
 
-Le site d’informations sur la sécurité Azure traite actuellement des catégories suivantes :
+Each category has an Overview article. The goal of the Overview article is to provide you a summary of what Azure has to offer in terms of security for that category. The Overview articles help you understand the products, services, and features available in Azure that you can use to enhance the security of your deployments. These Overview articles contain numerous links to technical content so that you can learn more about the topics and how to implement them.
 
-- Ressources
-- Sécurité du réseau
-- Sécurité du stockage
-- Sécurité de la machine virtuelle
-- Protection du point de terminaison
-- Gestion et surveillance de la sécurité
-- Gestion des identités
-- Services PaaS
-- Propre à un secteur
+The Azure Security Information site currently addresses the following categories:
+
+- Resources
+- Network security
+- Storage security
+- Virtual machine security
+- Endpoint protection
+- Security management and monitoring
+- Identity management
+- PaaS services
+- Industry specific
 - Architecture
 
-> [AZURE.NOTE] Tous les articles du site d’informations sur la sécurité Azure apparaissent sur le côté gauche de la page. Pour voir tous les articles, cliquez ou appuyez sur **En savoir plus** à la fin de la liste des catégories.
+> [AZURE.NOTE] All the articles we have in the Azure Security Information site appear in the navigation on the left side of the page. If you want to see all the articles, click or tap **See More** at the bottom of the categories list.
 
-Donnez-nous votre avis ! S’il existe des catégories que vous souhaitez ajouter, faites-le-nous savoir ! S’il existe des articles que vous souhaitez ajouter à une catégorie existante, faites-le nous-savoir également ! Vous pouvez utiliser la section Commentaires ci-dessous ou nous écrire à [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) et nous prenons en compte vos recommandations.
+We want your input! If there are categories you want added, let us know! If there are articles you want added to an existing category, let us know that too! You can use the Comments section below, or write to us at [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) and we’ll incorporate your recommendations into our plans.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

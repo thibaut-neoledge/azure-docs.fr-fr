@@ -1,226 +1,229 @@
 <properties
-	pageTitle="Mise à l’échelle automatique et environnement App Service| Microsoft Azure"
-	description="Mise à l’échelle automatique et environnement App Service"
-	services="app-service"
-	documentationCenter=""
-	authors="btardif"
-	manager="wpickett"
-	editor=""
+    pageTitle="Autoscaling and App Service Environment | Microsoft Azure"
+    description="Autoscaling and App Service Environment"
+    services="app-service"
+    documentationCenter=""
+    authors="btardif"
+    manager="wpickett"
+    editor=""
 />
 
 <tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/07/2016"
-	ms.author="byvinyal"
+    ms.service="app-service"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/07/2016"
+    ms.author="byvinyal"
 />
 
-# Mise à l’échelle automatique et environnement App Service
 
-Les environnements Azure App Service prennent en charge la *mise à l’échelle automatique*. Vous pouvez mettre à l’échelle automatiquement des pools de Workers individuels en fonction de mesures ou de la planification.
+# <a name="autoscaling-and-app-service-environment"></a>Autoscaling and App Service Environment
 
-![Options de mise à l’échelle automatique d’un pool de Workers.][intro]
+Azure App Service environments support *autoscaling*. You can autoscale individual worker pools based on metrics or schedule.
 
-La mise à l’échelle automatique permet d’optimiser l’utilisation de vos ressources en agrandissant et en réduisant automatiquement un environnement App Service afin de l’adapter à votre budget et/ou à votre profil de charge.
+![Autoscale options for a worker pool.][intro]
 
-## Configurer la mise à l’échelle automatique du pool de Workers
+Autoscaling optimizes your resource utilization by automatically growing and shrinking an App Service environment to fit your budget and or load profile.
 
-Vous pouvez accéder à la fonctionnalité de mise à l’échelle automatique à partir de l’onglet **Paramètres** du pool de Workers.
+## <a name="configure-worker-pool-autoscale"></a>Configure worker pool autoscale
 
-![Onglet Paramètres du pool de Workers.][settings-scale]
+You can access the autoscale functionality from the **Settings** tab of the worker pool.
 
-À partir de là, l’interface doit vous paraître assez familière, car elle est similaire à celle de la mise à l’échelle d’un plan App Service. Vous pourrez saisir une valeur de mise à l’échelle manuellement.
+![Settings tab of the worker pool.][settings-scale]
 
-![Paramètres de mise à l’échelle manuelle.][scale-manual]
+From there, the interface should be fairly familiar because this is the same experience that you see when you scale an App Service plan. You will be able to enter a scale value manually.
 
-Vous pouvez également configurer un profil de mise à l’échelle automatique.
+![Manual scale settings.][scale-manual]
 
-![Paramètres de mise à l’échelle automatique.][scale-profile]
+You can also configure an autoscale profile.
 
-Les profils de mise à l’échelle automatique sont utiles pour définir des limites à votre mise à l’échelle. Ainsi, vous pouvez obtenir des résultats satisfaisants en définissant une valeur de mise à l’échelle limite inférieure (1) et une valeur de plafonnement prévisible en définissant une limite supérieure (2).
+![Autoscale settings.][scale-profile]
 
-![Paramètres de mise à l’échelle dans le profil.][scale-profile2]
+Autoscale profiles are useful to set limits on your scale. This way, you can have a consistent performance experience by setting a lower bound scale value (1) and a predictable spend cap by setting an upper bound (2).
 
-Une fois qu’un profil est défini, vous pouvez ajouter des règles de mise à l’échelle automatique pour augmenter ou réduire le nombre d’instances dans le pool de Workers dans les limites définies par le profil. Les règles de mise à l’échelle automatique sont basées sur les mesures.
+![Scale settings in profile.][scale-profile2]
 
-![Règle de mise à l’échelle.][scale-rule]
+After you define a profile, you can add autoscale rules to scale up or down the number of instances in the worker pool within the bounds defined by the profile. Autoscale rules are based on metrics.
 
- Toutes les règles de mesure du pool de Workers ou du serveur frontal peuvent être utilisées pour définir des règles de mise à l’échelle automatique. Ces mesures sont les mêmes que celles que vous pouvez surveiller dans les graphiques de panneau de ressource ou pour lesquelles vous pouvez définir une alerte.
+![Scale rule.][scale-rule]
 
-## Exemple de mise à l’échelle automatique
+ Any worker pool or front-end metrics can be used to define autoscale rules. These are the same metrics that you can monitor in the resource blade graphs or set alerts for.
 
-La mise à l’échelle automatique d’un environnement App Service est mieux illustrée par un scénario.
+## <a name="autoscale-example"></a>Autoscale example
 
-Cet article explique tous les éléments à prendre en compte lors du paramétrage d’une mise à l’échelle automatique et toutes les interactions qui ont lieu lorsque vous réalisez une mise à l’échelle automatique d’environnements App Service hébergés dans un environnement App Service.
+Autoscale of an App Service environment can best be illustrated by walking through a scenario.
 
-### Présentation du scénario
+This article explains all the necessary considerations when you set up autoscale and all the interactions that come into play when you factor in autoscaling App Service environments that are hosted in App Service Environment.
 
-Frank est administrateur système pour une entreprise. Il a migré une partie des charges de travail qu’il gère vers un environnement App Service.
+### <a name="scenario-introduction"></a>Scenario introduction
 
-L’environnement App Service est configuré sur mise à l’échelle manuelle, comme suit :
+Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that he manages to an App Service environment.
 
-* **Serveurs frontaux** : 3
-* **Pool de Workers 1** : 10
-* **Pool de Workers 2** : 5
-* **Pool de Workers 3** : 5
+The App Service environment is configured to manual scale as follows:
 
-Le pool de Workers 1 est utilisé pour les charges de travail, tandis que le pool de Workers 2 et le pool de Workers 3 sont utilisés pour les charges de travail de développement et d’assurance qualité.
+* **Front ends:** 3
+* **Worker pool 1**: 10
+* **Worker pool 2**: 5
+* **Worker pool 3**: 5
 
-Les plans App Service utilisés pour l’assurance qualité et le développement sont configurés pour une mise à l’échelle manuelle, mais le plan App Service de production est défini sur mise à l’échelle automatique pour gérer les variations de charge et de trafic.
+Worker pool 1 is used for production workloads, while worker pool 2 and worker pool 3 are used for quality assurance (QA) and development workloads.
 
-Frank connaît bien l’application. Il sait que les heures de pointe de charge sont situées entre 9 h et 18 h, car il s’agit d’une application métier (LOB) utilisée par les employés lorsqu’ils sont au bureau. Le taux d’utilisation chute une fois que les utilisateurs ont fini leur journée de travail. En dehors des heures de pointe, il existe toujours une charge, car les utilisateurs peuvent accéder à distance à l’application via leurs périphériques mobiles ou leurs ordinateurs personnels. Le plan App Service de production est déjà configuré sur la mise à l’échelle automatique basée sur le taux d’utilisation du processeur avec les règles suivantes :
+The App Service plans for QA and dev are configured to manual scale, but the production App Service plan is set to autoscale to deal with variations in load and traffic.
 
-![Paramètres spécifiques pour une application métier.][asp-scale]
+Frank is very familiar with the application. He knows that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
 
-|	**Profil de la mise à l’échelle automatique – Jours de semaine – Plan App Service** |	**Profil de la mise à l’échelle automatique – Week-ends – Plan App Service** |
-|	----------------------------------------------------	|	----------------------------------------------------	|
-|	**Nom :** profil jour de semaine |	**Nom :** profil week-end |
-|	**Mise à l’échelle selon :** Planification et règles de performances |	**Mise à l’échelle selon :** Planification et règles de performances |
-|	**Profil :** jours de la semaine |	**Profil :** week-end |
-|	**Type :** périodicité |	**Type :** périodicité |
-|	**Plage cible :** 5 à 20 instances |	**Plage cible :** 3 à 10 instances |
-|	**Jours :** lundi, mardi, mercredi, jeudi, vendredi |	**Jours :** samedi, dimanche |
-|	**Heure de début :** 9 h |	**Heure de début :** 9 h |
-|	**Fuseau horaire :** UTC-08 |	**Fuseau horaire :** UTC-08 |
-| | |
-|	**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |	**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-|	**Ressource :** Production (environnement App Service) |	**Ressource :** Production (environnement App Service) |
-|	**Mesure :** % d’utilisation de l’unité centrale |	**Mesure :** % d’utilisation de l’unité centrale |
-|	**Fonctionnement :** supérieur à 60 % |	**Fonctionnement :** supérieur à 80 % |
-|	**Durée :** 5 minutes |	**Durée :** 10 minutes |
-|	**Agrégation de temps :** moyenne |	**Agrégation de temps :** moyenne |
-|	**Action :** augmenter le nombre de 2 |	**Action :** augmenter le nombre de 1 |
-|	**Refroidissement (minutes) :** 15 |	**Refroidissement (minutes) :** 20 |
-| | |
- |	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
-|	**Ressource :** Production (environnement App Service) |	**Ressource :** Production (environnement App Service) |
-|	**Mesure :** % d’utilisation de l’unité centrale |	**Mesure :** % d’utilisation de l’unité centrale |
-|	**Fonctionnement :** inférieur à 30 % |	**Fonctionnement :** inférieur à 20 % |
-|	**Durée :** 10 minutes |	**Durée :** 15 minutes |
-|	**Agrégation de temps :** moyenne |	**Agrégation de temps :** moyenne |
-|	**Action :** diminuer le nombre de 1 |	**Action :** diminuer le nombre de 1 |
-|	**Refroidissement (minutes) :** 20 |	**Refroidissement (minutes) :** 10 |
+![Specific settings for LOB app.][asp-scale]
 
-### Taux d’inflation du plan App Service
+|   **Autoscale profile – Weekdays – App Service plan**     |   **Autoscale profile – Weekends – App Service plan**     |
+|   ----------------------------------------------------    |   ----------------------------------------------------    |
+|   **Name:** Weekday profile                               |   **Name:** Weekend profile                               |
+|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules            |
+|   **Profile:** Weekdays                                   |   **Profile:** Weekend                                    |
+|   **Type:** Recurrence                                    |   **Type:** Recurrence                                    |
+|   **Target range:** 5 to 20 instances                     |   **Target range:** 3 to 10 instances                     |
+|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                              |
+|   **Start time:** 9:00 AM                                 |   **Start time:** 9:00 AM                                 |
+|   **Time zone:** UTC-08                                   |   **Time zone:** UTC-08                                   |
+|                                                           |                                                           |
+|   **Autoscale rule (Scale Up)**                           |   **Autoscale rule (Scale Up)**                           |
+|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
+|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
+|   **Operation:** Greater than 60%                         |   **Operation:** Greater than 80%                         |
+|   **Duration:** 5 Minutes                                 |   **Duration:** 10 Minutes                                |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                           |
+|   **Action:** Increase count by 2                         |   **Action:** Increase count by 1                         |
+|   **Cool down (minutes):** 15                             |   **Cool down (minutes):** 20                             |
+|                                                           |                                                           |
+  	|   **Autoscale rule (Scale Down)**                     |   **Autoscale rule (Scale Down)**                         |
+|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
+|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
+|   **Operation:** Less than 30%                            |   **Operation:** Less than 20%                            |
+|   **Duration:** 10 minutes                                |   **Duration:** 15 minutes                                |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                           |
+|   **Action:** Decrease count by 1                         |   **Action:** Decrease count by 1                         |
+|   **Cool down (minutes):** 20                             |   **Cool down (minutes):** 10                             |
 
-Les plans App Service sont configurés pour une mise à l’échelle automatique, et fonctionneront ainsi au taux maximal par heure. Cette vitesse peut être calculée en fonction des valeurs fournies sur la règle de mise à l’échelle automatique.
+### <a name="app-service-plan-inflation-rate"></a>App Service plan inflation rate
 
-La compréhension et le calcul du *taux d’inflation du plan App Service* sont importants pour la mise à l’échelle du pool de Workers de l’environnement App Service, car les modifications d’un pool de Workers ne sont pas instantanées.
+App Service plans that are configured to autoscale will do so at a maximum rate per hour. This rate can be calculated based on the values provided on the autoscale rule.
 
-Le taux d’inflation du plan App Service est calculé comme suit :
+Understanding and calculating the *App Service plan inflation rate* is important for App Service environment autoscale because scale changes to a worker pool are not instantaneous.
 
-![Calcul du taux d’inflation du plan App Service.][ASP-Inflation]
+The App Service plan inflation rate is calculated as follows:
 
-Si l’on prend la règle Mise à l’échelle automatique - Mise à l’échelle supérieure du profil Jour de semaine, le plan App Service de production devrait se présenter comme suit :
+![App Service plan inflation rate calculation.][ASP-Inflation]
 
-![Taux d’inflation du plan App Service pour les jours de la semaine selon la règle Mise à l’échelle automatique – Mise à l’échelle supérieure.][Equation1]
+Based on the Autoscale – Scale Up rule for the Weekday profile of the production App Service plan, this would look as follows:
 
-Dans le cas de la règle Mise à l’échelle automatique – Mise à l’échelle supérieure pour le profil Week-end, la formule du plan App Service de production se présentera ainsi :
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Up rule.][Equation1]
 
-![Taux d’inflation du plan App Service pour les week-ends selon la règle Mise à l’échelle automatique – Mise à l’échelle supérieure.][Equation2]
+In the case of the Autoscale – Scale Up rule for the Weekend profile of the production App Service plan, the formula would resolve to:
 
-Cette valeur peut également être calculée pour les opérations de réduction.
+![App Service plan inflation rate for weekends based on Autoscale – Scale Up rule.][Equation2]
 
-Selon la règle Mise à l’échelle automatique - Mise à l’échelle inférieure pour le profil Jour de semaine, le plan App Service de production se présente comme suit :
+This value can also be calculated for scale-down operations.
 
-![Taux d’inflation du plan App Service pour les jours de la semaine selon la règle Mise à l’échelle automatique – Mise à l’échelle inférieure.][Equation3]
+Based on the Autoscale – Scale Down rule for the Weekday profile of the production App Service plan, this would look as follows:
 
-Dans le cas de la règle Mise à l’échelle automatique – Mise à l’échelle inférieure pour le profil Week-end, la formule du plan App Service de production se présentera ainsi :
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Down rule.][Equation3]
 
-![Taux d’inflation du plan App Service pour les week-ends selon la règle Mise à l’échelle automatique – Mise à l’échelle inférieure.][Equation4]
+In the case of the Autoscale – Scale Down rule for the Weekend profile of the production App Service plan, the formula would resolve to:  
 
-Cela signifie que le plan App Service de production peut augmenter d’un taux maximal de huit instances par heure durant la semaine et de quatre instances par heure durant le week-end. Et il peut libérer des instances à un taux maximal de quatre instances par heure durant la semaine et de six instances par heure durant les week-ends.
+![App Service plan inflation rate for weekends based on Autoscale – Scale Down rule.][Equation4]
 
-Si plusieurs plans App Service sont hébergés dans un pool de Workers, vous devez calculer le *taux total d’inflation* en fonction de la somme du taux d’inflation de tous les plans App Service hébergés dans ce pool de Workers.
+This means that the production App Service plan can grow at a maximum rate of eight instances per hour during the week and four instances per hour during the weekend. And it can release instances at a maximum rate of four instances per hour during the week and six instances per hour during weekends.
 
-![Calcul du taux d’inflation total pour plusieurs plans App Service hébergés dans un pool de Workers.][ASP-Total-Inflation]
+If multiple App Service plans are being hosted in a worker pool, you have to calculate the *total inflation rate* as the sum of the inflation rate for all the App Service plans that are being hosting in that worker pool.
 
-### Utilisation du taux d’inflation du plan App Service pour définir des règles de mise à l’échelle automatique du pool de Workers
+![Total inflation rate calculation for multiple App Service plans hosted in a worker pool.][ASP-Total-Inflation]
 
-Les pools de Workers qui hébergent des plans App Service configurés pour la mise à l’échelle automatique devront disposer d’une mémoire tampon adaptée. La mémoire tampon permet aux opérations de mise à l’échelle automatique d’augmenter et de réduire le plan App Service en fonction des besoins. La mémoire tampon minimale correspond au taux total d’inflation du plan App Service calculé.
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Use the App Service plan inflation rate to define worker pool autoscale rules
 
-Comme les opérations de mise à l’échelle de l’environnement App Service prennent un certain temps, toute modification doit tenir compte des demandes de modification pouvant se produire lorsqu’une opération de mise à l’échelle est en cours. Pour ce faire, nous recommandons l’utilisation du taux d’inflation du plan App Service total calculé en tant que nombre minimal d’instances ajoutées pour chaque opération de mise à l’échelle automatique.
+Worker pools that host App Service plans that are configured to autoscale will need to be allocated a buffer of capacity. The buffer allows for the autoscale operations to grow and shrink the App Service plan as needed. The minimum buffer would be the calculated Total App Service Plan Inflation Rate.
 
-Grâce à ces informations, Frank peut définir le profil et les règles de mise à l’échelle automatique suivants :
+Because App Service environment scale operations take some time to apply, any change should account for further demand changes that could happen while a scale operation is in progress. To accommodate this latency, we recommend that you use the calculated Total App Service Plan Inflation Rate as the minimum number of instances that are added for each autoscale operation.
 
-![Règles de profil de mise à l’échelle automatique pour un exemple d’application métier.][Worker-Pool-Scale]
+With this information, Frank can define the following autoscale profile and rules:
 
-|	**Profil de mise à l’échelle automatique – Jours de la semaine** |	**Profil de mise à l’échelle automatique – Week-ends** |
-|	----------------------------------------------------	|	--------------------------------------------	|
-|	**Nom :** profil jour de semaine |	**Nom :** profil week-end |
-|	**Mise à l’échelle selon :** Planification et règles de performances |	**Mise à l’échelle selon :** Planification et règles de performances |
-|	**Profil :** jours de la semaine |	**Profil :** week-end |
-|	**Type :** périodicité |	**Type :** périodicité |
-|	**Plage cible :** 13 à 25 instances |	**Plage cible :** 6 à 15 instances |
-|	**Jours :** lundi, mardi, mercredi, jeudi, vendredi |	**Jours :** samedi, dimanche |
-|	**Heure de début :** 7 h |	**Heure de début :** 9 h |
-|	**Fuseau horaire :** UTC-08 |	**Fuseau horaire :** UTC-08 |
-| | |
-|	**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |	**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-|	**Ressource :** pool de Workers 1 |	**Ressource :** pool de Workers 1 |
-|	**Mesure :** Employés disponibles |	**Mesure :** Employés disponibles |
-|	**Fonctionnement :** inférieur à 8 |	**Fonctionnement :** inférieur à 3 |
-|	**Durée :** 20 minutes |	**Durée :** 30 minutes |
-|	**Agrégation de temps :** moyenne |	**Agrégation de temps :** moyenne |
-|	**Action :** augmenter le nombre de 8 |	**Action :** augmenter le nombre de 3 |
-|	**Refroidissement (minutes) :** 180 |	**Refroidissement (minutes) :** 180 |
-| | |
-|	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
-|	**Ressource :** Pool de Workers 1 |	**Ressource :** Pool de Workers 1 |
-|	**Mesure :** Employés disponibles |	**Mesure :** Employés disponibles |
-|	**Fonctionnement :** supérieur à 8 |	**Fonctionnement :** supérieur à 3 |
-|	**Durée :** 20 minutes |	**Durée :** 15 minutes |
-|	**Agrégation de temps :** moyenne |	**Agrégation de temps :** moyenne |
-|	**Action :** diminuer le nombre de 2 |	**Action :** diminuer le nombre de 3 |
-|	**Refroidissement (minutes) :** 120 |	**Refroidissement (minutes) :** 120 |
+![Autoscale profile rules for LOB example.][Worker-Pool-Scale]
 
-La plage cible définie dans le profil est calculée par le nombre d’instances minimales du profil pour le plan App Service + la mémoire tampon.
+|   **Autoscale profile – Weekdays**                        |   **Autoscale profile – Weekends**                |
+|   ----------------------------------------------------    |   --------------------------------------------    |
+|   **Name:** Weekday profile                               |   **Name:** Weekend profile                       |
+|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules    |
+|   **Profile:** Weekdays                                   |   **Profile:** Weekend                            |
+|   **Type:** Recurrence                                    |   **Type:** Recurrence                            |
+|   **Target range:** 13 to 25 instances                    |   **Target range:** 6 to 15 instances             |
+|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                      |
+|   **Start time:** 7:00 AM                                 |   **Start time:** 9:00 AM                         |
+|   **Time zone:** UTC-08                                   |   **Time zone:** UTC-08                           |
+|                                                           |                                                   |
+|   **Autoscale rule (Scale Up)**                           |   **Autoscale rule (Scale Up)**                   |
+|   **Resource:** Worker pool 1                             |   **Resource:** Worker pool 1                     |
+|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
+|   **Operation:** Less than 8                              |   **Operation:** Less than 3                      |
+|   **Duration:** 20 minutes                                |   **Duration:** 30 minutes                        |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                   |
+|   **Action:** Increase count by 8                         |   **Action:** Increase count by 3                 |
+|   **Cool down (minutes):** 180                            |   **Cool down (minutes):** 180                    |
+|                                                           |                                                   |
+|   **Autoscale rule (Scale Down)**                         |   **Autoscale rule (Scale Down)**                 |
+|   **Resource:** Worker pool 1                             |   **Resource:** Worker pool 1                     |
+|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
+|   **Operation:** Greater than 8                           |   **Operation:** Greater than 3                   |
+|   **Duration:** 20 minutes                                |   **Duration:** 15 minutes                        |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                   |
+|   **Action:** Decrease count by 2                         |   **Action:** Decrease count by 3                 |
+|   **Cool down (minutes):** 120                            |   **Cool down (minutes):** 120                    |
 
-La plage maximale est la somme du maximum de toutes les plages pour tous les plans App Service hébergés dans le pool de Workers.
+The Target range defined in the profile is calculated by the minimum instances defined in the profile for the App Service plan + buffer.
 
-L’augmentation correspondant aux règles de mise à l’échelle doit être définie comme au moins 1 fois le taux d’inflation du plan App Service pour la mise à l’échelle supérieure.
+The Maximum range would be the sum of all the maximum ranges for all App Service plans hosted in the worker pool.
 
-La réduction correspondant aux règles de mise à l’échelle doit être définie sur un chiffre compris entre 1/2 fois et 1 fois le taux d’inflation du plan App Service pour une mise à l’échelle inférieure.
+The Increase count for the scale up rules should be set to at least 1X the App Service Plan Inflation Rate for scale up.
 
-### Mise à l’échelle automatique du pool frontal
+Decrease count can be adjusted to something between 1/2X or 1X the App Service Plan Inflation Rate for scale down.
 
-Les règles de mise à l’échelle automatique des serveurs frontaux sont plus simples que pour les pools de Workers. Le plus important est de vous assurer que la durée de la mesure et des temps de recharge prenne en compte le fait que les opérations de mise à l’échelle sur un plan App Service ne sont pas instantanées.
+### <a name="autoscale-for-front-end-pool"></a>Autoscale for front-end pool
 
-Dans ce scénario, Frank sait que le taux d’erreur augmente une fois que les serveurs frontaux atteignent 80 % d’utilisation du processeur. Pour éviter cela, il définit la règle de mise à l’échelle automatique pour augmenter les instances comme suit :
+Rules for front-end autoscale are simpler than for worker pools. Primarily, you should  
+make sure that duration of the measurement and the cooldown timers consider that scale operations on an App Service plan are not instantaneous.
 
-![Paramètres de mise à l’échelle automatique du pool frontal.][Front-End-Scale]
+For this scenario, Frank knows that the error rate increases after front ends reach 80% CPU utilization.
+To prevent this, he sets the autoscale rule to increase instances as follows:
 
-|	**Profil de l’échelle automatique : serveurs frontaux** |
-|	--------------------------------------------	|
-|	**Nom :** Mise à l’échelle automatique – Serveurs frontaux |
-|	**Mise à l’échelle selon :** Planification et règles de performances |
-|	**Profil :** tous les jours |
-|	**Type :** périodicité |
-|	**Plage cible :** 3 à 10 instances |
-|	**Jours :** tous les jours |
-|	**Heure de début :** 9 h |
-|	**Fuseau horaire :** UTC-08 |
-| |
-|	**Règle de mise à l’échelle automatique (mise à l’échelle supérieure)** |
-|	**Ressource :** Pool frontal |
-|	**Mesure :** % d’utilisation de l’unité centrale |
-|	**Fonctionnement :** supérieur à 60 % |
-|	**Durée :** 20 minutes |
-|	**Agrégation de temps :** moyenne |
-|	**Action :** augmenter le nombre de 3 |
-|	**Refroidissement (minutes) :** 120 |
-| |
-|	**Règle de mise à l’échelle automatique (mise à l’échelle inférieure)** |
-|	**Ressource :** Pool de Workers 1 |
-|	**Mesure :** % d’utilisation de l’unité centrale |
-|	**Fonctionnement :** inférieur à 30 % |
-|	**Durée :** 20 minutes |
-|	**Agrégation de temps :** moyenne |
-|	**Action :** diminuer le nombre de 3 |
-|	**Refroidissement (minutes) :** 120 |
+![Autoscale settings for front-end pool.][Front-End-Scale]
+
+|   **Autoscale profile – Front ends**              |
+|   --------------------------------------------    |
+|   **Name:** Autoscale – Front ends                |
+|   **Scale by:** Schedule and performance rules    |
+|   **Profile:** Everyday                           |
+|   **Type:** Recurrence                            |
+|   **Target range:** 3 to 10 instances             |
+|   **Days:** Everyday                              |
+|   **Start time:** 9:00 AM                         |
+|   **Time zone:** UTC-08                           |
+|                                                   |
+|   **Autoscale rule (Scale Up)**                   |
+|   **Resource:** Front-end pool                    |
+|   **Metric:** CPU %                               |
+|   **Operation:** Greater than 60%                 |
+|   **Duration:** 20 minutes                        |
+|   **Time aggregation:** Average                   |
+|   **Action:** Increase count by 3                 |
+|   **Cool down (minutes):** 120                    |
+|                                                   |
+|   **Autoscale rule (Scale Down)**                 |
+|   **Resource:** Worker pool 1                     |
+|   **Metric:** CPU %                               |
+|   **Operation:** Less than 30%                    |
+|   **Duration:** 20 Minutes                        |
+|   **Time aggregation:** Average                   |
+|   **Action:** Decrease count by 3                 |
+|   **Cool down (minutes):** 120                    |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -239,4 +242,8 @@ Dans ce scénario, Frank sait que le taux d’erreur augmente une fois que les s
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

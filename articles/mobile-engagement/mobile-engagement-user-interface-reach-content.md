@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Interface utilisateur d’Azure Mobile Engagement - Contenu Reach" 
-   description="Apprenez à gérer le contenu unique des différents types de campagnes de notifications Push dans Azure Mobile Engagement" 
+   pageTitle="Azure Mobile Engagement User Interface - Reach Content" 
+   description="Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,127 +16,133 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
-# Gestion du contenu unique des différents types de campagnes de notifications Push
+
+# <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>How to manage the unique content of the different types of push notification campaigns
  
-Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modifier le contenu de vos annonces, sondages, Push de données et vignettes (Windows Phone uniquement). Le paramètre du contenu des campagnes Push est spécifique au type de campagne.
+You can use the Content section of a new reach campaign to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The content setting of Push campaigns is specific to the type of campaign. 
  
-### Types de contenu :
-- Annonces
-- Sondages
-- Push de données
-- Vignettes (Windows Phone uniquement)
+### <a name="content-types:"></a>Content types:
+- Announcements
+- Polls
+- Data pushes
+- Tiles (Windows Phone Only)
  
-## Contenu des annonces
- ![Reach-Content1][30]
+## <a name="content-of-announcements"></a>Content of Announcements
+ ![Reach-Content1][30] 
 
-### Choisissez le type de votre annonce :
--    Notification uniquement : il s’agit d’une simple notification standard. Cela signifie que si un utilisateur clique dessus, aucun affichage supplémentaire n'apparaîtra. Seule l'action qui y est associée s'affichera.
--    Annonce texte : il s’agit d’une notification qui invite l’utilisateur à regarder une vue de texte.
--    Annonce Web : il s’agit d’une notification qui invite l’utilisateur à regarder l’affichage Web.
+### <a name="choose-the-type-of-your-announcement:"></a>Choose the type of your announcement:
+-    Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
+-    Text announcement: It is a notification that engages the user to have a look at a text view.
+-    Web announcement: It is a notification that engages the user to have a look at a web view.
 
-### Voir aussi
-- [Reach - Procédures - Annonces][Link 3]
+### <a name="see-also"></a>See also
+- [Reach - How Tos - Announcements][Link 3] 
 
-### À propos des annonces d'affichage Web :
-Les occurrences du modèle « {deviceid} » dans le code HTML ou le code JavaScript que vous fournissez ici seront automatiquement remplacées par l'identificateur de l'appareil qui affiche l'annonce. Il s'agit d'un moyen simple pour récupérer les identificateurs d'appareil Azure Mobile Engagement dans un service Web externe hébergé dans votre arrière-guichet. Si vous souhaitez créé un affichage Web plein écran (sans utiliser les boutons par défaut Action et Quitter que nous offrons), vous pouvez utiliser les fonctions suivantes depuis le code JavaScript de votre annonce d'affichage Web :
+### <a name="about-web-view-announcements:"></a>About Web View Announcements:
+Occurrences of the pattern "{deviceid}" in the HTML code or JavaScript code you provide here will be automatically replaced by the identifier of the device displaying the announcement. This is an easy way to retrieve Azure Mobile Engagement device identifiers in an external web service hosted on your back office.
+If you want to create a full screen web view (without the default Action and Exit buttons we provide) you can use the following functions from your web view announcement's JavaScript code: 
 
--    effectuer l’action de l’annonce : ReachContent.actionContent()
--    quitter l’annonce : ReachContent.actionContent()
+-    perform the announcement action: ReachContent.actionContent()
+-    exit from the announcement: ReachContent.exitContent()
  
-### Choisissez votre action :
+### <a name="choose-your-action:"></a>Choose your Action:
 
-### À propos des URL d'action :
-Toute URL qui peut être interprétée par le système d'exploitation d'un appareil cible peut être utilisée comme une URL d'action. Toute URL dédiée pouvant être prise en charge par votre application (par exemple pour permettre à vos utilisateurs de passer à un écran spécifique) peut également être utilisée comme URL d'action. Chaque occurrence du modèle {deviceid} est automatiquement remplacée par l'identificateur de l'appareil réalisant l'action. Cela peut être utilisé pour récupérer facilement des identificateurs d'appareil Azure Mobile Engagement via un service Web externe hébergé dans votre arrière-guichet.
+### <a name="about-action-urls:"></a>About Action URLs:
+Any URL that can be interpreted by a targeted device's operating system can be used as an action URL.
+Any dedicated URL that your application might support (e.g. to make users jump to a particular screen) can also be used as an action URL.
+Each occurrence of the {deviceid} pattern is automatically replaced by the identifier of the device performing the action. This can be used to easily retrieve Azure Mobile Engagement device identifiers via an external web service hosted on your back office.
 
-- **Actions Android et iOS**
-    - Ouvrir une page Web
-    - http://[web-site-domain\]
-    - Exemple :http://www.azure.com
-    - Envoyer un courrier électronique
-    - mailto:[destinataire-e-mail]?subject=[objet]&body=[message]
-    - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Envoyer un SMS
-    - sms:[numéro de téléphone]
-    - Exemple :sms:2125551212
-    - Composer un numéro de téléphone
-    - tel:[numéro de téléphone]
-    - Exemple :tel:2125551212
-- **Actions Android uniquement**
-    - Télécharger une application du Play Store
-    - market://details?id=[app package]
-    - Exemple :market://details?id=com.microsoft.office.word
-    - Démarrer une recherche géolocalisée
-    - geo:0,0?q=[requête de recherche]
-    - Exemple :geo:0,0?q=starbucks,paris
-- **Actions iOS uniquement**
-    - Télécharger une application depuis le Magasin d'applications
-    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8
-    - Exemple :http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
-    - Actions Windows
-    - Ouvrir une page Web
-    - http://[web-site-domain\]
-    - Exemple :http://www.azure.com
-    - Envoyer un courrier électronique
-    - mailto:[destinataire-e-mail]?subject=[objet]&body=[message]
-    - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Envoyer un SMS (application Skype du Store requise)
-    - sms:[numéro de téléphone]
-    - Exemple :sms:2125551212
-    - Composer un numéro de téléphone (application Skype du Store requise)
-    - tel:[numéro de téléphone]
-    - Exemple :tel:2125551212
-    - Télécharger une application du Play Store
-    - ms-windows-store:PDP?PFN=[ID de package d’application]
-    - Exemple :ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
-    - Démarrer une recherche Bing Cartes
-    - bingmaps:?q=[requête de recherche]
-    - Exemple :bingmaps:?q=starbucks,paris
-    - Utiliser un modèle personnalisé
-    - [schéma personnalisé]://[paramètres du schéma personnalisé]
-    - Exemple :myCustomProtocol://myCustomParams
-    - Utiliser un package de données (application du Store pour la lecture d'extension requise)
-    - [dossier][données].[extension]
-    - Exemple :myfolderdata.txt
+- **Android + iOS actions**
+    - Open a web page
+    - http://\[web-site-domain\] 
+    - Example:http://www.azure.com
+    - Send an e-mail
+    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+    - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - Send a SMS
+    - sms:\[phone-number\] 
+    - Example:sms:2125551212
+    - Dial a phone number
+    - tel:\[phone-number\] 
+    - Example:tel:2125551212
+- **Android only actions**
+    - Download an application on the Play Store
+    - market://details?id=\[app package\] 
+    - Example:market://details?id=com.microsoft.office.word
+    - Start a geo-localized search
+    - geo:0,0?q=\[search query\] 
+    - Example:geo:0,0?q=starbucks,paris
+- **iOS only actions**
+    - Download an application on the App Store
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
+    - Example:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+    - Windows Actions
+    - Open a web page
+    - http://\[web-site-domain\] 
+    - Example:http://www.azure.com
+    - Send an e-mail
+    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+    - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - Send a SMS (Skype Store App required)
+    - sms:\[phone-number\] 
+    - Example:sms:2125551212
+    - Dial a phone number (Skype Store App required)
+    - tel:\[phone-number\] 
+    - Example:tel:2125551212
+    - Download an application on the Play Store
+    - ms-windows-store:PDP?PFN=\[app package ID\] 
+    - Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
+    - Start a bingmaps search
+    - bingmaps:?q=\[search query\] 
+    - Example:bingmaps:?q=starbucks,paris
+    - Use a custom scheme
+    - \[custom scheme\]://\[custom scheme params\] 
+    - Example:myCustomProtocol://myCustomParams
+    - Use a package data (Store App for extension read required)
+    - \[folder\]\[data\].\[extension\] 
+    - Example:myfolderdata.txt
  
-### Génération d'une URL de suivi :
--    Consultez la section « Paramètres » de la <Documentation de l’interface utilisateur> pour les instructions relatives à la génération d’une URL de suivi qui permettra aux utilisateurs de télécharger une autre de vos applications.
+### <a name="build-a-tracking-url:"></a>Build a Tracking URL:
+-    See the “Settings” section of the <UI Documentation> for instruction on building a tracking URL that will allow users to download one of your other applications.
  
-### Définition du texte de votre annonce
-Remplissez le titre, le contenu et le texte des boutons de votre annonce. Vous pouvez cibler une audience pour une future campagne suivant les commentaires Reach indiquant la façon dont les utilisateurs ont répondu à cette campagne. Le ciblage de l'audience peut se baser sur les commentaires déterminant si la campagne a été envoyée par notification Push, si elle a obtenu une réponse, si elle a été activée ou quittée.
+### <a name="define-the-texts-of-your-announcement"></a>Define the texts of your announcement
+Fill in the title, content, and button texts of your announcement. You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on the feedback of whether this campaign was just pushed, replied, actioned, or exited.
 
-### Voir aussi
-- [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Link 28]
+### <a name="see-also"></a>See also
+- [UI Documentation - Reach - New Push Criterion][Link 28]
 
-## Contenu des sondages
-![Reach-Content2][31] Remplissez le titre, la description et le texte des boutons de votre annonce. Ajoutez ensuite des questions et des choix de réponse pour ces questions. Vous pouvez cibler une audience pour une future campagne suivant les commentaires Reach indiquant la façon dont les utilisateurs ont répondu à cette campagne. Le ciblage de l'audience est déterminé selon que la campagne est issue d'une transmission de type push, qu'elle a obtenu une réponse, qu'elle a été activée ou quittée. Le ciblage de l'audience peut également se baser sur les commentaires de réponse du sondage pour lequel la question à choix multiple est utilisée comme critère.
+## <a name="content-of-polls"></a>Content of Polls
+![Reach-Content2][31] Fill in the title, description, and button texts of your announcement. Then, add questions and choices for the answers to your questions.
+You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited. Audience targeting can also be based on Poll answer feedback, where the question and answer choice are used as criteria.
 
-### Voir aussi
-- [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Link 28]
+### <a name="see-also"></a>See also
+- [UI Documentation - Reach - New Push Criterion][Link 28]
  
-## Contenu des Push de données
-![Reach-Content3][32]
+## <a name="content-of-data-pushes"></a>Content of Data Pushes
+![Reach-Content3][32] 
 
-### Choisissez le type de vos données :
-- Texte
-- Données binaires
-- Données Base64
+### <a name="choose-the-type-of-your-data:"></a>Choose the type of your data:
+- Text
+- Binary data
+- Base64 data
 
-### Définition du contenu de vos données
-- Si vous sélectionnez une transmission de type push des données de texte, copiez et collez le texte dans la boîte « contenu ».
-- Si vous sélectionnez une transmission de type push de données binaires ou base64, utilisez le bouton « Télécharger votre fichier » pour télécharger votre fichier.
-- Vous pouvez cibler une audience pour une future campagne suivant les commentaires Reach indiquant la façon dont les utilisateurs ont répondu à cette campagne. Le ciblage de l'audience est déterminé selon que la campagne est issue d'une transmission de type push, qu'elle a obtenu une réponse, qu'elle a été activée ou quittée.
+### <a name="define-the-content-of-your-data"></a>Define the content of your data
+- If you selected to push text data, copy and paste the text into the "content" box.
+- If you selected to push either binary or base64 data, use the "upload your file" button to upload your file.
+- You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited.
 
-### Voir aussi
-- [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Link 28]
+### <a name="see-also"></a>See also
+- [UI Documentation - Reach - New Push Criterion][Link 28]
 
-## Contenu des vignettes (Windows Phone uniquement)
+## <a name="content-of-tiles-(windows-phone-only)"></a>Content of Tiles (Windows Phone only)
 ![Reach-Content4][33]
 
-### Définition du contenu de vos vignettes
-La charge utile de la vignette correspond au texte qui s'affichera dans la vignette de votre application sur les appareils Windows Phone. Un Push de vignette est la version du service de notifications Push de Microsoft (MPNS) d'un Push natif pour Windows Phone. Ce type de Push de vignette est le seul type de push qui n'a pas de réponse. L'audience des futures campagnes ne peut donc pas être déterminée en fonction des résultats d'une campagne de Push de vignette.
+### <a name="define-the-content-of-your-tile"></a>Define the content of your tile
+The tile payload is the text to be displayed in the tile of your app on Windows Phone devices.
+A tile push is the Microsoft Push Notification Service (MPNS) version of a native push for Windows Phone. The tile push type is the only push type that does not have a response and so the audience of future campaigns can't be built on the results of a tile push campaign. 
 
-### Voir aussi
-- [Documentation sur les API- API Reach - Push natif][Link 4]
+### <a name="see-also"></a>See also
+- [API Documentation - Reach API - Native Push][Link 4]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -230,4 +236,8 @@ La charge utile de la vignette correspond au texte qui s'affichera dans la vigne
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

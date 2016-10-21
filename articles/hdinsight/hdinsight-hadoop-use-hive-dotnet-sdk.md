@@ -1,50 +1,51 @@
 <properties
-	pageTitle="Exécuter des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight | Microsoft Azure"
-	description="Apprenez à envoyer des tâches Hadoop à Azure HDInsight Hadoop à l’aide du Kit de développement logiciel (SDK) .NET HDInsight."
-	editor="cgronlun"
-	manager="jhubbard"
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian"/>
+    pageTitle="Run Hive queries using HDInsight .NET SDK | Microsoft Azure"
+    description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop using HDInsight .NET SDK."
+    editor="cgronlun"
+    manager="jhubbard"
+    services="hdinsight"
+    documentationCenter=""
+    tags="azure-portal"
+    authors="mumian"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
    ms.date="09/14/2016"
-	ms.author="jgao"/>
+    ms.author="jgao"/>
 
-# Exécuter des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight
+
+# <a name="run-hive-queries-using-hdinsight-.net-sdk"></a>Run Hive queries using HDInsight .NET SDK
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 
-Découvrez comment envoyer des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight.
+Learn how to submit Hive queries using HDInsight .NET SDK.
 
-> [AZURE.NOTE] Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d’informations sur l’utilisation d’un client Linux, OS X ou Unix pour utiliser Hive, utilisez le sélecteur d’onglet en haut de l’article.
+> [AZURE.NOTE] The steps in this article must be performed from a Windows client. For information on using a Linux, OS X, or Unix client to work with Hive, use the tab selector shown on the top of the article.
 
-##Composants requis
+##<a name="prerequisites"></a>Prerequisites
 
-Avant de commencer cet article, vous devez disposer des éléments suivants :
+Before you begin this article, you must have the following:
 
-- **Cluster Hadoop dans HDInsight**. Consultez [Création du cluster et de la base de données SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+- **A Hadoop cluster in HDInsight**. See [Create cluster and SQL databvase](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 - **Visual Studio 2012/2013/2015**.
 
-##Envoyer des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight
+##<a name="submit-hive-queries-using-hdinsight-.net-sdk"></a>Submit Hive queries using HDInsight .NET SDK
 
-Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET.
+The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
-**Pour soumettre les travaux**
+**To Submit jobs**
 
-1. Créez une application console C# dans Visual Studio.
-2. À partir de la console du gestionnaire de package Nuget, exécutez la commande suivante.
+1. Create a C# console application in Visual Studio.
+2. From the Nuget Package Manager Console, run the following command.
 
-		Install-Package Microsoft.Azure.Management.HDInsight.Job
+        Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-2. Utilisez le code suivant :
+2. Use the following code:
 
         using System.Collections.Generic;
         using System.IO;
@@ -127,23 +128,29 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
             }
         }
 
-5. Appuyez sur **F5** pour exécuter l'application.
+5. Press **F5** to run the application.
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
+In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* [Prise en main d'Azure HDInsight][hdinsight-get-started]
-* [Créer des clusters Hadoop dans HDInsight][hdinsight-provision]
-* [Gérer les clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md)
-* [Référence du Kit de développement logiciel (SDK) .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
-* [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
-* [Utilisation de Sqoop avec HDInsight](hdinsight-use-sqoop-mac-linux.md)
-* [Créer des applications .NET HDInsight d’authentification non interactives](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+* [Get started with Azure HDInsight][hdinsight-get-started]
+* [Create Hadoop clusters in HDInsight][hdinsight-provision]
+* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md)
+* [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use Sqoop with HDInsight](hdinsight-use-sqoop-mac-linux.md)
+* [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

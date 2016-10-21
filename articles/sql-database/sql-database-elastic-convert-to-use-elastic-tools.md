@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrer des bases de données existantes pour la montée en charge | Microsoft Azure"
-   description="Conversion de bases de données partitionnées pour utiliser les outils de base de données élastique en créant un gestionnaire de cartes de partitions"
+   pageTitle="Migrate existing databases to scale-out | Microsoft Azure"
+   description="Convert sharded databases to use elastic database tools by creating a shard map manager"
    services="sql-database"
    documentationCenter=""
    authors="ddove"
@@ -16,170 +16,171 @@
    ms.date="04/26/2016"
    ms.author="ddove"/>
 
-# Migration de bases de données existantes pour une mise à l’échelle
 
-Gérez facilement vos bases de données partitionnées et montées en charge existantes à l’aide des outils de base de données Base de données SQL Azure (comme la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md)). Vous devez d’abord convertir un ensemble existant de bases de données pour utiliser le [Gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
+# <a name="migrate-existing-databases-to-scale-out"></a>Migrate existing databases to scale-out
 
-## Vue d'ensemble
-Pour migrer une base de données partitionnée existante :
+Easily manage your existing scaled-out sharded databases using Azure SQL Database database tools (such as the [Elastic Database client library](sql-database-elastic-database-client-library.md)). You must first convert an existing set of databases to use the [shard map manager](sql-database-elastic-scale-shard-map-management.md). 
 
-1. Préparez la [base de données pour le Gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
-2. Créer la carte de partitions.
-3. Préparer les partitions individuelles.
-2. Ajoutez les mappages à la carte de partitions.
+## <a name="overview"></a>Overview
+To migrate an existing sharded database: 
 
-Ces techniques peuvent être implémentées à l’aide de la [bibliothèque cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou des scripts PowerShell sur [Azure SQL DB - Scripts d’outils de base de données élastique](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Les exemples fournis ici utilisent les scripts PowerShell.
+1. Prepare the [shard map manager database](sql-database-elastic-scale-shard-map-management.md).
+2. Create the shard map.
+3. Prepare the individual shards.  
+2. Add mappings to the shard map.
 
-Pour plus d’informations sur la classe ShardMapManager, consultez la page [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Pour obtenir une présentation des outils de base de données élastique, consultez [Vue d’ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md).
+These techniques can be implemented using either the [.NET Framework client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
-## Préparer la base de données pour le Gestionnaire de cartes de partitions
+For more information about the ShardMapManager, see [Shard map management](sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
 
-Le Gestionnaire de cartes de partitions est une base de données spéciale qui contient les données permettant de gérer les bases de données avec montée en charge. Vous pouvez utiliser une base de données existante ou en créer une. Une base de données agissant en tant que Gestionnaire de cartes de partitions ne peut pas être identique à une partition. Le script PowerShell ne crée pas la base de données à votre place.
+## <a name="prepare-the-shard-map-manager-database"></a>Prepare the shard map manager database
 
-## Étape 1 : créer un gestionnaire de cartes de partitions
+The shard map manager is a special database that contains the data to manage scaled-out databases. You can use an existing database, or create a new database. Note that a database acting as shard map manager should not be the same database as a shard. Also note that the PowerShell script does not create the database for you. 
 
-	# Create a shard map manager. 
-	New-ShardMapManager -UserName '<user_name>' 
-	-Password '<password>' 
-	-SqlServerName '<server_name>' 
-	-SqlDatabaseName '<smm_db_name>' 
-	#<server_name> and <smm_db_name> are the server name and database name 
-	# for the new or existing database that should be used for storing 
-	# tenant-database mapping information.
+## <a name="step-1:-create-a-shard-map-manager"></a>Step 1: create a shard map manager
 
-### Pour récupérer le gestionnaire de cartes de partitions
+    # Create a shard map manager. 
+    New-ShardMapManager -UserName '<user_name>' 
+    -Password '<password>' 
+    -SqlServerName '<server_name>' 
+    -SqlDatabaseName '<smm_db_name>' 
+    #<server_name> and <smm_db_name> are the server name and database name 
+    # for the new or existing database that should be used for storing 
+    # tenant-database mapping information.
 
-Après la création, vous pouvez récupérer le gestionnaire de cartes de partitions avec cette applet de commande. Cette étape est nécessaire chaque fois que vous devez utiliser l’objet ShardMapManager.
+### <a name="to-retrieve-the-shard-map-manager"></a>To retrieve the shard map manager
 
-	# Try to get a reference to the Shard Map Manager  
-	$ShardMapManager = Get-ShardMapManager -UserName '<user_name>' 
-	-Password '<password>' 
-	-SqlServerName '<server_name>' 
-	-SqlDatabaseName '<smm_db_name>' 
+After creation, you can retrieve the shard map manager with this cmdlet. This step is needed every time you need to use the ShardMapManager object.
+
+    # Try to get a reference to the Shard Map Manager  
+    $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' 
+    -Password '<password>' 
+    -SqlServerName '<server_name>' 
+    -SqlDatabaseName '<smm_db_name>' 
 
   
-## Étape 2 : Création de la carte de partitions
+## <a name="step-2:-create-the-shard-map"></a>Step 2: create the shard map
 
-Vous devez sélectionner le type de carte de partitions à créer. Votre choix dépend de l’architecture de la base de données :
+You must select the type of shard map to create. The choice depends on the database architecture: 
 
-1. Client unique par base de données (Pour rechercher des termes spécifiques, consultez le [glossaire](sql-database-elastic-scale-glossary.md).)
-2. Plusieurs clients par base de données (deux types) :
-	3. Mappage de liste
-	4. Mappage de plage
+1. Single tenant per database (For terms, see the [glossary](sql-database-elastic-scale-glossary.md).) 
+2. Multiple tenants per database (two types):
+    3. List mapping
+    4. Range mapping
  
 
-Pour un modèle de client unique, créez une carte de partitions de **mappage de liste**. Le modèle à un seul client attribue une base de données par client. Il s’agit d’un modèle efficace pour les développeurs SaaS, car il simplifie la gestion.
+For a single-tenant model, create a **list mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
 
-![Mappage de liste][1]
+![List mapping][1]
 
-Le modèle mutualisé affecte plusieurs clients à une seule base de données (et vous pouvez distribuer des groupes de clients sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, nous attribuons une plage de clients à une base de données à l’aide du **mappage de plage**.
+The multi-tenant model assigns several tenants to a single database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, we assign a range of tenants to a database using **range mapping**. 
  
 
-![Mappage de plage][2]
+![Range mapping][2]
 
-Vous pouvez également implémenter un modèle de base de données mutualisée à l’aide d’un *mappage de liste* pour affecter plusieurs clients à une base de données unique. Par exemple, DB1 est utilisée pour stocker les informations d’id client 1 et 5 et DB2 stocke les données pour les clients 7 et 10.
+Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to a single database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
 
-![Plusieurs clients sur une base de données unique][3]
+![Muliple tenants on single DB][3] 
 
-**Selon votre choix, procédez de l’une des manières suivantes :**
+**Based on your choice, choose one of these options:**
 
-### Option 1 : Créer une carte de partitions pour un mappage de liste
-Créez une carte de partitions à l’aide de l’objet ShardMapManager.
+### <a name="option-1:-create-a-shard-map-for-a-list-mapping"></a>Option 1: create a shard map for a list mapping
+Create a shard map using the ShardMapManager object. 
 
-	# $ShardMapManager is the shard map manager object. 
-	$ShardMap = New-ListShardMap -KeyType $([int]) 
-	-ListShardMapName 'ListShardMap' 
-	-ShardMapManager $ShardMapManager 
+    # $ShardMapManager is the shard map manager object. 
+    $ShardMap = New-ListShardMap -KeyType $([int]) 
+    -ListShardMapName 'ListShardMap' 
+    -ShardMapManager $ShardMapManager 
  
  
-### Option 2 : Créer une carte de partitions pour un mappage de plage
+### <a name="option-2:-create-a-shard-map-for-a-range-mapping"></a>Option 2: create a shard map for a range mapping
 
-Notez que pour utiliser ce modèle de mappage, les valeurs d’id client doivent être des plages continues. De plus, il est raisonnable d’avoir un écart dans les plages en ignorant simplement la plage pendant la création de bases de données.
+Note that to utilize this mapping pattern, tenant id values needs to be continuous ranges, and it is acceptable to have gap in the ranges by simply skipping the range when creating the databases.
 
-	# $ShardMapManager is the shard map manager object 
-	# 'RangeShardMap' is the unique identifier for the range shard map.  
-	$ShardMap = New-RangeShardMap 
-	-KeyType $([int]) 
-	-RangeShardMapName 'RangeShardMap' 
-	-ShardMapManager $ShardMapManager 
+    # $ShardMapManager is the shard map manager object 
+    # 'RangeShardMap' is the unique identifier for the range shard map.  
+    $ShardMap = New-RangeShardMap 
+    -KeyType $([int]) 
+    -RangeShardMapName 'RangeShardMap' 
+    -ShardMapManager $ShardMapManager 
 
-### Option 3 : Mappages de liste sur une base de données unique
-La configuration de ce modèle nécessite également la création d’un mappage de liste comme indiqué à l’étape 2, option 1.
+### <a name="option-3:-list-mappings-on-a-single-database"></a>Option 3: List mappings on a single database
+Setting up this pattern also requires creation of a list map as shown in step 2, option 1.
 
-## Étape 3 : préparer les partitions individuelles
+## <a name="step-3:-prepare-individual-shards"></a>Step 3: Prepare individual shards
 
-Ajoutez chaque partition (base de données) dans le gestionnaire de cartes de partitions. Cela prépare les bases de données individuelles à stocker les informations de mappage. Exécutez cette méthode sur chaque partition.
-	 
-	Add-Shard 
-	-ShardMap $ShardMap 
-	-SqlServerName '<shard_server_name>' 
-	-SqlDatabaseName '<shard_database_name>'
-	# The $ShardMap is the shard map created in step 2.
+Add each shard (database) to the shard map manager. This prepares the individual databases for storing mapping information. Execute this method on each shard.
+     
+    Add-Shard 
+    -ShardMap $ShardMap 
+    -SqlServerName '<shard_server_name>' 
+    -SqlDatabaseName '<shard_database_name>'
+    # The $ShardMap is the shard map created in step 2.
  
 
-## Étape 4 : Ajouter des mappages
+## <a name="step-4:-add-mappings"></a>Step 4: Add mappings
 
-L’ajout de mappages varie selon le type de carte de partitions que vous avez créé. Si vous avez créé un mappage de liste, vous ajoutez des mappages de liste. Si vous avez créé un mappage de plage, vous ajoutez des mappages de plage.
+The addition of mappings depends on the kind of shard map you created. If you created a list map, you add list mappings. If you created a range map, you add range mappings.
 
-### Option 1 : Mapper les données pour un mappage de liste
+### <a name="option-1:-map-the-data-for-a-list-mapping"></a>Option 1: map the data for a list mapping
 
-Mappez les données en ajoutant un mappage de liste pour chaque client.
+Map the data by adding a list mapping for each tenant.  
 
-	# Create the mappings and associate it with the new shards 
-	Add-ListMapping 
-	-KeyType $([int]) 
-	-ListPoint '<tenant_id>' 
-	-ListShardMap $ShardMap 
-	-SqlServerName '<shard_server_name>' 
-	-SqlDatabaseName '<shard_database_name>' 
+    # Create the mappings and associate it with the new shards 
+    Add-ListMapping 
+    -KeyType $([int]) 
+    -ListPoint '<tenant_id>' 
+    -ListShardMap $ShardMap 
+    -SqlServerName '<shard_server_name>' 
+    -SqlDatabaseName '<shard_database_name>' 
 
-### Option 2 : Mapper les données pour un mappage de plage
+### <a name="option-2:-map-the-data-for-a-range-mapping"></a>Option 2: map the data for a range mapping
 
-Ajoutez les mappages de plage pour la plage d’id client – associations de base de données :
+Add the range mappings for all the tenant id range – database associations:
 
-	# Create the mappings and associate it with the new shards 
-	Add-RangeMapping 
-	-KeyType $([int]) 
-	-RangeHigh '5' 
-	-RangeLow '1' 
-	-RangeShardMap $ShardMap 
-	-SqlServerName '<shard_server_name>' 
-	-SqlDatabaseName '<shard_database_name>' 
-
-
-### Étape 4, option 3 : mapper les données de plusieurs clients sur une base de données unique
-
-Pour chaque client, exécutez la commande Add-ListMapping (option 1, ci-dessus).
+    # Create the mappings and associate it with the new shards 
+    Add-RangeMapping 
+    -KeyType $([int]) 
+    -RangeHigh '5' 
+    -RangeLow '1' 
+    -RangeShardMap $ShardMap 
+    -SqlServerName '<shard_server_name>' 
+    -SqlDatabaseName '<shard_database_name>' 
 
 
-## Vérification des mappages
+### <a name="step-4-option-3:-map-the-data-for-multiple-tenants-on-a-single-database"></a>Step 4 option 3: map the data for multiple tenants on a single database
 
-Vous pouvez interroger les informations sur les partitions existantes et les mappages associés à l’aide des commandes suivantes :
-
-	# List the shards and mappings 
-	Get-Shards -ShardMap $ShardMap 
-	Get-Mappings -ShardMap $ShardMap 
-
-## Résumé
-
-Une fois que vous avez terminé l’installation, vous pouvez commencer à utiliser la bibliothèque cliente de base de données élastique. Vous pouvez également utiliser le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et la [requête sur plusieurs partitions](sql-database-elastic-scale-multishard-querying.md).
-
-## Étapes suivantes
+For each tenant, run the Add-ListMapping (option 1, above). 
 
 
-Obtenez les scripts PowerShell à partir de [scripts d’outils de base de données élastique Azure SQL DB](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+## <a name="checking-the-mappings"></a>Checking the mappings
 
-Les outils sont également disponibles sur GitHub : [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+Information about the existing shards and the mappings associated with them can be queried using following commands:  
 
-Utilisez l’outil de fractionnement et de fusion pour déplacer des données, à partir d’un modèle mutualisé ou vers celui-ci, vers un modèle de client unique. Consultez [Outil de fractionnement et de fusion](sql-database-elastic-scale-get-started.md).
+    # List the shards and mappings 
+    Get-Shards -ShardMap $ShardMap 
+    Get-Mappings -ShardMap $ShardMap 
 
-## Ressources supplémentaires
+## <a name="summary"></a>Summary
 
-Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Once you have completed the setup, you can begin to use the Elastic Database client library. You can also use [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard query](sql-database-elastic-scale-multishard-querying.md).
 
-## Questions et demandes de fonctionnalités
+## <a name="next-steps"></a>Next steps
 
-Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
+
+Get the PowerShell scripts from [Azure SQL DB-Elastic Database tools sripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+
+The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+
+Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](sql-database-elastic-scale-get-started.md).
+
+## <a name="additional-resources"></a>Additional resources
+
+For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+## <a name="questions-and-feature-requests"></a>Questions and Feature Requests
+
+For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
@@ -187,4 +188,8 @@ Pour toute question, contactez-nous sur le [forum Base de données SQL](http://s
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

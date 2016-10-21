@@ -1,6 +1,6 @@
 <properties
- pageTitle="Haute disponibilité et récupération d’urgence IoT Hub | Microsoft Azure"
- description="Décrit les options qui vous aident à créer des solutions IoT à haute disponibilité dotées de fonctionnalités de récupération d’urgence."
+ pageTitle="IoT Hub HA and DR | Microsoft Azure"
+ description="Describes features that help to build highly available IoT solutions with disaster recovery capabilities."
  services="iot-hub"
  documentationCenter=""
  authors="fsautomata"
@@ -16,48 +16,52 @@
  ms.date="02/03/2016"
  ms.author="elioda"/>
 
-# Haute disponibilité et récupération d’urgence IoT Hub :
 
-En tant que service Azure, IoT Hub offre la haute disponibilité à l’aide de redondances au niveau de la région Azure, sans aucun travail supplémentaire requis par la solution. En outre, Azure offre certaines fonctions qui aident à construire des solutions avec des fonctionnalités de récupération d’urgence ou disponibilité inter-régions si nécessaire. Vous devez concevoir et préparer vos solutions de manière à tirer parti de ces fonctionnalités afin de fournir une haute disponibilité globale inter-régions aux appareils et à l’utilisateur. L’article [Guide technique de la résilience Azure](../resiliency/resiliency-technical-guidance.md) décrit les fonctionnalités intégrées Azure permettant la continuité d’activité et la récupération d’urgence. Le document [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure][] contient des recommandations en matière d’architecture sur les stratégies pour les applications Azure permettant de bénéficier de la haute disponibilité et de la récupération d’urgence.
+# <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub high availability and disaster recovery
 
-## Récupération d’urgence Azure IoT Hub
-En plus de la haute disponibilité intra-région, IoT Hub implémente des mécanismes de basculement pour la récupération d’urgence qui ne nécessitent aucune intervention de l’utilisateur. La récupération d’urgence IoT Hub est lancée automatiquement et a un objectif de temps de récupération (RTO) de 2 à 26 heures, ainsi que les objectifs de point de récupération (RPO) suivants.
+As an Azure service, IoT Hub provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. In addition, Azure offers a number of features that help to build solutions with disaster recovery (DR) capabilities or cross-region availability if required. You must design and prepare your solutions to take advantage of these DR features if you want to provide global, cross-region high availability for devices or users. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
 
-| Fonctionnalités | RPO |
+## <a name="azure-iot-hub-dr"></a>Azure IoT Hub DR
+In addition to intra-region HA, IoT Hub implements failover mechanisms for disaster recovery that require no intervention from the user. IoT Hub DR is self-initiated and has a recovery time objective (RTO) of 2-26 hours, and the following recovery point objectives (RPOs).
+
+| Functionality | RPO |
 | ------------- | --- |
-| Disponibilité du service pour les opérations de Registre et de communication | Perte éventuelle du CName |
-| Données d’identité dans le Registre d’identité des appareils | Perte de données entre 0 et 5 minutes |
-| Messages appareil-à-cloud | Perte de tous les messages non lus |
-| Messages de surveillance des opérations | Perte de tous les messages non lus |
-| Messages cloud-à-appareil | Perte de données entre 0 et 5 minutes |
-| File d’attente de rétroaction cloud-à-appareil | Perte de tous les messages non lus |
+| Service availability for registry and communication operations | Possible CName loss |
+| Identity data in device identity registry | 0-5 mins data loss |
+| Device-to-cloud messages | All unread messages are lost |
+| Operations monitoring messages | All unread messages are lost |
+| Cloud-to-device messages | 0-5 mins data loss |
+| Cloud-to-device feedback queue | All unread messages are lost |
 
-## Basculement régional avec IoT Hub
+## <a name="regional-failover-with-iot-hub"></a>Regional failover with IoT Hub
 
-Un traitement complet des topologies de déploiement dans les solutions IoT est hors du propos de cet article, mais, pour les besoins de la haute disponibilité et de la récupération d’urgence, nous allons prendre en compte le modèle de déploiement *basculement régional*.
+A complete treatment of deployment topologies in IoT solutions is outside the scope of this article, but for the purpose of high availability and disaster recovery we will consider the *regional failover* deployment model.
 
-Dans un modèle de basculement régional, le serveur principal de solution s’exécute principalement sur un site de centre de données, mais un hub IoT et le serveur principal supplémentaire sont déployés dans un autre emplacement de centre de données à des fins de basculement, au cas où le hub IoT du centre de données principal subirait une panne ou si la connectivité réseau du centre de données principal était coupée. Les appareils utilisent un point de terminaison secondaire à chaque fois que la passerelle principale ne peut pas être atteinte. Grâce à la capacité de basculement entre régions, il est possible d’améliorer la disponibilité de la solution au-delà de la haute disponibilité au niveau d’une seule région.
+In a regional failover model, the solution back end is running primarily in one datacenter location, but an additional IoT hub and back end are deployed in another datacenter location for failover purposes, in case the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is somehow interrupted. Devices use a secondary service endpoint whenever the primary gateway cannot be reached. With a cross-region failover capability, the solution availability can be improved beyond the high availability of a single region.
 
-Globalement, pour implémenter un modèle de basculement régional IoT Hub, vous aurez besoin des éléments suivants.
+At a high level, to implement a regional failover model with IoT Hub, you will need the following.
 
-* **Un hub IoT secondaire et un appareil logique de routage secondaire** : en cas d’interruption de service dans votre région principale, les appareils doivent commencer à se connecter à votre région secondaire. Étant donné l’état de la plupart des services impliqués, il est courant pour les administrateurs de solution de déclencher le processus de basculement inter-régions. La meilleure façon de communiquer le nouveau point de terminaison aux appareils tout en conservant le contrôle du processus consiste à consulter régulièrement un service de *conciergerie* pour connaître le point de terminaison actif en cours. Le service de concierge peut être une simple application web répliquée accessible à l’aide de techniques de redirection DNS (par exemple, l’utilisation d’[Azure Traffic Manager][]).
-* **Réplication du registre d’identité** : pour être utilisable, le hub IoT secondaire doit contenir toutes les identités d’appareils devant être en mesure de se connecter à la solution. La solution doit conserver des sauvegardes géo-répliquées d’identités d’appareils et les télécharger dans le hub IoT secondaire avant de basculer le point de terminaison actif des appareils. La fonctionnalité d’exportation d’identité d’appareils IoT Hub est très utile dans ce contexte. Pour plus d’informations, consultez [Guide du développeur IoT Hub - Registre d’identité][].
-* **Fusion logique** : lorsque la région principale redevient disponible, l’ensemble des états et des données qui ont été créés dans le site secondaire doit revenir à la région primaire. Cette opération est fonction des identités d’appareil et des métadonnées d’application, qui doivent être fusionnées avec le hub IoT principal et d’autres magasins spécifiques à l’application dans la région primaire. Pour simplifier cette opération, il est généralement recommandé d’utiliser des opérations idempotentes. Cela réduit les effets secondaires d’une éventuelle distribution continue d’événements, mais également ceux des doublons ou de la livraison d’événements hors service. En outre, la logique d’application doit être conçue pour tolérer les éventuelles incohérences ou de légers retards. Cela est dû au temps additionnel que le système prend pour se réparer ou en fonction des objectifs de points de récupération (RPO).
+* **A secondary IoT hub and device routing logic**: In the case of a service disruption in your primary region, devices must start connecting to your secondary region. Given the state-aware nature of most services involved, it is common for solution administrators to trigger the inter-region failover process. The best way to communicate the new endpoint to devices, while maintaining control of the process, is have them regularly check a *concierge* service for the current active endpoint. The concierge service can be a simple web application that is replicated and kept reachable using DNS-redirection techniques (for example, using [Azure Traffic Manager][]).
+* **Identity registry replication** - In order to be usable, the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is very useful in this context. For more information, see [IoT Hub Developer Guide - identity registry][].
+* **Merging logic** - When the primary region becomes available again, all the state and data that have been created in the secondary site must be migrated back to the primary region. This mostly relates to device identities and application meta-data, which must be merged with the primary IoT hub and any other application-specific stores in the primary region. To simplify this step, it is usually recommended that you use idempotent operations. This minimizes side-effects not only from eventual consistent distribution of events, but also from duplicates or out-of-order delivery of events. In addition, the application logic should be designed to tolerate potential inconsistencies or "slightly" out of date-state. This is due to the additional time it takes for the system to "heal" based on recovery point objectives (RPO).
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Suivez ces liens pour en savoir plus sur Azure IoT Hub :
+Follow these links to learn more about Azure IoT Hub:
 
-- [Prise en main des IoT Hubs (didacticiel).][lnk-get-started]
-- [Qu’est-ce qu’Azure IoT Hub ?][]
+- [Get started with IoT Hubs (Tutorial)][lnk-get-started]
+- [What is Azure IoT Hub?][]
 
-[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
-[Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
-[Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
+[Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
+[Azure Business Continuity Technical Guidance]: https://azure.microsoft.com/documentation/articles/resiliency-technical-guidance/
 [Azure Traffic Manager]: https://azure.microsoft.com/documentation/services/traffic-manager/
-[Guide du développeur IoT Hub - Registre d’identité]: iot-hub-devguide.md#identityregistry
+[IoT Hub Developer Guide - identity registry]: iot-hub-devguide-identity-registry.md
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
+[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,31 +1,35 @@
 <properties
-	pageTitle="Groupes à haute disponibilité pour machines virtuelles Linux classiques | Microsoft Azure"
-	description="Configurez un groupe à haute disponibilité pour une machine virtuelle Linux nouvelle ou existante dans le modèle de déploiement classique à l’aide du portail Azure et d'Azure PowerShell."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Availability sets for classic Linux VMs | Microsoft Azure"
+    description="Configure an availability set for a new or existing Linux virtual machine in the classic deployment model using the Azure portal and Azure PowerShell."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/12/2016"
+    ms.author="cynthn"/>
 
-# Configuration d’un groupe à haute disponibilité pour des machines virtuelles Linux dans le modèle de déploiement classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Vous pouvez également [configurer des groupes à haute disponibilité](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) dans des déploiements Resource Manager.
+# <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>How to configure an availability set for Linux virtual machines in the classic deployment model
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. You can also [configure availability sets](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) in Resource Manager deployments.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
 
-## Étapes suivantes 
+## <a name="next-steps"></a>Next steps 
 
-Pour d’autres articles sur les déploiements classiques, consultez [Linux et informatique open-source sur Azure](virtual-machines-linux-opensource-links.md).
+For additonal articles about classic deployments, see [Linux and open-source computing on Azure](virtual-machines-linux-opensource-links.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

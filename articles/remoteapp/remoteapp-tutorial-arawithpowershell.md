@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utiliser les applets de commande PowerShell avec Azure RemoteApp | Microsoft Azure"
-   description="Apprenez à utiliser les applets de commande Windows PowerShell dans Azure RemoteApp."
+   pageTitle="Use PowerShell cmdlets with Azure RemoteApp | Microsoft Azure"
+   description="Learn how to use Windows PowerShell cmdlets in Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="guscatalano"
@@ -18,56 +18,57 @@
 
 
 
-# Utiliser les applets de commande Windows PowerShell avec Azure RemoteApp
+
+# <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>Use Windows PowerShell cmdlets with Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
- Vous pouvez utiliser les applets de commande PowerShell pour Azure RemoteApp afin d’administrer et de gérer vos collections. Utilisez les informations suivantes pour commencer.
+ You can use the Azure RemoteApp PowerShell cmdlets to administer and maintain your collections. Use the following information to get started.
 
-## Récupération des applets de commande 
+## <a name="get-the-cmdlets"></a>Get the cmdlets 
 -------------
-Téléchargez d’abord les applets de commande Azure PowerShell [ici](http://go.microsoft.com/?linkid=9811175) ; les applets de commande RemoteApp sont incluses.
+First download the Azure Powershell cmdlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp cmdlets are included in it. 
 
-Consultez [l’aide sur les applets de commande Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
+Check out the [Azure RemoteApp cmdlet help](https://msdn.microsoft.com/library/mt428031.aspx).
 
-## Configuration des applets de commande Azure pour utiliser votre abonnement
+## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>Configure Azure cmdlets to use your subscription
 ------------------
-Suivez [ce guide](../powershell-install-configure.md) pour apprendre à utiliser les applets de commande sur votre abonnement Azure.
+Follow [this guide](../powershell-install-configure.md) so you can use the cmdlets against your Azure subscription.
 
-Vous pouvez utiliser ces étapes pour démarrer rapidement :
+You can use these steps to get started quickly:
 
-1.	Téléchargez et installez les applets de commande [Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
-2.	Lancez Microsoft Azure PowerShell.
-3.	Exécutez **Add-AzureAccount** pour vous authentifier auprès de votre abonnement Azure. À l’invite, entrez le nom d’utilisateur et le mot de passe que vous utilisez pour vous connecter au portail Azure.
-4.	Exécutez **Get-AzureSubscription** pour répertorier les abonnements associés à votre compte utilisateur.
-5.	Exécutez **Select-AzureSubscription** et spécifiez le nom ou l’ID d’abonnement à utiliser dans la console PowerShell.
+1.  Download and install the [Azure PowerShell cmdlets](http://go.microsoft.com/?linkid=9811175).
+2.  Launch Microsoft Azure PowerShell.
+3.  Run **Add-AzureAccount** to authenticate to your Azure subscription. When prompted, enter the same user name and password that you use to sign in to Azure portal.  
+4.  Run **Get-AzureSubscription** to list the subscriptions associated with your user account. 
+5.  Run **Select-AzureSubscription** and specify the subscription name or ID to use in the PowerShell console.
 
-Félicitations, votre console Azure PowerShell est configurée et opérationnelle. N'oubliez pas que vous devez répéter les étapes 2 à 5 chaque fois que vous démarrez la console Azure PowerShell.
+Congratulations, your Azure PowerShell console is configured and ready to use. Be aware that you'll need to repeate steps 2 through 5 each time you start the the Azure PowerShell console.  
 
-## Création d'une collection cloud
+## <a name="create-a-cloud-collection"></a>Create a cloud collection
 --------------------
-Exécutez simplement la commande suivante :
+It's simple, run the following command:
 
     New-AzureRemoteAppCollection -Collectionname RAppO365Col1 -ImageName "Office 365 ProPlus (Subscription required)" -Plan Basic -Location "West US" - Description "Office 365 Collection."
 
-La commande ci-dessus publie automatiquement les applications Microsoft Office 365 (Excel, OneNote, Outlook, PowerPoint, Visio et Word).
+The above command automatically publishes Microsoft Office 365 applications (Excel, OneNote, Outlook, PowerPoint, Visio and Word).
 
-La création de la collection peut prendre 30 minutes ou plus. Par conséquent, cette commande renvoie un ID de suivi que vous pouvez utiliser de la manière suivante :
+Collection creation can take 30 minutes or longer to complete. Therefore, this command returns a tracking ID that you can use as follows:
 
 
     Get-AzureRemoteAppOperationResult -TrackingId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-Une fois la collection terminée, vous pouvez ajouter des utilisateurs à la collection avec la commande suivante :
+After the collection is done, you can add users to the collection with the following command:
 
     Add-AzureRemoteAppUser -CollectionName RAppO365Col1 -Type microsoftAccount -UserUpn someone@domain.com
 
-Vous avez terminé ! Cet utilisateur doit pouvoir se connecter à l’application à l’aide du client Azure RemoteApp disponible [ici](https://www.remoteapp.windowsazure.com/).
+And you're done! That user should be able to connect to the application using the Azure RemoteApp client found [here](https://www.remoteapp.windowsazure.com/).
 
-## Applets de commande disponibles
-Nous proposons de nombreuses autres commandes. Leur documentation sera disponible prochainement :
+## <a name="available-cmdlets"></a>Available cmdlets
+There are lots of other commands that we have, the documentation for them will be coming shortly:
 
-Applets de commande de base de la collection RemoteApp :
+Basic RemoteApp Collection  cmdlets: 
 
 - New-AzureRemoteAppCollection
 - Get-AzureRemoteAppCollection
@@ -89,7 +90,7 @@ Applets de commande de base de la collection RemoteApp :
 - Get-AzureRemoteAppCollectionUsageSummary
 - Get-AzureRemoteAppPlan
 
-Applets de commande du réseau virtuel RemoteApp :
+RemoteApp virtual network cmdlets:
 
 - New-AzureRemoteAppVNet
 - Get-AzureRemoteAppVNet
@@ -99,14 +100,14 @@ Applets de commande du réseau virtuel RemoteApp :
 - Get-- AzureRemoteAppVpnDeviceConfigScript
 - Reset-AzureRemoteAppVpnSharedKey
 
-Applets de commande de l’image du modèle RemoteApp :
+RemoteApp template image cmdlets:
 
 - New-AzureRemoteAppTemplateImage
 - Get-AzureRemoteAppTemplateImage
 - Rename-AzureRemoteAppTemplateImage
 - Remove-AzureRemoteAppTemplateImage
 
-Autres applets de commande RemoteApp :
+Other RemoteApp cmdlets:
 
 - Get-AzureRemoteAppLocation
 - Get-AzureRemoteAppWorkspace
@@ -114,4 +115,8 @@ Autres applets de commande RemoteApp :
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Créer une identité professionnelle ou scolaire dans AAD | Microsoft Azure"
-   description="Découvrez comment créer une identité professionnelle ou scolaire dans Azure Active Directory à utiliser avec vos machines virtuelles Windows."
+   pageTitle="Create a work or school identity in AAD | Microsoft Azure"
+   description="Learn how to create a work or school identity in Azure Active Directory to use with your Windows virtual machines."
    services="virtual-machines-windows"
    documentationCenter=""
    authors="squillace"
@@ -17,14 +17,19 @@
    ms.date="08/23/2016"
    ms.author="rasquill"/>
 
-# Création d’une identité professionnelle ou scolaire dans Azure Active Directory à utiliser avec des machines virtuelles Windows
 
-Si vous avez créé un compte Azure personnel ou si vous disposez d’un abonnement MSDN personnel et avez créé le compte Azure pour profiter des crédits Azure MSDN, cela signifie que vous avez utilisé une identité de *compte Microsoft* pour le créer. Pour fonctionner correctement, de nombreuses fonctionnalités d'Azure, parmi lesquelles les [modèles de groupes de ressources](../resource-group-overview.md), nécessitent un compte professionnel ou scolaire (une identité gérée par Azure Active Directory). Vous pouvez suivre les instructions ci-dessous pour créer un compte professionnel ou scolaire car, heureusement, l’un des atouts de votre compte personnel Azure est qu'il est fourni avec un domaine Azure Active Directory par défaut que vous pouvez utiliser pour créer un nouveau compte professionnel ou scolaire à utiliser avec les fonctionnalités Azure qui le nécessitent.
+# <a name="creating-a-work-or-school-identity-in-azure-active-directory-to-use-with-windows-vms"></a>Creating a Work or School identity in Azure Active Directory to use with Windows VMs
 
-Toutefois, de récentes modifications permettent de gérer votre abonnement avec n’importe quel type de compte Azure grâce à la `azure login`méthode de connexion interactive décrite [ici](../xplat-cli-connect.md). Vous pouvez utiliser ce mécanisme ou suivre les instructions ci-dessous. Vous pouvez également [créer une identité professionnelle ou scolaire dans Azure Active Directory à utiliser avec des machines virtuelles Linux](virtual-machines-linux-create-aad-work-id.md).
+If you created a personal Azure account or have a personal MSDN subscription and created the Azure account to take advantage of the MSDN Azure credits -- you used a *Microsoft account* identity to create it. Many great features of Azure -- [resource group templates](../resource-group-overview.md) is one example -- require a work or school account (an identity managed by Azure Active Directory) to work. You can follow the instructions below to create a new work or school account because fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
+
+However, recent changes make it possible to manage your subscription with any type of Azure account using the `azure login` interactive login method described [here](../xplat-cli-connect.md). You can either use that mechanism, or you can follow the instructions that follow. You can also [create a work or school identity in Azure Active Directory to use with Linux VMs](virtual-machines-linux-create-aad-work-id.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-create-aad-work-id](../../includes/virtual-machines-common-create-aad-work-id.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

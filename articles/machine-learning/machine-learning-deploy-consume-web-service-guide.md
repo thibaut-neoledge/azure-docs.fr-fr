@@ -1,103 +1,109 @@
 <properties
-	pageTitle="Services web Azure Machine Learning : déploiement et consommation | Microsoft Azure"
-	description="Ressources pour le déploiement et la consommation de services web."
-	services="machine-learning"
-	documentationCenter=""
-	authors="vDonGlover"
-	manager="raymondl"
-	editor=""/>
+    pageTitle="Azure Machine Learning Web Services: Deployment and consumption | Microsoft Azure"
+    description="Resources for deploying and consuming web services."
+    services="machine-learning"
+    documentationCenter=""
+    authors="vDonGlover"
+    manager="raymondl"
+    editor=""/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="v-donglo"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/12/2016"
+    ms.author="v-donglo"/>
 
-# Services web Azure Machine Learning : déploiement et consommation
 
-Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de Machine Learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles Machine Learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. Les services web, RESTful, peuvent être appelés avec divers langages et plateformes de programmation, notamment Java, .NET et des applications comme Excel.
+# <a name="azure-machine-learning-web-services:-deployment-and-consumption"></a>Azure Machine Learning Web Services: Deployment and consumption
 
-Les sections suivantes fournissent des liens vers des procédures pas à pas, du code et de la documentation pour vous aider à démarrer.
+You can use Azure Machine Learning to deploy machine-learning workflows and models as web services. These web services can then be used to call the machine-learning models from applications over the Internet to do predictions in real time or in batch mode. Because the web services are RESTful, you can call them from various programming languages and platforms, such as .NET and Java, and from applications, such as Excel.
 
-## Déployer un service web
+The next sections provide links to walkthroughs, code, and documentation to help get you started.
 
-### Avec Azure Machine Learning Studio
+## <a name="deploy-a-web-service"></a>Deploy a web service
 
-Machine Learning Studio et le portail des services web Microsoft Azure Machine Learning vous permettent de déployer et de gérer un service web sans avoir à écrire du code.
+### <a name="with-azure-machine-learning-studio"></a>With Azure Machine Learning Studio
 
-Les liens suivants fournissent des informations générales sur le processus de déploiement d’un nouveau service web :
+Machine Learning Studio and the Microsoft Azure Machine Learning Web Services portal help you deploy and manage a web service without writing code.
 
-* Pour une vue d’ensemble du déploiement d’un nouveau service web basé sur Azure Resource Manager, consultez [Déployer un nouveau service web](machine-learning-webservice-deploy-a-web-service.md).
-* Pour une présentation du déploiement d’un service web, consultez [Déployer un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
-* Pour une présentation complète de la création et du déploiement d’un service web, consultez [Étape 1 du didacticiel pas à pas : créer un espace de travail Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md).
-* Pour des exemples spécifiques de déploiement d’un service web, consultez :
+The following links provide general Information about how to deploy a new web service:
 
-	* [Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md)
-	* [Comment déployer un service web dans plusieurs régions](machine-learning-how-to-deploy-to-multiple-regions.md)
+* For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md).
+* For a walkthrough about how to deploy a web service, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+* For a full walkthrough about how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md).
+* For specific examples that deploy a web service, see:
 
-### Avec les API du fournisseur de ressources des services web (API Azure Resource Manager)
+    * [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md)
+    * [How to deploy a web service to multiple regions](machine-learning-how-to-deploy-to-multiple-regions.md)
 
-Le fournisseur de ressources Azure Machine Learning pour les services web permet le déploiement et la gestion des services web au moyen d’appels d’API REST. Pour plus de détails, consultez la référence [Service web Machine Learning (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) sur MSDN.
+### <a name="with-web-services-resource-provider-apis-(azure-resource-manager-apis)"></a>With web services resource provider APIs (Azure Resource Manager APIs)
 
-### Avec des applets de commande PowerShell
+The Azure Machine Learning resource provider for web services enables deployment and management of web services by using REST API calls. For additional details, see the [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference on MSDN.
 
-Le fournisseur de ressources Azure Machine Learning pour les services web permet le déploiement et la gestion des services web au moyen d’applets de commande PowerShell.
+### <a name="with-powershell-cmdlets"></a>With PowerShell cmdlets
 
-Pour utiliser les applets de commande, vous devez tout d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx). Si vous ne savez pas comment appeler les commandes PowerShell basées sur Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
+Azure Machine Learning resource provider for web services enables deployment and management of web services by using PowerShell cmdlets.
 
-Pour exporter votre expérience prédictive, utilisez cet [exemple de code](https://github.com/ritwik20/AzureML-WebServices). Après avoir créé le fichier .exe à partir du code, vous pouvez taper :
+To use the cmdlets, you must first sign in to your Azure account from within the PowerShell environment by using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with how to call PowerShell commands that are based on Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
 
-	C:<folder>\GetWSD <experiment-url> <workspace-auth-token>
+To export your predictive experiment, use [this sample code](https://github.com/ritwik20/AzureML-WebServices). After you create the .exe file from the code, you can type:
 
-L’exécution de l’application crée un modèle JSON de service web. Pour utiliser le modèle afin de déployer un service web, vous devez ajouter les informations suivantes :
+    C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
 
-* Nom et clé du compte de stockage
+Running the application creates a web service JSON template. To use the template to deploy a web service, you must add the following information:
 
-	Vous pouvez récupérer le nom et la clé du compte de stockage à partir du [portail Azure](https://portal.azure.com/) ou du [portail Azure Classic](http://manage.windowsazure.com/).
-* ID de plan d’engagement
+* Storage account name and key
 
-	Vous pouvez récupérer l’ID du plan sur le portail des [services web Azure Machine Learning](https://services.azureml.net) en vous connectant et en cliquant sur le nom d’un plan.
+    You can get the storage account name and key from either the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](http://manage.windowsazure.com/).
+* Commitment plan ID
 
-Ajoutez-les au modèle JSON en tant qu’enfants du nœud *Propriétés* au même niveau que le nœud *MachineLearningWorkspace*.
+    You can get the plan ID from the [Azure Machine Learning Web Services](https://services.azureml.net) portal by signing in and clicking a plan name.
 
-Voici un exemple :
+Add them to the JSON template as children of the *Properties* node at the same level as the *MachineLearningWorkspace* node.
 
-	"StorageAccount": {
+Here's an example:
+
+    "StorageAccount": {
             "name": "YourStorageAccountName",
             "key": "YourStorageAccountKey"
-	},
+    },
     "CommitmentPlan": {
-        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
+        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
     }
 
-Consultez les articles et les exemples de code suivants pour plus de détails :
+See the following articles and sample code for additional details:
 
-* Référence [Applets de commande Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt767952.aspx) sur MSDN
-* Exemple de [procédure pas à pas](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) sur GitHub
+* [Azure Machine Learning Cmdlets]( https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN
+* Sample [walkthrough](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) on GitHub
 
-## Utiliser des services web
+## <a name="consume-the-web-services"></a>Consume the web services
 
-### À partir de l’interface utilisateur des services web Azure Machine Learning (test)
+### <a name="from-the-azure-machine-learning-web-services-ui-(testing)"></a>From the Azure Machine Learning Web Services UI (Testing)
 
-Vous pouvez tester votre service web sur le portail de services web Azure Machine Learning. Cela comprend le test du service de requête-réponse (RRS) et des interfaces de service d’exécution de lots (BES).
+You can test your web service from the Azure Machine Learning Web Services portal. This includes testing the Request-Response service (RRS) and Batch Execution service (BES) interfaces.
 
-* [Déployer comme un nouveau service web](machine-learning-webservice-deploy-a-web-service.md)
-* [Déploiement d’un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
-* [Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md)
+* [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
+* [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
+* [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md)
 
-### À partir d’Excel
+### <a name="from-excel"></a>From Excel
 
-Vous pouvez télécharger un modèle Excel qui consomme le service web :
+You can download an Excel template that consumes the web service:
 
-* [Utilisation d’un service web Microsoft Azure Machine Learning à partir de Microsoft Excel.](machine-learning-consuming-from-excel.md)
-* [Complément Excel de services web Azure Machine Learning](machine-learning-excel-add-in-for-web-services.md)
+* [Consuming an Azure Machine Learning web service from Excel](machine-learning-consuming-from-excel.md)
+* [Excel add-in for Azure Machine Learning Web Services](machine-learning-excel-add-in-for-web-services.md)
 
 
-### À partir d’un client basé sur REST
+### <a name="from-a-rest-based-client"></a>From a REST-based client
 
-Les services web Azure Machine Learning sont des API RESTful. Vous pouvez consommer ces API à partir de différentes plateformes, notamment .NET, Python, R, Java, etc. La page **Consommer** de votre service web sur le [portail des services web Microsoft Azure Machine Learning](https://services.azureml.net) contient des exemples de code susceptibles de vous aider à démarrer. Pour plus d’informations, consultez [Utilisation d’un service web Azure Machine Learning déployé à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md).
+Azure Machine Learning Web Services are RESTful APIs. You can consume these APIs from various platforms, such as .NET, Python, R, Java, etc. The **Consume** page for your web service on the [Microsoft Azure Machine Learning Web Services portal](https://services.azureml.net) has sample code that can help you get started. For more information, see [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

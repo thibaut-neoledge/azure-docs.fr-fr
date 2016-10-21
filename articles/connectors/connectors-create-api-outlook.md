@@ -1,10 +1,10 @@
 <properties
 pageTitle="Outlook.com | Microsoft Azure"
-description="Créez des applications logiques avec Azure App Service. Le connecteur Outlook.com vous permet de gérer votre messagerie, les calendriers et les contacts. Vous pouvez effectuer différentes actions comme envoyer un message, planifier des réunions, ajouter des contacts, etc."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,895 +17,899 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Prise en main du connecteur Outlook.com
 
-Le connecteur Outlook.com vous permet de gérer votre messagerie, les calendriers et les contacts. Vous pouvez effectuer différentes actions comme envoyer un message, planifier des réunions, ajouter des contacts, etc.
+# <a name="get-started-with-the-outlook.com-connector"></a>Get started with the Outlook.com connector
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc.
 
-Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
-## Déclencheurs et actions
+You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Le connecteur Outlook.com peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
- Le connecteur Outlook.com met à votre disposition les actions et/ou les déclencheurs ci-après.
+The Outlook.com connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-### Actions de Outlook.com
-Vous pouvez effectuer les actions suivantes :
+ The Outlook.com connector has the following action(s) and/or trigger(s) available:
+
+### <a name="outlook.com-actions"></a>Outlook.com actions
+You can take these action(s):
 
 |Action|Description|
 |--- | ---|
-|[GetEmails](connectors-create-api-outlook.md#GetEmails)|Récupère des messages électroniques à partir d’un dossier|
-|[SendEmail](connectors-create-api-outlook.md#SendEmail)|Envoie un message électronique|
-|[DeleteEmail](connectors-create-api-outlook.md#DeleteEmail)|Supprime un message électronique par identifiant|
-|[MarkAsRead](connectors-create-api-outlook.md#MarkAsRead)|Marque un message électronique comme lu|
-|[ReplyTo](connectors-create-api-outlook.md#ReplyTo)|Répond à un message électronique|
-|[GetAttachment](connectors-create-api-outlook.md#GetAttachment)|Récupère la pièce jointe à un message en fonction de l’identifiant|
-|[SendMailWithOptions](connectors-create-api-outlook.md#SendMailWithOptions)|Envoie un message électronique avec plusieurs options et attend que le destinataire réponde avec une des options|
-|[SendApprovalMail](connectors-create-api-outlook.md#SendApprovalMail)|Envoie un message électronique d’approbation et attend une réponse du destinataire|
-|[CalendarGetTables](connectors-create-api-outlook.md#CalendarGetTables)|Récupère des calendriers|
-|[CalendarGetItems](connectors-create-api-outlook.md#CalendarGetItems)|Récupère des éléments d’un calendrier|
-|[CalendarPostItem](connectors-create-api-outlook.md#CalendarPostItem)|Crée un événement|
-|[CalendarGetItem](connectors-create-api-outlook.md#CalendarGetItem)|Extrait un élément spécifique d’un calendrier|
-|[CalendarDeleteItem](connectors-create-api-outlook.md#CalendarDeleteItem)|Supprime un élément de calendrier|
-|[CalendarPatchItem](connectors-create-api-outlook.md#CalendarPatchItem)|Met à jour partiellement un élément de calendrier|
-|[ContactGetTables](connectors-create-api-outlook.md#ContactGetTables)|Récupère des dossiers de contacts|
-|[ContactGetItems](connectors-create-api-outlook.md#ContactGetItems)|Récupère les contacts d’un dossier de contacts|
-|[ContactPostItem](connectors-create-api-outlook.md#ContactPostItem)|Crée un contact|
-|[ContactGetItem](connectors-create-api-outlook.md#ContactGetItem)|Récupère un contact spécifique d’un dossier de contacts|
-|[ContactDeleteItem](connectors-create-api-outlook.md#ContactDeleteItem)|Supprime un contact|
-|[ContactPatchItem](connectors-create-api-outlook.md#ContactPatchItem)|Met à jour partiellement un contact|
-### Déclencheurs de Outlook.com
-Vous pouvez écouter les événements suivants :
+|[GetEmails](connectors-create-api-outlook.md#GetEmails)|Retrieves emails from a folder|
+|[SendEmail](connectors-create-api-outlook.md#SendEmail)|Sends an email|
+|[DeleteEmail](connectors-create-api-outlook.md#DeleteEmail)|Deletes an email by id|
+|[MarkAsRead](connectors-create-api-outlook.md#MarkAsRead)|Marks an email as having been read|
+|[ReplyTo](connectors-create-api-outlook.md#ReplyTo)|Replies to an email|
+|[GetAttachment](connectors-create-api-outlook.md#GetAttachment)|Retrieves email attachment by id|
+|[SendMailWithOptions](connectors-create-api-outlook.md#SendMailWithOptions)|Send an email with multiple options and wait for the recipient to respond back with one of the options|
+|[SendApprovalMail](connectors-create-api-outlook.md#SendApprovalMail)|Send an approval email and wait for a response from the recipient|
+|[CalendarGetTables](connectors-create-api-outlook.md#CalendarGetTables)|Retrieves calendars|
+|[CalendarGetItems](connectors-create-api-outlook.md#CalendarGetItems)|Retrieves items from a calendar|
+|[CalendarPostItem](connectors-create-api-outlook.md#CalendarPostItem)|Creates a new event|
+|[CalendarGetItem](connectors-create-api-outlook.md#CalendarGetItem)|Retrieves a specific item from a calendar|
+|[CalendarDeleteItem](connectors-create-api-outlook.md#CalendarDeleteItem)|Deletes a calendar item|
+|[CalendarPatchItem](connectors-create-api-outlook.md#CalendarPatchItem)|Partially updates a calendar item|
+|[ContactGetTables](connectors-create-api-outlook.md#ContactGetTables)|Retrieves contacts folders|
+|[ContactGetItems](connectors-create-api-outlook.md#ContactGetItems)|Retrieves contacts from a contacts folder|
+|[ContactPostItem](connectors-create-api-outlook.md#ContactPostItem)|Creates a new contact|
+|[ContactGetItem](connectors-create-api-outlook.md#ContactGetItem)|Retrieves a specific contact from a contacts folder|
+|[ContactDeleteItem](connectors-create-api-outlook.md#ContactDeleteItem)|Deletes a contact|
+|[ContactPatchItem](connectors-create-api-outlook.md#ContactPatchItem)|Partially updates a contact|
+### <a name="outlook.com-triggers"></a>Outlook.com triggers
+You can listen for these event(s):
 
-|Déclencheur | Description|
+|Trigger | Description|
 |--- | ---|
-|Événement imminent|Déclenche un flux au démarrage d’un événement de calendrier à venir|
-|Arrivée d’un nouveau message électronique|Déclenche un flux à l’arrivée d’un nouveau message électronique|
-|Quand des éléments sont créés|Déclenché à la création d’un élément de calendrier|
-|Quand des éléments sont mis à jour|Déclenché quand un élément de calendrier est modifié|
+|On event starting soon|Triggers a flow when an upcoming calendar event is starting|
+|On new email|Triggers a flow when a new email arrives|
+|On new items|Triggered when a new calendar item is created|
+|On updated items|Triggered when a calendar item is modified|
 
 
-## Créer une connexion à Outlook.com
-Pour créer des applications logiques avec Outlook.com, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
+## <a name="create-a-connection-to-outlook.com"></a>Create a connection to Outlook.com
+To create Logic apps with Outlook.com, you must first create a **connection** then provide the details for the following properties: 
 
-|Propriété| Requis|Description|
+|Property| Required|Description|
 | ---|---|---|
-|Jeton|Oui|Fournir des informations d’identification Outlook.com|
-Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
+|Token|Yes|Provide Outlook.com Credentials|
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
->[AZURE.INCLUDE [Procédure de création d’une connexion à Outlook.com](../../includes/connectors-create-api-outlook.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)] 
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
+>[AZURE.TIP] You can use this connection in other logic apps.  
 
-## Référence pour Outlook.com
-S’applique à la version 1.0.
+## <a name="reference-for-outlook.com"></a>Reference for Outlook.com
+Applies to version: 1.0
 
-## OnUpcomingEvents
-Événement imminent : déclenche un flux au démarrage d’un événement de calendrier à venir
+## <a name="onupcomingevents"></a>OnUpcomingEvents
+On event starting soon: Triggers a flow when an upcoming calendar event is starting 
 
-```GET: /Events/OnUpcomingEvents```
+```GET: /Events/OnUpcomingEvents``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|query|(aucun)|Identificateur unique du calendrier|
-|lookAheadTimeInMinutes|integer|no|query|15|Plage (en minutes) dans laquelle rechercher les événements à venir|
+|table|string|yes|query|none|Unique identifier of the calendar|
+|lookAheadTimeInMinutes|integer|no|query|15|Time (in minutes) to look ahead for upcoming events|
 
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi|
-|202|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-## GetEmails
-Obtenir des messages électroniques : récupère des messages électroniques à partir d’un dossier
-
-```GET: /Mail```
-
-| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Chemin du dossier duquel récupérer des messages électroniques (valeur par défaut : « Inbox »)|
-|top|integer|no|query|10|Nombre de messages électroniques à récupérer (valeur par défaut : 10)|
-|fetchOnlyUnread|booléenne|no|query|true|Récupérer uniquement les messages électroniques non lus ?|
-|includeAttachments|booléenne|no|query|false|Si défini sur true, les pièces jointes sont également récupérées avec les messages électroniques|
-|searchQuery|string|no|query|(aucun)|Requête de recherche pour filtrer les messages électroniques|
-|skip|integer|no|query|0|Nombre de messages électroniques à ignorer (valeur par défaut : 0)|
-|skipToken|string|no|query|(aucun)|Jeton d’évitement pour récupérer une nouvelle page|
-
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
-|200|L’opération a réussi|
+|200|Operation was successful|
+|202|Operation was successful|
 |400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## SendEmail
-Envoyer un message électronique : envoie un message électronique
+## <a name="getemails"></a>GetEmails
+Get emails: Retrieves emails from a folder 
 
-```POST: /Mail```
+```GET: /Mail``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|emailMessage| |yes|body|(aucun)|Email|
+|folderPath|string|no|query|Inbox|Path of the folder to retrieve emails (default: 'Inbox')|
+|top|integer|no|query|10|Number of emails to retrieve (default: 10)|
+|fetchOnlyUnread|boolean|no|query|true|Retrieve only unread emails?|
+|includeAttachments|boolean|no|query|false|If set to true, attachments will also be retrieved along with the email|
+|searchQuery|string|no|query|none|Search query to filter emails|
+|skip|integer|no|query|0|Number of emails to skip (default: 0)|
+|skipToken|string|no|query|none|Skip token to fetch new page|
 
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
-|200|L’opération a réussi|
+|200|Operation was successful|
 |400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## DeleteEmail
-Supprimer un message électronique : supprime un message électronique par identifiant
+## <a name="sendemail"></a>SendEmail
+Send email: Sends an email 
 
-```DELETE: /Mail/{messageId}```
+```POST: /Mail``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|(aucun)|ID du message électronique à supprimer|
+|emailMessage| |yes|body|none|Email|
 
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
-|200|L’opération a réussi|
+|200|Operation was successful|
 |400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## MarkAsRead
-Marquer comme lu : marque un message électronique comme lu
+## <a name="deleteemail"></a>DeleteEmail
+Delete email: Deletes an email by id 
 
-```POST: /Mail/MarkAsRead/{messageId}```
+```DELETE: /Mail/{messageId}``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|(aucun)|Identifiant du message électronique à marquer comme lu|
+|messageId|string|yes|path|none|Id of the email to delete|
 
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
-|200|L’opération a réussi|
+|200|Operation was successful|
 |400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## ReplyTo
-Répondre à un message électronique : répond à un message électronique
+## <a name="markasread"></a>MarkAsRead
+Mark as read: Marks an email as having been read 
 
-```POST: /Mail/ReplyTo/{messageId}```
+```POST: /Mail/MarkAsRead/{messageId}``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|(aucun)|ID du message électronique auquel répondre|
-|comment|string|yes|query|(aucun)|Commentaire de réponse|
-|replyAll|booléenne|no|query|false|Répondre à tous les destinataires|
+|messageId|string|yes|path|none|Id of the email to be marked as read|
 
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-## GetAttachment
-Obtenir une pièce jointe : récupère la pièce jointe à un message en fonction de l’identifiant
-
-```GET: /Mail/{messageId}/Attachments/{attachmentId}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|messageId|string|yes|path|(aucun)|ID du message électronique|
-|attachmentId|string|yes|path|(aucun)|Identifiant de la pièce jointe à télécharger|
-
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|L’opération a réussi|
-|400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
-
-
-## OnNewEmail
-Arrivée d’un nouveau message électronique: déclenche un flux à l’arrivée d’un nouveau message électronique
-
-```GET: /Mail/OnNewEmail```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Dossier de courrier électronique à récupérer (valeur par défaut : Inbox)|
-|to|string|no|query|(aucun)|Adresses de messagerie des destinataires|
-|from|string|no|query|(aucun)|Adresse de l’expéditeur|
-|importance|string|no|query|Normal|Importance du message (High, Normal, Low) (valeur par défaut : Normal)|
-|fetchOnlyWithAttachment|booléenne|no|query|false|Récupérer uniquement les messages électroniques avec une pièce jointe|
-|includeAttachments|booléenne|no|query|false|Inclure les pièces jointes|
-|subjectFilter|string|no|query|(aucun)|Chaîne à rechercher dans l’objet|
-
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
-|200|L’opération a réussi|
-|202|Acceptée|
+|200|Operation was successful|
 |400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## SendMailWithOptions
-Envoyer un message électronique avec des options : envoie un message électronique avec plusieurs options et attend que le destinataire réponde avec une des options
+## <a name="replyto"></a>ReplyTo
+Reply to email: Replies to an email 
 
-```POST: /mailwithoptions/$subscriptions```
+```POST: /Mail/ReplyTo/{messageId}``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|optionsEmailSubscription| |yes|body|(aucun)|Demande d’abonnement pour courrier électronique avec options|
+|messageId|string|yes|path|none|Id of the email to reply to|
+|comment|string|yes|query|none|Reply comment|
+|replyAll|boolean|no|query|false|Reply to all recipients|
 
-#### Réponse
+#### <a name="response"></a>Response
 
-|Nom|Description|
+|Name|Description|
 |---|---|
-|200|OK|
-|201|Abonnement créé|
+|200|Operation was successful|
 |400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## SendApprovalMail
-Envoyer un message électronique d’approbation : envoie un message électronique d’approbation et attend une réponse du destinataire
+## <a name="getattachment"></a>GetAttachment
+Get attachment: Retrieves email attachment by id 
 
-```POST: /approvalmail/$subscriptions```
+```GET: /Mail/{messageId}/Attachments/{attachmentId}``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|approvalEmailSubscription| |yes|body|(aucun)|Demande d’abonnement pour courrier électronique d’approbation|
+|messageId|string|yes|path|none|Id of the email|
+|attachmentId|string|yes|path|none|Id of the attachment to download|
 
-#### Réponse
+#### <a name="response"></a>Response
 
-|Nom|Description|
+|Name|Description|
 |---|---|
-|200|OK|
-|201|Abonnement créé|
+|200|Operation was successful|
 |400|BadRequest|
-|401|Non autorisé|
-|403|Interdit|
-|500|Erreur interne du serveur|
-|default|L’opération a échoué.|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## CalendarGetTables
-Obtenir des calendriers : récupère des calendriers
+## <a name="onnewemail"></a>OnNewEmail
+On new email: Triggers a flow when a new email arrives 
 
-```GET: /datasets/calendars/tables```
+```GET: /Mail/OnNewEmail``` 
 
-Il n’existe aucun paramètre pour cet appel
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## CalendarGetItems
-Obtenir des événements : récupère des éléments d’un calendrier
-
-```GET: /datasets/calendars/tables/{table}/items```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique du calendrier à récupérer|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|folderPath|string|no|query|Inbox|Email folder to retrieve (default: Inbox)|
+|to|string|no|query|none|Recipient email addresses|
+|from|string|no|query|none|From address|
+|importance|string|no|query|Normal|Importance of the email (High, Normal, Low) (default: Normal)|
+|fetchOnlyWithAttachment|boolean|no|query|false|Retrieve only emails with an attachment|
+|includeAttachments|boolean|no|query|false|Include attachments|
+|subjectFilter|string|no|query|none|String to look for in the subject|
 
-#### Réponse
+#### <a name="response"></a>Response
 
-|Nom|Description|
+|Name|Description|
 |---|---|
-|200|OK|
-|default|L’opération a échoué.|
+|200|Operation was successful|
+|202|Accepted|
+|400|BadRequest|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## CalendarPostItem
-Créer un événement : crée un nouvel événement
+## <a name="sendmailwithoptions"></a>SendMailWithOptions
+Send email with options: Send an email with multiple options and wait for the recipient to respond back with one of the options 
 
-```POST: /datasets/calendars/tables/{table}/items```
+```POST: /mailwithoptions/$subscriptions``` 
 
-| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|item| |yes|body|(aucun)|Élément de calendrier à créer|
+|optionsEmailSubscription| |yes|body|none|Subscription request for options email|
 
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## CalendarGetItem
-Obtenir un événement : extrait un élément spécifique d’un calendrier
-
-```GET: /datasets/calendars/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|id|string|yes|path|(aucun)|Identificateur unique d’un élément de calendrier à récupérer|
-
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
 |200|OK|
-|default|L’opération a échoué.|
+|201|Subscription Created|
+|400|BadRequest|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## CalendarDeleteItem
-Supprimer un événement : supprime un élément de calendrier
+## <a name="sendapprovalmail"></a>SendApprovalMail
+Send approval email: Send an approval email and wait for a response from the recipient 
 
-```DELETE: /datasets/calendars/tables/{table}/items/{id}```
+```POST: /approvalmail/$subscriptions``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|id|string|yes|path|(aucun)|Identificateur unique de l’élément de calendrier à supprimer|
+|approvalEmailSubscription| |yes|body|none|Subscription request for approval email|
 
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## CalendarPatchItem
-Mettre à jour l’événement : met à jour partiellement un élément de calendrier
-
-```PATCH: /datasets/calendars/tables/{table}/items/{id}```
-
-| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|id|string|yes|path|(aucun)|Identificateur unique de l’élément de calendrier à mettre à jour|
-|item| |yes|body|(aucun)|Élément de calendrier à mettre à jour|
-
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## CalendarGetOnNewItems
-Quand des éléments sont créés : déclenché à la création d’un élément de calendrier
-
-```GET: /datasets/calendars/tables/{table}/onnewitems```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
-
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## CalendarGetOnUpdatedItems
-Quand des éléments sont mis à jour : déclenché quand un élément de calendrier est modifié
-
-```GET: /datasets/calendars/tables/{table}/onupdateditems```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un calendrier|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
-
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## ContactGetTables
-Obtenir des dossiers de contacts : récupère des dossiers de contacts
-
-```GET: /datasets/contacts/tables```
-
-Il n’existe aucun paramètre pour cet appel
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## ContactGetItems
-Obtenir des contacts : récupère les contacts d’un dossier de contacts
-
-```GET: /datasets/contacts/tables/{table}/items```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique du dossier de contacts à récupérer|
-|$filter|string|no|query|(aucun)|Requête filter ODATA pour limiter le nombre d’entrées|
-|$orderby|string|no|query|(aucun)|Requête orderBy ODATA pour spécifier l’ordre des entrées|
-|$skip|integer|no|query|(aucun)|Nombre d’entrées à ignorer (valeur par défaut : 0)|
-|$top|integer|no|query|(aucun)|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
-
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## ContactPostItem
-Créer un contact : crée un nouveau contact
-
-```POST: /datasets/contacts/tables/{table}/items```
-
-| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
-|item| |yes|body|(aucun)|Contact à créer|
-
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## ContactGetItem
-Obtenir un contact : récupère un contact spécifique d’un dossier de contacts
-
-```GET: /datasets/contacts/tables/{table}/items/{id}```
-
-| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
-|id|string|yes|path|(aucun)|Identificateur unique d’un contact à récupérer|
-
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
 |200|OK|
-|default|L’opération a échoué.|
+|201|Subscription Created|
+|400|BadRequest|
+|401|Unauthorized|
+|403|Forbidden|
+|500|Internal Server Error|
+|default|Operation Failed.|
 
 
-## ContactDeleteItem
-Supprimer un contact : supprime un contact
+## <a name="calendargettables"></a>CalendarGetTables
+Get calendars: Retrieves calendars 
 
-```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+```GET: /datasets/calendars/tables``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
-|id|string|yes|path|(aucun)|Identificateur unique du contact à supprimer|
-
-#### Réponse
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|L’opération a échoué.|
-
-
-## ContactPatchItem
-Mettre à jour un contact : met à jour partiellement un contact
-
-```PATCH: /datasets/contacts/tables/{table}/items/{id}```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|(aucun)|Identificateur unique d’un dossier de contacts|
-|id|string|yes|path|(aucun)|Identificateur unique du contact à mettre à jour|
-|item| |yes|body|(aucun)|Élément de contact à mettre à jour|
-
-#### Réponse
+There are no parameters for this call
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
 |200|OK|
-|default|L’opération a échoué.|
+|default|Operation Failed.|
 
 
-## Définitions d’objet 
+## <a name="calendargetitems"></a>CalendarGetItems
+Get events: Retrieves items from a calendar 
 
-### TriggerBatchResponse[IDictionary[String,Object]]
+```GET: /datasets/calendars/tables/{table}/items``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of the calendar to retrieve|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
 
 
-| Nom de la propriété | Type de données | Requis |
+## <a name="calendarpostitem"></a>CalendarPostItem
+Create event: Creates a new event 
+
+```POST: /datasets/calendars/tables/{table}/items``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|item| |yes|body|none|Calendar item to create|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="calendargetitem"></a>CalendarGetItem
+Get event: Retrieves a specific item from a calendar 
+
+```GET: /datasets/calendars/tables/{table}/items/{id}``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|id|string|yes|path|none|Unique identifier of a calendar item to retrieve|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="calendardeleteitem"></a>CalendarDeleteItem
+Delete event: Deletes a calendar item 
+
+```DELETE: /datasets/calendars/tables/{table}/items/{id}``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|id|string|yes|path|none|Unique identifier of calendar item to delete|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="calendarpatchitem"></a>CalendarPatchItem
+Update event: Partially updates a calendar item 
+
+```PATCH: /datasets/calendars/tables/{table}/items/{id}``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|id|string|yes|path|none|Unique identifier of calendar item to update|
+|item| |yes|body|none|Calendar item to update|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="calendargetonnewitems"></a>CalendarGetOnNewItems
+On new items: Triggered when a new calendar item is created 
+
+```GET: /datasets/calendars/tables/{table}/onnewitems``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="calendargetonupdateditems"></a>CalendarGetOnUpdatedItems
+On updated items: Triggered when a calendar item is modified 
+
+```GET: /datasets/calendars/tables/{table}/onupdateditems``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a calendar|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="contactgettables"></a>ContactGetTables
+Get contact folders: Retrieves contacts folders 
+
+```GET: /datasets/contacts/tables``` 
+
+There are no parameters for this call
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="contactgetitems"></a>ContactGetItems
+Get contacts: Retrieves contacts from a contacts folder 
+
+```GET: /datasets/contacts/tables/{table}/items``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of the contacts folder to retrieve|
+|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
+|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
+|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="contactpostitem"></a>ContactPostItem
+Create contact: Creates a new contact 
+
+```POST: /datasets/contacts/tables/{table}/items``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a contacts folder|
+|item| |yes|body|none|Contact to create|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="contactgetitem"></a>ContactGetItem
+Get contact: Retrieves a specific contact from a contacts folder 
+
+```GET: /datasets/contacts/tables/{table}/items/{id}``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a contacts folder|
+|id|string|yes|path|none|Unique identifier of a contact to retrieve|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="contactdeleteitem"></a>ContactDeleteItem
+Delete contact: Deletes a contact 
+
+```DELETE: /datasets/contacts/tables/{table}/items/{id}``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a contacts folder|
+|id|string|yes|path|none|Unique identifier of contact to delete|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="contactpatchitem"></a>ContactPatchItem
+Update contact: Partially updates a contact 
+
+```PATCH: /datasets/contacts/tables/{table}/items/{id}``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|table|string|yes|path|none|Unique identifier of a contacts folder|
+|id|string|yes|path|none|Unique identifier of contact to update|
+|item| |yes|body|none|Contact item to update|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|default|Operation Failed.|
+
+
+## <a name="object-definitions"></a>Object definitions 
+
+### <a name="triggerbatchresponse[idictionary[string,object]]"></a>TriggerBatchResponse[IDictionary[String,Object]]
+
+
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### Object
+### <a name="object"></a>Object
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
 
 
 
-### SendMessage
+### <a name="sendmessage"></a>SendMessage
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Pièces jointes|array|Non |
-|À partir d'une base|string|Non |
-|Cc|string|Non |
-|Cci|string|Non |
-|Objet|string|Oui |
-|Corps|string|Oui |
-|Importance|string|Non |
-|IsHtml|booléenne|Non |
-|À|string|Oui |
+|Attachments|array|No |
+|From|string|No |
+|Cc|string|No |
+|Bcc|string|No |
+|Subject|string|Yes |
+|Body|string|Yes |
+|Importance|string|No |
+|IsHtml|boolean|No |
+|To|string|Yes |
 
 
 
-### SendAttachment
+### <a name="sendattachment"></a>SendAttachment
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|@odata.type|string|Non |
-|Name|string|Oui |
-|ContentBytes|string|Oui |
+|@odata.type|string|No |
+|Name|string|Yes |
+|ContentBytes|string|Yes |
 
 
 
-### ReceiveMessage
+### <a name="receivemessage"></a>ReceiveMessage
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ID|string|Non |
-|IsRead|booléenne|Non |
-|HasAttachment|booléenne|Non |
-|DateTimeReceived|string|Non |
-|Pièces jointes|array|Non |
-|À partir d'une base|string|Non |
-|Cc|string|Non |
-|Cci|string|Non |
-|Objet|string|Oui |
-|Corps|string|Oui |
-|Importance|string|Non |
-|IsHtml|booléenne|Non |
-|À|string|Oui |
+|Id|string|No |
+|IsRead|boolean|No |
+|HasAttachment|boolean|No |
+|DateTimeReceived|string|No |
+|Attachments|array|No |
+|From|string|No |
+|Cc|string|No |
+|Bcc|string|No |
+|Subject|string|Yes |
+|Body|string|Yes |
+|Importance|string|No |
+|IsHtml|boolean|No |
+|To|string|Yes |
 
 
 
-### ReceiveAttachment
+### <a name="receiveattachment"></a>ReceiveAttachment
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ID|string|Oui |
-|ContentType|string|Oui |
-|@odata.type|string|Non |
-|Nom|string|Oui |
-|ContentBytes|string|Oui |
+|Id|string|Yes |
+|ContentType|string|Yes |
+|@odata.type|string|No |
+|Name|string|Yes |
+|ContentBytes|string|Yes |
 
 
 
-### DigestMessage
+### <a name="digestmessage"></a>DigestMessage
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Objet|string|Oui |
-|Corps|string|Non |
-|Importance|string|Non |
-|Digest|array|Oui |
-|Pièces jointes|array|Non |
-|À|string|Oui |
+|Subject|string|Yes |
+|Body|string|No |
+|Importance|string|No |
+|Digest|array|Yes |
+|Attachments|array|No |
+|To|string|Yes |
 
 
 
-### TriggerBatchResponse[ReceiveMessage]
+### <a name="triggerbatchresponse[receivemessage]"></a>TriggerBatchResponse[ReceiveMessage]
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### DataSetsMetadata
+### <a name="datasetsmetadata"></a>DataSetsMetadata
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|tabular|non défini|Non |
-|objet blob|non défini|Non |
+|tabular|not defined|No |
+|blob|not defined|No |
 
 
 
-### TabularDataSetsMetadata
+### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|source|string|Non |
-|displayName|string|Non |
-|urlEncoding|string|Non |
-|tableDisplayName|string|Non |
-|tablePluralName|string|Non |
+|source|string|No |
+|displayName|string|No |
+|urlEncoding|string|No |
+|tableDisplayName|string|No |
+|tablePluralName|string|No |
 
 
 
-### BlobDataSetsMetadata
+### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|source|string|Non |
-|displayName|string|Non |
-|urlEncoding|string|Non |
+|source|string|No |
+|displayName|string|No |
+|urlEncoding|string|No |
 
 
 
-### TableMetadata
+### <a name="tablemetadata"></a>TableMetadata
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|name|string|Non |
-|title|string|Non |
-|x-ms-permission|string|Non |
-|x-ms-capabilities|non défini|Non |
-|schema|non défini|Non |
+|name|string|No |
+|title|string|No |
+|x-ms-permission|string|No |
+|x-ms-capabilities|not defined|No |
+|schema|not defined|No |
 
 
 
-### TableCapabilitiesMetadata
+### <a name="tablecapabilitiesmetadata"></a>TableCapabilitiesMetadata
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|sortRestrictions|non défini|Non |
-|filterRestrictions|non défini|Non |
-|filterFunctions|array|Non |
+|sortRestrictions|not defined|No |
+|filterRestrictions|not defined|No |
+|filterFunctions|array|No |
 
 
 
-### TableSortRestrictionsMetadata
+### <a name="tablesortrestrictionsmetadata"></a>TableSortRestrictionsMetadata
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|sortable|booléenne|Non |
-|unsortableProperties|array|Non |
-|ascendingOnlyProperties|array|Non |
+|sortable|boolean|No |
+|unsortableProperties|array|No |
+|ascendingOnlyProperties|array|No |
 
 
 
-### TableFilterRestrictionsMetadata
+### <a name="tablefilterrestrictionsmetadata"></a>TableFilterRestrictionsMetadata
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|filterable|booléenne|Non |
-|nonFilterableProperties|array|Non |
-|requiredProperties|array|Non |
+|filterable|boolean|No |
+|nonFilterableProperties|array|No |
+|requiredProperties|array|No |
 
 
 
-### OptionsEmailSubscription
+### <a name="optionsemailsubscription"></a>OptionsEmailSubscription
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|NotificationUrl|string|Non |
-|Message|non défini|Non |
+|NotificationUrl|string|No |
+|Message|not defined|No |
 
 
 
-### MessageWithOptions
+### <a name="messagewithoptions"></a>MessageWithOptions
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Objet|string|Oui |
-|Options|string|Oui |
-|Corps|string|Non |
-|Importance|string|Non |
-|Pièces jointes|array|Non |
-|À|string|Oui |
+|Subject|string|Yes |
+|Options|string|Yes |
+|Body|string|No |
+|Importance|string|No |
+|Attachments|array|No |
+|To|string|Yes |
 
 
 
-### SubscriptionResponse
+### <a name="subscriptionresponse"></a>SubscriptionResponse
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|string|Non |
-|resource|string|Non |
-|notificationType|string|Non |
-|notificationUrl|string|Non |
+|id|string|No |
+|resource|string|No |
+|notificationType|string|No |
+|notificationUrl|string|No |
 
 
 
-### ApprovalEmailSubscription
+### <a name="approvalemailsubscription"></a>ApprovalEmailSubscription
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|NotificationUrl|string|Non |
-|Message|non défini|Non |
+|NotificationUrl|string|No |
+|Message|not defined|No |
 
 
 
-### ApprovalMessage
+### <a name="approvalmessage"></a>ApprovalMessage
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Objet|string|Oui |
-|Options|string|Oui |
-|Corps|string|Non |
-|Importance|string|Non |
-|Pièces jointes|array|Non |
-|À|string|Oui |
+|Subject|string|Yes |
+|Options|string|Yes |
+|Body|string|No |
+|Importance|string|No |
+|Attachments|array|No |
+|To|string|Yes |
 
 
 
-### ApprovalEmailResponse
+### <a name="approvalemailresponse"></a>ApprovalEmailResponse
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|SelectedOption|string|Non |
+|SelectedOption|string|No |
 
 
 
-### TablesList
+### <a name="tableslist"></a>TablesList
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### Table
+### <a name="table"></a>Table
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Nom|string|Non |
-|DisplayName|string|Non |
+|Name|string|No |
+|DisplayName|string|No |
 
 
 
-### Item
+### <a name="item"></a>Item
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ItemInternalId|string|Non |
+|ItemInternalId|string|No |
 
 
 
-### CalendarItemsList
+### <a name="calendaritemslist"></a>CalendarItemsList
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### CalendarItem
+### <a name="calendaritem"></a>CalendarItem
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ItemInternalId|string|Non |
+|ItemInternalId|string|No |
 
 
 
-### ContactItemsList
+### <a name="contactitemslist"></a>ContactItemsList
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### ContactItem
+### <a name="contactitem"></a>ContactItem
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ItemInternalId|string|Non |
+|ItemInternalId|string|No |
 
 
 
-### DataSetsList
+### <a name="datasetslist"></a>DataSetsList
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### DataSet
+### <a name="dataset"></a>DataSet
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Nom|string|Non |
-|DisplayName|string|Non |
+|Name|string|No |
+|DisplayName|string|No |
 
 
-## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Présentation du modèle de programmation Reliable Services de Service Fabric | Microsoft Azure"
-   description="Apprenez-en plus sur le modèle de programmation Service fiable de Service Fabric et commencez à écrire vos propres services."
+   pageTitle="Overview of the Service Fabric Reliable Service programming model | Microsoft Azure"
+   description="Learn about Service Fabric's Reliable Service programming model, and get started writing your own services."
    services="Service-Fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,127 +16,132 @@
    ms.date="03/25/2016"
    ms.author="masnider;vturecek"/>
 
-# Présentation de Reliable Services
-Azure Service Fabric simplifie l’écriture et la gestion de Reliable Services avec et sans état. Ce document abordera les thèmes suivants :
 
-- Le modèle de programmation Reliable Services pour les services avec et sans état.
-- Les choix que vous devez faire lors de l’écriture d’un modèle Reliable Services.
-- Des scénarios et exemples d’utilisation du modèle Reliable Services et de son mode d’écriture.
+# <a name="reliable-services-overview"></a>Reliable Services overview
+Azure Service Fabric simplifies writing and managing stateless and stateful Reliable Services. This document will talk about:
 
-Les Services fiables sont l'un des modèles de programmation disponibles sous Service Fabric. Pour plus d’informations sur le modèle de programmation Reliable Actors, consultez l’article [Présentation du modèle Reliable Actors de Service Fabric](service-fabric-reliable-actors-introduction.md).
+- The Reliable Services programming model for stateless and stateful services.
+- The choices you have to make when writing a Reliable Service.
+- Some scenarios and examples of when to use Reliable Services and how they are written.
 
-Dans Service Fabric, un service se compose de la configuration, du code d’application et éventuellement, d’un état.
+Reliable Services is one of the programming models available on Service Fabric. For more information on the Reliable Actors programming model, see [Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
-Service Fabric gère la durée de vie des services, depuis l’approvisionnement et le déploiement jusqu’à la mise à niveau et la suppression au moyen de la [gestion des applications Service Fabric](service-fabric-deploy-remove-applications.md).
+In Service Fabric, a service is composed of configuration, application code, and (optionally) state.
 
-## Définition de Reliable Services
-Reliable Services vous offre un modèle de programmation global, simple et puissant qui vous aidera à faire ressortir ce qui est important dans votre application. Avec le modèle de programmation Reliable Services, vous obtenez :
+Service Fabric manages the lifetime of services, from provisioning and deployment through upgrade and deletion, via [Service Fabric application management](service-fabric-deploy-remove-applications.md).
 
-- Pour les services avec état, le modèle de programmation Reliable Services vous permet de stocker de manière cohérente et fiable votre droit d’état dans votre service à l’aide des Collections fiables. Il s’agit d’un ensemble de classes de collection hautement disponibles, qui sera familier à tous ceux qui ont utilisé les collections C#. Traditionnellement, les services nécessitaient des systèmes externes pour la gestion d’état fiable. Avec les Collections fiables, vous pouvez stocker l’état à proximité du calcul avec la haute disponibilité et la fiabilité que vous attendez de la part de magasins externes hautement disponibles, tout en bénéficiant des autres améliorations de latence qu’offre la colocation du calcul et de l’état.
+## <a name="what-are-reliable-services?"></a>What are Reliable Services?
+Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. With the Reliable Services programming model, you get:
 
-- Un modèle simple pour exécuter votre propre code qui ressemble aux modèles de programmation auxquels vous êtes habitué. Votre code comporte un point d’entrée bien défini, et son cycle de vie est facile à gérer.
+- For stateful services, the Reliable Services programming model allows you to consistently and reliably store your state right inside your service by using Reliable Collections. This is a simple set of highly available collection classes that will be familiar to anyone who has used C# collections. Traditionally, services needed external systems for Reliable state management. With Reliable Collections, you can store your state next to your compute with the same high availability and reliability you've come to expect from highly available external stores, and with the additional latency improvements that co-locating the compute and state provide.
 
-- Un modèle de communication enfichable. Utilisez le transport de votre choix, comme HTTP avec l’[API Web](service-fabric-reliable-services-communication-webapi.md), WebSockets, des protocoles TCP personnalisés, etc. Le modèle Reliable Services fournit de remarquables options prêtes à l’emploi que vous pouvez utiliser. Vous pouvez également définir les vôtres.
+- A simple model for running your own code that looks like programming models you are used to. Your code has a well-defined entry point and easily managed lifecycle.
 
-## En quoi le modèle Reliable Services est-il différent ?
-Le modèle Reliable Services de Service Fabric est différent des services que vous avez peut-être écrits auparavant. Service Fabric fournit la fiabilité, la disponibilité, la cohérence et l'évolutivité.
+- A pluggable communication model. Use the transport of your choice, such as HTTP with [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, etc. Reliable Services provide some great out-of-the-box options you can use, or you can provide your own.
 
-- **Fiabilité** : votre service continue de fonctionner, même dans des environnements non fiables où vos ordinateurs peuvent rencontrer des pannes ou des problèmes réseau.
+## <a name="what-makes-reliable-services-different?"></a>What makes Reliable Services different?
+Reliable Services in Service Fabric is different from services you may have written before. Service Fabric provides reliability, availability, consistency, and scalability.  
 
-- **Disponibilité** : votre service est accessible et réactif. (Cela ne signifie pas que vous ne pouvez pas disposer de services introuvables ou inaccessibles à partir de l’extérieur.)
+- **Reliability**--Your service will stay up even in unreliable environments where your machines may fail or hit network issues.
 
-- **Évolutivité** : les services sont dissociés du matériel spécifique, et peuvent croître ou diminuer en fonction des besoins au moyen de l’ajout ou de la suppression de matériel ou de ressources virtuelles. Les services peuvent être facilement partitionnés (surtout dans le cas des services avec état) pour s'assurer que les parties indépendantes du service puissent s'adapter et répondre aux défaillances indépendamment. Enfin, Service Fabric encourage les services à être légers en autorisant des milliers de services à être configurés dans un processus unique, plutôt que de nécessiter ou de consacrer des instances entières du système d'exploitation à une instance unique d'une charge de travail spécifique.
+- **Availability**--Your service will be reachable and responsive. (This doesn't mean that you can't have services that can't be found or reached from outside.)
 
-- **Cohérence** : toutes les informations stockées dans ce service sont assurées d’être cohérentes (cela ne concerne que les services avec état ; plus d’informations sur ce point ultérieurement).
+- **Scalability**--Services are decoupled from specific hardware, and they can grow or shrink as necessary through the addition or removal of hardware or virtual resources. Services are easily partitioned (especially in the stateful case) to ensure that independent portions of the service can scale and respond to failures independently. Finally, Service Fabric encourages services to be lightweight by allowing thousands of services to be provisioned within a single process, rather than requiring or dedicating entire OS instances to a single instance of a particular workload.
 
-## Cycle de vie du service
-Que votre service soit avec état ou sans état, Reliable Services fournit un cycle de vie simple qui vous permet de rattacher rapidement votre code et de vous lancer. Il vous suffit d’implémenter une ou deux méthodes pour que votre service soit opérationnel.
+- **Consistency**--Any information stored in this service can be guaranteed to be consistent (this applies only to stateful services - more on this later)
 
-- **CreateServiceReplicaListeners/CreateServiceInstanceListeners** : emplacement dans lequel le service définit la pile de communication qu’il souhaite utiliser. La pile de communication, par exemple l’[API Web](service-fabric-reliable-services-communication-webapi.md), définit le point de terminaison d’écoute ou les points de terminaison du service (mode d’accès des clients). Elle définit également comment les messages qui s’affichent finissent par interagir avec le reste du code de service.
+## <a name="service-lifecycle"></a>Service lifecycle
+Whether your service is stateful or stateless, Reliable Services provide a simple lifecycle that lets you quickly plug in your code and get started.  There are just one or two methods that you need to implement to get your service up and running.
 
-- **RunAsync** : emplacement où votre service exécute sa logique métier. Le jeton d'annulation fourni est un signal indiquant quand ce travail doit s'arrêter. Par exemple, si l’un de vos services doit sans cesse extraire des messages d’une File d’attente fiable et les traiter, c’est là que se passe ce travail.
+- **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - This is where the service defines the communication stack that it wants to use. The communication stack, such as [Web API](service-fabric-reliable-services-communication-webapi.md), is what defines the listening endpoint or endpoints for the service (how clients will reach it). It also defines how the messages that appear end up interacting with the rest of the service code.
 
-### Démarrage du service
+- **RunAsync** - This is where your service runs its business logic. The cancellation token that is provided is a signal for when that work should stop. For example, if you have a service that needs to constantly pull messages out of a Reliable Queue and process them, this is where that work would happen.
 
-Principaux événements du cycle de vie d’un modèle Reliable Services :
+### <a name="service-startup"></a>Service startup
 
-1. L’objet de service (élément dérivé du service sans état ou du service avec état) est construit.
+The major events in the lifecycle of a Reliable Service are:
 
-2. La méthode `CreateServiceReplicaListeners`/`CreateServiceInstanceListeners` est appelée, ce qui permet au service de renvoyer un ou plusieurs écouteurs de communication de son choix.
-  - Notez que cela est facultatif, bien que la plupart des services exposent directement un point de terminaison.
+1. The service object (the thing that derives from the stateless service or stateful service) is constructed.
 
-3. Il est ouvert une fois les écouteurs créés.
-  - Les écouteurs de communication utilisent la méthode `OpenAsync()`, qui est appelée à ce stade et qui renvoie l’adresse d’écoute pour le service. Si votre modèle Reliable Services utilise l’un des écouteurs ICommunicationListeners intégrés, celui-ci est géré pour vous.
+2. The `CreateServiceReplicaListeners`/`CreateServiceInstanceListeners` method is called, giving the service a chance to return one or more communication listeners of its choice.
+  - Note that this is optional, although most services will expose some endpoint directly.
 
-4. Une fois l’écouteur de communication ouvert, la méthode `RunAsync()` est appelée sur le service principal.
-  - Notez que la méthode `RunAsync()` est facultative. Si le service effectue tout son travail directement en réponse aux appels d’utilisateur uniquement, il est inutile d’implémenter `RunAsync()`.
+3. Once the communication listeners are created, it is opened.
+  - Communication listeners have a method called `OpenAsync()`, which is called at this point and which returns the listening address for the service. If your Reliable Service uses one of the built-in ICommunicationListeners, this is handled for you.
 
-### Arrêt du service
+4. Once the communication listener is open, the `RunAsync()` method on the main service is called.
+  - Note that `RunAsync()` is optional. If the service does all its work directly in response to user calls only, there is no need for it to implement `RunAsync()`.
 
-Lorsque le service est en cours d’arrêt (pour être supprimé, mis à niveau ou déplacé), l’ordre d’appel est mis en miroir : tout d’abord, le jeton d’annulation détenu par `RunAsync()` est annulé, puis la méthode `CloseAsync()` est appelée sur les écouteurs de communication.
+### <a name="service-shutdown"></a>Service shutdown
 
-Il convient de noter quelques points importants sur l’arrêt des services avec état :
+When the service is being shut down (to be deleted, upgraded, or moved) the call order is mirrored: First, the cancellation token held by `RunAsync()` is canceled; then `CloseAsync()` is called on the communication listeners.
 
-- Service Fabric ne promeut pas un autre réplica de votre service à l’état principal tant que les méthodes `CloseAsync` et `RunAsync` n’ont pas été renvoyées. Si vous utilisez un écouteur de communication intégré, la méthode `CloseAsync` est gérée pour vous.
+There are a few important things to note about shutdown for stateful services:
 
-- S’il n’existe pas de limite de temps sur le renvoi de ces méthodes, vous perdez immédiatement la capacité d’écrire dans les Collections fiables, et vous ne pouvez donc pas effectuer de travail réel. Il est recommandé de procéder au renvoi aussi rapidement que possible dès la réception de la demande d’annulation.
+- Service Fabric will not promote another replica of your service to Primary status until `CloseAsync` and `RunAsync` have returned. If you are using a built-in communication listener, the `CloseAsync` method is handled for you.
 
-## Exemples de service
-En se basant sur ce modèle de programmation, observons rapidement deux services pour voir comment ces éléments s'imbriquent.
+- While there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections and therefore cannot complete any real work. It is recommended that you return as quickly as possible upon receiving the cancellation request.
 
-### Services fiables sans état
-Un service sans état est un service dans lequel aucun état n’est conservé, ou l’état qui est présent est entièrement jetable et ne nécessite aucune synchronisation, réplication, persistance ou haute disponibilité.
+## <a name="example-services"></a>Example services
+Knowing this programming model, let's take a quick look at two different services to see how these pieces fit together.
 
-Prenons pour exemple une calculatrice dépourvue de mémoire et qui reçoit tous les termes et les opérations à effectuer simultanément.
+### <a name="stateless-reliable-services"></a>Stateless Reliable Services
+A stateless service is one where there is literally no state maintained within the service, or the state that is present is entirely disposable and doesn't require synchronization, replication, persistence, or high availability.
 
-Dans ce cas, la méthode RunAsync() du service peut être vide, car le service n’a besoin d’effectuer aucun traitement de tâche en arrière-plan. Quand le service Calculatrice est créé, il renvoie un ICommunicationListener (par exemple, l’[API Web](service-fabric-reliable-services-communication-webapi.md)) qui ouvre un point de terminaison d’écoute sur un port. Ce point de terminaison d’écoute se raccorde aux différentes méthodes (exemple : « Add(n1, n2) ») qui définissent l’API publique de la calculatrice.
+For example, consider a calculator that has no memory and receives all terms and operations to perform at once.
 
-Lorsqu’un appel est effectué à partir d’un client, la méthode appropriée est appelée ; le service Calculatrice effectue les opérations sur les données fournies et renvoie le résultat. Il ne stocke aucun état.
+In this case, the RunAsync() of the service can be empty, since there is no background task-processing that the service needs to do. When the calculator service is created, it will return an ICommunicationListener (for example [Web API](service-fabric-reliable-services-communication-webapi.md)) that opens up a listening endpoint on some port. This listening endpoint will hook up to the different methods (example: "Add(n1, n2)") that define the calculator's public API.
 
-Le fait de ne pas stocker d’état interne rend cet exemple de calculatrice très simple, mais la plupart des services ne sont pas réellement sans état. Ils externalisent leur état vers un autre magasin. (Par exemple, toute application web qui s’appuie sur la conservation de l’état de session dans un magasin de stockage ou un cache n’est pas complètement sans état.)
+When a call is made from a client, the appropriate method is invoked, and the calculator service performs the operations on the data provided and returns the result. It doesn't store any state.
 
-Un exemple courant illustrant comment les services sans état sont utilisés dans Service Fabric est celui d'un serveur frontal qui expose l'API publique pour une application Web. Le service frontal communique ensuite avec les services avec état pour terminer une demande d’utilisateur. Dans ce cas, les appels des clients sont dirigés vers un port connu, comme le port 80, où le service sans état écoute. Ce service sans état reçoit l’appel et détermine s’il provient d’une partie de confiance, ainsi que le service auquel il est destiné. Le service sans état transfère alors l’appel vers la partition correcte du service avec état et attend une réponse. Lorsqu’il reçoit une réponse, il répond au client d’origine.
+Not storing any internal state makes this example calculator very simple. But most services aren't truly stateless. Instead, they externalize their state to some other store. (For example, any web app that relies on keeping session state in a backing store or cache is not completely stateless.)
 
-### Services fiables avec état
-Un service avec état est un service qui doit avoir une partie de l'état sans cesse cohérente et présente pour que le service fonctionne. Prenons pour exemple un service qui calcule constamment une moyenne mobile d’une valeur en fonction des mises à jour qu’il reçoit. Pour ce faire, il doit disposer de l’ensemble actuel des requêtes entrantes qu’il doit traiter, ainsi que la moyenne actuelle. Tout service qui récupère, traite et stocke des informations dans un magasin externe (comme un magasin de tables ou d’objets blob Azure) est un service avec état. Il conserve seulement son état dans le magasin d’état externe.
+A common example of how stateless services are used in Service Fabric is as a front-end that exposes the public-facing API for a web application. The front-end service then talks to stateful services to complete a user request. In this case, calls from clients are directed to a known port, such as 80, where the stateless service is listening. This stateless service receives the call and determines whether the call is from a trusted party, as well as which service it's destined for.  Then, the stateless service forwards the call to the correct partition of the stateful service and waits for a response. When the stateless service receives a response, it replies back to the original client.
 
-Actuellement, la plupart des services stockent leur état en externe, car le magasin externe fournit la fiabilité, la disponibilité, l’évolutivité et la cohérence pour cet état. Dans Service Fabric, les services avec état ne sont pas tenus de stocker leur état en externe, car Service Fabric s’occupe de ces exigences pour le code de service et l’état du service.
+### <a name="stateful-reliable-services"></a>Stateful Reliable Services
+A stateful service is one that must have some portion of state kept consistent and present in order for the service to function. Consider a service that constantly computes a rolling average of some value based on updates it receives. To do this, it must have the current set of incoming requests it needs to process, as well as the current average. Any service that retrieves, processes, and stores information in an external store (such as an Azure blob or table store today) is stateful. It just keeps its state in the external state store.
 
-Exemple : nous voulons écrire un service qui prend des requêtes pour une série de conversions qui doivent être effectuées sur une image, et l’image doit être convertie. Ce service renverrait un CommunicationListener (par exemple, l’API Web) qui ouvre un port de communication et autorise les soumissions via une API comme `ConvertImage(Image i, IList<Conversion> conversions)`. Dans cette API, le service pourrait prendre les informations et stocker la requête dans une File d’attente fiable, puis renvoyer un jeton au client afin d’effectuer le suivi de la requête (dans la mesure où les requêtes peuvent prendre du temps).
+Most services today store their state externally, since the external store is what provides reliability, availability, scalability, and consistency for that state. In Service Fabric, stateful services aren't required to store their state externally; Service Fabric takes care of these requirements for both the service code and the service state.
 
-Dans ce service, RunAsync pourrait être plus complexe. Le service pourrait disposer d’une boucle à l’intérieur de sa méthode RunAsync pour extraire les requêtes de la file IReliableQueue, effectuer les conversions répertoriées et stocker les résultats dans IReliableDictionary, afin que les clients puissent obtenir leurs images converties. Pour garantir que, même en cas de problème, l’image n’est pas perdue, ce Reliable Service se sortirait de la file d’attente, exécuterait les conversions et stockerait le résultat dans une transaction. Dans ce cas, le message est réellement supprimé de la file d’attente et les résultats sont stockés dans le dictionnaire de résultats lorsque les conversions sont terminées. En cas de problème dans l’intermédiaire (par exemple l’ordinateur sur lequel cette instance de code est exécutée), la requête reste dans la file d’attente jusqu’à ce qu’elle soit à nouveau traitée.
+Let's say we want to write a service that takes requests for a series of conversions that need to be performed on an image, and the image that needs to be converted.  For this service, it would return a communication listener (let's suppose Web API) that opens up a communication port and allows submissions via an API like `ConvertImage(Image i, IList<Conversion> conversions)`. In this API, the service could take the information and store the request in a Reliable Queue, and then return some token to the client so it could keep track of the request (since the requests could take some time).
 
-Concernant ce service, il convient de noter qu’il ressemble à un service .NET normal. La seule différence est que les structures de données utilisées (IReliableQueue et IReliableDictionary) sont fournies par Service Fabric ; elles sont donc plus fiables, disponibles et cohérentes.
+In this service, RunAsync could be more complex. The service could have a loop inside its RunAsync that pulls requests out of IReliableQueue, performs the conversions listed, and stores the results in IReliableDictionary, so that when the client comes back, they can get their converted images. To ensure that even if something fails the image isn't lost, this Reliable Service would pull out of the queue, perform the conversions, and store the result in a transaction. In this case, the message is actually removed only from the queue and the results are stored in the result dictionary when the conversions are complete. If something fails in the middle (such as the machine this instance of the code is running on), the request remains in the queue waiting to be processed again.
 
-## Quand utiliser les API Reliable Services
-Si l’un des éléments suivants correspond aux besoins de votre service d’application, vous devez songer à utiliser les API Reliable Services :
+One thing to note about this service is that it sounds like a normal .NET service. The only difference is that the data structures being used (IReliableQueue and IReliableDictionary) are provided by Service Fabric, and hence are made highly reliable, available, and consistent.
 
-- Vous devez fournir un comportement d’application entre plusieurs unités d’état (par exemple, commandes et éléments de ligne de commande).
+## <a name="when-to-use-reliable-services-apis"></a>When to use Reliable Services APIs
+If any of the following characterize your application service needs, then you should consider Reliable Services APIs:
 
-- L’état de votre application peut être naturellement modélisé sous forme de Files d’attente et de Dictionnaires fiables
+- You need to provide application behavior across multiple units of state (e.g., orders and order line items).
 
-- L’état doit être hautement disponible avec accès à faible latence.
+- Your application’s state can be naturally modeled as Reliable Dictionaries and Queues.
 
-- Votre application doit contrôler la concurrence ou la granularité des opérations traitées dans une ou plusieurs Collections fiables.
+- Your state needs to be highly available with low latency access.
 
-- Vous souhaitez gérer les communications ou contrôler le schéma de partitionnement de votre service.
+- Your application needs to control the concurrency or granularity of transacted operations across one or more Reliable Collections.
 
-- Votre code a besoin d’un environnement d’exécution libre de threads.
+- You want to manage the communications or control the partitioning scheme for your service.
 
-- Votre application doit créer ou détruire des Files d’attente ou des Dictionnaires fiables de manière dynamique lors de l’exécution.
+- Your code needs a free-threaded runtime environment.
 
-- Vous devez contrôler par programme les fonctionnalités de sauvegarde et de restauration fournies par Service Fabric pour l’état* du service.
+- Your application needs to dynamically create or destroy Reliable Dictionaries or Queues at runtime.
 
-- Votre application doit conserver l’historique des modifications pour ses unités d’état*.
+- You need to programmatically control Service Fabric-provided backup and restore features for your service’s state*.
 
-- Vous souhaitez développer ou utiliser des fournisseurs d’état personnalisé* développés par une tierce partie.
+- Your application needs to maintain change history for its units of state*.
 
-> [AZURE.NOTE] *Fonctionnalités disponibles au moment de la disponibilité générale du Kit de développement logiciel (SDK).
+- You want to develop or consume third-party-developed, custom state providers*.
+
+> [AZURE.NOTE] *Features available at SDK general availability.
 
 
-## Étapes suivantes
-+ [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
-+ [Utilisation avancée de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
-+ [Modèle de programmation Reliable Actors](service-fabric-reliable-actors-introduction.md)
+## <a name="next-steps"></a>Next steps
++ [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
++ [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
++ [The Reliable Actors programming model](service-fabric-reliable-actors-introduction.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

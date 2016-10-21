@@ -1,56 +1,61 @@
 <properties
-	pageTitle="Contrôle de CDN Azure Premium sur le comportement de mise en cache des demandes Verizon avec des chaînes de requête | Microsoft Azure"
-	description="La mise en cache des chaînes de requête CDN Azure contrôle la manière dont les fichiers doivent être mis en cache lorsqu’ils contiennent des chaînes de requête."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Controlling Azure CDN Premium from Verizon caching behavior of requests with query strings | Microsoft Azure"
+    description="Azure CDN query string caching controls how files are to be cached when they contain query strings."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-#Contrôle du comportement de mise en cache des demandes CDN avec des chaînes de requête - Premium
+
+#<a name="controlling-caching-behavior-of-cdn-requests-with-query-strings---premium"></a>Controlling caching behavior of CDN requests with query strings - Premium
 
 > [AZURE.SELECTOR]
 - [Standard](cdn-query-string.md)
-- [CDN Azure Premium fourni par Verizon](cdn-query-string-premium.md)
+- [Azure CDN Premium from Verizon](cdn-query-string-premium.md)
 
-##Vue d'ensemble
+##<a name="overview"></a>Overview
 
-La mise en cache des chaînes de requête contrôle la manière dont les fichiers doivent être mis en cache lorsqu'ils contiennent des chaînes de requête.
+Query string caching controls how files are to be cached when they contain query strings.
 
-> [AZURE.IMPORTANT] Les produits CDN Standard et Premium proposent les mêmes fonctionnalités de mise en cache des chaînes de requête, mais l’interface utilisateur est différente. Ce document décrit l’interface du **CDN Azure Premium fourni par Verizon**. Pour la mise en cache des chaînes de requête avec le **CDN Azure Standard fourni par Akamai** et le **CDN Azure Standard fourni par Verizon**, consultez [Contrôle du comportement de mise en cache des demandes CDN avec des chaînes de requête](cdn-query-string.md).
+> [AZURE.IMPORTANT] The Standard and Premium CDN products provide the same query string caching functionality, but the user interface differs.  This document describes the interface for **Azure CDN Premium from Verizon**.  For query string caching with **Azure CDN Standard from Akamai** and **Azure CDN Standard from Verizon**, see [Controlling caching behavior of CDN requests with query strings](cdn-query-string.md).
 
-Trois modes sont disponibles :
+Three modes are available:
 
-- **standard-cache**: il s'agit du mode par défaut. Le nœud de périmètre CDN transmet la chaîne de requête du demandeur vers l'origine de la première demande et met en cache l'élément multimédia. Toutes les demandes ultérieures concernant cet élément multimédia traitées à partir du nœud de périmètre ignorent la chaîne de requête jusqu'à l’arrivée à expiration de l'élément multimédia mis en cache.
-- **no-cache** : dans ce mode, les demandes avec des chaînes de requête ne sont pas mises en cache au niveau du nœud de périmètre CDN. Le nœud de périmètre récupère l'élément multimédia directement à partir de l'origine et le transmet au demandeur avec chaque demande.
-- **unique-cache** : ce mode traite chaque demande avec une chaîne de requête comme élément multimédia unique avec son propre cache. Par exemple, la réponse depuis l'origine d'une demande pour *foo.ashx?q=bar* est mise en cache au niveau du nœud de périmètre et renvoyée pour les caches suivants avec la même chaîne de requête. Une demande pour *foo.ashx?q=somethingelse* est mise en cache comme un élément multimédia distinct avec sa propre durée de vie.
+- **standard-cache**:  This is the default mode.  The CDN edge node will pass the query string from the requestor to the origin on the first request and cache the asset.  All subsequent requests for that asset that are served from the edge node will ignore the query string until the cached asset expires.
+- **no-cache**:  In this mode, requests with query strings are not cached at the CDN edge node.  The edge node retrieves the asset directly from the origin and passes it to the requestor with each request.
+- **unique-cache**:  This mode treats each request with a query string as a unique asset with its own cache.  For example, the response from the origin for a request for *foo.ashx?q=bar* would be cached at the edge node and returned for subsequent caches with that same query string.  A request for *foo.ashx?q=somethingelse* would be cached as a separate asset with its own time to live.
 
-##Modification des paramètres de mise en cache des chaînes de requête pour les profils CDN Premium
+##<a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>Changing query string caching settings for premium CDN profiles
 
-1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer**.
+1. From the CDN profile blade, click the **Manage** button.
 
-	![Bouton de gestion du panneau de profil CDN](./media/cdn-query-string-premium/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-query-string-premium/cdn-manage-btn.png)
 
-	Le portail de gestion CDN s’ouvre.
+    The CDN management portal opens.
 
-2. Pointez sur l'onglet **HTTP volumineux**, puis pointez sur le menu volant **Paramètres de cache**. Cliquez sur **Mise en cache des chaînes de requête**.
+2. Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Click on **Query-String Caching**.
 
-	Les options de mise en cache des chaînes de requête s'affichent.
+    Query string caching options are displayed.
 
-	![Options de mise en cache des chaînes de requête CDN](./media/cdn-query-string-premium/cdn-query-string.png)
+    ![CDN query string caching options](./media/cdn-query-string-premium/cdn-query-string.png)
 
-3. Une fois vos sélections effectuées, cliquez sur le bouton **Mettre à jour**.
+3. After making your selection, click the **Update** button.
 
 
-> [AZURE.IMPORTANT] La modification des paramètres peut ne pas être visible immédiatement, car la propagation de l’inscription dans le CDN prend un certain temps. Pour les profils du <b>CDN Azure fourni par Verizon</b>, la propagation s’effectue généralement dans un délai de 90 minutes, mais elle peut prendre plus de temps dans certains cas.
+> [AZURE.IMPORTANT] The settings changes may not be immediately visible, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

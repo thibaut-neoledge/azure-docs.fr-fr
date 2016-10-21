@@ -1,160 +1,165 @@
 <properties
-	pageTitle="Analyse des modèles d’utilisation CDN Azure | Microsoft Azure"
-	description="Vous pouvez afficher les modèles d'utilisation pour votre CDN via les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d'accès au cache, les données transférées IPV4/IPV6."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Analyze Azure CDN usage patterns | Microsoft Azure"
+    description="You can view usage patterns for your CDN using the following reports: Bandwidth, Data Transferred, Hits, Cache Statuses, Cache Hit Ratio, IPV4/IPV6 Data Transferred."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-# Analyse des modèles d’utilisation CDN Azure
+
+# <a name="analyze-azure-cdn-usage-patterns"></a>Analyze Azure CDN usage patterns
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Vous pouvez afficher les modèles d'utilisation pour votre contenu via les rapports suivants :
+You can view usage patterns for your CDN using the following reports:
 
-- Bande passante
-- Données transférées
-- Correspondances
-- États du cache
-- Taux d'accès au cache
-- Données IPV4/IPV6 transférées
+- Bandwidth
+- Data Transferred
+- Hits
+- Cache Statuses
+- Cache Hit Ratio
+- IPV4/IPV6 Data Transferred
 
-## Accès aux rapports HTTP avancés
+## <a name="accessing-advanced-http-reports"></a>Accessing advanced HTTP reports
 
-1. Dans le panneau Profil CDN, cliquez sur le bouton **Gérer**.
+1. From the CDN profile blade, click the **Manage** button.
 
-	![Bouton de gestion du panneau de profil CDN](./media/cdn-reports/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-reports/cdn-manage-btn.png)
 
-	Le portail de gestion CDN s’ouvre.
+    The CDN management portal opens.
 
-2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Core Reports** (Rapports principaux). Cliquez sur le rapport souhaité dans le menu.
+2. Hover over the **Analytics** tab, then hover over the **Core Reports** flyout.  Click on the desired report in the menu.
 
-	![Portail de gestion CDN - Menu des rapports principaux](./media/cdn-reports/cdn-core-reports.png)
-
-
-## Bande passante
-
-Le rapport relatif à la bande passante consiste en un graphique et un tableau de données indiquant l'utilisation de la bande passante pour HTTP et HTTPS sur une période donnée. Vous pouvez afficher l'utilisation de la bande passante sur tous les POP CDN ou un POP particulier. Cela vous permet d'afficher les pics de trafic et la distribution sur les POP CDN en Mbits/s.
-
-- Sélectionnez Tous les nœuds Edge pour afficher le trafic à partir de tous les nœuds ou choisissez une région/un nœud spécifique dans la liste déroulante.
-- Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées, puis cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
-- Vous pouvez exporter et télécharger les données en cliquant sur l'icône de feuille Excel située en regard de « go ».
-
-Le rapport est mis à jour toutes les 5 minutes.
-
-![Rapport de la bande passante](./media/cdn-reports/cdn-bandwidth.png)
-
-## Données transférées
-
-Ce rapport consiste en un graphique et un tableau de données indiquant l'utilisation de trafic pour HTTP et HTTPS sur une période donnée. Vous pouvez afficher le trafic de la bande passante sur tous les POP CDN ou un POP particulier. Cela vous permet d'afficher les pics de trafic et la distribution sur les POP CDN en Go.
-
-- Sélectionnez Tous les nœuds Edge pour afficher le trafic à partir de tous les nœuds ou choisissez une région/un nœud spécifique dans la liste déroulante.
-- Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées, puis cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
-- Vous pouvez exporter et télécharger les données en cliquant sur l'icône de feuille Excel située en regard de « go ».
-
-Le rapport est mis à jour toutes les 5 minutes.
-
-![Rapport des données transférées](./media/cdn-reports/cdn-data-transferred.png)
-
-## Correspondances (codes d'état)
-
-Ce rapport décrit la distribution des codes d'état de demande pour votre contenu. Chaque demande de contenu génère un code d'état HTTP. Le code d'état décrit comment les POP Edge ont géré la demande. Par exemple, les codes d'état 2xx indiquent que la demande a été correctement servie à un client, tandis qu'un code d'état 4xx indique une erreur. Pour plus d'informations sur les codes d'état HTTP, consultez [codes d'état](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
-
-- Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées, puis cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
-- Vous pouvez exporter et télécharger les données en cliquant sur la feuille Excel située en regard de « go ».
-
-![Rapport de correspondances](./media/cdn-reports/cdn-hits.png)
-
-## États du cache
-
-Ce rapport décrit la distribution des correspondances et des absences dans le cache pour la requête du client. Étant donné que les meilleures performances proviennent de correspondances dans le cache, vous pouvez optimiser les vitesses de remise de données en réduisant les absences dans le cache et les correspondances dans le cache expirées. Les absences dans le cache peuvent être réduites en configurant votre serveur d'origine pour éviter d'affecter des en-têtes de réponse « no-cache », en évitant la mise en cache de la chaîne de requête, sauf lorsque cela est strictement nécessaire et en évitant les codes de réponse non mis en cache. Les correspondances dans le cache expirées peuvent être évitées en augmentant au maximum la propriété max-age d’une ressource, afin de réduire le nombre de requêtes au serveur d'origine.
-
-![Rapport des états du cache](./media/cdn-reports/cdn-cache-statuses.png)
-
-### Les états de cache principaux sont les suivants :
-
-- TCP\_HIT : traités à partir d’Edge. L'objet était en cache et n'avait pas dépassé son max-age.
-- TCP\_HIT : traité à partir de l’origine. L'objet n'était pas dans le cache et la réponse a été renvoyée à l'origine.
-- TCP\_EXPIRED \_MISS : traités à partir de l'origine après la revalidation avec l'origine. L'objet était en cache mais avait dépassé son max-age. Une revalidation avec l’origine a entraîné un remplacement de l'objet de cache par une nouvelle réponse de l'origine.
-- TCP\_EXPIRED \_HIT : traités à partir de Edge après la revalidation avec l'origine. L'objet était en cache mais avait dépassé son max-age. Une revalidation avec le serveur d'origine n’a entraîné aucune modification de l’objet de cache.
-
-- Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées, puis cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
-- Vous pouvez exporter et télécharger les données en cliquant sur l'icône de feuille Excel située en regard de « go ».
-
-### Liste complète des états de cache
-
-- TCP\_HIT : cet état est signalé lorsqu'une requête est traitée directement du POP au client. Une ressource est immédiatement traitée à partir d'un POP lorsqu'il est mis en cache sur le serveur POP le plus proche du client et que sa durée de vie (TTL) est valide. La durée de vie est déterminée par les en-têtes de réponse suivants :
-
-	- Cache-Control: s-maxage
-	- Cache-Control: max-age
-	- Expires
-
-- TCP\_MISS : cet état indique qu'une version mise en cache de la ressource demandée est introuvable sur le serveur POP le plus proche du client. La ressource est demandée à partir d'un serveur d'origine ou d’un serveur de protection d'origine. Si le serveur d'origine ou le serveur de protection d'origine renvoie une ressource, elle est envoyée au client et mise en cache sur le client et le serveur Edge. Dans le cas contraire, un code d'état autre que -200 (par exemple, 403 interdit, 404 introuvable, etc.) est retourné.
-
-- TCP\_EXPIRED \_HIT : cet état est signalé lorsqu'une requête à direction d’une ressource avec une durée de vie (TTL) expirée, par exemple lorsque la propriété max-age de la ressource a expiré, a été envoyée directement du POP au client.
-
-	Une requête expirée entraîne généralement une demande de revalidation au serveur d'origine. Pour qu’un \_HIT TCP\_EXPIRED se produise, le serveur d'origine doit indiquer qu'il n’existe pas de version plus récente de la ressource. Ce type de situation met généralement à jour les en-têtes Cache-Control et Expires de la ressource.
-
-- TCP\_EXPIRED \_MISS : cet état est signalé lorsqu'une version plus récente d'une ressource mise en cache expirée est envoyée du POP au client. Cela se produit lorsque la durée de vie d’une ressource mise en cache a expiré (par exemple, la propriété max-age a expiré) et que le serveur d'origine retourne une version plus récente de la ressource. Cette nouvelle version de la ressource est envoyée au client, plutôt que la version mise en cache. En outre, elle est mise en cache sur le serveur Edge et le client.
-
-- CONFIG\_NOCACHE : cet état indique qu'une configuration spécifique au client sur le POP Edge a empêché la mise en cache de la ressource.
-
-- NONE : cet état indique qu'une vérification de la fraîcheur du contenu du cache n'a pas été effectuée.
-
-- TCP\_ CLIENT\_REFRESH \_MISS : cet état est signalé lorsqu'un client HTTP (par exemple, le navigateur) force un POP Edge à récupérer une nouvelle version d'une ressource obsolète à partir du serveur d'origine.
-
-	Par défaut, nos serveurs empêchent un client HTTP de forcer nos serveurs Edge à récupérer une nouvelle version de la ressource à partir du serveur d'origine.
-
-- TCP\_ PARTIAL\_HIT : cet état est signalé lorsqu'une demande de plage d'octets entraîne un accès à une ressource partiellement en cache. La plage d'octets demandée est immédiatement envoyée du serveur POP au client.
-
-- UNCACHEABLE : cet état est signalé lorsque les en-têtes Cache-Control et Expires d'une ressource indiquent qu'elle ne doit pas être mise en cache sur un POP ou par le client HTTP. Ces types de requêtes sont traités à partir du serveur d'origine
-
-## Taux d'accès au cache
-
-Ce rapport indique le pourcentage de requêtes mises en cache traitées directement à partir de la mémoire cache.
-
-Le rapport fournit les informations suivantes :
-
-- Le contenu demandé a été mis en cache sur le serveur POP le plus proche du demandeur.
-- La requête a été traitée directement à partir du Edge de notre réseau.
-- La demande ne nécessitait pas de revalidation avec le serveur d'origine.
-
-Le rapport n'inclut pas :
-
-- Les requêtes refusées en raison des options de filtrage par pays.
-- Les demandes de ressources dont les en-têtes indiquent qu'elles ne doivent pas être mises en cache. Par exemple, les en-têtes Cache-Control: private, Cache-Control: no-cache, ou Pragma: no-cache empêchent la mise en cache d’une ressource.
-- Les demandes de plage d'octets pour le contenu partiellement mis en cache.
-
-La formule est : (TCP_ HIT/(TCP_ HIT+TCP\_MISS))*100
-
-- Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées, puis cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
-- Vous pouvez exporter et télécharger les données en cliquant sur l'icône de feuille Excel située en regard de « go ».
+    ![CDN management portal - Core Reports menu](./media/cdn-reports/cdn-core-reports.png)
 
 
-![Rapport des taux d'accès au cache](./media/cdn-reports/cdn-cache-hit-ratio.png)
+## <a name="bandwidth"></a>Bandwidth
 
-## Données IPV4/IPV6 transférées
+The bandwidth report consists of a graph and data table indicating the bandwidth usage for HTTP and HTTPS over a particular time period. You can view the bandwidth usage across all CDN POPs or a particular POP. This allows you to view the traffic spikes and distribution across CDN POPs in Mbps.
 
-Ce rapport affiche la distribution de l'utilisation du trafic entre IPV4 et IPV6.
+- Select All Edge Nodes to see traffic from all nodes or choose a specific region/node from the dropdown list.
+- Select Date range to view data for today/this week/this month, etc. or enter custom dates, then click "go" to make sure your selection is updated.
+- You can export and download the data by clicking the excel sheet icon located next to "go".
 
-![Données IPV4/IPV6 transférées](./media/cdn-reports/cdn-ipv4-ipv6.png)
+The report is updated every 5 minutes.
 
-- Sélectionnez la plage de dates pour afficher les données par jour/semaine/mois, etc. ou entrez des dates personnalisées.
-- Puis, cliquez sur « go » pour vous assurer que votre sélection est mise à jour.
+![Bandwidth report](./media/cdn-reports/cdn-bandwidth.png)
+
+## <a name="data-transferred"></a>Data transferred
+
+This report consists of a graph and data table indicating the traffic usage for HTTP and HTTPS over a particular time period. You can view the traffic usage across all CDN POPs or a particular POP. This allows you to view the traffic spikes and distribution across CDN POPs in GB.
+
+- Select All Edge Nodes to see traffic from all notes or choose a specific region/node from the dropdown list.
+- Select Date range to view data for today/this week/this month, etc. or enter custom dates, then click "go" to make sure your selection is updated.
+- You can export and download the data by clicking the excel sheet icon located next to "go" .
+
+The report is updated every 5 minutes.
+
+![Data transferred report](./media/cdn-reports/cdn-data-transferred.png)
+
+## <a name="hits-(status-codes)"></a>Hits (status codes)
+
+This report describes the distribution of request status codes for your content. Every request for content will generate an HTTP status code. The status code describes how edge POPs handled the request. For example, 2xx status codes indicate that the request was successfully served to a client, while a 4xx status code indicates an error occurred. For more details about HTTP status code, see [status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
+
+- Select Date range to view data for today/this week/this month, etc. or enter custom dates, then click "go" to make sure your selection is updated.
+- You can export and download the data by clicking the excel sheet located next to "go".
+
+![Hits report](./media/cdn-reports/cdn-hits.png)
+
+## <a name="cache-statuses"></a>Cache statuses
+
+This report describes the distribution of cache hits and cache misses for client request. Since the fastest performance comes from cache hits, you can optimize data delivery speeds by minimizing cache misses and expired cache hits. Cache misses can be reduced by configuring your origin server to avoid assigning "no-cache" response headers, by avoiding query-string caching except where strictly needed, and by avoiding non-cacheable response codes. Expired cache hits can be avoided by making an asset's max-age as long as possible to minimize the number of requests to the origin server.
+
+![Cache statuses report](./media/cdn-reports/cdn-cache-statuses.png)
+
+### <a name="main-cache-statuses-include:"></a>Main cache statuses include:
+
+- TCP_HIT: Served from Edge. The object was in cache and had not exceeded its max-age.
+- TCP_MISS: Served from Origin. The object was not in cache and the response was back to origin.
+- TCP_EXPIRED _MISS: Served from origin after revalidation with origin. The object was in cache but had exceeded its max-age. A revalidation with origin resulted in the cache object being replaced by a new response from origin.
+- TCP_EXPIRED _HIT: Served from Edge after revalidation with origin. The object was in cache but had exceeded its max-age. A revalidation with the origin server resulted in the cache object being unmodified.
+
+- Select Date range to view data for today/this week/this month, etc. or enter custom dates, then click "go" to make sure your selection is updated.
+- You can export and download the data by clicking the excel sheet icon located next to "go".
+
+### <a name="full-list-of-cache-statuses"></a>Full list of cache statuses
+
+- TCP_HIT - This status is reported when a request is served directly from the POP to the client. An asset is immediately served from a POP when it is cached on the POP closest to the client and it has a valid time-to-live, or TTL. TTL is determined by the following response headers:
+
+    - Cache-Control: s-maxage
+    - Cache-Control: max-age
+    - Expires
+
+- TCP_MISS - This status indicates that a cached version of the requested asset was not found on the POP closest to the client. The asset will be requested from either an origin server or an origin shield server. If the origin server or the origin shield server returns an asset, it will be served to the client and cached on both the client and the edge server. Otherwise, a non-200 status code (e.g., 403 Forbidden, 404 Not Found, etc.) will be returned.
+
+- TCP_EXPIRED _HIT -  This status is reported when a request that targeted an asset with an expired TTL, such as when the asset's max-age has expired, was served directly from the POP to the client.
+
+    An expired request typically results in a revalidation request to the origin server. In order for a TCP_EXPIRED _HIT to occur, the origin server must indicate that a newer version of the asset does not exist. This type of situation will typically update that asset's Cache-Control and Expires headers.
+
+- TCP_EXPIRED _MISS - This status is reported when a newer version of an expired cached asset is served from the POP to the client. This occurs when the TTL for a cached asset has expired (e.g., expired max-age) and the origin server returns a newer version of that asset. This new version of the asset will be served to the client instead of the cached version. Additionally, it will be cached on the edge server and the client.
+
+- CONFIG_NOCACHE - This status indicates that a customer-specific configuration on our edge POP prevented the asset from being cached.
+
+- NONE - This status indicates that a cache content freshness check was not performed.
+
+- TCP_ CLIENT_REFRESH _MISS - This status is reported when an HTTP client (e.g., browser) forces an edge POP to retrieve a new version of a stale asset from the origin server.
+
+    By default, our servers prevent an HTTP client from forcing our edge servers to retrieve a new version of the asset from the origin server.
+
+- TCP_ PARTIAL_HIT - This status is reported when a byte range request results in a hit for a partially cached asset. The requested byte range is immediately served from the POP to the client.
+
+- UNCACHEABLE - This status is reported when an asset's Cache-Control and Expires headers indicate that it should not be cached on a POP or by the HTTP client. These types of requests are served from the origin server
+
+## <a name="cache-hit-ratio"></a>Cache Hit Ratio
+
+This report indicates the percentage of cached requests that were served directly from cache.
+
+The report provides the following details:
+
+- The requested content was cached on the POP closest to the requester.
+- The request was served directly from the edge of our network.
+- The request did not require revalidation with the origin server.
+
+The report doesn't include:
+
+- Requests that are denied due to country filtering options.
+- Requests for assets whose headers indicate that they should not be cached. For example, Cache-Control: private, Cache-Control: no-cache, or Pragma: no-cache headers will prevent an asset from being cached.
+- Byte range requests for partially cached content.
+
+The formula is: (TCP_ HIT/(TCP_ HIT+TCP_MISS))*100
+
+- Select Date range to view data for today/this week/this month, etc. or enter custom dates, then click "go" to make sure your selection is updated.
+- You can export and download the data by clicking the excel sheet icon located next to "go" .
 
 
-## Considérations
+![Cache hit ratio report](./media/cdn-reports/cdn-cache-hit-ratio.png)
 
-Les rapports peuvent uniquement être générés pour les 18 derniers mois.
+## <a name="ipv4/ipv6-data-transferred"></a>IPV4/IPV6 Data transferred
 
-<!---HONumber=AcomDC_0803_2016-->
+This report shows the traffic usage distribution in IPV4 vs IPV6.
+
+![IPV4/IPV6 Data transferred](./media/cdn-reports/cdn-ipv4-ipv6.png)
+
+- Select Date range to view data for today/this week/this month, etc. or enter custom dates.
+- Then, click "go" to make sure your selection is updated.
+
+
+## <a name="considerations"></a>Considerations
+
+Reports can only be generated within the last 18 months.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

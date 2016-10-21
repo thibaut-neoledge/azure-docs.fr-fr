@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gérer vos modèles de bande passante StorSimple | Microsoft Azure"
-   description="Décrit comment gérer les modèles de bande passante StorSimple, ce qui vous permet de contrôler la consommation de bande passante."
+   pageTitle="Manage your StorSimple bandwidth templates | Microsoft Azure"
+   description="Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,161 +15,166 @@
    ms.date="08/16/2016"
    ms.author="alkohli" />
 
-# Utiliser le service StorSimple Manager pour gérer les modèles de bande passante StorSimple
 
-## Vue d'ensemble
+# <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>Use the StorSimple Manager service to manage StorSimple bandwidth templates
 
-Les modèles de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée des couches de données à partir de l’appareil StorSimple vers le cloud.
+## <a name="overview"></a>Overview
 
-Avec les planifications de limitation de bande passante, vous pouvez :
+Bandwidth templates allow you to configure network bandwidth usage across multiple time-of-day schedules to tier the data from the StorSimple device to the cloud.
 
-- Spécifiez des planifications de bande passante en fonction de l’utilisation du réseau par la charge de travail.
+With bandwidth throttling schedules you can:
 
-- Centraliser la gestion et réutiliser les planifications sur plusieurs appareils de manière simple et transparente.
+- Specify customized bandwidth schedules depending on the workload network usages.
 
-> [AZURE.NOTE] Cette fonctionnalité est disponible uniquement pour les appareils physiques StorSimple et pas pour les appareils virtuels.
+- Centralize management and reuse the schedules across multiple devices in an easy and seamless manner.
 
-Tous les modèles de la bande passante de votre service sont affichés dans un format tabulaire et contiennent les informations suivantes :
+> [AZURE.NOTE] This feature is available only for StorSimple physical devices and not for virtual devices.
 
-- **Nom** : nom unique affecté au modèle de bande passante lors de sa création.
+All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:
 
-- **Planification** : nombre de planifications contenues dans un modèle donné de bande passante.
+- **Name** – A unique name assigned to the bandwidth template when it was created.
 
-- **Utilisé par** : nombre de volumes utilisant les modèles de bande passante.
+- **Schedule** – The number of schedules contained in a given bandwidth template.
 
-Utilisez la page **Configurer** du service StorSimple Manager du portail Azure Classic pour gérer les modèles de la bande passante.
+- **Used by** – The number of volumes using the bandwidth templates.
 
-Vous trouverez également des informations supplémentaires pour aider à configurer les modèles de bande passante dans :
+You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates.
 
-- Questions et réponses sur les modèles de bande passante
-- Meilleures pratiques pour les modèles de bande passante
+You can also find additional information to help configure bandwidth templates in:
 
-## Ajouter un modèle de bande passante
+- Questions and answers about bandwidth templates
+- Best practices for bandwidth templates
 
-Pour créer un modèle de bande passante, procédez comme suit.
+## <a name="add-a-bandwidth-template"></a>Add a bandwidth template
 
-#### Pour ajouter un modèle de bande passante
+Perform the following steps to create a new bandwidth template.
 
-1. Sur la page **Configurer** du service StorSimple Manager, cliquez sur **ajouter/modifier un modèle de bande passante**.
+#### <a name="to-add-a-bandwidth-template"></a>To add a bandwidth template
 
-2. Dans la boîte de dialogue **Ajouter/modifier des modèles de bande passante** :
+1. On the StorSimple Manager service **Configure** page, click **add/edit bandwidth template**.
 
-   1. À partir de la liste déroulante **Modèle**, sélectionnez **Créer** pour ajouter un nouveau modèle de bande passante.
-   2. Spécifiez un nom unique pour votre modèle de bande passante.
+2. In the **Add/Edit Bandwidth Template** dialog box:
 
-3. Définissez une **Planification de la bande passante**. Pour créer une planification :
+   1. From the **Template** drop-down list, select **Create new** to add a new bandwidth template.
+   2. Specify a unique name for your bandwidth template.
 
-   1. Dans la liste déroulante, sélectionnez les jours de la semaine, pour lesquels la planification est configurée. Vous pouvez sélectionner plusieurs jours en cochant les cases situées en regard dans la liste.
-   2. Sélectionnez l’option **Toute la journée** si la planification s’applique à toute la journée. Lorsque cette option est cochée, vous ne pouvez plus spécifier une **Heure de début** ou une **Heure de fin**. La planification s’exécute de 12h00 a.m. à 11:59 p.m.
-   3. Dans la liste déroulante, sélectionnez une **Heure de début**. Cette heure correspond au début de la planification.
-   4. Dans la liste déroulante, sélectionnez une **Heure de fin**. Cette heure correspond à la fin de la planification.
+3. Define a **Bandwidth Schedule**. To create a schedule:
 
-         > [AZURE.NOTE] Les planifications qui se chevauchent ne sont pas autorisées. Si les heures de début et de fin entraînent une planification qui se chevauche, un message d'erreur apparaîtra.
+   1. From the drop-down list, choose the days of the week the schedule is configured for. You can select multiple days by selecting the check boxes located before the respective days in the list.
+   2. Select the **All Day** option if the schedule is enforced for the entire day. When this option is checked, you can no longer specify a **Start Time** or an **End Time**. The schedule runs from 12:00 AM to 11:59 PM.
+   3. From the drop-down list, select a **Start Time**. This is when the schedule will begin.
+   4. From the drop-down list, select an **End Time**. This is when the schedule will stop.
 
-   5. Spécifiez le **Débit de bande passante**. Il s’agit de la bande passante en mégabits par seconde (Mbits/s) utilisée par votre appareil StorSimple dans les opérations impliquant le cloud (à la fois pour les chargements et les téléchargements). Fournissez un nombre compris entre 1 et 1 000 pour ce champ.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
-   6. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Le modèle que vous avez créé vient s’ajouter à la liste des modèles de bande passante sur la page **Configurer** du service.
+   5. Specify the **Bandwidth Rate**. This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field.
 
-    ![Créer un modèle de bande passante](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
+   6. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). The template that you have created will be added to the list of bandwidth templates on the service **Configure** page.
 
-4. Cliquez sur **Enregistrer** en bas de la page, puis sur **Oui** lorsque vous êtes invité à confirmer l’opération. Les modifications de configuration que vous avez effectuées sont alors enregistrées.
+    ![Create new bandwidth template](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
 
-## Modifier un modèle de bande passante
+4. Click **Save** at the bottom of the page and then click **Yes** when prompted for confirmation. This will save the configuration changes that you have made.
 
-Pour modifier un modèle de bande passante, procédez comme suit.
+## <a name="edit-a-bandwidth-template"></a>Edit a bandwidth template
 
-### Pour modifier un modèle de bande passante
+Perform the following steps to edit a bandwidth template.
 
-1. Cliquez sur **Ajouter/modifier des modèles de bande passante**.
+### <a name="to-edit-a-bandwidth-template"></a>To edit a bandwidth template
 
-2. Dans la boîte de dialogue **Ajouter/modifier des modèles de bande passante** :
+1. Click **add/edit bandwidth template**.
 
-   1. Dans la liste déroulante **Modèle**, sélectionnez un modèle de bande passante existant que vous souhaitez modifier.
-   2. Complétez vos modifications. (Vous pouvez modifier l’un des paramètres existants.)
-   3. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Le modèle modifié s’affiche dans la liste des modèles de bande passante de la page Configurer du service.
+2. In the **Add/Edit Bandwidth Template** dialog box:
 
-3. Pour enregistrer les modifications, cliquez sur **Enregistrer** en bas de la page. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
+   1. From the **Template** drop-down list, choose an existing bandwidth template that you want to modify.
+   2. Complete your changes. (You can modify any of the existing settings.)
+   3. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). You will see the modified template in the list of bandwidth templates on the service Configure page.
 
-> [AZURE.NOTE] Vous n’êtes pas autorisé à enregistrer vos modifications si la planification modifiée chevauche une planification existante dans le modèle de bande passante que vous modifiez.
+3. To save your changes, click **Save** at the bottom of the page. Click **Yes** when prompted for confirmation.
 
-## Supprimer un modèle de bande passante
+> [AZURE.NOTE] You will not be allowed to save your changes if the edited schedule overlaps with an existing schedule in the bandwidth template that you are modifying.
 
-Pour supprimer un modèle de bande passante, procédez comme suit.
+## <a name="delete-a-bandwidth-template"></a>Delete a bandwidth template
 
-#### Pour supprimer un modèle de bande passante
+Perform the following steps to delete a bandwidth template.
 
-1. Dans la liste de la table des modèles de bande passante de votre service, sélectionnez le modèle que vous souhaitez supprimer. Une icône de suppression (**x**) s’affiche à l’extrême droite du modèle sélectionné. Cliquez sur l’icône **x** pour supprimer le modèle.
+#### <a name="to-delete-a-bandwidth-template"></a>To delete a bandwidth template
 
-2. Vous êtes invité à confirmer l’opération. Cliquez sur **OK** pour poursuivre.
+1. In the tabular list of the bandwidth templates for your service, select the template that you wish to delete. A delete icon (**x**) will appear to the extreme right of the selected template. Click the **x** icon to delete the template.
 
-Si le modèle est en cours d’utilisation par des volumes, vous n’êtes pas autorisé à le supprimer. Vous verrez un message d’erreur indiquant que le modèle est en cours d’utilisation. Un message d’erreur s’affiche vous indiquant que toutes les références au modèle doivent être supprimées.
+2. You will be prompted for confirmation. Click **OK** to proceed.
 
-Vous pouvez supprimer toutes les références au modèle en accédant à la page **Conteneurs de volumes** et en modifiant les conteneurs de volume qui utilisent ce modèle afin qu’ils utilisent un autre modèle ou un paramètre de bande passante personnalisé ou illimité. Lorsque toutes les références ont été supprimées, vous pouvez supprimer le modèle.
+If the template is in use by any volume(s), you will not be allowed to delete it. You will see an error message indicating that the template is in use. An error message dialog box will appear advising you that all the references to the template should be removed.
 
-## Utiliser un modèle de bande passante par défaut
+You can delete all the references to the template by accessing the **Volume Containers** page and modifying the volume containers that use this template so that they use another template or use a custom or unlimited bandwidth setting. When all the references have been removed, you can delete the template.
 
-Un modèle de bande passante par défaut est fourni et utilisé par les conteneurs de volumes par défaut pour appliquer les contrôles de bande passante lors de l’accès au cloud. Le modèle par défaut sert également de référence prête pour les utilisateurs qui créent leurs propres modèles. Les détails du modèle par défaut sont les suivants :
+## <a name="use-a-default-bandwidth-template"></a>Use a default bandwidth template
 
-- **Nom** : nombre illimité de nuit et de week-ends
+A default bandwidth template is provided and is used by volume containers by default to enforce bandwidth controls when accessing the cloud. The default template also serves as a ready reference for users who create their own templates. The details of this default template are:
 
-- **Planification** : une seule planification du lundi au vendredi qui applique un taux de bande passante de 1 Mbits/s entre 8 h 00 et 17 h 00, heure de l’appareil. Pour le reste de la semaine, la bande passante est définie sur Unlimited.
+- **Name** – Unlimited nights and weekends
 
-Le modèle par défaut peut être modifié. L’utilisation de ce modèle (y compris les versions modifiées) est suivie.
+- **Schedule** – A single schedule from Monday to Friday that applies a bandwidth rate of 1 Mbps between 8 AM and 5 PM device time. The bandwidth is set to Unlimited for the remainder of the week.
 
-## Créer un modèle de bande passante sur une journée entière qui commence à une heure spécifiée
+The default template can be edited. The usage of this template (including edited versions) is tracked.
 
-Suivez cette procédure pour créer une planification qui démarre à une heure spécifiée et s’exécute toute la journée. Dans l’exemple, la planification commence à 9 heures du matin et s’exécute jusqu’à 9 h le lendemain matin. Il est important de noter que les heures de début et de fin d’une planification donnée doivent être contenues dans la même planification de 24 heures et ne peuvent pas couvrir plusieurs jours. Si vous avez besoin configurer des modèles de bande passante qui s’étendent sur plusieurs jours, vous devrez utiliser plusieurs planifications (comme illustré dans l’exemple).
+## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Create an all-day bandwidth template that starts at a specified time
 
-#### Pour créer un modèle de bande passante sur une journée entière
+Follow this procedure to create a schedule that starts at a specified time and runs all day. In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example).
 
-1. Créez une planification qui commence à 9 heures du matin et s’exécute jusqu’à minuit.
+#### <a name="to-create-an-all-day-bandwidth-template"></a>To create an all-day bandwidth template
 
-2. Ajoutez une autre planification. Configurez la deuxième planification pour qu’elle s’exécute à partir de minuit jusqu’à 9 heures du matin.
+1. Create a schedule that starts at 9 AM in the morning and runs until midnight.
 
-3. Enregistrez le modèle de bande passante.
+2. Add another schedule. Configure the second schedule to run from midnight until 9 AM in the morning.
 
-La planification composite démarre ensuite à une heure de votre choix et s’exécute toute la journée.
+3. Save the bandwidth template.
 
-## Questions et réponses sur les modèles de bande passante
+The composite schedule will then start at a time of your choosing and run all-day.
 
-**Q**. Qu’advient-il des contrôles de bande passante lorsque vous êtes entre deux planifications ? (Une planification est terminée et une autre n’a pas encore démarré).
+## <a name="questions-and-answers-about-bandwidth-templates"></a>Questions and answers about bandwidth templates
 
-**R**. Dans ce cas, aucun contrôle de bande passante n’est utilisé. Cela signifie que le périphérique peut utiliser une bande passante illimitée lors de la hiérarchisation des données vers le cloud.
+**Q**. What happens to bandwidth controls when you are in between the schedules? (A schedule has ended and another one has not started yet.)
 
-**Q**. Peut modifier les modèles de bande passante sur un périphérique hors connexion ?
+**A**. In such cases, no bandwidth controls will be employed. This means that the device can use unlimited bandwidth when tiering data to the cloud.
 
-**R**. Vous ne pouvez pas modifier les modèles de bande passante sur les conteneurs de volumes si l’appareil correspondant est hors connexion.
+**Q**. Can you modify bandwidth templates on an offline device?
 
-**Q**. Peut modifier un modèle de bande passante associé à un conteneur de volumes lorsque les volumes associés sont hors connexion ?
+**A**. You will not be able to modify bandwidth templates on volumes containers if the corresponding device is offline.
 
-**R**. Vous pouvez modifier un modèle de bande passante associé à un conteneur de volumes dont les volumes associés sont hors connexion ? Notez que lorsque les volumes sont hors connexion, aucune donnée n’est hiérarchisée de l’appareil vers le cloud.
+**Q**. Can you edit a bandwidth template associated with a volume container when the associated volumes are offline?
 
-**Q**. Peut-on supprimer un modèle par défaut ?
+**A**. You can modify a bandwidth template associated with a volume container whose volumes are offline. Note that when volumes are offline, no data will be tiered from the device to the cloud.
 
-**R**. Même si vous pouvez le faire, il est déconseillé de supprimer un modèle par défaut. L’utilisation d’un modèle par défaut, y compris les versions modifiées, est suivie. Les données de suivi sont analysées et, au fil du temps, sont utilisées pour améliorer le modèle par défaut.
+**Q**. Can you delete a default template?
 
-**Q**. Comment déterminer que vos modèles de bande passante doivent être modifiés ?
+**A**. Although you can delete a default template, it is not a good idea to do so. The usage of a default template, including edited versions, is tracked. The tracking data is analyzed and over the course of time, is used to improve the default template.
 
-**R**. Lorsque vous commencez à constater que le réseau ralentit ou se retrouve bloqué plusieurs fois par jour, il est temps que vous modifiiez les modèles de bande passante. Si tel est le cas, surveillez le stockage et l’utilisation du réseau en examinant les graphiques des performances d’E/S et de débit du réseau.
+**Q**. How do you determine that your bandwidth templates need to be modified?
 
-À partir des données de débit du réseau, identifiez l’heure et les conteneurs de volumes où le goulot d’étranglement du réseau s’est produit. Si cela se produit lorsque les données sont en cours de hiérarchisation vers le cloud (obtenez ces informations à partir des performances d’E/S de tous les conteneurs de volume pour l’appareil vers le cloud), vous devez modifier les modèles de la bande passante associés à vos conteneurs de volumes.
+**A**. One of the signs that you need to modify the bandwidth templates is when you start seeing the network slow down or choke multiple times in a day. If this happens, monitor the storage and usage network by looking at the I/O Performance and Network Throughput charts.
 
-Une fois que les modèles modifiés sont en cours d’utilisation, vous devez surveiller à nouveau le réseau en cas de latences importantes. Si des latences subsistent, vous devez revoir vos modèles de bande passante.
+From the network throughput data, identify the time of day and the volume containers in which the network bottleneck occurs. If this happens when data is being tiered to the cloud (get this information from I/O performance for all volume containers for device to cloud), then you will need to modify the bandwidth templates associated with your volume containers.
 
-**Q**. Que se passe-t-il si plusieurs conteneurs de volumes sur mon appareil ont des planifications qui se chevauchent, mais que différentes limites s’appliquent à chacune ?
+After the modified templates are in use, you will need to monitor the network again for significant latencies. If these still exist, then you will need to revisit your bandwidth templates.
 
-**R**. Supposons que vous disposiez d’un appareil avec 3 conteneurs de volumes. Les planifications associées à ces conteneurs se chevauchent totalement. Pour chacun de ces conteneurs, les limites de bande passante utilisées sont respectivement 5, 10 et 15 Mbits/s. Lorsque les E/S se produisent sur l’ensemble de ces conteneurs en même temps, la valeur minimale des 3 limites de bande passante peut s’appliquer : dans ce cas, 5 Mbits/s, car ces demandes sortantes d’E/S partagent la même file d’attente.
+**Q**. What happens if multiple volume containers on my device have schedules that overlap but different limits apply to each?
 
-## Meilleures pratiques pour les modèles de bande passante
+**A**. Let's assume that you have a device with 3 volume containers. The schedules associated with these containers completely overlap. For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively. When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.
 
-Suivez ces meilleures pratiques pour votre appareil StorSimple :
+## <a name="best-practices-for-bandwidth-templates"></a>Best practices for bandwidth templates
 
-- Configurez les modèles de bande passante sur votre appareil pour activer la limitation variable du débit réseau par l’appareil à différentes heures de la journée. Ces modèles de bande passante lorsqu’ils sont utilisés avec les planifications de sauvegarde peuvent exploiter efficacement une bande passante réseau supplémentaire pour les opérations de cloud pendant les heures creuses.
+Follow these best practices for your StorSimple device:
 
-- Calculez la bande passante réelle requise pour un déploiement spécifique en fonction de la taille du déploiement et de l’objectif de délai de récupération.
+- Configure bandwidth templates on your device to enable variable throttling of the network throughput by the device at different times of the day. These bandwidth templates when used with backup schedules can effectively leverage additional network bandwidth for cloud operations during off-peak hours.
 
-## Étapes suivantes
+- Calculate the actual bandwidth required for a particular deployment based on the size of the deployment and the required recovery time objective (RTO).
 
-En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0824_2016-->
+Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

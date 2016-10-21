@@ -1,62 +1,63 @@
 <properties
-	pageTitle="Bonnes pratiques pour les modèles Azure Resource Manager | Microsoft Azure"
-	description="Instructions pour simplifier vos modèles Azure Resource Manager."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="timlt"
-	editor="tysonn"/>
+    pageTitle="Best practices Resource Manager template | Microsoft Azure"
+    description="Guidelines for simplifying your Azure Resource Manager templates."
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="tfitzmac"
+    manager="timlt"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/15/2016"
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/15/2016"
+    ms.author="tomfitz"/>
 
-# Bonnes pratiques relatives à la création de modèles Azure Resource Manager
 
-Les instructions suivantes vous aideront à créer des modèles Resource Manager fiables et faciles à utiliser. Ces instructions sont uniquement des suggestions et ne sont pas impératives. Votre scénario peut nécessiter des variations de ces instructions.
+# <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Best practices for creating Azure Resource Manager templates
 
-## Noms de ressource
+The following guidelines will help you create Resource Manager templates that are reliable and easy-to-use. These guidelines are intended only as suggestions, not absolute requirements. Your scenario may require variations from these guidelines.
 
-Il existe généralement trois types de noms de ressource avec lesquels vous travaillez :
+## <a name="resource-names"></a>Resource names
 
-1. des noms de ressource qui doivent être uniques ;
-2. des noms de ressources qui ne doivent pas être uniques, mais qui doivent permettre d’identifier le contexte ;
-3. des noms de ressources qui peuvent être génériques.
+There are generally three types of resource names you will work with:
 
-Pour établit une convention de nommage, consultez [Instructions de dénomination d’infrastructure](./virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md). Pour plus d’informations sur les restrictions de noms de ressource, consultez [Conventions d’affectation de noms recommandées pour les ressources Azure](./guidance/guidance-naming-conventions.md).
+1. Resource names that must be unique.
+2. Resource names that do not need to be unique but you want to provide a name that helps identify the context.
+3. Resource names that can be generic.
 
-### Noms de ressource uniques
+For help with establishing a naming convention, see [Infrastructure naming guidelines](./virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](./guidance/guidance-naming-conventions.md).
 
-Vous devez fournir un nom de ressource unique pour tout type de ressource disposant d’un point de terminaison d’accès aux données. Certains types courants nécessitent un nom unique, notamment :
+### <a name="unique-resource-names"></a>Unique resource names
 
-- Compte de stockage
-- Site web
-- Serveur SQL
-- Coffre de clés
-- Le cache Redis
-- Compte Batch
-- Traffic Manager
-- Service de recherche
-- Cluster HDInsight
+You must provide a unique resource name for any resource type that has a data access endpoint. Some common types that require a unique name include:
 
-En outre, les noms de compte de stockage doivent être en minuscules, comporter 24 caractères au maximum et ne pas comprendre de traits d’union.
+- Storage account
+- Web site
+- SQL server
+- Key vault
+- Redis cache
+- Batch account
+- Traffic manager
+- Search service
+- HDInsight cluster
 
-Plutôt que de fournir un paramètre pour ces noms de ressource et essayer de deviner un nom unique au cours du déploiement, vous pouvez créer une variable qui utilise la fonction [uniqueString()](resource-group-template-functions.md#uniquestring) pour générer un nom. Souvent, vous souhaitez également ajouter un préfixe ou un suffixe au résultat de **uniqueString** pour vous permettre de déterminer plus facilement le type de ressource en examinant le nom. Par exemple, vous pouvez générer un nom unique pour un compte de stockage avec la variable suivante.
+Furthermore, storage account names must be lower-case, 24 characters or less, and not include any hyphens.
+
+Rather than providing a parameter for these resource names and trying to guess a unique name during deployment, you can create a variable that uses the [uniqueString()](resource-group-template-functions.md#uniquestring) function to generate a name. Frequently, you will also want to add a prefix or postfix to the **uniqueString** result so you can more easily determine the resource type by looking at the name. For example, you can generate a unique name for a storage account with the following variable.
 
     "variables": {
         "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
     }
 
-Les comptes de stockage avec un préfixe uniqueString ne seront pas mis en cluster dans les mêmes racks.
+Storage accounts with a uniqueString prefix will not get clustered on the same racks.
 
-### Noms de ressource pour l’identification
+### <a name="resource-names-for-identification"></a>Resource names for identification
 
-Pour les types de ressources que vous souhaitez nommer mais dont vous n’avez pas à garantir l’unicité, entrez simplement un nom qui identifie le contexte et le type de la ressource. Vous pouvez éventuellement fournir un nom descriptif qui vous aide à l’identifier dans une liste de noms de ressource. Si vous avez besoin de modifier le nom de ressource au cours des déploiements, utilisez un paramètre pour le nom :
+For resource types that you want to name but you do not have to guarantee uniqueness, simply provide a name that identifies both its context and resource type. You'll want to provide a descriptive name that helps you recognize it from a list of resource names. If you need to vary the resource name during deployments, use a parameter for the name:
 
     "parameters": {
         "vmName": { 
@@ -68,13 +69,13 @@ Pour les types de ressources que vous souhaitez nommer mais dont vous n’avez p
         }
     }
 
-S’il est inutile de transmettre un nom au cours du déploiement, utilisez une variable :
+If you do not need to pass in a name during deployment, use a variable: 
 
     "variables": {
         "vmName": "demoLinuxVM"
     }
 
-Sinon, une valeur codée en dur :
+Or, a hard-coded value:
 
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -82,9 +83,9 @@ Sinon, une valeur codée en dur :
       ...
     }
 
-### Noms de ressource génériques
+### <a name="generic-resource-names"></a>Generic resource names
 
-Pour les types de ressources qui sont accessibles en grande partie par le biais d’une autre ressource, vous pouvez utiliser un nom générique codé en dur dans le modèle. Par exemple, vous ne souhaitez probablement pas fournir un nom personnalisable pour les règles de pare-feu dans un serveur SQL Server.
+For resource types that are largely accessed through another resource, you can use a generic name that is hard-coded in the template. For example, you probably do not want to provide a customizable name for firewall rules on a SQL Server.
 
     {
         "type": "firewallrules",
@@ -92,18 +93,18 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
         ...
     }
 
-## Paramètres
+## <a name="parameters"></a>Parameters
 
-1. Minimisez les paramètres autant que possible. Si vous pouvez utiliser une variable ou une expression littérale, faites-le. Fournissez uniquement des paramètres pour :
- - les réglages que vous souhaitez faire évoluer en fonction de l’environnement (par exemple, la référence, la taille ou la capacité) ;
- - les noms de ressources que vous souhaitez spécifier pour faciliter l’identification ;
- - les valeurs que vous utilisez souvent pour effectuer d’autres tâches (par exemple, le nom d’utilisateur administrateur) ;
- - les clés secrètes (notamment les mots de passe) ;
- - le nombre ou le tableau de valeurs à utiliser lors de la création de plusieurs instances d’un type de ressource.
+1. Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
+ - Settings you wish to vary by environment (such as sku, size, or capacity).
+ - Resource names you wish to specify for easy identification.
+ - Values you use often to complete other tasks (such as admin user name).
+ - Secrets (such as passwords)
+ - The number or array of values to use when creating multiple instances of a resource type.
 
-1. Les noms de paramètre doivent suivre **camelCasing**.
+1. Parameter names should follow **camelCasing**.
 
-1. Fournissez une description dans les métadonnées pour chaque paramètre.
+1. Provide a description in the metadata for every parameter.
 
         "parameters": {
             "storageAccountType": {
@@ -114,7 +115,7 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
             }
         }
 
-1. Définissez des valeurs par défaut pour les paramètres (à l’exception des mots de passe et des clés SSH).
+1. Define default values for parameters (except for passwords and SSH keys).
 
         "parameters": {
             "storageAccountType": {
@@ -126,7 +127,7 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
             }
         }
 
-1. Utilisez **securestring** pour tous les mots de passe et les clés secrètes.
+1. Use **securestring** for all passwords and secrets. 
 
         "parameters": {
             "secretValue": {
@@ -137,7 +138,7 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
             }
         }
  
-1. Lorsque cela est possible, évitez d’utiliser un paramètre pour spécifier **l’emplacement**. Au lieu de cela, utilisez la propriété d’emplacement du groupe de ressources. Avec l’expression **resourceGroup ().location** pour toutes vos ressources, les ressources dans le modèle sont déployées dans le même emplacement que le groupe de ressources.
+1. When possible, avoid using a parameter to specify the **location**. Instead, use the location property of the resource group. By using the **resourceGroup().location** expression for all your resources, the resources in the template will be deployed in the same location as the resource group.
 
         "resources": [
           {
@@ -149,19 +150,19 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
           }
         ]
   
-     Si un type de ressource est uniquement pris en charge dans un nombre limité d’emplacements, envisagez de spécifier un emplacement valide directement dans le modèle. Si vous devez utiliser un paramètre d’emplacement, partagez cette valeur de paramètre autant que possible avec les ressources qui sont susceptibles de se trouver dans le même emplacement. Cette approche réduit le nombre d’utilisateurs devant fournir des emplacements pour chaque type de ressource.
+     If a resource type is supported in only a limited number of locations, consider specifying a valid location directly in the template. If you must use a location parameter, share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes users having to provide locations for every resource type.
 
-1. Évitez d’utiliser un paramètre ou une variable pour la version de l’API pour un type de ressource. Les propriétés de ressource et les valeurs peuvent varier selon le numéro de version. IntelliSense dans des éditeurs de code n’est pas en mesure de déterminer le schéma correct lorsque la version de l’API est définie sur un paramètre ou une variable. Au lieu de cela, codez en dur la version de l’API dans le modèle.
+1. Avoid using a parameter or variable for the API version for a resource type. Resource properties and values can vary by version number. Intellisense in code editors will not be able to determine the correct schema when the API version is set to a parameter or variable. Instead, hard-code the API version in the template.
 
-## Variables 
+## <a name="variables"></a>Variables 
 
-1. Utilisez des variables pour les valeurs que vous devez utiliser plusieurs fois dans un modèle. Si une valeur est utilisée une seule fois, une valeur codée en dur rend votre modèle plus facile à lire.
+1. Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value will make your template easier to read.
 
-1. Vous ne pouvez pas utiliser la fonction [reference](resource-group-template-functions.md#reference) dans la section Variables. La fonction reference dérive sa valeur de l’état d’exécution de la ressource, mais les variables sont résolues lors de l’analyse initiale du modèle. Au lieu de cela, construisez des valeurs qui ont besoin de la fonction **reference** directement dans la section **resources** ou **outputs** du modèle.
+1. You cannot use the [reference](resource-group-template-functions.md#reference) function in the variables section. The reference function derives its value from the resource's runtime state, but variables are resolved during the initial parsing of the template. Instead, construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
 
-1. Incluez des variables pour les noms de ressource qui doivent être uniques, comme indiqué dans [Noms de ressources](#resource-names).
+1. Include variables for resource names that need to be unique, as shown in [Resource names](#resource-names).
 
-1. Vous pouvez regrouper des variables dans des objets complexes. Vous pouvez référencer une valeur à partir d’un objet complexe au format **variable.subentry**. Le regroupement de variables vous permet d’effectuer le suivi de variables liées et améliore la lisibilité du modèle.
+1. You can group variables into complex objects. You can reference a value from a complex object in the format **variable.subentry**. Grouping variables helps you keep track of related variables and improves readability of the template.
 
         "variables": {
             "storage": {
@@ -182,13 +183,13 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
           }
         ]
  
-     > [AZURE.NOTE] Un objet complexe ne peut pas contenir une expression qui fait référence à la valeur d’un objet complexe. Définissez une variable distincte à cette fin.
+     > [AZURE.NOTE] A complex object cannot contain an expression that references a value from a complex object. Define a separate variable for this purpose.
 
-     Pour obtenir des exemples plus avancés de l’utilisation d’objets complexes en tant que variables, consultez la rubrique [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
+     For more advanced examples of using complex objects as variables, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
 
-## Ressources
+## <a name="resources"></a>Resources
 
-1. Spécifiez des **commentaires** pour chaque ressource dans le modèle pour aider les autres contributeurs à comprendre l’objectif de la ressource.
+1. Specify **comments** for each resource in the template to help other contributors understand the purpose of the resource.
 
         "resources": [
           {
@@ -201,9 +202,9 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
           }
         ]
 
-1. Utilisez des balises pour ajouter des métadonnées aux ressources qui vous permettent d’ajouter des informations supplémentaires concernant vos ressources. Par exemple, vous pouvez ajouter des métadonnées à une ressource à des fins de détail de facturation. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
+1. Use tags to add metadata to resources that enable you to add additional information about your resources. For example, you can add metadata to a resource for billing detail purposes. For more information, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
-1. Si vous utilisez un **point de terminaison public** dans votre modèle (par exemple, un point de terminaison public de stockage d’objets blob), **ne codez pas en dur** l’espace de noms. Utilisez la fonction **référence** pour récupérer l’espace de noms dynamiquement. Cela vous permet de déployer le modèle dans différents environnements d’espace de noms publics sans modifier manuellement le point de terminaison dans le modèle. Définissez l’apiVersion sur la version que vous utilisez pour le compte de stockage (storageAccount) dans votre modèle.
+1. If you use a **public endpoint** in your template (such as a blob storage public endpoint), **do not hardcode** the namespace. Use the **reference** function to retrieve the namespace dynamically. This allows you to deploy the template to different public namespace environments, without manually changing the endpoint in the template. Set the apiVersion to the same version you are using for the storageAccount in your template.
 
         "osDisk": {
             "name": "osdisk",
@@ -212,7 +213,7 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
             }
         }
 
-     Si le compte de stockage est déployé dans le même modèle, il est inutile de spécifier l’espace de noms du fournisseur lors du référencement de la ressource. La syntaxe simplifiée est la suivante :
+     If the storage account is deployed in the same template, you do not need to specify the provider namespace when referencing the resource. The simplified syntax is:
      
         "osDisk": {
             "name": "osdisk",
@@ -221,7 +222,7 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
             }
         }
 
-     Si vous avez d’autres valeurs dans votre modèle configuré avec un espace de noms public, modifiez-les de manière à ce qu’elles reflètent la même fonction de référence. Par exemple, la propriété storageUri de la machine virtuelle diagnosticsProfile.
+     If you have other values in your template configured with a public namespace, change these to reflect the same reference function. For example, the storageUri property of the virtual machine diagnosticsProfile.
 
         "diagnosticsProfile": {
             "bootDiagnostics": {
@@ -230,7 +231,7 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
             }
         }
  
-     Vous pouvez également **référencer** un compte de stockage existant dans un autre groupe de ressources.
+     You can also **reference** an existing storage account in a different resource group.
 
 
         "osDisk": {
@@ -240,16 +241,16 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
             }
         }
 
-1. Affectez publicIPAddresses à une machine virtuelle uniquement si une application le nécessite. Pour vous connecter à des fins de débogage, de gestion ou d’administration, utilisez inboundNatRules, virtualNetworkGateways ou une jumpbox.
+1. Assign publicIPAddresses to a virtual machine only when required for an application. To connect for debug, management or administrative purposes, use either inboundNatRules, virtualNetworkGateways or a jumpbox.
 
-     Pour plus d’informations sur la connexion aux machines virtuelles, consultez :
-     - [Running VMs for an N-tier architecture on Azure](./guidance/guidance-compute-3-tier-vm.md) (Exécution de machines virtuelles pour une architecture à plusieurs niveaux dans Azure)
-     - [Configuration de l’accès WinRM pour les machines virtuelles dans Azure Resource Manager](./virtual-machines/virtual-machines-windows-winrm.md)
-     - [Autoriser l’accès externe à votre machine virtuelle à l’aide du portail Azure](./virtual-machines/virtual-machines-windows-nsg-quickstart-portal.md)
-     - [Autoriser l’accès externe à votre machine virtuelle à l’aide de PowerShell](./virtual-machines/virtual-machines-windows-nsg-quickstart-powershell.md)
-     - [Ouverture des ports et des points de terminaison](./virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+     For more information about connecting to virtual machines, see:
+     - [Running VMs for an N-tier architecture on Azure](./guidance/guidance-compute-3-tier-vm.md)
+     - [Setting up WinRM access for Virtual Machines in Azure Resource Manager](./virtual-machines/virtual-machines-windows-winrm.md)
+     - [Allow external access to your VM using the Azure Portal](./virtual-machines/virtual-machines-windows-nsg-quickstart-portal.md)
+     - [Allow external access to your VM using PowerShell](./virtual-machines/virtual-machines-windows-nsg-quickstart-powershell.md)
+     - [Opening ports and endpoints](./virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-1. La propriété **domainNameLabel** pour publicIPAddresses doit être unique. domainNameLabel doit être composé de 3 et 63 caractères et respecter les règles spécifiées par cette expression régulière `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Comme la fonction uniqueString génère une chaîne de 13 caractères dans l’exemple ci-dessous, il est supposé qu’il a été vérifié que la chaîne de préfixe dnsPrefixString ne dépasse pas 50 caractères et se conforme à ces règles.
+1. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be between 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
 
         "parameters": {
             "dnsPrefixString": {
@@ -264,7 +265,7 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
             "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
         }
 
-1. Lors de l’ajout d’un mot de passe pour une **customScriptExtension**, utilisez la propriété **commandToExecute** dans protectedSettings.
+1. When adding a password to a **customScriptExtension**, use the **commandToExecute** property in protectedSettings.
 
         "properties": {
             "publisher": "Microsoft.OSTCExtensions",
@@ -279,11 +280,11 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
             }
         }
 
-     > [AZURE.NOTE] Pour garantir que les clés secrètes transmises comme paramètres à des machines virtuelles/extensions sont chiffrées, la propriété protectedSettings des extensions appropriées doit être utilisée.
+     > [AZURE.NOTE] In order to ensure that secrets which are passed as parameters to virtualMachines/extensions are encrypted, the protectedSettings property of the relevant extensions must be used.
 
-## Sorties
+## <a name="outputs"></a>Outputs
 
-Si un modèle crée de nouvelles **publicIPAddresses**, il doit comporter une section **output** qui fournit des détails de l’adresse IP et du domaine entièrement qualifié créé pour récupérer facilement ces détails après le déploiement. Lors du référencement de la ressource, utilisez la version d’API qui a été utilisée pour la créer.
+If a template creates any new **publicIPAddresses** then it should have an **output** section that provides details of the IP address and fully qualified domain created to easily retrieve these details after deployment. When referencing the resource, use the API version that was used to create it. 
 
 ```
 "outputs": {
@@ -298,28 +299,28 @@ Si un modèle crée de nouvelles **publicIPAddresses**, il doit comporter une se
 }
 ```
 
-## Modèle unique ou modèles imbriqués
+## <a name="single-template-or-nested-templates"></a>Single template or nested templates
 
-Pour déployer votre solution, vous pouvez utiliser un modèle unique ou un modèle principal avec plusieurs modèles imbriqués. Les modèles imbriqués sont courants dans des scénarios plus avancés. Les modèles imbriqués offrent les avantages suivants :
+To deploy your solution, you can use either a single template or a main template with multiple nested templates. Nested templates are common for more advanced scenarios. Nested templates contain the following advantages:
 
-1. Ils permettent de décomposer une solution en composants ciblés.
-2. Ils peuvent être réutilisés dans différents modèles principaux.
+1. Can decompose solution into targeted components
+2. Can re-use nested templates with different main templates
 
-Lorsque vous décidez de décomposer votre conception de modèle en plusieurs modèles imbriqués, les instructions suivantes vous aident à normaliser la conception. Ces instructions sont basées sur la documentation des [modèles pour la conception de modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md). La conception recommandée se compose des modèles suivants.
+When you decide to decompose your template design into multiple nested templates, the following guidelines will help standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation. The recommended design consists of the following templates.
 
-+ **Modèle principal** (azuredeploy.json). Utilisé pour les paramètres d’entrée.
-+ **Modèle de ressource partagé**. Déploie les ressources partagées que toutes les autres ressources utilisent (par exemple, réseau virtuel et groupes à haute disponibilité). L’expression dependsOn impose que ce modèle soit déployé avant les autres modèles.
-+ **Modèle de ressource facultatif**. Effectue un déploiement conditionnel des ressources en fonction d’un paramètre (par exemple, une jumpbox)
-+ **Modèles de ressource de membre**. Chaque type d’instance dans une couche application a sa propre configuration. Différents types d’instance peuvent être définis au sein d’un niveau (par exemple, si la première instance crée un cluster, des instances supplémentaires sont ajoutées au cluster existant). Chaque type d’instance a son propre modèle de déploiement.
-+ **Scripts**. Des scripts largement réutilisables sont applicables pour chaque type d’instance (par exemple, l’initialisation et le formatage de disques supplémentaires). Les scripts personnalisés sont créés à des fins spécifiques de personnalisation diffèrent selon le type d’instance.
++ **Main template** (azuredeploy.json). Used for the input parameters.
++ **Shared resources template**. Deploys the shared resources that all other resources use (e.g. virtual network, availability sets). The expression dependsOn enforces that this template is deployed before the other templates.
++ **Optional resources template**. Conditionally deploys resources based on a parameter (e.g. a jumpbox)
++ **Member resources templates**. Each instance type within an application tier has its own configuration. Within a tier, different instance types can be defined (such as, first instance creates a new cluster, additional instances are added to the existing cluster). Each instance type will have its own deployment template.
++ **Scripts**. Widely reusable scripts are applicable for each instance type (e.g. initialize and format additional disks). Custom scripts are created for specific customization purpose are different per instance type.
 
-![modèle imbriqué](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
+![nested template](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
 
-Pour plus d’informations, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
+For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
-## Établissez un lien conditionnel au modèle imbriqué
+## <a name="conditionally-link-to-nested-template"></a>Conditionally link to nested template
 
-Vous pouvez établir un lien conditionnel aux modèles imbriqués en utilisant un paramètre qui devient partie intégrante de l’URI du modèle.
+You can conditionally link to nested templates by using a parameter that becomes part of the URI for the template.
 
     "parameters": {
         "newOrExisting": {
@@ -350,15 +351,19 @@ Vous pouvez établir un lien conditionnel aux modèles imbriqués en utilisant u
         }
     ]
 
-## Format de modèle
+## <a name="template-format"></a>Template format
 
-1. Il est conseillé de d’exécuter une validation JSON de votre modèle pour supprimer les virgules, les parenthèses et les crochets superflus qui peuvent provoquer une erreur lors du déploiement. Essayez [JSONlint](http://jsonlint.com/) ou un package de linter pour votre environnement d’édition favori (Visual Studio Code, Atom, Sublime Text, Visual Studio, etc.).
-1. Il est également judicieux de formater votre JSON pour une meilleure lisibilité. Vous pouvez utiliser un package de formatage JSON de votre éditeur local. Dans Visual Studio, formatez le document avec **Ctrl + K, Ctrl + D**. Dans VS Code, utilisez **Alt + Maj + F**. Si votre éditeur local ne formate pas le document, vous pouvez utiliser un [formateur en ligne](https://www.bing.com/search?q=json+formatter).
+1. It is a good practice to pass your template through a JSON validator to remove extraneous commas, parenthesis, brackets that may cause an error during deployment. Try [JSONlint](http://jsonlint.com/) or a linter package for your favorite editing environment (Visual Studio Code, Atom, Sublime Text, Visual Studio, etc.)
+1. It's also a good idea to format your JSON for better readability. You can use a JSON formatter package for your local editor. In Visual Studio, format the document with **Ctrl+K, Ctrl+D**. In VS Code, use **Alt+Shift+F**. If your local editor doesn't format the document, you can use an [online formatter](https://www.bing.com/search?q=json+formatter).
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-1. Pour obtenir des conseils sur la conception de votre solution pour des machines virtuelles, consultez [Exécution d’une machine virtuelle Windows sur Azure](./guidance/guidance-compute-single-vm.md) et [Exécution d’une machine virtuelle Linux sur Azure](./guidance/guidance-compute-single-vm-linux.md).
-2. Pour des conseils sur la configuration d’un compte de stockage, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](./storage/storage-performance-checklist.md).
-3. Pour recevoir de l’aide sur les réseaux virtuels, consultez [Instructions pour les infrastructures réseau](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md).
+1. For guidance on architecting your solution for virtual machines, see [Running a Windows VM on Azure](./guidance/guidance-compute-single-vm.md) and [Running a Linux VM on Azure](./guidance/guidance-compute-single-vm-linux.md).
+2. For guidance on setting up a storage account, see [Microsoft Azure Storage Performance and Scalability Checklist](./storage/storage-performance-checklist.md).
+3. For help with virtual networks, see [Networking infrastructure guidelines](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
