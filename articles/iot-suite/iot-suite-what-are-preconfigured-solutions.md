@@ -131,4 +131,4 @@ Pour plus d’informations sur les architectures de solution IoT, consultez le d
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_1005_2016-->
+<!-----HONumber=AcomDC_1005_2016-->

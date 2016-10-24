@@ -485,4 +485,4 @@ Enfin, après l’installation du serveur d’applications SAP et de l’interfa
 
 * Téléchargement de la plateforme HANA SP12 sur le SAP Service Marketplace : ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->
