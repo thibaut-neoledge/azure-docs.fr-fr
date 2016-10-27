@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Prise en main du masquage des données dynamiques de base de données SQL (portail Azure Classic)"
-   description="Comment prendre en main le masquage de données dynamiques de base de données SQL dans le portail Azure Classic"
+   pageTitle="Get started with SQL Database Dynamic Data Masking (Azure Classic Portal)"
+   description="How to get started with SQL Database Dynamic Data Masking in the Azure Classic Portal"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -16,88 +16,93 @@
    ms.date="07/10/2016"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
-# Prise en main du masquage des données dynamiques de base de données SQL (portail Azure Classic)
+
+# <a name="get-started-with-sql-database-dynamic-data-masking-(azure-classic-portal)"></a>Get started with SQL Database Dynamic Data Masking (Azure Classic Portal)
 
 > [AZURE.SELECTOR]
-- [Masquage des données dynamiques - Portail Azure](sql-database-dynamic-data-masking-get-started.md)
+- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 
-## Vue d'ensemble
+## <a name="overview"></a>Overview
 
-Le masquage des données dynamiques de base de données SQL limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège. Le masquage des données dynamiques est pris en charge pour la version V12 de la base de données SQL Azure.
+SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking is supported for the V12 version of Azure SQL Database.
 
-Le masquage des données dynamiques empêche tout accès non autorisé aux données sensibles en permettant aux clients d’indiquer la quantité de données sensibles à faire apparaître, avec un impact minimal sur la couche application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées.
+Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
-Par exemple, un représentant du centre d'appel peut identifier les appelants par plusieurs chiffres de leur numéro de sécurité sociale ou de carte de crédit, mais ces éléments de données ne doivent pas être divulgués entièrement au représentant du centre d'appel. Une règle de masquage peut être définie pour ne faire apparaître que les quatre derniers chiffres du numéro de sécurité sociale ou de carte de crédit dans l'ensemble de résultats de chaque requête. Autre exemple, un masque de données approprié peut être défini pour protéger les informations d'identification personnelle (PII), de telle sorte qu'un développeur puisse interroger les environnements de production à des fins de dépannage sans aller à l'encontre des réglementations de conformité.
+For example, a service representative at a call center may identify callers by several digits of their social security number or credit card number, but those data items should not be fully exposed to the service representative. A masking rule can be defined that masks all but the last four digits of any social security number or credit card number in the result set of any query. As another example, an appropriate data mask can be defined to protect personally identifiable information (PII) data, so that a developer can query production environments for troubleshooting purposes without violating compliance regulations.
 
-## Principes fondamentaux du masquage de données dynamiques de base de données SQL
+## <a name="sql-database-dynamic-data-masking-basics"></a>SQL Database Dynamic Data Masking basics
 
-Vous définissez une stratégie de masquage des données dynamiques dans le portail Azure Classic pour votre base de données, dans l’onglet Audit et sécurité.
-
-
-> [AZURE.NOTE] Pour configurer le masquage des données dynamiques dans le portail Azure, consultez [Prise en main du masquage des données dynamiques de base de données SQL (portail Azure)](sql-database-dynamic-data-masking-get-started.md).
+You set up dynamic data masking policy in the Azure Classic Portal under the Auditing & Security tab for your database.
 
 
-### Autorisations du masquage des données dynamiques
+> [AZURE.NOTE] To set up dynamic data masking in the Azure Portal, see [Get started with SQL Database Dynamic Data Masking (Azure Portal)](sql-database-dynamic-data-masking-get-started.md).
 
-Le masquage des données dynamiques peut être configuré par l’administrateur de base de données Azure, l’administrateur de serveur ou le responsable de la sécurité.
 
-### Stratégie de masquage des données dynamiques
+### <a name="dynamic-data-masking-permissions"></a>Dynamic data masking permissions
 
-* **Utilisateurs SQL exclus du masquage** : ensemble d'utilisateurs SQL ou d'identités AAD qui obtiendront des données non masquées dans les résultats de requête SQL. Les utilisateurs possédant des privilèges administrateur sont toujours exclus du masquage et verront les données d'origine sans masque.
+Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.
 
-* **Règles de masquage** : ensemble de règles qui définissent les champs désignés à masquer et la fonction de masquage à utiliser. Les champs désignés peuvent être définis à l'aide d'un nom de schéma de base de données, d'un nom de table et d'un nom de colonne.
+### <a name="dynamic-data-masking-policy"></a>Dynamic data masking policy
 
-* **Fonctions de masquage** : ensemble de méthodes qui contrôlent l'exposition des données dans différents scénarios.
+* **SQL users excluded from masking** - A set of SQL users or AAD identities that will get unmasked data in the SQL query results. Note that users with administrator privileges will always be excluded from masking, and will see the original data without any mask.
 
-| Fonction de masquage | Logique de masquage |
+* **Masking rules** - A set of rules that define the designated fields to be masked and the masking function that will be used. The designated fields can be defined using a database schema name, table name and column name.
+
+* **Masking functions** - A set of methods that control the exposure of data for different scenarios.
+
+| Masking Function | Masking Logic |
 |----------|---------------|
-| **Par défaut** |**Masquage complet en fonction du type de données des champs désignés**<br/><br/>• Utilisez XXXX ou moins de X si la taille du champ est inférieure à quatre caractères pour les données de type chaîne (nchar, ntext, nvarchar).<br/>• Utilisez la valeur zéro pour les types de données numériques (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilisez 01-01-1900 pour les données de type date/heure (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Pour les variantes SQL, la valeur par défaut du type actuel est utilisée.<br/>• Pour XML, la balise <masked/> de document est utilisée.<br/>• Utilisez une valeur vide pour les types de données spéciaux (table timestamp, hierarchyid, GUID, binary, image, varbinary spatial).
-| **Carte de crédit** |**Méthode de masquage qui affiche les quatre derniers chiffres des champs désignés** et ajoute une chaîne constante comme préfixe sous la forme d'une carte de crédit.<br/><br/>XXXX-XXXX-XXXX-1234|
-| **Numéro de sécurité sociale** |**Méthode de masquage qui affiche les quatre derniers chiffres des champs désignés** et ajoute une chaîne constante comme préfixe sous la forme d'un numéro de sécurité sociale américain.<br/><br/>XXX-XX-1234 |
-| **E-mail** | **Méthode de masquage qui affiche la première lettre et remplace le domaine par XXX.com** à l'aide d'une chaîne constante comme préfixe sous la forme d'une adresse de messagerie.<br/><br/>aXX@XXXX.com |
-| **Nombre aléatoire** | **Méthode de masquage qui génère un nombre aléatoire** selon les limites sélectionnées et les types de données réelles. Si les limites désignées sont égales, la fonction de masquage sera un nombre constant.<br/><br/>![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png) |
-| **Texte personnalisé** | **Méthode de masquage qui affiche le premier et le dernier caractères** et ajoute une chaîne de remplissage personnalisée entre les deux. Si la chaîne d'origine est plus courte que le préfixe et le suffixe affichés, seule la chaîne de remplissage sera utilisée.<br/>préfixe[remplissage]suffixe<br/><br/>![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png) |
+| **Default**  |**Full masking according to the data types  of the designated fields**<br/><br/>• Use XXXX or fewer Xs if the size of the field is less than 4 characters for string data types (nchar, ntext, nvarchar).<br/>• Use a zero value for numeric data types (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 for date/time data types (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• For SQL variant, the default value of the current type is used.<br/>• For XML the document <masked/> is used.<br/>• Use an empty value for special data types (timestamp  table, hierarchyid, GUID, binary, image, varbinary spatial types).
+| **Credit card** |**Masking method which exposes the last four digits of the designated fields** and adds a constant string as a prefix in the form of a credit card.<br/><br/>XXXX-XXXX-XXXX-1234|
+| **Social security number** |**Masking method which exposes the last four digits of the designated fields** and adds a constant string as a prefix in the form of an American social security number.<br/><br/>XXX-XX-1234 |
+| **Email** | **Masking method which exposes the first letter and replaces the domain with XXX.com** using a constant string prefix in the form of an email address.<br/><br/>aXX@XXXX.com |
+| **Random number** | **Masking method which generates a random number** according to the selected boundaries and actual data types. If the designated boundaries are equal, then the masking function will be a constant number.<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png) |
+| **Custom text** | **Masking method which exposes the first and last characters** and adds a custom padding string in the middle. If the original string is shorter than the exposed prefix and suffix, only the padding string will be used.<br/>prefix[padding]suffix<br/><br/>![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png) |
 
 
 <a name="Anchor1"></a>
 
-## Configuration du masquage des données dynamiques pour votre base de données à l’aide du portail Azure Classic
+## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-classic-portal"></a>Set up dynamic data masking for your database using the Azure Classic Portal
 
-1. Lancez le portail Azure Classic à l’adresse [https://manage.windowsazure.com/](https://manage.windowsazure.com).
+1. Launch the Azure Classic Portal at [https://manage.windowsazure.com](https://manage.windowsazure.com).
 
-2. Cliquez sur la base de données à masquer, puis sur l’onglet **AUDIT ET SÉCURITÉ**.
+2. Click the database you want to mask, and then click the **AUDITING & SECURITY** tab.
 
-3. Dans **masquage des données dynamiques**, cliquez sur **ACTIVÉ** pour activer la fonctionnalité de masquage des données dynamiques.
+3. Under **dynamic data masking**, click **ENABLED** to enable the dynamic data masking feature.  
 
-4. Tapez les utilisateurs SQL ou les identités AAD à exclure du masquage et qui doivent avoir accès aux données sensibles non masquées. La liste d'utilisateurs doit être délimitée par des points-virgules. Les utilisateurs disposant de privilèges administrateur ont toujours accès aux données d'origine non masquées.
+4. Type the SQL users or AAD identities that should be excluded from masking, and have access to the unmasked sensitive data. This should be a semicolon-separated list of users. Note that users with administrator privileges always have access to the original unmasked data.
 
-	>[AZURE.TIP] Pour que la couche d’application puisse afficher des données sensibles aux utilisateurs d’application privilégiés, ajoutez l’utilisateur SQL ou l’identité AAD qu’utilise l’application pour interroger la base de données. Il est vivement recommandé de limiter le nombre d’utilisateurs privilégiés dans cette liste afin de limiter l’exposition des données sensibles.
+    >[AZURE.TIP] To make it so the application layer can display sensitive data for application privileged users, add the SQL user or AAD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
 
-	![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
+    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
 
-5. En bas de la page, dans la barre de menus, cliquez sur **Ajouter un MASQUE** pour ouvrir la fenêtre de configuration des règles de masquage.
+5. At the bottom of the page in the menu bar, click **Add MASK** to open the masking rule configuration window.
 
-6. Entrez le nom du **Schéma**, de la **Table** et de la **Colonne** dans les listes déroulantes pour définir les champs désignés qui seront masqués.
+6. Select the **Schema**, **Table** and **Column** from the dropdown lists to define the designated fields that will be masked.
 
-7. Choisissez une **FONCTION DE MASQUAGE** dans la liste des catégories de masquage des données sensibles.
+7. Choose a **MASKING FUNCTION** from the list of sensitive data masking categories.
 
-	![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png)
+    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png)
 
-8. Cliquez sur **OK** dans la fenêtre des règles de masquage des données pour mettre à jour l’ensemble des règles de la stratégie de masquage des données dynamiques.
+8. Click **OK** in the data masking rule window to update the set of masking rules in the dynamic data masking policy.
 
-9. Cliquez sur **ENREGISTRER** pour enregistrer la stratégie de masquage, nouvelle ou mise à jour.
+9. Click **SAVE** to save the new or updated masking policy.
 
 
-## Configuration du masquage des données dynamiques pour votre base de données à l’aide d’instructions Transact-SQL
+## <a name="set-up-dynamic-data-masking-for-your-database-using-transact-sql-statements"></a>Set up dynamic data masking for your database using Transact-SQL statements
 
-Consultez [Masquage des données dynamiques](https://msdn.microsoft.com/library/mt130841.aspx).
+See [Dynamic Data Masking](https://msdn.microsoft.com/library/mt130841.aspx).
 
-## Configuration du masquage des données dynamiques pour votre base de données à l’aide des cmdlets Powershell
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Set up dynamic data masking for your database using Powershell cmdlets
 
-Voir [Cmdlets de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx).
+See [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx).
 
-## Configuration du masquage des données dynamiques pour votre base de données à l’aide de l’API REST
+## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Set up dynamic data masking for your database using REST API
 
-Voir [Opérations pour les bases de données SQL Azure](https://msdn.microsoft.com/library/dn505719.aspx).
+See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

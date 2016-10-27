@@ -1,9 +1,12 @@
-## <a name="setupdevenv"></a>Configuration de l’environnement de développement
+## <a name="<a-name="setupdevenv"></a>set-up-the-development-environment"></a><a name="setupdevenv"></a>Set up the development environment
 
-Pour commencer, configurez votre environnement de développement en installant le [Kit de développement logiciel pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) ou le [Kit de développement logiciel pour Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322).
+To start, set up your development environment by installing the [Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) or the [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322).
 
-Si Visual Studio n’est pas encore installé, utilisez le lien Visual Studio 2015 et Visual Studio sera installé en même temps que le kit de développement.
+If you don't have Visual Studio installed, use the link for Visual Studio 2015, and Visual Studio will be installed along with the SDK.
 
->[AZURE.NOTE]En fonction du nombre de dépendances du Kit de développement logiciel (SDK) qui se trouvent déjà sur votre ordinateur, l'installation du SDK peut prendre un certain temps (de plusieurs minutes à une demi-heure, voire plus).
+>[AZURE.NOTE] Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

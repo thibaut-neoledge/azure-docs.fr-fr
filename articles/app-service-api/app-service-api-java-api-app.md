@@ -1,42 +1,43 @@
 <properties
-	pageTitle="Créer et déployer une application API Java dans Azure App Service"
-	description="Découvrez comment créer un package d’application API Java et le déployer sur Azure App Service."
-	services="app-service\api"
-	documentationCenter="java"
-	authors="bradygaster"
-	manager="mohisri"
-	editor="tdykstra"/>
+    pageTitle="Build and deploy a Java API app in Azure App Service"
+    description="Learn how to create a Java API app package and deploy it to Azure App Service."
+    services="app-service\api"
+    documentationCenter="java"
+    authors="bradygaster"
+    manager="mohisri"
+    editor="tdykstra"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="java"
-	ms.topic="get-started-article"
-	ms.date="08/31/2016"
-	ms.author="rachelap"/>
+    ms.service="app-service-api"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="java"
+    ms.topic="get-started-article"
+    ms.date="08/31/2016"
+    ms.author="rachelap"/>
 
-# Créer et déployer une application API Java dans Azure App Service
+
+# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Build and deploy a Java API app in Azure App Service
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-Ce didacticiel explique comment créer une application Java et comment la déployer dans des applications API Azure App Service en utilisant [Git]. Les instructions de ce didacticiel s’appliquent à tous les systèmes d’exploitation pouvant exécuter Java. Le code de ce didacticiel a été rédigé avec [Maven]. [Jax-RS] est utilisé pour créer le service RESTful et il est généré à partir des spécifications de métadonnées [Swagger] à l’aide de [l’éditeur Swagger].
+This tutorial shows how to create a Java application and deploy it to Azure App Service API Apps using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Java. The code in this tutorial is built using [Maven]. [Jax-RS] is used to create the RESTful Service, and is generated based on the [Swagger] metadata specification using the [Swagger Editor].
 
-## Composants requis
+## <a name="prerequisites"></a>Prerequisites
 
-1. Le [kit 8 de développeur Java] \(ou version ultérieure)
-1. [Maven] doit être installé sur votre ordinateur de développement
-1. [Git] doit être installé sur votre ordinateur de développement
-1. Un abonnement payant ou une [version d’évaluation gratuite] dans [Microsoft Azure]
-1. Une application de test HTTP comme [Postman]
+1. [Java Developer's Kit 8] \(or later)
+1. [Maven] installed on your development machine
+1. [Git] installed on your development machine
+1. A paid or [free trial] subscription to [Microsoft Azure]
+1. An HTTP test application like [Postman]
 
-## Structure de l’API avec Swagger.IO
+## <a name="scaffold-the-api-using-swagger.io"></a>Scaffold the API using Swagger.IO
 
-Avec l’éditeur en ligne swagger.io, vous pouvez accéder au code JSON Swagger ou YAML qui représente la structure de votre API. Une fois la surface d’exposition de l’API conçue, vous pouvez exporter le code pour différentes plateformes et infrastructures. Dans la section qui suit, vous allez modifier la structure du code pour y inclure des fonctionnalités factices.
+Using the swagger.io online editor, you can enter Swagger JSON or YAML code representing the structure of your API. Once you have the API surface area designed, you can export code for a variety of platforms and frameworks. In the next section, the scaffolded code will be modified to include mock functionality. 
 
-Cette démonstration commence par le collage d’un corps JSON Swagger dans l’éditeur swagger.io, qui sera ensuite utilisé pour générer le code qui se sert de JAX-RS pour accéder à un point de terminaison API REST. Le code structuré sera ensuite modifié pour retourner des données fictives en simulant une API REST basée sur un mécanisme de conservation des données.
+This demonstration will begin with a Swagger JSON body that you will paste into the swagger.io editor, which will then be used to generate code making use of JAX-RS to access a REST API endpoint. Then, you'll edit the scaffolded code to return mock data, simulating a REST API built atop a data persistence mechanism.  
 
-1. Copiez le code JSON Swagger ci-dessous dans le Presse-papiers :
+1. Copy the following Swagger JSON code to your clipboard:
 
         {
             "swagger": "2.0",
@@ -131,33 +132,33 @@ Cette démonstration commence par le collage d’un corps JSON Swagger dans l’
             }
         }
 
-1. Accédez à [l’éditeur Swagger en ligne]. Une fois arrivé à ce stade, cliquez sur l’élément de menu **Fichier -> Coller JSON**.
+1. Navigate to the [Online Swagger Editor]. Once there, click the **File -> Paste JSON** menu item.
 
-    ![Élément de menu Coller JSON][paste-json]
+    ![Paste JSON menu item][paste-json]
 
-1. Collez l’élément dans l’API JSON Swagger de liste de contacts que vous avez copiée précédemment.
+1. Paste in the Contacts List API Swagger JSON you copied earlier. 
 
-    ![Collage du code JSON dans Swagger][pasted-swagger]
+    ![Pasting JSON code into Swagger][pasted-swagger]
 
-1. Affichez les pages de documentation et le résumé des API figurant dans l’éditeur.
+1. View the documentation pages and API summary rendered in the editor. 
 
-    ![Affichage des documents Swagger générés][view-swagger-generated-docs]
+    ![View Swagger Generated Docs][view-swagger-generated-docs]
 
-1. Sélectionnez l’option de menu **Générer serveur -> JAX-RS** pour structurer le code côté serveur que vous allez modifier par la suite pour y ajouter une implémentation factice.
+1. Select the **Generate Server -> JAX-RS** menu option to scaffold the server-side code you'll edit later to add mock implementation. 
 
-    ![Générer l’élément de menu de code][generate-code-menu-item]
+    ![Generate Code Menu Item][generate-code-menu-item]
 
-    Une fois le code généré, vous recevrez un fichier ZIP à télécharger. Ce fichier contient le code généré automatiquement par le générateur de code Swagger et tous les scripts de compilation associés. Décompressez la totalité de la bibliothèque dans un répertoire de votre station de travail de développement.
+    Once the code is generated, you'll be provided a ZIP file to download. This file contains the code scaffolded by the Swagger code generator and all associated build scripts. Unzip the entire library to a directory on your development workstation. 
 
-## Modifiez le code pour ajouter l’implémentation de l’API
+## <a name="edit-the-code-to-add-api-implementation"></a>Edit the Code to add API Implementation
 
-Dans cette section, vous allez remplacer l’implémentation côté serveur du code généré par Swagger par votre code personnalisé. Le nouveau code retournera une liste des tableaux (ArrayList) des entités de contacts au client appelant.
+In this section, you'll replace the Swagger-generated code's server-side implementation with your custom code. The new code will return an ArrayList of Contact entities to the calling client. 
 
-1. Ouvrez le fichier de modèle *Contact.java*, situé dans le dossier *src/gen/java/io/swagger/model*, avec [Visual Studio Code] ou dans votre éditeur de texte préféré.
+1. Open the *Contact.java* model file, which is located in the *src/gen/java/io/swagger/model* folder, using [Visual Studio Code] or your favorite text editor. 
 
-    ![Ouvrir le fichier de modèle de contact][open-contact-model-file]
+    ![Open Contact Model File][open-contact-model-file]
 
-1. Ajoutez le constructeur suivant à la classe **Contact**.
+1. Add the following constructor to the **Contact** class. 
 
         public Contact(Integer id, String name, String email) 
         {
@@ -166,11 +167,11 @@ Dans cette section, vous allez remplacer l’implémentation côté serveur du c
             this.emailAddress = email;
         }
 
-1. Ouvrez le fichier d’implémentation de service *ContactsApiServiceImpl.java*, situé dans le dossier *src/main/java/io/swagger/api/impl*, dans [Visual Studio Code] ou dans votre éditeur de texte.
+1. Open the *ContactsApiServiceImpl.java* service implementation file, which is located in the *src/main/java/io/swagger/api/impl* folder, using [Visual Studio Code] or your favorite text editor.
 
-    ![Ouvrir le fichier de code du service de contact][open-contact-service-code-file]
+    ![Open Contact Service Code File][open-contact-service-code-file]
 
-1. Remplacez le code présent dans le fichier par ce nouveau code. Vous ajouterez ainsi une implémentation factice au code de service.
+1. Overwrite the code in the file with this new code to add a mock implementation to the service code. 
 
         package io.swagger.api.impl;
 
@@ -222,64 +223,64 @@ Dans cette section, vous allez remplacer l’implémentation côté serveur du c
             }
         }
 
-1. Ouvrez une invite de commandes et choisissez le dossier racine de votre application comme répertoire.
+1. Open a command prompt and change directory to the root folder of your application.
 
-1. Exécutez la commande Maven suivante pour générer le code et exécutez-le localement à l’aide du serveur d’applications Jetty localement.
+1. Execute the following Maven command to build the code and run it using the Jetty app server locally. 
 
         mvn package jetty:run
 
-1. La fenêtre de commande indique en principe que Jetty a démarré votre code sur le port 8080.
+1. You should see the command window reflect that Jetty has started your code on port 8080. 
 
-    ![Ouvrir le fichier de code du service de contact][run-jetty-war]
+    ![Open Contact Service Code File][run-jetty-war]
 
-1. Utilisez [Postman] pour exécuter une requête à la méthode API « get all contacts » sur http://localhost:8080/api/contacts.
+1. Use [Postman] to make a request to the "get all contacts" API method at http://localhost:8080/api/contacts.
 
-    ![Appeler l’API de contacts][calling-contacts-api]
+    ![Call the Contacts API][calling-contacts-api]
 
-1. Utilisez [Postman] pour exécuter une requête sur la méthode API « get specific contact » située sur http://localhost:8080/api/contacts/2.
+1. Use [Postman] to make a request to the "get specific contact" API method located at http://localhost:8080/api/contacts/2.
 
-    ![Appeler l’API de contacts][calling-specific-contact-api]
+    ![Call the Contacts API][calling-specific-contact-api]
 
-1. Enfin, générez le fichier WAR Java (ARchive Web) en exécutant la commande Maven suivante sur votre console.
+1. Finally, build the Java WAR (Web ARchive) file by executing the following Maven command in your console. 
 
         mvn package war:war
 
-1. Une fois le fichier WAR généré, il est placé dans le dossier **cible**. Accédez au dossier **cible**, et renommez le fichier WAR en lui affectant le nom **ROOT.war**. (Veillez à respecter la casse).
+1. Once the WAR file is built, it will be placed into the **target** folder. Navigate into the **target** folder and rename the WAR file to **ROOT.war**. (Make sure the capitalization matches this format).
 
          rename swagger-jaxrs-server-1.0.0.war ROOT.war
 
-1. Enfin, exécutez les commandes suivantes à partir du dossier racine de votre application pour créer un dossier de **déploiement** à utiliser pour déployer le fichier WAR dans Azure.
+1. Finally, execute the following commands from the root folder of your application to create a **deploy** folder to use to deploy the WAR file to Azure. 
 
          mkdir deploy
          mkdir deploy\webapps
          copy target\ROOT.war deploy\webapps
          cd deploy
 
-## Publication du résultat dans Azure App Service
+## <a name="publish-the-output-to-azure-app-service"></a>Publish the output to Azure App Service
 
-Dans cette section, vous allez apprendre à créer une nouvelle application API App à l’aide du portail Azure, à préparer cette dernière pour l’hébergement d’applications Java et à déployer le fichier WAR récemment créé dans Azure App Service pour exécuter votre nouvelle application API.
+In this section you'll learn how to create a new API App using the Azure Portal, prepare that API App for hosting Java applications, and deploy the newly-created WAR file to Azure App Service to run your new API App. 
 
-1. Créez une application API dans le [Portail Azure]. Pour cela, cliquez sur **Nouveau -> Web + Mobile -> Application API**, entrez les informations détaillées sur votre application, puis cliquez sur **Créer**.
+1. Create a new API app in the [Azure portal], by clicking the **New -> Web + Mobile -> API app** menu item, entering your app details, and then clicking **Create**.
 
-    ![Créer une nouvelle API App][create-api-app]
+    ![Create a new API App][create-api-app]
 
-1. Une fois votre application API créée, ouvrez le panneau **Paramètres** de votre application , puis cliquez sur l’élément de menu **Paramètres de l’application**. Sélectionnez les dernières versions de Java dans les options disponibles, sélectionnez la version la plus récente de Tomcat dans le menu **Conteneur web**, puis cliquez sur **Enregistrer**.
+1. Once your API app has been created, open your app's **Settings** blade, and then click the **Application settings** menu item. Select the latest Java versions from the available options, then select the latest Tomcat from the **Web container** menu, and then click **Save**.
 
-    ![Configurer Java dans le panneau application API][set-up-java]
+    ![Set up Java in the API App blade][set-up-java]
 
-1. Cliquez sur l’élément de menu de paramètre **Informations d’identification de déploiement**, puis fournissez le nom d’utilisateur et le mot de passe que vous souhaitez utiliser pour la publication de fichiers dans votre application API.
+1. Click the **Deployment credentials** settings menu item, and provide a username and password you wish to use for publishing files to your API App. 
 
-    ![Définir les informations d’identification de déploiement][deployment-credentials]
+    ![Set deployment credentials][deployment-credentials]
 
-1. Cliquez sur l’élément de menu de paramètre **Source de déploiement**. À ce stade, cliquez sur le bouton **Choisir la source**, sélectionnez l’option **Référentiel Git local**, puis cliquez sur **OK**. Cette opération crée un référentiel Git fonctionnant sous Azure et associé à votre application API. À chaque fois que vous validez le code dans la branche *master* du référentiel Git, votre code est publié dans l’instance d’application API en cours d’exécution en direct.
+1. Click the **Deployment source** settings menu item. Once there, click the **Choose source** button, select the **Local Git Repository** option, and then click **OK**. This will create a Git repository running in Azure, that has an association with your API App. Each time you commit code to the *master* branch of your Git repository, your code will be published into your live running API App instance. 
 
-    ![Configurer un nouveau référentiel Git local][select-git-repo]
+    ![Set up a new local Git repository][select-git-repo]
 
-1. Copiez la nouvelle URL de référentiel Git dans votre presse-papiers. Conservez-la, car dans un instant, vous devrez l’utiliser.
+1. Copy the new Git repository's URL to your clipboard. Save this as it will be important in a moment. 
 
-    ![Configurer un nouveau référentiel Git pour votre application][copy-git-repo-url]
+    ![Set up a new Git repository for your app][copy-git-repo-url]
 
-1. GIT transfère le fichier WAR au référentiel en ligne. Pour ce faire, accédez au dossier **deploy** créé au préalable afin de pouvoir valider le code dans le référentiel en cours d’exécution de votre App Service. Une fois que vous vous trouvez dans la fenêtre de console et que vous avez accédé au dossier contenant le dossier webapps, émettez les commandes Git qui suivent pour lancer le processus et déclencher un déploiement.
+1. Git push the WAR file to the online repository. To do this, navigate into the **deploy** folder you created earlier so that you can easily commit the code up to the repository running in your App Service. Once you're in the console window and navigated into the folder where the webapps folder is located, issue the following Git commands to launch the process and fire off a deployment. 
 
          git init
          git add .
@@ -287,37 +288,37 @@ Dans cette section, vous allez apprendre à créer une nouvelle application API 
          git remote add azure [YOUR GIT URL]
          git push azure master
 
-    Une fois que vous avez émis la requête **Push**, vous devez fournir le mot de passe que vous avez créé pour les informations d’identification précédemment. Lorsque vous avez saisi vos informations d’identification, votre portail vous informe en principe que la mise à jour a été déployée.
+    Once you issue the **push** request, you'll be asked for the password you created for the deployment credential earlier. After you enter your credentials, you should see your portal display that the update was deployed.
 
-1. Si vous utilisez une fois encore Postman pour atteindre l’application API qui vient d’être déployée dans Azure App Service, vous pourrez constater que le comportement est cohérent et que désormais, il retourne les coordonnées comme prévu et qu’il utilise des modifications simples du code Java de structure Swagger.io.
+1. If you once again use Postman to hit the newly-deployed API App running in Azure App Service, you'll see that the behavior is consistent and that now it is returning contact data as expected, and using simple code changes to the Swagger.io scaffolded Java code. 
 
-    ![Utilisation de l’API REST de contacts de Java en direct dans Azure][postman-calling-azure-contacts]
+    ![Using your Java Contacts REST API live in Azure][postman-calling-azure-contacts]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Dans cet article, vous avez pu commencer avec un fichier Swagger JSON et un code avec structure Java obtenu à partir de l’éditeur Swagger.io. À partir de là, quelques modifications simples et le processus de déploiement Git vous ont permis d’obtenir une application API fonctionnelle rédigée en Java. Le didacticiel suivant montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS][App Service API CORS]. Les didacticiels ultérieurs montrent comment implémenter l’authentification et l’autorisation.
+In this article, you were able to start with a Swagger JSON file and some scaffolded Java code obtained from the Swagger.io editor. From there, your simple changes and a Git deploy process resulted in having a functional API app written in Java. The next tutorial shows how to [consume API apps from JavaScript clients, using CORS][App Service API CORS]. Later tutorials in the series show how to implement authentication and authorization.
 
-À partir de cet exemple, vous pouvez en apprendre davantage sur le [kit de développement logiciel de stockage pour Java] pour conserver les objets blob JSON. Vous pouvez également utiliser le [kit de développement logiciel Java Document DB] pour enregistrer vos données de contact pour la base de données de Document Azure.
+To build on this sample, you can learn more about the [Storage SDK for Java] to persist the JSON blobs. Or, you could use the [Document DB Java SDK] to save your Contact data to Azure Document DB. 
 
-Pour plus d’informations sur l’utilisation de Java dans Azure, consultez le [Centre de développement Java].
+For more information about using Java in Azure, see the [Java Developer Center].
 
 <!-- URL List -->
 
 [App Service API CORS]: app-service-api-cors-consume-javascript.md
-[Portail Azure]: https://portal.azure.com/
-[kit de développement logiciel Java Document DB]: ../documentdb/documentdb-java-application.md
-[version d’évaluation gratuite]: https://azure.microsoft.com/pricing/free-trial/
+[Azure portal]: https://portal.azure.com/
+[Document DB Java SDK]: ../documentdb/documentdb-java-application.md
+[free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Centre de développement Java]: /develop/java/
-[kit 8 de développeur Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[Java Developer Center]: /develop/java/
+[Java Developer's Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
-[l’éditeur Swagger en ligne]: http://editor.swagger.io/
+[Online Swagger Editor]: http://editor.swagger.io/
 [Postman]: https://www.getpostman.com/
-[kit de développement logiciel de stockage pour Java]: ../storage/storage-java-how-to-use-blob-storage.md
+[Storage SDK for Java]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
-[l’éditeur Swagger]: http://editor.swagger.io/
+[Swagger Editor]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com
 
 <!-- IMG List -->
@@ -338,4 +339,8 @@ Pour plus d’informations sur l’utilisation de Java dans Azure, consultez le 
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

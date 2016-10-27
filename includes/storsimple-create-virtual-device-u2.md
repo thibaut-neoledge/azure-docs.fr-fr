@@ -1,38 +1,41 @@
-#### Création d'un appareil virtuel
+#### <a name="to-create-a-virtual-device"></a>To create a virtual device
 
-1.  Dans le portail Azure, accédez au service **StorSimple Manager**.
+1.  In the Azure portal, go to the **StorSimple Manager** service.
 
-2. Accédez à la page **Appareils**. Cliquez sur **Créer un appareil virtuel** en bas de la page **Appareils**.
+2. Go to the **Devices** page. Click **Create virtual device** at the bottom of the **Devices** page.
 
-3. Dans la boîte de dialogue **Créer un appareil virtuel**, spécifiez les éléments suivants.
+3. In the **Create Virtual Device dialog box**, specify the following details.
 
-     ![Création d’un appareil virtuel StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+     ![StorSimple create virtual device](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
 
-	1. **Nom** : nom unique de votre appareil virtuel.
+    1. **Name** – A unique name for your virtual device.
 
 
-	2. **Modèle** : sélectionnez le modèle de l'appareil virtuel. Ce champ n'apparaît que si vous exécutez Update 2 ou une version ultérieure. Un modèle d'appareil 8010 offre 30 To de stockage standard tandis qu'un modèle d'appareil 8020 offre 64 To de stockage Premium. Spécifiez 8010
-	3.  pour déployer des scénarios de récupération au niveau de l'élément à partir de sauvegardes. Sélectionnez 8020 pour déployer des charges de travail aux performances élevées et faible latence ou pour une utilisation comme appareil secondaire pour la récupération d'urgence.
-	 
-	4. **Version** : sélectionnez la version de l’appareil virtuel. Si un modèle d'appareil 8020 est sélectionné, le champ de la version ne s'affiche pas. Cette option est absente si tous les appareils physiques enregistrés auprès de ce service exécutent Update 1 (ou ultérieure). Ce champ n'apparaît que si vous avez une combinaison d'appareils physiques avec les versions pré-Update 1 et Update 1 inscrits auprès du service. Comme la version de l’appareil virtuel détermine l’appareil physique à partir duquel vous pouvez basculer ou cloner, il est important de créer une version appropriée de l’appareil virtuel. Sélectionnez :
+    2. **Model** - Choose the model of the virtual device. This field is presented only if you are running Update 2 or later. An 8010 device model offers 30 TB of Standard Storage whereas 8020 has 64 TB of Premium Storage. Specify 8010
+    3.  to deploy item level retrieval  scenarios from backups. Select 8020 to deploy high performance, low latency workloads or used as a secondary device for disaster recovery.
+     
+    4. **Version** - Choose the version of the virtual device. If an 8020 device model is selected, then the version field will not be presented to the user. This option is absent if all the physical devices registered with this service are running Update 1 (or later). This field is presented only if you have a mix of pre-Update 1 and Update 1 physical devices registered with the same service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
 
-	   - la version Update 0.3 en cas de basculement ou de récupération d'urgence à partir d'un appareil physique exécutant la version Update 0.3 ou une version antérieure. 
-	   - la version Update 1 en cas de basculement ou de clonage à partir d'un appareil physique exécutant la version Update 1 (ou une version ultérieure). 
-	   
-	
-	5. **Réseau virtuel** : spécifiez un réseau virtuel que vous souhaitez utiliser avec cet appareil virtuel. Si vous utilisez le stockage Premium (version Update 2 ou version ultérieure), vous devez sélectionner un réseau virtuel qui est pris en charge avec le compte de stockage Premium. Les réseaux virtuels non pris en charge seront grisés dans la liste déroulante. Vous êtes averti si vous sélectionnez un réseau virtuel non pris en charge. 
+       - Version Update 0.3 if you will fail over or DR from a physical device running Update 0.3 or earlier. 
+       - Version Update 1 if you will fail over or clone from a physical device running Update 1 (or later). 
+       
+    
+    5. **Virtual Network** – Specify a virtual network that you want to use with this virtual device. If using Premium Storage (Update 2 or later), you must select a virtual network that is supported with the Premium Storage account. The unsupported virtual networks will be grayed out in the dropdown list. You will be warned if you select an unsupported virtual network. 
 
-	5. **Compte de stockage pour la création de l'appareil virtuel** : sélectionnez un compte de stockage qui contiendra l'image de l'appareil virtuel lors de l'approvisionnement. Ce compte de stockage doit être situé dans la même région que l’appareil virtuel et le réseau virtuel. Il ne doit pas être utilisé pour le stockage des données par l'appareil physique ou virtuel. Par défaut, un compte de stockage est créé à cet effet. Toutefois, si vous avez déjà un compte de stockage qui convient pour cette utilisation, vous pouvez le sélectionner dans la liste. Si vous créez un appareil virtuel premium, la liste déroulante affiche uniquement les comptes de stockage Premium.
+    5. **Storage Account for Virtual Device Creation** – Select a storage account to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. If creating a premium virtual device, the dropdown list will only display Premium Storage accounts. 
 
-    	>[AZURE.NOTE]L’appareil virtuel ne peut fonctionner qu’avec les comptes de stockage Azure. Les autres fournisseurs de services cloud tels qu'Amazon, HP et OpenStack (pris en charge pour l'appareil physique) ne sont pas pris en charge pour l'appareil virtuel StorSimple.
-	
-	1. Cliquez sur la coche pour indiquer que vous savez que les données stockées sur l’appareil virtuel sont hébergées dans un centre de données Microsoft. Lorsque vous utilisez uniquement un appareil physique, votre clé de chiffrement est conservée avec celui-ci ; par conséquent, Microsoft ne peut pas le déchiffrer.
-	 
-		Lorsque vous utilisez un appareil virtuel, la clé de chiffrement et la clé de déchiffrement sont stockées dans Microsoft Azure. Pour plus d'informations, consultez la page [Considérations de sécurité relatives à l'utilisation d'un appareil virtuel](storsimple-security/#storsimple-virtual-device-security).
-	2. Cliquez sur l'icône en forme de coche pour créer l'appareil virtuel. La mise en service de l'appareil peut prendre environ 30 minutes.
+        >[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP, and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
+    
+    1. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. 
+     
+        When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a virtual device](storsimple-security/#storsimple-virtual-device-security).
+    2. Click the check icon to create the virtual device. The device may take around 30 minutes to be provisioned.
 
-	![Étape de création de l’appareil virtuel StorSimple](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
+    ![StorSimple virtual device creating stage](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
     
 
-<!---HONumber=AcomDC_1217_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

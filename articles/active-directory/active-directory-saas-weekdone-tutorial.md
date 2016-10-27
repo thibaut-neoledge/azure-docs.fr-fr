@@ -1,265 +1,267 @@
 <properties
-	pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Weekdone | Microsoft Azure"
-	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et Weekdone."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Weekdone | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Weekdone."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/11/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/29/2016"
+    ms.author="jeedes"/>
 
 
-# Didacticiel : Intégration d’Azure Active Directory à Weekdone
 
-L’objectif de ce didacticiel est de vous montrer comment intégrer Weekdone à Azure AD (Azure Active Directory).
+# <a name="tutorial:-azure-active-directory-integration-with-weekdone"></a>Tutorial: Azure Active Directory integration with Weekdone
 
-L’intégration de Weekdone à Azure AD vous offre les avantages suivants :
+The objective of this tutorial is to show you how to integrate Weekdone with Azure Active Directory (Azure AD).
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Weekdone.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Weekdone (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+Integrating Weekdone with Azure AD provides you with the following benefits:
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to Weekdone
+- You can enable your users to automatically get signed-on to Weekdone (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Composants requis
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Pour configurer l’intégration d’Azure AD à Weekdone, vous avez besoin des éléments suivants :
+## <a name="prerequisites"></a>Prerequisites
 
-- Un abonnement Azure AD
-- Un abonnement Weekdone pour lequel l’authentification unique est activée
+To configure Azure AD integration with Weekdone, you need the following items:
 
-
-> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+- An Azure AD subscription
+- A Weekdone single-sign on enabled subscription
 
 
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.
+To test the steps in this tutorial, you should follow these recommendations:
 
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
-
-1. Ajout de Weekdone à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Ajout de Weekdone à partir de la galerie
-Pour configurer l’intégration de Weekdone à Azure AD, vous devez ajouter Weekdone à partir de la galerie à votre liste d’applications SaaS gérées.
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. 
 
-**Pour ajouter Weekdone à partir de la galerie, procédez comme suit :**
+The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+1. Adding Weekdone from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-	![Active Directory][1]
 
-2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+## <a name="adding-weekdone-from-the-gallery"></a>Adding Weekdone from the gallery
+To configure the integration of Weekdone into Azure AD, you need to add Weekdone from the gallery to your list of managed SaaS apps.
 
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+**To add Weekdone from the gallery, perform the following steps:**
 
-	![Applications][2]
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-4. Cliquez sur **Ajouter** en bas de la page.
+    ![Active Directory][1]
 
-	![Applications][3]
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-	![Applications][4]
+    ![Applications][2]
 
-6. Dans la zone de recherche, tapez **Weekdone**.
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **Weekdone**.
  
-	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_01.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_01.png)
 
-7. Dans le volet de résultats, sélectionnez **Weekdone**, puis cliquez sur **Terminer** pour ajouter l’application.
+7. In the results pane, select **Weekdone**, and then click **Complete** to add the application.
 
-	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_02.png)
-
-
-##  Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Weekdone au moyen d’un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Weekdone équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Weekdone associé doit être établie.
-
-Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Weekdone.
-
-Pour configurer et tester l’authentification unique Azure AD avec Weekdone, vous devez suivre les indications des sections suivantes :
-
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test Weekdone](#creating-a-weekdone-test-user)** pour avoir un équivalent de Britta Simon dans Weekdone lié à la représentation Azure AD associée.
-5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
-
-### Configuration de l’authentification unique Azure AD
-
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Weekdone.
+    ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_02.png)
 
 
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Weekdone based on a test user called "Britta Simon".
 
-**Pour configurer l’authentification unique Azure AD avec Weekdone, procédez comme suit :**
+For single sign-on to work, Azure AD needs to know what the counterpart user in Weekdone to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Weekdone needs to be established.
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’application **Weekdone**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Weekdone.
 
-	![Configurer l’authentification unique][6]
+To configure and test Azure AD single sign-on with Weekdone, you need to complete the following building blocks:
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Weekdone**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a Weekdone test user](#creating-a-weekdone-test-user)** - to have a counterpart of Britta Simon in Weekdone that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Weekdone application.
+
+
+
+**To configure Azure AD single sign-on with Weekdone, perform the following steps:**
+
+1. In the Azure classic portal, on the **Weekdone** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+
+    ![Configure Single Sign-On][6] 
+
+2. On the **How would you like users to sign on to Weekdone** page, select **Azure AD Single Sign-On**, and then click **Next**.
  
-	![Configurer l’authentification unique](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_03.png) 
 
-3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, si vous souhaitez configurer l’application en **mode lancé par le fournisseur d’identité**, procédez comme suit et cliquez sur **Suivant** :
+3. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
 
-	![Configurer l’authentification unique](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_04.png)
-
-
-    a. Dans la zone de texte **URL de réponse**, tapez l’URL selon le modèle suivant : **« https://weekdone.com/a/azure »**.
-
-	b. Dans la zone de texte **Identificateur**, tapez l’URL selon le modèle suivant : **« https://weekdone.com/a/azure/metadata »**.
-
-	c. Cliquez sur **Next**.
-
-4. Si vous souhaitez configurer l’application en **mode lancé par le fournisseur de service** dans la page de boîte de dialogue **Configurer les paramètres d’application**, sélectionnez **Affichez les paramètres avancés (facultatif)**, entrez l’**URL de connexion** et l’**Identificateur** et cliquez sur **Suivant**.
-
-	![Configurer l’authentification unique](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png)
-
-	a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Weekdone, au format suivant : **« https://weekdone.com/a/azure »**.
-
-	b. Dans la zone de texte **Identificateur**, tapez l’URL selon le modèle suivant : **« https://weekdone.com/a/azure/metadata »**.
-
-	c. Cliquez sur **Next**.
-
-5. Dans la page **Configurer l’authentification unique sur Weekdone**, procédez comme suit et cliquez sur **Suivant** :
-
-	![Configurer l’authentification unique](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_05.png)
-
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le certificat sur votre ordinateur.
-
-    b. Cliquez sur **Next**.
+    ![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_04.png) 
 
 
-5. Pour que l’authentification unique soit configurée pour votre application, contactez l’équipe du support technique Weekdone à l’adresse hello@weekdone.com. Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (URL DE L’ÉMETTEUR, URL SSO SAML et URL DU SERVICE DE DÉCONNEXION UNIQUE) avec l’équipe Weekdone pour configurer l’authentification unique de son côté.
+    a. In the **Reply URL** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure"**.
 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+    b. In the **Identifier** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure/metadata"**.
 
-	![Authentification unique Azure AD][10]
+    c. Click **Next**.
 
-7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
+4. If you want to configure the application in **SP initiated mode**, on the **Configure App Settings** dialog page, select **“Show advanced settings (optional)”**, and then enter the **Sign On URL** and **Identifier**, then click **Next**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png) 
+
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Weekdone application using the following pattern: **“https://weekdone.com/a/azure”**.
+
+    b. In the **Identifier** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure/metadata"**.
+
+    c. Click **Next**.
+
+5. On the **Configure single sign-on at Weekdone** page, perform the following steps and click **Next**:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_05.png) 
+
+    a. Click **Download certificate**, and then save the certificate file on your computer.
+
+    b. Click **Next**.
+
+
+5. To get SSO configured for your application, contact your Weekdone support team via hello@weekdone.com. Attach the downloaded certificate file to your mail and share the metadata urls (ISSUER URL, SAML SSO URL and SINGLE SIGN-OUT SERVICE URL) with Weekdone team to set up SSO on their side.
+
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+
+    ![Azure AD Single Sign-On][10]
+
+7. On the **Single sign-on confirmation** page, click **Complete**.  
   
-	![Authentification unique Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
 
 
-### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-![Créer un utilisateur Azure AD][20]
+![Create Azure AD User][20]
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. Dans le volet de navigation de gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
 
-	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-weekdone-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_09.png) 
 
-2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-weekdone-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_03.png) 
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-weekdone-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_04.png) 
 
-5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-weekdone-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_05.png) 
 
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+    a. As Type Of User, select New user in your organization.
 
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Cliquez sur **Next**.
+    c. Click **Next**.
 
-6.  Sur la page **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-weekdone-tutorial/create_aaduser_06.png)
+6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_06.png) 
 
-    a. Dans la zone de texte **Prénom**, entrez **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. Dans la zone de texte **Nom**, tapez **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+    d. In the **Role** list, select **User**.
 
-    e. Cliquez sur **Next**.
+    e. Click **Next**.
 
-7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire** (Get temporary password), cliquez sur **Créer**. ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-weekdone-tutorial/create_aaduser_07.png)
+7. On the **Get temporary password** dialog page, click **create**.
+    ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_07.png) 
 
-8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-weekdone-tutorial/create_aaduser_08.png)
+8. On the **Get temporary password** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_08.png) 
 
-    a. Notez la valeur du **Nouveau mot de passe**.
+    a. Write down the value of the **New Password**.
 
-    b. Cliquez sur **Terminé**.
-
-
-
-### Création d’un utilisateur de test Weekdone
-
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Weekdone. Weekdone prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
-
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Weekdone s’il n’existe pas déjà. [Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on).
-
-> [AZURE.NOTE] Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique de Weekdone à l’adresse hello@weekdone.com.
-
-
-### Affectation de l’utilisateur de test Azure AD
-
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Weekdone.
-
-![Affecter des utilisateurs][200]
-
-**Pour affecter Britta Simon à Weekdone, procédez comme suit :**
-
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, cliquez dans la vue de répertoire sur **Applications** dans le menu du haut.
-
-	![Affecter des utilisateurs][201]
-
-2. Dans la liste des applications, sélectionnez **Weekdone**.
-
-	![Configurer l’authentification unique](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_50.png)
-
-1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
-
-	![Affecter des utilisateurs][203]
-
-1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
-
-2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
-
-	![Affecter des utilisateurs][205]
+    b. Click **Complete**.   
 
 
 
-### Test de l’authentification unique
+### <a name="creating-a-weekdone-test-user"></a>Creating a Weekdone test user
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+The objective of this section is to create a user called Britta Simon in Weekdone. Weekdone supports just-in-time provisioning, which is by default enabled.
 
-Quand vous cliquez sur la vignette Weekdone dans le volet d’accès, vous devez être connecté automatiquement à votre application Weekdone.
+There is no action item for you in this section. A new user will be created during an attempt to access Weekdone if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the Weekdone support team via hello@weekdone.com.
 
 
-## Ressources supplémentaires
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Weekdone.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Weekdone, perform the following steps:**
+
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **Weekdone**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_50.png) 
+
+1. In the menu on the top, click **Users**.
+
+    ![Assign User][203] 
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
+
+
+
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Weekdone tile in the Access Panel, you should get automatically signed-on to your Weekdone application.
+
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -281,4 +283,8 @@ Quand vous cliquez sur la vignette Weekdone dans le volet d’accès, vous devez
 [204]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

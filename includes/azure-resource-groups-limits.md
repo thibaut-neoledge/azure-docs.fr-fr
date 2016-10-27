@@ -1,11 +1,14 @@
-Ressource|Limite par défaut|Limite maximale
+Resource|Default Limit|Maximum Limit
 ---|---|---
-Ressources par [groupe de ressources](../articles/resource-group-overview.md#resource-groups) (par type de ressource)|800|800
-Déploiements par groupe de ressources|800|800
-Ressources par déploiement|800|800
-Verrous de gestion (par étendue unique)|20|20
-Nombre de balises (par ressource ou groupe de ressources)|15|15
-Longueur de clé de la balise|512|512
-Longueur de valeur de la balise|256|256
+Resources per [resource group](../articles/resource-group-overview.md#resource-groups) (per resource type)|800|800
+Deployments per resource group|800|800
+Resources per deployment|800|800
+Management Locks (per unique scope)|20|20
+Number of Tags (per resource or resource group)|15|15
+Tag key length|512|512
+Tag value length|256|256
 
-<!---HONumber=AcomDC_0211_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

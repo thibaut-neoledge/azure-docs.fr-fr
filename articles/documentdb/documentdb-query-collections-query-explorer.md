@@ -1,80 +1,86 @@
 <properties
-	pageTitle="Explorateur de requêtes DocumentDB : Un éditeur de requête SQL | Microsoft Azure"
-	description="Découvrez l’Explorateur de requêtes DocumentDB, un éditeur de requête SQL dans le portail Azure destiné à l’écriture de requêtes SQL et à leur exécution dans une collection DocumentDB NoSQL."
-	keywords="écriture de requêtes sql, éditeur de requête sql"
-	services="documentdb"
-	authors="AndrewHoh"
-	manager="jhubbard"
-	editor="monicar"
-	documentationCenter=""/>
+    pageTitle="DocumentDB Query Explorer: A SQL query editor | Microsoft Azure"
+    description="Learn about the DocumentDB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against a NoSQL DocumentDB collection."
+    keywords="writing sql queries, sql query editor"
+    services="documentdb"
+    authors="kirillg"
+    manager="jhubbard"
+    editor="monicar"
+    documentationCenter=""/>
 
 <tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="anhoh"/>
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/30/2016"
+    ms.author="kirillg"/>
 
-# Écrire, modifier et exécuter des requêtes SQL pour DocumentDB à l’aide de l’Explorateur de requêtes 
 
-Cet article fournit une vue d’ensemble de l’Explorateur de requêtes de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un outil du portail Azure qui permet d’écrire, de modifier et d’exécuter des requêtes SQL sur une [collection DocumentDB](documentdb-create-collection.md).
+# <a name="write,-edit,-and-run-sql-queries-for-documentdb-using-query-explorer"></a>Write, edit, and run SQL queries for DocumentDB using Query Explorer 
 
-1. Dans la barre de lancement du portail Azure, cliquez sur **DocumentDB (NoSQL)**. Si l’option **DocumentDB (NoSQL)** n’est pas affichée, cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**.
+This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Query Explorer, an Azure portal tool that enables you to write, edit, and run SQL queries against a [DocumentDB collection](documentdb-create-collection.md).
 
-2. Dans le menu Ressource, cliquez sur **Explorateur de requêtes**.
+1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
-	![Capture d’écran du portail Azure avec l’Explorateur de requêtes mis en surbrillance](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
+2. In the resource menu, click **Query Explorer**. 
 
-3. Dans le panneau **Explorateur de requêtes**, sélectionnez les **Bases de données** et **Collections** à interroger dans les listes déroulantes, puis saisissez la requête à exécuter.
+    ![Screenshot of the Azure portal with Query Explorer highlighted](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
-    Les listes déroulantes **Bases de données** et **Collections** sont préremplies en fonction du contexte de lancement de l’Explorateur de requêtes.
+3. In the **Query Explorer** blade, select the **Databases** and **Collections** to query from the drop down lists, and type the query to run. 
 
-    La requête par défaut `SELECT TOP 100 * FROM c` est indiquée. Vous pouvez l’accepter ou créer la vôtre à l’aide du langage de requête SQL décrit dans [l’Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md) ou dans l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md).
+    The **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launch Query Explorer. 
 
-    Cliquez sur **Exécuter la requête** pour afficher les résultats.
+    A default query of `SELECT TOP 100 * FROM c` is provided.  You can accept the default query or construct your own query using the SQL query language described in the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md) or the [SQL query and SQL syntax](documentdb-sql-query.md) article.
 
-	![Capture d’écran montant l’écriture de requêtes SQL dans l’Explorateur de requêtes, un éditeur de requête SQL](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
+    Click **Run query** to view the results.
 
-4. Le panneau **Résultats** affiche la sortie de la requête.
+    ![Screenshot of writing SQL queries in Query Explorer, a SQL query editor](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
 
-	![Capture d’écran des résultats de l’écriture de requêtes SQL dans l’Explorateur de requêtes](./media/documentdb-query-collections-query-explorer/queryresults1.png)
+4. The **Results** blade displays the output of the query. 
 
-## Utiliser les résultats
+    ![Screenshot of results of writing SQL queries in Query Explorer](./media/documentdb-query-collections-query-explorer/queryresults1.png)
 
-L'Explorateur de requête renvoie par défaut les résultats par groupe de 100. Si la requête renvoie plus de 100 résultats, utilisez les commandes **Page suivante** et **Page précédente** pour naviguer dans les résultats.
+## <a name="work-with-results"></a>Work with results
 
-![Capture d’écran de la pagination dans l’Explorateur de requête](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
+By default, Query Explorer returns results in sets of 100.  If your query produces more than 100 results, simply use the **Next page** and **Previous page** commands to navigate through the result set.
 
-Si les requêtes ont abouti, le volet **Informations** indique des mesures telles que les frais de requête, le nombre d’aller-retour effectués par la requête, l’ensemble de résultats actuellement affiché et s’il existe d’autres résultats, qui sont accessibles via la commande **Page suivante**, comme indiqué précédemment.
+![Screenshot of Query Explorer pagination support](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
 
-![Capture d’écran des informations de requête de l’Explorateur de requête](./media/documentdb-query-collections-query-explorer/queryinformation.png)
+For successful queries, the **Information** pane contains metrics such as the request charge,  the number of round trips the query made, the set of results currently being shown, and whether there are more results, which can then be accessed via the **Next page** command, as mentioned previously.
 
-## Utiliser plusieurs requêtes
+![Screenshot of Query Explorer query information](./media/documentdb-query-collections-query-explorer/queryinformation.png)
 
-Si vous utilisez plusieurs requêtes et que vous souhaitez basculer rapidement entre elles, vous pouvez entrer toutes les requêtes dans la zone de texte de la requête du panneau **Explorateur de requêtes**, mettre en surbrillance celle que vous souhaitez exécuter, puis cliquer sur **Exécuter la requête** pour afficher les résultats.
+## <a name="use-multiple-queries"></a>Use multiple queries
 
-![Capture d’écran montrant l’écriture de plusieurs requêtes SQL dans l’Explorateur de requêtes (un éditeur de requête SQL) et mettant en surbrillance et exécutant des requêtes individuelles](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
+If you're using multiple queries and want to quickly switch between them, you can enter all the queries in the query text box of the **Query Explorer** blade, then highlight the one you want to run, and then click **Run query** to view the results.
 
-## Ajouter des requêtes à partir d’un fichier dans l’éditeur de requête SQL
+![Screenshot of writing multiple SQL queries in Query Explorer (a SQL query editor) and highlighting and running individual queries](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
 
-Vous pouvez charger le contenu d’un fichier existant à l’aide de la commande **Charger le fichier**.
+## <a name="add-queries-from-a-file-into-the-sql-query-editor"></a>Add queries from a file into the SQL query editor
 
-![Capture d’écran montrant comment charger des requêtes SQL à partir d’un fichier dans l’Explorateur de requêtes à l’aide de l’option Charger le fichier](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
+You can load the contents of an existing file using the **Load File** command.
 
-## Résolution des problèmes
+![Screenshot showing how to load SQL queries from a file into Query Explorer using Load File](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
 
-Si une requête se termine avec des erreurs, l’Explorateur de requêtes affiche une liste d’erreurs qui peut aider à la résolution des problèmes.
+## <a name="troubleshoot"></a>Troubleshoot
 
-![Capture d’écran des erreurs de requête de l’Explorateur de requête](./media/documentdb-query-collections-query-explorer/queryerror.png)
+If a query completes with errors, Query Explorer displays a list of errors that can help with troubleshooting efforts.
 
-## Exécuter des requêtes SQL DocumentDB en dehors du portail
+![Screenshot of Query Explorer query errors](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
-L’Explorateur de requêtes du portail Azure permet simplement d’exécuter des requêtes SQL dans DocumentDB. Vous pouvez également exécuter des requêtes SQL à l’aide de [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou des [Kits de développement logiciel (SDK) clients](documentdb-sdk-dotnet.md). Pour plus d’informations sur l’utilisation de ces méthodes, consultez la section [Exécution de requêtes SQL](documentdb-sql-query.md#executing-sql-queries)
+## <a name="run-documentdb-sql-queries-outside-the-portal"></a>Run DocumentDB SQL queries outside the portal
 
-## Étapes suivantes
+The Query Explorer in the Azure portal is just one way to run SQL queries against DocumentDB. You can also run SQL queries using the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For more information about using these other methods, see [Executing SQL queries](documentdb-sql-query.md#executing-sql-queries)
 
-Pour plus d’informations sur la grammaire SQL DocumentDB prise en charge dans l’Explorateur de requêtes, consultez l’article [Requête SQL et syntaxe SQL dans DocumentDB](documentdb-sql-query.md) ou imprimez [l’Aide-mémoire pour les requêtes SQL](documentdb-sql-query-cheat-sheet.md). Vous pouvez également expérimenter le [Query Playground](https://www.documentdb.com/sql/demo) où vous pouvez tester des requêtes en ligne en utilisant un exemple de jeu de données.
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0831_2016-->
+To learn more about the DocumentDB SQL grammar supported in Query Explorer, see the [SQL query and SQL syntax](documentdb-sql-query.md) article or print out the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).
+You may also enjoy experimenting with the [Query Playground](https://www.documentdb.com/sql/demo) where you can test out queries online using a sample dataset.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

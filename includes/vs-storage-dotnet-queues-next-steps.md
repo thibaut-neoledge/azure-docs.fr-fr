@@ -1,13 +1,17 @@
 
-Maintenant que vous connaissez les bases du stockage des files d’attente Azure, consultez les liens suivants pour apprendre à effectuer des tâches de stockage plus complexes.
+Now that you've learned the basics of Azure queue storage, follow these links to learn about more complex storage tasks.
 
-- Pour plus d’informations sur les API disponibles, consultez la documentation de référence sur le service de File d’attente dans la [bibliothèque cliente Azure Storage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731).
-- Pour en savoir plus sur l’utilisation de Queue Storage, consultez [Prise en main du stockage de files d’attente Azure à l’aide de .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
+- View the Queue service reference documentation in the [Azure Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
+- Learn more about using Queue storage at [Get started with Azure Queue storage using .NET](../articles/storage/storage-dotnet-how-to-use-queues.md)
 
-- Pour découvrir comment simplifier le code que vous écrivez avec Azure Storage, consultez [Présentation du Kit de développement logiciel (SDK) Azure WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk.md)
-- Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-  - Pour utiliser les tables Azure Storage, consultez [Prise en main du stockage de tables Azure à l’aide de .NET](../articles/storage/storage-dotnet-how-to-use-tables.md).
-  - Pour utiliser les objets blob Azure Storage, consultez [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
-  - Pour stocker des données relationnelles, consultez [Connexion à SQL Database à l’aide de .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+- To learn how to simplify the code you write to work with Azure Storage, check out [What is the Azure WebJobs SDK](../articles/app-service-web/websites-dotnet-webjobs-sdk.md)
+- View more feature guides to learn about additional options for storing data in Azure.
+  - To work with Azure Storage Tables, see [Get Started with Azure Table storage using .NET](../articles/storage/storage-dotnet-how-to-use-tables.md).
+  - To work with Azure Storage Blobs, [Get started with Azure Blob storage using .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
+  - To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

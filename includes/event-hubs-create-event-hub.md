@@ -1,49 +1,51 @@
-## Création d’un concentrateur d’événements
+## <a name="create-an-event-hub"></a>Create an Event Hub
 
-1. Connectez-vous au [portail Azure][], puis cliquez sur **Nouveau** en haut à gauche de l’écran.
+1. Log on to the [Azure portal][], and click **New** at the top left of the screen.
 
-2. Cliquez sur **Données et analyses**, puis cliquez sur **Event Hubs**.
+2. Click **Data + Analytics**, then click **Event Hubs**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub9.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
-3. Dans le panneau **Créer un espace de noms**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
+3. In the **Create namespace** blade, enter a namespace name. The system immediately checks to see if the name is available.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub1.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub1.png)
 
-4. Lorsque vous avez vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Basique ou Standard). Choisissez également un abonnement Azure, un groupe de ressources et l’emplacement où créer la ressource.
+4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
 
-2. Cliquez sur **Créer** pour créer l’espace de noms.
+2. Click **Create** to create the namespace.
 
-6. Dans la liste d’espaces de noms Event Hubs, cliquez sur l’espace de noms créé.
+6. In the Event Hubs namespace list, click the newly-created namespace.      
 
-	![](./media/event-hubs-create-event-hub/create-event-hub2.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 
-7. Dans le panneau de l’espace de noms, cliquez sur **Event Hubs**.
+7. In the namespace blade, click **Event Hubs**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub3.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub3.png)
 
-8. Cliquez sur **Ajouter un Event Hub** en haut du panneau.
+8. At the top of the blade, click **Add Event Hub**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub4.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub4.png)
 
-3. Saisissez un nom pour votre Event Hub, puis cliquez sur **Créer**.
+3. Type a name for your Event Hub, then click **Create**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub5.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub5.png)
 
-4. Dans la liste d’Event Hubs, cliquez sur le nom d’Event Hub nouvellement créé.
+4. In the list of Event Hubs, click the newly created Event Hub name. 
 
-	![](./media/event-hubs-create-event-hub/create-event-hub6.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub6.png)
 
-5. Revenez au panneau de l’espace de noms (pas le panneau de l’Event Hub spécifique), cliquez sur **Stratégies d’accès partagé**, puis cliquez sur **RootManageSharedAccessKey**.
+5. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub7.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub7.png)
 
-5. Cliquez sur le bouton Copier pour copier la chaîne de connexion **RootManageSharedAccessKey** dans le Presse-papiers. Enregistrez cette chaîne de connexion pour l’utiliser plus tard dans ce didacticiel.
+5. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
-Votre concentrateur d’événements est désormais créé et vous disposez des chaînes de connexion dont vous avez besoin pour envoyer et recevoir des événements. 
+Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
-[portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

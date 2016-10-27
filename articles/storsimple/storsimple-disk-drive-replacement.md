@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Remplacer un lecteur de disque sur un appareil StorSimple | Microsoft Azure"
-   description="Explique comment remplacer un lecteur de disque sur un boîtier principal ou EBOD StorSimple."
+   pageTitle="Replace a disk drive on a StorSimple device | Microsoft Azure"
+   description="Explains how to replace a disk drive on a StorSimple primary enclosure or an EBOD enclosure."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,113 +15,118 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# Remplacer un lecteur de disque sur votre appareil StorSimple
 
-## Vue d'ensemble
+# <a name="replace-a-disk-drive-on-your-storsimple-device"></a>Replace a disk drive on your StorSimple device
 
-Ce didacticiel explique comment vous pouvez retirer et remplacer un lecteur de disque dur défectueux ou défaillant sur un appareil Microsoft Azure StorSimple. Pour remplacer un lecteur de disque, vous devez :
+## <a name="overview"></a>Overview
 
-- Désengager le verrou anti-effraction
+This tutorial explains how you can remove and replace a malfunctioning or failed hard disk drive on a Microsoft Azure StorSimple device. To replace a disk drive, you need to:
 
-- Retirer le lecteur de disque
+- Disengage the antitamper lock
 
-- Installez le lecteur de disque de remplacement
+- Remove the disk drive
 
->[AZURE.IMPORTANT] Avant de retirer et de remplacer un lecteur de disque, passez en revue les informations de sécurité dans [Remplacement de composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+- Install the replacement disk drive
 
-## Désengager le verrou anti-effraction
+>[AZURE.IMPORTANT] Before removing and replacing a disk drive, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-Cette procédure explique comment les verrous anti-effraction sur votre appareil StorSimple peuvent être engagés ou désengagés quand vous remplacez les lecteurs de disque. Les verrous anti-effraction sont montés dans les poignées du support de lecteur et ils sont accessibles via une petite ouverture dans la partie verrou de la poignée. Les lecteurs sont fournis avec les verrous en position verrouillée.
+## <a name="disengage-the-antitamper-lock"></a>Disengage the antitamper lock
 
-#### Pour déverrouiller le verrou anti-effraction
+This procedure explains how the antitamper locks on your StorSimple device can be engaged or disengaged when you replace the disk drives. The antitamper locks are fitted in the drive carrier handles, and they are accessed through a small aperture in the latch section of the handle. Drives are supplied with the locks set to the locked position.
 
-1. Insérez soigneusement la clé de verrouillage (un tournevis « anti-effraction » T10 fourni par Microsoft) dans l’ouverture de la poignée et dans son emplacement.
+#### <a name="to-unlock-the-antitamper-lock"></a>To unlock the antitamper lock
 
-    >[AZURE.NOTE] Si le verrou anti-effraction est activé, l’indicateur rouge est visible dans l’ouverture.
+1. Carefully insert the lock key (a "tamperproof" T10 screwdriver that Microsoft provided) into the aperture in the handle and into its socket. 
 
-    ![Lecteur de disque verrouillé](./media/storsimple-disk-drive-replacement/IC741056.png)
+    >[AZURE.NOTE] If the antitamper lock is activated, the red indicator is visible in the aperture.
 
-    **Figure 1** : Verrou anti-effraction engagé
+    ![Locked disk drive](./media/storsimple-disk-drive-replacement/IC741056.png)
 
-    |Étiquette|Description|
-    |:----|:----------|
-    |1|Ouverture de l’indicateur|
-    |2|Verrou anti-effraction|
+    **Figure 1** Anti-tamper lock engaged
 
-2. Faites tourner la clé dans le sens inverse des aiguilles d’une montre jusqu’à ce que l’indicateur rouge ne soit plus visible dans l’ouverture au-dessus de la clé.
+  	|Label|Description|
+  	|:----|:----------|
+  	|1|Indicator aperture|
+  	|2|Antitamper lock|
 
-3. Retirez la clé.
+2. Rotate the key in an anticlockwise direction until the red indicator is not visible in the aperture above the key.
 
-    ![Lecteur de disque déverrouillé](./media/storsimple-disk-drive-replacement/IC741057.png)
+3. Remove the key.
 
-    **Figure 2** : Lecteur de disque déverrouillé
+    ![Unlocked disk drive](./media/storsimple-disk-drive-replacement/IC741057.png)
 
-4. Le lecteur de disque peut maintenant être retiré.
+    **Figure 2** Unlocked disk drive
 
-Suivez les étapes en sens inverse pour engager le verrou.
+4. The disk drive can now be removed.
 
-## Retirer le lecteur de disque
+Follow the steps in reverse to engage the lock.
 
-Votre appareil StorSimple prend en charge une configuration des espaces de stockage en RAID 10. Ceci implique qu’il peut fonctionner normalement avec un disque défectueux, qui peut être un disque SSD ou un disque dur.
+## <a name="remove-the-disk-drive"></a>Remove the disk drive
+
+Your StorSimple device supports a RAID 10-like storage spaces configuration. This implies that it can operate normally with one failed disk, solid-state drive (SSD), or hard disk drive (HDD). 
 
 >[AZURE.IMPORTANT]
 >
->- Si votre système a plusieurs disques défectueux, ne retirez jamais en même temps plusieurs disques SSD ou disques durs du système. Ceci peut entraîner la perte de données.
+>- If your system has more than one failed disk, do not remove more than one SSD or HDD from the system at any point in time. Doing so could result in loss of data.
 >
->- Veillez à placer un disque SSD de remplacement à un emplacement qui contenait auparavant un disque SSD. De même, veillez à placer un disque dur de remplacement à un emplacement qui contenait auparavant un disque dur.
+>- Make sure that you place a replacement SSD in a slot that previously contained an SSD. Similarly, place a replacement HDD in a slot that previously contained an HDD.
 >
->- Dans le portail Azure Classic, les emplacements sont numérotés de 0 à 11. Par conséquent, si le portail indique qu’un disque à l’emplacement 2 est défectueux, sur l’appareil, vous trouvez le disque défectueux au troisième emplacement à partir du coin supérieur gauche.
+>- In the Azure classic portal, slots are numbered from 0 – 11. Therefore, if the portal shows that a disk in slot 2 has failed, on the device, look for the failed disk in the third slot from the top left.
 
-Les lecteurs peuvent être retirés et remplacés pendant que le système fonctionne.
+Drives can be removed and replaced while the system is operating.
 
-#### Pour retirer un lecteur
+#### <a name="to-remove-a-drive"></a>To remove a drive
 
-1. Pour identifier le disque défectueux, dans le Portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Comme un disque défectueux peut se trouver dans le boîtier principal et/ou dans un boîtier EBOD (si vous utilisez un modèle 8600), vérifiez l’état des disques sous **Composants partagés** et sous **Composants partagés du boîtier EBOD**. Un disque défectueux dans un des boîtiers est affiché avec un état rouge.
+1. To identify the failed disk, in the Azure classic portal, go to **Devices** > **Maintenance** > **Hardware Status**. Because a disk can fail in the primary enclosure and/or in an EBOD enclosure (if you are using a 8600 model), look at the status of the disks under **Shared Components** and under **EBOD enclosure Shared Components**. A failed disk in either enclosure will be shown with a red status.
 
-2. Recherchez les lecteurs à l’avant du boîtier principal ou du boîtier EBOD.
+2. Locate the drives in the front of the primary enclosure or the EBOD enclosure. 
 
-3. Si le disque est déverrouillé, passez à l’étape suivante. Si le disque est verrouillé, déverrouillez-le en suivant la procédure décrite dans [Désengager le verrou anti-effraction](#disengage-the-antitamper-lock).
+3. If the disk is unlocked, proceed to the next step. If the disk is locked, unlock it by following the procedure in [Disengage the antitamper lock](#disengage-the-antitamper-lock).
 
-4. Appuyez sur le verrou noir du module de support de lecteur et tirez sur la poignée du support de lecteur vers l’avant du châssis.
+4. Press the black latch on the drive carrier module and pull the drive carrier handle out and away from the front of the chassis. 
 
-    ![Libération de la poignée du lecteur de disque](./media/storsimple-disk-drive-replacement/IC741051.png)
+    ![Releasing disk drive handle](./media/storsimple-disk-drive-replacement/IC741051.png)
 
-    **Figure 3** : Libération de la poignée du lecteur
+    **Figure 3** Releasing the drive handle
 
-5. Quand la poignée du support de lecteur est entièrement en extension, faites glisser le support de lecteur hors du châssis.
+5. When the drive carrier handle is fully extended, slide the drive carrier out of the chassis. 
 
-    ![Retrait du disque hors du lecteur de disque](./media/storsimple-disk-drive-replacement/IC741052.png)
+    ![Sliding disk out of disk drive](./media/storsimple-disk-drive-replacement/IC741052.png)
     
-    **Figure 4** : Retrait du lecteur de disque hors du châssis
+    **Figure 4** Sliding the disk drive out of the carrier
 
-##     Installez le lecteur de disque de remplacement
+## <a name="install-the-replacement-disk-drive"></a>Install the replacement disk drive
 
-Quand un lecteur est défectueux dans votre appareil StorSimple et que vous l’avez retiré, suivez cette procédure pour le remplacer par un nouveau lecteur.
+After a drive has failed in your StorSimple device and you have removed it, follow this procedure to replace it with a new drive.
 
-#### Pour insérer un lecteur
+#### <a name="to-insert-a-drive"></a>To insert a drive
 
-1. Assurez-vous que la poignée du support de lecteur est entièrement en extension, comme illustré dans l’image suivante.
+1. Ensure the drive carrier handle is fully extended, as shown in the following image.
 
-    ![Lecteur de disque avec la poignée en extension](./media/storsimple-disk-drive-replacement/IC741044.png)
+    ![Disk drive with handle extended](./media/storsimple-disk-drive-replacement/IC741044.png)
 
-    **Figure 5** : Lecteur avec la poignée en extension
+    **Figure 5** Drive with handle extended
 
-2. Faites glisser le support de lecteur jusqu’au bout dans le châssis.
+2. Slide the drive carrier all the way into the chassis. 
 
-    ![Insertion du disque dans le support de lecteur disque](./media/storsimple-disk-drive-replacement/IC741045.png)
+    ![Sliding disk into disk drive carrier](./media/storsimple-disk-drive-replacement/IC741045.png)
 
-    **Figure 6** : Insertion du support de lecteur dans le châssis
+    **Figure 6**  Sliding the drive carrier into the chassis
 
-3. Le support de lecteur étant inséré, fermez la poignée du support de lecteur tout en continuant à pousser le support de lecteur dans le châssis, jusqu’à ce que la poignée du support de lecteur s’enclenche en position verrouillée.
+3. With the drive carrier inserted, close the drive carrier handle while continuing to push the drive carrier into the chassis, until the drive carrier handle snaps into a locked position.
 
-4. Utilisez la clé de verrouillage qui a été fournie par Microsoft (tournevis Torx anti-effraction) pour sécuriser la poignée du support à son emplacement en tournant la vis de verrouillage d’un quart de tour dans le sens des aiguilles d’une montre.
+4. Use the lock key that was provided by Microsoft (tamperproof Torx screwdriver) to secure the carrier handle into place by turning the lock screw a quarter turn clockwise.
 
-5. Vérifiez que le remplacement a réussi et que le lecteur est opérationnel en accédant au portail Azure Classic, puis à **Maintenance** > **État du matériel**. Sous **Composants partagés** ou **Composants partagés du boîtier EBOD**, l’état du disque doit être en vert, indiquant qu’il est sain.
+5. Verify that the replacement was successful and the drive is operational by accessing the Azure classic portal and navigating to **Maintenance** > **Hardware Status**. Under **Shared Components** or **EBOD enclosure Shared Components**, the drive status should be green, indicating that it is healthy.
 
-    >[AZURE.NOTE] Plusieurs heures peuvent être nécessaires pour que l’état du disque passe en vert après le remplacement.
+    >[AZURE.NOTE] It may take several hours for the disk status to turn green after the replacement.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

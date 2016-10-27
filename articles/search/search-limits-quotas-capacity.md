@@ -1,100 +1,105 @@
 <properties
-	pageTitle="Limites de service d’Azure Search | Microsoft Azure"
-	description="Limites du service permettant de planifier la capacité et les limites maximales des requêtes et réponses pour Azure Search."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="jhubbard"
-	editor=""
+    pageTitle="Service limits in Azure Search | Microsoft Azure"
+    description="Service limits used for capacity planning and maximum limits on requests and reponses for Azure Search."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="jhubbard"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="08/03/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.date="10/17/2016"
+    ms.author="heidist"/>
 
-# Limites de service d’Azure Search
 
-Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent de l’ajout d’Azure Search avec le niveau de tarification **Gratuit**, **De base** ou **Standard**.
+# <a name="service-limits-in-azure-search"></a>Service limits in Azure Search
 
-- Le niveau **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. Il s’agit d’une option sans coût supplémentaire pour les abonnés existants et qui vous permet de tester le service avant de vous inscrire pour obtenir des ressources dédiées.
-- Le niveau **De base** fournit des ressources informatiques dédiées aux charges de production à petite échelle.
-- Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau (même en configuration minimale). Le niveau Standard apparaît dans : S1, S2, S3 et S3 Haute densité (S3 HD). S3 et S3 HD sont actuellement en version préliminaire et bénéficient d’un tarif réduit de 50 %.
+Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you add Azure Search at a **Free**, **Basic**, or **Standard** pricing tier.
 
-Tous les niveaux peuvent être [configurés dans le portail](search-create-service-portal.md). Un service se voit initialement allouer une partition et un réplica, mais vous pouvez modifier l’allocation des ressources une fois le service créé. Consultez [Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail](search-capacity-planning.md) pour plus d’informations.
+- **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources. 
+- **Basic** provides dedicated computing resources for production workloads at a smaller scale. ).
+- **Standard** runs on dedicated machines, with more storage and processing capacity at every level, including the minimum configuration. Standard comes in four levels: S1, S2, S3, and S3 High Density (S3 HD). S3 and S3 HD are currently in Preview and offered at a 50% reduced rate during the Preview period.
 
-## Limites par abonnement
+All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can change the resource allocation once the service is created. See [Scale resource levels for query and indexing workloads](search-capacity-planning.md) for details.
+
+## <a name="per-subscription-limits"></a>Per subscription limits
 
 [AZURE.INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## Limites par service ##
+## <a name="per-service-limits"></a>Per service limits ##
 
 [AZURE.INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## Limites par index ##
+## <a name="per-index-limits"></a>Per index limits ##
 
-Il existe une correspondance biunivoque entre les limites sur les index et les limites sur les indexeurs. Pour une limite de 200 index par service S2, les indexeurs et sources de données d’indexeur sont également de 200 au maximum pour le même service.
+There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes per S2 service, the maximum indexers and indexer datasources is also 200 for the same service.
 
-Ressource|Gratuit|De base |S1|S2|S3 (version préliminaire)|S3 HD (version préliminaire) 
+Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
 ---|---|---|---|---- |---|----
-Index : nombre maximal de champs par index|1 000|100 <sup>1</sup>|1 000|1 000|1 000|1 000 
-Index : nombre maximal de profils de score par index|16|16|16|16|16|16 
-Index : nombre maximal de fonctions par profil|8|8|8|8|8|8 
-Indexeurs : quantité maximale de charge d’indexation par appel|10 000 documents|Limité uniquement par le nombre maximal de documents|Limité uniquement par le nombre maximal de documents|Limité uniquement par le nombre maximal de documents|Limité uniquement par le nombre maximal de documents|N/A <sup>2</sup> 
-Indexeurs : durée maximale d’exécution|3 minutes|24 heures|24 heures|24 heures|24 heures|N/A <sup>2</sup> 
-Indexeur d’objets blob : taille maximale des objets blob, en Mo|16|16|128|256|256|N/A <sup>2</sup> 
-Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob|32 000|64 000|4 millions|4 millions|4 millions|N/A <sup>2</sup> 
+Index: maximum fields per index|1000|100 <sup>1</sup>|1000|1000|1000|1000 
+Index: maximum scoring profiles per index|16|16|16|16|16|16 
+Index: maximum functions per profile|8|8|8|8|8|8 
+Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|N/A <sup>2</sup> 
+Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours|24 hours|N/A <sup>2</sup> 
+Blob indexer: maximum blob size, MB|16|16|128|256|256|N/A <sup>2</sup> 
+Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|4 million|4 million|4 million|N/A <sup>2</sup> 
 
-<sup>1</sup> Le niveau de base est la seule référence soumise à une limite inférieure de 100 champs par index.
+<sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
 
-<sup>2</sup> S3 HD ne prend actuellement pas en charge les indexeurs ou les sources de données d’indexeur. Contactez le support Azure si vous avez un besoin urgent de cette fonctionnalité.
+<sup>2</sup> S3 HD doesn't currently support indexers or indexer datasources. Please contact Azure Support if you have an urgent need for this capability.
 
-## Limites de taille des documents ##
+## <a name="document-size-limits"></a>Document size limits ##
 
-Ressource|Gratuit|De base |S1|S2|S3 (version préliminaire)|S3 HD (version préliminaire) 
+Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
 ---|---|---|---|---- |---|----
-Taille de chaque document par API d’index|< 16 Mo|< 16 Mo|< 16 Mo |< 16 Mo|< 16 Mo|< 16 Mo
+Individual document size per Index API|<16 MB|<16 MB|<16 MB |<16 MB|<16 MB|<16 MB
 
-Indique la taille maximum du document lors de l’appel d’une API d’index. La taille du document est en fait une limite de taille du corps de requête de l’API d’index. Étant donné que vous pouvez transmettre en une seule fois un lot de plusieurs documents à l’API d’index, la limite de taille dépend en fait du nombre de documents dans le lot. Pour un lot comprenant un seul document, la taille maximale du document sera 16 Mo de JSON.
+Refers to the maximum document size when calling an Index API. Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit actually depends on how many documents are in the batch. For a batch with a single document, the maximum document size will be to 16 MB of JSON.
 
-Pour réduire la taille du document, pensez à exclure de la requête les données non requêtables. Les images et autres données binaires ne sont pas directement requêtables et ne doivent pas être stockées dans l’index. Pour intégrer les données non requêtables dans les résultats de la recherche, définissez un champ sans possibilité de recherche qui stocke une référence URL à la ressource.
+To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a a URL reference to the resource.
 
-## Limites de charge de travail (requêtes par seconde) ##
+## <a name="workload-limits-(queries-per-second)"></a>Workload limits (Queries per second) ##
 
-Ressource|Gratuit|De base|S1|S2|S3 (version préliminaire)|S3 HD (version préliminaire)
+Resource|Free|Basic|S1|S2|S3 (Preview)|S3 HD (Preview)
 ---|---|---|---|----|---|----
-RPS|N/A|~3 par réplica|~15 par réplica|~60 par réplica|Moins de 60 par réplica|Moins de 60 par réplica
+QPS|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
 
-Le nombre de requêtes par seconde (RPS) est une approximation basée sur une méthode heuristique. Il est calculé à l’aide de charges de travail client simulées et réelles pour obtenir des valeurs estimées. Le débit exact du nombre de requêtes par seconde varie en fonction de vos données et de la nature de la requête.
+Queries per second (QPS) is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
 
-Bien que des estimations approximatives figurent ci-dessus, le débit réel est difficile à déterminer, en particulier dans le service partagé Gratuit où le débit est basé sur la bande passante disponible et la concurrence pour les ressources système. Dans le niveau Gratuit, les ressources de calcul et de stockage sont partagées par plusieurs abonnés. Les requêtes par seconde de votre solution varient donc toujours selon le nombre de charges de travail supplémentaires exécutées simultanément.
+Although rough estimates are provided above, an actual rate is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. In the Free tier, compute and storage resources are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time. 
 
-Au niveau Standard, vous pouvez mieux estimer les RPS, car vous contrôlez davantage de paramètres. Pour obtenir des conseils sur la façon de calculer les requêtes par seconde (RPS) de vos charges de travail, consultez la section sur les meilleures pratiques sous [Gérer votre solution de recherche](search-manage.md).
+At the standard level, you can estimate QPS more closely because you have control over more of the parameters. See the best practices section in [Manage your search solution](search-manage.md) for guidance on how to calculate QPS for your workloads. 
 
-## Limites de requête d’API
+## <a name="api-request-limits"></a>API Request limits
 
-- 16 Mo maximum par requête <sup>1</sup>
-- La longueur maximale d’une URL est de 8 Ko
-- 1 000 documents maximum par lot de charges, de fusions ou de suppressions d’index
-- 32 champs maximum dans la clause $orderby
-- La taille maximale des termes de recherche du texte encodé en UTF-8 est de 32 766 octets (32 Ko moins 2 octets)
+- Maximum of 16 MB per request <sup>1</sup>
+- Maximum 8 KB URL length
+- Maximum 1000 documents per batch of index uploads, merges, or deletes
+- Maximum 32 fields in $orderby clause
+- Maximum search term size is 32766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 
-<sup>1</sup> Dans Azure Search, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx)).
+<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
 
-## Limites de réponse d’API
+## <a name="api-response-limits"></a>API Response limits
 
-- 1 000 documents maximum retournés par page de résultats de recherche
-- 100 suggestions maximum retournées par requête d’API de suggestion
+- Maximum 1000 documents returned per page of search results
+- Maximum 100 suggestions returned per Suggest API request
 
-## Limites de clés API
+## <a name="api-key-limits"></a>API Key limits
 
-Les clés API sont utilisées pour l'authentification de service. Il existe deux types de clé API. Les clés d’administration sont spécifiées dans l’en-tête de la demande et accordent un accès complet en lecture et en écriture au service. Les clés de requête sont en lecture seule, spécifiées dans l’URL et généralement distribuées aux applications clientes.
+Api-keys are used for service authentication. There are two types. Admin keys are specified in the request header and grant full read-write access to the service. Query keys are read-only, specified on the URL, and typically distributed to client applications.
 
-- 2 clés administrateur maximum par service
-- 50 clés de requête maximum par service
+- Maximum of 2 admin keys per service
+- Maximum of 50 query keys per service
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

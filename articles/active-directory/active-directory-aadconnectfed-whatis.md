@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Fédération avec Azure AD Connect | Microsoft Azure"
-	description="Cette page centralise toute la documentation portant sur les opérations AD FS avec Azure AD Connect"
-	services="active-directory"
-	documentationCenter=""
-	authors="anandyadavmsft"
-	manager="femila"
-	editor=""/>
+    pageTitle="Fédération avec Azure AD Connect | Microsoft Azure"
+    description="Cette page centralise toute la documentation portant sur les opérations AD FS avec Azure AD Connect"
+    services="active-directory"
+    documentationCenter=""
+    authors="anandyadavmsft"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="anandy"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="anandy"/>
 
 
-# Fédération avec Azure AD Connect
+
+# <a name="azure-ad-connect-and-federation"></a>Fédération avec Azure AD Connect
 
 Azure AD Connect vous permet de configurer la fédération avec AD FS et Azure AD au niveau local. Avec l’authentification de fédération, vous pouvez autoriser les utilisateurs à se connecter aux services Azure AD avec leurs mots de passe locaux sans avoir à les saisir de nouveau, et ce, alors qu’ils sont sur le réseau d’entreprise. L’option de fédération avec les services de fédération d’Azure Directory (AD FS) vous permet de déployer un nouveau service AD FS dans la batterie de serveurs Windows Server 2012 R2 ou d’en spécifier un existant.
 
 Cette rubrique présente les fonctions associées à la fédération pour Azure AD Connect et répertorie les liens vers toutes les autres rubriques qui lui sont associées. Pour obtenir les liens vers Azure AD Connect, consultez Intégration de vos identités locales avec Azure Active Directory.
 
-## Azure AD Connect : rubriques sur la fédération
+## <a name="azure-ad-connect---federation-topics"></a>Azure AD Connect : rubriques sur la fédération
 
 | Rubrique | Sujet qu’elle aborde et quand la consulter |
 |:------|:-----------|
@@ -43,9 +44,14 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 | [Modification des règles de revendication AD FS](active-directory-aadconnect-federation-management.md#modifying-ad-fs-claim-rules) | Modifier / ajouter des règles de revendication dans AD FS pour configurer la synchronisation Azure AD Connect |
 
 
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 * [Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

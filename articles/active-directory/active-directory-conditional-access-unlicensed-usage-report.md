@@ -1,49 +1,56 @@
 <properties
-	pageTitle="Rapport d’utilisation sans licence | Microsoft Azure"
-	description="Le rapport d’utilisation sans licence vous aide à identifier les utilisateurs qui utilisent les fonctionnalités Azure AD payantes sans licence."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Unlicensed Usage Report | Microsoft Azure"
+    description="The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features."
+    services="active-directory"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2016"
+    ms.author="markvi"/>
 
-# Rapport d’utilisation sans licence
 
-Le rapport d’utilisation sans licence vous aide à identifier les utilisateurs qui utilisent les fonctionnalités Azure AD payantes sans licence. Cela vous permet de tirer un meilleur profit des licences que vous avez achetées et vous aide à déterminer le bon moment pour faire l’acquisition de licences supplémentaires.
+# <a name="unlicensed-usage-report"></a>Unlicensed usage report
 
-Le rapport présente l’utilisation active des fonctionnalités payantes au cours des 30 derniers jours.
+The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features. This allows you to make better use of licenses that you have purchased and to identify you know when you may need additional licenses. 
 
-## Structure du rapport
+The report shows active usage of the paid features in the last 30 days. 
+
+## <a name="report-structure"></a>Report structure
  
-| Nom de la colonne |	Description |
+| Column name          |    Description |
 | :--                  | :--         |
-| Utilisateur sans licence |	Nom de l’utilisateur |
-| Fonctionnalité | Nom de la fonctionnalité. Par exemple : accès conditionnel |
-| Application utilisée | Le nom de l’application à laquelle l’utilisateur a accédé via la fonctionnalité utilisée. Par exemple : Office 365 SharePoint Online |
+| Unlicensed User      |    Name of the user |
+| Feature              | The feature name. For example: conditional access |
+| Application Accessed | The name of the application that is being accessed with the feature. For example: Office 365 SharePoint Online |
 
  
-> [AZURE.NOTE] Si un compte d’utilisateur a été supprimé, un ID du type 1003000090D8B285 sera renseigné dans la colonne « Utilisateur sans licence »
+> [AZURE.NOTE] If a user account has been deleted the ‘Unlicensed User’ column will be populated with an ID, like 1003000090D8B285
 
 
-## Fonctionnalité d’accès conditionnel
+## <a name="conditional-access-feature"></a>Conditional access feature
 
-Les utilisateurs sans licence seront signalés lorsqu’ils accèdent à un service limité par une stratégie d’accès conditionnel s’ils ne disposent pas d’une licence Azure AD Premium.
+Unlicensed users will be flagged when they access a service that has conditional access policy applied if they do not have an Azure AD Premium license. 
 
-Cela s’applique aux stratégies MFA / d’emplacement, ainsi qu’aux stratégies de périphériques utilisant Intune.
+This applies to MFA / Location policies as well as device polices that use Intune.
  
 
-## Voir aussi
+## <a name="see-also"></a>See also
 
-- [Utilisation de l’accès conditionnel avec Office 365 et les autres applications connectées à Azure Active Directory](active-directory-conditional-access.md)
-- [Prise en main de l’accès conditionnel à Azure AD](active-directory-conditional-access-azuread-connected-apps.md)
+- [Using Conditional Access with Office 365 and other Azure Active Directory connected apps](active-directory-conditional-access.md)
+- [Getting started with conditional access to Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,8 +1,10 @@
-Ressource| Limite par défaut
+Resource| Default limit
 ---|---
-Profils par abonnement | 100 <sup>1</sup>
-Points de terminaison par profil| 200
+Profiles per subscription | 100 <sup>1</sup>
+Endpoints per profile| 200
 
-<sup>1</sup>Pour accroître ces limites, contactez le support technique.
+<sup>1</sup>Contact support in case you need to increase these limits.
 
-<!---HONumber=Nov15_HO1-->
+<!--HONumber=Oct16_HO2-->
+
+

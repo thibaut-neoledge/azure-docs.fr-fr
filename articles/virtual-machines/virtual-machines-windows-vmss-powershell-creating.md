@@ -1,34 +1,36 @@
 <properties
-	pageTitle="Création de jeux de mise à l’échelle de machine virtuelle à l’aide des applets de commande PowerShell | Microsoft Azure"
-	description="Prise en main de la création et de la gestion de vos premiers jeux de mise à l’échelle de machine virtuelle Azure à l’aide des applets de commande Azure PowerShell"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="danielsollondon"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Creating Virtual Machine Scale Sets using PowerShell cmdlets | Microsoft Azure"
+    description="Get started creating and managing your first Azure Virtual Machine Scale Sets using Azure PowerShell cmdlets"
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="danielsollondon"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="danielsollondon"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/29/2016"
+    ms.author="danielsollondon"/>
 
-# Création de jeux de mise à l’échelle de machine virtuelle à l’aide des applets de commande PowerShell
 
-Il s’agit d’un exemple illustrant comment créer un jeu de mise à l’échelle de machine virtuelle (VMSS). Cet exemple crée un VMSS de 3 nœuds, avec la mise en réseau et le stockage associés.
+# <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a>Creating Virtual Machine Scale Sets using PowerShell cmdlets
 
-## Premières étapes
-Assurez-vous que le dernier module Azure PowerShell est installé. Celui-ci contient les applets de commande PowerShell nécessaires pour mettre à jour et créer le VMSS. Accédez aux outils de ligne de commande [ici](http://aka.ms/webpi-azps) pour obtenir les derniers modules Azure disponibles.
+This is an example of how to create a Virtual Machine Scale Set(VMSS), it creates a VMSS of 3 nodes, with all the associated Networking and Storage.
 
-Pour trouver les applets de commande pour le VMSS, utilisez la chaîne de recherche *VMSS*.
+## <a name="first-steps"></a>First Steps
+Ensure you have the latest Azure PowerShell module installed, this will contain the PowerShell commandlets needed to maintain and create VMSS.
+Go to the commandline tools [here](http://aka.ms/webpi-azps) for the latest available Azure Modules.
 
-## Création d’un jeu de mise à l’échelle de machine virtuelle (VMSS)
+To find VMSS related commandlets, use the search string \*VMSS\*.
 
-##### Créer un groupe de ressources
+## <a name="creating-a-vmss"></a>Creating a VMSS
+
+##### <a name="create-resource-group"></a>Create Resource Group
 
 ```
 $loc = 'westus';
@@ -36,9 +38,9 @@ $rgname = 'mynewrgwu';
   New-AzureRmResourceGroup -Name $rgname -Location $loc -Force;
 ```
 
-##### Créer un compte de stockage
+##### <a name="create-storage-account"></a>Create Storage Account
 
-Définissez le type et le nom du compte de stockage.
+Set storage account type / name.
 
 ```
 $stoname = 'sto' + $rgname;
@@ -48,35 +50,35 @@ $stotype = 'Standard_LRS';
 $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname;
 ```
 
-#### Créer la mise en réseau (réseau virtuel / sous-réseau)
+#### <a name="create-networking-(vnet-/-subnet)"></a>Create Networking (VNET / Subnet)
 
-##### Spécification du sous-réseau
+##### <a name="subnet-specification"></a>Subnet Specification
 
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
-##### Spécification du réseau virtuel (VNET)
+##### <a name="vnet-specification"></a>VNET Specification
 
 ```
-$vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -DnsServer "10.1.1.1" -Subnet $subnet;
+$vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
 
 #In this case below we assume the new subnet is the only one, note difference if you have one already or have adjusted this code to more than one subnet.
 $subnetId = $vnet.Subnets[0].Id;
 ```
 
-##### Créer la ressource IP publique pour permettre l’accès externe
+##### <a name="create-public-ip-resource-to-allow-external-access"></a>Create Public IP Resource to Allow External Access
 
-Celle-ci est liée à l’équilibrage de charge.
+This will be bound to the to the Load Balancer.
 
 ```
 $pubip = New-AzureRmPublicIpAddress -Force -Name ('pubip' + $rgname) -ResourceGroupName $rgname -Location $loc -AllocationMethod Dynamic -DomainNameLabel ('pubip' + $rgname);
 $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName $rgname;
 ```
 
-##### Créer et configurer l’équilibrage de charge
+##### <a name="create-and-configure-load-balancer"></a>Create and Configure Load Balancer
 
 ```
 $frontendName = 'fe' + $rgname
@@ -90,20 +92,20 @@ $lbName = 'vmsslb' + $rgname
 $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicIpAddress $pubip
 ```
 
-##### Configurer l’équilibrage de charge
-Créez la configuration du pool d’adresses principales. Celle-ci est partagée par les cartes réseau des machines virtuelles dans le VMSS.
+##### <a name="configure-load-balancer"></a>Configure Load Balancer
+Create Backend Address Pool Config, this will be shared by the NICs of the VMs in VMSS.
 
 ```
 $backendAddressPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name $backendAddressPoolName
 ```
 
-Définissez le port de sonde de l’équilibrage de charge, modifiez les paramètres en fonction de votre application.
+Set Load Balanced Probe Port, change the settings as appropriate for your application.
 
 ```
 $probe = New-AzureRmLoadBalancerProbeConfig -Name $probeName -RequestPath healthcheck.aspx -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 ```
 
-Créez des règles NAT pour la connectivité directe routée (sans équilibrage de charge) aux machines virtuelles dans le VMSS via l’équilibreur de charge. Notez que cet exemple illustre l’utilisation de RDP. Il s’agit simplement d’une démonstration et les méthodes VNET internes doivent être utilisées pour la création d’une liaison RDP à ces serveurs.
+Create NAT rules for direct routed connectivity (not load balanced) to the VMs in the VMSS via the Load Balancer, note this demonstrates using RDP, this is just for demonstration and internal VNET methods should be used for RDP'ing to these servers.
 
 ```
 $frontendpoolrangestart = 3360
@@ -113,7 +115,7 @@ $inboundNatPool = New-AzureRmLoadBalancerInboundNatPoolConfig -Name $inboundNatP
 $frontend.Id -Protocol Tcp -FrontendPortRangeStart $frontendpoolrangestart -FrontendPortRangeEnd $frontendpoolrangeend -BackendPort $backendvmport;
 ```
 
-Créez la règle d’équilibrage de charge, cet exemple illustre l’équilibrage de charge des requêtes sur le port 80, avec les paramètres des étapes précédentes.
+Create the Load Balanced Rule, this example shows load balancing port 80 requests, using the settings from previous steps.
 
 ```
 $protocol = 'Tcp'
@@ -126,7 +128,7 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name $lbruleName `
 -IdleTimeoutInMinutes 15 -EnableFloatingIP -LoadDistribution SourceIP -Verbose;
 ```
 
-Créez l’équilibrage de charge avec la configuration.
+Create Load Balancer with configuration.
 
 ```
 $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Location $loc `
@@ -134,15 +136,15 @@ $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Lo
 -Probe $probe -LoadBalancingRule $lbrule -InboundNatPool $inboundNatPool -Verbose;
 ```
 
-Vérifiez les paramètres de l’équilibrage de charge, vérifiez les configurations de l’équilibrage de charge du port. Notez que vous ne verrez pas les règles NAT entrantes avant que la machine virtuelle dans le VMSS ne soit créée.
+Check  LB settings, check load balanced port configs, note, you will not see Inbound NAT rules until the VM's in the VMSS are created.
 
 ```
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### Configurer et créer le jeu de mise à l’échelle de machine virtuelle (VMSS)
+##### <a name="configure-and-create-vmss"></a>Configure and Create VMSS
 
-Notez que cet exemple d’infrastructure illustre comment configurer, distribuer et mettre à l’échelle le trafic web sur le VMSS, mais aucun service web n’est installé sur les images des machines virtuelles spécifiées ici.
+Note, this infrastructure example shows how to setup distribute and scale web traffic across the VMSS, but the VMs Images specified here do not have any web services installed.
 
 ```
 #specify VMSS Name
@@ -167,40 +169,37 @@ $exttype = 'BGInfo';
 $extver = '2.1';
 ```
 
-Lier la carte réseau à l’équilibrage de charge et au sous-réseau
+Bind NIC to Load Balancer and Subnet
 
 ```
 $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
 -LoadBalancerInboundNatPoolsId $actualLb.InboundNatPools[0].Id `
 -LoadBalancerBackendAddressPoolsId $actualLb.BackendAddressPools[0].Id `
 -SubnetId $subnetId;
-
-$ipCfg.LoadBalancerBackendAddressPools.Add($actualLb.BackendAddressPools[0].Id);
-$ipCfg.LoadBalancerInboundNatPools.Add($actualLb.InboundNatPools[0].Id);
 ```
 
-Créer la configuration du VMSS
+Create VMSS Config
 
 ```
 #Specify number of nodes
 $numberofnodes = 3
 
 $vmss = New-AzureRmVmssConfig -Location $loc -SkuCapacity $numberofnodes -SkuName 'Standard_A2' -UpgradePolicyMode 'automatic' `
-    | Add-AzureRmVmssNetworkInterfaceConfiguration -Name $subnetName -Primary $true -IPConfiguration $ipCfg `
-    | Set-AzureRmVmssOSProfile -ComputerNamePrefix $vmNamePrefix -AdminUsername $adminUsername -AdminPassword $adminPassword `
-    | Set-AzureRmVmssStorageProfile -Name 'test' -OsDiskCreateOption 'FromImage' -OsDiskCaching 'None' `
+  	| Add-AzureRmVmssNetworkInterfaceConfiguration -Name $subnetName -Primary $true -IPConfiguration $ipCfg `
+  	| Set-AzureRmVmssOSProfile -ComputerNamePrefix $vmNamePrefix -AdminUsername $adminUsername -AdminPassword $adminPassword `
+  	| Set-AzureRmVmssStorageProfile -Name 'test' -OsDiskCreateOption 'FromImage' -OsDiskCaching 'None' `
     -ImageReferenceOffer $Offer -ImageReferenceSku $Sku -ImageReferenceVersion $Version `
     -ImageReferencePublisher $PublisherName -VhdContainer $vhdContainer `
-    | Add-AzureRmVmssExtension -Name $extname -Publisher $publisher -Type $exttype -TypeHandlerVersion $extver -AutoUpgradeMinorVersion $true
+  	| Add-AzureRmVmssExtension -Name $extname -Publisher $publisher -Type $exttype -TypeHandlerVersion $extver -AutoUpgradeMinorVersion $true
 ```
 
-Générer la configuration du VMSS
+Build VMSS Config
 
 ```
 New-AzureRmVmss -ResourceGroupName $rgname -Name $vmssName -VirtualMachineScaleSet $vmss -Verbose;
 ```
 
-Maintenant, le VMSS est créé. Vous pouvez tester la connexion à la machine virtuelle individuelle à l’aide de RDP dans cet exemple :
+Now you have created the VMSS. You can test connecting to the individual VM using RDP in this example:
 
 ```
 VM0 : pubipmynewrgwu.westus.cloudapp.azure.com:3360
@@ -208,4 +207,8 @@ VM1 : pubipmynewrgwu.westus.cloudapp.azure.com:3361
 VM2 : pubipmynewrgwu.westus.cloudapp.azure.com:3362
 ```
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

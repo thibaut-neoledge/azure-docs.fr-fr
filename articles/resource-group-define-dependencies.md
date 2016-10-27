@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Dépendances dans les modèles Resource Manager | Microsoft Azure"
-   description="Décrit la procédure permettant de définir une ressource comme dépendante d’une autre ressource au cours du déploiement afin de garantir le déploiement des ressources dans l'ordre adéquat."
+   pageTitle="Dependencies in Resource Manager templates | Microsoft Azure"
+   description="Describes how to set one resource as dependent on another resource during deployment to ensure resources are deployed in the correct order."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,17 +16,18 @@
    ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
-# Définition de dépendances dans les modèles Azure Resource Manager
 
-Une ressource donnée peut comporter d'autres ressources qui doivent exister avant son déploiement. Par exemple, un serveur SQL doit exister avant une tentative de déploiement d'une base de données SQL. Vous définissez cette relation en marquant une seule ressource comme dépendante de l'autre ressource. En général, vous définissez une dépendance avec l'élément **dependsOn**, mais vous pouvez également la définir à l'aide de la fonction **reference**.
+# <a name="defining-dependencies-in-azure-resource-manager-templates"></a>Defining dependencies in Azure Resource Manager templates
 
-Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle.
+For a given resource, there can be other resources that must exist before the resource is deployed. For example, a SQL server must exist before attempting to deploy a SQL database. You define this relationship by marking one resource as dependent on the other resource. Typically, you define a dependency with the **dependsOn** element, but you can also define it through the **reference** function. 
 
-## dependsOn
+Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources are not dependent on each other, Resource Manager deploys them in parallel.
 
-Dans votre modèle, l’élément dependsOn vous permet de définir une ressource comme une dépendance sur une ou plusieurs ressources. Sa valeur peut être une liste séparée par des virgules de noms de ressources.
+## <a name="dependson"></a>dependsOn
 
-L’exemple suivant montre un groupe identique de machines virtuelles dépendant d’un équilibreur de charge, un réseau virtuel et une boucle qui crée plusieurs comptes de stockage. Ces autres ressources ne figurent pas dans l’exemple suivant, mais ont besoin d’exister ailleurs dans le modèle.
+Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value can be a comma-separated list of resource names. 
+
+The following example shows a virtual machine scale set that depends on a load balancer, virtual network, and a loop that creates multiple storage accounts. These other resources are not shown in the following example, but they would need to exist elsewhere in the template.
 
     {
       "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -44,17 +45,17 @@ L’exemple suivant montre un groupe identique de machines virtuelles dépendant
       ...
     }
 
-Pour définir une dépendance entre une ressource et les ressources qui sont créées par une boucle de copie, affectez l’élément dependsOn au nom de la boucle. Pour obtenir un exemple, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+To define a dependency between a resource and resources that are created through a copy loop, set the dependsOn element to name of the loop. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-Vous pouvez être tenté d’utiliser dependsOn pour mapper les relations entre vos ressources. Il est toutefois important de comprendre pourquoi vous le faites, car cette opération peut avoir un impact sur les performances de votre déploiement. Par exemple, pour documenter la manière dont les ressources sont liées entre elles, dependsOn n’est pas la bonne approche. Vous ne pourrez pas lancer de requête pour savoir quelles ressources ont été définies dans l’élément dependsOn après le déploiement. En utilisant dependsOn, vous risquez d’avoir un impact sur le temps de déploiement, car Resource Manager ne déploie pas en parallèle deux ressources qui ont une dépendance. Pour documenter les relations entre les ressources, utilisez plutôt la [liaison de ressources](resource-group-link-resources.md).
+While you may be inclined to use dependsOn to map relationships between your resources, it's important to understand why you're doing it because it can impact the performance of your deployment. For example, to document how resources are interconnected, dependsOn is not the right approach. You cannot query which resources were defined in the dependsOn element after deployment. By using dependsOn, you potentially impact deployment time because Resource Manager does not deploy in parallel two resources that have a dependency. To document relationships between resources, instead use [resource linking](resource-group-link-resources.md).
 
-## Ressources enfants
+## <a name="child-resources"></a>Child resources
 
-La propriété de ressources vous permet de vous permet de spécifier les ressources enfants associées à la ressource en cours de définition. Les ressources enfants peuvent uniquement être définies sur cinq niveaux. Il est important de noter qu’aucune dépendance implicite n’est créée entre une ressources enfant et la ressource parent. Si vous avez besoin de déployer la ressource enfant après la ressource parent, vous devez déclarer explicitement cette dépendance avec la propriété dependsOn.
+The resources property allows you to specify child resources that are related to the resource being defined. Child resources can only be defined five levels deep. It is important to note that an implicit dependency is not created between a child resource and the parent resource. If you need the child resource to be deployed after the parent resource, you must explicitly state that dependency with the dependsOn property. 
 
-Chaque ressource parente accepte uniquement certains types de ressources comme ressources enfants. Les types de ressource acceptés sont spécifiés dans le [schéma de modèle](https://github.com/Azure/azure-resource-manager-schemas) de la ressource parente. Le nom du type de ressource enfant inclut le nom du type de ressource parente. Par exemple, **Microsoft.Web/sites/config** et **Microsoft.Web/sites/extensions** sont deux ressources enfants de **Microsoft.Web/sites**.
+Each parent resource accepts only certain resource types as child resources. The accepted resource types are specified in the [template schema](https://github.com/Azure/azure-resource-manager-schemas) of the parent resource. The name of child resource type includes the name of the parent resource type, such as **Microsoft.Web/sites/config** and **Microsoft.Web/sites/extensions** are both child resources of the **Microsoft.Web/sites**.
 
-L'exemple suivant montre un serveur SQL et une base de données SQL. Notez qu'une dépendance explicite est définie entre la base de données SQL et le serveur SQL, même si la base de données est un enfant du serveur.
+The following example shows a SQL server and SQL database. Notice that an explicit dependency is defined between the SQL database and SQL server, even though the database is a child of the server.
 
     "resources": [
       {
@@ -93,19 +94,24 @@ L'exemple suivant montre un serveur SQL et une base de données SQL. Notez qu'un
     ]
 
 
-## fonction de référence
+## <a name="reference-function"></a>reference function
 
-La [fonction de référence](resource-group-template-functions.md#reference) permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les expressions de référence déclarent implicitement qu’une ressource dépend d’une autre.
+The [reference function](resource-group-template-functions.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. Reference expressions implicitly declare that one resource depends on another. 
 
     reference('resourceName').propertyPath
 
-Vous pouvez utiliser cet élément ou l’élément dependsOn pour spécifier les dépendances, mais il est inutile d’utiliser les deux pour la même ressource dépendante. Si possible, utilisez une référence implicite pour éviter d’ajouter par inadvertance une dépendance inutile.
+You can use either this element or the dependsOn element to specify dependencies, but you do not need to use both for the same dependent resource. Whenever possible, use an implicit reference to avoid inadvertently adding an unnecessary dependency.
 
-Pour plus d’informations, consultez la [fonction de référence](resource-group-template-functions.md#reference).
+To learn more, see [reference function](resource-group-template-functions.md#reference).
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md).
-- Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
+- To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
+- For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

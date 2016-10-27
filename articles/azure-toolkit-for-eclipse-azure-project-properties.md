@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Propriétés du projet Azure"
-    description="Décrit les paramètres de propriétés du projet Azure dans la boîte à outils Azure pour Eclipse."
+    pageTitle="Azure Project Properties"
+    description="Describes the Azure Project Properties settings in the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,49 +16,54 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
 
-# Propriétés du projet Azure #
+# <a name="azure-project-properties"></a>Azure Project Properties #
 
-Vous avez la possibilité de définir différents paramètres pour votre projet Azure dans la boîte à outils Azure pour Eclipse.
+Various settings for your Azure project can be set within the Azure Toolkit for Eclipse.
 
-## Configuration des propriétés du projet Azure ##
+## <a name="configuring-azure-project-properties"></a>Configuring Azure Project Properties ##
 
-La configuration des propriétés de votre projet Azure s’effectue via les boîtes de dialogue de votre propriétés de votre projet Azure. Cliquez avec le bouton droit sur le projet dans l’Explorateur de projets Eclipse, cliquez avec le bouton droit sur **Propriétés**, puis sélectionnez le sous-menu **Propriétés**.
+Configuring your Azure Project Properties is accomplished through the property dialogs for your Azure project. Right-click the project in Eclipse's Project Explorer pane, click **Properties**, and then select the **Azure** sub-menu.
 
 ![][ic719480]
 
-Dans cette page de propriétés, vous pouvez modifier les éléments suivants :
+Within this property page, you can change the following items: 
 
-* **Nom du service :** nom de votre projet Azure.
-* **Générer pour :** indique si le projet doit être généré pour l’émulateur de calcul ou être déployé dans Azure.
-* **Système d’exploitation cible :** système d’exploitation à utiliser lors du déploiement de votre projet dans Azure.
+* **Service name:** The name for your Azure project.
+* **Build for:** Whether the project is set for building to the compute emulator or deployment to Azure.
+* **Target OS:** The operating system to use when your project is deployed to Azure.
 
-## Voir aussi ##
+## <a name="see-also"></a>See Also ##
 
-[Kit de ressources Azure pour Eclipse][]
+[Azure Toolkit for Eclipse][]
 
-[Installation du kit de ressources Azure pour Eclipse][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-[Création d’une application Hello World pour Azure dans Eclipse][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-[Propriétés du rôle Azure][]
+[Azure Role Properties][]
 
-[Liste de compte de stockage Azure][]
+[Azure Storage Account List][]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Azure avec Java][].
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Centre de développement Azure avec Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Propriétés du rôle Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Liste de compte de stockage Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

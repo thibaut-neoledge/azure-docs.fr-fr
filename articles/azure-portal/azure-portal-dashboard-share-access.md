@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Accès aux tableaux de bord du Portail Azure | Microsoft Azure"
-   description="Cet article vous explique comment partager l’accès à un tableau de bord dans le Portail Azure."
+   pageTitle="Azure portal dashboard access | Microsoft Azure"
+   description="This article explains how to share access to a dashboard in the Azure portal."
    services="azure-portal"
    documentationCenter=""
    authors="tfitzmac"
@@ -16,69 +16,73 @@
    ms.date="08/01/2016"
    ms.author="tomfitz"/>
 
-# Partage des tableaux de bord Azure
 
-Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d’autres utilisateurs d’accéder à votre tableau de bord au moyen du [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) Azure. Vous affectez un utilisateur ou un groupe d’utilisateurs à un rôle, qui définit si ces utilisateurs peuvent visualiser ou modifier le tableau de bord publié.
+# <a name="sharing-azure-dashboards"></a>Sharing Azure dashboards
 
-Tous les tableaux de bord publiés sont implémentés en tant que ressources Azure, ce qui signifie qu’ils constituent des éléments gérables dans votre abonnement et qu’ils sont contenus dans un groupe de ressources. En termes de contrôle d’accès, les tableaux de bord sont traités de la même manière que les autres ressources, telles qu’une machine virtuelle ou un compte de stockage.
+After configuring a dashboard, you can publish it and share it with other users in your organization. You permit others to access your dashboard by using Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md). You assign a user or group of users to a role, and that role defines whether those users can view or modify the published dashboard. 
 
-> [AZURE.TIP] Les vignettes individuelles du tableau de bord appliquent leurs propres exigences en matière de contrôle d’accès, compte tenu des ressources qu’elles affichent. Par conséquent, vous pouvez concevoir un tableau de bord partagé à grande échelle tout en protégeant les données contenues dans chaque vignette.
+All published dashboards are implemented as Azure resources, which means they exist as manageable items within your subscription and are contained in a resource group.  From an access control perspective, dashboards are no different than other resources, such as a virtual machine or a storage account.
 
-## Présentation du contrôle d’accès relatif aux tableaux de bord
+> [AZURE.TIP] Individual tiles on the dashboard enforce their own access control requirements based on the resources they display.  Therefore, you can design a dashboard that is shared broadly while still protecting the data on individual tiles.
 
-Le contrôle d’accès en fonction du rôle vous permet d’affecter des utilisateurs à des rôles avec trois niveaux d’étendue distincts :
+## <a name="understanding-access-control-for-dashboards"></a>Understanding access control for dashboards
+
+With role-based access control, you can assign users to roles at three different levels of scope:
 
 - subscription
 - resource group
 - resource
 
-Les ressources héritent des autorisations que vous affectez à l’abonnement. Le tableau de bord publié est une ressource. Par conséquent, certains de vos utilisateurs disposent peut-être déjà de rôles pour l’abonnement qui fonctionnent également pour le tableau de bord publié.
+The permissions you assign are inherited from subscription down to the resource. The published dashboard is a resource. Therefore, you may already have users assigned to roles for the subscription which also work for the published dashboard. 
 
-Voici un exemple. Supposons que vous disposiez d’un abonnement Azure et que les différents membres de votre équipe aient reçu les rôles de **propriétaire**, de **contributeur** ou de **lecteur** pour l’abonnement. Les utilisateurs associés au rôle de propriétaire ou de contributeur peuvent répertorier, afficher, créer, modifier ou supprimer des tableaux de bord dans l’abonnement. Les utilisateurs ayant le rôle de lecteur peuvent répertorier et afficher des tableaux de bord, sans les modifier ou les supprimer. Les utilisateurs dotés d’un accès de lecteur peuvent apporter des modifications locales à un tableau de bord publié (par exemple, lors de la résolution d’un problème), mais ne peuvent pas republier ces modifications sur le serveur. Ils pourront effectuer une copie privée du tableau de bord pour leur propre usage.
+Here is an example.  Let's say you have an Azure subscription and various members of your team have been assigned the roles of **owner**, **contributor**, or **reader** for the subscription. Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within the subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a published dashboard (such as, when troubleshooting an issue), but are not able to publish those changes back to the server.  They will have the option to make a private copy of the dashboard for themselves
 
-Toutefois, vous pouvez également affecter des autorisations au groupe de ressources qui contient plusieurs tableaux de bord ou à un tableau de bord spécifique. Par exemple, vous pouvez décider qu’un groupe d’utilisateurs doit disposer d’autorisations limitées dans l’ensemble de l’abonnement, mais un accès plus étendu à un tableau de bord donné. Vous affectez alors ces utilisateurs à un rôle pour ce tableau de bord.
+However, you could also assign permissions to the resource group that contains several dashboards or to an individual dashboard. For example, you may decide that a group of users should have limited permissions across the subscription but greater access to a particular dashboard. You assign those users to a role for that dashboard. 
 
-## Publier un tableau de bord
+## <a name="publish-dashboard"></a>Publish dashboard
 
-Supposons que vous ayez terminé de configurer un tableau de bord que vous souhaitez partager avec un groupe d’utilisateurs dans votre abonnement. La procédure ci-après décrit un groupe personnalisé appelé Responsables du stockage, mais vous pouvez nommer votre groupe à votre convenance. Pour plus d’informations sur la création d’un groupe Active Directory et sur l’ajout d’utilisateurs à ce groupe, voir [Gestion des groupes dans Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Let's suppose you have finished configuring a dashboard that you want to share with a group of users in your subscription. The steps below depict a customized group called Storage Managers, but you can name your group whatever you would like. For information about creating an Active Directory group and adding users to that group, see [Managing groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
-1. Dans le tableau de bord, sélectionnez **Partager**.
+1. In the dashboard, select **Share**.
 
-     ![sélectionner Partager](./media/azure-portal-dashboard-share-access/select-share.png)
+     ![select share](./media/azure-portal-dashboard-share-access/select-share.png)
 
-2. Avant d’affecter l’accès, vous devez publier le tableau de bord. Par défaut, le tableau de bord est publié dans un groupe de ressources nommé **tableaux de bord**. Sélectionnez **Publier**.
+2. Before assigning access, you must publish the dashboard. By default, the dashboard will be published to a resource group named **dashboards**. Select **Publish**.
 
      ![publish](./media/azure-portal-dashboard-share-access/publish.png)
 
-Votre tableau de bord est à présent publié. Si les autorisations héritées de l’abonnement vous conviennent, vous n’avez rien d’autre à faire. Les autres utilisateurs de votre organisation seront en mesure d’accéder au tableau de bord et de le modifier en fonction de leur rôle au niveau de l’abonnement. Toutefois, pour ce didacticiel, affectons un groupe d’utilisateurs à un rôle pour ce tableau de bord.
+Your dashboard is now published. If the permissions inherited from the subscription are suitable, you do not need to do anything more. Other users in your organization will be able to access and modify the dashboard based on their subscription level role. However, for this tutorial, let's assign a group of users to a role for that dashboard.
 
-## Affecter l’accès à un tableau de bord
+## <a name="assign-access-to-a-dashboard"></a>Assign access to a dashboard
 
-1. Après avoir publié le tableau de bord, sélectionnez **Gérer les utilisateurs**.
+1. After publishing the dashboard, select **Manage users**.
 
-     ![gérer des utilisateurs](./media/azure-portal-dashboard-share-access/manage-users.png)
+     ![manage users](./media/azure-portal-dashboard-share-access/manage-users.png)
 
-2. Vous obtenez une liste d’utilisateurs existants déjà dotés d’un rôle pour ce tableau de bord. Votre liste d’utilisateurs existants sera différente de celle illustrée ci-dessous. Les affectations sont très probablement héritées de l’abonnement. Pour ajouter un nouvel utilisateur ou un nouveau groupe, sélectionnez **Ajouter**.
+2. You will see a list of existing users that are already assigned a role for this dashboard. Your list of existing users will be different than the image below. Most likely, the assignments are inherited from the subscription. To add a new user or group, select **Add**.
 
-     ![ajouter un utilisateur](./media/azure-portal-dashboard-share-access/existing-users.png)
+     ![add user](./media/azure-portal-dashboard-share-access/existing-users.png)
 
-3. Sélectionnez le rôle qui représente les autorisations que vous souhaitez accorder. Dans cet exemple, sélectionnez **Contributeur**.
+3. Select the role that represents the permissions you would like to grant. For this example, select **Contributor**.
 
-     ![sélectionner un rôle](./media/azure-portal-dashboard-share-access/select-role.png)
+     ![select role](./media/azure-portal-dashboard-share-access/select-role.png)
 
-4. Sélectionnez l’utilisateur ou le groupe à affecter au rôle. Si l’utilisateur ou le groupe que vous recherchez n’apparaissent pas dans la liste, utilisez la zone de recherche. Votre liste de groupes disponibles dépendra des groupes que vous avez créés dans votre service Active Directory.
+4. Select the user or group that you wish to assign to the role. If you do not see the user or group you are looking for in the list, use the search box. Your list of available groups will depend on the groups you have created in your Active Directory.
 
-     ![sélectionner un utilisateur](./media/azure-portal-dashboard-share-access/select-user.png)
+     ![select user](./media/azure-portal-dashboard-share-access/select-user.png) 
 
-5. Lorsque vous avez terminé d’ajouter des utilisateurs ou des groupes, sélectionnez **OK**.
+5. When you have finished adding users or groups, select **OK**. 
 
-6. La nouvelle affectation est ajoutée à la liste d’utilisateurs. Notez que son **Accès** présente la valeur **Affecté** plutôt que la valeur **Hérité**.
+6. The new assignment is added to the list of users. Notice that its **Access** is listed as **Assigned** rather than **Inherited**.
 
-     ![rôles affectés](./media/azure-portal-dashboard-share-access/assigned-roles.png)
+     ![assigned roles](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- Pour obtenir la liste des rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
-- Pour plus d’informations sur la gestion des ressources, voir [Gérer les ressources Azure sur le portail](resource-group-portal.md).
+- For a list of roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
+- To learn about managing resources, see [Manage Azure resources through portal](resource-group-portal.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

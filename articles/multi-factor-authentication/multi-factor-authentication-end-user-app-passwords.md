@@ -1,132 +1,159 @@
 <properties
-	pageTitle="Quels sont les mots de passe d’application dans Azure MFA ?"
-	description="Cette page permet aux utilisateurs de comprendre ce que sont les mots de passe d’application et leur utilisation avec Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+    pageTitle="What are App Passwords in Azure MFA?"
+    description="This page will help users understand what app passwords are and what they are used for with regard to Azure MFA."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtland"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
 
 
 
-# Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?
 
-Actuellement, certaines applications sans navigateur telles que le client de messagerie native Apple qui utilise Exchange Active Sync ne prennent pas en charge l’authentification multifacteur. L’authentification multifacteur est activée par l’utilisateur. Cela signifie que si un utilisateur a été activé pour l’authentification multifacteur et qu’il tente d’utiliser les applications sans navigateur, il ne peut le faire. Un mot de passe d’application permet de remédier à ce problème.
+# <a name="what-are-app-passwords-in-azure-multi-factor-authentication?"></a>What are App Passwords in Azure Multi-Factor Authentication?
 
->[AZURE.NOTE] Authentification moderne pour les clients Office 2013
+Certain non-browser apps, such as the Apple native email client that uses Exchange Active Sync, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur.
+
+>[AZURE.NOTE] Modern Authentication for the Office 2013 Clients
 >
-> Les clients Office 2013 (y compris Outlook) prennent désormais en charge de nouveaux protocoles d’authentification et ils peuvent être activés pour prendre en charge Multi-Factor Authentication. Ainsi, une fois activés, les mots de passe d’application ne sont pas obligatoires avec les clients Office 2013. Pour plus d’informations, consultez la page [Version préliminaire publique de l’authentification moderne Office 2013 annoncée](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-## Utilisation de mots de passe d’application
+## <a name="how-to-use-app-passwords"></a>How to use app passwords
 
-Voici quelques points à retenir sur l’utilisation de mots de passe d’application.
+The following are some things to remember on how to use app passwords.
 
-- Le mot de passe est généré automatiquement et il n’est pas fourni par l’utilisateur. Le mot de passe automatiquement généré est en effet beaucoup plus difficile à pirater et bien mieux sécurisé.
-- À l’heure actuelle, un utilisateur peut posséder jusqu’à 40 mots de passe. Si vous essayez d’en créer un une fois que vous avez atteint la limite, vous devrez supprimer l’un de vos mots de passe d’application existants pour en créer un autre.
-- Il est recommandé de créer des mots de passe d’application par appareil et non par application. Par exemple, vous pouvez créer un mot de passe d’application pour votre ordinateur portable et utiliser ce mot de passe pour toutes vos applications sur cet ordinateur.
-- Vous obtenez un mot de passe d’application quand vous vous connectez pour la première fois. Si vous avez besoin d’autres mots de passe, vous pouvez les créer.
+- The actual password is automatically generated and is not supplied by the user. This is because the automatically generated password, is harder for an attacker to guess and is more secure.
+- Currently there is a limit of 40 passwords per user. If you attempt to create one after you have reached the limit, you will be prompted to delete one of your existing app passwords in order to create a new one.
+- It is recommended that app passwords be created per device and not per application. For example, you can create one app password for your laptop and use that app password for all of your applications on that laptop.
+- You are given an app password the first time you sign-in.  If you need additional ones, you can create them.
 
-![Paramétrage](./media/multi-factor-authentication-end-user-app-passwords/app.png)
+![Setup](./media/multi-factor-authentication-end-user-app-passwords/app.png)
 
-Une fois que vous disposez d’un mot de passe d’application, vous l’utilisez à la place de votre mot de passe d’origine avec ces applications sans navigateur. Par exemple, dans le cas de l’authentification multifacteur et du client de messagerie native Apple sur votre téléphone. Le mot de passe d’application permet à celle-ci de contourner l’authentification multifacteur et de continuer à fonctionner.
+Once you have an app password, you use this in place of your original password with these non-browser apps.  So for instance, if you are using multi-factor authentication and the Apple native email client on your phone.  Use the app password so that it can bypass multi-factor authentication and continue to work.
 
-## Création et suppression des mots de passe d’application
-À la première connexion, vous obtenez un mot de passe d’application que vous pouvez utiliser. En outre, vous pouvez également créer et supprimer des mots de passe d’application par la suite. La procédure à suivre dépend de l’utilisation de l’authentification multifacteur. Choisissez celle qui vous convient le mieux.
+## <a name="creating-and-deleting-app-passwords"></a>Creating and deleting app passwords
+During your initial sign-in you are given an app password that you can use.  Additionally you can also create and delete app passwords later on.  How you do this depends on how you use multi-factor authentication.  Choose the one that most applies to you.
 
-Mode d’utilisation de l’authentification multifacteur|Description
-:------------- | :------------- | 
-<a href="#avec">Je l’utilise avec Office 365</a>| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Office 365.
-<a href="#eee">Je ne sais pas</a>|Cela signifie que vous pouvez créer des mots de passe d’application par le biais de [https://myapps.microsoft.com](https://myapps.microsoft.com)
-<a href="#Je">Je l’utilise avec Microsoft Azure</a>| Cela signifie que vous souhaitez créer des mots de passe d’application par le biais du portail Azure.
+How you use multi-factor authentiation|Description
+:------------- | :------------- |
+[I use it with Office 365](#creating-and-deleting-app-passwords-with-office-365)|  This means that you will want to create app passwords through the Office 365 portal.
+[I don't know](#creating-and-deleting-app-passwords-with-myapps-portal)|This means you will want create app passwords through [https://myapps.microsoft.com](https://myapps.microsoft.com)
+[I use it with Microsoft Azure](#create-app-passwords-in-the-azure-portal)| This means that you will want create app passwords through the Azure portal.
 
-<h2 id="avec">Création et suppression des mots de passe d’application avec Office 365</h2> 
+## <a name="creating-and-deleting-app-passwords-with-office-365"></a>Creating and deleting app passwords with Office 365
 
-Si vous utilisez l’authentification multifacteur avec Office 365, vous pourrez créer et supprimer des mots de passe d’application par le biais du portail Office 365.
+If you use multi-factor authentication with Office 365 you will want to create and delete app passwords through the Office 365 portal.
 
-### Pour créer des mots de passe d'application dans le portail Office 365
+### <a name="to-create-app-passwords-in-the-office-365-portal"></a>To create app passwords in the Office 365 portal
 --------------------------------------------------------------------------------
 
-1. Connectez-vous au [portail Office 365](https://login.microsoftonline.com/).
-2. Dans l’angle supérieur droit, sélectionnez le widget et choisissez les paramètres d’Office 365.
-3. Cliquez sur Vérification de sécurité supplémentaire.
-4. Sur la droite, cliquez sur le lien indiquant **Mettre à jour mes numéros de téléphone utilisés pour la sécurité du compte.** ![Paramétrage](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. Cette opération vous amènera sur la page qui vous permet de modifier vos paramètres. ![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
-6. En haut de l’écran, en regard de Vérification de sécurité supplémentaire, cliquez sur **mots de passe d’application.**
-7. Cliquez sur **Créer**. ![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)
-8. Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**. ![Créer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
-9. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application. ![Créer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+1. Log on to the [Office 365 portal](https://login.microsoftonline.com/).
+2. In the top right corner select the widget and choose Office 365 Settings.
+3. Click on Additional security verification.
+4. On the right, click the link that says **Update my phone numbers used for account security.**
+![Setup](./media/multi-factor-authentication-end-user-manage/o365a.png)
+5. This will take you to the page that will allow you to change your settings.
+![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
+6. At the top, next to additional security verification, click on **app passwords.**
+7. Click **Create**.
+![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)
+8. Enter a name for the app password and click **Next**.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
+9. Copy the app password to the clipboard and paste it into your app.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
 
-### Pour supprimer des mots de passe d’application avec le portail Office 365
+### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>To delete app passwords using the Office 365 portal
 --------------------------------------------------------------------------------
 
 
-1. Connectez-vous au [portail Office 365](https://login.microsoftonline.com/).
-2. Dans l’angle supérieur droit, sélectionnez le widget et choisissez les paramètres d’Office 365.
-3. Cliquez sur Vérification de sécurité supplémentaire.
-4. Sur la droite, cliquez sur le lien indiquant **Mettre à jour mes numéros de téléphone utilisés pour la sécurité du compte.** ![Paramétrage](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. Cette opération vous amènera sur la page qui vous permet de modifier vos paramètres. ![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
-6. En haut de l’écran, en regard de Vérification de sécurité supplémentaire, cliquez sur **mots de passe d’application.**
-7. En regard du mot de passe d’application à supprimer, cliquez sur **Supprimer**. ![Supprimer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-8. Confirmez la suppression en cliquant sur **oui**. ![Confirmer la suppression](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
-9. Une fois le mot de passe d’application supprimé, vous pouvez cliquer sur **Fermer**. ![Fermer](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
+1. Log on to the [Office 365 portal](https://login.microsoftonline.com/).
+2. In the top right corner select the widget and choose Office 365 Settings.
+3. Click on Additional security verification.
+4. On the right, click the link that says **Update my phone numbers used for account security.**
+![Setup](./media/multi-factor-authentication-end-user-manage/o365a.png)
+5. This will take you to the page that will allow you to change your settings.
+![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
+6. At the top, next to additional security verification, click on **app passwords.**
+7. Next to the app password you want to delete, click **Delete**.
+![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+8. Confirm the deletion by clicking **yes**.
+![Confirm the delete](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
+9. Once the app password is deleted you can click **close**.
+![Close](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="Je">Création et suppression des mots de passe d’application avec Office 365avec le portail Myapps</h2>.
-Si vous n’êtes pas sûr de la façon d’utiliser l’authentification multifacteur, vous pouvez toujours créer et supprimer des mots de passe d’application via le portail myapps.
+## <a name="creating-and-deleting-app-passwords-with-myapps-portal."></a>Creating and deleting app passwords with Myapps portal.
+If you are not sure how you use multi-factor authentication, then you can always create adn delete app passwords through the myapps portal.
 
-<h2 id="eee">Pour créer un mot de passe d’application à l’aide d’un portail Myapps</h2>
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>To create an app password using the Myapps portal
 
-1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. En haut de la page, sélectionnez le profil.
-3. Sélectionnez Vérification de sécurité supplémentaire. ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
-4. Cette opération vous amènera sur la page qui vous permet de modifier vos paramètres. ![Paramétrage](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
-5. En haut de l’écran, en regard de Vérification de sécurité supplémentaire, cliquez sur **mots de passe d’application.**
-6. Cliquez sur **Créer**. ![Créer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/create3.png)
-7. Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**. ![Créer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
-8. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application. ![Créer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
+2. At the top, select profile.
+3. Select Additional Security Verification.
+![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+4. This will take you to the page that will allow you to change your settings.
+![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+5. At the top, next to additional security verification, click on **app passwords.**
+6. Click **Create**.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create3.png)
+7. Enter a name for the app password and click **Next**.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
+8. Copy the app password to the clipboard and paste it into your app.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### Pour supprimer un mot de passe d’application à l’aide d’un portail Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>To delete an app password using the Myapps portal
 
-1. Ouvrez une session sur [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. En haut de la page, sélectionnez le profil.
-3. Sélectionnez Vérification de sécurité supplémentaire. ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
-4. Cette opération vous amènera sur la page qui vous permet de modifier vos paramètres. ![Paramétrage](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
-5. En haut de l’écran, en regard de Vérification de sécurité supplémentaire, cliquez sur **mots de passe d’application.**
-6. En regard du mot de passe d’application à supprimer, cliquez sur **Supprimer**. ![Supprimer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-7. Confirmez la suppression en cliquant sur **oui**. ![Confirmer la suppression](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
-8. Une fois le mot de passe d’application supprimé, vous pouvez cliquer sur **Fermer**. ![Fermer](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
+2. At the top, select profile.
+3. Select Additional Security Verification.
+![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+4. This will take you to the page that will allow you to change your settings.
+![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+5. At the top, next to additional security verification, click on **app passwords.**
+6. Next to the app password you want to delete, click **Delete**.
+![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+7. Confirm the deletion by clicking **yes**.
+![Confirm the delete](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
+8. Once the app password is deleted you can click **close**.
+![Close](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-## Pour créer des mots de passe d’application dans le portail Azure
+## <a name="create-app-passwords-in-the-azure-portal"></a>Create app passwords in the Azure portal
 
-Si vous utilisez l’authentification multifacteur avec Azure, vous voulez peut-être créer des mots de passe d’application par le biais du portail Azure.
+If you use multi-factor authentication with Azure you will want to create app passwords through the Azure portal.
 
-### Pour créer des mots de passe d’application dans le portail Azure
+### <a name="to-create-app-passwords-in-the-azure-portal"></a>To create app passwords in the Azure portal
 
-1. Connectez-vous au portail de gestion Azure.
-2. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
-3. En haut de la page de vérification, sélectionnez les mots de passe d'application
-4. Cliquez sur **Create**.
-5. Saisissez un nom pour le mot de passe d’application, puis cliquez sur **Suivant**
-6. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application. ![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)
+1. Sign-in to the Azure Management portal.
+2. At the top, right-click on your user name and select Additional Security Verification.
+3. On the proofup page, at the top, select app passwords
+4. Click **Create**.
+5. Enter a name for the app password and click **Next**
+6. Copy the app password to the clipboard and paste it into your app.
+![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)
 
-### Pour supprimer des mots de passe d’application du portail Azure
+### <a name="to-delete-app-passwords-in-the-azure-portal"></a>To delete app passwords in the Azure portal
 
-1. Connectez-vous au portail de gestion Azure.
-2. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
-3. En haut de l’écran, en regard de Vérification de sécurité supplémentaire, cliquez sur **mots de passe d’application.**
-4. En regard du mot de passe d’application à supprimer, sélectionnez **Supprimer**.
-5. Confirmez la suppression en cliquant sur **oui**.
-6. Une fois le mot de passe d’application supprimé, vous pouvez cliquer sur **Fermer**. ![Fermer](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
+1. Sign-in to the Azure Management portal.
+2. At the top, right-click on your user name and select Additional Security Verification.
+3. At the top, next to additional security verification, click on **app passwords.**
+4. Next to the app password you want to delete, click **Delete**.
+5. Confirm the deletion by clicking **yes**.
+6. Once the app password is deleted you can click **close**.
+![Close](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

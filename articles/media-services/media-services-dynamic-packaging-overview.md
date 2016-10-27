@@ -1,83 +1,88 @@
 <properties
-	pageTitle="Vue d’ensemble de l’empaquetage dynamique | Microsoft Azure"
-	description="Cette rubrique donne une vue d'ensemble de l'empaquetage dynamique."
-	authors="Juliako"
-	manager="erikre"
-	editor=""
-	services="media-services"
-	documentationCenter=""/>
+    pageTitle="Dynamic packaging overview | Microsoft Azure"
+    description="The topic gives and overview of dynamic packaging."
+    authors="Juliako"
+    manager="erikre"
+    editor=""
+    services="media-services"
+    documentationCenter=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016" 
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016" 
+    ms.author="juliako"/>
 
 
-#Empaquetage dynamique
 
-##Vue d'ensemble
+#<a name="dynamic-packaging"></a>Dynamic packaging
 
-Vous pouvez utiliser Microsoft Azure Media Services pour distribuer de nombreux formats de fichiers sources multimédias, formats de diffusion en continu de contenu multimédia et formats de protection de contenu à diverses technologies clientes (par exemple, iOS, XBOX, Silverlight, Windows 8). Ces clients comprennent différents protocoles. Par exemple, iOS nécessite un format HTTP Live Streaming (HLS) V4, tandis que Silverlight et Xbox nécessitent le format Smooth Streaming. Si vous voulez transmettre un ensemble de fichiers MP4 (ISO Base Media 14496-12) ou de fichiers Smooth Streaming à vitesse de transmission adaptative, à des clients qui utilisent le format MPEG DASH, HLS ou Smooth Streaming, nous vous recommandons de tirer profit de l'empaquetage dynamique Media Services.
+##<a name="overview"></a>Overview
 
-Avec l'empaquetage dynamique, il vous suffit de créer un élément multimédia contenant un ensemble de fichiers MP4 ou de fichiers Smooth Streaming à vitesse de transmission adaptative. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de diffusion en continu à la demande s'assure que vous recevez le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients.
+Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS, XBOX, Silverlight, Windows 8). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) V4 format and Silverlight and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand MPEG DASH, HLS or Smooth Streaming, you should take advantage of Media Services dynamic packaging.
 
-Le diagramme suivant illustre le flux traditionnel d'encodage et d'empaquetage statique.
+With dynamic packaging all you need is to create an asset that contains a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
-![Encodage statique](./media/media-services-dynamic-packaging-overview/media-services-static-packaging.png)
+The following diagram shows the traditional encoding and static packaging workflow.
 
-Le diagramme suivant illustre le flux d'empaquetage dynamique.
+![Static Encoding](./media/media-services-dynamic-packaging-overview/media-services-static-packaging.png)
 
-![Encodage dynamique](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
+The following diagram shows the dynamic packaging workflow.
 
-
->[AZURE.NOTE]Pour tirer parti de l'empaquetage dynamique, vous devez d'abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu. Pour plus d'informations, consultez [Mise à l'échelle de Media Services](media-services-portal-manage-streaming-endpoints.md).
-
-##Scénario courant
-
-1. Téléchargez un fichier d'entrée (appelé fichier mezzanine). Par exemple, H.264, MP4 ou WMV (pour obtenir la liste des formats pris en charge, consultez [Formats pris en charge par Media Encoder Standard](media-services-media-encoder-standard-formats.md)).
-
-1. Encodez votre fichier mezzanine en ensembles de fichiers MP4 à vitesse de transmission adaptative H.264.
-
-1. Publiez l'élément multimédia qui contient l'ensemble de fichiers MP4 à vitesse de transmission adaptative en créant le localisateur à la demande.
-
-1. Générez les URL de diffusion en continu pour accéder à votre contenu et le diffuser en continu.
+![Dynamic Encoding](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 
-##Préparation des éléments multimédias pour une diffusion en continu dynamique
+>[AZURE.NOTE]To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](media-services-portal-manage-streaming-endpoints.md).
 
-Pour préparer un élément multimédia pour sa diffusion en continu dynamique, vous disposez de deux options :
+##<a name="common-scenario"></a>Common scenario
 
-1. [Chargez un fichier maître](media-services-dotnet-upload-files.md).
-2. [Utilisez l’encodeur Media Encoder Standard pour produire des ensembles de fichiers MP4 à vitesse de transmission adaptative H.264](media-services-dotnet-encode-with-media-encoder-standard.md).
-3. [Diffusez votre contenu](media-services-deliver-content-overview.md).
+1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-services-media-encoder-standard-formats.md).
 
-OU
+1. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
 
-1. Chargez des fichiers MP4 pré-encodés.
+1. Publish the asset that contains the adaptive bitrate MP4 set by creating the On-Demand Locator.
 
->[AZURE.NOTE] Cette option n’est pas recommandée.
-
-2. [Validez vos fichiers pré-encodés](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
-3. [Diffusez votre contenu](media-services-deliver-content-overview.md).
+1. Build the streaming URLs to access and stream your content.
 
 
-##<a id="unsupported_formats"></a>Formats non pris en charge pour l'empaquetage dynamique
+##<a name="preparing-assets-for-dynamic-streaming"></a>Preparing assets for dynamic streaming
 
-Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaquetage dynamique.
+To prepare your asset for dynamic streaming you have two options:
 
-- Fichiers MP4 Dolby Digital
-- Fichiers Smooth Streaming Dolby Digital
+1. [Upload a master file](media-services-dotnet-upload-files.md).
+2. [Use the Media Encoder Standard encoder to produce H.264 MP4 adaptive bitrate sets](media-services-dotnet-encode-with-media-encoder-standard.md).
+3. [Stream your content](media-services-deliver-content-overview.md).
 
-##Parcours d’apprentissage de Media Services
+-OR-
+
+1. Upload pre-enocded MP4 files.
+
+    >[AZURE.NOTE] This opiton is not recommended.
+
+2. [Validate your pre-encoded files](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
+3. [Stream your content](media-services-deliver-content-overview.md).
+
+
+##<a name="<a-id="unsupported_formats"></a>formats-that-are-not-supported-by-dynamic-packaging"></a><a id="unsupported_formats"></a>Formats that are not supported by dynamic packaging
+
+The following source file formats are not supported by dynamic packaging.
+
+- Dolby digital mp4 files.
+- Dolby digital smooth files.
+
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fournir des commentaires
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

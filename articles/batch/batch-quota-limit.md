@@ -1,104 +1,105 @@
 <properties
-	pageTitle="Quotas et limites du service Batch | Microsoft Azure"
-	description="En savoir plus sur les contraintes, les limites et les quotas par défaut d’Azure Batch, et comment demander une augmentation de quota"
-	services="batch"
-	documentationCenter=""
-	authors="mmacy"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Batch service quotas and limits | Microsoft Azure"
+    description="Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases"
+    services="batch"
+    documentationCenter=""
+    authors="mmacy"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/10/2016"
-	ms.author="marsma"/>
+    ms.service="batch"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/10/2016"
+    ms.author="marsma"/>
 
-# Quotas et limites pour le service Azure Batch
 
-Comme avec d’autres services Azure, il existe des limites concernant certaines ressources associées au service Batch. La plupart de ces limites représentent des quotas par défaut appliqués par Azure au niveau de l’abonnement ou du compte. Cet article décrit ces paramètres par défaut, et comment vous pouvez demander une augmentation de ces quotas.
+# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Quotas and limits for the Azure Batch service
 
-Si vous envisagez d’exécuter des charges de travail de production dans Batch, vous devrez peut-être affecter à un ou plusieurs des quotas une valeur supérieure à la valeur par défaut. Si vous souhaitez augmenter un quota, vous pouvez ouvrir une [demande de service clientèle](#increase-a-quota) en ligne gratuitement.
+As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
 
->[AZURE.NOTE] Un quota est une limite de crédit, pas une garantie de capacité. Si vous avez des besoins de capacité à grande échelle, contactez le support Azure.
+If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
 
-## Quotas d’abonnement
-**Ressource**|**Limite par défaut**|**Limite maximale**
+>[AZURE.NOTE] A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
+
+## <a name="subscription-quotas"></a>Subscription quotas
+**Resource**|**Default Limit**|**Maximum Limit**
 ---|---|---
-Comptes Batch par région et par abonnement | 1 | 50
+Batch accounts per region per subscription | 1 | 50
 
-## Quotas de compte Batch
+## <a name="batch-account-quotas"></a>Batch account quotas
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-## Autres limites
-**Ressource**|**Limite maximale**
+## <a name="other-limits"></a>Other limits
+**Resource**|**Maximum Limit**
 ---|---
-[Tâches simultanées](batch-parallel-node-tasks.md) par nœud de calcul | 4 x nombre de cœurs de nœud
-[Applications](batch-application-packages.md) par compte Batch | 20
-Packages d’applications par application | 40
-Taille de package d’application (individuel) | Environ 195 Go<sup>1</sup>
+[Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores
+[Applications](batch-application-packages.md) per Batch account        | 20
+Application packages per application  | 40
+Application package size (each)       | Approx. 195GB<sup>1</sup>
 
-<sup>1</sup> Limite Azure Storage pour la taille d’objet blob de blocs maximale
+<sup>1</sup> Azure Storage limit for maximum block blob size
 
-## Afficher les quotas Batch
+## <a name="view-batch-quotas"></a>View Batch quotas
 
-Affichez vos quotas de compte Batch dans le [portail Azure][portal].
+View your Batch account quotas in the [Azure portal][portal].
 
-1. Sélectionnez **Comptes Batch** dans le portail, puis sélectionnez le compte Batch qui vous intéresse.
+1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
 
-2. Sélectionnez **Propriétés** dans le panneau de menu du compte Batch
+2. Select **Properties** on the Batch account's menu blade
 
-3. Le panneau Propriétés affiche les **quotas** actuellement appliqués au compte Batch
+3. The Properties blade displays the **quotas** currently applied to the Batch account
 
-	![Quotas de compte Batch][account_quotas]
+    ![Batch account quotas][account_quotas]
 
-## Augmenter un quota
+## <a name="increase-a-quota"></a>Increase a quota
 
-Suivez les étapes ci-dessous pour demander une augmentation du quota à l’aide du [portail Azure][portal].
+Follow the steps below to request a quota increase using the [Azure portal][portal].
 
-1. Sélectionnez la mosaïque **Aide + Support** sur le tableau de bord du portail, ou le point d’interrogation (**?**) dans le coin supérieur droit du portail.
+1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
 
-2. Sélectionnez **Nouvelle demande de support** > **De base**.
+2. Select **New support request** > **Basics**.
 
-3. Sur le panneau **De base** :
+3. On the **Basics** blade:
 
-	a. **Type de problème** > **Quota**
+    a. **Issue Type** > **Quota**
 
-	b. Sélectionnez votre abonnement.
+    b. Select your subscription.
 
-	c. **Type de quota** > **Batch**
+    c. **Quota type** > **Batch**
 
-	d. **Plan de support** > **Support quota - Inclus**
+    d. **Support plan** > **Quota support - Included**
 
-	Cliquez sur **Next**.
+    Click **Next**.
 
-4. Sur le panneau **Problème** :
+4. On the **Problem** blade:
 
-	a. Sélectionnez un **niveau de gravité** en fonction de [l’impact sur votre activité][support_sev].
+    a. Select a **Severity** according to your [business impact][support_sev].
 
-	b. Dans **Détails**, spécifiez chaque quota que vous souhaitez modifier, le nom du compte Batch et la nouvelle limite.
+    b. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
 
-	Cliquez sur **Next**.
+    Click **Next**.
 
-5. Sur le panneau **Informations de contact** :
+5. On the **Contact information** blade:
 
-	a. Sélectionnez une **méthode de contact préférée**.
+    a. Select a **Preferred contact method**.
 
-	b. Vérifiez et entrez les informations de contact requises.
+    b. Verify and enter the required contact details.
 
-	Cliquez sur **Créer** pour envoyer la demande de support.
+    Click **Create** to submit the support request.
 
-Une fois que vous avez envoyé votre demande de support, le support Azure vous contactera. Notez que le traitement de la demande peut prendre jusqu’à 2 jours ouvrés.
+Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
 
-## Rubriques connexes
+## <a name="related-topics"></a>Related topics
 
-* [Création et gestion d’un compte Azure Batch dans le portail Azure](batch-account-create-portal.md)
+* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
 
-* [Vue d'ensemble des fonctionnalités d'Azure Batch](batch-api-basics.md)
+* [Azure Batch feature overview](batch-api-basics.md)
 
-* [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md)
+* [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
@@ -106,4 +107,8 @@ Une fois que vous avez envoyé votre demande de support, le support Azure vous c
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

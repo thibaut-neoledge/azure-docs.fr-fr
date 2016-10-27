@@ -1,16 +1,20 @@
-### Composants requis
+### <a name="prerequisites"></a>Prerequisites
 
-- Un compte [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)  
+- A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) account  
 
 
-Avant de pouvoir utiliser votre compte SMTP dans une application logique, vous devez autoriser l’application logique à se connecter à votre compte SMTP. Heureusement, vous pouvez faire cela facilement à partir de votre application logique sur le portail Azure.  
+Before you can use your SMTP account in a logic app, you must authorize the logic app to connect to your SMTP account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
 
-Pour autoriser votre application logique à se connecter à votre compte SMTP, procédez comme suit :  
-1. Pour créer une connexion à SMTP, dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez *SMTP* dans la zone de recherche. Sélectionnez le déclencheur ou l’action que vous allez utiliser :  
+Here are the steps to authorize your logic app to connect to your SMTP account:  
+1. To create a connection to SMTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SMTP* in the search box. Select the trigger or action you'll like to use:  
 ![](./media/connectors-create-api-smtp/smtp-1.png)  
-2. Si vous n’avez créé aucune connexion à SMTP auparavant, vous êtes invité à indiquer vos informations d’identification SMTP. Ces informations d’identification serviront à autoriser votre application logique à se connecter et à accéder aux données de votre compte SMTP :  
+2. If you haven't created any connections to SMTP before, you'll get prompted to provide your SMTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SMTP account's data:  
 ![](./media/connectors-create-api-smtp/smtp-2.png)  
-3. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :  
-![](./media/connectors-create-api-smtp/smtp-3.png)  
+3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
+ ![](./media/connectors-create-api-smtp/smtp-3.png)  
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

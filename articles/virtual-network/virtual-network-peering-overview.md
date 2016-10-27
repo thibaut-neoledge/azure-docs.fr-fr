@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Homologation de réseaux virtuels Azure | Microsoft Azure"
-   description="Découvrez en quoi consiste l’homologation de réseaux virtuels dans Azure."
+   pageTitle="Azure virtual network peering | Microsoft Azure"
+   description="Learn about VNet peering in Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="NarayanAnnamalai"
@@ -16,76 +16,81 @@
    ms.date="07/28/2016"
    ms.author="narayan" />
 
-# Homologation de réseaux virtuels
 
-L’homologation de réseaux virtuels est un mécanisme permettant de connecter deux réseaux virtuels situés dans la même région via le réseau principal Azure. Une fois homologués, les deux réseaux virtuels apparaissent comme un seul réseau pour tous les besoins de connectivité. Ils sont toujours gérés comme des ressources distinctes, mais les machines virtuelles se trouvant dans ces réseaux virtuels peuvent communiquer directement entre elles à l’aide d’adresses IP privées.
+# <a name="vnet-peering"></a>VNet peering
 
-Le trafic entre les machines virtuelles des réseaux virtuels homologués est acheminé via l’infrastructure Azure de façon assez similaire au trafic entre des machines virtuelles d’un même réseau virtuel. Voici quelques-uns des avantages de l’homologation de réseaux virtuels :
+VNet peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
 
-- Connexion à latence faible et haut débit entre les ressources de différents réseaux virtuels.
-- Possibilité d’utiliser des ressources telles que des appliances de réseau virtuel et des passerelles VPN en tant que points de transit dans un réseau virtuel homologué.
-- Possibilité de connecter un réseau virtuel utilisant le modèle Azure Resource Manager à un réseau virtuel utilisant le modèle de déploiement classique pour bénéficier d’une connectivité totale entre les ressources de ces réseaux virtuels.
+The traffic between virtual machines in the peered virtual networks is routed through the Azure infrastructure much like traffic is routed between VMs in the same virtual network. Some of the benefits of using VNet peering include:
 
-Exigences et principaux aspects de l’homologation de réseaux virtuels :
+- A low-latency, high-bandwidth connection between resources in different virtual networks.
+- The ability to use resources such as network appliances and VPN gateways as transit points in a peered VNet.
+- The ability to connect a virtual network that uses the Azure Resource Manager model to a virtual network that uses the classic deployment model and enable full connectivity between resources in these virtual networks.
 
-- Les deux réseaux virtuels à homologuer doivent être situés dans la même région Azure.
-- Les espaces d’adressage des réseaux virtuels à homologuer ne doivent pas se chevaucher.
-- L’homologation concerne deux réseaux virtuels et aucune relation transitive n’en découle. Par exemple, si le réseau virtuel A est homologué avec le réseau virtuel B et si le réseau virtuel B est homologué avec le réseau virtuel C, cela ne signifie pas que le réseau virtuel 1 est homologué avec le réseau virtuel C.
-- L’homologation peut être établie entre des réseaux virtuels dans deux abonnements, à condition qu’un utilisateur privilégié de chacun de ces abonnements autorise l’homologation et que les abonnements soient associés au même locataire Active Directory.
-- Un réseau virtuel qui utilise le modèle de déploiement Resource Manager peut être homologué avec un autre réseau virtuel qui utilise ce modèle, ou avec un réseau virtuel qui utilise le modèle de déploiement classique. Cependant, les réseaux virtuels qui utilisent le modèle de déploiement classique ne peuvent pas être homologués entre eux.
-- Bien que la communication entre des machines virtuelles de réseaux virtuels homologués ne présente aucune restriction de bande passante supplémentaire, un plafond de bande passante basé sur la taille des machines virtuelles continue de s’appliquer.
+Requirements and key aspects of VNet peering:
 
-
-![Homologation de réseaux virtuels de base](./media/virtual-networks-peering-overview/figure01.png)
-
-## Connectivité
-Une fois deux réseaux virtuels homologués, une machine virtuelle (rôle de travail/Web) d’un des réseaux virtuels peut se connecter directement aux machines virtuelles de l’autre réseau virtuel. Ces deux réseaux bénéficient d’une connectivité de niveau IP totale.
-
-La latence du réseau pour un aller-retour entre deux machines virtuelles de réseaux virtuels homologués est la même qu’au sein d’un réseau virtuel local. Le débit du réseau repose sur la bande passante autorisée pour la machine virtuelle proportionnellement à sa taille. Aucune restriction de bande passante supplémentaire n’est appliquée.
-
-Le trafic entre les machines virtuelles de réseaux virtuels homologués est acheminé directement via l’infrastructure principale d’Azure et non par le biais d’une passerelle.
-
-Les machines virtuelles d’un réseau virtuel peuvent accéder aux points de terminaison d’équilibrage de charge interne du réseau virtuel homologué. Des groupes de sécurité réseau peuvent être appliqués dans l’un ou l’autre des réseaux virtuels pour bloquer l’accès à d’autres réseaux virtuels ou à des sous-réseaux si besoin est.
-
-Lorsque des utilisateurs configurent l’homologation, ils peuvent ouvrir ou fermer les règles de groupe de sécurité réseau entre les réseaux virtuels. Si l’utilisateur choisit d’ouvrir totalement la connectivité entre les réseaux virtuels homologués (ce qui est l’option par défaut), il peut alors appliquer des groupes de sécurité réseau à des sous-réseaux ou des machines virtuelles spécifiques NSG pour bloquer ou refuser certains accès.
-
-La résolution de noms DNS internes fournie par Azure pour les machines virtuelles ne fonctionne pas entre des réseaux virtuels homologués. Les machines virtuelles présentent des noms DNS internes pouvant uniquement être résolus au sein du réseau virtuel local. Cependant, les utilisateurs peuvent configurer des machines virtuelles exécutées dans les réseaux virtuels homologués en tant que serveurs DNS pour un réseau virtuel.
-
-## Chaînage de services
-Les utilisateurs peuvent configurer des tables d’itinéraires définis par l’utilisateur qui pointent vers des machines virtuelles de réseaux virtuels homologués en tant qu’adresse IP du « tronçon suivant », comme illustré dans le schéma plus loin dans cet article. Cela leur permet de mettre en œuvre un chaînage de services par l’intermédiaire duquel ils peuvent diriger le trafic d’un réseau virtuel vers une appliance virtuelle exécutée dans un réseau virtuel homologué via les tables d’itinéraires.
-
-Les utilisateurs peuvent également déployer efficacement des environnements de type hub-and-spoke où le nœud peut héberger des composants d’infrastructure tels qu’une appliance virtuelle réseau. Tous les réseaux virtuels reliés en étoile peuvent être homologués avec ce nœud et diriger un sous-ensemble du trafic vers des appliances exécutées dans le réseau virtuel central. En résumé, l’homologation de réseaux virtuels permet de définir l’adresse IP du tronçon suivant dans la table d’itinéraires définis par l’utilisateur sur l’adresse IP d’une machine virtuelle du réseau virtuel homologué.
-
-## Passerelles et connectivité locale
-Chaque réseau virtuel, qu’il soit homologué ou non avec un autre réseau virtuel, peut posséder sa propre passerelle et l’utiliser pour se connecter localement. Les utilisateurs peuvent également configurer des [connexions de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) à l’aide de passerelles, même si les réseaux virtuels sont homologués.
-
-Lorsque les deux options d’interconnexion de réseaux virtuels sont configurées, le trafic entre les réseaux virtuels transite via la configuration d’homologation (c’est-à-dire via le réseau principal Azure).
-
-Lorsque des réseaux virtuels sont homologués, les utilisateurs peuvent également configurer la passerelle du réseau virtuel homologué en tant que point de transit vers la connexion locale. Dans ce cas, le réseau virtuel qui utilise une passerelle distante ne peut pas posséder sa propre passerelle. Un réseau virtuel ne peut posséder qu’une seule passerelle. Il peut s’agir soit d’une passerelle locale, soit d’une passerelle distante (dans le réseau virtuel homologué), comme l’illustre l’image suivante.
-
-Le transit par passerelle n’est pas pris en charge dans la relation d’homologation entre un réseau virtuel utilisant le modèle Resource Manager et un réseau virtuel utilisant le modèle de déploiement classique. Pour que le transit par passerelle fonctionne, les deux réseaux virtuels de la relation d’homologation doivent utiliser le modèle de déploiement Resource Manager.
-
-Lorsque des réseaux virtuels qui partagent une même connexion Azure ExpressRoute sont homologués, le trafic entre eux transite via la relation d’homologation (c’est-à-dire via le réseau principal Azure). Les utilisateurs peuvent toujours utiliser des passerelles locales dans chaque réseau virtuel pour se connecter au circuit local. Ils peuvent également utiliser une passerelle partagée et configurer le transit pour la connectivité locale.
-
-![Transit entre des réseaux virtuels homologués](./media/virtual-networks-peering-overview/figure02.png)
-
-## Approvisionnement
-L’homologation de réseaux virtuels est une opération nécessitant des privilèges. Il s’agit d’une fonction distincte sous l’espace de noms VirtualNetworks. Un utilisateur peut se voir accorder des droits spécifiques pour autoriser l’homologation. Un utilisateur qui dispose d’un accès en lecture-écriture au réseau virtuel hérite automatiquement de ces droits.
-
-Un utilisateur administrateur ou disposant des privilèges d’homologation peut lancer une opération d’homologation sur un autre réseau virtuel. S’il existe une demande d’homologation correspondante de l’autre côté et si les autres exigences sont remplies, l’homologation est établie.
-
-Pour plus d’informations sur la création d’une homologation entre deux réseaux virtuels, consultez les articles de la section « Étapes suivantes ».
-
-## Limites
-Le nombre d’homologations autorisées pour un même réseau virtuel est limité. Pour plus d’informations, consultez la section [Limites de mise en réseau d’Azure](../azure-subscription-service-limits.md#networking-limits).
-
-## Tarification
-L’homologation de réseaux virtuels ne sera pas facturée pendant la période d’évaluation. Une fois la sortie effective, un tarif minime sera appliqué pour le trafic entrant et sortant qui utilise l’homologation. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/virtual-network).
+- The two virtual networks that are peered should be in the same Azure region.
+- The virtual networks that are peered should have non-overlapping IP address spaces.
+- VNet peering is between two virtual networks, and there is no derived transitive relationship. For example, if virtual network A is peered with virtual network B, and if virtual network B is peered with virtual network C, it does not translate to virtual network A being peered with virtual network C.
+- Peering can be established between virtual networks in two different subscriptions as long a privileged user of both subscriptions authorizes the peering and the subscriptions are associated to the same Active Directory tenant. 
+- A virtual network that uses the Resource Manager deployment model can be peered with another virtual network that uses this model, or with a virtual network that uses the classic deployment model. However, virtual networks that use the classic deployment model can't be peered to each other.
+- Though the communication between virtual machines in peered virtual networks has no additional bandwidth restrictions, bandwidth cap based on VM size still applies.
 
 
-## Étapes suivantes
-- [Configurer une homologation entre des réseaux virtuels](virtual-networks-create-vnetpeering-arm-portal.md).
-- En savoir plus sur les [groupes de sécurité réseau](virtual-networks-nsg.md).
-- En savoir plus sur les [tinéraires définis par l’utilisateur et le transfert IP](virtual-networks-udr-overview.md).
+![Basic VNet peering](./media/virtual-networks-peering-overview/figure01.png)
 
-<!---HONumber=AcomDC_0928_2016-->
+## <a name="connectivity"></a>Connectivity
+After two virtual networks are peered, a virtual machine (web/worker role) in the virtual network can directly connect with other virtual machines in the peered virtual network. These two networks have full IP-level connectivity.
+
+The network latency for a round trip between two virtual machines in peered virtual networks is the same as for a round trip within a local virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine proportionate to its size. There isn't any additional restriction on bandwidth.
+
+The traffic between the virtual machines in peered virtual networks is routed directly through the Azure back-end infrastructure and not through a gateway.
+
+Virtual machines in a virtual network can access the internal load-balanced (ILB) endpoints in the peered virtual network. Network security groups (NSGs) can be applied in either virtual network to block access to other virtual networks or subnets if desired.
+
+When users configure peering, they can either open or close the NSG rules between the virtual networks. If the user chooses to open full connectivity between peered virtual networks (which is the default option), they can then use NSGs on specific subnets or virtual machines to block or deny specific access.
+
+Azure-provided internal DNS name resolution for virtual machines doesn't work across peered virtual networks. Virtual machines have internal DNS names that are resolvable only within the local virtual network. However, users can configure virtual machines that are running in peered virtual networks as DNS servers for a virtual network.
+
+## <a name="service-chaining"></a>Service chaining
+Users can configure user-defined route tables that point to virtual machines in peered virtual networks as the "next hop" IP address, as shown in the diagram later in this article. This enables users to achieve service chaining, through which they can direct traffic from one virtual network to a virtual appliance that's running in a peered virtual network through user-defined route tables.
+
+Users can also effectively build hub-and-spoke type environments where the hub can host infrastructure components such as a network virtual appliance. All the spoke virtual networks can then peer with it, as well as a subset of traffic to appliances that are running in the hub virtual network. In short, VNet peering enables the next hop IP address on the ‘User defined route table’ to be the IP address of a virtual machine in the peered virtual network.
+
+## <a name="gateways-and-on-premises-connectivity"></a>Gateways and on-premises connectivity
+Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to on-premises. Users can also configure [VNet-to-VNet connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) by using gateways, even though the virtual networks are peered.
+
+When both options for virtual network interconnectivity are configured, the traffic between the virtual networks flows through the peering configuration (that is, through the Azure backbone).
+
+When virtual networks are peered, users can also configure the gateway in the peered virtual network as a transit point to on-premises. In this case, the virtual network that is using a remote gateway cannot have its own gateway. One virtual network can have only one gateway. It can either be a local gateway or a remote gateway (in the peered virtual network), as shown in the following picture.
+
+Gateway transit is not supported in the peering relationship between virtual networks using the Resource Manager model and those using the classic deployment model. Both virtual networks in the peering relationship need to use the Resource Manager deployment model for a gateway transit to work.
+
+When the virtual networks that are sharing a single Azure ExpressRoute connection are peered, the traffic between them goes through the peering relationship (that is, through the Azure backbone network). Users can still use local gateways in each virtual network to connect to the on-premises circuit. Alternatively, they can use a shared gateway and configure transit for on-premises connectivity.
+
+![VNet peering transit](./media/virtual-networks-peering-overview/figure02.png)
+
+## <a name="provisioning"></a>Provisioning
+VNet peering is a privileged operation. It’s a separate function under the VirtualNetworks namespace. A user can be given specific rights to authorize peering. A user who has read-write access to the virtual network inherits these rights automatically.
+
+A user who is either an admin or a privileged user of the peering ability can initiate a peering operation on another VNet. If there is a matching request for peering on the other side, and if other requirements are met, the peering will be established.
+
+Refer to the articles in the "Next steps" section to learn more about how to establish VNet peering between two virtual networks.
+
+## <a name="limits"></a>Limits
+There are limits on the number of peerings that are allowed for a single virtual network. Refer to [Azure networking limits](../azure-subscription-service-limits.md#networking-limits) for more information.
+
+## <a name="pricing"></a>Pricing
+VNet peering will be free of charge during the review period. After it is released, there will be a nominal charge on ingress and egress traffic that utilizes the peering. For more information, refer to the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+
+
+## <a name="next-steps"></a>Next steps
+- [Set up peering between virtual networks](virtual-networks-create-vnetpeering-arm-portal.md).
+- Learn about [NSGs](virtual-networks-nsg.md).
+- Learn about [user-defined routes and IP forwarding](virtual-networks-udr-overview.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

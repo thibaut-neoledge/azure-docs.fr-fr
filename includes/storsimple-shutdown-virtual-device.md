@@ -1,9 +1,12 @@
-#### Arrêt d’un appareil virtuel
+#### <a name="to-shut-down-a-virtual-device"></a>To shut down a virtual device
 
-1. Connectez-vous au portail de gestion.
+1. Sign in to the Management Portal.
 
-2. Cliquez sur **Virtual Machines**, puis sélectionnez l’appareil virtuel.
+2. Click **Virtual Machines**, and then select the virtual device.
 
-3. Cliquez sur **Arrêter**.
+3. Click **Shutdown**.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

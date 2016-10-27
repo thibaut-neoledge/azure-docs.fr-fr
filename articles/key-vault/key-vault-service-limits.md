@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Limites du service pour le coffre de clés Azure | Microsoft Azure"
-   description="En savoir plus sur les limites du service pour le coffre de clés Azure"
+   pageTitle="Azure Key Vault Service Limits | Microsoft Azure"
+   description="Learn about the service limits for Azure Key Vault."
    documentationCenter="dev-center-name"
    services="key-vault"  
-   authors="msmbaldwin"
+   authors="cabailey"
    manager="mbaldwin"
    editor=""/>
 
@@ -16,10 +16,15 @@
    ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
-# Limites du service pour le coffre de clés Azure
 
-Ce sont les limites du service pour le coffre de clés Azure.
+# <a name="azure-key-vault-service-limits"></a>Azure Key Vault Service Limits
+
+These are the service limits for Azure Key Vault.
 
 [AZURE.INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

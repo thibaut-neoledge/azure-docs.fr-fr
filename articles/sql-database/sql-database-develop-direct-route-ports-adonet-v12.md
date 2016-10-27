@@ -1,123 +1,129 @@
 <properties 
-	pageTitle="Ports au-delà de 1433 pour SQL Database | Microsoft Azure"
-	description="Parfois, les connexions clientes entre ADO.NET et Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jhubbard"
-	editor="" />
+    pageTitle="Ports beyond 1433 for SQL Database | Microsoft Azure"
+    description="Client connections from ADO.NET to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important."
+    services="sql-database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jhubbard"
+    editor="" />
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="drivers"
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/17/2016"
-	ms.author="annemill"/>
+    ms.service="sql-database" 
+    ms.workload="drivers"
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/17/2016"
+    ms.author="annemill"/>
 
 
-# Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12
 
+# <a name="ports-beyond-1433-for-ado.net-4.5-and-sql-database-v12"></a>Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12
 
-Cette rubrique décrit les modifications qu’apporte la base de données SQL Azure V12 au comportement de connexion des clients qui utilisent ADO.NET version 4.5 ou ultérieure.
 
+This topic describes the changes that Azure SQL Database V12 brings to the connection behavior of clients that use ADO.NET 4.5 or a later version.
 
-## V11 de SQL Database : port 1433
 
+## <a name="v11-of-sql-database:-port-1433"></a>V11 of SQL Database: Port 1433
 
-Quand votre programme client utilise ADO.NET 4.5 pour se connecter à SQL Database V11 et l’utiliser pour exécuter des requêtes, la séquence interne est la suivante :
 
+When your client program uses ADO.NET 4.5 to connect and query with SQL Database V11, the internal sequence is as follows:
 
-1. ADO.NET tente de se connecter à SQL Database.
 
-2. ADO.NET utilise le port 1433 pour appeler un module d’intergiciel (middleware), puis l’intergiciel se connecte à SQL Database.
+1. ADO.NET attempts to connect to SQL Database.
 
-3. SQL Database envoie sa réponse à l’intergiciel, qui la transmet à ADO.NET sur le port 1433.
+2. ADO.NET uses port 1433 to call a middleware module, and the middleware connects to SQL Database.
 
+3. SQL Database sends its response back to the middleware, which forwards the response to ADO.NET to port 1433.
 
-**Terminologie :** dans la séquence précédente, ADO.NET interagit avec la base de données SQL en utilisant l’*itinéraire de proxy*. Si aucun intergiciel n’était impliqué, c’est *l’itinéraire direct* qui serait utilisé.
 
+**Terminology:** We describe the preceding sequence by saying that ADO.NET interacts with SQL Database by using the *proxy route*. If no middleware were involved, we would say the *direct route* was used.
 
-## V12 de SQL Database : exécution externe ou exécution interne
 
+## <a name="v12-of-sql-database:-outside-vs-inside"></a>V12 of SQL Database: Outside vs inside
 
-Pour les connexions à V12, nous devons déterminer si le programme client s’exécute *à l’extérieur* ou *à l’intérieur* de la limite du cloud Azure. Les sous-sections suivantes abordent deux scénarios courants.
 
+For connections to V12, we must ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discuss two common scenarios.
 
-#### *À l’extérieur :* le client s’exécute sur votre ordinateur de bureau
 
+#### <a name="*outside:*-client-runs-on-your-desktop-computer"></a>*Outside:* Client runs on your desktop computer
 
-Le port 1433 est le seul port qui doit être ouvert sur votre ordinateur de bureau qui héberge votre application cliente SQL Database.
 
+Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
-#### *À l’intérieur :* le client s’exécute sur Azure
 
+#### <a name="*inside:*-client-runs-on-azure"></a>*Inside:* Client runs on Azure
 
-Quand votre client s’exécute à l’intérieur de la limite du cloud Azure, il utilise ce que nous pouvons appeler un *itinéraire direct* pour interagir avec le serveur de la base de données SQL. Une fois une connexion établie, les interactions suivantes entre le client et la base de données n’impliquent aucun proxy d’intergiciel.
 
+When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no middleware proxy.
 
-La séquence est la suivante :
 
+The sequence is as follows:
 
-1. ADO.NET 4.5 (ou version ultérieure) initie une brève interaction avec le cloud Azure et reçoit un numéro de port identifié de manière dynamique.
- - Le numéro de port identifié de manière dynamique appartient à la plage 11000-11999 ou 14000-14999.
 
-2. ADO.NET se connecte ensuite au serveur SQL Database directement, sans passer par un intergiciel.
+1. ADO.NET 4.5 (or later) initiates a brief interaction with the Azure cloud, and receives a dynamically identified port number.
+ - The dynamically identified port number is in the range of 11000-11999 or 14000-14999.
 
-3. Les requêtes sont envoyées directement à la base de données et les résultats sont retournés directement au client.
+2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
 
+3. Queries are sent directly to the database, and results are returned directly to the client.
 
-Assurez-vous que les plages de ports 11000-11999 et 14000-14999 sur votre ordinateur client Azure restent disponibles pour les interactions client ADO.NET 4.5 avec SQL Database V12.
 
-- En particulier, les ports dans la plage doivent être libres de tout autre bloqueur sortant.
+Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database V12.
 
-- Sur votre machine virtuelle Azure, le **Pare-feu Windows avec fonctions avancées de sécurité** contrôle les paramètres des ports.
- - Vous pouvez utiliser l’[interface utilisateur du Pare-feu](http://msdn.microsoft.com/library/cc646023.aspx) pour ajouter une règle dans laquelle vous spécifiez le protocole **TCP** et une plage de ports avec une syntaxe semblable à **11000-11999**.
+- In particular, ports in the range must be free of any other outbound blockers.
 
+- On your Azure VM, the **Windows Firewall with Advanced Security** controls the port settings.
+ - You can use the [firewall's user interface](http://msdn.microsoft.com/library/cc646023.aspx) to add a rule for which you specify the **TCP** protocol along with a port range with the syntax like **11000-11999**.
 
-## Précisions concernant les versions
 
+## <a name="version-clarifications"></a>Version clarifications
 
-Cette section clarifie les monikers qui font référence aux versions du produit. Elle répertorie également certaines paires de versions entre les produits.
 
+This section clarifies the monikers that refer to product versions. It also lists some pairings of versions between products.
 
-#### ADO.NET
 
+#### <a name="ado.net"></a>ADO.NET
 
-- ADO.NET 4.0 prend en charge le protocole TDS 7.3, mais pas la version 7.4.
-- Les versions d’ADO.NET 4.5 et ultérieures prennent en charge le protocole TDS 7.4.
 
+- ADO.NET 4.0 supports the TDS 7.3 protocol, but not 7.4.
+- ADO.NET 4.5 and later supports the TDS 7.4 protocol.
 
-#### SQL Database V11 et SQL Database V12
 
+#### <a name="sql-database-v11-and-v12"></a>SQL Database V11 and V12
 
-Les différences entre les bases de données SQL V11 et V12 pour la connexion cliente sont soulignées dans cette rubrique.
 
+The client connection differences between SQL Database V11 and V12 are highlighted in this topic.
 
-*Remarque :* l’instruction Transact-SQL `SELECT @@version;` retourne une valeur qui commence par un nombre, tel que « 11. » ou « 12. », qui correspond aux noms de version V11 et V12 de SQL Database.
 
+*Note:* The Transact-SQL statement `SELECT @@version;` returns a value that start with a number such as '11.' or '12.', and those match our version names of V11 and V12 for SQL Database.
 
-## Liens connexes
 
+## <a name="related-links"></a>Related links
 
-- ADO.NET 4.6 a été publié le 20 juillet 2015. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
+- ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
-- ADO.NET 4.5 a été publié le 15 août 2012. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
- - Un billet de blog sur ADO.NET 4.5.1 est disponible [ici](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
+- ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+ - A blog post about ADO.NET 4.5.1 is available [here](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
-- [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
+- [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 
-- [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 
+- [SQL Database Development Overview](sql-database-develop-overview.md)
 
-- [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
 
+- [Azure SQL Database firewall](sql-database-firewall-configure.md)
 
-- [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+- [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

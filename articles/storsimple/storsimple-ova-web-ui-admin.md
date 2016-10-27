@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Administration de l'interface utilisateur web de StorSimple Virtual Array | Microsoft Azure"
-   description="Décrit comment effectuer des tâches d'administration de base sur l'appareil avec l'interface utilisateur web de StorSimple Virtual Array."
+   pageTitle="StorSimple Virtual Array web UI administration | Microsoft Azure"
+   description="Describes how to perform basic device administration tasks through the StorSimple Virtual Array web UI."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,120 +15,125 @@
    ms.date="04/07/2016"
    ms.author="alkohli" />
 
-# Utiliser l'interface utilisateur web pour gérer votre StorSimple Virtual Array
 
-![flux du processus d'installation](./media/storsimple-ova-web-ui-admin/manage4.png)
+# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Use the Web UI to administer your StorSimple Virtual Array
 
-## Vue d’ensemble
+![setup process flow](./media/storsimple-ova-web-ui-admin/manage4.png)
 
-Les didacticiels de cet article s'appliquent à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local) exécutant la version de mise à la disposition générale (mars 2016). Cet article décrit certains des flux de travail et certaines tâches de gestion complexes qui peuvent être effectués sur StorSimple Virtual Array. Vous pouvez gérer StorSimple Virtual Array à l’aide de l'interface utilisateur du service StorSimple Manager (également appelée interface utilisateur du portail) et de l'interface utilisateur web locale de l'appareil. Cet article se concentre sur les tâches que vous pouvez effectuer à l'aide de l'interface utilisateur web.
+## <a name="overview"></a>Overview
 
-Cet article inclut les didacticiels suivants :
+The tutorials in this article apply to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) running March 2016 general availability (GA) release. This article describes some of the complex workflows and management tasks that can be performed on the StorSimple Virtual Array. You can manage the StorSimple Virtual Array using the StorSimple Manager service UI (referred to as the portal UI) and the local web UI for the device. This article focuses on the tasks that you can perform using the web UI.
 
-- Obtenir la clé de chiffrement des données de service
-- Résoudre les erreurs d'installation de l'interface utilisateur web
-- Générer un package de journaux
-- Arrêter ou redémarrer votre appareil
+This article includes the following tutorials:
 
-## Obtenir la clé de chiffrement des données de service
+- Get the service data encryption key
+- Troubleshoot web UI setup errors
+- Generate a log package
+- Shut down or restart your device
 
-Une clé de chiffrement des données de service est générée lorsque vous enregistrez votre premier appareil auprès du service StorSimple Manager. Cette clé et la clé d'enregistrement de service sont ensuite requises pour l'inscription d'appareils supplémentaires avec le service StorSimple Manager.
+## <a name="get-the-service-data-encryption-key"></a>Get the service data encryption key
 
-Si vous avez égaré votre clé de chiffrement des données de service, procédez comme suit dans l'interface utilisateur web locale de l'appareil inscrit auprès du service pour la récupérer.
+A service data encryption key is generated when you register your first device with the StorSimple Manager service. This key is then required with the service registration key to register additional devices with the StorSimple Manager service.
 
-#### Pour obtenir la clé de chiffrement des données de service
+If you have misplaced your service data encryption key and need to retrieve it, perform the following steps in the local web UI of the device registered with your service.
 
-1. Connectez-vous à l'interface utilisateur web locale. Accédez à **Configuration** > **Paramètres du Cloud**.
+#### <a name="to-get-the-service-data-encryption-key"></a>To get the service data encryption key
+
+1. Connect to the local web UI. Go to **Configuration** > **Cloud Settings**.
   
 
-2. En bas de la page, cliquez sur **Obtenir la clé de chiffrement de données du service**. Une clé s'affiche. Copiez et enregistrez cette clé.
-  	
-	![obtenir la clé de chiffrement des données du service 1](./media/storsimple-ova-web-ui-admin/image27.png)
+2. At the bottom of the page, click **Get service data encryption key**. A key will appear. Copy and save this key.
+    
+    ![get service data encryption key 1](./media/storsimple-ova-web-ui-admin/image27.png)
    
 
 
-## Résoudre les erreurs d'installation de l'interface utilisateur web
+## <a name="troubleshoot-web-ui-setup-errors"></a>Troubleshoot web UI setup errors
 
-Dans certains cas, lorsque vous configurez l'appareil via l'interface utilisateur web locale, vous pouvez rencontrer les erreurs. Pour diagnostiquer et résoudre de telles erreurs, vous pouvez exécuter les tests de diagnostic.
+In some instances when you configure the device through the local web UI, you might run into errors. To diagnose and troubleshoot such errors, you can run the diagnostics tests.
 
-#### Pour exécuter les tests de diagnostic
+#### <a name="to-run-the-diagnostic-tests"></a>To run the diagnostic tests
 
-1. Dans l’interface utilisateur web locale, accédez à **Dépannage** > **Tests de diagnostic**.
+1. In the local web UI, go to **Troubleshooting** > **Diagnostic tests**.
 
-    ![exécuter les diagnostics 1](./media/storsimple-ova-web-ui-admin/image29.png)
+    ![run diagnostics 1](./media/storsimple-ova-web-ui-admin/image29.png)
 
-2. En bas de la page, cliquez sur **Exécuter les tests de diagnostic**. Cette opération lance des tests pour diagnostiquer les éventuels problèmes sur votre réseau, appareil, proxy web, horodatage ou paramètres cloud. Vous serez averti que des tests sont en cours sur l'appareil.
+2. At the bottom of the page, click **Run Diagnostic Tests**. This will initiate tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You will be notified that the device is running tests.
 
-3. Une fois les tests terminés, les résultats seront affichés. L'exemple suivant illustre les résultats des tests de diagnostic. Notez que les paramètres du proxy web n'étaient pas configurés sur cet appareil et, par conséquent, le test de proxy web n'a pas été exécuté. Tous les autres tests pour les paramètres réseau, le serveur DNS et les paramètres d'heure ont été effectués.
+3. After the tests have completed, the results will be displayed. The following example shows the results of diagnostic tests. Note that the web proxy settings were not configured on this device, and therefore, the web proxy test was not run. All the other tests for network settings, DNS server, and time settings were successful.
 
-    ![exécuter les diagnostics 2](./media/storsimple-ova-web-ui-admin/image30.png)
+    ![run diagnostics 2](./media/storsimple-ova-web-ui-admin/image30.png)
 
-## Générer un package de journaux
+## <a name="generate-a-log-package"></a>Generate a log package
 
-Un package de journaux contient tous les journaux pertinents qui peuvent aider l'équipe de support technique de Microsoft à résoudre les problèmes des appareils. Dans cette version, vous pouvez générer un package de journaux via l'interface utilisateur web locale.
+A log package is comprised of all the relevant logs that can assist Microsoft Support with troubleshooting any device issues. In this release, a log package can be generated via the local web UI.
 
-#### Pour générer le package de journaux
+#### <a name="to-generate-the-log-package"></a>To generate the log package
 
-1. Dans l’interface utilisateur web locale, accédez à **Dépannage** > **Journaux système**.
+1. In the local web UI, go to **Troubleshooting** > **System logs**.
 
-    ![générer un package de journaux 1](./media/storsimple-ova-web-ui-admin/image31.png)
+    ![generate log package 1](./media/storsimple-ova-web-ui-admin/image31.png)
 
-2. En bas de la page, cliquez sur **Créer un package de journaux**. Un package des journaux système sera créé. Cette opération prend quelques minutes.
+2. At the bottom of the page, click **Create log package**. A package of the system logs will be created. This will take a couple of minutes.
 
-    ![générer un package de journaux 2](./media/storsimple-ova-web-ui-admin/image32.png)
+    ![generate log package 2](./media/storsimple-ova-web-ui-admin/image32.png)
 
-    Vous serez averti une fois le package créé et la page sera actualisée pour indiquer l'heure et la date de création du package.
+    You will be notified after the package is successfully created, and the page will be updated to indicate the time and date when the package was created.
 
-    ![générer un package de journaux 3](./media/storsimple-ova-web-ui-admin/image33.png)
+    ![generate log package 3](./media/storsimple-ova-web-ui-admin/image33.png)
 
-3. Cliquez sur **Télécharger le package de journaux**. Un package zippé sera téléchargé sur votre système.
+3. Click **Download log package**. A zipped package will be downloaded on your system.
 
-    ![générer un package de journaux 4](./media/storsimple-ova-web-ui-admin/image34.png)
+    ![generate log package 4](./media/storsimple-ova-web-ui-admin/image34.png)
 
-4. Vous pouvez décompresser le package de journaux téléchargé et afficher les fichiers journaux système.
+4. You can unzip the downloaded log package and view the system log files.
 
-## Arrêter et redémarrer votre appareil
+## <a name="shut-down-and-restart-your-device"></a>Shut down and restart your device
 
-Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les volumes ou les partages hors connexion sur l’ordinateur hôte. Vous réduisez ainsi toute possibilité d’altération des données.
+You can shut down or restart your virtual device using the local web UI. We recommend that before you restart, take the volumes or shares offline on the host and then the device. This will minimize any possibility of data corruption. 
 
-#### Pour arrêter votre appareil virtuel
+#### <a name="to-shut-down-your-virtual-device"></a>To shut down your virtual device
 
-1. Dans l’interface utilisateur web locale, accédez à **Maintenance** > **Paramètres d’alimentation**.
+1. In the local web UI, go to **Maintenance** > **Power settings**.
 
-2. Au bas de la page, cliquez sur **Arrêt**.
+2. At the bottom of the page, click **Shutdown**.
 
-    ![arrêter l'appareil 1](./media/storsimple-ova-web-ui-admin/image36.png)
+    ![device shutdown 1](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. Un avertissement s’affiche indiquant qu’un arrêt de l’appareil va interrompre toutes les E/S qui étaient en cours, ce qui entraîne une interruption du service. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-web-ui-admin/image3.png).
+3. A warning will appear stating that a shutdown of the device will interrupt any IO that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
 
-    ![avertissement d'arrêt de l'appareil](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![device shutdown warning](./media/storsimple-ova-web-ui-admin/image37.png)
 
-    Vous serez averti que l'arrêt a été initié.
+    You will be notified that the shutdown has been initiated.
 
-    ![arrêt de l'appareil initié](./media/storsimple-ova-web-ui-admin/image38.png)
+    ![device shutdown started](./media/storsimple-ova-web-ui-admin/image38.png)
 
-    L'appareil va s'arrêter. Si vous souhaitez démarrer votre appareil, vous devrez le faire par le biais du Gestionnaire Hyper-V.
+    The device will now shut down. If you want to start your device, you will need to do that through the Hyper-V Manager.
 
-#### Pour redémarrer votre appareil virtuel
+#### <a name="to-restart-your-virtual-device"></a>To restart your virtual device
 
-1. Dans l’interface utilisateur web locale, accédez à **Maintenance** > **Paramètres d’alimentation**.
+1. In the local web UI, go to **Maintenance** > **Power settings**.
 
-2. En bas de la page, cliquez sur **Redémarrer**.
+2. At the bottom of the page, click **Restart**.
 
-    ![redémarrer l'appareil](./media/storsimple-ova-web-ui-admin/image36.png)
+    ![device restart](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. Un avertissement s'affiche indiquant qu'un redémarrage de l'appareil va interrompre toutes les E/S qui étaient en cours, ce qui entraîne une interruption du service. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-web-ui-admin/image3.png).
+3. A warning will appear stating that restarting the device will interrupt any IOs that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
 
-    ![avertissement de redémarrage](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![restart warning](./media/storsimple-ova-web-ui-admin/image37.png)
 
-    Vous serez averti que le redémarrage a été initié.
+    You will be notified that the restart has been initiated.
 
-    ![redémarrage initié](./media/storsimple-ova-web-ui-admin/image39.png)
+    ![restart initiated](./media/storsimple-ova-web-ui-admin/image39.png)
 
-    Lorsque le redémarrage est en cours, la connexion à l'interface utilisateur s'interrompt. Vous pouvez surveiller le redémarrage en actualisant périodiquement l'interface utilisateur. Vous pouvez également surveiller l'état du redémarrage de l'appareil avec le Gestionnaire Hyper-V.
+    While the restart is in progress, you will lose the connection to the UI. You can monitor the restart by refreshing the UI periodically. Alternatively, you can monitor the device restart status through the Hyper-V Manager.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil](storsimple-manager-service-administration.md).
+Learn how to [use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

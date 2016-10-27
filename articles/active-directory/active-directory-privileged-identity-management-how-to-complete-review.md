@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Compléter une révision de sécurité | Microsoft Azure"
-   description="Après avoir démarré une vérification d’accès dans Azure AD Privileged Identity Management, découvrez comment la compléter et afficher les résultats"
+   pageTitle="How to complete an access review | Microsoft Azure"
+   description="After you started an access review in Azure AD Privileged Identity Management, learn how to complete it and view the results"
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -16,48 +16,49 @@
    ms.date="06/30/2016"
    ms.author="kgremban"/>
 
-# Comment effectuer une révision de l’accès dans Azure AD Privileged Identity Management ?
+
+# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>How to complete an access review in Azure AD Privileged Identity Management
 
 
-Les administrateurs de rôle privilégié peuvent examiner un accès privilégié une fois qu’une [révision de la sécurité a été démarrée](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) envoie automatiquement un e-mail demandant aux utilisateurs d'examiner leur accès. Si un utilisateur n'a pas reçu d’e-mail, vous pouvez lui envoyer les instructions dans [comment effectuer une révision de sécurité](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+Privileged role administrators can review privileged access once a [security review has been started](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) will automatically send an email prompting users to review their access. If a user did not get an email, you can send them the instructions in [how to perform a security review](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
-Après la période de révision de sécurité, ou après que tous les utilisateurs ont terminé leur auto-examen, suivez les étapes décrites dans cet article pour gérer la révision et afficher les résultats.
+After the security review period is over, or all the users have finished their self-review, follow the steps in this article to manage the review and see the results.
 
-## Gérer les révisions de sécurité
+## <a name="manage-security-reviews"></a>Manage security reviews
 
-1. Accédez à la [portail Azure](https://portal.azure.com/) et sélectionnez l’application **Azure AD Privileged Identity Management** sur votre tableau de bord.
-2. Sélectionnez la section **Révisions de l’accès** du tableau de bord.
-3. Sélectionnez la révision d’accès que vous souhaitez gérer.
+1. Go to the [Azure portal](https://portal.azure.com/) and select the **Azure AD Privileged Identity Management** application on your dashboard.
+2. Select the **Access reviews** section of the dashboard.
+3. Select the access review that you want to manage.
 
-Le panneau de détails de la révision d’accès comporte plusieurs options pour la gestion de cette révision.
+On the access review's detail blade there are a number options for managing that review.
 
-![Boutons de révision d’accès PIM - capture d’écran][1]
+![PIM access review buttons - screenshot][1]
 
-### Rappeler
+### <a name="remind"></a>Remind
 
-Si une vérification de l’accès est configurée de sorte que les utilisateurs doivent eux-mêmes la réviser, le bouton **Rappeler** envoie une notification.
+If an access review is set up so that the users review themselves, the **Remind** button sends out a notification. 
 
-### Arrêter
+### <a name="stop"></a>Stop
 
-Toutes les révisions d’accès ont une date de fin, mais vous pouvez utiliser le bouton **Arrêter** pour les terminer plus tôt. Si les utilisateurs n’ont pas été révisés à cette date, ils ne pourront plus le faire une fois la révision arrêtée. Vous ne pouvez pas redémarrer une révision arrêtée.
+All access reviews have an end date, but you can use the **Stop** button to finish it early. If any users haven't been reviewed by this time, they won't be able to after you stop the review. You cannot restart a review after it's been stopped.
 
-### Appliquer
+### <a name="apply"></a>Apply
 
-Lorsqu’une vérification de l’accès est terminé, soit parce qu’elle a atteint la date de fin ou après un arrêt manuel, le bouton **Appliquer** implémente le résultat de la révision. Si l’accès d’un utilisateur a été refusé lors de la révision, cette étape supprimera l’affectation de son rôle.
+After an access review is completed, either because you reached the end date or stopped it manually, the **Apply** button implements the outcome of the review. If a user's access was denied in the review, this is the step that will remove their role assignment.  
 
-### Exportation
+### <a name="export"></a>Export
 
-Si vous souhaitez appliquer manuellement les résultats de la révision de sécurité, vous pouvez exporter la révision. Le bouton **Exporter** fait démarrer le téléchargement d'un fichier CSV. Vous pouvez gérer les résultats dans Excel ou d'autres programmes qui s'ouvrent les fichiers CSV.
+If you want to apply the results of the security review manually, you can export the review. The **Export** button will start downloading a CSV file. You can manage the results in Excel or other programs that open CSV files.
 
-### Supprimer
+### <a name="delete"></a>Delete
 
-Si vous n'êtes plus intéressé par la révision, supprimez-la. Le bouton **Supprimer** permet de supprimer la révision de l'application PIM.
+If you are not interested in the review any further, delete it. The **Delete** button removes the review from the PIM application.
 
-> [AZURE.IMPORTANT] La suppression ayant lieu sans affichage préalable d’un avertissement, assurez-vous que vous voulez supprimer cette révision.
+> [AZURE.IMPORTANT] You will not get a warning before deletion occurs, so be sure that you want to delete that review.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 
@@ -65,4 +66,8 @@ Si vous n'êtes plus intéressé par la révision, supprimez-la. Le bouton **Sup
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

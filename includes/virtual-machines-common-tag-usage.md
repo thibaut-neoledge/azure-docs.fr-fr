@@ -1,22 +1,27 @@
 
 
 
-## Affichage de vos balises dans les détails d’utilisation
+## <a name="viewing-your-tags-in-the-usage-details"></a>Viewing your tags in the usage details
 
-Les balises placées sur des ressources de calcul, de réseau et de stockage dans le modèle de déploiement Azure Resource Manager apparaissent dans vos détails d’utilisation dans le [portail de facturation](https://account.windowsazure.com/).
+Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
 
-Cliquez sur **Télécharger les détails d'utilisation** pour afficher les détails d'utilisation dans votre abonnement.
+Click on **Download usage details** to view the usage details in your subscription.
 
-![Détails d’utilisation dans le portail Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Usage details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Sélectionnez votre relevé de facturation et les détails d’utilisation **Version 2** :
+Select your billing statement and the **Version 2** usage details:
 
-![Détails d’utilisation dans la version préliminaire 2 du portail Azure](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-Dans les détails d’utilisation, vous pouvez voir toutes les balises dans la colonne **Balises** :
+From the usage details, you can see all of the tags in the **Tags** column:
 
-![Colonne Balises dans le portail Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![Tags column in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-En analysant ces balises ainsi que leur utilisation, les organisations sont en mesure de mieux comprendre leurs données de consommation.
+By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
+
+
+
+
+<!--HONumber=Oct16_HO2-->
 
 

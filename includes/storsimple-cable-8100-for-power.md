@@ -1,27 +1,30 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### Pour brancher les câbles d’alimentation
+#### <a name="to-cable-for-power"></a>To cable for power
 
-1. Assurez-vous que les commutateurs d'alimentation sont en position d'arrêt sur chacun des PCM (Modules d'alimentation et de refroidissement).
+1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.
 
-2. Branchez les câbles d'alimentation sur chacun des deux PCM du boîtier principal.
+2. Connect the power cords to each of the PCMs in the primary enclosure.
 
-3. Fixez les câbles d'alimentation aux unités de distribution de l'alimentation (PDU) du rack, comme indiqué sur l'illustration suivante. Assurez-vous que les deux modules d'alimentation et de refroidissement (PCM) utilisent des sources d'alimentation distinctes.
+3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
 
-    >[AZURE.IMPORTANT]Pour garantir une haute disponibilité de votre système, nous vous recommandons de vous conformer strictement au schéma de branchement des câbles d'alimentation illustré dans le diagramme suivant.
+    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. 
 
-    ![Câble d’alimentation de votre appareil 2U](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![Cable your 2U device for power](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
 
-    **Branchement des câbles d'alimentation sur un appareil 8100**
+    **Power cabling on an 8100 device**
 
-    |Étiquette|Description|
+    |Label|Description|
     |:----|:----------|
-    |1|PCM 0|
-    |2|Contrôleur 1|
-    |3|Contrôleur 0|
-    |4|PCM 1|
-    |5|PDU|
+    |1|PCM 0|
+    |2|Controller 1|
+    |3|Controller 0|
+    |4|PCM 1|
+    |5|PDUs|
 
-4. Activez le système en mettant en marche les commutateurs d'alimentation des deux PCM.
+4. To turn on the system, flip the power switches on both PCMs to the ON position.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

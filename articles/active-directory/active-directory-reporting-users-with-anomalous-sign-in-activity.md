@@ -1,33 +1,38 @@
 <properties
-	pageTitle="Utilisateurs ayant une activité de connexion anormale"
-	description="Un rapport indiquant tous les comptes d’utilisateurs pour lesquels une activité de connexion anormale a été identifiée."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+    pageTitle="Users with anomalous sign in activity"
+    description="A report that indicates all user accounts for which anomalous sign in activity has been identified."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="gchander"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
-# Utilisateurs ayant une activité de connexion anormale
-Il s’agit d’un rapport d’agrégation qui regroupe les connexions suspectes issues des rapports suivants :
 
-<ul><li>Connexions à partir de sources inconnues</li>
-<li>Connexions après plusieurs échecs</li>
-<li>Connexions depuis plusieurs zones géographiques</li>
-<li>Connexions depuis des adresses IP avec des activités suspectes</li>
-<li>Connexions à partir d’appareils potentiellement infectés</li>
-<li>Activité de connexion anormale</li>
+# <a name="users-with-anomalous-sign-in-activity"></a>Users with anomalous sign in activity
+This is an aggregate report that combines suspicious sign-ins from the following reports:
+
+<ul><li>Sign ins from unknown sources</li>
+<li>Sign-ins after multiple failures</li>
+<li>Sign-ins from multiple geographies</li>
+<li>Sign-ins from IP addresses with suspicious activity</li>
+<li>Sign-ins from possibly infected devices</li>
+<li>Irregular sign-in activity</li>
 </ul>
 
 
-![Utilisateurs ayant une activité de connexion anormale](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
+![Users with anomalous sign in activity](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---------HONumber=AcomDC_0309_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Supprimer un coffre de sauvegarde Azure | Microsoft Azure"
-   description="Comment supprimer un coffre de sauvegarde Azure. Résolution des problèmes de suppression d’un coffre de sauvegarde. "
+   pageTitle="Delete an Azure Backup vault | Microsoft Azure"
+   description="How to delete an Azure Backup vault. Troubleshooting why you can't delete a backup vault. "
    services="service-name"
    documentationCenter="dev-center-name"
    authors="markgalioto"
@@ -16,230 +16,238 @@
    ms.date="08/29/2016"
    ms.author="markgal;trinadhk"/>
 
-# Supprimer un coffre de sauvegarde Azure
 
-Le service Sauvegarde Azure comporte deux types de coffres : le coffre de sauvegarde et le coffre Recovery Services. Le coffre de sauvegarde a été créé en premier. Ensuite, le coffre Recovery Services est venu prendre en charge les déploiements Resource Manager étendus. Étant donné les capacités étendues et les dépendances des informations qui doivent être stockées dans le coffre, la suppression d’un coffre Recovery Services peut sembler plus compliquée qu’elle ne l’est réellement.
+# <a name="delete-an-azure-backup-vault"></a>Delete an Azure Backup vault
 
-|**Type de déploiement**|**Portail**|**Nom du coffre**|
+The Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Because of the expanded capabilities and the information dependencies that must be stored in the vault, deleting a Recovery Services vault can seem harder than it has to be.
+
+|**Deployment Type**|**Portal**|**Vault name**|
 |--------------|----------|---------|
-|Classique|Classique|Archivage de sauvegarde|
-|Gestionnaire de ressources|Microsoft Azure|Coffre Recovery Services|
+|Classic|Classic|Backup vault|
+|Resource Manager|Azure|Recovery Services vault|
 
 
-> [AZURE.NOTE] Les coffres de sauvegarde ne peuvent pas protéger les solutions déployées par le biais de Resource Manager. Toutefois, vous pouvez utiliser un coffre Recovery Services pour protéger les serveurs et les machines virtuelles déployés de façon classique.
+> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically deployed servers and VMs.  
 
-Dans cet article, nous utilisons le terme de « coffre » pour faire référence de manière générique au coffre de sauvegarde ou au coffre Recovery Services. Nous utilisons les termes officiels, coffre de sauvegarde ou coffre Recovery Services lorsqu’il est nécessaire de distinguer les coffres.
+In this article, we use the term, vault, to refer to the generic form of the Backup vault or Recovery Services vault. We use the formal name, Backup vault, or Recovery Services vault, when it is necessary to distinguish between the vaults.
 
 
 
-## Supprimer un coffre Recovery Services
+## <a name="deleting-a-recovery-services-vault"></a>Deleting a Recovery Services vault
 
-Supprimer un coffre Recovery Services est un processus en une seule étape, *à condition que le coffre ne contienne aucune ressource*. Avant de pouvoir supprimer un coffre Recovery Services, vous devez retirer ou supprimer toutes les ressources qu’il contient. Si vous essayez de supprimer un coffre qui contient des ressources, vous obtenez une erreur ressemblant à l’image suivante.
+Deleting a Recovery Services vault is a one-step process - *provided the vault doesn't contain any resources*. Before you can delete a Recovery Services vault, you must remove or delete all resources in the vault. If you attempt to delete a vault that contains resources, you get an error like the following image.
 
-![Erreur de suppression du coffre](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
+![Vault deletion error](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
 
-Le fait de cliquer sur **Réessayer** génère la même erreur jusqu’à ce que vous effaciez les ressources du coffre. Si ce message d’erreur persiste, cliquez sur **Annuler** et suivez les étapes ci-dessous pour supprimer les ressources du coffre Recovery Services.
+Until you have cleared the resources from the vault, clicking **Retry** produces the same error. If you're stuck on this error message, click **Cancel** and follow the steps below to delete the resources in the Recovery Services vault.
 
 
-### Suppression des éléments d’un coffre protégeant une machine virtuelle
+### <a name="removing-the-items-from-a-vault-protecting-a-vm"></a>Removing the items from a vault protecting a VM
 
-Si le coffre Recovery Services est déjà ouvert, passez à la deuxième étape.
+If you already have the Recovery Services vault open, skip to the second step.
 
-1.  Ouvrez le Portail Azure et, depuis le tableau de bord, ouvrez le coffre à supprimer.
+1.  Open the Azure portal, and from the Dashboard open the vault you want to delete.
 
-    Si le coffre Recovery Services n’est pas épinglé au tableau de bord, dans le menu Hub, cliquez sur **Plus de services** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Coffres Recovery Services**.
+    If you don't have the Recovery Services vault pinned to the Dashboard, on the Hub menu, click **More Services** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vaults**.
 
-    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
+    ![Create Recovery Services Vault step 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-    La liste des coffres Recovery Services est affichée. Dans la liste, sélectionnez le coffre à supprimer.
+    The list of Recovery Services vaults is displayed. From the list, select the vault you want to delete.
 
-    ![choisir le coffre à partir de la liste](./media/backup-azure-work-with-vaults/choose-vault-to-delete.png)
+    ![choose vault from list](./media/backup-azure-work-with-vaults/choose-vault-to-delete.png)
 
-2. Dans la vue du coffre, examinez le volet **Essentials**. Pour supprimer un coffre, il ne doit y avoir aucun élément protégé. Si vous voyez un nombre différent de zéro, sous **Éléments de sauvegarde** ou **Serveurs de gestion des sauvegardes**, vous devez supprimer ces éléments avant de pouvoir supprimer le coffre.
+2. In the vault view, look at the **Essentials** pane. To delete a vault, there cannot be any protected items. If you see a number other than zero, under either **Backup Items** or **Backup management servers**, you must remove those items before you can delete the vault.
 
-    ![Examiner le volet Essentials pour identifier les éléments protégés](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
+    ![Look at Essentials pane for protected items](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-    Les machines virtuelles et fichiers/dossiers sont considérés comme des éléments de sauvegarde et sont répertoriés dans la zone **Éléments de sauvegarde** du volet Essentials. Un serveur DPM est indiqué dans la zone **Serveurs de gestion des sauvegardes** du volet Essentials. Les **Éléments répliqués** appartiennent au service Azure Site Recovery.
+    VMs and Files/Folders are considered Backup Items, and are listed in the **Backup Items** area of the Essentials pane. A DPM server is listed in the **Backup Management Server** area of the Essentials pane. **Replicated Items** pertain to the Azure Site Recovery service.
 
-3. Pour commencer à supprimer les éléments protégés du coffre, recherchez les éléments dans le coffre. Dans le tableau de bord du coffre, cliquez sur **Paramètres**, puis sur **Éléments de sauvegarde** pour ouvrir ce panneau.
+3. To begin removing the protected items from the vault, find the items in the vault. In the vault dashboard click **Settings**, and then click **Backup items** to open that blade.
 
-    ![choisir le coffre à partir de la liste](./media/backup-azure-delete-vault/open-settings-and-backup-items.png)
+    ![choose vault from list](./media/backup-azure-delete-vault/open-settings-and-backup-items.png)
 
-    Le panneau **Éléments de sauvegarde** comporte des listes séparées selon le type d’élément : Machines virtuelles Azure ou Fichiers-Dossiers (voir l’image). La liste Type d’élément par défaut affichée est Machines virtuelles Azure. Pour afficher la liste des éléments Fichiers-Dossiers dans le coffre, sélectionnez **Fichiers-Dossiers** dans le menu déroulant.
+    The **Backup Items** blade has separate lists, based on the Item Type: Azure Virtual Machines or File-Folders (see image). The default Item Type list shown is Azure Virtual Machines. To view the list of File-Folders items in the vault, select **File-Folders** from the drop-down menu.
 
-4. Avant de pouvoir supprimer un élément dans le coffre protégeant une machine virtuelle, vous devez arrêter la tâche de sauvegarde de l’élément et supprimer les données du point de récupération. Pour chaque élément dans le coffre, procédez comme suit :
+4. Before you can delete an item from the vault protecting a VM, you must stop the item's backup job and delete the recovery point data. For each item in the vault, follow these steps:
 
-    a. Dans le panneau **Éléments de sauvegarde**, cliquez avec le bouton droit sur l’élément et, à partir du menu contextuel, sélectionnez **Arrêter la sauvegarde**.
+    a. On the **Backup Items** blade, right-click the item, and from the context menu, select **Stop backup**.
 
-    ![arrêter la tâche de sauvegarde](./media/backup-azure-delete-vault/stop-the-backup-process.png)
+    ![stop the backup job](./media/backup-azure-delete-vault/stop-the-backup-process.png)
 
-    Le panneau Arrêter la sauvegarde s’ouvre.
+    The Stop Backup blade opens.
 
-    b. Sur le panneau **Arrêter la sauvegarde**, à partir du menu **Choisir une option**, sélectionnez **Supprimer les données de sauvegarde** > tapez le nom de l’élément > et cliquez sur **Arrêter la sauvegarde**.
+    b. On the **Stop Backup** blade, from the **Choose an option** menu, select **Delete Backup Data** > type the name of the item > and click **Stop backup**.
 
-      Tapez le nom de l’élément pour confirmer que vous souhaitez le supprimer. Le bouton **Arrêter la sauvegarde** ne sera pas activé avant que vous ne confirmiez l’élément à arrêter. Si vous ne voyez pas de boîte de dialogue permettant de taper le nom de l’élément de sauvegarde, vous avez choisi l’option **Conserver les données de sauvegarde**.
+      Type the name of the item to verify you want to delete it. The **Stop Backup** button will not activate until you verify the item to stop. If you do not see the dialog box to type the name of the backup item, you have chosen the **Retain Backup Data** option.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+    ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-      Si vous le souhaitez, vous pouvez indiquer une raison expliquant pourquoi vous supprimez les données, et ajouter des commentaires. Après avoir cliqué sur **Arrêter la sauvegarde**, laissez la tâche de suppression se terminer avant d’essayer de supprimer le coffre. Pour vérifier que la tâche est terminée, vérifiez les messages Azure ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/messages.png). <br/> Une fois la tâche terminée, vous recevrez un message indiquant que le processus de sauvegarde a été arrêté et que les données de sauvegarde ont été supprimées pour cet élément.
+      Optionally, you can provide a reason why you are deleting the data, and add comments. After you click **Stop Backup**, allow the delete job to complete before attempting to delete the vault. To verify that the job has completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
+      Once the job is complete, you'll receive a message stating the backup process was stopped and the backup data was deleted for that item.
 
-    c. Après la suppression d’un élément de la liste, dans le menu **Éléments de sauvegarde**, cliquez sur **Actualiser** pour voir les éléments restants dans le coffre.
+    c. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the remaining items in the vault.
 
-      ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/empty-items-list.png)
+      ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
 
-      Lorsque la liste est vide, faites défiler jusqu’au volet **Essentials** dans le panneau du coffre de sauvegarde. Il ne doit pas contenir **d’Éléments de sauvegarde**, de **Serveurs de gestion des sauvegardes** ou **d’Éléments répliqués** répertoriés. Si des éléments apparaissent toujours dans le coffre, retournez à l’étape trois ci-dessus et choisissez une autre liste Type d’élément.
+      When there are no items in the list, scroll to the **Essentials** pane in the Backup vault blade. There shouldn't be any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, return to step three above and choose a different item type list.  
 
-5. Une fois que la barre d’outils du coffre est vide, cliquez sur **Supprimer**.
+5. When there are no more items in the vault toolbar, click **Delete**.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/delete-vault.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-vault.png)
 
-6. Lorsque vous êtes invité à confirmer la suppression du coffre, cliquez sur **Oui**.
+6. When asked to verify that you want to delete the vault, click **Yes**.
 
-    Le coffre est supprimé et le portail revient au menu de service **Nouveau**.
+    The vault is deleted and the portal returns to the **New** service menu.
 
 
-## Que se passe-t-il si j’ai arrêté le processus de sauvegarde mais que j’ai conservé les données ?
+## <a name="what-if-i-stopped-the-backup-process-but-retained-the-data?"></a>What if I stopped the backup process but retained the data?
 
-Si vous avez arrêté le processus de sauvegarde, mais que vous avez accidentellement *conservé* les données, vous devez supprimer les données de sauvegarde avant de pouvoir supprimer le coffre. Pour supprimer les données de sauvegarde :
+If you stopped the backup process but accidentally *retained* the data, you must delete the backup data before you can delete the vault. To delete the backup data:
 
-1. Dans le panneau **Éléments de sauvegarde**, cliquez avec le bouton droit sur l’élément et, à partir du menu contextuel, cliquez sur **Supprimer les données de sauvegarde**.
+1. On the **Backup Items** blade, right-click the item, and on the context menu click **Delete backup data**.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
 
-    Le panneau **Supprimer les données de sauvegarde** s’ouvre.
+    The **Delete Backup Data** blade opens.
 
-2. Dans le panneau **Supprimer les données de sauvegarde**, tapez le nom de l’élément, puis cliquez sur **Supprimer**.
+2. On the **Delete Backup Data** blade, type the name of the item, and click **Delete**.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/delete-retained-vault.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-retained-vault.png)
 
-    Une fois que vous avez supprimé les données, revenez à l’étape 4c, ci-dessus, et poursuivez le processus.
+    Once you have deleted the data, go to step 4c, above, and continue with the process.
 
-## Supprimer un coffre utilisé pour protéger un serveur DPM
+## <a name="delete-a-vault-used-to-protect-a-dpm-server"></a>Delete a vault used to protect a DPM server
 
-Avant de pouvoir supprimer un coffre utilisé pour protéger un serveur DPM, vous devez effacer tous les points de récupération qui ont été créés, puis désinscrire le serveur du coffre.
+Before you can delete a vault used to protect a DPM server, you must clear any recovery points that have been created, and then unregister the server from the vault.
 
-Pour supprimer les données associées à un groupe de protection :
+To delete the data associated with a protection group:
 
-1. Dans la console Administrateur DPM, cliquez sur **Protection**, sélectionnez un groupe de protection, sélectionnez le membre du groupe de protection et, dans la barre d’outils, cliquez sur **Supprimer**. Vous devez sélectionner le membre pour que le bouton **Supprimer** apparaisse dans la barre d’outils. Dans l’exemple, le membre est **dummyvm9**. Si le groupe de protection comporte plusieurs membres, maintenez la touche Ctrl enfoncée pour sélectionner plusieurs membres.
+1. In the DPM Administrator Console, click **Protection**, select a protection group, select the Protection Group Member, and in the tool ribbon click **Remove**. You must select the member for the **Remove** button to appear in the tool ribbon. In the example, the member is **dummyvm9**. If there are multiple members in the protection group, hold down the Ctrl key to select multiple members.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/az-portal-delete-protection-group.png)
+    ![delete backup data](./media/backup-azure-delete-vault/az-portal-delete-protection-group.png)
 
-    La boîte de dialogue **Arrêter la protection** s’ouvre.
+    The **Stop Protection** dialog opens.
 
-2. Dans la boîte de dialogue **Arrêter la protection**, sélectionnez **Supprimer les données protégées**, puis cliquez sur **Arrêter la protection**.
+2. In the **Stop Protection** dialog, select **Delete protected data**, and click **Stop Protection**.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/delete-dpm-protection-group.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-dpm-protection-group.png)
 
-    Vous ne souhaitez pas conserver les données protégées, car vous devez vider le coffre pour pouvoir le supprimer. Selon le nombre de points de récupération et la quantité de données figurant dans le groupe de protection, la suppression des données peut prendre quelques secondes à quelques minutes. La boîte de dialogue **Arrêter la protection** affiche l’état une fois la tâche terminée.
+    You don't want to retain protected data because you need to clear the vault in order to delete it. Depending on how many recovery points and how much data is in the protection group, it may take anywhere from a few seconds to a few minutes to delete the data. The **Stop Protection** dialog shows the status when the job has completed.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/success-deleting-protection-group.png)
+    ![delete backup data](./media/backup-azure-delete-vault/success-deleting-protection-group.png)
 
-3. Continuez ce processus pour tous les membres de tous les groupes de protection.
+3. Continue this process for all members in all protection groups.
 
-    Vous devez supprimer l’ensemble des données protégées et des groupes de protection.
+    You must remove all protected data, and the protection group(s).
 
-4. Après avoir supprimé tous les membres du groupe de protection, basculez vers le Portail Azure. Ouvrez le tableau de bord du coffre et assurez-vous qu’il ne contient pas **d’Éléments de sauvegarde**, de **Serveurs de gestion des sauvegardes** ou **d’Éléments répliqués**. Dans la barre d’outils du coffre, cliquez sur **Supprimer**.
+4. After deleting all members from the protection group, switch to the Azure portal. Open the vault dashboard, and make sure there are no **Backup Items**, **Backup management servers**, or **Replicated items**. On the vault toolbar, click **Delete**.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/delete-vault.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-vault.png)
 
-    Si des serveurs de gestion des sauvegardes sont inscrits dans le coffre, vous ne pourrez pas supprimer le coffre, même si ce dernier ne contient aucune donnée. Si vous pensiez avoir supprimé les serveurs de gestion des sauvegardes associés au coffre, mais qu’il y a encore des serveurs s’affichant dans le volet **Essentials**, voir [Rechercher les serveurs de gestion des sauvegardes inscrits dans le coffre](backup-azure-delete-vault.md#find-the-backup-management-servers-registered-to-the-vault).
+    If there are Backup management servers registered to the vault, you won't be able to delete the vault even if there is no data in the vault. If you thought you'd deleted the Backup management servers associated with the vault, but there are still servers showing in the **Essentials** pane, see [Find the Backup management servers registered to the vault](backup-azure-delete-vault.md#find-the-backup-management-servers-registered-to-the-vault).
 
-5. Lorsque vous êtes invité à confirmer la suppression du coffre, cliquez sur **Oui**.
+5. When asked to verify that you want to delete the vault, click **Yes**.
 
-    Le coffre est supprimé et le portail revient au menu de service **Nouveau**.
+    The vault is deleted and the portal returns to the **New** service menu.
 
 
-## Supprimer un coffre utilisé pour protéger un serveur de production
+## <a name="delete-a-vault-used-to-protect-a-production-server"></a>Delete a vault used to protect a Production server
 
-Avant de pouvoir supprimer un coffre utilisé pour protéger un serveur de production, vous devez supprimer ou désinscrire le serveur du coffre.
+Before you can delete a vault used to protect a Production server, you must delete or unregister the server from the vault.
 
-Pour supprimer le serveur de production associé au coffre :
+To delete the Production server associated with the vault:
 
-1. Dans le Portail Azure, ouvrez le tableau de bord du coffre et cliquez sur **Paramètres** > **Infrastructure de sauvegarde** > **Serveurs de production**.
+1. In the Azure portal, open the vault dashboard and click **Settings** > **Backup Infrastructure** > **Production Servers**.
 
-    ![ouvrir le panneau serveurs de production](./media/backup-azure-delete-vault/delete-production-server.png)
+    ![open Production Servers blade](./media/backup-azure-delete-vault/delete-production-server.png)
 
-    Le panneau **Serveurs de production** s’ouvre et répertorie tous les serveurs de production figurant dans le coffre.
+    The **Production Servers** blade opens and lists all Production servers in the vault.
 
-    ![liste des serveurs de production](./media/backup-azure-delete-vault/list-of-production-servers.png)
+    ![list of Production Servers](./media/backup-azure-delete-vault/list-of-production-servers.png)
 
-2. Sur le panneau **Serveurs de production**, cliquez avec le bouton droit sur le serveur, puis cliquez sur **Supprimer**.
+2. On the **Production Servers** blade, right-click on the server, and click **Delete**.
 
-    ![supprimer le serveur de production](./media/backup-azure-delete-vault/delete-server-on-production-server-blade.png)
+    ![delete production server ](./media/backup-azure-delete-vault/delete-server-on-production-server-blade.png)
 
-    Le panneau **Supprimer** s’ouvre.
+    The **Delete** blade opens.
 
-    ![supprimer le serveur de production](./media/backup-azure-delete-vault/delete-blade.png)
+    ![delete production server ](./media/backup-azure-delete-vault/delete-blade.png)
 
-3. Sur le panneau **Supprimer**, confirmez le nom du serveur à supprimer, puis cliquez sur **Supprimer**. Vous devez entrer correctement le nom du serveur pour activer le bouton **Supprimer**.
+3. On the **Delete** blade, confirm the name of the server to delete and click **Delete**. You must correctly enter the name of the server to activate the **Delete** button.
 
-    Une fois que le coffre a été supprimé, vous recevez un message confirmant cette action. Après la suppression de tous les serveurs du coffre, revenez au volet Essentials du tableau de bord du coffre.
+    Once the vault has been deleted, you'll receive a message stating the vault has been deleted. After deleting all servers in the vault, scroll back to the Essentials pane in the vault dashboard.
 
-4. Dans le tableau de bord du coffre, assurez-vous qu’il n’y a pas **d’Éléments de sauvegarde**, de **Serveurs de gestion des sauvegardes** ou **d’Éléments répliqués**. Dans la barre d’outils du coffre, cliquez sur **Supprimer**.
+4. In the vault dashboard, make sure there are no **Backup Items**, **Backup management servers**, or **Replicated items**. On the vault toolbar, click **Delete**.
 
-5. Lorsque vous êtes invité à confirmer la suppression du coffre, cliquez sur **Oui**.
+5. When asked to verify that you want to delete the vault, click **Yes**.
 
-    Le coffre est supprimé et le portail revient au menu de service **Nouveau**.
+    The vault is deleted and the portal returns to the **New** service menu.
 
 
-## Supprimer un coffre de sauvegarde
+## <a name="delete-a-backup-vault"></a>Delete a Backup vault
 
-Les instructions suivantes permettent de supprimer un coffre de sauvegarde dans le portail Classic. Un coffre de sauvegarde et un coffre Recovery Services fonctionnent de manière identique : avant de pouvoir supprimer le coffre, supprimez les éléments et les données conservées.
+The following instructions are for deleting a Backup vault in the classic portal. A Backup vault and Recovery Services vault are the same: before you can delete the vault, delete the items and the retained data.
 
-1. Ouvrez le portail Classic.
+1. Open the Classic portal.
 
-2. Dans la liste des coffres de sauvegarde, sélectionnez le coffre à supprimer.
+2. From the list of backup vaults, select the vault you want to delete.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/classic-portal-delete-vault-open-vault.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-open-vault.png)
 
-    Le tableau de bord du coffre s’ouvre. Observez le nombre de serveurs Windows et/ou de machines virtuelles Azure associés au coffre. Observez également le stockage total consommé dans Azure. Vous devrez arrêter toutes les tâches de sauvegarde et supprimer les données existantes avant de supprimer le coffre.
+    The vault dashboard opens. Look at the number of Windows Servers and/or Azure virtual machines associated with the vault. Also, look at the total storage consumed in Azure. You'll need to stop any backup jobs and delete existing data before deleting the vault.
 
-3. Cliquez sur l’onglet **Éléments protégés**, puis sur **Arrêter la protection**.
+3. Click the **Protected Items** tab, and then click **Stop Protection**
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)
 
-    La boîte de dialogue **Arrêter la protection de « votre coffre »** s’affiche.
+    The **Stop protection of 'your vault'** dialog appears.
 
-4. Dans la boîte de dialogue **Arrêter la protection de « votre coffre »**, cochez **Supprimer les données de sauvegarde associées**, puis cliquez sur ![coche](./media/backup-azure-delete-vault/checkmark.png). <br/> Si vous le souhaitez, vous pouvez indiquer une raison pour l’arrêt de la protection et fournir des commentaires.
+4. In the **Stop protection of 'your vault'** dialog, check **Delete associated backup data** and click ![checkmark](./media/backup-azure-delete-vault/checkmark.png). <br/>
+    Optionally, you can choose a reason for stopping protection, and provide a comment.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/classic-portal-delete-vault-verify-stop-protect.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-verify-stop-protect.png)
 
-    Après avoir supprimé les éléments du coffre, celui-ci est vide.
+    After deleting the items in the vault, the vault will be empty.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/classic-portal-delete-vault-post-delete-data.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-post-delete-data.png)
 
-5. Dans la liste des onglets, cliquez sur **Éléments inscrits**. Pour chaque élément inscrit dans le coffre, sélectionnez l’élément, puis cliquez sur **Désinscrire**.
+5. In the list of tabs, click **Registered Items**. For each item registered in the vault, select the item, and click **Unregister**.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/classic-portal-unregister.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-unregister.png)
 
-6. Dans la liste des onglets, cliquez sur **Tableau de bord** pour ouvrir cet onglet. Vérifiez qu’il n’y a pas de serveurs enregistrés ou de machines virtuelles Azure protégées dans le cloud. Vérifiez également qu’il n’y a aucune donnée dans le stockage. Cliquez sur **Supprimer** pour supprimer le coffre.
+6. In the list of tabs, click **Dashboard** to open that tab. Verify there are no registered servers or Azure virtual machines protected in the cloud. Also, verify there is no data in storage. Click **Delete** to delete the vault.
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/classic-portal-list-of-tabs-dashboard.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-list-of-tabs-dashboard.png)
 
-    L’écran de confirmation Supprimer un coffre de sauvegarde s’ouvre alors. Sélectionnez un motif de suppression du coffre, puis cliquez sur ![coche](./media/backup-azure-delete-vault/checkmark.png). <br/>
+    The Delete Backup vault confirmation screen opens. Select an option why you're deleting the vault, and click ![checkmark](./media/backup-azure-delete-vault/checkmark.png). <br/>
 
-    ![supprimer les données de sauvegarde](./media/backup-azure-delete-vault/classic-portal-delete-vault-confirmation-1.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-confirmation-1.png)
 
-    Le coffre est supprimé, et vous revenez au tableau de bord du portail Classic.
+    The vault is deleted, and you return to the classic portal dashboard.
 
-### Rechercher les serveurs de gestion des sauvegardes inscrits dans le coffre
+### <a name="find-the-backup-management-servers-registered-to-the-vault"></a>Find the Backup Management servers registered to the vault
 
-Si vous avez inscrit plusieurs serveurs dans un coffre, il peut être difficile de se les rappeler. Pour voir les serveurs inscrits dans le coffre et les supprimer :
+If you have multiple servers registered to a vault, it can be difficult to remember them. To see the servers registered to the vault, and delete them:
 
-1. Ouvrez le tableau de bord du coffre.
+1. Open the vault dashboard.
 
-2. Dans le volet **Essentials**, cliquez sur **Paramètres** pour ouvrir ce panneau.
+2. In the **Essentials** pane, click **Settings** to open that blade.
 
-    ![ouvrir le panneau paramètres](./media/backup-azure-delete-vault/backup-vault-click-settings.png)
+    ![open settings blade](./media/backup-azure-delete-vault/backup-vault-click-settings.png)
 
-3. Dans le **panneau Paramètres**, cliquez sur **Infrastructure de sauvegarde**.
+3. On the **Settings blade**, click **Backup Infrastructure**.
 
-4. Dans le panneau **Infrastructure de sauvegarde**, cliquez sur **Serveurs de gestion des sauvegardes**. Le panneau Serveurs de gestion des sauvegardes s’ouvre.
+4. On the **Backup Infrastructure** blade, click **Backup Management Servers**. The Backup Management Servers blade opens.
 
-    ![liste des serveurs de gestion des sauvegardes](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
+    ![list of backup management servers](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
 
-5. Pour supprimer un serveur de la liste, cliquez avec le bouton droit sur le nom du serveur, puis cliquez sur **Supprimer**. Le panneau **Supprimer** s’ouvre.
+5. To delete a server from the list, right-click the name of the server and then click **Delete**.
+    The **Delete** blade opens.
 
-6. Sur le panneau **Supprimer**, indiquez le nom du serveur. S’il s’agit d’un nom long, vous pouvez le copier-coller à partir de la liste Serveurs de gestion des sauvegardes. Ensuite, cliquez sur **Supprimer**.
+6. On the **Delete** blade, provide the name of the server. If it is a long name, you can copy and paste it from the list of Backup Management Servers. Then click **Delete**.  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

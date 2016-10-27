@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modèle Resource Manager pour le stockage | Microsoft Azure"
-   description="Affiche le schéma Resource Manager pour le déploiement de comptes de stockage par le biais d'un modèle."
+   pageTitle="Resource Manager template for storage | Microsoft Azure"
+   description="Shows the Resource Manager schema for deploying storage accounts through a template."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,13 +16,14 @@
    ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
-# Compte de stockage, schéma de modèle
 
-Crée un compte de stockage.
+# <a name="storage-account-template-schema"></a>Storage account template schema
 
-## Format de schéma
+Creates a storage account.
 
-Pour créer un compte de stockage, ajoutez le schéma suivant à la section des ressources de votre modèle.
+## <a name="schema-format"></a>Schema format
+
+To create a storage account, add the following schema to the resources section of your template.
 
     {
         "type": "Microsoft.Storage/storageAccounts",
@@ -31,33 +32,33 @@ Pour créer un compte de stockage, ajoutez le schéma suivant à la section des 
         "location": string,
         "properties": 
         {
-        	"accountType": string
+            "accountType": string
         }
     }
 
-## Valeurs
+## <a name="values"></a>Values
 
-Les tableaux suivants décrivent les valeurs que vous devez définir dans le schéma.
+The following tables describe the values you need to set in the schema.
 
-| Nom | Valeur |
+| Name | Value |
 | ---- | ---- |
-| type | Enum<br />Requis<br />**Microsoft.Storage/storageAccounts**<br /><br />Le type de ressource à créer. |
-| apiVersion | Enum<br />Requis<br />**2015-06-15** ou **2015-05-01-preview**<br /><br />La version de l’API à utiliser pour la création de la ressource. | 
-| name | String<br />Requis<br />Entre 3 et 24 caractères, uniquement des chiffres et des lettres minuscules.<br /><br />Nom du compte de stockage à créer. Le nom doit être unique dans tout Azure. Envisagez d’utiliser la fonction [uniqueString](resource-group-template-functions.md#uniquestring) avec votre convention d’affectation de noms, comme illustré dans l’exemple ci-dessous. |
-| location | String<br />Requis<br />Une région qui prend en charge les comptes de stockage. Pour déterminer les régions valides, consultez [Régions prises en charge](resource-manager-supported-services.md#supported-regions).<br /><br />Région dans laquelle héberger le compte de stockage. |
-| properties | Object<br />Requis<br />[properties object](#properties)<br /><br />Objet qui spécifie le type de compte de stockage à créer. |
+| type | Enum<br />Required<br />**Microsoft.Storage/storageAccounts**<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2015-06-15** or **2015-05-01-preview**<br /><br />The API version to use for creating the resource. | 
+| name | String<br />Required<br />Between 3 and 24 characters, only numbers and lower-case letters.<br /><br />The name of the storage account to create. The name must be unique across all of Azure. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention as shown in the example below. |
+| location | String<br />Required<br />A region that supports storage accounts. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).<br /><br />The region to host the storage account. |
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the type of storage account to create. |
 
 <a id="properties" />
-### objet propriétés
+### <a name="properties-object"></a>properties object
 
-| Nom | Valeur |
+| Name | Value |
 | ---- | ---- | 
-| accountType | String<br />Requis<br />**Standard\_LRS**, **Standard\_ZRS**, **Standard\_GRS**, **Standard\_RAGRS** ou **Premium\_LRS**<br /><br />Type de compte de stockage. Les valeurs autorisées correspondent à Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant et Premium Locally Redundant. Pour plus d’informations sur ces types de comptes, consultez [Réplication Azure Storage](./storage/storage-redundancy.md). |
+| accountType | String<br />Required<br />**Standard_LRS**, **Standard_ZRS**, **Standard_GRS**, **Standard_RAGRS**, or **Premium_LRS**<br /><br />The type of storage account. The permitted values correspond to Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant, and Premium Locally Redundant. For information about these account types, see [Azure Storage replication](./storage/storage-redundancy.md ). |
 
-	
-## Exemples
+    
+## <a name="examples"></a>Examples
 
-L’exemple suivant déploie un compte de stockage Standard Locally Redundant avec un nom unique basé sur l’ID du groupe de ressources.
+The following example deploys a Standard Locally Redundant storage account with a unique name based on the resource group id.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -71,30 +72,34 @@ L’exemple suivant déploie un compte de stockage Standard Locally Redundant av
                 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
                 "location": "[resourceGroup().location]",
                 "properties": 
-        	{
+            {
                     "accountType": "Standard_LRS"
-        	}
+            }
             }
         ],
         "outputs": {}
     }
 
-## Modèles de démarrage rapide
+## <a name="quickstart-templates"></a>Quickstart templates
 
-Il existe de nombreux modèles de démarrage rapide qui incluent un compte de stockage. Les modèles suivants illustrent des scénarios courants :
+There are many quickstart templates that include a storage account. The following templates illustrate some common scenarios:
 
-- [Création d'un compte de stockage standard](https://azure.microsoft.com/documentation/templates/101-storage-account-create)
-- [Déploiement simple d'une machine virtuelle Windows](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows)
-- [Déploiement simple d'une machine virtuelle Linux](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux)
-- [Création d'un profil CDN, d'un point de terminaison CDN avec un compte de stockage comme origine](https://azure.microsoft.com/documentation/templates/201-cdn-with-storage-account)
-- [Création d'une batterie de serveurs SharePoint à haute disponibilité avec 9 machines virtuelles à l'aide de l'extension DSC Powershell](https://azure.microsoft.com/documentation/templates/sharepoint-server-farm-ha)
-- [Déploiement simple d'un cluster Service Fabric sécurisé à 5 nœuds avec WAD activé](https://azure.microsoft.com/documentation/templates/service-fabric-secure-cluster-5-node-1-nodetype-wad)
-- [Création d'une machine virtuelle à partir d'une image Windows avec 4 disques de données vides](https://azure.microsoft.com/documentation/templates/101-vm-multiple-data-disk)
+- [Create a Standard Storage Account](https://azure.microsoft.com/documentation/templates/101-storage-account-create)
+- [Simple deployment of an Windows VM](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows)
+- [Simple deployment of an Linux VM](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux)
+- [Create a CDN Profile, a CDN Endpoint with a Storage Account as origin](https://azure.microsoft.com/documentation/templates/201-cdn-with-storage-account)
+- [Create a High Availabilty SharePoint Farm with 9 VMs using the Powershell DSC Extension](https://azure.microsoft.com/documentation/templates/sharepoint-server-farm-ha)
+- [Simple deployment of a 5 Node secure Service Fabric Cluster with WAD enabled](https://azure.microsoft.com/documentation/templates/service-fabric-secure-cluster-5-node-1-nodetype-wad)
+- [Create a Virtual Machine from a Windows Image with 4 Empty Data Disks](https://azure.microsoft.com/documentation/templates/101-vm-multiple-data-disk)
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- Pour obtenir des informations générales sur le stockage, consultez [Introduction à Microsoft Azure Storage](./storage/storage-introduction.md).
-- Par obtenir des exemples de modèles qui utilisent un nouveau compte de stockage avec une machine virtuelle, consultez [Déployer une machine virtuelle Linux simple](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) ou [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
+- For general information about storage, see [Introduction to Microsoft Azure Storage](./storage/storage-introduction.md).
+- For example templates that use a new storage account with a Virtual Machine, see [Deploy a simple Linux VM](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) or [Deploy a simple Windows VM](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

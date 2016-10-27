@@ -1,4 +1,4 @@
-Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. La plupart des limites de votre abonnement peuvent être facilement repoussées jusqu’à la limite maximale en contactant le support.
+Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. La plupart des limites de votre abonnement peuvent être facilement repoussées jusqu’à la limite maximale en contactant le support. 
 
 **Ressource** | **Limite par défaut** | **Limite maximale**
 -------- | ------------- | -------------
@@ -25,8 +25,13 @@ Intervalle entre les nouvelles tentatives | 1 seconde | 1 seconde
 Délai d’expiration des nouvelles tentatives | 1 seconde | 1 seconde
 
 
-### Limites d’appels du service web
+### <a name="web-service-call-limits"></a>Limites d’appels du service web
 
-Azure Resource Manager fixe des limites aux appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager fixe des limites aux appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../azure-subscription-service-limits.md#resource-group-limits). 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

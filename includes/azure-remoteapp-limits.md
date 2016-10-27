@@ -1,28 +1,33 @@
 
-|Ressource | Limite par défaut|
+|Resource | Default limit|
 |--------------|--------|
-|Collections par utilisateur| 1|
-|Applications publiées par collection|	100|
-|Durée de la collection d’évaluation| 30 jours|
-|Collections d’évaluation| 2 par abonnement|
-|Utilisateurs par collection d’évaluation| 10|
-|Images du modèle d’évaluation|	25|
-|Collections payantes| 3 |
-|Images du modèle payant| 25|
-|Utilisateurs - niveau de base*| 400 (par défaut)/800 (maximum)|
-|Utilisateurs - niveau standard*| 250 (par défaut)/500 (maximum)|
-|Utilisateurs - Niveau Premium| 100 par défaut|
-|Utilisateurs - Niveau Premium Plus | 50 par défaut|
-|Connexions simultanées sur toutes les collections dans un abonnement| 5 000|
-|Stockage des données utilisateur (UPD) par utilisateur et par collection| 50 Go|
-|Délai d’inactivité| 4 heures|
-|Délai de déconnexion| 4 heures|
+|Collections per user| 1|
+|Published apps per collection| 100|
+|Trial collection duration| 30 days|
+|Trial collections| 2 per subscription|
+|Users per trial collection| 10|
+|Trial template images| 25|
+|Paid collections| 3 |
+|Paid template images| 25|
+|Users - basic tier*| 400 (default)/ 800 (maximum)|
+|Users - standard tier*| 250 (default)/ 500 (maximum)|
+|Users- premium tier| 100 default.|
+|Users - premium plus tier | 50 default.|
+|Concurrent connections across all collections in a subscription| 5000|
+|User data storage (UPD) per user per collection| 50 GB|
+|Idle timeout| 4 hours|
+|Disconnected timeout| 4 hours|
 
-** Les limites de l’utilisateur dans les niveaux de base et standard ne peuvent pas être augmentées au-delà de la limite maximale répertoriée ci-dessus.
+*User limits in basic and standard tiers cannot be increased beyond the maximum limit listed above. 
 
-Le nombre d’utilisateurs est déterminé par le nombre de machines virtuelles utilisées pour votre collection :
+The number of users is determined by the number of VMs used for your collection:
 
-- De base = 16 utilisateurs par machine virtuelle
-- Standard = 10 utilisateurs par machine virtuelle
-- Premium = 4 utilisateurs par machine virtuelle
-- Premium Plus = 2 utilisateurs par machine virtuelle
+- Basic = 16 users per VM
+- Standard = 10 users per VM
+- Premium = 4 users per VM
+- Premium plus = 2 users per VM
+
+
+<!--HONumber=Oct16_HO2-->
+
+

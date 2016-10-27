@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Interface utilisateur d'Azure Mobile Engagement - Tableau de bord" 
-   description="En savoir plus sur l’affichage et la gestion des graphiques de données relatifs à votre application à l’aide d’Azure Mobile Engagement" 
+   pageTitle="Azure Mobile Engagement User Interface - Dashboard" 
+   description="Learn how to view and manage charts of data about your application using Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,22 +16,23 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
-# Affichage et gestion des graphiques de données relatifs à votre application
-La section Tableau de bord de l'interface utilisateur permet aux clients de créer des graphiques personnalisés afin d'optimiser leur temps en fournissant les informations exactes qu'ils souhaitent au lieu de les rechercher dans la section Analyse. Un tableau de bord affiche les tendances de votre application et le nombre d'utilisateurs actifs pour les différentes versions de votre application pendant une période donnée (heure/jour/semaine/mois/personnalisé). Les tendances présentées sont basées sur les 7 derniers jours.
 
-### Voir aussi
--  [Guide de résolution des problèmes - Analyse][Link 21]
+# <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>How to view and manage charts of data about your application
+The Dashboard section of the UI allows customers to create customized charts to maximize their time by providing the exact information they want instead of searching for it in the analytics section. A dashboard shows the trends of your application and the Active User Counts for the different versions of your application during a given time (hour/day/week/month/customized). The trends shown are based on the last 7 days.
 
-## Tableau de bord
-- Vous pouvez ajouter des graphiques à un tableau de bord vide en choisissant l'action « Envoyer au tableau de bord » dans le menu engrenage de n'importe quel graphique dans la section Analyse de l'interface utilisateur que vous aimeriez voir dans un tableau de bord.
+### <a name="see-also"></a>See also
+-  [Troubleshooting Guide - Analytics][Link 21]
+
+## <a name="dashboard"></a>Dashboard
+- You can add charts to an empty dashboard by choosing the "Send to dashboard" action from the gear menu of any chart in the Analytics section of the UI that you'd like to see on a dashboard.
  
-## + (Ajouter un tableau de bord)
-- Vous pouvez utiliser l'élément de menu de ruban « + » pour créer un nouveau tableau de bord qui s'affichera dans le menu de ruban.
+## <a name="+-(add-a-dashboard)"></a>+ (Add a Dashboard)
+- You can use the "+" ribbon menu item to create a new dashboard that will show on the ribbon menu.
  
-## Menu engrenage :
-- Vous pouvez utiliser le menu engrenage d'un tableau de bord pour supprimer, renommer, partager ou planifier (réception de messages électroniques) votre tableau de bord. Vous pouvez utiliser l'option de planification pour définir la fréquence à laquelle vous souhaitez recevoir votre tableau de bord personnalisé par courrier électronique. Vous pouvez choisir de le recevoir à un rythme quotidien, hebdomadaire ou mensuel. Vous pouvez choisir l'heure de la journée et le jour de la semaine ou du mois auxquels vous souhaitez recevoir le courrier électronique. Votre adresse de messagerie et le fuseau horaire sont basés sur les paramètres que vous avez configurés dans la section Mon compte de l'interface utilisateur.
+## <a name="gear-menu"></a>Gear Menu
+- You can use the gear menu of a dashboard to Delete, Rename, Share, or Schedule (E-mail Reception) of your dashboard. You can use the Schedule option to define the schedule at which you would like to receive your custom dashboard by email. You can schedule to receive it daily, weekly, or monthly. You can choose the time of the day, and the day of the week, or day of the month when you would like to receive the e-mail. Your e-mail address and time zone are based on the settings you have configured in the My Account section of the UI.
  
- ![Tableau de bord 1][34]
+ ![dashboard1][34]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -129,4 +130,8 @@ La section Tableau de bord de l'interface utilisateur permet aux clients de cré
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

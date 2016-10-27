@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Présentation de la sécurité réseau Azure | Microsoft Azure"
-   description=" Cet article vous aide à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau et vous explique ce que propose Azure dans chacun de ces domaines. "
+   pageTitle="Azure Network Security Overview | Microsoft Azure"
+   description=" This article makes it easy for you to understand what Microsoft Azure has to offer in the area of network security. We provide basic explanations for core network security concepts and requirements and information on what Azure has to offer in each of these areas. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,253 +16,259 @@
    ms.date="08/09/2016"
    ms.author="terrylan"/>
 
-# Présentation de la sécurité réseau Azure
 
-Microsoft Azure inclut une infrastructure réseau solide pour prendre en charge les exigences de connectivité de vos applications et services. La connectivité réseau est possible entre les ressources hébergées dans Azure, entre les ressources hébergées sur site et dans Azure, mais aussi vers et à partir d’Internet et d’Azure.
+# <a name="azure-network-security-overview"></a>Azure Network Security Overview
 
-Cet article a pour objectif de vous aider à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau. Il vous explique également ce que propose Azure dans chacun de ces domaines. Vous y trouverez de nombreux liens vers d’autres contenus qui vous permettront de développer vos connaissances dans les domaines qui vous intéressent.
+Microsoft Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the Internet and Azure.
 
-Cet article Présentation de sécurité réseau Azure se concentre sur les points suivants :
+The goal of this article is to make it easier for you to understand what Microsoft Azure has to offer in the area of network security. Here we provide basic explanations for core network security concepts and requirements. We also provide you information on what Azure has to offer in each of these areas. There are numerous links to other content that will enable you to get a deeper understanding for the areas in which you’re interested.
 
-- Mise en réseau Azure
-- Contrôle d’accès réseau
-- Accès à distance sécurisé et connectivité intersite
+This Azure Network Security Overview article will focus on the following:
+
+- Azure networking
+- Network access control
+- Secure remote access and cross-premises connectivity
 - Availability
-- Journalisation
-- Résolution de noms
-- Architecture DMZ
-- Centre de sécurité Azure
+- Logging
+- Name resolution
+- DMZ architecture
+- Azure Security Center
 
-## Mise en réseau Azure
+## <a name="azure-networking"></a>Azure Networking
 
-Les machines virtuelles nécessitent une connectivité réseau. Pour cela, les machines virtuelles doivent être connectées à un réseau virtuel Azure. Un réseau virtuel Azure est une construction logique basée sur le réseau physique Azure. Chaque réseau virtuel logique Azure est isolé des autres réseaux virtuels Azure. Cela permet de s’assurer que le trafic réseau dans votre déploiement n’est pas accessible aux autres clients Microsoft Azure.
+Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Azure Virtual Network is isolated from all other Azure Virtual Networks. This helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
 
-En savoir plus :
+Learn more:
 
-- [Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
+- [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
-## Contrôle d’accès réseau
-Le contrôle d’accès réseau consiste à limiter la connectivité vers et depuis certains appareils ou sous-réseaux au sein d’un réseau virtuel Azure. Le contrôle d’accès réseau permet de vous assurer que seuls les utilisateurs et appareils autorisés peuvent accéder à vos machines virtuelles et à vos services. Les contrôles d’accès sont basés sur des autorisations ou des refus de connexion vers et depuis votre machine virtuelle ou votre service.
+## <a name="network-access-control"></a>Network Access Control
+Network access control is the act of limiting connectivity to and from specific devices or subnets within an Azure Virtual Network. The goal of network access control is to make sure that your virtual machines and services are accessible to only users and devices to which you want them accessible. Access controls are based on allow or deny decisions for connections to and from your virtual machine or service.
 
-Azure prend en charge plusieurs types de contrôle d’accès réseau. Vous avez notamment vu les points suivants :
+Azure supports several types of network access control. These include:
 
-- Contrôle de la couche réseau
-- Contrôle du routage et tunneling forcé
-- Appliances de sécurité de réseau virtuel
+- Network layer control
+- Route control and forced tunneling
+- Virtual network security appliances
 
-### Contrôle de la couche réseau
-Tout déploiement sécurisé requiert certaines mesures de contrôle d’accès réseau. Le contrôle d’accès réseau permet de vous assurer que vos machines virtuelles et les services réseau qui s’exécutent sur ces machines peuvent uniquement communiquer avec les appareils réseau avec lesquels ils ont besoin de communiquer et que toutes les autres tentatives de connexion sont bloquées.
+### <a name="network-layer-control"></a>Network Layer Control
+Any secure deployment requires some measure of network access control. The goal of network access control is to make sure that your virtual machines and the network services that run on those virtual machines can communicate only with other networked devices that they need to communicate with and all other connection attempts are blocked.
 
-Si vous avez besoin d’un contrôle d’accès réseau de base (basé sur l’adresse IP et les protocoles TCP ou UDP), vous pouvez utiliser des groupes de sécurité réseau. Un groupe de sécurité réseau est un pare-feu de filtrage des paquets avec état qui vous permet de contrôler l’accès sur la base d’un algorithme à [5 tuples](https://www.techopedia.com/definition/28190/5-tuple). Les groupes de sécurité réseau n’effectuent pas d’inspection de la couche d’application ni de contrôles d’accès authentifiés.
+If you need basic network level access control (based on IP address and the TCP or UDP protocols), then you can use Network Security Groups. A Network Security Group (NSG) is a basic stateful packet filtering firewall and it enables you to control access based on a [5-tuple](https://www.techopedia.com/definition/28190/5-tuple). NSGs do not provide application layer inspection or authenticated access controls.
 
-En savoir plus :
+Learn more:
 
-- [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
+- [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
 
-### Contrôle du routage et tunneling forcé
-La possibilité de contrôler le comportement de routage sur vos réseaux virtuels Azure est une fonctionnalité essentielle en matière de contrôle d’accès et de sécurité réseau. Si le routage est mal configuré, les applications et les services hébergés sur votre machine virtuelle peuvent se connecter à des appareils non autorisés, et notamment à des appareils appartenant à des personnes potentiellement malveillantes.
+### <a name="route-control-and-forced-tunneling"></a>Route Control and Forced Tunneling
+The ability to control routing behavior on your Azure Virtual Networks is a critical network security and access control capability. If routing is configured incorrectly, applications and services hosted on your virtual machine may connect to devices you don’t want them to connect to, including devices owned and operated by potential attackers.
 
-La mise en réseau Azure permet de personnaliser le comportement de routage du trafic réseau sur vos réseaux virtuels Azure. Vous pouvez ainsi modifier les entrées de la table de routage par défaut dans votre réseau virtuel Azure. Le contrôle du comportement de routage vous permet de vous assurer que tout le trafic en provenance d’un appareil ou d’un groupe d’appareils donné entre ou quitte votre réseau virtuel Azure par un point spécifique.
+Azure networking supports the ability to customize the routing behavior for network traffic on your Azure Virtual Networks. This enables you to alter the default routing table entries in your Azure Virtual Network. Control of routing behavior helps you make sure that all traffic from a certain device or group of devices enters or leaves your Azure Virtual Network through a specific location.
 
-Par exemple, vous pouvez disposer d’une appliance de sécurité de réseau virtuel sur votre réseau virtuel Azure. Vous voulez vous assurer que tout le trafic vers et depuis votre réseau virtuel Azure passe par cette appliance de sécurité virtuelle. Pour cela, vous pouvez configurer les [itinéraires définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md) dans Azure.
+For example, you might have a virtual network security appliance on your Azure Virtual Network. You want to make sure that all traffic to and from your Azure Virtual Network goes through that virtual security appliance. You can do this by configuring [User Defined Routes](../virtual-network/virtual-networks-udr-overview.md) in Azure.
 
-Le [tunneling forcé](https://www.petri.com/azure-forced-tunneling) est un mécanisme que vous pouvez utiliser pour empêcher vos services de se connecter aux appareils sur Internet. Par contre, cela n’empêche pas les services d’accepter des connexions entrantes ni d’y répondre. Les serveurs web frontaux doivent pouvoir répondre aux demandes provenant d’hôtes Interne, ce qui explique pourquoi le trafic Internet est autorisé à entrer sur ces serveurs web et pourquoi les serveurs web sont autorisés à y répondre.
+[Forced tunneling](https://www.petri.com/azure-forced-tunneling) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the Internet. Note that this is different from accepting incoming connections and then responding to them. Front-end web servers need to respond to request from Internet hosts, and so Internet-sourced traffic is allowed inbound to these web servers and the web servers are allowed to respond.
 
-Un serveur web frontal ne devrait par contre pas pouvoir initier une requête sortante. Une telle requête pourrait représenter un risque de sécurité car ces connexions peuvent être utilisées pour télécharger des programmes malveillants. Même si vous voulez autoriser ces serveurs frontaux à initier des requêtes sortantes vers Internet, vous pourriez les obliger à passer par les serveurs proxy web locaux afin d’utiliser les fonctionnalités de journalisation et de filtrage des URL.
+What you don’t want to allow is a front-end web server to initiate an outbound request. Such requests may represent a security risk because these connections could be used to download malware. Even if you do wish these front-end servers to initiate outbound requests to the Internet, you might want to force them to go through your on-premises web proxies so that you can take advantage of URL filtering and logging.
 
-Pour éviter ce problème, vous pouvez donc utiliser le tunneling forcé. Lorsque vous activez le tunneling forcé, toutes les connexions à Internet passent obligatoirement par votre passerelle locale. Vous pouvez configurer le tunneling forcé en utilisant les itinéraires définis par l’utilisateur.
+Instead, you would want to use forced tunneling to prevent this. When you enable forced tunneling, all connections to the Internet are forced through your on-premises gateway. You can configure forced tunneling by taking advantage of User Defined Routes.
 
-En savoir plus :
+Learn more:
 
-- [Présentation des itinéraires définis par l’utilisateur et du transfert IP](../virtual-network/virtual-networks-udr-overview.md)
+- [What are User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md)
 
-### Appliances de sécurité de réseau virtuel
-Les groupes de sécurité réseau, les itinéraires définis par l’utilisateur et le tunneling forcé vous offrent une sécurité au niveau des couches réseau et transport du [modèle OSI](https://en.wikipedia.org/wiki/OSI_model), mais il est parfois judicieux d’étendre la sécurité au-delà de la couche réseau.
+### <a name="virtual-network-security-appliances"></a>Virtual Network Security Appliances
+While Network Security Groups, User Defined Routes, and forced tunneling provide you a level of security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), there may be times when you want to enable security at levels higher than the network.
 
-Vos besoins en matière de sécurité peuvent inclure :
+For example, your security requirements might include:
 
-- Des fonctionnalités d’authentification et d’autorisation régissant l’accès à votre application
-- La détection et la gestion des intrusions
-- Une inspection de la couche d’application pour les protocoles de niveau supérieur
-- Un filtrage des URL
-- Un logiciel anti-programme malveillant et antivirus au niveau du réseau
-- Une protection anti-robot
-- Un contrôle d’accès aux applications
-- Une protection DDoS supplémentaire (en supplément de la protection DDoS assurée par la structure Azure)
+- Authentication and authorization prior to allowing access to your application
+- Intrusion detection and intrusion response
+- Application layer inspection for high-level protocols
+- URL filtering
+- Network level antivirus and antimalware
+- Anti-bot protection
+- Application access control
+- Additional DDoS protection (above the DDoS protection provided the Azure fabric itself)
 
-Ces fonctionnalités avancées de sécurité réseau peuvent être mises en œuvre via une solution de partenaire Azure. Pour connaître les dernières solutions de sécurité réseau des partenaires Azure, rendez-vous sur [Azure Marketplace](https://azure.microsoft.com/marketplace/) et recherchez les mots clés « sécurité » et « sécurité réseau ».
+You can access these enhanced network security features by using an Azure partner solution. You can find the most current Azure partner network security solutions by visiting the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and searching for “security” and “network security”.
 
-## Accès à distance sécurisé et connectivité intersite
-Imaginons que vous deviez installer, configurer et gérer vos ressources Azure à distance. Vous souhaitez également déployer des solutions [informatiques hybrides](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) avec des composants hébergés localement et dans le cloud public Azure. Ces scénarios nécessitent un accès à distance sécurisé.
+## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Secure Remote Access and Cross Premises Connectivity
+Setup, configuration and management of your Azure resources needs to be done remotely. In addition, you may want to deploy [hybrid IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) solutions that have components on-premises and in the Azure public cloud. These scenarios require secure remote access.
 
-La mise en réseau Azure prend en charge les scénarios d’accès à distance sécurisé suivants :
+Azure networking supports the following secure remote access scenarios:
 
-- Connecter des stations de travail à un réseau virtuel Azure
-- Connecter votre réseau local à un réseau virtuel Azure à l’aide d’un VPN
-- Connecter votre réseau local à un réseau virtuel Azure à l’aide d’une liaison réseau étendu dédiée
-- Connecter des réseaux virtuels Azure entre eux
+- Connect individual workstations to an Azure Virtual Network
+- Connect your on-premises network to an Azure Virtual Network with a VPN
+- Connect your on-premises network to an Azure Virtual Network with a dedicated WAN link
+- Connect Azure Virtual Networks to each other
 
-### Connecter des stations de travail à un réseau virtuel Azure
-Il peut arriver que vous souhaitiez permettre à des développeurs ou à des membres du personnel d’exploitation de gérer les machines virtuelles et les services dans Azure. Par exemple, vous avez besoin d’accéder à une machine virtuelle sur un réseau virtuel Azure et votre stratégie de sécurité n’autorise pas l’accès à distance RDP ou SSH aux machines virtuelles. Dans ce cas, vous pouvez utiliser une connexion VPN de point à site.
+### <a name="connect-individual-workstations-to-an-azure-virtual-network"></a>Connect Individual Workstations to an Azure Virtual Network
+There may be times when you want to enable individual developers or operations personnel to manage virtual machines and services in Azure. For example, you need access to a virtual machine on an Azure Virtual Network and your security policy does not allow RDP or SSH remote access to individual virtual machines. In this case, you can use a point-to-site VPN connection.
 
-La connexion VPN de point à site utilise le protocole [VPN SSTP](https://technet.microsoft.com/library/cc731352.aspx) pour vous permettre de configurer une connexion privée et sécurisée entre l’utilisateur et le réseau virtuel Azure. Une fois la connexion VPN établie, l’utilisateur pourra utiliser le protocole RDP ou SSH sur la liaison VPN pour se connecter à une machine virtuelle hébergée sur le réseau virtuel Azure (en supposant que l’utilisateur peut s’authentifier et qu’il est autorisé à se connecter).
+The point-to-site VPN connection uses the [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protocol to enable you to set up a private and secure connection between the user and the Azure Virtual Network. Once the VPN connection is established, the user will be able to RDP or SSH over the VPN link into any virtual machine on the Azure Virtual Network (assuming that the user can authenticate and is authorized).
 
-En savoir plus :
+Learn more:
 
-- [Configurer une connexion point à site à un réseau virtuel à l’aide de PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Configure a Point-to-Site Connection to a Virtual Network using PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-### Connecter votre réseau local à un réseau virtuel Azure à l’aide d’un VPN
-Imaginons que vous souhaitiez connecter l’ensemble ou une partie de votre réseau d’entreprise à un réseau virtuel Azure. Il s’agit d’un scénario d’informatique hybride courant dans lequel les entreprises [étendent leur centre de données local dans Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Dans de nombreux cas, les entreprises hébergent une partie du service dans Azure et l’autre partie dans leur centre de données local, notamment lorsque la solution comprend des serveurs web frontaux dans Azure et des bases de données principales locales. Ce type de connexion « intersite » offre une gestion plus sécurisée des ressources hébergées dans Azure et prend en charge des scénarios tels que l’extension des contrôleurs de domaine Active Directory dans Azure.
+### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-vpn"></a>Connect Your On-Premises Network to an Azure Virtual Network with a VPN
+You may want to connect your entire corporate network, or portions of it, to an Azure Virtual Network. This is common in hybrid IT scenarios where companies [extend their on-premises datacenter into Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In many cases companies will host parts of a service in Azure and parts on-premises, such as when a solution includes front-end web servers in Azure and back-end databases on-premises. These kind of “cross-premises” connections also make management of Azure located resources more secure and enable scenarios such as extending Active Directory domain controllers into Azure.
 
-Pour ce faire, vous pouvez par exemple utiliser un [VPN de site à site](https://www.techopedia.com/definition/30747/site-to-site-vpn). Un VPN de site à site est différent d’un VPN de point à site. En effet, un VPN de point à site connecte un seul appareil à un réseau virtuel Azure, tandis qu’un VPN de site à site connecte un réseau entier (tel que votre réseau local) à un réseau virtuel Azure. Une connexion VPN de site à site vers un réseau virtuel Azure utilise le protocole VPN hautement sécurisé en mode de tunneling IPsec.
+One way to accomplish this is to use a [site-to-site VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). The difference between a site-to-site VPN and a point-to-site VPN is that a point-to-site VPN connects a single device to an Azure Virtual Network, while a site-to-site VPN connects an entire network (such as your on-premises network) to an Azure Virtual Network. Site-to-site VPNs to an Azure Virtual Network use the highly secure IPsec tunnel mode VPN protocol.
 
-En savoir plus :
+Learn more:
 
-- [Créer un réseau virtuel de gestionnaire de ressources avec une connexion VPN de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Planification et conception de la passerelle VPN](../vpn-gateway/vpn-gateway-plan-design.md)
+- [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Planning and design for VPN gateway](../vpn-gateway/vpn-gateway-plan-design.md)
 
-### Connecter votre réseau local à un réseau virtuel Azure à l’aide d’une liaison réseau étendu dédiée
-Les connexions VPN de point à site et de site à site offrent une véritable connectivité intersite. Toutefois, certaines organisations leur reconnaissent les inconvénients suivants :
+### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-dedicated-wan-link"></a>Connect Your On-premises Network to an Azure Virtual Network with a Dedicated WAN Link
+Point-to-site and site-to-site VPN connections are effective for enabling cross-premises connectivity. However, some organizations consider them to have the following drawbacks:
 
-- Les connexions VPN déplacent les données sur Internet : les connexions s’exposent ainsi à des risques de sécurité liés au déplacement de données sur un réseau public. En outre, il est impossible de garantir la fiabilité et la disponibilité des connexions Internet.
-- La bande passante des connexions VPN aux réseaux virtuels Azure, limitée à environ 200 Mbits/s, s’avère parfois insuffisante pour certaines applications et utilisations.
+- VPN connections move data over the Internet – this exposes these connections to potential security issues involved with moving data over a public network. In addition, reliability and availability for Internet connections cannot be guaranteed.
+- VPN connections to Azure Virtual Networks may be considered bandwidth constrained for some applications and purposes, as they max out at around 200Mbps.
 
-Les organisations qui ont besoin du plus haut niveau de disponibilité et de sécurité pour leurs connexions intersites utilisent généralement des liaisons réseau étendu dédiées pour se connecter à des sites distants. Azure vous permet d’utiliser une liaison réseau étendu dédiée pour connecter votre réseau local à un réseau virtuel Azure. Pour cela, vous devez utiliser Azure ExpressRoute.
+Organizations that need the highest level of security and availability for their cross-premises connections typically use dedicated WAN links to connect to remote sites. Azure provides you the ability to use a dedicated WAN link that you can use to connect your on-premises network to an Azure Virtual Network. This is enabled through Azure ExpressRoute.
 
-En savoir plus :
+Learn more:
 
-- [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md)
+- [ExpressRoute technical overview](../expressroute/expressroute-introduction.md)
 
-### Connecter des réseaux virtuels Azure entre eux
-Il est possible d’utiliser plusieurs réseaux virtuels Azure dans vos déploiements. Plusieurs raisons peuvent vous encourager à le faire, notamment pour simplifier la gestion, mais aussi pour des raisons de sécurité. Quelle que soit la raison pour laquelle vous placez des ressources sur différents réseaux virtuels Azure, il est possible que vous souhaitiez, à un moment donné, connecter entre elles les ressources hébergées sur les différents réseaux.
+### <a name="connect-azure-virtual-networks-to-each-other"></a>Connect Azure Virtual Networks to Each Other
+It is possible for you to use many Azure Virtual Networks for your deployments. There are many reasons why you might do this. One of the reasons might be to simplify management; another might be for security reasons. Regardless of the motivation or rationale for putting resources on different Azure Virtual Networks, there may be times when you want resources on each of the networks to connect with one another.
 
-Une option serait de connecter les services d’un réseau virtuel Azure aux services d’un autre réseau virtuel Azure en effectuant un « retour de boucle » via Internet. La connexion partirait d’un réseau virtuel Azure, passerait par Internet, puis reviendrait au réseau virtuel Azure de destination. Cette option expose la connexion aux risques de sécurité inhérents à toute communication Internet.
+One option would be for services on one Azure Virtual Network to connect to services on another Azure Virtual Network by “looping back” through the Internet. The connection would start on one Azure Virtual Network, go through the Internet, and then come back to the destination Azure Virtual Network. This option exposes the connection to the security issues inherent to any Internet-based communication.
 
-Une meilleure option serait de créer un VPN de site à site entre deux réseaux virtuels Azure. Ce VPN de site à site utiliserait le même protocole de [mode de tunneling IPsec](https://technet.microsoft.com/library/cc786385.aspx) que la connexion VPN de site à site mentionnée ci-dessus.
+A better option might be to create an Azure Virtual Network-to-Azure Virtual Network site-to-site VPN. This Azure Virtual Network-to-Azure Virtual Network site-to-site VPN uses the same [IPsec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx) protocol as the cross-premises site-to-site VPN connection mentioned above.
 
-L’avantage d’utiliser un VPN de site à site entre deux réseaux virtuels Azure est que la connexion VPN est établie via l’infrastructure réseau Azure et non via Internet. Vous bénéficiez ainsi d’un meilleur niveau de sécurité par rapport à une connexion VPN de site à site basée sur Internet.
+The advantage of using an Azure Virtual Network-to-Azure Virtual Network site-to-site VPN is that the VPN connection is established over the Azure network fabric; it does not connect over the Internet. This provides you an extra layer of security compared to site-to-site VPNs that connect over the Internet.
 
-En savoir plus :
+Learn more:
 
-- [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+- [Configure a VNet-to-VNet Connection by using Azure Resource Manager and PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-## Availability
-La disponibilité est au cœur de tout programme de sécurité. Si vos utilisateurs et les systèmes ne peuvent pas accéder à ce dont ils ont besoin via le réseau, le service peut être considéré comme compromis. Azure propose des technologies de mise en réseau qui prennent en charge les mécanismes de haute disponibilité suivants :
+## <a name="availability"></a>Availability
+Availability is a key component of any security program. If your users and systems can’t access what they need to access over the network, the service can be considered compromised. Azure has networking technologies that support the following high-availability mechanisms:
 
-- Équilibrage de charge basé sur HTTP
-- Équilibrage de charge au niveau du réseau
-- Équilibrage de charge global
+- HTTP-based load balancing
+- Network level load balancing
+- Global load balancing
 
-L’équilibrage de charge est un mécanisme conçu pour répartir équitablement les connexions entre plusieurs appareils. Il a plusieurs objectifs :
+Load balancing is a mechanism designed to equally distribute connections among multiple devices. The goals of load balancing are:
 
-- Augmenter la disponibilité : lorsque vous équilibrez la charge des connexions sur plusieurs appareils et qu’un ou plusieurs appareils deviennent indisponibles, les services exécutés sur les appareils toujours en ligne peuvent continuer à fournir le contenu du service.
-- Améliorer les performances : lorsque vous équilibrez la charge des connexions sur plusieurs appareils, l’ensemble des appareils jouent le rôle de processeur. Les requêtes de traitement et de mémoire pour distribuer le contenu sont ainsi réparties sur plusieurs appareils.
+- Increase availability – when you load balance connections across multiple devices, one or more of the devices can become unavailable and the services running on the remaining online devices can continue to serve the content from the service
+- Increase performance – when you load balance connections across multiple devices, a single device doesn’t have to take the processor hit. Instead, the processing and memory demands for serving the content is spread across multiple devices.
 
-### Équilibrage de charge basé sur HTTP
-Les organisations qui exécutent des services basés sur le web privilégient souvent un équilibreur de charge basé sur HTTP afin de garantir des niveaux de haute disponibilité et de performance suffisants pour ces services. Contrairement aux équilibreurs de charge classiques basés sur le réseau, les équilibreurs de charge basés sur HTTP répartissent la charge en fonction des caractéristiques du protocole HTTP, et non de celles des protocoles de couche réseau et transport.
+### <a name="http-based-load-balancing"></a>HTTP-based Load Balancing
+Organizations that run web-based services often desire to have an HTTP-based load balancer in front of those web services to help insure adequate levels of performance and high availability. In contrast to traditional network-based load balancers, the load balancing decisions made by HTTP-based load balancers are based on characteristics of the HTTP protocol, not on the network and transport layer protocols.
 
-La passerelle Azure Application Gateway vous permet de mettre en place un équilibrage de charge basé sur HTTP pour vos services basés sur le web. La passerelle Azure Application Gateway prend en charge :
+To provide you HTTP-based load balancing for your web-based services, Azure provides you the Azure Application Gateway. The Azure Application Gateway supports:
 
-- L’équilibrage de charge basé sur HTTP : la charge est répartie en fonction des caractéristiques spécifiques du protocole HTTP.
-- L’affinité de session basée sur les cookies : cette fonctionnalité permet de s’assurer que les connexions établies avec l’un des serveurs situé derrière l’équilibreur de charge restent opérationnelles entre le client et le serveur. La stabilité des transactions est ainsi garantie.
-- Le déchargement SSL : lorsqu’une connexion client est établie avec l’équilibreur de charge, la session entre le client et l’équilibreur de charge est chiffrée à l’aide du protocole HTTPS (SSL/). Toutefois, afin d’améliorer les performances, vous avez la possibilité de faire en sorte que la connexion entre l’équilibreur de charge et le serveur web situé derrière l’équilibreur de charge utilise le protocole HTTP (non chiffré). C’est le principe du « déchargement SSL ». En effet, les serveurs web situés derrière l’équilibreur de charge ne sont pas affectés par la surcharge de traitement inhérente au chiffrement et peuvent donc traiter les demandes plus rapidement.
-- Le routage du contenu basé sur l’URL : cette fonctionnalité permet à l’équilibreur de charge de répartir les connexions en fonction de l’URL cible. Cela offre une plus grande flexibilité que les solutions qui répartissent la charge en fonction des adresses IP.
+- HTTP-based load balancing – load balancing decisions are made based on characteristic special to the HTTP protocol
+- Cookie-based session affinity – this capability makes sure that connections established to one of the servers behind that load balancer stays intact between the client and server. This insures stability of transactions.
+- SSL offload – when a client connection is established with the load balancer, that session between the client and the load balancer is encrypted using the HTTPS (SSL/) protocol. However, in order to increase performance, you have the option to have the connection between the load balancer and the web server behind the load balancer use the HTTP (unencrypted) protocol. This is referred to as “SSL offload” because the web servers behind the load balancer don’t experience the processor overhead involved with encryption, and therefore should be able to service requests more quickly.
+- URL-based content routing – this feature makes it possible for the load balancer to make decisions on where to forward connections based on the target URL. This provides a lot more flexibility than solutions that make load balancing decisions based on IP addresses.
 
-En savoir plus :
+Learn more:
 
-- [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)
+- [Application Gateway Overview](../application-gateway/application-gateway-introduction.md)
 
-### Équilibrage de charge au niveau du réseau
-Contrairement à l’équilibrage de charge basé sur HTTP, l’équilibrage de charge au niveau du réseau répartit la charge en fonction des adresses IP et des numéros de port (TCP ou UDP). Pour bénéficier des avantages de l’équilibrage de charge au niveau du réseau, vous pouvez utiliser l’équilibreur de charge Azure Load Balancer. Voici ses principales caractéristiques :
+### <a name="network-level-load-balancing"></a>Network Level Load Balancing
+In contrast to HTTP-based load balancing, network level load balancing makes load balancing decisions based on IP address and port (TCP or UDP) numbers.
+You can gain the benefits of network level load balancing in Azure by using the Azure Load Balancer. Some key characteristics of the Azure Load Balancer include:
 
-- Équilibrage de charge au niveau du réseau basé sur les adresses IP et les numéros de port
-- Prise en charge de l’ensemble des protocoles de couche d’application
-- Répartition de la charge sur les instances de rôle de services cloud et de machines virtuelles Azure
-- Peut être utilisé à la fois pour les applications et les machines virtuelles accessibles sur Internet (équilibrage de charge externe) et non accessibles sur Internet (équilibrage de charge interne)
-- Surveillance de point de terminaison, utilisée pour déterminer si l’un des services situés derrière l’équilibreur de charge n’est plus disponible
+- Network level load balancing based on IP address and port numbers
+- Support for any application layer protocol
+- Load balances to Azure virtual machines and cloud services role instances
+- Can be used for both Internet-facing (external load balancing) and non-Internet facing (internal load balancing) applications and virtual machines
+- Endpoint monitoring, which is used to determine if any of the services behind the load balancer have become unavailable
 
-En savoir plus :
+Learn more:
 
-- [Équilibrage de charge accessible sur Internet entre plusieurs services ou machines virtuelles](../load-balancer/load-balancer-internet-overview.md)
-- [Présentation de l’équilibrage de charge interne](../load-balancer/load-balancer-internal-overview.md)
+- [Internet Facing load balancer between multiple Virtual Machines or services](../load-balancer/load-balancer-internet-overview.md)
+- [Internal Load Balancer Overview](../load-balancer/load-balancer-internal-overview.md)
 
-### Équilibrage de charge global
-Certaines organisations souhaitent bénéficier du plus haut niveau de disponibilité possible. Pour y parvenir, une option consiste à héberger les applications dans des centres de données répartis dans le monde entier. Lorsqu’une application est hébergée dans des centres de données répartis dans le monde entier, celle-ci restera opérationnelle même si une région géopolitique entière devient indisponible.
+### <a name="global-load-balancing"></a>Global Load Balancing
+Some organizations will want the highest level of availability possible. One way to reach this goal is to host applications in globally distributed datacenters. When an application is hosted in data centers located throughout the world, it’s possible for an entire geopolitical region to become unavailable and still have the application up and running.
 
-En plus d’une meilleure disponibilité, cette stratégie offre également des avantages en termes de performance. Pour améliorer les performances, vous pouvez utiliser un mécanisme qui dirige les demandes de service vers le centre de données le plus proche de l’appareil qui envoie la demande.
+In addition to the availability advantages you get by hosting applications in globally distributed datacenters, you also can get performance benefits. These performance benefits can be obtained by using a mechanism that directs requests for the service to the datacenter that is nearest to the device that is making the request.
 
-Avec l’équilibrage de charge global, vous améliorez donc aussi bien la disponibilité que les performances. Pour bénéficier des avantages de l’équilibrage de charge global, vous pouvez utiliser Azure Traffic Manager.
+Global load balancing can provide you both of these benefits. In Azure, you can gain the benefits of global load balancing by using Azure Traffic Manager.
 
-En savoir plus :
+Learn more:
 
-- [Qu’est-ce que Traffic Manager ?](../traffic-manager/traffic-manager-overview.md)
+- [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-## Journalisation
-La journalisation au niveau du réseau est un élément clé de tout scénario de sécurité réseau. Dans Azure, vous pouvez consigner les informations obtenues pour les groupes de sécurité réseau afin de collecter les données de journalisation au niveau du réseau. La journalisation des groupes de sécurité réseau vous permet de consigner les données des journaux suivants :
+## <a name="logging"></a>Logging
+Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for Network Security Groups to get network level logging information. With NSG logging, you get information from:
 
-- Journaux d’audit : ces journaux consignent toutes les opérations envoyées à vos abonnements Azure. Ils sont activés par défaut et peuvent être affichés dans le portail Azure.
-- Journaux des événements : ces journaux permettent de savoir quelles règles de groupe de sécurité réseau (NSG) ont été appliquées.
-- Journaux des compteurs : ces journaux affichent le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
+- Audit logs – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal.
+- Event logs – these logs provide information about what NSG rules were applied.
+- Counter logs – these logs let you know how many times each NSG rule was applied to deny or allow traffic.
 
-Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), un puissant outil de visualisation de données, pour afficher et analyser ces journaux.
+You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), a powerful data visualization tool, to view and analyze these logs.
 
-En savoir plus :
+Learn more:
 
-- [Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
+- [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
 
-## Résolution de noms
-La résolution de noms est une fonctionnalité essentielle pour tous les services que vous hébergez dans Azure. En effet, une résolution de noms sécurisée permet d’éviter qu’un cybercriminel ne redirige les requêtes de vos sites vers un site malveillant. Une résolution de noms sécurisée est donc requise pour tous vos services hébergés dans le cloud.
+## <a name="name-resolution"></a>Name Resolution
+Name resolution is a critical function for all services you host in Azure. From a security perspective, compromise of the name resolution function can lead to an attacker redirecting requests from your sites to an attacker’s site. Secure name resolution is a requirement for all your cloud hosted services.
 
-Il existe deux types de résolution de noms :
+There are two types of name resolution you need to address:
 
-- Résolution de noms interne : la résolution de noms interne est utilisée par les services hébergés sur vos réseaux virtuels Azure, sur vos réseaux locaux ou sur les deux. Les noms utilisés pour la résolution de noms interne ne sont pas accessibles sur Internet. Pour une sécurité optimale, votre schéma de résolution de noms interne ne doit pas être accessible aux utilisateurs externes.
-- Résolution de noms externe : la résolution de noms externe est utilisée par les personnes et les appareils qui se trouvent en dehors de vos réseaux virtuels Azure et de vos réseaux locaux. Les noms sont visibles sur Internet et utilisés pour établir la connexion avec vos services basés dans le cloud.
+- Internal name resolution – internal name resolution is used by services on your Azure Virtual Networks, your on-premises networks, or both. Names used for internal name resolution are not accessible over the Internet. For optimal security, it’s important that your internal name resolution scheme is not accessible to external users.
+- External name resolution – external name resolution is used by people and devices outside of your on-premises and Azure Virtual Networks. These are the names that are visible to the Internet and are used to direct connection to your cloud-based services.
 
-Pour la résolution de noms interne, vous avez deux options :
+For internal name resolution, you have two options:
 
-- Un serveur DNS associé au réseau virtuel Azure : lorsque vous créez un réseau virtuel Azure, un serveur DNS est automatiquement créé. Ce serveur DNS peut résoudre les noms des machines hébergées sur ce réseau virtuel Azure. Ce serveur DNS n’est pas configurable et est géré par le gestionnaire de structure Azure, ce qui en fait une solution de résolution de noms sécurisée.
-- Définissez votre propre serveur DNS : vous avez la possibilité d’ajouter un serveur DNS de votre choix sur votre réseau virtuel Azure. Ce serveur DNS peut être un serveur DNS intégré à Active Directory, ou une solution de serveur DNS dédiée fournie par un partenaire Azure et que vous pouvez obtenir à partir d’Azure Marketplace.
+- An Azure Virtual Network DNS server – when you create a new Azure Virtual Network, a DNS server is created for you. This DNS server can resolve the names of the machines located on that Azure Virtual Network. This DNS server is not configurable and is managed by the Azure fabric manager, thus making it a secure name resolution solution.
+- Bring your own DNS server – you have the option of putting a DNS server of your own choosing on your Azure Virtual Network. This DNS server could be an Active Directory integrated DNS server, or a dedicated DNS server solution provided by an Azure partner, which you can obtain from the Azure Marketplace.
 
-En savoir plus :
+Learn more:
 
-- [Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
-- [Gestion des serveurs DNS utilisés par un réseau virtuel](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
+- [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
+- [Manage DNS Servers used by a Virtual Network (VNet)](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
 
-Pour la résolution DNS externe, vous avez également deux options :
+For external DNS resolution, you have two options:
 
-- Héberger votre propre serveur DNS externe sur site
-- Héberger votre propre serveur DNS externe via un fournisseur de services
+- Host your own external DNS server on-premises
+- Host your own external DNS server with a service provider
 
-Les grandes organisations préfèrent généralement héberger leurs serveurs DNS sur site. Elles peuvent le faire car elles disposent des connaissances en mise en réseau et de la présence mondiale requises.
+Many large organizations will host their own DNS servers on-premises. They can do this because they have the networking expertise and global presence to do so.
 
-Dans la plupart des cas, il est préférable de faire appel à un fournisseur de services pour héberger vos services de résolution de noms DNS. Ces fournisseurs de services possèdent les connaissances en mise en réseau et la présence mondiale pour garantir une très haute disponibilité à vos services de résolution de noms. La disponibilité est essentielle pour les services DNS, car si vos services de résolution de noms deviennent indisponibles, personne ne pourra se connecter à vos services accessibles sur Internet.
+In most cases, it’s better to host your DNS name resolution services with a service provider. These service providers have the network expertise and global presence to ensure very high availability for your name resolution services. Availability is essential for DNS services because if your name resolution services fail, no one will be able to reach your Internet facing services.
 
-Azure vous propose une solution DNS externe hautement disponible et performante, connue sous le nom d’Azure DNS. Cette solution de résolution de noms externe repose sur l’infrastructure DNS Azure mondiale. Elle vous permet d’héberger votre domaine dans Azure en utilisant les mêmes informations d’identification, API, outils et services de facturation que pour vos autres services Azure. Elle intègre également les contrôles de sécurité performants de la plateforme.
+Azure provides you a highly available and performant external DNS solution in the form of Azure DNS. This external name resolution solution takes advantage of the worldwide Azure DNS infrastructure. It allows you to host your domain in Azure using the same credentials, APIs, tools, and billing as your other Azure services. As part of Azure, it also inherits the strong security controls built into the platform.
 
-En savoir plus :
+Learn more:
 
-- [Vue d'ensemble d’Azure DNS](../dns/dns-overview.md)
+- [Azure DNS Overview](../dns/dns-overview.md)
 
-## Architecture DMZ
-De nombreuses entreprises utilisent les zones démilitarisées (DMZ) pour segmenter leurs réseaux et créer une zone de mémoire tampon entre Internet et leurs services. La partie DMZ du réseau est considérée comme une zone de sécurité faible qui n’héberge aucune ressource de valeur. En général, les appareils de sécurité réseau ont une interface réseau sur le segment DMZ et une autre interface réseau connectée à un réseau qui héberge des machines virtuelles et des services qui acceptent les connexions entrantes en provenance d’Internet.
+## <a name="dmz-architecture"></a>DMZ Architecture
+Many enterprise organizations use DMZs to segment their networks to create a buffer-zone between the Internet and their services. The DMZ portion of the network is considered a low-security zone and no high-value assets are placed in that network segment. You’ll typically see network security devices that have a network interface on the DMZ segment and another network interface connected to a network that has virtual machines and services that accept inbound connections from the Internet.
 
-Il existe plusieurs conceptions de zone DMZ. De plus, la nécessité de déployer une zone DMZ et le choix du type de zone DMZ à utiliser dépendront de vos besoins en matière de sécurité réseau.
+There are a number of variations of DMZ design and the decision to deploy a DMZ, and then what type of DMZ to use if you decide to use one, is based on your network security requirements.
 
-En savoir plus :
+Learn more:
 
-- [Services cloud et sécurité réseau Microsoft](../best-practices-network-security.md)
+- [Microsoft Cloud Services and Network Security](../best-practices-network-security.md)
 
-## Centre de sécurité Azure
-Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
+## <a name="azure-security-center"></a>Azure Security Center
+Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Azure Security Center vous permet d’optimiser et de surveiller la sécurité réseau grâce aux opérations suivantes :
+Azure Security Center helps you optimize and monitor network security by:
 
-- Mise à disposition de recommandations relatives à la sécurité réseau
-- Surveillance de l’état de votre configuration de la sécurité réseau
-- Envoi d’alertes destinées à vous informer de toute menace touchant le réseau, au niveau des points de terminaison comme à celui du réseau
+- Providing network security recommendations
+- Monitoring the state of your network security configuration
+- Alerting you to network based threats both at the endpoint and network levels
 
-En savoir plus :
+Learn more:
 
-- [Présentation du Centre de sécurité Azure](../security-center/security-center-intro.md)
+- [Introduction to Azure Security Center](../security-center/security-center-intro.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configurer une passerelle d’application pour le déchargement SSL en utilisant le portail | Microsoft Azure"
-   description="Cette page fournit des instructions pour la création d’une passerelle Application Gateway pour le déchargement SSL à l’aide du portail"
+   pageTitle="Configure an application gateway for SSL offload by using the portal | Microsoft Azure"
+   description="This page provides instructions to create an application gateway with SSL offload by using the portal"
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -15,78 +15,82 @@
    ms.date="09/09/2016"
    ms.author="gwallace"/>
 
-# Configurer une passerelle d’application pour le déchargement SSL en utilisant le portail
+
+# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-portal"></a>Configure an application gateway for SSL offload by using the portal
 
 > [AZURE.SELECTOR]
 -[Azure portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 -[Azure Classic PowerShell](application-gateway-ssl.md)
 
-Il est possible de configurer une passerelle Azure Application Gateway pour terminer la session SSL (Secure Sockets Layer) au niveau de la passerelle afin d’éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
+Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
-## Scénario
+## <a name="scenario"></a>Scenario
 
-Le scénario suivant passe par la configuration du déchargement SSL sur une passerelle d’application existante. Le scénario suppose que vous avez déjà suivi la procédure de [Création d’une passerelle Application Gateway](application-gateway-create-gateway-portal.md).
+The following scenario goes through configuring SSL offload on an existing application gateway. The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
 
-## Avant de commencer
+## <a name="before-you-begin"></a>Before you begin
 
-Pour configurer le déchargement SSL avec une passerelle Application Gateway, un certificat est requis. Ce certificat est chargé sur la passerelle d’application et utilisé pour chiffrer et déchiffrer le trafic envoyé via SSL. Le certificat doit être partagé au format Personal Information Exchange (.pfx). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic.
+To configure SSL offload with an application gateway, a certificate is required. This certificate is loaded on the application gateway and used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
 
-## Ajouter un écouteur HTTPS
+## <a name="add-an-https-listener"></a>Add an HTTPS listener
 
-L’écouteur HTTPS recherche le trafic en fonction de sa configuration et aide à acheminer le trafic vers les pools principaux.
+The HTTPS listener looks for traffic based on its configuration and helps route the traffic to the backend pools.
 
-### Étape 1
+### <a name="step-1"></a>Step 1
 
-Accédez au portail Azure et sélectionnez une passerelle d’application existante.
+Navigate to the Azure portal and select an existing application gateway
 
-![Panneau de vue d’ensemble de passerelle d’application][1]
+![app gateway overview blade][1]
 
-### Étape 2
+### <a name="step-2"></a>Step 2
 
-Cliquez sur Écouteurs et cliquez sur le bouton Ajouter pour ajouter un écouteur.
+Click Listeners and click the Add button to add a listener.
 
-### Étape 3
+### <a name="step-3"></a>Step 3
 
-Remplissez les informations requises pour l’écouteur, et téléchargez le certificat .pfx. Lorsque vous avez terminé, cliquez sur OK.
+Fill out the required information for the listener and upload the .pfx certificate, when complete click OK.
 
-**Nom** - il s’agit d’un nom convivial pour l’écouteur.
+**Name** - This value is a friendly name of the listener.
 
-**Configuration IP frontale** - il s’agit de la configuration d’IP frontale utilisée pour l’écouteur.
+**Frontend IP configuration** - This value is the frontend IP configuration that is used for the listener.
 
-**Port frontal (nom/port)** - un nom convivial pour le port utilisé sur le serveur frontal de la passerelle Application Gateway et le port utilisé.
+**Frontend port (Name/Port)** - A friendly name for the port used on the front end of the application gateway and the actual port used.
 
-**Protocole** - un commutateur qui détermine si https ou http est utilisé pour le serveur frontal.
+**Protocol** - A switch to determine if https or http is used for the front end.
 
-**Certificat (nom/mot de passe)** - si le déchargement SSL est utilisé, un certificat .pfx est requis pour ce paramètre, et un nom convivial et un mot de passe sont requis.
+**Certificate (Name/Password)** - If SSL offload is used, a .pfx certificate is required for this setting and a friendly name and password are required.
 
-![ajouter panneau d’écouteur][2]
+![add listener blade][2]
 
-## Créer une règle et l’associer à l’écouteur
+## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Create a rule and associate it to the listener
 
-L’écouteur a été créé. Il est temps de créer une règle pour gérer le trafic de l’écouteur.
+The listener has now been created. It is time to create a rule to handle the traffic from the listener.
 
-### Étape 1 :
+### <a name="step-1"></a>Step 1
 
-Cliquez sur **Règles** dans la passerelle Application Gateway, puis cliquez sur Ajouter.
+Click the **Rules** of the application gateway, and then click Add.
 
-![Panneau de règles Application Gateway][3]
+![app gateway rules blade][3]
 
-### Étape 2 :
+### <a name="step-2"></a>Step 2
 
-Sur le panneau**Ajouter une règle de base**, tapez le nom convivial de la règle et choisissez l’écouteur créé à l’étape précédente. Choisissez le pool principal approprié et la configuration http souhaitée, puis cliquez sur **OK**
+On the **Add basic rule** blade, type in the friendly name for the rule and choose the listener created in the previous step. Choose the appropriate backend pool and http setting and click **OK**
 
-![fenêtre de paramètres https][4]
+![https settings window][4]
 
-Les paramètres sont maintenant enregistrés pour la passerelle Application Gateway. Le processus d’enregistrement pour ces paramètres peut prendre un certain temps avant leur disponibilité sur le portail ou via PowerShell. Une fois enregistrée, la passerelle Application Gateway gère le chiffrement et le déchiffrement du trafic. Tout le trafic entre la passerelle Application Gateway et les serveurs web principaux est géré via http. Toute communication lancée vers le client via le protocole https sera renvoyée chiffrée au client.
+The settings are now saved to the application gateway. The save process for these settings may take a while before they are available to view through the portal or through PowerShell. Once saved the application gateway handles the encryption and decryption of traffic. All traffic between the application gateway and the backend web servers will be handled over http. Any communication back to the client if initiated over https will be returned to the client encrypted.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Pour savoir comment configurer une sonde d’intégrité personnalisée avec Azure Application Gateway, consultez [Créer une sonde d’intégrité personnalisée](application-gateway-create-gateway-portal.md).
+To learn how to configure a custom health probe with Azure Application Gateway, see [Create a custom health probe](application-gateway-create-gateway-portal.md).
 
 [1]: ./media/application-gateway-ssl-portal/figure1.png
 [2]: ./media/application-gateway-ssl-portal/figure2.png
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,60 +1,67 @@
 <properties
-	pageTitle=" Téléchargement de fichiers dans un compte Media Services à l’aide du portail Azure | Microsoft Azure"
-	description="Ce didacticiel vous guide à travers les étapes de téléchargement de fichiers dans un compte Media Services à l’aide du portail Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle=" Upload files into a Media Services account using the Azure portal | Microsoft Azure"
+    description="This tutorial walks you through the steps of uploading files into a Media Services account using the Azure portal"
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/29/2016"
+    ms.author="juliako"/>
 
 
-# Téléchargement de fichiers dans un compte Media Services à l’aide du portail Azure 
+
+# <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Upload files into a Media Services account using the Azure portal 
 
 > [AZURE.SELECTOR]
-- [Portail](media-services-portal-upload-files.md)
+- [Portal](media-services-portal-upload-files.md)
 - [.NET](media-services-dotnet-upload-files.md)
 - [REST](media-services-rest-upload-files.md)
 
-> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L’élément multimédia peut contenir des fichiers vidéo, des fichiers audio, des images, des collections de miniatures, des pistes textuelles et des légendes (ainsi que les métadonnées concernant ces fichiers). Une fois les fichiers téléchargés, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu.
+In Media Services, you upload your digital files into an asset. The Asset  can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.) Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
  
-1. Dans la fenêtre **Paramètres**, cliquez sur **Éléments multimédias**.
+1. In the **Setting** window, click **Assets**.
 
-	![Charger des fichiers](./media/media-services-portal-vod-get-started/media-services-upload.png)
+    ![Upload files](./media/media-services-portal-vod-get-started/media-services-upload.png)
 
-3. Cliquez sur le bouton **Télécharger**.
+3. Click the **Upload** button.
 
-	La fenêtre **Upload a video asset** (Charger un élément multimédia vidéo) s’affiche.
+    The **Upload a video asset** window appears.
 
-	>[AZURE.NOTE] Il n’existe aucune limite de taille de fichier.
-	
-4. Accédez à la vidéo de votre choix sur votre ordinateur, sélectionnez-la, puis cliquez sur OK.
+    >[AZURE.NOTE] There is no file size limitation.
+    
+4. Browse to the desired video on your computer, select it, and hit OK.  
 
-	Le chargement démarre ; vous pouvez en voir la progression sous le nom du fichier.
+    The upload starts and you can see the progress under the file name.  
 
-Une fois le téléchargement terminé, le nouvel élément multimédia s’affiche dans la fenêtre **Éléments multimédias**.
+Once the upload completes, you will see the new asset listed in the **Assets** window. 
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Vous pouvez désormais encoder vos éléments multimédias téléchargés. Pour plus d'informations, consultez [Encode an asset using Media Encoder Standard with the Azure portal (Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure)](media-services-portal-encode.md).
+You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
 
-## Parcours d’apprentissage de Media Services
+## <a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fournir des commentaires
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

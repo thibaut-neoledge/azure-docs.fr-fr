@@ -17,7 +17,8 @@
    ms.date="09/13/2016"
    ms.author="kundanap"/>
 
-# Exemples de configuration d’extension de machine virtuelle Linux
+
+# <a name="linux-vm-extension-configuration-samples"></a>Exemples de configuration d’extension de machine virtuelle Linux
 
 > [AZURE.SELECTOR]
 - [PowerShell - Modèle](virtual-machines-windows-extensions-configuration-samples.md)
@@ -27,13 +28,13 @@
 
 Cet article présente un exemple de configuration des extensions d’une machine virtuelle Azure pour les machines virtuelles Linux.
 
-Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md).
+Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](virtual-machines-windows-extensions-features.md)
 
-Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-windows-extensions-authoring-templates.md).
+Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-windows-extensions-authoring-templates.md)
 
 Cet article répertorie les valeurs de configuration attendues pour certaines des extensions Linux.
 
-## Extrait de l'exemple de modèle pour les extensions de machine virtuelle.
+## <a name="sample-template-snippet-for-vm-extensions."></a>Extrait de l'exemple de modèle pour les extensions de machine virtuelle.
 L'extrait du modèle pour le déploiement des extensions se présente comme suit :
 
       {
@@ -54,7 +55,7 @@ L'extrait du modèle pour le déploiement des extensions se présente comme suit
       }
       }
 
-## Extrait de l’exemple de modèle pour les extensions de machine virtuelle avec des jeux de mise à l’échelle de machine virtuelle.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Extrait de l’exemple de modèle pour les extensions de machine virtuelle avec des jeux de mise à l’échelle de machine virtuelle.
 
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
@@ -80,7 +81,7 @@ Avant de déployer l'extension, déterminez la dernière version de l'extension 
 
 La suite de cet article fournit des exemples de configurations pour les extensions de machine virtuelle Linux.
 
-### Agent CloudLink SecureVM
+### <a name="cloudlink-securevm-agent"></a>Agent CloudLink SecureVM
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMLinuxAgent",
@@ -90,7 +91,7 @@ La suite de cet article fournit des exemples de configurations pour les extensio
             }
           }
 
-### Extension CustomScript pour Linux.
+### <a name="customscript-extension-for-linux."></a>Extension CustomScript pour Linux.
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -105,7 +106,7 @@ La suite de cet article fournit des exemples de configurations pour les extensio
     }
 
 
-### Agent Datadog
+### <a name="datadog-agent"></a>Agent Datadog
         {
           "publisher": "Datadog.Agent",
           "type": "DatadogLinuxAgent",
@@ -115,7 +116,7 @@ La suite de cet article fournit des exemples de configurations pour les extensio
           }
         }
 
-### Agent Chef
+### <a name="chef-agent"></a>Agent Chef
         {
           "publisher": "Chef.Bootstrap.WindowsAzure",
           "type": "CentosChefClient|LinuxChefClient",
@@ -127,7 +128,7 @@ La suite de cet article fournit des exemples de configurations pour les extensio
           }
         }
 
-### Extension VM Access (réinitialisation du mot de passe)
+### <a name="vm-access-extension-(password-reset)"></a>Extension VM Access (réinitialisation du mot de passe)
 Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
@@ -143,7 +144,7 @@ Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur VMAc
           }
         }
 
-### Application de correctifs au système d’exploitation
+### <a name="os-patching"></a>Application de correctifs au système d’exploitation
 Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
@@ -168,8 +169,8 @@ Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur OSPa
         }
         }
 
-### Extension Docker
-Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur l’extension Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema).
+### <a name="docker-extension"></a>Extension Docker
+Pour obtenir le schéma mis à jour, reportez-vous à la [Documentation sur l’extension Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -217,4 +218,8 @@ Voici un modèle de machine virtuelle complet pour la création d’une machine 
 
 [Extension de script personnalisé sur une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

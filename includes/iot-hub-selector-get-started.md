@@ -1,20 +1,22 @@
 > [AZURE.SELECTOR]
 - [C#](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
 - [Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
-- [Node.JS](../articles/iot-hub/iot-hub-node-node-getstarted.md)
+- [Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
 
-## Introduction
+## <a name="introduction"></a>Introduction
 
-Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT (Internet des objets) et un serveur principal de solution. L’une des plus grandes difficultés des projets IoT consiste à connecter des appareils au serveur principal de la solution de manière fiable et sécurisée. Pour relever ce défi, IoT Hub :
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of Internet of Things (IoT) devices and a solution back end. One of the biggest challenges that IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
 
-- Offre une messagerie évolutive Appareil vers cloud et Cloud vers appareil fiable.
-- Assure la sécurité des communications grâce aux informations d’identification de sécurité par appareil et au contrôle d’accès.
-- Inclut des bibliothèques d’appareils pour les langages et les plateformes les plus courants.
+- Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
+- Enables secure communications using per-device security credentials and access control.
+- Includes device libraries for the most popular languages and platforms.
 
-Ce didacticiel vous explique les procédures suivantes :
+This tutorial shows you how to:
 
-- Utilisez le portail Azure pour créer un hub IoT.
-- Créer une identité de l’appareil dans votre hub IoT.
-- Créer un périphérique simulé qui envoie des données de télémétrie vers votre serveur principal de cloud et reçoit des commandes de ce dernier.
+- Use the Azure portal to create an IoT hub.
+- Create a device identity in your IoT hub.
+- Create a simulated device that sends telemetry to your cloud back end, and receives commands from your cloud back end.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

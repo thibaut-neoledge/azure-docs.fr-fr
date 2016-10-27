@@ -1,149 +1,155 @@
 <properties
-	pageTitle="Utilisez la teinte avec Hadoop sur les clusters HDInsight Linux | Microsoft Azure"
-	description="Installer et utiliser Hue avec les clusters Hadoop sur HDInsight Linux"
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Azure"
+    description="Learn how to install and use Hue with Hadoop clusters on HDInsight Linux."
+    services="hdinsight"
+    documentationCenter=""
+    authors="nitinme"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/13/2016" 
-	ms.author="nitinme"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/13/2016" 
+    ms.author="nitinme"/>
 
-# Installation et utilisation de Hue sur des clusters HDInsight Hadoop
 
-Apprenez comment installer Hue sur les clusters HDInsight Linux et utiliser le tunnel pour acheminer les demandes de Hue.
+# <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Install and use Hue on HDInsight Hadoop clusters
 
-## Qu’est-ce que Hue ?
+Learn how to install Hue on HDInsight Linux clusters and use tunneling to route the requests to Hue.
 
-Hue est un ensemble d’applications web permettant d’interagir avec un cluster Hadoop. Vous pouvez utiliser Hue pour parcourir le stockage associé à un cluster Hadoop (WASB, dans le cas de clusters HDInsight), exécutez les tâches Hive et les scripts Pig, etc.. Les composants suivants sont disponibles avec l’installation de Hue sur un cluster HDInsight Hadoop.
+## <a name="what-is-hue?"></a>What is Hue?
 
-* Éditeur Beeswax Hive
+Hue is a set of Web applications used to interact with a Hadoop cluster. You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, etc. The following components are available with Hue installations on an HDInsight Hadoop cluster.
+
+* Beeswax Hive Editor
 * Pig
-* Gestionnaire de Metastore
+* Metastore manager
 * Oozie
-* FileBrowser (qui communique avec le conteneur WASB par défaut)
-* Explorateur de travaux
+* FileBrowser (which talks to WASB default container)
+* Job Browser
 
-> [AZURE.WARNING] Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aidera à identifier et à résoudre les problèmes liés à ces composants.
+> [AZURE.WARNING] Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
 >
-> Les composants personnalisés bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=hdinsight) ou [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org). Par exemple : [Hadoop](http://hadoop.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
 
-## Installer Hue à l’aide d’actions de script
+## <a name="install-hue-using-script-actions"></a>Install Hue using Script Actions
 
-L’action de script suivante permet d’installer Hue sur un cluster HDInsight basé sur Linux . https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+The following script action can be used to install Hue on a Linux-based HDInsight cluster.
+https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
     
-Cette section explique comment utiliser le script lors de l’approvisionnement du cluster à l’aide du portail Azure.
+This section provides instructions about how to use the script when provisioning the cluster using the Azure Portal. 
 
-> [AZURE.NOTE] Azure PowerShell, l'interface de ligne de commande Azure (CLI), le Kit de développement logiciel (SDK) .NET HDInsight ou les modèles Azure Resource Manager peuvent également être utilisés pour appliquer des actions de script. Vous pouvez également appliquer les actions de script aux clusters qui sont déjà en cours d’exécution. Pour plus d’informations, consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Démarrez l’approvisionnement d’un cluster à l’aide de la procédure décrite dans [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), mais n’achevez pas l’approvisionnement.
+1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
 
-	> [AZURE.NOTE] Pour installer Hue sur des clusters HDInsight, il est recommandé d’utiliser une taille de nœud principal égale ou supérieure à A4 (8 cœurs, 14 Go de mémoire).
+    > [AZURE.NOTE] To install Hue on HDInsight clusters, the recommended headnode size is at least A4 (8 cores, 14 GB memory).
 
-2. Dans le panneau **Configuration facultative**, sélectionnez **Actions de script**, puis indiquez les informations comme spécifié ci-dessous :
+2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information as shown below:
 
-	![Fournir des paramètres d’action de script pour Hue](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Fournir des paramètres d’action de script pour Hue")
+    ![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Provide script action parameters for Hue")
 
-	* __NOM__ : entrez un nom convivial pour l’action de script.
-	* __SCRIPT URI__ : https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
-	* __En-tête__ : cochez cette option.
-	* __Collaborateur__ : laissez ce champ vide.
-	* __ZOOKEEPER__ : laissez ce champ vide.
-	* __PARAMÈTRES__ : laissez ce champ vide.
+    * __NAME__: Enter a friendly name for the script action.
+    * __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+    * __HEAD__: Check this option
+    * __WORKER__: Leave this blank.
+    * __ZOOKEEPER__: Leave this blank.
+    * __PARAMETERS__: Leave this blank.
 
-3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, utilisez le bouton **Sélectionner** au bas du panneau **Configuration facultative** pour enregistrer les informations relatives à la configuration facultative.
+3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continuez l’approvisionnement du cluster, comme indiqué dans [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
-## Utilisez Hue avec les clusters HDInsight
+## <a name="use-hue-with-hdinsight-clusters"></a>Use Hue with HDInsight clusters
 
-Le tunneling SSH est le seul moyen d’accéder à Hue sur le cluster une fois qu’il est en cours d’exécution. Le tunneling via SSH autorise le trafic à atteindre directement le nœud principal du cluster exécutant Hue. Une fois que le cluster a terminé l’approvisionnement, procédez comme suit pour utiliser Hue sur un cluster HDInsight Linux.
+SSH Tunneling is the only way to access Hue on the cluster once it is running. Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running. After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight Linux cluster.
 
-1. Utilisez les informations de la section [Utilisation de SSH Tunneling pour accéder à l’interface web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces web](hdinsight-linux-ambari-ssh-tunnel.md) pour créer un tunnel SSH entre votre système client et le cluster HDInsight, puis configurer votre navigateur web pour utiliser le tunnel SSH en tant que proxy.
+1. Use the information in [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) to create an SSH tunnel from your client system to the HDInsight cluster, and then configure your Web browser to use the SSH tunnel as a proxy.
 
-2. Une fois que vous avez créé un tunnel SSH et configuré votre navigateur pour y rediriger le trafic par proxy, vous devez trouver le nom d’hôte du nœud principal primaire. Pour ce faire, connectez-vous au cluster à l’aide de SSH sur le port 22. Par exemple, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` où __USERNAME__ est votre nom d’utilisateur SSH et __CLUSTERNAME__ est le nom de votre cluster.
+2. Once you have created an SSH tunnel and configured your browser to proxy traffic through it, you must find the host name of the primary head node. You can do this by connecting to the cluster using SSH on port 22. For example, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` where __USERNAME__ is your SSH user name and __CLUSTERNAME__ is the name of your cluster.
 
-    Pour plus d’informations sur l’utilisation de SSH, consultez les documents suivants :
+    For more information on using SSH, see the following documents:
 
-    * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH with Linux-based HDInsight from a Linux, Unix, or Mac OS X client](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Une fois connecté, utilisez la commande suivante pour obtenir le nom de domaine complet du nœud principal primaire :
+3. Once connected, use the following command to obtain the fully qualified domain name of the primary headnode:
 
         hostname -f
 
-    Cette commande renvoie un nom similaire à ce qui suit :
+    This will return a name similar to the following:
 
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
     
-    Il s’agit du nom d’hôte du nœud principal primaire sur lequel se trouve le site web Hue.
+    This is the hostname of the primary headnode where the Hue website is located.
 
-2. Utilisez le navigateur pour ouvrir le portail Hue à l’adresse http://HOSTNAME:8888. Remplacez HOSTNAME par le nom que vous avez obtenu à l’étape précédente.
+2. Use the browser to open the Hue portal at http://HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
 
-    > [AZURE.NOTE] Lorsque vous vous connectez pour la première fois, vous êtes invité à créer un compte pour vous connecter au portail Hue. Les informations d’identification que vous spécifiez ici seront limitées au portail et ne sont pas liées à l’administrateur ou aux informations d’identification de l’utilisateur SSH spécifié lors de la configuration du cluster.
+    > [AZURE.NOTE] When you log in for the first time, you will be prompted to create an account to log into the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
 
-	![Se connecter au portail Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Spécifiez les informations d’identification due portail Hue")
+    ![Login to the Hue portal](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Specify credentials for Hue portal")
 
-### Exécution d'une tâche Hive
+### <a name="run-a-hive-query"></a>Run a Hive query
 
-1. À partir du portail Hue, cliquez sur **Éditeurs de requête**, puis cliquez sur **Hive** pour ouvrir l’éditeur Hive.
+1. From the Hue portal, click **Query Editors**, and then click **Hive** to open the Hive editor.
 
-	![Utiliser Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Utiliser Hive")
+    ![Use Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Use Hive")
 
-2. Sous l’onglet **Aide**, sous **Base de données**, vous devez voir **hivesampletable**. Il s’agit d’une table d’échantillon qui est livrée avec tous les clusters Hadoop sur HDInsight. Saisissez un exemple de requête dans le volet de droite et vérifiez la sortie sur l’onglet **Résultats** dans le volet inférieur ci-dessous, comme illustré dans la capture d’écran.
+2. On the **Assist** tab, under **Database**, you should see **hivesampletable**. This is a sample table that is shipped with all Hadoop clusters on HDInsight. Enter a sample query in the right pane and see the output on the **Results** tab in the pane below, as shown in the screen capture.
 
-	![Exécuter une requête Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Exécuter une requête Hive")
+    ![Run Hive query](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Run Hive query")
 
-	Vous pouvez également utiliser l’onglet **Graphique** pour afficher une représentation visuelle du résultat.
+    You can also use the **Chart** tab to see a visual representation of the result.
 
-### Parcourir le stockage de cluster
+### <a name="browse-the-cluster-storage"></a>Browse the cluster storage
 
-1. À partir du portail Hue, cliquez sur **Explorateur de fichiers** dans l’angle supérieur droit de la barre de menus.
+1. From the Hue portal, click **File Browser** in the top-right corner of the menu bar.
 
-2. Par défaut, l’explorateur de fichiers s’ouvre sur le répertoire **/user/myuser**. Cliquez sur la barre oblique située avant le répertoire de l’utilisateur dans le chemin d’accès pour accéder à la racine du conteneur de stockage Azure associé au cluster.
+2. By default the file browser opens at the **/user/myuser** directory. Click the forward slash right before the user directory in the path to go to the root of the Azure storage container associated with the cluster.
 
-	![Utiliser l’Explorateur de fichiers](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Utiliser l’Explorateur de fichiers")
+    ![Use file browser](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Use file browser")
 
-3. Cliquez avec le bouton droit sur un fichier ou un dossier pour afficher les opérations disponibles. Utilisez le bouton **Télécharger** situé dans le coin droit pour télécharger des fichiers dans le répertoire actif. Utilisez le bouton **Nouveau** pour créer des fichiers ou répertoires.
+3. Right-click on a file or folder to see the available operations. Use the **Upload** button in the right corner to upload files to the current directory. Use the **New** button to create new files or directories.
 
-> [AZURE.NOTE] L’Explorateur de fichiers Hue peut afficher uniquement le contenu du conteneur par défaut associé au cluster HDInsight. Les comptes/conteneurs de stockage supplémentaires que vous avez peut-être associés au cluster ne seront pas accessibles via l’Explorateur de fichiers. Toutefois, les autres conteneurs associés au cluster seront toujours accessibles pour les travaux Hive. Par exemple, si vous saisissez la commande `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` dans l’éditeur Hive, vous pouvez voir le contenu des conteneurs supplémentaires. Dans cette commande, **newcontainer** n’est pas le conteneur par défaut associé à un cluster.
+> [AZURE.NOTE] The Hue file browser can only show the contents of the default container associated with the HDInsight cluster. Any additional storage accounts/containers that you might have associated with the cluster will not be accessible using the file browser. However, the additional containers associated with the cluster will always be accessible for the Hive jobs. For example, if you enter the command `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` in the Hive editor, you can see the contents of additional containers as well. In this command, **newcontainer** is not the default container associated with a cluster.
 
-## Points importants à prendre en compte
+## <a name="important-considerations"></a>Important considerations
 
-1. Le script utilisé pour installer Hue exécute l’opération uniquement sur le nœud principal primaire du cluster.
+1. The script used to install Hue installs it only on the primary headnode of the cluster.
 
-2. Pendant l’installation, plusieurs services Hadoop (HDFS, fils, RM2, Oozie) sont redémarrés pour mettre à jour la configuration. Une fois que le script a terminé l’installation de Hue, le démarrage d’autres services Hadoop peut prendre du temps. Cela peut affecter dans un premier temps les performances de Hue. Une fois que tous les services ont démarré, Hue est complètement fonctionnel.
+2. During installation, multiple Hadoop services (HDFS, YARN, MR2, Oozie) are restarted for updating the configuration. After the script finishes installing Hue, it might take some time for other Hadoop services to start up. This might affect Hue's performance initially. Once all services start up, Hue will be fully functional.
 
-3.	Teinte ne comprend pas les travaux Tez, qui est la valeur par défaut de Hive. Si vous souhaitez utiliser MapReduce comme moteur d’exécution de Hive, mettez à jour le script pour utiliser la commande suivante dans votre script :
+3.  Hue does not understand Tez jobs, which is the current default for Hive. If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script:
 
-		set hive.execution.engine=mr;
+        set hive.execution.engine=mr;
 
-4.	Avec les clusters Linux, vous pouvez avoir un scénario dans lequel vos services fonctionnent sur le nœud principal primaire alors que le Gestionnaire de ressources s’exécute sur le nœud principal secondaire. Un tel scénario peut entraîner des erreurs (illustrées ci-dessous) lors de l’utilisation de Hue pour afficher les détails des travaux EN COURS sur le cluster. Toutefois, vous pouvez afficher les détails du travail lorsque la tâche est terminée.
+4.  With Linux clusters, you can have a scenario where your services are running on the primary headnode while the Resource Manager could be running on the secondary. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
 
-	![Erreur de portail Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Erreur de portail Hue")
+    ![Hue portal error](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue portal error")
 
-	Il s’agit d’un problème connu. Pour résoudre ce problème, modifiez Ambari afin que le Gestionnaire de ressources actif s’exécute également sur le nœud principal primaire.
+    This is due to a known issue. As a workaround, modify Ambari so that the active Resource Manager also runs on the primary headnode.
 
-5.	Hue connaît WebHDFS, tandis que les clusters HDInsight utilisent le stockage Azure à l’aide de `wasbs://`. Par conséquent, le script personnalisé utilisé avec l’action de script installe WebWasb, qui est un service compatible WebHDFS permettant de communiquer avec WASB. Donc, bien que le portail Hue indique HDFS à certains endroits (comme lorsque vous déplacez votre souris sur l’**Explorateur de fichiers**), il doit être compris comme WASB.
+5.  Hue understands WebHDFS while HDInsight clusters use Azure Storage using `wasbs://`. So, the custom script used with script action installs WebWasb, which is a WebHDFS-compatible service for talking to WASB. So, even though the Hue portal says HDFS in places (like when you move your mouse over the **File Browser**), it should be interpreted as WASB.
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight.
+- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
 
-- [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d’effectuer de puissantes opérations de recherche sur des données stockées.
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
 
-- [Installation de R sur des clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md). Utilisez la personnalisation de clusters pour installer R sur des clusters HDInsight Hadoop. R se compose d'un langage et d'un environnement open source destinés au calcul de statistiques. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.
+- [Install R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md). Use cluster customization to install R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
 
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -3,22 +3,27 @@
     description="Création d’un jeu de mise à l’échelle de machine virtuelle avec l’interface de ligne de commande Azure"
     services="virtual-machine-scale-sets"
     documentationCenter=""
-	authors="gatneil"
-	manager="madhana"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+    authors="gatneil"
+    manager="madhana"
+    editor="tysonn"
+    tags="azure-resource-manager" />
 
 <tags
     ms.service="virtual-machine-scale-sets"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.date="03/22/2016"
-	ms.author="gatneil"/>
+    ms.author="gatneil"/>
 
-# Créer un jeu de mise à l’échelle de machine virtuelle Linux avec l’interface de ligne de commande Azure.
+
+# <a name="create-a-linux-virtual-machine-scale-set-using-azure-cli"></a>Créer un jeu de mise à l’échelle de machine virtuelle Linux avec l’interface de ligne de commande Azure.
 
 [AZURE.INCLUDE [virtual-machines-linux-cli-vmss-quick-create-include](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

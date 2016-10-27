@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Création d’une zone Azure DNS à l’aide de l’interface de ligne de commande | Microsoft Azure"
-   description="Apprenez à créer des zones DNS pour Azure DNS étape par étape, afin d’héberger votre domaine DNS à l’aide de l’interface de ligne de commande"
+   pageTitle="Create a DNS zone using CLI| Microsoft Azure"
+   description="Learn how to create DNS zones for Azure DNS step-by-step to start hosting your DNS domain using CLI"
    services="dns"
    documentationCenter="na"
    authors="sdwheeler"
@@ -16,173 +16,180 @@
    ms.date="08/16/2016"
    ms.author="sewhee"/>
 
-# Création d’une zone Azure DNS à l’aide de l’interface de ligne de commande
+
+# <a name="create-an-azure-dns-zone-using-cli"></a>Create an Azure DNS zone using CLI
 
 
 > [AZURE.SELECTOR]
-- [Portail Azure](dns-getstarted-create-dnszone-portal.md)
+- [Azure Portal](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
-- [Interface de ligne de commande Azure](dns-getstarted-create-dnszone-cli.md)
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 
-Cet article vous indique la procédure à suivre pour créer une zone DNS à l’aide de l’interface de ligne de commande. Vous pouvez également créer une zone DNS à l’aide de PowerShell ou du portail Azure.
+This article will walk you through the steps to create a DNS zone by using CLI. You can also create a DNS zone using PowerShell or the Azure portal.
 
 [AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
-## Avant de commencer
+## <a name="before-you-begin"></a>Before you begin
 
-Ces instructions utilisent l’interface de ligne de commande Microsoft Azure. Veillez à effectuer une mise à jour vers la version la plus récente de l’interface de ligne de commande Azure (0.9.8 ou version ultérieure) pour utiliser les commandes Azure DNS. Tapez `azure -v` pour vérifier la version de la CLI Azure actuellement installée sur votre ordinateur.
+These instructions use Microsoft Azure CLI. Be sure to update to the latest Azure CLI (0.9.8 or later) to use the Azure DNS commands. Type `azure -v` to check which Azure CLI version is currently installed in your computer.
 
-## Étape 1 : configuration de l’interface de ligne de commande Azure
+## <a name="step-1---set-up-azure-cli"></a>Step 1 - Set up Azure CLI
 
-### 1\. Installation de l’interface de ligne de commande Azure
+### <a name="1.-install-azure-cli"></a>1. Install Azure CLI
 
-Vous pouvez installer l’interface de ligne de commande Azure pour Windows, Linux ou Mac. Les étapes suivantes doivent être effectuées avant de pouvoir gérer Azure DNS à l’aide de l’interface de ligne de commande Azure. Pour plus d’informations, consultez la page [Installation de l’interface de ligne de commande Azure](../xplat-cli-install.md). Les commandes DNS nécessitent Azure CLI version 0.9.8 ou version ultérieure.
+You can install Azure CLI for Windows, Linux, or MAC. The following steps need to be completed before you can manage Azure DNS using Azure CLI. More information is available at [Install the Azure CLI](../xplat-cli-install.md). The DNS commands require Azure CLI version 0.9.8 or later.
 
-Toutes les commandes du fournisseur réseau peuvent être exécutées sur l’interface de ligne de commande à l'aide de la commande suivante :
+All the network provider commands on CLI can be found using the following command:
 
-	azure network
+    azure network
 
-### 2\. Passage en mode CLI
+### <a name="2.-switch-cli-mode"></a>2. Switch CLI mode
 
-Azure DNS utilise Azure Resource Manager. Veillez à utiliser le mode d’interface de ligne de commande pour exécuter les commandes ARM.
+Azure DNS uses Azure Resource Manager. Make sure you switch CLI mode to use ARM commands.
 
-	azure config mode arm
+    azure config mode arm
 
-### 3\. Connexion à votre compte Azure
+### <a name="3.-sign-in-to-your-azure-account"></a>3. Sign in to your Azure account
 
-Vous devez indiquer vos informations d’identification. Gardez à l’esprit que vous ne pouvez utiliser que des comptes ORGID.
+You will be prompted to authenticate with your credentials. Keep in mind that you can only use ORGID accounts.
 
     azure login -u "username"
 
-### 4\. Sélection de l’abonnement
+### <a name="4.-select-the-subscription"></a>4. Select the subscription
 
-Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
+Choose which of your Azure subscriptions to use.
 
     azure account set "subscription name"
 
-### 5\. Créer un groupe de ressources
+### <a name="5.-create-a-resource-group"></a>5. Create a resource group
 
-Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Toutefois, étant donné que toutes les ressources DNS sont globales et non régionales, le choix de l’emplacement du groupe de ressources n’a aucun impact sur Azure DNS.
+Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
 
-Ignorez cette étape si vous utilisez un groupe de ressources existant.
+You can skip this step if you are using an existing resource group.
 
     azure group create -n myresourcegroup --location "West US"
 
 
-### 6\. S’inscrire
+### <a name="6.-register"></a>6. Register
 
-Le service Azure DNS est géré par le fournisseur de ressources Microsoft.Network. Votre abonnement Azure doit être enregistré auprès de ce fournisseur de ressources, pour que vous puissiez utiliser Azure DNS. Cette opération n’est à effectuer qu’une fois par abonnement.
+The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
 
-	azure provider register --namespace Microsoft.Network
-
-
-## Étape 2 : création d’une zone DNS
-
-Une zone DNS est créée à l'aide de la commande `azure network dns zone create`. Vous pouvez éventuellement créer une zone DNS avec des balises. Les balises sont une liste de paires nom-valeur. Elles sont utilisées par Azure Resource Manager pour identifier les ressources à des fins de facturation ou de regroupement. Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
-
-Dans Azure DNS, les noms de zone doivent être spécifiés sans point à la fin (**« . »**). Par exemple, spécifiez « **contoso.com**» plutôt que « **contoso.com.** ».
+    azure provider register --namespace Microsoft.Network
 
 
-### Création d’une zone DNS
+## <a name="step-2---create-a-dns-zone"></a>Step 2 - Create a DNS zone
 
-L’exemple ci-dessous permet de créer une zone DNS appelée *contoso.com* dans le groupe de ressources *MyResourceGroup*.
+A DNS zone is created using the `azure network dns zone create` command. You can optionally create a DNS zone along with tags. Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
-Utilisez l’exemple pour créer votre zone DNS, en remplaçant les valeurs indiquées par vos propres valeurs.
+In Azure DNS, zone names should be specified without a terminating **‘.’**. For example, as '**contoso.com**' rather than '**contoso.com.**'.
+
+
+### <a name="to-create-a-dns-zone"></a>To create a DNS zone
+
+The example below creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*.
+
+Use the example to create your DNS zone, substituting the values for your own.
 
     azure network dns zone create myresourcegroup contoso.com
 
-### Création d’une zone DNS et de balises
+### <a name="to-create-a-dns-zone-and-tags."></a>To create a DNS zone and tags.
 
-L’interface de ligne de commande Azure DNS prend en charge les balises des zones DNS spécifiées à l’aide du paramètre optionnel *-Tag*. L’exemple suivant montre comment créer une zone DNS avec deux balises, « projet = demo » et « env = test ».
+Azure DNS CLI supports tags of DNS zones specified by using the optional *-Tag* parameter. The following example shows how to create a DNS zone with two tags, project = demo and env = test.
 
-Utilisez l’exemple ci-dessous pour créer une zone DNS et des balises, en remplaçant les valeurs indiquées par vos propres valeurs.
+Use the example below to create a DNS zone and tags, substituting the values for your own.
 
-	azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
-## Affichage des enregistrements
+## <a name="view-records"></a>View records
 
-La création d’une zone DNS crée également les enregistrements DNS suivants :
+Creating a DNS zone also creates the following DNS records:
 
-- L’enregistrement « SOA » (Start of Authority). Il est présent à la racine de chaque zone DNS.
+- The ‘Start of Authority’ (SOA) record. This is present at the root of every DNS zone.
 
-- Les enregistrements de serveur de noms faisant autorité (NS). Ceux-ci indiquent quels serveurs de noms hébergent la zone. Azure DNS utilise un pool de serveurs de noms. Il se peut donc que différents serveurs de noms soient attribués à différentes zones dans Azure DNS. Pour plus d’informations, consultez la page [Délégation d’un domaine à Azure DNS](dns-domain-delegation.md).
+- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers can be assigned to different zones in Azure DNS. See [Delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
-Pour afficher ces enregistrements, utilisez `azure network dns-record-set show`.<BR> *Syntaxe : network dns record-set show <groupe\_ressources> <nom\_zone\_dns> <nome> <type>*
-
-
-Dans l’exemple ci-dessous, si vous exécutez la commande avec le groupe de ressources *myresourcegroup*, le nom du jeu d’enregistrements *"@"* (pour un enregistrement racine) et au type *SOA*, vous obtenez la sortie suivante :
+To view these records, use `azure network dns-record-set show`.<BR>
+*Usage: network dns record-set show <resource-group> <dns-zone-name> <name> <type>*
 
 
-	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
-	info:    Executing command network dns-record-set show
-	+ Looking up the DNS record set "@"
-	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
-	data:    Name                            : @
-	data:    Type                            : Microsoft.Network/dnszones/SOA
-	data:    Location                        : global
-	data:    TTL                             : 3600
-	data:    SOA record:
-	data:      Email                         : msnhst.microsoft.com
-	data:      Expire time                   : 604800
-	data:      Host                          : edge1.azuredns-cloud.net
-	data:      Minimum TTL                   : 300
-	data:      Refresh time                  : 900
-	data:      Retry time                    : 300
-	data:                                    :
-<BR> Pour afficher les enregistrements NS créés avec la zone, utilisez la commande suivante :
+In the example below, if you run the command with resource group *myresourcegroup*, record set name *"@"* (for a root record), and type *SOA*, it will yield the following output:
 
-	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
-	info:    Executing command network dns-record-set show
-	+ Looking up the DNS record set "@"
-	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
-	data:    Name                            : @
-	data:    Type                            : Microsoft.Network/dnszones/NS
-	data:    Location                        : global
-	data:    TTL                             : 3600
-	data:    NS records
-	data:        Name server domain name     : ns1-05.azure-dns.com
-	data:        Name server domain name     : ns2-05.azure-dns.net
-	data:        Name server domain name     : ns3-05.azure-dns.org
-	data:        Name server domain name     : ns4-05.azure-dns.info
-	data:
-	info:    network dns-record-set show command OK
 
->[AZURE.NOTE] Les jeux d’enregistrements à la racine (ou *apex*) d’une zone DNS utilisent **@** comme nom.
+    azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
+    info:    Executing command network dns-record-set show
+    + Looking up the DNS record set "@"
+    data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
+    data:    Name                            : @
+    data:    Type                            : Microsoft.Network/dnszones/SOA
+    data:    Location                        : global
+    data:    TTL                             : 3600
+    data:    SOA record:
+    data:      Email                         : msnhst.microsoft.com
+    data:      Expire time                   : 604800
+    data:      Host                          : edge1.azuredns-cloud.net
+    data:      Minimum TTL                   : 300
+    data:      Refresh time                  : 900
+    data:      Retry time                    : 300
+    data:                                    :
+<BR>
+To view the NS records created with the zone, use the following command:
 
-## Test
+    azure network dns record-set show myresourcegroup "contoso.com" "@" NS
+    info:    Executing command network dns-record-set show
+    + Looking up the DNS record set "@"
+    data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
+    data:    Name                            : @
+    data:    Type                            : Microsoft.Network/dnszones/NS
+    data:    Location                        : global
+    data:    TTL                             : 3600
+    data:    NS records
+    data:        Name server domain name     : ns1-05.azure-dns.com
+    data:        Name server domain name     : ns2-05.azure-dns.net
+    data:        Name server domain name     : ns3-05.azure-dns.org
+    data:        Name server domain name     : ns4-05.azure-dns.info
+    data:
+    info:    network dns-record-set show command OK
 
-Vous pouvez tester votre zone DNS à l’aide d’outils DNS comme nslookup, DIG ou l’applet de commande PowerShell `Resolve-DnsName`.
+>[AZURE.NOTE] Record sets at the root (or *apex*) of a DNS Zone use **@** as the record set name.
 
-Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, comme indiqué ci-dessus par « azure network dns record-set show ». Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.
+## <a name="test"></a>Test
 
-L’exemple suivant utilise DIG pour interroger le domaine contoso.com à l’aide des serveurs de noms attribués à la zone DNS. La requête doit pointer vers un serveur de noms pour lequel nous avons utilisé *@<serveur de noms pour la zone>* et vers le nom de la zone à l’aide de DIG.
+You can test your DNS zone by using DNS tools such as nslookup, DIG, or the `Resolve-DnsName` PowerShell cmdlet.
 
-	 <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
-	(1 server found)
-	global options: +cmd
- 	Got answer:
-	->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60963
- 	flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
- 	WARNING: recursion requested but not available
+If you haven’t yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by "azure network dns record-set show" above. Be sure the substitute the correct values for your zone in the command below.
 
- 	OPT PSEUDOSECTION:
- 	EDNS: version: 0, flags:; udp: 4000
-  	QUESTION SECTION:
-	contoso.com.                        IN      A
+The following example uses DIG to query the domain contoso.com using the name servers assigned for the DNS zone. The query has to point to a name server for which we used *@<name server for the zone>* and zone name using DIG.
 
- 	AUTHORITY SECTION:
-	contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net.
-	msnhst.microsoft.com. 6 900 300 604800 300
+     <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
+    (1 server found)
+    global options: +cmd
+    Got answer:
+    ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60963
+    flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+    WARNING: recursion requested but not available
 
-	Query time: 93 msec
-	SERVER: 208.76.47.5#53(208.76.47.5)
-	WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
-	MSG SIZE  rcvd: 120
+    OPT PSEUDOSECTION:
+    EDNS: version: 0, flags:; udp: 4000
+    QUESTION SECTION:
+    contoso.com.                        IN      A
 
-## Étapes suivantes
+    AUTHORITY SECTION:
+    contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net.
+    msnhst.microsoft.com. 6 900 300 604800 300
 
-Après avoir créé une zone DNS, créez [des jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md) pour démarrer la résolution des noms pour votre domaine Internet.
+    Query time: 93 msec
+    SERVER: 208.76.47.5#53(208.76.47.5)
+    WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
+    MSG SIZE  rcvd: 120
 
-<!---HONumber=AcomDC_1005_2016-->
+## <a name="next-steps"></a>Next steps
+
+After creating a DNS zone, create [record sets and records](dns-getstarted-create-recordset-cli.md) to start resolving names for your Internet domain.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

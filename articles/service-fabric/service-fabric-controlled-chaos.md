@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Induire un chaos dans les clusters Service Fabric | Microsoft Azure"
-   description="Utilisation des API du service d’injection d’erreurs et d’analyse du cluster pour gérer le chaos dans le cluster."
+   pageTitle="Induce Chaos in Service Fabric Clusters | Microsoft Azure"
+   description="Using Fault Injection and Cluster Analysis Service APIs to manage Chaos in the cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
@@ -16,41 +16,42 @@
    ms.date="09/19/2016"
    ms.author="motanv"/>
 
-# Induire un chaos contrôlé dans les clusters Service Fabric
-Les systèmes distribués à grande échelle, comme les infrastructures cloud, sont par définition peu fiables. Azure Service Fabric permet aux développeurs d’écrire des services fiables sur une infrastructure peu fiable. Pour écrire des services robustes, les développeurs doivent pouvoir introduire des erreurs dans une infrastructure peu fiable pour tester la stabilité des solutions qu’ils conçoivent.
 
-Le service d’injection d’erreurs et d’analyse de cluster (FAS) permet aux développeurs de provoquer des actions erronées afin de tester les services. Toutefois, les erreurs simulées ciblées présentent une efficacité limitée. Pour aller plus loin dans le test, il est possible d’utiliser la technique du chaos. Au sein du cluster, le chaos simule des erreurs entrelacées en continu, avec et sans perte de données, sur des périodes prolongées. Une fois que le chaos est configuré avec la fréquence et le type des erreurs, il peut être démarré ou arrêté à l’aide des API C# ou de PowerShell pour générer des erreurs au sein du cluster et de votre service. Pendant que le chaos s’exécute, il génère différents événements qui capturent l’état de l’exécution à un moment précis. Par exemple, un événement ExecutingFaultsEvent contient toutes les erreurs qui sont en cours d’exécution dans cette itération ; un événement ValidationFailedEvent contient les détails d’une défaillance trouvée pendant la validation du cluster. L’API GetChaosReportAsync peut être appelée pour obtenir un rapport sur les exécutions du chaos.
+# <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induce Controlled Chaos in Service Fabric Clusters
+Large-scale distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric enables developers to write reliable services on top of an unreliable infrastructure. To write robust services, developers need to be able to induce faults against such unreliable infrastructure to test the stability of their services.
 
-## Erreurs introduites dans le chaos
-Le chaos génère des erreurs dans l’ensemble du cluster Service Fabric et compresse, en quelques heures, les erreurs constatées au cours de plusieurs mois ou années. L’utilisation d’erreurs entrelacées avec un taux élevé d’erreurs permet d’identifier des dysfonctionnements qui n’auraient pu être isolés autrement. Cet exercice du chaos entraîne une amélioration significative de la qualité du code du service. Le chaos introduit des erreurs à partir des catégories suivantes :
+The Fault Injection and Cluster Analysis Service (aka FAS) gives developers the ability to induce fault actions to test services. However, targeted simulated faults get you only so far. To take the testing further, one can use Chaos. Chaos simulates continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once Chaos is configured with the rate and the kind of faults, it can be started or stopped through either C# APIs or PowerShell, to generate faults in the cluster and your service. While Chaos is running, it produces different events that capture the state of the run at the moment. For example, an ExecutingFaultsEvent contains all the faults that are being executed in that iteration; a ValidationFailedEvent contains the details of a failure found during cluster validation. GetChaosReportAsync API can be invoked to get the report of Chaos runs.
 
- - Redémarrer un nœud
- - Redémarrer un package de code déployé
- - Supprimer un réplica
- - Redémarrer un réplica
- - Déplacer un réplica principal (configurable)
- - Déplacer un réplica secondaire (configurable)
+## <a name="faults-induced-in-chaos"></a>Faults induced in Chaos
+Chaos generates faults across the entire Service Fabric cluster and compresses faults seen in months or years into a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. This exercise of Chaos leads to a significant improvement in the code quality of the service. Chaos induces faults from the following categories:
 
-Le chaos s’exécute dans de multiples itérations. Chaque itération consiste en des validations de cluster et des erreurs pendant la période spécifiée. Les délais de stabilisation du cluster et de validation sont configurables. Si une défaillance est trouvée dans la validation du cluster, le chaos génère et fait persister un événement ValidationFailedEvent avec l’horodatage UTC et les détails de la défaillance.
+ - Restart a node
+ - Restart a deployed code package
+ - Remove a replica
+ - Restart a replica
+ - Move a primary replica (configurable)
+ - Move a secondary replica (configurable)
 
-Prenons, par exemple, une instance de chaos définie pour s’exécuter une heure, avec un maximum de trois erreurs simultanées. Le chaos introduit trois erreurs, puis valide l’intégrité du cluster et effectue une itération sur l’étape précédente jusqu'à ce qu’il soit explicitement arrêté via l’API StopChaosAsync ou jusqu’à ce qu’une heure se soit écoulée. Si le cluster devient défectueux dans une itération, autrement dit, s’il ne se stabilise pas dans le délai configuré, le chaos génère un événement ValidationFailedEvent, qui indique qu’un problème est survenu qui peut nécessiter un examen approfondi.
+Chaos runs in multiple iterations; each iteration consists of faults and cluster validation for the specified period. The time spent for the cluster to stabilize and for validation to succeed is configurable. If a failure is found in cluster validation, Chaos generates and persists a ValidationFailedEvent with the UTC timestamp and the failure details.
 
-Dans sa forme actuelle, le chaos déclenche uniquement des erreurs sécurisées, ce qui implique qu’en l’absence d’erreurs externes, une perte de quorum ou une perte de données ne se produit jamais.
+For example, consider an instance of Chaos, set to run for an hour with a maximum of three concurrent faults. Chaos induces three faults, and then validates the cluster health and it iterates through the previous step until it is explicitly stopped through the StopChaosAsync API or one-hour passes. If the cluster becomes unhealthy in any iteration, that is, it does not stabilize within a configured time, Chaos generates a ValidationFailedEvent, which indicates that something has gone wrong and may need further investigation.
 
-## Options de configuration importantes
- - **TimeToRun** : durée totale d’exécution du chaos jusqu’à sa réussite. Il est possible d’arrêter le chaos avant qu’il ne se soit exécuté durant la période TimeToRun définie via l’API StopChaos.
- - **MaxClusterStabilizationTimeout** : durée d’attente maximale pour que le cluster devienne sain avant une nouvelle vérification. Cette attente vise à réduire la charge sur le cluster pendant sa récupération. Les vérifications effectuées sont
-    - Si l’intégrité du cluster est OK
-    - L’intégrité du service est OK
-    - La taille du jeu de réplicas cible est atteinte pour la partition de service
-    - Aucun réplica InBuild n’existe
- - **MaxConcurrentFaults** : nombre maximal d’erreurs introduites simultanément dans chaque itération. Plus le nombre est élevé, plus le chaos est efficace. Vous obtiendrez des combinaisons plus complexes de basculement et de transition. Le chaos garantit qu’aucune perte de quorum ou de données ne sera à déplorer en l’absence d’erreurs externes, quel que soit la valeur de la configuration.
- - **EnableMoveReplicaFaults** : active ou désactive les erreurs provoquant le déplacement des réplicas primaires ou secondaires. Ces erreurs sont désactivées par défaut.
- - **WaitTimeBetweenIterations** : délai d’attente entre les itérations, c’est-à-dire après une séquence d’erreurs et la validation correspondante.
- - **WaitTimeBetweenFaults** : délai d’attente entre deux erreurs consécutives lors d’une itération.
+In its current form, Chaos induces only safe faults, which implies that in the absence of external faults, a quorum loss, or data loss never occurs.
 
-## Procédure d’exécution du chaos
-Exemple de code C#
+## <a name="important-configuration-options"></a>Important configuration options
+ - **TimeToRun**: Total time that Chaos runs before finishing with success. Chaos can be stopped before it has run for TimeToRun period through the StopChaos API.
+ - **MaxClusterStabilizationTimeout**: Maximum amount of time to wait for the cluster to become healthy before checking on again, this wait is to reduce load on the cluster while it is recovering. The checks performed are 
+    - If the cluster health is OK 
+    - The service health is OK 
+    - The target replica set size is achieved for the service partition 
+    - No InBuild replicas exist
+ - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number, the more aggressive the Chaos, hence resulting in more complex failovers and transition combinations. Chaos guarantees that in the absence of external faults there is no quorum loss or data loss, irrespective of how high a value this configuration has.
+ - **EnableMoveReplicaFaults**: Enables or disables the faults that cause the move of the primary or secondary replicas. These faults are disabled by default.
+ - **WaitTimeBetweenIterations**: Amount of time to wait between iterations, that is, after a round of faults and corresponding validation.
+ - **WaitTimeBetweenFaults**: Amount of time to wait between two consecutive faults in an iteration.
+
+## <a name="how-to-run-chaos"></a>How to run Chaos
+C# sample
 
 ```csharp
 using System;
@@ -185,4 +186,7 @@ while($true)
 Stop-ServiceFabricChaos
 ```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

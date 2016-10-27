@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d'Azure Active Directory à Box | Microsoft Azure" 
-    description="Apprenez à utiliser Box avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
+    pageTitle="Tutorial: Azure Active Directory integration with Box | Microsoft Azure" 
+    description="Learn how to use Box with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,182 +11,188 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
 
 
 
-#Didacticiel : Intégration d'Azure Active Directory à Box
+
+#<a name="tutorial:-azure-active-directory-integration-with-box"></a>Tutorial: Azure Active Directory integration with Box
 
 
   
-L'objectif de ce didacticiel est de montrer comment intégrer Azure et Box. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+The objective of this tutorial is to show the integration of Azure and Box.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Un abonnement Azure valide
--   Un locataire de test dans Box
+-   A valid Azure subscription
+-   A test tenant in Box
   
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Box pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Box (connexion initiée par le prestataire de service) ou à l’aide de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Box will be able to single sign into the application at your Box company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Activation de l'intégration d'application pour Box
-2.  Configuration de l'authentification unique
-3.  Configuration de l'approvisionnement des utilisateurs et des groupes
-4.  Affectation d’utilisateurs
+1.  Enabling the application integration for Box
+2.  Configuring single sign-on
+3.  Configuring user and group provisioning
+4.  Assigning users
 
-![Scénario](./media/active-directory-saas-box-tutorial/IC769537.png "Scénario")
+![Scenario](./media/active-directory-saas-box-tutorial/IC769537.png "Scenario")
 
 
 
-##Activation de l'intégration d'application pour Box
+##<a name="enabling-the-application-integration-for-box"></a>Enabling the application integration for Box
   
-Cette section décrit l'activation de l'intégration d'application pour Box.
+The objective of this section is to outline how to enable the application integration for Box.
 
-###Pour activer l'intégration d'application pour Box, procédez comme suit :
+###<a name="to-enable-the-application-integration-for-box,-perform-the-following-steps:"></a>To enable the application integration for Box, perform the following steps:
 
-1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-box-tutorial/IC700993.png "Active Directory")
 
-2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
     ![Applications](./media/active-directory-saas-box-tutorial/IC700994.png "Applications")
 
-4.  Cliquez sur **Ajouter** en bas de la page.
+4.  Click **Add** at the bottom of the page.
 
-    ![Ajouter l’application](./media/active-directory-saas-box-tutorial/IC749321.png "Ajouter l’application")
+    ![Add application](./media/active-directory-saas-box-tutorial/IC749321.png "Add application")
 
-5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-box-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+    ![Add an application from gallerry](./media/active-directory-saas-box-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Dans la **zone de recherche**, tapez **Box**.
+6.  In the **search box**, type **Box**.
 
-    ![Galerie d’applications](./media/active-directory-saas-box-tutorial/IC701023.png "Galerie d'applications")
+    ![Application gallery](./media/active-directory-saas-box-tutorial/IC701023.png "Application gallery")
 
-7.  Dans le volet de résultats, sélectionnez **Box**, puis cliquez sur **Terminer** pour ajouter l’application.
+7.  In the results pane, select **box**, and then click **Complete** to add the application.
 
     ![Box](./media/active-directory-saas-box-tutorial/IC701024.png "Box")
 
 
 
-##Configuration de l'authentification unique
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-Cette section explique comment permettre aux utilisateurs de s'authentifier sur Box avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez charger un certificat vers Box.com.
+The objective of this section is to outline how to enable users to authenticate to Box with their account in Azure AD using federation based on the SAML protocol. As part of this procedure, you are required to upload metadata to Box.com.
 
-###Pour configurer l’authentification unique, procédez comme suit :
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Sur la page d’intégration d’applications **Box** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  In the Azure classic portal, on the **Box** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/IC769538.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769538.png "Configure single sign-on")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Box**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  On the **How would you like users to sign on to Box** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/IC769539.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769539.png "Configure single sign-on")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de locataire Box**, tapez l’URL de votre locataire Box (par exemple : https://<monnomdomaine>.box.com), puis cliquez sur **Suivant**.
+3.  On the **Configure App URL** page, in the **Box Tenant URL** textbox, type your Box tenant URL (e.g.: https://<mydomainname>.box.com), and then click **Next**.
 
-    ![Configurer l’URL de l’application](./media/active-directory-saas-box-tutorial/IC669826.png "Configurer l’URL de l’application")
+    ![Configure app URL](./media/active-directory-saas-box-tutorial/IC669826.png "Configure app URL")
 
-4.  Dans la page **Configurer l’authentification unique sur Box**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de données localement sur votre ordinateur.
+4.  On the **Configure single sign-on at Box** page, to download your metadata, click **Download metadata**, and then the data file locally on your computer.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/IC669824.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC669824.png "Configure single sign-on")
 
-5.  Transférez ce fichier de métadonnées à l'équipe de support Box. L’équipe de support en a besoin pour configurer l’authentification unique pour vous.
+5.  Forward that metadata file to Box support team. The support team needs configures single sign-on for you.
 
-6.  Sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/IC769540.png "Configurer l’authentification unique")
-##Configuration de l'approvisionnement des utilisateurs
+    ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769540.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Cette section décrit comment activer l'approvisionnement des comptes d'utilisateurs Active Directory sur Box.
+The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Box.
 
-###Pour configurer l’authentification unique, procédez comme suit :
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’application **Box**, cliquez sur **Configurer l’approvisionnement des utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement des utilisateurs**.
+1. In the Azure classic portal, on the **Box** application integration page, click **Configure user provisioning** to open the **Configure User Provisioning** dialog. 
 
-	![Activer l'approvisionnement de l'utilisateur automatique.](./media/active-directory-saas-box-tutorial/IC769541.png "Activer l'approvisionnement de l'utilisateur automatique.")
+    ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769541.png "Enable automatic user provisioning")
 
-2. Dans la boîte de dialogue **Activer l’approvisionnement d’utilisateurs sur Box**, cliquez sur **Activer l’approvisionnement d’utilisateurs**.
+2. On the **Enable user provisioning to Box** dialog page, click **Enable user provisioning**. 
 
-	![Activer l'approvisionnement de l'utilisateur automatique.](./media/active-directory-saas-box-tutorial/IC769544.png "Activer l'approvisionnement de l'utilisateur automatique.")
+    ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769544.png "Enable automatic user provisioning")
 
-3. Sur la page **Se connecter pour autoriser l’accès à Box**, saisissez les informations d’identification requises, puis cliquez sur **Autoriser**.
+3. On the **Log in to grant access to Box** page, provide the required credentials, and then click **Authorize**. 
 
-	![Activer l'approvisionnement de l'utilisateur automatique.](./media/active-directory-saas-box-tutorial/IC769546.png "Activer l'approvisionnement de l'utilisateur automatique.")
-
-
-4. Cliquez sur **Accorder l’accès à Box** pour autoriser cette opération et retourner au portail Azure Classic.
-
-	![Activer l'approvisionnement de l'utilisateur automatique.](./media/active-directory-saas-box-tutorial/IC769549.png "Activer l'approvisionnement de l'utilisateur automatique.")
+    ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769546.png "Enable automatic user provisioning")
 
 
-5. Sur la page **Options d'approvisionnement**, les cases à cocher **Types d'objet à approvisionner** permettent de choisir ou non les objets de groupe approvisionnés dans Box en plus des objets utilisateur. Pour plus d'informations, voir "Affectation d'utilisateurs et de groupes" ci-dessous.
+4. Click **Grant access to Box** to authorize this operation and to return to the Azure classic portal. 
+
+    ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769549.png "Enable automatic user provisioning")
 
 
-6. Pour terminer la configuration, cliquez sur le bouton Terminé.
-
-	![Activer l'approvisionnement de l'utilisateur automatique.](./media/active-directory-saas-box-tutorial/IC769551.png "Activer l'approvisionnement de l'utilisateur automatique.")
+5. On the **Provisioning Options** page, the **Object types to provision** checkboxes allow you to select whether or not group objects are provisioned to Box in addition to user objects.  See "Assigning users and groups section" below for more information.
 
 
+6. To finish the configuration, click the Complete button. 
 
-##Affectation d'un utilisateur de test
+    ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769551.png "Enable automatic user provisioning")
+
+
+
+##<a name="assigning-a-test-user"></a>Assigning a test user
   
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Pour affecter des utilisateurs à Box, procédez comme suit :
+###<a name="to-assign-users-to-box,-perform-the-following-steps:"></a>To assign users to Box, perform the following steps:
 
-1. Dans le portail Azure Classic, créez un compte de test.
+1. In the Azure classic portal, create a test account.
 
-2. Dans la page d’intégration d’applications **Box**, cliquez sur **Affecter des utilisateurs**.
+2. On the **Box **application integration page, click **Assign users**. 
 
-	![Affecter des utilisateurs](./media/active-directory-saas-box-tutorial/IC769552.png "Affecter des utilisateurs")
+    ![Assign users](./media/active-directory-saas-box-tutorial/IC769552.png "Assign users")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment. 
 
-	![Oui](./media/active-directory-saas-box-tutorial/IC767830.png "Oui")
+    ![Yes](./media/active-directory-saas-box-tutorial/IC767830.png "Yes")
   
-À présent, patientez 10 minutes et vérifiez que le compte est bien synchronisé avec Box.
+You should now wait for 10 minutes and verify that the account has been synchronized to Box.
 
-Une première étape de vérification consiste à contrôler l’état de l’approvisionnement en cliquant sur le tableau de bord sur le D de la page d’intégration d’application Box sur le Portail Azure Classic.
+As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the Box application integration page on the Azure classic portal.
 
-![Tableau de bord](./media/active-directory-saas-box-tutorial/IC769553.png "Tableau de bord")
+![Dashboard](./media/active-directory-saas-box-tutorial/IC769553.png "Dashboard")
 
-Si le cycle d’approvisionnement d’utilisateur a abouti, l’état associé suivant est indiqué :
+A successfully completed user provisioning cycle is indicated by a related status:
 
-![Statut d’intégration](./media/active-directory-saas-box-tutorial/IC769555.png "Statut d’intégration")
-
-
-Dans votre locataire Box, les utilisateurs synchronisés sont répertoriés sous **Utilisateurs gérés** dans la **Console d’administration**.
-
-![Statut d’intégration](./media/active-directory-saas-box-tutorial/IC769556.png "Statut d’intégration")
+![Integration status](./media/active-directory-saas-box-tutorial/IC769555.png "Integration status")
 
 
-##Affectation d'utilisateurs et de groupes
+In your Box tenant, synchronized users are listed under **Managed Users** in the **Admin Console**.
 
-L'onglet **Box > Utilisateurs et groupes** du portail Azure Classic vous permet de spécifier quels utilisateurs et groupes doivent avoir accès à Box. L'affectation d'un utilisateur ou groupe entraîne les événements suivants :
+![Integration status](./media/active-directory-saas-box-tutorial/IC769556.png "Integration status")
 
-* Azure AD permet à l'utilisateur affecté (par affectation directe ou appartenance au groupe) de s'identifier auprès de Box. Si un utilisateur n'est pas affecté, Azure AD ne lui permettra pas de se connecter à Box et renverra une erreur sur la page de connexion Azure AD.
 
-* Une mosaïque d'application pour Box est ajoutée au [lanceur d'applications](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) de cet utilisateur.
+##<a name="assigning-users-and-groups"></a>Assigning users and groups
 
-* Si la configuration automatique est activée, les utilisateurs et/ou groupes affectés sont ajoutés à la file d'attente d'approvisionnement automatique.
+The **Box > Users and Groups** tab in the Azure classic portal allows you to specify which users and groups should be granted access to Box. Assignment of a user or group causes the following things to occur:
 
-    * Si seuls des objets utilisateur ont été configurés pour être approvisionnés, tous les utilisateurs directement affectées sont placés dans la file d'attente d'approvisionnement et tous les utilisateurs membres des groupes affectés seront placés dans la file d'attente d'approvisionnement.
+* Azure AD permits the assigned user (either by direct assignment or group membership) to authenticate to Box. If a user is not assigned, then Azure AD will not permit them to sign in to Box and will return an error on the Azure AD sign-in page.
+
+* An app tile for Box is added to the user's [application launcher](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+
+* If automatic provisioning is enabled, then the assigned users and/or groups are added to the provisioning queue to be automatically provisioned.
+
+    * If only user objects were configured to be provisioned, then all directly-assigned users are placed in the provisioning queue, and all users that are members of any assigned groups will be placed in the provisioning queue. 
     
-    * Si des objets de groupe ont été configurés pour être approvisionnés, tous les objets du groupe affectés sont approvisionnés dans Box, tout comme l'ensemble des utilisateurs membres de ces groupes. Les appartenances des groupes et des utilisateurs sont conservées lors de l'écriture dans Box.
+    * If group objects were configured to be provisioned, then all assigned group objects are provisioned to Box, as well as all users that are members of those groups. The group and user memberships are preserved upon being written to Box.
     
-Vous pouvez utiliser l'onglet **Attributs > Authentification unique** pour configurer les attributs (ou revendications) de l'utilisateur présentés dans Box pendant l'authentification SAML, et l'onglet **Attributs > Approvisionnement** pour configurer le transfert des attributs utilisateur et groupe d'Azure AD vers Box lors des opérations d'approvisionnement. Consultez les ressources ci-après pour plus d'informations.
+You can use the **Attributes > Single Sign-On** tab to configure which user attributes (or claims) are presented to Box during SAML-based authentication, and the **Attributes > Provisioning** tab to configure how user and group attributes flow from Azure AD to Box during provisioning operations. See the resources below for more information.
 
 
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Additional Resources
 
-* [Personnalisation des revendications émises dans le jeton SAML](active-directory-saml-claims-customization.md)
-* [Approvisionnement : personnaliser les mappages d'attributs](active-directory-saas-customizing-attribute-mappings.md)
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Customizing claims issued in the SAML token](active-directory-saml-claims-customization.md)
+* [Provisioning: Customize Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,102 +1,105 @@
 <properties 
-	pageTitle="Utilisation de SSH sous Windows pour se connecter à des machines virtuelles Linux | Microsoft Azure" 
-description="Apprenez à créer et à utiliser des clés SSH sur un ordinateur Windows pour vous connecter à une machine virtuelle Linux dans Azure." 
-	services="virtual-machines-linux" 
-	documentationCenter="" 
-	authors="squillace" 
-	manager="timlt" 
-	editor=""
-	tags="azure-service-management,azure-resource-manager" />
+    pageTitle="Use SSH on Windows to connect to Linux virtual machines | Microsoft Azure" 
+description="Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure." 
+    services="virtual-machines-linux" 
+    documentationCenter="" 
+    authors="squillace" 
+    manager="timlt" 
+    editor=""
+    tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines-linux" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/29/2016" 
-	ms.author="rasquill"/>
+    ms.service="virtual-machines-linux" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="vm-linux" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/29/2016" 
+    ms.author="rasquill"/>
 
-#Utilisation de SSH avec Windows sur Azure
+
+#<a name="how-to-use-ssh-with-windows-on-azure"></a>How to Use SSH with Windows on Azure
 
 > [AZURE.SELECTOR]
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
-Cette rubrique décrit comment créer et utiliser **ssh rsa** et le format **.pem** pour des fichiers de clé publics et privés sur Windows, que vous pouvez utiliser pour vous connecter à vos machines virtuelles Linux sur Azure avec la commande **ssh**. Si vous avez déjà créé des fichiers **.pem**, vous pouvez les utiliser pour créer des machines virtuelles Linux auxquelles vous pouvez vous connecter à l'aide de **ssh**. Plusieurs autres commandes utilisent le protocole **SSH** et des fichiers de clés pour travailler en toute sécurité, notamment **scp** ou [Secure Copy](https://en.wikipedia.org/wiki/Secure_copy), qui peuvent copier des fichiers en toute sécurité vers et depuis des ordinateurs prenant en charge des connexions **SSH**.
+This topic describes how to create and use **ssh-rsa** and **.pem** format public and private key files on Windows that you can use to connect to your Linux VMs on Azure with the **ssh** command. If you already have **.pem** files created, you can use those to create Linux VMs to which you can connect using **ssh**. Several other commands use the **SSH** protocol and key files to perform work securely, notably **scp** or [Secure Copy](https://en.wikipedia.org/wiki/Secure_copy), which can securely copy files to and from computers that support **SSH** connections. 
 
-> [AZURE.NOTE] Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Azure Linux en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) concernant vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
+> [AZURE.NOTE] If you have a few moments, please help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
 
-## De quels programmes SSH et de création de programmes avez-vous besoin ?
+## <a name="what-ssh-and-key-creation-programs-do-you-need?"></a>What SSH and key-creation programs do you need?
 
-**SSH** &#8212; ou [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) &#8212; est un protocole de connexion chiffré qui permet d'ouvrir des sessions en toute sécurité à travers des connexions non sécurisées. Il s'agit du protocole de connexion par défaut pour les machines virtuelles Linux hébergées dans Azure, sauf si vous configurez vos machines virtuelles Linux de manière à activer d'autres mécanismes de connexion. Les utilisateurs Windows peuvent également se connecter à des machines virtuelles Linux et les gérer dans Azure à l'aide une mise en œuvre du client **ssh**, mais les ordinateurs Windows ne sont en général pas dotés d'un client **ssh**. Il vous faudra donc en choisir un.
+**SSH** &#8212; or [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) &#8212; is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure unless you configure your Linux VMs to enable some other connection mechanism. Windows users can also connect to and manage Linux VMs in Azure using an **ssh** client implementation, but Windows computers do not typically come with an **ssh** client, so you will need to choose one. 
 
-Vous pouvez installer entre autres les clients courants suivants :
+Common clients you can install include:
 
-- [puTTY et puTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+- [puTTY and puTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 - [MobaXterm](http://mobaxterm.mobatek.net/)
 - [Cygwin](https://cygwin.com/)
-- [Git pour Windows](https://git-for-windows.github.io/), qui est fourni avec l'environnement et les outils
+- [Git For Windows](https://git-for-windows.github.io/), which comes with the environment and tools
 
-Si vous êtes particulièrement expérimenté, vous pouvez également essayer le [nouveau port de l'ensemble d'outils **OpenSSH** pour Windows](http://blogs.msdn.com/b/powershell/archive/2015/10/19/openssh-for-windows-update.aspx). Sachez, toutefois, qu'il s'agit de code qui est en cours de développement et que vous devez examiner la base de code avant de l'utiliser avec des systèmes de production.
+If you're feeling especially geeky, you can also try out the [new port of the **OpenSSH** toolset to Windows](http://blogs.msdn.com/b/powershell/archive/2015/10/19/openssh-for-windows-update.aspx). Be aware, however, that this is code that is currently in development, and you should review the codebase before you use it for production systems.
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## Quels fichiers de clés devez-vous créer ?
+## <a name="which-key-files-do-you-need-to-create?"></a>Which key files do you need to create?
 
-La configuration SSH de base pour Azure inclut une paire de clés publiques et privées **ssh-rsa** de 2 048 bits (par défaut, **ssh-keygen** stocke ces fichiers sous la forme **~/.ssh/id\_rsa** et **~/.ssh/id-rsa.pub**, sauf si vous modifiez les valeurs par défaut) ainsi qu'un fichier `.pem` généré à partir du fichier de clé privée **id\_rsa** pour une utilisation avec le modèle de déploiement classique du portail classique.
+A basic SSH setup for Azure includes an **ssh-rsa** public and private key pair of 2048 bits (by default, **ssh-keygen** stores these files as **~/.ssh/id_rsa** and **~/.ssh/id-rsa.pub** unless you change the defaults) as well as a `.pem` file generated from the **id_rsa** private key file for use with the classic deployment model of the classic portal. 
 
-Voici les scénarios de déploiement et les types de fichiers que vous utilisez dans chacun d'eux
+Here are the deployment scenarios, and the types of files you use in each:
 
-1. Les clés **ssh rsa** sont nécessaires pour tout déploiement à l’aide du [portail Azure](https://portal.azure.com), quel que soit le modèle de déploiement.
-2. Les fichiers .pem sont nécessaires pour créer des machines virtuelles à l'aide du [portail classique](https://manage.windowsazure.com). Les fichiers .pem sont également pris en charge dans les déploiements classiques qui utilisent l'[interface de ligne de commande CLI](../xplat-cli-install.md).
+1. **ssh-rsa** keys are required for any deployment using the [Azure portal](https://portal.azure.com), regardless of the deployment model.
+2. .pem file are required to create VMs using the [classic portal](https://manage.windowsazure.com). .pem files are also supported in classic deployments that use the [Azure CLI](../xplat-cli-install.md).
 
-> [AZURE.NOTE] Si vous prévoyez de gérer des services déployés avec le modèle de déploiement classique, vous pouvez également créer un fichier au format **.cer** à télécharger sur le portail, bien que cela n'implique pas **ssh** ni la connexion à des machines virtuelles Linux (l'objet de cet article). Pour créer ces fichiers sous Windows, tapez : <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
+> [AZURE.NOTE] If you plan to manage service deployed with the classic deployment model, you may also want to create a **.cer** format file to upload to the portal -- although this doesn't involve **ssh** or connecting to Linux VMS, which is the subject of this article. To create those files on Windows, type:
+<br />
+openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
 
-## Obtenez ssh keygen et openssl sur Windows ##
+## <a name="get-ssh-keygen-and-openssl-on-windows"></a>Get ssh-keygen and openssl on Windows ##
 
-[La section](#What-SSH-and-key-creation-programs-do-you-need) ci-dessus répertorie plusieurs utilitaires comprenant `ssh-keygen` et `openssl` pour Windows. Voici quelques exemples :
+[This section](#What-SSH-and-key-creation-programs-do-you-need) above listed several utilities that include an `ssh-keygen` and `openssl` for Windows. A couple of examples are listed below:
 
-###Utiliser Git pour Windows###
+###<a name="use-git-for-windows###"></a>Use Git for Windows###
 
-1.	Téléchargez et installez Git pour Windows à partir de l’emplacement suivant : [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
-2.	Exécutez Git Bash à partir du menu Démarrer > Toutes les applications > Git Shell
+1.  Download and install Git for Windows from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
+2.  Run Git Bash from the Start Menu > All Apps > Git Shell
 
-> [AZURE.NOTE] L'erreur suivante peut être générée lors de l'exécution des commandes `openssl` ci-dessus :
+> [AZURE.NOTE] You may encounter the following error when running the `openssl` commands above:
 
         Unable to load config info from /usr/local/ssl/openssl.cnf
 
-Le moyen le plus simple de résoudre le problème est de définir la variable d’environnement `OPENSSL_CONF`. Le processus de définition de cette variable varie en fonction de l’interpréteur de commande configuré dans Gitbub :
+The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
 
-**PowerShell :**
+**Powershell:**
 
         $Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
 
-**CMD :**
+**CMD:**
 
         set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
 
-**Git Bash :**
+**Git Bash:**
 
         export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
-	
+    
 
-###Utilisation de Cygwin###
+###<a name="use-cygwin###"></a>Use Cygwin###
 
-1.	Téléchargez et installez Cygwin à partir de l’emplacement suivant : [http://cygwin.com/](http://cygwin.com/).
-2.	Vérifiez que le package OpenSSL et toutes ses dépendances sont installés.
-3.	Exécutez `cygwin`.
+1.  Download and install Cygwin from the following location: [http://cygwin.com/](http://cygwin.com/)
+2.  Ensure that the OpenSSL package and all of its dependencies are installed.
+3.  Run `cygwin`
 
-## Créez une clé privée##
+## <a name="create-a-private-key##"></a>Create a Private Key##
 
-1.	Suivez l’une des procédures ci-dessus pour pouvoir exécuter `openssl.exe`.
-2.	Tapez la commande suivante :
+1.  Follow one of the set of instructions above to be able to run `openssl.exe`
+2.  Type in the following command:
 
   ```
   openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
   ```
-3.	Votre écran doit ressembler à ce qui suit :
+3.  Your screen should look like the following:
 
   ```
   $ openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
@@ -115,57 +118,61 @@ Le moyen le plus simple de résoudre le problème est de définir la variable d�
   Country Name (2 letter code) [AU]:
   ```
 
-4.	Répondez aux questions posées.
-5.	Deux fichiers doivent être créés : `myPrivateKey.key` et `myCert.pem`.
-6.	Si vous utilisez l’API directement, et non le portail de gestion, convertissez `myCert.pem` en `myCert.cer` (certificat codé DER X509) à l’aide de la commande suivante :
+4.  Answer the questions that are asked.
+5.  It would have created two files: `myPrivateKey.key` and `myCert.pem`.
+6.  If you are going to use the API directly, and not use the Management Portal, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate) using the following command:
 
   ```
   openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
   ```
 
-## Création d'une clé privée pour Putty ##
+## <a name="create-a-ppk-for-putty"></a>Create a PPK for Putty ##
 
-1. Téléchargez et installez Puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. Download and install Puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-2. Puttygen ne pourra peut-être pas lire la clé privée créée précédemment (`myPrivateKey.key`). Exécutez la commande suivante pour la transformer en clé privée RSA interprétable par Puttygen :
+2. Puttygen may not be able to read the private key that was created earlier (`myPrivateKey.key`). Run the following command to translate it into an RSA private key that Puttygen can understand:
 
-		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
-		# chmod 600 ./myPrivateKey_rsa
+        # openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
+        # chmod 600 ./myPrivateKey_rsa
 
-	La commande ci-dessus doit produire une nouvelle clé privée myPrivateKey\_rsa.
+    The command above should produce a new private key called myPrivateKey_rsa.
 
-3. Exécutez `puttygen.exe`.
+3. Run `puttygen.exe`
 
-4. Cliquez sur le menu : Fichier > Charger une clé privée.
+4. Click the menu: File > Load a Private Key
 
-5. Recherchez votre clé privée, que nous avons nommée `myPrivateKey_rsa` plus haut. Vous devez modifier le filtre de fichiers pour afficher **Tous les fichiers (*.*)**
+5. Find your private key, which we named `myPrivateKey_rsa` above. You will need to change the file filter to show **All Files (\*.\*)**
 
-6. Cliquez sur **Ouvrir**. Vous devez voir apparaître une boîte de dialogue ressemblant à ceci :
+6. Click **Open**. You will receive a prompt which should look like this:
 
-	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
+    ![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
 
-7. Cliquez sur **OK**
+7. Click **OK**
 
-8. Cliquez sur **Enregistrer la clé privée**, qui est mis en surbrillance dans la capture d'écran ci-dessous :
+8. Click **Save Private Key**, which is highlighted in the screenshot below:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
+    ![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
 
-9. Enregistrez le fichier au format PPK.
+9. Save the file as a PPK
 
 
-## Utilisation de Putty pour se connecter à une machine Linux ##
+## <a name="use-putty-to-connect-to-a-linux-machine"></a>Use Putty to Connect to a Linux Machine ##
 
-1.	Téléchargez et installez putty à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-2.	Exécutez putty.exe
-3.	Remplissez le nom d'hôte à l'aide de l'adresse IP du portail de gestion :
+1.  Download and install putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+2.  Run putty.exe
+3.  Fill in the host name using the IP from the Management Portal:
 
-	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
+    ![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
-4.	Avant de sélectionner **Ouvrir**, cliquez sur l'onglet Connexion > SSH > Auth pour choisir votre clé privée. Examinez la capture d'écran ci-dessous pour le champ à remplir :
+4.  Before selecting **Open**, click the Connection > SSH > Auth tab to choose your private key. See the screenshot below for the field to fill in:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
+    ![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
-5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
+5.  Click **Open** to connect to your virtual machine
  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Déployer des ressources avec le modèle et l’interface de ligne de commande Azure | Microsoft Azure"
-   description="Utilisez Azure Resource Manager et l’interface de ligne de commande Azure pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager."
+   pageTitle="Deploy resources with Azure CLI and template | Microsoft Azure"
+   description="Use Azure Resource Manager and Azure CLI to deploy a resources to Azure. The resources are defined in a Resource Manager template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,60 +16,61 @@
    ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
-# Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure
+
+# <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Deploy resources with Resource Manager templates and Azure CLI
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-template-deploy.md)
-- [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
-- [Portail](resource-group-template-deploy-portal.md)
-- [API REST](resource-group-template-deploy-rest.md)
+- [Azure CLI](resource-group-template-deploy-cli.md)
+- [Portal](resource-group-template-deploy-portal.md)
+- [REST API](resource-group-template-deploy-rest.md)
 
-Cette rubrique explique comment utiliser l’interface de ligne de commande Azure avec les modèles Resource Manager pour déployer vos ressources dans Azure.
+This topic explains how to use Azure CLI with Resource Manager templates to deploy your resources to Azure.  
 
-> [AZURE.TIP] Pour obtenir de l’aide dans le débogage d’une erreur pendant le déploiement, consultez :
+> [AZURE.TIP] For help with debugging an error during deployment, see:
 >
-> - [Afficher les opérations de déploiement avec l’interface CLI Azure](resource-manager-troubleshoot-deployments-cli.md) pour apprendre à récupérer des informations qui vous aideront à résoudre votre erreur
-> - [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md) pour apprendre à résoudre les erreurs de déploiement courantes
+> - [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md) to learn about getting information that helps you troubleshoot your error
+> - [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 
-Votre modèle peut être un fichier local ou un fichier externe disponible par le biais d’un URI. Lorsque votre modèle se trouve dans un compte de stockage, vous pouvez restreindre l’accès au modèle et fournir un jeton de signature d’accès partagé (SAP) au cours du déploiement.
+Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
-## Étapes à suivre pour le déploiement
+## <a name="quick-steps-to-deployment"></a>Quick steps to deployment
 
-Cet article décrit toutes les différentes options disponibles lors du déploiement. Toutefois, souvent, deux commandes suffisent. Pour commencer le déploiement rapidement, utilisez les commandes suivantes :
+This article describes all the different options available to you during deployment. However, often you only need two simple commands. To quickly get started with deployment, use the following commands:
 
     azure group create -n ExampleResourceGroup -l "West US"
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-Pour en savoir plus sur les options de déploiement mieux adaptées à votre scénario, poursuivez la lecture de cet article.
+To learn more about options for deployment that might be better suited to your scenario, continue reading this article.
 
-[AZURE.INCLUDE [déploiements-resource-manager](../includes/resource-manager-deployments.md)]
+[AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
-## Déploiement avec l’interface de ligne de commande Azure
+## <a name="deploy-with-azure-cli"></a>Deploy with Azure CLI
 
-Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](xplat-cli-azure-resource-manager.md).
+If you have not previously used Azure CLI with Resource Manager, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
 
-1. Connectez-vous à votre compte Azure. Une fois que vous avez entré vos informations d'identification, la commande retourne le résultat de votre connexion.
+1. Log in to your Azure account. After providing your credentials, the command returns the result of your login.
 
         azure login
   
         ...
         info:    login command OK
 
-2. Si vous avez plusieurs abonnements, fournissez l’ID d’abonnement que vous souhaitez utiliser pour le déploiement.
+2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Basculez vers le module Azure Resource Manager. Vous recevez la confirmation du nouveau mode.
+3. Switch to Azure Resource Manager module. You receive confirmation of the new mode.
 
         azure config mode arm
    
         info:     New mode is arm
 
-4. Si vous n’avez pas de groupe de ressources, créez-en un. Indiquez le nom du groupe de ressources et l'emplacement dont vous avez besoin pour votre solution. Vous devez fournir un emplacement pour le groupe de ressources, car celui-ci stocke des métadonnées sur les ressources. Pour des raisons de conformité, vous souhaiterez peut-être indiquer où sont stockées métadonnées. En règle générale, nous vous recommandons de spécifier l’emplacement où réside la plupart de vos ressources. L’utilisation du même emplacement permet de simplifier votre modèle.
+4. If you do not have an existing resource group, create a resource group. Provide the name of the resource group and location that you need for your solution. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
         azure group create -n ExampleResourceGroup -l "West US"
 
-     Un résumé du nouveau groupe de ressources est retourné.
+     A summary of the new resource group is returned.
    
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -83,27 +84,27 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
         data:
         info:    group create command OK
 
-5. Validez votre déploiement avant son exécution en exécutant la commande **azure group template validate**. Lorsque vous testez le déploiement, indiquez les paramètres exactement comme vous le feriez lors de l'exécution du déploiement (voir l'étape suivante).
+5. Validate your deployment before executing it by running the **azure group template validate** command. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
 
-        azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
+        azure group template validate -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup
 
-5. Pour déployer des ressources vers votre groupe de ressources, exécutez la commande suivante et indiquez les paramètres nécessaires. Les paramètres comprennent un nom pour votre déploiement, le nom de votre groupe de ressources, le chemin d’accès ou l’URL du modèle et tous les autres paramètres nécessaires à votre scénario.
+5. To deploy resources to your resource group, run the following command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template, and any other parameters needed for your scenario. 
    
-     Vous disposez des trois options suivantes pour fournir les valeurs des paramètres :
+     You have the following three options for providing parameter values: 
 
-     1. Utiliser des paramètres incorporés et un modèle local. Chaque paramètre est au format suivant : `"ParameterName": { "value": "ParameterValue" }`. L’exemple suivant montre les paramètres avec des caractères d’échappement.
+     1. Use inline parameters and a local template. Each parameter is in the format: `"ParameterName": { "value": "ParameterValue" }`. The following example shows the parameters with escape characters.
 
-            azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
+            azure group deployment create -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
 
-     2. Utiliser des paramètres incorporés et un lien vers un modèle.
+     2. Use inline parameters and a link to a template.
 
-            azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
+            azure group deployment create --template-uri <LinkToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
 
-     3. Utiliser un fichier de paramètres. Pour plus d’informations sur le fichier de modèle, consultez [Fichier de paramètres](./#parameter-file).
+     3. Use a parameter file. For information about the template file, see [Parameter file](#parameter-file).
     
             azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-     Une fois les ressources déployées à l’aide de l’une des trois méthodes ci-dessus, un résumé du déploiement apparaît.
+     After the resources have been deployed through one of the three methods above, you will see a summary of the deployment.
   
         info:    Executing command group deployment create
         + Initializing template configurations and parameters
@@ -111,66 +112,71 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
         ...
         info:    group deployment create command OK
 
-     Pour exécuter un déploiement complet, définissez **mode** sur **Complet**. Soyez prudent lorsque vous utilisez ce mode, car vous pouvez supprimer par inadvertance des ressources qui ne sont pas dans votre modèle.
+     To run a complete deployment, set **mode** to **Complete**. Be careful when using this mode as you can inadvertently delete resources that are not in your template.
 
         azure group deployment create --mode Complete -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-6. Si vous souhaitez consigner des informations supplémentaires sur le déploiement qui peuvent vous aider à résoudre des erreurs de déploiement, utilisez le paramètre **debug-setting**. Vous pouvez demander à ce que le contenu de la demande et/ou de la réponse soit consigné avec l’opération de déploiement.
+6. If you want to log additional information about the deployment that may help you troubleshoot any deployment errors, use the **debug-setting** parameter. You can specify that request content, response content, or both be logged with the deployment operation.
 
         azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-## Déployer un modèle à partir du stockage avec un jeton SAP
+## <a name="deploy-template-from-storage-with-sas-token"></a>Deploy template from storage with SAS token
 
-Vous pouvez ajouter vos modèles à un compte de stockage et les lier au cours du déploiement avec un jeton SAP.
+You can add your templates to a storage account and link to them during deployment with a SAS token.
 
-> [AZURE.IMPORTANT] Une fois les étapes ci-dessous suivies, l’objet blob contenant le modèle n’est accessible qu’au propriétaire du compte. Toutefois, lorsque vous créez un jeton SAP pour l’objet blob, celui-ci est accessible à toute personne ayant cet URI. Si un autre utilisateur intercepte l’URI, il pourra accéder au modèle. L’utilisation d’un jeton SAP est un bon moyen de limiter l’accès à vos modèles, mais vous ne devez pas inclure de données sensibles comme des mots de passe directement dans le modèle.
+> [AZURE.IMPORTANT] By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Using a SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 
-### Ajouter un modèle privé au compte de stockage
+### <a name="add-private-template-to-storage-account"></a>Add private template to storage account
 
-Les étapes suivantes configurent un compte de stockage pour les modèles :
+The following steps set up a storage account for templates:
 
-1. Créez un groupe de ressources
+1. Create a resource group.
 
         azure group create -n "ManageGroup" -l "westus"
 
-2. Créez un compte de stockage. Le nom du compte de stockage doit être unique dans Azure : fournissez donc votre propre nom pour le compte.
+2. Create a storage account. The storage account name must be unique across Azure, so provide your own name for the account.
 
         azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
 
-3. Définissez des variables pour le compte de stockage et la clé.
+3. Set variables for the storage account and key.
 
         export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
         export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
 
-4. Créez un conteneur. L’autorisation est définie sur **Désactivée**, ce qui signifie que le conteneur n’est accessible qu’au propriétaire.
+4. Create a container. The permission is set to **Off** which means the container is only accessible to the owner.
 
         azure storage container create --container templates -p Off 
         
-4. Ajoutez votre modèle au conteneur.
+4. Add your template to the container.
 
         azure storage blob upload --container templates -f c:\Azure\Templates\azuredeploy.json
         
-### Fournir un jeton SAP au cours du déploiement
+### <a name="provide-sas-token-during-deployment"></a>Provide SAS token during deployment
 
-Pour déployer un modèle dans un compte de stockage privé, récupérez un jeton SAP et incluez-le dans l’URI du modèle.
+To deploy a private template in a storage account, retrieve a SAS token and include it in the URI for the template.
 
-1. Créez un jeton SAP avec des autorisations de lecture et une date d’expiration pour limiter l’accès. Définissez le délai d’expiration de façon à laisser suffisamment de temps pour terminer le déploiement. Récupérez l’URI complet du modèle, y compris le jeton SAP.
+1. Create a SAS token with read permissions and an expiry time to limit access. Set the expiry time to allow enough time to complete the deployment. Retrieve the full URI of the template including the SAS token.
 
         expiretime=$(date -I'minutes' --date "+30 minutes")
         fullurl=$(azure storage blob sas create --container templates --blob azuredeploy.json --permissions r --expiry $expiretimetime --json  | jq ".url")
 
-2. Déployez le modèle en fournissant l’URI qui inclut le jeton SAP.
+2. Deploy the template by providing the URI that includes the SAS token.
 
         azure group deployment create --template-uri $fullurl -g ExampleResourceGroup
 
-Pour accéder à un exemple d’utilisation d’un jeton SAP avec des modèles liés, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
+For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
-[AZURE.INCLUDE [fichier-de-paramètre-resource-manager](../includes/resource-manager-parameter-file.md)]
+[AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
-## Étapes suivantes
-- Pour découvrir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/virtual-machines-windows-csharp-template.md).
-- Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
-- Pour obtenir des instructions sur le déploiement de votre solution dans différents environnements, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments.md).
-- Pour plus d’informations sur l’utilisation d’une référence Key Vault pour transmettre des valeurs sécurisées, consultez [Transmettre des valeurs sécurisées pendant le déploiement](resource-manager-keyvault-parameter.md).
+## <a name="next-steps"></a>Next steps
+- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md).
+- To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
+- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
+- For details about using a KeyVault reference to pass secure values, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

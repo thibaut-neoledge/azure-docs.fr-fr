@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Création d’une homologation de réseaux virtuels à l’aide du portail Azure | Microsoft Azure"
-   description="Découvrez comment créer un réseau virtuel à l’aide du portail Azure dans Resource Manager."
+   pageTitle="Create VNet Peering using the Azure portal | Microsoft Azure"
+   description="Learn how to create a virtual network using the Azure portal in Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="NarayanAnnamalai"
@@ -17,7 +17,8 @@
    ms.date="09/14/2016"
    ms.author="narayanannamalai;annahar"/>
 
-# Créer une homologation de réseaux virtuels à l’aide du portail Azure
+
+# <a name="create-a-virtual-network-peering-using-the-azure-portal"></a>Create a virtual network peering using the Azure portal
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
@@ -25,131 +26,135 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-basic-include](../../includes/virtual-networks-create-vnetpeering-scenario-basic-include.md)]
 
-Pour créer une homologation de réseaux virtuels selon le scénario ci-dessus à l’aide du portail Azure, suivez les étapes ci-dessous.
+To create a VNet peering based on the scenario above by using the Azure portal, follow the steps below.
 
-1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Pour établir une homologation de réseaux virtuels, vous devez créer un lien entre deux réseaux virtuels pour chaque direction. Vous pouvez créer tout d’abord le lien d’homologation de réseaux virtuels de VNET1 à VNET2. Dans le portail, cliquez sur **Parcourir**, puis choisissez **Réseaux virtuels**.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+2. To establish VNET peering, you need to create two links, one for each direction, between two VNets. You can create VNET peering link for VNET1 to VNET2 first. On the portal, Click **Browse** > **choose Virtual Networks**
 
-	![Créer une homologation de réseaux virtuels dans le portail Azure](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
+    ![Create VNet peering in Azure portal](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)
 
-3. Dans le panneau Réseaux virtuels, choisissez VNET1 et cliquez sur Homologations, puis sur Ajouter
+3. In Virtual Networks blade, choose VNET1, click Peerings, then click Add
 
-	![Choisir l’homologation](./media/virtual-networks-create-vnetpeering-arm-portal/figure02.png)
+    ![Choose peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure02.png)
 
-4. Dans le panneau Ajouter l’homologation, nommez le lien d’homologation LinkToVnet2, choisissez l’abonnement et le réseau virtuel homologue VNET2, puis cliquez sur OK.
+4. In the Add Peering blade, give a peering link name LinkToVnet2, choose the subscription and the peer Virtual Network VNET2, click OK.
 
-	![Lien vers le réseau virtuel](./media/virtual-networks-create-vnetpeering-arm-portal/figure03.png)
+    ![Link to VNet](./media/virtual-networks-create-vnetpeering-arm-portal/figure03.png)
 
-5. Une fois ce lien d’homologation de réseaux virtuels créé, l’état du lien apparaît comme suit :
+5. Once this VNET peering link is created. You can see the link state as following:
 
-	![État du lien](./media/virtual-networks-create-vnetpeering-arm-portal/figure04.png)
+    ![Link State](./media/virtual-networks-create-vnetpeering-arm-portal/figure04.png)
 
-6. Ensuite, créez le lien d’homologation de réseaux virtuels de VNET2 à VNET1. Dans le panneau Réseaux virtuels, choisissez VNET2, cliquez sur Homologations, puis sur Ajouter
+6. Next create the VNET peering link for VNET2 to VNET1. In Virtual Networks blade, choose VNET2, click Peerings, then click Add
 
-	![Homologue depuis l’autre réseau virtuel](./media/virtual-networks-create-vnetpeering-arm-portal/figure05.png)
+    ![Peer from other VNet](./media/virtual-networks-create-vnetpeering-arm-portal/figure05.png)
 
-7. Dans le panneau Ajouter l’homologation, nommez le lien d’homologation LinkToVnet1, choisissez l’abonnement et le réseau virtuel homologue VNET1, puis cliquez sur OK.
+7. In the Add Peering blade, give a peering link name LinkToVnet1, choose the subscription and the peer Virtual Network, Click OK.
 
-	![Mosaïque de création du réseau virtuel](./media/virtual-networks-create-vnetpeering-arm-portal/figure06.png)
+    ![Creating virtual network tile](./media/virtual-networks-create-vnetpeering-arm-portal/figure06.png)
 
-8. Une fois ce lien d’homologation de réseaux virtuels créé, l’état du lien apparaît comme suit :
+8. Once this VNET peering link is created. You can see the link state as following:
 
-	![État final du lien](./media/virtual-networks-create-vnetpeering-arm-portal/figure07.png)
+    ![Final link state](./media/virtual-networks-create-vnetpeering-arm-portal/figure07.png)
 
-9. Vérifiez l’état du lien LinkToVnet2. Celui-ci est à présent également défini sur Connecté.
+9. Check the state for LinkToVnet2 and it now changes to Connected as well.  
 
-	![État final du lien 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
+    ![Final link state 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
 
-    > [AZURE.NOTE] L’homologation de réseaux virtuels est établie uniquement si les deux liens sont connectés.
+    > [AZURE.NOTE] VNET peering is only established if both links are connected.
 
-Il existe plusieurs propriétés configurables pour chaque lien :
+There are a few configurable properties for each link:
 
 |Option|Description|Default|
 |:-----|:----------|:------|
-|AllowVirtualNetworkAccess|Indique si l’espace d’adressage du réseau virtuel homologue doit être inclus dans le cadre de la balise Virtual\_network.|Oui|
-|AllowForwardedTraffic|Spécifie si le trafic ne provenant pas du réseau virtuel homologué doit être accepté ou rejeté.|Non|
-|AllowGatewayTransit|Permet au réseau virtuel homologue d’utiliser votre passerelle de réseau virtuel.|Non|
-|UseRemoteGateways|Permet d’utiliser la passerelle de votre réseau virtuel homologue. Une passerelle doit être configurée pour le réseau virtuel homologue et la propriété AllowGatewayTransit doit être sélectionnée. Vous ne pouvez pas utiliser cette option si vous avez une passerelle configurée.|Non|
+|AllowVirtualNetworkAccess|Whether address space of Peer VNet to be included as part of the Virtual_network Tag|Yes|
+|AllowForwardedTraffic|Allows traffic not originated from peered VNet is accepted or dropped|No|
+|AllowGatewayTransit|Allows the peer VNet to use your VNet gateway|No|
+|UseRemoteGateways|Use your peer’s VNet gateway. The peer VNet must have a gateway configured and AllowGatewayTransit is selected. You cannot use this option if you have a gateway configured|No|
 
-Chaque lien de l’homologation de réseaux virtuels présente plusieurs des propriétés ci-dessus. Depuis le portail, vous pouvez cliquer sur le lien d’homologation de réseaux virtuels et modifier les options disponibles. Cliquez ensuite sur Enregistrer pour que les changements prennent effet.
+Each link in VNet peering has a set of above properties. From portal, you can click the VNet Peering Link and change any available options, click Save to make the change effect.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Dans cet exemple, nous allons utiliser deux abonnements A et B et deux utilisateurs A et B disposant de privilèges dans ces abonnements respectifs.
-3. Dans le portail, cliquez sur Parcourir et choisissez Réseaux virtuels. Cliquez sur le réseau virtuel, puis sur Ajouter.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+2. In this example we will use two subscriptions A and B and two users UserA and UserB with privileges in the subscriptions respectively
+3. On the portal, Click Browse, choose Virtual Networks. Click the VNET and click Add.
 
-    ![Parcourir Scénario 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure09.png)
+    ![Scenario 2 Browse](./media/virtual-networks-create-vnetpeering-arm-portal/figure09.png)
 
-4. Dans le panneau Ajouter un accès ajouter, cliquez sur Sélectionner un rôle et choisissez Collaborateur de réseau. Cliquez sur Ajouter des utilisateurs, tapez le nom de connexion de l’utilisateur B, puis cliquez sur OK.
+4. On the Add access blade, click select a role and choose Network Contributor, click Add Users, type the UserB sign in name, and click OK.
 
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
 
-    Il ne s’agit pas d’une obligation : l’homologation peut être établie si des utilisateurs ont effectué des demandes d’homologation individuelles pour leurs réseaux respectifs, à condition que les demandes correspondent. L’ajout de l’utilisateur privilégié de l’autre réseau virtuel en tant qu’utilisateur du réseau virtuel local facilite la configuration dans le portail.
+    This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding privileged user of the other VNet as users in the local VNet makes it easier to do setup in portal.
 
-5. Ensuite, connectez-vous au portail Azure avec le compte de l’utilisateur B, qui est l’utilisateur privilégié de l’abonnement B. Répétez les étapes ci-dessus pour ajouter l’utilisateur A en tant que Collaborateur de réseau.
+5. Then login to Azure portal with UserB who is the privilege user for SubscriptionB. Follow above steps to add UserA as Network Contributor.
 
-    ![RBAC 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
+    ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    > [AZURE.NOTE] Vous pouvez vous déconnecter et vous connecter avec les comptes des deux utilisateurs dans le navigateur pour vous assurer que l’autorisation a bien été activée.
+    > [AZURE.NOTE] You can log off and log on both user sessions in browser to ensure the authorization is enabled successfully.
 
-6. Connectez-vous au portail en tant qu’utilisateur A, accédez au panneau du réseau virtuel VNET3, cliquez sur Homologation, activez la case à cocher Je connais mon ID de ressource, puis tapez l’ID de ressource de VNET5 au format ci-dessous.
+6. Login to the portal as UserA, navigate to the VNET3 blade, click Peering, check ‘I Know my resource ID” checkbox and type the resource ID for VNET5 in below format.
 
     /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
 
-    ![ID de ressource](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
+    ![Resource ID](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 
-7. Connectez-vous au portail en tant qu’utilisateur B et répétez l’étape ci-dessus pour le lien d’homologation de VNET5 à VNET3.
+7. Login to the portal as UserB and follow above step to create peering link from VNET5 to VNet3.
 
-    ![ID de ressource 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)
+    ![Resource ID 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)
 
-8. L’homologation est établie et n’importe quelle machine virtuelle de VNET3 doit pouvoir communiquer avec n’importe quelle machine virtuelle de VNET5.
+8. Peering will be established and any Virtual machine in VNet3 should be able to communicate with any virtual machine in VNet5
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. Dans un premier temps, créez le lien d’homologation de réseaux virtuels de HubVnet à VNET1. Notez que l’option Autoriser le trafic transféré n’est pas sélectionnée pour ce lien.
+1. As a first step, VNET peering links from HubVnet to VNET1. Note that Allow Forwarded Traffic option is not selected for the link.
 
-    ![Homologation de base](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)
+    ![Basic Peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)
 
-2. Dans un second temps, créez le lien homologation de VNET1 à HubVnet. Notez que l’option Autoriser le trafic transféré est sélectionnée.
+2. As a next step, peering links from VNET1 to HubVnet can be created. Note that Allow forwarded traffic option is selected.
 
-    ![Homologation de base](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
+    ![Basic Peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
 
-3. Une fois l’homologation établie, vous pouvez vous reporter à [cet article](virtual-network-create-udr-arm-ps.md) et créer un itinéraire défini par l’utilisateur (UDR) pour rediriger le trafic du réseau virtuel VNET1 via une appliance virtuelle afin d’utiliser ses fonctionnalités. Lorsque vous spécifiez l’adresse du tronçon suivant dans l’itinéraire, vous pouvez la définir sur l’adresse IP de l’appliance virtuelle du réseau virtuel homologue HubVNet.
+3. After peering is established, you can refer to this [article](virtual-network-create-udr-arm-ps.md) and define User Defined Route(UDR) to redirect VNet1 traffic through a virtual appliance to use its capabilities. When you specify the Next Hop address in route, you can set it to the IP address of virtual appliance in peer VNet HubVNet
 
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
 
 
-1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
 
-2. Pour établir une homologation de réseaux virtuels dans ce scénario, vous n’avez besoin de créer qu’un seul lien, du réseau virtuel d’Azure Resource Manager à celui du portail Classic, c’est-à-dire de **VNET1** à **VNET2**. Dans le portail, cliquez sur **Parcourir** > **Réseaux virtuels**.
+2. To establish VNET peering in this scenario, you need to create only one link, from the virtual network in Azure resource manager to the one in classic. That is, from **VNET1** to **VNET2**. On the portal, Click **Browse** > choose **Virtual Networks**
 
-3. Dans le panneau Réseaux virtuels, choisissez **VNET1**. Cliquez sur **omologations**, puis sur **Ajouter**.
+3. In the Virtual networks blade, choose **VNET1**. Click **Peerings**, then click **Add**.
 
-4. Dans le panneau Ajouter l’homologation, nommez votre lien. Ici, il est appelé **LinkToVNet2**. Sous Détails de l’homologue, sélectionnez **Classique**.
+4. In the Add Peering blade, name your link. Here it is called **LinkToVNet2**. Under Peer details, select **Classic**.
 
-5. Choisissez ensuite l’abonnement et le réseau virtuel homologue **VNET2**. Puis cliquez sur OK.
+5. Then choose the subscription and the peer Virtual Network **VNET2**. Then click OK.
 
-    ![Lien de Vnet1 à VNet2](./media/virtual-networks-create-vnetpeering-arm-portal/figure18.png)
+    ![Linking Vnet1 to Vnet 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure18.png)
 
-6. Une fois ce lien d’homologation de réseaux virtuels créé, les deux réseaux virtuels sont appariés et l’écran suivant est affiché :
+6. Once this VNet peering link is created, the two virtual networks are peered and you will be able to see the following:
 
-    ![Vérification de la connexion d’homologation](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
+    ![Checking peering connection](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
 
 
-## Supprimer l’homologation de réseaux virtuels
+## <a name="remove-vnet-peering"></a>Remove VNet Peering
 
-1.	Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
-2.	Accédez au panneau Réseaux virtuels, cliquez sur Homologations, choisissez le lien à supprimer, puis cliquez sur le bouton Supprimer.
+1.  From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+2.  Go to virtual network blade, click Peerings, click the Link you want to remove, click button Delete.
 
-    ![Supprimer 1](./media/virtual-networks-create-vnetpeering-arm-portal/figure15.png)
+    ![Delete1](./media/virtual-networks-create-vnetpeering-arm-portal/figure15.png)
 
-3. Une fois que vous supprimez un lien de l’homologation de réseaux virtuels, l’état du lien d’homologation passe à Disconnected (Déconnecté).
+3. Once you remove one link in VNET peering, the  peer link state will go to disconnected.
 
-    ![Supprimer 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
+    ![Delete2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 
-4. Dans cet état, vous ne pouvez pas recréer le lien tant que l’état du lien d’homologation n’est pas défini sur Initiated (Initialisé). Nous vous recommandons de supprimer les deux liens avant de recréer l’homologation de réseaux virtuels.
+4. In this state, you cannot re-create the link until the peer link state changes to Initiated. We recommend you remove the both links before you re-create the VNET peering.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

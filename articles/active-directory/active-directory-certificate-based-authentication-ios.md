@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="Prise en main de l’authentification par certificat sur iOS | Microsoft Azure" 
-    description="Découvrez comment configurer l’authentification par certificat dans des solutions avec les appareils iOS" 
+    pageTitle="Get started with certificate based authentication on iOS | Microsoft Azure" 
+    description="Learn how to configure certificate based authentication in solutions with iOS devices" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="MarkusVi"  
     documentationCenter="na" 
     manager="femila"/>
 <tags 
@@ -11,108 +11,111 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/02/2016" 
+    ms.date="10/20/2016" 
     ms.author="markvi" />
 
 
 
-# Prise en main de l’authentification par certificat sur iOS - Version préliminaire publique
+
+# <a name="get-started-with-certificate-based-authentication-on-ios---public-preview"></a>Get started with certificate based authentication on iOS - Public Preview
 
 > [AZURE.SELECTOR]
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 - [Android](active-directory-certificate-based-authentication-android.md)
 
 
-Cette rubrique vous montre comment configurer et utiliser l’authentification par certificat (CBA) sur un appareil iOS pour les utilisateurs de clients dans les plans Office 365 Enterprise, Business et Education.
+This topic shows you how to configure and utilize certificate based authentication (CBA) on an iOS device for users of tenants in Office 365 Enterprise, Business, and Education plans. 
 
-CBA vous permet d’être authentifié par Azure Active Directory avec un certificat client sur un appareil Android ou iOS lors de la connexion de votre compte Exchange Online à :
+CBA enables you to be authenticated by Azure Active Directory with a client certificate on an Android or iOS device when connecting your Exchange online account to: 
 
-- Des applications mobiles Office, telles que Microsoft Outlook et Microsoft Word ;
-- Des clients Exchange ActiveSync (EAS).
+- Office mobile applications such as Microsoft Outlook and Microsoft Word   
+- Exchange ActiveSync (EAS) clients 
 
-La configuration de cette fonctionnalité élimine le besoin d’entrer un nom d’utilisateur et un mot de passe dans certaines applications de messagerie et Microsoft Office sur votre appareil mobile.
+Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device. 
  
 
-## Configuration requise et scénarios pris en charge  
+## <a name="supported-scenarios-and-requirements"></a>Supported scenarios and requirements  
 
 
 
-### Conditions générales 
+### <a name="general-requirements"></a>General requirements 
 
 
-Pour tous les scénarios de cette rubrique, les tâches suivantes sont requises :
+For all scenarios in this topic, the following tasks are required:  
 
-- Accédez aux autorités de certification pour émettre des certificats clients.
+- Access to certificate authority(s) to issue client certificates.  
 
-- Les autorités de certification doivent être configurées dans Azure Active Directory. Vous trouverez des instructions détaillées sur l’exécution de la configuration dans la section [Prise en main](#getting-started).
+- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the [Getting Started](#getting-started) section.  
 
-- L’autorité de certification racine et les autorités de certification intermédiaires doivent être configurées dans Azure Active Directory.
+- The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
 
-- Chaque autorité de certification doit avoir une liste de révocation de certificat (CRL) qui peut être référencée via une URL accessible sur Internet.
+- Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an Internet facing URL.  
 
-- Le certificat client doit être émis pour l’authentification du client.
-
-
-- Pour les clients Exchange ActiveSync uniquement, le certificat client doit avoir l’adresse de messagerie routable de l’utilisateur dans Exchange Online, dans la valeur Nom du principal ou la valeur Nom RFC822 du champ Autre nom de l’objet. Azure Active Directory mappe la valeur RFC822 à l’attribut Adresse proxy dans le répertoire.
+- The client certificate must be issued for client authentication.  
 
 
+- For Exchange ActiveSync clients only, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.  
 
-### Prise en charge des applications mobiles Office 
 
-| Applications | Support |
+
+### <a name="office-mobile-applications-support"></a>Office mobile applications support 
+
+| Apps                      | Support      |
 | ---                       | ---          |
-| Word / Excel / PowerPoint | ![Vérification][1] |
-| OneNote | ![Vérification][1] |
-| OneDrive | ![Vérification][1] |
-| Outlook | Bientôt disponible |
-| Yammer | ![Vérification][1] |
-| Skype Entreprise | Bientôt disponible |
+| Word / Excel / PowerPoint | ![Check][1]  |
+| OneNote                   | ![Check][1]  |
+| OneDrive                  | ![Check][1]  |
+| Outlook                   | Coming soon  |
+| Yammer                    | ![Check][1]  |
+| Skype for Business        | Coming soon  |
 
 
-### Configuration requise  
+### <a name="requirements"></a>Requirements  
 
-La version du système d’exploitation de l’appareil doit être iOS 9 ou toute version ultérieure
+The device OS version must be iOS 9 and above 
 
-Un serveur de fédération doit être configuré.
+A federation server must be configured.  
 
-Azure Authenticator est requis pour les applications Office sur iOS.
+Azure Authenticator is required for Office applications on iOS.  
 
-Pour qu’Azure Active Directory révoque un certificat client, le jeton ADFS doit posséder les déclarations suivantes :
+For Azure Active Directory to revoke a client certificate, the ADFS token must have the following claims:  
 
-  - `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` (Le numéro de série du certificat client)
+  - `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
+(The serial number of the client certificate) 
 
-  - `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` (La chaîne de l’émetteur du certificat client)
+  - `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
+(The string for the issuer of the client certificate) 
 
-Azure Active Directory ajoute ces déclarations au jeton d’actualisation si elles sont disponibles dans le jeton ADFS (ou n’importe quel autre jeton SAML). Lorsque le jeton d’actualisation doit être validé, ces informations sont utilisées pour vérifier la révocation.
+Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation. 
 
-La meilleure pratique consiste à mettre à jour les pages d’erreur ADFS avec les éléments suivants :
+As a best practice, you should update the ADFS error pages with the following:
 
-- La configuration requise pour l’installation d’Azure Authenticator sur iOS
+- The requirement for installing the Azure Authenticator on iOS
 
-- Instructions sur l’obtention d’un certificat utilisateur.
+- Instructions on how to get a user certificate. 
 
-Pour plus d’informations, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx).
-
-
-
-### Prise en charge des clients Exchange ActiveSync 
-
-
-Dans iOS 9 ou version ultérieure, le client de messagerie iOS natif est pris en charge. Pour toutes les autres applications Exchange ActiveSync, pour savoir si cette fonctionnalité est prise en charge, contactez le développeur de votre application.
+For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).  
 
 
 
-## Prise en main 
+### <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync clients support 
 
 
-Pour commencer, vous devez configurer les autorités de certification dans Azure Active Directory. Pour chaque autorité de certification, vous devez télécharger les éléments suivants :
+On iOS 9 or later, the native iOS mail client is supported. For all other Exchange ActiveSync applications, to determine if this feature is supported, contact your application developer.  
 
-- La partie publique du certificat, au format *.cer*
 
-- Les URL accessibles sur Internet où résident les listes de révocation de certificat (CRL)
+
+## <a name="getting-started"></a>Getting started 
+
+
+To get started, you need to configure the certificate authorities in Azure Active Directory. For each certificate authority, upload the following: 
+
+- The public portion of the certificate, in *.cer* format 
+
+- The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
  
 
-Voici le schéma d’une autorité de certification :
+Below is the schema for a certificate authority: 
 
     class TrustedCAsForPasswordlessAuth 
     { 
@@ -137,25 +140,26 @@ Voici le schéma d’une autorité de certification :
     } 
 
 
-Pour télécharger les informations, vous pouvez utiliser le module Azure AD via Windows PowerShell. Vous trouverez ci-dessous des exemples d’ajout, de suppression ou de modification d’une autorité de certification.
+To upload the information, you can use  the Azure AD module through Windows PowerShell.  
+Below are examples for adding, removing or modifying a certificate authority. 
 
 
 
-### Configuration de votre client Azure AD pour l’authentification par certificat 
+### <a name="configuring-your-azure-ad-tenant-for-certificate-based-authentication"></a>Configuring your Azure AD tenant for certificate based authentication 
 
-1. Démarrez Windows PowerShell avec les privilèges administrateur.
+1. Start Windows PowerShell with administrator privileges. 
 
-2. Installez le module Azure AD. Vous devez installer la version [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) ou une version ultérieure.
+2. Install the Azure AD module. You need to install Version [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) or higher.  
 
         Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
-3. Connectez-vous à votre client cible :
+3. Connect to your target tenant: 
 
         Connect-AzureAD 
 
-### Ajout d’une nouvelle autorité de certification
+### <a name="adding-a-new-certificate-authority"></a>Adding a new certificate authority
 
-1. Définissez différentes propriétés de l’autorité de certification et ajoutez celle-ci à Azure Active Directory :
+1. Set various properties of the certificate authority and add it to Azure Active Directory: 
 
         $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
         $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
@@ -163,119 +167,122 @@ Pour télécharger les informations, vous pouvez utiliser le module Azure AD via
         $new_ca.TrustedCertificate=$cert 
         New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
 
-5. Obtenez les autorités de certification :
+5. Get the Certificate Authorities: 
 
         Get-AzureADTrustedCertificateAuthority 
 
 
-### Récupération de la liste des autorités de certification
+### <a name="retrieving-the-list-certificate-authorities"></a>Retrieving the list certificate authorities
 
-Récupérez les autorités de certification actuellement stockées dans Azure Active Directory pour votre client :
+Retrieve the certificate authorities currently stored in Azure Active Directory for your tenant: 
 
         Get-AzureADTrustedCertificateAuthority 
 
 
-### Suppression d’une autorité de certification
+### <a name="removing-a-certificate-authority"></a>Removing a certificate authority
 
-1.	Récupérez les autorités de certification :
+1.  Retrieve the certificate authorities: 
 
-		$c=Get-AzureADTrustedCertificateAuthority 
-
-
-2. Supprimez le certificat de l’autorité de certification :
-
-		Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
+        $c=Get-AzureADTrustedCertificateAuthority 
 
 
-### Modification d’une autorité de certification 
+2. Remove the certificate for the certificate authority: 
 
-1.	Récupérez les autorités de certification :
-
-		$c=Get-AzureADTrustedCertificateAuthority 
+        Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
 
 
-2. Modifiez les propriétés de l’autorité de certification :
+### <a name="modfiying-a-certificate-authority"></a>Modfiying a certificate authority 
 
-		$c[0].AuthorityType=1 
+1.  Retrieve the certificate authorities: 
 
-3. Définissez **l’autorité de certification** :
-
-		Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
+        $c=Get-AzureADTrustedCertificateAuthority 
 
 
+2. Modify properties on the certificate authority: 
 
+        $c[0].AuthorityType=1 
 
-## Test des applications Office mobiles  
+3. Set the **Certificate Authority**: 
 
-Pour tester l’authentification par certificat sur votre application Office mobile :
-
-1.	Sur votre appareil de test, installez une application Office mobile (par exemple, OneDrive) à partir de l’App Store.
-
-2.	Vérifiez que le certificat utilisateur a été configuré sur votre appareil de test.
-
-3.	Lancez l’application.
-
-4.	Entrez votre nom d’utilisateur et choisissez le certificat utilisateur que vous souhaitez utiliser.
-
-Vous devez être connecté.
+        Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 
 
 
 
+## <a name="testing-office-mobile-applications"></a>Testing Office mobile applications  
 
-## Test des applications clientes Exchange ActiveSync
+To test certificate authentication on your mobile Office application: 
 
-Pour accéder à Exchange ActiveSync via l’authentification par certificat, un profil EAS contenant le certificat client doit être disponible pour l’application. Le profil EAS doit contenir les informations suivantes :
+1.  On your test device, install an Office mobile application (e.g. OneDrive) from the App Store.
 
-- Le certificat utilisateur à utiliser pour l’authentification
+2.  Verify that the user certificate has been provisioned to your test device. 
 
-- Le point de terminaison EAS doit être outlook.office365.com (actuellement, cette fonctionnalité est uniquement prise en charge dans l’environnement mutualisé Exchange Online)
+3.  Launch the application. 
 
-Un profil EAS peut être configuré et placé sur l’appareil via l’utilisation d’une gestion des appareils mobiles, comme Intune, ou en plaçant manuellement le certificat dans le profil EAS sur l’appareil.
+4.  Enter your user name, and then pick the user certificate you want to use. 
 
-### Test des applications clientes EAS sur iOS 
-
-Pour tester l’authentification par certificat avec l’application de messagerie native sur iOS 9 ou version ultérieure :
-
-1.	Configurez un profil EAS qui respecte les spécifications citées ci-dessus.
-
-2.	Installez le profil sur l’appareil iOS (en utilisant une gestion des appareils mobiles, comme Intune, ou l’application Apple Configurator)
-
-3.	Une fois que le profil est installé correctement, ouvrez l’application de messagerie native et vérifiez la synchronisation de la messagerie
+You should be successfully signed in. 
 
 
 
-## Révocation
 
-Pour révoquer un certificat client, Azure Active Directory extrait la liste de révocation de certificat (CRL) à partir des URL téléchargées dans le cadre des informations sur l’autorité de certification et la met en cache. L’horodateur de la dernière publication (propriété **Effective Date**) dans la liste de révocation de certificat permet de vérifier si la CRL est toujours valide. La CRL est référencée périodiquement pour révoquer l’accès à des certificats qui font partie de la liste.
 
-Si une révocation plus instantanée est requise (par exemple, si un utilisateur perd un appareil), le jeton d’autorisation de l’utilisateur peut être invalidé. Pour invalider le jeton d’autorisation, définissez le champ **StsRefreshTokenValidFrom** pour cet utilisateur à l’aide de Windows PowerShell. Vous devez mettre à jour le champ **StsRefreshTokenValidFrom** pour chaque utilisateur pour lequel vous souhaitez révoquer l’accès.
+## <a name="testing-exchange-activesync-client-applications"></a>Testing Exchange ActiveSync client applications
+
+To access Exchange ActiveSync via certificate based authentication, an EAS profile containing the client certificate must be available to application. The EAS profile must contain the following information:
+
+- The user certificate to be used for authentication 
+
+- The EAS endpoint must be outlook.office365.com (as this feature is currently supported only in the Exchange online multi-tenant environment)
+
+An EAS profile can be configured and placed on the device through the utilization of an MDM such as Intune or by manually placing the certificate in the EAS profile on the device.  
+
+### <a name="testing-eas-client-applications-on-ios"></a>Testing EAS client applications on iOS 
+
+To test certificate authentication with the native mail application on iOS 9 or above: 
+
+1.  Configure an EAS profile that satisfies the requirements above. 
+
+2.  Install the profile on the iOS device (either using an MDM, such as Intune, or the Apple Configurator application)
+
+3.  Once the profile is properly installed, open the native Mail application, and verify that mail is synchronizing
+
+
+
+## <a name="revocation"></a>Revocation
+
+To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (**Effective Date** property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
+
+If a more instant revocation is required (for example, if a user loses a device), the authorization token of the user can be invalidated. To invalidate the authorization token, set the **StsRefreshTokenValidFrom** field for this particular user using Windows PowerShell. You must update the **StsRefreshTokenValidFrom** field for each user you want to revoke access for.
  
-Pour garantir que la révocation persiste, vous devez définir la propriété **Effective Date** de la CRL sur une date postérieure à la valeur définie par **StsRefreshTokenValidFrom** et vérifiez que le certificat en question est inclus dans la CRL.
+To ensure that the revocation persists, you must set the **Effective Date** of the CRL to a date after the value set by **StsRefreshTokenValidFrom** and ensure the certificate in question is in the CRL.
  
-Les étapes suivantes décrivent le processus de mise à jour et d’invalidation du jeton d’autorisation avec la définition du champ **StsRefreshTokenValidFrom**.
+The following steps outline the process for updating and invalidating the authorization token by setting the **StsRefreshTokenValidFrom** field. 
 
-1. Connectez-vous au service MSOL avec les informations d’identification administrateur :
+1. Connect with admin credentials to the MSOL service: 
 
-		$msolcred = get-credential 
-		connect-msolservice -credential $msolcred 
+        $msolcred = get-credential 
+        connect-msolservice -credential $msolcred 
 
-1.	Récupérez la valeur StsRefreshTokensValidFrom actuelle pour un utilisateur :
+1.  Retrieve the current StsRefreshTokensValidFrom value for a user: 
 
-		$user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-		$user.StsRefreshTokensValidFrom 
-
-
-1.	Configurez une nouvelle valeur StsRefreshTokensValidFrom pour l’utilisateur. Elle doit être égale à l’horodateur actuel :
-
-		Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
+        $user.StsRefreshTokensValidFrom 
 
 
-La date que vous définissez doit être dans le futur. Si la date n’est pas dans le futur, la propriété **StsRefreshTokensValidFrom** n’est pas définie. Si la date est dans le futur, la propriété **StsRefreshTokensValidFrom** est définie sur l’heure actuelle (et non la date indiquée par la commande Set-MsolUser).
+1.  Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp: 
+
+        Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+
+
+The date you set must be in the future. If the date is not in the future, the **StsRefreshTokensValidFrom** property is not set. If the date is in the future, **StsRefreshTokensValidFrom** is set to the current time (not the date indicated by Set-MsolUser command). 
 
 
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

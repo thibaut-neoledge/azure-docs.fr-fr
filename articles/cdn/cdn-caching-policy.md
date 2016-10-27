@@ -1,47 +1,52 @@
 <properties
-	pageTitle="Stratégie de mise en cache CDN dans l'extension Media Services"
-	description="Cette rubrique offre une vue d’ensemble d’une stratégie de mise en cache CDN dans l’extension Media Services."
-	services="media-services,cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="CDN Caching Policy in Media Services Extension"
+    description="This topic gives an overview of a CDN caching policy in Media Services Extension."
+    services="media-services,cdn"
+    documentationCenter=".NET"
+    authors="juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016"
+    ms.author="juliako"/>
  
-#Stratégie de mise en cache CDN dans l'extension Media Services
 
-Azure Media Services fournit la diffusion en continu adaptative HTTP et le téléchargement progressif. La diffusion en continu HTTP est hautement évolutive de par les avantages de mise en cache dans le proxy et les couches CDN, et la mise en cache côté client. Les points de terminaison de la diffusion en continu fournissent des fonctionnalités générales de diffusion en continu et de configuration pour les en-têtes HTTP du cache. Les points de terminaison de diffusion en continu définissent le contrôle de cache HTTP : les en-têtes max-age et Expires. Pour plus d'informations sur les en-têtes de cache HTTP, rendez-vous sur le site [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
+#<a name="cdn-caching-policy-in-media-services-extension"></a>CDN Caching Policy in Media Services Extension
 
-##En-têtes de mise en cache par défaut
+Azure Media Services provides HTTP based Adaptive Streaming and progressive download. HTTP based streaming is highly scalable with benefits of caching in proxy and CDN layers as well as client side caching. Streaming endpoints provides general streaming capabilities and also configuration for HTTP cache headers. Streaming endpoints sets HTTP Cache-Control: max-age and Expires headers. You can get more information for HTTP cache headers from [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
-Les points de terminaison de diffusion en continu appliquent par défaut des en-têtes de cache de 3 jours pour les données de diffusion en continu à la demande (fragments/segments de médias réels) et les fichiers manifestes (ou sélections). Pour la diffusion en continu en direct, les points de terminaison de diffusion en continu appliquent des en-têtes de cache de 3 jours pour les données (fragments/segments de médias réels) et une en-tête de cache de 2 secondes pour les requêtes de fichier manifeste (ou sélections). Lorsque le programme en direct opte pour une diffusion en continu à la demande (archive en direct), les en-têtes de cache de diffusion en continu à la demande s’appliquent.
+##<a name="default-caching-headers"></a>Default Caching headers
 
-##Intégration d’Azure CDN
+By default streaming-endpoints apply 3 day cache headers for on-demand streaming data (actual media fragments/chunks) and manifest(playlist). For live streaming, streaming endpoints apply 3 day cache headers for data (actual media fragments/chunks) and 2 seconds cache header for manifest(playlist) requests. When live program turns to on-demand (live archive) then on-demand streaming cache headers apply.
 
-Azure Media Services propose un [CDN intégré](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) pour les points de terminaison de diffusion en continu. Les en-têtes de contrôle du cache s'applique aux points de terminaison de diffusion en continu de la même façon qu’aux points de terminaison de diffusion en continu fonctionnant avec CDN. Azure CDN utilise les valeurs configurées de cache de points de terminaison de diffusion en continu pour définir la durée de vie des objets mis en cache en interne, et il utilise également cette valeur pour définir les en-têtes de cache de distribution. Lors de l'utilisation des points de terminaison de diffusion en continu fonctionnant avec CDN, il est déconseillé de définir des petites valeurs de cache Définir de petites valeurs diminue les performances et réduit le profit du CDN. Il est interdit de définir des en-têtes de cache inférieure à 600 secondes pour les points de terminaison de diffusion en continu fonctionnant avec CDN.
+##<a name="azure-cdn-integration"></a>Azure CDN integration
 
->[AZURE.IMPORTANT] L’intégration d’Azure Media Services au CDN Azure est implémentée sur le **CDN Azure fourni par Verizon**. Si vous souhaitez utiliser le **CDN Azure fourni par Akamai** pour Azure Media Services, vous devez [configurer le point de terminaison manuellement](cdn-create-new-endpoint.md). Pour plus d’informations sur les fonctionnalités du CDN Azure, consultez [Vue d’ensemble du réseau de distribution de contenu (CDN)](cdn-overview.md).
+Azure Media Services provides [integrated CDN](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) for streaming-endpoints. Cache-control headers applies in the same way as streaming endpoints to CDN enabled streaming endpoints. Azure CDN uses streaming endpoint configured cache values to define the life time of the internally cached objects and also uses this value to set the delivery cache headers. When using CDN enabled streaming endpoints it is not recommended to set small cache values. Setting small values will decrease the performance and reduce the benefit of CDN. It is not allowed to set cache headers smaller than 600 seconds for CDN enabled streaming endpoints.
 
-##Configuration des en-têtes de cache avec Azure Media Services
+>[AZURE.IMPORTANT] Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon**.  If you wish to use **Azure CDN from Akamai** for Azure Media Services, you must [configure the endpoint manually](cdn-create-new-endpoint.md).  For more information about Azure CDN features, see the [CDN overview](cdn-overview.md).
 
-Vous pouvez utiliser le portail de gestion Azure ou des API d’Azure Media Services pour configurer les valeurs des en-têtes de cache.
+##<a name="configuring-cache-headers-with-azure-media-services"></a>Configuring cache headers with Azure Media Services
 
-1. Pour configurer les en-têtes de cache à l'aide du portail de gestion, reportez-vous à la section [Gestion des points de terminaison de diffusion en continu](../media-services/media-services-portal-manage-streaming-endpoints.md) de la page relative à la configuration du point de terminaison de diffusion en continu.
-2. API REST d'Azure Media Services, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
-3. Kit de développement logiciel (SDK) .NET Azure Media Services, [Propriétés StreamingEndpointCacheControl](http://go.microsoft.com/fwlink/?LinkId=615302).
+You can use Azure Management portal or Azure Media Services APIs to configure cache header values.
 
-##Ordre de priorité de la configuration du cache
+1. To configure cache headers using management portal please refer to [How to Manage Streaming Endpoints](../media-services/media-services-portal-manage-streaming-endpoints.md) section Configuring the Streaming Endpoint.
+2. Azure Media Services REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
+3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](http://go.microsoft.com/fwlink/?LinkId=615302).
 
-1. La valeur configurée du cache Azure Media Services remplace la valeur par défaut.
-2. S'il n'existe aucune configuration manuelle, les valeurs par défaut s'appliquent.
-3. Des en-têtes de cache de 2 secondes s’appliquent par défaut aux fichiers manifestes de diffusion en continu en direct (ou sélections) quelle que soit la configuration d'Azure Media ou d’Azure Storage, et elles sont irremplaçables.
+##<a name="cache-configuration-precedence-order"></a>Cache configuration precedence order
 
-<!---HONumber=AcomDC_0921_2016-->
+1. Azure Media Services configured cache value overrides default value.
+2. If there is no manual configuration, default values applies.
+3. By default 2 seconds cache headers applies to live streaming manifest(playlist) regardless of Azure Media or Azure Storage configuration and overriding of this value is not available.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

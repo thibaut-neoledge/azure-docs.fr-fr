@@ -1,50 +1,55 @@
 <properties
-	pageTitle="Inscription d’application v2.0 | Microsoft Azure"
-	description="Inscription d’une application avec Microsoft pour l’activation de l’authentification et l’accès aux services Microsoft à l’aide du point de terminaison v2.0"
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="v2.0 app registration | Microsoft Azure"
+    description="How to register an app with Microsoft for enabling sign-in and accessing Microsoft services using the v2.0 endpoint"
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/16/2016"
+    ms.author="dastrock"/>
 
-# Inscription d’une application avec le point de terminaison v2.0
 
-Pour générer une application prenant en charge à la fois les connexions à MSA et Azure AD, vous devez d’abord l’inscrire auprès de Microsoft. Pour le moment, vous ne pouvez pas utiliser les applications existantes avec Azure AD ou MSA. Vous devez en créer une.
+# <a name="how-to-register-an-app-with-the-v2.0-endpoint"></a>How to register an app with the v2.0 endpoint
+
+To build an app that accepts both MSA & Azure AD sign-in, you'll first need to register an app with Microsoft.  At this time, you won't be able to use any existing apps you may have with Azure AD or MSA - you'll need to create a brand new one.
 
 > [AZURE.NOTE]
-	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
+    Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-## Visiter le portail d’inscription des applications Microsoft
-Commencez tout d’abord par accéder à [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com). Il s’agit d’un nouveau portail d’inscription des applications où vous pouvez gérer vos applications Microsoft.
+## <a name="visit-the-microsoft-app-registration-portal"></a>Visit the Microsoft app registration portal
+First things first - navigate to [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is a new app registration portal where you can manage your Microsoft apps.
 
-Connectez-vous à l’aide d’un compte Microsoft personnel, professionnel ou scolaire. Si vous en êtes dépourvu, inscrivez-vous pour obtenir un nouveau compte personnel. Cela ne sera pas long. Nous patientons ici.
+Sign in with either a personal or work or school Microsoft account.  If you don't have either, sign up for a new personal account. Go ahead, it won't take long - we'll wait here.
 
-Vous avez terminé ? À présent, consultez votre liste d’applications Microsoft, qui est probablement vide. Nous allons y remédier.
+Done? You should now be looking at your list of Microsoft apps, which is probably empty.  Let's change that.
 
-Cliquez sur **Ajouter une application**, et attribuez-lui un nom. Le portail attribue à votre application un ID d’application global unique que vous utiliserez ultérieurement dans votre code. Si votre application inclut un composant côté serveur, qui nécessite des jetons d’accès pour appeler des API (à savoir Office, Azure ou votre propre API Web), créez également ici un **secret d’application**.
+Click **Add an app**, and give it a name.  The portal will assign your app a globally unique  Application Id that you'll use later in your code.  If your app includes a server-side component that needs access tokens for calling APIs (think: Office, Azure, or your own web API), you'll want to create an **Application Secret** here as well.
 <!-- TODO: Link for app secrets -->
 
-Ensuite, ajoutez les plateformes que votre application utilisera.
+Next, add the Platforms that your app will use.
 
-- Pour les applications basées sur le Web, fournissez une **URI de redirection** où les messages de connexion peuvent être envoyés.
-- Pour les applications mobiles, copiez la valeur par défaut de l’URI de redirection créée automatiquement pour vous.
+- For web based apps, provide a **Redirect URI** where sign-in messages can be sent.
+- For mobile apps, copy down the default redirect uri automatically created for you.
 
-Si vous le souhaitez, vous pouvez personnaliser l’apparence de votre page de connexion dans la section Profil. Avant de continuer, veillez à cliquer sur **Enregistrer**.
+Optionally, you can customize the look and feel of your sign-in page in the Profile section.  Make sure to click **Save** before moving on.
 
-> [AZURE.NOTE] Lorsque vous créez une application à l'aide de [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com), l’application est enregistrée dans le client de base du compte que vous utilisez pour vous connecter au portail. Cela signifie que vous ne pouvez pas inscrire une application dans votre client Azure AD à l’aide d’un compte Microsoft personnel. Si vous souhaitez réellement inscrire une application dans un client particulier, connectez-vous avec un compte créé à l’origine dans ce client.
+> [AZURE.NOTE] When you create an application using [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com), the application will be registered in the home tenant of the account that you use to sign into the portal.  This means that you can not register an application in your Azure AD tenant using a personal Microsoft account.  If you explicitly wish to register an application in a particular tenant, sign in with an account originally created in that tenant.
 
-## Générer une application de démarrage rapide
-Maintenant que vous disposez d’une application Microsoft, vous pouvez suivre l’un de nos didacticiels de démarrage rapide de v2.0. Voici quelques recommandations :
+## <a name="build-a-quick-start-app"></a>Build a quick start app
+Now that you have a Microsoft app, you can complete one of our v2.0 quick start tutorials.  Here are a few recommendations:
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

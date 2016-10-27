@@ -1,71 +1,77 @@
 <properties
-	pageTitle="Accès conditionnel pour les applications publiées avec le proxy d'application Azure AD"
-	description="Explique comment configurer l'accès conditionnel pour que les applications que vous publiez soient accessibles à distance à l’aide du proxy d'application Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+    pageTitle="Conditional Access for Applications Published with Azure AD Application Proxy"
+    description="Covers how to set up conditional access for applications you publish to be accessed remotely using Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="kgremban"/>
-
-# Utilisation de l’accès conditionnel
-
-Vous pouvez configurer les règles d’accès pour accorder l’accès conditionnel aux applications publiées à l’aide du proxy d’application. Vous pouvez ainsi effectuer les opérations suivantes :
-
-- Exiger l’authentification multifacteur par application.
-- Exiger l’authentification multifacteur uniquement quand les utilisateurs se trouvent à l’extérieur de l’entreprise.
-- Empêcher les utilisateurs d’accéder à l’application quand ils ne sont pas au travail.
-
-Ces règles peuvent s’appliquer à tous les utilisateurs et à tous les groupes ou uniquement à des utilisateurs et à des groupes spécifiques. Par défaut, la règle s'applique à tous les utilisateurs qui ont accès à l'application. Cependant, la règle peut aussi se limiter aux utilisateurs membres de groupes de sécurité spécifiés.
-
-Les règles d'accès sont évaluées lorsqu'un utilisateur accède à une application fédérée qui utilise OAuth 2.0, OpenID Connect, SAML ou WS-Federation. De plus, les règles d’accès sont évaluées avec OAuth 2.0 et OpenID Connect quand un jeton d’actualisation est utilisé pour acquérir un jeton d’accès.
-
-## Conditions préalables d'accès conditionnel
-
-- Abonnement à Azure Active Directory Premium
-- Un locataire Azure Active Directory fédéré ou géré
-- Les clients fédérés nécessitent l’activation de l’authentification multifacteur (MFA) ![Configurer des règles d’accès - imposer l’authentification multifacteur](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
-
-## Configurer l'authentification multifacteur pour chaque application
-1. Connectez-vous au Portail Azure Classic en tant qu’administrateur.
-2. Accédez à Active Directory, puis sélectionnez l’annuaire dans lequel vous souhaitez activer le proxy d’application.
-3. Cliquez sur **Applications** et faites défiler jusqu’à la section des **Règles d’accès**. La section des règles d’accès ne s’affiche que pour les applications publiées à l’aide du proxy d’application qui utilisent l’authentification fédérée.
-4. Activez la règle en positionnant **Activer les règles d’accès** sur **Oui**.
-5. Spécifiez les utilisateurs et les groupes auxquels les règles s'appliqueront. Utilisez le bouton **Ajouter un groupe** pour sélectionner un ou plusieurs groupes auxquels doit s’appliquer la règle d’accès. Cette boîte de dialogue peut également servir à supprimer les groupes sélectionnés. Lorsque les règles d’accès s’appliquent aux groupes, elles ne s’appliqueront qu’aux utilisateurs qui appartiennent à un des groupes de sécurité spécifiés.  
-
-  - Pour exclure explicitement des groupes de sécurité de la règle, cochez **Sauf** et spécifiez un ou plusieurs groupes. Les utilisateurs qui sont membres d'un groupe dans la liste Sauf ne seront pas tenus d’effectuer l'authentification multifacteur.  
-
-  - Si un utilisateur a été configuré à l’aide de la fonctionnalité d’authentification multifacteur en fonction de l’utilisateur, ce paramètre a priorité sur les règles d’authentification multifacteur par application. Cela signifie qu'un utilisateur qui a été configuré pour l'authentification multifacteur en fonction de l’utilisateur devra effectuer l'authentification multifacteur, même s’il a été exclu des règles d'authentification multifacteur de l'application. En savoir plus sur [l’authentification multifacteur et sur les paramètres pour chaque utilisateur](../multi-factor-authentication/multi-factor-authentication.md).
-
-6. Sélectionnez la règle d'accès que vous souhaitez définir :
-	- **Exiger une authentification multifacteur** : les utilisateurs auxquels s’appliquent des règles d’accès doivent effectuer l’authentification multifacteur pour accéder à l’application à laquelle la règle s’applique.
-	- **Exiger l’authentification multifacteur à l’extérieur de l’entreprise** : les utilisateurs qui tentent d’accéder à l’application à partir d’une adresse IP approuvée ne sont pas tenus d’effectuer l’authentification multifacteur. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
-	- **Bloquer l’accès quand l’utilisateur n’est pas au travail** : les utilisateurs qui tentent d’accéder à l’application en dehors de votre réseau d’entreprise ne sont pas en mesure d’accéder à l’application.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/22/2016"
+    ms.author="kgremban"/>
 
 
-## Configuration de l'authentification multifacteur pour les services de fédération
-Pour les clients fédérés, l’authentification multifacteur (MFA) peut être exécutée par Azure Active Directory ou par le serveur local AD FS. Par défaut, l'authentification multifacteur a lieu sur n'importe quelle page hébergée par Azure Active Directory. Pour configurer l'authentification multifacteur localement, exécutez Windows PowerShell et utilisez la propriété –SupportsMFA pour configurer le module Azure AD.
+# <a name="working-with-conditional-access"></a>Working with conditional access
 
-L’exemple suivant montre comment activer l’authentification multifacteur localement à l’aide de l’[applet de commande Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) sur le client contoso.com : `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+You can configure access rules to grant conditional access to applications published using Application Proxy. This enables you to:
 
-En plus de définir cet indicateur, vous devez configurer l’instance AD FS du client fédéré pour effectuer une authentification multifacteur. Suivez les instructions fournies pour [déployer Microsoft Azure Multi-Factor Authentication en local](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+- Require multi-factor authentication per application
+- Require multi-factor authentication only when users are not at work
+- Block users from accessing the application when they are not at work
+
+These rules can be applied to all users and groups or only to specific users and groups. By default the rule will apply to all users who have access to the application. However the rule can also be restricted to users that are members of specified security groups.  
+
+Access rules are evaluated when a user accesses a federated application that uses OAuth 2.0, OpenID Connect, SAML or WS-Federation. In addition, access rules are evaluated with OAuth 2.0 and OpenID Connect when a refresh token is used to acquire an access token.
+
+## <a name="conditional-access-prerequisites"></a>Conditional access prerequisites
+
+- Subscription to Azure Active Directory Premium
+- A federated or managed Azure Active Directory tenant
+- Federated tenants require that multi-factor authentication (MFA) be enabled  
+    ![Configure access rules - require multi-factor authentication](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
+
+## <a name="configure-per-application-multi-factor-authentication"></a>Configure per-application multi-factor authentication
+1. Sign in as an administrator in the Azure classic portal.
+2. Go to Active Directory and select the directory in which you want to enable Application Proxy.
+3. Click **Applications** and scroll down to the **Access Rules** section. The access rules section only appears for applications published using Application Proxy that use federated authentication.
+4. Enable the rule by selecting **Enable Access Rules** to **On**.
+5. Specify the users and groups to whom the rules will apply. Use the **Add Group** button  to select one or more groups to which the access rule will apply. This dialog can also be used to remove selected groups.  When the rules are selected to apply to groups, the access rules will only be enforced for users that belong to one of the specified security groups.  
+
+  - To explicitly exclude security groups from the rule, check **Except**  and specify one or more groups. Users who are members of a group in the Except list will not be required to perform multi-factor authentication.  
+
+  - If a user was configured using the per-user multi-factor authentication feature, this setting will take precedence over the application multi-factor authentication rules. This means that a user who has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application's multi-factor authentication rules. Learn more about [multi-factor authentication and per-user settings](../multi-factor-authentication/multi-factor-authentication.md).
+
+6. Select the access rule you want to set:
+    - **Require Multi-factor authentication**: Users to whom access rules apply will be required to complete multi-factor authentication before accessing the application to which the rule applies.
+    - **Require Multi-factor authentication when not at work**: Users trying to access the application from a trusted IP address will not be required to perform multi-factor authentication. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
+    - **Block access when not at work**: Users trying to access the application from outside your corporate network will not be able to access the application.
 
 
-## Voir aussi
+## <a name="configuring-mfa-for-federation-services"></a>Configuring MFA for federation services
+For federated tenants, multi-factor authentication (MFA) may be performed by Azure Active Directory or by the on-premises AD FS server. By default, MFA will occur on any page hosted by Azure Active Directory. In order to configure MFA on-premises, run Windows PowerShell and use the –SupportsMFA property to set the Azure AD module.
 
-- [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
-- [Publiez des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
-- [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
-- [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
+The following example shows how to enable on-premises MFA by using the [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) on the contoso.com tenant: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
-Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (blog sur les proxys d’application)
+In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for [deploying Microsoft Azure multi-factor authentication on-premises](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+## <a name="see-also"></a>See also
+
+- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
+- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
+- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
+
+For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

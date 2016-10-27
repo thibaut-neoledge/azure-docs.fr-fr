@@ -1,37 +1,45 @@
 <properties 
-	pageTitle="Échantillonner des données dans des conteneurs d'objets blob Azure, SQL Server et des tables Hive | Microsoft Azure" 
-	description="Comment explorer les données stockées dans différents environnements Azure." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun" />
+    pageTitle="Sample data in Azure blob containers, SQL Server, and Hive tables | Microsoft Azure" 
+    description="How to explore data stored in various Azure enviromnents." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="jhubbard" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016" 
-	ms.author="fashah;garye;bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/19/2016" 
+    ms.author="fashah;garye;bradsev" /> 
 
-#<a name="heading"></a>Échantillonner des données dans des conteneurs d'objets blob Azure, SQL Server et des tables Hive
 
-Ce document contient des liens vers des rubriques qui expliquent comment échantillonner les données stockées dans l’un des trois emplacements Azure :
+#<a name="<a-name="heading"></a>sample-data-in-azure-blob-containers,-sql-server,-and-hive-tables"></a><a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
 
-- Les **données de conteneurs d’objets blob Azure** sont échantillonnées par le biais de leur téléchargement par programmation, puis de leur échantillonnage à l’aide d’un exemple de code Python.
-- Les **données SQL Server** sont échantillonnées à l’aide de SQL et du langage de programmation Python.
-- Les données des **tables Hive** sont échantillonnées à l’aide de requêtes Hive.
+This document links to topics that covers how to sample data that is stored in one of three different Azure locations:
 
-Le **menu** ci-dessous pointe vers les rubriques qui expliquent comment échantillonner des données dans chacun de ces environnements de stockage Azure.
+- **Azure blob container data** is sampled by downloading it programmatically and then sampling it with sample Python code.
+- **SQL Server data** is sampled using both SQL and the Python Programming Language. 
+- **Hive table data** is sampled using Hive queries.
+
+The **menu** below links to the topics that describe how to sample data from each of these Azure storage environments. 
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## Pourquoi échantillonner des données ?
+## <a name="why-sample-data?"></a>Why sample data?
 
-Si vous prévoyez d'analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus Cortana Analytics consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
+If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

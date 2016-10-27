@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Boucles, étendues et décomposition dans Logic Apps| Microsoft Azure"
-   description="Concepts de boucle, d’étendue et de décomposition dans les applications logiques"
+   pageTitle="Logic Apps Loops, Scopes, and Debatching | Microsoft Azure"
+   description="Logic App loop, scope, and debatching concepts"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,15 +16,16 @@
    ms.date="05/14/2016"
    ms.author="jehollan"/>
    
-# Boucles, étendues et décomposition dans Logic Apps
-  
->[AZURE.NOTE] Cette version de l’article s’applique au schéma 2016-04-01-preview et schémas ultérieurs de Logic Apps. Les concepts sont similaires pour les schémas antérieurs, mais les étendues sont uniquement disponibles pour ce schéma et les schémas ultérieurs.
-  
-## Boucle ForEach et tableaux
-  
-Logic Apps vous permet de parcourir un jeu de données au moyen d’une boucle et d’effectuer une action pour chaque élément. Cette opération est possible grâce à l’action `foreach`. Dans le concepteur, vous pouvez choisir d’ajouter une boucle foreach. Après avoir sélectionné le tableau à parcourir, vous pouvez commencer à ajouter des actions. Actuellement, vous êtes limité à une seule action par boucle foreach, mais cette restriction sera levée dans les semaines à venir. Une fois dans la boucle, vous pouvez commencer à spécifier ce qui doit se produire au niveau de chaque valeur du tableau.
 
-Si vous utilisez le mode code, vous pouvez spécifier une boucle foreach comme ci-dessous. Dans cet exemple, une boucle foreach envoie un e-mail à chaque adresse contenant « microsoft.com » :
+# <a name="logic-apps-loops,-scopes,-and-debatching"></a>Logic Apps Loops, Scopes, and Debatching
+  
+>[AZURE.NOTE] This version of the article applies to Logic Apps 2016-04-01-preview schema and later.  Concepts are similar for older schemas, but scopes are only available for this schema and later.
+  
+## <a name="foreach-loop-and-arrays"></a>ForEach Loop and Arrays
+  
+Logic Apps allows you to loop over a set of data and perform an action for each item.  This is possible via the `foreach` action.  In the designer, you can specify to add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  Currently you are limited to only one action per foreach loop, but this restriction will be lifted in the coming weeks.  Once within the loop you can begin to specify what should occur at each value of the array.
+
+If using code-view, you can specify a for each loop like below.  This is an example of a for each loop that sends an email for each email address that contains 'microsoft.com':
 
 ```
 {
@@ -62,17 +63,17 @@ Si vous utilisez le mode code, vous pouvez spécifier une boucle foreach comme c
 }
 ```
   
-  Une action `foreach` peut parcourir des tableaux comportant jusqu’à 5 000 lignes. Chaque itération pouvant s’exécuter en parallèle, vous pouvez être amené à ajouter des messages à une file d’attente si un contrôle de flux est nécessaire.
+  A `foreach` action can iterate over arrays up to 5,000 rows.  Each iteration can execute in parallel, so it may be necessary to add messages to a queue if flow control is needed.
   
-## Boucle Until
+## <a name="until-loop"></a>Until Loop
   
-  Vous pouvez effectuer une action ou une série d’actions jusqu’à ce qu’une condition soit remplie. Le scénario le plus courant consiste à appeler un point de terminaison jusqu’à obtention de la réponse recherchée. Dans le concepteur, vous pouvez choisir d’ajouter une boucle until. Après avoir ajouté des actions à l’intérieur de la boucle, vous pouvez définir la condition de sortie et les limites de la boucle. Il existe un délai de 1 minute entre les cycles de la boucle.
+  You can perform an action or series of actions until a condition is met.  The most common scenario for this is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.  There is a 1 minute delay between loop cycles.
   
-  Si vous utilisez le mode code, vous pouvez spécifier une boucle until comme ci-dessous. Dans cet exemple, un point de terminaison HTTP est appelé jusqu’à ce que le corps de la réponse ait la valeur « Completed ». La procédure se termine quand l’une des conditions suivantes est remplie :
+  If using code-view, you can specify an until loop like below.  This is an example of calling an HTTP endpoint until the response body has the value 'Completed'.  It will complete when either 
   
-  * L’état de la réponse HTTP est « Completed ».
-  * La procédure a duré 1 heure.
-  * Elle a effectué 100 cycles de boucle.
+  * HTTP Response has status of 'Completed'
+  * It has tried for 1 hour
+  * It has looped 100 times
   
   ```
   {
@@ -98,11 +99,11 @@ Si vous utilisez le mode code, vous pouvez spécifier une boucle foreach comme c
   }
   ```
   
-## SplitOn et décomposition
+## <a name="spliton-and-debatching"></a>SplitOn and Debatching
 
-Parfois, un déclencheur peut recevoir un tableau d’éléments à décomposer et à partir de chacun desquels vous souhaitez démarrer un flux de travail. Vous pouvez effectuer ces opérations à l’aide de la commande `spliton`. Par défaut, si votre swagger de déclencheur spécifie une charge utile qui est un tableau, un `spliton` est ajouté et lance une exécution par élément. SplitOn peut uniquement être ajouté à un déclencheur. Ce paramétrage peut être configuré ou remplacé manuellement dans la définition en mode code. Actuellement, SplitOn peut décomposer des tableaux qui comportent jusqu’à 5 000 éléments. Vous ne pouvez pas avoir un `spliton` et également implémenter le modèle de réponse synchrone. Tout flux de travail appelé qui a une action `response` en plus de `spliton` s’exécute de façon asynchrone et envoie une réponse `202 Accepted` immédiate.
+Sometimes a trigger may recieve an array of items that you want to debatch and start a workflow per item.  This can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` will be added and start a run per item.  SplitOn can only be added to a trigger.  This can be manually configured or overridden in definition code-view.  Currently SplitOn can debatch arrays up to 5,000 items.  You cannot have a `spliton` and also implement the syncronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` will run asyncronously and send an immediate `202 Accepted` response.  
 
-SplitOn peut être spécifié en mode code, comme dans l’exemple suivant. Dans cet exemple, un tableau d’éléments est reçu et chacune de ses lignes fait l’objet d’une décomposition.
+SplitOn can be specified in code-view as the following example.  This recieves an array of items and debatches on each row.
 
 ```
 {
@@ -112,7 +113,7 @@ SplitOn peut être spécifié en mode code, comme dans l’exemple suivant. Dans
             "url": "http://getNewCustomers",
         },
         "recurrence": {
-            "frequencey": "Second",
+            "frequency": "Second",
             "interval": 15
         },
         "spliton": "@triggerBody()['rows']"
@@ -120,9 +121,9 @@ SplitOn peut être spécifié en mode code, comme dans l’exemple suivant. Dans
 }
 ```
 
-## Étendues
+## <a name="scopes"></a>Scopes
 
-Vous pouvez grouper une série d’actions à l’aide d’une étendue. Cette opération est particulièrement utile pour implémenter la gestion des exceptions. Dans le concepteur, vous pouvez ajouter une nouvelle étendue et commencer à y ajouter des actions. Vous pouvez définir des étendues en mode code comme suit :
+It is possible to group a series of actions together using a scope.  This is particularly useful for implementing exception handling.  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following:
 
 
 ```
@@ -141,4 +142,8 @@ Vous pouvez grouper une série d’actions à l’aide d’une étendue. Cette o
 }
 ```
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

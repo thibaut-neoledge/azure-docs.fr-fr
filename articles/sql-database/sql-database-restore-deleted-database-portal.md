@@ -1,48 +1,53 @@
 <properties
-	pageTitle="Restaurer une base de données SQL supprimée (portail Azure) | Microsoft Azure"
-	description="Restaurez une base de données SQL Azure supprimée (portail Azure)."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Restore a deleted Azure SQL database (Azure portal) | Microsoft Azure"
+    description="Restore a deleted Azure SQL database (Azure portal)."
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="07/09/2016"
-	ms.author="sstein"
-	ms.workload="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="10/12/2016"
+    ms.author="sstein"
+    ms.workload="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
-# Restaurer une base de données SQL Azure supprimée à l’aide du portail Azure
+
+# <a name="restore-a-deleted-azure-sql-database-using-the-azure-portal"></a>Restore a deleted Azure SQL database using the Azure Portal
 
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-database-recovery-using-backups.md)
-- [Restauration d’une base de données supprimée : PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [**Restore Deleted DB: Portal**](sql-database-restore-deleted-database-portal.md)
+- [Restore Deleted DB: PowerShell](sql-database-restore-deleted-database-powershell.md)
 
-## Sélectionner la base de données à restaurer 
+## <a name="select-the-database-to-restore"></a>Select the database to restore 
 
-Pour restaurer une base de données dans le portail Azure, procédez comme suit :
+To restore a deleted database in the Azure portal:
 
-1.	Ouvrez le [portail Azure](https://portal.azure.com).
-2.  Sur le côté gauche de l’écran, sélectionnez **PARCOURIR** > **Serveurs SQL**.
-3.  Accédez au serveur sur lequel la base de données que vous voulez restaurer est stockée, puis sélectionnez le serveur.
-4.  Faites défiler jusqu’à la section **Opérations** du panneau de votre serveur, puis sélectionnez **Bases de données supprimées** : ![Restaurer une base de données SQL Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
-5.  Sélectionnez la base de données supprimée que vous souhaitez restaurer.
-6.  Spécifiez un nom de base de données, puis cliquez sur OK :
+1.  In the [Azure portal](https://portal.azure.com), click **More services** > **SQL servers**.
+3.  Select the server that contained the database you want to restore.
+4.  Scroll down to the **operations** section of your server blade and select **Deleted databases**: ![Restore an Azure SQL database](./media/sql-database-restore-deleted-database-portal/restore-deleted-trashbin.png)
+5.  Select the database you want to restore.
+6.  Specify a database name, and click **OK**:
 
-    ![Restaurer une base de données SQL Azure](./media/sql-database-restore-deleted-database-portal/restore-deleted.png)
+    ![Restore an Azure SQL database](./media/sql-database-restore-deleted-database-portal/restore-deleted.png)
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
-- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
-- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
-- Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
-- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configurer les rôles pour un service cloud Azure avec Visual Studio | Microsoft Azure"
-   description="Découvrez comment installer et configurer des rôles pour les services cloud Azure à l’aide de Visual Studio."
+   pageTitle="Configure the Roles for an Azure Cloud Service with Visual Studio | Microsoft Azure"
+   description="Learn how to set up and configure roles for Azure cloud services by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,99 +15,100 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Configuration des rôles pour un service cloud Azure avec Visual Studio
 
-Un service cloud Azure peut avoir un ou plusieurs rôles de travail ou rôles web. Pour chaque rôle, vous devez définir le mode de configuration de ce rôle et vous devez également configurer le mode d’exécution de ce rôle. Pour en savoir plus sur les rôles dans les services cloud, regardez la vidéo [Introduction aux services cloud Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). Les informations pour votre service cloud sont stockées dans les fichiers suivants :
+# <a name="configure-the-roles-for-an-azure-cloud-service-with-visual-studio"></a>Configure the Roles for an Azure Cloud Service with Visual Studio
+
+An Azure cloud service can have one or more worker or web roles. For each role you need to define how that role is set up and also configure how that role runs. To learn more about roles in cloud services, see the video [Introduction to Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). The information for your cloud service is stored in the following files:
 
 - **ServiceDefinition.csdef**
 
-    Le fichier de définition de service définit les paramètres d’exécution pour votre service cloud, y compris les rôles requis, les points de terminaison et la taille de la machine virtuelle. Aucune des données stockées dans ce fichier ne peut être modifiée lorsque votre rôle est en cours d’exécution.
+    The service definition file defines the runtime settings for your cloud service including what roles are required, endpoints, and virtual machine size. None of the data stored in this file can be changed when your role is running.
 
 - **ServiceConfiguration.cscfg**
 
-    Le fichier de configuration de service configure le nombre d'instances d'un rôle exécutées et les valeurs des paramètres définis pour un rôle. Les données stockées dans ce fichier peuvent être modifiées lorsque votre rôle est en cours d’exécution.
+    The service configuration file configures how many instances of a role are run and the values of the settings defined for a role. The data stored in this file can be changed while your role is running.
 
-Pour être en mesure de stocker différentes valeurs pour ces paramètres pour définir le mode d’exécution de votre rôle, vous pouvez disposer de plusieurs configurations de service. Vous pouvez utiliser une configuration de service différente pour chaque environnement de déploiement. Par exemple, vous pouvez définir votre chaîne de connexion de compte de stockage pour utiliser l’émulateur de stockage Azure local dans une configuration de service local et créer une autre configuration de service pour utiliser le stockage Azure dans le cloud.
+To be able to store different values for these settings for how your role runs, you can have multiple service configurations. You can use a different service configuration for each deployment environment. For example, you can set your storage account connection string to use the local Azure storage emulator in a local service configuration and create another service configuration to use the Azure storage in the cloud.
 
-Lorsque vous créez un service cloud Azure dans Visual Studio, deux configurations de service sont créées par défaut. Ces configurations sont ajoutées à votre projet Azure. Les configurations sont nommées :
+When you create a new Azure cloud service in Visual Studio, two service configurations are created by default. These configurations are added to your Azure project. The configurations are named:
 
 - ServiceConfiguration.Cloud.cscfg
 
 - ServiceConfiguration.Local.cscfg
 
-## Configurer un service cloud Azure
+## <a name="configure-an-azure-cloud-service"></a>Configure an Azure cloud service
 
-Vous pouvez configurer un service cloud Azure à partir de l’Explorateur de solutions dans Visual Studio, comme le montre l’illustration suivante.
+You can configure an Azure cloud service from Solution Explorer in Visual Studio, as shown in the following illustration.
 
-![Configurer le service cloud](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
+![Configure Cloud Service](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
 
-### Pour configurer un service cloud Azure
+### <a name="to-configure-an-azure-cloud-service"></a>To configure an Azure cloud service
 
-1. Pour configurer chaque rôle dans votre projet Azure depuis l’**Explorateur de solutions**, ouvrez le menu contextuel pour le rôle dans le projet Azure, puis choisissez **Propriétés**.
+1. To configure each role in your Azure project from **Solution Explorer**, open the shortcut menu for the role in the Azure project and then choose **Properties**.
 
-    Une page s’affiche avec le nom du rôle dans l'éditeur Visual Studio. La page affiche les champs pour l’onglet **Configuration**.
+    A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
 
-1. Dans la liste **Configuration du service** sélectionnez le nom de la configuration de service que vous souhaitez modifier.
+1. In the **Service Configuration** list, choose the name of the service configuration that you want to edit.
 
-    Si vous souhaitez apporter des modifications à toutes les configurations de service pour ce rôle, vous pouvez sélectionner **Toutes les configurations**.
+    If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.
 
-    >[AZURE.IMPORTANT] Si vous choisissez une configuration de service spécifique, certaines propriétés sont désactivées parce qu’elles peuvent être définies uniquement pour toutes les configurations. Pour modifier ces propriétés, vous devez choisir Toutes les configurations.
+    >[AZURE.IMPORTANT] If you choose a specific service configuration, some properties are disabled because they can only be set for all configurations. To edit these properties, you must choose All Configurations.
 
-    Vous pouvez maintenant choisir un onglet pour mettre à jour toutes les propriétés activées sur cette vue.
+    You can now choose a tab to update any enabled properties on that view.
 
-## Modifier le nombre d’instances d’un rôle
+## <a name="change-the-number-of-role-instances"></a>Change the number of role instances
 
-Pour améliorer la performance de votre service cloud, vous pouvez modifier le nombre d’instances d’un rôle qui s’exécutent, en fonction du nombre d’utilisateurs ou de la charge attendue pour un rôle particulier. Une machine virtuelle distincte est créée pour chaque instance d’un rôle quand le service cloud s’exécute dans Azure. Cela affectera la facturation pour le déploiement de ce service cloud. Pour plus d’informations sur la facturation, consultez [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
+To improve the performance of your cloud service, you can change the number of instances of a role that are running, based on the number of users or the load expected for a particular role. A separate virtual machine is created for each instance of a role when the cloud service runs in Azure. This will affect the billing for the deployment of this cloud service. For more information about billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-### Pour modifier le nombre d’instances pour un rôle
+### <a name="to-change-the-number-of-instances-for-a-role"></a>To change the number of instances for a role
 
-1. Choisissez l’onglet **Configuration**.
+1. Choose the **Configuration** tab.
 
-1. Dans la liste **Configuration du service**, choisissez la configuration de service que vous voulez mettre à jour.
+1. In the **Service Configuration** list, choose the service configuration that you want to update.
 
-    >[AZURE.NOTE] Vous pouvez définir le nombre d’instances pour une configuration de service spécifique ou pour toutes les configurations de service.
+    >[AZURE.NOTE] You can set the instance count for a specific service configuration or for all service configurations.
 
-1. Dans la zone de texte **Nombre d’instances**, entrez le nombre d’instances que vous voulez démarrer pour ce rôle.
+1. In the **Instance count** text box, enter the number of instances that you want to start for this role.
 
-    >[AZURE.NOTE] Chaque instance est exécutée sur une machine virtuelle distincte quand vous publiez votre service cloud sur Azure.
+    >[AZURE.NOTE] Each instance is run on a separate virtual machine when you publish your cloud service to Azure.
 
-1. Choisissez le bouton **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans le fichier de configuration de service.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-## Gérer des chaînes de connexion pour des comptes de stockage
+## <a name="manage-connection-strings-for-storage-accounts"></a>Manage connection strings for storage accounts
 
-Vous pouvez ajouter, supprimer ou modifier des chaînes de connexion pour vos configurations de service. Vous pouvez vouloir des chaînes de connexion différentes pour les différentes configurations de service. Par exemple, vous pouvez vouloir une chaîne de connexion locale pour une configuration de service local qui a pour valeur `UseDevelopmentStorage=true`. Vous pouvez aussi vouloir définir une configuration de service cloud qui utilise un compte de stockage dans Azure.
+You can add, remove or modify connection strings for your service configurations. You might want different connection strings for different service configurations. For example, you might want a local connection string for a local service configuration that has a value of `UseDevelopmentStorage=true`. You might also want to configure a cloud service configuration that uses a storage account in Azure.
 
->[AZURE.WARNING] Lorsque vous entrez les informations de clé du compte de stockage Azure pour une chaîne de connexion de compte de stockage, ces informations sont stockées localement dans le fichier de configuration de service. Toutefois, ces informations ne sont pas stockées sous forme de texte chiffré pour le moment.
+>[AZURE.WARNING] When you enter the Azure storage account key information for a storage account connection string, this information is stored locally in the service configuration file. However, this information is currently not stored as encrypted text.
 
-Si vous utilisez une valeur différente pour chaque configuration de service, il n’est pas nécessaire d’utiliser des chaînes de connexion différentes dans votre service cloud ni de modifier votre code quand vous publiez votre service cloud sur Azure. Vous pouvez utiliser le même nom pour la chaîne de connexion dans votre code et la valeur sera différente, en fonction de la configuration de service que vous sélectionnez quand vous générez votre service cloud ou quand vous le publiez.
+By using a different value for each service configuration, you do not have to use different connection strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the connection string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
-### Pour gérer des chaînes de connexion pour des comptes de stockage
+### <a name="to-manage-connection-strings-for-storage-accounts"></a>To manage connection strings for storage accounts
 
-1. Choisissez l’onglet **Paramètres**.
+1. Choose the **Settings** tab.
 
-1. Dans la liste **Configuration du service**, choisissez la configuration de service que vous voulez mettre à jour.
+1. In the **Service Configuration** list, choose the service configuration that you want to update.
 
-    >[AZURE.NOTE] Vous pouvez mettre à jour des chaînes de connexion pour une configuration de service spécifique, mais si vous avez besoin d’ajouter ou de supprimer une chaîne de connexion vous devez sélectionner Toutes les configurations.
+    >[AZURE.NOTE] You can update connection strings for a specific service configuration, but if you need to add or delete a connection string you must select All Configurations.
 
-1. Pour ajouter une chaîne de connexion, choisissez le bouton **Ajouter un paramètre**. Une nouvelle entrée est ajoutée à la liste.
+1. To add a connection string, choose the **Add Setting** button. A new entry is added to the list.
 
-1. Dans la zone de texte **Nom**, entrez le nom que vous voulez utiliser pour la chaîne de connexion.
+1. In the **Name** text box, type the name that you want to use for the connection string.
 
-1. Dans la liste déroulante **Type**, choisissez **Chaîne de connexion**.
+1. In the **Type** drop-down list, choose **Connection String**.
 
-1. Pour modifier la valeur pour la chaîne de connexion, choisissez le bouton de sélection (…). La boîte de dialogue **Créer une chaîne de connexion de stockage** s’affiche.
+1. To change the value for the connection string, choose the ellipsis (...) button. The **Create Storage Connection String** dialog box appears.
 
-1. Pour utiliser l’émulateur de compte de stockage local, sélectionnez la case d’option **Émulateur de stockage Microsoft Azure**, puis le bouton **OK**.
+1. To use the local storage account emulator, choose the **Microsoft Azure storage emulator** option button and then choose the **OK** button.
 
-1. Pour utiliser un compte de stockage dans Azure, sélectionnez la case d’option **Votre abonnement**, puis le compte de stockage souhaité.
+1. To use a storage account in Azure, choose the **Your subscription** option button and select the desired storage account.
 
-1. Pour utiliser des informations d’identification personnalisées, sélectionnez la case d’option **Informations d’identification entrées manuellement**. Entrez le nom du compte de stockage, ainsi que la clé primaire ou secondaire. Pour des informations sur la façon de créer un compte de stockage et d’entrer les détails pour le compte de stockage dans la boîte de dialogue **Créer une chaîne de connexion de stockage**, consultez [Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+1. To use custom credentials, choose the **Manually entered credentials** options button. Enter the storage account name, and either the primary or second key. For information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
-1. Pour supprimer une chaîne de connexion, sélectionnez la chaîne de connexion, puis choisissez le bouton **Supprimer un paramètre**.
+1. To delete a connection string, select the connection string and then choose the **Remove Setting** button.
 
-1. Choisissez l’icône **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans le fichier de configuration de service.
+1. Choose the **Save** icon on the toolbar to save these changes to the service configuration file.
 
-1. Pour accéder à la chaîne de connexion dans le fichier de configuration de service, vous devez obtenir la valeur du paramètre de configuration. Le code suivant montre un exemple où le stockage d’objets blob est créé et où les données sont téléchargées à l’aide d’une chaîne de connexion `MyConnectionString` depuis le fichier de configuration de service quand un utilisateur choisit **Button1** dans la page Default.aspx dans le rôle web pour un service cloud Azure. Ajoutez les instructions using suivantes à Default.aspx.cs :
+1. To access the connection string in the service configuration file, you must get the value of the configuration setting. The following code shows an example where blob storage is created and data uploaded using a connection string `MyConnectionString` from the service configuration file when a user chooses **Button1** on the Default.aspx page in the web role for an Azure cloud service. Add the following using statements to Default.aspx.cs:
 
     ```
     using Microsoft.WindowsAzure;
@@ -115,7 +116,7 @@ Si vous utilisez une valeur différente pour chaque configuration de service, il
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
-1. Ouvrez Default.aspx.cs en mode Conception, et ajoutez un bouton à partir de la boîte à outils. Ajoutez le code suivant à la méthode `Button1_Click`. Ce code utilise `GetConfigurationSettingValue` pour obtenir la valeur depuis le fichier de configuration de service pour la chaîne de connexion. Un objet blob est ensuite créé dans le compte de stockage qui est référencé dans la chaîne de connexion `MyConnectionString` et, enfin, le programme ajoute du texte à l’objet blob.
+1. Open Default.aspx.cs in design view, and add a button from the toolbox. Add the following code to the `Button1_Click` method. This code uses `GetConfigurationSettingValue` to get the value from the service configuration file for the connection string. Then a blob is created in the storage account that is referenced in the connection string `MyConnectionString` and finally the program adds text to the blob.
 
     ```
     protected void Button1_Click(object sender, EventArgs e)
@@ -133,37 +134,37 @@ Si vous utilisez une valeur différente pour chaque configuration de service, il
     }
     ```
 
-## Ajouter des paramètres personnalisés à utiliser dans votre service cloud Azure
+## <a name="add-custom-settings-to-use-in-your-azure-cloud-service"></a>Add custom settings to use in your Azure cloud service
 
-Les paramètres personnalisés dans le fichier de configuration de service vous permettent d’ajouter un nom et une valeur pour une chaîne pour une configuration de service spécifique. Vous pouvez choisir d’utiliser ce paramètre pour configurer une fonctionnalité dans votre service cloud en lisant la valeur du paramètre et en utilisant cette valeur pour contrôler la logique de votre code. Vous pouvez modifier ces valeurs de configuration de service sans devoir régénérer votre package de services ou lorsque votre service cloud est en cours d’exécution. Votre code peut vérifier les notifications produites lorsqu’un paramètre est modifié. Consultez [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
+Custom settings in the service configuration file let you add a name and value for a string for a specific service configuration. You might choose to use this setting to configure a feature in your cloud service by reading the value of the setting and using this value to control the logic in your code. You can change these service configuration values without having to rebuild your service package or when your cloud service is running. Your code can check for notifications of when a setting changes. See [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
-Vous pouvez ajouter, supprimer ou modifier des paramètres personnalisés pour vos configurations de service. Vous pouvez vouloir différentes valeurs pour ces chaînes pour différentes configurations de service.
+You can add, remove or modify custom settings for your service configurations. You might want different values for these strings for different service configurations.
 
-Si vous utilisez une valeur différente pour chaque configuration de service, il n’est pas nécessaire d’utiliser des chaînes différentes dans votre service cloud ni de modifier votre code quand vous publiez votre service cloud sur Azure. Vous pouvez utiliser le même nom pour la chaîne dans votre code et la valeur sera différente, en fonction de la configuration de service que vous sélectionnez quand vous générez votre service cloud ou quand vous le publiez.
+By using a different value for each service configuration, you do not have to use different strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
-### Pour ajouter des paramètres personnalisés à utiliser dans votre service cloud Azure
+### <a name="to-add-custom-settings-to-use-in-your-azure-cloud-service"></a>To add custom settings to use in your Azure cloud service
 
-1. Choisissez l’onglet **Paramètres**.
+1. Choose the **Settings** tab.
 
-1. Dans la liste **Configuration du service**, choisissez la configuration de service que vous voulez mettre à jour.
+1. In the **Service Configuration** list, choose the service configuration that you want to update.
 
-    >[AZURE.NOTE] Vous pouvez mettre à jour des chaînes pour une configuration de service spécifique, mais si vous devez ajouter ou supprimer une chaîne, vous devez sélectionner **Toutes les configurations**.
+    >[AZURE.NOTE] You can update strings for a specific service configuration, but if you need to add or delete a string, you must select **All Configurations**.
 
-1. Pour ajouter une chaîne, choisissez le bouton **Ajouter un paramètre**. Une nouvelle entrée est ajoutée à la liste.
+1. To add a string, choose the **Add Setting** button. A new entry is added to the list.
 
-1. Dans la zone de texte **Nom**, tapez le nom que vous voulez utiliser pour la chaîne.
+1. In the **Name** text box, type the name that you want to use for the string.
 
-1. Dans la liste déroulante **Type**, choisissez **Chaîne**.
+1. In the **Type** drop-down list, choose **String**.
 
-1. Pour ajouter ou modifier la valeur pour la chaîne, tapez la nouvelle valeur dans la zone de texte **Valeur**.
+1. To add or change the value for the string, in the **Value** text box type the new value.
 
-1. Pour supprimer une chaîne, sélectionnez la chaîne, puis choisissez le bouton **Supprimer un paramètre**.
+1. To delete a string, select the string and then choose the **Remove Setting** button.
 
-1. Choisissez le bouton **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans le fichier de configuration de service.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-1. Pour accéder à la chaîne dans le fichier de configuration de service, vous devez obtenir la valeur du paramètre de configuration.
+1. To access the string in the service configuration file, you must get the value of the configuration setting.
 
-    Vous devez vous assurer que les instructions using suivantes sont déjà ajoutées à Default.aspx.cs tout comme vous l’avez fait dans la procédure précédente.
+    You need to make sure that the following using statements are already added to Default.aspx.cs just as you did in the previous procedure.
 
     ```
     using Microsoft.WindowsAzure;
@@ -171,7 +172,7 @@ Si vous utilisez une valeur différente pour chaque configuration de service, il
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
-1. Ajoutez le code suivant à la méthode `Button1_Click` pour accéder à cette chaîne de la même façon que vous accédez à une chaîne de connexion. Votre code peut ensuite exécuter du code spécifique basé sur la valeur de la chaîne de paramètres pour le fichier de configuration de service qui est utilisé.
+1. Add the following code to the `Button1_Click` method to access this string in the same way that you access a connection string. Your code can then perform some specific code based on the value of the settings string for the service configuration file that is used.
 
     ```
     var settingValue = RoleEnvironment.GetConfigurationSettingValue("MySetting");
@@ -181,42 +182,42 @@ Si vous utilisez une valeur différente pour chaque configuration de service, il
     }
     ```
 
-## Gérer le stockage local pour chaque instance de rôle
+## <a name="manage-local-storage-for-each-role-instance"></a>Manage local storage for each role instance
 
-Vous pouvez ajouter le stockage de système de fichiers local pour chaque instance d’un rôle. Vous pouvez stocker ici des données locales auxquelles aucun autre rôle n’a besoin d’accéder. Toutes les données que vous n’avez pas besoin d’enregistrer dans un objet table, blob ou stockage de base de données SQL peuvent être stockées ici. Par exemple, vous pourriez utiliser ce stockage local pour mettre en cache des données susceptibles de devoir être utilisées à nouveau. D’autres instances d’un rôle ne peuvent pas avoir accès à ces données stockées.
+You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. 
 
-Les paramètres de stockage local s’appliquent à toutes les configurations de service. Vous pouvez uniquement ajouter, supprimer ou modifier le stockage local pour toutes les configurations de service.
+Local storage settings apply to all service configurations. You can only add, remove, or modify local storage for all service configurations.
 
-### Pour gérer le stockage local pour chaque instance de rôle
+### <a name="to-manage-local-storage-for-each-role-instance"></a>To manage local storage for each role instance
 
-1. Choisissez l’onglet **Stockage local**.
+1. Choose the **Local Storage** tab.
 
-1. Dans la liste **Configuration du service**, choisissez **Toutes les configurations**.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-1. Pour ajouter une entrée de stockage local, choisissez le bouton **Ajouter le stockage local**. Une nouvelle entrée est ajoutée à la liste.
+1. To add a local storage entry, choose the **Add Local Storage** button. A new entry is added to the list.
 
-1. Dans la zone de texte **Nom**, tapez le nom que vous voulez utiliser pour ce stockage local.
+1. In the **Name** text box, type the name that you want to use for this local storage.
 
-1. Dans la zone de texte **Taille**, entrez la taille en Mo dont vous avez besoin pour ce stockage local.
+1. In the **Size** text box, type the size in MB that you need for this local storage.
 
-1. Pour supprimer les données dans ce stockage local quand la machine virtuelle pour ce rôle est recyclée, cochez la case **Nettoyer après le recyclage des rôles**.
+1. To remove the data in this local storage when the virtual machine for this role is recycled, select the **Clean on role recycle** check box.
 
-1. Pour modifier une entrée de stockage local existante, choisissez la ligne que vous devez mettre à jour. Ensuite, vous pouvez modifier les champs, comme décrit dans les étapes précédentes.
+1. To edit an existing local storage entry, choose the row that you need to update. Then you can edit the fields, as described in the previous steps.
 
-1. Pour supprimer une entrée de stockage local, sélectionnez l’entrée de stockage dans la liste, puis choisissez le bouton **Supprimer le stockage local**.
+1. To delete a local storage entry, choose the storage entry in the list and then choose the **Remove Local Storage** button.
 
-1. Pour enregistrer ces modifications dans les fichiers de configuration de service, choisissez l’icône **Enregistrer** dans la barre d’outils.
+1. To save these changes to the service configuration files, choose the **Save** icon on the toolbar.
 
-1. Pour accéder au stockage local que vous avez ajouté dans le fichier de configuration de service, vous devez obtenir la valeur du paramètre de configuration de ressource locale. Utilisez les lignes suivantes de code pour accéder à cette valeur et créer un fichier appelé **MyStorageTest.txt** et écrire une ligne de données de test dans ce fichier. Vous pouvez ajouter ce code dans la méthode `Button_Click` que vous avez utilisée dans les procédures précédentes :
+1. To access the local storage that you have added in the service configuration file, you must get the value of the local resource configuration setting. Use the following lines of code to access this value and create a file called **MyStorageTest.txt** and write a line of test data into that file. You can add this code into the `Button_Click` method that you used in the previous procedures:
 
-1. Vous devez vous assurer que les instructions using suivantes sont ajoutées à Default.aspx.cs :
+1. You need to make sure that the following using statements are added to Default.aspx.cs:
 
     ```
     using System.IO;
     using System.Text;
     ```
 
-1. Ajoutez le code suivant à la méthode `Button1_Click`. Cela crée le fichier dans le stockage local et écrit les données de test dans ce fichier.
+1. Add the following code to the `Button1_Click` method. This creates the file in the local storage and writes test data into that file.
 
     ```
     // Retrieve an object that points to the local storage resource
@@ -233,147 +234,151 @@ Les paramètres de stockage local s’appliquent à toutes les configurations de
     }
     ```
 
-1. (Facultatif) Pour consulter ce fichier que vous avez créé quand vous exécutez votre service cloud localement, procédez comme suit :
+1. (Optional) To view this file that you created when you run your cloud service locally, use the following steps:
 
-  1. Exécutez le rôle web et sélectionnez **Button1** pour vous assurer que le code `Button1_Click` est appelé.
+  1. Run the web role and select **Button1** to make sure that the code inside `Button1_Click` gets called.
 
-  1. Dans la zone de notification, ouvrez le menu contextuel pour l’icône Azure et choisissez **Afficher l’interface utilisateur de l’émulateur de calcul**. La boîte de dialogue **Émulateur de calcul Azure** s’affiche.
+  1. In the notification area, open the shortcut menu for the Azure icon and choose **Show Compute Emulator UI**. The **Azure Compute Emulator** dialog box appears.
 
-  1. Sélectionnez le rôle web.
+  1. Select the web role.
 
-  1. Dans la barre de menus, choisissez **Outils**, **Ouvrir magasin local**. Une fenêtre Explorateur Windows s’affiche.
+  1. On the menu bar, choose **Tools**, **Open local store**. A Windows Explorer window appears.
 
-  1. Dans la barre de menus, entrez **MyStorageTest.txt** dans la zone de texte **Rechercher**, puis choisissez **Entrée** pour commencer la recherche.
+  1. On the menu bar, enter **MyStorageTest.txt** into the **Search** text box and then choose **Enter** to start the search.
 
-    Le fichier est affiché dans les résultats de recherche.
+    The file is displayed in the search results.
 
-  1. Pour consulter le contenu du fichier, ouvrez le menu contextuel pour le fichier et choisissez **Ouvrir**.
+  1. To view the contents of the file, open the shortcut menu for the file and choose **Open**.
 
-## Collecter les diagnostics du service cloud
+## <a name="collect-cloud-service-diagnostics"></a>Collect cloud service diagnostics
 
-Vous pouvez collecter les données de diagnostic pour votre service cloud Azure. Ces données sont ajoutées à un compte de stockage. Vous pouvez vouloir des chaînes de connexion différentes pour les différentes configurations de service. Par exemple, vous pouvez vouloir un compte de stockage local pour une configuration de service local qui a pour valeur UseDevelopmentStorage=true. Vous pouvez aussi vouloir définir une configuration de service cloud qui utilise un compte de stockage dans Azure. Pour plus d’informations concernant les diagnostics Azure, consultez Recueillir des données de journaux à l’aide des diagnostics Azure.
+You can collect diagnostics data for your Azure cloud service. This data is added to a storage account. You might want different connection strings for different service configurations. For example, you might want a local storage account for a local service configuration that has a value of UseDevelopmentStorage=true. You might also want to configure a cloud service configuration that uses a storage account in Azure. For more information about Azure diagnostics, see Collect Logging Data by Using Azure Diagnostics.
 
->[AZURE.NOTE] La configuration de service local est déjà configurée pour utiliser des ressources locales. Si vous utilisez la configuration de service cloud pour publier votre service cloud Azure, la chaîne de connexion que vous spécifiez quand vous publiez est également utilisée pour la chaîne de connexion des diagnostics, à moins que vous ayez spécifié une chaîne de connexion. Si vous créez un package pour votre service cloud à l’aide de Visual Studio, la chaîne de connexion dans la configuration de service n’est pas modifiée.
+>[AZURE.NOTE] The local service configuration is already configured to use local resources. If you use the cloud service configuration to publish your Azure cloud service, the connection string that you specify when you publish is also used for the diagnostics connection string unless you have specified a connection string. If you package your cloud service using Visual Studio, the connection string in the service configuration is not changed.
 
-### Pour collecter les diagnostics du service cloud
+### <a name="to-collect-cloud-service-diagnostics"></a>To collect cloud service diagnostics
 
-1. Choisissez l’onglet **Configuration**.
+1. Choose the **Configuration** tab.
 
-1. Dans la liste **Configuration du service**, choisissez la configuration de service que vous voulez mettre à jour ou choisissez **Toutes les configurations**.
+1. In the **Service Configuration** list, choose the service configuration that you want to update or choose **All Configurations**.
 
-    >[AZURE.NOTE] Vous pouvez mettre à jour le compte de stockage pour une configuration de service spécifique, mais si vous voulez activer ou désactiver des diagnostics, vous devez choisir Toutes les configurations.
+    >[AZURE.NOTE] You can update the storage account for a specific service configuration, but if you want to enable or disable diagnostics you must choose All Configurations.
 
-1. Pour activer des diagnostics, cochez la case **Activer les diagnostics**.
+1. To enable diagnostics, select the **Enable Diagnostics** check box.
 
-1. Pour modifier la valeur pour le compte de stockage, choisissez le bouton de sélection (…).
+1. To change the value for the storage account, choose the ellipsis (...) button.
 
-    La boîte de dialogue **Créer une chaîne de connexion de stockage** s’affiche.
+    The **Create Storage Connection String** dialog box appears.
 
-1. Pour utiliser une chaîne de connexion locale, choisissez l’option Émulateur de stockage Azure, puis choisissez le bouton **OK**.
+1. To use a local connection string, choose Azure storage emulator option and then choose the **OK** button.
 
-1. Pour utiliser un compte de stockage associé à votre abonnement Azure, choisissez l’option **Votre abonnement**.
+1. To use a storage account associated with your Azure subscription, choose the **Your subscription** option.
 
-1. Pour utiliser un compte de stockage pour la chaîne de connexion locale, choisissez l’option **Informations d’identification entrées manuellement**.
+1. To use a storage account for the local connection string, choose the **Manually entered credentials** option.
 
-    Pour plus d’informations sur la façon de créer un compte de stockage et d’entrer les détails pour le compte de stockage dans la boîte de dialogue **Créer une chaîne de connexion de stockage**, consultez [Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+    For more information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
-1. Choisissez le compte de stockage que vous souhaitez utiliser dans **Nom du compte**.
+1. Choose the storage account you want to use in **Account name**.
 
-    Si vous entrez manuellement les informations d’identification du compte de stockage, copiez ou entrez la clé primaire dans **Clé du compte**. Vous pouvez copier cette clé depuis le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Pour copier cette clé, suivez ces étapes depuis la vue **Comptes de stockage** dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) :
+    If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). To copy this key, following these steps from the **Storage Accounts** view in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885):
     
-  1. Sélectionnez le compte de stockage que vous voulez utiliser pour votre service cloud.
+  1. Select the storage account that you want to use for your cloud service.
 
-  1. Choisissez le bouton **Gérer les clés d’accès** situé en bas de l’écran. La boîte de dialogue **Gérer les clés d’accès** s’affiche.
+  1. Choose the **Manage Access Keys** button located at the bottom of the screen. The **Manage Access Keys** dialog box appears.
 
-  1. Pour copier la clé d’accès, choisissez le bouton **Copier dans le Presse-papiers**. Vous pouvez maintenant coller cette clé dans le champ **Clé du compte**.
+  1. To copy the access key, choose the **Copy to clipboard** button. You can now paste this key into the **Account key** field.
 
-1. Pour utiliser le compte de stockage que vous fournissez, ainsi que la chaîne de connexion pour les diagnostics (et la mise en cache) quand vous publiez votre service cloud sur Azure, cochez la case **Mettre à jour les chaînes de connexion de stockage de développement pour les diagnostics et la mise en cache avec les informations d’identification du compte de stockage Azure lors de la publication vers Azure**.
+1. To use the storage account that you provide, as the connection string for diagnostics (and caching) when you publish your cloud service to Azure, select the **Update development storage connection strings for Diagnostics and Caching with Azure storage account credentials when publishing to Azure** check box.
 
-1. Choisissez le bouton **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans le fichier de configuration de service.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-## Modifier la taille de la machine virtuelle utilisée pour chaque rôle
+## <a name="change-the-size-of-the-virtual-machine-used-for-each-role"></a>Change the size of the virtual machine used for each role
 
-Vous pouvez définir la taille de machine virtuelle pour chaque rôle. Vous pouvez uniquement définir cette taille pour toutes les configurations de service. Si vous sélectionnez une plus petite taille de machine, alors moins de cœurs d’UC, de mémoire et de stockage disque local sont attribués. La bande passante attribuée est également plus petite. Pour plus d’informations concernant ces tailles et les ressources attribuées, consultez [Tailles pour les services cloud](cloud-services/cloud-services-sizes-specs.md).
+You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md).
 
-Les ressources requises pour chaque machine virtuelle dans Azure affectent le coût de l’exécution de votre service cloud dans Azure. Pour plus d’informations sur la facturation Azure, consultez [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
+The resources required for each virtual machine in Azure affects the cost of running your cloud service in Azure. For more information about Azure Billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-### Pour modifier la taille de la machine virtuelle
+### <a name="to-change-the-size-of-the-virtual-machine"></a>To change the size of the virtual machine
 
-1. Choisissez l’onglet **Configuration**.
+1. Choose the **Configuration** tab.
 
-1. Dans la liste **Configuration du service**, choisissez **Toutes les configurations**.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-1. Pour sélectionner la taille pour la machine virtuelle pour ce rôle, choisissez la taille appropriée dans la liste **Taille de la machine virtuelle**.
+1. To select the size for the virtual machine for this role, choose the appropriate size from the **VM size** list.
 
-1. Choisissez le bouton **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans le fichier de configuration de service.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-## Gérer les points de terminaison et les certificats pour vos rôles
+## <a name="manage-endpoints-and-certificates-for-your-roles"></a>Manage endpoints and certificates for your roles
 
-Pour configurer des points de terminaison réseau, spécifiez le protocole, le numéro de port et les informations de certificat SSL pour le protocole HTTPS. Les versions antérieures à juin 2012 prennent en charge HTTP, HTTPS et TCP. La version de juin 2012 prend en charge ces protocoles et UDP. Vous ne pouvez pas utiliser UDP pour les points de terminaison d’entrée dans l’émulateur de calcul. Utilisez ce protocole uniquement pour les points de terminaison internes.
+You configure networking endpoints by specifying the protocol, the port number, and, for HTTPS, the SSL certificate information. Releases before June 2012 support HTTP, HTTPS, and TCP. The June 2012 release supports those protocols and UDP. You can’t use UDP for input endpoints in the compute emulator. You can use that protocol only for internal endpoints.
 
-Pour améliorer la sécurité de votre service cloud Azure, vous pouvez créer des points de terminaison qui utilisent le protocole HTTPS. Par exemple, si vous avez un service cloud utilisé par des clients pour passer des commandes, vous voulez vous assurer que leurs informations sont sécurisées à l’aide de SSL.
+To improve the security of your Azure cloud service, you can create endpoints that use the HTTPS protocol. For example, if you have a cloud service that is used by customers to purchase orders, you want to make sure that their information is secure by using SSL.
 
-Vous pouvez aussi ajouter des points de terminaison qui peuvent être utilisés en interne ou en externe. Les points de terminaison externes sont appelés points de terminaison d’entrée. Un point de terminaison d’entrée donne aux utilisateurs un autre point d’accès à votre service cloud. Si vous avez un service WCF, vous pouvez vouloir exposer un point de terminaison interne pour un rôle web à utiliser pour accéder à ce service.
+You can also add endpoints that can be used internally or externally. External endpoints are called input endpoints. An input endpoint allows another access point to users to your cloud service. If you have a WCF service, you might want to expose an internal endpoint for a web role to use to access this service.
 
->[AZURE.IMPORTANT] Vous pouvez uniquement mettre à jour des points de terminaison pour toutes les configurations de service.
+>[AZURE.IMPORTANT] You can only update endpoints for all service configurations.
 
-Si vous ajoutez des points de terminaison HTTPS, vous devez utiliser un certificat SSL. Pour cela, vous pouvez associer des certificats à votre rôle pour toutes les configurations de service et les utiliser pour vos points de terminaison.
+If you add HTTPS endpoints, you need to use an SSL certificate. To do this you can associate certificates with your role for all service configurations and use these for your endpoints.
 
->[AZURE.IMPORTANT] Ces certificats ne font pas partie d’un package avec votre service. Vous devez télécharger séparément vos certificats sur Azure via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+>[AZURE.IMPORTANT] These certificates are not packaged with your service. You must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-Les certificats de gestion que vous associez à vos configurations de service s’appliquent seulement quand votre service cloud s’exécute dans Azure. Quand votre service cloud s’exécute dans l’environnement de développement local, un certificat standard géré par l’émulateur de calcul Azure est utilisé.
+Any management certificates that you associate with your service configurations apply only when your cloud service runs in Azure. When your cloud service runs in the local development environment, a standard certificate that is managed by the Azure compute emulator is used.
 
-### Pour ajouter un certificat à un rôle
+### <a name="to-add-a-certificate-to-a-role"></a>To add a certificate to a role
 
-1. Choisissez l’onglet **Certificats**.
+1. Choose the **Certificates** tab.
 
-1. Dans la liste **Configuration du service**, choisissez **Toutes les configurations**.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-    >[AZURE.NOTE] Pour ajouter ou supprimer des certificats, vous devez sélectionner Toutes les Configurations. Vous pouvez mettre à jour le nom et l’empreinte numérique pour une configuration de service spécifique, si cela est exigé.
+    >[AZURE.NOTE] To add or remove certificates, you must select All Configurations. You can update the name and the thumbprint for a specific service configuration if it is required.
 
-1. Pour ajouter un certificat pour ce rôle, choisissez le bouton **Ajouter un certificat**. Une nouvelle entrée est ajoutée à la liste.
+1. To add a certificate for this role, choose the **Add Certificate** button. A new entry is added to the list.
 
-1. Dans la zone de texte **Nom**, saisissez le nom du certificat.
+1. In the **Name** text box, enter the name for the certificate.
 
-1. Dans la liste **Emplacement du magasin**, choisissez l’emplacement pour le certificat que vous voulez ajouter.
+1. In the **Store Location** list, choose the location for the certificate that you want to add.
 
-1. Dans la liste **Nom du magasin**, choisissez le magasin que vous voulez utiliser pour sélectionner le certificat.
+1. In the **Store Name** list, choose the store that you want to use to select the certificate.
 
-1. Pour ajouter le certificat, choisissez le bouton de sélection (...). La boîte de dialogue **Sécurité Windows** s’affiche.
+1. To add the certificate, choose the ellipsis (...) button. The **Windows Security** dialog box appears.
 
-1. Choisissez le certificat que vous voulez utiliser dans la liste, puis choisissez le bouton **OK**.
+1. Choose the certificate that you want to use from the list and then choose the **OK** button.
 
-    >[AZURE.NOTE] Lorsque vous ajoutez un certificat depuis le magasin de certificats, tous les certificats intermédiaires sont automatiquement ajoutés aux paramètres de configuration. Ces certificats intermédiaires doivent également être chargés sur Azure afin de configurer correctement votre service pour SSL.
+    >[AZURE.NOTE] When you add a certificate from the certificate store, any intermediate certificates are added automatically to the configuration settings for you. These intermediate certificates must also be uploaded to Azure in order to correctly configure your service for SSL.
 
-1. Pour supprimer un certificat, sélectionnez le certificat, puis choisissez le bouton **Supprimer le certificat**.
+1. To delete a certificate, choose the certificate and then choose the **Remove Certificate** button.
 
-1. Choisissez l’icône **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans les fichiers de configuration de service.
+1. Choose the **Save** icon in the toolbar to save these changes to the service configuration files.
 
-### Pour gérer les points de terminaison pour un rôle
+### <a name="to-manage-endpoints-for-a-role"></a>To manage endpoints for a role
 
-1. Choisissez l’onglet **Points de terminaison**.
+1. Choose the **Endpoints** tab.
 
-1. Dans la liste **Configuration du service**, choisissez **Toutes les configurations**.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-1. Pour ajouter un point de terminaison, choisissez le bouton **Ajouter un point de terminaison**. Une nouvelle entrée est ajoutée à la liste.
+1. To add an endpoint, choose the **Add Endpoint** button. A new entry is added to the list.
 
-1. Dans la zone de texte **Nom**, tapez le nom que vous voulez utiliser pour ce point de terminaison.
+1. In the **Name** text box, type the name that you want to use for this endpoint.
 
-1. Choisissez le type de point de terminaison dont vous avez besoin dans la liste **Type**.
+1. Choose the type of endpoint that you need from the **Type** list.
 
-1. Choisissez le protocole pour le point de terminaison dont vous avez besoin dans la liste **Protocole**.
+1. Choose the protocol for the endpoint that you need from the **Protocol** list.
 
-1. Si c’est un point de terminaison d’entrée, entrez le port public à utiliser dans la zone de texte **Port public**.
+1. If it is an input endpoint, in the **Public Port** text box, enter the public port to use.
 
-1. Dans la zone de texte **Port privé**, tapez le port privé à utiliser.
+1. In the **Private Port** text box type the private port to use.
 
-1. Si le point de terminaison nécessite le protocole https, dans la liste **Nom du certificat SSL**, choisissez un certificat à utiliser.
+1. If the endpoint requires the https protocol, in the **SSL Certificate Name** list choose a certificate to use.
 
-    >[AZURE.NOTE] Cette liste montre les certificats que vous avez ajoutés pour ce rôle sous l’onglet **Certificats**.
+    >[AZURE.NOTE] This list shows the certificates that you have added for this role in the **Certificates** tab.
 
-1. Choisissez le bouton **Enregistrer** dans la barre d’outils pour enregistrer ces modifications dans les fichiers de configuration de service.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration files.
 
-## Étapes suivantes
-En savoir plus sur les projets Azure dans Visual Studio en lisant [Configuration d’un projet Azure](vs-azure-tools-configuring-an-azure-project.md). En savoir plus sur le schéma de service cloud en lisant [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398).
+## <a name="next-steps"></a>Next steps
+Learn more about Azure projects in Visual Studio by reading [Configuring an Azure Project](vs-azure-tools-configuring-an-azure-project.md). Learn more about the cloud service schema by reading [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

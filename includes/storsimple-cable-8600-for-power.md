@@ -1,46 +1,49 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### Raccorder votre appareil à l'alimentation électrique
+#### <a name="to-cable-your-device-for-power"></a>To cable your device for power
 
->[AZURE.NOTE]Les deux boîtiers sur votre appareil StorSimple incluent des PCM redondants. Pour chaque boîtier, les PCM doivent être installés et connectés à des sources d'alimentation différentes pour garantir une haute disponibilité.
+>[AZURE.NOTE] Both enclosures on your StorSimple device include redundant PCMs. For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
 
-1. Assurez-vous que les commutateurs d’alimentation sont en position d’arrêt sur tous les PCM.
+1. Make sure that the power switches on all the PCMs are in the OFF position.
 
-2. Dans le boîtier principal, branchez les câbles d'alimentation aux deux PCM. Les câbles d'alimentation sont représentés en rouge dans le schéma de branchement des câbles d'alimentation suivant.
+2. On the primary enclosure, connect the power cords to both PCMs. The power cords are identified in red in the power cabling diagram, below.
 
-3. Vérifiez que les deux PCM du boîtier principal utilisent des sources d'alimentation distinctes.
+3. Make sure that the two PCMs on the primary enclosure use separate power sources.
 
-4. Fixez les câbles d'alimentation aux unités de distribution de l'alimentation du rack, comme illustré sur le schéma de branchement des câbles d'alimentation suivant.
+4. Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.
 
-5. Répétez les étapes 2 à 4 pour le boîtier EBOD.
+5. Repeat steps 2 through 4 for the EBOD enclosure.
 
-6. Activez le boîtier EBOD en positionnant les commutateurs d'alimentation de chaque PCM sur ON.
+6. Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.
 
-7. Assurez-vous que le boîtier EBOD est activé en vérifiant que les LED vertes à l'arrière du contrôleur EBOD sont allumées.
+7. Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.
 
-8. Activez le boîtier principal en positionnant chaque commutateur d'alimentation de PCM sur ON.
+8. Turn on the primary enclosure by flipping each PCM switch to the ON position.
 
-9. Assurez-vous que le système fonctionne en vérifiant que les LED du contrôleur sont allumés.
+9. Verify that the system is on by ensuring the device controller LEDs have turned ON.
 
-10. Assurez-vous que la connexion entre le contrôleur EBOD et le contrôleur de l'appareil est active en vérifiant que les quatre LED à côté du port SAS sur le contrôleur du boîtier EBOD sont vertes.
+10. Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.
 
-    >[AZURE.IMPORTANT]Pour garantir une haute disponibilité de votre système, nous vous recommandons de vous conformer strictement au schéma de branchement des câbles d'alimentation illustré dans le diagramme suivant.
+    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.
 
-    ![Raccorder votre appareil à l’alimentation électrique](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
+    ![Cable your 4U device for power](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
 
-    **Branchement des câbles d’alimentation**
+    **Power cabling**
 
-    |Étiquette|Description|
+    |Label|Description|
     |:----|:----------|
-    |1|Boîtier principal|
-    |2|PCM 0|
-    |3|PCM 1|
-    |4|Contrôleur 0|
-    |5|Contrôleur 1|
-    |6|Contrôleur 0 du boîtier EBOD|
-    |7|Contrôleur 1 du boîtier EBOD|
-    |8|Boîtier EBOD|
-    |9|PDU|
+    |1|Primary enclosure|
+    |2|PCM 0|
+    |3|PCM 1|
+    |4|Controller 0|
+    |5|Controller 1|
+    |6|EBOD controller 0|
+    |7|EBOD controller 1|
+    |8|EBOD enclosure|
+    |9|PDUs|
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

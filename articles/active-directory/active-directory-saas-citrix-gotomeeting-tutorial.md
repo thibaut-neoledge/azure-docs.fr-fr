@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Citrix GoToMeeting | Microsoft Azure" 
-    description="Apprenez à utiliser Citrix GoToMeeting avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    pageTitle="Tutorial: Azure Active Directory integration with Citrix GoToMeeting | Microsoft Azure" 
+    description="Learn how to use Citrix GoToMeeting with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -15,172 +15,179 @@
     ms.date="08/16/2016" 
     ms.author="jeedes" />
 
-#Didacticiel : Intégration d’Azure Active Directory à Citrix GoToMeeting  
-S’applique à : Azure
 
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=522412).
+#<a name="tutorial:-azure-active-directory-integration-with-citrix-gotomeeting"></a>Tutorial: Azure Active Directory integration with Citrix GoToMeeting  
+Applies To: Azure
 
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Citrix GoToMeeting. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+>[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=522412).
 
--   Un abonnement Azure valide
--   Un locataire dans Citrix GoToMeeting
+The objective of this tutorial is to show the integration of Azure and Citrix GoToMeeting. The scenario outlined in this tutorial assumes that you already have the following items:
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+-   A valid Azure subscription
+-   A tenant in Citrix GoToMeeting
 
-1.  Activation de l’intégration d’applications pour Citrix GoToMeeting
-2.  Configuration de l'authentification unique
-3.  Configuration de l'approvisionnement des utilisateurs
-4.  Affectation d’utilisateurs
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for Citrix GoToMeeting
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Configuration](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768996.png "Configuration")
 
 
 
-##Activation de l’intégration d’applications pour Citrix GoToMeeting
+##<a name="enabling-the-application-integration-for-citrix-gotomeeting"></a>Enabling the application integration for Citrix GoToMeeting
 
-Cette section décrit l’activation de l’intégration d’applications pour Citrix GoToMeeting.
+The objective of this section is to outline how to enable the application integration for Citrix GoToMeeting.
 
-###Pour activer l’intégration d’applications pour Citrix GoToMeeting, procédez comme suit :
+###<a name="to-enable-the-application-integration-for-citrix-gotomeeting,-perform-the-following-steps:"></a>To enable the application integration for Citrix GoToMeeting, perform the following steps:
 
-1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700993.png "Active Directory")
 
-2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
     ![Applications](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "Applications")
 
-4.  Cliquez sur **Ajouter** en bas de la page.
+4.  Click **Add** at the bottom of the page.
 
-    ![Ajouter l’application](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "Ajouter l’application")
+    ![Add application](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "Add application")
 
-5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+    ![Add an application from gallery](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749322.png "Add an application from gallery")
 
-6.  Dans la **zone de recherche**, tapez **Citrix GoToMeeting**.
+6.  In the **search box**, type **Citrix GoToMeeting**.
 
     ![Citrix GoToMeeting](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC701006.png "Citrix GoToMeeting")
 
-7.  Dans le volet de résultats, sélectionnez **Citrix GoToMeeting**, puis cliquez sur **Terminer** pour ajouter l’application.
+7.  In the results pane, select **Citrix GoToMeeting**, and then click **Complete** to add the application.
 
     ![Citrix GoToMeeting](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC701012.png "Citrix GoToMeeting")
-##Configuration de l'authentification unique
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Citrix GoToMeeting avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez télécharger un certificat codé en base 64 sur votre locataire Citrix GoToMeeting. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Citrix GoToMeeting with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to upload a base-64 encoded certificate to your Citrix GoToMeeting tenant.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-###Pour configurer l’authentification unique, procédez comme suit :
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Dans la page d’intégration d’applications **Citrix GoToMeeting**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **CONFIGURER L’AUTHENTIFICATION UNIQUE**.
+1.  On the **Citrix GoToMeeting** application integration page, click **Configure single sign-on** to open the **CONFIGURE SINGLE SIGN ON** dialog.
 
-    ![Activer l'authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Activer l'authentification unique")
+    ![Enable single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Enable single sign-on")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Citrix GoToMeeting**, sélectionnez **Authentification unique Microsoft Azure AD**.
+2.  On the **How would you like users to sign on to Citrix GoToMeeting** page, select **Microsoft Azure AD Single Sign-On**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Configure single sign-on")
 
 
-3. Dans la page **Configurer les paramètres de l’application**, cliquez sur **Suivant**.
+3. On the **Configure App Settings** page, click **Next**. 
 
-	![Activer l'authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Activer l'authentification unique")
+    ![Enable single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Enable single sign-on")
 
-4.  Dans la page **Configurer l’authentification unique sur Citrix GoToMeeting**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
+4.  On the **Configure single sign-on at Citrix GoToMeeting** page, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Configure single sign-on")
 
-5.  Dans une autre fenêtre de navigateur, ouvrez une session dans votre centre d’organisation Citrix ([https://account.citrixonline.com/organization/administration/](https://account.citrixonline.com/organization/administration/)).
+5.  In a different browser window, log into your Citrix Organization Center ([https://account.citrixonline.com/organization/administration/](https://account.citrixonline.com/organization/administration/)).
 
-6. Cliquez sur l’onglet **Fournisseur d’identité**, puis effectuez les opérations suivantes :
+6. Click the **Identity Provider** tab, and then perform the following steps:  
 
-	![Configuration de SAML](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "Configuration de SAML")
+    ![SAML setup](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "SAML setup")
 
-	a. Sélectionnez **Manual**.
-
-    
-	b. Dans le Portail Azure Classic, sur la page de boîte de dialogue **Configurer l’authentification unique sur Citrix GoToMeeting**, copiez la valeur **URL de la page de connexion**, puis collez-la dans la zone de texte **URL de la page de connexion**.
-
-    
-	c. Dans le Portail Azure Classic, sur la page de boîte de dialogue **Configurer l’authentification unique sur Citrix GoToMeeting**, copiez la valeur **URL de la page de déconnexion**, puis collez-la dans la zone de texte **URL de la page de déconnexion**.
+    a. Select **Manual**
 
     
-	d. Dans le portail Azure Classic, sur la page **Configurer l’authentification unique sur Citrix GoToMeeting**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **Identity Provider Entity ID** (ID d’entité du fournisseur d’identité).
+    b. In the Azure classic portal, on the **Configure single sign-on at Citrix GoToMeeting** dialog page, copy the **Sign-In Page URL** value, and then paste it into the **Sign-in page URL** textbox. 
+
+    
+    c. In the Azure classic portal, on the **Configure single sign-on at Citrix GoToMeeting** dialog page, copy the **Sign-Out Page URL** value, and then paste it into the **Sign-out page URL** textbox.
+
+    
+    d. In the Azure classic portal, on the **Configure single sign-on at Citrix GoToMeeting** dialog page, copy the **Entity ID** value, and then paste it into the **Identity Provider Entity ID** textbox.
 
    
-	e. Pour charger votre certificat téléchargé, cliquez sur **Upload Certificate**.
+    e. To upload your downloaded certificate, click **Upload Certificate**.
 
     
-	f. Cliquez sur **Enregistrer**.
+    f. Click **Save**.
 
-6.  Dans le Portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configurer l’authentification unique")
-
-
-7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
-
-	![Configuration de SAML](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "Configuration de SAML")
+    ![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configure single sign-on")
 
 
+7. On the **Single sign-on confirmation** page, click **Complete**.
+
+    ![SAML setup](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "SAML setup")
 
 
 
-##Configuration de l'approvisionnement des utilisateurs
 
-Cette section décrit l’activation de l’approvisionnement des comptes d’utilisateur Active Directory sur Citrix GoToMeeting.
 
-###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-1.  Dans le Portail Azure Classic, sur la page d’intégration d’applications **Citrix GoToMeeting**, cliquez sur **Configurer l’approvisionnement de l’utilisateur** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement de l’utilisateur**.
+The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Citrix GoToMeeting.
 
-    ![Configurer l’approvisionnement des utilisateurs](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Configurer l’approvisionnement des utilisateurs")
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-2.  Dans la page **Paramètres et informations d’identification administrateur**, procédez comme suit :
+1.  In the Azure classic portal, on the **Citrix GoToMeeting** application integration page, click **Configure user provisioning** to open the **Configure User Provisioning** dialog.
 
-    ![Configurer l’approvisionnement des utilisateurs](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Configurer l’approvisionnement des utilisateurs")
+    ![Configure user provisioning](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Configure user provisioning")
 
-	a. Dans la zone de texte **Nom d’utilisateur admin Citrix GoToMeeting**, tapez le nom d’utilisateur d’un administrateur.
+2.  On the **Settings and admin credentials** page, perform the following steps:
 
-    
-	b. Dans la zone de texte **Mot de passe de l’admin Citrix GoToMeeting**, tapez le mot de passe de l’administrateur.
+    ![Configure user provisioning](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Configure user provisioning")
+
+    a. In the **Citrix GoToMeeting Admin User Name** textbox, type the user name of an administrator.
 
     
-	c. Cliquez sur **Suivant**.
+    b. In the **Citrix GoToMeeting Admin Password** textbox, the administrator's password.
 
-3.  Dans la page **Confirmation**, cliquez sur la coche pour enregistrer votre configuration.
+    
+    c. Click **Next**.
 
-4.  Cliquez sur le bouton **Valider** pour vérifier votre configuration.
+3.  On the **Confirmation** page, click the checkmark to save your configuration.
+
+4.  Click the **validate** button, to verify your configuration.
 
 
-##Affectation d’utilisateurs
+##<a name="assigning-users"></a>Assigning users
 
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Pour affecter des utilisateurs à Citrix GoToMeeting, procédez comme suit :
+###<a name="to-assign-users-to-citrix-gotomeeting,-perform-the-following-steps:"></a>To assign users to Citrix GoToMeeting, perform the following steps:
 
-1.  Dans le portail Azure Classic, créez un compte de test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Dans la page d’intégration d’applications **Citrix GoToMeeting**, cliquez sur **Affecter des utilisateurs**.
+2.  On the **Citrix GoToMeeting** application integration page, click **Assign users**.
 
-    ![Affecter des utilisateurs](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "Affecter des utilisateurs")
+    ![Assign users](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "Assign users")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Oui](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC767830.png "Oui")
+    ![Yes](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC767830.png "Yes")
 
-Vous devez maintenant attendre 10 minutes et vérifier que le compte a été synchronisé avec Dropbox for Business.
+You should now wait for 10 minutes and verify that the account has been synchronized to Dropbox for Business.
 
-Une première étape de vérification consiste à contrôler l’état d’approvisionnement en cliquant sur le tableau de bord sur la page d’intégration d’applications **Citrix GoToMeeting** dans le Portail Azure Classic.
+As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the **Citrix GoToMeeting** application integration page on the Azure classic portal.
 
-![Tableau de bord](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769004.png "Tableau de bord")
+![Dashboard](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769004.png "Dashboard")
 
-Si le cycle d’approvisionnement d’utilisateur a abouti, l’état associé suivant est indiqué :
+A successfully completed user provisioning cycle is indicated by a related status:
 
-![Statut d’intégration](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769005.png "Statut d’intégration")
+![Integration status](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769005.png "Integration status")
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès.
+If you want to test your single sign-on settings, open the Access Panel.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

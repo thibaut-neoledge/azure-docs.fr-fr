@@ -1,45 +1,46 @@
 <properties 
-	pageTitle="Nouvelle version de schéma 2015-08-01-preview" 
-	description="Découvrir comment écrire la définition JSON pour la dernière version des applications logiques" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="New schema version 2015-08-01-preview" 
+    description="Learn how to write the JSON definition for the latest version of Logic apps" 
+    authors="stepsic-microsoft-com" 
+    manager="dwrede" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="stepsic"/>
-	
-# Nouvelle version de schéma 2015-08-01-preview
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/31/2016"
+    ms.author="stepsic"/>
+    
 
-Le nouveau schéma et la récente version de l’API pour les applications logiques ont bénéficié d’un certain nombre d’améliorations destinées à accroître la fiabilité et la simplicité d’utilisation des applications logiques. Voici les 4 principales différences :
+# <a name="new-schema-version-2015-08-01-preview"></a>New schema version 2015-08-01-preview
 
-1. Le type d’action **APIApp** a été remplacé par un nouveau type d’action **APIConnection**.
-2. **Repeat** a été renommée en **Foreach**.
-3. L’application API de l’**Écouteur HTTP** n’est plus requise.
-4. L’appel des flux de travail enfants utilise un nouveau schéma.
+The new schema and API version for Logic apps has a number of improvements which improve the reliability and ease-of-use of Logic apps. There are 4 key differences:
 
-## 1\. Déplacement vers les connexions d’API
+1. The **APIApp** action type has been updated to a new **APIConnection** action type.
+2. **Repeat** has been renamed to **Foreach**.
+3. The **HTTP Listener** API app is no longer required.
+4. Calling child workflows uses a new schema.
 
-La modification la plus importante ? Pour utiliser les API, il n’est plus nécessaire de déployer des applications d’API dans votre abonnement Azure. Il existe 2 moyens d’utiliser les API :
-* API gérées
-* Vos API web personnalisées
+## <a name="1.-moving-to-api-connections"></a>1. Moving to API connections
 
-Chacune de ces méthodes fait l’objet d’un traitement légèrement différent, car leurs modèles de gestion et d’hébergement sont différents. Avec ce modèle, vous n’êtes plus limité aux ressources déployées dans votre groupe de ressources.
+The biggest change is that you no longer need to deploy API apps into your Azure Subscription to use API's. There are 2 ways you can use APIs:
+* Managed API's
+* Your custom Web API's
 
-### API gérées
+Each of these is handled slightly differently because their management and hosting models are different. One advantage of this model is you're no longer constrained to resources that are deployed in your Resource Group. 
 
-Diverses API sont gérées par Microsoft pour votre compte, comme Office 365, Salesforce, Twitter, FTP, etc... Certaines de ces API gérées peuvent être utilisées en l’état (par exemple, Bing Translate), tandis que d’autres nécessitent une configuration. Cette configuration est appelée une *connexion*.
+### <a name="managed-apis"></a>Managed APIs
 
-Par exemple, lorsque vous utilisez Office 365, vous devez créer une connexion qui contient votre jeton de connexion Office 365. Ce jeton est stocké et actualisé de manière sécurisée, afin que votre application logique puisse toujours appeler l’API Office 365. Sinon, si vous souhaitez vous connecter à votre serveur SQL ou FTP, il vous faut créer une connexion présentant la chaîne connection.
+There are a number of API's that are managed by Microsoft on your behalf, such as Office 365, Salesforce, Twitter, FTP etc.... Some of these managed API's can be used as-is, such as Bing Translate, while others require configuration. This configuration is called a *connection*.
 
-Dans la définition, ces actions sont appelées `APIConnection`. Voici un exemple de connexion appelant l’API Office 365 pour envoyer un courrier électronique :
+For example, when you use Office 365, you need to create a connection that contains your Office 365 sign-in token. This token will be securely stored and refreshed so that your Logic app can always call the Office 365 API. Alternatively, if you want to connect to your SQL or FTP server, you need to create a connection that has the connection string. 
+
+Inside of the definition these actions are called `APIConnection`. Here is an example of a connection that calls Office 365 to send an email:
 
 ```
 {
@@ -68,17 +69,17 @@ Dans la définition, ces actions sont appelées `APIConnection`. Voici un exempl
 }
 ```
 
-La portion des entrées spécifique aux connexions d’API est l’objet `host`. Elle comporte deux parties : `api` et `connection`.
+The portion of the inputs that is unique to API connections is the `host` object. This contains two parts: `api` and `connection`.
 
-L’`api` présente l’URL d’exécution de l’emplacement d’hébergement de cette API gérée. Pour afficher l’ensemble des API gérées disponibles, appelez `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+The `api` has the runtime URL of where that managed API is hosted. You can see all of the available managed APIs for you by calling `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-Une API utilisée présente ou non des **paramètres de connexion** définis. Si elle n’en possède pas, aucune **connexion** n’est requise. Si elle en possède, il vous faudra créer une connexion. La connexion créée présente le nom choisi par vos soins, que vous référencez dans l’objet `connection`, dans l’objet `host`. Pour créer une connexion dans un groupe de ressources, appelez :
+When you use an API, it may or may not have any **connection parameters** defined. If it doesn't then no **connection** is required. If it does, then you will have to create a connection. When you create that connection it'll have the name you choose, and then you reference that in the `connection` object inside the `host` object. To create a connection in a resource group, call:
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
 ```
 
-Avec le corps suivant :
+With the following body:
 
 
 ```
@@ -87,114 +88,114 @@ Avec le corps suivant :
     "api": {
       "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/azureblob"
     },
-	"parameterValues" : {
-		"accountName" : "{The name of the storage account -- the set of parameters is different for each API}"
-	}
+    "parameterValues" : {
+        "accountName" : "{The name of the storage account -- the set of parameters is different for each API}"
+    }
   },
   "location" : "{Logic app's location}"
 }
 ```
 
-### Déploiement d’API gérées dans un modèle Azure Resource Manager
+### <a name="deploying-managed-apis-in-an-azure-resource-manager-template"></a>Deploying managed APIs in an Azure Resource manager template
 
-Vous pouvez créer une application complète dans un modèle ARM, tant qu’elle ne nécessite aucune connexion interactive. Si elle nécessite une connexion, vous pouvez procéder à la configuration avec le modèle ARM, mais devrez néanmoins accéder au portail afin d’autoriser les connexions.
+You can create a full application in an ARM template as long as it doesn’t require interactive sign-in. If it requires sign-in, you can set everything up with the ARM template, but will still have to visit the portal to authorize the connections. 
 
 ```
-	"resources": [{
-		"apiVersion": "2015-08-01-preview",
-		"name": "azureblob",
-		"type": "Microsoft.Web/connections",
-		"location": "[resourceGroup().location]",
-		"properties": {
-			"api": {
-				"id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-			},
-			"parameterValues": {
-				"accountName": "[parameters('storageAccountName')]",
-				"accessKey": "[parameters('storageAccountKey')]"
-			}
-		}
-	}, {
-		"type": "Microsoft.Logic/workflows",
-		"apiVersion": "2015-08-01-preview",
-		"name": "[parameters('logicAppName')]",
-		"location": "[resourceGroup().location]",
-		"dependsOn": [
-			"[resourceId('Microsoft.Web/connections', 'azureblob')]"
-		],
-		"properties": {
-			"sku": {
-				"name": "[parameters('sku')]",
-				"plan": {
-					"id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
-				}
-			},
-			"definition": {
-				"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-				"actions": {
-					"Create_file": {
-						"type": "apiconnection",
-						"inputs": {
-							"host": {
-								"api": {
-									"runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
-								},
-								"connection": {
-									"name": "@parameters('$connections')['azureblob']['connectionId']"
-								}
-							},
-							"method": "post",
-							"queries": {
-								"folderPath": "[concat('/',parameters('containerName'))]",
-								"name": "helloworld.txt"
-							},
-							"body": "@decodeDataUri('data:,Hello+world!')",
-							"path": "/datasets/default/files"
-						},
-						"conditions": []
-					}
-				},
-				"contentVersion": "1.0.0.0",
-				"outputs": {},
-				"parameters": {
-					"$connections": {
-						"defaultValue": {},
-						"type": "Object"
-					}
-				},
-				"triggers": {
-					"recurrence": {
-						"type": "Recurrence",
-						"recurrence": {
-							"frequency": "Day",
-							"interval": 1
-						}
-					}
-				}
-			},
-			"parameters": {
-				"$connections": {
-					"value": {
-						"azureblob": {
-							"connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
-							"connectionName": "azureblob",
-							"id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-						}
+    "resources": [{
+        "apiVersion": "2015-08-01-preview",
+        "name": "azureblob",
+        "type": "Microsoft.Web/connections",
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "api": {
+                "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+            },
+            "parameterValues": {
+                "accountName": "[parameters('storageAccountName')]",
+                "accessKey": "[parameters('storageAccountKey')]"
+            }
+        }
+    }, {
+        "type": "Microsoft.Logic/workflows",
+        "apiVersion": "2015-08-01-preview",
+        "name": "[parameters('logicAppName')]",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', 'azureblob')]"
+        ],
+        "properties": {
+            "sku": {
+                "name": "[parameters('sku')]",
+                "plan": {
+                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
+                }
+            },
+            "definition": {
+                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+                "actions": {
+                    "Create_file": {
+                        "type": "apiconnection",
+                        "inputs": {
+                            "host": {
+                                "api": {
+                                    "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
+                                },
+                                "connection": {
+                                    "name": "@parameters('$connections')['azureblob']['connectionId']"
+                                }
+                            },
+                            "method": "post",
+                            "queries": {
+                                "folderPath": "[concat('/',parameters('containerName'))]",
+                                "name": "helloworld.txt"
+                            },
+                            "body": "@decodeDataUri('data:,Hello+world!')",
+                            "path": "/datasets/default/files"
+                        },
+                        "conditions": []
+                    }
+                },
+                "contentVersion": "1.0.0.0",
+                "outputs": {},
+                "parameters": {
+                    "$connections": {
+                        "defaultValue": {},
+                        "type": "Object"
+                    }
+                },
+                "triggers": {
+                    "recurrence": {
+                        "type": "Recurrence",
+                        "recurrence": {
+                            "frequency": "Day",
+                            "interval": 1
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "$connections": {
+                    "value": {
+                        "azureblob": {
+                            "connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
+                            "connectionName": "azureblob",
+                            "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+                        }
 
-					}
-				}
-			}
-		}
-	}]
+                    }
+                }
+            }
+        }
+    }]
 ```
 
-Vous pouvez constater dans cet exemple que les connexions sont des ressources normales hébergées dans votre groupe de ressources. Elles référencent les API gérées disponibles dans votre abonnement.
+You can see in this example that the connections are just normal resources that live in your resource group. They reference the managedAPIs available to you in your subscription.
 
-### Vos API web personnalisées
+### <a name="your-custom-web-apis"></a>Your custom Web APIs
 
-Si vous utilisez vos propres API (c’est-à-dire non gérées par Microsoft), vous devez utiliser l’action **HTTP** intégrée pour les appeler. Pour profiter d’une expérience optimale, vous avez tout intérêt à exposer un point de terminaison swagger pour votre API. Ce faisant, le concepteur d’application logique pourra réaliser le rendu des entrées et des sorties pour votre API. Sans point de terminaison swagger, le concepteur pourra simplement représenter les entrées et les sorties en tant qu’objets JSON opaques.
+If you use your own API's (specifically, not Microsoft-managed ones), then you should use the built-in **HTTP** action to call them. In order to have an ideal experience, you should expose a swagger endpoint for your API. This will enable the Logic app designer to render the inputs and outputs for your API. Without a swagger, the designer will only be able to show the inputs and outputs as opaque JSON objects.
 
-Voici un exemple illustrant la nouvelle propriété `metadata.apiDefinitionUrl` :
+Here is an example showing the new `metadata.apiDefinitionUrl` property:
 ```
 {
    "actions": {
@@ -212,13 +213,13 @@ Voici un exemple illustrant la nouvelle propriété `metadata.apiDefinitionUrl` 
 }
 ```
 
-Si vous hébergez votre API web sur **App Service**, la liste des actions disponibles dans le concepteur s’affichera automatiquement. Si ce n’est pas le cas, vous devrez coller le contenu directement dans l’URL. Le point de terminaison swagger doit être non authentifié pour être utilisé dans le concepteur des applications logiques (vous pouvez cependant sécuriser l’API à l’aide des méthodes prises en charge dans le point de terminaison swagger).
+If you host your Web API on **App Service** then it will automatically show up in the list of actions available in the designer. If not, you'll have to paste in the URL directly. The swagger endpoint must be unauthenticated in order to be usable inside of the Logic apps designer (although you may secure the API itself with whatever methods are supported in the Swagger).
 
-### Utilisation de vos applications API déployées avec 2015-08-01-preview
+### <a name="using-your-already-deployed-api-apps-with-2015-08-01-preview"></a>Using your already deployed API apps with 2015-08-01-preview
 
-Si vous avez déjà déployé une application API, vous pouvez l’appeler via l’action **HTTP**.
+If you previously deployed an API app, you can call it via the **HTTP** action.
 
-Par exemple, si vous utilisez Dropbox pour répertorier les fichiers, vous pouvez disposer du contenu suivant dans votre définition de version de schéma **2014-12-01-preview** :
+For example, if you use Dropbox to list files, you may have something like this in your **2014-12-01-preview** schema version definition:
 
 ```
 {
@@ -259,7 +260,7 @@ Par exemple, si vous utilisez Dropbox pour répertorier les fichiers, vous pouve
 }
 ```
 
-Vous pouvez générer l’action HTTP équivalente comme ci-dessous (la section des paramètres de la définition de l’application demeure inchangée) :
+You can construct the equivalent HTTP action like below (the parameters section of the Logic app definition remains unchanged):
 
 ```
 {
@@ -286,22 +287,22 @@ Vous pouvez générer l’action HTTP équivalente comme ci-dessous (la section 
 }
 ```
 
-Présentation de ces propriétés une par une :
+Walking through these properties one-by-one:
 
-| Propriété d’action | Description |
+| Action property |  Description |
 | --------------- | -----------  |
-| `type` | `Http` au lieu de `APIapp` |
-| `metadata.apiDefinitionUrl` | Si vous souhaitez utiliser cette action dans le concepteur d’applications logiques, il vous faudra inclure le point de terminaison des métadonnées. La construction s’établit à partir du contenu suivant : `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
-| `inputs.uri` | La construction s’établit à partir du contenu suivant : `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
-| `inputs.method` | Toujours `POST` |
-| `inputs.body` | Identique aux paramètres de l’application API | 
-| `inputs.authentication` | Identique à l’authentification de l’application API |
+| `type` | `Http` instead of `APIapp` |
+| `metadata.apiDefinitionUrl` | If you want to use this action in the Logic apps designer, you'll want to include the metadata endpoint. This is constructed from: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `inputs.uri` | This is constructed from: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
+| `inputs.method` | Always `POST` |
+| `inputs.body` | Identical to the api app parameters | 
+| `inputs.authentication` | Identical to the api app authentication |
 
-Cette approche doit fonctionner avec l’ensemble des actions d’application API. Toutefois, gardez à l’esprit que ces anciennes applications API ne sont plus prises en charge, et que vous avez tout intérêt à adopter l’une des deux autres options ci-dessus (recourir à une API gérée ou héberger votre API web personnalisée).
+This approach should work for all API app actions. However, please keep in mind that these previous API apps are no longer supported, and you should move to one of the two other options above (either a managed API or hosting your custom Web API).
 
-## 2\. Repeat renommée en Foreach
+## <a name="2.-repeat-renamed-to-foreach"></a>2. Repeat renamed to Foreach
 
-Les clients ayant utilisé la version de schéma précédente se sont beaucoup plaints du caractère déroutant de **Repeat** et n’ont pas vraiment compris qu’il s’agissait réellement d’une boucle foreach. Par conséquent, nous l’avons renommée en **Foreach**. Par exemple :
+For the previous schema version we received a lot of customer feedback that **Repeat** was confusing and didn't properly capture that it was really a for each loop. As a result, we have renamed it to **Foreach**. For example:
 
 ```
 {
@@ -318,7 +319,7 @@ Les clients ayant utilisé la version de schéma précédente se sont beaucoup p
 }
 ```
 
-Sera désormais rédigé de cette manière :
+Would now be written as:
 
 ```
 {
@@ -335,10 +336,10 @@ Sera désormais rédigé de cette manière :
 }
 ```
 
-Auparavant, la fonction `@repeatItem()` était utilisée pour référencer l’élément sur lequel était actuellement exécutée une itération. Elle a été simplifiée en `@item()`.
+Previously the function `@repeatItem()` was used to reference the current item being iterated over. This has been simplified to just `@item()`. 
 
-### Référencement des sorties de la boucle Foreach
-Afin de simplifier encore davantage le code, les sorties des actions **Foreach** ne seront pas encapsulées dans un objet appelé **repeatItems**. Concrètement, cela signifie que les sorties de la boucle repeat ci-dessous se présentaient ainsi :
+### <a name="referencing-the-outputs-of-the-foreach"></a>Referencing the outputs of the Foreach
+To further simplify, the outputs of **Foreach** actions will not be wrapped in an object called **repeatItems**. This means, whereas the outputs of the above repeat were:
 
 ```
 {
@@ -351,7 +352,7 @@ Afin de simplifier encore davantage le code, les sorties des actions **Foreach**
             },
             "outputs": {
                 "headers": { },
-                "body": "<!DOCTYPE html><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:Web="http://schemas.live.com/Web/">...</html>"
+                "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
             }
             "status": "Succeeded"
         }
@@ -359,7 +360,7 @@ Afin de simplifier encore davantage le code, les sorties des actions **Foreach**
 }
 ```
 
-Elles présenteront désormais cette apparence :
+Now it will be:
 
 ```
 [
@@ -371,14 +372,14 @@ Elles présenteront désormais cette apparence :
         },
         "outputs": {
             "headers": { },
-            "body": "<!DOCTYPE html><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:Web="http://schemas.live.com/Web/">...</html>"
+            "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
         }
         "status": "Succeeded"
     }
 ]
 ```
 
-Lorsque vous référenciez ces sorties, pour atteindre le corps de l’action vous procédiez ainsi :
+When referencing these outputs, to get to the body of the action you'd have to do:
 
 ```
 {
@@ -396,7 +397,7 @@ Lorsque vous référenciez ces sorties, pour atteindre le corps de l’action vo
 }
 ```
 
-Désormais le code présente cette apparence :
+Now you can do instead:
 
 ```
 {
@@ -414,16 +415,16 @@ Désormais le code présente cette apparence :
 }
 ```
 
-Ces modifications entraînent la disparition des fonctions `@repeatItem()`, `@repeatBody()` et `@repeatOutputs()`.
+With these changes, the functions `@repeatItem()`, `@repeatBody()` and `@repeatOutputs()` are removed.
 
-## 3\. Écouteur HTTP natif 
-Les fonctionnalités de l’écouteur HTTP étant désormais intégrées, vous n’avez plus à déployer une application API d’écouteur HTTP. Découvrez [une explication détaillée de la configuration d’un point de terminaison d’application logique pouvant être appelé ici](app-service-logic-http-endpoint.md).
+## <a name="3.-native-http-listener"></a>3. Native HTTP listener 
+The HTTP Listener capabilities are now built-in, so you no longer need to deploy an HTTP Listener API app. Read about [the full details for how to make your Logic app endpoint callable here](app-service-logic-http-endpoint.md). 
 
-Avec ces modifications, la fonction `@accessKeys()`, supprimée, est remplacée par la fonction `@listCallbackURL()` dédiée à la récupération du point de terminaison (si nécessaire). En outre, vous devez maintenant définir au moins un déclencheur dans votre application logique. Si vous souhaitez appliquer l’action `/run` au flux de travail, vous devrez disposer d’un déclencheur `manual`, `apiConnectionWebhook` ou `httpWebhook`.
+With these changes, the function `@accessKeys()` is removed and has been replaced with the `@listCallbackURL()` function for the purposes of getting the endpoint (when needed). In addition, you now must define at least one trigger in your Logic app now. If you want to `/run` the workflow, you'll need to have one of a `manual`, `apiConnectionWebhook` or `httpWebhook` triggers. 
 
-## 4\. Appel de flux de travail enfants
+## <a name="4.-calling-child-workflows"></a>4. Calling child workflows
 
-Auparavant, quiconque souhaitait appeler des flux de travail enfants devait y accéder, récupérer le jeton d’accès, puis coller ce dernier dans la définition de l’application logique destinée à effectuer l’appel. Avec la nouvelle version de schéma, le moteur des applications logiques génère automatiquement une SAP lors de l’exécution pour le flux de travail enfant, ce qui signifie qu’il n’est plus nécessaire de coller aucune clé secrète dans la définition. Voici un exemple :
+Previously, calling child workflows required going to that workflow, getting the access token, and then pasting that in to the definition of the Logic app that you want to call that child. With the new schema version, the Logic apps engine will automatically generate a SAS at runtime for the child workflow, which means that you don't have to paste any secrets into the definition.  Here is an example:
 
 ```
 "mynestedwf" : {
@@ -449,19 +450,23 @@ Auparavant, quiconque souhaitait appeler des flux de travail enfants devait y ac
 }
 ```
 
-Autre amélioration, nous octroierons aux flux de travail enfants un accès complet à la requête entrante. Cela signifie que vous pouvez transmettre les paramètres dans la section *queries* et dans l’objet *headers*, et que vous pouvez définir intégralement le corps.
+A second improvement is we will be giving the child workflows full access to the incoming request. That means that you can pass parameters in the *queries* section and in the *headers* object and that you can fully define the entire body.
 
-Enfin, des modifications doivent être apportées au flux de travail enfant. Auparavant, vous pouviez appeler directement un flux de travail enfant. Désormais, il vous faut définir un point de terminaison déclencheur dans le flux de travail pour prendre en charge l’appel du parent. Généralement, il vous faudra ajouter un déclencheur de type **manual** que vous utiliserez dans la définition du parent. Notez que la propriété `host` dispose d’un élément `triggerName`, dans la mesure où vous devez toujours spécifier le déclencheur invoqué.
+Finally, there are required changes to the child workflow. Whereas before you could just call a child workflow directly; now, you’ll need to define a trigger endpoint in the workflow for the parent to call. Generally, this means you’ll add a trigger of type **manual** and then use that in the parent definition. Note that the `host` property specifically has a `triggerName`, because you must always specify which trigger you are invoking.
 
-## Autres modifications
+## <a name="other-changes"></a>Other changes
 
-### Nouvelle propriété queries
-Tous les types d’action prennent désormais en charge une nouvelle entrée appelée **queries**. Il peut s’agir d’un objet structuré, qui ne nécessite aucun assemblage manuel de chaîne.
+### <a name="new-queries-property"></a>New queries property
+All action types now support a new input called **queries**. This can be a structured object rather than you having to assemble the string by hand.
 
-### Fonction parse() renommée
-Dans la mesure où nous ajouterons bientôt d’autres types de contenu, la fonction `parse()` a été renommée en `json()`.
+### <a name="parse()-function-renamed"></a>parse() function renamed
+As we will soon be adding more content types, the `parse()` function has been renamed to `json()`.
 
-## Bientôt disponibles : API d’intégration d’entreprise
-À ce stade, nous ne disposons d’aucune version gérée disponible des API d’intégration d’entreprise (comme AS2). Elles le seront bientôt, tel qu’indiqué dans la [feuille de route](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Entre-temps, vous pouvez utiliser vos API BizTalk actuellement déployées via l’action HTTP, tel qu’indiqué ci-dessus dans l’article « Utilisation de vos applications API déployées ».
+## <a name="coming-soon:-enterprise-integration-apis"></a>Coming soon: Enterprise Integration APIs
+At this point in time, we do not yet have managed versions of the Enterprise Integration APIs available (such as AS2). These will be coming soon as covered in the [roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). In the meanwhile, you can use your existing deployed BizTalk APIs via the HTTP action, as covered above in "Using your already deployed API apps."
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

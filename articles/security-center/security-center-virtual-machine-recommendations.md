@@ -16,13 +16,14 @@
    ms.date="09/25/2016"
    ms.author="terrylan"/>
 
-# Protection de vos machines virtuelles dans Azure Security Center
 
-Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles, mise en réseau, applications et SQL.
+# <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Protection de vos machines virtuelles dans Azure Security Center
 
-Cet article traite des recommandations qui s’appliquent aux machines virtuelles. Les recommandations relatives aux machines virtuelles se concentrent autour de la collecte de données, de l’application des mises à jour du système, de la configuration du logiciel anti-programme malveillant, du chiffrement de vos disques de machines virtuelles, et bien plus encore. Utilisez le tableau ci-dessous pour mieux comprendre les recommandations disponibles pour les machines virtuelles et leurs effets.
+Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires.  Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles, mise en réseau, applications et SQL.
 
-## Recommandations disponibles pour les machines virtuelles
+Cet article traite des recommandations qui s’appliquent aux machines virtuelles.  Les recommandations relatives aux machines virtuelles se concentrent autour de la collecte de données, de l’application des mises à jour du système, de la configuration du logiciel anti-programme malveillant, du chiffrement de vos disques de machines virtuelles, et bien plus encore.  Utilisez le tableau ci-dessous pour mieux comprendre les recommandations disponibles pour les machines virtuelles et leurs effets.
+
+## <a name="available-vm-recommendations"></a>Recommandations disponibles pour les machines virtuelles
 
 |Recommandation|Description|
 |-----|-----|
@@ -34,11 +35,11 @@ Cet article traite des recommandations qui s’appliquent aux machines virtuelle
 |[Résoudre les alertes d’intégrité Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)|Recommande la résolution des défaillances de protection de point de terminaison.|
 |[Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md)|Vous permet de connaître les machines virtuelles qui nécessitent l’agent de machine virtuelle. L’agent de machine virtuelle doit être installé sur les machines virtuelles pour approvisionner l’analyse des correctifs, l’analyse des lignes de base et les logiciels anti-programme malveillant. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. L’article [Installer l’agent de machine virtuelle – Deuxième partie](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fournit des informations sur l’installation de l’agent de machine virtuelle.|
 | [Apply disk encryption (Appliquer le chiffrement de disque Azure Disk Encryption)](security-center-apply-disk-encryption.md) |Recommande le chiffrement des disques des machines virtuelles à l’aide d’Azure Disk Encryption (Windows et Linux). Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle.|
-| [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md) | Recommande de mettre à jour la version du système d’exploitation de votre service Cloud vers la version la plus récente disponible pour votre famille de systèmes d’exploitation. Pour en savoir plus sur Cloud Services, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md). |
+| [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md) | Recommande de mettre à jour la version du système d’exploitation de votre service Cloud vers la version la plus récente disponible pour votre famille de systèmes d’exploitation.  Pour en savoir plus sur Cloud Services, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md). |
 | [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md) | Recommande d’installer une solution d’évaluation des vulnérabilités sur votre machine virtuelle. |
 | [Corriger des vulnérabilités](security-center-vulnerability-assessment-recommendations.md#review-recommendation) | Vous permet de voir les vulnérabilités du système et des applications détectées par la solution d’évaluation des vulnérabilités installée sur votre machine virtuelle. |
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
 
@@ -52,4 +53,8 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 - [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 - [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

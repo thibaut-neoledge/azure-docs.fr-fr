@@ -1,76 +1,81 @@
 <properties
-	pageTitle="Services de domaine : Activer la synchronisation de mot de passe | Microsoft Azure"
-	description="Prise en main des services de domaine Azure Active Directory"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Domain Services: Enable password synchronization | Microsoft Azure"
+    description="Getting started with Azure Active Directory Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/20/2016"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/20/2016"
+    ms.author="maheshu"/>
 
-# Activer la synchronisation de mot de passe pour les services de domaine Azure AD
-Dans les tâches précédentes, vous avez activé Services de domaine Azure AD pour votre client Azure AD. Dans la tâche suivante, vous allez activer les hachages d’informations d’identification pour que l’authentification NTLM et Kerberos se synchronise avec Services de domaine Azure AD. Une fois la synchronisation des informations d’identification configurée, les utilisateurs peuvent se connecter au domaine géré à l’aide des informations d’identification d’entreprise.
 
-Les étapes sont différentes selon que votre organisation a un client Azure AD uniquement dans le cloud ou est paramétrée de manière à se synchroniser avec votre annuaire local à l’aide d’Azure AD Connect.
+# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Enable password synchronization to Azure AD Domain Services
+In preceding tasks, you enabled Azure AD Domain Services for your Azure AD tenant. The next task is to enable credential hashes required for NTLM and Kerberos authentication to synchronize to Azure AD Domain Services. Once credential synchronization is set up, users can sign in to the managed domain using their corporate credentials.
+
+The steps involved are different based on whether your organization has a cloud-only Azure AD tenant or is set to synchronize with your on-premises directory using Azure AD Connect.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [Client Azure AD dans le cloud uniquement](active-directory-ds-getting-started-password-sync.md)
-- [Client Azure AD synchronisé](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Cloud-only Azure AD tenant](active-directory-ds-getting-started-password-sync.md)
+- [Synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
 
-## Tâche 5 : activer la synchronisation de mot de passe pour les services de domaine AAD pour un client Azure AD dans le cloud uniquement
-Services de domaine Azure AD exige que les hachages d’informations d’identification soient dans un format approprié pour l’authentification NTLM et Kerberos, afin d’authentifier les utilisateurs sur le domaine géré. À moins que vous activiez Services de domaine AAD pour votre client, Azure AD ne génère pas et ne stocke pas les hachages d’informations d’identification dans le format requis pour l’authentification NTLM ou Kerberos. Pour des raisons évidentes de sécurité, Azure AD ne stocke pas non plus d’informations d’identification dans un format en texte clair. Par conséquent, Azure AD n’a pas la capacité de générer ces hachages d’informations d’identification NTLM ou Kerberos en fonction des informations d’identification existantes des utilisateurs.
+## <a name="task-5:-enable-password-synchronization-to-aad-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Task 5: Enable password synchronization to AAD Domain Services for a cloud-only Azure AD tenant
+Azure AD Domain Services needs credential hashes in a format suitable for NTLM and Kerberos authentication, to authenticate users on the managed domain. Unless you enable AAD Domain Services for your tenant, Azure AD does not generate or store credential hashes in the format required for NTLM or Kerberos authentication. For obvious security reasons, Azure AD also does not store any credentials in clear-text form. Therefore, Azure AD does not have a way to generate these NTLM or Kerberos credential hashes based on users' existing credentials.
 
-> [AZURE.NOTE] Si votre organisation a un client Azure AD uniquement dans le cloud, les utilisateurs ayant besoin d’utiliser Services de domaine Azure AD doivent modifier leur mot de passe.
+> [AZURE.NOTE] If your organization has a cloud-only Azure AD tenant, users that need to use Azure AD Domain Services must change their passwords.
 
-Ce processus de modification du mot de passe entraîne la génération, dans Azure AD, des hachages des informations d’identification dont ont besoin les services de domaine Azure AD pour l’authentification Kerberos et NTLM. Vous pouvez faire expirer les mots de passe de tous les utilisateurs dans le locataire qui doivent recourir aux services de domaine Azure AD, ou demander à ces utilisateurs de modifier leur mot de passe.
+This password change process causes the credential hashes required by Azure AD Domain Services for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire passwords for all users in the tenant that need to use Azure AD Domain Services or instruct these users to change their passwords.
 
 
-### Activer la génération du hachage des informations d’identification NTLM et Kerberos pour un client Azure AD dans le cloud uniquement
-Voici les instructions que vous devez fournir aux utilisateurs finaux pour qu’ils modifient leur mot de passe :
+### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-azure-ad-tenant"></a>Enable NTLM and Kerberos credential hash generation for a cloud-only Azure AD tenant
+Here are instructions you need to provide end users, so they can change their passwords:
 
-1. Accédez à la page du volet d’accès Azure AD pour votre organisation sur [http://myapps.microsoft.com](http://myapps.microsoft.com).
+1. Navigate to the Azure AD Access Panel page for your organization at [http://myapps.microsoft.com](http://myapps.microsoft.com).
 
-2. Dans cette page, sélectionnez l’onglet **profil**.
+2. Select the **profile** tab on this page.
 
-3. Cliquez sur la vignette **Modifier le mot de passe** dans cette page.
+3. Click the **Change password** tile on this page.
 
-    ![Créer un réseau virtuel pour les services de domaine Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password.png)
+    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-    > [AZURE.NOTE] Si vous ne voyez pas l’option **Modifier le mot de passe** sur la page du volet d’accès, vérifiez que votre organisation a configuré la [gestion des mots de passe dans Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+    > [AZURE.NOTE] If you do not see the **Change password** option on the Access Panel page, ensure that your organization has configured [password management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 
-4. Dans la page **Modifier le mot de passe**, tapez votre ancien mot de passe, puis tapez un nouveau mot de passe et confirmez-le. Cliquez sur **Envoyer**.
+4. On the **change password** page, type your existing (old) password and then type a new password and confirm it. Click **submit**.
 
-    ![Créer un réseau virtuel pour les services de domaine Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
+    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
-Une fois que vous avez modifié votre mot de passe, le nouveau mot de passe est rapidement utilisable dans Services de domaine Azure AD. Après quelques minutes (généralement environ 20 minutes), vous pouvez vous connecter aux ordinateurs joints au domaine géré à l’aide du nouveau mot de passe.
+After you have changed your password, the new password will be usable in Azure AD Domain Services shortly. After a few minutes (typically, about 20 minutes), you can sign in to computers joined to the managed domain using the newly changed password.
 
 <br>
 
-## Contenu connexe
+## <a name="related-content"></a>Related Content
 
-- [Comment mettre à jour votre mot de passe](../active-directory/active-directory-passwords-update-your-own-password.md)
+- [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md)
 
-- [Prise en main de la gestion de mot de passe dans Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+- [Getting started with Password Management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 
-- [Activer la synchronisation de mot de passe pour les services de domaine AAD pour un client Azure AD synchronisé](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Enable password synchronization to AAD Domain Services for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
-- [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
+- [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 
-- [Joindre une machine virtuelle Windows à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
+- [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 
-- [Joindre une machine virtuelle Linux Red Hat Enterprise à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+- [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!-----HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Affichage de votre application dans la galerie d’applications Azure AD"
-   description="Comment répertorier une application qui prend en charge l'authentification unique dans la galerie Azure Active Directory | Microsoft Azure"
+   pageTitle="Listing your application in the Azure Active Directory application gallery"
+   description="How to list an application that supports single sign-on in the Azure Active Directory gallery | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor=""/>
 
@@ -17,84 +17,89 @@
    ms.author="mbaldwin"/>
 
 
-# Affichage de votre application dans la galerie d’applications Azure AD
 
-Pour répertorier une application qui prend en charge l'authentification unique avec Azure Active Directory dans la [galerie Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), l'application doit tout d'abord mettre en œuvre l'un des modes d'intégration suivants :
+# <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Listing your application in the Azure Active Directory application gallery
 
-* **OpenID Connect** : intégration directe dans Azure AD à l'aide d'OpenID Connect pour l'authentification et l'API de consentement Azure AD pour la configuration. Si vous débutez une intégration et que votre application ne prend pas en charge SAML, il s'agit du mode de recommandé.
+To list an application that supports single sign-on with Azure Active Directory in the [Azure AD gallery](https://azure.microsoft.com/marketplace/active-directory/all/), the application first needs to implement one of the following integration modes:
 
-* **SAML** : votre application a déjà la possibilité de configurer des fournisseurs d'identité tiers utilisant le protocole SAML.
+* **OpenID Connect** - Direct integration with Azure AD using OpenID Connect for authentication and the Azure AD consent API for configuration. If you are just starting an integration and your application does not support SAML, then this is the recommend mode.
 
-Les exigences pour chaque mode sont indiquées ci-dessous.
+* **SAML** – Your application already has the ability to configure third-party identity providers using the SAML protocol.
 
-##Intégration d'OpenID Connect
+Listing requirements for each mode are below.
 
-Pour intégrer votre application dans Azure AD, suivez les [instructions pour développeurs](active-directory-authentication-scenarios.md). Puis répondez aux questions ci-dessous et adressez vos réponses à waadpartners@microsoft.com.
+##<a name="openid-connect-integration"></a>OpenID Connect Integration
 
-* Fournissez des informations d'identification pour votre application pour un locataire ou un compte de test pouvant être utilisées par l'équipe Azure AD pour tester l'intégration.
+To integrate your application with Azure AD, following the [developer instructions](active-directory-authentication-scenarios.md). Then complete the questions below and send to waadpartners@microsoft.com.
 
-* Fournissez des instructions sur la manière dont l'équipe Azure AD peut se connecter et connecter une instance d'Azure AD à votre application à l'aide de l'[infrastructure de consentement d'Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework).
+* Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
 
-* Fournissez toute instruction supplémentaire nécessaire pour permettre à l'équipe Azure AD de tester l'authentification unique avec votre application.
+* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
 
-* Fournissez les informations ci-dessous :
+* Provide any further instructions required for the Azure AD team to test single sign-on with your application. 
 
-> Nom de l’entreprise :
-> 
-> Site web de l’entreprise :
-> 
-> Nom de l’application :
-> 
-> Description de l’application (256 caractères maximum) :
-> 
-> Site web de l’application (pour informatif) :
-> 
-> Site web du support technique de l’application ou les informations de contact :
-> 
-> ID de client de l’application, comme indiqué dans les détails de l’application à https://manage.windowsazure.com :
-> 
-> URL d’inscription d’application à laquelle les clients accèdent pour s’inscrire et/ou acheter l’application :
-> 
-> Sélectionnez jusqu’à trois catégories répertoriées pour votre application (pour connaître les catégories disponibles, consultez l'Azure Active Directory Marketplace) :
-> 
-> Attacher une petite icône d’application (fichier PNG, 45 px par 45 px, couleur d’arrière-plan unie) :
-> 
-> Attacher une grande icône d’application (fichier PNG, 215 px par 215 px, couleur d’arrière-plan unie) :
-> 
-> Attacher un grand logo d’application (fichier PNG, 150 px par 122 px, couleur d’arrière-plan unie) :
+* Provide the info below:
 
-##Intégration de SAML
+> Company Name:
+> 
+> Company Website:
+> 
+> Application Name:
+> 
+> Application Description (256 character limit):
+> 
+> Application Website (informational):
+> 
+> Application Technical Support Website or Contact Info:
+> 
+> Client ID of the application, as shown in the application details at https://manage.windowsazure.com:
+> 
+> Application Sign-Up URL where customers go to sign up for and /or purchase the application:
+> 
+> Choose up to three categories for your application to be listed under (for available categories see the Azure Active Directory Marketplace):
+> 
+> Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
+> 
+> Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
+> 
+> Attach Application Logo (PNG file, 150px by 122px, transparent background color):
 
-Toute application prenant en charge SAML 2.0 peut être intégrée directement dans un locataire Azure AD à l'aide de [ces instructions pour ajouter une application personnalisée](active-directory-saas-custom-apps.md). Une fois que vous avez testé que l'intégration de votre application fonctionne avec Azure AD, envoyez les informations suivantes à l'adresse <waadpartners@microsoft.com>.
+##<a name="saml-integration"></a>SAML Integration
 
-* Fournissez des informations d'identification pour votre application pour un locataire ou un compte de test pouvant être utilisées par l'équipe Azure AD pour tester l'intégration.
+Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenant using [these instructions to add a custom application](active-directory-saas-custom-apps.md). Once you have tested that your application integration works with Azure AD, send the following information to <waadpartners@microsoft.com>.
 
-* Fournissez l'URL de connexion SAML, l'URL de l'émetteur (ID d'entité) et l'URL de réponse (Assertion Consumer Service) pour votre application, comme indiqué [ici](active-directory-saas-custom-apps.md). Si vous fournissez généralement ces valeurs dans un fichier de métadonnées SAML, envoyez également ce dernier.
+* Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
 
-* Fournissez une brève description de la configuration d'Azure AD comme fournisseur d'identité dans votre application à l'aide de SAML 2.0. Si votre application prend en charge la configuration d'Azure AD comme fournisseur d'identité via un portail d'administration en libre-service, assurez-vous que les informations d'identification fournies vous le permettent.
+* Provide the SAML Sign-On URL, Issuer URL (entity ID), and Reply URL (assertion consumer service) values for your application, as described [here](active-directory-saas-custom-apps.md). If you typically provide these values as part of a SAML metadata file, then please send that as well.
 
-* Fournissez les informations ci-dessous :
+* Provide a brief description of how to configure Azure AD as an identity provider in your application using SAML 2.0. If your application supports configuring Azure AD as an identity provider through a self-service administrative portal, then please ensure the credentials provided above include the ability to set this up.
 
-> Nom de l’entreprise :
-> 
-> Site web de l’entreprise :
-> 
-> Nom de l’application :
-> 
-> Description de l’application (256 caractères maximum) :
-> 
-> Site web de l’application (pour informatif) :
-> 
-> Site web du support technique de l’application ou les informations de contact :
-> 
-> URL d’inscription d’application à laquelle les clients accèdent pour s’inscrire et/ou acheter l’application :
-> 
-> Sélectionnez jusqu'à trois catégories à répertorier pour votre application sous (pour connaître les catégories disponibles, consultez le site [Marketplace Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/)) :
-> 
-> Attacher une petite icône d’application (fichier PNG, 45 px par 45 px, couleur d’arrière-plan unie) :
-> 
-> Attacher une grande icône d’application (fichier PNG, 215 px par 215 px, couleur d’arrière-plan unie) :
-> 
-> Attacher un grand logo d’application (fichier PNG, 150 px par 122 px, couleur d’arrière-plan unie) :
+* Provide the info below:
 
-<!---HONumber=AcomDC_0921_2016-->
+> Company Name:
+> 
+> Company Website:
+> 
+> Application Name:
+> 
+> Application Description (256 character limit):
+> 
+> Application Website (informational):
+> 
+> Application Technical Support Website or Contact Info:
+> 
+> Application Sign-Up URL where customers go to sign up for and /or purchase the application:
+> 
+> Choose up to three categories for your application to be listed under (for available categories see the [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
+> 
+> Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
+> 
+> Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
+> 
+> Attach Application Logo (PNG file, 150px by 122px, transparent background color):
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

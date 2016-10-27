@@ -1,7 +1,10 @@
-Il s’agit des informations de référence pour les développeurs Azure Functions. Si vous ne connaissez pas bien Azure Functions, commencez par consulter les ressources suivantes :
+This is reference information for Azure Functions developers. If you're new to Azure Functions, start with the following resources:
 
-* [Créer votre première fonction Azure](../articles/azure-functions/functions-create-first-azure-function.md)
-* [Informations de référence pour les développeurs sur Azure Functions](../articles/azure-functions/functions-reference.md)
-* Informations de référence pour les développeurs [C#](../articles/azure-functions/functions-reference-csharp.md), [F#](../articles/azure-functions/functions-reference-fsharp.md) ou [Node](../articles/azure-functions/functions-reference-node.md)
+* [Create your first Azure Function](../articles/azure-functions/functions-create-first-azure-function.md)
+* [Azure Functions developer reference](../articles/azure-functions/functions-reference.md)
+* [C#](../articles/azure-functions/functions-reference-csharp.md), [F#](../articles/azure-functions/functions-reference-fsharp.md), or [Node](../articles/azure-functions/functions-reference-node.md) developer reference
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

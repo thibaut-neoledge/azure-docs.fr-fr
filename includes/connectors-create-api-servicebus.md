@@ -1,21 +1,24 @@
-### Composants requis
+### <a name="prerequisites"></a>Prerequisites
 
-Vous devez disposer d’un compte [Service Bus](https://azure.microsoft.com/services/service-bus/).
+You must have a [Service Bus](https://azure.microsoft.com/services/service-bus/) account.  
 
-Pour pouvoir utiliser votre compte Azure Service Bus dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer depuis votre application logique, sur le Portail Azure.
+Before you can use your Azure Service Bus account in a logic app, you must authorize the logic app to connect to your service bus account. Fortunately, you can do this easily from within your logic app on the Azure portal.  
 
-Pour autoriser votre application logique à se connecter à votre compte Service Bus, procédez comme suit :
+Here are the steps to authorize your logic app to connect to your Service Bus account:  
 
-1. Pour créer une connexion à Service Bus, dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez *Service Bus* dans la zone de recherche. Sélectionnez le déclencheur ou l’action que vous voulez utiliser :  
-    ![Image de connexion à Service Bus 1](./media/connectors-create-api-servicebus/servicebus-1.png)
-    
-2. Si vous n’avez créé aucune connexion à Service Bus auparavant, vous êtes invité à indiquer vos informations d’identification Service Bus. Ces informations d’identification serviront à autoriser votre application logique à se connecter et à accéder aux données de votre compte Service Bus. Le connecteur de Service Bus a besoin de la chaîne de connexion pour l’espace de noms Service Bus - ainsi que des autorisations de **Gestion**. Un bon moyen de savoir si votre chaîne de connexion est pour l’espace de noms ou une entité spécifique est de voir si elle contient le paramètre `EntityPath`. Si c’est le cas, ce n’est pas la chaîne de connexion appropriée pour une application logique.  
-    ![Chaîne de connexion à Service Bus](./media/connectors-create-api-servicebus/connectionstring.png)
+1. To create a connection to Service Bus, in the logic app designer, select **Show Microsoft managed APIs** in the drop-down list. Then enter **service bus** in the search box. Select the trigger or action you want to use.  
+    ![Service Bus connection image 1](./media/connectors-create-api-servicebus/servicebus-1.png)  
 
-1. Une fois que vous avez reçu la chaîne de connexion pour l’espace de noms, vous pouvez l’utiliser pour la connexion à l’API dans les applications logiques.  
-    ![Image de connexion à Service Bus 2](./media/connectors-create-api-servicebus/servicebus-2.png)
+2. If you haven't created any connections to Service Bus before, you'll be prompted to provide your Service Bus credentials. These credentials are used to authorize your logic app to connect to and access your Service Bus account's data. The Service Bus connector needs the connection string for the Service Bus namespace. It also requires **Manage** permissions. A good way to know if your connection string is for the namespace or a specific entity is if it contains the `EntityPath` parameter. If it does, it is not the right connection string for a logic app.  
+    ![Service Bus connection string](./media/connectors-create-api-servicebus/connectionstring.png)
 
-3. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :  
-    ![Image de connexion à Service Bus 3](./media/connectors-create-api-servicebus/servicebus-3.png)
+1. After you have received the connection string for the namespace, you can use it for the API connection in Logic Apps.  
+    ![Service Bus connection image 2](./media/connectors-create-api-servicebus/servicebus-2.png)  
 
-<!---HONumber=AcomDC_0810_2016-->
+3. Notice the connection has been created, and you are now free to proceed with the other steps in your logic app.  
+    ![Service Bus connection image 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
+
+
+<!--HONumber=Oct16_HO2-->
+
+

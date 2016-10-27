@@ -1,7 +1,10 @@
-Il existe deux options pour le basculement de Mobile Services vers App Service : la mise à niveau ou la migration. Les deux options vous donnent accès à toutes les fonctionnalités d'hébergement d’App Service :
+There are two options for moving from Mobile Services to App Service: migration or upgrade. Either option will give you access to all of the hosting capabilities of App Service:
 
-- La *migration* d’un service modifie uniquement l'environnement sous-jacent qui héberge le serveur principal mobile. Elle ne nécessite **aucune modification de code** pour le projet de client ou serveur mobile. Si vous utilisez l'option de migration automatisée, vous pouvez conserver votre URL **service.azure-mobile.NET**. 
+- *Migrating* a service just changes the underlying environment that hosts your mobile backend. It requires **no code changes** to either the mobile client or the mobile server project. If you use the automated migration option, this preserves your **service.azure-mobile.net** URL. 
 
-- La *mise à niveau* d’un service **nécessite la modification du code** de vos projets serveur et client. Vous pouvez toutefois tirer parti des nouvelles fonctionnalités du Kit de développement logiciel (SDK) mobile, telles que les améliorations apportées à l'authentification et une flexibilité accrue pour votre projet serveur.
+- *Upgrading* a service does **require code changes** to both your server and client project, but allows you to take advantage of new mobile SDK features, such as improvements to authentication and more flexibility for your server project. 
 
-<!---HONumber=Nov15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

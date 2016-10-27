@@ -1,31 +1,32 @@
 <properties
-	pageTitle="Gestion et dépannage de Stretch Database | Microsoft Azure"
-	description="Découvrez comment gérer et dépanner Stretch Database"
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Manage and troubleshoot Stretch Database | Microsoft Azure"
+    description="Learn how to manage and troubleshoot Stretch Database."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager=""
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/27/2016"
+    ms.author="douglasl"/>
 
-# Gestion et dépannage de Stretch Database
 
-Utilisez les outils et les méthodes décrites dans cette rubrique pour gérer et dépanner Stretch Database.
+# <a name="manage-and-troubleshoot-stretch-database"></a>Manage and troubleshoot Stretch Database
 
-## Gérer les données locales
+To manage and troubleshoot Stretch Database, use the tools and methods described in this topic .
 
-### <a name="LocalInfo"></a>Obtenir des informations sur les bases de données et les tables locales Stretch Database
-Ouvrez les affichages catalogue **sys.databases** et **sys.tables** pour afficher des informations sur les bases de données et les tables Stretch SQL Server. Pour plus d’informations, voir [sys.databases (Transact-SQL)](https://msdn.microsoft.com/library/ms178534.aspx) et [sys.tables (Transact-SQL)](https://msdn.microsoft.com/library/ms187406.aspx).
+## <a name="manage-local-data"></a>Manage local data
 
-Pour afficher la quantité d’espace utilisé par une table Stretch, exécutez l’instruction suivante.
+### <a name="<a-name="localinfo"></a>get-info-about-local-databases-and-tables-enabled-for-stretch-database"></a><a name="LocalInfo"></a>Get info about local databases and tables enabled for Stretch Database
+Open the catalog views **sys.databases** and **sys.tables** to see info about Stretch\-enabled SQL Server databases and tables. For more info, see [sys.databases (Transact-SQL)](https://msdn.microsoft.com/library/ms178534.aspx) and [sys.tables (Transact-SQL)](https://msdn.microsoft.com/library/ms187406.aspx).
+
+To see how much space a Stretch\-enabled table is using in SQL Server, run the following statement.
 
  ```tsql
 USE <Stretch-enabled database name>;
@@ -33,25 +34,25 @@ GO
 EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'LOCAL_ONLY';
 GO
  ```
-## Gérer la migration des données
+## <a name="manage-data-migration"></a>Manage data migration
 
-### Vérifier la fonction de filtre appliquée à une table
-Ouvrez l’affichage catalogue **sys.remote\_data\_archive\_tables** et vérifiez la valeur de la colonne **filter\_predicate** pour identifier la fonction que Stretch Database utilise pour sélectionner les lignes à migrer. Si la valeur est null, la table entière est éligible à la migration. Pour plus d’informations, consultez [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx) et [Sélection des lignes à migrer à l’aide d’une fonction de filtre](sql-server-stretch-database-predicate-function.md).
+### <a name="check-the-filter-function-applied-to-a-table"></a>Check the filter function applied to a table
+Open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column to identify the function that Stretch Database is using to select rows to migrate. If the value is null, the entire table is eligible to be migrated. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx) and [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md).
 
-### <a name="Migration"></a>Vérifier l’état de la migration des données
-Sélectionnez **Tâches | Stretch | Surveiller** pour une base de données dans SQL Server Management Studio pour surveiller la migration des données dans Stretch Database Monitor. Pour plus d’informations, voir [Surveillance et dépannage de la migration de données (Stretch Database)](sql-server-stretch-database-monitor.md).
+### <a name="<a-name="migration"></a>check-the-status-of-data-migration"></a><a name="Migration"></a>Check the status of data migration
+Select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio to monitor data migration in Stretch Database Monitor. For more info, see [Monitor and troubleshoot data migration (Stretch Database)](sql-server-stretch-database-monitor.md).
 
-Vous pouvez également ouvrir la vue de gestion dynamique **sys.dm\_db\_rda\_migration\_status** pour voir combien de lots et de lignes de données ont été migrés.
+Or, open the dynamic management view **sys.dm\_db\_rda\_migration\_status** to see how many batches and rows of data have been migrated.
 
-### <a name="Firewall"></a>Dépannage de la migration des données
-Pour obtenir des suggestions de dépannage, voir [Surveillance et dépannage de la migration de données (Stretch Database)](sql-server-stretch-database-monitor.md).
+### <a name="<a-name="firewall"></a>troubleshoot-data-migration"></a><a name="Firewall"></a>Troubleshoot data migration
+For troubleshooting suggestions, see [Monitor and troubleshoot data migration (Stretch Database)](sql-server-stretch-database-monitor.md).
 
-## Gérer les données distantes
+## <a name="manage-remote-data"></a>Manage remote data
 
-### <a name="RemoteInfo"></a>Obtenir des informations sur les bases de données et les tables distantes Stretch Database
-Ouvrez les affichages catalogue **sys.remote\_data\_archive\_databases** et **sys.remote\_data\_archive\_tables** pour afficher des informations sur les bases de données et les tables distantes dans lesquelles les données migrées sont stockées. Pour plus d’informations, voir [sys.remote\_data\_archive\_databases (Transact-SQL)](https://msdn.microsoft.com/library/dn934995.aspx) et [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+### <a name="<a-name="remoteinfo"></a>get-info-about-remote-databases-and-tables-used-by-stretch-database"></a><a name="RemoteInfo"></a>Get info about remote databases and tables used by Stretch Database
+Open the catalog views **sys.remote\_data\_archive\_databases** and **sys.remote\_data\_archive\_tables** to see info about the remote databases and tables in which migrated data is stored. For more info, see [sys.remote_data_archive_databases (Transact-SQL)](https://msdn.microsoft.com/library/dn934995.aspx) and [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
-Pour afficher la quantité d’espace utilisé par une table Stretch dans Azure, exécutez l’instruction suivante.
+To see how much space a Stretch-enabled table is using in Azure, run the following statement.
 
  ```tsql
 USE <Stretch-enabled database name>;
@@ -60,51 +61,51 @@ EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'REMOTE_ONLY';
 GO
  ```
 
-### Supprimer les données migrées  
-Si vous souhaitez supprimer des données déjà migrées vers Azure, suivez les étapes décrites dans [sys.sp\_rda\_reconcile\_batch](https://msdn.microsoft.com/library/mt707768.aspx).
+### <a name="delete-migrated-data"></a>Delete migrated data  
+If you want to delete data that has already been migrated to Azure, follow the steps described in [sys.sp_rda_reconcile_batch](https://msdn.microsoft.com/library/mt707768.aspx).
 
-## Gérer le schéma de table
+## <a name="manage-table-schema"></a>Manage table schema
 
-### Ne modifiez pas le schéma de la table distante
-Ne modifiez pas le schéma d’une table Azure distante qui est associée à une table SQL Server configurée pour Stretch Database. En particulier, ne modifiez pas le nom ou le type de données d’une colonne. La fonctionnalité Stretch Database part de diverses hypothèses concernant le schéma de la table distante en relation avec le schéma de la table SQL Server. Si vous modifiez le schéma, Stretch Database cesse de fonctionner pour la table modifiée.
+### <a name="don't-change-the-schema-of-the-remote-table"></a>Don't change the schema of the remote table
+Don't change the schema of a remote Azure table that's associated with a SQL Server table configured for Stretch Database. In particular, don't modify the name or the data type of a column. The Stretch Database feature makes various assumptions about the schema of the remote table in relation to the schema of the SQL Server table. If you change the remote schema, Stretch Database stops working for the changed table.
 
-### Rapprocher des colonnes de table  
-Si vous avez accidentellement supprimé les colonnes de la table distante, exécutez **sp\_rda\_reconcile\_columns** pour ajouter des colonnes à la table distante qui existent dans la table Stretch SQL Server, mais pas dans la table distante. Pour plus d’informations, voir [sys.sp\_rda\_reconcile\_columns](https://msdn.microsoft.com/library/mt707765.aspx).
+### <a name="reconcile-table-columns"></a>Reconcile table columns  
+If you have accidentally deleted columns from the remote table, run **sp_rda_reconcile_columns** to add columns to the remote table that exist in the Stretch\-enabled SQL Server table but not in the remote table. For more info, see [sys.sp_rda_reconcile_columns](https://msdn.microsoft.com/library/mt707765.aspx).  
 
-  > [!IMPORTANT] Lorsque **sp\_rda\_reconcile\_columns** recrée les colonnes que vous avez supprimées par inadvertance de la table distante, il ne restaure pas les données qui se trouvaient précédemment dans les colonnes supprimées.
+  > [!IMPORTANT] When **sp_rda_reconcile_columns** recreates columns that you accidentally deleted from the remote table, it does not restore the data that was previously in the deleted columns.
 
-**sp\_rda\_reconcile\_columns** ne supprime pas les colonnes de la table distante qui existent dans la table distante, mais qui n’existent pas dans la table Stretch SQL Server. Si des colonnes de la table Azure distante n’existent plus dans la table Stretch SQL Server, ces colonnes supplémentaires n’empêchent pas Stretch Database de fonctionner normalement. Vous pouvez éventuellement supprimer manuellement les colonnes supplémentaires.
+**sp_rda_reconcile_columns** does not delete columns from the remote table that exist in the remote table but not in the Stretch\-enabled SQL Server table. If there are columns in the remote Azure table that no longer exist in the Stretch\-enabled SQL Server table, these extra columns do not prevent Stretch Database from operating normally. You can optionally remove the extra columns manually.  
 
-## Gestion des coûts et des performances  
+## <a name="manage-performance-and-costs"></a>Manage performance and costs  
 
-### Dépannage de la performance des requêtes
-Les requêtes qui incluent des tables compatibles Stretch ont des performances plus lentes qu’avant leur mise en compatibilité pour Stretch. Si les performances des requêtes se dégradent considérablement, passez en revue les problèmes suivants.
+### <a name="troubleshoot-query-performance"></a>Troubleshoot query performance
+Queries that include Stretch\-enabled tables are expected to perform more slowly than they did before the tables were enabled for Stretch. If query performance degrades significantly, review the following possible problems.
 
--   Votre serveur Azure se trouve-t-il dans une autre région géographique que votre serveur SQL ? Configurez votre serveur Azure de manière à ce qu’il se trouve dans la même région géographique que votre serveur SQL Server afin de réduire la latence du réseau.
+-   Is your Azure server in a different geographical region than your SQL Server? Configure your Azure server to be in the same geographical region as your SQL Server to reduce network latency.
 
--   Les conditions de votre réseau peuvent s’être dégradées. Pour plus d’informations sur les problèmes ou les défaillances récents, contactez votre administrateur réseau.
+-   Your network conditions may have degraded. Contact your network administrator for info about recent issues or outages.
 
-### Augmenter le niveau de performances d’Azure pour les opérations gourmandes en ressources telles que l’indexation
-Lorsque vous générez, regénérez ou réorganisez un index dans une table volumineuse configurée pour Stretch Database, et que vous anticipez de nombreuses interrogations sur les données migrées dans Azure dans ce laps de temps, envisagez d’augmenter le niveau de performances de la base de données Azure distante correspondante pour la durée de l’opération. Pour plus d’informations sur les niveaux de performances et la tarification, voir [Tarification SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+### <a name="increase-azure-performance-level-for-resource\-intensive-operations-such-as-indexing"></a>Increase Azure performance level for resource\-intensive operations such as indexing
+When you build, rebuild, or reorganize an index on a large table that's configured for Stretch Database, and you anticipate heavy querying of the migrated data in Azure during this time, consider increasing the performance level of the corresponding remote Azure database for the duration of the operation. For more info about performance levels and pricing, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 
-### Vous ne pouvez pas suspendre le service SQL Server Stretch Database sur Azure  
- Assurez-vous de sélectionner des performances et un niveau de tarification appropriés. Si vous augmentez le niveau de performances temporairement pour une opération gourmande en ressources, n’oubliez pas de restaurer le niveau précédent une fois l’opération effectuée. Pour plus d’informations sur les niveaux de performances et la tarification, voir [Tarification SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+### <a name="you-can't-pause-the-sql-server-stretch-database-service-on-azure"></a>You can't pause the SQL Server Stretch Database service on Azure  
+ Make sure that you select the appropriate performance and pricing level. If you increase the performance level temporarily for a resource\-intensive operation, restore it to the previous level after the operation completes. For more info about performance levels and pricing, see [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).  
 
-## Modifier l’étendue des requêtes  
- Les requêtes dans les tables Stretch renvoient des données locales et distantes par défaut. Vous pouvez modifier l’étendue des requêtes pour toutes les requêtes effectuées par tous les utilisateurs ou pour une seule requête effectuée par un administrateur.
+## <a name="change-the-scope-of-queries"></a>Change the scope of queries  
+ Queries against Stretch\-enabled tables return both local and remote data by default. You can change the scope of queries for all queries by all users, or only for a single query by an administrator.  
 
-### Modifier l’étendue des requêtes pour toutes les requêtes effectuées par tous les utilisateurs  
- Pour modifier l’étendue de toutes les requêtes effectuées par tous les utilisateurs, exécutez la procédure stockée **sys.sp\_rda\_set\_query\_mode**. Vous pouvez réduire la portée pour interroger uniquement les données locales, désactiver toutes les requêtes ou restaurer le paramètre par défaut. Pour plus d’informations, voir [sys.sp\_rda\_set\_query\_mode](https://msdn.microsoft.com/library/mt703715.aspx).
+### <a name="change-the-scope-of-queries-for-all-queries-by-all-users"></a>Change the scope of queries for all queries by all users  
+ To change the scope of all queries by all users, run the stored procedure **sys.sp_rda_set_query_mode**. You can reduce the scope to query local data only, disable all queries, or restore the default setting. For more info, see [sys.sp_rda_set_query_mode](https://msdn.microsoft.com/library/mt703715.aspx).  
 
-### <a name="queryHints"></a>Modifier l’étendue des requêtes pour une seule requête effectuée par un administrateur  
- Pour modifier l’étendue d’une seule requête effectuée par un membre du rôle db\_owner, ajoutez l’indicateur de requête **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valeur*)** à l’instruction SELECT. L’indicateur de requête REMOTE\_DATA\_ARCHIVE\_OVERRIDE peut avoir les valeurs suivantes.
- -   **LOCAL\_ONLY**. Interroge uniquement les données locales.
+### <a name="<a-name="queryhints"></a>change-the-scope-of-queries-for-a-single-query-by-an-administrator"></a><a name="queryHints"></a>Change the scope of queries for a single query by an administrator  
+ To change the scope of a single query by a member of the db_owner role, add the **WITH \( REMOTE_DATA_ARCHIVE_OVERRIDE = *value* \)** query hint to the SELECT statement. The REMOTE_DATA_ARCHIVE_OVERRIDE query hint can have the following values.  
+ -   **LOCAL_ONLY**. Query local data only.  
 
- -   **REMOTE\_ONLY**. Interroge uniquement les données à distance.
+ -   **REMOTE_ONLY**. Query remote data only.  
 
- -   **STAGE\_ONLY**. Interroge uniquement les données de la table dans laquelle Stretch Database range les lignes éligibles pour la migration et conserve les lignes migrées pour la période indiquée après la migration. Cet indicateur de requête est le seul moyen d’interroger la table de mise en lots.
+ -   **STAGE_ONLY**. Query only the data in the table where Stretch Database stages rows eligible for migration and retains migrated rows for the specified period after migration. This query hint is the only way to query the staging table.  
 
-Par exemple, la requête suivante renvoie uniquement des résultats locaux.
+For example, the following query returns local results only.  
 
  ```tsql  
  USE <Stretch-enabled database name>;
@@ -113,20 +114,24 @@ Par exemple, la requête suivante renvoie uniquement des résultats locaux.
  GO
 ```  
 
-## <a name="adminHints"></a>Effectuer des mises à jour et des suppressions administratives  
- Par défaut, il est impossible de METTRE À JOUR ou de SUPPRIMER des lignes ayant été migrées ou pouvant être migrées dans une table Stretch. Lorsque vous devez résoudre un problème, un membre du rôle db\_owner peut exécuter une opération UPDATE ou DELETE en ajoutant l’indicateur de requête **WITH (REMOTE\_DATA\_ARCHIVE\_OVERRIDE = *valeur*)** à l’instruction. L’indicateur de requête REMOTE\_DATA\_ARCHIVE\_OVERRIDE peut avoir les valeurs suivantes.
- -   **LOCAL\_ONLY**. Met à jour ou supprime uniquement les données locales.
+## <a name="<a-name="adminhints"></a>make-administrative-updates-and-deletes"></a><a name="adminHints"></a>Make administrative updates and deletes  
+ By default you can't UPDATE or DELETE rows that are eligible for migration, or rows that have already been migrated, in a Stretch\-enabled table. When you have to fix a problem, a member of the db_owner role can run an UPDATE or DELETE operation by adding the **WITH \( REMOTE_DATA_ARCHIVE_OVERRIDE = *value* \)** query hint to the statement. The REMOTE_DATA_ARCHIVE_OVERRIDE query hint can have the following values.  
+ -   **LOCAL_ONLY**. Update or delete local data only.  
 
- -   **REMOTE\_ONLY**. Met à jour ou supprime uniquement les données distantes.
+ -   **REMOTE_ONLY**. Update or delete remote data only.  
 
- -   **STAGE\_ONLY**. Met à jour ou supprime uniquement les données de la table dans laquelle Stretch Database range les lignes éligibles pour la migration et conserve les lignes migrées pour la période indiquée après la migration.
+ -   **STAGE_ONLY**. Update or delete only the data in the table where Stretch Database stages rows eligible for migration and retains migrated rows for the specified period after migration.  
 
-## Voir aussi
+## <a name="see-also"></a>See also
 
-[Surveiller Stretch Database](sql-server-stretch-database-monitor.md)
+[Monitor Stretch Database](sql-server-stretch-database-monitor.md)
 
-[Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md)
+[Backup Stretch-enabled databases](sql-server-stretch-database-backup.md)
 
-[Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md)
+[Restore Stretch-enabled databases](sql-server-stretch-database-restore.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Présentation de l’architecture de sécurité | Microsoft Azure"
-   description="L’article fournit une présentation de l’architecture sécurité d’Azure et une liste organisée d’articles connexes."
+   pageTitle="Security architecture overview | Microsoft Azure"
+   description="The article provides a security architecture overview of Azure and a curated list of related articles."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,14 +16,19 @@
    ms.date="08/16/2016"
    ms.author="yurid"/>
 
-# Présentation de l’architecture de la sécurité
 
-Une base architecturale solide est une des clés du succès pour les déploiements sécurisés de solutions dans Azure. Sachant cela, vous êtes plus à même de comprendre les exigences, en sachant quelles questions poser, et êtes mieux équipés pour trouver les bonnes réponses à vos questions. Le fait de trouver les bonnes réponses aux bonnes questions est un grand pas en avant pour optimiser la sécurité de vos déploiements.
+# <a name="security-architecture-overview"></a>Security architecture overview
 
-Dans cette section, vous trouverez des articles sur l’architecture de sécurité Azure qui vous aideront à créer des solutions sécurisées. Des tendances et meilleures pratiques de sécurité Azure populaires sont également incluses. À ce stade, nous disposons des articles suivants. Veillez à consulter notre site et le blog de l’équipe de sécurité Azure régulièrement pour vous tenir au courant des mises à jour :
+Having a strong architectural foundation is one of the keys to success when it comes to secure solution deployments in Azure. With this knowledge you’re able to better understand your requirements by knowing the right questions to ask and more equipped to find the right answers to your questions. Getting right answers to the right questions goes a long way toward optimizing the security of your deployments.
 
-- [Data Classification for Cloud Readiness](azure-security-data-classification.md) (Classification des données pour l’adoption du Cloud)
-- [Architecture d’application sur Microsoft Azure](security-application-architecture-on-azure.md)
-- [Meilleures pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md)
+In this section you’ll see articles on Azure Security Architecture that will help you build secure solutions. A popular collection of Azure security best practices and patterns is also included. At this time, we have the following articles – make sure to visit our site and the Azure Security Team blog for updates on a regular basis:
 
-<!---HONumber=AcomDC_0817_2016-->
+- [Data Classification for Cloud Readiness](azure-security-data-classification.md)
+- [Application Architecture on Microsoft Azure](security-application-architecture-on-azure.md)
+- [Azure Security Best Practices and Patterns](security-best-practices-and-patterns.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

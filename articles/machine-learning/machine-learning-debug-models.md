@@ -1,66 +1,67 @@
 <properties 
-	pageTitle="Déboguer votre modèle dans Azure Machine Learning | Microsoft Azure" 
-	description="Décrit la procédure de débogage de votre modèle dans Azure Machine Learning." 
-	services="machine-learning"
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="Debug your Model in Azure Machine Learning | Microsoft Azure" 
+    description="Explains how to How to debug your Model in Azure Machine Learning." 
+    services="machine-learning"
+    documentationCenter="" 
+    authors="garyericson" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/09/2016" 
-	ms.author="bradsev;garye" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/09/2016" 
+    ms.author="bradsev;garye" />
 
-# Déboguer votre modèle dans Azure Machine Learning
 
-Cet article explique comment déboguer vos modèles dans Microsoft Azure Machine Learning. Plus précisément, il décrit les raisons possibles pour lesquelles l’exécution d’un modèle peut donner lieu à l’un des deux scénarios d’échec suivants :
+# <a name="debug-your-model-in-azure-machine-learning"></a>Debug your Model in Azure Machine Learning
 
-* le module [Former le modèle][train-model] génère une erreur ;
-* le module [Noter le modèle][score-model] produit des résultats incorrects ;
+This article explains of how to debug your models in Microsoft Azure Machine Learning. Specifically, it covers the potential reasons why either of the following two failure scenarios might be encountered when running a model:
+
+* the [Train Model][train-model] module throws an error 
+* the [Score Model][score-model] module produces incorrect results 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Le module Former le modèle génère une erreur
+## <a name="train-model-module-throws-an-error"></a>Train Model Module throws an error
 
 ![image1](./media/machine-learning-debug-models/train_model-1.png)
 
-le module [Former le modèle][train-model] attend les 2 entrées suivantes :
+The [Train Model][train-model] Module expects the following 2 inputs:
 
-1. type de modèle de classification/régression issu de la collection de modèles fournie par Azure Machine Learning ;
-2. données d’apprentissage avec une colonne Étiquette spécifiée. La colonne Étiquette spécifie la variable à prédire. Les autres colonnes incluses sont supposées être des fonctionnalités.
+1. The type of Classification/Regression Model from the collection of models provided by Azure Machine Learning
+2. The training data with a specified Label column. The Label column specifies the variable to predict. The rest of the columns included are assumed to be Features.
 
-Ce module génère une erreur dans les cas suivants :
+This module throws an error in the following cases:
 
-1. La colonne Étiquette est spécifiée de manière incorrecte, car plusieurs colonnes sont sélectionnées en tant qu’étiquette, ou un index de colonne incorrect a été sélectionné. Par exemple, le second cas s’applique si un index de colonne de 30 a été utilisé avec un jeu de données d’entrée qui ne comportait que 25 colonnes.
+1. The Label column is specified incorrectly because either more than one column is selected as the Label or an incorrect column index is selected. For example, the second case would apply if a column index of 30 was used with an input dataset which had only 25 columns.
 
-2. Le jeu de données ne contient aucune colonne Fonctionnalité. Par exemple, si le jeu de données d’entrée ne comporte qu’une seule colonne, identifiée en tant que colonne Étiquette, il n’existe aucune fonctionnalité avec laquelle générer le modèle. Dans ce cas, le module [Former le modèle][train-model] génère une erreur.
+2. The dataset does not contain any Feature columns. For example, if the input dataset has only 1 column, which is marked as the Label column, there would be no features with which to build the model. In this case, the [Train Model][train-model] module will throw an error.
 
-3. Le jeu de données d’entrée (Fonctionnalités ou Étiquette) contient une valeur Infini.
+3. The input dataset (Features or Label) contain Infinity as a value.
 
 
-## Le module Noter le modèle produit des résultats incorrects
+## <a name="score-model-module-does-not-produce-correct-results"></a>Score Model Module does not produce correct results
 
 ![image2](./media/machine-learning-debug-models/train_test-2.png)
 
-Dans un graphique d’apprentissage/de test classique pour un apprentissage supervisé, le module [Fractionner les données][split] divise le jeu de données en deux parties : la partie utilisée pour effectuer l’apprentissage du modèle et la partie réservée pour noter l’efficacité du comportement du modèle formé vis-à-vis des données sur lesquelles il n’a pas été formé. Le modèle formé est ensuite utilisé pour noter les données de test, après quoi les résultats sont évalués afin de déterminer la précision du modèle.
+In a typical training/testing graph for supervised learning, the [Split Data][split] module divides the original dataset into two parts: the part that is used to train the model and the part that is reserved to score how well the trained model performs on data it did not train on. The trained model is then used to score the test data after which the results are evaluated to determine the accuracy of the model.
 
-Le module [Noter le modèle][score-model] nécessite deux entrées :
+The [Score Model][score-model] module requires two inputs:
 
-1. une sortie du modèle formé à partir du module [Former le modèle][train-model] ;
-2. un jeu de données de notation sur lequel le modèle n’a pas été formé.
+1. A trained model output from [Train Model][train-model] module
+2. A scoring dataset not that the model was not trained on
 
-Même si l’expérience réussit, il est possible que le module [Noter le modèle][score-model] produise des résultats incorrects. Plusieurs scénarios peuvent donner lieu aux situations suivantes :
+It may happen that even though the experiment succeeds, the [Score Model][score-model] module produces incorrect results. Several scenarios may cause this to happen:
 
-1. Si l’étiquette spécifiée est catégorielle et qu’un modèle de régression est formé sur les données, le module [Noter le modèle][score-model] produit une sortie incorrecte. Ceci est dû au fait que la régression requiert une variable dépendante continue. Dans ce cas, il est plus judicieux d’utiliser un modèle de classification.
-2. De la même façon, si un modèle de classification est formé sur un jeu de données comportant des nombres à virgule flottante dans la colonne Étiquette, il peut produire des résultats indésirables. Ceci s’explique par le fait que la classification requiert une variable dépendante discontinue qui autorise uniquement les valeurs couvrant un ensemble de classes fini et généralement plutôt restreint.
-3. Si le jeu de données de notation ne contient pas toutes les fonctionnalités utilisées pour effectuer l’apprentissage du modèle, le module [Noter le modèle][score-model] génère une erreur.
-4. Le module [Noter le modèle][score-model] ne produit aucune sortie correspondant à une ligne du jeu de données de notation qui présente une valeur manquante ou infinie pour l’une de ses fonctionnalités.
-5. Le module [Noter le modèle][score-model] peut produire des sorties identiques pour toutes les lignes du jeu de données de notation. Ceci peut notamment se produire lors d’une tentative de classification à l’aide de forêts d’arbres de décision si le nombre minimal d’échantillons par nœud terminal est défini comme étant supérieur au nombre d’exemples d’apprentissage disponibles.
+1. If the specified Label is categorical and a regression model is trained on the data, an incorrect output would be produced by the [Score Model][score-model] module. This is because regression requires a continuous response variable. In this case it should be more suitable to use a classification model. 
+2. Similarly, if a classification model is trained on a dataset having floating point numbers in the Label column, it may produce undesirable results. This is because classification requires a discrete response variable that only allows values that range over a finite and usually somewhat small set of classes.
+3. If the scoring dataset does not contain all the features used to train the model, the [Score Model][score-model] will produce an error.
+4. The [Score Model][score-model] would not produce any output corresponding to a row in the scoring dataset that contains a missing value or an infinite value for any of its features.
+5. The [Score Model][score-model] may produce identical outputs for all rows in the scoring dataset. This could occur, for example, in the when attempting classification using Decision Forests if the minimum number of samples per leaf node is chosen to be more than the number of training examples available.
 
 
 <!-- Module References -->
@@ -69,4 +70,8 @@ Même si l’expérience réussit, il est possible que le module [Noter le modè
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

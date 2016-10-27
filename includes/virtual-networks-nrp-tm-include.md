@@ -1,28 +1,28 @@
-## Profil Traffic Manager
+## <a name="traffic-manager-profile"></a>Traffic Manager Profile
 
-Traffic Manager et ses ressources de point de terminaison enfant activent le routage DNS vers les points de terminaison dans Azure et en dehors d’Azure. Cette répartition du trafic est régie par des stratégies de routage. Traffic Manager permet également de surveiller l'intégrité des points de terminaison, ainsi que le trafic dévié de manière appropriée en fonction de l'intégrité d'un point de terminaison.
+Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
 
-| Propriété | Description |
+| Property | Description |
 |---|---|
-|**trafficRoutingMethod**| Les valeurs possibles sont *Performance*, *Weighted* et *Priority*. | 
-| **dnsConfig** | Nom de domaine complet du profil | 
-| **Protocole** | Protocole de surveillance. Les valeurs possibles sont *HTTP* et *HTTPS*.|
-| **Port** | Port de surveillance |  
-| **Chemin d’accès** | Chemin d’accès de surveillance |
-| **Points de terminaison** | Conteneur pour les ressources des points de terminaison | 
+|**trafficRoutingMethod**| possible values are *Performance*, *Weighted*, and *Priority* | 
+| **dnsConfig** | FQDN for the profile | 
+| **Protocol** | monitoring protocol, possible values are *HTTP* and *HTTPS*|
+| **Port** | monitoring port |  
+| **Path** | monitoring path |
+| **Endpoints** |  container for endpoint resources | 
 
-### Point de terminaison 
+### <a name="endpoint"></a>Endpoint 
 
-Un point de terminaison est une ressource enfant d'un profil Traffic Manager. Il représente un service ou un point de terminaison web vers lequel le trafic est réparti en fonction de la stratégie configurée dans la ressource de profil Traffic Manager.
+An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
 
-| Propriété | Description | 
+| Property | Description | 
 |---|---| 
-| **Type** | Type du point de terminaison. Les valeurs possibles sont *Point de terminaison Azure*, *Point de terminaison externe* et *Point de terminaison imbriqué*. | 
-| **targetResourceId** | Adresse IP publique d’un service ou d’un point de terminaison web. Ce peut être un point de terminaison Azure ou un point de terminaison externe. | 
-| **Poids** | Poids du point de terminaison utilisé dans la gestion du trafic. | 
-| **Priorité** | Priorité du point de terminaison, utilisée pour définir une action de basculement. |
+| **Type** |  the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* | 
+| **targetResourceId** |  public IP address of a service or web endpoint. This can be an Azure or external endpoint. | 
+| **Weight** | endpoint weight used in traffic management. | 
+| **Priority** | priority of the endpoint, used to define a failover action |
 
-Exemple Traffic Manager au format Json :
+Sample of Traffic Manager in Json format: 
 
 
         {
@@ -80,8 +80,11 @@ Exemple Traffic Manager au format Json :
         }
 
  
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Additional resources
 
-Lisez la [documentation sur l’API REST pour Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) pour plus d’informations.
+Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connexion aux sources de données « Big Data » | Microsoft Azure"
-   description="Article de procédure relatif à la connexion aux sources de données détectées avec Azure Data Catalog."
+   pageTitle="How to connect to data sources | Microsoft Azure"
+   description="How-to article highlighting how to connect to data sources discovered with Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -17,53 +17,59 @@
    ms.author="maroche"/>
 
 
-# Connexion aux sources de données
 
-## Introduction
-**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. L’utilisation des données représente un aspect clé de ce scénario. Lorsqu’un utilisateur détecte une source de données et en comprend l’objet, l’étape suivante consiste à se connecter à la source de données pour pouvoir exploiter les données correspondantes.
+# <a name="how-to-connect-to-data-sources"></a>How to connect to data sources
 
-## Emplacements des sources de données
-Pendant l’inscription des sources de données, **Azure Data Catalog** reçoit les métadonnées de la source de données. Ces métadonnées incluent des détails concernant l’emplacement de la source de données. Ceux-ci varient selon les sources de données, mais contiennent toujours les informations requises pour la connexion. Par exemple, l’emplacement d’une table SQL Server inclut le nom du serveur, le nom de la base de données, le nom du schéma et le nom de la table, tandis que l’emplacement d’un rapport SQL Server Reporting Services inclut le nom du serveur et le chemin d’accès au rapport. Pour d’autres types de sources de données, les emplacements reflètent la structure et les fonctionnalités du système source.
+## <a name="introduction"></a>Introduction
+**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, **Azure Data Catalog** is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data. A key aspect of this scenario is using the data – once a user discovers a data source and understands its purpose, the next step is to connect to the data source to put its data to use.
 
-## Outils clients intégrés
-Le moyen le plus simple de vous connecter à une source de données consiste à utiliser le menu « Ouvrir dans... » du portail **Azure Data Catalog**. Ce menu affiche une liste d’options pour la connexion à la ressource de données sélectionnée. Lorsque vous utilisez l’affichage en mosaïque par défaut, ce menu est disponible sur chaque vignette.
+## <a name="data-source-locations"></a>Data source locations
+During data source registration, **Azure Data Catalog** receives metadata about the data source. This metadata includes the details of the data source’s location. The details of the location will vary from data source to data source, but it will always contain the information needed to connect. For example, the location for a SQL Server table includes the server name, database name, schema name, and table name, while the location for a SQL Server Reporting Services report includes the server name and the path to the report. Other data source types will have locations that reflect the structure and capabilities of the source system.
 
- ![Ouverture d’une table SQL Server dans Excel à partir de la vignette de ressource de données](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
+## <a name="integrated-client-tools"></a>Integrated client tools
+The simplest way to connect to a data source is to use the “Open in…” menu in the **Azure Data Catalog** portal. This menu displays a list of options for connecting to the selected data asset.
+When using the default tile view, this menu is available on the each tile.
 
-Lorsque vous utilisez l’affichage par liste, le menu est disponible dans la barre de recherche, en haut de la fenêtre du portail.
+ ![Opening a SQL Server table in Excel from the data asset tile](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
 
- ![Ouverture d’un rapport SQL Server Reporting Services dans le Gestionnaire de rapports à partir de la barre de recherche](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+When using the list view, the menu is available in the search bar at the top of the portal window.
 
-## Applications clientes prises en charge
-Lorsque vous utilisez le menu « Ouvrir dans... » pour les sources de données dans le portail Azure Data Catalog, l’application cliente appropriée doit être installée sur l’ordinateur client.
+ ![Opening a SQL Server Reporting Services report in Report Manager from the search bar](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
-| Ouvrir dans l’application | Extension de fichier/protocole | Versions d’application prises en charge |
+## <a name="supported-client-applications"></a>Supported Client Applications
+When using the “Open in…” menu for data sources in the Azure Data Catalog portal, the correct client application must be installed on the client computer.
+
+| Open in application | File extension / protocol | Supported application versions |
 | --- | --- | --- |
-| Excel | .odc | Excel 2010 ou version ultérieure |
-| Excel (1 000 premiers) | .odc | Excel 2010 ou version ultérieure |
-| Power Query | .xlsx | Excel 2016 ou Excel 2010 ou Excel 2013 avec la macro complémentaire Power Query pour Excel installée
-| Power BI Desktop | .pbix | Power BI Desktop juillet 2016 ou version ultérieure |
-| SQL Server Data Tools | vsweb:// | Visual Studio 2013 Update 4 ou version ultérieure avec les outils SQL Server installés |
-| Gestionnaire de rapports | http:// | Voir la [configuration de navigateur requise pour SQL Server Reporting Services](https://technet.microsoft.com/fr-FR/library/ms156511.aspx) |
+| Excel | .odc | Excel 2010 or later |
+| Excel (Top 1000) | .odc | Excel 2010 or later |
+| Power Query | .xlsx | Excel 2016 or Excel 2010 or Excel 2013 with the Power Query for Excel add-in installed
+| Power BI Desktop | .pbix | Power BI Desktop July 2016 or later |
+| SQL Server Data Tools | vsweb:// | Visual Studio 2013 Update 4 or later with SQL Server tooling installed |
+| Report Manager | http:// | See [browser requirements for SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
 
-## Vos données, vos outils
-Les options disponibles dans le menu dépendent du type de ressource de données actuellement sélectionné. Bien entendu, le menu « Ouvrir dans... » ne présente pas tous les outils applicables. Cependant, il est relativement simple de se connecter à la source de données à l’aide de n’importe quel outil client. Lorsqu’une ressource de données est sélectionnée dans le portail **Azure Data Catalog**, l’emplacement complet s’affiche dans le volet des propriétés.
+## <a name="your-data,-your-tools"></a>Your data, your tools
+The options available in the menu will depend on the type of data asset currently selected. Of course, not all possible tools will be included in the “Open in…” menu, but it is still easy to connect to the data source using any client tool. When a data asset is selected in the **Azure Data Catalog** portal, the complete location is displayed in the properties pane.
 
- ![Informations de connexion pour une table SQL Server](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
+ ![Connection information for a SQL Server table](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
 
-Les informations de connexion diffèrent selon le type de source de données, mais les informations incluses dans le portail vous fourniront tout ce dont vous avez besoin pour vous connecter à la source de données avec n’importe quel outil client. Les utilisateurs peuvent copier les détails de connexion relatifs aux sources de données qu’ils ont détectées à l’aide d’**Azure Data Catalog**. Ils peuvent ainsi utiliser les données avec l’outil de leur choix.
+The connection information details will differ from data source type to data source type, but the information included in the portal will give you everything you need to connect to the data source in any client tool. Users can copy the connection details for the data sources that they have discovered using **Azure Data Catalog**, enabling them to work with the data in their tool of choice.
 
-## Connexion et autorisations de sources de données
-Même si **Azure Data Catalog** rend les sources de données détectables, l’accès aux données proprement dites reste sous le contrôle du propriétaire ou de l’administrateur des sources de données. La détection d’une source de données dans **Azure Data Catalog** ne donne pas à l’utilisateur l’autorisation d’accéder à la source de données proprement dite.
+## <a name="connecting-and-data-source-permissions"></a>Connecting and data source permissions
+Although **Azure Data Catalog** makes data sources discoverable, access to the data itself remains under the control of the data source owner or administrator. Discovering a data source in **Azure Data Catalog** does not give a user any permissions to access the data source itself.
 
-À des fins de simplicité, les utilisateurs qui détectent une source de données mais ne sont pas autorisés à accéder aux données correspondantes peuvent fournir des informations via la propriété Request Access lors de l’annotation d’une source de données. Les informations fournies ici (notamment les liens vers le processus ou le point de contact pour obtenir l’accès à la source de données) sont présentées avec les informations d’emplacement de source de données, dans le portail.
+To make it easier for users who discover a data source but do not have permission to access its data, users can provide information in the Request Access property when annotating a data source. Information provided here – including links to the process or point of contact for gaining data source access – is presented alongside the data source location information in the portal.
 
- ![Informations de connexion avec fourniture des instructions d’accès de requête](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
+ ![Connection information with request access instructions provided](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
-##Résumé
-L’inscription d’une source de données avec **Azure Data Catalog** favorise la détection des données. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite et détectée, les utilisateurs peuvent se connecter à la source de données à partir du menu « Ouvrir dans... » du portail **Azure Data Catalog** ou à l’aide des outils de données de leur choix.
+##<a name="summary"></a>Summary
+Registering a data source with **Azure Data Catalog** makes that data discoverable by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, and discovered, users can connect to the data source from the **Azure Data Catalog** portal “Open in…”” menu or using their data tools of choice.
 
-## Voir aussi
-- Didacticiel [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) décrivant la procédure pas à pas de connexion à des sources de données.
+## <a name="see-also"></a>See also
+- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to connect to data sources.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,33 +1,37 @@
 
 <!--author=SharS last changed: 9/15/15-->
 
-#### Pour ajouter ou modifier une planification de sauvegarde StorSimple
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
 
-1. Dans la page **Démarrage rapide**, cliquez sur l’onglet **Stratégies de sauvegarde**. La page **Stratégies de sauvegarde** s’affiche.
+1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
 
-2. Dans la liste des stratégies, cliquez sur la stratégie que vous souhaitez modifier.
+2. In the tabular listing of the policies, select and click the policy that you want to edit.
 
-3. Dans **Général**, vous pouvez modifier le nom de la stratégie de sauvegarde.
+3. Under **general**, you can modify the backup policy name.
 
-4. Dans **Planifications**, cliquez sur **Gérer les planifications** pour ajouter ou supprimer des planifications. Dans la boîte de dialogue **Gérer la planification**, procédez comme suit :
+4. Under **schedules**, click **manage schedules** to add or remove schedules. In the **Manage Schedule** dialog box, do the following:
 
-    1. Sélectionnez ou créez une planification.
+    1. Choose an existing schedule or create a new schedule.
 
-    2. Sélectionnez le type de sauvegarde (instantané local ou cloud).
+    2. Select the type of backup as local or cloud snapshot.
 
-    3. Indiquez la fréquence de sauvegarde, la rétention et l’heure de début de la planification.
+    3. Specify the backup frequency, retention, and starting time of the schedule.
 
-    4. Activez ou désactivez la planification.
+    4. Enable or disable the schedule.
 
-    5. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) pour enregistrer la planification.
+    5. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) to save the changes to the schedule.
 
-5. Dans la section **Volumes**, ajoutez des volumes à cette stratégie ou supprimez-en.
+5. In the **Volumes** section, add or remove the volumes to this policy.
 
-6. Enregistrez les modifications apportées à cette stratégie.
+6. Save the changes to this policy.
 
-7. Vous êtes invité à confirmer l’opération. Cliquez sur **OK** pour enregistrer les modifications.
+7. You will prompted for confirmation. Click **OK** to save the policy.
 
-La page **Stratégies de sauvegarde** affiche la stratégie mise à jour.
+The **Backup Policies** page will be updated to save the changes to the policy.
  
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

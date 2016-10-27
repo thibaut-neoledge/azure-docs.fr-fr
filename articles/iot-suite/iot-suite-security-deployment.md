@@ -14,12 +14,13 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/20/2016"
+ ms.date="10/07/2016"
  ms.author="yurid"/>
+
 
 [AZURE.INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 
@@ -29,4 +30,7 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0727_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

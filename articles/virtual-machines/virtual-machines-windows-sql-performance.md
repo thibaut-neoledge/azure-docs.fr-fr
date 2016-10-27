@@ -1,157 +1,162 @@
 <properties
-	pageTitle="Meilleures pratiques relatives aux performances de SQL Server | Microsoft Azure"
-	description="Présente les meilleures pratiques pour optimiser les performances de SQL Server dans Microsoft Azure Virtual Machines."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"
-	editor=""
-	tags="azure-service-management" />
+    pageTitle="Performance best practices for SQL Server | Microsoft Azure"
+    description="Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"
+    editor=""
+    tags="azure-service-management" />
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/07/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/07/2016"
+    ms.author="jroth" />
 
-# Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure
 
-## Vue d'ensemble
+# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Performance best practices for SQL Server in Azure Virtual Machines
 
-Cette rubrique présente les meilleures pratiques pour optimiser les performances de SQL Server dans la machine virtuelle Microsoft Azure. Lorsque vous exécutez SQL Server dans Microsoft Azure Virtual Machines, nous vous recommandons de continuer à utiliser les mêmes options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement serveur local. Toutefois, les performances d’une base de données relationnelle dans un cloud public dépendent de nombreux facteurs, comme la taille de la machine virtuelle et la configuration des disques de données.
+## <a name="overview"></a>Overview
 
-Lors de la création d’images SQL Server, [pensez à approvisionner vos machines virtuelles dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md). Les machines virtuelles SQL Server approvisionnées dans le portail avec Resource Manager mettent en œuvre toutes ces meilleures pratiques, dont la configuration du stockage.
+This topic provides best practices for optimizing SQL Server performance in Microsoft Azure Virtual Machine. While running SQL Server in Azure Virtual Machines, we recommend that you continue using the same database performance tuning options that are applicable to SQL Server in on-premises server environment. However, the performance of a relational database in a public cloud depends on many factors such as the size of a virtual machine, and the configuration of the data disks.
 
-Cet article est axé sur l’obtention des *meilleures* performances pour SQL Server sur les machines virtuelles Azure. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations suivantes. Tenez compte de vos besoins de performances et de vos modèles de charges de travail lors de l’évaluation de ces recommandations.
+When creating SQL Server images, [consider provisioning your VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server VMs provisioned in the Portal with Resource Manager implement all these best practices, including the storage configuration.
+
+This article is focused on getting the *best* performance for SQL Server on Azure VMs. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs and workload patterns as you evaluate these recommendations.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## Liste de vérification rapide
+## <a name="quick-check-list"></a>Quick check list
 
-Voici une liste de vérification rapide pour optimiser les performances de SQL Server sur Azure Virtual Machines :
+The following is a quick check list for optimal performance of SQL Server on Azure Virtual Machines:
 
-|Domaine|Optimisations|
+|Area|Optimizations|
 |---|---|
-|[Taille de la machine virtuelle](#vm-size-guidance)|[DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) ou supérieure pour SQL Server Enterprise Edition<br/><br/>[DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) ou supérieure pour SQL Server Standard Edition ou SQL Server Web Edition.|
-|[Stockage](#storage-guidance)|Utiliser [Premium Storage](../storage/storage-premium-storage.md). Le stockage standard n’est recommandé que pour le développement et le test.<br/><br/>Conservez le [compte de stockage](../storage/storage-create-storage-account.md) et la machine virtuelle SQL Server dans la même région.<br/><br/>Désactivez le [stockage géo-redondant](../storage/storage-redundancy.md) (géo-réplication) d’Azure sur le compte de stockage.|
-|[Disques](#disks-guidance)|Utilisez un minimum de 2 [disques P30](../storage/storage-premium-storage.md#scalability-and-performance-targets-whfr-FRing-premium-storage) (1 pour les fichiers journaux ; 1 pour les fichiers de données et TempDB).<br/><br/>Évitez d’utiliser des disques du système d’exploitation ou des disques temporaires pour le stockage de bases de données ou pour la journalisation.<br/><br/>Activez la mise en cache en lecture sur le ou les disques hébergeant les fichiers de données et TempDB.<br/><br/>N’activez pas la mise en cache sur le ou les disques qui hébergent le fichier journal.<br/><br/>Important : arrêtez le service SQL Server quand vous modifiez les paramètres de cache d’un disque de machine virtuelle Azure.<br/><br/>Entrelacez plusieurs disques de données Azure pour obtenir un débit d’E/S plus élevé.<br/><br/>Formatez avec des tailles d’allocation documentées.|
-|[E/S](#io-guidance)|Activez la compression des pages de base de données.<br/><br/>Activez l’initialisation instantanée des fichiers pour les fichiers de données.<br/><br/>Limitez ou désactivez la croissance automatique sur la base de données.<br/><br/>Désactivez la réduction automatique de la base de données.<br/><br/>Déplacez toutes les bases de données vers des disques de données, y compris les bases de données système.<br/><br/>Déplacez les répertoires des fichiers des journaux d’erreurs et de suivi de SQL Server vers des disques de données.<br/><br/>Configurez les emplacements par défaut des fichiers de sauvegarde et de la base de données.<br/><br/>Activez les pages verrouillées.<br/><br/>Appliquez les correctifs de performances de SQL Server.|
-|[Fonctionnalités spécifiques](#feature-specific-guidance)|Sauvegardez directement dans le stockage d’objets blob.|
+|[VM size](#vm-size-guidance)|[DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) or higher for SQL Enterprise edition.<br/><br/>[DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) or higher for SQL Standard and Web editions.|
+|[Storage](#storage-guidance)|Use [Premium Storage](../storage/storage-premium-storage.md). Standard storage is only recommended for dev/test.<br/><br/>Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../storage/storage-redundancy.md) (geo-replication) on the storage account.|
+|[Disks](#disks-guidance)|Use a minimum of 2 [P30 disks](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Important: Stop the SQL Server service when changing the cache settings for an Azure VM disk.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes.|
+|[I/O](#io-guidance)|Enable database page compression.<br/><br/>Enable instant file initialization for data files.<br/><br/>Limit or disable autogrow on the database.<br/><br/>Disable autoshrink on the database.<br/><br/>Move all databases to data disks, including system databases.<br/><br/>Move SQL Server error log and trace file directories to data disks.<br/><br/>Setup default backup and database file locations.<br/><br/>Enable locked pages.<br/><br/>Apply SQL Server performance fixes.|
+|[Feature specific](#feature-specific-guidance)|Back up directly to blob storage.|
 
-Pour plus d’informations sur *comment* et *pourquoi* effectuer ces optimisations, passez en revue les détails et les instructions fournies dans les sections suivantes.
+For more information on *how* and *why* to make these optimizations, please review the details and guidance provided in following sections.
 
-## Conseils liés à la taille des machines virtuelles
+## <a name="vm-size-guidance"></a>VM size guidance
 
-Pour les applications sensibles aux performances, il est recommandé d’utiliser les [tailles de machines virtuelles](virtual-machines-windows-sizes.md) suivantes :
+For performance sensitive applications, it’s recommended that you use the following [virtual machines sizes](virtual-machines-windows-sizes.md):
 
-- **SQL Server Enterprise Edition** : DS3 ou supérieure
+- **SQL Server Enterprise Edition**: DS3 or higher
 
-- **SQL Server Standard Edition ou SQL Server Web Edition** : DS2 ou supérieure
+- **SQL Server Standard and Web Editions**: DS2 or higher
 
 
-## Conseils liés au stockage
+## <a name="storage-guidance"></a>Storage guidance
 
-Les machines virtuelles de série DS (ainsi que des séries DSv2 et GS) prennent en charge le [stockage Premium](../storage/storage-premium-storage.md). L’option Premium Storage est recommandée pour toutes les charges de travail de production.
+DS-series (along with DSv2-series and GS-series) VMs support [Premium Storage](../storage/storage-premium-storage.md). Premium Storage is recommended for all production workloads.
 
-> [AZURE.WARNING] L’option Standard Storage possède différents temps de latence et une bande passante variable. Elle est recommandée uniquement pour les charges de travail de développement/de test. Les charges de production doivent utiliser Premium Storage.
+> [AZURE.WARNING] Standard Storage has varying latencies and bandwidth and is only recommended for dev/test workloads. Production workloads should use Premium Storage.
 
-Par ailleurs, nous vous recommandons de créer votre compte de stockage Azure dans le même centre de données que vos machines virtuelles SQL Server afin de réduire les délais de transfert. Lors de la création d’un compte de stockage, désactivez la géo-réplication, étant donné que la cohérence de l’ordre d’écriture sur différents disques n’est pas garantie. Envisagez plutôt de configurer une technologie de récupération d’urgence de SQL Server entre deux centres de données Azure. Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](virtual-machines-windows-sql-high-availability-dr.md).
+In addition, we recommend that you create your Azure storage account in the same data center as your SQL Server virtual machines to reduce transfer delays. When creating a storage account, disable geo-replication as consistent write order across multiple disks is not guaranteed. Instead, consider configuring a SQL Server disaster recovery technology between two Azure data centers. For more information, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
-## Conseils liés aux disques
+## <a name="disks-guidance"></a>Disks guidance
 
-Il existe trois types de disques principaux sur une machine virtuelle Azure :
+There are three main disk types on an Azure VM:
 
-- **Disque de système d’exploitation** : quand vous créez une machine virtuelle Azure, la plateforme attache au moins un disque (désigné par la lettre **C**) à la machine virtuelle en tant que disque de système d’exploitation. Ce disque est un disque dur virtuel (VHD) stocké en tant qu’objet blob de pages dans le stockage.
-- **Disque temporaire** : les machines virtuelles Azure contiennent un autre disque, appelé disque temporaire (portant le nom de lecteur **D**:). C’est un disque du nœud qui peut être utilisé comme un espace de travail temporaire.
-- **Disques de données** : vous pouvez également attacher des disques supplémentaires à votre machine virtuelle en tant que disques de données ; ces disques sont également stockés en tant qu’objets blob de pages.
+- **OS disk**: When you create an Azure Virtual Machine, the platform will attach at least one disk (labeled as the **C** drive) to the VM for your operating system disk. This disk is a VHD stored as a page blob in storage.
+- **Temporary disk**: Azure Virtual Machines contain another disk called the temporary disk (labeled as the **D**: drive). This is a disk on the node that can be used for scratch space.
+- **Data disks**: You can also attach additional disks to your virtual machine as data disks, and these will be stored in storage as page blobs.
 
-Les sections suivantes décrivent des recommandations pour l’utilisation de ces disques différents.
+The following sections describe recommendations for using these different disks.
 
-### Disque de système d’exploitation
+### <a name="operating-system-disk"></a>Operating system disk
 
-Un disque de système d’exploitation est un disque dur virtuel (VHD) que vous pouvez amorcer et monter comme version d’exécution d’un système d’exploitation. Il est désigné par la lettre de lecteur **C**.
+An operating system disk is a VHD that you can boot and mount as a running version of an operating system and is labeled as **C** drive.
 
-La stratégie de mise en cache par défaut sur le disque du système d’exploitation est **Lecture/Écriture**. Pour les applications sensibles aux performances, nous vous recommandons d’utiliser le disque de données au lieu du disque du système d’exploitation. Reportez-vous à la section sur les disques de données ci-dessous.
+Default caching policy on the operating system disk is **Read/Write**. For performance sensitive applications, we recommend that you use data disks instead of the operating system disk. See the section on Data Disks below.
 
-### Disque temporaire
+### <a name="temporary-disk"></a>Temporary disk
 
-Le disque de stockage temporaire, désigné par la lettre de **D**:, n’est pas persistant dans Azure Blob Storage. Ne stockez pas vos fichiers de base de données utilisateur ou vos fichiers journaux des transactions utilisateur sur le lecteur **D**:.
+The temporary storage drive, labeled as the **D**: drive, is not persisted to Azure blob storage. Do not store your user database files or user transaction log files on the **D**: drive.
 
-Sur les machines virtuelles de série D, Dv2 et G, le lecteur temporaire réside sur un disque SSD. Si votre charge de travail exploite intensivement TempDB (par exemple, pour les objets temporaires ou des jointures complexes), le stockage de TempDB sur le lecteur **D** peut entraîner un débit plus élevé et réduire la latence de TempDB.
+For D-series, Dv2-series, and G-series VMs, the temporary drive on these VMs is SSD-based. If your workload makes heavy use of TempDB (e.g. for temporary objects or complex joins), storing TempDB on the **D** drive could result in higher TempDB throughput and lower TempDB latency.
 
-Pour les machines virtuelles qui prennent en charge Premium Storage (de série DS, DSv2 et GS), nous vous recommandons de stocker TempDB et/ou les extensions du pool de mémoires tampons sur un disque qui prend en charge Premium Stockage avec la mise en cache en lecture activée. Il existe une exception à cette recommandation : si votre utilisation de TempDB est intensive en écriture, vous pouvez obtenir des performances supérieures en stockant TempDB sur le lecteur **D** local, qui est également un disque SSD sur ces tailles de machines.
+For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we recommend storing TempDB and/or Buffer Pool Extensions on a disk that supports Premium Storage with read caching enabled. There is one exception to this recommendation; if your TempDB usage is write-intensive, you can achieve higher performance by storing TempDB on the local **D** drive, which is also SSD-based on these machine sizes.
 
-### Disques de données
+### <a name="data-disks"></a>Data disks
 
-- **Utilisation de disques de données pour les données et les fichiers journaux** : utilisez au moins 2 [disques P30](../storage/storage-premium-storage.md#scalability-and-performance-targets-whfr-FRing-premium-storage) de stockage Premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir le ou les fichiers de données et TempDB.
+- **Use data disks for data and log files**: At a minimum, use 2 Premium Storage [P30 disks](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage) where one disk contains the log file(s) and the other contains the data file(s) and TempDB.
 
-- **Entrelacement de disques** : pour augmenter le débit, vous pouvez ajouter des disques de données supplémentaires et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, vous devez analyser le nombre d’opérations d’E/S par seconde disponibles pour vos disques de données et de journaux. Pour plus d’informations, consultez les tableaux sur les E/S par seconde par [taille de machine virtuelle](virtual-machines-windows-sizes.md) et par taille de disque dans l’article suivant : [Utilisation du stockage Premium pour les disques](../storage/storage-premium-storage.md). Utilisez les recommandations suivantes :
+- **Disk Striping**: For more throughput, you can add additional data disks and use Disk Striping. To determine the number of data disks, you need to analyze the number of IOPS available for your data and log disk(s). For that information, see the tables on IOPS per [VM size](virtual-machines-windows-sizes.md) and disk size in the following article: [Using Premium Storage for Disks](../storage/storage-premium-storage.md). Use the following these guidelines:
 
-	- Pour Windows 8/Windows Server 2012 ou version ultérieure, utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx). Définissez la taille de bande sur 64 Ko pour les charges de travail OLTP et sur 256 Ko pour les charges de travail d’entrepôt de données, afin d’éviter qu’un alignement incorrect de la partition n’affecte les performances. Définissez également le nombre de colonnes pour le faire correspondre au nombre de disques physiques. Pour configurer un espace de stockage avec plus de 8 disques, vous devez utiliser PowerShell (et non pas l’interface utilisateur du Gestionnaire de serveur) pour définir de façon explicite le nombre de colonnes pour le faire correspondre au nombre de disques. Pour plus d’informations sur la configuration des [espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx), consultez [Applets de commande des espaces de stockage dans Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx).
+    - For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx). Set stripe size to 64 KB for OLTP workloads and 256 KB for data warehousing workloads to avoid performance impact due to partition misalignment. In addition, set column count = number of physical disks. To configure a Storage Space with more than 8 disks you must use PowerShell (not Server Manager UI) to explicitly set the number of columns to match the number of disks. For more information on how to configure [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx), see [Storage Spaces Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx)
 
-	- Pour Windows 2008 R2 ou version antérieure, vous pouvez utiliser des disques dynamiques (volumes entrelacés de système d’exploitation). La taille de l’entrelacement restera 64 Ko. Remarque : cette option est déconseillée à partir des versions Windows 8/Windows Server 2012. Pour plus d’informations, consultez les instructions du support dans [Transition du service de disque virtuel vers l’API de gestion de stockage Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
+    - For Windows 2008 R2 or earlier, you can use dynamic disks (OS striped volumes) and the stripe size is always 64 KB. Note that this option is deprecated as of Windows 8/Windows Server 2012. For information, see the support statement at [Virtual Disk Service is transitioning to Windows Storage Management API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-	- Si votre charge de travail ne génère pas intensivement de journaux et ne nécessite pas d’opérations d’E/S par seconde dédiées, vous pouvez configurer un seul pool de stockage. Sinon, créez deux pools de stockage, un pour les fichiers journaux et un autre pour les fichiers de données et TempDB. Déterminez le nombre de disques associés à chaque pool de stockage en fonction de vos attentes en matière de charge. N’oubliez pas que les différentes tailles de machines virtuelles autorisent différents nombres de disques de données attachés. Pour plus d’informations, consultez [Tailles de machines virtuelles](virtual-machines-windows-sizes.md).
+    - If your workload is not log intensive and does not need dedicated IOPs, you can configure just one storage pool. Otherwise, create two storage pools, one for the log file(s) and another storage pool for the data file(s) and TempDB. Determine the number of disks associated with each storage pool based on your load expectations. Keep in mind that different VM sizes allow different numbers of attached data disks. For more information, see [Sizes for Virtual Machines](virtual-machines-windows-sizes.md).
 
-	- Si vous n’utilisez pas le stockage Premium (scénarios de développement/de test), nous vous recommandons d’ajouter le nombre maximal de disques de données pris en charge par la [taille de votre machine virtuelle](virtual-machines-windows-sizes.md) et d’utiliser l’entrelacement de disques.
+    - If you are not using Premium Storage (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](virtual-machines-windows-sizes.md) and use Disk Striping.
 
-- **Stratégie de mise en cache** : pour les disques de données de stockage Premium, activez la mise en cache de lecture uniquement sur les disques de données hébergeant vos fichiers de données et TempDB. Si vous n’utilisez pas Premium Storage, n’activez aucune mise en cache sur les disques de données. Pour obtenir des instructions sur la configuration de la mise en cache des disques, consultez les rubriques suivantes : [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) et [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+- **Caching policy**: For Premium Storage data disks, enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
-	>[AZURE.WARNING] Arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache de disques de machines virtuelles Azure pour éviter toute altération de la base de données.
+    >[AZURE.WARNING] Stop the SQL Server service when changing the cache setting of Azure VM disks to avoid the possibility of any database corruption.
 
-- **Taille d’unité d’allocation NTFS** : lors du formatage du disque de données, il est recommandé d’utiliser une taille d’unité d’allocation de 64 Ko pour les fichiers de données et les fichiers journaux, ainsi que pour TempDB.
+- **NTFS allocation unit size**: When formatting the data disk, it is recommended that you use a 64-KB allocation unit size for data and log files as well as TempDB.
 
-- **Meilleures pratiques de gestion des disques** : lors de la suppression d’un disque de données ou de la modification de son type de cache, arrêtez le service SQL Server. Lorsque les paramètres de mise en cache sont modifiés sur le disque du système d’exploitation, Azure arrête la machine virtuelle, modifie le type de cache et redémarre la machine virtuelle. Lorsque les paramètres du cache d’un disque de données sont modifiés, la machine virtuelle n’est pas arrêtée, mais le disque de données est détaché de la machine virtuelle lors de la modification, puis rattaché.
+- **Disk management best practices**: When removing a data disk or changing its cache type, stop the SQL Server service during the change. When the caching settings are changed on the OS disk, Azure stops the VM, changes the cache type, and restarts the VM. When the cache settings of a data disk are changed, the VM is not stopped, but the data disk is detached from the VM during the change and then reattached.
 
-	>[AZURE.WARNING] Si le service SQL Server n’est pas arrêté au cours de ces opérations, cela peut provoquer une altération de la base de données.
+    >[AZURE.WARNING] Failure to stop the SQL Server service during these operations can cause database corruption.
 
-## Recommandations liées aux E/S
+## <a name="i/o-guidance"></a>I/O guidance
 
-- Pour obtenir les meilleurs résultats avec Premium Storage, vous devez paralléliser vos applications et vos demandes. Premium Storage est conçu pour les scénarios où la profondeur de file d’attente est supérieure à 1. Les améliorations seront donc minimes ou inexistantes pour les demandes de série à thread unique (même si elles sont gourmandes en stockage). Par exemple, cela peut affecter les résultats des tests à thread unique des outils d’analyses de performances, par exemple SQLIO.
+- The best results with Premium Storage are achieved when you parallelize your application and requests. Premium Storage is designed for scenarios where the IO queue depth is greater than 1, so you will see little or no performance gains for single-threaded serial requests (even if they are storage intensive). For example, this could impact the single-threaded test results of performance analysis tools, such as SQLIO.
 
-- Envisagez d’utiliser un [compression des pages de base de données](https://msdn.microsoft.com/library/cc280449.aspx), car elle peut améliorer les performances de charges de travail gourmandes en E/S. Toutefois, la compression de données peut augmenter la consommation d’UC sur le serveur de base de données.
+- Consider using [database page compression](https://msdn.microsoft.com/library/cc280449.aspx) as it can help improve performance of I/O intensive workloads. However, the data compression might increase the CPU consumption on the database server.
 
-- Envisagez d’activer l’initialisation instantanée des fichiers pour réduire le temps requis pour l’allocation initiale des fichiers. Pour tirer parti de l’initialisation instantanée des fichiers, vous devez accorder l’autorisation SE\_MANAGE\_VOLUME\_NAME au compte de service SQL Server (MSSQLSERVER) et l’ajouter à la stratégie de sécurité **Effectuer des tâches de maintenance sur les volumes**. Si vous utilisez une image de plateforme SQL Server pour Azure, le compte de service par défaut (NT Service\\MSSQLSERVER) n’est pas ajouté à la stratégie de sécurité **Effectuer des tâches de maintenance sur les volumes**. En d’autres termes, l’initialisation instantanée des fichiers n’est pas activée dans une image de plateforme SQL Server pour Azure. Après avoir ajouté le compte de service SQL Server à la stratégie de sécurité **Effectuer les tâches de maintenance de volume**, redémarrez le service SQL Server. Des considérations de sécurité liées à l’utilisation de cette fonctionnalité peuvent exister. Pour plus d’informations, consultez [Initialisation des fichiers de base de données](https://msdn.microsoft.com/library/ms175935.aspx).
+- Consider enabling instant file initialization to reduce the time that is required for initial file allocation. To take advantage of instant file initialization, you grant the SQL Server (MSSQLSERVER) service account with SE_MANAGE_VOLUME_NAME and add it to the **Perform Volume Maintenance Tasks** security policy. If you are using a SQL Server platform image for Azure, the default service account (NT Service\MSSQLSERVER) isn’t added to the **Perform Volume Maintenance Tasks** security policy. In other words, instant file initialization is not enabled in a SQL Server Azure platform image. After adding the SQL Server service account to the **Perform Volume Maintenance Tasks** security policy, restart the SQL Server service. There could be security considerations for using this feature. For more information, see [Database File Initialization](https://msdn.microsoft.com/library/ms175935.aspx).
 
-- La croissance automatique (**autogrow**) est considérée comme un simple plan d’urgence en cas de croissance plus rapide que prévu. Ne gérez pas la croissance de vos données et journaux quotidiennement avec la croissance automatique. En cas d’utilisation de la croissance automatique, augmentez préalablement le fichier à l’aide du commutateur Taille.
+- **autogrow** is considered to be merely a contingency for unexpected growth. Do not manage your data and log growth on a day-to-day basis with autogrow. If autogrow is used, pre-grow the file using the Size switch.
 
-- Vérifiez que la fonctionnalité de réduction automatique (**autoshrink**) est désactivée afin d’éviter une surcharge inutile susceptible d’affecter négativement les performances.
+- Make sure **autoshrink** is disabled to avoid unnecessary overhead that can negatively affect performance.
 
-- Déplacer toutes les bases de données vers des disques de données, y compris les bases de données système. Pour plus d’informations, consultez [Déplacer des bases de données système](https://msdn.microsoft.com/library/ms345408.aspx).
+- Move all databases to data disks, including system databases. For more information, see [Move System Databases](https://msdn.microsoft.com/library/ms345408.aspx).
 
-- Déplacer les répertoires des journaux d’erreurs et des fichiers de trace SQL Server vers des disques de données. Cette opération peut être effectuée dans le Gestionnaire de configuration SQL Server en double-cliquant sur l’instance de SQL Server et en sélectionnant des propriétés. Il est possible de modifier les paramètres du fichier journal et du fichier de trace sous l’onglet **Paramètres de démarrage**. Le répertoire de vidage est spécifié sous l’onglet **Avancé**. La capture d’écran suivante indique où rechercher le paramètre de démarrage du journal des erreurs.
+- Move SQL Server error log and trace file directories to data disks. This can be done in SQL Server Configuration Manager by right-clicking your SQL Server instance and selecting properties. The error log and trace file settings can be changed in the **Startup Parameters** tab. The Dump Directory is specified in the **Advanced** tab. The following screenshot shows where to look for the error log startup parameter.
 
-	![Capture d’écran du journal des erreurs SQL](./media/virtual-machines-windows-sql-performance/sql_server_error_log_location.png)
+    ![SQL ErrorLog Screenshot](./media/virtual-machines-windows-sql-performance/sql_server_error_log_location.png)
 
-- Configurez les emplacements par défaut du fichier de sauvegarde et du fichier de base de données. Utilisez les recommandations de cette rubrique, puis apportez les modifications souhaitées dans la fenêtre Propriétés du serveur. Pour obtenir des instructions, consultez [Afficher ou modifier les emplacements par défaut des fichiers de données et des fichiers journaux (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). La capture d’écran suivante montre comment effectuer ces modifications.
+- Setup default backup and database file locations. Use the recommendations in this topic, and make the changes in the Server properties window. For instructions, see [View or Change the Default Locations for Data and Log Files (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). The following screenshot demonstrates where to make these changes.
 
-	![Journal des données et fichiers de sauvegarde SQL](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
+    ![SQL Data Log and Backup files](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 
-- Activez les pages verrouillées pour réduire les activités d’E/S et de pagination. Pour plus d’informations, consultez [Activer l’option Lock Pages in Memory (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
+- Enable locked pages to reduce IO and any paging activities. For more information, see [Enable the Lock Pages in Memory Option (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 
-- Si vous exécutez SQL Server 2012, installez la mise à jour cumulative 10 Service Pack 1. Elle contient le correctif qui permet de résoudre les problèmes de performances d’E/S lorsque vous exécutez une sélection dans l’instruction de table temporaire dans SQL Server 2012. Pour plus d’informations, consultez cet [article de la Base de connaissances](http://support.microsoft.com/kb/2958012).
+- If you are running SQL Server 2012, install Service Pack 1 Cumulative Update 10. This update contains the fix for poor performance on I/O when you execute select into temporary table statement in SQL Server 2012. For information, see this [knowledge base article](http://support.microsoft.com/kb/2958012).
 
-- Envisagez de compresser tous les fichiers de données lors des transferts vers et depuis Azure.
+- Consider compressing any data files when transferring in/out of Azure.
 
-## Recommandations liées aux fonctionnalités spécifiques
+## <a name="feature-specific-guidance"></a>Feature specific guidance
 
-Certains déploiements peuvent bénéficier de plus grands avantages en termes de performances à l’aide de techniques de configuration avancées. La liste suivante présente certaines fonctionnalités SQL Server qui peuvent vous aider à améliorer les performances :
+Some deployments may achieve additional performance benefits using more advanced configuration techniques. The following list highlights some SQL Server features that can help you to achieve better performance:
 
-- **Sauvegarde vers le stockage Azure** : lors de la création de sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure, vous pouvez vous référer à [Sauvegarde de SQL Server vers une URL](https://msdn.microsoft.com/library/dn435916.aspx). Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés. Lors de la sauvegarde ou la restauration vers/depuis Azure Storage, suivez les recommandations indiquées dans [Meilleures pratiques et résolution des problèmes pour la sauvegarde de SQL Server vers une URL et Restauration à partir de sauvegardes stockées dans Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md).
+- **Backup to Azure storage**: When performing backups for SQL Server running in Azure virtual machines, you can use [SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx). This feature is available starting with SQL Server 2012 SP1 CU2 and recommended for backing up to the attached data disks. When you backup/restore to/from Azure storage, follow the recommendations provided at [SQL Server Backup to URL Best Practices and Troubleshooting and Restoring from Backups Stored in Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). You can also automate these backups using [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md).
 
-	Pour les versions antérieures à SQL Server 2012, vous pouvez utiliser l’[outil de sauvegarde SQL Server vers Azure](https://www.microsoft.com/download/details.aspx?id=40740). Cet outil peut augmenter le débit de sauvegarde à l’aide de plusieurs cibles d’entrelacement de sauvegarde.
+    Prior to SQL Server 2012, you can use [SQL Server Backup to Azure Tool](https://www.microsoft.com/download/details.aspx?id=40740). This tool can help to increase backup throughput using multiple backup stripe targets.
 
-- **Fichiers de données SQL Server dans Azure** : cette nouvelle fonctionnalité, nommée [Fichiers de données SQL Server dans Azure](https://msdn.microsoft.com/library/dn385720.aspx), est disponible à partir de SQL Server 2014. L’exécution de SQL Server avec des fichiers de données dans Azure offre des caractéristiques de performances comparables à l’utilisation de disques de données Azure.
+- **SQL Server Data Files in Azure**: This new feature, [SQL Server Data Files in Azure](https://msdn.microsoft.com/library/dn385720.aspx), is available starting with SQL Server 2014. Running SQL Server with data files in Azure demonstrates comparable performance characteristics as using Azure data disks.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next Steps
 
-Si vous voulez obtenir davantage d’informations sur SQL Server et le stockage Premium, consultez l’article [Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles](virtual-machines-windows-classic-sql-server-premium-storage.md).
+If you are interested in exploring SQL Server and Premium Storage in more depth, see the article [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-windows-classic-sql-server-premium-storage.md).
 
-Pour les meilleures pratiques de sécurité, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-security.md).
+For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-Consultez d’autres rubriques relatives aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md)
+Review other SQL Server Virtual Machine topics at [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

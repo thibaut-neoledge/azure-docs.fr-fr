@@ -1,216 +1,231 @@
 <properties
-	pageTitle="Découverte : Protéger les machines virtuelles Azure avec un coffre de sauvegarde| Microsoft Azure"
-	description="Protégez les machines virtuelles Azure avec un coffre de sauvegarde. Ce didacticiel explique comment créer un archivage, inscrire des machines virtuelles, créer des stratégies et protéger des machines virtuelles dans Azure."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="cfreeman"
-	editor=""/>
+    pageTitle="First Look: Protect Azure VMs with a backup vault | Microsoft Azure"
+    description="Protect Azure VMs with Backup vault. Tutorial explains create vault, register VMs, create policy, and protect VMs in Azure."
+    services="backup"
+    documentationCenter=""
+    authors="markgalioto"
+    manager="cfreeman"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="09/15/2016"
-	ms.author="markgal; jimpark"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/15/2016"
+    ms.author="markgal; jimpark"/>
 
 
-# Découverte : sauvegarde des machines virtuelles Azure
+
+# <a name="first-look:-backing-up-azure-virtual-machines"></a>First look: Backing up Azure virtual machines
 
 > [AZURE.SELECTOR]
-- [Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md)
-- [Protéger les machines virtuelles Azure avec un coffre de sauvegarde](backup-azure-vms-first-look.md)
+- [Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
+- [Protect Azure VMs with a backup vault](backup-azure-vms-first-look.md)
 
-Ce didacticiel vous accompagne tout au long de la procédure de sauvegarde d’une machine virtuelle Azure vers un archivage de sauvegarde dans Azure. Cet article décrit le modèle Classic ou le modèle de déploiement Service Manager, pour la sauvegarde des machines virtuelles. Si vous souhaitez sauvegarder une machine virtuelle dans un coffre Recovery Services qui appartient à un groupe de ressources, consultez l’article [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md). Pour pouvoir suivre ce didacticiel, ces conditions préalables doivent être réunies :
+This tutorial takes you through the steps for backing up an Azure virtual machine (VM) to a backup vault in Azure. This article describes the Classic model or Service Manager deployment model, for backing up VMs. If you are interested in backing up a VM to a Recovery Services vault that belongs to a Resource Group, see [First look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md). To successfully complete this tutorial, these prerequisites must exist:
 
-- Vous avez créé une machine virtuelle dans votre abonnement Azure.
-- La machine virtuelle dispose d’une connectivité à des adresses IP publiques Azure. Pour plus d’informations, consultez la rubrique [Connectivité réseau](./backup-azure-vms-prepare.md#network-connectivity).
+- You have created a VM in your Azure subscription.
+- The VM has connectivity to Azure public IP addresses. For additional information, see [Network connectivity](./backup-azure-vms-prepare.md#network-connectivity).
 
-La sauvegarde d’une machine virtuelle se compose de cinq étapes principales :
+To back up a VM, there are five main steps:  
 
-![étape-1](./media/backup-azure-vms-first-look/step-one.png) Créez un coffre de sauvegarde ou identifiez un coffre de sauvegarde existant. <br/> ![étape-2](./media/backup-azure-vms-first-look/step-two.png) Utilisez le portail Azure Classic pour découvrir et inscrire les machines virtuelles. <br/> ![étape-3](./media/backup-azure-vms-first-look/step-three.png) Installez l’agent de machine virtuelle. <br/> ![étape-4](./media/backup-azure-vms-first-look/step-four.png) Créez la stratégie de protection des machines virtuelles. <br/> ![étape-5](./media/backup-azure-vms-first-look/step-five.png) Exécutez la sauvegarde.
+![step-one](./media/backup-azure-vms-first-look/step-one.png) Create a backup vault or identify an existing backup vault. <br/>
+![step-two](./media/backup-azure-vms-first-look/step-two.png) Use the Azure Classic portal to discover and register the virtual machines. <br/>
+![step-three](./media/backup-azure-vms-first-look/step-three.png) Install the VM Agent. <br/>
+![step-four](./media/backup-azure-vms-first-look/step-four.png) Create the policy for protecting the virtual machines. <br/>
+![step-five](./media/backup-azure-vms-first-look/step-five.png) Run the backup.
 
-![Vue d’ensemble du processus de sauvegarde de machine virtuelle](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
+![High-level view of VM backup process](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Ce didacticiel est destiné aux machines virtuelles qui peuvent être créées dans le portail Azure Classic. Le service Azure Backup prend en charge les machines virtuelles basées sur Resource Manager. Pour plus d’informations sur la sauvegarde des machines virtuelles dans un coffre Recovery Services, consultez l’article [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md).
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This tutorial is for use with the VMs that can be created in the Azure Classic portal. The Azure Backup service supports Resource Manager-based VMs. For details on backing up VMs to a recovery services vault, see [First Look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md).
 
 
 
-## Étape 1 : création d’un archivage (ou coffre) de sauvegarde pour une machine virtuelle
+## <a name="step-1---create-a-backup-vault-for-a-vm"></a>Step 1 - Create a backup vault for a VM
 
-Un coffre de sauvegarde est une entité qui stocke les sauvegardes et les points de récupération créés au fil du temps. Le coffre de sauvegarde contient également les stratégies de sauvegarde qui sont appliquées aux machines virtuelles en cours de sauvegarde.
+A backup vault is an entity that stores all the backups and recovery points that have been created over time. The backup vault also contains the backup policies that are applied to the virtual machines being backed up.
 
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/).
+1. Sign in to the [Azure Classic portal](http://manage.windowsazure.com/).
 
-2. Dans le coin inférieur gauche du portail Azure, cliquez sur **Nouveau**.
+2. In the lower left corner of the Azure portal, click **New**
 
-    ![Cliquez sur le menu Nouveau](./media/backup-azure-vms-first-look/new-button.png)
+    ![Click New menu](./media/backup-azure-vms-first-look/new-button.png)
 
-3. Dans l’Assistant Création rapide, cliquez sur **Data Services** > **Recovery Services** > **Coffre de sauvegarde** > **Création rapide**.
+3. In the Quick Create wizard, click **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create**.
 
-    ![Créer un archivage de sauvegarde](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
+    ![Create backup vault](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
-    L’Assistant vous invite à entrer le **Nom** et la **Région**. Si vous gérez plusieurs abonnements, une boîte de dialogue de choix de l'abonnement s'affiche.
+    The wizard prompts you for the **Name** and **Region**. If you administer more than one subscription, a dialog for choosing the subscription appears.
 
-4. Pour le champ **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure.
+4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription.
 
-5. Dans **Region**, sélectionnez la région géographique du coffre. Le coffre **doit** se trouver dans la même région que les machines virtuelles qu’il protège.
+5. In **Region**, select the geographic region for the vault. The vault **must** be in the same region as the virtual machines it protects.
 
-    Si vous ne connaissez pas la région dans laquelle se trouve votre machine virtuelle, fermez cet Assistant et cliquez sur **Machines virtuelles** dans la liste des services Azure. La colonne Emplacement fournit le nom de la région. Si vous avez des machines virtuelles dans plusieurs régions, créez un coffre de sauvegarde par région.
+    If you don't know the region in which your VM exists, close this wizard and click **Virtual Machines** in the list of Azure services. The Location column provides the name of the region. If you have virtual machines in multiple regions, create a backup vault in each region.
 
-6. Si la boîte de dialogue de l’Assistant ne contient aucun **Abonnement**, passez à l’étape suivante. Si vous travaillez avec plusieurs abonnements, sélectionnez un abonnement à associer au nouveau coffre de sauvegarde.
+6. If there is no **Subscription** dialog in the wizard, skip to the next step. If you work with multiple subscriptions, select a subscription to associate with the new backup vault.
 
-    ![Créer une notification toast l’archivage](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
+    ![Create vault toast notification](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
 
-7. Cliquez sur **Create vault**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d'état en bas du portail.
+7. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
 
-    ![Créer une notification toast l’archivage](./media/backup-azure-vms-first-look/create-vault-demo.png)
+    ![Create vault toast notification](./media/backup-azure-vms-first-look/create-vault-demo.png)
 
-    Un message confirme que le coffre a été correctement créé. Celui-ci est répertorié dans la page **Recovery Services** comme étant **Actif**.
+    A message confirms the vault has been successfully created. It is listed on the **Recovery services** page as **Active**.
 
-    ![Créer une notification toast l’archivage](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
+    ![Create vault toast notification](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
 
-8. Dans la liste des coffres de la page **Recovery Services**, sélectionnez le coffre que vous avez créé pour ouvrir la page **Démarrage rapide**.
+8. In the list of vaults on **Recovery Services** page, select the vault you created to launch the **Quick Start** page.
 
-    ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look/active-vault-demo.png)
+    ![List of backup vaults](./media/backup-azure-vms-first-look/active-vault-demo.png)
 
-9. Dans la page **Démarrage rapide**, cliquez sur **Configurer** pour accéder à l’option de réplication du stockage. ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look/configure-storage.png)
+9. On the **Quick Start** page, click **Configure** to open the storage replication option.
+    ![List of backup vaults](./media/backup-azure-vms-first-look/configure-storage.png)
 
-10. Dans l’option **Réplication du stockage**, choisissez l’option de réplication de votre coffre.
+10. On the **storage replication** option, choose the replication option for your vault.
 
-    ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
+    ![List of backup vaults](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
 
-    Par défaut, votre archivage utilise un stockage géo-redondant. Si vous utilisez Azure comme sauvegarde principale, choisissez Stockage géo-redondant. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage géo-redondant et localement redondant, consultez l’article [Réplication Azure Storage](../storage/storage-redundancy.md).
+    By default, your vault has geo-redundant storage. Choose geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about geo-redundant and locally redundant storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
 
-Après avoir sélectionné l’option de stockage pour votre archivage, vous pouvez associer la machine virtuelle à l’archivage. Pour commencer l’association, découvrez et enregistrez les machines virtuelles Azure.
+After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, discover and register the Azure virtual machines.
 
-## Étape 2 : découverte et enregistrement des machines virtuelles Azure
-Avant d’enregistrer la machine virtuelle dans un coffre, lancez le processus de découverte pour identifier les nouvelles machines virtuelles éventuelles. Ce dernier renvoie la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région.
+## <a name="step-2---discover-and-register-azure-virtual-machines"></a>Step 2 - Discover and Register Azure virtual machines
+Before registering the VM with a vault, run the discovery process to identify any new VMs. This returns a list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
 
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/).
+1. Sign in to the [Azure Classic portal](http://manage.windowsazure.com/)
 
-2. Dans le portail Azure Classic, cliquez sur **Recovery Services** pour ouvrir la liste des coffres Recovery Services. ![Sélectionner la charge de travail](./media/backup-azure-vms-first-look/recovery-services-icon.png)
+2. In the Azure classic portal, click **Recovery Services** to open the list of Recovery Services vaults.
+    ![Select workload](./media/backup-azure-vms-first-look/recovery-services-icon.png)
 
-3. Dans la liste des coffres, sélectionnez le coffre de sauvegarde d’une machine virtuelle.
+3. From the list of vaults, select the vault to back up a VM.
 
-    Votre coffre sélectionné s’ouvre à la page **Démarrage rapide**.
+    When you select your vault, it opens in the **Quick Start** page
 
-4. Dans le menu du coffre, cliquez sur **Éléments inscrits**.
+4. From the vault menu, click **Registered Items**.
 
-    ![Sélectionner la charge de travail](./media/backup-azure-vms-first-look/configure-registered-items.png)
+    ![Select workload](./media/backup-azure-vms-first-look/configure-registered-items.png)
 
-5. Dans le menu **Type**, sélectionnez **Machine virtuelle Azure**.
+5. From the **Type** menu, select **Azure Virtual Machine**.
 
-    ![Sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
+    ![Select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-6. Cliquez sur **DÉCOUVRIR** en bas de la page. ![Bouton découverte](./media/backup-azure-vms/discover-button-only.png)
+6. Click **DISCOVER** at the bottom of the page.
+    ![Discover button](./media/backup-azure-vms/discover-button-only.png)
 
-    Le processus de découverte peut durer quelques minutes, le temps que les machines virtuelles soient affichées sous forme de tableau. Une notification affichée en bas de l’écran vous informe que le processus est en cours d’exécution.
+    The discovery process may take a few minutes while the virtual machines are being tabulated. There is a notification at the bottom of the screen that lets you know that the process is running.
 
-    ![Détection des machines virtuelles](./media/backup-azure-vms/discovering-vms.png)
+    ![Discover VMs](./media/backup-azure-vms/discovering-vms.png)
 
-    La notification change lorsque le processus est terminé.
+    The notification changes when the process is complete.
 
-    ![Détection exécutée](./media/backup-azure-vms-first-look/discovery-complete.png)
+    ![Discovery done](./media/backup-azure-vms-first-look/discovery-complete.png)
 
-7. Cliquez sur **INSCRIRE** en bas de la page. ![Bouton inscription](./media/backup-azure-vms-first-look/register-icon.png)
+7. Click **REGISTER** at the bottom of the page.
+    ![Register button](./media/backup-azure-vms-first-look/register-icon.png)
 
-8. Dans le menu contextuel **Inscrire les éléments**, choisissez les machines virtuelles que vous souhaitez inscrire.
+8. In the **Register Items** shortcut menu, select the virtual machines that you want to register.
 
-    >[AZURE.TIP] Plusieurs machines virtuelles peuvent être inscrites en même temps.
+    >[AZURE.TIP] Multiple virtual machines can be registered at one time.
 
-    Un travail est créé pour chaque machine virtuelle sélectionnée.
+    A job is created for each virtual machine that you've selected.
 
-9. Cliquez sur **Afficher le travail** dans la notification pour accéder à la page **Travaux**.
+9. Click **View Job** in the notification to go to the **Jobs** page.
 
-    ![Inscrire du travail](./media/backup-azure-vms/register-create-job.png)
+    ![Register job](./media/backup-azure-vms/register-create-job.png)
 
-    La machine virtuelle est également affichée dans la liste des éléments inscrits avec l’état de l’opération d’inscription.
+    The virtual machine also appears in the list of registered items, along with the status of the registration operation.
 
-    ![État de l’inscription 1](./media/backup-azure-vms/register-status01.png)
+    ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-    Une fois l’opération terminée, l’état change pour refléter l’état *inscrit*.
+    When the operation completes, the status changes to reflect the *registered* state.
 
-    ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
+    ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
-## Étape 3 : installation de l’agent de machine virtuelle sur la machine virtuelle
+## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>Step 3 - Install the VM Agent on the virtual machine
 
-L’agent de machine virtuelle Azure doit être installé sur la machine virtuelle Azure pour permettre la prise en charge de l’extension Backup. Si votre machine virtuelle a été créée à partir de la galerie Azure, l’agent est déjà installé sur la machine virtuelle ! Vous pouvez passer à la [protection de vos machines virtuelles](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines).
+The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, the VM Agent is already present on the VM. You can skip to [protecting your VMs](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines).
 
-Si votre machine virtuelle a migré à partir d'un centre de données local, il est probable que l’agent de machine virtuelle n’y soit pas installé. Vous devez installer l'agent sur la machine virtuelle avant de passer à l’étape de protection de la machine virtuelle. Pour obtenir des instructions détaillées sur l’installation de l’agent de machine virtuelle, consultez la [section Agent VM de l’article sur la sauvegarde des machines virtuelles](backup-azure-vms-prepare.md#vm-agent).
+If your VM migrated from an on-premises datacenter, the VM probably does not have the VM Agent installed. You must install the VM Agent on the virtual machine before proceeding to protect the VM. For detailed steps on installing the VM Agent, see the [VM Agent section of the Backup VMs article](backup-azure-vms-prepare.md#vm-agent).
 
 
-## Étape 4 : création de la stratégie de sauvegarde
-Avant de déclencher le travail de sauvegarde initiale, définissez la planification des instantanés de sauvegarde. La planification des instantanés de sauvegarde et la durée de rétention de ces instantanés constituent la stratégie de sauvegarde. Les informations de rétention sont basées sur le schéma de rotation des sauvegardes grand-père-père-fils.
+## <a name="step-4---create-the-backup-policy"></a>Step 4 - Create the backup policy
+Before you trigger the initial backup job, set the schedule when backup snapshots are taken. The schedule when backup snapshots are taken, and the length of time those snapshots are retained, is the backup policy. The retention information is based on Grandfather-father-son backup rotation scheme.
 
-1. Accédez au coffre de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure Classic, puis cliquez sur **Éléments inscrits**.
-2. Sélectionnez **Machine virtuelle Azure** dans le menu déroulant.
+1. Navigate to the backup vault under **Recovery Services** in the Azure Classic portal, and  click **Registered Items**.
+2. Select **Azure Virtual Machine** from the drop-down menu.
 
-    ![Sélectionner la charge de travail dans le portail](./media/backup-azure-vms/select-workload.png)
+    ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
 
-3. En bas de la page, cliquez sur **PROTÉGER**. ![Cliquez sur Protéger](./media/backup-azure-vms-first-look/protect-icon.png)
+3. Click **PROTECT** at the bottom of the page.
+    ![Click Protect](./media/backup-azure-vms-first-look/protect-icon.png)
 
-    **L’Assistant Protection des éléments** s’affiche et répertorie *uniquement* les machines virtuelles inscrites qui ne sont pas protégées.
+    The **Protect Items wizard** appears and lists *only* virtual machines that are registered and not protected.
 
-    ![Configurer les paramètres de protection pendant la mise à jour](./media/backup-azure-vms/protect-at-scale.png)
+    ![Configure protection at scale](./media/backup-azure-vms/protect-at-scale.png)
 
-4. Sélectionnez les machines virtuelles que vous souhaitez protéger.
+4. Select the virtual machines that you want to protect.
 
-    Si au moins deux machines virtuelles portent le même nom, utilisez le service cloud pour les distinguer.
+    If there are two or more virtual machines with the same name, use the Cloud Service to distinguish between the virtual machines.
 
-5. Dans le menu **Configurer la protection**, sélectionnez une stratégie existante ou créez-en une pour protéger les machines virtuelles que vous avez identifiées.
+5. On the **Configure protection** menu select an existing policy or create a new policy to protect the virtual machines that you identified.
 
-    Les nouveaux coffres de sauvegarde ont une stratégie par défaut associée au coffre. Cette stratégie prend un instantané chaque soir ; celui-ci est conservé pendant 30 jours. Vous pouvez associer plusieurs machines virtuelles à chaque stratégie de sauvegarde. Toutefois, vous ne pouvez associer votre machine virtuelle qu’à une seule stratégie à la fois.
+    New Backup vaults have a default policy associated with the vault. This policy takes a daily snapshot each evening, and the daily snapshot is retained for 30 days. Each backup policy can have multiple virtual machines associated with it. However, the virtual machine can only be associated with one policy at a time.
 
-    ![Protéger grâce à la nouvelle stratégie](./media/backup-azure-vms/policy-schedule.png)
+    ![Protect with new policy](./media/backup-azure-vms/policy-schedule.png)
 
-    >[AZURE.NOTE] Une stratégie de sauvegarde inclut le schéma de rétention des sauvegardes planifiées. Si vous sélectionnez une stratégie de sauvegarde existante, vous ne pourrez pas modifier les options de rétention à l’étape suivante.
+    >[AZURE.NOTE] A backup policy includes a retention scheme for the scheduled backups. If you select an existing backup policy, you will be unable to modify the retention options in the next step.
 
-6. Dans le champ **Durée de rétention**, définissez l’intervalle des points de sauvegarde spécifiques (quotidien, hebdomadaire, mensuel ou annuel).
+6. On **Retention Range** define the daily, weekly, monthly, and yearly scope for the specific backup points.
 
-    ![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/long-term-retention.png)
+    ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/long-term-retention.png)
 
-    La stratégie de rétention spécifie la durée de stockage d’une sauvegarde. Vous pouvez spécifier des stratégies de rétention différentes en fonction de la date à laquelle la sauvegarde est effectuée.
+    Retention policy specifies the length of time for storing a backup. You can specify different retention policies based on when the backup is taken.
 
-7. Cliquez sur **Travaux** pour afficher la liste des travaux **Configurer la protection**.
+7. Click **Jobs** to view the list of **Configure Protection** jobs.
 
-    ![Configurer le travail de protection](./media/backup-azure-vms/protect-configureprotection.png)
+    ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
 
-    Maintenant que vous avez créé la stratégie, passez à l'étape suivante et lancez la sauvegarde initiale.
+    Now that you've established the policy, go to the next step and run the initial backup.
 
-## Étape 5 : sauvegarde initiale
+## <a name="step-5---initial-backup"></a>Step 5 - Initial backup
 
-Une fois la machine virtuelle protégée par une stratégie, vous pouvez afficher cette relation dans l’onglet **Éléments protégés**. Avant l’exécution de la sauvegarde initiale, la valeur **Protégé (en attente de sauvegarde initiale)** s’affiche sous **État de la protection**. Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
+Once a virtual machine has been protected with a policy, you can view that relationship on the **Protected Items** tab. Until the initial backup occurs, the **Protection Status** shows as **Protected - (pending initial backup)**. By default, the first scheduled backup is the *initial backup*.
 
-![Sauvegarde en attente](./media/backup-azure-vms-first-look/protection-pending-border.png)
+![Backup pending](./media/backup-azure-vms-first-look/protection-pending-border.png)
 
-Pour lancer la sauvegarde initiale :
+To start the initial backup now:
 
-1. Cliquez sur le bouton **Sauvegarder maintenant** en bas de la page **Éléments protégés**. ![Icône Sauvegarder maintenant](./media/backup-azure-vms-first-look/backup-now-icon.png)
+1. On the **Protected Items** page, click **Backup Now** at the bottom of the page.
+    ![Backup Now icon](./media/backup-azure-vms-first-look/backup-now-icon.png)
 
-    Le service Azure Backup crée un travail de sauvegarde pour l’opération de sauvegarde initiale.
+    The Azure Backup service creates a backup job for the initial backup operation.
 
-2. Cliquez sur l’onglet **Travaux** pour afficher la liste des travaux.
+2. Click the **Jobs** tab to view the list of jobs.
 
-    ![Sauvegarde en cours](./media/backup-azure-vms-first-look/protect-inprogress.png)
+    ![Backup in progress](./media/backup-azure-vms-first-look/protect-inprogress.png)
 
-    Une fois la sauvegarde initiale terminée, l’état de la machine virtuelle indiquée dans l’onglet **Éléments protégés** est défini sur la valeur *Protégé*.
+    When initial backup is complete, the status of the virtual machine in the **Protected Items** tab is *Protected*.
 
-    ![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/protect-backedupvm.png)
+    ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
 
-    >[AZURE.NOTE] La sauvegarde des machines virtuelles est un processus local. Vous ne pouvez pas sauvegarder les machines virtuelles d’une région donnée vers un archivage de sauvegarde d’une autre région. Par conséquent, il faut créer au moins un archivage pour chaque région Azure équipée de machines virtuelles nécessitant une sauvegarde.
+    >[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need to be backed up, at least one backup vault must be created in that region.
 
-## Étapes suivantes
-Maintenant que vous êtes parvenu à sauvegarder une machine virtuelle, d’autres étapes peuvent vous intéresser. L’étape la plus logique consiste à vous familiariser avec la restauration des données sur une machine virtuelle. Toutefois, certaines tâches de gestion vous aideront à comprendre comment protéger vos données et réduire les coûts.
+## <a name="next-steps"></a>Next steps
+Now that you have successfully backed up a VM, there are several next steps that could be of interest. The most logical step is to familiarize yourself with restoring data to a VM. However, there are management tasks that will help you understand how to keep your data safe and minimize costs.
 
-- [Gestion et surveillance de vos machines virtuelles](backup-azure-manage-vms.md)
-- [Restauration des machines virtuelles](backup-azure-restore-vms.md)
-- [Instructions pour la résolution des problèmes](backup-azure-vms-troubleshoot.md)
+- [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
+- [Restore virtual machines](backup-azure-restore-vms.md)
+- [Troubleshooting guidance](backup-azure-vms-troubleshoot.md)
 
 
-## Des questions ?
-Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
+## <a name="questions?"></a>Questions?
+If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

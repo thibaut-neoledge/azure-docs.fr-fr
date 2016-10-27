@@ -1,47 +1,51 @@
 <properties
-	pageTitle="Conception de jeux de mise à l’échelle de machines virtuelles | Microsoft Azure"
-	description="En savoir plus sur la conception de vos jeux de mise à l'échelle de machines virtuelles"
-	keywords="machine virtuelle linux, jeux de mise à l’échelle de machine virtuelle" 
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gatneil"
-	manager="madhana"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+    pageTitle="Designing Virtual Machine Scale Sets For Scale | Microsoft Azure"
+    description="Learn about how to design your Virtual Machine Scale Sets for scale"
+    keywords="linux virtual machine,virtual machine scale sets" 
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gatneil"
+    manager="madhana"
+    editor="tysonn"
+    tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="gatneil"/>
-
-# Conception de jeux de mise à l’échelle de machine virtuelle pour la mise à l’échelle
-
-Cette rubrique présente les considérations à prendre en compte pour créer des groupes identique de machines virtuelles. Pour plus d'informations sur les groupe identique de machines virtuelles, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="gatneil"/>
 
 
-## Storage
+# <a name="designing-vm-scale-sets-for-scale"></a>Designing VM Scale Sets For Scale
 
-Un jeu de mise à l'échelle utilise des comptes de stockage pour stocker les disques du système d'exploitation des machines virtuelles dans le jeu. Nous recommandons un ratio maximum de 20 machines virtuelles par compte de stockage. Nous vous recommandons également de répartir dans l'alphabet les premiers caractères des noms de comptes de stockage. Cette méthode améliore la répartition sur les différents systèmes internes. Par exemple, dans le modèle suivant, nous utilisons la fonction de modèle Resource Manager uniqueString pour générer des hachages de préfixe qui sont ajoutés aux noms de comptes de stockage : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
-
-
-## Sur-approvisionnement
-
-À compter de la version d'API « 2016-03-30 », les groupes identiques de machines virtuelles sur-approvisionnent par défaut les machines virtuelles. Avec le sur-approvisionnement activé, le groupe identique crée véritablement plus de machines virtuelles que vous avez demandé, puis supprime les dernières machines virtuelles supplémentaires créées. Le sur-approvisionnement améliore les taux de réussite de l’approvisionnement. Vous n’êtes pas facturé pour ces machines virtuelles supplémentaires et elles ne seront pas comptabilisées dans vos limites de quotas.
-
-Bien que le sur-approvisionnement n'améliore pas les taux de réussite de l’approvisionnement, il peut provoquer un comportement déroutant si une application n'est pas conçue pour gérer les machines virtuelles qui disparaissent sans avertissement. Pour désactiver le sur-approvisionnement, vérifiez que votre modèle contient la chaîne suivante : "overprovision": "false". Vous trouverez plus de détails dans la [documentation de l’API REST de groupes identiques de machines virtuelles](https://msdn.microsoft.com/library/azure/mt589035.aspx).
-
-Si vous désactivez le sur-approvisionnement, vous pouvez obtenir un ratio plus important de machines virtuelles par compte de stockage, mais nous déconseillons d’aller au-delà de 40.
+This topic discusses design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, refer to [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md).
 
 
-## Limites
-Un groupe identique basé sur une image personnalisée (créée par vous-même) doit créer tous les disques durs virtuels du système d’exploitation dans un même compte de stockage. Par conséquent, le nombre maximal recommandé de machines virtuelles dans un groupe identique basé sur une image personnalisée est de 20. Si vous désactivez le sur-approvisionnement, vous pouvez aller jusqu’à 40.
+## <a name="storage"></a>Storage
 
-Un groupe identique basé sur une image de plateforme est actuellement limité à 100 machines virtuelles (nous vous recommandons d’utiliser 5 comptes de stockage pour cette échelle).
+A scale set uses storage accounts to store the OS disks of the VMs in the set. We recommend a ratio of 20 VMs per storage account or less. We also recommend that you spread across the alphabet the beginning characters of the storage account names. Doing so helps spread load across different internal systems. For instance, in the following template, we use the uniqueString Resource Manager Template function to generate prefix hashes that are prepended to storage account names: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
 
-Si vous souhaitez avoir plus de machines virtuelles que ne l’autorisent ces limites, vous devez déployer plusieurs groupes identiques, comme indiqué dans [ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 
-<!---HONumber=AcomDC_0817_2016-->
+## <a name="overprovisioning"></a>Overprovisioning
+
+Starting with the "2016-03-30" API version, VM Scale Sets defaults to "overprovisioning" VMs. With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs that spun up last. Overprovisioning improves provisioning success rates. You are not billed for these extra VMs, and they do not count toward your quota limits.
+
+While overprovisioning does improve provisioning success rates, it can cause confusing behavior for an application that is not designed to handle VMs disappearing unannounced. To turn overprovisioning off, ensure you have the following string in your template: "overprovision": "false". More details can be found in the [VM Scale Set REST API documentation](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+
+If you turn off overprovisioning, you can get away with a larger ratio of VMs per storage account, but we do not recommend going above 40.
+
+
+## <a name="limits"></a>Limits
+A scale set built on a custom image (one built by you) must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image is 20. If you turn off overprovisioning, you can go up to 40.
+
+A scale set built on a platform image is currently limited to 100 VMs (we recommend 5 storage accounts for this scale).
+
+For more VMs than these limits allow, you need to deploy multiple scale sets as shown in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

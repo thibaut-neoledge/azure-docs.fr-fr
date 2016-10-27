@@ -1,30 +1,34 @@
 <properties 
-	pageTitle="Data Factory - Règles d'affectation des noms | Microsoft Azure" 
-	description="Décrit les règles d'affectation de noms pour les entités Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Data Factory - Naming Rules | Microsoft Azure" 
+    description="Describes naming rules for Data Factory entities." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="sharonlo101" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
-
-# Azure Data Factory - Règles d'affectation des noms 
-Le tableau suivant fournit des règles d'affectation de noms pour les artefacts Data Factory.
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/12/2016" 
+    ms.author="shlo"/>
 
 
+# <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Naming Rules 
+The following table provides naming rules for Data Factory artifacts.
 
-Nom | Unicité du nom | Contrôles de validation
+
+
+Name | Name Uniqueness | Validation Checks
 :--- | :-------------- | :----------------
-Data Factory | Unique sur Microsoft Azure. Les noms ne respectent pas la casse, c'est-à-dire que MyDF et mydf font référence à la même fabrique de données. |<ul><li>Chaque fabrique de données est liée à exactement un abonnement Azure.</li><li>Les noms d’objets doivent commencer par une lettre ou un nombre, et peuvent contenir uniquement des lettres, des chiffres et le tiret (-).</li><li>Chaque tiret (-) doit être immédiatement précédé et suivi par une lettre ou un chiffre. Les tirets consécutifs ne sont pas autorisés dans les noms de conteneurs.</li><li>Un nom peut comporter entre 3 et 63 caractères.</li></ul>
-Services/tableaux/pipelines liés | Unique dans une fabrique de données. Les noms sont sensibles à la casse. | <ul><li>Nombre maximal de caractères dans un nom de tableau : 260.</li><li>Les noms d’objets doivent commencer par un numéro, une lettre ou un trait de soulignement (\_).</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul>
-Groupe de ressources | Unique sur Microsoft Azure. Les noms sont sensibles à la casse. | <ul><li>Nombre maximal de caractères : 1000.</li><li>Un nom peut contenir des lettres, des chiffres et les caractères suivants : « - », « \_ », « , » et « . ».</li></ul>
+Data Factory | Unique across Microsoft Azure. Names are case-insensitive, that is, MyDF and mydf refer to the same data factory. |<ul><li>Each data factory is tied to exactly one Azure subscription.</li><li>Object names must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.</li><li>Every dash (-) character must be immediately preceded and followed by a letter or a number. Consecutive dashes are not permitted in container names.</li><li>Name can be 3-63 characters long.</li></ul>
+Linked Services/Tables/Pipelines | Unique with in a data factory. Names are case-insensitive. | <ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul>
+Resource Group | Unique across Microsoft Azure. Names are case-insensitive. | <ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”.</li></ul>
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

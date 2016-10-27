@@ -1,65 +1,66 @@
 <properties 
-	pageTitle="Déclencheurs d’application API App Service | Microsoft Azure" 
-	description="Comment implémenter des déclencheurs dans une application API dans Azure App Service" 
-	services="logic-apps" 
-	documentationCenter=".net" 
-	authors="guangyang"
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="App Service API app triggers | Microsoft Azure" 
+    description="How to implement triggers in an API App in Azure App Service" 
+    services="logic-apps" 
+    documentationCenter=".net" 
+    authors="guangyang"
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="rachelap"/>
-
-# Déclencheurs des applications API Azure App Service
-
->[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview API Apps.
+    ms.service="logic-apps" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="dotnet" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/25/2016" 
+    ms.author="rachelap"/>
 
 
-## Vue d'ensemble
+# <a name="azure-app-service-api-app-triggers"></a>Azure App Service API app triggers
 
-Cet article explique comment implémenter des déclencheurs d'application API et comment les utiliser à partir d'une application logique.
+>[AZURE.NOTE] This version of the article applies to API apps 2014-12-01-preview schema version.
 
-Tous les extraits de code de cette rubrique sont copiés depuis l’[exemple de code de l’application API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
-Notez que vous devez télécharger le package NuGet suivant pour que le code de cet article puisse être généré et s'exécuter : [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
+## <a name="overview"></a>Overview
 
-## Que sont les déclencheurs des applications API ?
+This article explains how to implement API app triggers and consume them from a Logic app.
 
-C'est un scénario courant pour une application API que de déclencher un événement, afin que les clients de l'application API puissent effectuer les actions appropriées en réponse à l'événement. Le mécanisme basé sur l'API REST qui prend en charge ce scénario est appelé un déclencheur d'application API.
+All of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
 
-Par exemple, supposons que votre code client utilise l'[application API du connecteur Twitter](../app-service-logic/app-service-logic-connector-twitter.md) et que votre code doit exécuter une action basée sur les nouveaux tweets contenant des mots spécifiques. Dans ce cas, vous pouvez définir un déclencheur d’émission ou de collecte pour répondre facilement à ce besoin.
+Note that you'll need to download the following nuget package for the code in this article to build and run: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
-## Déclencheur d'interrogation et déclencheur d'émission
+## <a name="what-are-api-app-triggers?"></a>What are API app triggers?
 
-Deux types de déclencheurs sont actuellement pris en charge :
+It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event. The REST API based mechanism that supports this scenario is called an API app trigger. 
 
-- Déclencheur d'interrogation : le client collecte auprès de l'application API les notifications de déclenchement d'un événement.
-- Déclencheur d'émission : le client est notifié par l'application API quand un événement est déclenché.
+For example, let's say your client code is using the [Twitter Connector API app](../app-service-logic/app-service-logic-connector-twitter.md) and your code needs to perform an action based on new tweets that contain specific words. In this case, you might set up a poll or push trigger to facilitate this need.
 
-### Déclencheur d'interrogation :
+## <a name="poll-trigger-versus-push-trigger"></a>Poll trigger versus push trigger
 
-Un déclencheur d'interrogation est implémenté sous la forme d'une API REST normale et il attend que ses clients (comme une application Logic) l'interrogent pour obtenir une notification. Alors que le client est susceptible de gérer les états, le déclencheur d'interrogation lui-même est sans état.
+Currently, two types of triggers are supported:
 
-Les informations suivantes concernant les paquets de demande et de réponse montrent certains aspects essentiels du contrat du déclencheur d'interrogation :
+- Poll trigger - Client polls the API app for notification of an event having been fired 
+- Push trigger - Client is notified by the API app when an event fires 
 
-- Demande
-    - Méthode HTTP : GET
-    - Paramètres
-        - triggerState : ce paramètre facultatif permet aux clients de spécifier leur état, afin que le déclencheur d'interrogation puisse décider correctement s'il faut ou non retourner la notification, en fonction de l'état spécifié.
-        - Paramètres spécifiques de l'API
-- Réponse
-    - Code d'état **200** : la demande est valide et il existe une notification provenant du déclencheur. Le contenu de la notification sera le corps de la réponse. Un en-tête « Retry-After » dans la réponse indique que des données de notification supplémentaires doivent être récupérées avec un appel de demande suivant.
-    - Code d'état **202** : la demande est valide, mais il n'existe pas de nouvelle notification provenant du déclencheur.
-    - Code d'état **4xx** : la demande n'est pas valide. Le client ne doit pas recommencer la demande.
-    - Code d'état **5xx** : la demande a entraîné une erreur de serveur interne et/ou un problème temporaire. Le client doit recommencer la demande.
+### <a name="poll-trigger"></a>Poll trigger
 
-L'extrait de code suivant est un exemple de la façon d'implémenter un déclencheur d'interrogation.
+A poll trigger is implemented as a regular REST API and expects its clients (such as a Logic app) to poll it in order to get notification. While the client may maintain state, the poll trigger itself is stateless. 
+
+The following information regarding the request and response packets illustrate some key aspects of the poll trigger contract:
+
+- Request
+    - HTTP method: GET
+    - Parameters
+        - triggerState - This optional parameter allows clients to specify their state so that the poll trigger can properly decide whether to return notification or not based on the specified state.
+        - API-specific parameters
+- Response
+    - Status code **200** - Request is valid and there is a notification from the trigger. The content of the notification will be the response body. A "Retry-After" header in the response indicates that additional notification data must be retrieved with a subsequent request call.
+    - Status code **202** - Request is valid, but there is no new notification from the trigger.
+    - Status code **4xx** - Request is not valid. The client should not retry the request.
+    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
+
+The following code snippet is an example of how to implement a poll trigger.
 
     // Implement a poll trigger.
     [HttpGet]
@@ -90,33 +91,35 @@ L'extrait de code suivant est un exemple de la façon d'implémenter un déclenc
         }
     }
 
-Pour tester ce déclencheur d'interrogation, procédez comme suit :
+To test this poll trigger, follow these steps:
 
-1. Déployez l'application API avec un paramètre d'authentification **anonyme public**.
-2. Appelez l'opération **touch** pour toucher un fichier. L'illustration suivante montre un exemple de demande via Postman. ![Appeler une opération Touch via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Appelez le déclencheur d'interrogation avec le paramètre **triggerState** défini avec un horodatage antérieur à l'étape 2. L'illustration suivante montre un exemple de demande via Postman. ![Appeler un déclencheur d'interrogation via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
+1. Deploy the API App with an authentication setting of **public anonymous**.
+2. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
+   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+3. Call the poll trigger with the **triggerState** parameter set to a time stamp prior to Step #2. The following image shows the sample request via Postman.
+   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
-### Déclencheurs d'émission :
+### <a name="push-trigger"></a>Push trigger
 
-Un déclencheur d'émission est implémenté sous la forme d'une API REST normale, qui envoie des notifications aux clients qui se sont inscrits pour être notifiés quand des événements spécifiques se déclenchent.
+A push trigger is implemented as a regular REST API that pushes notifications to clients who have registered to be notified when specific events fire.
 
-Les informations suivantes concernant les paquets de demande et de réponse montrent certains aspects essentiels du contrat du déclencheur d'interrogation :
+The following information regarding the request and response packets illustrate some key aspects of the push trigger contract.
 
-- Demande
-    - Méthode HTTP : PUT
-    - Paramètres
-        - triggerId : obligatoire. Chaîne Opaque (comme un GUID) qui représente l'inscription d'un déclencheur d'émission.
-        - callbackUrl : obligatoire. URL du rappel à appeler quand l'événement se déclenche. L'appel est un simple appel HTTP POST.
-        - Paramètres spécifiques de l'API
-- Réponse
-    - Code d'état **200** : la demande d'inscription du client a réussi.
-    - Code d'état **4xx** : la demande n'est pas valide. Le client ne doit pas recommencer la demande.
-    - Code d'état **5xx** : la demande a entraîné une erreur de serveur interne et/ou un problème temporaire. Le client doit recommencer la demande.
-- Rappel
-    - Méthode HTTP : POST
-    - Corps de la demande : contenu de la notification.
+- Request
+    - HTTP method: PUT
+    - Parameters
+        - triggerId: required - Opaque string (such as a GUID) that represents the registration of a push trigger.
+        - callbackUrl: required - URL of the callback to invoke when the event fires. The invocation is a simple POST HTTP call.
+        - API-specific parameters
+- Response
+    - Status code **200** - Request to register client successful.
+    - Status code **4xx** - Request is not valid. The client should not retry the request.
+    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
+- Callback
+    - HTTP method: POST
+    - Request body: Notification content.
 
-L'extrait de code suivant est un exemple de la façon d'implémenter un déclencheur d'émission.
+The following code snippet is an example of how to implement a push trigger:
 
     // Implement a push trigger.
     [HttpPut]
@@ -193,21 +196,24 @@ L'extrait de code suivant est un exemple de la façon d'implémenter un déclenc
         }
     }
 
-Pour tester ce déclencheur d'interrogation, procédez comme suit :
+To test this poll trigger, follow these steps:
 
-1. Déployez l'application API avec un paramètre d'authentification **anonyme public**.
-2. Accédez à [http://requestb.in/](http://requestb.in/) pour créer un élément RequestBin qui vous servira d'URL de rappel.
-3. Appelez le déclencheur d'émission avec un GUID pour **triggerId** et l'URL de l'élément RequestBin pour **callbackUrl**. ![Appeler un déclencheur d'émission via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Appelez l'opération **touch** pour toucher un fichier. L'illustration suivante montre un exemple de demande via Postman. ![Appeler une opération Touch via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Vérifiez l'élément RequestBin pour confirmer que le rappel du déclencheur d'émission est appelé avec une sortie de propriété. ![Appeler un déclencheur d'interrogation via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
+1. Deploy the API App with an authentication setting of **public anonymous**.
+2. Browse to [http://requestb.in/](http://requestb.in/) to create a RequestBin which will serve as your callback URL.
+3. Call the push trigger with a GUID as **triggerId** and the RequestBin URL as **callbackUrl**.
+   ![Call Push Trigger via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
+4. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
+   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+5. Check the RequestBin to confirm that the push trigger callback is invoked with property output.
+   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
-### Décrire des déclencheurs dans une définition d'API
+### <a name="describe-triggers-in-api-definition"></a>Describe triggers in API definition
 
-Après avoir implémenté les déclencheurs et déployé votre application API dans Azure, accédez au panneau **Définition d'API** dans le portail Azure en version préliminaire. Vous y voyez que les déclencheurs sont automatiquement reconnus dans l'interface utilisateur, qui repose sur la définition de l'API Swagger 2.0 de l'application API.
+After implementing the triggers and deploying your API app to Azure, navigate to the **API Definition** blade in the Azure preview portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.
 
-![Panneau Définition de l'API](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
+![API Definition Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 
-Si vous cliquez sur le bouton **Télécharger Swagger** et que vous ouvrez le fichier JSON, vous verrez des résultats similaires à ceci :
+If you click the **Download Swagger** button and open the JSON file, you'll see results similar to the following:
 
     "/api/files/poll/TouchedFiles": {
       "get": {
@@ -224,44 +230,44 @@ Si vous cliquez sur le bouton **Télécharger Swagger** et que vous ouvrez le fi
       }
     }
 
-La propriété d'extension **x-ms-schedular-trigger** indique comment les déclencheurs sont décrits dans la définition de l'API, et elle est automatiquement ajoutée à la passerelle d'application API quand vous demandez la définition de l'API via la passerelle, si la demande satisfait à un des critères suivants. (Vous pouvez également ajouter cette propriété manuellement.)
+The extension property **x-ms-schedular-trigger** is how triggers are described in API definition, and is automatically added by the API app gateway when you request the API definition via the gateway if the request to one of the following criteria. (You can also add this property manually.)
 
-- Déclencheur d'interrogation :
-    - Si la méthode HTTP est **GET**.
-    - Si la propriété **operationId** contient la chaîne **trigger**.
-    - Si la propriété **parameters** inclut un paramètre avec une propriété **name** définie à **triggerState**.
-- Déclencheurs d'émission :
-    - Si la méthode HTTP est **PUT**.
-    - Si la propriété **operationId** contient la chaîne **trigger**.
-    - Si la propriété **parameters** inclut un paramètre avec une propriété **name** définie à **triggerId**.
+- Poll trigger
+    - If the HTTP method is **GET**.
+    - If the **operationId** property contains the string **trigger**.
+    - If the **parameters** property includes a parameter with a **name** property set to **triggerState**.
+- Push trigger
+    - If the HTTP method is **PUT**.
+    - If the **operationId** property contains the string **trigger**.
+    - If the **parameters** property includes a parameter with a **name** property set to **triggerId**.
 
-## Utiliser des déclencheurs d'application API dans les applications logiques
+## <a name="use-api-app-triggers-in-logic-apps"></a>Use API app triggers in Logic apps
 
-### Répertorier et configurer des déclencheurs d'application API dans le concepteur d'applications logiques
+### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>List and configure API app triggers in the Logic apps designer
 
-Si vous créez une application logique dans le même groupe de ressources que l'application API, vous pourrez l'ajouter au canevas du concepteur simplement en cliquant dessus. Les images suivantes illustrent ce principe :
+If you create a Logic app in the same resource group as the API app, you will be able to add it to the designer canvas simply by clicking it. The following images illustrate this:
 
-![Déclencheurs dans le concepteur d'applications logiques](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
+![Triggers in Logic App Designer](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
 
-![Configurer un déclencheur d'interrogation dans le concepteur d'applications logiques](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
+![Configure Poll Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
 
-![Configurer un déclencheur d'émission dans le concepteur d'applications logiques](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
+![Configure Push Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
-## Optimiser les déclencheurs d'application API pour les applications logiques
+## <a name="optimize-api-app-triggers-for-logic-apps"></a>Optimize API app triggers for Logic apps
 
-Après avoir ajouté des déclencheurs à une application API, vous pouvez faire un certain nombre de choses pour améliorer l'expérience de l'utilisation de l'application API dans une application logique.
+After you add triggers to an API app, there are a few things you can do to improve the experience when using the API app in a Logic app.
 
-Par exemple, le paramètre **triggerState** pour les déclencheurs d'interrogation doit être défini avec l'expression suivante dans l'application logique. Cette expression doit évaluer le dernier appel du déclencheur depuis l'application logique et retourner cette valeur.
+For instance, the **triggerState** parameter for poll triggers should be set to the following expression in the Logic app. This expression should evaluate the last invocation of the trigger from the Logic app, and return that value.  
 
-	@coalesce(triggers()?.outputs?.body?['triggerState'], '')
+    @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
-REMARQUE : pour une explication des fonctions utilisées dans l'expression ci-dessus, reportez-vous à la documentation sur le [Langage de définition des flux de travail des applications logiques](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+NOTE: For an explanation of the functions used in the expression above, refer to the documentation on [Logic App Workflow Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Les utilisateurs d'applications logiques devraient ainsi fournir l'expression ci-dessus pour le paramètre **triggerState** lors de l'utilisation du déclencheur. Il est possible de faire prédéfinir cette valeur par le concepteur d'applications logiques via la propriété d'extension **x-ms-scheduler-recommendation**. La propriété d'extension **x-ms-visibility** peut être définie avec une valeur *internal*, de façon à ce que le paramètre lui-même ne soit pas affiché sur le concepteur. L'extrait de code suivant montre ceci.
+Logic app users would need to provide the expression above for the **triggerState** parameter while using the trigger. It is possible to have this value preset by the Logic app designer through the extension property **x-ms-scheduler-recommendation**.  The **x-ms-visibility** extension property can be set to a value of *internal* so that the parameter itself is not shown on the designer.  The following snippet illustrates that.
 
     "/api/Messages/poll": {
       "get": {
-	    "operationId": "Messages_NewMessageTrigger",
+        "operationId": "Messages_NewMessageTrigger",
         "parameters": [
           {
             "name": "triggerState",
@@ -277,11 +283,11 @@ Les utilisateurs d'applications logiques devraient ainsi fournir l'expression ci
       }
     }
 
-Pour les déclencheurs d'émission, le paramètre **triggerId** doit identifier de façon univoque l'application logique. Une pratique recommandée consiste à définir cette propriété avec le nom du flux de travail en utilisant l'expression suivante :
+For push triggers, the **triggerId** parameter must uniquely identify the Logic app. A recommended best practice is to set this property to the name of the workflow by using the following expression:
 
     @workflow().name
 
-À l'aide des propriétés d'extension **x-ms-scheduler-recommendation** et **x-ms-visibility** dans sa définition d'API, l'application API peut indiquer au concepteur d'applications logiques de définir automatiquement cette expression pour l'utilisateur.
+Using the **x-ms-scheduler-recommendation** and **x-ms-visibility** extension properties in its API definiton, the API app can convey to the Logic app designer to automatically set this expression for the user.
 
         "parameters":[  
           {  
@@ -294,13 +300,13 @@ Pour les déclencheurs d'émission, le paramètre **triggerId** doit identifier 
           },
 
 
-### Ajouter des propriétés d'extension dans la définition de l'API
+### <a name="add-extension-properties-in-api-defintion"></a>Add extension properties in API defintion
 
-Des informations de métadonnées supplémentaires, comme les propriétés d'extension **x-ms-scheduler-recommendation** et **x-ms-visibility**, peuvent être ajoutées dans la définition de l'API de deux façons : statique ou dynamique.
+Additional metadata information - such as the extension properties **x-ms-scheduler-recommendation** and **x-ms-visibility** - can be added in the API defintion in one of two ways: static or dynamic.
 
-Pour les métadonnées statiques, vous pouvez modifier directement le fichier */metadata/apiDefinition.swagger.json* dans votre projet et y ajouter les propriétés manuellement.
+For static metadata, you can directly edit the */metadata/apiDefinition.swagger.json* file in your project and add the properties manually.
 
-Pour les applications API utilisant des métadonnées dynamiques, vous pouvez modifier le fichier SwaggerConfig.cs pour y ajouter un filtre d'opération qui peut ajouter ces extensions.
+For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to add an operation filter which can add these extensions.
 
     GlobalConfiguration.Configuration 
         .EnableSwagger(c =>
@@ -311,7 +317,7 @@ Pour les applications API utilisant des métadonnées dynamiques, vous pouvez mo
             }
 
 
-Voici un exemple de la façon dont cette classe peut être implémentée pour faciliter le scénario des métadonnées dynamiques.
+The following is an example of how this class can be implemented to facilitate the dynamic metadata scenario.
 
     // Add extension properties on the triggerState parameter
     public class TriggerStateFilter : IOperationFilter
@@ -342,4 +348,8 @@ Voici un exemple de la façon dont cette classe peut être implémentée pour fa
     }
  
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

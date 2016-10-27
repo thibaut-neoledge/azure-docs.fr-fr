@@ -1,33 +1,34 @@
 <properties 
-   pageTitle="Définition des paramètres DNS dans un fichier de configuration de réseau virtuel | Microsoft Azure"
-   description="Comment modifier les paramètres de serveur DNS dans un réseau virtuel à l’aide d’un fichier de configuration de réseau virtuel dans le modèle de déploiement classique"
+   pageTitle="Specifying DNS Settings in a virtual network configuration file | Microsoft Azure"
+   description="How to change DNS server settings in a virtual network using a virtual network configuration file in the classic deployment model"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
    manager="carmonm"
    editor="tysonn" 
    tags="azure-service-management" />
-<tags  
+<tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="jdial" />
+   ms.author="jdial" /> 
 
 
-# Définition des paramètres DNS dans un fichier de configuration de réseau virtuel
 
-Un fichier de configuration réseau possède deux éléments que vous pouvez utiliser pour définir les paramètres DNS : **DnsServers** et **DnsServerRef**. Vous pouvez ajouter une liste de serveurs DNS en définissant leur adresse IP et leur nom de référence sur l’élément **DnsServers**. Ensuite, utilisez un élément **DnsServerRef** afin de spécifier les entrées du serveur DNS de l’élément DnsServers qui sont utilisées pour différents sites au sein de votre réseau virtuel.
+# <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Specifying DNS settings in a virtual network configuration file
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Cet article traite du modèle de déploiement classique.
+A network configuration file has two elements that you can use to specify Domain Name System (DNS) settings: **DnsServers** and **DnsServerRef**. You can add a list of DNS servers by specifying their IP addresses and reference names to the **DnsServers** element. You can then use a **DnsServerRef** element to specify which DNS server entries from the DnsServers element are used for different network sites within your virtual network.
 
-Le fichier de configuration réseau peut contenir les éléments suivants. Le titre de chaque élément est associé à une page qui fournit des informations supplémentaires sur les paramètres de valeurs de l’élément.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model.
 
->[AZURE.IMPORTANT] Pour plus d'informations sur la configuration du fichier de configuration réseau, consultez la section [Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md). Pour plus d’informations sur les éléments contenus dans le fichier de configuration réseau, consultez [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+The network configuration file may contain the following elements. The title of each element is linked to a page that provides additional information about the element value settings.
 
-[Élément Dns](http://go.microsoft.com/fwlink/?LinkId=248093)
+>[AZURE.IMPORTANT] For information about how to configure the network configuration file, see [Configure a Virtual Network Using a Network Configuration File](virtual-networks-using-network-configuration-file.md). For information about each element contained in the network configuration file, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+
+[Dns Element](http://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -37,22 +38,26 @@ Le fichier de configuration réseau peut contenir les éléments suivants. Le ti
       </DnsServers>
     </Dns>
 
->[AZURE.WARNING] L’attribut **name** de l’élément **DnsServer** est utilisé uniquement en tant que référence pour l’élément **DnsServerRef**. Il ne représente aucunement le nom d’hôte attribué au serveur DNS. Chaque attribut **DnsServer** doit être unique au sein de l’abonnement Microsoft Azure
+>[AZURE.WARNING] The **name** attribute in the **DnsServer** element is used only as a reference for the **DnsServerRef** element. It does not represent the host name for the DNS server. Each **DnsServer** attribute value must be unique across the entire Microsoft Azure subscription
 
-[Élément de sites de réseau virtuel](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Virtual Network Sites Element](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-	<DnsServersRef>
-	  <DnsServerRef name="ID1" />
-	  <DnsServerRef name="ID2" />
-	  <DnsServerRef name="ID3" />
-	</DnsServersRef>
+    <DnsServersRef>
+      <DnsServerRef name="ID1" />
+      <DnsServerRef name="ID2" />
+      <DnsServerRef name="ID3" />
+    </DnsServersRef>
 
->[AZURE.NOTE] Pour définir ce paramètre pour l’élément de sites de réseau virtuel, vous devez préalablement le définir dans l’élément DNS. L’attribut *name* DnsServerRef de l’élément de sites de réseau virtuel doit faire référence à une valeur de nom spécifiée dans l’élément DNS pour l’attribut *name* DnsServer.
+>[AZURE.NOTE] In order to specify this setting for the Virtual Network Sites element, it must be previously defined in the DNS element. The DnsServerRef *name* in the Virtual Network Sites element must refer to a name value specified in the DNS element for DnsServer *name*.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- Découvrez le [schéma de configuration du réseau virtuel Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
-- Découvrez le [schéma de configuration du service Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
-- [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
+- Understand the [Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093).
+- Understand the [Azure Service Configuration Schema](https://msdn.microsoft.com/library/windowsazure/ee758710).
+- [Configure a virtual network using Network configuration files](virtual-networks-using-network-configuration-file.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

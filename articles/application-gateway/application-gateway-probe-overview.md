@@ -1,8 +1,8 @@
 
 
 <properties
-   pageTitle="Présentation de la surveillance de défaillance pour Azure Application Gateway | Microsoft Azure"
-   description="En savoir plus sur les capacités d’analyse dans Azure Application Gateway"
+   pageTitle="Health monitoring overview for Azure Application Gateway | Microsoft Azure"
+   description="Learn about the monitoring capabilities in Azure Application Gateway"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -19,53 +19,62 @@
    ms.date="08/29/2016"
    ms.author="gwallace" />
 
-# Vue d’ensemble de l’analyse d’intégrité Application Gateway
 
-Azure Application Gateway analyse par défaut l’intégrité de toutes les ressources de son pool principal et supprime automatiquement du pool les ressources considérées comme défectueuses. Application Gateway continue de surveiller les instances défaillantes et les réintroduit dans le pool principal intègre une fois qu’elles redeviennent disponibles et répondent aux sondes d’intégrité.
+# <a name="application-gateway-health-monitoring-overview"></a>Application Gateway health monitoring overview
 
-![exemple de sonde application gateway][1]
+Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes.
 
-En plus d’utiliser la surveillance par sonde d’intégrité par défaut, vous pouvez aussi personnaliser la sonde d’intégrité pour répondre aux exigences de votre application. Dans cet article, nous nous intéressons aux sondes d’intégrité par défaut et personnalisées.
+![application gateway probe example][1]
 
-## Sonde d’intégrité par défaut
+In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
-Une passerelle d’application configure automatiquement une sonde d’intégrité par défaut lorsque vous ne définissez pas de configuration de sonde personnalisée. Le comportement d’analyse par défaut consiste à lancer une requête HTTP aux adresses IP configurées pour le pool principal.
+## <a name="default-health-probe"></a>Default health probe
 
-Par exemple : vous configurez votre passerelle d’application pour utiliser les serveurs principaux A, B et C, qui recevront le trafic réseau HTTP sur le port 80. Les contrôles de défaillance par défaut testent les trois serveurs toutes les 30 secondes pour obtenir une réponse HTTP correcte. Le [code d’état](https://msdn.microsoft.com/library/aa287675.aspx) d’une réponse HTTP correcte est compris entre 200 et 399.
+An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool.
 
-Si l’analyse de la sonde par défaut échoue pour le serveur A, la passerelle d’application le retire de son pool principal et le trafic réseau cesse de passer par ce serveur. La sonde par défaut continue de contrôler le serveur A toutes les 30 secondes. Dès que le serveur A répond avec succès à une requête de la sonde d’intégrité par défaut, il est réintroduit dans le pool principal en tant que serveur intègre et le trafic vers celui-ci reprend.
+For example: You configure your application gateway to use back-end servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399.
 
-### Paramètres de sonde d’intégrité par défaut
+If the default probe check fails for server A, the application gateway removes it from its back-end pool, and network traffic stops flowing to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, it is added back as healthy to the back-end pool, and traffic starts flowing to the server again.
 
-|Propriétés de la sonde | Valeur | Description|
+### <a name="default-health-probe-settings"></a>Default health probe settings
+
+|Probe property | Value | Description|
 |---|---|---|
-| URL de sonde| http://127.0.0.1:\<port>/ | Chemin d'accès de l'URL |
-| Intervalle | 30 | Intervalle d’analyse en secondes |
-| Délai d’attente | 30 | Délai d’expiration de l’analyse en secondes |
-| Seuil de défaillance sur le plan de l’intégrité | 3 | Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
+| Probe URL| http://127.0.0.1:\<port\>/ | URL path |
+| Interval | 30 | Probe interval in seconds |
+| Time-out  | 30 | Probe time-out in seconds |
+| Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-La sonde par défaut examine uniquement http://127.0.0.1:\<port> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées comme décrit dans les étapes suivantes.
+The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps.
 
-## Sonde d’intégrité personnalisée
+## <a name="custom-health-probe"></a>Custom health probe
 
-Les sondes personnalisées vous permettent d’avoir un contrôle plus précis de l’analyse de l’intégrité. En utilisant des sondes personnalisées, vous pouvez configurer l’intervalle d’analyse, l’URL et le chemin à tester et le nombre de réponses en échec autorisé avant que l’instance de pool principal soit marquée comme étant défectueuse.
+Custom probes allow you to have a more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before marking the back-end pool instance as unhealthy.
 
-### Paramètres de sonde d’intégrité personnalisée
+### <a name="custom-health-probe-settings"></a>Custom health probe settings
 
-|Propriétés de la sonde| Description|
+The following table provides definitions for the properties of a custom health probe.
+
+|Probe property| Description|
 |---|---|
-| Name | Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
-| Protocole | Protocole utilisé pour envoyer la sonde. HTTP et HTTPS sont des protocoles valides. |
-| Host | Nom d’hôte pour l’envoi de la sonde. |
-| Chemin | Chemin relatif de la sonde. Le chemin valide commence par « / ». La sonde est envoyée à <protocole>://<hôte>:<port><chemin d’accès> |
-| Intervalle | Intervalle d’analyse en secondes. Il s’agit de l’intervalle de temps qui s’écoule entre deux analyses consécutives.|
-| Délai d’attente | Délai d’expiration de l’analyse en secondes. La sonde est marquée comme étant en échec si aucune réponse valide n’est reçue dans le délai imparti. |
-| Seuil de défaillance sur le plan de l’intégrité | Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
+| Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
+| Protocol | Protocol used to send the probe. The probe will use the protocol defined in the back-end HTTP settings |
+| Host |  Host name to send the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This is different from VM host name. |
+| Path | Relative path of the probe. The valid path starts from '/'. |
+| Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
+| Time-out | Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
+| Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-## Étapes suivantes
+> [AZURE.IMPORTANT] If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
+For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>.
 
-Après vous être familiarisé avec l’analyse d’intégrité Application Gateway, vous pouvez configurer une [sonde d’intégrité personnalisée](application-gateway-create-probe-portal.md) dans le portail Azure ou une [sonde d’intégrité personnalisée](application-gateway-create-probe-ps.md) à l’aide de PowerShell et du modèle de déploiement Azure Resource Manager.
+## <a name="next-steps"></a>Next steps
+
+After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

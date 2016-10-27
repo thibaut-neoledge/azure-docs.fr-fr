@@ -1,11 +1,11 @@
 
 <properties 
-    pageTitle="Estimation de l’utilisation de la bande passante réseau Azure RemoteApp | Microsoft Azure"
-	description="Obtenir des informations sur les besoins en bande passante pour vos applications et collections Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+    pageTitle="Estimate Azure RemoteApp network bandwidth usage | Microsoft Azure"
+    description="Learn about the network bandwidth requirements for your Azure RemoteApp collections and apps."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -16,30 +16,34 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
 
-# Estimation de l’utilisation de la bande passante réseau Azure RemoteApp 
+
+# <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Estimate Azure RemoteApp network bandwidth usage 
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Azure RemoteApp utilise le protocole RDP (Bureau à distance) pour communiquer entre les applications qui s’exécutent dans le cloud Azure et vos utilisateurs. Cet article fournit des instructions de base que vous pouvez utiliser pour estimer l’utilisation du réseau et évaluer potentiellement l’utilisation de la bande passante réseau pour chaque utilisateur d’Azure RemoteApp.
+Azure RemoteApp uses the Remote Desktop Protocol (RDP) to communicate between applications running in the Azure cloud and your users. This article provides some basic guidelines you can use to estimate that network usage and potentially evaluate network bandwidth usage per Azure RemoteApp user.
 
-L’estimation de l’utilisation de la bande passante par utilisateur est très complexe et nécessite l’exécution simultanée de plusieurs applications dans des scénarios multitâche où chaque application peut avoir un impact sur les performances d’une autre, en fonction de leurs besoins en matière de bande passante réseau. Même le type de client Bureau à distance (par exemple, le client Mac et le client HTML5) peut entraîner des résultats différents sur la bande passante. Pour vous aider, nous allons répartir les scénarios d’utilisation entre plusieurs catégories courantes pour répliquer des scénarios réels. (Bien entendu, le scénario réel regroupe une combinaison de catégories et diffère par utilisateur.)
+Estimating bandwidth usage per user is very complex and requires running multiple applications simultaneously in multitasking scenarios where applications might impact each other's performance based on their demand for network bandwidth. Even the type of Remote Desktop client (such as Mac client versus HTML5 client) can lead to different bandwidth results. To help you work through these complications, we'll break the usage scenarios into several of the common categories to replicate real-world scenarios. (Where the real-world scenario is, of course, a mix of categories and differs by user.)
 
-Avant d’aller plus loin, notez que nous partons du principe que le protocole RDP fournit une expérience bonne à excellente pour la plupart des scénarios d’utilisation sur des réseaux avec une latence inférieure à 120 ms et une bande passante supérieure à 5 Mo. Ceci est basé sur la capacité du protocole RDP de s’ajuster de manière dynamique en utilisant la bande passante réseau disponible et les besoins estimés en bande passante de l’application. Cet article va au-delà des « scénarios d’utilisation courants » pour s’intéresser aux cas où les scénarios commencent à faillir et l’expérience utilisateur commence à se dégrader.
+Before we go further - note that we assume RDP provides a good to excellent experience for most usage scenarios on networks with latency below 120 ms and bandwidth over 5 MBs - this is based on RDP's ability to dynamically adjust by using the available network bandwidth and the estimated application bandwidth needs. This article goes beyond those "most usage scenarios" to look at the edge, where scenarios begin to unwind and user experience begins to degrade.
 
-À présent, consultez les articles suivants pour obtenir plus d’informations, y compris les facteurs à prendre en compte, les recommandations de base et ce que nous n’avons pas inclus dans nos estimations.
+Now check out the following articles for the details, including factors to consider, baseline recommendations, and what we did not include in our estimates.
 
-- [Quelle est la corrélation entre la bande passante réseau et la qualité de l’expérience d’utilisation ?](remoteapp-bandwidthexperience.md)
-- [Test de votre bande passante réseau avec quelques scénarios courants](remoteapp-bandwidthtests.md)
-- [Instructions rapides si vous n’avez pas le temps ou la possibilité d’exécuter le test](remoteapp-bandwidthguidelines.md)
+- [How do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
+- [Testing your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
+- [Quick guidelines if you don't have the time or ability to test](remoteapp-bandwidthguidelines.md)
 
 
-## Quels sont les éléments que nous n’avons pas inclus ?
+## <a name="what-are-we-not-including?"></a>What are we not including?
 
-Lorsque vous examinez les tests proposés et nos recommandations globales (et il est vrai, génériques), n’oubliez pas qu’il existe plusieurs facteurs que nous n’avons pas pris en compte. Par exemple, les complications de l’expérience utilisateur dues à la nature asymétrique de la bande passante de chargement par rapport à la bande passante de téléchargement. La nature asymétrique de la plupart des réseaux Wi-Fi aura un impact supplémentaire sur les performances et la perception de l’expérience utilisateur. Pour les scénarios interactifs, le trafic en aval peut avoir une priorité inférieure au trafic en amont, ce qui peut augmenter le nombre de trames vidéos ou audio perdues, et par conséquent avoir un impact sur la perception de l’utilisateur de l’expérience de la diffusion en continu. Vous pouvez exécuter vos propres tests pour déterminer ce qui est adapté à votre cas d’utilisation spécifique et votre réseau.
+When you review the proposed tests and our overall (and admittedly generic) recommendations, be aware that there are several factors that we did not consider. For example, the user experience complications provided by the asymmetric nature of upload vs. download bandwidth. The asymmetric nature of most Wi-Fi networks will additionally impact the performance and the user experience perception. For interactive scenarios the downstream traffic may be prioritized lower than the upstream, which may increase the number of lost video or audio frames and therefore impact the user perception of the streaming experience. You can run your own experiments to see what is good for your specific use case and network.
 
-Bien que nous abordions le thème de la redirection de périphériques, nous n’avons pas pris en compte l’impact de la bande passante du trafic réseau provoqué par les périphériques connectés, tels que les périphériques de stockage, les imprimantes, les scanneurs, les caméras web et d’autres périphériques USB. En général, l’effet de ces périphériques augmente de façon temporaire les besoins en bande passante et disparaît lorsque la tâche est terminée. Mais dans le cas d’une utilisation fréquente, la demande en bande passante pourrait être relativement importante.
+Although we discuss device redirection, we did not take into consideration the bandwidth impact of the network traffic caused by attached devices, like storage, printers, scanners, web cameras, and other USB devices. The effect of those devices usually spikes the bandwidth needs temporarily and goes away when the task is complete. But if done frequently, that bandwidth demand could be quite noticeable.
 
-Nous ne parlons pas non plus de la façon dont un utilisateur peut affecter d’autres utilisateurs au sein du même réseau. Par exemple, un utilisateur consommant une vidéo 4K sur un réseau 100 Mbits/s peut avoir un impact significatif sur les autres utilisateurs de ce même réseau essayant d’effectuer la même tâche. Malheureusement, il est de plus en plus difficile de déterminer l’impact de l’utilisation simultanée pour donner une recommandation commune ou complète sur les performances du système en cas d’agrégation. Tout ce que nous pouvons dire est que la technologie de protocole sous-jacente utilisera au mieux la bande passante réseau disponible, mais elle a ses limites.
+We also do not discuss how one user can impact other users within the same network. For example, one user consuming 4K video on a 100 MB/s network might significantly impact other users on that same network trying to do the same task. Unfortunately it gets progressively harder to determine the impact of concurrent usage to give a common or all-encompassing recommendation about how the system performs at aggregate. All we can say is that the underlying protocol technology will make the best use of the available network bandwidth, but it does have its limitations.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

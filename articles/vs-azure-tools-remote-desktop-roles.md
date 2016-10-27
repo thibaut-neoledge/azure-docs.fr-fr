@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Utilisation du bureau à distance avec les rôles Azure | Microsoft Azure"
-   description="Utilisation du Bureau à distance avec des rôles Azure"
+   pageTitle="Using Remote Desktop with Azure Roles | Microsoft Azure"
+   description="Using Remote Desktop with Azure Roles"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,64 +15,71 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Utilisation du Bureau à distance avec des rôles Azure
 
-En utilisant le kit de développement logiciel (SDK) Azure et les Services Bureau à distance, vous pouvez accéder aux rôles Azure et aux machines virtuelles hébergées par Azure. Dans Visual Studio, vous pouvez configurer les Services Bureau à distance à partir d'un projet Azure. Pour activer les Services Bureau à distance, vous devez créer un projet de travail qui contient un ou plusieurs rôles, puis le publier sur Azure.
+# <a name="using-remote-desktop-with-azure-roles"></a>Using Remote Desktop with Azure Roles
 
->[AZURE.IMPORTANT] L’accès aux rôles Azure est réservé au dépannage et au développement. L'objectif de chaque machine virtuelle consiste à exécuter un rôle spécifique dans votre application Azure, et non à exécuter d'autres applications clientes. Si vous souhaitez utiliser Azure pour héberger une machine virtuelle que vous pourrez utiliser à d’autres fins, consultez Accès aux machines virtuelles Azure à partir de l'Explorateur de serveurs.
+By using the Azure SDK and Remote Desktop Services, you can access Azure roles and virtual machines that are hosted by Azure. In Visual Studio, you can configure Remote Desktop Services from an Azure project. To enable Remote Desktop Services, you must create a working project that contains one or more roles and then publish it to Azure.
 
-## Pour activer et utiliser le Bureau à distance pour un rôle Azure
+>[AZURE.IMPORTANT] You should access an Azure role for troubleshooting or development only. The purpose of each virtual machine is to run a specific role in your Azure application, not to run other client applications. If you want to use Azure to host a virtual machine that you can use for any purpose, see Accessing Azure Virtual Machines from Server Explorer.
 
-1. Dans l’Explorateur de solutions, ouvrez le menu contextuel de votre projet, puis sélectionnez **Publier**.
+## <a name="to-enable-and-use-remote-desktop-for-an-azure-role"></a>To enable and use Remote Desktop for an Azure Role
 
-    L’Assistant **Publication d’application Azure** s’affiche.
+1. In Solution Explorer, open the shortcut menu for your project, and then choose **Publish**.
 
-    ![Commande Publier pour un projet de service cloud](./media/vs-azure-tools-remote-desktop-roles/IC799161.png)
+    The **Publish Azure Application** wizard appears.
 
-1. En bas de la page **Paramètres de publication Microsoft Azure** de l'Assistant, cochez la case **Activer le Bureau à distance** pour tous les rôles.
+    ![Publish command for a Cloud Service project](./media/vs-azure-tools-remote-desktop-roles/IC799161.png)
 
-    La boîte de dialogue **Configuration du Bureau à distance** s’affiche.
+1. At the bottom of **Microsoft Azure Publish Settings** page of the wizard, select the **Enable Remote Desktop** for all roles check box. 
 
-1. En bas de la boîte de dialogue **Configuration du Bureau à distance**, sélectionnez le bouton **Plus d'options**.
+    The **Remote Desktop Configuration** dialog box appears.
+
+1. At the bottom of the **Remote Desktop Configuration** dialog box, choose the **More Options** button. 
  
-    Cela affiche une liste déroulante qui vous permet de créer ou de sélectionner un certificat afin de chiffrer les informations d'identification lors de la connexion Bureau à distance.
+    This displays a dropdown list box that lets you create or choose a certificate so that you can encrypt credentials information when connecting via remote desktop.
 
-1. Dans la liste déroulante, sélectionnez **&lt;Créer>** ou sélectionnez un certificat existant dans la liste.
+1. In the dropdown list, choose **&lt;Create>**, or choose an existing one from the list. 
 
-    Si vous sélectionnez un certificat existant, ignorez les étapes suivantes.
+    If you choose an existing certificate, skip the following steps.
 
-    >[AZURE.NOTE] Les certificats dont vous avez besoin pour une connexion Bureau à distance sont différents de ceux que vous utilisez pour d'autres opérations Azure. Le certificat de l'accès à distance doit avoir une clé privée.
+    >[AZURE.NOTE] The certificates that you need for a remote desktop connection are different from the certificates that you use for other Azure operations. The remote access certificate must have a private key.
 
-    La boîte de dialogue **Créer un certificat** s’affiche.
+    The **Create Certificate** dialog box appears.
 
-    1. Donnez un nom convivial au nouveau certificat, puis sélectionnez le bouton **OK**. Le nouveau certificat s'affiche dans la liste déroulante.
+    1. Provide a friendly name for the new certificate, and then choose the **OK** button. The new certificate appears in the dropdown list box.
 
-    1. Dans la boîte de dialogue **Configuration du Bureau à distance**, entrez un nom d’utilisateur et un mot de passe.
+    1. In the **Remote Desktop Configuration** dialog box, provide a user name and a password.
     
-        Vous ne pouvez pas utiliser un compte existant. Ne spécifiez pas Administrateur comme nom d'utilisateur pour le nouveau compte.
+        You can’t use an existing account. Don’t specify Administrator as the user name for the new account.
 
-        >[AZURE.NOTE] Si le mot de passe ne répond pas aux exigences de complexité, une icône rouge apparaît en regard de la zone de texte du mot de passe. Le mot de passe doit comporter des lettres majuscules, des lettres minuscules et des nombres ou des symboles.
+        >[AZURE.NOTE] If the password doesn’t meet the complexity requirements, a red icon appears next to the password text box. The password must include capital letters, lowercase letters, and numbers or symbols.
 
-    1. Choisissez une date à laquelle le compte expirera et après laquelle les connexions Bureau à distance seront bloquées.
+    1. Choose a date on which the account will expire and after which remote desktop connections will be blocked.
 
-    1. Une fois que vous avez fourni toutes les informations requises, sélectionnez le bouton **OK**.
+    1. After you've provided all the required information, choose the **OK** button.
     
-        Plusieurs paramètres qui activent les Services d'accès à distance sont ajoutés aux fichiers .cscfg et .csdef.
+        Several settings that enable Remote Access Services are added to the .cscfg and .csdef files.
 
-1. Dans l’Assistant **Paramètres de publication Microsoft Azure**, sélectionnez le bouton **OK** quand vous êtes prêt à publier votre service cloud.
+1. In the **Microsoft Azure Publish Settings** wizard, choose the **OK** button when you’re ready to publish your cloud service.
 
-    Si vous n’êtes pas prêt à le publier, sélectionnez le bouton **Annuler**. Les paramètres de configuration sont enregistrés, et vous pourrez publier votre service cloud ultérieurement.
+    If you're not ready to publish, choose the **Cancel** button. The configuration settings are saved, and you can publish your cloud service later.
 
-## Se connecter à un rôle Azure à l'aide du Bureau à distance
+## <a name="connect-to-an-azure-role-by-using-remote-desktop"></a>Connect to an Azure Role by using Remote Desktop
 
-Après avoir publié votre service cloud sur Azure, vous pouvez utiliser l'Explorateur de serveurs pour vous connecter aux machines virtuelles hébergées par Azure.
+After you publish your cloud service on Azure, you can use Server Explorer to log into the virtual machines that Azure hosts. 
 
-1. Dans l’Explorateur de serveurs, développez le nœud **Azure**, puis développez le nœud d’un service cloud et d’un de ses rôles pour afficher une liste d’instances.
+1. In Server Explorer, expand the **Azure** node, and then expand the node for a cloud service and one of its roles to display a list of instances.
 
-1. Ouvrez le menu contextuel d’un nœud d’instance, puis sélectionnez **Connexion à l’aide de Bureau à distance**.
+1. Open the shortcut menu for an instance node, and then choose **Connect Using Remote Desktop**.
 
-    ![Connexion Bureau à distance](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
+    ![Connecting via remote desktop](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 
-1. Entrez le nom d'utilisateur et le mot de passe que vous avez créés précédemment. Vous êtes maintenant connecté à votre session à distance.
+1. Enter the user name and password that you created previously. You are now logged into your remote session.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

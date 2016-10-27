@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Connecteur webhook d’application logique | Microsoft Azure"
-	description="Vue d’ensemble de l’action et des déclencheurs webhook permettant d’effectuer des actions comme Filtrer le tableau."
-	services=""
-	documentationCenter="" 
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Logic App webhook connector | Microsoft Azure"
+    description="Overview of webhook action and triggers for performing actions like Filter Array."
+    services=""
+    documentationCenter="" 
+    authors="jeffhollan"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,146 +17,153 @@
    ms.date="07/21/2016"
    ms.author="jehollan"/>
 
-# Prise en main du connecteur webhook
 
-Avec le déclencheur et l’action webhook, vous pouvez déclencher, suspendre et reprendre les flux afin d’effectuer les tâches suivantes :
+# <a name="get-started-with-the-webhook-connector"></a>Get started with the webhook connector
 
-- Créer un déclenchement à partir [d’Azure Event Hub dès qu’un élément](https://github.com/logicappsio/EventHubAPI) est reçu.
-- Attendre une approbation avant de poursuivre un flux de travail.
+With the webhook action and trigger you can trigger, pause, and resume flows to accomplish:
 
-Pour plus d’informations sur la création d’une API qui prend en charge l’abonnement à un webhook, consultez [cet article sur la création de connecteurs d’application logique](../app-service-logic/app-service-logic-create-api-app.md).
+- Trigger from an [Azure Event Hub as soon as an item](https://github.com/logicappsio/EventHubAPI) is received
+- Wait for an approval before continuing a workflow
 
----
-
-## Utilisation du déclencheur webhook
-
-Un déclencheur est un événement qui peut être utilisé pour lancer le workflow défini dans une application logique. [En savoir plus sur les déclencheurs](connectors-overview.md). Un déclencheur webhook est particulièrement utile car il ne repose pas sur l’interrogation des nouveaux éléments, contrairement au [déclencheur de requête](./connectors-native-reqres.md) ; l’application logique se déclenche dès qu’un événement se produit. Pour ce faire, elle enregistre une *URL de rappel* sur un service qui peut être utilisée pour déclencher l’application logique lorsque nécessaire.
-
-Voici un exemple de séquence de configuration d’un déclencheur HTTP dans le concepteur d’application logique. Cet exemple suppose que vous avez déjà déployé ou que vous accédez à une API qui suit [le modèle d’abonnement et de résiliation d’abonnement au webhook utilisé dans les applications logiques](../app-service-logic/app-service-logic-create-api-app.md#webhook-triggers). L’appel d’abonnement est effectué à chaque fois qu’une application logique est enregistrée avec un nouveau webhook, ou basculée de l’état désactivé à l’état activé. L’appel de résiliation d’abonnement est effectué à chaque fois qu’un déclencheur webhook d’application logique est supprimé et enregistré, ou basculé de l’état activé à l’état désactivé.
-
-1. Ajoutez le déclencheur **HTTP Webhook** en tant que première étape dans une application logique
-1. Renseignez les paramètres pour les appels d’abonnement et de résiliation d’abonnement au webhook
-	- Le modèle est identique au format de [l’action HTTP](./connectors-native-http.md)
-
-	![Déclencheur HTTP](./media/connectors-native-webhook/using-trigger.png)
-
-1. Ajoutez au moins une action
-1. Cliquez sur Enregistrer pour publier l’application logique. Cela permet d’appeler le point de terminaison d’abonnement avec l’URL de rappel nécessaire pour déclencher cette application logique
-1. À chaque fois que le service effectue un `HTTP POST` à l’URL de rappel, l’application logique se déclenche (et inclut toutes les données transmises dans la requête)
-
-## Utilisation de l’action webhook
-	
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions.](connectors-overview.md) Une action webhook est particulièrement utile car elle enregistre une *URL de rappel* avec un service et attend jusqu'à ce que l’URL soit appelée avant de se déclencher à nouveau. [« Envoyer un message électronique d’approbation »](./connectors-create-api-office365-outlook.md) est un exemple de connecteur qui suit ce modèle. Vous pouvez étendre ce modèle à n’importe quel service à l’aide de l’action webhook. Cet exemple suppose que vous avez déjà déployé ou que vous accédez à une API qui suit [le modèle d’abonnement et de résiliation d’abonnement au webhook utilisé dans les applications logiques](../app-service-logic/app-service-logic-create-api-app.md#webhook-actions). L’appel d’abonnement est effectué à chaque fois qu’une application logique exécute l’action webhook. L’appel de résiliation d’abonnement est effectué à chaque fois qu’une exécution est annulée en attendant une réponse, ou avant que l’exécution de l’application logique n’expire.
-
-Pour ajouter une action webhook :
-
-1. Sélectionnez le bouton **Nouvelle étape**
-1. Choisissez **Ajouter une action**
-1. Dans la zone de recherche d’action , tapez « webhook » pour répertorier l’action **HTTP Webhook**
-
-	![Sélectionner l’action de requête](./media/connectors-native-webhook/using-action-1.png)
-
-1. Renseignez les paramètres pour les appels d’abonnement et de résiliation d’abonnement au webhook
-	- Le modèle est identique au format de [l’action HTTP](./connectors-native-http.md)
-
-	![Terminer l’action de requête](./media/connectors-native-webhook/using-action-2.png)
-
-	- Lors de l’exécution, l’application logique appelle le point de terminaison d’abonnement lorsque l’étape est atteinte
-
-1. Cliquez sur Enregistrer dans le coin supérieur gauche de la barre d’outils, et votre application logique est à la fois enregistrée et publiée (activation)
+Information on creating an API that supports a webhook subscribe can be found [in this article on creating Logic App connectors](../app-service-logic/app-service-logic-create-api-app.md).
 
 ---
 
-## Détails techniques
+## <a name="use-the-webhook-trigger"></a>Use the webhook trigger
 
-Vous trouverez ci-dessous les détails des déclencheurs et des actions pris en charge par webhook.
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](connectors-overview.md).  A webhook trigger is especially useful as it doesn't rely on polling for new items - like the [request trigger](./connectors-native-reqres.md) the logic app will fire the instant an event occurs.  It does this by registering a *callback URL* to a service which can be used to fire the logic app as needed.
 
-## Déclencheurs Webhook
+Here’s an example sequence of how to setup a HTTP trigger in the logic app designer.  This assumes you have already deployed or are accessing an API that follows [the webhook subscribe and unsubscribe pattern used in Logic Apps](../app-service-logic/app-service-logic-create-api-app.md#webhook-triggers).  The subscribe call is made whenever a logic app is saved with a new webhook, or switched from disabled to enabled.  The unsubscribe call is made whenever a logic app webhook trigger is removed and saved, or switched from enabled to disabled.
 
-Un déclencheur est une opération de démarrage d’un flux de travail. [En savoir plus sur les déclencheurs.](connectors-overview.md) Ce connecteur a 1 déclencheur.
+1. Add the **HTTP Webhook** trigger as the first step in a logic app
+1. Fill in the parameters for the webhook subscribe and unsubscribe calls
+    - This follow the same pattern as the [HTTP action](./connectors-native-http.md) format
+
+    ![HTTP Trigger](./media/connectors-native-webhook/using-trigger.png)
+
+1. Add at least one action
+1. Click save to publish the logic app - this will call the subscribe endpoint with the callback URL needed to trigger this logic app
+1. Whenever the service makes an `HTTP POST` to the callback URL, the logic app will fire (and include any data passed in the request)
+
+## <a name="use-the-webhook-action"></a>Use the webhook action
+    
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md)  A webhook action is especially useful as it will register a *callback URL* with a service and wait until the URL is called before resuming.  The ["Send Approval Email"](./connectors-create-api-office365-outlook.md) is an example of a connector that follows this pattern.  You can extend this pattern into any service through the webhook action.  This assumes you have already deployed or are accessing an API that follows [the webhook subscribe and unsubscribe pattern used in Logic Apps](../app-service-logic/app-service-logic-create-api-app.md#webhook-actions).  The subscribe call is made whenever a logic app executes the webhook action.  The unsubscribe call is made whenever a run is cancelled while awaiting a response, or before the logic app run times out.
+
+To add a webhook action:
+
+1. Select the **New Step** button
+1. Choose **Add an action**
+1. In the action search box, type "webhook" to list the **HTTP Webhook** action
+
+    ![Select query action](./media/connectors-native-webhook/using-action-1.png)
+
+1. Fill in the parameters for the webhook subscribe and unsubscribe calls
+    - This follow the same pattern as the [HTTP action](./connectors-native-http.md) format
+
+    ![Complete query action](./media/connectors-native-webhook/using-action-2.png)
+
+    - At runtime the logic app will call the subscribe endpoint once it reaches the step
+
+1. Click save at the top left corner of the toolbar, and your logic app will both save and publish (activate)
+
+---
+
+## <a name="technical-details"></a>Technical details
+
+Below are the details for the trigger and action webhook supports.
+
+## <a name="webhook-triggers"></a>Webhook triggers
+
+A trigger is an operation to start a workflow. [Learn more about triggers.](connectors-overview.md) This connector has 1 trigger.
 
 |Action|Description|
 |---|---|
-|HTTP Webhook|Permet d’abonner une URL de rappel à un service qui peut appeler l’URL pour déclencher l’application logique lorsque nécessaire.|
+|HTTP Webhook|Subscribe a callback URL to a service that can call the URL to fire logic app as needed.|
 
-### Détails du déclencheur
+### <a name="trigger-details"></a>Trigger details
 
-Le connecteur webhook est créé avec 1 déclencheur possible. Vous trouverez ci-dessous plus d’informations sur l’action, ses champs obligatoires et facultatifs, et les détails des résultats correspondants associés à son utilisation.
+The webhook connector comes with 1 possible trigger. Below is the information on the action, its required and optional input fields, and the corresponding output details associated with its usage.
 
-#### HTTP Webhook
-Permet d’abonner une URL de rappel à un service qui peut appeler l’URL pour déclencher l’application logique lorsque nécessaire. Une * signifie que le champ est obligatoire.
+#### <a name="http-webhook"></a>HTTP Webhook
+Subscribe a callback URL to a service that can call the URL to fire logic app as needed.
+An * means required field.
 
-|Display Name|Nom de la propriété|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|Méthode d’abonnement*|statique|Méthode HTTP à utiliser pour la demande d’abonnement|
-|URI d’abonnement*|URI|URI HTTP à utiliser pour la demande d’abonnement|
-|Méthode de résiliation d’abonnement*|statique|Méthode HTTP à utiliser pour la demande de résiliation d’abonnement|
-|URI de résiliation d’abonnement*|URI|URI HTTP à utiliser pour la demande de résiliation d’abonnement|
-|Corps d’abonnement|body|Corps de la demande HTTP pour s’abonner|
-|En-têtes de l’abonnement|headers|En-têtes de la demande HTTP pour s’abonner|
-|Authentification de l’abonnement|authentification|Authentification HTTP à utiliser pour s’abonner. Voir [Connecteur HTTP](./connectors-native-http.md#authenication) pour plus d’informations|
-|Corps de résiliation d’abonnement|body|Corps de la demande HTTP de résiliation d’abonnement|
-|En-têtes de résiliation d’abonnement|headers|En-têtes de la demande HTTP de résiliation d’abonnement|
-|Authentification de la résiliation d’abonnement|authentication|Authentification HTTP à utiliser pour la résiliation d’abonnement. Voir [Connecteur HTTP](./connectors-native-http.md#authenication) pour plus d’informations|
+|Subscribe Method*|method|HTTP Method to use for subscribe request|
+|Subscribe URI*|uri|HTTP URI to use for subscribe request|
+|Unsubscribe Method*|method|HTTP method to use for unsubscribe request|
+|Unsubscribe URI*|uri|HTTP URI to use for unsubscribe request|
+|Subscribe Body|body|HTTP request body for subscribe|
+|Subscribe Headers|headers|HTTP request headers for subscribe|
+|Subscribe Authentication|authencation|HTTP authentication to use for subscribe. [See HTTP connector](./connectors-native-http.md#authenication) for details|
+|Unsubscribe Body|body|HTTP request body for unsubscribe|
+|Unsubscribe Headers|headers|HTTP request headers for unsubscribe|
+|Unsubscribe Authentication|authentication|HTTP authentication to use for unsubscribe. [See HTTP connector](./connectors-native-http.md#authenication) for details|
 <br>
 
-**Détails des résultats**
+**Output Details**
 
-Requête Webhook
+Webhook request
 
-|Nom de la propriété|Type de données|Description|
+|Property Name|Data Type|Description|
 |---|---|---|
-|En-têtes|objet|En-têtes de requête Webhook|
-|Corps|objet|Objet de la requête Webhook|
-|Code d’état|int|Code d’état de la requête Webhook|
+|Headers|object|Webhook request headers|
+|Body|object|Webhook request object|
+|Status Code|int|Webhook request status code|
 
-## Actions de webhook
+## <a name="webhook-actions"></a>Webhook actions
 
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions.](connectors-overview.md) Le connecteur a 1 action possible.
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md) The connector has 1 possible action. 
 
 |Action|Description|
 |---|---|
-|HTTP Webhook|Permet d’abonner une URL de rappel à un service qui peut appeler l’URL redémarrer une étape du flux de travail lorsque nécessaire.|
+|HTTP Webhook|Subscribe a callback URL to a service that can call the URL to resume a workflow step as needed.|
 
-### Détails de l’action
+### <a name="action-details"></a>Action details
 
-Le connecteur webhook est créé avec 1 action possible. Vous trouverez ci-dessous plus d’informations sur l’action, ses champs obligatoires et facultatifs, et les détails des résultats correspondants associés à son utilisation.
+The webhook connector comes with 1 possible action. Below, there is information on the action, its required and optional input fields, and the corresponding output details associated with its usage.
 
-#### HTTP Webhook
-Permet d’abonner une URL de rappel à un service qui peut appeler l’URL redémarrer une étape du flux de travail lorsque nécessaire. Une * signifie que le champ est obligatoire.
+#### <a name="http-webhook"></a>HTTP Webhook
+Subscribe a callback URL to a service that can call the URL to resume a workflow step as needed.
+An * means required field.
 
-|Display Name|Nom de la propriété|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|Méthode d’abonnement*|statique|Méthode HTTP à utiliser pour la demande d’abonnement|
-|URI d’abonnement*|URI|URI HTTP à utiliser pour la demande d’abonnement|
-|Méthode de résiliation d’abonnement*|statique|Méthode HTTP à utiliser pour la demande de résiliation d’abonnement|
-|URI de résiliation d’abonnement*|URI|URI HTTP à utiliser pour la demande de résiliation d’abonnement|
-|Corps d’abonnement|body|Corps de la demande HTTP pour s’abonner|
-|En-têtes de l’abonnement|headers|En-têtes de la demande HTTP pour s’abonner|
-|Authentification de l’abonnement|authentification|Authentification HTTP à utiliser pour s’abonner. Voir [Connecteur HTTP](./connectors-native-http.md#authentication) pour plus d’informations|
-|Corps de résiliation d’abonnement|body|Corps de la demande HTTP de résiliation d’abonnement|
-|En-têtes de résiliation d’abonnement|headers|En-têtes de la demande HTTP de résiliation d’abonnement|
-|Authentification de la résiliation d’abonnement|authentication|Authentification HTTP à utiliser pour la résiliation d’abonnement. Voir [Connecteur HTTP](./connectors-native-http.md#authentication) pour plus d’informations|
+|Subscribe Method*|method|HTTP Method to use for subscribe request|
+|Subscribe URI*|uri|HTTP URI to use for subscribe request|
+|Unsubscribe Method*|method|HTTP method to use for unsubscribe request|
+|Unsubscribe URI*|uri|HTTP URI to use for unsubscribe request|
+|Subscribe Body|body|HTTP request body for subscribe|
+|Subscribe Headers|headers|HTTP request headers for subscribe|
+|Subscribe Authentication|authencation|HTTP authentication to use for subscribe. [See HTTP connector](./connectors-native-http.md#authentication) for details|
+|Unsubscribe Body|body|HTTP request body for unsubscribe|
+|Unsubscribe Headers|headers|HTTP request headers for unsubscribe|
+|Unsubscribe Authentication|authentication|HTTP authentication to use for unsubscribe. [See HTTP connector](./connectors-native-http.md#authentication) for details|
 <br>
 
-**Détails des résultats**
+**Output Details**
 
-Requête Webhook
+Webhook request
 
-|Nom de la propriété|Type de données|Description|
+|Property Name|Data Type|Description|
 |---|---|---|
-|En-têtes|objet|En-têtes de requête Webhook|
-|Corps|objet|Objet de la requête Webhook|
-|Code d’état|int|Code d’état de la requête Webhook|
+|Headers|object|Webhook request headers|
+|Body|object|Webhook request object|
+|Status Code|int|Webhook request status code|
 
 ---
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Vous trouverez ci-dessous plus d’informations sur la manière d’avancer le développement de vos applications logiques, ainsi que sur notre communauté.
+Below are details on how to move forward with logic apps and our community.
 
-## Créer une application logique
+## <a name="create-a-logic-app"></a>Create a logic app
 
-Essayez la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) dès maintenant. Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
+Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

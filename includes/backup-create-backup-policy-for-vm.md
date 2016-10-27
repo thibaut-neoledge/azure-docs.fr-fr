@@ -1,31 +1,34 @@
-## Définition d’une stratégie de sauvegarde
+## <a name="defining-a-backup-policy"></a>Defining a backup policy
 
-Une stratégie de sauvegarde définit quand les instantanés de données sont pris ainsi que leur durée de conservation. Lors de la définition de la stratégie de sauvegarde d’une machine virtuelle, vous pouvez déclencher un travail de sauvegarde *une fois par jour*. Lorsque vous créez une stratégie, elle est appliquée à l’archivage. L'interface de la stratégie de sauvegarde ressemble à ceci :
+A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
 
-![Stratégie de sauvegarde](./media/backup-create-policy-for-vms/backup-policy.png)
+![Backup policy](./media/backup-create-policy-for-vms/backup-policy.png)
 
-Pour créer une stratégie :
+To create a policy:
 
-1. Entrez un nom dans **Nom de la stratégie**.
+1. Enter a name for the **Policy name**.
 
-2. Les instantanés de vos données peuvent être pris à intervalles quotidiens ou hebdomadaires. Utilisez le menu déroulant **Fréquence de sauvegarde** pour déterminer la fréquence de prise des instantanés de données (tous les jours ou toutes les semaines).
+2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
 
-    - Si vous choisissez un intervalle quotidien, utilisez le contrôle en surbrillance pour sélectionner l'heure du jour à laquelle prendre l'instantané. Pour modifier l'heure, désélectionnez-la et choisissez-en une autre.
+    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
 
-    ![Stratégie de sauvegarde quotidienne](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
+    ![Daily backup policy](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
 
-    - Si vous choisissez un intervalle hebdomadaire, utilisez les contrôles en surbrillance pour sélectionner le(s) jour(s) de la semaine et l’heure auxquels prendre l’instantané. Dans le menu du jour, sélectionnez un ou plusieurs jours. Dans le menu de l'heure, sélectionnez une heure. Pour modifier l'heure, désélectionnez-la et choisissez-en une autre.
+    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
 
-    ![Stratégie de sauvegarde hebdomadaire](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
+    ![Weekly backup policy](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 
-3. Par défaut, toutes les options **Durée de rétention** sont sélectionnées. Désactivez la limite de plage de rétention que vous ne souhaitez pas utiliser. Ensuite, spécifiez le ou les intervalles à utiliser.
+3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use. Then, specify the interval(s) to use.
 
-    Les durées de rétention mensuelle et annuelle vous permettent de prendre des instantanés selon un intervalle hebdomadaire ou quotidien.
+    Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
 
-    >[AZURE.NOTE] Lorsque vous protégez un ordinateur virtuel, un travail de sauvegarde s'exécute une fois par jour. L'heure d'exécution de la sauvegarde est le même pour chaque plage de rétention.
+    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
 
-4. Après avoir défini toutes les options de la stratégie, cliquez sur **Enregistrer** en haut du panneau.
+4. After setting all options for the policy, at the top of the blade click **Save**.
 
-    La nouvelle stratégie est appliquée immédiatement au coffre.
+    The new policy is immediately applied to the vault.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure AD à TalentLMS | Microsoft Azure" 
-    description="Découvrez comment utiliser TalentLMS avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    pageTitle="Tutorial: Azure Active Directory Integration with TalentLMS | Microsoft Azure" 
+    description="Learn how to use TalentLMS with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,143 +14,151 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-#Didacticiel : Intégration d’Azure AD à TalentLMS
+
+#<a name="tutorial:-azure-active-directory-integration-with-talentlms"></a>Tutorial: Azure Active Directory Integration with TalentLMS
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et TalentLMS. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+The objective of this tutorial is to show the integration of Azure and TalentLMS.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Un abonnement Azure valide
--   Un locataire TalentLMS
+-   A valid Azure subscription
+-   A TalentLMS tenant
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à TalentLMS pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise TalentLMS (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to TalentLMS will be able to single sign into the application at your TalentLMS company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Activation de l’intégration d’applications pour TalentLMS
-2.  Configuration de l'authentification unique
-3.  Configuration de l'approvisionnement des utilisateurs
-4.  Affectation d’utilisateurs
+1.  Enabling the application integration for TalentLMS
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Scénario](./media/active-directory-saas-talentlms-tutorial/IC777289.png "Scénario")
+![Scenario](./media/active-directory-saas-talentlms-tutorial/IC777289.png "Scenario")
 
-##Activation de l’intégration d’applications pour TalentLMS
+##<a name="enabling-the-application-integration-for-talentlms"></a>Enabling the application integration for TalentLMS
   
-Cette section décrit l’activation de l’intégration d’applications pour TalentLMS.
+The objective of this section is to outline how to enable the application integration for TalentLMS.
 
-###Pour activer l’intégration d’applications pour TalentLMS, procédez comme suit :
+###<a name="to-enable-the-application-integration-for-talentlms,-perform-the-following-steps:"></a>To enable the application integration for TalentLMS, perform the following steps:
 
-1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-talentlms-tutorial/IC700993.png "Active Directory")
 
-2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
     ![Applications](./media/active-directory-saas-talentlms-tutorial/IC700994.png "Applications")
 
-4.  Cliquez sur **Ajouter** en bas de la page.
+4.  Click **Add** at the bottom of the page.
 
-    ![Ajouter l’application](./media/active-directory-saas-talentlms-tutorial/IC749321.png "Ajouter l’application")
+    ![Add application](./media/active-directory-saas-talentlms-tutorial/IC749321.png "Add application")
 
-5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-talentlms-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+    ![Add an application from gallerry](./media/active-directory-saas-talentlms-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Dans la **zone de recherche**, entrez **TalentLMS**.
+6.  In the **search box**, type **TalentLMS**.
 
-    ![Galerie d’applications](./media/active-directory-saas-talentlms-tutorial/IC777290.png "Galerie d’applications")
+    ![Application gallery](./media/active-directory-saas-talentlms-tutorial/IC777290.png "Application gallery")
 
-7.  Dans le volet de résultats, sélectionnez **TalentLMS**, puis cliquez sur **Terminer** pour ajouter l’application.
+7.  In the results pane, select **TalentLMS**, and then click **Complete** to add the application.
 
     ![TalentLMS](./media/active-directory-saas-talentlms-tutorial/IC777291.png "TalentLMS")
 
-##Configuration de l'authentification unique
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur TalentLMS avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour TalentLMS oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to TalentLMS with their account in Azure AD using federation based on the SAML protocol. .  
+Configuring single sign-on for TalentLMS requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Pour configurer l’authentification unique, procédez comme suit :
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Dans la page d’intégration d’applications **TalentLMS** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  In the Azure classic portal, on the **TalentLMS** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configure single sign-on")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à TalentLMS**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  On the **How would you like users to sign on to TalentLMS** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777293.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-talentlms-tutorial/IC777293.png "Configure single sign-on")
 
-3.  Dans la zone de texte **URL de connexion à TalentLMS** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.TalentLMS.com* », puis cliquez sur**Suivant**.
+3.  On the **Configure App URL** page, in the **TalentLMS Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.TalentLMSapp.com*", and then click **Next**.
 
-    ![URL d’authentification](./media/active-directory-saas-talentlms-tutorial/IC777294.png "URL d’authentification")
+    ![Sign on URL](./media/active-directory-saas-talentlms-tutorial/IC777294.png "Sign on URL")
 
-4.  Dans la page **Configurer l’authentification unique sur TalentLMS**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sous le nom **c:\\TalentLMS.cer**.
+4.  On the **Configure single sign-on at TalentLMS** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\TalentLMS.cer**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777295.png "Configurer l’authentification unique")
+    ![Configure Single Sign-On](./media/active-directory-saas-talentlms-tutorial/IC777295.png "Configure Single Sign-On")
 
-5.  Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise TalentLMS en tant qu’administrateur.
+5.  In a different web browser window, log into your TalentLMS company site as an administrator.
 
-6.  Dans la section **Account & Settings**, cliquez sur l’onglet **Users**.
+6.  In the **Account & Settings** section, click the **Users** tab.
 
     ![Account & Settings](./media/active-directory-saas-talentlms-tutorial/IC777296.png "Account & Settings")
 
-7.  Cliquez sur **Single Sign-On (SSO)**.
+7.  Click **Single Sign-On (SSO)**,
 
-8.  Dans la section Single Sign-On, procédez comme suit :
+8.  In the Single Sign-On section, perform the following steps:
 
-    ![Authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777297.png "Authentification unique")
+    ![Single Sign-On](./media/active-directory-saas-talentlms-tutorial/IC777297.png "Single Sign-On")
 
-    1.  Dans la liste **SSO integration type**, sélectionnez **SAML 2.0**.
-    2.  Dans la page **Configurer l’authentification unique sur TalentLMS** du portail Azure Classic, copiez la valeur de **ID de fournisseur d’identité** et collez-la dans la zone de texte **Identity provider (IdP)**.
-    3.  Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.
+    1.  From the **SSO integration type** list, select **SAML 2.0**.
+    2.  In the Azure classic portal, on the **Configure single sign-on at TalentLMS** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Identity provider (IdP)** textbox.
+    3.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.
 
-        >[AZURE.TIP] Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-    4.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure, copiez la valeur de **URL de connexion distante** et collez-la dans la zone de texte **Remote sign-in URL** (URL de connexion à distance).
-    5.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure Classic, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Remote sign-out URL** (URL de déconnexion à distance).
-    6.  Dans la zone de texte **ID ciblé**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-    7.  Dans la zone de texte **Prénom**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    8.  Dans la zone de texte **Nom**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    9.  Dans la zone de texte **Adresse de messagerie**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    10. Cliquez sur **Save**.
+    4.  In the Azure classic portal, on the **Configure single sign-on at TalentLMS** dialog page, copy the **Remote Login URL** value, and then paste it into the **Remote sign-in URL** textbox.
+    5.  In the Azure classic portal, on the **Configure single sign-on at TalentLMS** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Remote sign-out URL** textbox.
+    6.  In the **TargetedID** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**
+    7.  In the **First name** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    8.  In the **Last name** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+    9.  In the **Email** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
+    10. Click **Save**.
 
-9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777298.png "Configurer l’authentification unique")
+    ![Configure Single Sign-On](./media/active-directory-saas-talentlms-tutorial/IC777298.png "Configure Single Sign-On")
 
-##Configuration de l'approvisionnement des utilisateurs
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Pour se connecter à TalentLMS, les utilisateurs d’Azure AD doivent être approvisionnés dans TalentLMS. Dans le cas de TalentLMS, l’approvisionnement est une tâche manuelle.
+In order to enable Azure AD users to log into TalentLMS, they must be provisioned into TalentLMS.  
+In the case of TalentLMS, provisioning is a manual task.
 
-###Pour approvisionner un compte d’utilisateur, procédez comme suit :
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Connectez-vous à votre locataire **TalentLMS**.
+1.  Log in to your **TalentLMS** tenant.
 
-2.  Cliquez sur **Users** puis sur **Add User**.
+2.  Click **Users**, and then click **Add User**.
 
-3.  Dans la boîte de dialogue **Add user**, procédez comme suit :
+3.  On the **Add user** dialog page, perform the following steps:
 
-    ![Ajouter un utilisateur](./media/active-directory-saas-talentlms-tutorial/IC777299.png "Ajouter un utilisateur")
+    ![Add User](./media/active-directory-saas-talentlms-tutorial/IC777299.png "Add User")
 
-    1.  Tapez les valeurs d’attribut associées du compte d’utilisateur Azure AD dans les zones de texte suivantes : **First name**, **Last name** et **Email address**.
-    2.  Cliquez sur **Add User**.
+    1.  Type the related attribute values of the Azure AD user account into the following textboxes: **First name**, **Last name**, **Email address**.
+    2.  Click **Add User**.
 
->[AZURE.NOTE] Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par TalentLMS, pour approvisionner des comptes d’utilisateur AAD.
+>[AZURE.NOTE] You can use any other TalentLMS user account creation tools or APIs provided by TalentLMS to provision AAD user accounts.
 
-##Affectation d’utilisateurs
+##<a name="assigning-users"></a>Assigning users
   
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Pour affecter des utilisateurs à TalentLMS, procédez comme suit :
+###<a name="to-assign-users-to-talentlms,-perform-the-following-steps:"></a>To assign users to TalentLMS, perform the following steps:
 
-1.  Dans le portail Azure Classic, créez un compte de test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Dans la page d’intégration d’applications **TalentLMS**, cliquez sur **Affecter des utilisateurs**.
+2.  On the **TalentLMS **application integration page, click **Assign users**.
 
-    ![Affecter des utilisateurs](./media/active-directory-saas-talentlms-tutorial/IC777300.png "Affecter des utilisateurs")
+    ![Assign users](./media/active-directory-saas-talentlms-tutorial/IC777300.png "Assign users")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Oui](./media/active-directory-saas-talentlms-tutorial/IC767830.png "Oui")
+    ![Yes](./media/active-directory-saas-talentlms-tutorial/IC767830.png "Yes")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

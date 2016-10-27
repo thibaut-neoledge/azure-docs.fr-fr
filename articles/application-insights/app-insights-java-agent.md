@@ -1,39 +1,40 @@
 <properties 
-	pageTitle="Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java" 
-	description="Surveillance étendue de votre site web Java avec Application Insights" 
-	services="application-insights" 
+    pageTitle="Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java" 
+    description="Surveillance étendue de votre site web Java avec Application Insights" 
+    services="application-insights" 
     documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2016" 
+    ms.author="awills"/>
  
-# Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
+
+# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
 
 *Application Insights est à l'état de version préliminaire.*
 
-Si vous avez [instrumenté votre application web Java avec Application Insights][java], vous pouvez utiliser l’agent Java pour obtenir des informations plus détaillées, sans aucune modification de code :
+Si vous avez [instrumenté votre application web Java avec Application Insights][java], vous pouvez utiliser l’agent Java pour obtenir des informations plus détaillées, sans aucune modification de code :
 
 
 * **Dépendances :** données sur les appels passés par votre application à destination d’autres composants, dont :
  * **Appels REST** passés via HttpClient, OkHttp et RestTemplate (Spring).
- * Appels **Redis** passés via le client Jedis. Si l’appel prend plus de 10 s, l’agent récupère également les arguments d’appel.
- * **[Appels JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** : base de données MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby. Les appels de « executeBatch » sont pris en charge. Pour MySQL et PostgreSQL, si l’appel prend plus de 10 s, l’agent signale le plan de requête.
+ * **Redis** passés via le client Jedis. Si l’appel prend plus de 10 s, l’agent récupère également les arguments d’appel.
+ * **[Appels JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** : base de données MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby. Les appels de « executeBatch » sont pris en charge. Pour MySQL et PostgreSQL, si l’appel prend plus de 10 s, l’agent signale le plan de requête. 
 * **Exceptions interceptées** : données concernant les exceptions gérées par votre code.
 * **Temps d’exécution de la méthode** : données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
 
-Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK) Java Application Insights][java].
+Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK)][Java] Application Insights.
 
-## Installer l’agent Application Insights pour Java
+## <a name="install-the-application-insights-agent-for-java"></a>Installer l’agent Application Insights pour Java
 
-1. [Téléchargez l'agent](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html) sur la machine exécutant votre serveur Java.
+1. [Téléchargez l'agent](https://aka.ms/aijavasdk) sur la machine exécutant votre serveur Java.
 2. Modifiez le script de démarrage du serveur d’applications et ajoutez la Machine virtuelle Java (JVM) suivante :
 
     `javaagent:`*chemin d’accès complet au fichier JAR de l’agent*
@@ -45,11 +46,11 @@ Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications w
 
 3. Redémarrez votre serveur d’applications.
 
-## Configurer l’agent
+## <a name="configure-the-agent"></a>Configurer l’agent
 
 Créez un fichier nommé `AI-Agent.xml` et placez-le dans le même dossier que le fichier JAR de l’agent.
 
-Définissez le contenu du fichier xml. Modifiez l’exemple suivant pour inclure ou omettre les fonctionnalités souhaitées.
+Définissez le contenu du fichier xml. Modifiez l’exemple suivant pour inclure ou omettre les fonctionnalités souhaitées. 
 
 ```XML
 
@@ -92,17 +93,17 @@ Vous devez activer l’exception de rapports et le minutage pour les méthodes i
 
 Par défaut, `reportExecutionTime` est défini sur true, et `reportCaughtExceptions` sur false.
 
-## Visualiser les données
+## <a name="view-the-data"></a>Visualiser les données
 
-Dans la ressource Application Insights, les temps des dépendances distantes agrégées et d’exécution de la méthode apparaissent [dans la vignette Performances][metrics].
+Dans la ressource Application Insights, les temps des dépendances distantes agrégées et d’exécution de la méthode apparaissent [dans la vignette Performances][métriques]. 
 
-Pour rechercher des instances individuelles de rapports sur les dépendances, les exceptions et les méthodes, ouvrez [Rechercher][diagnostic].
+Pour rechercher des instances individuelles de rapports sur les dépendances, les exceptions et les méthodes, ouvrez [Rechercher][diagnostic]. 
 
 [En savoir plus sur le diagnostic des problèmes de dépendance](app-insights-dependencies.md#diagnosis).
 
 
 
-## Des questions ? Des problèmes ?
+## <a name="questions?-problems?"></a>Des questions ? Des problèmes ?
 
 * Pas de données ? [Définir les exceptions de pare-feu](app-insights-ip-addresses.md)
 * [Résolution des problèmes Java](app-insights-java-troubleshoot.md)
@@ -123,4 +124,8 @@ Pour rechercher des instances individuelles de rapports sur les dépendances, le
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Mise à l’échelle d’Azure Functions | Microsoft Azure"
-   description="Découvrez comment Azure Functions se met à l'échelle pour répondre aux besoins de vos charges de travail liées aux événements."
+   pageTitle="How to scale Azure Functions | Microsoft Azure"
+   description="Understand how Azure Functions scale to meet the needs of your event-driven workloads."
    services="functions"
    documentationCenter="na"
    authors="dariagrigoriu"
    manager="erikre"
    editor=""
    tags=""
-   keywords="azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"/>
+   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
 
 <tags
    ms.service="functions"
@@ -18,33 +18,40 @@
    ms.date="08/03/2016"
    ms.author="dariagrigoriu"/>
 
-# Mise à l’échelle d’Azure Functions
 
-## Introduction
+# <a name="how-to-scale-azure-functions"></a>How to scale Azure Functions
 
-L’un des avantages d’Azure Functions réside dans le fait que les ressources de calcul sont utilisées uniquement si nécessaire. Cela signifie que vous ne payez rien pour les machines virtuelles inactives et qu’il n’est pas nécessaire de leur réserver de la capacité au cas où vous en auriez besoin. Au lieu de cela, la plateforme alloue de la puissance de calcul lors de l’exécution du code, monte en puissance quand c’est nécessaire pour gérer la charge, puis descend en puissance lorsque le code n’est pas en cours d’exécution.
+## <a name="introduction"></a>Introduction
 
-Le mécanisme de cette nouvelle fonctionnalité est le plan de service dynamique.
+An advantage of Azure Functions is that compute resources are only consumed when needed. This means that you don’t pay for idle VMs or have to reserve capacity for when you might need it. Instead, the platform allocates compute power when your code is running, scales up as necessary to handle load, and then scales down when code is not running.
 
-Cet article fournit un aperçu du fonctionnement du plan de service dynamique et de la mise à l’échelle à la demande de la plateforme pour exécuter votre code.
+The mechanism for this new capability is the Dynamic Service plan.  
 
-Si vous ne connaissez pas encore Azure Functions, consultez l’article [Vue d’ensemble d’Azure Functions](functions-overview.md) pour mieux comprendre ses fonctionnalités.
+This article provides an overview of how the Dynamic Service plan works and how the platform scales on demand to run your code.
 
-## Configurer Azure Functions
+If you are not yet familiar with Azure Functions, make sure to check the [Azure Functions overview](functions-overview.md) article to better understand its capabilities.
 
-Il existe deux principaux paramètres liés à la mise à l’échelle :
+## <a name="configure-azure-functions"></a>Configure Azure Functions
 
-* [Plan Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) ou plan de service dynamique
-* Taille de la mémoire pour l’environnement d’exécution
+Two main settings are related to scaling:
 
-Le coût d’une fonction varie selon le plan de service que vous sélectionnez. Avec un plan de service dynamique, le coût est une fonction de la durée d’exécution, de la taille de la mémoire et du nombre d’exécutions. Les coûts s’accumulent uniquement lorsque votre code est effectivement en cours d’exécution.
+* [Azure App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Service plan
+* Memory size for the execution environment
 
-Un plan App Service héberge vos fonctions sur des machines virtuelles existantes qui peuvent également être utilisées pour exécuter un autre code. En dehors du paiement de ces machines virtuelles chaque mois, l’exécution des fonctions sur les machines virtuelles ne représente pas de frais supplémentaires.
+The cost of a function changes depending on the service plan that you select. With a Dynamic Service plan, cost is a function of execution time, memory size, and number of executions. Charges accrue only when your code is actually running.
 
-## Choisir un plan de service
+An App Service plan hosts your functions on existing VMs, which might also be used to run other code. After you pay for these VMs each month, there is no extra charge for execution functions on them.
 
-Lors de la création d’applications, vous pouvez choisir de les exécuter sur un plan de service dynamique ou un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Dans le plan App Service, vos fonctions seront exécutées sur une machine virtuelle dédiée, tout comme les applications web aujourd’hui (pour les références de base, Standard ou Premium). Cette machine virtuelle dédiée est allouée à vos applications et à vos fonctions et est toujours disponible que le code soit en cours d’exécution ou non. C’est une bonne option si vous possédez des machines virtuelles qui exécutent déjà du code mais ne sont pas complètement utilisées ou si vous envisagez d’exécuter les fonctions en continu ou presque. L’utilisation d’une machine virtuelle dissocie le coût de l’exécution et de la taille de mémoire. Par conséquent, vous pouvez ramener le coût d’un grand nombre de fonctions longues au coût de la ou des machines virtuelles sur lesquelles elles s’exécutent.
+## <a name="choose-a-service-plan"></a>Choose a service plan
 
-[AZURE.INCLUDE [Plan de service dynamique](../../includes/functions-dynamic-service-plan.md)]
+When you create functions, you can select to run them on a Dynamic Service plan or an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+In the App Service plan, your functions will run on a dedicated VM, just like web apps work today for Basic, Standard, or Premium SKUs.
+This dedicated VM is allocated to your apps and functions and is always available whether code is being actively executed or not. This is a good option if you have existing, under-utilized VMs that are already running other code or if you expect to run functions continuously or almost continuously. A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the one or more VMs that they run on.
 
-<!---HONumber=AcomDC_0803_2016-->
+[AZURE.INCLUDE [Dynamic Service plan](../../includes/functions-dynamic-service-plan.md)]
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

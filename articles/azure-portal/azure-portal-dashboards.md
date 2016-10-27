@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tableaux de bord du portail Azure | Microsoft Azure"
-   description="Cet article vous explique comment créer et modifier des tableaux de bord dans le portail Azure."
+   pageTitle="Azure portal dashboards | Microsoft Azure"
+   description="This article explains how to create and edit dashboards in the Azure portal."
    services="azure-portal"
    documentationCenter=""
    authors="sewatson"
@@ -16,90 +16,94 @@
    ms.date="09/06/2016"
    ms.author="sewatson"/>
 
-# Création et partage des tableaux de bord dans le portail Azure
 
-Vous pouvez créer plusieurs tableaux de bord et les partager avec d’autres personnes ayant accès à vos abonnements Azure. Cet article présente les principes fondamentaux de création, de modification, de publication et de gestion de l’accès aux tableaux de bord.
+# <a name="creating-and-sharing-dashboards-in-the-azure-portal"></a>Creating and sharing dashboards in the Azure portal
 
-## Personnalisation des tableaux de bord et panneaux
+You can create multiple dashboards and share them with others who have access to your Azure subscriptions.  This post goes through the basics of creating/editing, publishing, and managing access to dashboards.
 
-Depuis l’apparition des tableaux de bord il y a quelques mois, la personnalisation des panneaux est de moins en moins utilisée, tandis que la personnalisation des tableaux de bord s’est rapidement développée. Cette nette tendance montre que vous préférez personnaliser les tableaux de bord plutôt que les panneaux. Afin de suivre cette tendance, nous allons supprimer la possibilité de personnaliser les panneaux et concentrer nos efforts sur l’amélioration des fonctionnalités du tableau de bord. Si vous avez personnalisé un panneau, votre personnalisation sera bientôt supprimée. Pour conserver cette personnalisation, épinglez les mosaïques personnalisées à un tableau de bord. Cliquez simplement avec le bouton droit sur la mosaïque et sélectionnez **Épingler au tableau de bord**, comme indiqué dans l’image suivante.
+## <a name="customizing-dashboards-versus-blades"></a>Customizing dashboards versus blades
 
-![enregistrer une mosaïque personnalisée](./media/azure-portal-dashboards/save-customization.png)
+Since launching dashboards a few months ago, there has been a steady decline in blade customizations and a rapid increase in dashboard customizations. This strong usage trend shows that you prefer customizing dashboards over blades. To support that trend, we will remove the ability to customize blades and dedicate our efforts to enhancing dashboard functionality. If you customized a blade, your customization will soon be removed. To preserve that customization, pin the customized tiles to a dashboard. Simply right-click the tile and select **Pin to dashboard** as shown in the following image.
 
-## Création d’un tableau de bord
+![save customized tile](./media/azure-portal-dashboards/save-customization.png)
 
-Pour créer un tableau de bord, sélectionnez le bouton **Nouveau tableau de bord** en regard du nom du tableau de bord actuel.
+## <a name="create-a-dashboard"></a>Create a dashboard
 
-![créer un tableau de bord](./media/azure-portal-dashboards/new-dashboard.png)
+To create a dashboard, select the **New dashboard** button next to the current dashboard's name.  
 
-Cette action crée un nouveau tableau de bord privé vide, et vous fait passer en mode de personnalisation. Vous pouvez alors renommer votre tableau de bord et ajouter ou réorganiser les mosaïques. Dans ce mode, la galerie de mosaïques réductible remplace le menu de navigation gauche. La galerie de mosaïques vous permet de rechercher des mosaïques pour vos ressources Azure de différentes façons : par [groupe de ressources](../resource-group-overview.md#resource-groups), par type de ressource, par [balise](../resource-group-using-tags.md) ou par nom de ressource.
+![create dashboard](./media/azure-portal-dashboards/new-dashboard.png)
 
-![personnaliser un tableau de bord](./media/azure-portal-dashboards/customize-dashboard.png)
+This action creates a new, empty, private dashboard and puts you into customization mode where you can name your dashboard and add or rearrange tiles.  When in this mode, the collapsible tile gallery takes over the left navigation menu.  The tile gallery lets you find tiles for your Azure resources in various ways: you can browse by [resource group](../resource-group-overview.md#resource-groups), by resource type, by [tag](../resource-group-using-tags.md), or by searching for your resource by name.  
 
-Ajoutez des mosaïques en les faisant glisser et en les déposant sur le tableau de bord, où vous le souhaitez.
+![customize dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
 
-Il existe une nouvelle catégorie appelée **Général**, qui regroupe les mosaïques qui ne sont pas associées à une ressource particulière. Dans cet exemple, nous épinglons la mosaïque Markdown. Cette mosaïque sert à ajouter du contenu personnalisé à votre tableau de bord. La mosaïque prend en charge le texte brut, la [syntaxe Markdown](https://daringfireball.net/projects/markdown/syntax) et un ensemble limité de code HTML. (Pour des raisons de sécurité, vous ne pouvez pas injecter des balises `<script>` ni utiliser certains éléments de style CSS qui risqueraient d’interférer avec le portail.)
+Add tiles by dragging and dropping them onto the dashboard surface wherever you want.
 
-![ajouter markdown](./media/azure-portal-dashboards/add-markdown.png)
+There's a new category called **General** for tiles that are not associated with a particular resource.  In this example, we pin the Markdown tile.  You use this tile to add custom content to your dashboard.  The tile supports plain text, [Markdown syntax](https://daringfireball.net/projects/markdown/syntax), and a limited set of HTML.  (For safety, you can't do things like inject `<script>` tags or use certain styling element of CSS that might interfere with the portal.) 
 
-## Modifier un tableau de bord
+![add markdown](./media/azure-portal-dashboards/add-markdown.png)
 
-Après avoir créé votre tableau de bord, vous pouvez épingler des mosaïques à partir de la galerie de mosaïques ou de la représentation des panneaux sous forme de mosaïque. Épinglons la représentation de notre groupe de ressources. Vous pouvez épingler un élément lorsque vous le parcourez ou à partir du volet du groupe de ressources. Ces deux approches entraînent l’épinglage de la représentation du groupe de ressources.
+## <a name="edit-a-dashboard"></a>Edit a dashboard
 
-![épingler au tableau de bord](./media/azure-portal-dashboards/pin-to-dashboard.png)
+After creating your dashboard, you can pin tiles from the tile gallery or the tile representation of blades. Let's pin the representation of our resource group. You can either pin when browsing the item, or from the resource group blade. Both approaches result in pinning the tile representation of the resource group.
 
-Une fois l’élément épinglé, il apparaît sur votre tableau de bord.
+![pin to dashboard](./media/azure-portal-dashboards/pin-to-dashboard.png)
 
-![afficher le tableau de bord](./media/azure-portal-dashboards/view-dashboard.png)
+After pinning the item, it appears on your dashboard.
 
-Maintenant qu’une mosaïque Markdown et un groupe de ressources sont épinglés au tableau de bord, nous pouvons les redimensionner et les réorganiser de manière appropriée.
+![view dashboard](./media/azure-portal-dashboards/view-dashboard.png)
 
-En pointant et en sélectionnant « ... » ou en cliquant avec le bouton droit sur une mosaïque, vous pouvez voir toutes les commandes contextuelles pour cette mosaïque. Par défaut, deux options sont disponibles :
+Now that we have a Markdown tile and a resource group pinned to the dashboard, we can resize and rearrange the tiles into a suitable layout.
 
-1. **Détacher du tableau de bord** : supprime la mosaïque du tableau de bord
-2.	**Personnaliser** : passe en mode de personnalisation
+By hovering and selecting "…" or right-clicking on a tile you can see all the contextual commands for that tile. By default, there are two items:
 
-![personnaliser une mosaïque](./media/azure-portal-dashboards/customize-tile.png)
+1. **Unpin from dashboard** – removes the tile from the dashboard
+2.  **Customize** – enters customize mode
 
-Si vous sélectionnez Personnaliser, vous pouvez redimensionner et réorganiser les mosaïques. Pour redimensionner une mosaïque, sélectionnez la nouvelle taille dans le menu contextuel, comme illustré dans l’image suivante.
+![customize tile](./media/azure-portal-dashboards/customize-tile.png)
 
-![redimensionner une mosaïque](./media/azure-portal-dashboards/resize-tile.png)
+By selecting customize, you can resize and reorder tiles. To resize a tile, select the new size from the contextual menu, as shown in the following image.
 
-Ou, si la mosaïque prend en charge n’importe quelle taille, vous pouvez faire glisser le coin inférieur droit jusqu’à la taille souhaitée.
+![resize tile](./media/azure-portal-dashboards/resize-tile.png)
 
-![redimensionner une mosaïque](./media/azure-portal-dashboards/resize-corner.png)
+Or, if the tile supports any size, you can drag the bottom right-hand corner to the desired size.
 
-Après avoir redimensionné les mosaïques, affichez le tableau de bord.
+![resize tile](./media/azure-portal-dashboards/resize-corner.png)
 
-![afficher la mosaïque](./media/azure-portal-dashboards/view-tile.png)
+After resizing tiles, view the dashboard.
 
-Une fois que vous avez terminé la personnalisation d’un tableau de bord, sélectionnez simplement **Personnalisation terminée** pour quitter le mode de personnalisation ou cliquez avec le bouton droit et sélectionnez **Personnalisation terminée** dans le menu contextuel.
+![view tile](./media/azure-portal-dashboards/view-tile.png)
 
-## Publier un tableau de bord et gérer le contrôle d’accès
+Once you are finished customizing a dashboard, simply select the **Done customizing** to exit customize mode or right-click and select **Done customizing** from the context menu.
 
-Par défaut, lorsque vous créez un tableau de bord, celui-ci est privé, ce qui signifie que vous êtes la seule personne à pouvoir le consulter. Pour que les autres utilisateurs puissent le voir, utilisez le bouton **Partager**, disponible avec les autres commandes de tableau de bord.
+## <a name="publish-a-dashboard-and-manage-access-control"></a>Publish a dashboard and manage access control
 
-![partager un tableau de bord](./media/azure-portal-dashboards/share-dashboard.png)
+When you create a dashboard, it is private by default, which means you are the only person who can see it.  To make it visible to others, use the **Share** button that appears alongside the other dashboard commands.
 
-Vous êtes invité à choisir un abonnement et un groupe de ressources dans lesquels votre tableau de bord doit être publié. Pour intégrer en toute transparence les tableaux de bord dans l’écosystème, nous avons mis en œuvre des tableaux de bord partagés en tant que ressources Azure (de sorte que vous ne pouvez pas les partager en tapant une adresse de messagerie). L’accès aux informations affichées par la plupart des mosaïques dans le portail est régi par le [contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md) (RBAC) Azure. Du point de vue du contrôle d’accès, les tableaux de bord partagés sont traités de la même manière qu’une machine virtuelle ou un compte de stockage.
+![share dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
-Supposons que vous disposez d’un abonnement Azure et que les membres de votre équipe ont reçu les rôles de **propriétaire**, **contributeur** ou **lecteur** de l’abonnement. Les utilisateurs associés au rôle de propriétaire ou de contributeur peuvent répertorier, afficher, créer, modifier ou supprimer des tableaux de bord dans cet abonnement. Les utilisateurs ayant le rôle de lecteur peuvent répertorier et afficher des tableaux de bord, sans les modifier ou les supprimer. Les utilisateurs ayant un accès en lecture peuvent apporter des modifications locales à un tableau de bord partagé, mais ne peuvent pas republier ces modifications sur le serveur. Toutefois, ils peuvent effectuer une copie du tableau de bord pour leur usage personnel. Comme toujours, les mosaïques individuelles du tableau de bord appliquent leurs propres règles en matière de contrôle d’accès, compte tenu des ressources auxquelles elles correspondent.
+You are asked to choose a subscription and resource group for your dashboard to be published to. To seamlessly integrate dashboards into the ecosystem, we've implemented shared dashboards as Azure resources (so you can't share by typing an email address).  Access to the information displayed by most of the tiles in the portal are governed by [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md ). From an access control perspective, shared dashboards are no different from a virtual machine or a storage account.  
 
-Pour plus de commodité, l’expérience de publication du portail vous guide vers un modèle dans lequel vous placez les tableaux de bord dans un groupe de ressources appelé **tableaux de bord**.
+Let's say you have an Azure subscription and members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within that subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a shared dashboard, but are not able to publish those changes back to the server.  However, they can make a private copy of the dashboard for their own use.  As always, individual tiles on the dashboard enforce their own access control rules based on the resources they correspond to.  
 
-![publier un tableau de bord](./media/azure-portal-dashboards/publish-dashboard.png)
+For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  
 
-Vous pouvez également choisir de publier un tableau de bord dans un groupe de ressources donné. Le contrôle d’accès pour ce tableau de bord correspond au contrôle d’accès pour le groupe de ressources. Les utilisateurs qui peuvent gérer les ressources de ce groupe de ressources ont également accès aux tableaux de bord.
+![publish dashboard](./media/azure-portal-dashboards/publish-dashboard.png)
 
-![publier un tableau de bord dans un groupe de ressources](./media/azure-portal-dashboards/publish-to-resource-group.png)
+You can also choose to publish a dashboard to a particular resource group.  The access control for that dashboard matches the access control for the resource group.  Users that can manage the resources in that resource group also have access to the dashboards.
 
-Une fois votre tableau de bord publié, le volet de contrôle **Partage + accès** s’actualise et affiche des informations sur le tableau de bord publié, notamment un lien permettant de gérer l’accès des utilisateurs au tableau de bord. Ce lien lance le panneau standard Contrôle d’accès en fonction du rôle, utilisé pour gérer l’accès à toutes les ressources Azure. Vous pouvez toujours revenir à cette vue en sélectionnant **Partager**.
+![publish dashboard to resource group](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
-![gérer le contrôle d’accès](./media/azure-portal-dashboards/manage-access.png)
+After your dashboard is published, the **Sharing + access** control pane will refresh and show you information about the published dashboard, including a link to manage user access to the dashboard.  This link launches the standard Role Based Access Control blade used to manage access for any Azure resource.  You can always get back to this view by selecting **Share**.
 
-## Étapes suivantes
+![manage access control](./media/azure-portal-dashboards/manage-access.png)
 
-- Pour gérer les ressources, voir [Gérer les ressources Azure sur le portail](resource-group-portal.md).
-- Pour déployer des ressources, voir [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../resource-group-template-deploy-portal.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0907_2016-->
+- To manage resources, see [Manage Azure resources through portal](resource-group-portal.md).
+- To deploy resources, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

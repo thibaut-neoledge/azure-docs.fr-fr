@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,18 +14,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="10/10/2016"
    ms.author="larryfr"/>
 
-#Utilisation de Hive avec Hadoop dans HDInsight via Beeline
+
+#<a name="use-hive-with-hadoop-in-hdinsight-with-beeline"></a>Utilisation de Hive avec Hadoop dans HDInsight via Beeline
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Dans cet article, vous découvrirez comment utiliser Secure Shell (SSH) pour vous connecter à un cluster Azure HDInsight Linux, puis envoyer ensuite de façon interactive des requêtes Hive à l’aide de l’outil de ligne de commande [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell).
+Dans cet article, vous découvrirez comment utiliser Secure Shell (SSH) pour vous connecter à un cluster Azure HDInsight Linux, puis envoyer ensuite de façon interactive des requêtes Hive à l’aide de l’outil de ligne de commande [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) .
 
 > [AZURE.NOTE] Beeline utilise JDBC pour la connexion à Hive. Pour plus d’informations sur l’utilisation de JDBC avec Hive, consultez la section [Se connecter à Hive sur Azure HDInsight à l’aide du pilote Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
 
-##<a id="prereq"></a>Configuration requise
+##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Configuration requise
 
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
@@ -33,27 +34,27 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 * Un client SSH. Mac OS, Linux et Unix doivent être accompagnés d’un client SSH. Les utilisateurs Windows doivent télécharger un client, comme [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-##<a id="ssh"></a>Connexion avec SSH
+##<a name="<a-id="ssh"></a>connect-with-ssh"></a><a id="ssh"></a>Connexion avec SSH
 
-Connectez-vous au nom de domaine complet de votre cluster HDInsight à l’aide de la commande SSH. Le nom de domaine complet est le nom attribué au cluster, suivi de **.azurehdinsight.net**. Par exemple, la commande suivante permettrait de se connecter à un cluster nommé **myhdinsight** :
+Connectez-vous au nom de domaine complet de votre cluster HDInsight à l’aide de la commande SSH. Le nom de domaine complet est le nom attribué au cluster, suivi de **.azurehdinsight.net**. Par exemple, la commande suivante permettrait de se connecter à un cluster nommé **myhdinsight**:
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net
+    ssh admin@myhdinsight-ssh.azurehdinsight.net
 
 **Si vous avez fourni une clé de certificat pour l’authentification SSH** lorsque vous avez créé le cluster HDInsight, vous devez spécifier l’emplacement de la clé privée sur votre système client :
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+    ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
 
 **Si vous avez fourni un mot de passe pour l’authentification SSH** lorsque vous avez créé le cluster HDInsight, vous devez fournir le mot de passe lorsque vous y êtes invité.
 
 Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez la rubrique [Utilisation de SSH avec Hadoop dans HDInsight sur Linux à partir de Linux, OS X et Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-###PuTTY (clients Windows)
+###<a name="putty-(windows-based-clients)"></a>PuTTY (clients Windows)
 
 Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-##<a id="beeline"></a>Utilisez la commande Beeline
+##<a name="<a-id="beeline"></a>use-the-beeline-command"></a><a id="beeline"></a>Utilisez la commande Beeline
 
 1. Une fois connecté, procédez comme suit pour démarrer Beeline :
 
@@ -65,7 +66,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 3. Les commandes Beeline commencent généralement par un caractère `!`. Par exemple, `!help` affiche l’aide. Toutefois, le `!` peut souvent être omis. Par exemple, `help` fonctionne également.
 
-    Si vous affichez l’aide, vous remarquerez `!sql`, qui est utilisé pour exécuter des instructions HiveQL. Cependant, HiveQL est si souvent utilisé que vous pouvez omettre le `!sql` qui précède. Les deux instructions suivantes donnent exactement les mêmes résultats, et affichent les tables actuellement disponibles via Hive :
+    Si vous affichez l’aide, vous remarquerez `!sql`, qui est utilisé pour exécuter des instructions HiveQL. Cependant, HiveQL est si souvent utilisé que vous pouvez omettre le `!sql`qui précède. Les deux instructions suivantes donnent exactement les mêmes résultats, et affichent les tables actuellement disponibles via Hive :
     
         !sql show tables;
         show tables;
@@ -110,8 +111,8 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
     * **CREATE EXTERNAL TABLE** : crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
     * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
     * **STORED AS TEXTFILE LOCATION** : indique à Hive où sont stockées les données (répertoire example/data) et qu'elles sont stockées sous forme de texte.
-    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
-    * **INPUT\_\_FILE\_\_NAME LIKE ’%.log’** : indique à Hive de renvoyer uniquement des données provenant de fichiers se terminant par .log. Normalement, vous devriez obtenir uniquement les données avec le même schéma dans le même dossier lors de l’interrogation avec hive, toutefois, cet exemple de fichier journal est stocké avec d’autres formats de données.
+    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3** , car trois lignes contiennent cette valeur.
+    * **INPUT__FILE__NAME LIKE '%.log'** : indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log. Normalement, vous devriez obtenir uniquement les données avec le même schéma dans le même dossier lors de l’interrogation avec hive, toutefois, cet exemple de fichier journal est stocké avec d’autres formats de données.
 
     > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
     >
@@ -143,11 +144,11 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 4. Pour quitter Beeline, utilisez `!quit`.
 
-##<a id="file"></a>Exécuter un fichier HiveQL
+##<a name="<a-id="file"></a>run-a-hiveql-file"></a><a id="file"></a>Exécuter un fichier HiveQL
 
 Beeline peut également être utilisé pour exécuter un fichier contenant les instructions HiveQL. Utilisez les étapes suivantes pour créer un fichier, puis exécutez-le à l’aide de Beeline.
 
-1. Utilisez la commande suivante pour créer un fichier nommé __query.hql__ :
+1. Utilisez la commande suivante pour créer un fichier nommé __query.hql__:
 
         nano query.hql
         
@@ -160,19 +161,19 @@ Beeline peut également être utilisé pour exécuter un fichier contenant les i
 
     * **CREATE TABLE IF NOT EXISTS** : crée une table, si elle n'existe pas déjà. Le mot-clé **EXTERNAL** n’étant pas utilisé, il s’agit d’une table interne, stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
     * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
-    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
+    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
     
     > [AZURE.NOTE] Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
     
-3. Pour enregistrer le fichier, utilisez __Ctrl__+__\_X__, saisissez ensuite _Y_, puis appuyez sur __Entrée__.
+3. Pour enregistrer le fichier, utilisez __Ctrl__+___X__, saisissez ensuite __Y__, puis appuyez sur __Entrée__.
 
 4. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants. Remplacez __HOSTNAME__ par le nom obtenu précédemment pour le nœud principal, et __PASSWORD__ par le mot de passe du compte d’administration :
 
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
 
-    > [AZURE.NOTE] Le paramètre `-i` démarre Beeline, exécute les instructions dans le fichier query.hql et reste dans Beeline à l’invite `jdbc:hive2://localhost:10001/>`. Vous pouvez également exécuter un fichier en utilisant le paramètre `-f`, qui vous renvoie à Bash une fois le fichier traité.
+    > [AZURE.NOTE] Le paramètre `-i` démarre Beeline, exécute les instructions dans le fichier query.hql et reste dans Beeline à l’invite `jdbc:hive2://localhost:10001/>`. Vous pouvez également exécuter un fichier en utilisant le paramètre `-f` , qui vous renvoie à Bash une fois le fichier traité.
 
-5. Pour vérifier que la table **errorLogs** a été créée, utilisez l’instruction suivante pour renvoyer toutes les lignes à partir d’**errorLogs** :
+5. Pour vérifier que la table **errorLogs** a été créée, utilisez l’instruction suivante pour renvoyer toutes les lignes à partir **d’errorLogs** :
 
         SELECT * from errorLogs;
 
@@ -187,11 +188,21 @@ Beeline peut également être utilisé pour exécuter un fichier contenant les i
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-##<a id="summary"></a>Résumé
+## <a name="more-about-beeline-connectivity"></a>Plus d’informations sur la connectivité de Beeline
+
+La procédure décrite dans ce document utilise `localhost` pour se connecter à HiveServer2 en cours d’exécution sur le nœud principal du cluster. Bien que vous puissiez également utiliser le nom d’hôte ou le nom de domaine complet du nœud principal, ceux-ci nécessitent des étapes supplémentaires (étapes pour rechercher le nom d’hôte ou le nom de domaine complet). L’utilisation de `localhost` est suffisante lors de l’utilisation de Beeline depuis le nœud principal.
+
+Si votre cluster contient un nœud de périmètre, une fois Beeline installé, vous devez utiliser le nom d’hôte ou le nom de domaine complet du nœud principal pour vous connecter.
+
+Si Beeline est installé sur un client en dehors de votre cluster, vous pouvez vous connecter à l’aide de la commande suivante. Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight. Remplacez __PASSWORD__ par le mot de passe du compte administrateur (connexion HTTP).
+
+    beeline -u 'jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=hive2' -n admin -p PASSWORD
+
+Notez que les paramètres/l’URI sont différents par rapport à ceux utilisés lors de l’exécution directe sur un nœud principal ou à partir d’un nœud de périmètre au sein du cluster. En effet, la connexion au cluster à partir d’Internet utilise une passerelle publique qui achemine le trafic sur le port 443. En outre, plusieurs autres services sont exposés via la passerelle publique sur le port 443, donc l’URI est différent de celui utilisé lors de la connexion directe. Lors de la connexion à partir d’Internet, vous devez également authentifier la session en fournissant le mot de passe.
+
+##<a name="<a-id="summary"></a><a-id="nextsteps"></a>next-steps"></a><a id="summary"></a><a id="nextsteps"></a>Étapes suivantes
 
 Comme vous pouvez le constater, la commande Beeline permet d’exécuter facilement et de façon interactive des requêtes Hive sur un cluster HDInsight.
-
-##<a id="nextsteps"></a>Étapes suivantes
 
 Pour obtenir des informations générales sur Hive dans HDInsight.
 
@@ -235,4 +246,9 @@ Si vous utilisez Tez avec Hive, consultez les documents suivants pour les inform
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Vue d’ensemble d’Azure DNS | Microsoft Azure" 
-   description="Vue d’ensemble des services d’hébergement Azure DNS sur Microsoft Azure Héberger votre domaine sur Microsoft Azure" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="cherylmc" 
-   manager="carmonm" 
+<properties
+   pageTitle="Overview of Azure DNS | Microsoft Azure"
+   description="Overview of Azure DNS hosting services on Microsoft Azure. Host your domain on Microsoft Azure."
+   services="dns"
+   documentationCenter="na"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -12,30 +12,35 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
-
-# Vue d’ensemble d’Azure DNS
+   ms.author="sewhee"/>
 
 
-Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP. Azure DNS est un service d'hébergement pour les domaines DNS et qui offre une résolution de noms à l'aide de l'infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure.
+# <a name="azure-dns-overview"></a>Azure DNS Overview
 
 
-Les domaines DNS dans Azure DNS sont hébergés sur un réseau global de serveurs de noms DNS. Nous utilisons la mise en réseau Anycast, afin que chaque requête DNS obtienne une réponse du serveur DNS disponible le plus proche. Cette technique offre des performances élevées et une haute disponibilité pour votre domaine.
-
-Le service Azure DNS est basé sur Azure Resource Manager (ARM). Ainsi, il tire parti de fonctionnalités ARM telles que le contrôle d’accès en fonction du rôle, les journaux d’audit et le verrouillage de ressources. Vos domaines et enregistrements peuvent être gérés via le portail Azure, des applets de commande Azure PowerShell et l’interface CLI Azure multiplateforme. Les applications nécessitant une gestion automatique de DNS peuvent s’intégrer au service par le biais de l’API REST et des Kits de développement logiciel (SDK).
-
-Azure DNS ne prend actuellement pas en charge l'achat de noms de domaine. Si vous voulez acheter des domaines, vous devez utiliser un bureau d’enregistrement de noms de domaine tiers. Le bureau d’enregistrement facture généralement des frais annuels peu élevés. Les domaines peuvent être hébergés dans Azure DNS pour la gestion des enregistrements DNS. Pour plus d’informations, consultez [Déléguer un domaine à Azure DNS](dns-domain-delegation.md).
+The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
 
-## Étapes suivantes
+DNS domains in Azure DNS are hosted on Azure’s global network of DNS name servers. We use Anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
 
-[Création d’une zone DNS](dns-getstarted-create-dnszone-portal.md)
+The Azure DNS service is based on Azure Resource Manager (ARM). As such, it benefits from ARM features such as role-based access control, audit logs, and resource locking. Your domains and records can be managed via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications requiring automatic DNS management can integrate with the service via the REST API and SDKs.
+
+Azure DNS does not currently support purchasing of domain names. If you want to purchase domains, you'll need to use a third-party domain name registrar. The registrar will typically charge a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
+
+
+## <a name="next-steps"></a>Next steps
+
+[Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
 
 
 
 
- 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

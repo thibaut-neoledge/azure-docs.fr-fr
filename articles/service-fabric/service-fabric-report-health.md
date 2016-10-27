@@ -16,7 +16,8 @@
    ms.date="09/28/2016"
    ms.author="oanapl"/>
 
-# Ajout de rapports d’intégrité Service Fabric personnalisés
+
+# <a name="add-custom-service-fabric-health-reports"></a>Ajout de rapports d’intégrité Service Fabric personnalisés
 Azure Service Fabric introduit un [modèle d’intégrité](service-fabric-health-introduction.md) conçu pour signaler des conditions de cluster et d’application défectueuses sur des entités spécifiques. Le modèle d’intégrité utilise des **rapporteurs d’intégrité** (composants système et agents de surveillance). L’objectif consiste en un diagnostic et une réparation simples et rapides. Les enregistreurs du service doivent penser en amont à l’intégrité. Toute condition pouvant avoir une incidence sur l’intégrité doit être signalée, surtout si cela peut aider à signaler des problèmes proches de la racine. Les informations sur l’intégrité peuvent vous permettre d’économiser beaucoup de temps et d’efforts en termes de débogage et d’enquête lorsque le service est en cours d’exécution à l’échelle dans le cloud (privé ou Azure).
 
 Les rapporteurs Service Fabric surveillent les conditions identifiées qui présentent un intérêt. Ils dressent un rapport sur ces conditions en fonction de leur vue locale. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège les données d’intégrité envoyées par tous les rapporteurs pour déterminer si les entités sont globalement intègres. Le modèle doit être riche, flexible et facile à utiliser. La qualité des rapports d’intégrité détermine la précision de la vue d’intégrité du cluster. Des faux positifs qui indiquent erronément des problèmes d’intégrité peuvent avoir une incidence négative sur les mises à niveau ou autres services utilisant des données d’intégrité. Les services de réparation et mécanismes d’alertes sont des exemples de services de ce type. Par conséquent, une réflexion est nécessaire pour générer des rapports qui capturent des conditions pertinentes de la meilleure façon possible.
@@ -25,7 +26,7 @@ Pour concevoir et implémenter des rapports d’intégrité, les agents de surve
 
 - Définir la condition qui les intéresse, la façon dont elle est surveillée et l’impact sur la fonctionnalité du cluster ou de l’application. Choisir la propriété du rapport d’intégrité et l’état d’intégrité, en fonction de ces informations.
 
-- Déterminer l’[entité](service-fabric-health-introduction.md#health-entities-and-hierarchy) à laquelle le rapport s’applique.
+- Déterminer l’ [entité](service-fabric-health-introduction.md#health-entities-and-hierarchy) à laquelle le rapport s’applique.
 
 - Déterminer l’emplacement où le rapport est généré, soit à partir du service, soit à partir d’un agent de surveillance interne ou externe.
 
@@ -43,7 +44,7 @@ Comme mentionné auparavant, la création de rapports peut être effectuée à p
 
 - Les agents de surveillance internes qui s’exécutent sur les nœuds Service Fabric, mais qui ne sont *pas* implémentés en tant que services de Service Fabric.
 
-- Les agents de surveillance externes qui sondent la ressource à partir de l’*extérieur* du cluster Service Fabric (par exemple, un service de surveillance de type Gomez).
+- Les agents de surveillance externes qui sondent la ressource à partir de l’ *extérieur* du cluster Service Fabric (par exemple, un service de surveillance de type Gomez).
 
 > [AZURE.NOTE] Dès le départ, le cluster comprend des rapports d’intégrité envoyés par les composants système. Pour en savoir plus, voir [Utilisation des rapports d’intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). Les rapports utilisateur doivent être envoyés sur des [entités d’intégrité](service-fabric-health-introduction.md#health-entities-and-hierarchy) déjà créées par le système.
 
@@ -51,18 +52,19 @@ Lorsque la conception de la création des rapports d’intégrité est claire, l
 
 > [AZURE.NOTE] L’intégrité de rapport est synchrone, et représente uniquement le travail de validation côté client. Même si le rapport est accepté par le client de contrôle d’intégrité ou les objets `Partition` ou `CodePackageActivationContext`, cela ne signifie pas qu’il est appliqué dans le magasin. Il est envoyé de manière asynchrone et éventuellement regroupé avec d’autres rapports. Le traitement sur le serveur peut encore échouer, car un numéro de séquence est périmé, l’entité sur laquelle le rapport doit être appliqué a été supprimée, etc.
 
-## Client de contrôle d’intégrité
+## <a name="health-client"></a>Client de contrôle d’intégrité
 Les rapports d’intégrité sont envoyés au magasin d’intégrité à l’aide d’un client de contrôle d’intégrité, qui réside dans le client Fabric. Le client de contrôle d’intégrité peut être configuré avec les éléments suivants :
 
-- **HealthReportSendInterval** : délai qui s’écoule entre le moment où le rapport est ajouté au client et celui où il est envoyé au magasin d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Par défaut : 30 secondes.
+- **HealthReportSendInterval**: délai qui s’écoule entre le moment où le rapport est ajouté au client et celui où il est envoyé au magasin d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Par défaut : 30 secondes.
 
-- **HealthReportRetrySendInterval** : intervalle auquel le client de contrôle d’intégrité renvoie les rapports d’intégrité cumulés au magasin d’intégrité. Par défaut : 30 secondes.
+- **HealthReportRetrySendInterval**: intervalle auquel le client de contrôle d’intégrité renvoie les rapports d’intégrité cumulés au magasin d’intégrité. Par défaut : 30 secondes.
 
-- **HealthOperationTimeout** : délai d’expiration pour un message de rapport envoyé au magasin d’intégrité. Si un message expire, le client de contrôle d’intégrité réessaie de l’envoyer jusqu’à ce que le magasin d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
+- **HealthOperationTimeout**: délai d’expiration pour un message de rapport envoyé au magasin d’intégrité. Si un message expire, le client de contrôle d’intégrité réessaie de l’envoyer jusqu’à ce que le magasin d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
 
 > [AZURE.NOTE] Lorsque les rapports sont traités par lot, le client Fabric doit être maintenu actif pendant au moins l’intervalle HealthReportSendInterval pour s’assurer qu’ils sont envoyés. Si le message est perdu ou si le magasin d’intégrité n’est pas en mesure de d’appliquer les rapports en raison d’erreurs transitoires, le client Fabric doit être maintenu actif plus longtemps pour lui donner une chance de réessayer.
 
-La mise en mémoire tampon sur le client prend en compte l’unicité des rapports. Par exemple, si un rapporteur incorrect génère 100 rapports par seconde sur la même propriété de la même entité, ces rapports sont remplacés par la dernière version. La file d’attente du client ne contient pas plus d’un rapport de ce type. Si le traitement par lots est configuré, les rapports envoyés au magasin d’intégrité sont au nombre de un par intervalle d’envoi. Il s’agit du dernier rapport ajouté, qui reflète l’état le plus récent de l’entité. Tous les paramètres de configuration peuvent être spécifiés lors de la création de l’élément `FabricClient`, via la transmission des paramètres [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) avec les valeurs souhaitées pour les entrées relatives à l’intégrité.
+La mise en mémoire tampon sur le client prend en compte l’unicité des rapports. Par exemple, si un rapporteur incorrect génère 100 rapports par seconde sur la même propriété de la même entité, ces rapports sont remplacés par la dernière version. La file d’attente du client ne contient pas plus d’un rapport de ce type. Si le traitement par lots est configuré, les rapports envoyés au magasin d’intégrité sont au nombre de un par intervalle d’envoi. Il s’agit du dernier rapport ajouté, qui reflète l’état le plus récent de l’entité.
+Tous les paramètres de configuration peuvent être spécifiés lors de la création de l’élément `FabricClient` , via la transmission des paramètres [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) avec les valeurs souhaitées pour les entrées relatives à l’intégrité.
 
 Ce qui suit permet de créer un client de structure et d’indiquer que les rapports doivent être envoyés dès qu’ils sont ajoutés. En cas de délais d’attente et d’erreurs pouvant donner lieu à une nouvelle tentative, les nouvelles tentatives ont lieu toutes les 40 secondes.
 
@@ -106,7 +108,7 @@ GatewayInformation   : {
 
 > [AZURE.NOTE] Pour vous assurer que des services non autorisés ne puissent pas rapporter sur l’intégrité des entités dans le cluster, vous pouvez configurer le serveur pour qu’il accepte uniquement les demandes de clients sécurisés. La sécurité doit être activée pour l’élément `FabricClient` afin de permettre une communication avec le cluster (par exemple, avec l’authentification de certificat ou Kerberos). En savoir plus sur la [sécurité du cluster](service-fabric-cluster-security.md).
 
-## Création de rapports depuis les services à faibles privilèges
+## <a name="report-from-within-low-privilege-services"></a>Création de rapports depuis les services à faibles privilèges
 À partir des services Service Fabric qui n’ont pas un accès administrateur au cluster, vous pouvez créer des rapports sur l’intégrité des entités à partir du contexte actuel via `Partition` ou `CodePackageActivationContext`.
 
 - Pour les services sans état, utilisez [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) pour créer un rapport sur l’instance de service actuelle.
@@ -123,7 +125,7 @@ GatewayInformation   : {
 
 > [AZURE.NOTE] En interne, la `Partition` et le `CodePackageActivationContext` contiennent un client de contrôle d’intégrité qui est configuré avec les paramètres par défaut. Les mêmes considérations que celles expliquées pour le [client d’intégrité](service-fabric-report-health.md#health-client) s’appliquent : les rapports sont traités par lot et envoyés sur un minuteur, donc les objets doivent être maintenus actifs pour avoir une chance d’envoyer le rapport.
 
-## Conception de rapports d’intégrité
+## <a name="design-health-reporting"></a>Conception de rapports d’intégrité
 La première étape de la génération de rapports de haute qualité consiste à identifier les conditions qui peuvent avoir une incidence sur l’intégrité du service. Toute condition pouvant aider à signaler des problèmes dans le service ou le cluster dès le début ou, mieux encore, avant qu’ils se produisent, peut permettre d’économiser des milliards de dollars. Les avantages incluent moins temps d’arrêt, moins de nuits passées à investiguer et à résoudre des problèmes, et une satisfaction accrue des clients.
 
 Une fois les conditions identifiées, les enregistreurs de surveillance doivent déterminer la meilleure façon de les surveiller pour obtenir le meilleur équilibre possible entre la surcharge et l’utilité. Prenons comme exemple un service qui effectue des calculs complexes qui utilisent des fichiers temporaires sur un partage. Un agent de surveillance peut surveiller le partage pour s’assurer que l’espace disponible est suffisant. Il peut écouter les notifications relatives aux modifications de fichiers ou de répertoires. Il peut lancer un avertissement si un seuil initial est atteint, et signaler une erreur si le partage est plein. En cas d’avertissement, un système de réparation peut démarrer le nettoyage de fichiers plus anciens sur le partage. En cas d’erreur, un système de réparation peut déplacer le réplica de service vers un autre nœud. Notez la manière dont les états de condition sont décrits en termes d’intégrité, selon qu’ils peuvent être considérés comme sains ou défectueux (avertissement ou erreur).
@@ -154,7 +156,7 @@ La condition surveillée peut être convertie en avertissement si la tâche n’
 
 Quelle que soit la façon dont les rapports sont générés dans les cas décrits ci-dessus, ils sont capturés dans l’intégrité de l’application lors de l’évaluation de l’intégrité.
 
-## Rapport régulier ou sur transition
+## <a name="report-periodically-vs.-on-transition"></a>Rapport régulier ou sur transition
 À l’aide du modèle de génération de rapports d’intégrité, les agents de surveillance peuvent envoyer des rapports régulièrement ou en cas de transition. La méthode régulière est recommandée pour les rapports de surveillance, car le code est beaucoup plus simple et moins sujet aux erreurs. Les agents de surveillance doivent être aussi simples que possible pour éviter les bogues qui déclenchent des rapports incorrects. Des rapport d’état *défectueux* incorrects ont une incidence sur les évaluations de l’intégrité et les scénarios basés sur l’intégrité, dont les mises à niveau. Des rapports d’état *sain* incorrects masquent d’éventuels problèmes dans le cluster, ce qui n’est pas souhaitable.
 
 Pour la création de rapports réguliers, l’agent de surveillance peut être implémenté avec une minuterie. Sur un rappel de la minuterie, l’agent de surveillance peut vérifier l’état et envoyer un rapport basé sur l’état actuel. Il est inutile de voir quel rapport a été envoyé précédemment ou d’opérer des optimisations en termes de messagerie. Le client de contrôle d’intégrité dispose de la logique de traitement par lot, qui permet d’améliorer les performances. Tant que le client de contrôle d’intégrité est actif, il réessaie en interne jusqu’à ce que le rapport soit reçu par le magasin d’intégrité ou que l’agent de surveillance crée un rapport plus récent avec une entité, une propriété et une source identiques.
@@ -163,10 +165,10 @@ La génération de rapports sur les transitions nécessite une gestion prudente 
 
 La création de rapports sur les transitions est fondée pour les services de création de rapports sur eux-mêmes, via `Partition` ou `CodePackageActivationContext`. Lorsque l’objet local (réplica ou package de service déployé / application déployée) est supprimé, tous ses rapports sont également supprimés. Le nettoyage automatique assouplit la nécessité de synchronisation entre le rapporteur et le magasin d’intégrité. Si le rapport concerne la partition parente ou l’application parente, surveillez le basculement afin d’éviter les rapports obsolètes dans le magasin d’intégrité. Une logique doit être ajoutée pour maintenir l’état correct et le rapport doit être supprimé du magasin lorsqu’il est devenu inutile.
 
-## Mise en œuvre de la création de rapports d’intégrité
+## <a name="implement-health-reporting"></a>Mise en œuvre de la création de rapports d’intégrité
 Une fois que les détails de l’entité et du rapport sont clairs, l’envoi de rapports d’intégrité peut se faire via l’API, Powershell ou REST.
 
-### API
+### <a name="api"></a>API
 Pour générer un rapport via l’API, vous devez créer un rapport d’intégrité spécifique au type d’entité sur laquelle ils veulent générer un rapport. Fournissez le rapport à un client de contrôle d’intégrité. Vous pouvez également créer des informations sur l’intégrité et les transmettre aux méthodes de création de rapports correctes sur `Partition` ou `CodePackageActivationContext` pour créer un rapport sur les entités en cours.
 
 L’exemple suivant illustre une génération de rapport périodique à partir d’un agent de surveillance dans le cluster. L’agent de surveillance vérifie si une ressource externe est accessible à partir d’un nœud. La ressource est requise par un manifeste de service au sein de l’application. Si la ressource n’est pas disponible, les autres services au sein de l’application peuvent encore fonctionner correctement. Par conséquent, le rapport est envoyé sur l’entité du package de services déployé toutes les 30 secondes.
@@ -199,8 +201,8 @@ public static void SendReport(object obj)
 }
 ```
 
-### PowerShell
-Envoyez les rapports d’intégrité avec **Send-ServiceFabric*TypeEntité*HealthReport**.
+### <a name="powershell"></a>PowerShell
+Envoyez les rapports d’intégrité avec **Send-ServiceFabric*EntityType*HealthReport**.
 
 L’exemple suivant montre la création de rapports réguliers sur les valeurs du processeur sur un nœud. Les rapports doivent être envoyés toutes les 30 secondes, et ont une durée de vie de deux minutes. S’ils expirent, cela signifie que le rapporteur rencontre des problèmes, et le nœud est évalué au moment de l’erreur. Quand l’utilisation du processeur dépasse un seuil, le rapport a un état d’avertissement. Quand l’utilisation du processeur reste supérieure à un seuil plus longtemps que le délai configuré, une erreur est rapportée. Autrement, le rapporteur envoie un état d’intégrité OK.
 
@@ -283,10 +285,10 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/21/2015 9:12:32 PM
 ```
 
-### REST
+### <a name="rest"></a>REST
 Envoyez des rapports d’intégrité à l’aide de REST, avec les demandes POST accédant à l’entité choisie et dont le corps présente une description du rapport d’intégrité. Par exemple, découvrez comment envoyer des [rapports REST sur l’intégrité du cluster](https://msdn.microsoft.com/library/azure/dn707640.aspx) ou des [rapports REST sur l’intégrité du service](https://msdn.microsoft.com/library/azure/dn707640.aspx). Toutes les entités sont prises en charge.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Grâce aux données d’intégrité, les enregistreurs de service et les administrateurs de cluster/d’application peuvent réfléchir à des façons de consommer les informations. Par exemple, ils peuvent configurer des alertes basées sur l’état d’intégrité pour intercepter des problèmes graves avant qu’ils provoquent des pannes. Les administrateurs peuvent également configurer des systèmes de réparation pour résoudre les problèmes automatiquement.
 
@@ -302,4 +304,8 @@ Grâce aux données d’intégrité, les enregistreurs de service et les adminis
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

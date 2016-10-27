@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Activation de groupes de sécurité réseau dans Azure Security Center | Microsoft Azure"
-   description="Ce document vous montre comment implémenter la recommandation de l’Azure Security Center **Activer des groupes de sécurité réseau**."
+   pageTitle="Enable Network Security Groups in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendation **Enable Network Security Groups**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,51 +16,57 @@
    ms.date="07/29/2016"
    ms.author="terrylan"/>
 
-# Activation de groupes de sécurité réseau dans Azure Security Center
 
-Azure Security Center vous recommande d’activer un groupe de sécurité réseau si aucun n’est encore activé. Les groupes de sécurité réseau contiennent des règles de liste de contrôle d’accès qui autorisent ou rejettent le trafic réseau vers vos instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle. Pour en savoir plus, consultez l’article [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
+# <a name="enable-network-security-groups-in-azure-security-center"></a>Enable Network Security Groups in Azure Security Center
 
-Si vous n’avez pas activé de groupe de sécurité réseau, le centre de sécurité (Security Center) vous envoie deux recommandations : activer des groupes de sécurité réseau sur des sous-réseaux et activer des groupes de sécurité réseau sur des machines virtuelles. Vous choisissez à quel niveau, à quel sous-réseau ou à quelle machine virtuelle appliquer des groupes de sécurité réseau.
+Azure Security Center will recommend that you enable a network security group (NSG) if one is not already enabled. NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM. To learn more see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
+
+If you do not have NSGs enabled, Security Center will present two recommendations to you: Enable Network Security Groups on subnets and Enable Network Security Groups on virtual machines. You choose which level, subnet or VM, to apply NSGs.
 
 
-> [AZURE.NOTE] Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
-## Implémenter la recommandation
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-1. Dans le panneau **Recommandations**, sélectionnez **Activer des groupes de sécurité réseau** sur des sous-réseaux ou des ordinateurs virtuels. ![Activer des groupes de sécurité réseau][1]
+1. In the **Recommendations** blade, select **Enable Network Security Groups** on subnets or on virtual machines.
+![Enable Network Security Groups][1]
 
-2. Le panneau **Configurer les groupes de sécurité réseau manquants** s’ouvre alors pour les sous-réseaux ou les machines virtuelles en fonction de la recommandation que vous avez sélectionnée. Sélectionnez un sous-réseau ou une machine virtuelle comme cible de la configuration d’un groupe de réseau virtuel.
+2. This opens the blade **Configure Missing Network Security Groups** for subnets or for virtual machines, depending on the recommendation that you selected. Select a subnet or a virtual machine to configure a NSG on.
 
-  ![Configurer un groupe de sécurité réseau pour un sous-réseau][2]
+  ![Configure NSG for subnet][2]
 
-  ![Configurer un groupe de sécurité réseau pour une machine virtuelle][3]
-3. Dans le panneau **Choisir un groupe de sécurité réseau**, sélectionner un groupe de sécurité réseau existant ou créez un groupe de sécurité réseau.
+  ![Configure NSG for VM][3]
+3. On the **Choose network security group** blade select an existing NSG or select to create a new NSG.
 
-  ![Choisir un groupe de sécurité réseau][4]
+  ![Choose Network Security Group][4]
 
-Si vous créez un groupe de sécurité réseau, suivez les étapes indiquées dans l’article [Gestion des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) pour créer un groupe de sécurité et définir des règles de sécurité.
+If you create a new NSG, follow the steps in [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to create a NSG and set security rules.
 
-## Voir aussi
+## <a name="see-also"></a>See also
 
-Cet article vous a montré comment implémenter la recommandation de Security Center « Activer des groupes de sécurité réseau » pour des sous-réseaux ou des machines virtuelles. Pour plus d’informations sur l’activation de groupes de sécurité, consultez les rubriques suivantes :
+This article showed you how to implement the Security Center recommendation "Enable Network Security Groups" for subnets or virtual machines. To learn more about enabling NSGs, see the following:
 
-- [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
-- [Gestion des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
+- [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 
-Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+To learn more about Security Center, see the following:
 
-- [Définition des stratégies de sécurité dans le Centre de sécurité Azure](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-- [Gestion des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
-- [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-- [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
-- [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-nsg/enable-nsg.png
-[2]: ./media/security-center-enable-nsg/configure-nsg-for-subnet.png
+[2]:./media/security-center-enable-nsg/configure-nsg-for-subnet.png
 [3]: ./media/security-center-enable-nsg/configure-nsg-for-vm.png
 [4]: ./media/security-center-enable-nsg/choose-nsg.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

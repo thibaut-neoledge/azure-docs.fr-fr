@@ -1,12 +1,15 @@
-Ressource|Limite maximale
+Resource|Maximum Limit
 ---|---
-Utilisateurs d'App Collection|5 par App Collection
-Moyenne des points de données|200 par utilisateur actif par jour
-Ensemble App-Info moyen|50 par utilisateur actif par jour
-Moyenne des messages envoyés|20 par utilisateur actif par jour
-Segments|100 par application
-Critères par segment|10
-Campagnes Push actives|50 par application
-Total des campagnes Push (actives et terminées)|1 000 par application
+App Collection Users|5 per App Collection
+Average Data points|200 per Active User/Day
+Average App-Info set|50 per Active User/Day
+Average Messages pushed|20 per Active User/Day
+Segments|100 per app
+Criteria per segment|10
+Active Push Campaigns|50 per app
+Total Push Campaigns (includes Active & Completed)|1000 per app
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

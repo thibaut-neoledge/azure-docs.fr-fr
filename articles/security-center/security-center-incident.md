@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gestion des incidents de sécurité dans Azure Security Center | Microsoft Azure"
-   description="Ce document est conçu pour vous aider à utiliser les fonctionnalités de Azure Security Center pour gérer les incidents de sécurité."
+   pageTitle="Handling Security Incident in Azure Security Center | Microsoft Azure"
+   description="This document helps you to use Azure Security Center capabilities to handle security incidents."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -13,54 +13,59 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="10/18/2016"
    ms.author="yurid"/>
 
-# Gestion des incidents de sécurité dans Azure Security Center 
-Procéder au triage et à l’examen des alertes de sécurité peut prendre beaucoup de temps, même pour le plus compétent des analystes de sécurité, et bien souvent il est difficile de savoir par où commencer. En utilisant les [fonctions d’analyse](security-center-detection-capabilities.md) pour connecter les informations entre différentes [alertes de sécurité](security-center-managing-and-responding-alerts.md), le Centre de sécurité peut vous fournir une vue unique d’une campagne d’attaque et de l’ensemble des alertes associées. Vous pouvez donc rapidement savoir quelles actions l’attaquant a effectuées et quelles ressources ont été affectées.
 
-Ce document explique comment utiliser la fonction d’alerte de sécurité dans le Centre de sécurité pour vous aider à gérer les incidents de sécurité.
+# <a name="handling-security-incident-in-azure-security-center"></a>Handling Security Incident in Azure Security Center 
+Triaging and investigating security alerts can be time consuming for even the most skilled security analysts, and for many it is hard to even know where to begin. By using [analytics](security-center-detection-capabilities.md) to connect the information between distinct [security alerts](security-center-managing-and-responding-alerts.md), Security Center can provide you with a single view of an attack campaign and all of the related alerts – you can quickly understand what actions the attacker took and what resources were impacted.
+
+This document discusses how to use security alert capability in Security Center to assist you handling security incidents.
 
 
-## Qu’est-ce qu’un incident de sécurité ?
+## <a name="what-is-a-security-incident?"></a>What is a security incident?
 
-Dans le Centre de sécurité, un incident de sécurité est un regroupement de toutes les alertes d’une ressource correspondant à des modèles de [chaîne de destruction](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Les incidents apparaissent dans la vignette et le panneau [Alertes de sécurité](security-center-managing-and-responding-alerts.md). Un incident affiche la liste des alertes associées, qui vous permet d’en savoir plus sur chaque occurrence.
+In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) tile and blade. An Incident will reveal the list of related alerts, which enables you to obtain more information about each occurrence.
 
-## Gestion des incidents de sécurité
+## <a name="managing-security-incidents"></a>Managing security incidents
 
-Vous pouvez connaître vos incidents de sécurité en cours en consultant la mosaïque Alertes de sécurité. Accédez au portail Azure et suivez les étapes ci-dessous pour en savoir plus sur chaque incident de sécurité :
+You can review your current security incidents by looking at the security alerts tile. Access the Azure Portal and follow the steps below to see more details about each security incident:
 
-1. La mosaïque **Alertes de sécurité** s’affiche dans le tableau de bord Centre de sécurité.
+1. On the Security Center dashboard, you will see the **Security alerts** tile.
 
-    ![Vignette Alertes de sécurité dans le Centre de sécurité](./media/security-center-incident/security-center-incident-fig1.png)
+    ![Security alerts tile in Security Center](./media/security-center-incident/security-center-incident-fig1.png)
 
-2.  Cliquez sur cette mosaïque pour la développer si un incident de sécurité a été détecté. Il apparaîtra sous le graphique des alertes de sécurité comme indiqué ci-dessous :
+2.  Click on this tile to expand it and if a security incident is detected, it will appear under the security alerts graph as shown  below:
 
-    ![Incident de sécurité](./media/security-center-incident/security-center-incident-fig2.png)
+    ![Security incident](./media/security-center-incident/security-center-incident-fig2.png)
 
-3.	Notez que la description de l’incident de sécurité présente une autre icône que celle utilisée pour les autres alertes. Cliquez dessus pour afficher plus de détails sur cet incident.
+3.  Notice that the security incident description has a different icon compared to other alerts. Click on it to view more details about this incident.
 
-	![Incident de sécurité](./media/security-center-incident/security-center-incident-fig3.png)
+    ![Security incident](./media/security-center-incident/security-center-incident-fig3.png)
 
-4. 	Sur le panneau de l’**incident**, vous trouverez davantage d’informations sur cet incident de sécurité, notamment sa description complète, son niveau de gravité (qui, dans ce cas, est élevé), son état actuel (dans ce cas, il est toujours *actif*, ce qui signifie que l’utilisateur n’a pris aucune mesure pour l’*ignorer*, ce qui peut se faire en cliquant sur l’incident avec le bouton droit dans le panneau **Alertes de sécurité**), la ressource attaquée (dans ce cas, *VM1*), les étapes de résolution de l’incident et, dans le panneau inférieur, les alertes qui ont été affichées au cours de l’incident. Si vous souhaitez obtenir plus d’informations sur chaque alerte, il vous suffit de cliquer dessus pour ouvrir un autre panneau, comme indiqué ci-dessous :
+4.  On the **incident** blade you will see more details about this security incident, which includes its full description, its severity (which in this case is high), its current state (in this case it is still *active*, which implies the user hasn't taken an action to *dismiss* it - this can be done by right clicking on the incident in the **Security alerts** blade), the attacked resource (in this case *VM1*), the remediation steps for the incident, and in the bottom pane you have the alerts that were included in this incident. If you want to obtain more information on each alert, just click on it and another blade will open, as shown below:
 
-	![Incident de sécurité](./media/security-center-incident/security-center-incident-fig4.png)
+    ![Security incident](./media/security-center-incident/security-center-incident-fig4.png)
 
-Les informations sur ce panneau varient en fonction de l’alerte. Consultez [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) pour en savoir plus sur la gestion de ces alertes. Voici quelques considérations importantes concernant cette fonctionnalité :
+The information on this blade will vary according to the alert. Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to manage these alerts. Some important considerations regarding this capability:
 
-- Un nouveau filtre vous permet de personnaliser votre affichage pour afficher uniquement les incidents, uniquement les alertes ou bien les deux.
-- Une même alerte peut s’afficher dans le cadre d’un incident (le cas échéant), mais également apparaître sous la forme d’une alerte autonome.
-- Ignorer un incident n’a pas pour effet d’ignorer les alertes associées.
+- A new filter enables you to customize your view to Incident only, Alerts only, or both. 
+- The same alert can exist as part of an Incident (if applicable), as well as to be visible as a standalone alert. 
+- Dismissing an incident will not dismiss the related alerts.
 
-## Voir aussi
+## <a name="see-also"></a>See also
 
-Dans ce document, vous avez vu comment utiliser la fonctionnalité de gestion des incidents de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:
 
-- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md)
-- [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md)
-- [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md)
-- [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md)
-- [FAQ de Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : trouvez des billets de blog sur la sécurité et la conformité Azure.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+- [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
+- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Find blog posts about Azure security and compliance.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

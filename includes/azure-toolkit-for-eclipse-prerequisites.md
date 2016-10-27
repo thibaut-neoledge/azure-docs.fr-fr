@@ -1,25 +1,28 @@
-### Composants requis
+### <a name="prerequisites"></a>Prerequisites
 
-Le Kit de ressources Azure pour Eclipse requiert les composants logiciels suivants :
+The Azure Toolkit for Eclipse requires the following software components:
 
-* IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Luna ou ultérieur. Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>.
+* Eclipse IDE for Java EE Developers, Luna or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
 
-* Kit de développement Java (JDK) version 1.8 ou ultérieure.
+* A Java Developer Kit (JDK), v1.8 or later. 
 
-* Systèmes d'exploitation - le Kit de ressources Azure pour Eclipse a été testé sur les systèmes d'exploitation suivants :
+* Operating Systems - the Azure Toolkit for Eclipse has been tested on the following operating systems:
 
-    * Windows 10, Windows 8 et 8.1, Windows 7
-    * Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
-    * [Mac OS X](http://www.apple.com/osx) Versions « Yosemite » et « El Captain »
-    * [Ubuntu Linux](http://www.ubuntu.com) Versions 12, 14 et 15
+    * Windows 10, Windows 8 and 8.1, Windows 7
+    * Windows Server 2012 and 2012 R2, Windows Server 2008 and 2008 R2
+    * [Mac OS X](http://www.apple.com/osx) Versions "Yosemite" and "El Captain"
+    * [Ubuntu Linux](http://www.ubuntu.com) Versions 12, 14, and 15
 
-Vous trouverez plus d'informations sur la page du [Kit de ressources Azure pour Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) sur Eclipse Marketplace.
+More information can be found on the [Azure Toolkit for Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) page at the Eclipse Marketplace.
 
-> [AZURE.IMPORTANT] Si vous utilisez le kit de ressources Azure pour Eclipse sous Windows, le kit de ressources requiert l’installation du Kit de développement logiciel (SDK) Azure 2.9.1 ou version ultérieure. Vous avez deux options pour l'installation du Kit de développement logiciel (SDK) Azure :
+> [AZURE.IMPORTANT] If you are using the Azure Toolkit for Eclipse on Windows, the toolkit requires installing the Azure SDK 2.9.1 or later. You have two options for installing the Azure SDK:
 > 
-> * Vous pouvez télécharger et installer le Kit de développement logiciel (SDK) Azure à partir de [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838).
-> * Si le Kit de développement logiciel (SDK) Azure n'est pas installé lorsque vous créez votre premier projet de déploiement Azure, vous serez invité à télécharger et à installer automatiquement la version appropriée du Kit de développement logiciel (SDK) Azure.
+> * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838).
+> * If you do not have the Azure SDK installed when you create your first Azure deployment project, you will be prompted to automatically download install the requisite version of the Azure SDK.
 > 
-> Notez que le Kit de développement logiciel (SDK) Azure est requis uniquement sous Windows.
+> Note that the Azure SDK is only required on Windows.
 
-<!---HONumber=AcomDC_0706_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

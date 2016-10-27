@@ -16,27 +16,28 @@ ms.service="virtual-machines-windows"
  ms.date="09/20/2016"
  ms.author="danlep"/>
 
-# Configuration d’un cluster Windows RDMA avec HPC Pack pour exécuter des applications MPI
 
-Configurez un cluster RDMA Windows dans Azure avec [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) et [des instances de série H ou de série A nécessitant beaucoup de ressources système](virtual-machines-windows-a8-a9-a10-a11-specs.md) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des nœuds Windows Server compatibles RDMA dans un cluster HPC Pack, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA).
+# <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configuration d’un cluster Windows RDMA avec HPC Pack pour exécuter des applications MPI
+
+Configurez un cluster RDMA Windows dans Azure avec [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) et [des instances de série H ou de série A nécessitant beaucoup de ressources système](virtual-machines-windows-a8-a9-a10-a11-specs.md) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des nœuds Windows Server compatibles RDMA dans un cluster HPC Pack, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA).
 
 Si vous souhaitez exécuter des charges de travail MPI sur des machines virtuelles Linux qui accèdent au réseau Azure RDMA, consultez [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
 
-## Options de déploiement de cluster HPC Pack
-Microsoft HPC Pack est un outil fourni sans frais supplémentaires pour créer des clusters HPC locaux ou dans Azure afin d’exécuter des applications HPC Windows ou Linux. HPC Pack comprend un environnement d'exécution pour l'implémentation Microsoft de MPI pour Windows (MS-MPI). Dans le cas d’une utilisation d’instances compatibles RDMA exécutant un système d’exploitation Windows Server pris en charge, HPC Pack est un moyen efficace d’exécuter des applications MPI Windows qui accèdent au réseau Azure compatible RDMA.
+## <a name="hpc-pack-cluster-deployment-options"></a>Options de déploiement de cluster HPC Pack
+Microsoft HPC Pack est un outil fourni sans frais supplémentaires pour créer des clusters HPC locaux ou dans Azure afin d’exécuter des applications HPC Windows ou Linux. HPC Pack comprend un environnement d'exécution pour l'implémentation Microsoft de MPI pour Windows (MS-MPI). Dans le cas d’une utilisation d’instances compatibles RDMA exécutant un système d’exploitation Windows Server pris en charge, HPC Pack est un moyen efficace d’exécuter des applications MPI Windows qui accèdent au réseau Azure compatible RDMA. 
 
-Cet article présente deux scénarios, ainsi que des liens vers des instructions détaillées, pour configurer un cluster RDMA Windows avec Microsoft HPC Pack.
+Cet article présente deux scénarios, ainsi que des liens vers des instructions détaillées, pour configurer un cluster RDMA Windows avec Microsoft HPC Pack. 
 
 * Scénario 1 Déployer des instances de rôle de travail nécessitant beaucoup de ressources système (PaaS)
 
 * Scénario 2 Déployer des nœuds de calcul sur des machines virtuelles nécessitant beaucoup de ressources système (IaaS)
 
-Pour connaître les conditions préalables à l’utilisation d’instances nécessitant beaucoup de ressources système avec Windows, consultez [À propos des machines virtuelles de série H ou de calcul intensif de série A](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Pour connaître les conditions préalables à l’utilisation d’instances nécessitant beaucoup de ressources système avec Windows, consultez [À propos des machines virtuelles de série H ou de calcul intensif de série A](virtual-machines-windows-a8-a9-a10-a11-specs.md) .
 
 
 
-## Scénario 1 Déployer des instances de rôle de travail nécessitant beaucoup de ressources système (PaaS)
+## <a name="scenario-1.-deploy-compute-intensive-worker-role-instances-(paas)"></a>Scénario 1 Déployer des instances de rôle de travail nécessitant beaucoup de ressources système (PaaS)
 
 À partir d’un cluster HPC Pack existant, ajoutez des ressources de calcul supplémentaires dans les instances de rôle de travail Azure (nœuds Azure) en cours d’exécution dans un service cloud (PaaS). Cette fonctionnalité, également appelée « Intégration à Azure » à partir de HPC Pack, prend en charge une plage de tailles d’instances de rôle de travail. Lors de l’ajout des nœuds Azure, spécifiez simplement l’une des tailles compatibles RDMA.
 
@@ -46,11 +47,11 @@ Voici les considérations et les étapes pour l’intégration aux instances Azu
 
 ![Intégration à Azure][burst]
 
-### Étapes
+### <a name="steps"></a>Étapes
 
 4. **Déployer et configurer un nœud principal HPC Pack 2012 R2**
 
-    Téléchargez le dernier package d’installation de HPC Pack à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Pour la configuration requise et les instructions liées au déploiement d’intégration à Azure, consultez [Guide de prise en main de HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) et [Intégration aux instances de rôle de travail Azure avec Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+    Téléchargez le dernier package d’installation de HPC Pack à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Pour plus d’informations sur la configuration requise et des instructions de préparation pour le déploiement d’intégrations à Azure, consultez [Getting Started Guide for Microsoft HPC Pack 2012 R2 and HPC Pack 2012 (Guide de prise en main de HPC Pack 2012 R2 et HPC Pack 2012)](https://technet.microsoft.com/library/jj884144.aspx) et [Burst to Azure with Microsoft HPC Pack (Intégration à Azure avec Microsoft HPC Pack)](https://technet.microsoft.com/library/gg481749.aspx).
 
 5. **Configurer un certificat de gestion dans l’abonnement Azure**
 
@@ -90,7 +91,7 @@ Voici les considérations et les étapes pour l’intégration aux instances Azu
 
 
 
-## Scénario 2 Déployer des nœuds de calcul sur des machines virtuelles nécessitant beaucoup de ressources système (IaaS)
+## <a name="scenario-2.-deploy-compute-nodes-in-compute-intensive-vms-(iaas)"></a>Scénario 2 Déployer des nœuds de calcul sur des machines virtuelles nécessitant beaucoup de ressources système (IaaS)
 
 Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de calcul de cluster sur des machines virtuelles jointes à un domaine Active Directory dans un réseau virtuel Azure. HPC Pack fournit un certain nombre [d’options de déploiement sur les machines virtuelles Azure](virtual-machines-linux-hpcpack-cluster-options.md), y compris les scripts de déploiement automatisé et les modèles de démarrage rapide Microsoft Azure. Par exemple, les considérations et les étapes ci-dessous vous guident pour l’utilisation du [script de déploiement IaaS HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) afin d’automatiser la majeure partie de ce processus.
 
@@ -98,13 +99,13 @@ Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de c
 
 
 
-### Étapes
+### <a name="steps"></a>Étapes
 
 1. **Créer un nœud principal de cluster et des machines virtuelles à nœud de calcul en exécutant le script de déploiement de HPC Pack IaaS sur un ordinateur client**
 
     Téléchargez le package de script de déploiement de HPC Pack IaaS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922).
 
-    Pour préparer l’ordinateur client, créez le fichier de configuration de script, puis exécutez le script. Consultez [Créer un Cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+    Pour préparer l’ordinateur client, créez le fichier de configuration de script, puis exécutez le script. Consultez [Créer un cluster de calcul haute performance (HPC) Windows avec le script de déploiement du HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). 
     
     Pour déployer les nœuds de calcul compatibles RDMA, notez les considérations supplémentaires suivantes :
     
@@ -134,13 +135,13 @@ Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de c
 
 
 
-## Exécuter des applications MPI sur le cluster
+## <a name="run-mpi-applications-on-the-cluster"></a>Exécuter des applications MPI sur le cluster
 
-### Exemple : Exécuter mpipingpong sur un cluster HPC Pack
+### <a name="example:-run-mpipingpong-on-an-hpc-pack-cluster"></a>Exemple : Exécuter mpipingpong sur un cluster HPC Pack
 
-Pour vérifier un déploiement HPC Pack des instances compatibles RDMA, exécutez la commande HPC Pack **mpipingpong** sur le cluster. **mpipingpong** envoie des paquets de données entre des nœuds associés de façon répétée pour calculer les mesures de latence et de débit et les statistiques sur le réseau d’application RDMA. Cet exemple montre un modèle classique pour l’exécution d’un travail MPI (dans ce cas, **mpipingpong**) à l’aide de la commande de cluster **mpiexec**.
+Pour vérifier un déploiement HPC Pack des instances compatibles RDMA, exécutez la commande HPC Pack **mpipingpong** sur le cluster. **mpipingpong** envoie des paquets de données entre des nœuds associés de façon répétée pour calculer la latence et les mesures et statistiques de débit sur le réseau d’application RDMA. Cet exemple montre un modèle classique d’exécution d’un travail MPI (dans ce cas, **mpipingpong**) à l’aide de la commande de cluster **mpiexec**.
 
-Cet exemple suppose que vous avez ajouté des nœuds Azure dans une configuration de type « intégration à Azure » ([scénario 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-(PaaS) dans cet article). Si vous avez déployé HPC Pack sur un cluster de machines virtuelles Azure, vous devez modifier la syntaxe de commande pour spécifier un autre groupe de nœuds et définir des variables d’environnement supplémentaires pour diriger le trafic réseau vers le réseau RDMA.
+Cet exemple suppose que vous ayez ajouté des nœuds Azure dans une configuration de type « intégration à Azure» ([scénario 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-(PaaS) in this article). Si vous avez déployé HPC Pack sur un cluster de machines virtuelles Azure, vous devez modifier la syntaxe de commande pour spécifier un autre groupe de nœuds et définir des variables d’environnement supplémentaires pour diriger le trafic réseau vers le réseau RDMA.
 
 
 Pour exécuter mpipingpong sur le cluster :
@@ -195,7 +196,7 @@ Pour exécuter mpipingpong sur le cluster :
   ![Débit ping pong][pingpong2]
 
 
-### Considérations sur les applications MPI
+### <a name="mpi-application-considerations"></a>Considérations sur les applications MPI
 
 
 Vous trouverez ci-dessous des considérations relatives à l’exécution d’applications MPI avec le HPC Pack dans Azure. Certaines s’appliquent uniquement aux déploiements de nœuds Azure (instances de rôle de travail ajoutées dans une configuration de type « intégration à Azure »).
@@ -211,13 +212,13 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 * Les instances Azure nécessitent une configuration supplémentaire pour accéder aux nœuds locaux, partages et serveurs de licences. Par exemple, pour activer les nœuds Azure pour accéder à un serveur de licences local, vous pouvez configurer un réseau virtuel Azure de site à site.
 
 
-* Pour exécuter des applications MPI sur des instances Azure, enregistrez chaque application MPI sur les instances avec le pare-feu Windows en exécutant la commande **hpcfwutil**. Cela permet aux communications MPI d’avoir lieu sur un port affecté dynamiquement par le pare-feu.
+* Pour exécuter des applications MPI sur des instances Azure, enregistrez chaque application MPI sur les instances avec le pare-feu Windows en exécutant la commande **hpcfwutil** . Cela permet aux communications MPI d’avoir lieu sur un port affecté dynamiquement par le pare-feu.
 
-    >[AZURE.NOTE] Pour des déploiements d’intégration à Azure, vous pouvez également configurer une commande d’exception de pare-feu pour qu’elle s’exécute automatiquement sur tous les nouveaux nœuds Azure ajoutés à votre cluster. Après avoir exécuté la commande **hpcfwutil** et vérifié que votre application fonctionne, ajoutez la commande à un script de démarrage pour vos nœuds Azure. Pour plus d’informations, consultez [Utiliser un script de démarrage pour les nœuds Azure](https://technet.microsoft.com/library/jj899632.aspx).
+    >[AZURE.NOTE] Pour des déploiements d’intégration à Azure, vous pouvez également configurer une commande d’exception de pare-feu pour qu’elle s’exécute automatiquement sur tous les nouveaux nœuds Azure ajoutés à votre cluster. Après avoir exécuté la commande **hpcfwutil** et vérifié que votre application fonctionne, ajoutez la commande à un script de démarrage pour vos nœuds Azure. Pour plus d'informations, consultez [Utiliser un script de démarrage pour les nœuds Azure](https://technet.microsoft.com/library/jj899632.aspx).
 
 
 
-* HPC Pack utilise la variable d’environnement de cluster CCP\_MPI\_NETMASK pour spécifier une plage d’adresses acceptables pour la communication MPI. Depuis HPC Pack 2012 R2, la variable d’environnement de cluster CCP\_MPI\_NETMASK affecte uniquement la communication MPI entre les nœuds de calcul cluster appartenant à un domaine (localement ou sur des machines virtuelles Azure). La variable est ignorée par les nœuds ajoutés dans une configuration d’intégration à Azure.
+* HPC Pack utilise la variable d’environnement de cluster CCP_MPI_NETMASK pour spécifier une plage d’adresses acceptables pour la communication MPI. Depuis HPC Pack 2012 R2, la variable d’environnement de cluster CCP_MPI_NETMASK affecte uniquement la communication MPI entre les nœuds de calcul cluster appartenant à un domaine (localement ou sur des machines virtuelles Azure). La variable est ignorée par les nœuds ajoutés dans une configuration d’intégration à Azure.
 
 
 * Les travaux MPI ne peuvent pas s’exécuter sur des instances Azure déployées dans différents services cloud (par exemple, dans des déploiements d’intégration à Azure avec différents modèles de nœud ou des nœuds de calcul dans des machines virtuelles Azure déployés dans plusieurs services cloud). Si vous avez plusieurs déploiements de nœuds Azure démarrés avec différents modèles de nœud, le travail MPI doit s’exécuter sur un seul ensemble de nœuds Azure.
@@ -226,7 +227,7 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 * Lorsque vous ajoutez des nœuds Azure à votre cluster et que vous les mettez en ligne, le service de planification de travaux HPC essaie immédiatement de démarrer les travaux sur les nœuds. Si seulement une partie de votre charge de travail peut s’exécuter sur Azure, assurez-vous de mettre à jour ou de créer des modèles de projet pour définir les types de travaux qui peuvent s’exécuter sur Azure. Par exemple, pour vous assurer que les travaux soumis avec un modèle de travail s’exécutent uniquement sur des nœuds Azure, ajoutez la propriété Node Groups au modèle de travail et sélectionnez AzureNodes comme valeur requise. Pour créer des groupes personnalisés pour vos nœuds Azure, utilisez l'applet de commande Add-HpcGroup HPC PowerShell.
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Comme alternative à l'utilisation de HPC Pack, développez avec le service Azure Batch pour exécuter des applications MPI sur des pools gérés de nœuds de calcul dans Azure. Consultez [Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](../batch/batch-mpi.md).
 
@@ -238,4 +239,7 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 [pingpong1]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong2.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

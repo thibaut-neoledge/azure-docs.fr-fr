@@ -1,6 +1,10 @@
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](sql-database-xevent-db-diff-from-svr.md)
-- [Mémoire tampon en anneau](sql-database-xevent-code-ring-buffer.md)
-- [Fichier d’événements](sql-database-xevent-code-event-file.md)
+- [Overview](sql-database-xevent-db-diff-from-svr.md)
+- [Ring Buffer](sql-database-xevent-code-ring-buffer.md)
+- [Event File](sql-database-xevent-code-event-file.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

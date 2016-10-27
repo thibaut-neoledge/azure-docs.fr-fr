@@ -1,100 +1,114 @@
 <properties 
-	pageTitle="Apprendre à créer un contrat AS2 pour Enterprise Integration Pack" 
-	description="Apprendre à créer un contrat AS2 pour Enterprise Integration Pack | Microsoft Azure App Service" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+    pageTitle="Learn to create an AS2 agreement for the Enterprise Integration Pack" 
+    description="Learn to create an AS2 agreement for the Enterprise Integration Pack| Microsoft Azure App Service" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="msftman" 
+    manager="erikre" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2016" 
-	ms.author="deonhe"/>
-
-# Intégration d'entreprise avec AS2
-
-## Créer un contrat AS2
-Pour pouvoir utiliser les fonctionnalités d’entreprise dans vos applications logiques, vous devez d’abord créer des contrats.
-
-### Voici ce dont vous avez besoin pour commencer
-- Un [compte d’intégration](./app-service-logic-enterprise-integration-accounts.md) défini dans votre abonnement Azure
-- Au moins deux [partenaires](./app-service-logic-enterprise-integration-partners.md) déjà définis dans votre compte d’intégration
-
->[AZURE.NOTE]Lorsque vous créez un contrat, le contenu du fichier de contrat doit correspondre au type de contrat.
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="06/29/2016" 
+    ms.author="deonhe"/>
 
 
-Une fois que vous avez [créé un compte d’intégration](./app-service-logic-enterprise-integration-accounts.md) et [ajouté des partenaires](./app-service-logic-enterprise-integration-partners.md), vous pouvez créer un contrat en suivant ces étapes :
+# <a name="enterprise-integration-with-as2"></a>Enterprise integration with AS2
 
-### À partir de la page d’accueil du portail Azure
+## <a name="create-an-as2-agreement"></a>Create an AS2 agreement
+In order to use the enterprise features in Logic apps, you must first create agreements. 
 
-Une fois que vous êtes connecté au [portail Azure](http://portal.azure.com "Portail Azure") :
-1. Sélectionnez **Parcourir** dans le menu à gauche.
+### <a name="here's-what-you-need-before-you-get-started"></a>Here's what you need before you get started
+- An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  
+- At least two [partners](./app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
 
->[AZURE.TIP]Si le lien **Parcourir** ne s’affiche pas, vous devrez peut-être développer le menu. Pour ce faire, sélectionnez le lien **Afficher le menu** situé dans le coin supérieur gauche du menu réduit.
+>[AZURE.NOTE]When creating an agreement, the content in the agreement file must match the agreement type.    
 
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
-2. Entrez *intégration* dans la zone de recherche de filtre et sélectionnez **Integration Accounts** (Comptes d’intégration) dans la liste des résultats. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
-3. Dans le panneau **Integration Accounts** (Comptes d’intégration) qui s’affiche, sélectionnez le compte d’intégration dans lequel vous allez créer le contrat. Si aucun compte d’intégration ne s’affiche, [créez-en un](./app-service-logic-enterprise-integration-accounts.md "Tout sur les comptes d’intégration"). ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Sélectionnez la mosaïque **Contrats**. Si vous ne voyez pas la mosaïque Contrats, commencez par l’ajouter. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)
-5. Sélectionnez le bouton **Ajouter** dans le panneau Contrats qui s’affiche. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)
-6. Entrez un **nom** pour votre contrat, puis sélectionnez le **partenaire hôte**, l’**identité de l’hôte**, le **partenaire invité**, l’**identité de l’invité**, dans le panneau Contrats qui s’affiche. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-3.png)
 
-Voici quelques informations qui peuvent s’avérer utiles lorsque vous configurez les paramètres de votre contrat :
+After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an agreement by following these steps:  
+
+### <a name="from-the-azure-portal-home-page"></a>From the Azure portal home page
+
+After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
+1. Select **Browse** from the menu on the left.  
+
+>[AZURE.TIP]If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
+
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
+2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
+ ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
+3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./app-service-logic-enterprise-integration-accounts.md "All about integration accounts").  
+![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
+4.  Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)   
+5. Select the **Add** button in the Agreements blade that opens.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
+6. Enter a **Name** for your agreement then select the **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-3.png)  
+
+Here are a few details you may find useful when configuring the settings for your agreement: 
   
-|Propriété|Description|
+|Property|Description|
 |----|----|
-|Partenaire hôte|Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire hôte représente l’organisation qui configure le contrat.|
-|Identité de l’hôte|Identificateur du partenaire hôte. |
-|Partenaire invité|Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire invité représente l’organisation qui travaille avec le partenaire hôte.|
-|Identité de l’invité|Identificateur du partenaire invité.|
-|Paramètres de réception|Ces propriétés s’appliquent à tous les messages reçus par un contrat|
-|Paramètres d’envoi|Ces propriétés s’appliquent à tous les messages envoyés par un contrat|  
-Poursuivons :
-7. Sélectionnez les **Paramètres de réception** pour configurer la façon dont les messages reçus dans le cadre de ce contrat doivent être traités.
+|Host Partner|An agreement needs both a host and guest partner. The host partner represents the organization that is configuring the agreement.|
+|Host Identity|An identifier for the host partner. |
+|Guest Partner|An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner.|
+|Guest Identity|An identifier for the guest partner.|
+|Receive Settings|These properties apply to all messages received by an agreement|
+|Send Settings|These properties apply to all messages sent by an agreement|  
+Let's continue:  
+7. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
  
- - Si vous le souhaitez, vous pouvez remplacer les propriétés dans le message entrant. Pour ce faire, cochez la case **Override message properties** (Remplacer les propriétés du message).
-  - Cochez la case **Le message doit être signé** si vous souhaitez exiger que tous les messages entrants soient signés. Si vous sélectionnez cette option, vous devrez également sélectionner le **certificat** qui sera utilisé pour valider la signature dans les messages.
-  - Si vous le souhaitez, vous pouvez aussi exiger que les messages soient chiffrés. Pour ce faire, cochez la case **Le message doit être chiffré**. Vous devrez ensuite sélectionner le **certificat** qui sera utilisé pour décoder les messages entrants.
-  - Vous pouvez également exiger que les messages soient compressés. Pour ce faire, cochez la case **Le message doit être compressé**. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-4.png)
+ - Optionally, you can override the properties in the incoming message. To do this, select the **Override message properties** checkbox.
+  - Select the **Message should be signed** checkbox if you'd like to require all incoming messages to be signed. If you select this option, you will also need to select the **Certificate** that will be used to validate the signature on the messages.
+  - Optionally, you can require messages to be encrypted as well. To do this, select the **Message should be encrypted** checkbox. You would then need to select the **Certificate** that will be used to decode the incoming messages.
+  - You can also require messages to be compressed. To do this, select the **Message should be compressed** checkbox.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-4.png)  
 
-Consultez le tableau ci-dessous pour en savoir plus sur les fonctionnalités activées par les paramètres de réception.
+See the table below if you would like to learn more about what the receive settings enable.  
 
-|Propriété|Description|
+|Property|Description|
 |----|----|
-|Override message properties (Remplacer les propriétés du message)|Sélectionnez cette option pour indiquer que les propriétés dans les messages reçus peuvent être remplacées |
-|Le message doit être signé|Activez cette option pour exiger que les messages soient signés numériquement|
-|Le message doit être chiffré|Activez cette option pour exiger que les messages soient chiffrés. Les messages non chiffrés seront rejetés.|
-|Le message doit être compressé|Activez cette option pour exiger que les messages soient compressés. Les messages non compressés seront rejetés.|
-|Texte du MDN|Il s’agit d’une notification d’état du message (MDN) par défaut à envoyer à l’expéditeur du message|
-|Send MDN (Envoyer MDN)|Activez cette option pour autoriser l’envoi de MDN.|
-|Send signed MDN (Envoyer MDN signé)|Activez cette option pour exiger que les MDN soient signés.|
-|MIC Algorithm (Algorithme MIC)||
-|Send asynchronous MDN (Envoyer MDN asynchrone)|Activez cette option pour exiger que les messages soient envoyés de manière asynchrone.|
-|URL|Voici l’URL à laquelle les messages seront envoyés.|
-Poursuivons :
-8. Sélectionnez les **Paramètres d’envoi** pour configurer la façon dont les messages envoyés dans le cadre de ce contrat doivent être traités. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-5.png)
+|Override message properties|Select this to indicate that properties in received messages can be overridden |
+|Message should be signed|Enable this to require messages to be digitally signed|
+|Message should be encrypted|Enable this to require messages to be encrypted. Non-encrypted messages will be rejected.|
+|Message should be compressed|Enable this to require messages to be compressed. Non-compressed messages will be rejected.|
+|MDN Text|This is a default MDN to be sent to the message sender|
+|Send MDN|Enable this to allow MDNs to be sent.|
+|Send signed MDN|Enable this to require MDNs to be signed.|
+|MIC Algorithm||
+|Send asynchronous MDN|Enable this to require messages to be sent asynchronously.|
+|URL|This is the URL to which messages will be sent.|
+Now, let's continue:  
+8. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-5.png)  
 
-Consultez le tableau ci-dessous pour en savoir plus sur les fonctionnalités activées par les paramètres d’envoi.
+See the table below if you would like to learn more about what the send settings enable.  
 
-|Propriété|Description|
+|Property|Description|
 |----|----|
-|Enable message signing (Activer la signature des messages)|Cochez cette case pour que tous les messages envoyés à partir du contrat soient signés.|
-|MIC Algorithm (Algorithme MIC)|Sélectionnez l’algorithme à utiliser lors de la signature du message|
-|Certificat|Sélectionnez le certificat à utiliser lors de la signature du message|
-|Enable message encryption (Activer le chiffrement du message)|Cochez cette case pour chiffrer tous les messages envoyés à partir de ce contrat.|
-|Algorithme de chiffrement|Sélectionnez l’algorithme de chiffrement à utiliser dans le chiffrement du message|
-|Dérouler les en-têtes HTTP|Cochez cette case pour dérouler l’en-tête de type de contenu HTTP sur une seule ligne.|
-|Exiger le MDN|Cochez cette case pour demander un MDN pour tous les messages envoyés dans le cadre de ce contrat|
-|Exiger le MDN signé|Activez cette option pour demander que tous les MDN envoyés à ce contrat soient signés|
-|Exiger le MDN asynchrone|Activez cette option pour demander l’envoi d’un MDN asynchrone à ce contrat|
-|URL|L’URL à laquelle les MDN seront envoyés|
-|Enable NRR (Activer NRR)|Cochez cette case pour activer la non-répudiation de réception|
-Nous avons presque terminé !
-9. Sélectionnez la mosaïque **Contrats** dans le panneau du compte d’intégration pour afficher le nouveau contrat ajouté. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
+|Enable message signing|Select this checkbox to enable all messages sent from the agreement to be signed.|
+|MIC Algorithm|Select the algorithm to use in message signing|
+|Certificate|Select the certificate to use in message signing|
+|Enable message encryption|Select this checkbox to encrypt all messages sent from this agreement.|
+|Encryption Algorithm|Select the encryption algorithm to use in message encryption|
+|Unfold HTTP headers|Select this checkbox to unfold the HTTP content-type header into a single line.|
+|Request MDN|Enable this checkbox to request an MDN for all messages sent from this agreement|
+|Request signed MDN|Enable to request that all MDNs sent to this agreement are signed|
+|Request asynchronous MDN|Enable to request asynchronous MDN to be sent to this agreement|
+|URL|The URL to which MDNs will be sent|
+|Enable NRR|Select this checkbox to enable Non-Repudiation of Receipt|
+We are almost done!  
+9. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

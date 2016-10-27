@@ -1,56 +1,59 @@
 
 <properties
-	pageTitle="Obtention de recommandations par lots : API Recommandations Machine Learning | Microsoft Azure"
-	description="Recommandations Azure Machine Learning - Obtention de recommandations par lots"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="luiscabrer"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Getting recommendations in batches: Machine learning recommendations API | Microsoft Azure"
+    description="Azure machine learning recommendations--getting recommendations in batches"
+    services="cognitive-services"
+    documentationCenter=""
+    authors="luiscabrer"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="cognitive-services"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="luisca"/>
+    ms.service="cognitive-services"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/17/2016"
+    ms.author="luisca"/>
 
-# Obtenir des recommandations par lots
 
->[AZURE.NOTE] Il est plus compliqué d’obtenir des recommandations par lots que d’obtenir une recommandation à la fois. Vérifiez les API pour obtenir des informations sur l’obtention de recommandations pour une seule requête :
+# <a name="get-recommendations-in-batches"></a>Get recommendations in batches
 
-> [Recommandations élément-élément](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br> [Recommandations utilisateur-élément](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
+>[AZURE.NOTE] Getting recommendations in batches is more complicated than getting recommendations one at a time. Check the APIs for information about how to get recommendations for a single request:
+
+> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
+> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
-> La notation de lot fonctionne uniquement pour les builds créées après le 21 juillet 2016.
+> Batch scoring only works for builds that were created after July 21, 2016.
 
 
-Dans certaines situations, vous devez obtenir des recommandations pour plusieurs éléments à la fois. Par exemple, vous pouvez être intéressé par la création d’un cache de recommandations, voire par l’analyse des types de recommandation obtenus.
+There are situations in which you need to get recommendations for more than one item at a time. For instance, you might be interested in creating a recommendations cache or even analyzing the types of recommendations that you are getting.
 
-Les opérations de notation de lot, comme nous les appelons, sont asynchrones. Vous devez soumettre la requête, attendre que l’opération soit terminée, puis collecter les résultats.
+Batch scoring operations, as we call them, are asynchronous operations. You need to submit the request, wait for the operation to finish, and then gather your results.  
 
-Pour être plus précis, voici les étapes à suivre :
+To be more precise, these are the steps to follow:
 
-1.	Créez un conteneur Azure Storage si vous n’en avez pas.
-2.	Chargez un fichier d’entrée décrivant chacune de vos requêtes de recommandation vers Azure Blob Storage.
-3.	Démarrez le travail de notation de lot.
-4.	Attendez la fin de l’opération asynchrone.
-5.	Lorsque l’opération est terminée, rassemblez les résultats depuis le stockage Blob.
+1.  Create an Azure Storage container if you don’t have one already.
+2.  Upload an input file that describes each of your recommendation requests to Azure Blob storage.
+3.  Kick-start the scoring batch job.
+4.  Wait for the asynchronous operation to finish.
+5.  When the operation has finished, gather the results from Blob storage.
 
-Examinons chacune de ces étapes.
+Let’s walk through each of these steps.
 
-## Créez un conteneur Azure Storage si vous n’en avez pas.
+## <a name="create-a-storage-container-if-you-don’t-have-one-already"></a>Create a Storage container if you don’t have one already
 
-Accédez au [portail Azure](https://portal.azure.com) et créez un compte de stockage si vous n’en avez pas déjà un. Pour ce faire, accédez à **Nouveau** > **Données** + **stockage** > **Compte de stockage**.
+Go to the [Azure portal](https://portal.azure.com) and create a new storage account if you don’t have one already. To do this, navigate to **New** > **Data** + **Storage** > **Storage Account**.
 
-Une fois que vous disposez d’un compte de stockage, vous devez créer les conteneurs d’objets blob où vous stockerez l’entrée et la sortie de l’exécution par lots.
+After you have a storage account, you need to create the blob containers where you will store the input and output of the batch execution.
 
-Chargez un fichier d’entrée décrivant chacune de vos requêtes de recommandation vers Blob Storage. Appelons-le input.json. Une fois le conteneur créé, vous devez charger un fichier qui décrit chaque requête que vous devez effectuer à partir du service de recommandations.
+Upload an input file that describes each of your recommendation requests to Blob storage--let's call the file input.json here.
+After you have a container, you need to upload a file that describes each of the requests that you need to perform from the recommendations service.
 
-Un lot ne peut effectuer qu’un seul type de requête à partir d’une build spécifique. Nous expliquerons comment définir ces informations dans la section suivante. Maintenant, supposons que nous allons réaliser des recommandations d’éléments à partir d’une build spécifique. Le fichier d’entrée contient alors les informations d’entrée (dans ce cas, les éléments initiaux) pour chacune des requêtes.
+A batch can perform only one type of request from a specific build. We will explain how to define this information in the next section. For now, let’s assume that we will be performing item recommendations out of a specific build. The input file then contains the input information (in this case, the seed items) for each of the requests.
 
-Voici un exemple de fichier input.json :
+This is an example of what the input.json file looks like:
 
     {
       "requests": [
@@ -65,15 +68,15 @@ Voici un exemple de fichier input.json :
       ]
     }
 
-Comme vous pouvez le constater, il s’agit d’un fichier JSON, dans lequel chaque requête comporte les informations nécessaires pour envoyer une requête de recommandation. Créez un fichier JSON similaire pour les requêtes que vous devez traiter, puis copiez-le dans le conteneur que vous venez de créer dans Blob Storage.
+As you can see, the file is a JSON file, where each of the requests has the information that's necessary to send a recommendations request. Create a similar JSON file for the requests that you need to fulfill, and copy it to the container that you just created in Blob storage.
 
-## Démarrer le travail de notation de lot
+## <a name="kick-start-the-batch-job"></a>Kick-start the batch job
 
-L’étape suivante consiste à soumettre un nouveau travail Batch. Pour plus d’informations, consultez la [référence de l’API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
+The next step is to submit a new batch job. For more information, check the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
 
-Le corps de la requête de l’API doit définir les emplacements de stockage des fichiers d’entrée, de sortie et d’erreur. Il doit également définir les informations d’identification nécessaires pour accéder à ces emplacements. En outre, vous devez spécifier certains paramètres qui s’appliquent à la totalité du lot (le type de recommandations à demander, le modèle ou la build à utiliser, le nombre de résultats par appel, etc.).
+The request body of the API needs to define the locations where the input, output, and error files need to be stored. It also needs to define the credentials that are necessary to access those locations. In addition, you need to specify some parameters that apply to the whole batch (the type of recommendations to request, the model/build to use, the number of results per call, and so on.)
 
-Voici un exemple de corps de requête :
+This is an example of what the request body should look like:
 
     {
       "input": {
@@ -104,23 +107,24 @@ Voici un exemple de corps de requête :
       }
     }
 
-Voici quelques points importants à prendre en considération :
+Here a few important things to note:
 
--	Actuellement, **authenticationType** doit toujours être défini sur **PublicOrSas**.
+-   Currently, **authenticationType** should always be set to **PublicOrSas**.
 
--	Vous devez obtenir un jeton de signature d’accès partagé (SAP) pour autoriser l’API Recommandations à lire et écrire depuis/vers votre compte Blob Storage. Vous trouverez plus d’informations sur la génération de jetons SAS sur [la page Recommendations d’API](../storage/storage-dotnet-shared-access-signature-part-1.md).
+-   You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
--	Le seul **apiName** actuellement pris en charge est **ItemRecommend**, qui est utilisé pour les recommandations élément à élément. Le traitement par lots ne prend actuellement pas en charge les recommandations utilisateur-élément.
+-   The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. Batching doesn't currently support User-to-Item recommendations.
 
-## Attendez la fin de l’opération asynchrone.
+## <a name="wait-for-the-asynchronous-operation-to-finish"></a>Wait for the asynchronous operation to finish
 
-Lorsque vous démarrez l’opération par lots, la réponse renvoie l’en-tête Operation-Location qui vous donne les informations nécessaires pour effectuer le suivi de l’opération. Vous effectuez le suivi de l’opération à l’aide de [l’API Récupérer l’état de l’opération](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), comme vous le feriez pour le suivi d’une opération de génération.
+When you start the batch operation, the response returns the Operation-Location header that gives you the information that's necessary to track the operation.
+You track the operation by using the [Retrieve Operation Status API]( https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), just like you do for tracking the operation of a build operation.
 
-## Obtenir les résultats
+## <a name="get-the-results"></a>Get the results
 
-Une fois l’opération terminée, et en supposant qu’elle ne comporte aucune erreur, vous pouvez collecter les résultats à partir de votre stockage d’objets blob de sortie.
+After the operation has finished, assuming that there were no errors, you can gather the results from your output Blob storage.
 
-L’exemple ci-dessous montre ce à quoi la sortie peut ressembler. Dans cet exemple, nous présentons les résultats d’un lot avec seulement deux requêtes (par souci de concision).
+The example below show what the output might look like. In this example, we show results for a batch with only two requests (for brevity).
 
     {
       "results":
@@ -193,9 +197,13 @@ L’exemple ci-dessous montre ce à quoi la sortie peut ressembler. Dans cet exe
     ]}
 
 
-## En savoir plus sur les limitations
+## <a name="learn-about-the-limitations"></a>Learn about the limitations
 
--	Un seul traitement par lots peut être appelé par abonnement à la fois.
--	Un fichier d’entrée de traitement par lots ne peut pas avoir une taille supérieure à 2 Mo.
+-   Only one batch job can be called per subscription at a time.
+-   A batch job input file cannot be more than 2 MB.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

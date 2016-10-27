@@ -1,24 +1,25 @@
 <properties
-	pageTitle="Déployer une application sur des jeux de mise à l’échelle de machine virtuelle | Microsoft Azure"
-	description="Déployer une application sur des jeux de mise à l’échelle de machine virtuelle"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Déployer une application sur des jeux de mise à l’échelle de machine virtuelle | Microsoft Azure"
+    description="Déployer une application sur des jeux de mise à l’échelle de machine virtuelle"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/13/2016"
+    ms.author="guybo"/>
 
 
-# Mettre à niveau un jeu de mise à l’échelle de machines virtuelles
+
+# <a name="upgrade-a-virtual-machine-scale-set"></a>Mettre à niveau un jeu de mise à l’échelle de machines virtuelles
 
 Cet article décrit comment déployer une mise à jour de système d’exploitation sur un jeu de mise à l’échelle de machines virtuelles Azure sans interruption de service. Dans ce contexte, une mise à jour de système d’exploitation implique la modification de la version ou de la référence (SKU) du système d’exploitation, ou la modification de l’URI d’une image personnalisée. Une mise à jour sans interruption de service consiste à mettre à jour des machines virtuelles une par une, ou dans des groupes (par exemple, un domaine d’erreur à la fois), plutôt que toutes simultanément. En procédant de la sorte, les machines virtuelles qui ne sont pas mises à niveau peuvent continuer à opérer.
 
@@ -47,7 +48,7 @@ La séquence de base pour la modification de la version du système d’exploita
 
 Avec ces informations générales à l’esprit, voyons comment vous pouvez mettre à jour la version d’un ensemble d’échelle dans PowerShell et en utilisant l’API REST. Ces exemples couvrent le cas d’une image de plateforme, mais cet article fournit suffisamment d’informations pour vous permettre d’adapter ce processus à une image personnalisée.
 
-## PowerShell##
+## <a name="powershell##"></a>PowerShell##
 
 Cet exemple met à jour un jeu d’échelle de machines virtuelles Windows vers la nouvelle version 4.0.20160229. Après la mise à jour du modèle, il effectue une mise à jour, une instance de machine virtuelle à la fois.
 
@@ -78,11 +79,11 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
 
-## API REST
+## <a name="the-rest-api"></a>API REST
 
 Voici quelques exemples Python qui utilisent l’API REST Azure pour déployer une mise à jour de la version du système d’exploitation. Les deux exemples utilisent la bibliothèque légère [azurerm](https://pypi.python.org/pypi/azurerm) de fonctions de wrapper de l’API REST Azure pour effectuer une opération GET sur le modèle d’ensemble d’échelle, puis une opération PUT avec un modèle mis à jour. Ils examinent également les affichages d’instances de machine virtuelle pour identifier les machines virtuelles par domaine de mise à jour.
 
-### vmssupgrade
+### <a name="vmssupgrade"></a>vmssupgrade
 
  [Vmssupgrade](https://github.com/gbowerman/vmsstools) est un script Python utilisé pour déployer une mise à niveau de système d’exploitation sur un jeu de mise à l’échelle de machine virtuelle en cours d’exécution, un domaine de mise à jour à la fois.
 
@@ -90,16 +91,20 @@ Voici quelques exemples Python qui utilisent l’API REST Azure pour déployer u
 
 Ce script vous permet de choisir des machines virtuelles spécifiques pour mettre à jour ou spécifier un domaine de mise à jour. Il prend en charge la modification d’une version d’image de plateforme ou la modification de l’URI d’une image personnalisée.
 
-### Vmsseditor
+### <a name="vmsseditor"></a>Vmsseditor
 
-[Vmsseditor](https://github.com/gbowerman/vmssdashboard) est un éditeur d’usage général pour les jeux de mise à l’échelle de machine virtuelle qui montre un état de machine virtuelle sous la forme d’une carte thermique où une ligne représente un domaine de mise à jour. Entre autres choses, vous pouvez mettre à jour le modèle pour un ensemble d’échelle avec une nouvelle version, une référence (SKU) ou une URI d’image personnalisée, puis choisir des domaines d’erreur à mettre à niveau. Lorsque vous procédez de la sorte, toutes les machines virtuelles de ce domaine de mise à jour sont mises à niveau vers le nouveau modèle. Vous pouvez également effectuer une mise à niveau propagée basée sur la taille de lot de votre choix.
+[Vmsseditor](https://github.com/gbowerman/vmssdashboard) est un éditeur d’usage général pour les jeux de mise à l’échelle de machine virtuelle qui montre un état de machine virtuelle sous la forme d’une carte thermique où une ligne représente un domaine de mise à jour. Entre autres choses, vous pouvez mettre à jour le modèle pour un ensemble d’échelle avec une nouvelle version, une référence (SKU) ou une URI d’image personnalisée, puis choisir des domaines d’erreur à mettre à niveau. Lorsque vous procédez de la sorte, toutes les machines virtuelles de ce domaine de mise à jour sont mises à niveau vers le nouveau modèle. Vous pouvez également effectuer une mise à niveau propagée basée sur la taille de lot de votre choix.  
 
 La capture d’écran suivante montre un modèle d’ensemble d’échelle pour Ubuntu 14.04-2LTS version 14.04.201507060. De nombreuses options ont été ajoutées à cet outil depuis que cette capture d’écran a été effectuée.
 
 ![Modèle Vmsseditor d’un ensemble d’échelle pour Ubuntu 14.04-2LTS](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
 
-Après que vous avez cliqué sur **à niveau**, puis sur **Obtenir les détails**, la mise à jour des machines virtuelles dans UD 0 commence.
+Une fois que vous avez cliqué sur **Mettre à niveau**, puis sur **Obtenir les détails**, la mise à jour des machines virtuelles dans UD 0 commence.
 
 ![Vmsseditor montrant la progression de la mise à jour](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

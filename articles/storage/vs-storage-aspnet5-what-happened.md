@@ -1,26 +1,28 @@
 <properties
-	pageTitle="Qu’est-il arrivé à mon projet ASP.NET 5 (services connectés de Visual Studio) ? | Microsoft Azure Storage"
-	description="Décrit ce qui se produit une fois que vous vous connectez à un compte de stockage Azure dans un projet Visual Studio ASP.NET 5 à l’aide des services connectés de Visual Studio"
-	services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="What happened to my ASP.NET 5 project (Visual Studio connected services) | Microsoft Azure Storage"
+    description="Describes what happens after connecting to an Azure storage account in a Visual Studio ASP.NET 5 project using Visual Studio connected services"
+    services="storage"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-what-happened"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-what-happened"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="tarcher"/>
 
-# Qu’est-il arrivé à mon projet ASP.NET 5 (services connectés Azure Storage de Visual Studio) ?
 
-## Références ajoutées
+# <a name="what-happened-to-my-asp.net-5-project-(visual-studio-azure-storage-connected-services)?"></a>What happened to my ASP.NET 5 project (Visual Studio Azure Storage connected services)?
 
-Le package NuGet Azure Storage a été ajouté à votre projet Visual Studio. Ce package ajoute les références .NET suivantes :
+## <a name="references-added"></a>References added
+
+The Azure Storage NuGet package was added to your Visual Studio project.  
+This package adds the following .NET references:
 
 - **Microsoft.Data.Edm**
 - **Microsoft.Data.OData**
@@ -31,11 +33,15 @@ Le package NuGet Azure Storage a été ajouté à votre projet Visual Studio. Ce
 - **System.Data**
 - **System.Spatial**
 
-De plus, le package NuGet nommé **Microsoft.Framework.Configuration.Json** a été ajouté.
+Also, the NuGet package **Microsoft.Framework.Configuration.Json** was added.
 
-## Chaîne de connexion pour Azure Storage ajoutée
-Dans le fichier config.json de votre projet, un élément a été créé avec la clé et la chaîne de connexion du compte de stockage sélectionné.
+## <a name="connection-string-for-azure-storage-added"></a>Connection string for Azure Storage added
+In the config.json file of your project, an element was created with the selected storage account's connection string and key.
 
-Pour plus d’informations, consultez [ASP.NET 5](http://www.asp.net/vnext).
+For more information, see [ASP.NET 5](http://www.asp.net/vnext).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

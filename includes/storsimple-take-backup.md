@@ -1,32 +1,34 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### Pour effectuer une sauvegarde
+### <a name="to-take-a-backup"></a>To take a backup
 
-1. Dans la page **Démarrage rapide**, cliquez sur **Ajouter une stratégie de sauvegarde**. Cette opération permet de démarrer l’Assistant Ajouter une stratégie de sauvegarde. 
+1. On the device **Quick Start** page, click **Add a backup policy**. This will start the Add Backup Policy wizard. 
 
-2. Dans la page **Définir la stratégie de sauvegarde** :
-  1. Spécifiez un nom comprenant entre 3 et 150 caractères pour votre stratégie de sauvegarde.
-  2. Sélectionnez les volumes à sauvegarder. Si vous sélectionnez plusieurs volumes, ceux-ci sont regroupés pour créer une sauvegarde afin d’assurer la cohérence des données.
-  3. Cliquez sur l’icône en forme de flèche ![icône-flèche](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
+2. On the **Define your backup policy** page:
+  1. Supply a name that contains between 3 and 150 characters for your backup policy.
+  2. Select the volumes to be backed up. If you select more than one volume, these volumes will be grouped together to create a crash-consistent backup.
+  3. Click the arrow icon ![arrow-icon](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
   
     ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
 
-3. Dans la page **Définir une planification** :
-  1. Dans la liste déroulante, sélectionnez le type de sauvegarde. Pour une restauration pour rapide, sélectionnez **Instantané local**. Pour la résilience des données, sélectionnez **Instantané cloud**.
-  2. Spécifiez la fréquence de sauvegarde en minutes, heures, jours ou semaines.
-  3. Sélectionnez une durée de conservation. La durée de conservation dépend de la fréquence de sauvegarde. Par exemple, si vous sélectionnez une stratégie quotidienne, vous pouvez spécifier une durée de conservation en semaines, alors que pour une stratégie mensuelle, la durée de conservation est en mois.
-  4. Sélectionnez l’heure et la date de début de la stratégie de sauvegarde.
-  5. Cochez la case **Activer** pour activer la stratégie de sauvegarde. 
-  6. Cliquez sur l’icône en forme de coche ![icône-coche](./media/storsimple-take-backup/HCS_CheckIcon-include.png) pour enregistrer la stratégie.
+3. On the **Define a schedule** page:
+  1. Select the type of backup from the drop-down list. For faster restores, select **Local Snapshot**. For data resiliency, select **Cloud Snapshot**.
+  2. Specify the backup frequency in minutes, hours, days, or weeks.
+  3. Select a retention time. The retention choices depend on the backup frequency. For example, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
+  4. Select the starting time and date for the backup policy.
+  5. Select the **Enable** check box to enable the backup policy. 
+  6. Click the check icon ![check-icon](./media/storsimple-take-backup/HCS_CheckIcon-include.png) to save the policy.
 
     ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
  
-     Vous disposez maintenant d’une stratégie de sauvegarde, qui va créer des sauvegardes planifiées des données de volume.
+     You now have a backup policy that will create scheduled backups of your volume data.
 
-Vous avez terminé la configuration de l’appareil.
+You have completed the device configuration. 
 
-![Vidéo disponible](./media/storsimple-take-backup/Video_icon.png) **Vidéo disponible**
+![Video available](./media/storsimple-take-backup/Video_icon.png) **Video available**
 
-Pour visionner une vidéo qui montre comment exécuter une sauvegarde StorSimple, cliquez [ici](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+To watch a video that demonstrates how to take a StorSimple backup, click [here](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

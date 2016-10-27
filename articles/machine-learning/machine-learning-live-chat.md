@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Obtenir de l'aide de la part du support par conversation en direct sur Machine Learning | Microsoft Azure" 
-    description="Obtenez de l'aide en temps réel sur Machine Learning dans le cloud grâce à la fonctionnalité de support par conversation en direct." 
+    pageTitle="Get help from Machine Learning Live Chat Support | Microsoft Azure" 
+    description="Get real-time help for Machine Learning in the cloud with the Live Chat Support feature." 
     services="machine-learning" 
     documentationCenter="" 
-    authors="olgali" 
+    authors="garyericson" 
     manager="opapel" 
     editor="cgronlun"/>
 <tags 
@@ -12,23 +12,28 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/16/2016" 
-    ms.author="olgali"/>
-#Obtenir de l'aide de la part du support par conversation en direct sur Machine Learning
+    ms.date="09/29/2016" 
+    ms.author="garye"/>
 
-[Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) fournit une interface intuitive pour générer des modèles Machine Learning. Une [galerie](machine-learning-gallery-how-to-use-contribute-publish.md) et des [forums](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) sont à votre disposition pour vous apporter de l'aide.
+#<a name="get-help-from-machine-learning-live-chat-support"></a>Get help from Machine Learning Live Chat Support
 
-Cependant, pour vous débloquer, vous avez parfois besoin de poser une question rapide. Dans [Studio](machine-learning-what-is-ml-studio.md), recherchez l'icône de discussion dans le volet de navigation supérieur. Si cette icône est visible, cela signifie qu'un membre de l'équipe produit est en ligne pour vous apporter une aide en temps réel.
+[Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) provides an intuitive interface for building machine learning models. There is a [Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) and [Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) to guide you along that way. 
 
-![Discussion Azure ML](./media/machine-learning-live-chat/AzureMLChatNavBar.png)
+But sometimes you just need to ask a quick question to unblock you. In [Studio](machine-learning-what-is-ml-studio.md) look for the chat icon in the top navigation.  If you see this icon, that means a member of the product team is online to help you in real time.
 
-Tapez votre question pour obtenir une réponse !
+![Azure ML Chat](./media/machine-learning-live-chat/AzureMLChatNavBar.png)
 
-![Boîte de dialogue de discussion Azure ML](./media/machine-learning-live-chat/AzureMLChat.png)
+Type in your question and get your answers!
 
-## Vous ne voyez pas l’icône de conversation en direct ?
-Les membres de l’équipe sont en fait en train de répondre à votre question. Si vous ne voyez pas l’icône de conversation en direct, c’est qu’elle n’est pas visible en dehors des heures ouvrables.
+![Azure ML Chat Dialog](./media/machine-learning-live-chat/AzureMLChat.png)
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+## <a name="don't-see-the-live-chat-icon?"></a>Don't see the Live Chat Icon?
+Members of the team are actually answering your question. If you don't see the live chat icon it is because it is not visible outside of working hours. 
 
-<!---HONumber=AcomDC_0525_2016-->
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

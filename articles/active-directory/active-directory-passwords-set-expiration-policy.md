@@ -1,72 +1,77 @@
 <properties
-	pageTitle="Définir des stratégies d’expiration de mot de passe dans Azure Active Directory | Microsoft Azure"
-	description="Découvrir comment vérifier les stratégies d’expiration et modifier l’expiration du mot de passe utilisateur isolément ou en bloc pour les mots de passe Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Set password expiration policies in Azure Active Directory | Microsoft Azure"
+    description="Learn how to check expiration policies and change user password expiration either singly or in bulk for Azure Active directory passwords"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="curtand"/>
 
 
-# Définir des stratégies d’expiration de mot de passe dans Azure Active Directory
 
-> [AZURE.IMPORTANT] **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+# <a name="set-password-expiration-policies-in-azure-active-directory"></a>Set password expiration policies in Azure Active Directory
 
-En tant qu’administrateur global d’un service cloud Microsoft, vous pouvez utiliser le Module Microsoft Azure Active Directory pour Windows PowerShell afin de configurer des mots de passe utilisateur qui n’expirent pas. Vous pouvez également utiliser des applets de commande Windows PowerShell pour supprimer la configuration de non-expiration, ou voir quels mots de passe utilisateur sont configurés pour ne pas expirer. Cet article fournit une aide pour des services cloud, tels que Microsoft Intune et Office 365, qui s’appuient sur Microsoft Azure Active Directory pour les services d’annuaire et d’identité.
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-  > [AZURE.NOTE] Seuls les mots de passe de comptes d’utilisateurs non synchronisés via une synchronisation d’annuaires peuvent être configurés pour ne pas expirer. Pour plus d’informations sur la synchronisation d’annuaires, voir la liste de rubriques dans [Plan de la synchronisation d’annuaires](https://msdn.microsoft.com/library/azure/hh967642.aspx).
+As a global administrator for a Microsoft cloud service, you can use the Microsoft Azure Active Directory Module for Windows PowerShell to set up user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration, or to see which user passwords are set up not to expire. This article provides help for cloud services, such as Microsoft Intune and Office 365, which rely on Microsoft Azure Active Directory for identity and directory services.
 
-Pour utiliser des applets de commande Windows PowerShell, vous devez commencer par les installer.
+  > [AZURE.NOTE] Only passwords for user accounts that are not synchronized through directory synchronization can be configured not to expire. For more information about directory synchronization, see the list of topics in [Directory synchronization roadmap](https://msdn.microsoft.com/library/azure/hh967642.aspx).
 
-## Que voulez-vous faire ?
+To use Windows PowerShell cmdlets, you first must install them.
 
-- [Vérifier la stratégie d’expiration d’un mot de passe](#how-to-check-expiration-policy-for-a-password)
+## <a name="what-do-you-want-to-do?"></a>What do you want to do?
 
-- [Définir un mot de passe pour qu’il expire](#set-a-password-to-expire)
+- [How to check expiration policy for a password](#how-to-check-expiration-policy-for-a-password)
 
-- [Définir un mot de passe pour qu’il n’expire pas](#set-a-password-to-never-expire)
+- [Set a password to expire](#set-a-password-to-expire)
 
-## Vérifier la stratégie d’expiration pour un mot de passe
+- [Set a password so that it will not expire](#set-a-password-to-never-expire)
 
-1.  Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur de la société.
+## <a name="how-to-check-expiration-policy-for-a-password"></a>How to check expiration policy for a password
 
-2.  Effectuez l’une des actions suivantes :
+1.  Connect to Windows PowerShell using your company administrator credentials.
 
-	- Pour voir si le mot de passe d’un utilisateur donné est défini pour ne jamais expirer, exécutez l’applet de commande suivante en utilisant le nom d’utilisateur principal (UPN) (par exemple, aprilr@contoso.onmicrosoft.com) ou l’identifiant utilisateur de l’utilisateur à vérifier : `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+2.  Do one of the following:
 
-	- Pour afficher le paramètre « Le mot de passe n’expire jamais » pour tous les utilisateurs, exécutez l’applet de commande suivante : `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+    - To see whether a single user’s password is set to never expire, run the following cmdlet by using the user principal name (UPN) (for example, aprilr@contoso.onmicrosoft.com) or the user ID of the user you want to check: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
 
-## Définir un mot de passe pour qu’il expire
+    - To see the "Password never expires" setting for all users, run the following cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
-1.  Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur de la société.
+## <a name="set-a-password-to-expire"></a>Set a password to expire
 
-2.  Effectuez l’une des actions suivantes :
+1.  Connect to Windows PowerShell using your company administrator credentials.
 
-	- Pour définir le mot de passe d’un utilisateur afin qu’il expire, exécutez l’applet de commande suivante en utilisant le nom d’utilisateur principal (UPN) ou l’identifiant utilisateur de l’utilisateur : `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+2.  Do one of the following:
 
-	- Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils expirent, utilisez l’applet de commande suivante : `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+    - To set the password of one user so that the password will expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
 
-## Définir un mot de passe pour qu’il n’expire jamais
+    - To set the passwords of all users in the organization so that they will expire, use the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
-1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur de la société.
+## <a name="set-a-password-to-never-expire"></a>Set a password to never expire
 
-2.  Effectuez l’une des actions suivantes :
+1. Connect to Windows PowerShell using your company administrator credentials.
 
-	- Pour définir le mot de passe d’un utilisateur afin qu’il n’expire jamais, exécutez l’applet de commande suivante en utilisant le nom d’utilisateur principal (UPN) ou l’identifiant d’utilisateur de l’utilisateur : `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+2.  Do one of the following:
 
-	- Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils n’expirent jamais, utilisez l’applet de commande suivante : `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+    - To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
 
-## Étapes suivantes
+    - To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0921_2016-->
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

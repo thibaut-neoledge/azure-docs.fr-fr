@@ -1,73 +1,84 @@
-<properties 
-	pageTitle="Sélection des paramètres permettant d’optimiser des algorithmes dans Microsoft Azure Machine Learning | Microsoft Azure" 
-	description="Explique comment choisir l’ensemble de paramètres optimal pour un algorithme dans Microsoft Azure Machine Learning." 
-	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+<properties
+    pageTitle="Choose parameters to optimize your algorithms in Azure Machine Learning | Microsoft Azure"
+    description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/12/2016" 
-	ms.author="bradsev" />
+<tags
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2016"
+    ms.author="bradsev" />
 
 
-# Sélection des paramètres permettant d’optimiser des algorithmes dans Microsoft Azure Machine Learning
 
-Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning. La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque nous gérons l’apprentissage d’un modèle, nous devons fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de « sélection du modèle ».
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Choose parameters to optimize your algorithms in Azure Machine Learning
+
+This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning. Most machine learning algorithms have parameters to set. When you train a model, you need to provide values for those parameters. The efficacy of the trained model depends on the model parameters that you choose. The process of finding the optimal set of parameters is known as *model selection*.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Cette sélection peut être effectuée de différentes manières. Dans ML, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans Microsoft Azure Machine Learning. Comme les langages R et Python sont pris en charge par Microsoft Azure Machine Learning, vous pouvez toujours implémenter votre propre mécanisme de sélection de modèle, via l’un ou l’autre de ces langages.
+There are various ways to do model selection. In machine learning, cross-validation is one of the most widely used methods for model selection, and it is the default model selection mechanism in Azure Machine Learning. Because Azure Machine Learning supports both R and Python, you can always implement their own model selection mechanisms by using either R or Python.
 
-Le processus de recherche de l’ensemble de paramètres idéal comprend quatre étapes.
+There are four steps in the process of finding the best parameter set:
 
-1.	**Définir l’espace de paramètre** : pour l’algorithme, nous devons d’abord déterminer les valeurs de paramètres exactes que nous souhaitons prendre en compte.
-2.	**Définir les paramètres de validation croisée** : pour le jeu de données, nous devons déterminer comment choisir les plis de validation croisée.
-3.	**Définir la mesure** : nous devons à présent déterminer la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (par exemple, exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
-4.	**Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée. Le modèle le plus performant peut alors être choisi selon la mesure d’erreur définie par l’utilisateur.
+1.  **Define the parameter space**: For the algorithm, first decide the exact parameter values you want to consider.
+2.  **Define the cross-validation settings**: Decide how to choose cross-validation folds for the dataset.
+3.  **Define the metric**: Decide what metric to use for determining the best set of parameters, such as accuracy, root mean squared error, precision, recall, or f-score.
+4.  **Train, evaluate, and compare**: For each unique combination of the parameter values, cross-validation is carried out by and based on the error metric you define. After evaluation and comparison, you can choose the best-performing model.
 
-L’expérience ci-dessous indique comment effectuer cette opération dans Microsoft Azure Machine Learning.
+The following image illustrates shows how this can be achieved in Azure Machine Learning.
 
-![image1](./media/machine-learning-algorithm-parameters-optimize/fig1.png)
- 
-## Définir l’espace de paramètre
-L’ensemble de paramètres peut être défini lors de l’étape d’initialisation du modèle. Le volet de paramètres de l’ensemble des algorithmes ML propose deux modes de formation : **Paramètre unique** et **Plage de paramètres**. Nous devons choisir le mode **Plage de paramètres** (figure 1). Il est ainsi possible de saisir plusieurs valeurs pour chaque paramètre ; les valeurs séparées par une virgule peuvent être saisies dans la zone de texte. Vous pouvez également utiliser l’option **Utiliser le générateur de plage** pour définir les points minimum et maximum de la grille et le nombre total de points à générer. Par défaut, les valeurs de paramètre sont générées sur une échelle linéaire. Cependant, si la case à cocher **Échelle logarithmique** est activée, les valeurs sont générées sur une échelle logarithmique (selon laquelle le rapport entre les points adjacents est constant, et non leur différence). Pour les paramètres de type entier, une plage peut être définie avec un trait d’union « - », par exemple « 1-10 », ce qui signifie que tous les entiers compris entre 1 et 10 (tous deux inclus) forment le jeu de paramètres. Un mode mixte est également pris en charge. Exemple : « 1-10, 20, 50 ». Dans ce cas, les entiers 20 et 50 sont ajoutés à l’ensemble de paramètres, en plus de la plage d’entiers 1-10.
-  
-![image2](./media/machine-learning-algorithm-parameters-optimize/fig2.png) ![image3](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
+![Find the best parameter set](./media/machine-learning-algorithm-parameters-optimize/fig1.png)
 
-## Définition du pli de validation croisée
-Le module [Partition and Sample][partition-and-sample] peut être utilisé pour affecter des plis aux données, de manière aléatoire. Dans la figure suivante, nous avons représenté un exemple de configuration de ce module, dans lequel nous allons définir cinq plis et affecter au hasard le nombre de plis aux exemples d’instances.
+## <a name="define-the-parameter-space"></a>Define the parameter space
+You can define the parameter set at the model initialization step. The parameter pane of all machine learning algorithms has two trainer modes: *Single Parameter* and *Parameter Range*. Choose Parameter Range mode. In Parameter Range mode, you can enter multiple values for each parameter. You can enter comma-separated values in the text box.
 
-![image4](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
+![Two-class boosted decision tree, single parameter](./media/machine-learning-algorithm-parameters-optimize/fig2.png)
+
+ Alternately, you can define the maximum and minimum points of the grid and the total number of points to be generated with **Use Range Builder**. By default, the parameter values are generated on a linear scale. But if **Log Scale** is checked, the values are generated in the log scale (that is, the ratio of the adjacent points is constant instead of their difference). For integer parameters, you can define a range by using a hyphen. For example, “1-10” means that all integers between 1 and 10 (both inclusive) form the parameter set. A mixed mode is also supported. For example, the parameter set “1-10, 20, 50” would include integers 1-10, 20, and 50.
+
+![Two-class boosted decision tree, parameter range](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
+
+## <a name="define-cross-validation-folds"></a>Define cross-validation folds
+The [Partition and Sample][partition-and-sample] module can be used to randomly assign folds to the data. In the following sample configuration for the module, we define five folds and randomly assign a fold number to the sample instances.
+
+![Partition and sample](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
 
-## Définir la mesure
-Le module [Tune Model Hyperparameters][tune-model-hyperparameters] assure la prise en charge de la sélection empirique du meilleur ensemble de paramètres pour un algorithme et un jeu de données spécifiques. Le volet des propriétés de ce module comprend la mesure à utiliser pour déterminer le meilleur ensemble de paramètres, en plus d’autres informations concernant l’apprentissage du modèle. Il présente deux listes déroulantes différentes pour les algorithmes de classification et de régression, respectivement. Si l’algorithme en question est un algorithme de classification, la mesure de régression est ignorée, et vice versa. Dans cet exemple, nous avons choisi la mesure **Exactitude**.
- 
-![image5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
+## <a name="define-the-metric"></a>Define the metric
+The [Tune Model Hyperparameters][tune-model-hyperparameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. In addition to other information regarding training the model, the **Properties** pane of this module includes the metric for determining the best parameter set. It has two different drop-down list boxes for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm, the regression metric is ignored and vice versa. In this specific example, the metric is **Accuracy**.   
 
-## Apprentissage, évaluation et comparaison  
-Le même module [Tune Model Hyperparameters][tune-model-hyperparameters] gère l’apprentissage de tous les modèles correspondant à l’ensemble de paramètres, évalue diverses mesures et renvoie ensuite le meilleur modèle formé en fonction de la mesure choisie. Ce module dispose de deux entrées obligatoires :
+![Sweep parameters](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
-* apprenant non formé,
-* jeu de données,
+## <a name="train,-evaluate,-and-compare"></a>Train, evaluate, and compare  
+The same [Tune Model Hyperparameters][tune-model-hyperparameters] module trains all the models that correspond to the parameter set, evaluates various metrics, and then creates the best-trained model based on the metric you choose. This module has two mandatory inputs:
 
-Le module dispose également d’un jeu de données d’entrée facultatif. Nous allons connecter le jeu de données incluant des informations sur les plis au jeu de données en entrée obligatoire. Si le jeu de données n’est associé à aucune information sur les plis, une validation croisée de 10 plis est exécutée automatiquement, par défaut. Si l’affectation de plis n’est pas effectuée et si un jeu de données de validation est fourni au port de jeu de données facultatif, un mode de test de formation est sélectionné et le premier jeu de données est utilisé pour gérer l’apprentissage du modèle pour chaque combinaison de paramètres. Ensuite, il est évalué sur le jeu de données de validation. Le port de sortie de gauche du module affiche des mesures différentes en fonction des valeurs de paramètres. Le port de sortie de droite indique le modèle formé correspondant au modèle le plus performant, conformément à la mesure choisie (dans ce cas, l’exactitude).
+* The untrained learner
+* The dataset
 
-![image6](./media/machine-learning-algorithm-parameters-optimize/fig6a.png) ![image7](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
- 
-Nous pouvons voir les paramètres exacts choisis en visualisant le port de sortie de droite. Ce modèle peut être utilisé lors du calcul de la notation d’un ensemble de test ou dans un service web mis en œuvre après l’enregistrement en tant que modèle formé.
+The module also has an optional dataset input. Connect the dataset with fold information to the mandatory dataset input. If the dataset is not assigned any fold information, then a 10-fold cross-validation is automatically executed by default. If the fold assignment is not done and a validation dataset is provided at the optional dataset port, then a train-test mode is chosen and the first dataset is used to train the model for each parameter combination.
 
+![Boosted decision tree classifier](./media/machine-learning-algorithm-parameters-optimize/fig6a.png)
+
+The model is then evaluated on the validation dataset. The left output port of the module shows different metrics as functions of parameter values. The right output port gives the trained model that corresponds to the best-performing model according to the chosen metric (**Accuracy** in this case).  
+
+![Validation dataset](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
+
+You can see the exact parameters chosen by visualizing the right output port. This model can be used in scoring a test set or in an operationalized web service after saving as a trained model.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
 [tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
- 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

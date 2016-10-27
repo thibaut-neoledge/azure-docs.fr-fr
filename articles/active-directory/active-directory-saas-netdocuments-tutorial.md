@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure Active Directory à NetDocuments | Microsoft Azure" 
-    description="Apprenez à utiliser NetDocuments avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    pageTitle="Tutorial: Azure Active Directory integration with NetDocuments | Microsoft Azure" 
+    description="Learn how to use NetDocuments with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,151 +11,157 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Didacticiel : Intégration d’Azure Active Directory à NetDocuments
+
+#<a name="tutorial:-azure-active-directory-integration-with-netdocuments"></a>Tutorial: Azure Active Directory integration with NetDocuments
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et NetDocuments. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+The objective of this tutorial is to show the integration of Azure and NetDocuments.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Un abonnement Azure valide
--   Un locataire NetDocuments
+-   A valid Azure subscription
+-   A NetDocuments tenant
   
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à NetDocuments pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise NetDocuments (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to NetDocuments will be able to single sign into the application at your NetDocuments company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Activation de l’intégration d’application pour NetDocuments
-2.  Configuration de l'authentification unique
-3.  Configuration de l'approvisionnement des utilisateurs
-4.  Affectation d’utilisateurs
+1.  Enabling the application integration for NetDocuments
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Scénario](./media/active-directory-saas-netdocuments-tutorial/IC795040.png "Scénario")
-##Activation de l’intégration d’application pour NetDocuments
+![Scenario](./media/active-directory-saas-netdocuments-tutorial/IC795040.png "Scenario")
+##<a name="enabling-the-application-integration-for-netdocuments"></a>Enabling the application integration for NetDocuments
   
-Cette section décrit l’activation de l’intégration d’application pour NetDocuments.
+The objective of this section is to outline how to enable the application integration for NetDocuments.
 
-###Pour activer l’application de l’intégration pour NetDocuments, procédez comme suit :
+###<a name="to-enable-the-application-integration-for-netdocuments,-perform-the-following-steps:"></a>To enable the application integration for NetDocuments, perform the following steps:
 
-1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-netdocuments-tutorial/IC700993.png "Active Directory")
 
-2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
     ![Applications](./media/active-directory-saas-netdocuments-tutorial/IC700994.png "Applications")
 
-4.  Cliquez sur **Ajouter** en bas de la page.
+4.  Click **Add** at the bottom of the page.
 
-    ![Ajouter l’application](./media/active-directory-saas-netdocuments-tutorial/IC749321.png "Ajouter l’application")
+    ![Add application](./media/active-directory-saas-netdocuments-tutorial/IC749321.png "Add application")
 
-5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-netdocuments-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+    ![Add an application from gallerry](./media/active-directory-saas-netdocuments-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Dans la zone **Rechercher**, entrez **NetDocuments**.
+6.  In the **search box**, type **NetDocuments**.
 
-    ![Galerie d’applications](./media/active-directory-saas-netdocuments-tutorial/IC795041.png "Galerie d’applications")
+    ![Application Gallery](./media/active-directory-saas-netdocuments-tutorial/IC795041.png "Application Gallery")
 
-7.  Dans le volet de résultats, sélectionnez **NetDocuments**, puis cliquez sur **Terminer** pour ajouter l’application.
+7.  In the results pane, select **NetDocuments**, and then click **Complete** to add the application.
 
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
-##Configuration de l'authentification unique
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur NetDocuments avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-La configuration de l’authentification unique pour NetDocuments oblige à récupérer une valeur d’empreinte numérique dans un certificat.  
-Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to NetDocuments with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for NetDocuments requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Pour configurer l’authentification unique, procédez comme suit :
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Dans le portail Azure Classic, puis dans la page d’intégration d’application **NetDocuments**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  In the Azure classic portal, on the **NetDocuments** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Configurer l’authentification unique")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Configure Single Sign-On")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à NetDocuments**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  On the **How would you like users to sign on to NetDocuments** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-netdocuments-tutorial/IC795044.png "Configurer l’authentification unique")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795044.png "Configure Single Sign-On")
 
-3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit :
+3.  On the **Configure App URL** page, perform the following steps:
 
-    ![Configurer l’URL de l’application](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configurer l’URL de l’application")
+    ![Configure App URL](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configure App URL")
 
-    1.  Dans la zone de texte **URL de connexion**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application NetDocuments (par exemple : « *https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
-    2.  Dans la zone de texte **URL de réponse NetDocuments**, tapez la valeur que vous venez de taper dans la zone de texte **URL de connexion**.
+    1.  In the **Sign On URL** textbox, type your URL used by your users to sign on to your NetDocuments application (e.g.: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
+    2.  In the **NetDocuments Reply URL** textbox, type the same value you have typed into the the **Sign On URL** textbox.  
 
-        >[AZURE.NOTE]Vous trouverez la valeur correcte à la fin de la boîte de dialogue **Federated Identity** (voir la capture d’écran de l’étape 9).
+        >[AZURE.NOTE]You can find the correct value at the end of the **Federated Identity** dialog (See the screenshot for step 9).
 
-    3.  Cliquez sur **Suivant**
+    3.  Click **Next**
 
-4.  Dans la page **Configurer l’authentification unique sur NetDocuments**, pour télécharger votre certificat, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sur votre ordinateur.
+4.  On the **Configure single sign-on at NetDocuments** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-netdocuments-tutorial/IC795046.png "Configurer l’authentification unique")
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795046.png "Configure Single Sign-On")
 
-5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise NetDocuments en tant qu’administrateur.
+5.  In a different web browser window, log into your NetDocuments company site as an administrator.
 
-6.  Accédez à **Admin**.
+6.  Go to **Admin**.
 
-7.  Cliquez sur **Add and remove users and groups**.
+7.  Click **Add and remove users and groups**.
 
-    ![Référentiel](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Référentiel")
+    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Repository")
 
-8.  Cliquez sur **Configure advanced authentication options**.
+8.  Click **Configure advanced authentication options**.
 
-    ![Configurer les options d’authentification avancées](./media/active-directory-saas-netdocuments-tutorial/IC795048.png "Configurer les options d’authentification avancées")
+    ![Configure advanced authentication options](./media/active-directory-saas-netdocuments-tutorial/IC795048.png "Configure advanced authentication options")
 
-9.  Dans la boîte de dialogue **Federated Identity**, procédez comme suit :
+9.  On **the Federated Identity** dialog, perform the following steps:
 
-    ![Identité fédérée](./media/active-directory-saas-netdocuments-tutorial/IC795049.png "Identité fédérée")
+    ![Federated Identitty](./media/active-directory-saas-netdocuments-tutorial/IC795049.png "Federated Identitty")
 
-    1.  Pour **Federated identity server type**, sélectionnez **Active Directory Federation Services**.
-    2.  Pour télécharger le fichier de métadonnées, cliquez sur **Choose file**.
-    3.  Cliquez sur **OK**.
+    1.  As **Federated identity server type**, select **Active Directory Federation Services**.
+    2.  Click **Choose file**, to upload the downloaded metadata file.
+    3.  Click **OK**.
 
-10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configurer l’authentification unique")
-##Configuration de l'approvisionnement des utilisateurs
+    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Pour permettre aux utilisateurs Azure AD de se connecter à NetDocuments, vous devez les approvisionner dans NetDocuments. Dans le cas de NetDocuments, l’approvisionnement est une tâche manuelle.
+In order to enable Azure AD users to log into NetDocuments, they must be provisioned into NetDocuments.  
+In the case of NetDocuments, provisioning is a manual task.
 
-###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Connectez-vous à votre site d’entreprise **NetDocuments** en tant qu’administrateur.
+1.  Sing on to your **NetDocuments** company site as administrator.
 
-2.  Dans le menu situé en haut, cliquez sur **Admin**.
+2.  In the menu on the top, click **Admin**.
 
-    ![Administrateur](./media/active-directory-saas-netdocuments-tutorial/IC795051.png "Administrateur")
+    ![Admin](./media/active-directory-saas-netdocuments-tutorial/IC795051.png "Admin")
 
-3.  Cliquez sur **Add and remove users and groups**.
+3.  Click **Add and remove users and groups**.
 
-    ![Référentiel](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Référentiel")
+    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Repository")
 
-4.  Dans la zone de texte **Email Address**, tapez l’adresse de messagerie d’un compte Azure Active Directory valide à approvisionner, puis cliquez sur **Add User**.
+4.  In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
 
-    ![Adresse de messagerie](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Adresse de messagerie")
+    ![Email Address](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Email Address")
 
-    >[AZURE.NOTE]Le titulaire du compte Azure Active Directory recevra un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
+    >[AZURE.NOTE]The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active.
 
->[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par NetDocuments, pour approvisionner des comptes utilisateur AAD.
+>[AZURE.NOTE]You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision AAD user accounts.
 
-##Affectation d’utilisateurs
+##<a name="assigning-users"></a>Assigning users
   
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Pour affecter des utilisateurs à NetDocuments, procédez comme suit :
+###<a name="to-assign-users-to-netdocuments,-perform-the-following-steps:"></a>To assign users to NetDocuments, perform the following steps:
 
-1.  Dans le portail Azure Classic, créez un compte de test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Dans la page d’intégration d’application **NetDocuments**, cliquez sur **Affecter des utilisateurs**.
+2.  On the **NetDocuments **application integration page, click **Assign users**.
 
-    ![Affecter des utilisateurs](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Affecter des utilisateurs")
+    ![Assign Users](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Assign Users")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Oui](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Oui")
+    ![Yes](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Yes")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Terminologie d’Azure Data Catalog | Microsoft Azure"
-   description="Cet article présente les concepts et les termes utilisés dans la documentation d’Azure Data Catalog."
+   pageTitle="Azure Data Catalog terminology | Microsoft Azure"
+   description="This article provides an introduction to concepts and terms used in Azure Data Catalog documentation."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -16,74 +16,80 @@
    ms.date="09/21/2016"
    ms.author="maroche"/>
 
-# Terminologie d’Azure Data Catalog
 
-## Catalogue
+# <a name="azure-data-catalog-terminology"></a>Azure Data Catalog terminology
 
-Azure Data Catalog est un référentiel de métadonnées de cloud dans lequel des données sources et des ressources de données peuvent être inscrites. Le catalogue sert d’emplacement de stockage central pour les métadonnées structurelles, extraites de sources de données, et les métadonnées descriptives ajoutées par les utilisateurs.
+## <a name="catalog"></a>Catalog
 
-## Source de données
+The Azure Data Catalog is a cloud-based metadata repository in which data sources and data assets can be registered. The catalog serves as a central storage location for structural metadata extracted from data sources and for descriptive metadata added by users.
 
-Une source de données est un système ou un conteneur qui gère des ressources de données. Exemples : les bases de données SQL Server, les bases de données Oracle, les bases de données SQL Server Analysis Services (tabulaires ou multidimensionnelles) et les serveurs SQL Server Reporting Services.
+## <a name="data-source"></a>Data source
 
-## Ressource de données
+A data source is a system or container that manages data assets. Examples include SQL Server databases, Oracle databases, SQL Server Analysis Services databases (tabular or multidimensional) and SQL Server Reporting Services servers.
 
-Les ressources de données sont des objets contenus dans les sources de données qui peuvent être inscrits dans le catalogue. Exemples : les tables et les vues SQL Server, les tables et les vues Oracle, les mesures SQL Server Analysis Services, les dimensions et les indicateurs clés de performance, et les rapports SQL Server Reporting Services.
+## <a name="data-asset"></a>Data asset
 
-## Emplacement des ressources de données
+Data assets are objects contained within data sources that can be registered with the catalog. Examples include SQL Server tables and views, Oracle tables and views, SQL Server Analysis Services measures, dimensions and KPIs, and SQL Server Reporting Services reports.
 
-Le catalogue stocke l'emplacement d'une source de données ou d'une ressource de données, qui peut être utilisé pour se connecter à la source à l'aide d'une application cliente. Le format et les détails de l'emplacement varient en fonction du type de source de données. Une table SQL Server peut être, par exemple, identifiée par quatre éléments : le nom du serveur, le nom de la base de données, le nom du schéma et le nom de l'objet, alors qu’un rapport SQL Server Reporting Services peut être identifié par son URL.
+## <a name="data-asset-location"></a>Data asset location
 
-## Métadonnée structurelle
+The catalog stores the location of a data source or data asset, which can be used to connect to the source using a client application. The format and details of the location vary based on the data source type. For example, a SQL Server table can be identified by its four part name – server name, database name, schema name, object name – while a SQL Server Reporting Services Report can be identified by its URL.
 
-Les métadonnées structurelles sont des métadonnées extraites d'une source de données qui décrit la structure d'une ressource de données. Cela inclut l'emplacement des ressources, le nom et le type de l'objet, et les caractéristiques supplémentaires spécifiques au type. Les métadonnées structurelles des tables et des vues incluent, par exemple, les noms et les types de données des colonnes de l'objet.
+## <a name="structural-metadata"></a>Structural metadata
 
-## Métadonnée descriptive
+Structural metadata is the metadata extracted from a data source that describes the structure of a data asset. This includes the assets location, its object name and type, and additional type-specific characteristics. For example, the structural metadata for tables and views includes the names and data types for the object’s columns.
 
-Les métadonnées descriptives sont des métadonnées qui décrivent l'objectif d'une ressource de données. En règle générale, les métadonnées descriptives sont ajoutées par les utilisateurs du catalogue à l'aide du portail Azure Data Catalog, mais elles peuvent être également extraites de la source de données pendant l'inscription. Par exemple, l’outil d’inscription d’Azure Data Catalog extraira les descriptions de la propriété Description dans SQL Server Analysis Services et SQL Server Reporting Services, et de la [propriété étendue ms\_description](https://technet.microsoft.com/library/ms190243.aspx) dans les bases de données SQL Server, si ces propriétés ont été remplies avec des valeurs.
+## <a name="descriptive-metadata"></a>Descriptive metadata
 
-## Demander l'accès
+Descriptive metadata is metadata that describes the purpose or intent of a data asset. Typically descriptive metadata is added by catalog users using the Azure Data Catalog portal, but it can also be extracted from the data source during registration. For example, the Azure Data Catalog registration tool will extract descriptions from the Description property in SQL Server Analysis Services and SQL Server Reporting Services, and from the [ms_description extended property](https://technet.microsoft.com/library/ms190243.aspx) in SQL Server databases, if these properties have been populated with values.
 
-Des métadonnées descriptives d'une ressource de données peuvent inclure des informations sur la façon de demander l'accès à la ressource de données ou à la source de données. Ces informations sont présentées à l'emplacement des ressources de données et peuvent inclure une ou plusieurs des options suivantes :
+## <a name="request-access"></a>Request access
 
-- L'adresse électronique de l'utilisateur ou de l'équipe responsable de l'octroi de l’accès à la source de données.
-- L'URL du processus documenté que les utilisateurs doivent suivre pour accéder à la source de données.
-- L'URL d'un outil de gestion des identités et des accès (comme Microsoft Identity Manager) qui peut être utilisé pour accéder à la source de données.
-- Une entrée de texte libre qui décrit la façon dont les utilisateurs peuvent accéder à la source de données.
+A data asset's descriptive metadata can include information on how to request access to the data asset or data source. This information is presented with the data asset location, and can include one or more of the following options:
 
-## VERSION PRÉLIMINAIRE
+- The email address of the user or team responsible for granting access to the data source.
+- The URL of the documented process that users must follow to gain access to the data source.
+- The URL of an identity and access management tool (such as Microsoft Identity Manager) that can be used to gain access to the data source.
+- A free-text entry that describes how users can gain access to the data source.
 
-Une version préliminaire d’Azure Data Catalog est un instantané de maximum 20 enregistrements qui peuvent être extraits de la source de données pendant l'inscription et stockés dans le catalogue avec les métadonnées de ressources de données. La version préliminaire peut permettre aux utilisateurs, qui découvrent une ressource de données, de mieux comprendre son fonctionnement et son rôle. En d'autres termes, les exemples de données peuvent être plus utiles que les noms de colonnes et les types de données. Les versions préliminaires sont uniquement prises en charge par les tables et les vues et doivent être explicitement sélectionnées par l'utilisateur pendant l'inscription.
+## <a name="preview"></a>Preview
 
-## Profil de données
+A preview in Azure Data Catalog is a snapshot of up to 20 records that can be extracted from the data source during registration, and stored in the catalog with the data asset metadata. The preview can help users who discover a data asset better understand its function and purpose. In other words, seeing sample data can be more valuable than seeing just the column names and data types.
+Previews are only supported for tables and views, and must be explicitly selected by the user during registration.
 
-Un profil de données d’Azure Data Catalog est un instantané de métadonnées de niveau colonne et table sur des ressources de données inscrites, qui peuvent être extraites de la source de données pendant l’inscription et stockées dans le catalogue avec les métadonnées de ressources de données. Le profil de données peut permettre aux utilisateurs qui découvrent une ressource de données de mieux comprendre son fonctionnement et son rôle. Comme pour les versions préliminaires, les profils de données doivent être explicitement sélectionnés par l’utilisateur pendant l’inscription.
+## <a name="data-profile"></a>Data Profile
 
-> [AZURE.NOTE] L’extraction d’un profil de données peut être une opération coûteuse pour les grandes tables et vues, et peut augmenter considérablement le temps nécessaire pour inscrire une source de données.
+A data profile in Azure Data Catalog is a snapshot of table-level and column-level metadata about a registered data asset that can be extracted from the data source during registration, and stored in the catalog with the data asset metadata. The data profile can help users who discover a data asset better understand its function and purpose. Similar to previews, data profiles must be explicitly selected by the user during registration.
 
-## Point de vue de l’utilisateur
+> [AZURE.NOTE] Extracting a data profile can be a costly operation for large tables and views, and may significantly increase the time required to register a data source.
 
-Dans Azure Data Catalog, tout utilisateur peut fournir des métadonnées descriptives pour une ressource de données inscrite. Chaque utilisateur a un point de vue différent sur les données et leurs utilisations. L'administrateur responsable d'un serveur peut, par exemple, fournir les détails de son contrat de niveau de service (SLA) ou de sa sauvegarde Windows ; un administrateur de données peut fournir des liens vers la documentation des processus d’entreprise que les données prennent en charge ; et un analyste peut fournir aux autres analystes une description des informations les plus pertinentes, qui peuvent être utiles aux utilisateurs qui ont besoin de découvrir et de comprendre les données.
+## <a name="user-perspective"></a>User perspective
 
-Ces points de vue sont par définition utiles. Grâce à Azure Data Catalog, chaque utilisateur peut fournir les informations qui lui paraissent les plus pertinentes, tandis que tous les utilisateurs peuvent utiliser ces informations pour comprendre les données et leurs objectifs.
+In Azure Data Catalog, any user can provide descriptive metadata for a registered data asset. Each user has a distinct perspective on the data and its use. For example, the administrator responsible for a server may provide the details of its service level agreement (SLA) or backup windows; a data steward may provide links to documentation for the business processes the data supports; and an analyst may provide a description in the terms that are most relevant to other analysts, and which can be most valuable to those users who need to discover and understand the data.
 
-## Expert
+Each of these perspectives are inherently valuable, and with Azure Data Catalog each user can provide the information that is meaningful to them, while all users can use that information to understand the data and its purpose.
 
-Un expert est un utilisateur qui a été identifié comme une personne pouvant apporter son point de vue d’« expert » pour une ressource de données. Tout utilisateur peut s’ajouter lui-même ou ajouter un autre utilisateur en tant qu'expert pour une ressource. Le statut d’expert ne permet pas aux utilisateurs de disposer de privilèges supplémentaires dans Azure Data Catalog ; mais il leur permet de localiser facilement ces points de vue qui peuvent être utiles lorsqu’ils examinent les métadonnées descriptives d'une ressource.
+## <a name="expert"></a>Expert
 
-## Propriétaire
+An expert is a user who has been identified as having an informed “expert” perspective for a data asset. Any user can add themselves or another user as an expert for an asset. Being listed as an expert does not convey any additional privileges in Azure Data Catalog; it allows users to easily locate those perspectives that are most likely to be useful when reviewing an asset’s descriptive metadata.
 
-Un propriétaire est un utilisateur qui dispose de privilèges supplémentaires pour assurer la gestion d'une ressource de données d’Azure Data Catalog. Les utilisateurs peuvent s’approprier des ressources de données inscrites et les propriétaires peuvent ajouter d'autres utilisateurs en tant que copropriétaires. Pour plus d’informations, consultez [Gestion des ressources de données](data-catalog-how-to-manage.md).
-> [AZURE.NOTE] La propriété et la gestion sont uniquement disponibles dans l'édition Standard d’Azure Data Catalog.
+## <a name="owner"></a>Owner
 
-## Inscription
+An owner is a user who has additional privileges for managing a data asset in Azure Data Catalog. Users can take ownership of registered data assets, and owners can add other users as co-owners. For more information see  [How to manage data assets](data-catalog-how-to-manage.md)  
+> [AZURE.NOTE] Ownership and management are available only in the Standard Edition of Azure Data Catalog.
 
-L'inscription représente le fait d’extraire des métadonnées de ressources de données à partir d'une source de données et de les copier dans le service Azure Data Catalog. Les ressources de données qui ont été inscrites peuvent ensuite être annotées et découvertes.
+## <a name="registration"></a>Registration
 
-## Voir aussi
+Registration is the act of extracting data asset metadata from a data source and copying it to the Azure Data Catalog service. Data assets that have been registered can then be annotated and discovered.
 
-- [Présentation d’Azure Data Catalog](data-catalog-what-is-data-catalog.md) : cet article fournit une vue d’ensemble du service Azure Data Catalog, de sa valeur ajoutée et des scénarios pris en charge.
+## <a name="see-also"></a>See also
 
-- [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) : cet article fournit un didacticiel de bout en bout qui vous indique comment utiliser Azure Data Catalog pour découvrir des sources de données.
+- [What is Azure Data Catalog?](data-catalog-what-is-data-catalog.md) - This article provides an overview of the Azure Data Catalog service, the value it provides, and the scenarios it supports.
 
-<!---HONumber=AcomDC_0921_2016-->
+- [Get started with Azure Data Catalog](data-catalog-get-started.md) - This article provides an end-to-end tutorial that shows you how to use Azure Data Catalog for data source discovery.  
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

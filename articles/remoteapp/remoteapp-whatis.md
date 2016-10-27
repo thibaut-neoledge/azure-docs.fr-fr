@@ -1,86 +1,90 @@
 <properties 
-	pageTitle="Qu’est-ce qu’Azure RemoteApp ? | Microsoft Azure" 
-	description="Découvrez comment partager des applications et des ressources avec des appareils via Azure RemoteApp." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
-	editor=""/>
+    pageTitle="What is Azure RemoteApp? | Microsoft Azure" 
+    description="Learn how to share apps and resources to any device through Azure RemoteApp." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" 
+    editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="08/15/2016" 
+    ms.author="elizapo"/>
 
-# Présentation d'Azure RemoteApp
+
+# <a name="what-is-azure-remoteapp?"></a>What is Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Azure RemoteApp offre les fonctionnalités du programme Microsoft RemoteApp local dans Azure, grâce aux services Bureau à distance. Azure RemoteApp vous permet de proposer un accès à distance sécurisé aux applications sur de nombreux appareils utilisateur. Azure RemoteApp héberge essentiellement des sessions Terminal Server non persistantes dans le cloud pour vous permettre de les utiliser et de les partager avec vos utilisateurs.
+Azure RemoteApp brings the functionality of the on-premises Microsoft RemoteApp program, backed by Remote Desktop Services, to Azure. Azure RemoteApp helps you provide secure, remote access to applications from many different user devices. Azure RemoteApp basically hosts non-persistent Terminal Server sessions in the cloud, and you get to use them and share them with your users.
 
-Azure RemoteApp vous permet de partager des applications et des ressources avec des utilisateurs sur presque n’importe quel appareil. Nous hébergeons vos applications dans le cloud, ce qui signifie que nous nous occupons du matériel et d'évolutivité pour répondre aux demandes des utilisateurs. Il ne vous reste qu’à télécharger les applications que vous souhaitez partager, puis à inviter vos utilisateurs à s’en servir. [Les utilisateurs conservent leurs propres appareils](remoteapp-clients.md), tandis que vous gérez toute l’infrastructure via le portail Azure. Vous pouvez même utiliser vos informations d'identification d'entreprise et ainsi garantir la sécurité des applications et des données.
+With Azure RemoteApp you can share apps and resources with users on almost any device. We host your apps in the cloud, meaning we take care of the hardware and scaling to meet user demands. All you have to do is upload the apps you want to share, and then get your users to use those apps. [Users get to keep their own devices](remoteapp-clients.md), while you manage everything through the Azure portal. You even have the option of using your corporate credentials, letting you ensure the security of apps and data.
 
-Lisez la suite pour plus d'informations sur Azure RemoteApp, ou, si vous êtes déjà convaincu, [essayez-le maintenant](https://azure.microsoft.com/services/remoteapp/).
+Read on for more information about Azure RemoteApp, or, if we have already convinced you, [try it out now](https://azure.microsoft.com/services/remoteapp/).
 
-Vous avez des questions sur Azure RemoteApp ? Consultez notre [FAQ](remoteapp-faq.md).
+Have questions about Azure RemoteApp? Check out our [FAQ](remoteapp-faq.md).
 
-Azure RemoteApp fait partie de [Microsoft Virtual Desktop Infrastructure (VDI)](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
+Azure RemoteApp is part of the [Microsoft Virtual Desktop Infrastructure](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
 
-**Nouveau !** Vous voulez en savoir plus sur Azure RemoteApp ? Vous êtes prêt à appliquer Azure RemoteApp à grande échelle ? Participez à notre [webinaire hebdomadaire avec des experts](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
+**New!** Want to learn more about Azure RemoteApp? Or ready to validate Azure RemoteApp at scale? Join our weekly [ask the experts webinar](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
 
-## Collections Azure RemoteApp
-Il existe deux types de [collection Azure RemoteApp](remoteapp-collections.md) :
-
-
-- Une **collection cloud** est hébergée dans le cloud Azure et stocke toutes les données des programmes qui y figurent. Les utilisateurs peuvent accéder aux applications en se connectant avec leur compte Microsoft ou leurs informations d'identification d'entreprise, synchronisées ou fédérées avec Azure Active Directory.
-
-	Choisissez une collection cloud quand l'application que vous souhaitez partager ne nécessite pas de connexion à des ressources sur le réseau privé de votre société (par exemple, via un périphérique VPN). Si l'application utilise des ressources sur Internet, OneDrive ou Azure, une collection cloud vous conviendra. C’est également l’option la plus rapide à mettre en place.
-
-- Une **collection hybride** est hébergée dans le cloud Azure et y stocke également les données, mais elle permet aussi aux utilisateurs d'accéder aux données et aux ressources stockées sur votre réseau local. Les utilisateurs peuvent accéder aux applications en se connectant avec leurs informations d'identification d'entreprise, synchronisées ou fédérées avec Azure Active Directory.
-
-	Choisissez une collection hybride si vous avez besoin d'une connexion à des ressources sur le réseau privé de votre société. Par exemple, si l'application nécessite un accès à l’une des ressources suivantes :
-
-	- Serveurs de fichiers situés sur votre intranet
-	- Quicken
-	- Bases de données derrière un pare-feu
-
-	Cette option s'avère généralement plus utile aux grandes entreprises qui possèdent beaucoup de ressources sur leurs réseaux privés qu'elles ne peuvent pas déplacer vers le cloud.
-
-Les différentes collections proposent diverses options, y compris en termes de réseaux. Vous devez donc de déterminer [la collection](remoteapp-collections.md) qui vous convient le mieux.
+## <a name="azure-remoteapp-collections"></a>Azure RemoteApp collections
+There are two kinds of [Azure RemoteApp collections](remoteapp-collections.md):
 
 
-### Mise à jour de votre collection
-L'une des principales différences entre les collections hybride et cloud est la façon dont sont gérées les mises à jour. Avec une collection cloud qui utilise l'image préinstallée d'Office 365 ProPlus ou d'Office 2013, vous n'avez pas à vous soucier des mises à jour. Le service gère lui-même les mises à jour et les déploie en continu, aussi bien pour les applications que pour le système d'exploitation.
+- A **cloud collection** is hosted in and stores data for programs in the cloud. Users can access apps by logging in with their Microsoft account or corporate credentials synchronized or federated with Azure Active Directory.
 
-Pour les collections hybrides, ainsi que pour les collections cloud qui utilisent une image de modèle personnalisée, vous êtes responsable de la maintenance de l'image et des applications. Pour les images jointes à un domaine, vous pouvez contrôler les mises à jour à l'aide de certains outils comme Windows Update, les stratégies de groupe ou encore System Center.
+    Choose a cloud collection when the application you want to share does not require a connection to any resource your company's private network (for example, through a VPN device). If the application uses resources on the Internet, OneDrive, or Azure, a cloud collection will work for you. It's also the quickest to create.
 
-Après la mise à jour de votre image de modèle personnalisée, téléchargez la nouvelle image dans le cloud Azure, puis mettez à jour la collection pour qu'elle utilise la nouvelle image. (Vous pouvez le faire dans la page de **démarrage rapide** d’Azure RemoteApp ou dans le tableau de bord.)
+- A **hybrid collection** is hosted in and stores data in the Azure cloud but also lets users access data and resources stored on your local network. Users can access apps by logging in with their corporate credentials synchronized or federated with Azure Active Directory.
 
-Consultez la section [Mise à jour de votre collection](remoteapp-update.md) pour plus d'informations.
+    Choose a hybrid collection if you require a connection to resources on your company's private network. For example, if the application needs access to one of the following:
 
-## Clients RemoteApp pris en charge
-Azure RemoteApp est pris en charge par les applications clientes RemoteApp pour Windows et Windows RT, ainsi que par les applications Bureau à distance Microsoft pour Mac, iOS et Android. Vos utilisateurs peuvent se servir de ces applications sur leurs appareils mobiles ou de traitement pour accéder aux nouveaux programmes Azure RemoteApp.
+    - File servers located on your intranet
+    - Quicken
+    - Databases behind a firewall
 
-Consultez la section [Accès à vos applications dans Azure RemoteApp](remoteapp-clients.md) pour plus d'informations sur les clients.
+    This is generally more useful for large companies with lots of resources on their private networks that can't be moved to the cloud.
 
-## Étapes suivantes
-OK Faites un essai. Ces articles vous aident à prendre en main Azure RemoteApp :
+The different collections have different options, including networks, so figure out [which collection](remoteapp-collections.md) works best for you. 
 
-- [Quel type de collection avez-vous besoin pour Azure RemoteApp ?](remoteapp-collections.md)
-- [Création d’une image Azure RemoteApp](remoteapp-imageoptions.md)
-- [Création d'une collection cloud d’Azure RemoteApp](remoteapp-create-cloud-deployment.md)
-- [Création d'une collection hybride pour Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
-- [Fonctionnement des licences dans Azure RemoteApp](remoteapp-licensing.md)
-- [Meilleures pratiques pour l'utilisation d'Azure RemoteApp](remoteapp-bestpractices.md)
-- [FAQ Azure RemoteApp](remoteapp-faq.md)
+
+### <a name="updating-your-collection"></a>Updating your collection
+One of the key differences between the hybrid and cloud collections is how software updates are handled. With a cloud collection that uses the preinstalled Office 365 ProPlus or Office 2013 image, you do not have to worry about any updates. The service maintains itself and rolls out updates on an ongoing basis, to both apps and the operating system.
+
+For hybrid collections, as well as cloud collections that use a custom template image, you are in charge of maintaining the image and apps. For domain-joined images, you can control updates by using tools such as Windows Update, Group Policy, or System Center.
+
+After you update your custom template image, you upload the new image to the Azure cloud and then update the collection to use the new image. (You can do this from the Azure RemoteApp **Quick Start** page or the Dashboard.)
+
+See [Update your collection](remoteapp-update.md) for more information.
+
+## <a name="supported-remoteapp-clients"></a>Supported RemoteApp clients
+Azure RemoteApp is supported on the RemoteApp client apps for Windows and Windows RT, as well as the Microsoft Remote Desktop apps for Mac, iOS and Android. Your users can use these apps on their mobile or compute devices to access the new Azure RemoteApp programs.
+
+See [Accessing your apps in Azure RemoteApp](remoteapp-clients.md) for more information about the clients.
+
+## <a name="next-steps"></a>Next steps
+Go! Try it out! These articles help get you started with Azure RemoteApp:
+
+- [What kind of collection do you need for Azure RemoteApp?](remoteapp-collections.md)
+- [Create an Azure RemoteApp image](remoteapp-imageoptions.md)
+- [How to create a cloud collection of Azure RemoteApp](remoteapp-create-cloud-deployment.md)
+- [How to create a hybrid collection of Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
+- [How does licensing work in Azure RemoteApp?](remoteapp-licensing.md)
+- [Best practices for using Azure RemoteApp](remoteapp-bestpractices.md)
+- [Azure RemoteApp FAQ](remoteapp-faq.md)
  
 
-### Vos commentaires nous aideront à mieux vous servir 
-Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** ou sur **Modifier** pour apporter des modifications. Nous les passerons en revue, puis, une fois celles-ci confirmées, vos modifications et améliorations s’afficheront ici.
+### <a name="help-us-help-you"></a>Help us help you 
+Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** or **Edit** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

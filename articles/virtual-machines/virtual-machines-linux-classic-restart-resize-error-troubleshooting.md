@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Problèmes de redémarrage ou de redimensionnement de machines virtuelles | Microsoft Azure"
-   description="Résoudre les problèmes de déploiement classiques liés au redémarrage ou au redimensionnement d’une machine virtuelle Linux existante dans Azure"
+   pageTitle="VM restarting or resizing issues | Microsoft Azure"
+   description="Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="Deland-Han"
@@ -17,72 +17,77 @@
    ms.devlang="na"
    ms.author="delhan"/>
 
-# Résoudre les problèmes de déploiement classiques liés au redémarrage ou au redimensionnement d’une machine virtuelle Linux existante dans Azure
+
+# <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
 
 > [AZURE.SELECTOR]
-- [Classique](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-- [Gestionnaire de ressources](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
+- [Classic](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
+- [Resource Manager](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
-Lorsque vous essayez de démarrer une machine virtuelle Azure arrêtée ou de redimensionner une machine virtuelle Azure existante, l’erreur la plus fréquemment rencontrée est un échec d’allocation. Cette erreur se produit lorsque le cluster ou la région n’ont pas de ressources disponibles ou ne prennent pas en charge la taille de machine virtuelle demandée.
+When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Collecter des journaux d’audit
+## <a name="collect-audit-logs"></a>Collect audit logs
 
-Pour résoudre les problèmes, commencez par collecter les journaux d’audit afin d’identifier l’erreur associée au problème.
+To start troubleshooting, collect the audit logs to identify the error associated with the issue.
 
-Dans le portail Azure, cliquez sur **Parcourir** > **Machines virtuelles** > _votre machine virtuelle Linux_ > **Paramètres** > **Journaux d’audit**.
+In the Azure portal, click **Browse** > **Virtual machines** > _your Linux virtual machine_ > **Settings** > **Audit logs**.
 
-## Problème : Erreur lors du démarrage d’une machine virtuelle arrêtée
+## <a name="issue:-error-when-starting-a-stopped-vm"></a>Issue: Error when starting a stopped VM
 
-Vous essayez de démarrer une machine virtuelle arrêtée, mais obtenez un échec d’allocation.
+You try to start a stopped VM but get an allocation failure.
 
-### Cause :
+### <a name="cause"></a>Cause
 
-La demande de démarrage de la machine virtuelle arrêtée doit être exécutée sur le cluster d’origine qui héberge le service cloud. Toutefois, le cluster n’a pas d’espace libre pour répondre à la demande.
+The request to start the stopped VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not have free space available to fulfill the request.
 
-### Résolution :
+### <a name="resolution"></a>Resolution
 
-* Créez un service cloud et associez-le à une région ou à un réseau virtuel basé sur une région, mais non à un groupe d’affinités.
+* Create a new cloud service and associate it with either a region or a region-based virtual network, but not an affinity group.
 
-* Supprimez la machine virtuelle arrêtée.
+* Delete the stopped VM.
 
-* Recréez la machine virtuelle dans le nouveau service cloud à l’aide des disques.
+* Recreate the VM in the new cloud service by using the disks.
 
-* Démarrez la machine virtuelle recréée.
+* Start the re-created VM.
 
-Si vous obtenez une erreur lorsque vous tentez de créer un service cloud, vous pouvez soit réessayer ultérieurement, soit modifier la région du service cloud.
+If you get an error when trying to create a new cloud service, either retry at a later time or change the region for the cloud service.
 
-> [AZURE.IMPORTANT] Le nouveau service cloud aura un nouveau nom et une nouvelle adresse IP virtuelle. Vous devrez donc modifier ces valeurs pour toutes les dépendances qui utilisent ces informations pour le service cloud existant.
+> [AZURE.IMPORTANT] The new cloud service will have a new name and VIP, so you will need to change that information for all the dependencies that use that information for the existing cloud service.
 
-## Problème : erreur lors du redimensionnement d’une machine virtuelle existante
+## <a name="issue:-error-when-resizing-an-existing-vm"></a>Issue: Error when resizing an existing VM
 
-Vous essayez de redimensionner une machine virtuelle existante, mais obtenez un échec d’allocation.
+You try to resize an existing VM but get an allocation failure.
 
-### Cause :
+### <a name="cause"></a>Cause
 
-La demande de redimensionnement de la machine virtuelle doit être exécutée sur le cluster d’origine qui héberge le service cloud. Toutefois, le cluster ne prend pas en charge la taille de machine virtuelle demandée.
+The request to resize the VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not support the requested VM size.
 
-### Résolution :
+### <a name="resolution"></a>Resolution
 
-Réduisez la taille de la machine virtuelle demandée, puis relancez la demande de redimensionnement.
+Reduce the requested VM size, and retry the resize request.
 
-* Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > _votre machine virtuelle_ > **Paramètres** > **Taille**. Pour connaître la procédure détaillée, consultez [Redimensionner la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
+* Click **Browse all** > **Virtual machines (classic)** > _your virtual machine_ > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 
-S’il est impossible de réduire la taille de la machine virtuelle, procédez comme suit :
+If it is not possible to reduce the VM size, follow these steps:
 
-  * Créez un service Cloud, en vous assurant qu’il n’est pas lié à un groupe d’affinités et pas associé à un réseau virtuel lié à un groupe d’affinités.
+  * Create a new cloud service, ensuring it is not linked to an affinity group and not associated with a virtual network that is linked to an affinity group.
 
-  * Créez dans ce service une machine virtuelle plus volumineuse.
+  * Create a new, larger-sized VM in it.
 
-Vous pouvez consolider toutes vos machines virtuelles dans le même service cloud. Si votre service cloud existant est associé à un réseau virtuel basé sur une région, vous pouvez connecter le nouveau service cloud au réseau virtuel existant.
+You can consolidate all your VMs in the same cloud service. If your existing cloud service is associated with a region-based virtual network, you can connect the new cloud service to the existing virtual network.
 
-Si le service cloud existant n’est pas associé à un réseau virtuel basé sur une région, vous devez supprimer les machines virtuelles du service cloud existant, puis les recréer dans le nouveau service cloud à partir de leurs disques. Toutefois, il est important de se rappeler que le nouveau service cloud aura un nouveau nom et une nouvelle adresse IP virtuelle. Vous devrez donc mettre à jour ces valeurs pour toutes les dépendances qui utilisent actuellement ces informations pour le service cloud existant.
+If the existing cloud service is not associated with a region-based virtual network, then you have to delete the VMs in the existing cloud service, and recreate them in the new cloud service from their disks. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to update these for all the dependencies that currently use this information for the existing cloud service.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Si vous rencontrez des problèmes lorsque vous créez une machine virtuelle Linux dans Azure, consultez [Résoudre les problèmes de déploiement liés à la création d’une machine virtuelle Linux dans Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

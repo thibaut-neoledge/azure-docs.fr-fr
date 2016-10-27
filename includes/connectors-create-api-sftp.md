@@ -1,16 +1,19 @@
-### Composants requis
+### <a name="prerequisites"></a>Prerequisites
 
-- Un compte [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol)
+- An [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) account  
 
 
-Pour pouvoir utiliser votre compte SFTP dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer depuis votre application logique, sur le Portail Azure.
+Before you can use your SFTP account in a logic app, you must authorize the logic app to connect to your SFTP account. Fortunately, you can do this easily from within your logic app on the Azure Portal.  
 
-Pour autoriser votre application logique à se connecter à votre compte SFTP, procédez comme suit :  
-1. Pour créer une connexion à SFTP, dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez *SFTP* dans la zone de recherche. Sélectionnez le déclencheur **SFTP - Lors de l’ajout ou de la modification d’un fichier** :  
-![Image de connexion SFTP en ligne 1](./media/connectors-create-api-sftp/sftp-1.png)  
-2. Si vous n’avez créé aucune connexion à SFTP auparavant, vous êtes invité à indiquer vos informations d’identification SFTP. Ces informations d’identification serviront à autoriser votre application logique à se connecter et à accéder aux données de votre compte SFTP :  
-![Image de connexion SFTP en ligne 2](./media/connectors-create-api-sftp/sftp-2.png)  
-3. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :  
-![Image de connexion SFTP en ligne 3](./media/connectors-create-api-sftp/sftp-3.png)  
+Here are the steps to authorize your logic app to connect to your SFTP account:  
+1. To create a connection to SFTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SFTP* in the search box. Select the **SFTP - When a file is added or modified** trigger:  
+![SFTP online connection image 1](./media/connectors-create-api-sftp/sftp-1.png)  
+2. If you haven't created any connections to SFTP before, you'll get prompted to provide your SFTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SFTP account's data:  
+![SFTP online connection image 2](./media/connectors-create-api-sftp/sftp-2.png)  
+3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:   
+ ![SFTP online connection image 3](./media/connectors-create-api-sftp/sftp-3.png) 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="FAQ de l’intégration des journaux Azure | Microsoft Azure"
-   description="Ce FAQ répond à des questions concernant l’intégration des journaux Azure."
+   pageTitle="Azure log integration FAQ | Microsoft Azure"
+   description="This FAQ answers questions about Azure log integration."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,17 +16,18 @@
    ms.date="08/23/2016"
    ms.author="TomSh"/>
 
-# FAQ de l’intégration des journaux Azure
 
-Ce forum aux questions (FAQ) répond aux questions sur l’intégration des journaux Azure, un service qui vous permet d’intégrer des journaux bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité associés à vos applications.
+# <a name="azure-log-integration-frequently-asked-questions-(faq)"></a>Azure log integration frequently asked questions (FAQ)
 
-## Comment puis-je voir les comptes de stockage desquels l’intégration des journaux Azure extrait des journaux de machines virtuelles Azure ?
+This FAQ answers questions about Azure log integration, a service that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
 
-Exécutez la commande **azlog source list**.
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from?"></a>How can I see the storage accounts from which Azure log integration is pulling Azure VM logs from?
 
-## Comment puis-je mettre à jour la configuration du proxy ?
+Run the command **azlog source list**.
 
-Si vos paramètres de proxy ne permettent pas un accès direct au stockage Azure, ouvrez le fichier **AZLOG. EXE. CONFIGURATION** dans **c:\\Program Files\\Microsoft Azure Log Integration**. Mettez à jour le fichier de manière à y inclure la section **defaultProxy** avec l’adresse de proxy de votre organisation. Une fois la mise à jour effectuée, arrêtez et démarrez le service à l’aide des commandes **net stop azlog** et **net start azlog**.
+## <a name="how-can-i-update-the-proxy-configuration?"></a>How can I update the proxy configuration?
+
+If your proxy setting does not allow Azure storage access directly, open the **AZLOG.EXE.CONFIG** file in **c:\Program Files\Microsoft Azure Log Integration**. Update the file to include the **defaultProxy** section with the proxy address of your organization. After update is done, stop and start the service using commands **net stop azlog** and **net start azlog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -44,50 +45,50 @@ Si vos paramètres de proxy ne permettent pas un accès direct au stockage Azure
         <performanceCounters filemappingsize="20971520" />
       </system.diagnostics>   
 
-## Comment puis-je consulter les informations d’abonnement dans des événements Windows ?
+## <a name="how-can-i-see-the-subscription-information-in-windows-events?"></a>How can I see the subscription information in Windows events?
 
-Ajoutez le **subscriptionid** à le nom convivial lors de l’ajout de la source.
+Append the **subscriptionid** to the friendly name while adding the source.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
 
-L’XML de l’événement a des métadonnées comme indiqué ci-dessous, notamment l’ID d’abonnement.
+The event XML has the metadata as shown below, including the subscription id.
 
-![XML de l’événement][1]
+![Event XML][1]
 
-## messages d'erreur
+## <a name="error-messages"></a>Error messages
 
-### Lors de l’exécution de la commande **azlog createazureid**, pourquoi le message d’erreur suivant est-il généré ?
-
-Error:
-
-  *Échec de l’application AAD - Locataire 72f988bf-86f1-41af-91ab-2d7cd011db37 - Raison = « Interdit » - Message = « Privilèges insuffisants pour terminer l’opération ». (Failed to create AAD Application - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = ’Forbidden’ - Message = ’Insufficient privileges to complete the operation.’)*
-
-**Azlog createazureid** tente de créer un principal du service dans tous les locataires Azure AD pour les abonnements auxquels la connexion Azure a accès. Si votre connexion Azure n'a que le rôle d’Invité dans ce locataire Azure AD, la commande échoue avec « Privilèges insuffisants pour terminer l’opération ». Demander à l’administrateur du locataire d’ajouter votre compte en tant qu’utilisateur dans le locataire.
-
-### Lors de l’exécution de la commande **azlog authorize**, pourquoi le message d’erreur suivant est-il généré ?
+### <a name="when-running-command-**azlog-createazureid**,-why-do-i-get-the-following-error?"></a>When running command **azlog createazureid**, why do I get the following error?
 
 Error:
 
-  *Avertissement à la création d’attribution de rôle : AuthorizationFailed : le client janedo@microsoft.com' avec l’ID d’objet 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' n’est pas autorisé à effectuer l’action « Microsoft.Authorization/roleAssignments/write » sur '/ subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
+  *Failed to create AAD Application - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = 'Forbidden' - Message = 'Insufficient privileges to complete the operation.'*
 
-La commande **Azlog authorize** attribue le rôle de lecteur au principal du service Azure AD (créé avec **Azlog createazureid**) dans les abonnements fournis. Si la connexion Azure n’a pas le rôle Coadministrateur ou un Propriétaire de l’abonnement, elle échoue avec le message d’erreur « Échec de l’autorisation ». Le contrôle d’accès en fonction du rôle (RBAC) d’Azure du Coadministrateur ou du Propriétaire est nécessaire pour effectuer cette action.
+**Azlog createazureid** attempts to create a service principal in all the Azure AD tenants for the subscriptions on which the Azure login has access to. If your Azure login is only a Guest user in that Azure AD tenant, then the command fails with ‘Insufficient privileges to complete the operation.’ Request Tenant admin to add your account as a user in the tenant.
 
-## Où puis-je trouver la définition des propriétés dans le journal d’audit ?
+### <a name="when-running-command-**azlog-authorize**,-why-do-i-get-the-following-error?"></a>When running command **azlog authorize**, why do I get the following error?
 
-Consultez l'article :
+Error:
 
-- [Opérations d’audit avec Resource Manager](../resource-group-audit.md)
-- [Liste des événements de gestion dans un abonnement dans une API REST Azure Insights (en Anglais)](https://msdn.microsoft.com/library/azure/dn931934.aspx)
+  *Warning creating Role Assignment - AuthorizationFailed: The client janedo@microsoft.com' with object id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
 
-## Où puis-je trouver plus d’informations sur les alertes de l’Azure Security Center ?
+**Azlog authorize** command assigns the role of Reader to the Azure AD service principal (created with **Azlog createazureid**) to the subscriptions provided. If the Azure login is not a Co-Administrator or an Owner of the subscription, it fails with ‘Authorization Failed’ error message. Azure role-based access control (RBAC) of Co-Administrator or Owner is needed to complete this action.
 
-Consultez la rubrique [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](../security-center/security-center-managing-and-responding-alerts.md).
+## <a name="where-can-i-find-the-definition-of-the-properties-in-audit-log?"></a>Where can I find the definition of the properties in audit log?
 
-## Comment puis-je modifier les données collectées avec les diagnostics de la machine virtuelle ?
+See:
 
-Consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) pour plus d’informations sur la manière d’obtenir, modifier et définir les diagnostics Azure dans une configuration Windows *(WAD)*. Voici un exemple :
+- [Audit operations with Resource Manager](../resource-group-audit.md)
+- [List the management events in a subscription in Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
-### Obtention de la configuration de WAD
+## <a name="where-can-i-find-details-on-azure-security-center-alerts?"></a>Where can I find details on Azure Security Center alerts?
+
+See [Managing and responding to security alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md).
+
+## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics?"></a>How can I modify what is collected with VM diagnostics?
+
+See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) for details on how to Get, Modify, and Set the Azure Diagnostics in Windows *(WAD)* configuration. Following is a sample:
+
+### <a name="get-the-wad-config"></a>Get the WAD config
 
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
@@ -97,25 +98,29 @@ Consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une ma
 
     $xmlconfig | Out-File -Encoding utf8 -FilePath "d:\WADConfig.xml"
 
-### Modification de la configuration de WAD
+### <a name="modify-the-wad-config"></a>Modify the WAD Config
 
-L’exemple suivant est une configuration où seuls l’ID d’événement 4624 et ID d’événement 4625 sont collectés à partir du journal des événements de sécurité. Des événements Microsoft Antimalware sont collectés dans le journal des événements système. Consultez [Consommation d’événements](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85) pour plus d’informations sur l’utilisation d’expressions XPath.
+The following example is a configuration where only EventID 4624 and EventId 4625 are collected from the security event log. Microsoft Antimalware events are collected from the System event log. See [Consuming Events](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85) for details on the use of XPath expressions.
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />
         <DataSource name="System!*[System[Provider[@Name='Microsoft Antimalware']]]"/>
     </WindowsEventLog>
 
-### Définition de la configuration de WAD
+### <a name="set-the-wad-configuration"></a>Set the WAD configuration
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
-Après avoir apporté les modifications, vérifiez le compte de stockage pour vous assurer que les événements corrects sont collectés.
+After making changes, check the storage account to ensure that the correct events are collected.
 
-Si vous avez des questions sur l’intégration des journaux Azure, envoyez un e-mail à [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

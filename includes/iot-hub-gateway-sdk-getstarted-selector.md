@@ -2,67 +2,67 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-Cet article fournit une description détaillée de l’[exemple de code Hello World][lnk-helloworld-sample] pour illustrer les composants fondamentaux de l’architecture du [Kit de développement logiciel (SDK) de passerelle Azure IoT][lnk-gateway-sdk]. L’exemple utilise le SDK de passerelle IoT Hub pour créer une passerelle simple qui enregistre un message « hello world » dans un fichier toutes les cinq secondes.
+This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the IoT Hub Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
 
-Cette procédure pas à pas inclut les étapes suivantes :
+This walkthrough covers:
 
-- **Concepts** : une vue d'ensemble conceptuelle des composants de toute passerelle créée avec le SDK de passerelle.
-- **Architecture de l'exemple Hello World** : décrit comment les concepts s'appliquent à l'exemple Hello World et comment les composants s'imbriquent.
-- **Comment créer l'exemple** : les étapes requises pour créer l'exemple.
-- **Comment exécuter l'exemple**: les étapes requises pour exécuter l'exemple.
-- **Exemple de résultat** : un exemple du résultat attendu lorsque vous exécutez l'exemple.
-- **Extraits de code** : une collection d'extraits de code montrant comment l'exemple Hello World implémente les composants clés de la passerelle.
+- **Concepts**: A conceptual overview of the components that compose any gateway you create with the Gateway SDK.  
+- **Hello World sample architecture**: Describes how the concepts apply to the Hello World sample and how the components fit together.
+- **How to build the sample**: The steps required to build the sample.
+- **How to run the sample**: The steps required to run the sample. 
+- **Typical output**: An example of the output to expect when you run the sample.
+- **Code snippets**: A collection of code snippets to show how the Hello World sample implements key gateway components.
 
-## Concepts du Kit de développement logiciel (SDK) de passerelle
+## <a name="gateway-sdk-concepts"></a>Gateway SDK concepts
 
-Avant d'examiner l'exemple de code ou de créer votre propre passerelle de champ à l'aide du SDK de passerelle, vous devez comprendre les concepts fondamentaux qui étayent l'architecture du SDK.
+Before you examine the sample code or create your own field gateway using the Gateway SDK, you should understand the key concepts that underpin the architecture of the SDK.
 
-### Modules
+### <a name="modules"></a>Modules
 
-Vous créez une passerelle avec le SDK de passerelle IoT Azure en créant et en assemblant des *modules*. Les modules s’échangent des données par le biais de *messages*. Un module reçoit un message, exécute une action sur celui-ci, le transforme éventuellement en un nouveau message, puis le publie sur d'autres modules pour un traitement ultérieur. Certains modules peuvent uniquement produire de nouveaux messages et ne jamais traiter les messages entrants. Une chaîne de modules crée un pipeline de traitement des données dans lequel chaque module exécute une transformation de données en un point unique sur ce pipeline.
+You build a gateway with the Azure IoT Gateway SDK by creating and assembling *modules*. Modules use *messages* to exchange data with each other. A module receives a message, performs some action on it, optionally transforms it into a new message, and then publishes it for other modules to process. Some modules might only produce new messages and never process incoming messages. A chain of modules creates a data processing pipeline with each module performing a transformation on the data at one point in that pipeline.
 
-![Chaîne de modules dans la passerelle conçue avec le Kit de développement logiciel (SDK) de la passerelle Azure IoT][1]
+![A chain of modules in gateway built with the Azure IoT Gateway SDK][1]
  
-Le SDK contient les éléments suivants :
+The SDK contains the following:
 
-- Des modules pré-écrits qui exécutent des fonctions de passerelles courantes.
-- Les interfaces qu’un développeur peut utiliser pour écrire des modules personnalisés.
-- L'infrastructure nécessaire pour déployer et exécuter un ensemble de modules.
+- Pre-written modules which perform common gateway functions.
+- The interfaces a developer can use to write custom modules.
+- The infrastructure necessary to deploy and run a set of modules.
 
-Le SDK fournit une couche d'abstraction qui vous permet de créer des passerelles qui s'exécutent sur différents systèmes d'exploitation et plates-formes.
+The SDK provides an abstraction layer that enables you to build gateways to run on a variety of operating systems and platforms.
 
-![Couche d’abstraction du Kit de développement logiciel (SDK) de la passerelle Azure IoT Hub][2]
+![Azure IoT Hub Gateway SDK abstraction layer][2]
 
-### Messages
+### <a name="messages"></a>Messages
 
-L’approche consistant à utiliser des modules pour s’échanger des messages représente un moyen pratique de conceptualiser le fonctionnement d'une passerelle, mais elle ne reflète pas exactement ce qui se produit. Les modules utilisent un répartiteur pour communiquer entre eux. Ils publient des messages sur le répartiteur (bus, pubsub ou tout autre modèle de messagerie) et laissent ensuite le répartiteur acheminer le message vers les modules connectés.
+Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a broker to communicate with each other, they publish messages to the broker (bus, pubsub, or any other messaging pattern) and then let the broker route the message to the modules connected to it.
 
-Un module utilise la fonction **Broker\_Publish** pour publier un message sur le répartiteur. Le répartiteur remet les messages à un module en appelant une fonction de rappel. Un message se compose d'un ensemble de propriétés de clés/valeurs et d’un contenu transmis sous forme d’un bloc de mémoire.
+A modules uses the **Broker_Publish** function to publish a message to the broker. The broker delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
 
-![Rôle du répartiteur dans le Kit de développement logiciel (SDK) de la passerelle Azure IoT][3]
+![The role of the Broker in the Azure IoT Gateway SDK][3]
 
-### Routage et filtrage des messages
+### <a name="message-routing-and-filtering"></a>Message routing and filtering
 
-Il existe deux manières d’acheminer les messages vers les modules adéquats. Il est possible de transmettre un ensemble de liens au répartiteur pour permettre à ce dernier de connaître la source et le récepteur de chaque module. L’autre méthode consiste configurer le module pour appliquer un filtre sur les propriétés du message. Un module doit agir sur un message uniquement si le message lui est destiné. Le filtrage des liens et des messages est à la base même d’un pipeline de messages.
+There are two ways of directing messages to the correct modules. A set of links can be passed to the broker so the broker knows the source and sink for each module, or the module can filter on the properties of the message. A module should only act upon a message if the message is intended for it. The links and message filtering is what effectively creates a message pipeline.
 
-## Exemple d'architecture Hello World
+## <a name="hello-world-sample-architecture"></a>Hello World sample architecture
 
-L'exemple Hello World illustre les concepts décrits dans la section précédente. L'exemple Hello World implémente une passerelle avec un pipeline composé de deux modules :
+The Hello World sample illustrates the concepts described in the previous section. The Hello World sample implements a gateway that has a pipeline made up of two modules:
 
--	Le module *Hello Wolrd* crée un message toutes les cinq secondes et le transmet au module enregistreur.
--	Le module *enregistreur* inscrit les messages qu’il reçoit dans un fichier.
+-   The *hello world* module creates a message every five seconds and passes it to the logger module.
+-   The *logger* module writes the messages it receives to a file.
 
-![Architecture de l’exemple Hello World conçu avec le Kit de développement logiciel (SDK) de la passerelle Azure IoT][4]
+![Architecture of Hello World sample built with the Azure IoT Gateway SDK][4]
 
-Comme décrit dans la section précédente, le module Hello World ne transmet pas les messages directement vers le module enregistreur toutes les cinq secondes. Au lieu de cela, il publie un message sur le répartiteur toutes les cinq secondes.
+As described in the previous section, the Hello World module does not pass messages directly to the logger module every five seconds. Instead, it publishes a message to the broker every five seconds.
 
-Le module enregistreur reçoit le message du répartiteur et intervient en écrivant le contenu du message dans un fichier.
+The logger module receives the message from the broker and acts upon it, writing the contents of the message to a file.
 
-Le module enregistreur utilise uniquement les messages provenant du répartiteur et ne publie jamais de nouveaux messages sur le répartiteur.
+The logger module only consumes messages from the broker, it never publishes new messages to the broker.
 
-![Comment le répartiteur achemine les messages entre les modules dans le Kit de développement logiciel (SDK) de la passerelle Azure IoT][5]
+![How the broker routes messages between modules in the Azure IoT Gateway SDK][5]
 
-La figure ci-dessus montre l’architecture de l’exemple Hello World et les chemins d’accès relatifs aux fichiers sources qui implémentent différentes parties de l’exemple dans le [référentiel][lnk-gateway-sdk]. Explorez vous-même le code, ou utilisez les extraits de code ci-dessous comme guide.
+The figure above shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-gateway-sdk]. Explore the code on your own, or use the code snippets below as a guide.
 
 <!-- Images -->
 [1]: media/iot-hub-gateway-sdk-getstarted-selector/modules.png
@@ -75,4 +75,6 @@ La figure ci-dessus montre l’architecture de l’exemple Hello World et les ch
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_1005_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

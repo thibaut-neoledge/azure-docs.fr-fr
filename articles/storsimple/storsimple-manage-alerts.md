@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Affichage et gestion des alertes StorSimple | Microsoft Azure"
-   description="Décrit les conditions et la gravité des alertes StorSimple, comment configurer les notifications d'alerte et comment utiliser le service StorSimple Manager pour gérer les alertes."
+   pageTitle="View and manage StorSimple alerts | Microsoft Azure"
+   description="Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Manager service to manage alerts."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,247 +12,252 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/09/2016"
+   ms.date="10/18/2016"
    ms.author="anbacker" />
 
-# Utiliser le service StorSimple Manager pour afficher et gérer vos alertes StorSimple
 
-## Vue d’ensemble
+# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Use the StorSimple Manager service to view and manage StorSimple alerts
 
-L’onglet **Alertes** dans le service StorSimple Manager vous offre la possibilité d’examiner et d’effacer en temps réel les alertes relatives aux appareils StorSimple. Dans cet onglet, vous pouvez surveiller de manière centralisée les problèmes d’intégrité de vos appareils StorSimple et l’ensemble de la solution Microsoft Azure StorSimple.
+## <a name="overview"></a>Overview
 
-Ce didacticiel décrit les conditions d’alerte courantes, les niveaux de gravité des alertes et comment configurer les notifications d'alerte. En outre, il inclut les tables de référence rapide des alertes, ce qui vous permet de localiser rapidement une alerte spécifique et d’agir en conséquence.
+The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple device–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple devices and the overall Microsoft Azure StorSimple solution.
 
-![Page des alertes](./media/storsimple-manage-alerts/HCS_AlertsPage.png)
+This tutorial describes common alert conditions, alert severity levels, and how to configure alert notifications. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
 
-## Conditions d’alerte courantes
+![Alerts page](./media/storsimple-manage-alerts/HCS_AlertsPage.png)
 
-Votre appareil StorSimple génère des alertes en réponse à différentes conditions. Les éléments suivants constituent les types de conditions d’alerte les plus courants :
+## <a name="common-alert-conditions"></a>Common alert conditions
 
-- **Problèmes matériels** : ces alertes vous informent sur l'intégrité de votre matériel. Elles vous permettent de savoir si les mises à niveau des microprogrammes sont nécessaires, si une interface réseau rencontre des problèmes ou s'il existe un problème avec l’un de vos lecteurs de données.
+Your StorSimple device generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
 
-- **Problèmes de connectivité** : ces alertes se produisent lorsque des difficultés surviennent dans le transfert de données. Des problèmes de communication peuvent survenir pendant le transfert des données vers et depuis le compte de stockage Azure ou en raison d'une absence de connectivité entre les appareils et le service StorSimple Manager. Les problèmes de communication sont les plus difficiles à résoudre, car il existe de nombreux points de défaillance. Avant toute chose, vous devez toujours vérifier que la connectivité au réseau et l'accès à Internet sont disponibles avant d’aller plus loin dans la résolution des problèmes. Pour obtenir de l’aide sur la résolution des problèmes, consultez la section [Dépannage avec l’applet de commande Test-Connection](storsimple-troubleshoot-deployment.md).
+- **Hardware issues** – These alerts tell you about the health of your hardware. They let you know if firmware upgrades are needed, if a network interface has issues, or if there is a problem with one of your data drives.
 
-- **Problèmes de performances** : ces alertes sont dues aux performances de votre système qui ne sont pas optimales, notamment lorsqu’il est soumis à des conditions de surcharge.
+- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
 
-De plus, vous pouvez afficher les alertes liées à la sécurité, aux mises à jour ou aux tâches qui ont échoué.
+- **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
 
-## Niveaux de gravité des alertes
+In addition, you might see alerts related to security, updates, or job failures.
 
-Les alertes présentent différents niveaux de gravité, en fonction de l'impact de la situation d'alerte et de la nécessité d'une réponse à cette alerte. Les niveaux de gravité des alertes sont :
+## <a name="alert-severity-levels"></a>Alert severity levels
 
-- **Critique** : cette alerte répond à une condition qui affecte les performances optimales de votre système. Il est nécessaire d’agir pour vous assurer que le service StorSimple n'est pas interrompu.
+Alerts have different severity levels, depending on the impact that the alert situation will have and the need for a response to the alert. The severity levels are:
 
-- **Avertissement** : cette condition peut devenir critique si elle n’est pas résolue. Vous devez examiner la situation et prendre toutes les dispositions nécessaires pour résoudre le problème.
+- **Critical** – This alert is in response to a condition that is affecting the successful performance of your system. Action is required to ensure that the StorSimple service is not interrupted.
 
-- **Information** : cette alerte contient des informations qui peuvent être utiles pour le suivi et la gestion de votre système.
+- **Warning** – This condition could become critical if not resolved. You should investigate the situation and take any action required to clear the issue.
 
-## Configuration des paramètres d'alerte
+- **Information** – This alert contains information that can be useful in tracking and managing your system.
 
-Vous pouvez choisir d’être averti par e-mail de la condition des alertes pour chacun de vos appareils StorSimple. En outre, vous pouvez identifier d’autres destinataires de notification des alertes en entrant leurs adresses e-mail dans la zone **Autres destinataires du message**, séparées par des points-virgules.
+## <a name="configure-alert-settings"></a>Configure alert settings
 
->[AZURE.NOTE] Vous pouvez entrer un maximum de 20 adresses e-mail par appareil.
+You can choose whether you want to be notified by email of alert conditions for each of your StorSimple devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **Other email recipients** box, separated by semicolons.
 
-Après avoir activé la notification par e-mail pour un appareil, les membres de la liste de notification recevront un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis *storsimple-alerts-noreply@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
+>[AZURE.NOTE] You can enter a maximum of 20 email addresses per device.
 
-#### Activation de la notification par e-mail des alertes pour un appareil
+After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
-1. Accédez à **Appareils** > **Configurer** de l’appareil.
+#### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>To enable email notification of alerts for a device
 
-2. Sous **Paramètres d’alerte**, définissez les éléments suivants :
+1. Go to **Devices** > **Configure** for the device.
 
-    1. Dans le champ **Activer la notification par e-mail**, sélectionnez **OUI**.
+2. Under **Alert Settings**, set the following:
 
-    2. Dans le champ **Envoyer un e-mail aux administrateurs du service**, sélectionnez **OUI** si vous voulez que l’administrateur et tous les coadministrateurs de service reçoivent les notifications d’alerte.
+    1. In the **Send email notification** field, select **YES**.
 
-    3. Dans le champ **Autres destinataires du message**, entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format *someone@somewhere.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil.
+    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
 
-        ![Configuration des notifications des alertes](./media/storsimple-manage-alerts/AlertNotify.png)
+    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
 
-3. Pour envoyer une notification de test par e-mail, cliquez sur l’icône en forme de flèche à côté de **Envoyer un e-mail de test**. Le service StorSimple Manager affiche des messages d'état lorsqu’il transfère la notification de test.
+        ![Alerts notification configuration](./media/storsimple-manage-alerts/AlertNotify.png)
 
-4. Lorsque le message suivant s’affiche, cliquez sur **OK**.
+3. To send a test email notification, click the arrow icon next to **Send test email**. The StorSimple Manager service will display status messages as it forwards the test notification. 
 
-    ![E-mail de notification de test des alertes envoyé](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
+4. When the following message appears, click **OK**. 
 
-    >[AZURE.NOTE] Si le message de notification de test ne peut pas être envoyé, le service StorSimple Manager affiche un message approprié. Cliquez sur**OK**, attendez quelques minutes, puis réessayez d'envoyer votre message de notification de test.
+    ![Alerts test notification email sent](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
-## Afficher et effectuer le suivi des alertes
+    >[AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
 
-Le tableau de bord du service StorSimple Manager vous offre un aperçu rapide du nombre d’alertes sur vos appareils, classées par niveau de gravité.
+## <a name="view-and-track-alerts"></a>View and track alerts
 
-![Tableau de bord des alertes](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
+The StorSimple Manager service dashboard provides you with a quick glance at the number of alerts on your devices, arranged by severity level.
 
-Cliquez sur le niveau de gravité pour ouvrir l’onglet **Alertes**. Les résultats incluent uniquement les alertes qui correspondent à ce niveau de gravité.
+![Alerts dashboard](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
 
-![Le rapport des alertes est limité au type d'alerte](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
+Clicking the severity level opens the **Alerts** tab. The results include only the alerts that match that severity level.
 
-En cliquant sur une alerte dans la liste, vous obtenez des détails supplémentaires sur l'alerte, notamment la dernière fois que l'alerte a été signalée, le nombre d'occurrences de cette alerte sur l'appareil et l'action recommandée pour résoudre cette alerte. S'il s'agit d'une alerte matérielle, elle identifiera également le composant matériel.
+![Alerts report scoped to alert type](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
 
-![Exemple d'alerte de matériel](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
+Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert. If it is a hardware alert, it will also identify the hardware component.
 
-Si vous devez envoyer les informations au Support Microsoft, vous pouvez copier les détails de l’alerte dans un fichier texte. Après avoir suivi la recommandation et résolu la condition d’alerte en local, vous devez effacer l’alerte de l’appareil en la sélectionnant dans l’onglet **Alertes** et en cliquant sur **Effacer**. Pour effacer plusieurs alertes, sélectionnez chaque alerte, cliquez sur n’importe quelle colonne, sauf la colonne **Alerte**, puis cliquez sur **Effacer** après avoir sélectionné toutes les alertes à effacer. Notez que certaines alertes sont effacées automatiquement lorsque le problème est résolu ou lorsque le système met à jour l'alerte avec de nouvelles informations.
+![Hardware alert example](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-Lorsque vous cliquez sur **Effacer**, vous avez la possibilité d’insérer des commentaires sur l'alerte et les étapes que vous avez suivies pour résoudre le problème. Certains événements seront effacés par le système si un autre événement est déclenché avec de nouvelles informations. Dans ce cas, le message suivant s'affiche :
+You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the device by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
-![Message de suppression de l'alerte](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
+When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
 
-## Tri et vérification des alertes
+![Clear alert message](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 
-Cela peut s'avérer plus efficace d’exécuter des rapports sur les alertes afin que vous puissiez les examiner et les effacer en groupes. Par ailleurs, l’onglet **Alertes** peut afficher jusqu'à 250 alertes. Si vous avez dépassé ce nombre d'alertes, toutes les alertes ne seront pas affichées dans l’affichage par défaut. Vous pouvez combiner les champs suivants pour personnaliser les alertes qui s’affichent :
+## <a name="sort-and-review-alerts"></a>Sort and review alerts
 
-- **État** : vous pouvez afficher des alertes **Actives** ou **Effacées**. Les alertes actives sont toujours déclenchées dans votre système, tandis que les alertes effacées ont été effacées manuellement par un administrateur, ou elles ont été effacées par un programme, car le système a mis à jour la condition d'alerte avec de nouvelles informations.
+You may find it more efficient to run reports on alerts so that you can review and clear them in groups. Additionally, the **Alerts** tab can display up to 250 alerts. If you have exceeded that number of alerts, not all alerts will be displayed in the default view. You can combine the following fields to customize which alerts are displayed:
 
-- **Gravité** : vous pouvez afficher des alertes de tous les niveaux de gravité (critique, avertissement, information), ou seulement celles d’une certaine gravité, par exemple les alertes critiques uniquement.
+- **Status** – You can display either **Active** or **Cleared** alerts. Active alerts are still being triggered on your system, while cleared alerts have been either manually cleared by an administrator or programmatically cleared because the system updated the alert condition with new information.
 
-- **Source** : vous pouvez afficher les alertes de toutes les sources, ou vous limiter aux alertes qui proviennent d'un service ou d’un ou de tous les périphériques.
+- **Severity** – You can display alerts of all severity levels (critical, warning, information), or just a certain severity, such as only critical alerts.
 
-- **Intervalle de temps** : en spécifiant l’horodatage **De** et **À**, vous pouvez regarder les alertes pour la période qui vous intéresse.
+- **Source** – You can display alerts from all sources, or limit the alerts to those that come from either the service or one or all of the devices.
 
-## Référence rapide des alertes
+- **Time range** – By specifying the **From** and **To** dates and time stamps, you can look at alerts during the time period that you are interested in.
 
-Les tableaux suivants répertorient certaines des alertes Microsoft Azure StorSimple que vous pouvez rencontrer, ainsi que des informations supplémentaires et des recommandations lorsqu'elles sont disponibles. Les alertes de l'appareil StorSimple appartiennent à l’une des catégories suivantes :
+## <a name="alerts-quick-reference"></a>Alerts quick reference
 
-- [Alertes de connectivité au cloud](#cloud-connectivity-alerts)
+The following tables list some of the Microsoft Azure StorSimple alerts that you might encounter, as well as additional information and recommendations where available. StorSimple device alerts fall into one of the following categories:
 
-- [Alertes de cluster](#cluster-alerts)
+- [Cloud connectivity alerts](#cloud-connectivity-alerts)
 
-- [Alertes de récupération d'urgence](#disaster-recovery-alerts)
+- [Cluster alerts](#cluster-alerts)
 
-- [Alertes de matériel](#hardware-alerts)
+- [Disaster recovery alerts](#disaster-recovery-alerts)
 
-- [Alertes d'échec de tâche](#job-failure-alerts)
+- [Hardware alerts](#hardware-alerts)
 
-- [Alertes de volume épinglé localement](#locally-pinned-volume-alerts)
+- [Job failure alerts](#job-failure-alerts)
 
-- [Alertes de réseau](#networking-alerts)
+- [Locally pinned volume alerts](#locally-pinned-volume-alerts)
 
-- [Alertes de performances](#performance-alerts)
+- [Networking alerts](#networking-alerts)
 
-- [Alertes de sécurité](#security-alerts)
+- [Performance alerts](#performance-alerts)
 
-- [Alertes du package de prise en charge](#support-package-alerts)
+- [Security alerts](#security-alerts)
 
-- [Alertes de mise à jour](#update-alerts)
+- [Support package alerts](#support-package-alerts)
 
-### Alertes de connectivité au cloud
+- [Update alerts](#update-alerts)
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+### <a name="cloud-connectivity-alerts"></a>Cloud connectivity alerts
+
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|La connectivité à <*nom des informations d’identification cloud*> ne peut pas être établie.|Impossible de se connecter au compte de stockage.|Il se peut qu'il y ait un problème de connectivité avec votre appareil. Exécutez l’applet de commande `Test-HcsmConnection` à partir de l’interface Windows PowerShell pour StorSimple sur votre appareil pour identifier et résoudre le problème. Si les paramètres sont corrects, le problème peut provenir des informations d'identification du compte de stockage pour lequel l'alerte a été déclenchée. Dans ce cas, utilisez l’applet de commande `Test-HcsStorageAccountCredential` pour déterminer s’il existe des problèmes que vous pouvez résoudre.<ul><li>Vérifiez vos paramètres réseau.</li><li>Vérifiez les informations d’identification de votre compte de stockage.</li></ul>|
-|Nous n’avons pas reçu de pulsation de votre appareil au cours des <*nombre*> dernières minutes.|Impossible de se connecter à l’appareil.|Il semble qu'il y ait un problème de connectivité avec votre appareil. Utilisez l’applet de commande `Test-HcsmConnection` à partir de l’interface Windows PowerShell pour StorSimple sur votre appareil pour identifier et résoudre le problème, ou contactez votre administrateur réseau.|
+|Connectivity to <*cloud credential name*> cannot be established.|Cannot connect to the storage account.|It looks like there might be a connectivity issue with your device. Please run the `Test-HcsmConnection` cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue. If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised. In this case, use the `Test-HcsStorageAccountCredential` cmdlet to determine if there are issues that you can resolve.<ul><li>Check your network settings.</li><li>Check your storage account credentials.</li></ul>|
+|We have not received a heartbeat from your device for the last <*number*> minutes.|Cannot connect to device.|It looks like there is a connectivity issue with your device. Please use the `Test-HcsmConnection` cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue or contact your network administrator.|
 
-### Comportement de StorSimple en cas d’échec de connexion au cloud
+### <a name="storsimple-behavior-when-cloud-connectivity-fails"></a>StorSimple behavior when cloud connectivity fails
 
-Que se passe-t-il en cas d'échec de connexion au cloud pour mon appareil StorSimple en cours d'exécution en production ?
+What happens if cloud connectivity fails for my StorSimple device running in production?
 
-En cas d'échec de la connexion au cloud sur votre appareil de production StorSimple, en fonction de l'état de votre périphérique, les événements suivants peuvent se produire :
+If cloud connectivity fails on your StorSimple production device, then depending on the state of your device, the following can occur: 
 
-- **Pour les données locales sur votre appareil** : pendant un certain temps, il n’y a pas d’interruption de service et les lectures sont traitées. Toutefois, lorsque les E/S en attente augmentent et dépassent la limite, les lectures peuvent commencer à échouer. 
+- **For the local data on your device**: For some time, there will be no disruption and reads will continue to be served. However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail. 
 
-	Selon la quantité de données sur votre appareil, les écritures continuent également à se produire pendant les premières heures suivant l’interruption de la connexion au cloud. Puis, les écritures ralentissent et finissent par échouer si l'interruption de la connexion au cloud dure plusieurs heures. (L’appareil contient une zone de stockage temporaire destinée aux données à envoyer par transmission Push vers le cloud. Cette zone est vidée lorsque les données sont envoyées. En cas d’échec de la connexion, les données de cette zone de stockage ne sont pas envoyées par transmission Push vers le cloud, et les E/S sont en échec.)
+    Depending on the amount of data on your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. (There is temporary storage on the device for data that is to be pushed to the cloud. This area is flushed when the data is sent. If connectivity fails, data in this storage area will not be pushed to the cloud, and IO will fail.)   
 
  
-- **Pour les données du cloud** : pour la plupart des erreurs de connexion au cloud, une erreur est renvoyée. Une fois que la connectivité est rétablie, les E/S reprennent sans que l'utilisateur doive mettre le volume en ligne. Dans de rares cas, l’intervention de l’utilisateur peut être nécessaire pour ramener le volume en ligne à partir du portail Azure Classic.
+- **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure classic portal. 
  
-- **Pour les instantanés cloud en cours** : l’opération est retentée plusieurs fois pendant 4 à 5 heures, et si la connexion n’est pas restaurée, les instantanés cloud échouent.
+- **For cloud snapshots in progress**: The operation is retried a few times within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.
 
 
-### Alertes de cluster
+### <a name="cluster-alerts"></a>Cluster alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Basculement de l’appareil vers <*nom de l’appareil*>.|L’appareil est en mode Maintenance.|Basculement de l’appareil en raison de l’activation ou de la désactivation du mode Maintenance. Ceci est normal et aucune action n'est nécessaire. Une fois que vous avez reconnu cette alerte, effacez-la de la page des alertes.|
-|Basculement de l’appareil vers <*nom de l’appareil*>.|Le microprogramme ou le logiciel de l’appareil vient d’être mis à jour.|Un basculement de cluster est survenu en raison d’une mise à jour. Ceci est normal et aucune action n'est nécessaire. Une fois que vous avez reconnu cette alerte, effacez-la de la page des alertes.|
-|Basculement de l’appareil vers <*nom de l’appareil*>.|Le contrôleur a été arrêté ou redémarré.|L’appareil a été basculé, car le contrôleur actif a été arrêté ou redémarré par un administrateur. Aucune action n'est nécessaire. Une fois que vous avez reconnu cette alerte, effacez-la de la page des alertes.|
-|Basculement de l’appareil vers <*nom de l’appareil*>.|Basculement planifié.|Vérifiez qu’il s’agissait d’un basculement planifié. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
-|Basculement de l’appareil vers <*nom de l’appareil*>.|Basculement non planifié.|StorSimple est conçu pour effectuer une récupération automatique à partir des basculements non planifiés. Si vous voyez un grand nombre de ces alertes, contactez le Support Microsoft.|
-|Basculement de l’appareil vers <*nom de l’appareil*>.|Autre cause/cause inconnue.|Si vous voyez un grand nombre de ces alertes, contactez le Support Microsoft. Une fois que le problème est résolu, effacez cette alerte de la page des alertes.|
-|Un service d’appareil critique indique l’état En échec.|Échec du service du chemin d’accès des données. |Contactez le Support Microsoft pour obtenir de l’assistance.|
-|L’adresse IP virtuelle de l’interface réseau <*DONNÉES N°*> indique l’état en échec. |Autre cause/cause inconnue. |Les conditions temporaires peuvent parfois provoquer ces alertes. Si tel est le cas, cette alerte est automatiquement effacée après un certain temps. Si le problème persiste, contactez le support technique Microsoft.|
-|L’adresse IP virtuelle de l’interface réseau <*DONNÉES N°*> indique l’état en échec.|L’adresse IP du nom de l’interface <*DONNÉES N°*> <IP address> ne peut pas être mise en ligne, car une adresse IP en double a été détectée sur le réseau. |Assurez-vous que l’adresse IP en double a été supprimée du réseau ou veillez à reconfigurer l’interface avec une adresse IP différente.|
+|Device failed over to <*device name*>.|Device is in maintenance mode.|Device failed over due to entering or exiting maintenance mode. This is normal and no action is needed. After you have acknowledged this alert, clear it from the alerts page.|
+|Device failed over to <*device name*>.|Device firmware or software was just updated.|There was a cluster failover due to an update. This is normal and no action is needed. After you have acknowledged this alert, clear it from the alerts page.|
+|Device failed over to <*device name*>.|Controller was shut down or restarted.|Device failed over because the active controller was shut down or restarted by an administrator. No action is needed. After you have acknowledged this alert, clear it from the alerts page.|
+|Device failed over to <*device name*>.|Planned failover.|Verify that this was a planned failover. After you have taken appropriate action, clear this alert from the alerts page.|
+|Device failed over to <*device name*>.|Unplanned failover.|StorSimple is built to automatically recover from unplanned failovers. If you see a large number of these alerts, contact Microsoft Support.|
+|Device failed over to <*device name*>.|Other/unknown cause.|If you see a large number of these alerts, contact Microsoft Support. After the issue is resolved, clear this alert from the alerts page.|
+|A critical device service reports status as failed.|Datapath service failure. |Contact Microsoft Support for assistance.|
+|Virtual IP address for network interface <*DATA #*> reports status as failed. |Other/unknown cause. |Sometimes temporary conditions can cause these alerts. If this is the case, then this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support.|
+|Virtual IP address for network interface <*DATA #*> reports status as failed.|Interface name: <*DATA #*> IP address <IP address> cannot be brought online because a duplicate IP address was detected on the network. |Ensure that the duplicate IP address is removed from the network or reconfigure the interface with a different IP address.|
 
 
-### Alertes de récupération d'urgence
+### <a name="disaster-recovery-alerts"></a>Disaster recovery alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Les opérations de récupération n'ont pas pu restaurer tous les paramètres pour ce service. Les données de configuration d’appareil sont dans un état incohérent pour certains appareils.|Incohérence de données détectée après la récupération d'urgence.|Les données chiffrées sur le service ne sont pas synchronisées avec celles sur l’appareil. Autorisez l’appareil <*nom de l’appareil*> de StorSimple Manager à démarrer le processus de synchronisation. Utilisez l’interface Windows PowerShell pour StorSimple pour exécuter l’applet de commande `Restore-HcsmEncryptedServiceData` sur <*nom de l’appareil*>, en fournissant l’ancien mot de passe comme entrée à cette applet de commande pour restaurer le profil de sécurité. Exécutez ensuite l’applet de commande `Invoke-HcsmServiceDataEncryptionKeyChange` pour mettre à jour la clé de chiffrement des données du service. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
+|Recovery operations could not restore all of the settings for this service. Device configuration data is in an inconsistent state for some devices.|Data inconsistency detected after disaster recovery.|Encrypted data on the service is not synchronized with that on the device. Authorize the device <*device name*> from StorSimple Manager to start the synchronization process. Use the Windows PowerShell Interface for StorSimple to run the `Restore-HcsmEncryptedServiceData` on device <*device name*> cmdlet, providing the old password as an input to this cmdlet to restore the security profile. Then run the `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet to update the service data encryption key. After you have taken appropriate action, clear this alert from the alerts page.|
 
 
-### Alertes de matériel
+### <a name="hardware-alerts"></a>Hardware alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Le composant matériel <*ID composant*> indique l’état <*état*>.||Les conditions temporaires peuvent parfois provoquer ces alertes. Dans ce cas, l’alerte est automatiquement effacée après un certain temps. Si le problème persiste, contactez le support technique Microsoft.|
-|Dysfonctionnement du contrôleur passif.|Le contrôleur passif (secondaire) ne fonctionne pas.|Votre appareil est opérationnel, mais l’un de vos contrôleurs est défectueux. Essayez de redémarrer ce contrôleur. Si le problème persiste, contactez le Support Microsoft.|
+|Hardware component <*component ID*> reports status as <*status*>.||Sometimes temporary conditions can cause these alerts. If so, this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support.|
+|Passive controller malfunctioning.|The passive (secondary) controller is not functioning.|Your device is operational, but one of your controllers is malfunctioning. Try restarting that controller. If the issue is not resolved, contact Microsoft Support.|
 
-### Alertes d'échec de tâche
+### <a name="job-failure-alerts"></a>Job failure alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Échec de la sauvegarde de <*ID du groupe de volumes source*>.|Échec de la sauvegarde de la tâche.|Des problèmes de connectivité peuvent empêcher la réalisation de l'opération de sauvegarde. S'il n'y a aucun problème de connectivité, vous avez peut-être atteint le nombre maximal de sauvegardes. Supprimez toutes les sauvegardes qui ne sont plus nécessaires et recommencez l'opération. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
-|Échec du clonage de <*ID des éléments de sauvegarde source*> vers <*numéros de série des volumes de destination*>.|Échec du clonage de la tâche.|Actualisez la liste de sauvegarde pour vérifier que la sauvegarde est toujours valide. Si la sauvegarde est valide, il est possible que les problèmes de connectivité au cloud empêchent l'opération de clonage de se terminer correctement. S'il n'y a aucun problème de connectivité, vous avez peut-être atteint la limite de stockage. Supprimez toutes les sauvegardes qui ne sont plus nécessaires et recommencez l'opération. Après avoir pris les mesures appropriées pour résoudre le problème, effacez cette alerte de la page des alertes.|
-|Échec de la restauration de <*ID des éléments de sauvegarde source*>.|Échec de la restauration de la tâche.|Actualisez la liste de sauvegarde pour vérifier que la sauvegarde est toujours valide. Si la sauvegarde est valide, il est possible que des problèmes de connectivité au cloud empêchent l'opération de restauration de se terminer correctement. S'il n'y a aucun problème de connectivité, vous avez peut-être atteint la limite de stockage. Supprimez toutes les sauvegardes qui ne sont plus nécessaires et recommencez l'opération. Après avoir pris les mesures appropriées pour résoudre le problème, effacez cette alerte de la page des alertes.|
+|Backup of <*source volume group ID*> failed.|Backup job failed.|Connectivity issues could be preventing the backup operation from successfully completing. If there are no connectivity issues, you may have reached the maximum number of backups. Delete any backups that are no longer needed and retry the operation. After you have taken appropriate action, clear this alert from the alerts page.|
+|Clone of <*source backup element IDs*> to <*destination volume serial numbers*> failed.|Clone job failed.|Refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the clone operation from successfully completing. If there are no connectivity issues, you may have reached the storage limit. Delete any backups that are no longer needed and retry the operation. After you have taken appropriate action to resolve the issue, clear this alert from the alerts page.|
+|Restore of <*source backup element IDs*> failed.|Restore job failed.|Refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the restore operation from successfully completing. If there are no connectivity issues, you may have reached the storage limit. Delete any backups that are no longer needed and retry the operation. After you have taken appropriate action to resolve the issue, clear this alert from the alerts page.|
 
-### Alertes de volume épinglé localement
+### <a name="locally-pinned-volume-alerts"></a>Locally pinned volume alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Échec de la création du volume local <*nom de volume*>.| Échec de la tâche de création du volume. <*Message d’erreur correspondant au code d’erreur de l’échec*>.|Des problèmes de connectivité peuvent empêcher la réalisation de la création de l’espace. Les volumes épinglés localement sont configurés complètement, et le processus de création d’espace implique le dépassement des volumes hiérarchisés dans le cloud. En l’absence de problèmes de connexion, il se peut que vous ayez épuisé l’espace local sur l’appareil. Déterminez si l’espace existe sur l’appareil avant de retenter cette opération.|
-|Échec de l’expansion du volume local <*nom de volume*>.|Échec de la tâche de modification du volume. <*Message d’erreur correspondant au code d’erreur de l’échec*>.|Des problèmes de connectivité peuvent empêcher la réalisation de l’expansion du volume. Les volumes épinglés localement sont configurés complètement, et le processus d’extension de l’espace existant implique le dépassement des volumes hiérarchisés dans le cloud. En l’absence de problèmes de connexion, il se peut que vous ayez épuisé l’espace local sur l’appareil. Déterminez si l’espace existe sur l’appareil avant de retenter cette opération.|
-|Échec de la conversion du volume <*nom de volume*>.|Échec de la tâche de conversion du volume pour convertir le type de volume épinglé localement en volume hiérarchisé.|La conversion du volume de type épinglé localement en volume hiérarchisé n’a pas pu être effectuée. Assurez-vous qu’aucun problème de connectivité n’empêche l’exécution de l’opération. Pour plus d’informations sur la résolution des problèmes de connectivité, consultez la section [Résolution des problèmes avec l’applet de commande Test-HcsmConnection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Le volume d’origine épinglé localement a maintenant été marqué comme volume hiérarchisé, car certaines données du volume épinglé localement ont été dispersées dans le cloud pendant la conversion. Le volume hiérarchisé obtenu occupe toujours un espace local sur l’appareil qui ne peut pas être récupéré pour les volumes locaux futurs.<br>Résolvez les problèmes de connectivité, effacez l’alerte et convertissez ce volume à nouveau en type de volume épinglé localement pour vous assurer que toutes les données sont de nouveau disponibles localement.|
-|Échec de la conversion du volume <*nom de volume*>.|Échec de la tâche de conversion du volume pour convertir le type de volume hiérarchisé en volume épinglé localement.|La conversion du volume du type hiérarchisé en volume épinglé localement n’a pas pu être effectuée. Assurez-vous qu’aucun problème de connectivité n’empêche l’exécution de l’opération. Pour plus d’informations sur la résolution des problèmes de connectivité, consultez la section [Résolution des problèmes avec l’applet de commande Test-HcsmConnection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Le volume hiérarchisé d’origine est désormais marqué comme volume épinglé localement, car une partie de la conversion continue d’avoir des données résidant dans le cloud alors que l’espace configuré sur l’appareil pour ce volume ne peut plus être récupéré pour des volumes locaux futurs.<br>Résolvez les problèmes de connectivité, effacez l’alerte et convertissez ce volume à nouveau en type de volume hiérarchisé d’origine pour vous assurer que l’espace local configuré sur l’appareil peut être récupéré.|
-|Consommation d’espace local proche de sa limite pour les instantanés locaux du <*nom du groupe de volumes*>.|Les instantanés locaux de la stratégie de sauvegarde vont peut-être bientôt manquer d’espace et être invalidés afin d’éviter les échecs d’écriture d’hôte.|Les instantanés locaux fréquents et un taux important d’activité des données dans les volumes associés à ce groupe de stratégies de sauvegarde provoquent la consommation rapide de l’espace local sur l’appareil. Supprimez les instantanés locaux qui ne sont plus nécessaires. Par ailleurs, mettez à jour les planifications des instantanés locaux afin que cette stratégie de sauvegarde effectue des instantanés locaux moins fréquents. Assurez-vous également que des instantanés cloud sont régulièrement effectués. Si ces actions ne sont pas prises, l’espace local de ces instantanés sera peut-être bientôt épuisé, et le système les supprimera automatiquement pour s’assurer que les écritures d’hôte continuent à être traitées avec succès.|
-|Les instantanés locaux du <*nom du groupe de volumes*> ont été invalidés.|Les instantanés locaux du <*nom du groupe de volumes*> ont été invalidés, puis supprimés, car ils excédaient l’espace local sur l’appareil.|Pour vous assurer que cela ne se reproduira pas, passez en revue les planifications des instantanés locaux de cette stratégie de sauvegarde, puis supprimez les instantanés locaux qui ne sont plus nécessaires. Les instantanés locaux fréquents et un taux important d’activité des données dans les volumes associés à ce groupe de stratégies de sauvegarde peuvent provoquer la consommation rapide de l’espace local sur l’appareil.|
-|Échec de la restauration de <*ID des éléments de sauvegarde source*>.|La tâche de restauration a échoué.|Si cette stratégie de sauvegarde comporte des volumes épinglés localement ou une combinaison de volumes épinglés localement et de volumes hiérarchisés, actualisez la liste de sauvegarde pour vérifier que la sauvegarde est toujours valide. Si la sauvegarde est valide, il est possible que des problèmes de connectivité au cloud empêchent l'opération de restauration de se terminer correctement. Les données des volumes épinglés localement qui ont été restaurés dans le cadre de ce groupe d’instantanés ne sont pas toutes téléchargées sur l’appareil. Si vous disposez d’une combinaison de volumes hiérarchisés et de volumes épinglés localement dans ce groupe d’instantanés, ils ne seront pas synchronisés entre eux. Pour mener à bien l’opération de restauration, mettez les volumes de ce groupe hors connexion sur l’hôte et recommencez l’opération de restauration. Notez que toutes les modifications apportées aux données des volumes pendant le processus de restauration seront perdues.|
+|Creation of local volume <*volume name*> failed.| The volume creation job has failed. <*Error message corresponding to the failed error code*>.|Connectivity issues could be preventing the space creation operation from successfully completing. Locally pinned volumes are thickly provisioned and the process of creating space involves spilling tiered volumes to the cloud. If there are no connectivity issues, you may have exhausted the local space on the device. Determine if space exists on the device before retrying this operation.|
+|Expansion of local volume <*volume name*> failed.|The volume modification job has failed due to <*error message corresponding to the failed error code*>.|Connectivity issues could be preventing the volume expansion operation from successfully completing. Locally pinned volumes are thickly provisioned and the process of extending the existing space involves spilling tiered volumes to the cloud. If there are no connectivity issues, you may have exhausted the local space on the device. Determine if space exists on the device before retrying this operation.|
+|Conversion of volume <*volume name*> failed.|The volume conversion job to convert the volume type from locally pinned to tiered failed.|Conversion of the volume from type locally pinned to tiered could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original locally pinned volume has now been marked as a tiered volume since some of the data from the locally pinned volume has spilled to the cloud during the conversion. The resultant tiered volume is still occupying local space on the device that cannot be reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original locally pinned volume type to ensure all the data is made available locally again.|
+|Conversion of volume <*volume name*> failed.|The volume conversion job to convert the volume type from tiered to locally pinned failed.|Conversion of the volume from type tiered to locally pinned could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original tiered volume now marked as a locally pinned volume as part of the conversion process continues to have data residing in the cloud, while the thickly provisioned space on the device for this volume can no longer reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original tiered volume type to ensure local space thickly provisioned on the device can be reclaimed.|
+|Nearing local space consumption for local snapshots of <*volume group name*>|Local snapshots for the backup policy might soon run out of space and be invalidated to avoid host write failures.|Frequent local snapshots alongside a high data churn in the volumes associated with this backup policy group are causing local space on the device to be consumed quickly. Delete any local snapshots that are no longer needed. Also, update your local snapshot schedules for this backup policy to take less frequent local snapshots, and ensure that cloud snapshots are taken regularly. If these actions are not taken, local space for these snapshots might soon be exhausted and the system will automatically delete them to ensure that host writes continue to be processed successfully.|
+|Local snapshots for <*volume group name*> have been invalidated.|The local snapshots for <*volume group name*> have been invalidated and then deleted because they were exceeding the local space on the device.|To ensure this does not recur in the future, review the local snapshot schedules for this backup policy and delete any local snapshots that are no longer needed. Frequent local snapshots alongside a high data churn in the volumes associated with this backup policy group might cause local space on the device to be consumed quickly.|
+|Restore of <*source backup element IDs*> failed.|The restore job has failed.|If you have locally pinned or a mix of locally pinned and tiered volumes in this backup policy, refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the restore operation from successfully completing. The locally pinned volumes that were being restored as part of this snapshot group do not have all of their data downloaded to the device, and, if you have a mix of tiered and locally pinned volumes in this snapshot group, they will not be in sync with each other. To successfully complete the restore operation, take the volumes in this group offline on the host and retry the restore operation. Note that any modifications to the volume data that were performed during the restore process will be lost.|
 
-### Alertes de réseau
+### <a name="networking-alerts"></a>Networking alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Impossible de démarrer les services StorSimple.|Erreur de chemin d’accès des données |Si le problème persiste, contactez le support technique Microsoft.|
-|Adresse IP en double détectée pour « Data0 ».| |Le système a détecté un conflit pour l’adresse IP 10.0.0.1. La ressource réseau « Data0 » sur l’appareil *<device1>* est hors connexion. Assurez-vous que cette adresse IP n’est pas utilisée par une autre entité de ce réseau. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Pour obtenir de l’aide sur la résolution de ce problème, contactez votre administrateur réseau. Si le problème persiste, contactez le support technique Microsoft. |
-|Adresse IPv4 (ou IPv6) de « Data0 » hors connexion.| |La ressource réseau « Data0 » pourvue de l’adresse IP 10.0.0.1. et de la longueur de préfixe 22 sur l’appareil *<device1>* est hors connexion. Assurez-vous que les ports de commutateur auxquels cette interface est connectée sont opérationnels. Pour résoudre les problèmes de réseau, consultez la section [Résolution des problèmes avec l’applet de commande Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+|Could not start StorSimple service(s).|Datapath error |If the problem persists, contact Microsoft Support.|
+|Duplicate IP address detected for 'Data0'.| |The system has detected a conflict for IP address '10.0.0.1'. The network resource 'Data0' on the device *<device1>* is offline. Ensure that this IP address is not used by any other entity in this network. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contact your network administrator for help resolving this issue. If the problem persists, contact Microsoft Support. |
+|IPv4 (or IPv6) address for 'Data0' is offline.| |The network resource 'Data0' with IP address '10.0.0.1.' and prefix length '22' on the device *<device1>* is offline. Ensure that the switch ports to which this interface is connected are operational. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
  
 
-### Alertes de performances
+### <a name="performance-alerts"></a>Performance alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|La charge de l’appareil a dépassé <*seuil*>.|Plus lent que le temps de réponse attendu.|Votre appareil indique que l'utilisation d'entrée/sortie est surchargée. Cela peut entraîner du mauvais fonctionnement de votre appareil. Consultez les charges de travail que vous avez attachées à l’appareil et déterminez si certaines peuvent être déplacées vers un autre appareil ou ne sont plus nécessaires.<br>Pour comprendre l’état actuel, consultez [Utiliser le service StorSimple Manager pour surveiller votre appareil](storsimple-monitor-device.md).|
+|The device load has exceeded <*threshold*>.|Slower than expected response times.|Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.<br>To understand the current status, go to [Use the StorSimple Manager service to monitor your device](storsimple-monitor-device.md)|
 
-### Alertes de sécurité
+### <a name="security-alerts"></a>Security alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|La session du Support Microsoft a commencé.|Session du support accédée par des tiers.|Veuillez confirmer que cet accès est autorisé. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
-|Le mot de passe pour <*élément*> arrivera à expiration dans <*période de temps*>.|L’expiration du mot de passe est proche.|Modifiez votre mot de passe avant son expiration.|
-|Les informations de configuration de sécurité sont manquantes pour <*ID de l’élément*>.||Les volumes associés à ce conteneur de volume ne peuvent pas être utilisés pour répliquer votre configuration StorSimple. Pour vous assurer que vos données sont stockées en toute sécurité, nous vous invitons à supprimer le conteneur de volumes et les volumes associés à ce conteneur de volume. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.|
-|Échec de <*nombre*> tentatives de connexion pour <*ID de l’élément*>.|Échec de plusieurs tentatives de connexion.|Il se peut que votre appareil soit attaqué ou qu’un utilisateur autorisé tente de se connecter avec un mot de passe incorrect.<ul><li>Contactez vos utilisateurs autorisés et vérifiez que ces tentatives proviennent d’une source légitime. Si vous continuez à voir un grand nombre de tentatives de connexion échouées, envisagez de désactiver la gestion à distance et contactez votre administrateur réseau. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.</li><li>Vérifiez que vos instances du gestionnaire d’instantanés sont configurées avec le bon mot de passe. Après avoir pris les mesures appropriées, effacez cette alerte de la page des alertes.</li></ul>Pour plus d’informations, consultez [Modifier le mot de passe arrivé à expiration d’un appareil](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password).|
-|Une ou plusieurs défaillances se sont produites lors de la modification de la clé de chiffrement de données du service.||Des erreurs sont survenues lors de la modification de la clé de chiffrement de données du service. Une fois que vous avez résolu les conditions d’erreur, exécutez l’applet de commande `Invoke-HcsmServiceDataEncryptionKeyChange` à partir de l’interface Windows PowerShell pour StorSimple sur votre appareil pour mettre à jour le service. Si ce problème persiste, contactez le support technique Microsoft. Après avoir résolu le problème, effacez cette alerte de la page des alertes.|
+|Microsoft Support session has begun.|Third-party accessed support session.|Please confirm this access is authorized. After you have taken appropriate action, clear this alert from the alerts page.|
+|Password for <*element*> will expire in <*length of time*>.|Password expiration is approaching.|Change your password before it expires.|
+|Security configuration information missing for <*element ID*>.||The volumes associated with this volume container cannot be used to replicate your StorSimple configuration. To ensure that your data is safely stored, we recommend that you delete the volume container and any volumes associated with the volume container. After you have taken appropriate action, clear this alert from the alerts page.|
+|<*number*> login attempts failed for <*element ID*>.|Multiple failed logon attempts.|Your device might be under attack or an authorized user is attempting to connect with an incorrect password.<ul><li>Contact your authorized users and verify that these attempts were from a legitimate source. If you continue to see large numbers of failed login attempts, consider disabling remote management and contacting your network administrator. After you have taken appropriate action, clear this alert from the alerts page.</li><li>Check that your Snapshot Manager instances are configured with the correct password. After you have taken appropriate action, clear this alert from the alerts page.</li></ul>For more information, go to [Change an expired device password](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password).|
+|One or more failures occurred while changing the service data encryption key.||There were errors encountered while changing the service data encryption key. After you have addressed the error conditions, run the `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet from the Windows PowerShell Interface for StorSimple on your device to update the service. If this issue persists, contact Microsoft support. After you resolve the issue, clear this alert from the alerts page.|
 
-### Alertes du package de prise en charge
+### <a name="support-package-alerts"></a>Support package alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Échec de la création du package de prise en charge.|StorSimple n'a pas pu générer le package.|Retentez l'opération. Si le problème persiste, contactez le support technique Microsoft. Après avoir résolu ce problème, effacez cette alerte de la page des alertes.|
+|Creation of support package failed.|StorSimple couldn't generate the package.|Retry this operation. If the issue persists, contact Microsoft Support. After you have resolved the issue, clear this alert from the alerts page.|
 
-### Alertes de mise à jour
+### <a name="update-alerts"></a>Update alerts
 
-|Texte d'alerte|Événement|Plus d'informations/actions recommandées|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Correctif logiciel installé.|Mise à jour du logiciel ou du microprogramme terminée.|Le correctif logiciel est installé correctement sur votre appareil.|
-|Mises à jour manuelles disponibles.|Notification des mises à jour disponibles.|Utilisez l’interface Windows PowerShell pour StorSimple sur votre appareil pour installer ces mises à jour. <br>Pour plus d’informations, consultez [Mettre à jour votre appareil StorSimple 8000 Series](storsimple-update-device.md).|
-|Nouvelles mises à jour disponibles.|Notification des mises à jour disponibles.|Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface Windows PowerShell pour StorSimple sur votre appareil. <br>Pour plus d’informations, consultez [Mettre à jour votre appareil StorSimple 8000 Series](storsimple-update-device.md).|
-|Échec de l’installation des mises à jour.|Les mises à jour n'ont pas été correctement installées.|Votre système n'a pas pu installer les mises à jour. Vous pouvez installer ces mises à jour à partir de la page **Maintenance** ou en utilisant l’interface Windows PowerShell pour StorSimple sur votre appareil. Si le problème persiste, contactez le support technique Microsoft. <br>Pour plus d’informations, consultez [Mettre à jour votre appareil StorSimple 8000 Series](storsimple-update-device.md).|
-|Impossible de vérifier automatiquement les nouvelles mises à jour.|Échec de la vérification automatique.|Vous pouvez rechercher manuellement les nouvelles mises à jour à partir de la page **Maintenance**.|
-|Nouvel agent WUA disponible.|Notification de la mise à jour disponible.|Téléchargez l’agent Windows Update le plus récent et installez-le à partir de l'interface Windows PowerShell.|
-|La version du composant de microprogramme <*ID du composant*> ne correspond pas au matériel.|Les mises à jour de microprogramme n'ont pas été correctement installées.|Contactez le Support Microsoft.|
+|Hotfix installed.|Software/firmware update completed.|The hotfix has been successfully installed on your device.|
+|Manual updates available.|Notification of available updates.|Use the Windows PowerShell Interface for StorSimple on your device to install these updates. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md).|
+|New updates available.|Notification of available updates.|You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md).|
+|Failed to install updates.|Updates were not successfully installed.|Your system was not able to install the updates. You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. If the issue persists, contact Microsoft Support. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md).|
+|Unable to automatically check for new updates.|Automatic check failed.|You can manually check for new updates from the **Maintenance** page.|
+|New WUA agent available.|Notification of available update.|Download the latest Windows Update Agent and install it from the Windows PowerShell interface.|
+|Version of firmware component <*component ID*> does not match with hardware.|Firmware update(s) were not successfully installed.|Contact Microsoft Support.|
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-En savoir plus sur les [erreurs de StorSimple et la résolution des problèmes d’un appareil opérationnel](storsimple-troubleshoot-operational-device.md).
+Learn more about [StorSimple errors and troubleshooting an operational device](storsimple-troubleshoot-operational-device.md).
 
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

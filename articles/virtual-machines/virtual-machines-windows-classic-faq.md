@@ -1,26 +1,31 @@
 <properties
-	pageTitle="Forum Aux Questions (FAQ) sur les machines virtuelles classiques | Microsoft Azure"
-	description="Fournit des réponses à certaines questions courantes sur les machines virtuelles Microsoft Azure créées avec le modèle de déploiement classique."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Frequently asked questions for classic VMs | Microsoft Azure"
+    description="Provides answers to some of the common questions about Azure Windows virtual machines created with the classic deployment model."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="cynthn"/>
 
-# Forum aux questions sur les machines virtuelles Azure Windows créées avec le modèle de déploiement classique
+
+# <a name="frequently-asked-question-about-azure-windows-virtual-machines-created-with-the-classic-deployment-model"></a>Frequently asked question about Azure Windows virtual machines created with the classic deployment model
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

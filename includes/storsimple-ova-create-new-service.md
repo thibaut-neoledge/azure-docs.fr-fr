@@ -1,36 +1,39 @@
-#### Création d’un service
+#### <a name="to-create-a-new-service"></a>To create a new service
 
-1.  À l’aide des informations d’identification de votre compte Microsoft, connectez-vous au portail Azure Classic en utilisant l’URL qui suit : [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Si vous déployez l’appareil dans le portail Government, connectez-vous ici : [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
+1.  Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/). If deploying the device in Government portal, log in at:  [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
 
-2.  Dans le portail, cliquez sur **Nouveau > Services de données > StorSimple Manager > Création rapide**.
+2.  In the portal, click **New > Data Services > StorSimple Manager > Quick Create**.
 
-3.  Dans le formulaire qui s’affiche, procédez comme suit :
+3.  In the form that is displayed, do the following:
 
-	1.  Indiquez un **nom** unique pour votre service. Il s’agit d’un nom convivial qui peut être utilisé pour identifier le service. Le nom peut comporter entre 2 et 50 caractères qui peuvent être des lettres, des chiffres et des traits d’union. Il doit commencer et se terminer par une lettre ou un chiffre.
+    1.  Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
 
-	2.  Pour permettre à un service de gérer un appareil virtuel StorSimple, dans le menu déroulant des **Types d’appareils gérés**, choisissez **Série d’appareils virtuels**.
+    2.  For a service to manage a StorSimple virtual device, from the drop down list for **Managed devices type**, choose **Virtual device series**.
 
-	3.  Indiquez un **emplacement** pour votre service. L’emplacement fait référence à la région géographique dans laquelle vous souhaitez déployer votre appareil.
+    3.  Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device.
 
-	 -   Si vous avez d’autres charges de travail dans Azure que vous souhaitez déployer avec votre appareil StorSimple, nous vous invitons à utiliser ce centre de données.
+     -   If you have other workloads in Azure that you intend to deploy with your StorSimple device, we recommend that you use that datacenter.
 
-   	 -   Le gestionnaire StorSimple et le stockage Azure peuvent se trouver en deux emplacements différents. Dans ce cas, vous devez créer séparément le gestionnaire StorSimple et le compte de stockage Azure. Pour créer un compte de stockage Azure, accédez au service Azure Storage dans le portail et suivez les étapes indiquées dans [Créer un compte Azure Storage](storage-create-storage-account.md#create-a-storage-account). Une fois ce compte créé, ajoutez-le au service StorSimple Manager en suivant les étapes indiquées dans [Configurer un nouveau compte de stockage pour le service](#optional-step-configure-a-new-storage-account-for-the-service).
-   	 
-   	 -   Si vous déployez l’appareil virtuel dans le portail Government, le service StorSimple Manager est disponible dans l’Iowa et en Virginie.
-   	 
-   	 	
-	1.  Choisissez un **abonnement** dans la liste déroulante. L’abonnement est lié à votre compte de facturation. Ce champ n’est pas présent si vous n’avez qu’un seul abonnement.
+     -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#optional-step-configure-a-new-storage-account-for-the-service).
+     
+     -   If deploying the virtual device in the Government Portal, the StorSimple Manager service is available in US Iowa and US Virginia locations.
+     
+        
+    1.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present when you have only one subscription.
 
-	1.  Sélectionnez **Créer un compte de stockage Azure** pour créer automatiquement un compte de stockage avec le service. Ce compte de stockage possédera un nom spécial, tel que « storsimplebwv8c6dcnf ». Si vous avez besoin de vos données dans un autre emplacement, désactivez cette case à cocher.
+    1.  Select **Create a new Azure storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf". If you need your data in a different location, clear this check box.
 
-	1.  Cliquez sur **Créer StorSimple Manager** pour créer le service.
+    1.  Click **Create StorSimple Manager** to create the service.
 
-		![](./media/storsimple-ova-create-new-service/image1m-include.png)
+        ![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
-	Vous allez être redirigé vers la page d’accueil **Service**. La création de service dure quelques minutes. Un message vous informe que le service a été créé.
+    You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately.
 
-	![](./media/storsimple-ova-create-new-service/image2-include.png)
+    ![](./media/storsimple-ova-create-new-service/image2-include.png)
 
-	Le statut du service sera alors **Actif**.
+    The status of the service will change to **Active**.
 
-<!---HONumber=AcomDC_0316_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Gestion de conteneur Azure Container Service avec Docker Swarm | Microsoft Azure"
-   description="Déploiement de conteneurs sur un Docker Swarm dans Azure Container Service"
+   pageTitle="Azure Container Service container management with Docker Swarm | Microsoft Azure"
+   description="Deploy containers to a Docker Swarm in Azure Container Service"
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, conteneurs, micro-services, Mesos, Azure"/>
+   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,21 +16,22 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/13/2016"
-   ms.author="nepeters"/>
+   ms.author="timlt"/>
 
-# Gestion des conteneurs avec Docker Swarm
 
-Docker Swarm fournit un environnement pour le déploiement de charges de travail en conteneur sur un ensemble groupé d’hôtes Docker. Docker Swarm utilise l’API Docker native. Le flux de travail pour la gestion des conteneurs sur un Docker Swarm est presque identique à ce qu’elle serait sur un hôte de conteneur individuel. Ce document fournit des exemples simples de déploiement de charges de travail en conteneur dans une instance Azure Container Service de Docker Swarm. Pour des informations détaillées sur Docker Swarm, consultez [Docker Swarm sur Docker.com](https://docs.docker.com/swarm/).
+# <a name="container-management-with-docker-swarm"></a>Container management with Docker Swarm
 
-Conditions préalables pour les exercices de ce document :
+Docker Swarm provides an environment for deploying containerized workloads across a pooled set of Docker hosts. Docker Swarm uses the native Docker API. The workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document provides simple examples of deploying containerized workloads in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
 
-[Création d’un cluster Swarm dans Azure Container Service](container-service-deployment.md)
+Prerequisites to the exercises in this document:
 
-[Connexion avec le cluster Swarm dans Azure Container Service](container-service-connect.md)
+[Create a Swarm cluster in Azure Container Service](container-service-deployment.md)
 
-## Déploiement d’un nouveau conteneur
+[Connect with the Swarm cluster in Azure Container Service](container-service-connect.md)
 
-Pour créer un conteneur dans l’outil Docker Swarm, utilisez la commande `docker run` (en vous assurant d’avoir ouvert un tunnel SSH vers les maîtres, conformément aux conditions préalables décrites ci-dessus). Cet exemple crée un conteneur à partir de l’image `yeasy/simple-web` :
+## <a name="deploy-a-new-container"></a>Deploy a new container
+
+To create a new container in the Docker Swarm, use the `docker run` command (ensuring that you have opened an SSH tunnel to the masters as per the prerequisites above). This example creates a container from the `yeasy/simple-web` image:
 
 
 ```bash
@@ -39,7 +40,7 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 4298d397b9ab6f37e2d1978ef3c8c1537c938e98a8bf096ff00def2eab04bf72
 ```
 
-Une fois le conteneur créé, utilisez `docker ps` pour renvoyer des informations sur le conteneur. Ici, l’agent Swarm qui héberge le conteneur est répertorié :
+After the container has been created, use `docker ps` to return information about the container. Notice here that the Swarm agent that is hosting the container is listed:
 
 
 ```bash
@@ -49,16 +50,16 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   31 seconds ago      Up 9 seconds        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-Vous pouvez maintenant accéder à l’application en cours d’exécution dans ce conteneur via le nom DNS public de l’équilibreur de charge de l’agent Swarm. Ces informations sont disponibles dans le portail Azure.
+You can now access the application that is running in this container through the public DNS name of the Swarm agent load balancer. You can find this information in the Azure portal:  
 
 
-![Résultats réels des visites](media/real-visit.jpg)
+![Real visit results](media/real-visit.jpg)  
 
-Par défaut, l’équilibreur de charge dispose des ports 80, 8080 et 443 ouverts. Si vous souhaitez vous connecter sur un autre port, vous devez ouvrir ce port dans Azure Load Balancer pour le pool d’agents.
+By default the Load Balancer has ports 80, 8080 and 443 open. If you want to connect on another port you will need to open that port on the Azure Load Balancer for the Agent Pool.
 
-## Déploiement de plusieurs conteneurs
+## <a name="deploy-multiple-containers"></a>Deploy multiple containers
 
-Plusieurs conteneurs étant démarrés, en exécutant « docker run » plusieurs fois, vous pouvez utiliser la commande `docker ps` pour afficher les hôtes sur lesquels les conteneurs sont exécutés. Dans l’exemple ci-dessous, trois conteneurs sont répartis uniformément entre les trois agents Swarm :
+As multiple containers are started, by executing 'docker run' multiple times, you can use the `docker ps` command to see which hosts the containers are running on. In the example below, three containers are spread evenly across the three Swarm agents:  
 
 
 ```bash
@@ -70,11 +71,11 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   2 minutes ago       Up 2 minutes        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-## Déploiement de conteneurs avec Docker Compose
+## <a name="deploy-containers-by-using-docker-compose"></a>Deploy containers by using Docker Compose
 
-Vous pouvez utiliser Docker Compose pour automatiser le déploiement et la configuration de plusieurs conteneurs. Pour ce faire, assurez-vous qu’un tunnel Secure Shell (SSH) a été créé et que la variable DOCKER\_HOST a été définie (voir les conditions préalables ci-dessus).
+You can use Docker Compose to automate the deployment and configuration of multiple containers. To do so, ensure that a Secure Shell (SSH) tunnel has been created and that the DOCKER_HOST variable has been set (see the pre-requisites above).
 
-Créez un fichier docker-compose.yml sur votre système local. Pour ce faire, utilisez cet [exemple](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+Create a docker-compose.yml file on your local system. To do this, use this [sample](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
 ```bash
 web:
@@ -90,7 +91,7 @@ rest:
 
 ```
 
-Exécutez `docker-compose up -d` pour démarrer les déploiements de conteneur :
+Run `docker-compose up -d` to start the container deployments:
 
 
 ```bash
@@ -107,7 +108,7 @@ swarm-agent-3B7093B8-2: Pulling adtd/web:0.1... : downloaded
 Creating compose_web_1
 ```
 
-Enfin, la liste des conteneurs en cours d’exécution est retournée. Cette liste répertorie les conteneurs qui ont été déployés à l’aide de Docker Compose :
+Finally, the list of running containers will be returned. This list reflects the containers that were deployed by using Docker Compose:
 
 
 ```bash
@@ -117,10 +118,14 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
-Naturellement, vous pouvez utiliser `docker-compose ps` pour examiner uniquement les conteneurs définis dans votre fichier `compose.yml`.
+Naturally, you can use `docker-compose ps` to examine only the containers defined in your `compose.yml` file.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-[Approfondissez vos connaissances sur Docker Swarm](https://docs.docker.com/swarm/)
+[Learn more about Docker Swarm](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

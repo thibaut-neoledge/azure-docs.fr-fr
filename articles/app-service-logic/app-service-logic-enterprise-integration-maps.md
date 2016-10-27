@@ -1,64 +1,80 @@
 <properties 
-	pageTitle="Vue d’ensemble des mappages Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
-	description="Découvrez comment utiliser les mappages avec Enterprise Integration Pack et vos applications logiques" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+    pageTitle="Overview of maps Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
+    description="Learn how to use maps with the Enterprise Integration Pack and Logic apps" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="msftman" 
+    manager="erikre" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/08/2016" 
+    ms.author="deonhe"/>
 
-# En savoir plus sur les mappages et Enterprise Integration Pack
 
-## Vue d'ensemble
-Enterprise Integration utilise des mappages pour convertir les données XML d’un format vers un autre format.
+# <a name="learn-about-maps-and-the-enterprise-integration-pack"></a>Learn about maps and the Enterprise Integration Pack
 
-## Qu’est-ce qu’un mappage ?
-Un mappage est un document XML qui définit les données d’un document qui doivent être converties dans un autre format.
+## <a name="overview"></a>Overview
+Enterprise integration uses maps to transform XML data from one format to another format. 
 
-## Pourquoi utiliser des mappages ?
-Imaginons que vous recevez régulièrement des commandes ou des factures B2B de la part d'un client qui utilise le format AAAMMJJ pour les dates. Mais dans votre entreprise, les dates sont enregistrées au format MMJJAAA. Vous pouvez utiliser un mappage pour *convertir* le format de date AAAMMJJ vers MMJJAAA avant d'enregistrer les détails de la commande ou de la facture dans votre base de données clients.
+## <a name="what-is-a-map?"></a>What is a map?
+A map is an XML document that defines which data in a document should be transformed into another format. 
 
-## Comment créer un groupe ?
-[Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack") pour Visual Studio 2015 permet la création de projets d’intégration BizTalk. La création d’un fichier de mappage d’intégration vous permet de représenter graphiquement les éléments entre les deux fichiers de schéma XML. Après la création de ce projet, un document XSLT est produit.
+## <a name="why-use-maps?"></a>Why use maps?
+Let's assume you regularly receive B2B orders or invoices from a customers who uses the YYYMMDD format for dates. However, in your organization, you store dates in the MMDDYYY format. You can use a map to *transform* the YYYMMDD date format into the MMDDYYY before storing the order or invoice details in your customer activity database.
 
-## Comment charger un mappage ?
-À partir du portail Azure :
-1. Sélectionnez **Parcourir** ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
-2. Entrez **intégration** dans la zone de recherche de filtre et sélectionnez **Integration Accounts** (Comptes d’intégration) dans la liste des résultats ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
-3. Sélectionnez le **compte d’intégration** auquel vous ajouterez le mappage ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Sélectionnez la mosaïque **Mappages**![](./media/app-service-logic-enterprise-integration-maps/map-1.png)
-5. Sélectionnez le bouton **Ajouter** dans le panneau Mappages qui s’affiche ![](./media/app-service-logic-enterprise-integration-maps/map-2.png)
-6. Entrez un **nom** pour votre mappage, puis sélectionnez l’icône de dossier située à droite de la zone de texte **Mappage** pour télécharger le fichier de mappage. Une fois le processus de téléchargement terminé, sélectionnez le bouton **OK**. ![](./media/app-service-logic-enterprise-integration-maps/map-3.png)
-7. Le mappage est désormais ajouté à votre compte d’intégration. Vous recevrez une notification à l’écran indiquant si l'ajout du fichier de mappage a réussi ou échoué. Après avoir reçu la notification, sélectionnez la mosaïque **Mappages** ; le mappage que vous venez d'ajouter apparaît dans le panneau Mappages : ![](./media/app-service-logic-enterprise-integration-maps/map-4.png)
+## <a name="how-do-i-create-a-map?"></a>How do i create a map?
+The [Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about the enterprise integration pack") for Visual Studio 2015 allows Biztalk Integration projects to be created.  Creating an Integration Map file will allow you to visually map items between two XML schema files.  After building this project, an XSLT document is output.
 
-## Comment modifier un mappage ?
-Pour modifier un mappage, vous devez télécharger un nouveau fichier de mappage intégrant les modifications souhaitées. Vous pouvez d’abord télécharger le mappage puis le modifier.
+## <a name="how-to-upload-a-map?"></a>How to upload a map?
+From the Azure portal:  
+1. Select **Browse**  
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
+2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
+ ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
+3. Select the **integration account** into which you will add the map  
+![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
+4.  Select the **Maps** tile  
+![](./media/app-service-logic-enterprise-integration-maps/map-1.png)  
+5. Select the **Add** button in the Maps blade that opens  
+![](./media/app-service-logic-enterprise-integration-maps/map-2.png)  
+6. Enter a **Name** for your map then, to upload the map file, select the folder icon on the right side of the **Map** text box. After the upload process is completed, select the **OK** button.  
+![](./media/app-service-logic-enterprise-integration-maps/map-3.png)  
+7. The map is now being added into your integration account. You will receive an onscreen notification that indicates the success or failure of adding the map file. After you receive the notification, select the **Maps** tile, you will then see your newly added map in the Maps blade:    
+![](./media/app-service-logic-enterprise-integration-maps/map-4.png)  
 
-Procédez comme suit pour télécharger un nouveau mappage remplaçant un mappage existant :
-1. Sélectionnez la mosaïque **Mappages**
-2. Sélectionnez le mappage que vous souhaitez modifier lorsque le panneau Mappages s'ouvre
-3. Dans le panneau **Mappages**, sélectionnez le lien **Mettre à jour** ![](./media/app-service-logic-enterprise-integration-maps/edit-1.png)
-4. Sélectionnez le fichier de mappage que vous souhaitez télécharger à l’aide de la boîte de dialogue de sélection de fichier qui s’ouvre, puis choisissez **Ouvrir** dans le sélecteur de fichiers ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)
-5. Vous recevrez un message de notification une fois le mappage téléchargé.
+## <a name="how-to-edit-a-map?"></a>How to edit a map?
+To edit a map, you must upload a new map file with the changes you desire. You can first download the map and edit it. 
 
-## Comment supprimer un mappage ?
-1. Sélectionnez la mosaïque **Mappages**
-2. Sélectionnez le mappage que vous souhaitez supprimer lorsque le panneau Mappages s'ouvre
-3. Sélectionnez le lien **Supprimer** ![](./media/app-service-logic-enterprise-integration-maps/delete.png)
-4. Confirmez que vous voulez vraiment supprimer le mappage. ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)
+Follow these steps to upload a new map that replaces an existing map:  
+1. Select the **Maps** tile  
+2. Select the map you wish to edit when the Maps blade opens up  
+3. On the **Maps** blade, select the **Update** link  
+![](./media/app-service-logic-enterprise-integration-maps/edit-1.png)   
+4. Select the map file you wish to upload by using the file picker dialog that opens up then select **Open** in the file picker   
+![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)   
+5. You will receive a notification popup after the map is uploaded.    
 
-## Étapes suivantes
-- [En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
-- [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
-- [En savoir plus sur les transformations](./app-service-logic-enterprise-integration-transform.md "Découvrez les transformations d’intégration d’entreprise")
+## <a name="how-to-delete-a-map?"></a>How to delete a map?
+1. Select the **Maps** tile  
+2. Select the map you wish to delete when the Maps blade opens up  
+3. Select the **Delete** link    
+![](./media/app-service-logic-enterprise-integration-maps/delete.png)   
+4. Confirm you that you really intend to delete the map.  
+![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)   
 
-<!---HONumber=AcomDC_0810_2016-->
+## <a name="next-steps"></a>Next Steps
+- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+- [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+- [Learn more about transforms](./app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration transforms")  
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

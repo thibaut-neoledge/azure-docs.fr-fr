@@ -1,5 +1,8 @@
-Des sondes personnalisé vous permet d'avoir un contrôle plus granulaire sur l'intégrité de votre pool principal de serveurs. Vous pouvez modifier les paramètres d’intervalle d’analyse, de seuil d’échec des requêtes et de délai d'attente.
+Custom probes allows you to have more granular control about health monitoring status for your back end pool of servers. You can change the interval checks, failed request threshold and timeout settings.
 
-Cet article vous aidera à créer une passerelle d'application avec une sonde personnalisée ou à ajouter une sonde personnalisée à une passerelle d'application existante.
+This article will guide you to create an application gateway with a custom probe or adding a custom probe to an existing application gateway. 
 
-<!---HONumber=AcomDC_0107_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
-### Plan App Service
+### <a name="app-service-plan"></a>App Service plan
 
-Crée le plan de service pour l'hébergement de l'application web. Vous fournissez le nom du plan à l'aide du paramètre **hostingPlanName**. L’emplacement du plan est identique à celui utilisé pour le groupe de ressources. Le niveau de tarification et la taille du travail sont spécifiés dans les paramètres **sku** et **workerSize**.
+Creates the service plan for hosting the web app. You provide the name of the plan through the **hostingPlanName** parameter. The location of the plan is the same location used for the resource group. The pricing tier and worker size are specified in the **sku** and **workerSize** parameters
 
     {
       "apiVersion": "2015-08-01",
@@ -15,4 +15,9 @@ Crée le plan de service pour l'hébergement de l'application web. Vous fourniss
         "name": "[parameters('hostingPlanName')]"
       }
     },
+
+
+
+<!--HONumber=Oct16_HO2-->
+
 

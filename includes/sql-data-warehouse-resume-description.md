@@ -10,11 +10,15 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-powershell
 articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 -->
-Lorsque vous reprenez une base de données :
+When you resume a database:
 
-- SQL Data Warehouse acquiert les ressources de calcul et de mémoire pour votre paramètre DWU.
-- Les frais de calcul liés à votre unité DWU sont de nouveau applicables.
-- Vos données seront disponibles.
-- Vous devrez redémarrer vos requêtes de charge de travail.
+- SQL Data Warehouse acquires compute and memory resources for your DWU setting.
+- Compute charges for your DWUs resume.
+- Your data will be available.
+- You will need to restart your workload queries.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

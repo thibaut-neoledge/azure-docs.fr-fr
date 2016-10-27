@@ -1,11 +1,13 @@
-## Scénario
+## <a name="scenario"></a>Scenario
 
-Pour mieux illustrer la configuration d’une adresse IP statique pour une machine virtuelle, ce document utilisera le scénario ci-dessous.
+To better illustrate how to configure a static IP address for a VM, this document will use the scenario below.
 
-![Scénario de réseau virtuel](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
+![VNet scenario](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
 
-Dans ce scénario, vous allez créer une machine virtuelle nommée **DNS01** dans le sous-réseau **FrontEnd** et la configurer pour utiliser l’adresse IP statique **192.168.1.101**.
+In this scenario you will create a VM named **DNS01** in the **FrontEnd** subnet, and set it to use a static IP address of **192.168.1.101**.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!--HONumber=Oct16_HO2-->
+
+

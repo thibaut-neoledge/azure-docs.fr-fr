@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Utiliser l’interpréteur de commandes Hive dans HDInsight (Hadoop) | Microsoft Azure"
-   description="Découvrez comment utiliser l’interpréteur de commandes Hive avec un cluster HDInsight Linux. Vous allez apprendre à vous connecter au cluster HDInsight à l’aide de SSH, puis à utiliser l’interpréteur de commandes Hive pour exécuter des requêtes de manière interactive."
+   pageTitle="Use the Hive shell in HDInsight (Hadoop) | Microsoft Azure"
+   description="Learn how to use the Hive shell with a Linux-based HDInsight cluster. You will learn how to connect to the HDInsight cluster using SSh, then use the Hive Shell to interactively run queries."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,52 +14,53 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/19/2016"
+   ms.date="10/04/2016"
    ms.author="larryfr"/>
 
-#Utilisation de Hive avec Hadoop dans HDInsight via SSH
+
+# <a name="use-hive-with-hadoop-in-hdinsight-with-ssh"></a>Use Hive with Hadoop in HDInsight with SSH
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Dans cet article, vous découvrirez comment utiliser Secure Shell (SSH) pour vous connecter à un cluster Hadoop sur Azure HDInsight, et envoyer ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive.
+In this article, you will learn how to use Secure Shell (SSH) to connect to a Hadoop on Azure HDInsight cluster and then interactively submit Hive queries by using the Hive command-line interface (CLI).
 
-> [AZURE.IMPORTANT] Bien que la commande Hive soit disponible sur les clusters HDInsight sous Linux, vous devez envisager d’utiliser Beeline. Beeline est un client plus récent pour l’utilisation de Hive et est inclus dans votre cluster HDInsight. Pour plus d’informations sur son utilisation, consultez [Utiliser Hive avec Hadoop dans HDInsight avec Beeline](hdinsight-hadoop-use-hive-beeline.md).
+> [AZURE.IMPORTANT] While the Hive command is available on Linux-based HDInsight clusters, you should consider using Beeline. Beeline is a newer client for working with Hive, and is included with your HDInsight cluster. For more information on using this, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
-##<a id="prereq"></a>Configuration requise
+##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Prerequisites
 
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+To complete the steps in this article, you will need the following:
 
-* Un cluster Hadoop Linux sur HDInsight.
+* A Linux-based Hadoop on HDInsight cluster.
 
-* Un client SSH. Mac OS, Linux et Unix doivent être accompagnés d’un client SSH. Les utilisateurs Windows doivent télécharger un client, comme [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* An SSH client. Linux, Unix, and Mac OS should come with an SSH client. Windows users must download a client, such as [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-##<a id="ssh"></a>Connexion avec SSH
+##<a name="<a-id="ssh"></a>connect-with-ssh"></a><a id="ssh"></a>Connect with SSH
 
-Connectez-vous au nom de domaine complet de votre cluster HDInsight à l’aide de la commande SSH. Le nom de domaine complet est le nom attribué au cluster, suivi de **.azurehdinsight.net**. Par exemple, la commande suivante permettrait de se connecter à un cluster nommé **myhdinsight** :
+Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by using the SSH command. The FQDN will be the name you gave the cluster, then **.azurehdinsight.net**. For example, the following would connect to a cluster named **myhdinsight**:
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net
+    ssh admin@myhdinsight-ssh.azurehdinsight.net
 
-**Si vous avez fourni une clé de certificat pour l’authentification SSH** lorsque vous avez créé le cluster HDInsight, vous devez spécifier l’emplacement de la clé privée sur votre système client :
+**If you provided a certificate key for SSH authentication** when you created the HDInsight cluster, you may need to specify the location of the private key on your client system:
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
 
-**Si vous avez fourni un mot de passe pour l’authentification SSH** lorsque vous avez créé le cluster HDInsight, vous devez fournir le mot de passe lorsque vous y êtes invité.
+**If you provided a password for SSH authentication** when you created the HDInsight cluster, you will need to provide the password when prompted.
 
-Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez la rubrique [Utilisation de SSH avec Hadoop dans HDInsight sur Linux à partir de Linux, OS X et Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+For more information on using SSH with HDInsight, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-###PuTTY (clients Windows)
+###<a name="putty-(windows-based-clients)"></a>PuTTY (Windows-based clients)
 
-Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Windows does not provide a built-in SSH client. We recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-##<a id="hive"></a>Utilisation de la commande Hive
+##<a name="<a-id="hive"></a>use-the-hive-command"></a><a id="hive"></a>Use the Hive command
 
-2. Une fois connecté, démarrez l'interface de ligne de commande Hive à l'aide de la commande suivante :
+2. Once connected, start the Hive CLI by using the following command:
 
         hive
 
-3. À l'aide de l'interface de ligne de commande, entrez les instructions suivantes pour créer une table nommée **log4jLogs** avec les exemples de données suivants :
+3. Using the CLI, enter the following statements to create a new table named **log4jLogs** by using the sample data:
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -67,59 +68,59 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Ces instructions effectuent les opérations suivantes :
+    These statements perform the following actions:
 
-    * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
-    * **CREATE EXTERNAL TABLE** : crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
-    * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
-    * **STORED AS TEXTFILE LOCATION** : indique à Hive où sont stockées les données (répertoire example/data) et qu'elles sont stockées sous forme de texte.
-    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
-    * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** : indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log. Cela limite la recherche au fichier sample.log qui contient les données et l'empêche de renvoyer des données provenant d'autres fichiers d'exemple qui ne correspondent pas au schéma que nous avons défini.
+    * **DROP TABLE** - Deletes the table and the data file, in case the table already exists.
+    * **CREATE EXTERNAL TABLE** - Creates a new 'external' table in Hive. External tables only store the table definition in Hive. The data is left in the original location.
+    * **ROW FORMAT** - Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
+    * **STORED AS TEXTFILE LOCATION** - Tells Hive where the data is stored (the example/data directory), and that it is stored as text.
+    * **SELECT** - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This should return a value of **3** as there are three rows that contain this value.
+    * **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
 
-    > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
+    > [AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but always want Hive queries to use the latest data.
     >
-    > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
+    > Dropping an external table does **not** delete the data, only the table definition.
 
-4. Utilisez les instructions suivantes pour créer une table « interne » nommée **errorLogs** :
+4. Use the following statements to create a new 'internal' table named **errorLogs**:
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    Ces instructions effectuent les opérations suivantes :
+    These statements perform the following actions:
 
-    * **CREATE TABLE IF NOT EXISTS** : crée une table, si elle n'existe pas déjà. Le mot-clé **EXTERNAL** n’étant pas utilisé, il s’agit d’une table interne, stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
-    * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
-    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
+    * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
+    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
+    * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
 
-    Pour vérifier que seules les lignes contenant **[ERROR]** dans la colonne t4 ont été stockées dans la table **errorLogs**, utilisez l'instruction suivante afin de renvoyer toutes les lignes à partir de **errorLogs** :
+    To verify that only rows containing **[ERROR]** in column t4 were stored to the **errorLogs** table, use the following statement to return all the rows from **errorLogs**:
 
         SELECT * from errorLogs;
 
-    Trois lignes de données doivent normalement être renvoyées. Elles contiennent toutes **[ERROR]** dans la colonne t4.
+    Three rows of data should be returned, all containing **[ERROR]** in column t4.
 
-    > [AZURE.NOTE] Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
+    > [AZURE.NOTE] Unlike external tables, dropping an internal table will delete the underlying data as well.
 
-##<a id="summary"></a>Résumé
+##<a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Summary
 
-Comme vous pouvez le constater, la commande Hive permet d'exécuter facilement et de façon interactive des requêtes Hive sur un cluster HDInsight, de surveiller l'état de la tâche et de récupérer le résultat.
+As you can see, the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
 
-##<a id="nextsteps"></a>Étapes suivantes
+##<a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Next steps
 
-Pour obtenir des informations générales sur Hive dans HDInsight.
+For general information on Hive in HDInsight:
 
-* [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
+For information on other ways you can work with Hadoop on HDInsight:
 
-* [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-Si vous utilisez Tez avec Hive, consultez les documents suivants pour les informations de débogage :
+If you are using Tez with Hive, see the following documents for debugging information:
 
-* [Utiliser l'interface utilisateur Tez sur HDInsight Windows](hdinsight-debug-tez-ui.md)
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
 
-* [Utilisez la vue Tez Ambari sur HDInsight Linux](hdinsight-debug-ambari-tez-view.md)
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -150,4 +151,9 @@ Si vous utilisez Tez avec Hive, consultez les documents suivants pour les inform
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

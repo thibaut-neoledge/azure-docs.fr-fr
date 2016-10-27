@@ -1,6 +1,6 @@
 <properties
- pageTitle="Gérer les nœuds de calcul de cluster HPC Pack | Microsoft Azure"
- description="En savoir plus sur les outils de script PowerShell pour ajouter, supprimer, démarrer et arrêter des nœuds de calcul de cluster HPC Pack dans Azure"
+ pageTitle="Manage HPC Pack cluster compute nodes | Microsoft Azure"
+ description="Learn about PowerShell script tools to add, remove, start, and stop HPC Pack cluster compute nodes in Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,22 +16,23 @@ ms.service="virtual-machines-windows"
  ms.date="07/22/2016"
  ms.author="danlep"/>
 
-# Gérer le nombre et la disponibilité des nœuds de calcul dans un cluster HPC Pack dans Azure
 
-Une fois un cluster HPC Pack créé dans des machines virtuelles Azure, il peut s’avérer utile de pouvoir facilement ajouter, supprimer, démarrer (approvisionner) ou arrêter (annuler l’approvisionnement) de nombreuses machines virtuelles à nœud de calcul dans le cluster. Pour effectuer ces tâches, exécutez des scripts Azure PowerShell qui sont installés sur la machine virtuelle à nœud principal. Ces scripts vous aident à contrôler le nombre et la disponibilité de vos ressources de cluster HPC Pack afin de contrôler les coûts.
+# <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
+
+If you created an HPC Pack cluster in Azure VMs, you might want ways to easily add, remove, start (provision), or stop (deprovision) a number of compute node VMs in the cluster. To do these tasks, run Azure PowerShell scripts that are installed on the head node VM. These scripts help you control the number and availability of your HPC Pack cluster resources so you can control costs.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-## Composants requis
+## <a name="prerequisites"></a>Prerequisites
 
-* **Cluster HPC Pack dans les machines virtuelles Azure** : créez un cluster HPC Pack dans le modèle de déploiement classique en utilisant au moins HPC Pack 2012 R2 Update 1. Par exemple, vous pouvez automatiser le déploiement à l’aide de l’image de machine virtuelle de HPC Pack actuelle dans Azure Marketplace et un script Azure PowerShell. Pour plus d’informations, y compris concernant la configuration requise, consultez [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+* **HPC Pack cluster in Azure VMs** - Create an HPC Pack cluster in the classic deployment model by using at least HPC Pack 2012 R2 Update 1. For example, you can automate the deployment by using the current HPC Pack VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
 
-    Après le déploiement, trouvez les scripts de gestion de nœud dans le dossier %CCP\_HOME%bin sur le nœud principal. Vous devez exécuter chacun des scripts en tant qu’administrateur.
+    After deployment, find the node management scripts in the %CCP\_HOME%bin folder on the head node. You must run each of the scripts as an administrator.
 
-* **Fichier de paramètres de publication ou certificat de gestion Azure**. Vous devez effectuer l’une des opérations suivantes sur le nœud principal :
+* **Azure publish settings file or management certificate** - You need to do one of the following on the head node:
 
-    * **Importer le fichier de publication de paramètres**. Pour ce faire, exécutez les applets de commande Azure PowerShell suivantes sur le nœud principal :
+    * **Import the Azure publish settings file**. To do this, run the following Azure PowerShell cmdlets on the head node:
 
     ```
     Get-AzurePublishSettingsFile
@@ -39,48 +40,48 @@ Une fois un cluster HPC Pack créé dans des machines virtuelles Azure, il peut 
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
 
-    * **Configurez le certificat de gestion Azure sur le nœud principal**. Si vous disposez du fichier .cer, importez-le dans le magasin de certificats CurrentUser\\My, puis exécutez l’applet de commande Azure PowerShell suivante pour votre environnement Azure (AzureCloud ou AzureChinaCloud) :
+    * **Configure the Azure management certificate on the head node**. If you have the .cer file, import it in the CurrentUser\My certificate store and then run the following Azure PowerShell cmdlet for your Azure environment (either AzureCloud or AzureChinaCloud):
 
     ```
-    Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
+    Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My\<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
     ```
 
-## Ajouter des machines virtuelles à nœud de calcul
+## <a name="add-compute-node-vms"></a>Add compute node VMs
 
-Ajoutez des nœuds de calcul avec le script **Add-HpcIaaSNode.ps1**.
+Add compute nodes with the **Add-HpcIaaSNode.ps1** script.
 
-### Syntaxe
+### <a name="syntax"></a>Syntax
 ```
 Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
  [-Quantity] <Int32> [-InstanceSize] <String> [-DomainUserName] <String> [[-DomainUserPassword] <String>]
  [[-NodeNameSeries] <String>] [<CommonParameters>]
 
 ```
-### Paramètres
+### <a name="parameters"></a>Parameters
 
-* **ServiceName** : nom du service cloud auquel les nouvelles machines virtuelles à nœud de calcul doivent être ajoutées.
+* **ServiceName** - Name of the cloud service that new compute node VMs will be added to.
 
-* **ImageName** : nom de l’image de machine virtuelle Azure, qui peut être obtenu par le biais du portail Azure Classic ou de l’applet de commande Azure PowerShell **Get-AzureVMImage**. L’image doit répondre aux exigences suivantes :
+* **ImageName** - Azure VM image name, which can be obtained through the Azure classic portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
 
-    1. Un système d’exploitation Windows doit être installé.
+    1. A Windows operating system must be installed.
 
-    2. HPC Pack doit être installé dans le rôle de nœud de calcul.
+    2. HPC Pack must be installed in the compute node role.
 
-    3. L’image doit être une image privée dans la catégorie Utilisateur, et non une image de machine virtuelle Azure publique.
+    3. The image must be a private image in the User category, not a public Azure VM image.
 
-* **Quantity** : nombre de machines virtuelles à nœud de calcul à ajouter.
+* **Quantity** - Number of compute node VMs to be added.
 
-* **InstanceSize** : taille des machines virtuelles à nœud de calcul.
+* **InstanceSize** - Size of the compute node VMs.
 
-* **DomainUserName** : nom d’utilisateur de domaine à utiliser pour joindre les nouvelles machines virtuelles au domaine.
+* **DomainUserName** - Domain user name, which will be used to join the new VMs to the domain.
 
-* **DomainUserPassword** : mot de passe de l’utilisateur de domaine.
+* **DomainUserPassword** - Password of the domain user.
 
-* **NodeNameSeries** (facultatif): modèle d’affectation de noms pour les nœuds de calcul. Le format doit être &lt;*nom\_racine*&gt;&lt;*numéro\_départ*&gt;%. Par exemple, MyCN%10% représente une série de noms de nœud de calcul commençant par MyCN11. Si ce paramètre n’est pas spécifié, le script utilise la série d’affectation de noms configurée dans le cluster HPC.
+* **NodeNameSeries** (optional) - Naming pattern for the compute nodes. The format must be &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%. For example, MyCN%10% means a series of the compute node names starting from MyCN11. If not specified, the script uses the configured node naming series in the HPC cluster.
 
-### Exemple
+### <a name="example"></a>Example
 
-L’exemple suivant ajoute 20 machines virtuelles à nœud de calcul de grande taille au service cloud *hpcservice1*, en se basant sur l’image de machine virtuelle *hpccnimage1*.
+The following example adds 20 size Large compute node VMs in the cloud service *hpcservice1*, based on the VM image *hpccnimage1*.
 
 ```
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -89,11 +90,11 @@ Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
 ```
 
 
-## Supprimer des machines virtuelles à nœud de calcul
+## <a name="remove-compute-node-vms"></a>Remove compute node VMs
 
-Supprimez des nœuds de calcul avec le script **Remove-HpcIaaSNode.ps1**.
+Remove compute nodes with the **Remove-HpcIaaSNode.ps1** script.
 
-### Syntaxe
+### <a name="syntax"></a>Syntax
 
 ```
 Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -101,58 +102,58 @@ Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confir
 Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonParameters>]
 ```
 
-### Paramètres
+### <a name="parameters"></a>Parameters
 
-* **Name** : noms des nœuds de cluster à supprimer. Les caractères génériques sont pris en charge. Le nom du jeu de paramètres est Name. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
+* **Name** - Names of cluster nodes to be removed. Wildcards are supported. The parameter set name is Name. You can't specify both the **Name** and **Node** parameters.
 
-* **Nœud** : objet HpcNode des nœuds à supprimer, qui peut être obtenu par le biais de l’applet de commande HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Le nom du jeu de paramètres est Node. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
+* **Node** - The HpcNode object for the nodes to be removed, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You can't specify both the **Name** and **Node** parameters.
 
-* **DeleteVHD** (facultatif) : permet de supprimer les disques associés aux machines virtuelles qui sont supprimées.
+* **DeleteVHD** (optional) - Setting to delete the associated disks for the VMs that are removed.
 
-* **Force** (facultatif) : permet de mettre les nœuds HPC hors connexion avant de les supprimer.
+* **Force** (optional) - Setting to force HPC nodes offline before removing them.
 
-* **Confirm** (facultatif) : permet d’inviter à confirmer avant d’exécuter la commande.
+* **Confirm** (optional) - Prompt for confirmation before executing the command.
 
-* **WhatIf** : permet de décrire l’exécution de la commande sans l’exécuter.
+* **WhatIf** - Setting to describe what would happen if you executed the command without actually executing the command.
 
-### Exemple
+### <a name="example"></a>Example
 
-L’exemple suivant met hors connexion les nœuds dont le nom commence par *HPCNode-CN-*, puis supprime les nœuds et leurs disques associés.
+The following example forces offline nodes with names beginning *HPCNode-CN-* and them removes the nodes and their associated disks.
 
 ```
 Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
 ```
 
-## Démarrer des machines virtuelles à nœud de calcul
+## <a name="start-compute-node-vms"></a>Start compute node VMs
 
-Démarrez des nœuds de calcul avec le script **Start-HpcIaaSNode.ps1**.
+Start compute nodes with the **Start-HpcIaaSNode.ps1** script.
 
-### Syntaxe
+### <a name="syntax"></a>Syntax
 
 ```
 Start-HPCIaaSNode.ps1 -Name <String[]> [<CommonParameters>]
 
 Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
-### Paramètres
+### <a name="parameters"></a>Parameters
 
-* **Name** : noms des nœuds de cluster à démarrer. Les caractères génériques sont pris en charge. Le nom du jeu de paramètres est Name. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
+* **Name** - Names of the cluster nodes to be started. Wildcards are supported. The parameter set name is Name. You cannot specify both the **Name** and **Node** parameters.
 
-* **Nœud** : objet HpcNode des nœuds à démarrer, qui peut être obtenu par le biais de l’applet de commande HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Le nom du jeu de paramètres est Node. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
+* **Node**- The HpcNode object for the nodes to be started, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
 
-### Exemple
+### <a name="example"></a>Example
 
-L’exemple suivant démarre les nœuds dont le nom commence par *HPCNode-CN-*.
+The following example starts nodes with names beginning *HPCNode-CN-*.
 
 ```
 Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 ```
 
-## Arrêter des machines virtuelles à nœud de calcul
+## <a name="stop-compute-node-vms"></a>Stop compute node VMs
 
-Arrêtez des nœuds de calcul avec le script **Stop-HpcIaaSNode.ps1**.
+Stop compute nodes with the **Stop-HpcIaaSNode.ps1** script.
 
-### Syntaxe
+### <a name="syntax"></a>Syntax
 
 ```
 Stop-HPCIaaSNode.ps1 -Name <String[]> [-Force] [<CommonParameters>]
@@ -160,23 +161,27 @@ Stop-HPCIaaSNode.ps1 -Name <String[]> [-Force] [<CommonParameters>]
 Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 ```
 
-### Paramètres
+### <a name="parameters"></a>Parameters
 
 
-* **Name** : noms des nœuds de cluster à arrêter. Les caractères génériques sont pris en charge. Le nom du jeu de paramètres est Name. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
+* **Name**- Names of the cluster nodes to be stopped. Wildcards are supported. The parameter set name is Name. You cannot specify both the **Name** and **Node** parameters.
 
-* **Nœud** : objet HpcNode des nœuds à arrêter, qui peut être obtenu par le biais de l’applet de commande HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Le nom du jeu de paramètres est Node. Vous ne pouvez pas spécifier à la fois les paramètres **Name** et **Node**.
+* **Node** - The HpcNode object for the nodes to be stopped, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
 
-* **Force** (facultatif) : permet de mettre les nœuds HPC hors connexion avant de les arrêter.
+* **Force** (optional) - Setting to force HPC nodes offline before stopping them.
 
-### Exemple
+### <a name="example"></a>Example
 
-L’exemple suivant met hors connexion les nœuds dont le nom commence par *HPCNode-CN-*, puis les arrête.
+The following example forces offline nodes with names beginning *HPCNode-CN-* and then stops the nodes.
 
 Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-* Pour savoir comment augmenter ou réduire automatiquement les nœuds de cluster en fonction de la charge de travail actuelle des travaux et des tâches sur le cluster, consultez [Agrandir et réduire automatiquement les ressources de cluster HPC Pack dans Azure en fonction de la charge de travail du cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* If you want a way to automatically grow or shrink the cluster nodes according to the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

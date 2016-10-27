@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cours de sécurité Azure avec Microsoft Virtual Academy | Microsoft Azure"
-   description="Cet article offre une présentation claire des cours liés à la sécurité Azure proposés par Microsoft Virtual Academy. Microsoft Virtual Academy offre des formations en ligne gratuites pour aider les développeurs, les professionnels de l’informatique et des données et les étudiants à découvrir les dernières technologies, à enrichir leurs compétences et à développer leur carrière."
+   pageTitle="Azure security courses from Microsoft Virtual Academy | Microsoft Azure"
+   description="This article provides a curated collection of Azure security related courses from Microsoft Virtual Academy.  Microsoft Virtual Academy provides free, online training to help Developers, IT and Data Professionals, and students learn the latest technology, build their skills, and advance their careers."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,50 +16,55 @@
    ms.date="08/09/2016"
    ms.author="terrylan"/>
 
-# Cours de sécurité Azure avec Microsoft Virtual Academy
 
-Microsoft Virtual Academy offre des formations en ligne gratuites pour aider les développeurs, les professionnels de l’informatique et des données et les étudiants à découvrir les dernières technologies, à enrichir leurs compétences et à développer leur carrière.
+# <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Azure security courses from Microsoft Virtual Academy
 
-Cette page offre une présentation claire des cours liés à la sécurité Azure. Visitez le site de [Microsoft Virtual Academy](https://mva.microsoft.com/) pour afficher la liste des cours disponibles.
+Microsoft Virtual Academy provides free, online training to help Developers, IT and Data Professionals, and students learn the latest technology, build their skills, and advance their careers.
 
-[Dev/Test in the Cloud (Développement/test dans le cloud)](https://mva.microsoft.com/fr-FR/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
+On this page, you find a curated collection of Azure security-related courses. Visit the [Microsoft Virtual Academy](https://mva.microsoft.com/) to see all the courses they have available.
 
-Vous êtes développeur et vous avez besoin de fournir des applications plus rapides et plus performantes ? Vous pouvez atteindre cet objectif en migrant vos environnements de développement et de test vers le cloud. Découvrez les avantages offerts par cette migration et la procédure à appliquer. Ce cours inclut également des démonstrations et des présentations vous expliquant comment Microsoft Azure peut répondre à vos besoins en tests et développement. Des leçons sur les pratiques de développement et de déploiement de solutions de sécurité sont également proposées.
+[Dev/Test in the Cloud](https://mva.microsoft.com/en-us/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
 
-[Common Tasks for Linux on Azure (Tâches courantes pour Linux sur Azure)](https://mva.microsoft.com/fr-FR/training-courses/common-tasks-for-linux-on-azure-16191?l=J0Hvb7qJC_1204668937)
+Are you a developer who needs to deliver faster and better applications? Moving your development and testing environments to the cloud can help you achieve exactly that! Learn how to get it done, and find out the benefits of making the move. Plus, see demonstrations and presentations that show you how Microsoft Azure can support your development and testing needs. Included are lesson on security development and deployment practices.
 
-Si vous avez des questions sur l’utilisation de Linux sur la plateforme Microsoft Azure, ce cours détaillé y répondra. Explorez certaines tâches courantes avec les experts de [Linux Academy](https://linuxacademy.com/). Découvrez comment créer une machine virtuelle Linux dans Azure, accéder à la machine virtuelle Linux à l’aide de logiciels de bureau à distance et exécuter des hôtes virtuels. De nombreuses technologies et configurations de sécurité sont traitées dans ce cours.
+[Common Tasks for Linux on Azure](https://mva.microsoft.com/en-us/training-courses/common-tasks-for-linux-on-azure-16191?l=J0Hvb7qJC_1204668937)
 
-[Secure the Cloud (Sécuriser le cloud)](https://mva.microsoft.com/fr-FR/training-courses/secure-the-cloud-14037?l=lQIkkst0B_5300115881)
+If you have questions about using Linux on the Microsoft Azure platform, this detailed course has answers for you. Explore some common tasks with the experts from [Linux Academy](https://linuxacademy.com/). Learn about creating a Linux virtual machine (VM) in Azure, accessing the Linux VM using remote desktop software, and running virtual hosts. Many security technologies and configurations are addressed in this course.
 
-Découvrez dans cette session comment Microsoft peut vous aider à répondre aux exigences mondiales de conformité, notamment les normes ISO 27001 / 27018, FedRAMP, PCI et HIPAA, avec de nouveaux contrôles de sécurité. Ces contrôles vont du chiffrement des données au repos, de la gestion de clés, de la protection des machines virtuelles, de la journalisation et de la surveillance aux services anti-programme malveillant, à la gestion des identités, à la gestion des contrôles d’accès et bien plus encore.
+[Secure the Cloud](https://mva.microsoft.com/en-us/training-courses/secure-the-cloud-14037?l=lQIkkst0B_5300115881)
 
-[Concevez et implémentez des solutions de plateforme de données cloud](https://mva.microsoft.com/fr-FR/training-courses/design-and-implement-cloud-data-platform-solutions-15711?l=jbCdW0j1B_3005244527)
+In this session, learn how Microsoft can help you meet global compliance requirements, such as ISO 27001 / 27018, FedRAMP, PCI, and HIPAA, with new security controls. These controls range from at-rest data encryption, key management, VM protection, logging and monitoring, to anti-malware services, identity management, access controls, and more.
 
-Découvrez les caractéristiques et fonctionnalités des solutions de plateforme de données de cloud Microsoft. Bénéficiez d’une présentation de la plateforme, et apprenez-en plus sur les fonctionnalités de sécurité, les options pour une haute disponibilité, les techniques de surveillance et de gestion des données cloud, etc. Vous obtiendrez également des conseils qui vous aideront à identifier les compromis à envisager et à prendre des décisions en matière de conception de solutions cloud hybrides et publiques à l’aide des fonctionnalités de plateforme de données de cloud Microsoft.
+[Design and Implement Cloud Data Platform Solutions](https://mva.microsoft.com/en-us/training-courses/design-and-implement-cloud-data-platform-solutions-15711?l=jbCdW0j1B_3005244527)
 
-[Manage and Secure Identities in a Cloud and Mobile World (Gérer et sécuriser les identités dans un univers mobile et basé sur le cloud)](https://mva.microsoft.com/fr-FR/training-courses/manage-and-secure-identities-in-a-cloud-and-mobile-world-14013?l=GIJ2GcvrB_405192797)
+Learn the features and capabilities of Microsoft cloud data platform solutions. Get a platform overview and hear about security features, options for high availability, techniques for monitoring and managing cloud data, and more. Plus, get guidance on how to identify tradeoffs and make decisions for designing public and hybrid cloud solutions using Microsoft cloud data platform features.
 
-Dans cette session, découvrez comment Azure Active Directory et Microsoft Advanced Threat Analytics vous aident à sécuriser et gérer l’identité des utilisateurs, à identifier les failles de sécurité avant qu’elles n’entraînent des dommages et à fournir à vos utilisateurs une identité unique pour accéder à l’ensemble des ressources de l’entreprise. Explorez les technologies utilisées pour faire émerger les données informatiques, gérer l’accès aux applications et surveiller les activités suspectes par le biais de rapports de sécurité, d’analyses comportementales des utilisateurs, d’audits et d’alertes avancés.
+[Manage and Secure Identities in a Cloud and Mobile World](https://mva.microsoft.com/en-us/training-courses/manage-and-secure-identities-in-a-cloud-and-mobile-world-14013?l=GIJ2GcvrB_405192797)
 
-[Quelle est la place de la sécurité dans le cloud ?](https://mva.microsoft.com/fr-FR/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
+In this session, learn how Azure Active Directory and Microsoft Advanced Threat Analytics helps you secure and manage user identity, identify security breaches before they cause damage, and provide your users a single identity for accessing all corporate resources. Explore the technologies used to discover Shadow IT, manage application access, and monitor suspicious activity through advanced security reporting, user behavioral analytics, auditing, and alerting.
 
-Des experts vous guident tout au long de la feuille de route de responsabilité des clients en se référant au document [Sécurité Microsoft Cloud pour les architectes d’entreprise](http://www.microsoft.com/download/48121). Ils fournissent également des recommandations pour la modernisation de chaque aspect du comportement de votre organisation en matière de sécurité, y compris la gouvernance, les stratégies d’imbrication, les opérations de sécurité, la protection des ressources à forte valeur, la protection des informations et la sécurité des utilisateurs et des appareils, en mettant l’accent sur la protection du contrôle administratif. Vous découvrirez l’infrastructure utilisée par l’équipe de cybersécurité de Microsoft pour évaluer la sécurité des clients dans le cloud et développer une feuille de route de sécurité à leur attention.
+[Security in a Cloud-Enabled World](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
-[Microsoft Azure IaaS Deep Dive (Immersion dans l’environnement Microsoft Azure IaaS)](https://mva.microsoft.com/fr-FR/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
+Experts lead you through the customer responsibility roadmap in the [Microsoft Cloud Security for Enterprise Architects](http://www.microsoft.com/download/48121) poster. The experts also provide recommendations for modernizing each part of your security posture, including governance, containment strategies, security operations, high-value asset protection, information protection, and user and device security, with a particular emphasis on protecting administrative control. Learn from the same framework that the Microsoft cybersecurity team uses to assess customers' cloud security and to build them a security roadmap.
 
-Découvrez comment utiliser les fonctionnalités de l’infrastructure Microsoft Azure. Si vous êtes informaticien, vous ne devez pas nécessairement disposer d’une expérience avec Azure. Ce cours vous décrit les procédures de création et de configuration des machines virtuelles Azure, des réseaux virtuels Azure et de la connectivité entre locaux pour développer un environnement opérationnel dans le cloud. Diverses considérations et fonctionnalités de sécurité sont abordées tout au long du cours.
+[Microsoft Azure IaaS Deep Dive](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
 
-[Bien démarrer avec la sécurité Azure pour les professionnels de l’informatique](https://mva.microsoft.com/training-courses/getting-started-with-azure-security-for-the-it-professional-11165?l=HfHzCXSAB_7404300474)
+Learn how to use Microsoft Azure infrastructure capabilities. If you are an IT Pro, no need to have previous experience with Azure. This course walks you through creating and configuring Azure VMs, Azure Virtual Networks, and cross-premises connectivity to get things up and running on the cloud. Security features and considerations are included throughout the course.
 
-Dans ce cours émaillé de démonstrations, une équipe composée d’experts en sécurité et d’ingénieurs Azure aborde des aspects allant au-delà des certifications de base et vous présente les possibilités offertes par Azure. Découvrez comment concevoir et utiliser les différentes technologies pour vous assurer que vous disposez de la sécurité et de l’architecture requises pour lancer efficacement vos projets dans le cloud. Plongez dans les opérations de centre de données, la configuration des machines virtuelles, l’architecture réseau et l’infrastructure de stockage.
+[Getting Started with Azure Security for the IT Professional](https://mva.microsoft.com/training-courses/getting-started-with-azure-security-for-the-it-professional-11165?l=HfHzCXSAB_7404300474)
 
-[Découvrez les scénarios et modèles Azure Resource Manager](https://mva.microsoft.com/fr-FR/training-courses/deep-dive-into-azure-resource-manager-scenarios-and-patterns-13793?l=i1m06ZJYB_7001937557)
+In this demo-filled course, a team of security experts and Azure engineers takes you beyond the basic certifications and explores what's possible inside Azure. See how to design and use various technologies to ensure that you have the security and architecture you need to successfully launch your projects in the cloud. Dive into datacenter operations, VM configuration, network architecture, and storage infrastructure.
 
-Découvrez Azure Resource Manager avec une équipe d’experts, qui vous montre les scripts et les outils qui facilitent l’activation et la désactivation des éléments de votre infrastructure d’application. Découvrez comment utiliser le contrôle d’accès en fonction du rôle pour implémenter la sécurité avec Azure Resource Manager.
+[Deep Dive into Azure Resource Manager Scenarios and Patterns](https://mva.microsoft.com/en-us/training-courses/deep-dive-into-azure-resource-manager-scenarios-and-patterns-13793?l=i1m06ZJYB_7001937557)
 
-[Azure Rights Management Services Core Skills (Compétences de base sur les services Azure Rights Management)](https://mva.microsoft.com/fr-FR/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
+Explore Azure Resource Manager with a team of experts, who show you scripts and tools that make it easy to spin up or spin down elements of your application infrastructure. Explore the use of role-based access control (RBAC) to implement security with Azure Resource Manager.
 
-Découvrez pourquoi la protection des informations est une exigence incontournable de votre organisation et comment la gestion des droits protège sa propriété intellectuelle, même lorsque celle-ci se déplace entre les appareils et dans le cloud. Bénéficiez d’une expérience pratique et tirez parti du savoir-faire technique des experts Microsoft.
+[Azure Rights Management Services Core Skills](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
 
-<!---HONumber=AcomDC_0810_2016-->
+Find out why information protection is a "must have" requirement in your organization and how rights management protects your organization's intellectual property, wherever it travels across devices and the cloud. Get hands-on experience and technical know-how from Microsoft experts.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

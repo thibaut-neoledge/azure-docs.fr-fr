@@ -1,133 +1,138 @@
 <properties
-	pageTitle="Configurer un écouteur externe pour des groupes de disponibilité Always On | Microsoft Azure"
-	description="Ce didacticiel vous guide tout au long des étapes de création d’un écouteur de groupe de disponibilité Always On dans Azure qui est accessible en externe à l’aide de l’adresse IP virtuelle publique du service cloud associé."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="MikeRayMSFT"
-	manager="jhubbard"
-	editor=""
-	tags="azure-service-management" />
+    pageTitle="Configure an external Listener for Always On Availability Groups | Microsoft Azure"
+    description="This tutorial walks you through steps of creating an Always On Availability Group Listener in Azure that is externally accessible by using the public Virtual IP address of the associated cloud service."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="MikeRayMSFT"
+    manager="jhubbard"
+    editor=""
+    tags="azure-service-management" />
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="07/12/2016"
-	ms.author="MikeRayMSFT" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="07/12/2016"
+    ms.author="MikeRayMSFT" />
 
-# Configurer un écouteur externe pour les groupes de disponibilité Always On dans Azure
+
+# <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configure an external listener for Always On Availability Groups in Azure
 
 > [AZURE.SELECTOR]
-- [Écouteur interne](virtual-machines-windows-classic-ps-sql-int-listener.md)
-- [Écouteur externe](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+- [Internal Listener](virtual-machines-windows-classic-ps-sql-int-listener.md)
+- [External Listener](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité Always On accessible en externe sur Internet. Il est possible d’associer l’**adresse IP virtuelle publique** du service cloud à l’écouteur.
+This topic shows you how to configure a listener for an Always On Availability Group that is externally accessible on the internet. This is made possible by associating the cloud service's **public Virtual IP (VIP)** address with the listener.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), mais pas un écouteur.
+Your Availability Group can contain replicas that are on-premises only, Azure only, or span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks (VNets). The steps below assume you have already [configured an availability group](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) but have not configured a listener.
 
-## Instructions et limitations pour les écouteurs externes
+## <a name="guidelines-and-limitations-for-external-listeners"></a>Guidelines and limitations for external listeners
 
-Notez que les instructions suivantes s'appliquent pour l'écouteur du groupe de disponibilité dans Azure lorsque vous effectuez un déploiement à l'aide de l'adresse IP virtuelle publique du service cloud :
+Note the following guidelines about the availability group listener in Azure when you are deploying using the cloud service pubic VIP address:
 
-- L'écouteur du groupe de disponibilité est pris en charge sur Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2.
+- The availability group listener is supported on Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.
 
-- L'application cliente doit se trouver dans un service cloud différent de celui qui contient vos machines virtuelles de groupe de disponibilité. Azure ne prend pas en charge le retour direct du serveur avec un client et un serveur se trouvant dans le même service cloud.
+- The client application must reside on a different cloud service than the one that contains your availability group VMs. Azure does not support direct server return with client and server in the same cloud service.
 
-- Par défaut, les étapes décrites dans cet article montrent comment configurer un écouteur pour utiliser l'adresse IP virtuelle (VIP) du service cloud. Toutefois, il est possible de réserver et de créer plusieurs adresses IP virtuelles pour votre service cloud. Cela vous permet d'utiliser les étapes dans cet article pour créer plusieurs écouteurs associés à une adresse IP virtuelle différente. Pour plus d'informations sur la création de plusieurs adresses IP virtuelles, consultez la section [Plusieurs adresses IP virtuelles par service cloud](../load-balancer/load-balancer-multivip.md).
+- By default, the steps in this article show how to configure one listener to use the cloud service Virtual IP (VIP) address. However, it is possible to reserve and create multiple VIP addresses for your cloud service. This enables you to use the steps in this article to create multiple listeners that are each associated with a different VIP. For information on how to create multiple VIP addresses, see [Multiple VIPs per cloud service](../load-balancer/load-balancer-multivip.md).
 
-- Si vous créez un écouteur pour un environnement hybride, le réseau local doit disposer de la connectivité à l'Internet public en plus du VPN de site à site avec le réseau virtuel Azure. Dans le sous-réseau Azure, l'écouteur du groupe de disponibilité est accessible uniquement par l'adresse IP publique du service cloud respectif.
+- If you are creating a listener for a hybrid environment, the on-premises network must have connectivity to the public Internet in addition to the site-to-site VPN with the Azure virtual network. When in the Azure subnet, the availability group listener is reachable only by the public IP address of the respective cloud service.
 
-- La création d’un écouteur externe dans un service cloud dans lequel vous avez également un écouteur interne n'est pas prise en charge avec l'équilibrage de charge interne.
+- It is not supported to create an external listener in the same cloud service where you also have an internal listener using the Internal Load Balancer (ILB).
 
-## Déterminer l'accessibilité de l'écouteur
+## <a name="determine-the-accessibility-of-the-listener"></a>Determine the accessibility of the listener
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Cet article se concentre sur la création d’un écouteur qui utilise un **équilibrage de charge externe**. Si vous souhaitez un écouteur qui est privé sur votre réseau virtuel, consultez la version de cet article qui explique comment configurer un [écouteur avec équilibrage de charge interne](virtual-machines-windows-classic-ps-sql-int-listener.md)
+This article focuses on creating a listener that uses **external load balancing**. If you want a listener that is private to your virtual network, see the version of this article that provides steps for setting up an [listener with ILB](virtual-machines-windows-classic-ps-sql-int-listener.md)
 
-## Créer des points de terminaison de machine virtuelle à charge équilibrée avec retour direct du serveur
+## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Create load-balanced VM endpoints with direct server return
 
-L'équilibrage de charge externe utilise l'adresse IP virtuelle publique du service cloud qui héberge vos machines virtuelles. Par conséquent, vous n'avez besoin créer ou configurer l'équilibrage de charge dans ce cas.
+External load balancing uses the virtual the public Virtual IP address of the cloud service that hosts your VMs. So you do not need to create or configure the load balancer in this case.
 
 [AZURE.INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
 
-1. Copiez le script PowerShell ci-dessous dans un éditeur de texte et définissez des valeurs de variables adaptées à votre environnement (des valeurs par défaut ont été affectées à certains paramètres). Notez que, si votre groupe de disponibilité s'étend sur plusieurs régions Azure, vous devez exécuter le script une fois dans chaque centre de données pour le service cloud et les nœuds qui se trouvent dans ce centre de données.
+1. Copy the PowerShell script below into a text editor and set the variable values to suit your environment (defaults have been provided for some parameters). Note that if your availability group spans Azure regions, you must run the script once in each datacenter for the cloud service and nodes that reside in that datacenter.
 
-		# Define variables
-		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
-		$AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
+        # Define variables
+        $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
+        $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
 
-		# Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
-		ForEach ($node in $AGNodes)
-		{
-		    Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
-		}
+        # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
+        ForEach ($node in $AGNodes)
+        {
+            Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
+        }
 
-1. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche >>, appuyez sur Entrée pour vous assurer que le script s'exécute.
+1. Once you have set the variables, copy the script from the text editor into your Azure PowerShell session to run it. If the prompt still shows >>, type ENTER again to make sure the script starts running.
 
-## Vérifiez que KB2854082 est installé le cas échéant
+## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Verify that KB2854082 is installed if necessary
 
 [AZURE.INCLUDE [kb2854082](../../includes/virtual-machines-ag-listener-kb2854082.md)]
 
-## Ouvrez les ports de pare-feu dans des nœuds de groupe de disponibilité
+## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>Open the firewall ports in availability group nodes
 
-[AZURE.INCLUDE [pare-feu](../../includes/virtual-machines-ag-listener-open-firewall.md)]
+[AZURE.INCLUDE [firewall](../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
-## Créer l'écouteur de groupe de disponibilité
+## <a name="create-the-availability-group-listener"></a>Create the availability group listener
 
-[AZURE.INCLUDE [pare-feu](../../includes/virtual-machines-ag-listener-create-listener.md)]
+[AZURE.INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. Pour l'équilibrage de charge externe, vous devrez obtenir l'adresse IP virtuelle publique du service cloud qui contient vos réplicas. Connectez-vous au portail Azure Classic. Accédez au service cloud qui contient les machines virtuelles de votre groupe de disponibilité. Ouvrez le **Tableau de bord**.
+1. For external load balancing, you must obtain the public virtual IP address of the cloud service that contains your replicas. Log into the Azure classic portal. Navigate to the cloud service that contains your availability group VM. Open the **Dashboard** view.
 
-3. Notez l'adresse affichée sous **Adresse IP virtuelle (VIP) publique**. Si votre solution couvre des réseaux virtuels, répétez cette étape pour chaque service cloud contenant une machine virtuelle qui héberge un réplica.
+3. Note the address shown under **Public Virtual IP (VIP) Address**. If your solution spans VNets, repeat this step for each cloud service that contains a VM that hosts a replica.
 
-4. Copiez le script PowerShell ci-dessous dans un éditeur de texte sur l'une des machines virtuelles et définissez les variables sur les valeurs notées précédemment.
+4. On one of the VMs, copy the PowerShell script below into a text editor and set the variables to the values you noted earlier.
 
-		# Define variables
-		$ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-		$IPResourceName = "<IPResourceName>" # the IP Address resource name
-		$CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
+        # Define variables
+        $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+        $IPResourceName = "<IPResourceName>" # the IP Address resource name
+        $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
 
-		Import-Module FailoverClusters
+        Import-Module FailoverClusters
 
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+        # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
 
-		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+        # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
+        # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
 
 
-1. Une fois les variables définies, ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, puis copiez le script de l'éditeur de texte et collez-le dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche >>, appuyez sur Entrée pour vous assurer que le script s'exécute.
+1. Once you have set the variables, open an elevated Windows PowerShell window, then copy the script from the text editor and paste into your Azure PowerShell session to run it. If the prompt still shows >>, type ENTER again to make sure the script starts running.
 
-1. Répétez cette procédure sur chaque machine virtuelle. Ce script configure la ressource Adresse IP avec l'adresse IP du service cloud et définit d'autres paramètres, tels que le port de la sonde. Lorsque la ressource d'adresse IP est mise en ligne, elle peut ensuite répondre à l'interrogation sur le port de la sonde du point de terminaison à équilibrage de charge créé précédemment dans ce didacticiel.
+1. Repeat this on each VM. This script configures the IP Address resource with the IP address of the cloud service and sets other parameters like the probe port. When the IP Address resource is brought online, it can then respond to the polling on the probe port from the load-balanced endpoint created earlier in this tutorial.
 
-## Mettre l'écouteur en ligne
+## <a name="bring-the-listener-online"></a>Bring the listener online
 
 [AZURE.INCLUDE [Bring-Listener-Online](../../includes/virtual-machines-ag-listener-bring-online.md)]
 
-## Éléments de suivi
+## <a name="follow-up-items"></a>Follow-up items
 
 [AZURE.INCLUDE [Follow-up](../../includes/virtual-machines-ag-listener-follow-up.md)]
 
-## Tester l'écouteur du groupe de disponibilité (au sein du même réseau virtuel)
+## <a name="test-the-availability-group-listener-(within-the-same-vnet)"></a>Test the availability group listener (within the same VNet)
 
 [AZURE.INCLUDE [Test-Listener-Within-VNET](../../includes/virtual-machines-ag-listener-test.md)]
 
-## Tester l'écouteur du groupe de disponibilité (sur Internet)
+## <a name="test-the-availability-group-listener-(over-the-internet)"></a>Test the availability group listener (over the internet)
 
-Pour accéder à l'écouteur depuis l'extérieur du réseau virtuel, vous devez utiliser l'équilibrage de charge externe/public (décrit dans cette rubrique) au lieu de l'équilibrage de charge interne, qui est accessible uniquement dans le même réseau virtuel. Dans la chaîne de connexion, vous spécifiez le nom du service cloud. Par exemple, si vous avez un service cloud nommé *mycloudservice*, l’instruction sqlcmd se présente comme suit :
+In order to access the listener from outside the virtual network, you must be using external/public load balancing (described in this topic) rather than ILB, which is only accesible within the same VNet. In the connection string, you specify the cloud service name. For example, if you had a cloud service with the name *mycloudservice*, the sqlcmd statement would be as follows:
 
-	sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+    sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-Contrairement à l'exemple précédent, l'authentification SQL est nécessaire, car l'appelant ne peut pas utiliser l'authentification Windows sur internet. Pour plus d’informations, voir [Always On Availability Group in Azure VM: Client Connectivity Scenarios](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx) (Groupes de disponibilité Always On dans Azure VM : scénarios de connectivité client). Lorsque vous utilisez l'authentification SQL, veillez à créer la même connexion sur les deux réplicas. Pour plus d’informations sur la résolution des problèmes de connexions avec des groupes de disponibilité, consultez la rubrique [Comment mapper des connexions ou utiliser des utilisateurs de base de données SQL à relation contenant-contenu pour se connecter à d’autres réplicas et mapper aux bases de données de disponibilité](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+Unlike the previous example, SQL authentication must be used, because the caller cannot use windows authentication over the internet. For more information, see [Always On Availability Group in Azure VM: Client Connectivity Scenarios](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). When using SQL authentication, make sure that you create the same login on both replicas. For more information about troubleshooting logins with Availability Groups, see [How to map logins or use contained SQL database user to connect to other replicas and map to availability databases](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
-Si les réplicas Always On figurent dans des sous-réseaux distincts, les clients doivent spécifier **MultisubnetFailover=True** dans la chaîne de connexion. Cela entraîne des tentatives parallèles de connexion aux réplicas dans les différents sous-réseaux. Notez que ce scénario inclut un déploiement de groupe de disponibilité Always On dans plusieurs régions.
+If the Always On replicas are in different subnets, clients must specify **MultisubnetFailover=True** in the connection string. This results in parallel connection attempts to replicas in the different subnets. Note that this scenario includes a cross-region Always On Availability Group deployment.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

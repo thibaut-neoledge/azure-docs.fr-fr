@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modèle Resource Manager pour les verrous de ressources | Microsoft Azure"
-   description="Affiche le schéma Resource Manager pour le déploiement de verrous de ressources par le biais d'un modèle."
+   pageTitle="Resource Manager template for resource locks | Microsoft Azure"
+   description="Shows the Resource Manager schema for deploying resource locks through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,16 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="10/03/2016"
    ms.author="tomfitz"/>
 
-# Verrou de ressources, schéma de modèle
 
-Crée un nouveau verrou sur une ressource et ses ressources enfants.
+# <a name="resource-locks-template-schema"></a>Resource locks template schema
 
-## Format de schéma
+Creates a lock on a resource and its child resources.
 
-Pour créer un verrou, ajoutez le schéma suivant à la section des ressources de votre modèle.
+## <a name="schema-format"></a>Schema format
+
+To create a lock, add the following schema to the resources section of your template.
     
     {
         "type": enum,
@@ -38,47 +39,46 @@ Pour créer un verrou, ajoutez le schéma suivant à la section des ressources d
 
 
 
-## Valeurs
+## <a name="values"></a>Values
 
-Les tableaux suivants décrivent les valeurs que vous devez définir dans le schéma.
+The following tables describe the values you need to set in the schema.
 
-| Nom | Valeur |
-| ---- | ---- | 
-| type | Enum<br />Requis<br />**{namespace}/{type}/providers/locks** - pour des ressources ou <br />**Microsoft.Authorization/locks** - pour des groupes de ressources<br /><br />Type de ressource à créer. |
-| apiVersion | Enum<br />Requis<br />**2015-01-01**<br /><br />Version de l’API à utiliser pour créer la ressource. |  
-| name | String<br />Requis<br />**{resource}/Microsoft.Authorization/{lockname}** - pour des ressources ou<br />**{lockname}** - pour des groupes de ressources<br />jusqu’à 64 caractères et ne peut pas contenir <, > %, &, ? ou les caractères de contrôle.<br /><br />Une valeur qui spécifie à la fois la ressource à verrouiller et le nom du verrou. |
-| dependsOn | Array<br />Facultatif<br />Une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.<br /><br />La collection de ressources dont dépend ce verrou. Si la ressource que vous verrouillez est déployée dans le même modèle, incluez ce nom de ressource dans cet élément pour garantir que la ressource est tout d'abord déployée. | 
-| properties | Object<br />Requis<br />[properties object](#properties)<br /><br />Objet qui identifie le type de verrou et des remarques sur le verrou. |  
+| Name | Required | Description |
+| ---- | -------- | ----------- |
+| type | Yes | The resource type to create.<br /><br />For resources:<br />**{namespace}/{type}/providers/locks**<br /><br/>For resource groups:<br />**Microsoft.Authorization/locks** |
+| apiVersion | Yes | The API version to use for creating the resource.<br /><br />Use:<br />**2015-01-01**<br /><br /> |
+| name | Yes | A value that specifies both the resource to lock and a name for the lock. Can be up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />For resources:<br />**{resource}/Microsoft.Authorization/{lockname}**<br /><br />For resource groups:<br />**{lockname}** |
+| dependsOn | No | A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
+| properties | Yes | An object that identifies the type of lock, and notes about the lock.<br /><br />See [properties object](#properties-object). |  
 
-<a id="properties" />
-### objet propriétés
+### <a name="properties-object"></a>properties object
 
-| Nom | Valeur |
-| ------- | ---- |
-| level | Enum<br />Requis<br />**CannotDelete**<br /><br />Le type de verrou à appliquer à l'étendue. CanNotDelete permet la modification, mais empêche toute suppression. |
-| HDInsight | String<br />Facultatif<br />jusqu’à 512 caractères<br /><br />Description du verrou. |
+| Name | Required | Description |
+| ---- | -------- | ----------- |
+| level   | Yes | The type of lock to apply to the scope.<br /><br />**CannotDelete** - users can modify resource but not delete it.<br />**ReadOnly** - users can read from a resource, but they can't delete it or perform any actions on it. |
+| notes   | No | Description of the lock. Can be up to 512 characters. |
 
 
-## Utilisation de la ressource de verrouillage
+## <a name="how-to-use-the-lock-resource"></a>How to use the lock resource
 
-Vous ajoutez cette ressource à votre modèle pour empêcher des actions spécifiées sur une ressource. Le verrou s'applique à tous les utilisateurs et groupes. En règle générale, vous appliquez un verrou pour une durée limitée, par exemple lorsqu'un processus est en cours d'exécution et que vous souhaitez vous assurer que personne dans votre organisation ne modifie ou ne supprime par mégarde une ressource.
+You add this resource to your template to prevent specified actions on a resource. The lock applies to all users and groups.
 
-Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure](./active-directory/role-based-access-control-configure.md).
+To create or delete management locks, you must have access to **Microsoft.Authorization/*** or **Microsoft.Authorization/locks/*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions. For information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
-Le verrou est appliqué à la ressource spécifiée et à toutes les ressources enfants.
+The lock is applied to the specified resource and any child resources.
 
-Vous pouvez supprimer un verrou avec la commande PowerShell **Remove-AzureRmResourceLock** ou avec l'[opération de suppression](https://msdn.microsoft.com/library/azure/mt204562.aspx) de l'API REST.
+You can remove a lock with the PowerShell command **Remove-AzureRmResourceLock** or with the [delete operation](https://msdn.microsoft.com/library/azure/mt204562.aspx) of the REST API.
 
-## Exemples
+## <a name="examples"></a>Examples
 
-L’exemple suivant applique un verrou cannot-delete (suppression impossible) à une application web.
+The following example applies a cannot-delete lock to a web app.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "hostingPlanName": {
-      			"type": "string"
+                "type": "string"
             }
         },
         "variables": {
@@ -109,7 +109,7 @@ L’exemple suivant applique un verrou cannot-delete (suppression impossible) à
         "outputs": {}
     }
 
-L’exemple suivant applique un verrou cannot-delete (suppression impossible) au groupe de ressources.
+The next example applies a cannot-delete lock to the resource group.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -131,9 +131,13 @@ L’exemple suivant applique un verrou cannot-delete (suppression impossible) au
         "outputs": {}
     }
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- Pour plus d'informations sur la structure du modèle, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
-- Pour plus d'informations sur les verrous, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
+- For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+- For more information about locks, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

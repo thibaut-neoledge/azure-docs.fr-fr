@@ -2,45 +2,48 @@
 
 
 
-Les extensions de machine virtuelle peuvent vous aider à :
+VM extensions can help you:
 
--   modifier les fonctionnalités de sécurité et d'identité telles que la réinitialisation des valeurs de compte et l'utilisation de logiciels anti-programmes malveillants ;
--   démarrer, arrêter ou configurer la surveillance et les diagnostics ;
--   réinitialiser ou installer des fonctionnalités de connectivité, telles que RDP et SSH ;
--   diagnostiquer, surveiller et gérer vos machines virtuelles.
+-   Modify security and identity features, such as resetting account values and using antimalware
+-   Start, stop, or configure monitoring and diagnostics
+-   Reset or install connectivity features, such as RDP and SSH
+-   Diagnose, monitor, and manage your VMs
 
-Il existe de nombreuses autres fonctionnalités, et de nouvelles fonctionnalités sont régulièrement ajoutées aux extensions de machine virtuelle. Cet article décrit les agents de machine virtuelle Azure pour Windows et Linux, et la manière dont ils prennent en charge la fonctionnalité d'extension de machine virtuelle. Pour obtenir une liste des extensions de machine virtuelle par catégorie de fonctionnalité, consultez la rubrique [Fonctionnalités et extensions de machine virtuelle Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).
+There are many other features as well; new VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).
 
-##Agents de machine virtuelle Azure pour Windows et Linux
+##<a name="azure-vm-agents-for-windows-and-linux"></a>Azure VM Agents for Windows and Linux
 
-L'agent de machines virtuelles Azure (VM Agent) est un processus léger et sécurisé qui installe, configure et supprime des extensions de machine virtuelle sur des instances de machines virtuelles Azure à partir de la galerie d'images et sur des instances de machine virtuelle personnalisées si l'agent de machine virtuelle est installé. L'agent de machine virtuelle joue le rôle du service de contrôle local sécurisé pour votre machine virtuelle Azure. Les extensions chargées par l'agent fournissent des fonctionnalités spécifiques pour augmenter votre productivité à l'aide de l'instance.
+The Azure Virtual Machines Agent (VM Agent) is a secured, light-weight process that installs, configures, and removes VM extensions on instances of Azure Virtual Machines from the Image Gallery and on custom VM instances if they have the VM Agent installed. The VM Agent acts as the secure local control service for your Azure VM. The extensions that the agent loads provide specific features to increase your productivity using the instance.
 
-Il existe deux agents de machine virtuelle Azure, un pour les machines virtuelles Windows et l'autre pour les machines virtuelles Linux. Par défaut, l'agent de machine virtuelle est installé automatiquement lorsque vous créez une machine virtuelle à partir de la galerie d'images, mais vous pouvez également l'installer une fois l'instance créée ou l'installer dans une image de machine virtuelle personnalisée que vous téléchargez ensuite vous-même.
+There are two Azure VM Agents, one for Windows VMs and one for Linux VMs. By default, the VM Agent is automatically installed when you create a VM from the Image Gallery, but you can also install the VM Agent after the instance is created or install it in a custom VM image that you then upload yourself.
 
->[AZURE.IMPORTANT] Ces agents de machine virtuelle sont des services légers permettant la gestion sécurisée des instances de machine virtuelle. Il se peut que vous ne souhaitiez pas utiliser l'agent de machine virtuelle dans certains cas. Veillez alors à créer des machines virtuelles sur lesquelles l'agent de machine virtuelle n'est pas installé. Bien que l'agent de machine virtuelle puisse être supprimé physiquement, le comportement de toute extension de machine virtuelle sur l'instance n'est pas défini. Par conséquent, la suppression de l'agent de machine virtuelle après son installation n'est pas actuellement prise en charge.
+>[AZURE.IMPORTANT] These VM Agents are very light-weight, services that enable secured administration of virtual machine instances. There might be cases in which you do not want the VM Agent. If so, be sure to create VMs that do not have the VM Agent installed. Although the VM Agent can be removed physically, the behavior of any VM Extensions on the instance is undefined. As a result, removing the VM Agent once it is installed is not supported at this time.
 
-L'agent de machine virtuelle est activé dans les situations suivantes :
+The VM Agent is enabled in the following situations:
 
--   Lorsque vous créez une instance d’une machine virtuelle à l’aide de la méthode **Création rapide** dans le portail Azure Classic ou à l’aide de la méthode **Création personnalisée** dans le portail Azure Classic. Assurez-vous que la case à cocher **Installer l’agent de machine virtuelle** est sélectionnée (comme indiqué dans l’image ci-dessous). Pour plus d’informations, consultez la rubrique [Création d’une machine virtuelle personnalisée](../articles/virtual-machines/virtual-machines-windows-classic-createportal.md).
+-   When you create an instance of a VM by using the **Quick Create** method in the Azure classic portal, or by using the **Custom Create** method in the Azure classic portal and making sure that the **Install the VM Agent** checkbox is selected (as shown in the image below). For more information, see [How to Create a Custom Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-createportal.md).
 
-    ![Case à cocher Agent de machine virtuelle](./media/virtual-machines-common-classic-agents-and-extensions/IC719409.png)
+    ![VM Agent Checkbox](./media/virtual-machines-common-classic-agents-and-extensions/IC719409.png)
 
--   Quand vous créez une instance d’une machine virtuelle à l’aide de l’applet de commande [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) ou [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx). Vous pouvez créer une machine virtuelle sans l’Agent de machine virtuelle installé en ajoutant le paramètre **–DisableGuestAgent** à l’applet de commande [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
+-   When you create an instance of a VM by using the [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) or the [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx) cmdlet. You can create a VM without the VM Agent installed by adding the **–DisableGuestAgent** parameter to the [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) cmdlet.
 
--   En téléchargeant et en installant manuellement l’Agent de machine virtuelle (version Linux ou Windows) sur une instance de machine virtuelle existante et en définissant ensuite la valeur **ProvisionGuestAgent** sur **true** à l’aide de PowerShell ou d’un appel REST. (Si vous ne définissez pas cette valeur après l'installation manuelle de l'Agent de machine virtuelle, l'ajout de l'Agent de machine virtuelle n'est pas détecté correctement). L’exemple de code suivant montre comment effectuer cette opération à l’aide de PowerShell où les arguments `$svc` et `$name` ont déjà été spécifiés.
+-   By manually downloading and installing the VM Agent (either the Windows or Linux version) on an existing VM instance and then setting the **ProvisionGuestAgent** value to **true** using PowerShell or a REST call. (If you do not set this value after manually installing the VM Agent, the addition of the VM Agent is not detected properly.) The following code example shows how to do this using PowerShell where the `$svc` and `$name` arguments have already been determined.
 
         $vm = Get-AzureVM –ServiceName $svc –Name $name
         $vm.VM.ProvisionGuestAgent = $TRUE
         Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
--   En créant une image de machine virtuelle disposant de l'agent de machine virtuelle installé avant son téléchargement dans Azure. Pour une machine virtuelle Windows, téléchargez le [fichier Windows VM Agent .msi](http://go.microsoft.com/fwlink/?LinkID=394789) et installez l’agent de machine virtuelle. Pour une machine virtuelle Linux, installez-le depuis le référentiel GitHub situé dans <https://github.com/Azure/WALinuxAgent>. Pour plus d’informations sur la manière d’installer l’agent de machine virtuelle sur Linux, consultez le [Guide de l’utilisateur de l’agent de machine virtuelle Linux Azure (Azure Linux VM Agent User Guide)](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md).
+-   By creating a VM image that has the VM Agent installed prior to uploading it to Azure. For a Windows VM, download the [Windows VM Agent .msi file](http://go.microsoft.com/fwlink/?LinkID=394789) and install the VM Agent. For a Linux VM, you will install it from the GitHub repository located at <https://github.com/Azure/WALinuxAgent>. For more information on how to install the VM Agent on Linux, see the [Azure Linux VM Agent User Guide](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md).
 
->[AZURE.NOTE]Dans PaaS, l’agent de machine virtuelle est appelé **WindowsAzureGuestAgent**. Il est toujours disponible sur les machines virtuelles web et de rôle de travail. (Pour plus d’informations, consultez [Architecture de rôle Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) L'agent de machine virtuelle pour les machines virtuelles de rôle peut maintenant ajouter des extensions aux machines virtuelles de service cloud de la même manière que pour les machines virtuelles persistantes. La différence majeure entre les extensions de machine virtuelle sur des machines virtuelles de rôle et des machines virtuelles persistantes est que, avec des machines virtuelles de rôle, les extensions sont ajoutées au service de cloud en premier, puis ensuite aux déploiements au sein de ce service cloud.
+>[AZURE.NOTE]In PaaS, the VM Agent is called **WindowsAzureGuestAgent**, and is always available on Web and Worker Role VMs. (For more information, see [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) The VM Agent for Role VMs can now add extensions to the cloud service VMs in the same way that it does for persistent Virtual Machines. The biggest difference between VM Extensions on role VMs and persistent VMs is that with role VMs, extensions are added to the cloud service first and then to the deployments within that cloud service.
 
->Utilisez l’applet de commande [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) pour répertorier toutes les extensions de machine virtuelle de rôle disponibles.
+>Use the [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet to list all available role VM extensions.
 
-##Rechercher, ajouter, mettre à jour et supprimer des extensions de machine virtuelle  
+##<a name="find,-add,-update,-and-remove-vm-extensions"></a>Find, Add, Update, and Remove VM Extensions  
 
-Pour plus d’informations sur ces tâches, consultez [Ajouter, rechercher, mettre à jour et supprimer des extensions de machines virtuelles Azure](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

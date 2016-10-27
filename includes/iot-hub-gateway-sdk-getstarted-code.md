@@ -1,44 +1,44 @@
-## Exemple de résultat
+## <a name="typical-output"></a>Typical output
 
-Voici un exemple de résultat inscrit dans le fichier journal par l’exemple Hello World. Des sauts de ligne et des tabulations ont été ajoutés pour une meilleure lisibilité :
+Below is an example of the output written to the log file by the Hello World sample. Newline and Tab characters have been added for legibility:
 
 ```
 [{
-	"time": "Mon Apr 11 13:48:07 2016",
-	"content": "Log started"
+    "time": "Mon Apr 11 13:48:07 2016",
+    "content": "Log started"
 }, {
-	"time": "Mon Apr 11 13:48:48 2016",
-	"properties": {
-		"helloWorld": "from Azure IoT Gateway SDK simple sample!"
-	},
-	"content": "aGVsbG8gd29ybGQ="
+    "time": "Mon Apr 11 13:48:48 2016",
+    "properties": {
+        "helloWorld": "from Azure IoT Gateway SDK simple sample!"
+    },
+    "content": "aGVsbG8gd29ybGQ="
 }, {
-	"time": "Mon Apr 11 13:48:55 2016",
-	"properties": {
-		"helloWorld": "from Azure IoT Gateway SDK simple sample!"
-	},
-	"content": "aGVsbG8gd29ybGQ="
+    "time": "Mon Apr 11 13:48:55 2016",
+    "properties": {
+        "helloWorld": "from Azure IoT Gateway SDK simple sample!"
+    },
+    "content": "aGVsbG8gd29ybGQ="
 }, {
-	"time": "Mon Apr 11 13:49:01 2016",
-	"properties": {
-		"helloWorld": "from Azure IoT Gateway SDK simple sample!"
-	},
-	"content": "aGVsbG8gd29ybGQ="
+    "time": "Mon Apr 11 13:49:01 2016",
+    "properties": {
+        "helloWorld": "from Azure IoT Gateway SDK simple sample!"
+    },
+    "content": "aGVsbG8gd29ybGQ="
 }, {
-	"time": "Mon Apr 11 13:49:04 2016",
-	"content": "Log stopped"
+    "time": "Mon Apr 11 13:49:04 2016",
+    "content": "Log stopped"
 }]
 ```
 
-## Extraits de code
+## <a name="code-snippets"></a>Code snippets
 
-Cette section présente certains éléments clés du code dans l'exemple Hello World.
+This section discusses some key parts of the code in the Hello World sample.
 
-### Création de la passerelle
+### <a name="gateway-creation"></a>Gateway creation
 
-Le développeur doit écrire le *processus de passerelle*. Ce programme crée l’infrastructure interne (le répartiteur), charge les modules et configure tous les éléments pour qu’ils fonctionnent correctement. Le SDK fournit la fonction **Gateway\_Create\_From\_JSON** pour vous permettre d'amorcer une passerelle à partir d'un fichier JSON. Pour utiliser la fonction **Gateway\_Create\_From\_JSON**, vous devez lui transmettre le chemin d'accès à un fichier JSON qui spécifie les modules à charger.
+The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the modules, and sets everything up to function correctly. The SDK provides the **Gateway_Create_From_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway_Create_From_JSON** function you must pass it the path to a JSON file that specifies the modules to load. 
 
-Vous trouverez le code du processus de passerelle dans l'exemple Hello World du fichier [main.c][lnk-main-c]. Pour une meilleure lisibilité, l'extrait de code ci-dessous montre une version abrégée du code du processus de passerelle. Ce programme crée une passerelle puis attend que l'utilisateur appuie sur la touche **ENTRÉE** avant de mettre fin à la passerelle.
+You can find the code for the gateway process in the Hello World sample in the [main.c][lnk-main-c] file. For legibility, the snippet below shows an abbreviated version of the gateway process code. This program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway. 
 
 ```
 int main(int argc, char** argv)
@@ -55,23 +55,23 @@ int main(int argc, char** argv)
         (void)getchar();
         Gateway_LL_Destroy(gateway);
     }
-	return 0;
+    return 0;
 }
 ```
 
-Le fichier de paramètres JSON contient une liste des modules à charger. Chaque module doit spécifier les éléments suivants :
+The JSON settings file contains a list of modules to load. Each module must specify a:
 
-- **nom\_module** : un nom unique pour le module.
-- **chemin\_module** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows.
-- **args** : toute information de configuration nécessaire au module.
+- **module_name**: a unique name for the module.
+- **module_path**: the path to the library containing the module. For Linux this is a .so file, on Windows this is a .dll file.
+- **args**: any configuration information the module needs.
 
-Le fichier JSON contient également les liaisons entre les modules qui seront transmis au répartiteur. Une liaison possède deux propriétés :
-- **source** : un nom de module de la section `modules`, ou « * » ;
-- **récepteur** : un nom de module de la section `modules`.
+The JSON file also contains the links between the modules that will be passed to the broker. A link has two properties:
+- **source**: a module name from the `modules` section, or "\*".
+- **sink**: a module name from the `modules` section
 
-Chaque liaison définit un itinéraire de message et une direction. Les messages du module `source` doivent être remis au module `sink`. `source` peut avoir la valeur « * », qui signifie que `sink` recevra des messages à partir de n’importe quel module.
+Each link defines a message route and direction. Messages from module `source` are to be delivered to the module `sink`. The `source` may be set to "\*", indicating that messages from any module will be received by `sink`.
 
-L'exemple suivant montre le fichier de paramètres JSON utilisé pour configurer l'exemple Hello World sous Linux. Tous les messages générés par le module `hello_world` seront utilisés par le module `logger`. La nécessité d’attribuer un argument à un module dépend de la conception du module. Dans cet exemple, le module enregistreur prend un argument qui correspond au chemin d'accès au fichier de sortie, et le module Hello World n'accepte aucun argument :
+The following sample shows the JSON settings file used to configure the Hello World sample on Linux. Every message produced by module `hello_world` will be consumed by module `logger`. Whether a module requires an argument depends on the design of the module. In this example, the logger module takes an argument which is the path to the output file and the Hello World module does not take any arguments:
 
 ```
 {
@@ -85,7 +85,7 @@ L'exemple suivant montre le fichier de paramètres JSON utilisé pour configurer
         {
             "module name" : "hello_world",
             "module path" : "./modules/hello_world/libhello_world_hl.so",
-			"args" : null
+            "args" : null
         }
     ],
     "links" :
@@ -98,9 +98,9 @@ L'exemple suivant montre le fichier de paramètres JSON utilisé pour configurer
 }
 ```
 
-### Publication des messages du module Hello World
+### <a name="hello-world-module-message-publishing"></a>Hello World module message publishing
 
-Vous trouverez le code utilisé par le module « hello world » pour publier des messages dans le fichier [« hello\_world.c »][lnk-helloworld-c]. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
+You can find the code used by the "hello world" module to publish messages in the ['hello_world.c'][lnk-helloworld-c] file. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
 
 ```
 int helloWorldThread(void *param)
@@ -148,9 +148,9 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Traitement des messages du module Hello World
+### <a name="hello-world-module-message-processing"></a>Hello World module message processing
 
-Le module Hello World n’a jamais besoin de traiter les messages que les autres modules publient sur le répartiteur. Cela rend inopérante l’implémentation du rappel de message dans le module Hello World.
+The Hello World module never needs to process any messages that other modules publish to the broker. This makes implementation of the message callback in the Hello World module a no-op function.
 
 ```
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -159,11 +159,11 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### Publication et traitement des messages du module enregistreur
+### <a name="logger-module-message-publishing-and-processing"></a>Logger module message publishing and processing
 
-Le module enregistreur reçoit des messages du répartiteur et les inscrit dans un fichier. Il ne publie jamais les messages. Par conséquent, le code du module enregistreur n’appelle jamais la fonction **Broker\_Publish**.
+The Logger module receives messages from the broker and writes them to a file. It never publishes any messages. Therefore, the code of the logger module never calls the **Broker_Publish** function.
 
-La fonction **Logger\_Receive** du fichier [logger.c][lnk-logger-c] est le rappel que le répartiteur appelle pour remettre les messages au module enregistreur. L'extrait de code ci-dessous montre une version modifiée avec des commentaires supplémentaires et un code de gestion d’erreur supprimé pour une meilleure lisibilité :
+The **Logger_Recieve** function in the [logger.c][lnk-logger-c] file is the callback the broker invokes to deliver messages to the logger module. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -186,17 +186,17 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
     // Start the construction of the final string to be logged by adding
     // the timestamp
-    STRING_HANDLE jsonToBeAppended = STRING_construct(",{"time":"");
+    STRING_HANDLE jsonToBeAppended = STRING_construct(",{\"time\":\"");
     STRING_concat(jsonToBeAppended, timetemp);
 
     // Add the message properties
-    STRING_concat(jsonToBeAppended, "","properties":"); 
+    STRING_concat(jsonToBeAppended, "\",\"properties\":"); 
     STRING_concat_with_STRING(jsonToBeAppended, jsonProperties);
 
     // Add the content
-    STRING_concat(jsonToBeAppended, ","content":"");
+    STRING_concat(jsonToBeAppended, ",\"content\":\"");
     STRING_concat_with_STRING(jsonToBeAppended, contentAsJSON);
-    STRING_concat(jsonToBeAppended, ""}]");
+    STRING_concat(jsonToBeAppended, "\"}]");
 
     // Write the formatted string
     LOGGER_HANDLE_DATA *handleData = (LOGGER_HANDLE_DATA *)moduleHandle;
@@ -204,12 +204,12 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passerelle, consultez les rubriques suivantes :
+To learn about how to use the Gateway SDK, see the following:
 
-- [Kit de développement logiciel (SDK) de la passerelle IoT– envoyer des messages appareil-à-cloud avec un appareil simulé à l’aide de Linux][lnk-gateway-simulated].
-- [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk] sur GitHub.
+- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
+- [Azure IoT Gateway SDK][lnk-gateway-sdk] on GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -218,4 +218,6 @@ Pour savoir comment utiliser le Kit de développement logiciel (SDK) de la passe
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

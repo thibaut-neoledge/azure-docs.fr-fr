@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Azure RemoteApp : test de votre bande passante réseau avec quelques scénarios courants | Microsoft Azure"
-	description="Découvrez les scénarios d’utilisation courants qui peuvent vous aider à déterminer vos besoins en bande passante réseau pour Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+    pageTitle="Azure RemoteApp - testing your network bandwidth usage with some common scenarios | Microsoft Azure"
+    description="Learn how about common usage scenarios that can help you figure out your network bandwidth needs for Azure RemoteApp."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -15,37 +15,38 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
     
-# Azure RemoteApp : test de l’utilisation de votre bande passante réseau avec quelques scénarios courants
+
+# <a name="azure-remoteapp---testing-your-network-bandwidth-usage-with-some-common-scenarios"></a>Azure RemoteApp - testing your network bandwidth usage with some common scenarios
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Comme expliqué dans [Estimation de l’utilisation de la bande passante réseau Azure RemoteApp](remoteapp-bandwidth.md), la meilleure façon de comprendre l’impact d’Azure RemoteApp sur votre réseau est d’exécuter des tests d’utilisation. Exécutez ces tests pour une période donnée et mesurez la bande passante nécessaire pour chaque scénario. Si vous en avez la possibilité, vous pouvez également mesurer la perte de paquets réseau et l’instabilité du réseau pour comprendre les modèles de réseau qui seront créés dans votre environnement spécifique.
+As we discussed in [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md), the best way to figure out what the impact of Azure RemoteApp to your network is to run some usage tests. Run these tests for a set time period and measure the bandwidth needed for each scenario. If you have the capability, you can also measure the network packet loss and network jitter to understand the network patterns that will be created in your specific environment.
 
     
-Lors de l’évaluation de l’utilisation de la bande passante, n’oubliez pas que l’utilisation varie entre les différents utilisateurs de votre entreprise. Par exemple, les lecteurs et rédacteurs de texte consomment généralement moins de bande passante que les utilisateurs qui utilisent la vidéo. Pour obtenir de meilleurs résultats, étudiez les besoins de vos utilisateurs et créez une combinaison des scénarios suivants qui représente au mieux les utilisateurs de votre entreprise. N’oubliez pas de [consulter les facteurs qui ont une influence sur l’utilisation de la bande passante et l’expérience des utilisateurs](remoteapp-bandwidthexperience.md) pour vous aider à identifier les tests idéaux.
+When evaluating the bandwidth usage, remember that usage varies between different users within your company. For example, text readers and writers usually consume less bandwidth than users that work with video. For best results, study your own user needs and create a mix of the following scenarios that best represents the users in your company. Remember to [review the factors that impact bandwidth usage and user experience](remoteapp-bandwidthexperience.md) - that will help you identify the ideal tests.
 
-Commencez par lire la description des tests, choisissez votre combinaison et exécutez-la. Vous pouvez utiliser le tableau suivant pour faciliter le suivi des performances.
+First read about the tests, pick your mix, and then run them. You can use the table below to help track performance.
 
->[AZURE.NOTE] Si vous ne pouvez pas faire vos propres tests de réseau ou si vous n’avez pas le temps de le faire, consultez nos [recommandations et estimations de base relatives à la bande passante réseau](remoteapp-bandwidthguidelines.md). Néanmoins, comme votre consommation peut varier, *exécutez* vos propres tests si vous en avez la possibilité.
+>[AZURE.NOTE] If you cannot do your own network testing, or you do not have the time to do so, check out our [basic network bandwidth estimates/recommendations](remoteapp-bandwidthguidelines.md). Your mileage may vary, however, so if you *can* run your own tests, you should.
 
 
-## Tests de l’utilisation
-Chaque test est exécuté pour une période différente et teste différentes fonctions/fonctionnalités qui consomment de la bande passante réseau. N’oubliez pas de choisir la combinaison de tests qui correspond le mieux aux utilisateurs de votre entreprise.
+## <a name="the-usage-tests"></a>The usage tests
+Each of these tests run for different amounts of time and test different functions/features that consume network bandwidth. Remember to choose the mix of test that best matches your individual company users.
  
-### Présentation PowerPoint complexe avec animations, exécutée pendant une durée allant de 900 et 1 000 secondes
+### <a name="executive/complex-powerpoint---run-for-900-1000-seconds"></a>Executive/complex PowerPoint - Run for 900-1000 seconds
 
-Un utilisateur présente entre 45 et 50 diapositives haute fidélité en utilisant Microsoft Office PowerPoint en mode plein écran. Les diapositives doivent contenir des images, des transitions (avec des animations) et des arrière-plans avec dégradé de couleur typiques de votre entreprise. L’utilisateur doit passer au moins 20 secondes sur chaque diapositive.
+A user presents between 45-50 high-fidelity slides by using Microsoft Office PowerPoint in full-screen mode. The slides should contain images, transitions (with animations), and backgrounds with color gradient that are typical for your company. The user should spend at least 20 seconds on each slide.
     
-Ce scénario crée un trafic immense lorsqu’une diapositive passe à la diapositive suivante de la présentation.
+This scenario creates bursty traffic, when a slide transitions to the next slide in the presentation.
     
-### Présentation PowerPoint simple exécutée pendant environ 620 secondes
+### <a name="simple-powerpoint---run-for-~620-seconds"></a>Simple PowerPoint - Run for ~620 seconds
 
-Un utilisateur présente un simple fichier PowerPoint incluant environ 30 diapositives en utilisant Microsoft Office PowerPoint en mode plein écran. Les diapositives ont plus de texte que dans le scénario précédent et leurs arrière-plans et images (diagrammes noirs) sont plus simples.
+A user presents a simple PowerPoint file with approximately 30 slides by using Microsoft Office PowerPoint in full-screen mode. The slides are more text-intensive than in the Executive/complex PowerPoint scenario and have simpler backgrounds and images (black diagrams). 
     
-### Internet Explorer exécuté pendant environ 250 secondes
+### <a name="internet-explorer---run-for-~250-seconds"></a>Internet Explorer - Run for ~250 seconds
 
-Un utilisateur parcourt le web à l’aide d’Internet Explorer. Il consulte et fait défiler un mélange de texte, d’images et de schémas. Les pages web sont stockées sur le disque local du serveur hôte de session Bureau à distance en tant que fichier MHT. L’utilisateur fait défiler à l’aide des touches Pg préc, Pg suiv, Haut et Bas, avec des intervalles différents pour chaque type de défilement :
+A user browses the web by using Internet Explorer. The user browses and scrolls through a mix of text, natural images, and some schematic diagrams. The web pages stored on the local disk drive of the Remote Desktop Session Host (RD Session Host) server as an .MHT file. The user scrolls using Page Up, Page Down, Up, and Down keys, with varying intervals for each key/type of scroll:
     
     - Down - 250 keystrokes very 500 ms
     - Page Up - 36 keystrokes every 1000 ms
@@ -53,51 +54,54 @@ Un utilisateur parcourt le web à l’aide d’Internet Explorer. Il consulte et
     - Page Down - 20 keystrokes every 500 ms
     - Up - 120 keystrokes every 300 ms
     
-### Simple document PDF exécuté pendant environ 610 secondes
-Un utilisateur lit un document PDF dans lequel il effectue des recherches de différentes manières à l’aide d’Adobe Acrobat Reader. Le document doit être composé de tableaux, de graphiques simples et de plusieurs polices de texte. Le document est constitué de 35 à 40 pages. L’utilisateur fait défiler à deux vitesses différentes d’avant en arrière, à quatre différents niveaux de zoom (Ajuster à la page, Ajuster à la largeur, 100 % et un autre niveau de votre choix). Le zoom permet de s’assurer que le texte (la police) peut être restitué dans différentes tailles. Le défilement est effectué à l’aide des touches Pg préc, Pg suiv, Haut et Bas, avec des intervalles différents pour chaque défilement.
+### <a name="pdf-document---simple---run-for-~610-seconds"></a>PDF document - simple - Run for ~610 seconds
+A user reads and searches a PDF document in various ways by using Adobe Acrobat Reader. The document should consist of tables, simple graphs, and multiple text fonts. The document is 35-40 pages long. The user scrolls through at two different rates, backwards and forwards, at four different zoom sizes (fit to page, fit to width, 100%, and another of your choosing). The zooming ensures that the text (font) renders in different sizes. Scrolling is down using the Page Up, Page Down, Up, and Down keys, with varying intervals for each scroll.
 
-### Document PDF (mixte) exécuté pendant environ 320 secondes
-Un utilisateur lit un document PDF dans lequel il effectue des recherches de différentes manières à l’aide d’Adobe Acrobat Reader. Le document se compose d’images de haute qualité (y compris des photographies), de tableaux, de graphiques simples et de plusieurs polices de texte. L’utilisateur fait défiler à deux vitesses différentes d’avant en arrière, à quatre différents niveaux de zoom (Ajuster à la page, Ajuster à la largeur, 100 % et un autre niveau de votre choix). Le zoom permet de s’assurer que le texte (la police) peut être restitué dans différentes tailles. Le défilement est effectué à l’aide des touches Pg préc, Pg suiv, Haut et Bas, avec des intervalles différents pour chaque défilement.
+### <a name="pdf-document---mixed---run-for-~320-seconds"></a>PDF document - mixed - Run for ~320 seconds
+A user reads and searches a PDF document in various ways by using Adobe Acrobat Reader. The document consists of high-quality images (including photographs), tables, simple graphs, and multiple text fonts. The user scrolls through at two different rates, backwards and forwards, at four different zoom sizes (fit to page, fit to width, 100%, and another of your choosing). The zooming ensures that the text (font) renders in different sizes. Scrolling is down using the Page Up, Page Down, Up, and Down keys, with varying intervals for each scroll.
 
-### Lecture d’une vidéo au format Flash pendant environ 180 secondes
-Un utilisateur consulte une vidéo au format Adobe Flash incorporée dans une page web. La page web est stockée dans le disque dur local du serveur hôte de session Bureau à distance. La vidéo est lue dans Internet Explorer par un plug-in de lecteur incorporé.
+### <a name="flash-video-playback---run-for-~180-seconds"></a>Flash video playback - Run for ~180 seconds
+A user views an Adobe Flash-encoded video embedded in a web page. The web page is stored in the local hard drive of the RD Session Host server. The video is played within Internet Explorer by an embedded player plug-in.
 
-Ce scénario présente des utilisateurs qui consultent le contenu multimédia de pages web. La plupart des données doivent être lues via VOBR.
+This scenario emulates users viewing rich content web pages containing multimedia. Most of the data should bo through VOBR.
 
-### Saisie à distance sur Word pendant environ 1 800 secondes
-Un utilisateur tape un document au moyen d’une session Bureau à distance. Les séquences de touches sont envoyées de la session Bureau à distance du client vers un document dans Microsoft Word exécuté à distance. La vitesse de frappe est de 1 caractère toutes les 250 ms (7 050 caractères au total).
+### <a name="word-remote-typing---run-for-~1800-seconds"></a>Word remote typing - Run for ~1800 seconds
+A user types a document over an RDP session. Keystrokes are sent from the client side through the RDP session to a document in Microsoft Word running in the remote session. The typing rate is one character every 250 ms (total 7050 characters). 
 
-Il s’agit d’un des scénarios les plus courants pour un travailleur du savoir. Ce scénario teste la réactivité d’un utilisateur entrant du contenu dans un traitement de texte moderne. Ce scénario est sensible aux changements même mineurs dans l’utilisation de la bande passante.
+This is one of the most common scenarios for a knowledge worker. This scenario tests the responsiveness of a user typing into a modern work processor. This scenario is sensitive to even small changes in bandwidth usage.
 
-## Suivi des résultats des tests
+## <a name="tracking-the-test-results"></a>Tracking the test results
 
-Vous pouvez utiliser le tableau suivant pour évaluer les scénarios dans votre environnement. Les données ci-dessous sont fournies uniquement à titre d’illustration : elles peuvent être différentes de ce que vous observez.
+You can use the following table to evaluate the scenarios in your environment. The data provided below is just for illustration - it may be vastly different from what you observe. 
 
-Pour plus de simplicité, nous partons du principe que tous les scénarios sont testés dans l’environnement suivant : résolution d’écran de 1920 x 1080 pixels, transports TCP sur un réseau avec une latence (délai) inférieure à 200 ms et instabilité réseau de 120 ms à plus ou moins 1 %.
+For simplicity, we assume that all scenarios are tested using the same 1920x1080 pixels screen resolution and TCP transports on a network with latency (delay) below 200 ms and network jitter in the 120 ms+ mark of about 1%.
 
-À propos du tableau :
-- **Expérience moyenne** contient la bande passante du réseau, où la productivité des utilisateurs n’est pas affectée de manière significative, mais peut rencontrer des problèmes ponctuels de signal audio ou vidéo. Le système est en mesure de récupérer rapidement en tirant parti de la logique dynamique. Les estimations de la bande passante réseau tentent de garantir la qualité de l’expérience utilisateur.
- - **Problèmes notables (point d’arrêt)** contient la bande passante réseau, où les utilisateurs peuvent remarquer des problèmes importants dans leur expérience et où leur productivité est impactée pendant des délais mesurables. À ce stade, les algorithmes du Bureau à distance sont en difficulté et ne peuvent pas garantir la qualité de l’expérience utilisateur en raison d’une bande passante réseau insuffisante.
- - **Bande passante réseau recommandée** contient la bande passante recommandée pour une expérience utilisateur bonne ou excellente. Cette bande passante est généralement supérieure d’un cran à la valeur correspondante dans la colonne **Expérience moyenne**.
- - **Notes** inclut les observations et commentaires.
+About the table:
+- **Average experience** contains the network bandwidth where user productivity is not significantly impacted but does not exclude occasional video or audio glitches. The system is able to recover quickly by taking advantage of the dynamic logic. The network bandwidth estimates attempt to guarantee the quality of the user experience.
+ - **Noticeable issues (break point)** contains the network bandwidth where users might notice significant issues in their experience, and their productivity is impacted for measurable time periods. At this point the RDP algorithms are struggling and cannot guarantee the user's quality of experience because of insufficient network bandwidth.
+ - **Recommended** contains the network bandwidth recommended for good or excellent experience. It is usually one step higher than the value in the corresponding **Average experience** column.
+ - **Notes** include observations and comments.
  
-| Test | Expérience moyenne | Problèmes notables (point d’arrêt) | Bande passante réseau recommandée | Remarques |
+| Test                  | Average experience | Noticeable issues (break point) | Recommended network bandwidth | Notes                                                              |
 |-----------------------|--------------------|---------------------------------|-------------------------------|--------------------------------------------------------------------|
-| PowerPoint complexe avec animations | 10 Mo/s | 1 Mo/s | > 10 Mo/s, de préférence 100 Mo/s | À une vitesse de 1 Mo/s, de nombreuses animations sont perdues |
-| Simple PowerPoint | 5 Mo/s | 256 Ko/s | 10 Mo/s | À une vitesse de 256 Ko/s, le chargement des diapositives rencontre un retard notable |
-| Internet Explorer | 10 Mo/s | 1 Mo/s | > 10 Mo/s, de préférence 100 Mo/s | À une vitesse de 1 Mo/s, les vidéos web sont floues et hachées et le défilement rapide rencontre des problèmes |
-| PowerPoint simple | 1 Mo/s | 256 Ko/s | 5 Mo/s | À une vitesse de 256 Ko/s, il faut du temps pour charger la page |
-| PDF mixte | 1 Mo/s | 256 Ko/s | 5 Mo/s | À une vitesse de 256 Ko/s, le chargement de la page prend beaucoup de temps |
-| Lecture de vidéo au format Flash | 10 Mo/s | 1 Mo/s | > 10 Mo/s, de préférence 100 Mo/s | À une vitesse de 1 Mo/s, la vidéo est granuleuse et certaines images sont supprimées |
-| Saisie à distance sur Word | 256 Ko/s | 128 Ko/s | 1 Mo/s | À une vitesse de 256 Ko/s, l’utilisateur peut remarquer un délai entre les séquences de touches |
+| Executive/complex PPT | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s many animations are lost                                   |
+| Simple PPT            | 5 MB/s              | 256 KB/s                         | 10 MB/s                        | At 256 KB/s the slides load with noticeable delay                   |
+| Internet Explorer     | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s web videos are blurry and choppy, fast scrolling has issues |
+| Simple PDF            | 1 MB/s              | 256 KB/s                         | 5 MB/s                         | At 256 KB/s it takes a while to load the page                       |
+| Mixed PDF             | 1 MB/s             | 256 KB/s                         | 5 MB/s                         | At 256 KB/s the page takes a considerable amount of time to load    |
+| Flash video playback  | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s the video is grainy and some frames are dropped           |
+| Word remote typing    | 256 KB/s            | 128 KB/s                         | 1 MB/s                         | At 256 KB/s user may notice the time between keystrokes             |
 
-Pour évaluer la bande passante réseau par utilisateur, créez une combinaison des scénarios ci-dessus et la proportion correspondante de bande passante réseau requise. Choisissez le nombre le plus élevé requis pour vos scénarios. Étant donné que les utilisateurs n’utilisent presque jamais le système seuls, prévoyez certaines réserves pour les utilisateurs qui travaillent simultanément sur le même réseau.
+To evaluate the network bandwidth per user, create a mix of the above scenarios and the corresponding proportion of required network bandwidth. Pick the highest number needed for your scenarios. Since users almost never use the system alone, consider some reserve for users that work simultaneously on the same network.
      
-## En savoir plus
-- [Estimation de l’utilisation de la bande passante réseau Azure RemoteApp](remoteapp-bandwidth.md)
+## <a name="learn-more"></a>Learn more
+- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
 
-- [Azure RemoteApp : quelle est la corrélation entre la bande passante réseau et la qualité de l’expérience d’utilisation ?](remoteapp-bandwidthexperience.md)
+- [Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
 
-- [Bande passante réseau Azure RemoteApp : instructions générales (si vous ne pouvez pas tester votre propre bande passante)](remoteapp-bandwidthguidelines.md)
+- [Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

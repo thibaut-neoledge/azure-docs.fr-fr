@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Activation de la synchronisation hors connexion pour votre application Azure Mobile App (Xamarin iOS)"
-    description="Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Xamarin iOS"
+    pageTitle="Enable offline sync for your Azure Mobile App (Xamarin iOS)"
+    description="Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin iOS application"
     documentationCenter="xamarin"
-    authors="wesmc7777"
+    authors="adrianhall"
     manager="dwrede"
     editor=""
     services="app-service\mobile"/>
@@ -13,30 +13,77 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/19/2016"
-    ms.author="wesmc"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Activer la synchronisation hors connexion pour votre application mobile Xamarin.iOS
+
+# <a name="enable-offline-sync-for-your-xamarin.ios-mobile-app"></a>Enable offline sync for your Xamarin.iOS mobile app
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## Vue d'ensemble
+## <a name="overview"></a>Overview
 
-Ce didacticiel présente la fonctionnalité de synchronisation hors connexion d’Azure Mobile Apps pour Xamarin.iOS. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu’il n’existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l’appareil de nouveau en ligne, ces modifications sont synchronisées avec le service distant.
+This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamarin.iOS. Offline sync allows end users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote service.
 
-Dans ce didacticiel, vous allez mettre à jour le projet d’application Xamarin.iOS dans [Création d’une application Xamarin iOS] pour prendre en charge les fonctionnalités hors connexion d’Azure Mobile Apps. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+In this tutorial, update the Xamarin.iOS app project from [Create a Xamarin iOS app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Pour plus d’informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps].
+To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
-## Examiner le code de synchronisation client
+## <a name="update-the-client-app-to-support-offline-features"></a>Update the client app to support offline features
 
-Le projet client Xamarin que vous avez téléchargé quand vous avez suivi le didacticiel [Création d’une application Xamarin iOS] contient déjà du code prenant en charge la synchronisation hors connexion à l’aide d’une base de données SQLite locale. Voici un bref aperçu de ce qui est déjà inclus dans le code du didacticiel. Pour obtenir une vue d’ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Azure Mobile Apps].
+Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use these features in your app, initialize a [SyncContext] to a local store. Reference your table through the [IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
 
-* Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. La base de données du magasin local est initialisée quand `QSTodoListViewController.ViewDidLoad()` exécute `QSTodoService.InitializeStoreAsync()`. Cette opération crée une base de données SQLite locale à l’aide de la classe `MobileServiceSQLiteStore` fournie par le Kit de développement logiciel (SDK) client Azure Mobile App.
+1. Open the NuGet package manager in the project that you completed in the [Create a Xamarin iOS app] tutorial,  then search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package.
 
-	La méthode `DefineTable` crée une table dans le magasin local qui correspond aux champs dans le type fourni, `ToDoItem` ici. Ce type n’a pas besoin d’inclure toutes les colonnes qui se trouvent dans la base de données distante. Il est possible de stocker uniquement un sous-ensemble de colonnes.
+2. Open the QSTodoService.cs file and uncomment the `#define OFFLINE_SYNC_ENABLED` definition.
 
-		// QSTodoService.cs
+3. Rebuild and run the client app. The app works the same as it did before you enabled offline sync. However, the local database is now populated with data that can be used in an offline scenario.
+
+## <a name="<a-name="update-sync"></a>update-the-app-to-disconnect-from-the-backend"></a><a name="update-sync"></a>Update the app to disconnect from the backend
+
+In this section, you break the connection to your Mobile App backend to simulate an offline situation. When you add data items, your exception handler tells you that the app is in offline mode. In this state, new items added in the local store and will be synced to the mobile app backend when push is next run in a connected state.
+
+1. Edit QSToDoService.cs in the shared project. Change the **applicationURL** to point to an invalid URL:
+
+         const string applicationURL = @"https://your-service.azurewebsites.fail";
+
+    You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or using airplane mode.
+
+2. Build and run the app. Notice your sync failed on refresh when the app launched.
+
+3. Enter new items and notice that push fails with a [CancelledByNetworkError] status each time you click **Save**. However, the new todo items exist in the local store until they can be pushed to the mobile app backend.  In a production app, if you suppress these exceptions the client app behaves as if it's still connected to the mobile app backend.
+
+4. Close the app and restart it to verify that the new items you created are persisted to the local store.
+
+5. (Optional) If you have Visual Studio installed on a PC, open **Server Explorer**. Navigate to your database in **Azure**-> **SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents. Verify that the data in the backend database has not changed.
+
+6. (Optional) Use a REST tool such as Fiddler or Postman to query your mobile backend, using a GET query in the form `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
+
+## <a name="<a-name="update-online-app"></a>update-the-app-to-reconnect-your-mobile-app-backend"></a><a name="update-online-app"></a>Update the app to reconnect your Mobile App backend
+
+In this section, reconnect the app to the mobile app backend. This simulates the app moving from an offline state to an online state with the mobile app backend.   If you simulated the network breakage by turning off network connectivity, no code changes are needed.
+Turn the network on again.  When you first run the application, the `RefreshDataAsync` method is called. This in turn calls `SyncAsync` to sync your local store with the backend database.
+
+1. Open QSToDoService.cs in the shared project, and revert your change of the **applicationURL** property.
+
+2. Rebuild and run the app. The app syncs your local changes with the Azure Mobile App backend using push and pull operations when the `OnRefreshItemsSelected` method executes.
+
+3. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler. Notice the data has been synchronized between the Azure Mobile App backend database and the local store.
+
+4. In the app, click the check box beside a few items to complete them in the local store.
+
+  `CompleteItemAsync` calls `SyncAsync` to sync each completed item with the Mobile App backend. `SyncAsync` calls both push and pull.
+  **Whenever you execute a pull against a table that the client has made changes to, a push on the client sync context is always executed first automatically**. The implicit push ensures all tables in the local store along with relationships remain consistent. For more information on this behavior, see [Offline Data Sync in Azure Mobile Apps].
+
+## <a name="review-the-client-sync-code"></a>Review the client sync code
+
+The Xamarin client project that you downloaded when you completed the tutorial [Create a Xamarin iOS app] already contains code supporting offline synchronization using a local SQLite database. Here is a brief overview of what is already included in the tutorial code. For a conceptual overview of the feature, see [Offline Data Sync in Azure Mobile Apps].
+
+* Before any table operations can be performed, the local store must be initialized. The local store database is initialized when `QSTodoListViewController.ViewDidLoad()` executes `QSTodoService.InitializeStoreAsync()`. This method creates a new local SQLite database using the `MobileServiceSQLiteStore` class provided by the Azure Mobile App client SDK.
+
+    The `DefineTable` method creates a table in the local store that matches the fields in the provided type, `ToDoItem` in this case. The type doesn't have to include all the columns that are in the remote database. It is possible to store just a subset of columns.
+
+        // QSTodoService.cs
 
         public async Task InitializeStoreAsync()
         {
@@ -48,20 +95,15 @@ Le projet client Xamarin que vous avez téléchargé quand vous avez suivi le di
         }
 
 
-* Le membre `todoTable` de `QSTodoService` est du type `IMobileServiceSyncTable` au lieu d’`IMobileServiceTable`. Ainsi, toutes les opérations de table CRUD (Create, Read, Update et Delete) sont redirigées vers la base de données du magasin local.
+* The `todoTable` member of `QSTodoService` is of the `IMobileServiceSyncTable` type instead of `IMobileServiceTable`. The IMobileServiceSyncTable directs all create, read, update, and delete (CRUD) table operations to the local store database.
 
-	Vous décidez à quel moment ces modifications sont envoyées au serveur principal Azure Mobile App en appelant `IMobileServiceSyncContext.PushAsync()` à l’aide du contexte de synchronisation pour la connexion cliente. Le contexte de synchronisation permet de conserver les relations entre les tables grâce au suivi et à l’envoi des modifications dans toutes les tables qu’une application cliente modifie quand `PushAsync` est appelé.
+    You decide when those changes are pushed to the Azure Mobile App backend by calling `IMobileServiceSyncContext.PushAsync()`. The sync context helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when `PushAsync` is called.
 
-	Le code fourni appelle `QSTodoService.SyncAsync()` pour effectuer une synchronisation chaque fois que la liste des éléments de tâche est actualisée ou qu’un élément de tâche est ajouté ou terminé. Ainsi, la synchronisation a lieu dès qu’une modification locale a exécuté un envoi sur le contexte de synchronisation et une extraction sur la table de synchronisation. Toutefois, si une extraction est exécutée sur une table qui comporte des mises à jour locales en attente faisant l’objet d’un suivi en fonction du contexte, cette opération déclenche automatiquement un envoi sur le contexte au préalable. Donc, dans pareil cas (actualisation, ajout et achèvement des éléments), vous pouvez omettre l’appel `PushAsync` explicite, car il est redondant.
+    The provided code calls `QSTodoService.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. The app syncs after every local change. If a pull is executed against a table that has pending local updates tracked by the context, that pull operation will automatically trigger a context push first.
 
-    Dans le code fourni, tous les enregistrements de la table `TodoItem` distante sont interrogés, mais il est également possible de filtrer les enregistrements en transmettant un ID de requête et une requête à `PushAsync`. Pour plus d’informations, consultez la section *Synchronisation incrémentielle* dans [Synchronisation des données hors connexion dans Azure Mobile Apps].
+    In the provided code, all records in the remote `TodoItem` table are queried, but it is also possible to filter records by passing a query id and query to `PushAsync`. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
 
-	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->
-
-
-		// QSTodoService.cs
-
+        // QSTodoService.cs
         public async Task SyncAsync()
         {
             try
@@ -77,83 +119,20 @@ Le projet client Xamarin que vous avez téléchargé quand vous avez suivi le di
         }
 
 
-## Exécuter l’application cliente
+## <a name="additional-resources"></a>Additional Resources
 
-Exécutez l’application cliente au moins une fois pour remplir la base de données du magasin local. Dans la section suivante, vous allez simuler un scénario hors connexion et modifier les données du magasin local pendant que l’application est hors connexion.
-
-
-## Mettre à jour le comportement de synchronisation de l’application cliente
-
-Dans cette section, vous allez modifier le projet client pour simuler un scénario hors connexion à l’aide d’une URL d’application non valide pour votre backend. Quand vous ajoutez ou modifiez des éléments de données, ces modifications sont conservées dans le magasin local, mais ne sont synchronisées avec le magasin de données principal qu’une fois la connexion rétablie.
-
-1. Au début de `QSTodoService.cs`, modifiez l'initialisation de `applicationURL` pour qu'elle pointe vers une URL non valide :
-
-        const string applicationURL = @"https://your-service.azurewebsites.xxx/";
-
-
-2. Ajoutez un autre `catch` pour la classe `Exception` dans `QSTodoService.SyncAsync`, destiné à écrire le message d’exception dans la console.
-
-        public async Task SyncAsync()
-        {
-            try
-            {
-                await client.SyncContext.PushAsync();
-                await todoTable.PullAsync("allTodoItems", todoTable.CreateQuery()); // query ID is used for incremental sync
-            }
-            catch (MobileServiceInvalidOperationException e)
-            {
-                Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine(@"Exception: {0}", ex.Message);
-            }
-        }
-
-3. Générez et exécutez l’application cliente. Ajouter de nouveaux éléments de tâche et notez l’exception consignée dans la console pour chaque tentative de synchronisation avec le backend d’application Mobile App. Ces nouveaux éléments se trouvent uniquement dans le magasin local jusqu’à ce qu’ils puissent être transmis par push vers le backend mobile. L’application cliente se comporte comme si elle est connectée au backend et prend en charge toutes les opérations de création, lecture, mise à jour et suppression.
-
-4. Fermez l’application et redémarrez-la pour vérifier que les nouveaux élément que vous avez créés sont conservés dans le magasin local.
-
-5. (Facultatif) À l’aide de Visual Studio, affichez votre table Azure SQL Database pour constater que les données dans la base de données principale n’ont pas changé.
-
-	Dans Visual Studio, ouvrez l'**Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu.
-
-
-## Mettre à jour l’application cliente pour reconnecter votre backend mobile
-
-Dans cette section, vous allez reconnecter l'application au backend mobile, ce qui simule le retour de l'application à un état en ligne. Quand vous effectuez le mouvement d'actualisation, les données sont synchronisées avec votre backend mobile.
-
-1. Ouvrez `QSTodoService.cs`. Corrigez le paramètre `applicationURL` de manière à ce qu’il pointe vers l’URL correcte.
-
-2. Régénérez et exécutez l’application cliente. Après son lancement, l’application tente une synchronisation avec le backend d’application Azure Mobile App. Vérifiez qu’aucune exception n’est consignée dans la console de débogage.
-
-3. (Facultatif) Affichez les données mises à jour à l’aide de l’Explorateur d’objets SQL Server ou d’un outil REST tel que Fiddler. Notez que les données ont été synchronisées entre la base de données principale Azure Mobile App et le magasin local.
-
-    Notez que les données ont été synchronisées entre la base de données et le magasin local et qu’elles contiennent les éléments que vous avez ajoutés pendant que votre application était déconnectée.
-
-## Ressources supplémentaires
-
-* [Synchronisation des données hors connexion dans Azure Mobile Apps]
-
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] \(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
-
-<!-- ##Summary
-
-[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../../includes/mobile-services-offline-summary-csharp.md)]
-
-## Next steps
-
-* [Handling conflicts with offline support for Mobile Services]
-
-* [How to use the Xamarin Component client for Azure Mobile Services]
- -->
+* [Offline Data Sync in Azure Mobile Apps]
+* [Azure Mobile Apps .NET SDK HOWTO][8]
 
 <!-- Images -->
 
 <!-- URLs. -->
-[Création d’une application Xamarin iOS]: app-service-mobile-xamarin-ios-get-started.md
-[Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
-[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Create a Xamarin iOS app]: app-service-mobile-xamarin-ios-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
+[8]: app-service-mobile-dotnet-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,68 +1,68 @@
 > [AZURE.SELECTOR]
-- [C sur Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
-- [C sur Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-- [C sur mbed](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
-- [Node.JS](../articles/iot-suite/iot-suite-connecting-devices-node.md)
+- [C on Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
+- [C on Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
+- [C on mbed](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
+- [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
 
-## Présentation du scénario
+## <a name="scenario-overview"></a>Scenario overview
 
-Dans ce scénario, vous allez créer un appareil qui envoie la télémétrie suivante à la [solution préconfigurée][lnk-what-are-preconfig-solutions] de surveillance à distance :
+In this scenario, you create a device that sends the following telemetry to the remote monitoring [preconfigured solution][lnk-what-are-preconfig-solutions]:
 
-- Température externe
-- Température interne
-- Humidité
+- External temperature
+- Internal temperature
+- Humidity
 
-Par souci de simplicité, le code sur l’appareil génère des valeurs d’exemple, mais nous vous encourageons à étendre l'exemple en connectant des capteurs réels à votre appareil et en envoyant une télémétrie réelle.
+For simplicity, the code on the device generates sample values, but we encourage you to extend the sample by connecting real sensors to your device and sending real telemetry.
 
-Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk-free-trial].
+To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 
-## Avant de commencer
+## <a name="before-you-start"></a>Before you start
 
-Avant d’écrire du code pour votre appareil, vous devez approvisionner votre solution préconfigurée de surveillance à distance, puis approvisionner un nouvel appareil personnalisé dans cette solution.
+Before you write any code for your device, you must provision your remote monitoring preconfigured solution and then provision a new custom device in that solution.
 
-### Approvisionner la solution préconfigurée de surveillance à distance
+### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Provision your remote monitoring preconfigured solution
 
-L’appareil que vous créez dans ce didacticiel envoie des données à une instance de la solution préconfigurée de [surveillance à distance][lnk-remote-monitoring]. Si vous n’avez pas déjà approvisionné la solution préconfigurée de surveillance à distance dans votre compte Azure, procédez comme suit :
+The device you create in this tutorial sends data to an instance of the [remote monitoring][lnk-remote-monitoring] preconfigured solution. If you haven't already provisioned the remote monitoring preconfigured solution in your Azure account, follow the steps below:
 
-1. Sur la page <https://www.azureiotsuite.com/>, cliquez sur **+** pour créer une solution.
+1. On the <https://www.azureiotsuite.com/> page, click **+** to create a new solution.
 
-2. Cliquez sur **Sélectionner** dans le panneau **Surveillance à distance** pour créer votre solution.
+2. Click **Select** on the **Remote monitoring** panel to create your new solution.
 
-3. Sur la page **Créer une solution de surveillance à distance**, entrez un **nom de solution**, sélectionnez la **région** où vous souhaitez déployer la solution, puis choisissez l’abonnement Azure à utiliser. Cliquez ensuite sur **Créer la solution**.
+3. On the **Create Remote monitoring solution** page, enter a **Solution name** of your choice, select the **Region** you want to deploy to, and select the Azure subscription to want to use. Then click **Create solution**.
 
-4. Attendez la fin du processus de configuration.
+4. Wait until the provisioning process completes.
 
-> [AZURE.WARNING] Les solutions préconfigurées utilisent des services Azure facturables. Veillez à supprimer la solution préconfigurée de votre abonnement lorsque vous avez terminé pour éviter toute facturation inutile. Vous pouvez supprimer complètement une solution préconfigurée de votre abonnement en vous rendant à la page <https://www.azureiotsuite.com/>.
+> [AZURE.WARNING] The preconfigured solutions use billable Azure services. Be sure to remove the preconfigured solution from your subscription when you are done with it to avoid any unnecessary charges. You can completely remove a preconfigured solution from your subscription by visiting the <https://www.azureiotsuite.com/> page.
 
-Au terme du processus d’approvisionnement de la solution de surveillance à distance, cliquez sur **Lancer** pour ouvrir le tableau de bord de la solution dans votre navigateur.
+When the provisioning process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 
 ![][img-dashboard]
 
-### Configurer votre appareil dans la solution de surveillance à distance
+### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Provision your device in the remote monitoring solution
 
-> [AZURE.NOTE] Si vous avez déjà approvisionné un appareil dans votre solution, vous pouvez ignorer cette étape. Vous devez connaître les informations d'identification de l’appareil lorsque vous créez l'application cliente.
+> [AZURE.NOTE] If you have already provisioned a device in your solution, you can skip this step. You will need to know the device credentials when you create the client application.
 
-Pour qu’un appareil puisse se connecter à la solution préconfigurée, il doit s’identifier auprès d’IoT Hub à l’aide d’informations d’identification valides. Vous pouvez récupérer les informations d’identification de l’appareil à partir du tableau de bord de la solution. Les informations d’identification de l’appareil seront ajoutées dans votre application cliente dans la suite de ce didacticiel.
+For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial. 
 
-Pour ajouter un nouvel appareil à votre solution de surveillance à distance, procédez comme suit dans le tableau de bord de la solution :
+To add a new device to your remote monitoring solution, complete the following steps in the solution dashboard:
 
-1.  Dans le coin inférieur gauche du tableau de bord, cliquez sur **Ajouter un périphérique**.
+1.  In the lower left-hand corner of the dashboard, click **Add a device**.
 
     ![][1]
 
-2.  Dans le panneau **Périphérique personnalisé**, cliquez sur **Ajouter nouveau**.
+2.  In the **Custom Device** panel, click on **Add new**.
 
     ![][2]
 
-3.  Choisissez **Me laisser définir mon propre ID d’appareil**, saisissez un ID d’appareil comme **monappareil**, cliquez sur **Vérifier l’ID** pour vous assurer que ce nom n’est pas déjà utilisé, puis cliquez sur **Créer** pour approvisionner l’appareil.
+3.  Choose **Let me define my own Device ID**, enter a Device ID such as **mydevice**, click **Check ID** to verify that name isn't already in use, and then click **Create** to provision the device.
 
     ![][3]
 
-5. Notez les informations d’identification de l’appareil (ID de l’appareil, nom d’hôte IoT Hub et clé de l’appareil). Votre application cliente en a besoin pour se connecter à la solution de surveillance à distance. Cliquez ensuite sur **Terminé**.
+5. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key), your client application needs them to connect to the remote monitoring solution. Then click **Done**.
 
     ![][4]
 
-6. Assurez-vous que votre appareil s’affiche dans la section Appareils. L’état de l’appareil est **En attente** jusqu’à ce que l’appareil puisse établir une connexion à la solution de surveillance à distance.
+6. Make sure your device displays in the devices section. The device status is **Pending** until the device establishes a connection to the remote monitoring solution.
 
     ![][5]
 
@@ -77,4 +77,6 @@ Pour ajouter un nouvel appareil à votre solution de surveillance à distance, p
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,89 +1,90 @@
 <properties 
-	pageTitle="Mettre en service une application Web qui utilise une base de données SQL" 
-	description="Utiliser un modèle Azure Resource Manager pour déployer une application Web qui inclut une base de données SQL." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Provision a web app that uses a SQL Database" 
+    description="Use an Azure Resource Manager template to deploy a web app that includes a SQL Database." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="cephalin"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="04/27/2016" 
+    ms.author="cephalin"/>
 
-# Mettre en service une application Web avec une base de données SQL
 
-Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie une application Web et une base de données SQL. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
+# <a name="provision-a-web-app-with-a-sql-database"></a>Provision a web app with a SQL Database
 
-Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+In this topic, you will learn how to create an Azure Resource Manager template that deploys a web app and SQL Database. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-Pour le modèle complet, consultez [Modèle d'application Web avec une base de données SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+For more information about deploying apps, see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md).
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+For the complete template, see [Web App With SQL Database template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
-## Ce que vous allez déployer
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
-Dans ce modèle, vous allez déployer :
+## <a name="what-you-will-deploy"></a>What you will deploy
 
-- une application Web
-- Serveur de base de données SQL
-- Base de données SQL
-- Paramètres de mise à l'échelle automatique
-- Règles d'alerte
+In this template, you will deploy:
+
+- a web app
+- SQL Database server
+- SQL Database
+- AutoScale settings
+- Alert rules
 - App Insights
 
-Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+To run the deployment automatically, click the following button:
 
-[![Déploiement sur Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![Deploy to Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-## Paramètres à spécifier
+## <a name="parameters-to-specify"></a>Parameters to specify
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
-### administratorLogin
+### <a name="administratorlogin"></a>administratorLogin
 
-Le nom du compte à utiliser pour l'administrateur du serveur de base de données.
+The account name to use for the database server administrator.
 
     "administratorLogin": {
       "type": "string"
     }
 
-### administratorLoginPassword
+### <a name="administratorloginpassword"></a>administratorLoginPassword
 
-Le mot de passe à utiliser pour l'administrateur du serveur de base de données.
+The password to use for the database server administrator.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
-### databaseName
+### <a name="databasename"></a>databaseName
 
-Le nom de la base de données à créer.
+The name of the new database to create.
 
     "databaseName": {
       "type": "string",
       "defaultValue": "sampledb"
     }
 
-### collation
+### <a name="collation"></a>collation
 
-Le classement de base de données à utiliser pour régir l'utilisation appropriée des caractères.
+The database collation to use for governing the proper use of characters.
 
     "collation": {
       "type": "string",
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     }
 
-### edition
+### <a name="edition"></a>edition
 
-Le type de base de données à créer.
+The type of database to create.
 
     "edition": {
       "type": "string",
@@ -98,18 +99,18 @@ Le type de base de données à créer.
       }
     }
 
-### maxSizeBytes
+### <a name="maxsizebytes"></a>maxSizeBytes
 
-La taille maximale, en octets, de la base de données.
+The maximum size, in bytes, for the database.
 
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
-### requestedServiceObjectiveName
+### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
 
-Le nom correspondant au niveau de performances pour l'édition.
+The name corresponding to the performance level for edition. 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -128,9 +129,9 @@ Le nom correspondant au niveau de performances pour l'édition.
       }
     }
 
-## Variables pour les noms
+## <a name="variables-for-names"></a>Variables for names
 
-Ce modèle inclut des variables qui construisent les noms utilisés dans le modèle. Les valeurs des variables utilisent la fonction **uniqueString** pour générer un nom à partir de l’ID du groupe de ressources.
+This template includes variables that construct names used in the template. The variable values use the **uniqueString** function to generate a name from the resource group id.
 
     "variables": {
         "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -139,11 +140,11 @@ Ce modèle inclut des variables qui construisent les noms utilisés dans le mod�
     },
 
 
-## Ressources à déployer
+## <a name="resources-to-deploy"></a>Resources to deploy
 
-### Base de données SQL et serveur SQL Server
+### <a name="sql-server-and-database"></a>SQL Server and Database
 
-Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est spécifié dans le paramètre **serverName** et l'emplacement est spécifié dans le paramètre **serverLocation**. Lorsque vous créez le serveur, vous devez fournir un nom et un mot de passe de connexion pour l'administrateur du serveur de base de données.
+Creates a new SQL Server and database. The name of the server is specified in the **serverName** parameter and the location specified in the **serverLocation** parameter. When creating the new server, you must provide a login name and password for the database server administrator. 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -195,7 +196,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 
-### Application web
+### <a name="web-app"></a>Web app
 
     {
       "apiVersion": "2015-08-01",
@@ -232,7 +233,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
     },
 
 
-### Mise à l'échelle automatique
+### <a name="autoscale"></a>AutoScale
 
     {
       "apiVersion": "2014-04-01",
@@ -302,7 +303,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
     },
 
 
-### Règles d'alerte pour les codes d'état 403 et 500, utilisation du processeur et longueur de file d'attente HTTP élevées 
+### <a name="alert-rules-for-status-codes-403-and-500's,-high-cpu,-and-http-queue-length"></a>Alert rules for status codes 403 and 500's, High CPU, and HTTP Queue Length 
 
     {
       "apiVersion": "2014-04-01",
@@ -441,7 +442,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
       }
     },
     
-### App Insights
+### <a name="app-insights"></a>App Insights
 
     {
       "apiVersion": "2014-04-01",
@@ -460,19 +461,23 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
       }
     }
 
-## Commandes pour l’exécution du déploiement
+## <a name="commands-to-run-deployment"></a>Commands to run deployment
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-### Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

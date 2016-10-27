@@ -1,212 +1,213 @@
 <properties
-	pageTitle="Prise en main de l’explorateur de stockage (version préliminaire) | Microsoft Azure"
-	description="Gérer les ressources de stockage Azure avec l’Explorateur de stockage (version préliminaire)"
-	services="storage"
-	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
-	editor="" />
+    pageTitle="Getting started with Storage Explorer (Preview) | Microsoft Azure"
+    description="Manage Azure storage resources with Storage Explorer (Preview)"
+    services="storage"
+    documentationCenter="na"
+    authors="TomArcher"
+    manager="douge"
+    editor="" />
 
  <tags
-	ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/17/2016"
-	ms.author="tarcher" />
+    ms.service="storage"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="08/17/2016"
+    ms.author="tarcher" />
 
-# Prise en main de l’explorateur de stockage (version préliminaire)
 
-## Vue d'ensemble 
+# <a name="getting-started-with-storage-explorer-(preview)"></a>Getting started with Storage Explorer (Preview)
 
-L’explorateur de stockage Microsoft Azure (version préliminaire) est une application autonome qui vous permet d’utiliser facilement les données Azure Storage sur Windows, OSX et Linux. Dans cet article, vous découvrirez les différentes façons de vous connecter à vos comptes de stockage Azure et de les gérer.
+## <a name="overview"></a>Overview 
 
-![Explorateur de stockage Microsoft Azure (version préliminaire)][15]
+Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, OS X, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
 
-## Configuration requise
+![Microsoft Azure Storage Explorer (Preview)][15]
 
-- [Télécharger et installer l’explorateur de stockage (version préliminaire)](http://www.storageexplorer.com)
+## <a name="prerequisites"></a>Prerequisites
 
-## Connexion à un service ou un compte de stockage
+- [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
 
-L’explorateur de stockage (version préliminaire) offre de nombreuses façons de se connecter à des comptes de stockage. Il vous permet notamment de vous connecter aux comptes de stockage associés à vos abonnements Azure, de vous connecter à des services et comptes de stockage partagés à partir d’autres abonnements Azure et même de vous connecter au stockage local et de le gérer à l’aide de l’émulateur de stockage Azure :
+## <a name="connect-to-a-storage-account-or-service"></a>Connect to a storage account or service
 
-- [Connexion à un abonnement Azure](#connect-to-an-azure-subscription) : gérez les ressources de stockage appartenant à votre abonnement Azure.
-- [Utilisation du stockage de développement local](#work-with-local-development-storage) : gérez le stockage local à l’aide de l’émulateur de stockage Azure.
-- [Attachement à un stockage externe](#attach-or-detach-an-external-storage-account) : gérez les ressources de stockage appartenant à un autre abonnement Azure à l’aide du nom et de la clé du compte de stockage.
-- [Attachement d’un compte de stockage à l’aide d’une SAP](#attach-storage-account-using-sas) : gérez les ressources de stockage appartenant à un autre abonnement Azure à l’aide d’une SAP.
-- [Attachement d’un service à l’aide d’une SAP](#attach-service-using-sas) : gérez un service de stockage spécifique (conteneur d’objets blob, file d’attente ou table) appartenant à un autre abonnement Azure à l’aide d’une SAP.
+Storage Explorer (Preview) provides a myriad ways to connect to storage accounts. This includes connecting to storage accounts associated with your Azure subscriptions, connecting to storage accounts and services shared from other Azure subscriptions, and even connecting to and managing local storage using the Azure Storage Emulator:
 
-## Connexion à un abonnement Azure
+- [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscription.
+- [Work with local development storage](#work-with-local-development-storage) - Manage local storage using the Azure Storage Emulator. 
+- [Attach to external storage](#attach-or-detach-an-external-storage-account) - Manage storage resources belonging to another Azure subscription using the storage account's account name and key.
+- [Attach storage account using SAS](#attach-storage-account-using-sas) - Manage storage resources belonging to another Azure subscription using a SAS.
+- [Attach service using SAS](#attach-service-using-sas) - Manage a specific storage service (blob container, queue, or table) belonging to another Azure subscription using a SAS.
 
-> [AZURE.NOTE] Si vous ne possédez pas de compte Azure, vous pouvez [vous inscrire à un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+## <a name="connect-to-an-azure-subscription"></a>Connect to an Azure subscription
 
-1. Dans l’Explorateur de stockage (version préliminaire), sélectionnez les **paramètres de compte Azure**.
+> [AZURE.NOTE] If you don't have an Azure account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-	![Paramètres de compte Azure][0]
+1. In Storage Explorer (Preview), select **Azure Account settings**. 
 
-1. Le volet gauche affiche maintenant tous les comptes Microsoft auxquels vous vous êtes connecté. Pour vous connecter à un autre compte, sélectionnez **Ajouter un compte** et suivez les indications des boîtes de dialogue pour vous connecter avec un compte Microsoft associé à un ou plusieurs abonnements Azure actifs.
+    ![Azure account settings][0]
 
-	![Ajouter un compte][1]
+1. The left pane will now display all the Microsoft accounts you've logged into. To connect to another account, select **Add an account**, and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
 
-1. Une fois que vous êtes connecté avec un compte Microsoft, le volet gauche indique les abonnements Azure associés à ce compte. Sélectionnez les abonnements Azure que vous souhaitez utiliser, puis sélectionnez **Appliquer**. (La case à cocher **Tous les abonnements** permet de sélectionner ou de désélectionner l’ensemble des abonnements Azure répertoriés.)
+    ![Add an account][1]
 
-	![Sélectionner les abonnements Azure][3]
+1. Once you successfully sign in with a Microsoft account, the left pane will populate with the Azure subscriptions associated with that account. Select the Azure subscriptions with which you want to work, and then select **Apply**. (Selecting **All subscriptions** toggles selecting all or none of the listed Azure subscriptions.)
 
-1. Le volet gauche affiche désormais tous les abonnements de compte associés aux abonnements Azure sélectionnés.
+    ![Select Azure subscriptions][3]
 
-	![Abonnements Azure sélectionnés][4]
+1. The left pane will now display the storage accounts associated with the selected Azure subscriptions.
 
-## Utilisation du stockage de développement local
+    ![Selected Azure subscriptions][4]
 
-L’explorateur de stockage (version préliminaire) vous permet de travailler sur le stockage local à l’aide de l’émulateur de stockage Azure. Vous pouvez ainsi écrire du code pour le stockage et le tester sans nécessairement disposer d’un compte de stockage déployé sur Azure (étant donné que le compte de stockage est émulé par l’émulateur de stockage Azure).
+## <a name="work-with-local-development-storage"></a>Work with local development storage
 
->[AZURE.NOTE] Actuellement, l’émulateur de stockage Azure est pris en charge uniquement pour Windows.
+Storage Explorer (Preview) enables you to work against local storage using the Azure Storage Emulator. This allows you to write code against and test storage without necessarily having a storage account deployed on Azure (since the storage account is being emulated by the Azure Storage Emulator).
 
-1. Dans le volet gauche de l’Explorateur de stockage (version préliminaire), développez le nœud **(Local et attaché** > **Comptes de stockage** > **(Développement)**.
+>[AZURE.NOTE] The Azure Storage Emulator is currently supported only for Windows. 
 
-	![Nœud de développement local][21]
+1. In the left pane of Storage Explorer (Preview), expand the **(Local and Attached** > **Storage Accounts** > **(Development)** node.
 
-1. Si vous n’avez pas encore installé l’émulateur de stockage Azure, vous êtes invité à le faire par le biais d’une barre d’informations. Si la barre d’informations s’affiche, sélectionnez **Télécharger la dernière version** et installez l’émulateur.
+    ![Local development node][21]
 
-	![Invite de téléchargement de l’émulateur de stockage Azure][22]
+1. If you have not yet installed the Azure Storage Emulator, you'll be prompted to do so via an infobar. If the infobar is displayed, select **Download the latest version**, and install the emulator. 
 
-1. Une fois que l’émulateur est installé, vous pouvez créer et utiliser des tables, des files d’attente et objets blob locaux. Pour apprendre à utiliser chaque type de compte de stockage, sélectionnez le lien approprié ci-dessous :
+    ![Download Azure Storage Emulator prompt][22]
 
-	- [Manage Azure blob storage resources (Gérer les ressources Azure Blob Storage)](./vs-azure-tools-storage-explorer-blobs.md)
-	- Manage Azure file share storage resources (Gérer les ressources de stockage de partage de fichiers Azure) - *Bientôt disponible*
-	- Manage Azure queue storage resources (Gérer les ressources Azure Queue Storage) - *Bientôt disponible*
-	- Manage Azure table storage resources (Gérer les ressources Azure Table Storage) - *Bientôt disponible*
+1. Once the emulator is installed, you'll have the ability to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, select on the appropriate link below:
 
-## Attacher ou détacher un compte de stockage externe
+    - [Manage Azure blob storage resources](./vs-azure-tools-storage-explorer-blobs.md)
+    - Manage Azure file share storage resources - *Coming soon*
+    - Manage Azure queue storage resources - *Coming soon*
+    - Manage Azure table storage resources - *Coming soon*
 
-L’explorateur de stockage (version préliminaire) permet l’attachement aux comptes de stockage externes, pour un partage simplifié des comptes de stockage. Cette section explique la procédure d’attachement à des comptes de stockage externes (et la procédure de détachement).
+## <a name="attach-or-detach-an-external-storage-account"></a>Attach or detach an external storage account
 
-### Obtention des informations d’identification du compte de stockage
+Storage Explorer (Preview) provides the ability to attach to external storage accounts so that storage accounts can be easily shared. This section explains how to attach to (and detach from) external storage accounts.
 
-Afin de partager un compte de stockage externe, le propriétaire du compte doit d’abord obtenir les informations d’identification du compte (nom et clé du compte), puis les partager avec les personnes souhaitant effectuer un attachement à ce compte (externe). Vous pouvez obtenir les informations d’identification du compte de stockage par le biais du Portail Azure en suivant ces étapes :
+### <a name="get-the-storage-account-credentials"></a>Get the storage account credentials
 
-1.	Connectez-vous au [portail Azure](https://portal.azure.com).
-1.	Sélectionnez **Parcourir**.
-1.	Sélectionnez **Comptes de stockage**.
-1.	Dans le panneau **Comptes de stockage**, sélectionnez le compte de stockage souhaité.
-1.	Dans le panneau **Paramètres** du compte de stockage sélectionné, sélectionnez **Clés d’accès**.
+In order to share an external storage account, the owner of that account must first get the credentials - account name and key - for the account and then share that information with the person wanting to attach to that (external) account. Obtaining the storage account credentials can be done via the Azure portal by following these steps: 
 
-	![Option Clés d’accès][5]
-	
-1.	Dans le panneau **Clés d’accès**, copiez les valeurs **NOM DU COMPTE DE STOCKAGE** et **CLÉ 1** à utiliser pour l’attachement au compte de stockage.
+1.  Sign in to the [Azure portal](https://portal.azure.com).
+1.  Select **Browse**.
+1.  Select **Storage Accounts**.
+1.  In the **Storage Accounts** blade, select the desired storage account.
+1.  In the **Settings** blade for the selected storage account, select **Access keys**.
 
-	![Clés d’accès][6]
+    ![Access Keys option][5]
+    
+1.  In the **Access keys** blade, copy the **STORAGE ACCOUNT NAME** and **KEY 1** values for use when attaching to the storage account. 
 
-### Attachement à un compte de stockage externe
-Pour attacher à un compte de stockage externe, vous aurez besoin du nom et de la clé du compte. La section *Obtention des informations d’identification du compte de stockage* explique comment obtenir ces valeurs à partir du portail Azure. Toutefois, notez que dans le portail, la clé du compte est appelée « clé 1», donc lorsque l’Explorateur de stockage (version préliminaire) demande une clé de compte, vous devrez entrer (ou coller) la valeur « clé 1 ».
+    ![Access keys][6]
+
+### <a name="attach-to-an-external-storage-account"></a>Attach to an external storage account
+To attach to an external storage account, you'll need the account's name and key. The section *Get the storage account credentials* explains how to obtain these values from the Azure portal. However, note that in the portal, the account key is called "key 1" so where the Storage Explorer (Preview) asks for an account key, you'll enter (or paste) the "key 1" value. 
  
-1.	Dans l’Explorateur de stockage (version préliminaire), sélectionnez **Se connecter à Azure Storage**.
+1.  In Storage Explorer (Preview), select **Connect to Azure storage**.
 
-	![Option Se connecter à Azure Storage][23]
+    ![Connect to Azure storage option][23]
 
-1.	Dans la boîte de dialogue **Se connecter à Azure Storage**, spécifiez la clé de compte (valeur « clé 1 » du portail Azure), puis sélectionnez **Suivant**.
+1.  On the **Connect to Azure Storage** dialog, specify the account key ("key 1" value from the Azure portal), and then select **Next**.
 
-	![Boîte de dialogue Se connecter à Azure Storage][24]
+    ![Connect to Azure storage dialog][24] 
 
-1.	Dans la boîte de dialogue **Attacher un stockage externe**, entrez le nom du compte de stockage dans la zone **Nom du compte**, spécifiez tout autre paramètre souhaité, puis sélectionnez **Suivant** lorsque vous avez terminé.
+1.  In the **Attach External Storage** dialog, enter the storage account name in the **Account name** box, specify any other desired settings, and select **Next** when done. 
 
-	![Boîte de dialogue Attacher un stockage externe][8]
+    ![Attach external storage dialog][8]
 
-1.	Vérifiez les informations de la boîte de dialogue **Résumé de la connexion**. Si vous souhaitez modifier quoi que ce soit, sélectionnez **Précédent** et saisissez de nouveau les paramètres souhaités. Une fois que vous avez terminé, sélectionnez **Se connecter**.
+1.  In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
 
-1.	Une fois connecté, le compte de stockage externe s’affiche avec le texte **(Externe)** ajouté au nom.
+1.  Once connected, the external storage account will be displayed with the text **(External)** appended to the storage account name. 
 
-	![Résultat de la connexion à un compte de stockage externe][9]
+    ![Result of connecting to an external storage account][9]
 
-### Détachement d’un compte de stockage externe
+### <a name="detach-from-an-external-storage-account"></a>Detach from an external storage account
 
-1. 	Cliquez avec le bouton droit sur le compte de stockage externe que vous souhaitez détacher puis, dans le menu contextuel, sélectionnez **Détacher**.
+1.  Right-click the external storage account you want to detach, and - from the context menu - select **Detach**.
 
-	![Option Détacher d’un compte de stockage][10]
+    ![Detach from storage option][10]
 
-1.	Lorsque le message de confirmation s’affiche, sélectionnez **Oui** pour confirmer le détachement du compte de stockage externe.
+1.  When the confirmation message box appears, select **Yes** to confirm the detachment from the external storage account.
 
-## Attachement d’un compte de stockage à l’aide d’une SAP
+## <a name="attach-storage-account-using-sas"></a>Attach storage account using SAS
 
-Une [SAP (signature d’accès partagé)](storage/storage-dotnet-shared-access-signature-part-1.md) permet à l’administrateur d’un abonnement Azure d’accorder un accès temporaire à un compte de stockage sans avoir à fournir les informations d’identification de l’abonnement Azure.
+A [SAS (Shared Access Signature)](storage/storage-dotnet-shared-access-signature-part-1.md) gives the admin of an Azure subscription the ability to grant access to a storage account on a temporary basis without having to provide their Azure subscription credentials. 
 
-Pour illustrer cela, supposons que l’utilisateur A est l’administrateur d’un abonnement Azure et qu’il souhaite autoriser l’utilisateur B à accéder à un compte de stockage pour une durée limitée, avec certaines autorisations :
+To illustrate this, let's say UserA is an admin of an Azure subscription, and UserA wants to allow UserB to access a storage account for a limited time with certain permissions:
 
-1. L’utilisateur A génère une SAP (composée de la chaîne de connexion du compte de stockage) pour une période spécifique, avec les autorisations souhaitées.
-1. L’utilisateur A partage la SAP avec la personne souhaitant accéder au compte de stockage, en l’occurrence l’utilisateur B.
-1. L’utilisateur B utilise l’explorateur de stockage (version préliminaire) pour effectuer l’attachement au compte appartenant à l’utilisateur A à l’aide de la SAP fournie.
+1. UserA generates a SAS (consisting of the connection string for the storage account) for a specific time period and with the desired permissions.
+1. UserA shares the SAS with the person wanting access to the storage account - UserB, in our example.  
+1. UserB uses Storage Explorer (Preview) to attach to the account belonging to UserA using the supplied SAS. 
 
-### Obtention d’une SAP pour le compte à partager
+### <a name="get-a-sas-for-the-account-you-want-to-share"></a>Get a SAS for the account you want to share
 
-1.	Dans l’Explorateur de stockage (version préliminaire), cliquez avec le bouton droit sur le compte de stockage que vous souhaitez partager puis, dans le menu contextuel, sélectionnez **Obtenir une signature d’accès partagé**.
+1.  In Storage Explorer (Preview), right-click the storage account you want share, and - from the context menu - select **Get Shared Access Signature**.
 
-	![Option de menu contextuel Obtenir une signature d’accès partagé][13]
+    ![Get SAS context menu option][13]
 
-1. Dans la boîte de dialogue **Signature d’accès partagé**, spécifiez la période et les autorisations souhaitées pour le compte, puis sélectionnez **Créer**.
+1. On the **Shared Access Signature** dialog, specify the time frame and permissions you want for the account, and select **Create**.
 
-	![Boîte de dialogue Obtenir une signature d’accès partagé][14]
+    ![Get SAS dialog][14]
  
-1. Une seconde boîte de dialogue **Signature d’accès partagé** affiche la SAP. Sélectionnez **Copier** en regard de la **Chaîne de connexion** pour la copier dans le Presse-papiers. Sélectionnez **Fermer** pour fermer la boîte de dialogue.
+1. A second **Shared Access Signature** dialog will appear displaying the SAS. Select **Copy** next to the **Connection String** to copy it to the clipboard. Select **Close** to dismiss the dialog.
 
-### Attachement au compte partagé à l’aide de la SAP
+### <a name="attach-to-the-shared-account-using-the-sas"></a>Attach to the shared account using the SAS
 
-1.	Dans l’Explorateur de stockage (version préliminaire), sélectionnez **Se connecter à Azure Storage**.
+1.  In Storage Explorer (Preview), select **Connect to Azure storage**.
 
-	![Option Se connecter à Azure Storage][23]
+    ![Connect to Azure storage option][23]
 
-1.	Dans la boîte de dialogue **Se connecter à Azure Storage**, spécifiez la chaîne de connexion, puis sélectionnez **Suivant**.
+1.  On the **Connect to Azure Storage** dialog, specify the connection string, and then select **Next**.
 
-	![Boîte de dialogue Se connecter à Azure Storage][24]
+    ![Connect to Azure storage dialog][24] 
 
-1.	Vérifiez les informations de la boîte de dialogue **Résumé de la connexion**. Si vous souhaitez modifier quoi que ce soit, sélectionnez **Précédent** et saisissez de nouveau les paramètres souhaités. Une fois que vous avez terminé, sélectionnez **Se connecter**.
+1.  In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
 
-1.	Une fois attaché, le compte de stockage s’affiche avec le texte (SAP) ajouté au nom fourni.
+1.  Once attached, the storage account will be displayed with the text (SAS) appended to the account name you supplied.
 
-	![Résultat de l’attachement à un compte à l’aide d’une SAP][17]
+    ![Result of attached to an account using SAS][17]
 
-## Attachement d’un service à l’aide d’une SAP
+## <a name="attach-service-using-sas"></a>Attach service using SAS
 
-La section [Attachement d’un compte de stockage à l’aide d’une SAP](#attach-storage-account-using-sas) illustre la façon dont l’administrateur d’un abonnement Azure peut accorder un accès temporaire à un compte de stockage en générant (et en partageant) une SAP pour le compte de stockage. De la même façon, une SAP peut être générée pour un service spécifique (conteneur d’objets blob, file d’attente ou table) dans un compte de stockage.
+The section [Attach storage account using SAS](#attach-storage-account-using-sas) illustrates how an Azure subscription admin can grant temporary access to a storage account by generating (and sharing) a SAS for the storage account. Similarly, a SAS can be generated for a specific service (blob container, queue, or table) within a storage account.  
 
-### Génération d’une SAP pour le service à partager
+### <a name="generate-a-sas-for-the-service-you-want-to-share"></a>Generate a SAS for the service you want to share
 
-Dans ce contexte, un service peut être un conteneur d’objets blob, une file d’attente ou une table. Les sections suivantes expliquent comment générer la SAP pour le service répertorié :
+In this context, a service can be a blob container, queue, or table. The following sections explain how to generate the SAS for the listed service:
 
-- [Obtenir la signature d’accès partagé pour un conteneur d’objets blob](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-- Get the SAS for a file share (Obtenir la signature d’accès partagé pour un partage de fichiers) - *Bientôt disponible*
-- Get the SAS for a queue (Obtenir la signature d’accès partagé pour une file d’attente) - *Bientôt disponible*
-- Get the SAS for a table (Obtenir la signature d’accès partagé pour une table) - *Bientôt disponible*
+- [Get the SAS for a blob container](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+- Get the SAS for a file share - *Coming soon*
+- Get the SAS for a queue - *Coming soon*
+- Get the SAS for a table - *Coming soon*
 
-### Attachement au service de compte partagé à l’aide de la SAP
+### <a name="attach-to-the-shared-account-service-using-the-sas"></a>Attach to the shared account service using the SAS
 
-1.	Dans l’Explorateur de stockage (version préliminaire), sélectionnez **Se connecter à Azure Storage**.
+1.  In Storage Explorer (Preview), select **Connect to Azure storage**.
 
-	![Option Se connecter à Azure Storage][23]
+    ![Connect to Azure storage option][23]
 
-1.	Dans la boîte de dialogue **Se connecter à Azure Storage**, spécifiez l’URI de signature d’accès partagé, puis sélectionnez **Suivant**.
+1.  On the **Connect to Azure Storage** dialog, specify the SAS URI, and then select **Next**.
 
-	![Boîte de dialogue Se connecter à Azure Storage][24]
+    ![Connect to Azure storage dialog][24] 
 
-1.	Vérifiez les informations de la boîte de dialogue **Résumé de la connexion**. Si vous souhaitez modifier quoi que ce soit, sélectionnez **Précédent** et saisissez de nouveau les paramètres souhaités. Une fois que vous avez terminé, sélectionnez **Se connecter**.
+1.  In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
 
-1.	Une fois attaché, le nouveau service s’affiche sous le nœud **(Service SAS)** (SAP de service).
+1.  Once attached, the newly attached service will be displayed under the **(Service SAS)** node.
 
-	![Résultat de l’attachement à un service partagé à l’aide d’une SAP][20]
+    ![Result of attaching to a shared service using SAS][20]
 
-## Recherche de comptes de stockage
+## <a name="search-for-storage-accounts"></a>Search for storage accounts
 
-Si vous avez une longue liste de comptes de stockage, la zone de recherche située en haut du volet gauche offre un moyen rapide de rechercher un compte spécifique.
+If you have a long list of storage accounts, a quick way to locate a particular storage account is to use the search box at the top of the left pane. 
 
-Lorsque vous tapez dans la zone de recherche, le volet gauche affiche uniquement les comptes de stockage qui correspondent à la valeur en cours de saisie. La capture d’écran suivante montre un exemple dans lequel je recherche tous les comptes de stockage dont le nom contient le texte « tarcher ».
+As you are typing into the search box, the left pane will display only the storage accounts that match the search value you've entered up to that point. The following screen shot illustrates an example where I've searched for all storage accounts where the storage account name contains the text "tarcher".
 
-![Recherche de compte de stockage][11]
-	
-Pour effacer la recherche, sélectionnez le bouton **x** dans la zone de recherche.
+![Storage account search][11]
+    
+To clear the search, select the **x** button in the search box.
 
-## Étapes suivantes
-- [Gérer les ressources Azure Blob Storage avec l’explorateur de stockage (version préliminaire)](./vs-azure-tools-storage-explorer-blobs.md)
+## <a name="next-steps"></a>Next steps
+- [Manage Azure blob storage resources with Storage Explorer (Preview)](./vs-azure-tools-storage-explorer-blobs.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -229,4 +230,8 @@ Pour effacer la recherche, sélectionnez le bouton **x** dans la zone de recherc
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

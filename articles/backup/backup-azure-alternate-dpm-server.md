@@ -1,106 +1,111 @@
 <properties
-	pageTitle="Récupération de données à partir d'un autre serveur DPM dans le coffre de sauvegarde | Microsoft Azure"
-	description="Récupérez les données que vous avez protégées dans un coffre Azure Backup à partir de n'importe quel serveur DPM inscrit auprès de ce coffre."
-	services="backup"
-	documentationCenter=""
-	authors="nkolli1"
-	manager="shreeshd"
-	editor=""/>
+    pageTitle="Recovering data from another DPM server in the backup vault | Microsoft Azure"
+    description="Recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault."
+    services="backup"
+    documentationCenter=""
+    authors="nkolli1"
+    manager="shreeshd"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="giridham;jimpark;trinadhk;markgal"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/08/2016"
+    ms.author="giridham;jimpark;trinadhk;markgal"/>
 
-# Récupération de données à partir d'un autre serveur DPM dans le coffre de sauvegarde
-Vous pouvez maintenant récupérer les données que vous avez protégées dans un coffre Azure Backup à partir de n'importe quel serveur DPM inscrit auprès de ce coffre. Ainsi, le processus permettant d’effectuer cette opération est totalement intégré à la console d'administration DPM et est semblable aux autres flux de travail de récupération.
 
-Pour récupérer des données à partir d'un autre serveur DPM dans le coffre de sauvegarde, vous avez besoin de [System Center Data Protection Manager UR7](https://support.microsoft.com/fr-FR/kb/3065246) et du [dernier agent Azure Backup](http://aka.ms/azurebackup_agent).
+# <a name="recovering-data-from-another-dpm-server-in-the-backup-vault"></a>Recovering data from another DPM server in the backup vault
+You can now recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault. The process for doing so is completely integrated into the DPM management console and is similar to the other recovery workflows.
 
-## Récupération de données à partir d'un autre serveur DPM
-Pour récupérer des données à partir d'un autre serveur DPM, procédez comme suit :
+To recover data from another DPM server inthe backup vault you'll need [System Center Data Protection Manager UR7](https://support.microsoft.com/en-us/kb/3065246) and the [latest Azure Backup agent](http://aka.ms/azurebackup_agent).
 
-1. Dans l’onglet **Récupération** de la console d'administration DPM, cliquez sur **« Ajouter un DPM externe »** (dans la partie supérieure gauche de l'écran).
+## <a name="recover-data-from-another-dpm-server"></a>Recover data from another DPM Server
+To recover data from another DPM server:
 
-    ![Ajouter un serveur DPM externe](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
+1. From the **Recovery** tab of the DPM management console, click **'Add External DPM'** (at the top left of the screen).
 
-2. Téléchargez à partir du coffre les nouvelles **informations d'identification** associées au **serveur DPM** pour lequel les données sont récupérées, choisissez le serveur DPM dans la liste des serveurs DPM inscrits auprès du coffre de sauvegarde et saisissez la **phrase secrète de chiffrement** associée au serveur DPM pour lequel les données sont en cours de récupération.
+    ![Ad External DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 
-    ![Informations d'identification d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
+2. Download new **vault credentials** from the vault associated with the **DPM server** where the data is being recovered, choose the DPM server from the list of DPM servers registered with the backup vault, and provide the **encryption passphrase** associated with the DPM server whose data is being recovered.
 
-    >[AZURE.NOTE] Seuls les serveurs DPM associés au même coffre d’inscription peuvent récupérer des données entre eux.
+    ![External DPM Credentials](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
-    Une fois le serveur DPM externe ajouté, vous pouvez parcourir les données du serveur DPM externe et du serveur DPM local à partir de l’onglet **Récupération**.
+    >[AZURE.NOTE] Only DPM servers associated with the same registration vault can recover each other’s data.
 
-3. Parcourez la liste des serveurs de production protégés par le serveur DPM externe et sélectionnez la source de données appropriée.
+    Once the External DPM server is successfully added, you can browse the data of external DPM server and local DPM server from the **Recovery** tab.
 
-    ![Parcourir un serveur DPM externe](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
+3. Browse the available list of production servers protected by the external DPM server and select the appropriate data source.
 
-4. Sélectionnez **le mois et l'année** à partir de la liste déroulante **Points de récupération**. Sélectionnez la **date de récupération** souhaitée correspondant au moment de la création du point de récupération, puis sélectionnez l’**Heure de récupération**.
+    ![Browse External DPM Server](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
 
-    Une liste de fichiers et de dossiers s'affiche dans le volet inférieur, qui peuvent être parcourus et récupérés sur n'importe quel emplacement.
+4. Select **the month and year** from the **Recovery points** drop down, select the required **Recovery date** for when the recovery point was created, and select the **Recovery time**.
 
-    ![Points de récupération d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
+    A list of files and folders will appear in the bottom pane which can be browsed and recovered to any location.
 
-5. Cliquez avec le bouton droit sur l'élément approprié puis cliquez sur **Récupérer**.
+    ![External DPM Server Recovery Points](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
 
-    ![Récupération d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/recover.png)
+5. Right click the appropriate item and click **Recover**.
 
-6. Vérifiez la **sélection à récupérer**. Vérifiez les données et l’heure de la copie de sauvegarde à récupérer, ainsi que la source à partir de laquelle la copie de sauvegarde a été créée. Si la sélection est incorrecte, cliquez sur **Annuler** pour revenir à l'onglet Récupération et sélectionnez le point de récupération approprié. Si la sélection est correcte, cliquez sur **Suivant**.
+    ![External DPM recovery](./media/backup-azure-alternate-dpm-server/recover.png)
 
-    ![Résumé de la récupération d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
+6. Review the **Recover Selection**. Verify the data and time of the backup copy being recovered, as well as the source from which the backup copy was created. If the selection is incorrect, click **Cancel** to navigate back to recovery tab to select appropriate recovery point. If the selection is correct, click **Next**.
 
-7. Sélectionnez **Récupérer à un autre emplacement**. **Rechercher** l'emplacement correct pour la récupération.
+    ![External DPM recovery summary](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
 
-    ![Emplacement de remplacement de la récupération d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
+7. Select **Recover to an alternate location**. **Browse** to the correct location for the recovery.
 
-8. Choisissez entre les options **Créer une copie**, **Ignorer** ou **Remplacer**.
-    - L’option **Créer une copie** crée une copie du fichier en cas de conflit de nom.
-    - L’option **Ignorer** ignore la récupération du fichier en cas de conflit de nom.
-    - L’option **Remplacer** remplace la copie existante à l'emplacement spécifié en cas de conflit de nom.
+    ![External DPM recovery alternate location](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
 
-    Choisissez l'option appropriée pour **Restaurer la sécurité**. Vous pouvez appliquer les paramètres de sécurité de l'ordinateur de destination sur lequel les données sont récupérées ou les paramètres de sécurité qui étaient applicables au produit au moment de la création du point de récupération.
+8. Choose the option related to **create copy**, **Skip**, or **Overwrite**.
+    - **Create copy** will create a copy of the file in the event there is a name collision.
+    - **Skip** will skip recovering the file in the event there is a name collision.
+    - **Overwrite** will overwrite the existing copying in the location specified in the event of a name collision.
 
-    Indiquez si une **Notification** doit être envoyée une fois la récupération terminée.
+    Choose the appropriate option to **Restore security**. You can apply the security settings of the destination computer where the data is being recovered or the security settings that were applicable to product at the time the recovery point was created.
 
-    ![Notifications de la récupération d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
+    Identify whether a **Notification** will be sent once the recovery completes successfully.
 
-9. L’écran **Résumé** répertorie les options sélectionnées jusqu'à présent. Lorsque vous cliquerez sur **« Récupérer »**, les données seront récupérées sur l'emplacement local approprié.
+    ![External DPM Recovery Notifications](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
 
-    ![Résumé des options de la récupération d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
+9. The **Summary** screen lists the options chosen so far. Once you click **‘Recover’**, the data will be recovered to the appropriate on-premises location.
 
-    >[AZURE.NOTE] La tâche de récupération peut être surveillée dans l’onglet **Analyse** du serveur DPM.
+    ![External DPM Recovery Options Summary](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
-    ![Surveillance de la récupération](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
+    >[AZURE.NOTE] The recovery job can be monitored in the **Monitoring** tab of the DPM server.
 
-10. Vous pouvez cliquer sur **Effacer le DPM externe** dans l’onglet **Récupération** du serveur DPM pour supprimer l’affichage du serveur DPM externe.
+    ![Monitoring Recovery](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
 
-    ![Effacer un serveur DPM externe](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
+10. You can click **Clear External DPM** on the **Recovery** tab of the DPM server to remove the view of the external DPM server.
 
-## Dépannage des messages d'erreur
-|Non. |	Message d’erreur |	Étapes de dépannage |
+    ![Clear External DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
+
+## <a name="troubleshooting-error-messages"></a>Troubleshooting Error Messages
+|No. |  Error Message | Troubleshooting steps |
 | :-------------: |:-------------| :-----|
-|1\.|		Ce serveur n'est pas enregistré dans le coffre spécifié par les informations d'identification de coffre.|	**Raison :** cette erreur apparaît lorsque le fichier d'informations d'identification de coffre sélectionné n'appartient pas au coffre de sauvegarde associé au serveur DPM sur lequel la récupération est tentée. <br> **Résolution :** téléchargez le fichier d'informations d'identification de coffre du coffre de sauvegarde auquel le serveur DPM est inscrit.|
-|2\.|		Les données récupérables ne sont pas disponibles ou le serveur sélectionné n'est pas un serveur DPM.|	**Raison :** aucun autre serveur DPM avec DPM 2012 R2 UR7 inscrit auprès du coffre de sauvegarde, ni les serveurs DPM avec DPM 2012 R2 UR7 n'ont encore téléchargé les métadonnées. Ou bien, le serveur sélectionné n'est pas un serveur DPM (également appelé serveur Windows Server ou client Windows). <br> **Résolution :** s'il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde, assurez-vous que SCDPM 2012 R2 UR7 et le dernier agent Azure Backup sont installées. <br>S'il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde avec DPM 2012 R2 UR7, patientez un jour après l'installation d'UR7 pour lancer le processus de récupération. La tâche nocturne téléchargera les métadonnées de toutes les sauvegardes précédemment protégées dans le cloud. Les données seront disponibles pour la récupération.|
-|3\.|		Aucun autre serveur DPM n'est inscrit auprès de ce coffre.|	**Raison :** il n’y a aucun autre serveur DPM avec DPM 2012 R2 UR7 (ou une version ultérieure) inscrit auprès du coffre à partir duquel une tentative de récupération est en cours.<br>**Résolution :** s’il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde, assurez-vous que SCDPM 2012 R2 UR7 et le dernier agent Azure Backup sont installés.<br>S’il existe d’autres serveurs DPM inscrits auprès du coffre de sauvegarde avec DPM 2012 R2 UR7, patientez un jour après l’installation d’UR7 pour lancer le processus de récupération. La tâche nocturne téléchargera les métadonnées de toutes les sauvegardes précédemment protégées dans le cloud. Les données seront disponibles pour la récupération.|
-|4\.|		La phrase secrète de chiffrement fournie ne correspond pas à la phrase secrète associée au serveur suivant : **<nom du serveur>**|	**Raison :** la phrase secrète de chiffrement utilisée dans le processus de chiffrement des données à partir des données du serveur DPM en cours de récupération ne correspond pas à la phrase secrète de chiffrement fournie. L'agent ne peut pas déchiffrer les données. Par conséquent, la récupération échoue.<br>**Résolution :** veuillez fournir la phrase secrète de chiffrement associée au serveur DPM pour lequel les données sont en cours de récupération.|
+|1.|        This server is not registered to the vault specified by the vault credential.|  **Cause:** This error appears when the vault credential file selected does not belong to the backup vault associated with DPM server on which the recovery is attempted. <br> **Resolution:** Download the vault credential file from the backup vault to which the DPM server is registered.|
+|2.|        Either the recoverable data is not available or the selected server is not a DPM server.|   **Cause:** There are no other DPM servers with DPM 2012 R2 UR7 registered to the backup vault, or the DPM servers with DPM 2012 R2 UR7 have not yet uploaded the metadata, or the selected server is not DPM server (aka Windows Server or Windows Client). <br> **Resolution:** If there are other DPM servers registered to the backup vault, ensure SCDPM 2012 R2 UR7 and latest Azure Backup agent are installed. <br>If there are other DPM servers registered to the backup vault with DPM 2012 R2 UR7, wait for a day after installation of UR7 to start the recovery process. The nightly job will upload the metadata for all the previously protected backups to cloud. The data will be available for recovery.|
+|3.|        No other DPM server is registered to this vault.|   **Cause:** There are no other DPM servers with DPM 2012 R2 UR7 or above that are registered to the vault from which the recovery is being attempted.<br>**Resolution:** If there are other DPM servers registered to the backup vault, ensure SCDPM 2012 R2 UR7 and latest Azure Backup agent are installed.<br>If there are other DPM servers registered to the backup vault with DPM 2012 R2 UR7, wait for a day after installation of UR7 to start the recovery process. The nightly job will upload the metadata for all the previously protected backups to cloud. The data will be available for recovery.|
+|4.|        The encryption passphrase provided does not match with passphrase associated with the following server: **<server name>**|  **Cause:** The encryption passphrase used in the process of encrypting the data from the DPM server’s data that is being recovered does not match the encryption passphrase provided. The agent is unable to decrypt the data. Hence the recovery fails.<br>**Resolution:** Please provide the exact same encryption passphrase associated with the DPM server whose data is being recovered.|
 
-## Forum Aux Questions :
-1. **Pourquoi ne puis-je pas ajouter un serveur DPM externe à partir d'un autre serveur DPM après avoir installé UR7 et le dernier agent Azure Backup ?**
+## <a name="frequently-asked-questions:"></a>Frequently asked questions:
+1. **Why can’t I add an external DPM server from another DPM server after installing the UR7 and latest Azure Backup agent?**
 
-    A) Pour les serveurs DPM existants avec des sources de données protégées dans le cloud (en utilisant un correctif cumulatif antérieur au correctif cumulatif 7), vous devez attendre au moins un jour après l'installation d’UR7 et du dernier agent Azure Backup avant de commencer à *ajouter un serveur DPM externe*. Ce temps d’attente est nécessaire pour télécharger les métadonnées des groupes de protection DPM sur Azure. Cela se produit la première fois par le biais d’une tâche nocturne.
+    A) For the existing DPM servers with data sources that are protected to the cloud (by using an update rollup earlier than Update Rollup 7), you have to wait at least one day after installing the UR7 and latest Azure Backup agent to start *Add External DPM server*. This is needed to upload the metadata of the DPM protection groups to Azure. This occurs the first time through a nightly job.
 
-2. **Quelle est la version minimale de l'agent Azure Backup nécessaire ?**
+2. **What is the minimum version of Azure Backup agent needed?**
 
-    (A) La version minimale de l'agent Azure Backup pour activer cette fonctionnalité est 2.0.8719.0. Vous pouvez connaître la version de l'agent Azure Backup en accédant au Panneau de configuration **>** Tous les Panneaux de configuration **>** Programmes et fonctionnalités **>** Microsoft Azure Recovery Services Agent. Si la version est inférieure à 2.0.8719.0, téléchargez le [dernier agent Azure Backup](https://go.microsoft.com/fwLink/?LinkID=288905) et installez-le.
+    A) The Azure Backup agent minimum version to enable this feature is 2.0.8719.0.  Azure Backup agent version can be verified by navigating to Control Panel **>** All Control Panel items **>** Programs and features **>** Microsoft Azure Recovery Services Agent. If the version is less than 2.0.8719.0, download the [latest Azure Backup agent](https://go.microsoft.com/fwLink/?LinkID=288905) and install.
 
-    ![Effacer un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
+    ![Clear External DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 
-## Étapes suivantes :
-• [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
+## <a name="next-steps:"></a>Next Steps:
+•   [Azure Backup FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,41 +1,42 @@
 <properties
-	pageTitle="Création d'une machine virtuelle Azure à l'aide de PowerShell | Microsoft Azure"
-	description="Utilisez Azure PowerShell et Azure Resource Manager pour créer facilement une machine virtuelle exécutant Windows Server."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Create an Azure VM using PowerShell | Microsoft Azure"
+    description="Use Azure PowerShell and Azure Resource Manager to easily create a new VM running Windows Server."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/27/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# Création d'une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell
 
-Cet article vous montre comment créer rapidement une machine virtuelle Azure exécutant Windows Server et les ressources dont elle a besoin à l’aide de [Resource Manager](../resource-group-overview.md) et de PowerShell.
+# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Create a Windows VM using Resource Manager and PowerShell
 
-Toutes les étapes décrites dans cet article sont nécessaires pour créer une machine virtuelle. La procédure globale dure environ 30 minutes.
+This article shows you how to quickly create an Azure Virtual Machine running Windows Server and the resources it needs using [Resource Manager](../resource-group-overview.md) and PowerShell. 
 
-## Étape 1 : installer Azure PowerShell
+All the steps in this article are required to create a virtual machine and it should take about 30 minutes to do the steps.
 
-Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+## <a name="step-1:-install-azure-powershell"></a>Step 1: Install Azure PowerShell
+
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
         
-## Étape 2 : création d'un groupe de ressources
+## <a name="step-2:-create-a-resource-group"></a>Step 2: Create a resource group
 
-Commencez par créer un groupe de ressources.
+First, you create a resource group.
 
-1. Obtenez la liste des emplacements disponibles où créer des ressources.
+1. Get a list of available locations where resources can be created.
 
-	    Get-AzureRmLocation | sort Location | Select Location
+        Get-AzureRmLocation | sort Location | Select Location
         
-    Un résultat comme l’exemple suivant devrait s’afficher :
+    You should see something like this example:
     
         Location
         --------
@@ -60,116 +61,120 @@ Commencez par créer un groupe de ressources.
         westindia
         westus
 
-2. Remplacez la valeur de **$locName** par un emplacement de la liste. Créez la variable.
+2. Replace the value of **$locName** with a location from the list. Create the variable.
 
         $locName = "centralus"
         
-3. Remplacez la valeur de **$rgName** par le nom du nouveau groupe de ressources. Créez la variable et le groupe de ressources.
+3. Replace the value of **$rgName** with a name for the new resource group. Create the variable and the resource group.
 
         $rgName = "mygroup1"
         New-AzureRmResourceGroup -Name $rgName -Location $locName
     
-## Étape 3 : création d’un compte de stockage
+## <a name="step-3:-create-a-storage-account"></a>Step 3: Create a storage account
 
-Un [compte de stockage](../storage/storage-introduction.md) est nécessaire pour stocker le disque dur virtuel utilisé par la machine virtuelle que vous créez.
+A [storage account](../storage/storage-introduction.md) is needed to store the virtual hard disk that is used by the virtual machine that you create.
 
-1. Remplacez la valeur de **$stName** par le nom du compte de stockage. Testez l’unicité du nom choisi.
+1. Replace the value of **$stName** with a name for the storage account. Test the name for uniqueness.
 
         $stName = "mystorage1"
         Get-AzureRmStorageAccountNameAvailability $stName
 
-    Si cette commande renvoie **True**, le nom proposé est unique dans Azure. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
+    If this command returns **True**, your proposed name is unique within Azure. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
     
-2. Exécutez maintenant la commande pour créer le compte de stockage.
+2. Now, run the command to create the storage account.
     
         $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
-## Étape 4 : création d'un réseau virtuel
+## <a name="step-4:-create-a-virtual-network"></a>Step 4: Create a virtual network
 
-Toutes les machines virtuelles font partie d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md).
+All virtual machines are part of a [virtual network](../virtual-network/virtual-networks-overview.md).
 
-1. Remplacez la valeur de **$subnetName** par le nom du sous-réseau. Créez la variable et le sous-réseau.
-    	
+1. Replace the value of **$subnetName** with a name for the subnet. Create the variable and the subnet.
+        
         $subnetName = "mysubnet1"
         $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
-2. Remplacez la valeur de **$vnetName** par le nom du réseau virtuel. Créez la variable et le réseau virtuel avec le sous-réseau.
+2. Replace the value of **$vnetName** with a name for the virtual network. Create the variable and the virtual network with the subnet.
 
         $vnetName = "myvnet1"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
         
-    Utilisez des valeurs pertinentes pour votre application et votre environnement.
+    Use values that make sense for your application and environment.
         
-## Étape 5 : création d'une adresse IP publique et une interface réseau
+## <a name="step-5:-create-a-public-ip-address-and-network-interface"></a>Step 5: Create a public IP address and network interface
 
-Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../virtual-network/virtual-network-ip-addresses-overview-arm.md) et d’une interface réseau.
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
-1. Remplacez la valeur de **$ipName** par le nom de l’adresse IP publique. Créez la variable et l’adresse IP publique.
+1. Replace the value of **$ipName** with a name for the public IP address. Create the variable and the public IP address.
 
         $ipName = "myIPaddress1"
         $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
         
-2. Remplacez la valeur de **$nicName** par le nom de l’interface réseau. Créez la variable et l'interface réseau.
+2. Replace the value of **$nicName** with a name for the network interface. Create the variable and the network interface.
 
         $nicName = "mynic1"
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
         
-## Étape 6 : création d'une machine virtuelle
+## <a name="step-6:-create-a-virtual-machine"></a>Step 6: Create a virtual machine
 
-Maintenant que tous les éléments sont en place, il est temps de créer la machine virtuelle.
+Now that you have all the pieces in place, it's time to create the virtual machine.
 
-1. Exécutez la commande pour définir le nom du compte administrateur et le mot de passe pour la machine virtuelle.
+1. Run the command to set the administrator account name and password for the virtual machine.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Le mot de passe doit compter 12 à 123 caractères et au moins un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial.
+    The password must be at 12-123 characters long and have at least one lower case character, one upper case character, one number, and one special character. 
         
-2. Remplacez la valeur de **$vmName** par le nom de la machine virtuelle. Créez la variable et la configuration de la machine virtuelle.
+2. Replace the value of **$vmName** with a name for the virtual machine. Create the variable and the virtual machine configuration.
 
         $vmName = "myvm1"
         $vm = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A1"
         
-    Consultez la rubrique [Tailles des machines virtuelles dans Azure](virtual-machines-windows-sizes.md) pour obtenir la liste des tailles disponibles pour une machine virtuelle.
+    See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md) for a list of available sizes for a virtual machine.
     
-3. Remplacez la valeur de **$compName** par le nom de l’ordinateur de la machine virtuelle. Créez la variable et ajoutez à la configuration les informations concernant le système d'exploitation.
+3. Replace the value of **$compName** with a computer name for the virtual machine. Create the variable and add the operating system information to the configuration.
 
         $compName = "myvm1"
         $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $compName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
         
-4. Définissez l'image à utiliser pour configurer la machine virtuelle.
+4. Define the image to use to provision the virtual machine. 
 
         $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         
-    Pour plus d’informations sur la sélection des images à utiliser, consultez [Parcourir et sélectionner des images de machines virtuelles Windows dans Azure avec l’interface CLI ou PowerShell](virtual-machines-windows-cli-ps-findimage.md).
+    For more information about selecting images to use, see [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines-windows-cli-ps-findimage.md) .
         
-5. Ajoutez l'interface réseau que vous avez créée à la configuration.
+5. Add the network interface that you created to the configuration.
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. Remplacez la valeur de **$blobPath** par le chemin d’accès et le nom de fichier dans le stockage du disque dur virtuel. Le fichier du disque dur virtuel est généralement stocké dans un conteneur, par exemple **vhds/WindowsVMosDisk.vhd**. Créez les variables.
+6. Replace the value of **$blobPath** with a path and filename in storage of the virtual hard disk. The virtual hard disk file is usually stored in a container, for example **vhds/WindowsVMosDisk.vhd**. Create the variables.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
         
-7. Remplacez la valeur de **$diskName** par le nom du disque du système d’exploitation. Créez la variable et ajoutez à la configuration les informations concernant le disque.
+7. Replace The value of **$diskName** with a name for the operating system disk. Create the variable and add the disk information to the configuration.
 
         $diskName = "windowsvmosdisk"
         $vm = Set-AzureRmVMOSDisk -VM $vm -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage
         
-8. Pour finir, créez la machine virtuelle
+8. Finally, create the virtual machine.
 
         New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-    Vous devriez voir le groupe de ressources et toutes ses ressources dans le portail Azure ainsi qu'un état de réussite dans la fenêtre PowerShell :
+    You should see the resource group and all its resources in the Azure portal and a success status in the PowerShell window:
 
         RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
         ---------  -------------------  ----------  ------------
                                   True          OK  OK
                                   
-## Étapes suivantes
+## <a name="next-steps"></a>Next Steps
 
-- Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le Portail Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Pour apprendre à gérer la machine virtuelle que vous avez créée, consultez [Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md).
-- Tirez parti de l’utilisation d’un modèle pour créer une machine virtuelle en utilisant les informations contenues dans [Création d’une machine virtuelle Windows avec un modèle Resource Manager](virtual-machines-windows-ps-template.md).
+- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
+- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
+- Take advantage of using a template to create a virtual machine by using the information in [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

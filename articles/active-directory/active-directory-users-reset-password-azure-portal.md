@@ -1,55 +1,59 @@
 <properties
-	pageTitle="Réinitialiser le mot de passe d’un utilisateur dans la version préliminaire d’Azure Active Directory | Microsoft Azure"
-	description="Explique comment réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Reset the password for a user in Azure Active Directory preview | Microsoft Azure"
+    description="Explains how to reset the password for a user in Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2016"
+    ms.author="curtand"/>
 
-# Réinitialiser le mot de passe d’un utilisateur dans la version préliminaire d’Azure Active Directory
+
+# <a name="reset-the-password-for-a-user-in-azure-active-directory-preview"></a>Reset the password for a user in Azure Active Directory preview
 
 > [AZURE.SELECTOR]
-- [Portail Azure](active-directory-users-reset-password-azure-portal.md)
-- [Portail Azure Classic](active-directory-create-users-reset-password.md)
+- [Azure portal](active-directory-users-reset-password-azure-portal.md)
+- [Azure classic portal](active-directory-create-users-reset-password.md)
 
-Cet article explique comment supprimer un utilisateur d’un répertoire dans la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md) Pour en savoir plus sur l’ajout de nouveaux utilisateurs dans votre organisation, voir [Ajout ou modification d’utilisateurs dans Azure Active Directory](active-directory-users-create-azure-portal.md).
 
-## Réinitialisation du mot de passe pour un utilisateur
+## <a name="how-to-reset-the-password-for-a-user"></a>How to reset the password for a user
 
-1.  Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
+1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-    ![Ouvrir la gestion des utilisateurs](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
+    ![Opening user management](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
 
-3.  Sur le panneau **Utilisateurs et groupes** panneau, sélectionnez **Utilisateurs**.
+3.  On the **Users and groups** blade, select **Users**.
 
-    ![Ouverture du panneau Utilisateurs](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
+    ![Opening the Users blade](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
 
-4. Sur le panneau **Utilisateurs et groupes - Utilisateurs -**, sélectionnez un utilisateur dans la liste.
+4. On the **Users and groups - Users** blade, select a user from the list.
 
-5. Dans le panneau de l’utilisateur sélectionné, sélectionnez **Vue d’ensemble**, puis, dans la barre de commandes, sélectionnez **Réinitialiser le mot de passe**.
+5. On the blade for the selected user, select **Overview**, and then in the command bar, select **Reset password**.
 
-    ![Sélection de la commande Réinitialiser le mot de passe](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
+    ![Selecting the Reset password command](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
 
-6. Dans le panneau **Réinitialiser le mot de passe**, sélectionnez **Réinitialiser le mot de passe**.
+6. On the **Reset password** blade, select **Reset password**.
 
-## Étapes suivantes
+## <a name="what's-next"></a>What's next
 
-- [Ajouter un utilisateur](active-directory-users-create-azure-portal.md)
-- [Affecter un utilisateur à un rôle dans Azure AD](active-directory-users-assign-role-azure-portal.md)
-- [Modifier les informations de travail d’un utilisateur](active-directory-users-work-info-azure-portal.md)
-- [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
-- [Suppression d’un utilisateur dans Azure AD](active-directory-users-delete-user-azure-portal.md)
+- [Add a user](active-directory-users-create-azure-portal.md)
+- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
+- [Change a user's work information](active-directory-users-work-info-azure-portal.md)
+- [Manage user profiles](active-directory-users-profile-azure-portal.md)
+- [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016--->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

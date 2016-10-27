@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Afficher et gérer les tâches StorSimple Virtual Array | Microsoft Azure"
-   description="Décrit la page Tâches du service StorSimple Manager et explique comment l’utiliser pour effectuer le suivi des tâches récentes et actuelles pour le StorSimple Virtual Array."
+   pageTitle="View and manage StorSimple Virtual Array jobs | Microsoft Azure"
+   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent and current jobs for the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,61 +15,66 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
-# Utiliser le service StorSimple Manager pour afficher les tâches liées au StorSimple Virtual Array
 
-## Vue d'ensemble
+# <a name="use-the-storsimple-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array
 
-La page **Tâches** est un portail centralisé unique qui permet de consulter et de gérer les tâches qui sont lancées sur les Virtual Arrays (également appelés appareils virtuels locaux) connectés à votre service StorSimple Manager. Vous pouvez consulter les tâches en cours d’exécution, terminées et en échec pour plusieurs appareils virtuels. Les résultats sont présentés sous forme de tableau.
+## <a name="overview"></a>Overview
 
-![Page Tâches](./media/storsimple-ova-manage-jobs/ovajobs1.png)
+The **Jobs** page provides a single central portal for viewing and managing jobs that are started on Virtual Arrays (also known as on-premises virtual devices) that are connected to your StorSimple Manager service. You can view running, completed, and failed jobs for multiple virtual devices. Results are presented in a tabular format. 
 
-Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant sur les champs, à savoir :
+![Jobs page](./media/storsimple-ova-manage-jobs/ovajobs1.png)
 
-- **État** : vous pouvez rechercher la totalité des tâches ou celles en cours d’exécution, terminées ou en échec.
-- **De et À** : les tâches peuvent être filtrées selon la date et l'heure.
-- **Type** : le type de tâche peut concerner toutes les tâches, ou les tâches de sauvegarde, de restauration, de basculement, de téléchargement de mises à jour ou d’installation de mises à jour.
-- **Appareils** : les tâches sont initiées sur un appareil spécifique connecté à votre service. Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
+You can quickly find the jobs you are interested in by filtering on fields such as:
 
-    - **Type** : le type de tâche peut concerner toutes les tâches, ou les tâches de sauvegarde, de restauration, de basculement, de téléchargement de mises à jour ou d’installation de mises à jour.
+- **Status** – You can search for all, running, completed, or failed jobs.
+- **From and To** – Jobs can be filtered based on the date and time range.
+- **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
+- **Devices** – Jobs are initiated on a specific device connected to your service. The filtered jobs are then tabulated on the basis of the following attributes:
 
-    - **État** : peut concerner la totalité des tâches ou celles en cours d’exécution, terminées ou en échec.
+    - **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
 
-    - **Entité** : les tâches peuvent être associées à un volume, un partage ou un appareil.
+    - **Status** – Jobs can be all, running, completed, or failed.
 
-    - **Appareil** : nom de l'appareil sur lequel la tâche a été lancée.
+    - **Entity** – The jobs can be associated with a volume, share, or device. 
 
-    - **Démarré le** : heure à laquelle la tâche a été lancée.
+    - **Device** – The name of the device on which the job was started.
 
-    - **Progression** : pourcentage d'achèvement d'une tâche en cours d'exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
+    - **Started on** – The time when the job was started.
 
-La liste des tâches est actualisée toutes les 30 secondes.
+    - **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
 
-## Affichage des détails d’une tâche
+The list of jobs is refreshed every 30 seconds.
 
-Pour afficher les détails d’une tâche, procédez comme suit.
+## <a name="view-job-details"></a>View job details
 
-#### Pour afficher les détails d’une tâche
+Perform the following steps to view the details of any job.
 
-1. Dans la page **Tâches**, affichez la ou les tâches qui vous intéressent en exécutant une requête avec les filtres appropriés. Vous pouvez rechercher des tâches terminées ou en cours d’exécution.
+#### <a name="to-view-job-details"></a>To view job details
 
-2. Sélectionnez une tâche dans la liste des tâches sous forme de tableau.
+1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed or running jobs.
 
-3. En bas de la page, cliquez sur **Détails**.
+2. Select a job from the tabular list of jobs.
 
-4. La boîte de dialogue **Détails** indique l’état, les détails et les statistiques horaires. La figure suivante illustre la boîte de dialogue **Détails du travail Sauvegarde**.
+3. At the bottom of the page, click **Details**.
+
+4. In the **Details** dialog box, you can view status, details,  and time statistics. The following illustration shows an example of the **Backup Job Details** dialog box.
  
-    ![Page Détails de la tâche](./media/storsimple-ova-manage-jobs/ovajobs2.png)
+    ![Job details page](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
-#### Échec des tâches lorsque la machine virtuelle est en pause dans l'hyperviseur
+#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Job failures when the virtual machine is paused in the hypervisor
 
-Lorsqu'une tâche est en cours sur votre StorSimple Virtual Array et que le périphérique (machine virtuelle configurée dans l'hyperviseur) est en pause pendant plus de 15 minutes, la tâche échoue. Ceci en raison du fait que l’heure de votre StorSimple Virtual Array est désynchronisée avec l'heure de Microsoft Azure. Voici un exemple d'échec d'une tâche de restauration sur la capture d'écran suivante.
+When a job is in progress on your StorSimple Virtual Array and the device (virtual machine provisioned in hypervisor) is paused for greater than 15 minutes, the job will fail. This is due to your StorSimple Virtual Array time being out of sync with the Microsoft Azure time. An example for a restore job failure is shown in the following screenshot.
 
-![Échec d’une tâche de restauration](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+![Restore job failure](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
 
-Ces échecs s’appliquent aux tâches de sauvegarde, de restauration, de mise à jour et de basculement. Si votre machine virtuelle est configurée dans Hyper-V, elle finira par synchroniser son heure avec celle de votre hyperviseur. Une fois que ce sera le cas, vous pourrez redémarrer votre tâche.
+These failures will apply to backup, restore, update, and failover jobs. If your virtual machine is provisioned in Hyper-V, the machine will eventually synchronize time with your hypervisor. Once that happens, you can restart your job. 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-[Découvrez comment utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+[Learn how to use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

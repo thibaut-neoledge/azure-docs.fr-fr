@@ -1,66 +1,67 @@
 <properties 
-	pageTitle="Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes" 
-	description="Découvrez comment utiliser les outils de base de données élastique avec la fonction de sécurité au niveau des lignes (RLS) pour générer une application présentant une couche Données hautement évolutive sur la base de données SQL Microsoft Azure qui prend en charge les partitions multi-locataires." 
-	metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
-	services="sql-database" 
+    pageTitle="Multi-tenant applications with elastic database tools and row-level security" 
+    description="Learn how to use elastic database tools together with row-level security to build an application with a highly scalable data tier on Azure SQL Database that supports multi-tenant shards." 
+    metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
+    services="sql-database" 
     documentationCenter=""  
-	manager="jhubbard" 
-	authors="tmullaney"/>
+    manager="jhubbard" 
+    authors="tmullaney"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2016" 
-	ms.author="thmullan;torsteng" />
-
-# Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes 
-
-Les [outils de base de données élastique](sql-database-elastic-scale-get-started.md) et la fonction de [sécurité au niveau des lignes (RLS)](https://msdn.microsoft.com/library/dn765131) offrent un ensemble de puissants outils, qui permettent d’étendre la couche Données d’une application multi-locataires de manière souple et efficace, au moyen de la base de données SQL Microsoft Azure. Consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md) pour plus d’informations.
-
-Cet article explique comment utiliser ces technologies conjointement, afin de créer une application proposant une couche Données hautement évolutive, capable de prendre en charge des partitions multi-locataires, en utilisant **SqlClient ADO.NET** et/ou **Entity Framework**.
-
-* Les **outils de base de données élastique** permettent aux développeurs de monter en charge la couche Données d’une application via des pratiques de partitionnement normalisées, reposant sur un ensemble de bibliothèques .NET et des modèles de service Microsoft Azure. En gérant les partitions via la bibliothèque cliente de base de données élastique, vous rationalisez et automatisez nombre des tâches de l’infrastructure portant généralement sur le partitionnement. 
-
-* La fonction de **sécurité au niveau des lignes** permet aux développeurs de stocker les données de plusieurs locataires dans la même base de données, à l’aide de stratégies de sécurité permettant de filtrer les lignes qui n’appartiennent pas au locataire exécutant une requête. Grâce à la centralisation de la logique d’accès avec RLS dans la base de données plutôt que dans l’application, vous simplifiez la maintenance et réduisez le risque d’erreurs lorsque la codebase d’une application s’agrandit. RLS requiert la dernière [mise à jour de la base de données SQL Microsoft Azure (V12)](sql-database-v12-whats-new.md).
-
-Grâce à l’utilisation conjointe de ces fonctionnalités, une application peut bénéficier d’une réduction des coûts et d’une optimisation de l’efficacité, via le stockage des données de plusieurs locataires au sein de la base de données d’une seule et même partition. Parallèlement à cela, elle a toujours la possibilité de proposer des partitions isolées, incluant un seul locataire, aux locataires « premium » qui doivent respecter des exigences plus élevées en termes de performances. En effet, les partitions multi-locataires ne garantissent pas la distribution équitable des ressources entre les locataires.
-
-En bref, la bibliothèque cliente de la base de données élastique offre des API de [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md), qui connectent automatiquement les locataires à la base de données de partition qui contient leur clé de partitionnement (il s’agit généralement d’un« ID de locataire »). Une fois la connexion établie, une stratégie de sécurité RLS appliquée au sein de la base de données s’assure que les locataires peuvent uniquement accéder aux lignes qui contiennent leur ID de locataire. Le système part du principe que l’ensemble des tables contient une colonne « ID de locataire », qui indique à quel locataire appartiennent les lignes.
-
-![Architecture d’application de création de blogs][1]
-
-## Téléchargement de l’exemple de projet
-
-### Composants requis
-* Exécuter Visual Studio version 2012 ou plus 
-* Créer trois bases de données SQL Microsoft Azure 
-* Télécharger un exemple de projet : [Outils de base de données pour base de données SQL Microsoft Azure - Partitions multi-locataires](http://go.microsoft.com/?linkid=9888163)
-  * Saisissez les informations sur vos bases de données au début du fichier **Program.cs** 
-
-Ce projet étend celui que décrit la section [Outils de base de données pour base de données SQL Microsoft Azure - Intégration d’Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md), en ajoutant la prise en charge des bases de données de partition multi-locataires. Il permet de créer une application console simple afin de créer des blogs et des publications, avec quatre locataires et deux bases de données de partition multi-locataires (comme illustré dans le diagramme ci-dessus).
-
-Générez et exécutez l’application. Cette opération démarre le gestionnaire de mappage de la partition dédiée aux outils de base de données élastique. Exécutez les tests suivants :
-
-1. À l’aide d’Entity Framework et de LINQ, créez un blog et affichez tous les blogs pour chaque client.
-2. À l’aide de la fonction SqlClient ADO.NET, affichez tous les blogs d’un locataire.
-3. Essayez d’insérer un blog associé à un locataire incorrect, afin de vérifier qu’une erreur est déclenchée.  
-
-Comme la fonction RLS n’a pas encore été activée sur les bases de données de la partition, vous pouvez voir que chacun de ces tests met en lumière un problème : les locataires peuvent afficher des blogs qui ne leur appartiennent pas et l’application est autorisée à insérer un blog associé à un locataire incorrect. Le reste de cet article explique comment résoudre ces problèmes en appliquant l’isolation des locataires avec la fonction RLS. La procédure à suivre implique deux étapes :
-
-1. **Couche application** : modifiez le code de l’application en définissant toujours l’élément SESSION\_CONTEXT sur l’ID de locataire actuel après l’ouverture d’une connexion. Cet exemple de projet a déjà effectué cette opération. 
-2. **Couche données** : créez une stratégie de sécurité RLS dans chaque base de données de partition, afin de filtrer les lignes selon l’ID de locataire stocké dans l’élément SESSION\_CONTEXT. Vous devez procéder ainsi pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions multi-locataires ne seront pas filtrées. 
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/27/2016" 
+    ms.author="thmullan;torsteng" />
 
 
-## Étape 1) Couche application : définissez l’identifiant de locataire dans l’élément SESSION\_CONTEXT
+# <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Multi-tenant applications with elastic database tools and row-level security 
 
-Une fois la connexion à la base de données de partition établie, via les API de routage dépendant des données de la bibliothèque de base de données élastique, vous devez faire en sorte que l’application indique à la base de données quel ID de locataire utilise cette connexion, afin que la stratégie de sécurité RLS puisse filtrer les lignes appartenant aux autres locataires. Pour transmettre ces informations, la méthode recommandée consiste à stocker l’ID de locataire en cours pour cette connexion dans l’élément [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806.aspx). (Remarque : vous pouvez également utiliser [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125.aspx), mais SESSION\_CONTEXT offre une meilleure option car cet élément, plus facile à utiliser, renvoie la valeur NULL par défaut et prend en charge les paires clé-valeur.)
+[Elastic database tools](sql-database-elastic-scale-get-started.md) and [row-level security (RLS)](https://msdn.microsoft.com/library/dn765131) offer a powerful set of capabilities for flexibly and efficiently scaling the data tier of a multi-tenant application with Azure SQL Database. See [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) for more information. 
 
-### Entity Framework
+This article illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multi-tenant shards, using **ADO.NET SqlClient** and/or **Entity Framework**.  
 
-Pour les applications utilisant Entity Framework, l’approche la plus simple consiste à définir l’élément SESSION\_CONTEXT dans la substitution ElasticScaleContext décrite dans la section [Routage dépendant des données utilisant EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Avant de retourner la connexion répartie via le routage dépendant des données, vous devez simplement créer et exécuter une commande SqlCommand qui définit l’élément SESSION\_CONTEXT sur la valeur shardingKey spécifiée pour cette connexion. De cette façon, il vous suffit d’écrire le code une seule fois pour définir l’élément SESSION\_CONTEXT.
+* **Elastic database tools** enables developers to scale out the data tier of an application via industry-standard sharding practices using a set of .NET libraries and Azure service templates. Managing shards with using the Elastic Database Client Library helps automate and streamline many of the infrastructural tasks typically associated with sharding. 
+
+* **Row-level security** enables developers to store data for multiple tenants in the same database using security policies to filter out rows that do not belong to the tenant executing a query. Centralizing access logic with RLS inside the database, rather than in the application, simplifies maintenance and reduces the risk of error as an application’s codebase grows. RLS requires the latest [Azure SQL Database update (V12)](sql-database-v12-whats-new.md). 
+
+Using these features together, an application can benefit from cost savings and efficiency gains by storing data for multiple tenants in the same shard database. At the same time, an application still has the flexibility to offer isolated, single-tenant shards for “premium” tenants who require stricter performance guarantees since multi-tenant shards do not guarantee equal resource distribution among tenants.  
+
+In short, the elastic database client library’s [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) APIs automatically connect tenants to the correct shard database containing their sharding key (generally a “TenantId”). Once connected, an RLS security policy within the database ensures that tenants can only access rows that contain their TenantId. It is assumed that all tables contain a TenantId column to indicate which rows belong to each tenant. 
+
+![Blogging app architecture][1]
+
+## <a name="download-the-sample-project"></a>Download the sample project
+
+### <a name="prerequisites"></a>Prerequisites
+* Use Visual Studio (2012 or higher) 
+* Create three Azure SQL Databases 
+* Download sample project: [Elastic DB Tools for Azure SQL - Multi-Tenant Shards](http://go.microsoft.com/?linkid=9888163)
+  * Fill in the information for your databases at the beginning of **Program.cs** 
+
+This project extends the one described in [Elastic DB Tools for Azure SQL - Entity Framework Integration](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multi-tenant shard databases. It builds a simple console application for creating blogs and posts, with four tenants and two multi-tenant shard databases as illustrated in the above diagram. 
+
+Build and run the application. This will bootstrap the elastic database tools’ shard map manager and run the following tests: 
+
+1. Using Entity Framework and LINQ, create a new blog and then display all blogs for each tenant
+2. Using ADO.NET SqlClient, display all blogs for a tenant
+3. Try to insert a blog for the wrong tenant to verify that an error is thrown  
+
+Notice that because RLS has not yet been enabled in the shard databases, each of these tests reveals a problem: tenants are able to see blogs that do not belong to them, and the application is not prevented from inserting a blog for the wrong tenant. The remainder of this article describes how to resolve these problems by enforcing tenant isolation with RLS. There are two steps: 
+
+1. **Application tier**: Modify the application code to always set the current TenantId in the SESSION_CONTEXT after opening a connection. The sample project has already done this. 
+2. **Data tier**: Create an RLS security policy in each shard database to filter rows based on the TenantId stored in SESSION_CONTEXT. You will need to do this for each of your shard databases, otherwise rows in multi-tenant shards will not be filtered. 
+
+
+## <a name="step-1)-application-tier:-set-tenantid-in-the-session_context"></a>Step 1) Application tier: Set TenantId in the SESSION_CONTEXT
+
+After connecting to a shard database using the elastic database client library’s data dependent routing APIs, the application still needs to tell the database which TenantId is using that connection so that an RLS security policy can filter out rows belonging to other tenants. The recommended way to pass this information is to store the current TenantId for that connection in the [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806.aspx). (Note: You could alternatively use [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125.aspx), but SESSION_CONTEXT is a better option because it is easier to use, returns NULL by default, and supports key-value pairs.)
+
+### <a name="entity-framework"></a>Entity Framework
+
+For applications using Entity Framework, the easiest approach is to set the SESSION_CONTEXT within the ElasticScaleContext override described in [Data Dependent Routing using EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Before returning the connection brokered through data dependent routing, simply create and execute a SqlCommand that sets 'TenantId' in the SESSION_CONTEXT to the shardingKey specified for that connection. This way, you only need to write code once to set the SESSION_CONTEXT. 
 
 ```
 // ElasticScaleContext.cs 
@@ -106,30 +107,30 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-Désormais, l’élément SESSION\_CONTEXT est automatiquement défini avec l’ID de locataire spécifié chaque fois que le paramètre ElasticScaleContext est appelé :
+Now the SESSION_CONTEXT is automatically set with the specified TenantId whenever ElasticScaleContext is invoked: 
 
 ```
 // Program.cs 
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
 {   
-	using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
-	{     
-		var query = from b in db.Blogs
-	                orderby b.Name
-	                select b;
-		
-		Console.WriteLine("All blogs for TenantId {0}:", tenantId);     
-		foreach (var item in query)     
-		{       
-			Console.WriteLine(item.Name);     
-		}   
-	} 
+    using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
+    {     
+        var query = from b in db.Blogs
+                    orderby b.Name
+                    select b;
+        
+        Console.WriteLine("All blogs for TenantId {0}:", tenantId);     
+        foreach (var item in query)     
+        {       
+            Console.WriteLine(item.Name);     
+        }   
+    } 
 }); 
 ```
 
-### SqlClient ADO.NET 
+### <a name="ado.net-sqlclient"></a>ADO.NET SqlClient 
 
-Pour les applications utilisant SqlClient ADO.NET, il est recommandé d’opter pour la création d’une fonction wrapper autour de ShardMap.OpenConnectionForKey() qui définit automatiquement SESSION\_CONTEXT sur l’ID de locataire correct avant de renvoyer une connexion. Pour garantir que SESSION\_CONTEXT est toujours défini, vous ne devez ouvrir des connexions qu’à l’aide de cette fonction wrapper.
+For applications using ADO.NET SqlClient, the recommended approach is to create a wrapper function around ShardMap.OpenConnectionForKey() that automatically sets 'TenantId' in the SESSION_CONTEXT to the correct TenantId before returning a connection. To ensure that SESSION_CONTEXT is always set, you should only open connections using this wrapper function.
 
 ```
 // Program.cs
@@ -187,85 +188,85 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ```
 
-## Étape 2) Couche données : création d’une stratégie de sécurité au niveau des lignes
+## <a name="step-2)-data-tier:-create-row-level-security-policy"></a>Step 2) Data tier: Create row-level security policy
 
-### Créez une stratégie de sécurité pour filtrer les lignes accessibles à chaque client.
+### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Create a security policy to filter the rows each tenant can access
 
-Comme l’application définit désormais l’élément SESSION\_CONTEXT avec l’ID de locataire en cours avant d’envoyer des requêtes, une stratégie de sécurité RLS peut filtrer les requêtes et exclure les lignes associées à un ID de locataire différent.
+Now that the application is setting SESSION_CONTEXT with the current TenantId before querying, an RLS security policy can filter queries and exclude rows that have a different TenantId.  
 
-La fonction RLS est implémentée dans T-SQL : une fonction définie par l’utilisateur détermine la logique d’accès, et une stratégie de sécurité lie cette fonction à un nombre de tables quelconque. Pour les besoins de ce projet, la fonction vérifie simplement que l’application (plutôt qu’un autre utilisateur SQL) est connectée à la base de données, et que l’ID de locataire stocké dans l’élément SESSION\_CONTEXT correspond à l’ID de locataire d’une ligne donnée. Un prédicat de filtrage permet de filtrer les lignes satisfaisant à ces conditions pour les requêtes SELECT, UPDATE et DELETE ; un prédicat de blocage empêche l’insertion ou la mise à jour des lignes qui violent ces conditions. Si l’élément SESSION\_CONTEXT n’a pas été défini, il retournera la valeur NULL et aucune ligne ne sera visible ou ne pourra être insérée.
+RLS is implemented in T-SQL: a user-defined function defines the access logic, and a security policy binds this function to any number of tables. For this project, the function will simply verify that the application (rather than some other SQL user) is connected to the database, and that the 'TenantId' stored in the SESSION_CONTEXT matches the TenantId of a given row. A filter predicate will allow rows that meet these conditions to pass through the filter for SELECT, UPDATE, and DELETE queries; and a block predicate will prevent rows that violate these conditions from being INSERTed or UPDATEd. If SESSION_CONTEXT has not been set, it will return NULL and no rows will be visible or able to be inserted. 
 
-Pour activer la fonction RLS, exécutez la commande T-SQL suivante sur toutes les partitions, à l’aide de Visual Studio (SSDT), de SSMS ou du script PowerShell inclus dans le projet (le cas échéant, si vous avez recours aux [tâches de la base de données élastique](sql-database-elastic-jobs-overview.md), vous pouvez les utiliser pour automatiser l’exécution de cette commande T-SQL sur toutes les partitions) :
+To enable RLS, execute the following T-SQL on all shards using either Visual Studio (SSDT), SSMS, or the PowerShell script included in the project (or if you are using [Elastic Database Jobs](sql-database-elastic-jobs-overview.md), you can use it to automate execution of this T-SQL on all shards): 
 
 ```
 CREATE SCHEMA rls -- separate schema to organize RLS objects 
 GO
 
 CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)     
-	RETURNS TABLE     
-	WITH SCHEMABINDING
+    RETURNS TABLE     
+    WITH SCHEMABINDING
 AS
-	RETURN SELECT 1 AS fn_accessResult          
-		WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- the user in your application’s connection string (dbo is only for demo purposes!)         
-		AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
+    RETURN SELECT 1 AS fn_accessResult          
+        WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- the user in your application’s connection string (dbo is only for demo purposes!)         
+        AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
 GO
 
 CREATE SECURITY POLICY rls.tenantAccessPolicy
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
-	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
-	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
+    ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
+    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
+    ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
+    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
 GO 
 ```
 
-> [AZURE.TIP] Pour les projets plus complexes qui nécessitent l’ajout du prédicat à des centaines de tables, vous pouvez utiliser une procédure stockée d’assistance, qui génère automatiquement une stratégie de sécurité en ajoutant un prédicat sur toutes les tables dans un schéma. Voir [Appliquer la sécurité au niveau des lignes à toutes les tables – Script d’assistance (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> [AZURE.TIP] For more complex projects that need to add the predicate on hundreds of tables, you can use a helper stored procedure that automatically generates a security policy adding a predicate on all tables in a schema. See [Apply Row-Level Security to all tables – helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).  
 
-À présent, si vous exécutez l’exemple d’application une nouvelle fois, les locataires ne seront en mesure de voir que les lignes qui leur appartiennent. Par ailleurs, l’application ne peut pas insérer des lignes qui appartiennent à un locataire autre que celui qui est actuellement connecté à la base de données de partition, de même qu’elle ne peut pas mettre à jour les lignes visibles pour leur affecter un autre ID de locataire. Si elle tente d’effectuer l’une ou l’autre de ces opérations, une exception DbUpdateException est déclenchée.
+Now if you run the sample application again, tenants will able to see only rows that belong to them. In addition, the application cannot insert rows that belong to tenants other than the one currently connected to the shard database, and it cannot update visible rows to have a different TenantId. If the application attempts to do either, a DbUpdateException will be raised.
 
-Si vous ajoutez une nouvelle table par la suite, il vous suffit de MODIFIER la stratégie de sécurité et d’ajouter des prédicats de filtrage et de blocage sur la nouvelle table :
+If you add a new table later on, simply ALTER the security policy and add filter and block predicates on the new table: 
 
 ```
 ALTER SECURITY POLICY rls.tenantAccessPolicy     
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
-	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable
+    ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
+    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable
 GO 
 ```
 
-### Ajouter des contraintes par défaut afin d’indiquer automatiquement les ID de locataire pour les opérations INSERT 
+### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Add default constraints to automatically populate TenantId for INSERTs 
 
-Vous pouvez placer une contrainte par défaut sur chaque table pour renseigner automatiquement l’ID de locataire avec la valeur actuellement stockée dans l’élément SESSION\_CONTEXT lors de l’insertion de lignes. Par exemple :
+You can put a default constraint on each table to automatically populate the TenantId with the value currently stored in SESSION_CONTEXT when inserting rows. For example: 
 
 ```
 -- Create default constraints to auto-populate TenantId with the value of SESSION_CONTEXT for inserts 
 ALTER TABLE Blogs     
-	ADD CONSTRAINT df_TenantId_Blogs      
-	DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
+    ADD CONSTRAINT df_TenantId_Blogs      
+    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
 GO
 
 ALTER TABLE Posts     
-	ADD CONSTRAINT df_TenantId_Posts      
-	DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
+    ADD CONSTRAINT df_TenantId_Posts      
+    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
 GO 
 ```
 
-À présent, l’application n’a pas besoin de spécifier un ID de locataire lors de l’insertion de lignes :
+Now the application does not need to specify a TenantId when inserting rows: 
 
 ```
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
 {   
-	using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
-	{
-		var blog = new Blog { Name = name }; // default constraint sets TenantId automatically     
-		db.Blogs.Add(blog);     
-		db.SaveChanges();   
-	} 
+    using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
+    {
+        var blog = new Blog { Name = name }; // default constraint sets TenantId automatically     
+        db.Blogs.Add(blog);     
+        db.SaveChanges();   
+    } 
 }); 
 ```
 
-> [AZURE.NOTE] Si vous utilisez des contraintes par défaut pour un projet Entity Framework, il est recommandé de ne PAS inclure la colonne « ID de locataire » dans votre modèle de données Entity Framework. En effet, les requêtes Entity Framework fournissent automatiquement des valeurs par défaut, qui remplacent les contraintes par défaut créées dans T-SQL et qui utilisent l’élément SESSION\_CONTEXT. Pour utiliser les contraintes par défaut dans l’exemple de projet, par exemple, vous devez supprimer l’ID de locataire dans le fichier DataClasses.cs (et exécuter l’élément Add-Migration dans la Console du gestionnaire de package), puis utiliser T-SQL pour vérifier que le champ existe uniquement dans les tables de base de données. De cette façon, vous vous assurez qu’Entity Framework ne fournit pas automatiquement des valeurs par défaut incorrectes lors de l’insertion de données.
+> [AZURE.NOTE] If you use default constraints for an Entity Framework project, it is recommended that you do NOT include the TenantId column in your EF data model. This is because Entity Framework queries automatically supply default values which will override the default constraints created in T-SQL that use SESSION_CONTEXT. To use default constraints in the sample project, for instance, you should remove TenantId from DataClasses.cs (and run Add-Migration in the Package Manager Console) and use T-SQL to ensure that the field only exists in the database tables. This way, EF will not automatically supply incorrect default values when inserting data. 
 
-### (Facultatif) Activer un « superutilisateur » pour accéder à toutes les lignes
-Certaines applications peuvent nécessiter la création d’un « superutilisateur » pouvant accéder à toutes les lignes. Cela permet par exemple d’activer la création de rapports pour tous les locataires de toutes les partitions, ou d’exécuter des opérations de fractionnement et de fusion sur des partitions impliquant le déplacement de lignes de locataires entre les bases de données. Pour ce faire, vous devez créer un nouvel utilisateur SQL (un « superutilisateur » dans cet exemple) dans chaque base de données de partition. Vous devez ensuite modifier la stratégie de sécurité en ajoutant une nouvelle fonction de prédicat permettant à cet utilisateur d’accéder à toutes les lignes :
+### <a name="(optional)-enable-a-"superuser"-to-access-all-rows"></a>(Optional) Enable a "superuser" to access all rows
+Some applications may want to create a "superuser" who can access all rows, for instance, in order to enable reporting across all tenants on all shards, or to perform Split/Merge operations on shards that involve moving tenant rows between databases. To enable this, you should create a new SQL user ("superuser" in this example) in each shard database. Then alter the security policy with a new predicate function that allows this user to access all rows:
 
 ```
 -- New predicate function that adds superuser logic
@@ -295,28 +296,28 @@ GO
 ```
 
 
-### Maintenance 
+### <a name="maintenance"></a>Maintenance 
 
-* **Ajout de nouvelles partitions** : vous devez exécuter le script T-SQL pour activer la fonction RLS sur les nouvelles partitions. Dans le cas contraire, les requêtes portant sur ces partitions ne seront pas filtrées.
+* **Adding new shards**: You must execute the T-SQL script to enable RLS on any new shards, otherwise queries on these shards will not be filtered.
 
-* **Ajout de nouvelles tables** : vous devez ajouter un prédicat de filtrage et de blocage à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne seront pas filtrées. Vous pouvez automatiser ce processus via un déclencheur DDL, comme décrit dans l’article [Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+* **Adding new tables**: You must add a filter and block predicate to the security policy on all shards whenever a new table is created, otherwise queries on the new table will not be filtered. This can be automated using a DDL trigger, as described in [Apply Row-Level Security automatically to newly created tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 
-## Résumé 
+## <a name="summary"></a>Summary 
 
-Les outils de base de données élastique et la fonction de sécurité au niveau des lignes (RLS) peuvent être utilisés ensemble pour faire monter en charge la couche Données d’une application prenant en charge les partitions multi-locataires ou à un seul locataire. Les partitions multi-locataires peuvent être utilisées pour stocker des données de manière plus efficace (notamment dans les cas où un grand nombre de locataires présente quelques lignes de données seulement). Les partitions à un seul locataire peuvent quant à elles servir à prendre en charge les locataires « premium » qui doivent respecter des exigences plus élevées en termes de performances et d’isolation. Pour plus d’informations, consultez [Sécurité au niveau des lignes](https://msdn.microsoft.com/library/dn765131).
+Elastic database tools and row-level security can be used together to scale out an application’s data tier with support for both multi-tenant and single-tenant shards. Multi-tenant shards can be used to store data more efficiently (particularly in cases where a large number of tenants have only a few rows of data), while single-tenant shards can be used to support premium tenants with stricter performance and isolation requirements.  For more information, see [Row-Level Security reference](https://msdn.microsoft.com/library/dn765131). 
 
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Additional resources
 
-- [Qu’est-ce qu’un pool de base de données élastique ?](sql-database-elastic-pool.md)
-- [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md)
-- [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-- [Authentification sur les applications mutualisées, avec Azure AD et OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
-- [Application Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+- [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
 
-## Questions et demandes de fonctionnalités
+## <a name="questions-and-feature-requests"></a>Questions and Feature Requests
 
-Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->
@@ -325,4 +326,8 @@ Pour toute question, contactez-nous sur le [forum Base de données SQL](http://s
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

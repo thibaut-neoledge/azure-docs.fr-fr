@@ -1,62 +1,67 @@
 <properties 
-	pageTitle="Vue d’ensemble du Kit de développement logiciel Windows Phone Silverlight" 
-	description="Vue d'ensemble du Kit de développement Silverlight de Windows Phone pour Azure Engagement Mobile" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede"
-	editor="" />
+    pageTitle="Windows Phone Silverlight SDK Overview" 
+    description="Overview of the Windows Phone Silverlight SDK for Azure Mobile Engagement"                     
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede"
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/19/2016" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-phone" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/19/2016" 
+    ms.author="piyushjo" />
 
-#Vue d'ensemble du Kit de développement Silverlight de Windows Phone pour Azure Engagement Mobile
 
-Cette introduction contient les informations nécessaires pour intégrer Azure Mobile Engagement à une application Windows Phone Silverlight. Si vous souhaitez tout d'abord l'essayer, pensez à suivre notre didacticiel de [15 minutes](mobile-engagement-windows-phone-get-started.md).
+#<a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Windows Phone Silverlight SDK Overview for Azure Mobile Engagement
 
-Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-engagement-windows-phone-sdk-content.md)
+Start here to get the details on how to integrate Azure Mobile Engagement in a Windows Phone Silverlight App. If you'd like to give it a try first, make sure you complete our [15 minutes tutorial](mobile-engagement-windows-phone-get-started.md).
 
-##Procédures d'intégration
+Click to see the [SDK Content](mobile-engagement-windows-phone-sdk-content.md)
 
-1. Commencez ici : [Intégration de Mobile Engagement à votre application Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+##<a name="integration-procedures"></a>Integration procedures
 
-2. Pour les notifications : [Intégration de Reach (Notifications) à votre application Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement-reach.md)
+1. Start here: [How to integrate Mobile Engagement in your Windows Phone Silverlight app](mobile-engagement-windows-phone-integrate-engagement.md)
 
-3. Implémentation du plan de la balise : [Utilisation de l'API de marquage avancée Mobile Engagement dans votre application Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md)
+2. For Notifications: [How to integrate Reach (Notifications) in your Windows Phone Silverlight app](mobile-engagement-windows-phone-integrate-engagement-reach.md)
 
-##Notes de publication
+3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app](mobile-engagement-windows-phone-use-engagement-api.md)
 
-###3\.3.0 (04/19/2016)
-Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.4.0**
+##<a name="release-notes"></a>Release notes
 
--   Ajout de l'API « TestLogLevel » aux journaux de console enable/disable/filter émis par le Kit de développement logiciel (SDK).
+###<a name="3.3.0-(04/19/2016)"></a>3.3.0 (04/19/2016)
+Part of the *MicrosoftAzure.MobileEngagement* nuget package **v3.4.0**
 
-Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-windows-phone-release-notes.md)
+-   Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.
 
-##Procédures de mise à niveau
+For earlier version please see the [complete release notes](mobile-engagement-windows-phone-release-notes.md)
 
-Si vous avez déjà intégré une ancienne version de notre SDK à votre application, tenez compte des points suivants avant de procéder à la mise à niveau du SDK.
+##<a name="upgrade-procedures"></a>Upgrade procedures
 
-Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Consultez l’ensemble des [procédures de mise à niveau](mobile-engagement-windows-phone-upgrade-procedure.md). Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure « Migration de 0.9.0 vers 0.10.1 », puis la procédure « Migration de 0.10.1 vers 0.11.0 ».
+If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
-###Migration de 2.0.0 vers 3.3.0
+You may have to follow several procedures if you missed several versions of the SDK. See the complete [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure.md). For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
 
-####Journaux des tests
+###<a name="from-2.0.0-to-3.3.0"></a>From 2.0.0 to 3.3.0
 
-Les journaux de console produits par le Kit de développement logiciel (SDK) peuvent maintenant être activés/désactivés/filtrés. Pour personnaliser ce résultat, mettez à jour la propriété `EngagementAgent.Instance.TestLogEnabled` avec une des valeurs disponibles à partir de l'énumération `EngagementTestLogLevel`, par exemple :
+####<a name="test-logs"></a>Test logs
 
-			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
-			EngagementAgent.Instance.Init();
+Console logs produced by the SDK can now be enabled/disabled/filtered. To customize this, update the property `EngagementAgent.Instance.TestLogEnabled` to one of the value available from the `EngagementTestLogLevel` enumeration, for instance:
 
-### Mise à niveau à partir de versions antérieures
+            EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+            EngagementAgent.Instance.Init();
 
-Consultez [Procédures de mise à niveau](mobile-engagement-windows-phone-upgrade-procedure.md)
+### <a name="upgrade-from-older-versions"></a>Upgrade from older versions
+
+See [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure.md)
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

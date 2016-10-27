@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ajouter un pare-feu d'applications web dans le Centre de sécurité Azure | Microsoft Azure"
-   description="Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Add a web application firewall** (Ajouter un pare-feu d’applications web) et **Finalize application protection** (Finaliser la protection des applications)."
+   pageTitle="Add a web application firewall in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendations **Add a web application firewall** and **Finalize application protection**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,59 +16,70 @@
    ms.date="07/29/2016"
    ms.author="terrylan"/>
 
-# Ajouter un pare-feu d'applications web dans le Centre de sécurité Azure
 
-Le Centre de sécurité Azure peut vous recommander d'ajouter un pare-feu d'applications web (WAF) d'un partenaire Microsoft afin de sécuriser vos applications web. Ce document inclut un exemple vous expliquant comment procéder.
+# <a name="add-a-web-application-firewall-in-azure-security-center"></a>Add a web application firewall in Azure Security Center
 
-> [AZURE.NOTE] Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+Azure Security Center may recommend that you add a web application firewall (WAF) from a Microsoft partner in order to secure your web applications. This document walks you through an example of how to do this.
 
-## Implémenter la recommandation
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
-1. Dans le panneau **Recommandations**, sélectionnez **Sécuriser l’application web à l’aide du pare-feu d’applications web**. ![Sécuriser l’application web][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. Dans le panneau **Sécuriser l’application web à l’aide du pare-feu d’applications web**, sélectionnez une application web. Le panneau **Ajouter un pare-feu d’applications web** s’ouvre. ![Ajouter un pare-feu d’applications web][2]
-3. Vous pouvez choisir d'utiliser un pare-feu d'applications web existant s'il est disponible, ou en créer un. Dans cet exemple, il n'existe aucun pare-feu WAF existant, et nous allons donc en créer un.
+1. In the **Recommendations** blade, select **Secure web application using web application firewall**.
+![Secure web Application][1]
 
-4. Pour créer un pare-feu WAF, sélectionnez une solution dans la liste des partenaires intégrés. Dans cet exemple, nous allons sélectionner **Pare-feu d’applications web Barracuda**.
-5. Le panneau **Pare-feu d’applications web Barracuda** s’ouvre et affiche des informations sur la solution du partenaire. Sélectionnez **Créer** dans le panneau d’informations. ![Panneau d’informations du pare-feu][3]
+2. In the **Secure your web applications using web application firewall** blade, select a web application. The **Add a Web Application Firewall** blade opens.
+![Add a web application firewall][2]
+3. You can choose to use an existing web application firewall if available or you can create a new one. In this example there are no existing WAFs available so we'll create a new WAF.
 
-6. Le panneau **Nouveau pare-feu d’applications web** s’ouvre. Vous pouvez y **configurer des machines virtuelles** et fournir des **informations sur le pare-feu d’applications web**. Sélectionnez **Configuration de machine virtuelle**.
+4. To create a new WAF, select a solution from the list of integrated partners. In this example we will select **Barracuda Web Application Firewall**.
+5. The **Barracuda Web Application Firewall** blade opens providing you information about the partner solution. Select **Create** in the information blade.
+![Firewall information blade][3]
 
-7. Dans le panneau **Configuration de machine virtuelle**, entrez les informations nécessaires pour créer la machine virtuelle qui doit exécuter le pare-feu d’applications web. ![Configuration de machine virtuelle][4]
-8. Retournez au panneau **Nouveau pare-feu d’applications web**, puis sélectionnez **Informations sur le pare-feu d’applications web**. Dans le panneau **Informations sur le pare-feu d’applications web**, vous pouvez configurer le pare-feu d’applications web. L’étape 7 vous permet de configurer la machine virtuelle sur laquelle le pare-feu d’applications web doit être exécuté, et l’étape 8 vous permet d’approvisionner le pare-feu d’applications web.
+6. The **New Web Application Firewall** blade opens, where you can perform **VM Configuration** steps and provide **WAF Information**. Select **VM Configuration**.
 
-## Finaliser la protection des applications
+7. In the **VM Configuration** blade you enter information required to spin up the virtual machine that will run the WAF.
+![VM configuration][4]
+8. Return to the **New Web Application Firewall** blade and select **WAF Information**. In the **WAF Information** blade you configure the WAF itself. Step 7 allows you to configure the virtual machine on which the WAF will run and step 8 enables you to provision the WAF itself.
 
-1. Retournons au panneau **Recommandations**. Une entrée a été générée après la création du pare-feu d’applications web, appelée **Finaliser la protection des applications**. Cela vous indique que vous devez terminer le processus de configuration du pare-feu d’applications web dans le réseau virtuel Azure pour qu’il puisse protéger l’application. ![Finaliser la protection des applications][5]
+## <a name="finalize-application-protection"></a>Finalize application protection
 
-2. Sélectionnez **Finaliser la protection des applications**. Un nouveau panneau s'ouvre. Vous voyez que le trafic d’une application web doit être redirigé.
-3. Sélectionnez l’application web. Un panneau s’ouvre et affiche des instructions pour finaliser la configuration du pare-feu d’applications web. Suivez les étapes, puis sélectionnez **Restreindre le trafic**. Azure Security Center effectue ensuite la configuration à votre place. ![Restreindre le trafic][6]
+1. Return to the **Recommendations** blade. A new entry was generated after you created the WAF, called **Finalize application protection**. This entry lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
+![Finalize application protection][5]
 
-> [AZURE.NOTE] Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. Les dispositifs WAF (créés à l’aide du modèle de déploiement de Resource Manager) doivent être déployés sur un réseau virtuel distinct. Les dispositifs WAF (créés à l’aide du modèle de déploiement classique) sont limités à l’utilisation d’un groupe de sécurité réseau. Cette prise en charge sera étendue prochainement à un déploiement entièrement personnalisé d’un dispositif WAF (pour les machines virtuelles de type Classique). En savoir plus sur les [modèles de déploiement de type Classique et Resource Manager](../azure-classic-rm.md) pour les ressources Azure.
+2. Select **Finalize application protection**. A new blade opens. You can see that there is a web application that needs to have its traffic rerouted.
+3. Select the web application. A blade opens that gives you steps for finalizing the web application firewall setup. Complete the steps, and then select **Restrict traffic**. Security Center will then do the wiring-up for you.
+![Restrict traffic][6]
 
-Les journaux du pare-feu d’applications web sont maintenant entièrement intégrés. Le Centre de sécurité peut commencer automatiquement à collecter et à analyser les journaux afin de vous informer des alertes de sécurité les plus importantes.
+> [AZURE.NOTE] You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future. Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
 
-## Voir aussi
+The logs from that WAF are now fully integrated. Security Center can start automatically gathering and analyzing the logs so that it can surface important security alerts to you.
 
-Ce document vous a montré comment implémenter la recommandation du Centre de sécurité « Add a web application » (Ajouter une application web). Pour en savoir plus sur la configuration d'un pare-feu d'applications web, consultez les rubriques suivantes :
+## <a name="see-also"></a>See also
 
-- [Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
+This document showed you how to implement the Security Center recommendation "Add a web application." To learn more about configuring a web application firewall, see the following:
 
-Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+- [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
 
-- [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-- [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-- [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
-- [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure.
+To learn more about Security Center, see the following:
+
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-add-web-application-firewall/secure-web-application.png
-[2]: ./media/security-center-add-web-application-firewall/add-a-waf.png
+[2]:./media/security-center-add-web-application-firewall/add-a-waf.png
 [3]: ./media/security-center-add-web-application-firewall/info-blade.png
 [4]: ./media/security-center-add-web-application-firewall/select-vm-config.png
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,75 +1,81 @@
 <properties
-	pageTitle="Azure Active Directory Identity Protection - Déblocage des utilisateurs | Microsoft Azure"
-	description="Découvrez comment débloquer les utilisateurs bloqués par une stratégie Azure Active Directory Identity Protection."
-	services="active-directory"
-	keywords="azure active directory identity protection, déblocage des utilisateurs"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure Active Directory Identity Protection - How to unblock users | Microsoft Azure"
+    description="Learn how unblock users that were blocked by an Azure Active Directory Identity Protection policy."
+    services="active-directory"
+    keywords="azure active directory identity protection, unblock user"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="markvi"/>
-
-#Azure Active Directory Identity Protection - Déblocage des utilisateurs
-
-Avec Azure Active Directory Identity Protection, vous pouvez configurer des stratégies pour bloquer les utilisateurs si les conditions configurées sont remplies. En règle générale, un utilisateur bloqué contacte le support technique pour pouvoir être débloqué. Cette rubrique explique les étapes à suivre pour débloquer un utilisateur bloqué.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/20/2016"
+    ms.author="markvi"/>
 
 
-## Déterminer la raison du blocage
+#<a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - How to unblock users
 
-Dans un premier temps, pour débloquer un utilisateur, vous devez déterminer le type de stratégie qui l’a bloqué, car les étapes suivantes en dépendent. Avec Azure Active Directory Identity Protection, un utilisateur peut être bloqué par une stratégie en matière de risque à la connexion ou par une stratégie de risque d’utilisateur.
+With Azure Active Directory Identity Protection, you can configure policies to block users if the configured conditions are satisfied. Typically, a blocked user contacts help desk to become unblocked. This topics explains the steps you can perform to unblock a blocked user.
 
-Vous pouvez déterminer le type de stratégie qui a bloqué l’utilisateur à partir de l’en-tête dans la boîte de dialogue présentée à l’utilisateur lors d’une tentative de connexion :
 
-|Stratégie | Boîte de dialogue utilisateur|
+## <a name="determine-the-reason-for-blocking"></a>Determine the reason for blocking
+
+As a first step to unblock a user, you need to determine the type of policy that has blocked the user because your next steps are depending on it. With Azure Active Directory Identity Protection, a user can be either blocked by a sign-in risk policy or a user risk policy. 
+
+You can get the type of policy that has blocked a user from the heading in the dialog that was presented to the user during a sign-in attempt:
+
+|Policy | User dialog|
 |--- | --- |
-|Risque à la connexion | ![Connexion bloquée](./media/active-directory-identityprotection-unblock-howto/02.png) |
-|Risque de l’utilisateur | ![Compte bloqué](./media/active-directory-identityprotection-unblock-howto/104.png) |
+|Sign-in risk | ![Blocked sign-in](./media/active-directory-identityprotection-unblock-howto/02.png) |
+|User risk | ![Blocked account](./media/active-directory-identityprotection-unblock-howto/104.png) |
 
 
-Un utilisateur qui est bloqué par :
+A user that is blocked by:
 
-- Une stratégie en matière de risque à la connexion, également appelée connexion suspecte
-- Une stratégie de risque d’utilisateur, également appelé compte à risque
+- A sign-in risk policy is also known as suspicious sign-in
+- A user risk policy is also known as an account at risk
 
  
-## Déblocage des connexions suspectes
+## <a name="unblocking-suspicious-sign-ins"></a>Unblocking suspicious sign-ins
 
-Pour débloquer une connexion suspecte, vous disposez des options suivantes :
+To unblock a suspicious sign-in, you have the following options:
 
-1. **Connexion à partir d’un emplacement ou d’un appareil connu** : les connexions suspectes bloquées sont généralement des tentatives de connexion effectuées à partir d’un emplacement ou d’un appareil inconnu. Vos utilisateurs peuvent déterminer rapidement s’il s’agit bien de la raison du blocage en essayant de se connecter depuis un appareil ou un emplacement connu.
+1. **Sign-in from a familiar location or device** - A common reason for blocked suspicious sign-ins are sign-in attempts from unfamiliar locations or devices. Your users can quickly determine whether this is the blocking reason by trying to sign-in from a familiar location or device.
 
 
-3. **Exclure de la stratégie** : si vous pensez que la configuration actuelle de votre stratégie d’authentification est à l’origine de problèmes pour certains utilisateurs, vous pouvez les exclure de cette dernière. Pour plus d’informations, consultez la page [Stratégie en matière de risque à la connexion](active-directory-identityprotection.md#sign-in-risk-policy).
+3. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [sign-in risk policy](active-directory-identityprotection.md#sign-in-risk-policy) for more details.
  
-4. **Désactiver la stratégie** : si vous pensez que votre configuration de la stratégie est à l’origine des problèmes pour tous vos utilisateurs, vous pouvez désactiver la stratégie. Pour plus d’informations, consultez la page [Stratégie en matière de risque à la connexion](active-directory-identityprotection.md#sign-in-risk-policy).
+4. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [sign-in risk policy](active-directory-identityprotection.md#sign-in-risk-policy) for more details.
 
 
-## Déblocage des comptes à risque
+## <a name="unblocking-accounts-at-risk"></a>Unblocking accounts at risk
 
-Pour débloquer un compte à risque, vous disposez des options suivantes :
+To unblock an account at risk, you have the following options:
 
-1. **Réinitialiser le mot de passe réinitialisé** : vous pouvez réinitialiser le mot de passe de l’utilisateur. Pour plus d’informations, consultez la page [Réinitialisation manuelle et sécurisée du mot de passe](active-directory-identityprotection.md#manual-secure-password-reset).
+1. **Reset password** - You can reset the user's password. See [manual secure password reset](active-directory-identityprotection.md#manual-secure-password-reset) for more details.
 
-2. **Ignorer tous les événements risque** : la stratégie de risque de l’utilisateur bloque un utilisateur si le niveau de risque d’un utilisateur configuré a été atteint. Vous pouvez réduire le niveau de risque d’un utilisateur en fermant manuellement les événements à risque signalés. Pour plus d’informations, consultez la page [Fermeture manuelle des événements à risque](active-directory-identityprotection.md#closing-risk-events-manually).
+2. **Dismiss all risk events** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by manually closing reported risk events. For more details, see [closing risk events manually](active-directory-identityprotection.md#closing-risk-events-manually).
 
-3. **Exclure de la stratégie** : si vous pensez que la configuration actuelle de votre stratégie d’authentification est à l’origine de problèmes pour certains utilisateurs, vous pouvez les exclure de cette dernière. Pour plus d’informations, consultez la page [Stratégie de risque d’utilisateur](active-directory-identityprotection.md#user-risk-policy).
+3. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [user risk policy](active-directory-identityprotection.md#user-risk-policy) for more details.
  
-4. **Désactiver la stratégie** : si vous pensez que votre configuration de la stratégie est à l’origine des problèmes pour tous vos utilisateurs, vous pouvez désactiver la stratégie. Pour plus d’informations, consultez la page [Stratégie de risque d’utilisateur](active-directory-identityprotection.md#user-risk-policy).
+4. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [user risk policy](active-directory-identityprotection.md#user-risk-policy) for more details.
 
 
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
- Vous souhaitez en savoir plus sur Azure AD Identity Protection ? Consultez la rubrique [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+ Do you want to know more about Azure AD Identity Protection? Check out [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

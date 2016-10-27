@@ -1,91 +1,98 @@
 <properties 
-	pageTitle="En savoir plus sur le connecteur Enterprise Integration Pack Decode X12 Message | Microsoft Azure App Service | Microsoft Azure" 
-	description="Découvrez comment utiliser les partenaires avec Enterprise Integration Pack et vos applications logiques" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="padmavc" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Learn about Enterprise Integration Pack Decode X12 Message Connctor | Microsoft Azure App Service | Microsoft Azure" 
+    description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="padmavc" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="padmavc"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/15/2016" 
+    ms.author="padmavc"/>
 
-# Prise en main de Decode X12 Message
 
-Valide l’EDI et les propriétés spécifiques au partenaire, génère un document XML pour chaque document informatisé ainsi qu’un accusé de réception pour la transaction traitée.
+# <a name="get-started-with-decode-x12-message"></a>Get started with Decode X12 Message
 
-## Créer la connexion
+Validates EDI and partner-specific properties, generates XML document for each transaction set and generates acknowledgment for processed transaction.
 
-### Conditions préalables
+## <a name="create-the-connection"></a>Create the connection
 
-* Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
+### <a name="prerequisites"></a>Prerequisites
 
-* Un compte d’intégration est nécessaire pour utiliser le connecteur Decode X12 Message. Plus d’informations sur la création d’un [compte d’intégration](./app-service-logic-enterprise-integration-create-integration-account.md), de [partenaires](./app-service-logic-enterprise-integration-partners.md) et d’un [contrat X12](./app-service-logic-enterprise-integration-x12.md)
+* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-### Connectez-vous à Decode X12 Message en procédant comme suit :
+* An Integration Account is required to use Decode X12 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-partners.md) and [X12 agreement](./app-service-logic-enterprise-integration-x12.md)
 
-1. La page [Créer une application logique](./app-service-logic-create-a-logic-app.md) vous fournit un exemple.
+### <a name="connect-to-decode-x12-message-using-the-following-steps:"></a>Connect to Decode X12 Message using the following steps:
 
-2. Ce connecteur ne possède aucun déclencheur. Utilisez d’autres déclencheurs pour démarrer l’application logique, tel qu’un déclencheur de demande. Dans le concepteur d’applications logiques, ajoutez un déclencheur et une action. Sélectionnez Afficher les API gérées par Microsoft dans la liste déroulante, puis saisissez « x12 » dans la zone de recherche. Sélectionnez X12 – Decode X12 Message.
+1. [Create a Logic App](./app-service-logic-create-a-logic-app.md) provides an example
 
-	![recherche x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)
+2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select X12 – Decode X12 Message
 
-3. Si vous n’avez pas encore créé de connexion aux comptes d’intégration, vous êtes invité à saisir les informations de connexion.
+    ![search x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)  
 
-	![connexion de compte d’intégration](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage4.png)
+3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
 
-4. Entrez les détails du compte d’intégration. Les propriétés marquées d’un astérisque sont obligatoires.
+    ![integration account connection](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage4.png)    
 
-	| Propriété | Détails |
-	| -------- | ------- |
-	| Nom de connexion * | Entrez un nom pour votre connexion. |
-	| Compte d’intégration * | Entrez le nom du compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure. |
+4. Enter the Integration Account details.  Properties with an asterisk are required
 
-	Une fois complets, les détails de votre connexion se présentent comme suit.
-	
-	![connexion de compte d’intégration créée](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage5.png)
+  	| Property | Details |
+  	| -------- | ------- |
+  	| Connection Name * | Enter any name for your connection |
+  	| Integration Account * | Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
 
-5. Sélectionnez **Créer**.
-	
-6. Vous pouvez voir que la connexion a été créée.
+    Once complete, your connection details look similar to the following
+    
+    ![integration account connection created](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage5.png) 
 
-	![détails de connexion de compte d’intégration](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage6.png)
+5. Select **Create**
+    
+6. Notice the connection has been created.
 
-7. Sélectionnez le message de fichier plat X12 à décoder.
+    ![integration account connection details](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage6.png) 
 
-	![remplir les champs obligatoires](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage7.png)
+7. Select X12 flat file message to decode
 
-## X12 Decode effectue les actions suivantes
+    ![provide mandatory fields](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage7.png) 
 
-* Valide l’enveloppe par rapport au contrat de partenariat commercial
-* Génère un document XML pour chaque document informatisé
-* Valide l’EDI et les propriétés spécifiques au partenaire
-	* Validation de la structure EDI et validation du schéma étendue
-	* Validation de la structure de l’enveloppe d’échange.
-	* Validation de schéma de l’enveloppe par rapport au schéma de contrôle.
-	* Validation de schéma des éléments de données du document informatisé par rapport au schéma de message.
-	* Validation EDI effectuée sur les éléments de données du document informatisé.
-* Vérifie que les numéros de contrôle de l’échange, du groupe et du document informatisé ne sont pas des doublons.
-	* Vérifie le numéro de contrôle de l’échange par rapport aux échanges reçus précédemment.
-	* Vérifie le numéro de contrôle du groupe par rapport aux autres numéros de contrôle de groupe dans l’échange.
-	* Vérifie le numéro de contrôle du document informatisé par rapport aux autres numéros de contrôle de document informatisé dans ce groupe.
-* Convertit la totalité de l’échange au format XML.
-	* Fractionne l’échange en documents informatisés - suspend les documents informatisés en cas d’erreur : analyse chaque document informatisé d’un échange dans un document XML distinct. Si la validation d’un ou plusieurs documents informatisés de l’échange échoue, X12 Decode suspend uniquement ces documents informatisés.
-	* Fractionne l’échange en documents informatisés - suspend l’échange en cas d’erreur : analyse chaque document informatisé d’un échange dans un document XML distinct. Si la validation d’un ou plusieurs documents informatisés de l’échange échoue, X12 Decode suspend l’intégralité de l’échange.
-	* Préserve l’échange - suspend les documents informatisés en cas d’erreur : crée un document XML pour l’intégralité de l’échange par lot. X12 Decode suspend uniquement les documents informatisés dont la validation échoue, tout en continuant à traiter tous les autres documents informatisés.
-	* Préserve l’échange - suspend l’échange en cas d’erreur : crée un document XML pour l’intégralité de l’échange par lot. Si la validation d’un ou plusieurs documents informatisés de l’échange échoue, X12 Decode suspend l’intégralité de l’échange.
-* Génère un accusé de réception fonctionnel et/ou technique (si configuré).
-	* Suite à la validation de l’en-tête, un accusé de réception technique est généré. L’accusé de réception technique renvoie l’état du traitement de l’en-tête et du code de fin d’un échange par le récepteur de l’adresse.
-	* Suite à la validation du corps, un accusé de réception fonctionnel est généré. L’accusé de réception fonctionnel signale chaque erreur rencontrée lors du traitement du document reçu.
+## <a name="x12-decode-does-following"></a>X12 Decode does following
 
-## Étapes suivantes
+* Validates the envelope against trading partner agreement
+* Generates an XML document for each transaction set.
+* Validates EDI and partner-specific properties
+    * EDI structural validation, and extended schema validation
+    * Validation of the structure of the interchange envelope.
+    * Schema validation of the envelope against the control schema.
+    * Schema validation of the transaction-set data elements against the message schema.
+    * EDI validation performed on transaction-set data elements 
+* Verifies that the interchange, group, and transaction set control numbers are not duplicates
+    * Checks the interchange control number against previously received interchanges.
+    * Checks the group control number against other group control numbers in the interchange.
+    * Checks the transaction set control number against other transaction set control numbers in that group.
+* Converts the entire interchange to XML 
+    * Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document. If one or more transaction sets in the interchange fail validation, X12 Decode suspends only those transaction sets.
+    * Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document.  If one or more transaction sets in the interchange fail validation, X12 Decode suspends the entire interchange.
+    * Preserve Interchange - suspend transaction sets on error: Creates an XML document for the entire batched interchange. X12 Decode suspends only those transaction sets that fail validation, while continuing to process all other transaction sets
+    * Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. If one or more transaction sets in the interchange fail validation, X12 Decode suspends the entire interchange, 
+* Generates a Technical and/or Functional acknowledgment (if configured).
+    * A Technical Acknowledgment generates as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver.
+    * A Functional Acknowledgment generates as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document
 
-[En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0824_2016-->
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

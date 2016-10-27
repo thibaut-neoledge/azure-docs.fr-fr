@@ -1,50 +1,55 @@
 <properties
-	pageTitle="Analyse des performances d’une base de données dans une base de données SQL Azure | Microsoft Azure"
-	description="Découvrez les options d’analyse de votre base de données à l’aide des outils Azure et des vues de gestion dynamique."
-	keywords="analyse de base de données, performances des bases de données du cloud"
-	services="sql-database"
-	documentationCenter=""
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Monitoring database performance in Azure SQL Database | Microsoft Azure"
+    description="Learn about the options for monitoring your database with Azure tools and dynamic management views."
+    keywords="database monitoring, cloud database performance"
+    services="sql-database"
+    documentationCenter=""
+    authors="CarlRabeler"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="09/27/2016"
-	ms.author="carlrab"/>
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="09/27/2016"
+    ms.author="carlrab"/>
 
-# Analyse des performances d’une base de données dans une base de données SQL Azure
-L’analyse des performances d’une base de données SQL dans Azure démarre par l’analyse de l’utilisation des ressources par rapport au niveau de performances que vous avez choisi pour votre base de données. L’analyse permet de déterminer si votre base de données a une capacité excédentaire ou rencontre des problèmes, car les ressources ont atteint leur maximum et ensuite de décider s’il est temps d’ajuster le niveau de performances et le [niveau de service](sql-database-service-tiers.md) de votre base de données. Vous pouvez analyser votre base de données à l’aide d’outils graphiques dans le [portail Azure](https://portal.azure.com) ou à l’aide de [vues de gestion dynamique](https://msdn.microsoft.com/library/ms188754.aspx) SQL.
 
-## Analyser des bases de données au moyen du portail Azure
+# <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitoring database performance in Azure SQL Database
+Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. Monitoring helps you  determine whether your database has excess capacity or is having trouble because resources are maxed out, and then decide whether it's time to adjust the performance level and [service tier](sql-database-service-tiers.md) of your database. You can monitor your database using graphical tools in the [Azure portal](https://portal.azure.com) or using SQL [dynamic management views](https://msdn.microsoft.com/library/ms188754.aspx).
 
-Dans le [portail Azure](https://portal.azure.com/), vous pouvez surveiller l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Analyse**. Une fenêtre **Mesure** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+## <a name="monitor-databases-using-the-azure-portal"></a>Monitor databases using the Azure portal
 
-- Pourcentage UC
-- Pourcentage DTU
-- Pourcentage E/S des données
-- Pourcentage de la taille de la base de données
+In the [Azure portal](https://portal.azure.com/), you can monitor a single database’s utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
 
-Une fois que vous avez ajouté ces mesures, vous pouvez continuer à les afficher dans le graphique **Analyse** avec plus de détails dans la fenêtre **Mesure**. Les quatre mesures montrent le pourcentage d’utilisation moyen correspondant aux **DTU** de votre base de données. Consultez l’article concernant les [niveaux de service](sql-database-service-tiers.md) pour plus d’informations sur les DTU.
+- CPU percentage
+- DTU percentage
+- Data IO percentage
+- Database size percentage
 
-![Surveillance des niveaux de service des performances de la base de données.](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
+Once you’ve added these metrics, you can continue to view them in the **Monitoring** chart with more details on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [service tiers](sql-database-service-tiers.md) article for details about DTUs.
 
-Vous pouvez également configurer des alertes sur les mesures de performances. Cliquez sur le bouton **Ajouter une alerte** situé dans la fenêtre **Mesure**. Suivez l'assistant pour configurer votre alerte. Vous avez la possibilité de configurer une alerte si les mesures dépassent un certain seuil ou si la mesure tombe en dessous d’un certain seuil.
+![Service tier monitoring of database performance.](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
 
-Par exemple, si vous pensez que la charge de travail dans votre base de données va augmenter, vous pouvez choisir de configurer une alerte par courrier électronique chaque fois que votre base de données atteint 80 % de n'importe quelle mesure de performances. Vous pouvez utiliser cette fonction comme un avertissement pour déterminer le moment auquel il se peut que vous deviez basculer vers le niveau de performance supérieur.
+You can also configure alerts on the performance metrics. Click the **Add alert** button in the **Metric** window. Follow the wizard to configure your alert. You have the option to alert if the metrics exceed a certain threshold or if the metric falls below a certain threshold.
 
-Les mesures de performance peuvent également vous aider à déterminer si vous pouvez passer à un niveau inférieur. Supposons que vous utilisez une base de données standard S2 et que toutes les mesures de performance indiquent que la base de données n'utilise pas plus de 10 % des performances en moyenne. Cette base de données fonctionnerait très bien en version S1 standard. Toutefois, prenez en considération les éventuels pics ou baisses de charges de travail avant de décider de passer à un niveau de performances inférieur.
+For example, if you expect the workload on your database to grow, you can choose to configure an email alert whenever your database reaches 80% on any of the performance metrics. You can use this as an early warning to figure out when you might have to switch to the next higher performance level.
 
-## Analyser des bases de données à l’aide des vues de gestion dynamique
+The performance metrics can also help you determine if you are able to downgrade to a lower performance level. Assume you are using a Standard S2 database and all performance metrics show that the database on average does not use more than 10% at any given time. It is likely that the database will work well in Standard S1. However, be aware of workloads that spike or fluctuate before making the decision to move to a lower performance level.
 
-Les mêmes mesures exposées dans le portail sont également disponibles via des vues système : [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) dans la base de données **master** logique de votre serveur, et [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) dans la base de données utilisateur. Utilisez **sys.resource\_stats** si vous devez analyser des données moins granulaires sur une longue période de temps. Utilisez **sys.dm\_db\_resource\_stats** si vous devez analyser des données plus granulaires dans un laps de temps plus court. Pour en savoir plus, consultez [Guide des performances de base de données SQL Azure](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
+## <a name="monitor-databases-using-dmvs"></a>Monitor databases using DMVs
 
->[AZURE.NOTE] **sys.dm\_db\_resource\_stats** renvoie un résultat vide lorsqu’elle est utilisée dans les bases de données Web et Business, qui sont supprimées.
+The same metrics that are exposed in the portal are also available through system views: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) in the logical **master** database of your server, and [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) in the user database. Use **sys.resource_stats** if you need to monitor less granular data across a longer period of time. Use **sys.dm_db_resource_stats** if you need to monitor more granular data within a smaller time frame. For more information, see [Azure SQL Database Performance Guidance](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
 
-Pour les pools de base de données élastiques, vous pouvez surveiller des bases de données dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour en savoir plus, consultez [Surveiller et gérer un pool élastique de bases de données](sql-database-elastic-pool-manage-portal.md).
+>[AZURE.NOTE] **sys.dm_db_resource_stats** returns an empty result set when used in Web and Business edition databases, which are retired.
 
-<!---HONumber=AcomDC_0928_2016-->
+For elastic database pools, you can monitor individual databases in the pool with the techniques described in this section. But you can also monitor the pool as a whole. For information, see [Monitor and manage an elastic database pool](sql-database-elastic-pool-manage-portal.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

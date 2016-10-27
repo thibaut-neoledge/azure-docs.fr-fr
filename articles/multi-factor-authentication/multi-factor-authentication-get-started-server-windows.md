@@ -1,52 +1,58 @@
 <properties 
-	pageTitle="Authentification Windows et serveur Azure Multi-Factor Authentication"
-	description="Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de l’authentification Windows et du serveur Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Windows Authentication and Azure Multi-Factor Authentication Server"
+    description="This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
-
-# Authentification Windows et serveur Azure Multi-Factor Authentication
-
-La section Authentification Windows permet à l'administrateur d’activer et de configurer l'authentification Windows pour une ou plusieurs applications. Voici une liste des éléments à prendre en compte avant de configurer l'authentification Windows.
-
--  Un redémarrage est nécessaire afin d’activer l'authentification multifacteur Azure pour Services Terminal.
--  Si la case de correspondance d’utilisateur Authentification multifacteur Azure requise est cochée et que vous ne figurez pas dans la liste des utilisateurs, vous ne pourrez pas vous à l'ordinateur après le redémarrage.
--  Les adresses IP de confiance varient selon que l'application est en mesure de fournir l'IP du client avec l'authentification. Actuellement, seul Terminal Services est pris en charge.
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
 
 
+# <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows Authentication and Azure Multi-Factor Authentication Server
 
+The Windows Authentication section allows the administrator to enable and configure Windows authentication for one or more applications.  The following is a list of things to keep in mind prior to setting up Windows Authentication.
+
+-  reboot is needed before the Azure Multi-Factor Authentication for Terminal Services will be in effect.
+-  If ‘Require Azure Multi-Factor Authentication user match’ is checked and you are not in the user list, you will not be able to log into the machine after reboot.
+-  Trusted IPs is dependent on whether the application can provide the client IP with the authentication. Currently only Terminal Services is supported.  
 
 
 
 
->[AZURE.NOTE]Cette fonctionnalité n'est pas prise en charge pour sécuriser Terminal Services sur Windows Server 2012 R2.
+
+
+
+>[AZURE.NOTE]This feature is not supported to secure Terminal Services on Windows Server 2012 R2.
 
 
 
 
-## Pour sécuriser une application avec l'authentification Windows, utilisez la procédure suivante.
+## <a name="to-secure-an-application-with-windows-authentication,-use-the-following-procedure."></a>To secure an application with Windows Authentication, use the following procedure.
 
-1. Sur le serveur Azure Multi-Factor Authentication, cliquez sur l’icône Authentication Windows. ![Authentification Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
-2. Cochez la case Activer l'authentification Windows. Par défaut, cette case est désactivée.
-3. L'onglet Applications permet à l'administrateur de configurer une ou plusieurs applications pour l'authentification Windows.
-4. Sélectionner un serveur ou une application – permet de spécifier si le serveur ou l'application est activé. Cliquez sur OK.
-5. Cliquez sur le bouton Ajouter...
-6. L'onglet Adresses IP de confiance vous permet d'ignorer Azure Multi-Factor Authentication pour les sessions Windows provenant d'adresses IP spécifiques. Par exemple, si les employés utilisent l'application au bureau et à domicile, vous pouvez décider de que vous ne souhaitez pas que leurs téléphones sonnent pour Azure Multi-Factor Authentication au bureau. Pour ce faire, vous devez définir le sous-réseau du bureau comme adresse IP de confiance.
-7. Cliquez sur le bouton Ajouter...
-8. Sélectionnez Adresse IP unique si vous souhaitez ignorer une adresse IP unique.
-9. Sélectionnez Plage d’adresses IP si vous souhaitez ignorer toute une plage d’adresses IP. Exemple 10.63.193.1-10.63.193.100.
-10. Sélectionnez Sous-réseau si vous souhaitez spécifier une plage d'adresses IP à l'aide de la notation de sous-réseau. Entrez l'adresse IP de début du sous-réseau et choisissez le masque de réseau approprié dans la liste déroulante.
-11. Cliquez sur le bouton OK.
+1. In the Azure Multi-Factor Authentication Server click the Windows Authentication icon.
+![Windows Authentication](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
+2. Check the Enable Windows authentication checkbox. By default, this box is unchecked.
+3. The Applications tab allows the administrator to configure one or more applications for Windows Authentication.
+4. Select a server or application – specify whether the server/application is enabled. Click OK.
+5. Click Add… button.
+6. The Trusted IPs tab allows you to skip Azure Multi-Factor Authentication for Windows sessions originating from specific IPs. For example, if employees use the application from the office and from home, you may decide you don't want their phones ringing for Azure Multi-Factor Authentication while at the office. For this, you would specify the office subnet as Trusted IPs entry.
+7. Click Add… button.
+8. Select Single IP if you would like to skip a single IP address.
+9. Select IP Range if you would like to skip an entire IP range. Example 10.63.193.1-10.63.193.100.
+10. Select Subnet if you would like to specify a range of IPs using subnet notation. Enter the subnet's starting IP and pick the appropriate netmask from the drop-down list.
+11. Click the OK button.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

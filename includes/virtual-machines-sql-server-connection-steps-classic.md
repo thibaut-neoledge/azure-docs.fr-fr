@@ -1,34 +1,37 @@
-### Détermination du nom DNS de la machine virtuelle
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determine the DNS name of the virtual machine
 
-Pour vous connecter au moteur de base de données SQL Server à partir d'un autre ordinateur, vous devez connaître le nom DNS de la machine virtuelle. Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vous pouvez utiliser l'adresse IP, mais celle-ci peut être modifiée lorsqu'Azure déplace des ressources pour des raisons de redondance ou de maintenance. Le nom DNS reste stable, car il peut être redirigé vers une nouvelle adresse IP.
+To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
 
-1. Dans le portail Azure (ou à partir de l’étape précédente), sélectionnez **Machines virtuelles (classique)**.
+1. In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.
 
-2. Sélectionnez votre machine virtuelle SQL.
+2. Select your SQL VM.
 
-2. Dans le panneau **Machine virtuelle**, copiez le **Nom DNS** pour la machine virtuelle.
+2. On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.
 
-	![Nom DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
+    ![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
 
-### Connexion au moteur de base de données à partir d'un autre ordinateur
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
 
-1. Sur un ordinateur connecté à Internet, ouvrez SQL Server Management Studio.
+1. On a computer connected to the internet, open SQL Server Management Studio.
 
-2. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone **Nom du serveur**, entrez le nom DNS de la machine virtuelle (déterminé durant la tâche précédente), ainsi qu’un numéro de port de point de terminaison public au format *NomDNS,numéro\_port* tel que **mysqlvm.cloudapp.net,57500**.
+2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.
 
-	![Connexion en utilisant SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+    ![Connect using SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-	Si vous ne connaissez pas le numéro de port du point de terminaison public créé précédemment, vous le trouverez dans la zone **Points de terminaison** du panneau **Machine virtuelle**.
+    If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.
 
-	![Port public](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+    ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
 
-3. Dans la zone **Authentification**, sélectionnez **Authentification SQL Server**.
+3. In the **Authentication** box, select **SQL Server Authentication**.
 
-5. Dans la zone **Connexion**, entrez le nom d'une connexion créée lors d'une tâche précédente.
+5. In the **Login** box, type the name of a login that you created in an earlier task.
 
-6. Dans la zone **Mot de passe**, entrez le mot de passe de connexion que vous avez créé lors d'une tâche précédente.
+6. In the **Password** box, type the password of the login that you create in an earlier task.
 
-7. Cliquez sur **Connecter**.
+7. Click **Connect**.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

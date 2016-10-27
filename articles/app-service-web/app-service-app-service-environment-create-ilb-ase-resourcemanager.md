@@ -1,68 +1,69 @@
 <properties 
-	pageTitle="Comment créer un ILB ASE à l’aide des modèles Azure Resource Manager | Microsoft Azure" 
-	description="Découvrez comment créer un ASE d’équilibrage de charge interne à l’aide des modèles Azure Resource Manager." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
-	editor=""/>
+    pageTitle="How To Create an ILB ASE Using Azure Resource Manager Templates | Microsoft Azure" 
+    description="Learn how to create an internal load balancer ASE using Azure Resource Manager templates." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="stefsch" 
+    manager="nirma" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2016" 
-	ms.author="stefsch"/>
-
-# Comment créer un ILB ASE à l’aide des modèles Azure Resource Manager
-
-## Vue d'ensemble ##
-Les environnements App Service peuvent être créés avec une adresse interne de réseau virtuel au lieu d’une adresse IP virtuelle publique. Cette adresse interne est fournie par un composant Azure appelé « équilibreur de charge interne » (ILB). Vous pouvez créer un ILB ASE à l’aide du portail Azure. Il peut également être créé de manière automatisée par le biais des modèles Azure Resource Manager. Cet article décrit les étapes et la syntaxe nécessaires à la création d’un ILB ASE à l’aide des modèles Azure Resource Manager.
-
-La création automatisée d’un ILB ASE comporte trois étapes :
-1. Tout d’abord, l’ASE de base est créé dans un réseau virtuel à l’aide d’une adresse d’équilibreur de charge interne au lieu d’une adresse IP virtuelle publique. Dans le cadre de cette étape, un nom de domaine racine est affecté à l’ILB ASE.
-2. Une fois l’ILB ASE créé, un certificat SSL est téléchargé.
-3. Le certificat SSL téléchargé est explicitement affecté à l’ILB ASE en tant que certificat SSL « par défaut ». Ce certificat SSL servira à des applications de l’ILB ASE pour le trafic SSL lorsque celles-ci sont gérées à l’aide d’un domaine racine commun affecté à l’ASE (par exemple, https://someapp.mycustomrootcomain.com).
-
-## Création de l’ILB ASE de base ##
-Un exemple de modèle Azure Resource Manager et de son fichier de paramètres associés, sont disponibles sur GitHub [ici][quickstartilbasecreate].
-
-La plupart des paramètres du fichier *azuredeploy.parameters.json* sont communs à la création d’ASE ILB, ainsi que d’ASE liés à une adresse IP virtuelle publique. La liste ci-dessous répertorie les paramètres spécifiques, ou qui sont uniques, lors de la création d’un ILB ASE :
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/21/2016" 
+    ms.author="stefsch"/>   
 
 
-- *interalLoadBalancingMode* : dans la plupart des cas, définissez ce paramètre sur 3, ce qui signifie que le trafic HTTP/HTTPS sur les ports 80/443 ainsi que les ports de canaux de contrôle/données écoutés par le service FTP sur l’ASE seront liés à une adresse interne du réseau virtuel allouée à l’ILB. Si cette propriété a la valeur 2, seuls les ports relatifs au service FTP (canaux de contrôle et de données) seront liés à une adresse d’ILB, tandis que le trafic HTTP/HTTPS restera sur l’adresse IP virtuelle publique.
--  *dnsSuffix* : ce paramètre définit le domaine racine par défaut qui sera affecté à l’ASE. Dans la version publique d’Azure App Service, le domaine racine par défaut pour toutes les applications web est *azurewebsites.net*. Cependant, étant donné qu’un ILB ASE est interne au réseau virtuel d’un client, il n’est pas pertinent d’utiliser le domaine racine par défaut du service public. Au lieu de cela, un ILB ASE doit avoir un domaine racine par défaut approprié pour une utilisation au sein du réseau virtuel interne d’une société. Par exemple, une société fictive Contoso Corporation peut utiliser le domaine racine par défaut *internal-contoso.com* pour les applications qui sont destinées à être résolues et accessibles uniquement au sein du réseau virtuel de Contoso.
--  *ipSslAddressCount* : ce paramètre est automatiquement défini par défaut sur la valeur 0 dans le fichier *azuredeploy.json*, car les ILB ASE disposent d’une seule adresse d’ILB. Il n’existe aucune adresse IP SSL explicite pour un ILB ASE. Par conséquent, le pool d’adresses IP SSL pour un ILB ASE doit être défini sur zéro, sinon une erreur d’approvisionnement se produit.
+# <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>How To Create an ILB ASE Using Azure Resource Manager Templates
 
-Une fois le fichier *azuredeploy.parameters.json* renseigné pour un ILB ASE, ce dernier peut ensuite être créé à l’aide de l’extrait de code Powershell suivant. Modifiez les chemins d’accès de fichiers pour qu’ils correspondent aux emplacements où se trouvent les fichiers de modèle Azure Resource Manager sur votre ordinateur. Pensez également à indiquer vos propres valeurs pour le nom de déploiement d’Azure Resource Manager et le nom de groupe de ressources.
+## <a name="overview"></a>Overview ##
+App Service Environments can be created with a virtual network internal address instead of a public VIP.  This internal address is provided by an Azure component called the internal load balancer (ILB).  An ILB ASE can be created using the Azure portal.  It can also be created using automation by way of Azure Resource Manager templates.  This article walks through the steps and syntax needed to create an ILB ASE with Azure Resource Manager templates.
+
+There are three steps involved in automating creation of an ILB ASE:
+1. First the base ASE is created in a virtual network using an internal load balancer address instead of a public VIP.  As part of this step, a root domain name is assigned to the ILB ASE.
+2. Once the ILB ASE is created, an SSL certificate is uploaded.  
+3. The uploaded SSL certificate is explicitly assigned to the ILB ASE as its "default" SSL certificate.  This SSL certificate will be used for SSL traffic to apps on the ILB ASE when the apps are addressed using the common root domain assigned to the ASE (e.g. https://someapp.mycustomrootcomain.com)
+
+## <a name="creating-the-base-ilb-ase"></a>Creating the Base ILB ASE ##
+An example Azure Resource Manager template, and its associated parameters file, are available on GitHub [here][quickstartilbasecreate].
+
+Most of the parameters in the *azuredeploy.parameters.json* file are common to creating both ILB ASEs, as well as ASEs bound to a public VIP.  The list below calls out parameters of special note, or that are unique, when creating an ILB ASE:
+
+
+- *interalLoadBalancingMode*:  In most cases set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB allocated virtual network internal address.  If this property is instead set to 2, then only the FTP service related ports (both control and data channels) will be bound to an ILB address, while the HTTP/HTTPS traffic will remain on the public VIP.
+-  *dnsSuffix*:  This parameter defines the default root domain that will be assigned to the ASE.  In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*.  However since an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain.  Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network.  For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. 
+-  *ipSslAddressCount*:  This parameter is automatically defaulted to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address.  There are no explicit IP-SSL addresses for an ILB ASE, and hence the IP-SSL address pool for an ILB ASE must be set to zero, otherwise a provisioning error will occur. 
+
+Once the *azuredeploy.parameters.json* file has been filled in for an ILB ASE, the ILB ASE can then be created using the following Powershell code snippet.  Change the file PATHs to match where the Azure Resource Manager template files are located on your machine.  Also remember to supply your own values for the Azure Resource Manager deployment name, and resource group name.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
     
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Une fois le modèle Azure Resource Manager soumis, la création de l’ILB ASE prendra quelques heures. Une fois la création terminée, l’ASE ILB s’affichera dans le portail dans la liste des environnements App Service pour l’abonnement qui a déclenché le déploiement.
+After the Azure Resource Manager template is submitted it will take a few hours for the ILB ASE to be created.  Once the creation completes, the ILB ASE will show up in the portal UX in the list of App Service Environments for the subscription that triggered the deployment.
 
-## Téléchargement et configuration du certificat SSL « par défaut » ##
+## <a name="uploading-and-configuring-the-"default"-ssl-certificate"></a>Uploading and Configuring the "Default" SSL Certificate ##
 
-Une fois l’ILB ASE créé, un certificat SSL doit être associé à l’ASE en tant que certificat SSL « par défaut » utilisé pour établir des connexions SSL aux applications. Poursuivons avec l’exemple de la société fictive Contoso Corporation. Si le suffixe DNS par défaut de l’ASE est *internal-contoso.com*, une connexion à *https://some-random-app.internal-contoso.com* nécessite un certificat SSL valide pour **.internal-contoso.com*.
+Once the ILB ASE is created, an SSL certificate should be associated with the ASE as the "default" SSL certificate use for establishing SSL connections to apps.  Continuing with the hypothetical Contoso Corporation example, if the ASE's default DNS suffix is *internal-contoso.com*, then a connection to *https://some-random-app.internal-contoso.com* requires an SSL certificate that is valid for **.internal-contoso.com*. 
 
-Il existe plusieurs façons d’obtenir un certificat SSL valide, parmi lesquelles les autorités de certification internes, l’achat d’un certificat auprès d’un émetteur externe et l’utilisation d’un certificat auto-signé. Quelle que soit la source du certificat SSL, les attributs de certificat suivants doivent être configurés correctement :
+There are a variety of ways to obtain a valid SSL certificate including internal CAs, purchasing a certificate from an external issuer, and using a self-signed certificate.  Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
 
-- *Objet* : cet attribut doit être défini sur **.votre-domaine-racine-ici.com*
-- *Autre nom de l’objet* : cet attribut doit inclure à la fois **.votre-domaine-racine-ici.com* et **.scm.votre-domaine-racine-ici.com*. La deuxième entrée est nécessaire, car les connexions SSL sur le site SCM/Kudu associé à chaque application seront établies à l’aide d’une adresse sous la forme *votre-nom-application.scm.votre-domaine-racine-ici.com*.
+- *Subject*:  This attribute must be set to **.your-root-domain-here.com*
+- *Subject Alternative Name*:  This attribute must include both **.your-root-domain-here.com*, and **.scm.your-root-domain-here.com*.  The reason for the second entry is that SSL connections to the SCM/Kudu site associated with each app will be made using an address of the form *your-app-name.scm.your-root-domain-here.com*.
 
-Une fois le certificat SSL valide obtenu, deux étapes préparatoires supplémentaires sont nécessaires. Le certificat SSL doit être converti/enregistré au format de fichier .pfx. N’oubliez pas que le fichier .pfx doit inclure tous les certificats intermédiaires et racine et être sécurisé avec un mot de passe.
+With a valid SSL certificate in hand, two additional preparatory steps are needed.  The SSL certificate needs to be converted/saved as a .pfx file.  Remember that the .pfx file needs to include all intermediate and root certificates, and also needs to be secured with a password.
 
-Le fichier .pfx obtenu doit ensuite être converti en une chaîne au format Base64, car le certificat SSL sera téléchargé à l’aide d’un modèle Azure Resource Manager. Étant donné que les modèles Azure Resource Manager sont des fichiers texte, le fichier .pfx doit être converti en une chaîne au format Base64 afin d’être inclus en tant que paramètre du modèle.
+Then the resultant .pfx file needs to be converted into a base64 string because the SSL certificate will be uploaded using an Azure Resource Manager template.  Since Azure Resource Manager templates are text files, the .pfx file needs to be converted into a base64 string so it can be included as a parameter of the template.
 
-L’extrait de code Powershell ci-dessous montre un exemple de génération d’un certificat auto-signé, d’exportation du certificat en tant que fichier .pfx, de conversion du fichier .pfx au format Base64 de la chaîne codée, puis d’enregistrement de la chaîne codée en Base64 dans un fichier distinct. Le code Powershell pour l’encodage en Base64 est une adaptation issue du [Blog Powershell Scripts][examplebase64encoding].
+The Powershell code snippet below shows an example of generating a self-signed certificate, exporting the certificate as a .pfx file, converting the .pfx file into a base64 encoded string, and then saving the base64 encoded string to a separate file.  The Powershell code for base64 encoding was adapted from the [Powershell Scripts Blog][examplebase64encoding].
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my" + $certificate.Thumbprint
+    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
     $fileName = "exportedcert.pfx"
@@ -72,19 +73,19 @@ L’extrait de code Powershell ci-dessous montre un exemple de génération d’
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
     
-Une fois le certificat SSL généré et converti en chaîne codée en Base64, vous pouvez utiliser l’exemple de modèle Azure Resource Manager sur GitHub pour [configurer le certificat SSL par défaut][configuringDefaultSSLCertificate].
+Once the SSL certificate has been successfully generated and converted to a base64 encoded string, the example Azure Resource Manager template on GitHub for [configuring the default SSL certificate][configuringDefaultSSLCertificate] can be used.
 
-Les paramètres du fichier *azuredeploy.parameters.json* sont répertoriés ci-dessous :
+The parameters in the *azuredeploy.parameters.json* file are listed below:
 
-- *appServiceEnvironmentName* : nom de l’ILB ASE configuré.
-- *existingAseLocation* : chaîne de texte contenant la région Azure où l’ILB ASE a été déployé. Par exemple : « Centre-Sud des États-Unis ».
-- *pfxBlobString* : représentation sous forme de chaîne codée en Base64 du fichier .pfx. À l’aide de l’extrait de code ci-dessus, copiez la chaîne contenue dans « exportedcert.pfx.b64 » et collez-la en tant que valeur de l’attribut *pfxBlobString*.
-- *password* : mot de passe utilisé pour sécuriser le fichier .pfx.
-- *certificateThumbprint* : empreinte numérique du certificat. Si vous récupérez cette valeur à partir de Powershell (par exemple, *$certificate.Thumbprint* dans l’extrait de code précédent), vous pouvez utiliser la valeur telle quelle. Toutefois, si vous copiez la valeur à partir de la boîte de dialogue de certificat Windows, n’oubliez pas de retirer les espaces superflus. La valeur *certificateThumbprint* doit se présenter sous la forme suivante : AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-- *certificateName* : identificateur de chaîne convivial de votre choix permettant d’identifier le certificat. Ce nom fait partie de l’identificateur Azure Resource Manager unique pour l’entité *Microsoft.Web/certificates* qui représente le certificat SSL. Le nom **doit** se terminer par le suffixe suivant : \_nomdevotreASE\_InternalLoadBalancingASE. Ce suffixe permet au portail d’indiquer que le certificat est utilisé pour sécuriser un ASE avec équilibrage de charge interne.
+- *appServiceEnvironmentName*:  The name of the ILB ASE being configured.
+- *existingAseLocation*:  Text string containing the Azure region where the ILB ASE was deployed.  For example:  "South Central US".
+- *pfxBlobString*:  The based64 encoded string representation of the .pfx file.  Using the code snippet shown earlier, you would copy the string contained in "exportedcert.pfx.b64" and paste it in as the value of the *pfxBlobString* attribute.
+- *password*:  The password used to secure the .pfx file.
+- *certificateThumbprint*:  The certificate's thumbprint.  If you retrieve this value from Powershell (e.g. *$certificate.Thumbprint* from the earlier code snippet), you can use the value as-is.  However if you copy the value from the Windows certificate dialog, remember to strip out the extraneous spaces.  The *certificateThumbprint* should look something like:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
+- *certificateName*:  A friendly string identifier of your own choosing used to identity the certificate.  The name is used as part of the unique Azure Resource Manager identifier for the *Microsoft.Web/certificates* entity representing the SSL certificate.  The name **must** end with the following suffix:  \_yourASENameHere_InternalLoadBalancingASE.  This suffix is used by the portal as an indicator that the certificate is used for securing an ILB-enabled ASE.
 
 
-Un exemple abrégé de fichier *azuredeploy.parameters.json* est présenté ci-dessous :
+An abbreviated example of *azuredeploy.parameters.json* is shown below:
 
 
     {
@@ -112,25 +113,25 @@ Un exemple abrégé de fichier *azuredeploy.parameters.json* est présenté ci-d
          }
     }
 
-Une fois le fichier *azuredeploy.parameters.json* renseigné, le certificat SSL par défaut peut être configuré à l’aide de l’extrait de code Powershell suivant. Modifiez les chemins d’accès de fichiers pour qu’ils correspondent aux emplacements où se trouvent les fichiers de modèle Azure Resource Manager sur votre ordinateur. Pensez également à indiquer vos propres valeurs pour le nom de déploiement d’Azure Resource Manager et le nom de groupe de ressources.
+Once the *azuredeploy.parameters.json* file has been filled in, the default SSL certificate can be configured using the following Powershell code snippet.  Change the file PATHs to match where the Azure Resource Manager template files are located on your machine.  Also remember to supply your own values for the Azure Resource Manager deployment name, and resource group name.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
     
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Une fois le modèle Azure Resource Manager soumis, cela prendra environ quarante minutes par serveur frontal de l’ASE pour que la modification soit appliquée. Par exemple, avec un ASE par défaut utilisant deux serveurs frontaux, l’application du modèle prendra environ une heure et vingt minutes. Lorsque le modèle est en cours d’exécution, l’ASE ne peut pas être mis à l’échelle.
+After the Azure Resource Manager template is submitted it will take roughly forty minutes minutes per ASE front-end to apply the change.  For example, with a default sized ASE using two front-ends, the template will take around one hour and twenty minutes to complete.  While the template is running the ASE will not be able to scaled.  
 
-Une fois le modèle terminé, les applications sur l’ILB ASE sont accessibles via le protocole HTTPS et les connexions sont sécurisées à l’aide du certificat SSL par défaut. Le certificat SSL par défaut est utilisé lorsque les applications sur l’ILB ASE sont gérées à l’aide d’une combinaison du nom de l’application et du nom d’hôte par défaut. Par exemple, *https://mycustomapp.internal-contoso.com* utiliserait le certificat SSL par défaut pour **.internal-contoso.com*.
+Once the template completes, apps on the ILB ASE can be accessed over HTTPS and the connections will be secured using the default SSL certificate.  The default SSL certificate will be used when apps on the ILB ASE are addressed using a combination of the application name plus the default hostname.  For example *https://mycustomapp.internal-contoso.com* would use the default SSL certificate for **.internal-contoso.com*.
 
-Toutefois, tout comme les applications qui s’exécutent sur le service public mutualisé, les développeurs peuvent également configurer des noms d’hôte personnalisés pour les applications individuelles, puis configurer des liaisons de certificat SNI SSL uniques pour ces applications individuelles.
+However, just like apps running on the public multi-tenant service, developers can also configure custom host names for individual apps, and then configure unique SNI SSL certificate bindings for individual apps.  
 
 
-## Prise en main
+## <a name="getting-started"></a>Getting started
 
-Pour prendre en main les environnements App Service, consultez [Présentation de l'environnement App Service](app-service-app-service-environment-intro.md).
+To get started with App Service Environments, see [Introduction to App Service Environment](app-service-app-service-environment-intro.md)
 
-Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -138,8 +139,12 @@ Tous les articles et procédures concernant les environnements App Service sont 
 
 <!-- LINKS -->
 [quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
-[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html
-[configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
+[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
+[configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/ 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

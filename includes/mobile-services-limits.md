@@ -1,17 +1,20 @@
 
-| NIVEAU : | GRATUIT | DE BASE | STANDARD |
+| TIER: | FREE | BASIC | STANDARD |
 |----|----|----|----|
-| Appels de l’API | 500 K | 1,5 M/unité | 15 M/unité |
-| Appareils actifs | 500 | Illimité | Illimité |
-| Mettre à l'échelle | N/A | Jusqu’à 6 unités | Nombre illimité d’unités |
-| Notifications Push | Niveau gratuit de notifications Hubs inclus, jusqu’à 1 million de pushes | Niveau de base de notifications Hubs inclus, jusqu’à 10 millions de pushes | Niveau Standard de notifications Hubs inclus, jusqu’à 10 millions de pushes |
-| Messagerie en temps réel/<br/>Web Sockets | Limité | 350/service mobile | Illimité |
-| Synchronisations hors connexion | Limité | Inclus | Inclus |
-| Scheduled jobs | Limité | Inclus | Inclus |
-| Base de données SQL (obligatoire) <br/>Les tarifs standard s’appliquent pour une capacité supplémentaire | 20 Mo inclus | 20 Mo inclus | 20 Mo inclus |
-| Capacité de l’UC | 60 minutes/jour | Illimité | Illimité |
-| Transfert de données sortantes | 165 Mo par jour (substitution quotidienne) | Inclus | Inclus |
+| API Calls | 500 K | 1.5 M / unit | 15 M / unit |
+| Active Devices | 500 | Unlimited | Unlimited |
+| Scale | N/A | Up to 6 units | Unlimited units |
+| Push Notifications | Notification Hubs Free Tier included, up to 1 M pushes | Notification Hubs Basic Tier included, up to 10 M pushes | Notification Hubs Standard Tier included, up to 10 M pushes |
+| Real time messaging/<br/>Web Sockets | Limited | 350 / mobile service | Unlimited |
+| Offline synchronizations | Limited | Included | Included |
+| Scheduled jobs  | Limited | Included | Included |
+| SQL Database (required) <br/>Standard rates apply for additional capacity | 20 MB included | 20 MB included | 20 MB included |
+| CPU capacity | 60 minutes / day | Unlimited | Unlimited |
+| Outbound data transfer | 165 MB per day (daily Rollover) | Included | Included |
 
-Pour plus d’informations sur ces limites et sur la tarification, voir [Tarification de Mobile Services](https://azure.microsoft.com/pricing/details/mobile-services/).
+For additional details on these limits and for information on pricing, see [Mobile Services Pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

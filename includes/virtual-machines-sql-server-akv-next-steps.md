@@ -1,98 +1,101 @@
-## Étapes suivantes
-Après avoir activé Azure Key Vault Integration, vous pouvez activer le chiffrement SQL Server sur votre machine virtuelle SQL. Tout d'abord, vous devez créer une clé asymétrique à l'intérieur de votre coffre de clés et une clé symétrique dans SQL Server sur votre machine virtuelle. Ensuite, vous serez en mesure d'exécuter les instructions T-SQL pour activer le chiffrement pour vos bases de données et sauvegardes.
+## <a name="next-steps"></a>Next steps
+After enabling Azure Key Vault Integration, you can enable SQL Server encryption on your SQL VM. First, you will need to create an asymmetric key inside your key vault and a symmetric key within SQL Server on your VM. Then, you will be able to execute T-SQL statements to enable encryption for your databases and backups.
 
-Il existe plusieurs types de chiffrement que vous pouvez exploiter :
+There are several forms of encryption you can take advantage of:
 
-- [Chiffrement transparent des données (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-- [Sauvegardes chiffrées](https://msdn.microsoft.com/library/dn449489.aspx)
-- [Chiffrement au niveau des colonnes (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+- [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Encrypted backups](https://msdn.microsoft.com/library/dn449489.aspx)
+- [Column Level Encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
-Les scripts Transact-SQL suivants fournissent des exemples pour chacune de ces options.
+The following Transact-SQL scripts provide examples for each of these areas.
 
->[AZURE.NOTE] Chaque exemple est basé sur les deux conditions préalables : une clé asymétrique de votre coffre de clés appelée **CONTOSO\_KEY** et des informations d'identification créées via la fonctionnalité AKV Integration appelées **Azure\_EKM\_TDE\_cred**.
+>[AZURE.NOTE] Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_TDE_cred**.
 
-### Chiffrement transparent des données (TDE)
-1. Créez une connexion SQL Server utilisable par le moteur de base de données pour le chiffrement transparent des données, puis ajoutez-lui les informations d'identification.
-	
-		USE master;
-		-- Create a SQL Server login associated with the asymmetric key 
-		-- for the Database engine to use when it loads a database 
-		-- encrypted by TDE.
-		CREATE LOGIN TDE_Login 
-		FROM ASYMMETRIC KEY CONTOSO_KEY;
-		GO
-		
-		-- Alter the TDE Login to add the credential for use by the 
-		-- Database Engine to access the key vault
-		ALTER LOGIN TDE_Login 
-		ADD CREDENTIAL Azure_EKM_TDE_cred;
-		GO
-	
-2. Créez la clé de chiffrement de base de données qui sera utilisée pour le chiffrement transparent des données.
-	
-		USE ContosoDatabase;
-		GO
-		
-		CREATE DATABASE ENCRYPTION KEY 
-		WITH ALGORITHM = AES_128 
-		ENCRYPTION BY SERVER ASYMMETRIC KEY CONTOSO_KEY;
-		GO
-		
-		-- Alter the database to enable transparent data encryption.
-		ALTER DATABASE ContosoDatabase 
-		SET ENCRYPTION ON;
-		GO
+### <a name="transparent-data-encryption-(tde)"></a>Transparent Data Encryption (TDE)
+1. Create a SQL Server login to be used by the Database Engine for TDE, then add the credential to it.
+    
+        USE master;
+        -- Create a SQL Server login associated with the asymmetric key 
+        -- for the Database engine to use when it loads a database 
+        -- encrypted by TDE.
+        CREATE LOGIN TDE_Login 
+        FROM ASYMMETRIC KEY CONTOSO_KEY;
+        GO
+        
+        -- Alter the TDE Login to add the credential for use by the 
+        -- Database Engine to access the key vault
+        ALTER LOGIN TDE_Login 
+        ADD CREDENTIAL Azure_EKM_TDE_cred;
+        GO
+    
+2. Create the database encryption key that will be used for TDE.
+    
+        USE ContosoDatabase;
+        GO
+        
+        CREATE DATABASE ENCRYPTION KEY 
+        WITH ALGORITHM = AES_128 
+        ENCRYPTION BY SERVER ASYMMETRIC KEY CONTOSO_KEY;
+        GO
+        
+        -- Alter the database to enable transparent data encryption.
+        ALTER DATABASE ContosoDatabase 
+        SET ENCRYPTION ON;
+        GO
 
-### Sauvegardes chiffrées
-1. Créez une connexion SQL Server utilisable par le moteur de base de données pour les sauvegardes chiffrées, puis ajoutez-lui les informations d'identification.
-	
-		USE master;
-		-- Create a SQL Server login associated with the asymmetric key 
-		-- for the Database engine to use when it is encrypting the backup.
-		CREATE LOGIN Backup_Login 
-		FROM ASYMMETRIC KEY CONTOSO_KEY;
-		GO 
-		
-		-- Alter the Encrypted Backup Login to add the credential for use by 
-		-- the Database Engine to access the key vault
-		ALTER LOGIN Backup_Login 
-		ADD CREDENTIAL Azure_EKM_Backup_cred ;
-		GO
-	
-2. Sauvegardez le chiffrement spécifiant la spécification de base de données avec la clé asymétrique stockée dans le coffre de clés.
-	
-		USE master;
-		BACKUP DATABASE [DATABASE_TO_BACKUP]
-		TO DISK = N'[PATH TO BACKUP FILE]' 
-		WITH FORMAT, INIT, SKIP, NOREWIND, NOUNLOAD, 
-		ENCRYPTION(ALGORITHM = AES_256, SERVER ASYMMETRIC KEY = [CONTOSO_KEY]);
-		GO
+### <a name="encrypted-backups"></a>Encrypted backups
+1. Create a SQL Server login to be used by the Database Engine for encrypting backups, and add the credential to it.
+    
+        USE master;
+        -- Create a SQL Server login associated with the asymmetric key 
+        -- for the Database engine to use when it is encrypting the backup.
+        CREATE LOGIN Backup_Login 
+        FROM ASYMMETRIC KEY CONTOSO_KEY;
+        GO 
+        
+        -- Alter the Encrypted Backup Login to add the credential for use by 
+        -- the Database Engine to access the key vault
+        ALTER LOGIN Backup_Login 
+        ADD CREDENTIAL Azure_EKM_Backup_cred ;
+        GO
+    
+2. Backup the database specifying encryption with the asymmetric key stored in the key vault.
+    
+        USE master;
+        BACKUP DATABASE [DATABASE_TO_BACKUP]
+        TO DISK = N'[PATH TO BACKUP FILE]' 
+        WITH FORMAT, INIT, SKIP, NOREWIND, NOUNLOAD, 
+        ENCRYPTION(ALGORITHM = AES_256, SERVER ASYMMETRIC KEY = [CONTOSO_KEY]);
+        GO
 
-### Chiffrement au niveau des colonnes (CLE)
-Ce script crée une clé symétrique protégée par la clé asymétrique dans le coffre de clés et utilise ensuite la clé symétrique pour chiffrer les données dans la base de données.
+### <a name="column-level-encryption-(cle)"></a>Column Level Encryption (CLE)
+This script creates a symmetric key protected by the asymmetric key in the key vault, and then uses the symmetric key to encrypt data in the database.
 
-	CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
-	WITH ALGORITHM=AES_256
-	ENCRYPTION BY ASYMMETRIC KEY CONTOSO_KEY;
-	
-	DECLARE @DATA VARBINARY(MAX);
-	
-	--Open the symmetric key for use in this session
-	OPEN SYMMETRIC KEY DATA_ENCRYPTION_KEY 
-	DECRYPTION BY ASYMMETRIC KEY CONTOSO_KEY;
-	
-	--Encrypt syntax
-	SELECT @DATA = ENCRYPTBYKEY(KEY_GUID('DATA_ENCRYPTION_KEY'), CONVERT(VARBINARY,'Plain text data to encrypt'));
-	
-	-- Decrypt syntax
-	SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
-	
-	--Close the symmetric key
-	CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
+    CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
+    WITH ALGORITHM=AES_256
+    ENCRYPTION BY ASYMMETRIC KEY CONTOSO_KEY;
+    
+    DECLARE @DATA VARBINARY(MAX);
+    
+    --Open the symmetric key for use in this session
+    OPEN SYMMETRIC KEY DATA_ENCRYPTION_KEY 
+    DECRYPTION BY ASYMMETRIC KEY CONTOSO_KEY;
+    
+    --Encrypt syntax
+    SELECT @DATA = ENCRYPTBYKEY(KEY_GUID('DATA_ENCRYPTION_KEY'), CONVERT(VARBINARY,'Plain text data to encrypt'));
+    
+    -- Decrypt syntax
+    SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
+    
+    --Close the symmetric key
+    CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
-## Ressources supplémentaires
-Pour plus d'informations sur l'utilisation de ces fonctionnalités de chiffrement, consultez [Utilisation d'EKM avec les fonctionnalités de chiffrement SQL Server (en Anglais)](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+## <a name="additional-resources"></a>Additional resources
+For more information on how to use these encryption features, see [Using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Notez que cet article suppose que vous disposez déjà de SQL Server exécuté sur une machine virtuelle Azure. Dans le cas contraire, consultez[Approvisionnement d'une machine virtuelle SQL Server dans Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) Pour d'autres conseils sur l'utilisation de SQL Server sur des machines virtuelles Azure, voir [Vue d'ensemble de SQL Server dans Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
+Note that the steps in this article assume that you already have SQL Server running on an Azure virtual machine. If not, see [Provision a SQL Server virtual machine in Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md). For other guidance on running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,13 +1,15 @@
-La série complète d’instructions vous aide à comprendre tous les points de conception à considérer pour la création de votre infrastructure d’application dans Azure :
+The full series of guidelines helps you understand all the different design considerations for building our your application infrastructure in Azure:
 
-- [Instructions pour les abonnements et les comptes Azure](../articles/virtual-machines/virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
-- [Instructions de dénomination d’infrastructure Azure](../articles/virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md)
-- [Instructions pour les groupes de ressources Azure](../articles/virtual-machines/virtual-machines-windows-infrastructure-resource-groups-guidelines.md)
-- [Instructions relatives à Azure Storage](../articles/virtual-machines/virtual-machines-windows-infrastructure-storage-solutions-guidelines.md)
-- [Instructions de mise en réseau Azure](../articles/virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md)
-- [Instructions pour les groupes à haute disponibilité Azure](../articles/virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md)
-- [Instructions pour les machines virtuelles Azure](../articles/virtual-machines/virtual-machines-windows-infrastructure-virtual-machine-guidelines.md)
+- [Azure Subscription and Accounts Guidelines](../articles/virtual-machines/virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
+- [Azure Infrastructure Naming Guidelines](../articles/virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md)
+- [Azure Resource Groups Guidelines](../articles/virtual-machines/virtual-machines-windows-infrastructure-resource-groups-guidelines.md)
+- [Azure Storage Guidelines](../articles/virtual-machines/virtual-machines-windows-infrastructure-storage-solutions-guidelines.md)
+- [Azure Networking Guidelines](../articles/virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md)
+- [Azure Availability Set Guidelines](../articles/virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md)
+- [Azure Virtual Machine Guidelines](../articles/virtual-machines/virtual-machines-windows-infrastructure-virtual-machine-guidelines.md)
 
-- [Procédure pas à pas d’exemple d’infrastructure Azure](../articles/virtual-machines/virtual-machines-windows-infrastructure-example.md)
+- [Azure Example Infrastructure Walkthrough](../articles/virtual-machines/virtual-machines-windows-infrastructure-example.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,21 +1,23 @@
-## Exemple de scénario
+## <a name="sample-scenario"></a>Sample Scenario
 
-Pour mieux illustrer la gestion des groupes de sécurité réseau, cet article utilise le scénario ci-dessous.
+To better illustrate how to manage NSGs, this article uses the scenario below.
 
-![Scénario de réseau virtuel](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
+![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-Dans ce scénario, vous allez créer un NSG pour chaque sous-réseau du réseau virtuel **TestVNet**, comme décrit ci-dessous :
+In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below: 
 
-- **NSG-FrontEnd**. Le NSG frontal est appliqué au sous-réseau *FrontEnd*, et contient deux règles :	
-	- **rdp-rule**. Cette règle autorise le trafic RDP vers le sous-réseau *FrontEnd*.
-	- **web-rule**. Cette règle autorise le trafic HTTP vers le sous-réseau *FrontEnd*.
-- **Back-end NSG**. Le NSG principal est appliqué au sous-réseau *BackEnd*, et contient deux règles :	
-	- **sql-rule**. Cette règle autorise le trafic SQL uniquement à partir du sous-réseau *FrontEnd*.
-	- **web-rule**. Cette règle refuse tout trafic lié à Internet à partir du sous-réseau *BackEnd*.
+- **NSG-FrontEnd**. The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:  
+    - **rdp-rule**. This rule will allow RDP traffic to the *FrontEnd* subnet.
+    - **web-rule**. This rule will allow HTTP traffic to the *FrontEnd* subnet.
+- **NSG-BackEnd**. The back end NSG will be applied to the *BackEnd* subnet, and contain two rules: 
+    - **sql-rule**. This rule allows SQL traffic only from the *FrontEnd* subnet.
+    - **web-rule**. This rule denies all internet bound traffic from the *BackEnd* subnet.
 
-La combinaison de ces règles crée un scénario de type DMZ, où le sous-réseau principal peut recevoir uniquement du trafic entrant pour le trafic SQL en provenance du sous-réseau frontal, et n’a pas accès à Internet, tandis que le sous-réseau frontal peut communiquer avec Internet et recevoir uniquement des requêtes HTTP entrantes.
+The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL traffic from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.
 
-Pour déployer le scénario décrit ci-dessus, suivez [ce lien](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail. Dans les instructions de l’exemple ci-dessous, le modèle a été utilisé pour déployer les noms de groupes de ressources **RG-NSG**.
+To deploy the scenario described above, follow [this link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. In the sample instructions below, the template was used to deploy a resource group names **RG-NSG**. 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

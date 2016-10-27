@@ -1,46 +1,50 @@
 <properties 
-	pageTitle="Test d’un Runbook dans Azure Automation| Microsoft Azure"
-	description="Avant de publier un runbook dans Azure Automation, vous pouvez le tester pour vous assurer qu’il fonctionne comme prévu. Cet article décrit la procédure de test d’un runbook et de l’affichage de son résultat."
-	services="automation"
-	documentationCenter=""
-	authors="mgoedtel"
-	manager="jwhit"
-	editor="tysonn" />
+    pageTitle="Testing a runbook in Azure Automation | Microsoft Azure"
+    description="Before you publish a runbook in Azure Automation, you can test it to ensure that works as expected.  This article describes how to test a runbook and view its output."
+    services="automation"
+    documentationCenter=""
+    authors="mgoedtel"
+    manager="jwhit"
+    editor="tysonn" />
 <tags 
-	ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/12/2016"
-	ms.author="magoedte;bwren" />
-
-# Test d’un runbook dans Azure Automation
-Lorsque vous testez un runbook, la [version Brouillon](automation-creating-importing-runbook.md#publishing-a-runbook) est exécutée et toutes les actions qu’il effectue sont finalisées. Aucun historique des tâches n’est créé, mais les flux [Résultat](automation-runbook-output-and-messages.md#output-stream) et [Avertissement et Erreur](automation-runbook-output-and-messages.md#message-streams) s’affichent dans le panneau de sortie du test. Les messages dirigés vers le [flux de messages](automation-runbook-output-and-messages.md#message-streams) s’affiche dans le panneau de résultat uniquement si la variable [$VerbosePreference variable](automation-runbook-output-and-messages.md#preference-variables) a pour valeur Continue.
-
-Bien que la version brouillon soit exécutée, le runbook exécute toujours le flux de travail normalement et effectue des actions sur des ressources dans l’environnement. Pour cette raison, vous devez tester les runbooks uniquement sur des ressources hors production.
-
-La procédure de chaque [type de runbook](automation-runbook-types.md) est identique et il n’y a aucune différence de test entre l’éditeur de texte et l’éditeur graphique dans le portail Azure.
+    ms.service="automation"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="09/12/2016"
+    ms.author="magoedte;bwren" />
 
 
-## Pour tester le runbook dans le portail Azure
+# <a name="testing-a-runbook-in-azure-automation"></a>Testing a runbook in Azure Automation
+When you test a runbook, the [Draft version](automation-creating-importing-runbook.md#publishing-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [Output](automation-runbook-output-and-messages.md#output-stream) and [Warning and Error](automation-runbook-output-and-messages.md#message-streams) streams are displayed in the Test output Pane. Messages to the [Verbose Stream](automation-runbook-output-and-messages.md#message-streams) are displayed in the Output Pane only if the [$VerbosePreference variable](automation-runbook-output-and-messages.md#preference-variables) is set to Continue.
 
-Vous pouvez utiliser n’importe quel [type de runbook](automation-runbook-types.md) dans le portail Azure.
+Even though the draft version is being run, the runbook still executes the workflow normally and performs any actions against resources in the environment. For this reason, you should only test runbooks at non-production resources.
 
-1. Ouvrez la version Brouillon du runbook dans l’[éditeur de texte](automation-editing-a-runbook.md#Portal) ou l’[éditeur graphique](automation-graphical-authoring-intro.md).
-2. Cliquez sur le bouton **Tester** pour ouvrir le panneau de test.
-3. Si le runbook possède des paramètres, ils figureront dans le volet gauche dans lequel vous pourrez fournir des valeurs à utiliser pour le test.
-4. Si vous souhaitez exécuter le test sur [Runbook Worker hybride](automation-hybrid-runbook-worker.md), définissez les **Paramètres d’exécution** sur **Worker hybride** et sélectionnez le nom du groupe cible. Dans le cas contraire, conservez la valeur par défaut **Azure** pour exécuter le test dans le cloud.
-5. Cliquez sur le bouton **Démarrer** pour démarrer le test.
-6. Si le runbook est [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) ou [Graphique](automation-runbook-types.md#graphical-runbooks), vous pouvez l’arrêter ou le suspendre tandis qu’il est en cours de test en vous aidant des boutons situés sous le panneau de résultat. Lorsque vous interrompez le runbook, il termine l’activité en cours avant de s’interrompre. Lorsque le runbook est suspendu, vous pouvez l’arrêter ou le redémarrer.
-7. Inspectez la sortie du runbook dans le panneau de résultat.
+The procedure to test each [type of runbook](automation-runbook-types.md) is the same, and there is no difference in testing between the textual editor and the graphical editor in the Azure portal.  
 
 
-## Étapes suivantes
+## <a name="to-test-a-runbook-in-the-azure-portal"></a>To test a runbook in the Azure portal
 
-- Pour savoir comment créer ou importer un Runbook, consultez [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md).
-- Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
-- Pour une prise en main des Runbooks de flux de travail PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md).
-- Pour en savoir plus sur la configuration de Runbooks pour renvoyer des messages d’état et des erreurs, y compris sur les pratiques recommandées, consultez [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
+You can work with any [runbook type](automation-runbook-types.md) in the Azure portal.
 
-<!---HONumber=AcomDC_0914_2016-->
+1. Open the Draft version of the runbook in either the [textual editor](automation-editing-a-runbook.md#Portal) or [graphical editor](automation-graphical-authoring-intro.md).
+2. Click the **Test** button to open the Test blade.
+3. If the runbook has parameters, they will be listed in the left pane where you can provide values to be used for the test.
+4. If you want to run the test on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), then change **Run Settings** to **Hybrid Worker** and select the name of the target group.  Otherwise, keep the default **Azure** to run the test in the cloud.
+5. Click the **Start** button to start the test.
+6. If the runbook is [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) or [Graphical](automation-runbook-types.md#graphical-runbooks), then you can stop or suspend it while it is being tested with the buttons underneath the Output Pane. When you suspend the runbook, it completes the current activity before being suspended. Once the runbook is suspended, you can stop it or restart it.
+7. Inspect the output from the runbook in the output pane.
+
+
+## <a name="next-steps"></a>Next Steps
+
+- To learn how to create or import a runbook, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
+- To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
+- To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+- To learn more about configuring runboks to return status messages and errors, including recommended practices, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

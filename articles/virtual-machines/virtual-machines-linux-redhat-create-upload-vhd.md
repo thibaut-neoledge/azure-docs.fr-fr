@@ -1,81 +1,82 @@
 <properties
-	pageTitle="Création et téléchargement d’un disque dur virtuel Red Hat Enterprise Linux pour une utilisation dans Azure"
-	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Red Hat Linux."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="SuperScottz"
-	manager="timlt"
-	editor="tysonn"
+    pageTitle="Create and upload a Red Hat Enterprise Linux VHD for use in Azure"
+    description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a Red Hat Linux operating system."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="SuperScottz"
+    manager="timlt"
+    editor="tysonn"
     tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="mingzhan"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="02/17/2016"
+    ms.author="mingzhan"/>
 
 
-# Préparation d'une machine virtuelle Red Hat pour Azure
 
-Dans cet article, vous allez apprendre à préparer une machine virtuelle Red Hat Enterprise Linux (RHEL) à utiliser dans Azure. Cet article couvre les versions de RHEL 6.7, 7.1 et 7.2. Les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM (Machine virtuelle basée sur le noyau) et VMware. Pour plus d’informations sur les conditions d’éligibilité pour participer au programme d’accès au Cloud de Red Hat, consultez le [site Web d’accès au cloud de Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) et [Exécution RHEL sous Azure](https://access.redhat.com/articles/1989673).
+# <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Prepare a Red Hat-based virtual machine for Azure
 
-[Préparer une machine virtuelle RHEL 6.7 à partir du Gestionnaire Hyper-V](#rhel67hyperv)
+In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. Versions of RHEL that are covered in this article are 6.7, 7.1 and 7.2. Hypervisors for preparation that are covered in this article are Hyper-V, Kernel-based Virtual Machine (KVM), and VMware. For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673).
 
-[Préparer une machine virtuelle RHEL 7.1/7.2 à partir du Gestionnaire Hyper-V](#rhel7xhyperv)
+[Prepare a RHEL 6.7 virtual machine from Hyper-V Manager](#rhel67hyperv)
 
-[Préparer une machine virtuelle RHEL 6.7 à partir de KMV](#rhel67kvm)
+[Prepare a RHEL 7.1/7.2 virtual machine from Hyper-V Manager](#rhel7xhyperv)
 
-[Préparer une machine virtuelle RHEL 7.1/7.2 à partir de KMV](#rhel7xkvm)
+[Prepare a RHEL 6.7 virtual machine from KVM](#rhel67kvm)
 
-[Préparer une machine virtuelle RHEL 6.7 à partir de VMWare](#rhel67vmware)
+[Prepare a RHEL 7.1/7.2 virtual machine from KVM](#rhel7xkvm)
 
-[Préparer une machine virtuelle RHEL 7.1/7.2 à partir de VMWare](#rhel7xvmware)
+[Prepare a RHEL 6.7 virtual machine from VMware](#rhel67vmware)
 
-[Préparer une machine virtuelle RHEL 7.1/7.2 à partir d'un fichier Kickstart](#rhel7xkickstart)
+[Prepare a RHEL 7.1/7.2 virtual machine from VMware](#rhel7xvmware)
 
-
-## Préparer une machine virtuelle Red Hat à partir du Gestionnaire Hyper-V
-### Composants requis
-Cette section repose sur l’hypothèse que vous avez déjà installé une image RHEL (provenant d’un fichier ISO obtenu à partir du site web de Red Hat) sur un disque dur virtuel (VHD). Pour plus d’informations sur l’utilisation du Gestionnaire Hyper-V pour installer une image de système d’exploitation, voir [Installer le rôle Hyper-V et configurer une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
-
-**Notes d'installation de RHEL**
-
-- Consultez également les [Notes générales d’installation sous Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils sur la préparation de Linux pour Azure.
-
-- Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l’aide du Gestionnaire Hyper-V ou de l’applet de commande Powershell **convert-vhd**.
-
-- Les VHD doivent être créés comme étant fixes (« fixed »), car les VHD dynamiques ne sont pas pris en charge.
-
-- Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou [RAID](virtual-machines-linux-configure-raid.md) sont utilisables sur les disques de données si vous le souhaitez.
-
-- Ne configurez pas une partition d’échange sur le disque du système d’exploitation. Vous pouvez configurer l’agent Linux pour la création d’un fichier d’échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d’informations à ce sujet.
-
-- La taille des disques durs virtuels doit être un multiple de 1 Mo.
-
-- Lorsque vous utilisez **qemu-img** pour convertir des images de disque au format VHD, notez qu’un bogue connu touche la version 2.2.1 de qemu-img ou ses versions ultérieures. Celui-ci entraîne un formatage incorrect du VHD. Ce problème devrait être résolu dans une prochaine version de qemu-img. Pour l’instant, nous vous recommandons d’utiliser la version 2.2.0 de qemu-img ou une version antérieure.
-
-### <a id="rhel67hyperv"> </a>Préparer une machine virtuelle RHEL 6.7 à partir du Gestionnaire Hyper-V###
+[Prepare a RHEL 7.1/7.2 virtual machine from a kickstart file](#rhel7xkickstart)
 
 
-1.	Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Prepare a Red Hat-based virtual machine from Hyper-V Manager
+### <a name="prerequisites"></a>Prerequisites
+This section assumes that you have already installed a RHEL image (from an ISO file that you obtained from Red Hat's website) to a virtual hard disk (VHD). For more details on how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
-2.	Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
+**RHEL installation notes**
 
-3.	Exécutez la commande suivante pour désinstaller NetworkManager :
+- Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
+
+- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format by using Hyper-V Manager or the **convert-vhd** PowerShell cmdlet.
+
+- VHDs must be created as "fixed"--dynamic VHDs are not supported.
+
+- When you're installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
+
+- Do not configure a swap partition on the OS disk. You can configure the Linux agent to create a swap file on the temporary resource disk. More information about this is available in the steps below.
+
+- All of the VHDs must have sizes that are multiples of 1 MB.
+
+- When you use **qemu-img** to convert disk images to VHD format, note that there is a known bug in qemu-img versions 2.2.1 or later. This bug results in an improperly formatted VHD. The issue is intended to be fixed in an upcoming release of qemu-img. For now, we recommend that you use qemu-img version 2.2.0 or earlier.
+
+### <a name="<a-id="rhel67hyperv">-</a>prepare-a-rhel-6.7-virtual-machine-from-hyper-v-manager###"></a><a id="rhel67hyperv"> </a>Prepare a RHEL 6.7 virtual machine from Hyper-V Manager###
+
+
+1.  In Hyper-V Manager, select the virtual machine.
+
+2.  Click **Connect** to open a console window for the virtual machine.
+
+3.  Uninstall NetworkManager by running the following command:
 
         # sudo rpm -e --nodeps NetworkManager
 
-    Notez que si le package n’est pas encore installé, la commande échoue et un message d’erreur s’affiche. Ceci est normal.
+    Note that if the package is not already installed, this command will fail with an error message. This is expected.
 
-4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
+4.  Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire et entrez-y le texte suivant :
+5.  Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -85,53 +86,54 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         PEERDNS=yes
         IPV6INIT=no
 
-6.	Déplacez (ou supprimez) les règles udev afin d'éviter la génération de règles statiques pour l'interface Ethernet. Ces règles entraînent des problèmes lorsque vous clonez une machine virtuelle dans Microsoft Azure ou Hyper-V :
+6.  Move (or remove) udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Microsoft Azure or Hyper-V:
 
         # sudo mkdir -m 0700 /var/lib/waagent
         # sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
         # sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
 
-7.	Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
+7.  Ensure that the network service will start at boot time by running the following command:
 
         # sudo chkconfig network on
 
-8.	Inscrivez votre abonnement Red Hat de façon à permettre l’installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
+8.  Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	Le package WALinuxAgent `WALinuxAgent-<version>` a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+9.  The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-10.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez `/boot/grub/menu.lst` dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
+10. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
 
         console=ttyS0
         earlyprintk=ttyS0
         rootdelay=300
         numa=off
 
-    Ce permet également d’assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure. Cette opération désactive NUMA en raison d’un bogue dans la version de noyau utilisée par RHEL 6.
+    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in the kernel version that is used by RHEL 6.
 
-    Outre l’action ci-dessus, nous vous recommandons de supprimer les paramètres suivants :
+    In addition to the above action, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 
-    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
+    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
 
-    L’option crashkernel peut éventuellement être conservée. Notez cependant que ce paramètre réduira d’au moins 128 Mo la quantité de mémoire disponible dans la machine virtuelle. Cela peut se révéler problématique sur des machines virtuelles de petite taille.
+    The crashkernel option can be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more. This might be problematic on smaller VM sizes.
 
-11.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez /etc/ssh/sshd\_config pour inclure la ligne suivante :
+11. Ensure that the SSH server is installed and configured to start at boot time. This is usually the default. Modify /etc/ssh/sshd_config to include the following line:
 
         ClientAliveInterval 180
 
-12.	Installez l'agent linux Azure en exécutant la commande suivante :
+12. Install the Azure Linux Agent by running the following command:
 
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    L'installation du package WALinuxAgent entraîne la suppression des packages NetworkManager et NetworkManager-gnome, s'ils n'avaient pas déjà été supprimés comme indiqué à l'étape 2.
+    Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
 
-13.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L’agent Linux Azure peut configurer automatiquement un espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l’approvisionnement de cette dernière sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Une fois que vous avez installé l’agent Linux Azure (voir l’étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+13. Do not create swap space on the OS disk.
+The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after the VM is provisioned on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After you install the Azure Linux Agent (see the previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -139,30 +141,31 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-14.	Annulez l'inscription de l'abonnement (le cas échéant) en exécutant la commande suivante :
+14. Unregister the subscription (if necessary) by running the following command:
 
         # sudo subscription-manager unregister
 
-15.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-16.	Cliquez sur **Action > Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+16. Click **Action > Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+ 
 
-### <a id="rhel7xhyperv"> </a>Préparer une machine virtuelle RHEL 7.1/7.2 à partir du Gestionnaire Hyper-V###
+### <a name="<a-id="rhel7xhyperv">-</a>prepare-a-rhel-7.1/7.2-virtual-machine-from-hyper-v-manager###"></a><a id="rhel7xhyperv"> </a>Prepare a RHEL 7.1/7.2 virtual machine from Hyper-V Manager###
 
-1.  Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+1.  In Hyper-V Manager, select the virtual machine.
 
-2.	Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
+2.  Click **Connect** to open a console window for the virtual machine.
 
-3.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
+3.  Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-4.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire et entrez-y le texte suivant :
+4.  Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -172,44 +175,45 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         PEERDNS=yes
         IPV6INIT=no
 
-5.	Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
+5.  Ensure that the network service will start at boot time by running the following command:
 
         # sudo chkconfig network on
 
-6.	Inscrivez votre abonnement Red Hat de façon à permettre l’installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
+6.  Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez `/etc/default/grub` dans un éditeur de texte et modifiez le paramètre **GRUB\_CMDLINE\_LINUX**. Par exemple :
+7.  Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor and edit the **GRUB_CMDLINE_LINUX** parameter. For example:
 
         GRUB_CMDLINE_LINUX="rootdelay=300
         console=ttyS0
         earlyprintk=ttyS0"
 
-    Ce permet également d’assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure. Outre l’action ci-dessus, nous vous recommandons de supprimer les paramètres suivants :
+    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition to the above action, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 
-	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série. L’option crashkernel peut éventuellement être conservée. Notez cependant que ce paramètre réduira d’au moins 128 Mo la quantité de mémoire disponible dans la machine virtuelle. Cela peut se révéler problématique sur des machines virtuelles de petite taille.
+    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+    The crashkernel option can be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more. This might be problematic on smaller VM sizes.
 
-8.	Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour régénérer la configuration grub :
+8.  After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-9.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
+9.  Ensure that the SSH server is installed and configured to start at boot time. This is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
 
         ClientAliveInterval 180
 
-10.	Le package WALinuxAgent `WALinuxAgent-<version>` a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+10. The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-11.	Installez l'agent linux Azure en exécutant la commande suivante :
+11. Install the Azure Linux Agent by running the following command:
 
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service
 
-12.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L’agent Linux Azure peut configurer automatiquement un espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l’approvisionnement de cette dernière sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+12. Do not create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after the VM is provisioned on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After you install the Azure Linux Agent (see the previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -217,33 +221,34 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-13.	Si vous souhaitez annuler l'inscription de l'abonnement, exécutez la commande suivante :
+13. If you want to unregister the subscription, run the following command:
 
         # sudo subscription-manager unregister
 
-14.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-15.	Cliquez sur **Action > Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+15. Click **Action > Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+ 
 
 
-## Préparer une machine virtuelle Red Hat à partir de KVM
+## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Prepare a Red Hat-based virtual machine from KVM
 
-### <a id="rhel67kvm"> </a>Préparer une machine virtuelle RHEL 6.7 à partir de KMV###
+### <a name="<a-id="rhel67kvm">-</a>prepare-a-rhel-6.7-virtual-machine-from-kvm###"></a><a id="rhel67kvm"> </a>Prepare a RHEL 6.7 virtual machine from KVM###
 
 
-1.	Téléchargez l'image KVM de RHEL 6.7 depuis le site web de Red Hat.
+1.  Download the KVM image of RHEL 6.7 from Red Hat's website.
 
-2.	Définissez un mot de passe racine.
+2.  Set a root password.
 
-    Générez un mot de passe chiffré et copiez la sortie de la commande :
+    Generate an encrypted password and copy the output of the command:
 
         # openssl passwd -1 changeme
 
-    Définissez un mot de passe racine avec guestfish :
+    Set a root password with guestfish:
 
         # guestfish --rw -a <image-name>
         ><fs> run
@@ -252,16 +257,16 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         ><fs> vi /etc/shadow
         ><fs> exit
 
-	Modifiez le second champ de l’utilisateur racine en remplaçant « !! » par le mot de passe chiffré.
+    Change the second field of the root user from “!!” to the encrypted password.
 
-3.	Créez une machine virtuelle dans KVM à partir de l’image qcow2, définissez le type de disque sur **qcow2**, puis définissez le modèle d’appareil de l’interface réseau virtuelle sur **virtio**. Démarrez ensuite la machine virtuelle, puis connectez-vous en tant que racine.
+3.  Create a virtual machine in KVM from the qcow2 image, set the disk type to **qcow2**, and set the virtual network interface device model to **virtio**. Then start the virtual machine and sign in as root.
 
-4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
+4.  Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire et entrez-y le texte suivant :
+5.  Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -271,65 +276,66 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         PEERDNS=yes
         IPV6INIT=no
 
-6.	Déplacez (ou supprimez) les règles udev afin d’éviter la génération de règles statiques pour l’interface Ethernet. Ces règles entraînent des problèmes lorsque vous clonez une machine virtuelle dans Microsoft Azure ou Hyper-V :
+6.  Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Microsoft Azure or Hyper-V:
 
         # mkdir -m 0700 /var/lib/waagent
         # mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
         # mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
 
-7.	Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
+7.  Ensure that the network service will start at boot time by running the following command:
 
         # chkconfig network on
 
-8.	Inscrivez votre abonnement Red Hat de façon à permettre l’installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
+8.  Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez `/boot/grub/menu.lst` dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
+9.  Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
 
-    Ce permet également d’assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure. Cette opération désactive NUMA en raison d’un bogue dans la version de noyau utilisée par RHEL 6.
+    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in the kernel version that is used by RHEL 6.
 
-    Outre l’action ci-dessus, nous vous recommandons de supprimer les paramètres suivants :
+    In addition to the above action, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 
-    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série. L’option crashkernel peut éventuellement être conservée. Notez cependant que ce paramètre réduira d’au moins 128 Mo la quantité de mémoire disponible dans la machine virtuelle. Cela peut se révéler problématique sur des machines virtuelles de petite taille.
+    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+    The crashkernel option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more. This might be problematic on smaller VM sizes.
 
-10. Ajoutez des modules de Hyper-V dans initramfs :
+10. Add Hyper-V modules into initramfs:  
 
-    Modifiez `/etc/dracut.conf` en y ajoutant le contenu suivant : add\_drivers+=”hv\_vmbus hv\_netvsc hv\_storvsc”
+    Edit `/etc/dracut.conf` and add content: add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-    Régénérez initramfs : # dracut –f -v
+    Rebuild initramfs:     # dracut –f -v
 
-11.	Désinstallez Cloud-Init :
+11. Uninstall cloud-init:
 
         # yum remove cloud-init
 
-12.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu :
+12. Ensure that the SSH server is installed and configured to start at boot time:
 
         # chkconfig sshd on
 
-    Modifiez /etc/ssh/sshd\_config pour y inclure les lignes suivantes :
+    Modify /etc/ssh/sshd_config to include the following lines:
 
         PasswordAuthentication yes
         ClientAliveInterval 180
 
-    Redémarrez sshd :
+    Restart sshd:
 
-		# service sshd restart
+        # service sshd restart
 
-13.	Le package WALinuxAgent `WALinuxAgent-<version>` a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+13. The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-14.	Installez l'agent linux Azure en exécutant la commande suivante :
+14. Install the Azure Linux Agent by running the following command:
 
         # yum install WALinuxAgent
         # chkconfig waagent on
 
-15.	L’agent Linux Azure peut configurer automatiquement un espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l’approvisionnement de cette dernière sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Une fois que vous avez installé l’agent Linux Azure (voir l’étape précédente), modifiez les paramètres suivants dans le fichier **/etc/waagent.conf** :
+15. The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after the VM is provisioned on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After you install the Azure Linux Agent (see the previous step), modify the following parameters in **/etc/waagent.conf** appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -337,42 +343,43 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-16.	Annulez l'inscription de l'abonnement (le cas échéant) en exécutant la commande suivante :
+16. Unregister the subscription (if necessary) by running the following command:
 
         # subscription-manager unregister
 
-17.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+17. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-18.	Arrêtez la machine virtuelle dans KVM.
+18. Shut down the VM in KVM.
 
-19.	Convertissez l’image qcow2 au format VHD. Convertissez tout d'abord l'image au format RAW :
+19. Convert the qcow2 image to VHD format.
+    First convert the image to raw format:
 
          # qemu-img convert -f qcow2 –O raw rhel-6.7.qcow2 rhel-6.7.raw
-    Assurez-vous que la taille de l’image RAW est alignée sur 1 Mo. Dans le cas contraire, arrondissez la taille pour l’aligner sur 1 Mo : # MB=$((1024*1024)) # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \\ gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}') # rounded\_size=$((($size/$MB + 1)*$MB))
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB: # MB=$((1024*1024)) # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \ gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}') # rounded_size=$((($size/$MB + 1)*$MB))
 
          # qemu-img resize rhel-6.7.raw $rounded_size
 
-    Convertissez le disque brut en VHD à taille fixe :
+    Convert the raw disk to a fixed-sized VHD:
 
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-### <a id="rhel7xkvm"> </a>Préparer une machine virtuelle RHEL 7.1/7.2 à partir de KMV###
+### <a name="<a-id="rhel7xkvm">-</a>prepare-a-rhel-7.1/7.2-virtual-machine-from-kvm###"></a><a id="rhel7xkvm"> </a>Prepare a RHEL 7.1/7.2 virtual machine from KVM###
 
 
-1.	Téléchargez l’image KVM de RHEL 7.1 (ou 7.2) à partir du site web de Red Hat. Nous utiliserons RHEL 7.1, comme l’exemple présenté ici.
+1.  Download the KVM image of RHEL 7.1 (or 7.2) from the Red Hat website. We will use RHEL 7.1 as the example here.
 
-2.	Définissez un mot de passe racine.
+2.  Set a root password.
 
-    Générez un mot de passe chiffré et copiez la sortie de la commande :
+    Generate an encrypted password, and copy the output of the command:
 
         # openssl passwd -1 changeme
 
-    Définissez un mot de passe racine avec guestfish.
+    Set a root password with guestfish.
 
         # guestfish --rw -a <image-name>
         ><fs> run
@@ -381,16 +388,16 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         ><fs> vi /etc/shadow
         ><fs> exit
 
-    Modifiez le second champ de l'utilisateur racine en remplaçant « !! » par le mot de passe chiffré.
+    Change the second field of root user from “!!” to the encrypted password.
 
-3.	Créez une machine virtuelle dans KVM à partir de l’image qcow2, définissez le type de disque sur **qcow2**, puis définissez le modèle d’appareil de l’interface réseau virtuelle sur **virtio**. Démarrez ensuite la machine virtuelle, puis connectez-vous en tant que racine.
+3.  Create a virtual machine in KVM from the qcow2 image, set the disk type to **qcow2**, and set the virtual network interface device model to **virtio**. Then start the virtual machine and sign in as root.
 
-4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
+4.  Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire et entrez-y le texte suivant :
+5.  Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -400,70 +407,71 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         PEERDNS=yes
         IPV6INIT=no
 
-6.	Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
+6.  Ensure that the network service will start at boot time by running the following command:
 
         # chkconfig network on
 
-7.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
+7.  Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-8.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez `/etc/default/grub` dans un éditeur de texte et modifiez le paramètre **GRUB\_CMDLINE\_LINUX**. Par exemple :
+8.  Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor and edit the **GRUB_CMDLINE_LINUX** parameter. For example:
 
         GRUB_CMDLINE_LINUX="rootdelay=300
         console=ttyS0
         earlyprintk=ttyS0"
 
-    Ce permet également d’assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure. Outre l’action ci-dessus, nous vous recommandons de supprimer les paramètres suivants :
+    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition to the above action, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 
-    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série. L’option crashkernel peut éventuellement être conservée. Notez cependant que ce paramètre réduira d’au moins 128 Mo la quantité de mémoire disponible dans la machine virtuelle. Cela peut se révéler problématique sur des machines virtuelles de petite taille.
+    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+    The crashkernel option can be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more. This might be problematic on smaller VM sizes.
 
-9.	Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour régénérer la configuration grub :
+9.  After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10.	Ajoutez des modules de Hyper-V dans initramfs :
+10. Add Hyper-V modules into initramfs:
 
-    Modifiez `/etc/dracut.conf` en y ajoutant le contenu suivant :
+    Edit `/etc/dracut.conf` and add content:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-    Régénérez initramfs :
+    Rebuild initramfs:
 
         # dracut –f -v
 
-11.	Désinstallez Cloud-Init :
+11. Uninstall cloud-init:
 
         # yum remove cloud-init
 
-12.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu :
+12. Ensure that the SSH server is installed and configured to start at boot time:
 
         # systemctl enable sshd
 
-    Modifiez /etc/ssh/sshd\_config pour y inclure les lignes suivantes :
+    Modify /etc/ssh/sshd_config to include the following lines:
 
         PasswordAuthentication yes
         ClientAliveInterval 180
 
-    Redémarrez sshd :
+    Restart sshd:
 
         systemctl restart sshd
 
-13.	Le package WALinuxAgent `WALinuxAgent-<version>` a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+13. The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-14.	Installez l'agent linux Azure en exécutant la commande suivante :
+14. Install the Azure Linux Agent by running the following command:
 
         # yum install WALinuxAgent
 
-    Activez le service waagent :
+    Enable the waagent service:
 
         # systemctl enable waagent.service
 
-15.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L’agent Linux Azure peut configurer automatiquement un espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l’approvisionnement de cette dernière sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+15. Do not create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after the VM is provisioned on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After you install the Azure Linux Agent (see the previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -471,25 +479,25 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-16.	Annulez l'inscription de l'abonnement (le cas échéant) en exécutant la commande suivante :
+16. Unregister the subscription (if necessary) by running the following command:
 
         # subscription-manager unregister
 
-17.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+17. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-18.	Arrêtez la machine virtuelle dans KVM.
+18. Shut down the virtual machine in KVM.
 
-19.	Convertissez l’image qcow2 au format VHD.
+19. Convert the qcow2 image to VHD format.
 
-    Convertissez tout d'abord l'image au format RAW :
+    First convert the image to raw format:
 
          # qemu-img convert -f qcow2 –O raw rhel-7.1.qcow2 rhel-7.1.raw
 
-    Assurez-vous que la taille de l’image RAW est alignée sur 1 Mo. Dans le cas contraire, arrondissez la taille pour l’aligner sur 1 Mo :
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
          # MB=$((1024*1024))
          # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
@@ -498,37 +506,37 @@ Cette section repose sur l’hypothèse que vous avez déjà installé une image
 
          # qemu-img resize rhel-7.1.raw $rounded_size
 
-    Convertissez le disque brut en VHD à taille fixe :
+    Convert the raw disk to a fixed-sized VHD:
 
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
-## Préparer une machine virtuelle Red Hat à partir de VMware
-### Configuration requise
-Cette section suppose que vous avez déjà installé une machine virtuelle RHEL dans VMWare. Pour plus d’informations sur l’installation d’un système d’exploitation dans VMWare, voir le document [VMware Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html) (Guide d’installation de système d’exploitation invité VMWare).
+## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Prepare a Red Hat-based virtual machine from VMware
+### <a name="prerequisites"></a>Prerequisites
+This section assumes that you have already installed a RHEL virtual machine in VMware. For details on how to install an operating system in VMware, see [VMware Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html).
 
-- Lorsque vous installez le système d’exploitation Linux, nous vous recommandons d’utiliser les partitions standard plutôt que LVM (qui constitue souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Vous pouvez utiliser les techniques LVM ou RAID sur les disques de données si vous le souhaitez.
+- When you install the Linux operating system, we recommend that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or RAID can be used on data disks if preferred.
 
-- Ne configurez pas une partition d'échange sur le disque du système d'exploitation. Vous pouvez configurer l’agent Linux pour la création d’un fichier d’échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d’informations à ce sujet.
+- Do not configure a swap partition on the OS disk. You can configure the Linux agent to create a swap file on the temporary resource disk. You can find more information about this in the steps below.
 
-- Lorsque vous créez le disque dur virtuel, sélectionnez **Stocker le disque virtuel en un seul fichier**.
+- When you create the virtual hard disk, select **Store virtual disk as a single file**.
 
 
 
-### <a id="rhel67vmware"> </a>Préparer une machine virtuelle RHEL 6.7 à partir de VMWare###
+### <a name="<a-id="rhel67vmware">-</a>prepare-a-rhel-6.7-virtual-machine-from-vmware###"></a><a id="rhel67vmware"> </a>Prepare a RHEL 6.7 virtual machine from VMware###
 
-1.	Exécutez la commande suivante pour désinstaller NetworkManager :
+1.  Uninstall NetworkManager by running the following command:
 
          # sudo rpm -e --nodeps NetworkManager
 
-    Notez que si le package n’est pas encore installé, la commande échoue et un message d’erreur s’affiche. Ceci est normal.
+    Note that if the package is not already installed, this command will fail with an error message. This is expected.
 
-2.	Créez un fichier nommé **network** dans le répertoire /etc/sysconfig/ contenant le texte suivant :
+2.  Create a file named **network** in the /etc/sysconfig/ directory that contains the following text:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-3.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire /etc/sysconfig/network-scripts/ contenant le texte suivant :
+3.  Create a file named **ifcfg-eth0** in the /etc/sysconfig/network-scripts/ directory that contains the following text:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -538,59 +546,61 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
         PEERDNS=yes
         IPV6INIT=no
 
-4.	Déplacez (ou supprimez) les règles udev afin d’éviter la génération de règles statiques pour l’interface Ethernet. Ces règles entraînent des problèmes lorsque vous clonez une machine virtuelle dans Microsoft Azure ou Hyper-V :
+4.  Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Microsoft Azure or Hyper-V:
 
         # sudo mkdir -m 0700 /var/lib/waagent
         # sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
         # sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
 
-5.	Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
+5.  Ensure that the network service will start at boot time by running the following command:
 
         # sudo chkconfig network on
 
-6.	Inscrivez votre abonnement Red Hat de façon à permettre l’installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
+6.  Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	Le package WALinuxAgent `WALinuxAgent-<version>` a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+7.  The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-8.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /boot/grub/menu.lst » dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
+8.  Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
 
         console=ttyS0
         earlyprintk=ttyS0
         rootdelay=300
         numa=off
 
-    Ce permet également d’assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure. Cette opération désactive NUMA en raison d’un bogue dans la version de noyau utilisée par RHEL 6. Outre l’action ci-dessus, nous vous recommandons de supprimer les paramètres suivants :
+    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in the kernel version that is used by RHEL 6.
+    In addition to the above action, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 
-    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série. L’option crashkernel peut éventuellement être conservée. Notez cependant que ce paramètre réduira d’au moins 128 Mo la quantité de mémoire disponible dans la machine virtuelle. Cela peut se révéler problématique sur des machines virtuelles de petite taille.
+    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+    The crashkernel option can be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more. This might be problematic on smaller VM sizes.
 
-9.	Ajoutez des modules de Hyper-V dans initramfs :
+9.  Add Hyper-V modules into initramfs:
 
-	    Edit `/etc/dracut.conf` and add content:
+        Edit `/etc/dracut.conf` and add content:
 
-	        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+            add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-	    Rebuild initramfs:
+        Rebuild initramfs:
 
-	        # dracut –f -v
+            # dracut –f -v
 
-10.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
+10. Ensure that the SSH server is installed and configured to start at boot time. This is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
 
         ClientAliveInterval 180
 
-11.	Installez l'agent linux Azure en exécutant la commande suivante :
+11. Install the Azure Linux Agent by running the following command:
 
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-12.	Ne créez pas d'espace swap sur le disque du système d'exploitation :
+12. Do not create swap space on the OS disk:
 
-    L’agent Linux Azure peut configurer automatiquement un espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l’approvisionnement de cette dernière sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+    The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after the VM is provisioned on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After you install the Azure Linux Agent (see the previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -598,23 +608,23 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-13.	Annulez l'inscription de l'abonnement (le cas échéant) en exécutant la commande suivante :
+13. Unregister the subscription (if necessary) by running the following command:
 
         # sudo subscription-manager unregister
 
-14.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-15.	Arrêtez la machine virtuelle, puis convertissez le fichier VMDK en fichier .vhd.
+15. Shut down the VM, and convert the VMDK file to a .vhd file.
 
-    Convertissez tout d'abord l'image au format RAW :
+    First convert the image to raw format:
 
         # qemu-img convert -f vmdk –O raw rhel-6.7.vmdk rhel-6.7.raw
 
-    Assurez-vous que la taille de l’image RAW est alignée sur 1 Mo. Dans le cas contraire, arrondissez la taille pour l’aligner sur 1 Mo :
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
         # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
@@ -622,19 +632,19 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
         # rounded_size=$((($size/$MB + 1)*$MB))
         # qemu-img resize rhel-6.7.raw $rounded_size
 
-    Convertissez le disque brut en VHD à taille fixe :
+    Convert the raw disk to a fixed-sized VHD:
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-### <a id="rhel7xvmware"> </a>Préparer une machine virtuelle RHEL 7.1/7.2 à partir de VMWare###
+### <a name="<a-id="rhel7xvmware">-</a>prepare-a-rhel-7.1/7.2-virtual-machine-from-vmware###"></a><a id="rhel7xvmware"> </a>Prepare a RHEL 7.1/7.2 virtual machine from VMware###
 
-1.	Créez un fichier nommé **network** dans le répertoire /etc/sysconfig/ contenant le texte suivant :
+1.  Create a file named **network** in the /etc/sysconfig/ directory that contains the following text:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-2.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire /etc/sysconfig/network-scripts/ contenant le texte suivant :
+2.  Create a file named **ifcfg-eth0** in the /etc/sysconfig/network-scripts/ directory that contains the following text:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -644,54 +654,55 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
         PEERDNS=yes
         IPV6INIT=no
 
-3.	Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
+3.  Ensure that the network service will start at boot time by running the following command:
 
         # sudo chkconfig network on
 
-4.	Inscrivez votre abonnement Red Hat de façon à permettre l’installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
+4.  Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-5.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez `/etc/default/grub` dans un éditeur de texte et modifiez le paramètre **GRUB\_CMDLINE\_LINUX**. Par exemple :
+5.  Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor and edit the **GRUB_CMDLINE_LINUX** parameter. For example:
 
         GRUB_CMDLINE_LINUX="rootdelay=300
         console=ttyS0
         earlyprintk=ttyS0"
 
-    Ce permet également d’assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure. Outre l’action ci-dessus, nous vous recommandons de supprimer les paramètres suivants :
+    This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition to the above action, we recommend that you remove the following parameters:
 
         rhgb quiet crashkernel=auto
 
-    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série. L’option crashkernel peut éventuellement être conservée. Notez cependant que ce paramètre réduira d’au moins 128 Mo la quantité de mémoire disponible dans la machine virtuelle. Cela peut se révéler problématique sur des machines virtuelles de petite taille.
+    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+    The crashkernel option can be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more. This might be problematic on smaller VM sizes.
 
-6.	Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour régénérer la configuration grub :
+6.  After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
          # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-7.	Ajoutez des modules de Hyper-V dans initramfs :
+7.  Add Hyper-V modules into initramfs:
 
-    Modifiez `/etc/dracut.conf`, ajoutez le contenu :
+    Edit `/etc/dracut.conf`, add content:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-    Régénérez initramfs :
+    Rebuild initramfs:
 
         # dracut –f -v
 
-8.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
+8.  Ensure that the SSH server is installed and configured to start at boot time. This is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
 
         ClientAliveInterval 180
 
-9.	Le package WALinuxAgent `WALinuxAgent-<version>` a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+9.  The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-10.	Installez l'agent linux Azure en exécutant la commande suivante :
+10. Install the Azure Linux Agent by running the following command:
 
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service
 
-11.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L’agent Linux Azure peut configurer automatiquement un espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l’approvisionnement de cette dernière sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l’agent Linux Azure (voir l’étape précédente), modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+11. Do not create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the VM after the VM is provisioned on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After you install the Azure Linux Agent (see the previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -699,23 +710,23 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-12.	Si vous souhaitez annuler l'inscription de l'abonnement, exécutez la commande suivante :
+12. If you want to unregister the subscription, run the following command:
 
         # sudo subscription-manager unregister
 
-13.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+13. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-14.	Arrêtez la machine virtuelle et convertissez le fichier VMDK au format VHD.
+14. Shut down the VM, and convert the VMDK file to VHD format.
 
-    Convertissez tout d'abord l'image au format RAW :
+    First convert the image to raw format:
 
         # qemu-img convert -f vmdk –O raw rhel-7.1.vmdk rhel-7.1.raw
 
-    Assurez-vous que la taille de l’image RAW est alignée sur 1 Mo. Dans le cas contraire, arrondissez la taille pour l’aligner sur 1 Mo :
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
         # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
@@ -723,18 +734,18 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
         # rounded_size=$((($size/$MB + 1)*$MB))
         # qemu-img resize rhel-7.1.raw $rounded_size
 
-    Convertissez le disque brut en VHD à taille fixe :
+    Convert the raw disk to a fixed-sized VHD:
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
-## Préparer une machine virtuelle Red Hat à partir d’un fichier ISO grâce à l’utilisation automatique d’un fichier Kickstart
+## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Prepare a Red Hat-based virtual machine from an ISO by using a kickstart file automatically
 
 
-### <a id="rhel7xkickstart"> </a>Préparer une machine virtuelle RHEL 7.1/7.2 à partir d’un fichier Kickstart###
+### <a name="<a-id="rhel7xkickstart">-</a>prepare-a-rhel-7.1/7.2-virtual-machine-from-a-kickstart-file###"></a><a id="rhel7xkickstart"> </a>Prepare a RHEL 7.1/7.2 virtual machine from a kickstart file###
 
 
-1.	Créez un fichier Kickstart avec le contenu ci-dessous, puis enregistrez-le. Pour plus d’informations sur l’installation de Kickstart, voir le document [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html) (Guide d’installation Kickstart).
+1.  Create a kickstart file with the content below, and save the file. For details about kickstart installation, see the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
 
 
@@ -830,14 +841,14 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
         usermod root -p '!!'
 
         # Configure swap in WALinuxAgent
-        sed -i 's/^(ResourceDisk\.EnableSwap)=[Nn]$/\1=y/g' /etc/waagent.conf
-        sed -i 's/^(ResourceDisk\.SwapSizeMB)=[0-9]*$/\1=2048/g' /etc/waagent.conf
+        sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
+        sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
 
         # Set the cmdline
-        sed -i 's/^(GRUB_CMDLINE_LINUX)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
+        sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
 
         # Enable SSH keepalive
-        sed -i 's/^#(ClientAliveInterval).*$/\1 180/g' /etc/ssh/sshd_config
+        sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
 
         # Build the grub cfg
         grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -859,61 +870,65 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
         %end
 
-2.	Placez le fichier Kickstart à un emplacement accessible à partir du système d’installation.
+2.  Place the kickstart file in a place that is accessible from the installation system.
 
-3.	Créez une machine virtuelle dans le Gestionnaire Hyper-V. Sur la page **Connecter un disque dur virtuel**, sélectionnez **Connecter un disque dur virtuel ultérieurement**, puis exécutez l’Assistant Nouvelle machine virtuelle.
+3.  In Hyper-V Manager, create a new VM. On the **Connect Virtual Hard Disk** page, select **Attach a virtual hard disk later**, and complete the New Virtual Machine Wizard.
 
-4.	Ouvrez les paramètres de la machine virtuelle :
+4.  Open the VM settings:
 
-    a. Attachez un nouveau disque dur virtuel à la machine virtuelle. Veillez à sélectionner **Format VHD** et **Taille fixe**.
+    a.  Attach a new virtual hard disk to the VM. Make sure to select **VHD Format** and **Fixed Size**.
 
-    b. Attachez l’ISO d’installation au lecteur de DVD.
+    b.  Attach the installation ISO to the DVD drive.
 
-    c. Configurez le BIOS de manière à exécuter le démarrage à partir d’un CD.
+    c.  Set the BIOS to boot from CD.
 
-5.	Démarrez la machine virtuelle. Lorsque le guide d’installation s’affiche, appuyez sur la touche **Tab** pour configurer les options de démarrage.
+5.  Start the VM. When the installation guide appears, press **Tab** to configure the boot options.
 
-6.	Entrez `inst.ks=<the location of the kickstart file>` à la fin des options de démarrage, puis appuyez sur **Entrée**.
+6.  Enter `inst.ks=<the location of the kickstart file>` at the end of the boot options, and press **Enter**.
 
-7.	Attendez que l'installation se termine. À la fin de l’installation, la machine virtuelle s’arrête automatiquement. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+7.  Wait for the installation to finish. When it’s finished, the VM will be shut down automatically. Your Linux VHD is now ready to be uploaded to Azure.
 
-## Problèmes connus
-Il existe des problèmes connus liés à l'utilisation de RHEL 7.1 dans Hyper-V et Azure.
+## <a name="known-issues"></a>Known issues
+There are known issues when you are using RHEL 7.1 in Hyper-V and Azure.
 
-### Blocage des E/S du disque
+### <a name="disk-i/o-freeze"></a>Disk I/O freeze
 
-Ce problème peut se produire au cours d’activités fréquentes des E/S du disque de stockage avec RHEL 7.1 dans Hyper-V et Azure.
+This issue might occur during frequent storage disk I/O activities with RHEL 7.1 in Hyper-V and Azure.   
 
-Fréquence :
+Repro rate:
 
-ce problème est intermittent. Toutefois, il se produit plus souvent lors d'opérations E/S du disque fréquentes dans Hyper-V et Azure.
+This issue is intermittent. However, it occurs more frequently during frequent disk I/O operations in Hyper-V and Azure.   
 
 
-[AZURE.NOTE] Ce problème a déjà été résolu par Red Hat. Pour installer les correctifs associés, exécutez la commande ci-dessous :
+[AZURE.NOTE] This known issue has already been addressed by Red Hat. To install the associated fixes, run the following command:
 
     # sudo yum update
 
-### Impossible d’inclure le pilote Hyper-V dans le disque virtuel initial lors de l’utilisation d’un hyperviseur non-Hyper-V
+### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>The Hyper-V driver could not be included in the initial RAM disk when using a non-Hyper-V hypervisor
 
-Dans certains cas, les programmes d’installation de Linux n’incluent pas les pilotes pour Hyper-V dans le disque virtuel initial (initrd ou initramfs), sauf s’ils détectent que ce dernier s’exécute dans un environnement Hyper-V.
+In some cases, Linux installers might not include the drivers for Hyper-V in the initial RAM disk (initrd or initramfs) unless it detects that it is running in a Hyper-V environment.
 
-Lorsque vous utilisez un système de virtualisation différent (Virtualbox, Xen, etc.) pour préparer votre image Linux, vous pouvez avoir besoin de recréer initrd pour vous assurer que les modules noyau hv\_vmbus et hv\_storvsc figurent au moins parmi les modules disponibles sur le disque virtuel initial. Ceci est un problème connu, touchant au moins les systèmes basés sur la distribution Red Hat en amont.
+When you're using a different virtualization system (i.e. Virtualbox, Xen, etc.) to prepare your Linux image, you might need to rebuild initrd to ensure that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial RAM disk. This is a known issue at least on systems based on the upstream Red Hat distribution.
 
-Pour résoudre ce problème, ajoutez des modules Hyper-V dans initramfs, puis régénérez ce dernier :
+To resolve this issue, you need to add Hyper-V modules into initramfs and rebuild it:
 
-Modifiez `/etc/dracut.conf` en y ajoutant le contenu suivant :
+Edit `/etc/dracut.conf` and add content:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-Régénérez initramfs :
+Rebuild initramfs:
 
         # dracut –f -v
 
-Pour plus d’informations, voir l’article concernant la [régénération d’initramfs](https://access.redhat.com/solutions/1958).
+For more details, see the information about [rebuilding initramfs](https://access.redhat.com/solutions/1958).
 
-## Étapes suivantes
-Vous êtes maintenant prêt à utiliser votre disque dur virtuel Red Hat Enterprise Linux pour créer des machines virtuelles dans Azure. S’il s’agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+## <a name="next-steps"></a>Next steps
+You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-classic-create-upload-vhd.md).
 
-Pour plus d’informations sur les hyperviseurs certifiés pour l’exécution de Red Hat Enterprise Linux, voir le [site web de Red Hat](https://access.redhat.com/certified-hypervisors).
+For more details about the hypervisors that are certified to run Red Hat Enterprise Linux, see [the Red Hat website](https://access.redhat.com/certified-hypervisors).
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

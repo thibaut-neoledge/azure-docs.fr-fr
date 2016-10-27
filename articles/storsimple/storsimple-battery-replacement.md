@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Remplacer la batterie sur un appareil StorSimple | Microsoft Azure"
-   description="Décrit comment retirer, remplacer et entretenir le module de batterie de secours sur votre appareil StorSimple."
+   pageTitle="Replace the battery on a StorSimple device | Microsoft Azure"
+   description="Describes how to remove, replace, and maintain the backup battery module on your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,104 +15,109 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# Remplacer le module de batterie de secours sur votre appareil StorSimple
 
-## Vue d'ensemble
+# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Replace the backup battery module on your StorSimple device
 
-Le module d’alimentation et de refroidissement (PCM) du boîtier principal de votre appareil Microsoft Azure StorSimple dispose d’une batterie supplémentaire. Celle-ci fournit l’alimentation pour que l’appareil StorSimple puisse enregistrer des données en cas de perte d’alimentation au niveau du boîtier principal. Cette batterie est appelée *module de batterie de secours*. Le module de batterie de secours existe uniquement pour le boîtier principal de votre appareil StorSimple (le boîtier EBOD ne contient pas de module de batterie de secours).
+## <a name="overview"></a>Overview
 
-Ce didacticiel explique comment :
+The primary enclosure Power and Cooling Module (PCM) on your Microsoft Azure StorSimple device has an additional battery pack. This pack provides power so that the StorSimple device can save data if there is loss of AC power to the primary enclosure. This battery pack is referred to as the *backup battery module*. The backup battery module exists only for the primary enclosure in your StorSimple device (the EBOD enclosure does not contain a backup battery module). 
 
-- Retirer le module de batterie de secours
-- Installer un nouveau module de batterie de secours
-- Entretenir le module de batterie de secours
+This tutorial explains how to:
 
->[AZURE.IMPORTANT] Avant le retrait et le remplacement d’un module de batterie de secours, passez en revue les informations de sécurité dans l’[Introduction au remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+- Remove the backup battery module 
+- Install a new backup battery module
+- Maintain the backup battery module
 
-## Retirer le module de batterie de secours
+>[AZURE.IMPORTANT] Before removing and replacing a backup battery module, review the safety information in the [Introduction to StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-Le module de batterie de secours pour votre appareil StorSimple est une unité remplaçable sur site. Avant son installation dans le module PCM, le module de batterie doit être conservé dans son emballage d’origine. Procédez comme suit pour supprimer la batterie de secours.
+## <a name="remove-the-backup-battery-module"></a>Remove the backup battery module
 
-#### Pour retirer le module de batterie de secours
+The backup battery module for your StorSimple device is a field-replaceable unit. Before it is installed in the PCM, the battery module should be stored in its original packaging. Perform the following steps to remove the backup battery.
 
-1. Dans le portail Azure Classic, accédez à **Appareils** > **Maintenance** > **État du matériel**. Sous **Composants partagés**, regardez l’état de la batterie.
+#### <a name="to-remove-the-backup-battery-module"></a>To remove the backup battery module
 
-2. Identifiez le PCM dans lequel la batterie est défectueuse. La figure 1 illustre l’arrière de l’appareil StorSimple.
+1. In the Azure classic portal, go to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, look at the status of the battery.
 
-    ![Fond du panier des modules du boîtier principal de l’appareil](./media/storsimple-battery-replacement/IC740994.png)
+2. Identify the PCM in which the battery has failed. Figure 1 shows the back of the StorSimple device.
 
-    **Figure 1** Arrière de l’appareil principal avec les modules PCM et de contrôleur
+    ![Backplane Of Device Primary Enclosure Modules](./media/storsimple-battery-replacement/IC740994.png)
 
-    |Étiquette|Description|
-    |:----|:----------|
-    |1|PCM 0|
-    |2|PCM 1|
-    |3|Contrôleur 0|
-    |4|Contrôleur 1|
+    **Figure 1** Back of primary device showing PCM and controller modules
 
-    Comme l’illustre le numéro 3 dans la figure 2, le voyant LED de surveillance sur PCM 0 qui correspond à **Panne de batterie** doit être allumé.
+  	|Label|Description|
+  	|:----|:----------|
+  	|1|PCM 0|
+  	|2|PCM 1|
+  	|3|Controller 0|
+  	|4|Controller 1|
 
-    ![Fond du panier du module PCM de l’appareil avec voyants LED de surveillance](./media/storsimple-battery-replacement/IC740992.png)
+    As shown by number 3 in the Figure 2, the monitoring indicator LED on PCM 0 that corresponds to **Battery Fault** should be lit.
 
-    **Figure 2** Arrière du PCM avec les voyants LED de surveillance
+    ![Backplane Of Device PCM Monitoring Indicator LEDs](./media/storsimple-battery-replacement/IC740992.png)
 
-    |Étiquette|Description|
-    |:---|:-----------|
-    |1|Panne d’alimentation secteur|
-    |2|Panne de ventilateur|
-    |3|Panne de batterie|
-    |4|PCM OK|
-    |5|Panne d’alimentation secteur|
-    |6|Batterie saine|
+    **Figure 2** Back of PCM showing the monitoring indicator LEDs
 
-3. Pour retirer le PCM dont la batterie est défectueuse, suivez les étapes de la procédure [Retrait d’un PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+  	|Label|Description|
+  	|:---|:-----------|
+  	|1|AC power failure|
+  	|2|Fan failure|
+  	|3|Battery fault|
+  	|4|PCM OK|
+  	|5|DC power failure|
+  	|6|Battery healthy|
 
-4. Une fois le PCM retiré, soulevez la poignée du module de batterie et faites-la pivoter vers le haut, comme l’illustre la figure ci-après, puis tirez dessus pour extraire la batterie.
+3. To remove the PCM with a failed battery, follow the steps in [Remove a PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
 
-    ![Retrait de la batterie du module PCM](./media/storsimple-battery-replacement/IC741019.png)
+4. With the PCM removed, lift and rotate the battery module handle upward as indicated in the following figure, and pull it up to remove the battery.
 
-    **Figure 3** Retrait de la batterie du PCM
+    ![Removing Battery From PCM](./media/storsimple-battery-replacement/IC741019.png)
 
-5. Placez le module dans l’emballage de l’unité remplaçable sur site.
+    **Figure 3** Removing the battery from the PCM
 
-6. Renvoyez l’unité défectueuse à Microsoft qui en assurera l’entretien et la manutention.
+5. Place the module in the field-replaceable unit packaging.
 
-## Installer un nouveau module de batterie de secours
+6. Return the defective unit to Microsoft for proper servicing and handling.
 
-Procédez comme suit pour installer le module de batterie de remplacement dans le PCM du boîtier principal de votre appareil StorSimple.
+## <a name="install-a-new-backup-battery-module"></a>Install a new backup battery module
 
-#### Pour installer le module de batterie
+Perform the following steps to install the replacement battery module in the PCM in the primary enclosure of your StorSimple device.
 
-1. Orientez correctement le module de batterie de secours dans le PCM.
+#### <a name="to-install-the-battery-module"></a>To install the battery module
 
-2. Appuyez sur la poignée du module de batterie jusqu’en bas pour placer le connecteur.
+1. Place the backup battery module in the proper orientation in the PCM.
 
-3. Remplacez le PCM dans le boîtier principal en procédant de la manière décrite dans [Remplacement d’un module d’alimentation et de refroidissement (PCM) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md).
+2. Press down the battery module handle all the way to seat the connector.
 
-4. Une fois le remplacement terminé, accédez à **Appareils** > **Maintenance** > **État du matériel** dans le portail Azure Classic. Vérifiez l'état de la batterie pour vous assurer que l'installation a réussi. Un état vert indique que la batterie est saine.
+3. Replace the PCM in the primary enclosure by following the guidelines in [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md).
 
-## Entretenir le module de batterie de secours
+4. After the replacement is complete, go to **Devices** > **Maintenance** > **Hardware Status** in the Azure classic portal. Verify the status of the battery to make sure that the installation was successful. A green status indicates that the battery is healthy.
 
-Dans votre appareil StorSimple, le module de batterie de secours de votre appareil alimente le contrôleur en cas de panne de courant. Il permet à l’appareil StorSimple d’enregistrer des données critiques avant de s’arrêter de façon contrôlée. Ce système, équipé de deux batteries entièrement chargées dans les PCM, peut faire face à deux pannes de courant consécutives.
+## <a name="maintain-the-backup-battery-module"></a>Maintain the backup battery module
 
-Dans le portail Azure Classic, l’option **Statut matériel** dans la page **Maintenance** indique si la batterie ne fonctionne pas correctement ou si elle approche de la fin de sa durée de vie. L’état de la batterie est indiqué par **Batterie dans PCM 0** ou **Batterie dans PCM 1** sous **Composants partagés**. Cette page indique l’état **DÉTÉRIORÉ** si la fin de durée de vie approche et l’état **ÉCHEC** si elle est atteinte.
+In your StorSimple device, the backup battery module provides power to the controller during a power loss event. It allows the StorSimple device to save critical data prior to shutting down in a controlled manner. With two fully charged batteries in the PCMs, the system can handle two consecutive loss events.
 
->[AZURE.NOTE] La batterie peut signaler **ÉCHEC** quand elle a juste besoin d’être chargée.
+In the Azure classic portal, the **Hardware Status** on the **Maintenance** page indicates whether the battery is malfunctioning or the end-of-life is approaching. The battery status is indicated by **Battery in PCM 0** or **Battery in PCM 1** under **Shared Components**. This page will show a **DEGRADED** state for end-of-life approaching, and **FAILED** for end-of-life reached. 
+
+>[AZURE.NOTE] The battery can report **FAILED** when it simply needs to be charged.
  
-Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder ainsi :
+If the **DEGRADED** state appears, we recommend the following course of action:
 
-- Le système a peut-être récemment subi une panne ou des opérations de maintenance peuvent être en cours sur les batteries. Observez le système pendant 12 heures avant de continuer.
+- The system may have experienced a recent power loss or the batteries may be undergoing periodic maintenance. Observe the system for 12 hours before proceeding.
 
-    - Si l’état est toujours **DÉTÉRIORÉ** après 12 heures de branchement sur secteur alors que les contrôleurs et les PCM sont en cours d’exécution, vous devez changer la batterie. Veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir un module de batterie de secours de remplacement.
+    - If the state is still **DEGRADED** after 12 hours of continuous connection to AC power with the controllers and PCMs running, then the battery needs to be replaced. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) for a replacement backup battery module.
 
-    - Si l’état redevient opérationnel après 12 heures, cela veut dire que la batterie fonctionne et qu’elle avait juste besoin d’être chargée dans le cadre de la maintenance.
+    - If the state becomes OK after 12 hours, the battery is operational, and it only needed a maintenance charge.
 
-- Si aucune panne n’est survenue et que le PCM est activé et branché sur secteur, la batterie doit être remplacée. Veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md) pour commander un module de batterie de secours de remplacement.
+- If there has not been an associated loss of AC power and the PCM is turned on and connected to AC power, the battery needs to be replaced. [Contact Microsoft Support](storsimple-contact-microsoft-support.md) to order a replacement backup battery module.
 
->[AZURE.IMPORTANT] Jetez la batterie en panne en respectant les réglementations nationales et locales applicables.
+>[AZURE.IMPORTANT] Dispose of the failed battery according to national and regional regulations. 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

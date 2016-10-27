@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Nouveautés d’Azure RemoteApp | Microsoft Azure"
-    description="En savoir plus sur les modifications et les améliorations apportées à Azure RemoteApp"
+    pageTitle="What's new in Azure RemoteApp? | Microsoft Azure"
+    description="Learn about changes and improvements made to Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,76 +18,81 @@
 
 
 
-# Nouveautés d’Azure RemoteApp
+
+# <a name="what's-new-in-azure-remoteapp?"></a>What's new in Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Un des avantages d’Azure RemoteApp est que nous nous efforçons de l’améliorer continuellement. Nous vous ferons part de toutes les améliorations sur cette page.
+One of the advantages of Azure RemoteApp is that we are always working to improve it. Every time we do, we'll announce those changes here.
 
-## Mises à jour ultérieures
-Bonjour. Saviez-vous que l'équipe Azure RemoteApp publie des mises à jour mensuelles sur le blog RDS ? Vous y trouverez non seulement les modifications apportées à Azure RemoteApp, mais également d'autres informations sur l'utilisation de RDS. Pour plus d’informations, consultez le blog de l’équipe [Blog des services Bureau à distance](https://blogs.msdn.microsoft.com/rds/). Par exemple, il y a quelques semaines, l’équipe a publié une entrée sur [le développement et la migration des charges de travail avec Azure RemoteApp et Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+## <a name="future-updates"></a>Future updates
+Hey - did you know the Azure RemoteApp team posts monthly updates to the RDS blog? You can find not just what's change in Azure RemoteApp but also other information about how to use RDS. Check out their blog, [Remote Desktop Services Blog](https://blogs.msdn.microsoft.com/rds/), for information. For example, a couple of weeks ago, they posted an entry about [lifting and shifting workloads with Azure RemoteApp and Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
  
-## Septembre 2015
-- Ajout d’Infopath au modèle et à l’image de la galerie Microsoft Office 365. Si vous souhaitez partager Infopath, veillez à mettre à jour vos collections avec l’image la plus récente.
-- Mises à jour des clients :
-	- Le client Windows a été mis à jour pour permettre aux utilisateurs de partager des commentaires, notamment sur les problèmes de connexion.
-	- Le client iOS a été mis à jour pour corriger l’envoi de messages par erreur et pour résoudre un problème d’expiration précoce des informations d’identification.
-- Nous travaillons à tester la prise en charge d’Office 2016. Ces tests terminés, cherchez des images mises à jour.
-- Nous avons publié un nouvel article sur les [différences entre les collections cloud et hybrides](remoteapp-collections.md). Il vous aidera à choisir le type de collection qui convient le mieux à vos applications (cloud uniquement, cloud et réseau virtuel ou hybride).
-- Vous voudriez partager QuickBooks à l’aide d’Azure RemoteApp mais vous ne savez pas comment faire ? Consultez le [nouvel article d’Éric](remoteapp-quickbooks.md) qui vous explique la marche à suivre.
+## <a name="september-2015"></a>September 2015
+- Added Infopath to the Microsoft Office 365 template and gallery image. If you want to share Infopath, make sure to update your collections with the latest image.
+- Client updates:
+    - Windows client updated to make it possible for users to share feedback, especially around connection issues.
+    - iOS client updated to fix error messaging and to fix a problem where your credentials expired earlier than expected.
+- We're working on getting Office 2016 support tested. Once that's completed, look for updated images.
+- Published a new article about the [differences between cloud and hybrid collections](remoteapp-collections.md) - this will help you choose the collection type that works best for your apps - cloud-only, cloud + VNET, or hybrid.
+- Want to share QuickBooks using Azure RemoteApp but not sure of the steps? Check out [Eric's new article](remoteapp-quickbooks.md) telling you exactly what to do.
 
-## Août 2015
-De grands changements se sont produits en août. En voici les grandes lignes :
+## <a name="august-2015"></a>August 2015
+Big changes happened in August - here are the highlights:
 
-- Vous pouvez désormais utiliser un réseau virtuel Azure avec une collection cloud ! Consultez les [instructions de création cloud](remoteapp-create-cloud-deployment.md) pour connaître la marche à suivre.
-- Il est désormais possible d’ajouter des applications au menu **Démarrer** pour le client Windows RemoteApp. Elles apparaissent ainsi dans la liste des applications et vous pouvez les épingler au menu **Démarrer** de Windows.
-- Nous avons ajouté une nouvelle image à la galerie de machines virtuelles Azure : Hôte de session Bureau à distance Windows Server avec Microsoft Office 365 ProPlus.
-- Nous avons corrigé le client Mac pour que les applications comportant des fenêtres modales arrêtent de se bloquer.
-- Nous avons créé un document sur la manière dont vous pouvez utiliser votre [abonnement Office 365 ProPlus](remoteapp-officesubscription.md) avec Azure RemoteApp.
-- Nous avons décrit la manière dont vous pouvez [sécuriser les applications et les données](remoteapp-secure.md) dans votre collection Azure RemoteApp.
+- You can now use an Azure VNET with a cloud collection! Check out the [cloud creation instructions](remoteapp-create-cloud-deployment.md) for the new steps.
+- Made it possible to add apps to the **Start **menu for the Windows RemoteApp client. Apps will show up in the application list, and you can pin them to the **Start **menu in Windows.
+- Added a new image to the Azure VM gallery - Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus.
+- Fixed the Mac client so apps with modal windows will stop freezing.
+- Documented how you can use your [Office 365 ProPlus subscription](remoteapp-officesubscription.md) with Azure RemoteApp.
+- Detailed how you can [secure the apps and data](remoteapp-secure.md) in your Azure RemoteApp collection.
 
-## Juillet 2015
+## <a name="july-2015"></a>July 2015
 
-Juillet pose les bases des changements qui auron lieu en août, donc il n'y a pas grand chose à dire pour le moment, si ce n'est concernant les mises à jour de la documentation. Voici les modifications les plus récentes :
+July set the stage for changes coming in August, so there's not a lot to talk about now, mostly doc updates. Here are the most recent changes:
 
-- Un onglet **Support** a été ajouté au portail pour vous permettre d’accéder plus facilement aux ressources de support, comme les forums.
-- Les informations de dépannage pour la création d'une collection hybride ont été retravaillées. Découvrez [les derniers et meilleurs](remoteapp-hybridtrouble.md) conseils de dépannage, par exemple comment identifier les ports à configurer pour votre réseau virtuel.
-- La création et l’enregistrement des [données utilisateur](remoteapp-upd.md) dans Azure RemoteApp ont été documentés.
-- Le [verrouillage des applications](remoteapp-secure.md) a été documenté.
-- Les [applets de commande Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx) ont été publiées.
-- Et enfin, nous avons initié une conversation avec certains utilisateurs Azure RemoteApp concernant la terminologie. Prenez notes des modifications apportées à la façon dont nous faisons référence aux différentes options de collection.
+- Added a **Support** tab to the portal so you can more easily access support resources, like the forums.
+- Reworked the troubleshooting information for creating a hybrid collection. Check out [the latest and greatest](remoteapp-hybridtrouble.md) for troubleshooting tips like, how to identify the correct ports to configure for your VNET.
+- Documented how [user data](remoteapp-upd.md) is created and saved in Azure RemoteApp.
+- Documented how to [lock down apps](remoteapp-secure.md).
+- Published the [Azure RemoteApp cmdlets](https://msdn.microsoft.com/library/mt428031.aspx).
+- And finally, we started a conversation with some Azure RemoteApp users about terminology. Look for changes to the way we refer to the different collection options.
 
-## Juin 2015
+## <a name="june-2015"></a>June 2015
 
-Que de changements ! L’équipe a été bien occupée en juin :
+So many changes! The team has been very busy in June:
 
-- La [page d’accueil](https://www.remoteapp.windowsazure.com/) Azure RemoteApp a été repensée, constatez-le vous-même !
-- Le logiciel a été mis à jour dans toutes les images disponibles dans le cadre de votre abonnement.
-- Des améliorations ont été apportées aux collections hybrides, dont la compatibilité avec le tunneling forcé et la vérification de la taille du sous-réseau IP avant d’essayer de créer la collection.
-- Nous avons découvert que le caractère générique * ne fonctionne pas pour les webcams. À la place, vous devez spécifier l’ID d’instance ou le GUID. Nous mettrons à jour les informations de redirection pour refléter ces modifications.
-- Vous pouvez désormais ajouter un logiciel antivirus personnalisé à votre image lorsque vous créez une image de modèle à partir de la galerie Azure.
+- Redesigned the Azure RemoteApp [landing page](https://www.remoteapp.windowsazure.com/) - check it out!
+- Updated the software in all the images available as part of your subscription.
+- Made improvements to hybrid collections, including forced tunneling support and checking IP subnet size before trying to create the collection.
+- Discovered that the * wildcard doesn't work for webcams. Instead, you need to specify the instance ID or GUID. We'll be updating the redirection information to reflect that.
+- Made it so you can add custom antivirus software to your image when you create a template image from the Azure gallery.
 
-Et d’autres modifications seront ajoutées en juillet. Nous reviendrons donc bientôt avec une autre mise à jour.
+We've got more changes rolling out in July, so we'll be back with another update soon.
 
-## Mai 2015
+## <a name="may-2015"></a>May 2015
 
-Il y a eu un certain nombre d’ajouts et quelques mois depuis la création de cette rubrique. Cette liste triche donc un peu et couvre la période allant de début mars à fin mai. Découvrez ces nouvelles fonctionnalités :
+There have been a number of additions (and months) since we first created this topic, so this list cheats a bit and is from the beginning of March through May. Check out these new features:
 
-- Tout automatiser. Azure RemoteApp dispose désormais d’[applets de commande dans le module Azure PowerShell](remoteapp-tutorial-arawithpowershell.md).
-- [Création d’une image Azure RemoteApp à partir d’une machine virtuelle Azure](remoteapp-image-on-azurevm.md). Accélère le téléchargement de votre image personnalisée dans Azure.
-- Utilisez un réseau virtuel Azure au lieu d’un réseau virtuel RemoteApp pour connecter les ressources de votre réseau d’entreprise à Azure. Nous avons mis à jour les [instructions sur les collections hybrides](remoteapp-create-hybrid-deployment.md) pour vous aider à créer un réseau virtuel Azure (Étape 1).
-- Et toujours au sujet des réseaux virtuels, découvrez les [nouveaux conseils](remoteapp-vnetsizing.md) sur les limites de taille et les limitations des réseaux virtuels.
-- Et en parlant de limites : quelles sont ces [limites de service et leurs valeurs par défaut](../azure-subscription-service-limits.md) ?
+- Automate everything - Azure RemoteApp now has [cmdlets in the Azure PowerShell module](remoteapp-tutorial-arawithpowershell.md).
+- [Create an Azure RemoteApp image from an Azure virtual machine](remoteapp-image-on-azurevm.md). Makes uploading your custom image to Azure much quicker.
+- Use an Azure VNET instead of a RemoteApp VNET to connect your corporate network resources to Azure. We've updated the [hybrid collection instructions](remoteapp-create-hybrid-deployment.md) to walk you through creating an Azure VNET (it's Step 1).
+- Speaking of VNETs, check out [the new guidance](remoteapp-vnetsizing.md) around VNET size limits and limitations.
+- And speaking of limits - just what are the [service limits and defaults](../azure-subscription-service-limits.md)?
 
-Vous voulez en savoir plus sur Azure RemoteApp ? L’équipe RemoteApp était présente en force à la conférence Ignite il y a quelques semaines. Regardez la vidéo d’Eric, [Bases de la gestion et de l’administration de Microsoft Azure RemoteApp](http://channel9.msdn.com/Events/Ignite/2015/BRK3868).
+Want to learn more about Azure RemoteApp? The RemoteApp team was out in force at Ignite a few weeks ago. Check out Eric's video, [The Fundamentals of Microsoft Azure RemoteApp Management and Administration](http://channel9.msdn.com/Events/Ignite/2015/BRK3868).
 
-Vous avez besoin de voir Azure RemoteApp en action ? Découvrez le didacticiel [Exécutez n’importe quelle application sur n’importe quel appareil ](remoteapp-anyapp.md). Il vous montre comment partager Access avec vos utilisateurs, en partageant même les fichiers de base de données. Nous avons également un didacticiel sur comment [exécuter Office 365](remoteapp-tutorial-o365anywhere.md) de la même manière sur n’importe quel appareil.
+Need to see Azure RemoteApp in the real world? Check out the [Run any app on any device anywhere](remoteapp-anyapp.md) tutorial - it shows you how to share Access with your users, including sharing the database files. We also have a tutorial on [making Office 365](remoteapp-tutorial-o365anywhere.md) run the same on any device.
 
-Merci de nous rester fidèle. Nous serons de retour le mois prochain avec d’autres mises à jour.
+Thanks for sticking with us - back next month with more updates.
 
 
-### Vos commentaires nous aideront à mieux vous servir
-Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
+### <a name="help-us-help-you"></a>Help us help you
+Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

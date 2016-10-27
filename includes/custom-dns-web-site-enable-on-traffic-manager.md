@@ -1,31 +1,34 @@
-Après la propagation des enregistrements de votre nom de domaine, vous devez être en mesure d’utiliser votre navigateur pour vérifier que votre domaine personnalisé peut être utilisé pour accéder à votre application web dans Azure App Service.
+After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web app in Azure App Service.
 
-> [AZURE.NOTE] La propagation de l’enregistrement CNAME dans le système DNS peut prendre du temps. Vous pouvez utiliser un service tel que <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> pour vérifier que l’enregistrement CNAME est disponible.
+> [AZURE.NOTE] It can take some time for your CNAME to propagate through the DNS system. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
 
-Si vous n’avez pas déjà ajouté votre application web en tant que point de terminaison de Traffic Manager, vous devez effectuer cette action pour faire fonctionner la résolution de nom, car le nom de domaine personnalisé assure l’acheminement vers Traffic Manager. Traffic Manager effectue ensuite l’acheminement vers votre application web. Utilisez les informations de la rubrique [Ajout ou suppression de points de terminaison](../articles/traffic-manager/traffic-manager-endpoints.md) pour ajouter votre application web en tant que point de terminaison dans votre profil Traffic Manager.
+If you have not already added your web app as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager. Traffic Manager then routes to your web app. Use the information in [Add or Delete Endpoints](../articles/traffic-manager/traffic-manager-endpoints.md) to add your web app as an endpoint in your Traffic Manager profile.
 
-> [AZURE.NOTE] Si votre application web n’est pas répertoriée lors de l’ajout d’un point de terminaison, vérifiez qu’elle est configurée pour le mode de plan App Service **Standard**. Vous devez utiliser le mode **Standard** pour votre application web si vous voulez utiliser Traffic Manager.
+> [AZURE.NOTE] If your web app is not listed when adding an endpoint, verify that it is configured for **Standard** App Service plan mode. You must use **Standard** mode for your web app in order to work with Traffic Manager.
 
-1. Dans votre navigateur, ouvrez le [portail Azure](https://portal.azure.com).
+1. In your browser, open the [Azure Portal](https://portal.azure.com).
 
-1. Dans l’onglet **Web Apps**, cliquez sur le nom de votre application web, puis sélectionnez **Paramètres** et **Domaines personnalisés**.
+1. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-1. Dans le panneau **Domaines personnalisés**, cliquez sur **Ajouter un nom d’hôte**.
-	
-1. Utilisez les zones de texte **Nom d’hôte** pour saisir le nom de domaine Traffic Manager à associer à cette application web.
+1. In the **Custom domains** blade, click **Add hostname**.
+    
+1. Use the **Hostname** text boxes to enter the Traffic Manager domain name to associate with this web app.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
-1. Cliquez sur **Valider** pour enregistrer la configuration du nom de domaine.
+1. Click **Validate** to save the domain name configuration.
 
-7.  Lorsque vous cliquez sur **Valider**, Azure lance le flux de travail de vérification du domaine. Ce processus vérifie la propriété du domaine ainsi que la disponibilité du nom du domaine, vous signale la réussite ou le détail de l’échec de l’opération et vous fournit des instructions de résolution des éventuelles erreurs.
+7.  Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
 
-8.  Lorsque la validation a été correctement effectuée, le bouton **Ajouter un nom d’hôte** est activé, et vous êtes alors en mesure d’attribuer un nom d’hôte. Entrez votre nom de domaine personnalisé dans un navigateur. Vous devriez voir votre application s’exécuter sous votre nom de domaine personnalisé.
+8.  Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. Now navigate to your custom domain name in a browser. You should now see your app running using your custom domain name. 
 
-	Une fois la configuration terminée, le nom de domaine personnalisé est répertorié dans la section **Noms de domaine** de votre application web.
+    Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
 
-À ce stade, vous devez pouvoir entrer le nom de domaine Traffic Manager dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
+At this point, you should be able to enter the Traffic Manager domain name name in your browser and see that it successfully takes you to your web app.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

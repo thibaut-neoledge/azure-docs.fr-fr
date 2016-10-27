@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Connexion de DocumentDB à Azure Search à l'aide d'indexeurs | Microsoft Azure"
-    description="Cet article vous indique comment utiliser l'indexeur Azure Search avec DocumentDB en tant que source de données."
+    pageTitle="Connecting DocumentDB with Azure Search using indexers | Microsoft Azure"
+    description="This article shows you how to use to Azure Search indexer with DocumentDB as a data source."
     services="documentdb"
     documentationCenter=""
-    authors="AndrewHoh"
+    authors="dennyglee"
     manager="jhubbard"
     editor="mimig"/>
 
@@ -14,78 +14,79 @@
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
     ms.date="07/08/2016"
-    ms.author="anhoh"/>
-
-#Connexion de DocumentDB à Azure Search à l'aide d'indexeurs
-
-Si vous souhaitez améliorer les recherches au niveau de vos données DocumentDB, utilisez l'indexeur Azure Search pour DocumentDB. Dans cet article, nous allons vous montrer comment intégrer Azure Search à Azure DocumentDB sans avoir à écrire le moindre code pour mettre l'infrastructure d'indexation à jour.
-
-Pour ce faire, vous devez [configurer un compte Azure Search](../search/search-create-service-portal.md) (vous n’avez pas besoin de procéder à la mise à niveau vers la recherche standard), puis appeler l’[API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) pour créer une **source de données** DocumentDB et un **indexeur** pour cette dernière.
-
-Pour envoyer des demandes afin d’interagir avec les API REST, vous pouvez utiliser [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler), ou tout autre outil de votre choix.
+    ms.author="denlee"/>
 
 
-##<a id="Concepts"></a>Concepts d’indexeur Azure Search
+#<a name="connecting-documentdb-with-azure-search-using-indexers"></a>Connecting DocumentDB with Azure Search using indexers
 
-Azure Search prend en charge la création et la gestion de sources de données (dont DocumentDB) et d'indexeurs qui fonctionnent en s'appuyant sur ces dernières.
+If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
 
-Une **source de données** définit les données à indexer, les informations d’identification pour accéder aux données et les stratégies pour permettre à Azure Search d’identifier efficacement les modifications au niveau des données (des documents modifiés ou supprimés dans votre collection, par exemple). La source de données est définie en tant que ressource indépendante de manière à pouvoir être utilisée par plusieurs indexeurs.
+To set this up, you have to [setup an Azure Search account](../search/search-create-service-portal.md) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
 
-Un **indexeur** décrit le flux de données de votre source de données vers un index de recherche cible. Vous devez prévoir de créer un indexeur pour chaque association source de données/index cible. Plusieurs indexeurs peuvent écrire au niveau du même index, un indexeur ne peut cependant écrire que dans un seul index. Les indexeurs sont utilisés pour :
+In order send requests to interact with the REST APIs, you can use [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler), or any tool of your preference.
 
-- effectuer une copie unique des données pour remplir un index ;
-- synchroniser un index avec les modifications apportées à la source de données selon une planification. La planification fait partie de la définition de l'indexeur ;
-- Appeler des mises à jour d'un index à la demande en fonction des besoins.
 
-##<a id="CreateDataSource"></a>Étape 1 : Création d’une source de données
+##<a name="<a-id="concepts"></a>azure-search-indexer-concepts"></a><a id="Concepts"></a>Azure Search indexer concepts
 
-Émettez une demande HTTP POST pour créer une source de données dans votre service Azure Search avec les en-têtes de requête suivants.
+Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.
+
+A **data source** specifies what data needs to be indexed, credentials to access the data, and policies to enable Azure Search to efficiently identify changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
+
+An **indexer** describes how the data flows from your data source into a target search index. You should plan on creating one indexer for every target index and data source combination. While you can have multiple indexers writing into the same index, an indexer can only write into a single index. An indexer is used to:
+
+- Perform a one-time copy of the data to populate an index.
+- Sync an index with changes in the data source on a schedule. The schedule is part of the indexer definition.
+- Invoke on-demand updates to an index as needed.
+
+##<a name="<a-id="createdatasource"></a>step-1:-create-a-data-source"></a><a id="CreateDataSource"></a>Step 1: Create a data source
+
+Issue a HTTP POST request to create a new data source in your Azure Search service, including the following request headers.
 
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
-Le paramètre `api-version` est obligatoire. Les valeurs valables incluent `2015-02-28` ou une version ultérieure. Consultez [Versions d’API dans Azure Search](../search/search-api-versions.md) pour voir toutes les versions d’API prises en charge dans Search.
+The `api-version` is required. Valid values include `2015-02-28` or a later version. Visit [API versions in Azure Search](../search/search-api-versions.md) to see all supported Search API versions.
 
-Le corps de la requête contient la définition de la source de données, qui doit inclure les champs suivants :
+The body of the request contains the data source definition, which should include the following fields:
 
-- **nom** : choisissez un nom pour représenter votre base de données DocumentDB.
+- **name**: Choose any name to represent your DocumentDB database.
 
-- **type** : utilisez `documentdb`.
+- **type**: Use `documentdb`.
 
-- **credentials** :
+- **credentials**:
 
-    - **connectionString** : obligatoire. Indiquez les informations de connexion à votre base de données Azure DocumentDB au format suivant : `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+    - **connectionString**: Required. Specify the connection info to your Azure DocumentDB database in the following format: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
 
-- **container** :
+- **container**:
 
-    - **name** : obligatoire. Spécifiez l’ID de la collection DocumentDB à indexer.
+    - **name**: Required. Specify the id of the DocumentDB collection to be indexed.
 
-    - **query** : facultatif. Vous pouvez spécifier une requête pour obtenir un schéma plat à partir d'un document JSON arbitraire de manière à ce qu'Azure Search puisse procéder à l'indexation.
+    - **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.
 
-- **dataChangeDetectionPolicy** : facultatif. Consultez la section [Stratégie de détection des changements de données](#DataChangeDetectionPolicy) ci-dessous.
+- **dataChangeDetectionPolicy**: Optional. See [Data Change Detection Policy](#DataChangeDetectionPolicy) below.
 
-- **dataDeletionDetectionPolicy** : facultatif. Consultez la section [Stratégie de détection des suppressions de données](#DataDeletionDetectionPolicy) ci-dessous.
+- **dataDeletionDetectionPolicy**: Optional. See [Data Deletion Detection Policy](#DataDeletionDetectionPolicy) below.
 
-Voir ci-dessous pour un [exemple de corps de la demande](#CreateDataSourceExample).
+See below for an [example request body](#CreateDataSourceExample).
 
-###<a id="DataChangeDetectionPolicy"></a>Capture des documents modifiés
+###<a name="<a-id="datachangedetectionpolicy"></a>capturing-changed-documents"></a><a id="DataChangeDetectionPolicy"></a>Capturing changed documents
 
-L'objectif d'une stratégie de détection des changements de données est d'identifier efficacement les données modifiées. La seule stratégie actuellement prise en charge est la stratégie `High Water Mark` qui utilise la propriété d’horodatage des dernières modifications `_ts` fournie par DocumentDB, spécifiée comme suit :
+The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` last-modified timestamp property provided by DocumentDB - which is specified as follows:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts"
     }
 
-Vous devez également ajouter `_ts` à la projection et à la clause `WHERE` de votre requête. Par exemple :
+You will also need to add `_ts` in the projection and `WHERE` clause for your query. For example:
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
 
-###<a id="DataDeletionDetectionPolicy"></a>Capture des documents supprimés
+###<a name="<a-id="datadeletiondetectionpolicy"></a>capturing-deleted-documents"></a><a id="DataDeletionDetectionPolicy"></a>Capturing deleted documents
 
-Lorsque des lignes sont supprimées de la table source, vous devez également supprimer ces lignes de l'index de recherche. L'objectif d'une stratégie de détection des suppressions de données est d'identifier efficacement les éléments de données supprimés. La seule stratégie actuellement prise en charge est la stratégie `Soft Delete` (où la suppression est signalée par un indicateur quelconque), spécifiée comme suit :
+When rows are deleted from the source table, you should delete those rows from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
@@ -93,11 +94,11 @@ Lorsque des lignes sont supprimées de la table source, vous devez également su
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-> [AZURE.NOTE] Vous devez inclure la propriété softDeleteColumnName à votre clause SELECT si vous utilisez une projection personnalisée.
+> [AZURE.NOTE] You will need to include the softDeleteColumnName property in your SELECT clause if you are using a custom projection.
 
-###<a id="CreateDataSourceExample"></a>Exemple de corps de requête
+###<a name="<a-id="createdatasourceexample"></a>request-body-example"></a><a id="CreateDataSourceExample"></a>Request body example
 
-L'exemple suivant crée une source de données avec des conseils pour une stratégie et une requête personnalisées :
+The following example creates a data source with a custom query and policy hints:
 
     {
         "name": "mydocdbdatasource",
@@ -120,39 +121,39 @@ L'exemple suivant crée une source de données avec des conseils pour une strat�
         }
     }
 
-###Réponse
+###<a name="response"></a>Response
 
-Vous recevrez une réponse HTTP 201 Créé si la source de données a été créée avec succès.
+You will receive an HTTP 201 Created response if the data source was successfully created.
 
-##<a id="CreateIndex"></a>Étape 2 : Création d’un index
+##<a name="<a-id="createindex"></a>step-2:-create-an-index"></a><a id="CreateIndex"></a>Step 2: Create an index
 
-Créez un index Azure Search cible si vous n'en possédez pas déjà un. Pour ce faire, vous pouvez utiliser l’[interface utilisateur du portail Azure](../search/search-create-index-portal.md) ou l’[API Création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](../search/search-create-index-portal.md) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
-	Content-Type: application/json
-	api-key: [Search service admin key]
+    POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [Search service admin key]
 
 
-Assurez-vous que le schéma de votre index cible est compatible avec le schéma des documents JSON source ou la sortie de votre projection de requête personnalisée.
+Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
 
->[AZURE.NOTE] Pour les collections partitionnées, la clé de document par défaut est la propriété `_rid` de DocumentDB, qui est renommée en `rid` dans Azure Search. De même, les valeurs `_rid` de DocumentDB contiennent des caractères qui ne sont pas valides dans les clés d’Azure Search ; par conséquent, les valeurs `_rid` sont codées en Base64.
+>[AZURE.NOTE] For partitioned collections, the default document key is DocumentDB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, DocumentDB's `_rid` values contain characters that are invalid in Azure Search keys; therefore, the `_rid` values are Base64 encoded.
 
-###Figure A : Mappage entre les types de données JSON et les types de données Azure Search
+###<a name="figure-a:-mapping-between-json-data-types-and-azure-search-data-types"></a>Figure A: Mapping between JSON Data Types and Azure Search Data Types
 
-| TYPE DE DONNÉES JSON|	TYPES DE CHAMPS D’INDEX CIBLE COMPATIBLES|
+| JSON DATA TYPE|   COMPATIBLE TARGET INDEX FIELD TYPES|
 |---|---|
 |Bool|Edm.Boolean, Edm.String|
-|Nombres qui ressemblent à des nombres entiers|Edm.Int32, Edm.Int64, Edm.String|
-|Nombres qui ressemblent à des nombres avec points flottants|Edm.Double, Edm.String|
+|Numbers that look like integers|Edm.Int32, Edm.Int64, Edm.String|
+|Numbers that look like floating-points|Edm.Double, Edm.String|
 |String|Edm.String|
-|Tableaux de types primitifs, par exemple « a », « b », « c » |Collection(Edm.String)|
-|Chaînes qui ressemblent à des dates| Edm.DateTimeOffset, Edm.String|
-|Objets GeoJSON, par exemple { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
-|Autres objets JSON|N/A|
+|Arrays of primitive types e.g. "a", "b", "c" |Collection(Edm.String)|
+|Strings that look like dates| Edm.DateTimeOffset, Edm.String|
+|GeoJSON objects e.g. { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
+|Other JSON objects|N/A|
 
-###<a id="CreateIndexExample"></a>Exemple de corps de requête
+###<a name="<a-id="createindexexample"></a>request-body-example"></a><a id="CreateIndexExample"></a>Request body example
 
-L'exemple suivant crée un index avec un champ ID et un champ Description :
+The following example creates an index with an id and description field:
 
     {
        "name": "mysearchindex",
@@ -171,39 +172,39 @@ L'exemple suivant crée un index avec un champ ID et un champ Description :
        }]
      }
 
-###Réponse
+###<a name="response"></a>Response
 
-Vous recevrez une réponse HTTP 201 Créé si l'index a été créé avec succès.
+You will receive an HTTP 201 Created response if the index was successfully created.
 
-##<a id="CreateIndexer"></a>Étape 3 : Création d’un indexeur
+##<a name="<a-id="createindexer"></a>step-3:-create-an-indexer"></a><a id="CreateIndexer"></a>Step 3: Create an indexer
 
-Vous pouvez créer un indexeur au sein d'un service Azure Search en utilisant une requête HTTP POST avec les en-têtes suivants.
+You can create a new indexer within an Azure Search service by using an HTTP POST request with the following headers.
 
     POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
-Le corps de la requête contient la définition de l'indexeur, qui doit inclure les champs suivants :
+The body of the request contains the indexer definition, which should include the following fields:
 
-- **name** : obligatoire. Nom de l'indexeur.
+- **name**: Required. The name of the indexer.
 
-- **dataSourceName** : obligatoire. Nom d'une source de données existante.
+- **dataSourceName**: Required. The name of an existing data source.
 
-- **targetIndexName** : obligatoire. Nom d'un index existant.
+- **targetIndexName**: Required. The name of an existing index.
 
-- **schedule** : facultatif. Consultez la section [Planification d’indexation](#IndexingSchedule) ci-dessous.
+- **schedule**: Optional. See [Indexing Schedule](#IndexingSchedule) below.
 
-###<a id="IndexingSchedule"></a>Exécution d’indexeurs selon une planification
+###<a name="<a-id="indexingschedule"></a>running-indexers-on-a-schedule"></a><a id="IndexingSchedule"></a>Running indexers on a schedule
 
-Un indexeur peut éventuellement spécifier une planification. Si une planification est présente, l'indexeur sera exécuté périodiquement, conformément à la planification. La planification dispose des attributs suivants :
+An indexer can optionally specify a schedule. If a schedule is present, the indexer will run periodically as per schedule. Schedule has the following attributes:
 
-- **interval** : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures.
+- **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
 
-- **startTime** : obligatoire. Heure UTC (temps universel coordonné) qui spécifie l'heure à laquelle l'exécution de l'indexeur doit commencer.
+- **startTime**: Required. An UTC datetime that specifies when the indexer should start running.
 
-###<a id="CreateIndexerExample"></a>Exemple de corps de requête
+###<a name="<a-id="createindexerexample"></a>request-body-example"></a><a id="CreateIndexerExample"></a>Request body example
 
-L’exemple suivant crée un indexeur qui copie les données de la collection référencée par la source de données `myDocDbDataSource` vers l’index `mySearchIndex` selon une planification qui commence le 1er janvier 2015 UTC et qui est exécutée toutes les heures.
+The following example creates an indexer that copies data from the collection referenced by the `myDocDbDataSource` data source to the `mySearchIndex` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly.
 
     {
         "name" : "mysearchindexer",
@@ -212,33 +213,33 @@ L’exemple suivant crée un indexeur qui copie les données de la collection r�
         "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-###Réponse
+###<a name="response"></a>Response
 
-Vous recevrez une réponse HTTP 201 Créé si l'indexeur a été créé avec succès.
+You will receive an HTTP 201 Created response if the indexer was successfully created.
 
-##<a id="RunIndexer"></a>Étape 4 : Exécution d’un indexeur
+##<a name="<a-id="runindexer"></a>step-4:-run-an-indexer"></a><a id="RunIndexer"></a>Step 4: Run an indexer
 
-En plus de l'exécution périodique selon une planification, un indexeur peut être appelé à la demande en émettant la requête HTTP POST suivante :
+In addition to running periodically on a schedule, an indexer can also be invoked on demand by issuing the following HTTP POST request:
 
     POST https://[Search service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [Search service admin key]
 
-###Réponse
+###<a name="response"></a>Response
 
-Vous recevrez une réponse HTTP 202 Accepté si l'indexeur a été appelé avec succès.
+You will receive an HTTP 202 Accepted response if the indexer was successfully invoked.
 
-##<a name="GetIndexerStatus"></a>Étape 5 : Obtention du statut de l’indexation
+##<a name="<a-name="getindexerstatus"></a>step-5:-get-indexer-status"></a><a name="GetIndexerStatus"></a>Step 5: Get indexer status
 
-Vous pouvez émettre une requête HTTP GET pour récupérer l'historique d'état et d'exécution d'un indexeur :
+You can issue a HTTP GET request to retrieve the current status and execution history of an indexer:
 
     GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
     api-key: [Search service admin key]
 
-###Réponse
+###<a name="response"></a>Response
 
-Vous verrez une réponse HTTP 200 OK renvoyée avec un corps de réponse contenant des informations sur l'état d'intégrité global de l'indexeur, le dernier appel de l'indexeur, ainsi que l'historique des appels récents de l'indexeur (le cas échéant).
+You will see a HTTP 200 OK response returned along with a response body that contains information about overall indexer health status, the last indexer invocation, as well as the history of recent indexer invocations (if present).
 
-La réponse doit être semblable à ce qui suit :
+The response should look similar to the following:
 
     {
         "status":"running",
@@ -266,14 +267,18 @@ La réponse doit être semblable à ce qui suit :
         }]
     }
 
-L'historique d'exécution contient les 50 exécutions les plus récentes, classées par ordre chronologique inverse (la dernière exécution est répertoriée en premier dans la réponse).
+Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).
 
-##<a name="NextSteps"></a>Étapes suivantes
+##<a name="<a-name="nextsteps"></a>next-steps"></a><a name="NextSteps"></a>Next steps
 
-Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure DocumentDB à l'aide de l'indexeur pour DocumentDB.
+Congratulations! You have just learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.
 
- - Pour en savoir plus sur Azure DocumentDB, consultez la [page du service DocumentDB](https://azure.microsoft.com/services/documentdb/).
+ - To learn how more about Azure DocumentDB, see the [DocumentDB service page](https://azure.microsoft.com/services/documentdb/).
 
- - Pour en savoir plus sur Azure Search, consultez la [page du service Search](https://azure.microsoft.com/services/search/).
+ - To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

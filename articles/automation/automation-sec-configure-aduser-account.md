@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Configurer un compte d’utilisateur Azure AD | Microsoft Azure"
-   description="Cet article décrit comment configurer les informations d’identification du compte d’utilisateur Azure AD pour les runbooks dans Azure Automation pour l’authentification sur ARM et ASM."
+   pageTitle="Configure Azure AD User Account | Microsoft Azure"
+   description="This article describes how to configure Azure AD User account credential for runbooks in Azure Automation to authenticate against ARM and ASM."
    services="automation"
    documentationCenter=""
    authors="MGoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="utilisateur azure active directory, azure service management, compte d’utilisateur azure ad" />
+   keywords="azure active directory user, azure service management, azure ad user account" />
 <tags
    ms.service="automation"
    ms.devlang="na"
@@ -16,75 +16,80 @@
    ms.date="09/12/2016"
    ms.author="magoedte" />
 
-# Authentification des Runbooks avec Azure Service Management et Resource Manager
 
-Cet article décrit les étapes à effectuer pour configurer un compte d’utilisateur d’Azure AD pour les runbooks Azure Automation en cours d’exécution sur des ressources Azure Service Management (ASM) ou Azure Resource Manager (ARM). Bien que cette procédure est toujours prise en charge comme identité d’authentification pour vos runbooks ARM, il est recommandé d’utiliser le nouveau compte d’authentification Azure.
+# <a name="authenticate-runbooks-with-azure-service-management-and-resource-manager"></a>Authenticate Runbooks with Azure Service Management and Resource Manager
 
-## Création d’un nouvel utilisateur Azure Active Directory
+This article describes the steps you must perform to configure an Azure AD User account for Azure Automation runbooks running against Azure Service Management (ASM) or Azure Resource Manager (ARM) resources.  While this continues to be a supported authentication identity for your ARM based runbooks, the recommended method is using the new Azure Run As account.       
 
-1. Connectez-vous au portail Azure Classic en tant qu’administrateur de services fédérés pour l’abonnement Azure que vous souhaitez gérer.
-2. Sélectionnez **Active Directory**, puis sélectionnez le nom du répertoire de votre organisation.
-3. Sélectionnez l’onglet **Utilisateurs**, puis, dans la zone de commande, sélectionnez **Ajouter un utilisateur**.
-4. Sur la page **Dites-nous en plus sur cet utilisateur**, sous **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
-5. Entrez un nom d’utilisateur.
-6. Sélectionnez le nom du répertoire associé à votre abonnement Azure sur la page Active Directory.
-7. Sur la page **Profil de l’utilisateur**, entrez les nom et prénom de l’utilisateur, un nom convivial et sélectionnez Utilisateur dans la liste **Rôles**. Ne sélectionnez pas la case à cocher **Activer l’authentification multifacteur**.
-8. Notez le nom complet de l’utilisateur et le mot de passe temporaire.
-9. Sélectionnez **Paramètres > Administrateurs > Ajouter**.
-10. Tapez le nom d’utilisateur complet de l’utilisateur que vous avez créé.
-11. Sélectionnez l’abonnement que vous souhaitez gérer.
-12. Déconnectez-vous d’Azure et puis reconnectez-vous avec le compte que vous venez de créer. Vous serez invité à modifier le mot de passe de l’utilisateur.
+## <a name="create-a-new-azure-active-directory-user"></a>Create a new Azure Active Directory user
 
-
-## Création d’un compte Automation dans le portail Azure Classic
-Dans cette section, vous allez effectuer les étapes suivantes pour créer un nouveau compte Azure Automation dans le portail Azure qui sera utilisé avec vos runbooks pour la gestion des ressources en mode ASM et ARM.
-
->[AZURE.NOTE] Les comptes Automation créés avec le portail Azure Classic peuvent être gérés par le portail Azure Classic et le portail Azure, et par le jeu d’applets de commande correspondant. Une fois que le compte est créé, la façon de créer et de gérer des ressources au sein du compte n'importe pas. Si vous envisagez de continuer à utiliser le portail Azure Classic, vous devez alors l’utiliser au lieu d’utiliser le portail Azure pour créer des comptes Automation.
+1. Log in to the Azure Classic Portal as a service administrator for the Azure subscription you want to manage.
+2. Select **Active Directory**, and then select the name of your organization directory.
+3. Select the **Users** tab, and then, in the command area, select **Add User**.
+4. On the **Tell us about this user** page, under **Type of user**, select **New user in your organization**.
+5. Enter a user name.  
+6. Select the directory name that is associated with your Azure subscription on the Active Directory page.
+7. On the **user profile** page, provide a first and last name, a user-friendly name, and User from the **Roles** list.  Do not **Enable Multi-Factor Authentication**.
+8. Note the user’s full name and temporary password.
+9. Select **Settings > Administrators > Add**.
+10. Type the full user name of the user that you created.
+11. Select the subscription that you want the user to manage.
+12. Log out of Azure and then log back in with the account you just created. You will be prompted to change the user’s password.
 
 
-1. Connectez-vous au portail Azure Classic en tant qu’administrateur de services fédérés pour l’abonnement Azure que vous souhaitez gérer.
-2. Sélectionnez **Automation**.
-3. Sur la page **Automation**, sélectionnez **Créer un compte Automation**.
-4. Dans la boîte de dialogue **Créer un compte Automation**, entrez un nom pour votre nouveau compte Automation et sélectionnez une **région** dans la liste déroulante.
-5. Cliquez sur **OK** pour accepter les paramètres et créer le compte.
-6. Une fois le compte créé, il est répertorié sur la page **Automation**.
-7. Cliquez sur le compte pour accéder à la page Tableau de bord.
-8. Sur la page Tableau de bord Automation, sélectionnez **Actifs**.
-9. Sur la page **Actifs**, sélectionnez l’option **Ajouter des paramètres** située en bas de la page.
-10. Sur la page **Ajouter des paramètres**, sélectionnez **Ajouter des informations d’identification**.
-11. Sur la page **Définir les informations d’identification**, sélectionnez **Informations d’identification de Windows PowerShell** dans la liste déroulante **Type d’informations d’identification** et entrez un nom pour les informations d’identification.
-12. Sur la page **Définir les informations d’identification** suivante, entrez le nom d’utilisateur du compte utilisateur Active Directory créé précédemment dans le champ **Nom d’utilisateur** et le mot de passe dans les champs **Mot de passe** et **Confirmer le mot de passe**. Cliquez sur **OK** pour enregistrer vos modifications.
+## <a name="create-an-automation-account-in-azure-classic-portal"></a>Create an Automation account in Azure Classic Portal
+In this section, you will perform the following steps to create a new Azure Automation account in the Azure Portal that will be used with your runbooks managing resources in ASM and ARM mode.  
 
-## Création d’un compte Automation dans le portail Azure
+>[AZURE.NOTE] Automation accounts created with the Azure Classic Portal can be managed by both the Azure Classic and Azure Portal and either set of cmdlets. Once the account is created, it makes no difference how you create and manage resources within the account. If you are planning to continue to use the Azure Classic Portal, then you should use it instead of the Azure Portal to create any Automation accounts.
 
-Dans cette section, vous allez effectuer les étapes suivantes pour créer un nouveau compte Azure Automation dans le portail Azure qui sera utilisé avec vos runbooks pour la gestion des ressources en mode ARM.
 
-1. Connectez-vous au portail Azure en tant qu’administrateur de service pour l’abonnement Azure que vous souhaitez gérer.
-2. Sélectionnez **Comptes Automation**.
-3. Dans le panneau Comptes Automation, cliquez sur **Ajouter**.<br>![Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
-2. Dans le panneau **Ajouter un compte Automation**, entrez le nom de votre nouveau compte Automation dans la zone **Nom**.
-5. Si vous disposez de plusieurs abonnements, spécifiez celui du nouveau compte, ainsi qu’un **groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
-3. Vérifiez que l’option **Créer un compte d’authentification Azure** est bien définie sur la valeur **Non**, puis cliquez sur le bouton **Créer**.
+1. Log in to the Azure Classic Portal as a service administrator for the Azure subscription you want to manage.
+2. Select **Automation**.
+3. On the **Automation** page, select **Create an Automation Account**.
+4. In the **Create an Automation Account** box, type in a name for your new Automation account and select a **Region** from the drop-down list.  
+5. Click **OK** to accept your settings and create the account.
+6. After it is created it will be listed on the **Automation** page.
+7. Click on the account and it will bring you to the Dashboard page.  
+8. On the Automation Dashboard page, select **Assets**.
+9. On the **Assets** page, select **Add Settings** located at the bottom of the page.
+10. On the **Add Settings** page, select **Add Credential**.
+11. On the **Define Credential** page, select **Windows PowerShell Credential** from the **Credential Type** drop-down list and provide a name for the credential.
+12. On the following **Define Credential** page type in the username of the AD user account created earlier in the **User Name** field and the password in the **Password** and **Confirm Password** fields. Click **OK** to save your changes.
 
-    >[AZURE.NOTE] Si vous choisissez de ne pas créer de compte d’identification en sélectionnant l’option **Non**, un message d’avertissement s’affiche dans le panneau **Ajouter un compte Automation**. Bien que le compte soit créé avec le rôle de **contributeur** dans l’abonnement, il n’aura pas d’identité d’authentification correspondante au sein de votre service de répertoire d’abonnements et, par conséquent, il n’aura pas accès aux ressources de votre abonnement. Cela empêchera tous les Runbooks faisant référence à ce compte de pouvoir authentifier et effectuer des tâches sur les ressources ARM.
+## <a name="create-an-automation-account-in-the-azure-portal"></a>Create an Automation account in the Azure Portal
 
-    ![Avertissement Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
+In this section, you will perform the following steps to create a new Azure Automation account in the Azure Portal that will be used with your runbooks managing resources in ARM mode.  
 
-4. Pour suivre la progression de la création du compte Automation, accédez à l’onglet **Notifications** du menu.
+1. Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.
+2. Select **Automation Accounts**.
+3. In the Automation Accounts blade, click **Add**.<br>![Add Automation Account](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
+2. In the **Add Automation Account** blade, in the **Name** box type in a name for your new Automation account.
+5. If you have more than one subscription, specify the one for the new account, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
+3. Select the value **No** for the **Create Azure Run As account** option, and click the **Create** button.  
 
-Lorsque la création des information d’identification est terminée, vous devrez créer un actif d’informations d’identification pour associer le compte Automation au compte d’utilisateur Active Directory créé précédemment. N’oubliez pas que nous avons uniquement créé le compte Automation et qu’il n’est pas associé à une identité d’authentification. Suivez les étapes présentées dans l’article [Ressources d’informations d’identification dans Azure Automation](../automation/automation-credentials.md#creating-a-new-credential) et entrez la valeur du **nom d’utilisateur** au format **domaine\\utilisateur**.
+    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against ARM resources.
 
-## Utilisation des informations d’identification dans un Runbook
+    ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
-Vous pouvez récupérer les informations d’identification dans un Runbook à l’aide de l’activité [Get-AutomationPSCredential](http://msdn.microsoft.com/library/dn940015.aspx) et les utiliser avec [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) pour vous connecter à votre abonnement Azure. Si les informations d’identification correspondent à un administrateur de plusieurs abonnements Azure, vous devez également utiliser [Select-AzureSubscription](http://msdn.microsoft.com/library/dn495203.aspx) pour spécifier celle qui convient. Cela est illustré dans l’exemple Windows PowerShell ci-dessous qui apparaît en haut de la plupart des Runbooks Azure Automation.
+4. While Azure creates the Automation account, you can track the progress under **Notifications** from the menu.
+
+When the creation of the credential is completed, you will then need to create a Credential Asset to associate the Automation Account with the AD User account created earlier.  Remember, we only created the Automation account and it is not associated with an authentication identity.  Perform the steps outlined in the [Credential assets in Azure Automation article](../automation/automation-credentials.md#creating-a-new-credential) and enter the value for **username** in the format **domain\user**.
+
+## <a name="use-the-credential-in-a-runbook"></a>Use the credential in a runbook
+
+You can retrieve the credential in a runbook using the [Get-AutomationPSCredential](http://msdn.microsoft.com/library/dn940015.aspx) activity and then use it with [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) to connect to your Azure subscription. If the credential is an administrator of multiple Azure subscriptions, then you should also use [Select-AzureSubscription](http://msdn.microsoft.com/library/dn495203.aspx) to specify the correct one. This is shown in the sample Windows PowerShell below that will typically appear at the top of most Azure Automation runbooks.
 
     $cred = Get-AutomationPSCredential –Name "myuseraccount.onmicrosoft.com"
-	Add-AzureAccount –Credential $cred
-	Select-AzureSubscription –SubscriptionName "My Subscription"
+    Add-AzureAccount –Credential $cred
+    Select-AzureSubscription –SubscriptionName "My Subscription"
 
-Vous devez répéter ces lignes après tout [point de contrôle](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) dans votre Runbook. Si le Runbook est interrompu, puis reprend avec un autre collaborateur, ce dernier doit s’authentifier à nouveau.
+You should repeat these lines after any [checkpoints](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
 
-## Étapes suivantes
-* Passez en revue les différents types de Runbooks et les étapes pour créer vos propres Runbooks dans l’article [Types de Runbooks Azure Automation](../automation/automation-runbook-types.md)
+## <a name="next-steps"></a>Next Steps
+* Review the different runbook types and steps for creating your own runbooks from the following article [Azure Automation runbook types](../automation/automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

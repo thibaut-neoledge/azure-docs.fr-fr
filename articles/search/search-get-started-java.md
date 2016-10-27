@@ -1,193 +1,194 @@
 <properties
-	pageTitle="Prise en main d’Azure Search dans Java | Microsoft Azure | Service de recherche cloud hébergé"
-	description="Comment créer une application de recherche hébergée dans le cloud sur Azure en utilisant le langage de programmation Java."
-	services="search"
-	documentationCenter=""
-	authors="EvanBoyle"
-	manager="pablocas"
-	editor="v-lincan"/>
+    pageTitle="Get started with Azure Search in Java | Microsoft Azure | Hosted cloud search service"
+    description="How to build a hosted cloud search application on Azure using Java as your programming language."
+    services="search"
+    documentationCenter=""
+    authors="EvanBoyle"
+    manager="pablocas"
+    editor="v-lincan"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.date="07/14/2016"
-	ms.author="evboyle"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="na"
+    ms.date="07/14/2016"
+    ms.author="evboyle"/>
 
-# Prise en main d'Azure Search dans Java
+
+# <a name="get-started-with-azure-search-in-java"></a>Get started with Azure Search in Java
 > [AZURE.SELECTOR]
-- [Portail](search-get-started-portal.md)
+- [Portal](search-get-started-portal.md)
 - [.NET](search-howto-dotnet-sdk.md)
 
-Apprenez à créer une application Java personnalisée, qui utilise Azure Search pour ses fonctionnalités de recherche. Ce didacticiel utilise l’[API REST du service Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) pour créer les objets et opérations utilisés dans cet exercice.
+Learn how to build a custom Java search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
-Pour exécuter cet exemple, vous devez disposer d’un service Azure Search auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com). Consultez [Création d’un service Azure Search dans le portail](search-create-service-portal.md) pour obtenir des instructions pas-à-pas.
+To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
-Nous avons utilisé les logiciels suivants pour générer et tester cet exemple :
+We used the following software to build and test this sample:
 
-- [Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Veillez à télécharger la version EE. Une des étapes de vérification nécessite une fonctionnalité présente uniquement dans cette édition.
+- [Eclipse IDE for Java EE Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Be sure to download the EE version. One of the verification steps requires a feature that is found only in this edition.
 
 - [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-## À propos des données
+## <a name="about-the-data"></a>About the data
 
-Cet exemple d'application utilise des données de l’[USGS (United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments importants, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
+This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
-Dans cette application, le programme **SearchServlet.java** crée et charge l'index à l'aide d'une construction de type [Index](https://msdn.microsoft.com/library/azure/dn798918.aspx), en récupérant le jeu de données USGS filtré à partir d’une base de données SQL Azure publique. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Pour accéder aux données, aucune configuration supplémentaire n'est nécessaire.
+In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Predefined credentials and connection  information to the online data source are provided in the program code. In terms of data access, no further configuration is necessary.
 
-> [AZURE.NOTE] Nous avons filtré ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez le niveau standard, cette limite ne s'applique pas et vous pouvez modifier ce code pour utiliser un jeu de données plus important. Pour plus d'informations sur la capacité de chaque niveau de tarification, consultez la section [Limites et contraintes](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply, and you can modify this code to use a bigger dataset. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
 
-## À propos des fichiers de programme
+## <a name="about-the-program-files"></a>About the program files
 
-La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
+The following list describes the files that are relevant to this sample.
 
-- Search.jsp : fournit l'interface utilisateur.
-- SearchServlet.java : fournit des méthodes (semblables à un contrôleur dans MVC).
-- SearchServiceClient.java : gère les descripteurs HTTP.
-- SearchServiceHelper.java : classe d’utilitaire qui fournit des méthodes statiques.
-- Document.Java : fournit le modèle de données.
-- config.properties : définit la clé API et l'URL du service de recherche.
-- Pom.XML : dépendance Maven.
+- Search.jsp: Provides the user interface
+- SearchServlet.java: Provides methods (similar to a controller in MVC)
+- SearchServiceClient.java: Handles HTTP requests
+- SearchServiceHelper.java: A helper class that provides static methods
+- Document.java: Provides the data model
+- config.properties: Sets the Search service URL and api-key
+- Pom.xml: A Maven dependency
 
 <a id="sub-2"></a>
-## Rechercher le nom et la clé API de votre service Azure Search
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Find the service name and api-key of your Azure Search service
 
-Tous les appels d’API REST dans Azure Search exigent que vous fournissiez l’URL du service et une clé d’api.
+All REST API calls into Azure Search require that you provide the service URL and an api-key. 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans la barre d’index, cliquez sur **Service de recherche** pour obtenir la liste des services Azure Search configurés pour votre abonnement.
-3. Sélectionnez le service que vous souhaitez utiliser.
-4. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+3. Select the service you want to use.
+4. On the service dashboard, you'll see tiles for essential information as well as the key icon for accessing the admin keys.
 
-  	![][3]
+    ![][3]
 
-5. Copiez l'URL du service et une clé d’administration. Vous en aurez besoin plus tard, pour les ajouter au fichier **config.properties**.
+5. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
 
-## Téléchargement des fichiers exemples
+## <a name="download-the-sample-files"></a>Download the sample files
 
-1. Accédez à [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) sur Github.
+1. Go to [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) on Github.
 
-2. Cliquez sur **Download ZIP**, enregistrez le fichier ZIP sur le disque, puis extrayez tous les fichiers qu'il contient. Si vous le souhaitez, vous pouvez extraire ces fichiers dans votre espace de travail Java pour faciliter la recherche du projet ultérieurement.
+2. Click **Download ZIP**, save the .zip file to disk, and then extract all the files it contains. Consider extracting the files into your Java workspace to make it easier to find the project later.
 
-3. Les fichiers exemples sont en lecture seule. Avec le bouton droit de la souris, cliquez sur le dossier et désactivez l'attribut de lecture seule.
+3. The sample files are read-only. Right-click folder properties and clear the read-only attribute.
 
-Toutes les modifications et instructions d'exécution ultérieures seront effectuées sur les fichiers de ce dossier.
+All subsequent file modifications and run statements will be made against files in this folder.  
 
-## Importer le projet
+## <a name="import-project"></a>Import project
 
-1. Dans Eclipse, choisissez **File** > **Import** > **General** > **Existing Projects into Workspace**.
+1. In Eclipse, choose **File** > **Import** > **General** > **Existing Projects into Workspace**.
 
     ![][4]
 
-2. Dans **Select root directory**, accédez au dossier contenant les fichiers exemples. Sélectionnez le dossier qui contient le dossier .project. Le projet doit s'afficher sélectionné dans la liste **Projects**.
+2. In **Select root directory**, browse to the folder containing sample files. Select the folder that contains the .project folder. The project should appear in the **Projects** list as a selected item.
 
     ![][12]
 
-3. Cliquez sur **Terminer**.
+3. Click **Finish**.
 
-4. Utilisez **Project Explorer** pour afficher et modifier les fichiers. Si l’explorateur n’est pas ouvert, cliquez sur **Window** > **Show View** > **Project Explorer** ou utilisez le raccourci.
+4. Use **Project Explorer** to view and edit the files. If it's not already open, click **Window** > **Show View** > **Project Explorer** or use the shortcut to open it.
 
-## Configurer l'URL et la clé API du service
+## <a name="configure-the-service-url-and-api-key"></a>Configure the service URL and api-key
 
-1. Dans **Project Explorer**, double-cliquez sur **config.properties** pour modifier les paramètres de configuration qui contient le nom du serveur et la clé API.
+1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and api-key.
 
-2. Reportez-vous aux étapes précédentes de cet article. Vous y trouverez l’URL de service et la clé d’API du service dans le [portail Azure](https://portal.azure.com) afin d’obtenir les valeurs que vous allez saisir dans **config.properties**.
+2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure Portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
 
-3. Dans **config.properties**, remplacez « Api Key » par la clé API de votre service. Ensuite, le nom du service (le premier composant de l'URL http://servicename.search.windows.net) remplace « ServiceName » dans le même fichier.
+3. In **config.properties**, replace "Api Key" with the api-key for your service. Next, service name (the first component of the URL http://servicename.search.windows.net) replaces "service name" in the same file.
 
-	![][5]
+    ![][5]
 
-## Configuration des environnements de projet, de génération et d'exécution
+## <a name="configure-the-project,-build-and-runtime-environments"></a>Configure the project, build and runtime environments
 
-1. Dans Project Explorer dans Eclipse, cliquez avec le bouton droit sur le projet, puis cliquez sur **Properties** > **Project Facets**.
+1. In Eclipse, in Project Explorer, right-click the project > **Properties** > **Project Facets**.
 
-2. Sélectionnez **Dynamic Web Module**, **Java** et **JavaScript**.
+2. Select **Dynamic Web Module**, **Java**, and **JavaScript**.
 
     ![][6]
 
-3. Cliquez sur **Apply**.
+3. Click **Apply**.
 
-4. Sélectionnez **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add...**.
+4. Select **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**.
 
-5. Développez Apache et sélectionnez la version du serveur Apache Tomcat que vous avez précédemment installée. Sur notre système, nous avons installé la version 8.
+5. Expand Apache and select the version of the Apache Tomcat server you previously installed. On our system, we installed version 8.
 
-	![][7]
+    ![][7]
 
-6. Dans la page suivante, spécifiez le répertoire d'installation de Tomcat. Sur un ordinateur Windows, il s'agit très probablement du répertoire C:\\Program Files\\Apache Software Foundation\\Tomcat *version*.
+6. On the next page, specify the Tomcat installation directory. On a Windows computer, this will most likely be C:\Program Files\Apache Software Foundation\Tomcat *version*.
 
-6. Cliquez sur **Terminer**.
+6. Click **Finish**.
 
-7. Sélectionnez **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
+7. Select **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
 
-8. Dans **Add JRE**, sélectionnez **Standard VM**.
+8. In **Add JRE**, select **Standard VM**.
 
-10. Cliquez sur **Next**.
+10. Click **Next**.
 
-11. Dans JRE Definition de la page d’accueil de JRE, cliquez sur **Directory**.
+11. In JRE Definition, in JRE home, click **Directory**.
 
-12. Accédez à **Program Files** > **Java** et sélectionnez le JDK que vous avez installé précédemment. Il est important de sélectionner le JDK comme JRE.
+12. Navigate to **Program Files** > **Java** and select the JDK you previously installed. It's important to select the JDK as the JRE.
 
-13. Dans Installed JREs, sélectionnez le **JDK**. Vos paramètres doivent être similaires au contenu de la capture d'écran suivante.
+13. In Installed JREs, choose the **JDK**. Your settings should look similar to the following screenshot.
 
     ![][9]
 
-14. Si vous le souhaitez, sélectionnez **Window** > **Web Browser** > **Internet Explorer** pour ouvrir l’application dans un navigateur externe. Un navigateur externe vous donne une meilleure expérience de l’application Web.
+14. Optionally, select **Window** > **Web Browser** > **Internet Explorer** to open the application in an external browser window. Using an external browser gives you a better Web application experience.
 
     ![][8]
 
-La phase de configuration est maintenant terminée. Vous allez maintenant créer et exécuter le projet.
+You have now completed the configuration tasks. Next, you'll build and run the project.
 
-## Créer le projet
+## <a name="build-the-project"></a>Build the project
 
-1. Dans Project Explorer, cliquez avec le bouton droit sur le nom du projet et sélectionnez **Run As** > **Maven build...** pour configurer le projet.
+1. In Project Explorer, right-click the project name and choose **Run As** > **Maven build...** to configure the project.
 
     ![][10]
 
-8. Dans le champ Goals de Edit Configuration, saisissez « clean install », puis cliquez sur **Run**.
+8. In Edit Configuration, in Goals, type "clean install", and then click **Run**.
 
-Des messages d'état s’affichent dans la fenêtre de la console. Le message BUILD SUCCESS indique que le projet a été généré sans erreur.
+Status messages are output to the console window. You should see BUILD SUCCESS indicating the project built without errors.
 
-## Exécution de l'application
+## <a name="run-the-app"></a>Run the app
 
-Dans cette dernière étape, vous allez exécuter l'application dans un environnement d'exécution de serveur local.
+In this last step, you will run the application in a local server runtime environment.
 
-Si ce n’est déjà fait, vous devez spécifier un environnement d'exécution de serveur dans Eclipse.
+If you haven't yet specified a server runtime environment in Eclipse, you'll need to do that first.
 
-1. Dans Project Explorer, développez **WebContent**.
+1. In Project Explorer, expand **WebContent**.
 
-5. Cliquez avec le bouton droit sur **Search.jsp**, puis sélectionnez **Run As** > **Run on Server**. Sélectionnez le serveur Apache Tomcat, puis cliquez sur **Run**.
+5. Right-click **Search.jsp** > **Run As** > **Run on Server**. Select the Apache Tomcat server, and then click **Run**.
 
-> [AZURE.TIP] Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez désigner cet emplacement dans **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit sur **Search.jsp**, puis cliquez sur **Run As** > **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Cliquez sur **Arguments**. Cliquez sur **Workspace** ou **File System** pour définir le dossier contenant le projet.
+> [AZURE.TIP] If you used a non-default workspace to store your project, you'll need to modify **Run Configuration** to point to the project location to avoid a server start-up error. In Project Explorer, right-click **Search.jsp** > **Run As** > **Run Configurations**. Select the Apache Tomcat server. Click **Arguments**. Click **Workspace** or **File System** to set the folder containing the project.
 
-Lorsque vous exécutez l'application, une fenêtre de navigateur affiche un champ de recherche permettant d'entrer des termes.
+When you run the application, you should see a browser window, providing a search box for entering terms.
 
-Attendez environ une minute avant de cliquer sur **Search**, le temps que le service crée et charge l'index. Si vous obtenez une erreur HTTP 404, Patientez encore un peu avant de réessayer.
+Wait about one minute before clicking **Search** to give the service time to create and load the index. If you get an HTTP 404 error, you just need to wait a little bit longer before trying again.
 
-## Exécution d'une recherche sur les données USGS
+## <a name="search-on-usgs-data"></a>Search on USGS data
 
-Le jeu de données USGS comprend les enregistrements qui correspondent à l'État de Rhode Island. Si vous cliquez sur **Search** et que le champ de recherche est vide, vous obtiendrez les 50 premières entrées, ce qui correspond au paramétrage par défaut.
+The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default.
 
-Saisissez un terme pour que le moteur de recherche puisse travailler. Essayez d'entrer le nom d’une figure locale. « Roger Williams » fut le premier gouverneur de Rhode Island. De nombreux parcs, bâtiments et écoles portent son nom.
+Entering a search term will give the search engine something to go on. Try entering a regional name. "Roger Williams" was the first governor of Rhode Island. Numerous parks, buildings, and schools are named after him.
 
 ![][11]
 
-Vous pouvez également essayer les termes suivants :
+You could also try any of these terms:
 
 - Pawtucket
 - Pembroke
 - goose +cape
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Ceci est le premier didacticiel Azure Search basé sur Java et le jeu de données USGS. Au fil du temps, nous le compléterons avec des fonctionnalités de recherche supplémentaires que vous souhaiterez peut-être utiliser dans vos solutions personnalisées.
+This is the first Azure Search tutorial based on Java and the USGS dataset. Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
-Si vous avez déjà une certaine maîtrise d’Azure Search, vous pouvez utiliser cet exemple comme un tremplin pour d’autres expérimentations, notamment pour améliorer la [page de recherche](search-pagination-page-layout.md) ou mettre en place la [navigation par facettes](search-faceted-navigation.md). Vous pouvez également améliorer la page des résultats en lui ajoutant des compteurs et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
+If you already have some background in Azure Search, you can use this sample as a springboard for further experimentation, perhaps augmenting the [search page](search-pagination-page-layout.md), or implementing [faceted navigation](search-faceted-navigation.md). You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres didacticiels pour comprendre ce que vous pouvez créer. Consultez les autres ressources disponibles dans notre [page de documentation](https://azure.microsoft.com/documentation/services/search/). Vous pouvez également cliquer sur les liens dans notre [liste de vidéos et de didacticiels](search-video-demo-tutorial-list.md) pour obtenir des informations supplémentaires.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
@@ -203,4 +204,8 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

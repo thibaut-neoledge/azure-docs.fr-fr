@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Conditions techniques préalables à la création d'un modèle de solution pour Azure Marketplace | Microsoft Azure"
-   description="Identifier la configuration requise pour la création d'un modèle de solution à déployer et à vendre sur Azure Marketplace"
+   pageTitle="Technical prerequisites for creating a solution template for the Marketplace | Microsoft Azure"
+   description="Understand the requirements for creating a solution template to deploy and sell on the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,22 +16,27 @@
    ms.date="01/28/2016"
    ms.author="hascipio; v-divte" />
 
-# Conditions techniques préalables à la création d'un modèle de solution pour Azure Marketplace
-Avant de commencer, lisez attentivement cette procédure, de manière à comprendre à quel moment effectuer une étape et pourquoi chaque étape doit être exécutée. Autant que possible, préparez les informations et autres données de votre entreprise, téléchargez les outils nécessaires et/ou créez les composants techniques avant de lancer le processus de création de l’offre.
 
-## Développement de blocs de construction
-Vous devez choisir les blocs de construction de votre solution avant de compléter votre modèle de solution sur le portail de publication. Voici des liens vers les documents qui peuvent vous aider dans le processus :
+# <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Technical prerequisites for creating a solution template for the Azure Marketplace
+Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process.  
 
-1. [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](../best-practices-resource-manager-design-templates.md)
-2. [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
-3. Modèles de démarrage rapide Microsoft Azure :
-  - [https://azure.microsoft.com/fr-FR/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
+## <a name="developing-building-blocks"></a>Developing building blocks
+You must decide on the building blocks of your solution before you proceed with your solution template on the Publishing Portal. Below are some links to the documents that can help you in the process:
+
+1. [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md)
+2. [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md)
+3. Azure Quickstart templates:
+  - [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
-## Étapes suivantes
-À présent que vous avez passé en revue les conditions préalables et effectué les tâches nécessaires, vous pouvez procéder à la création de votre offre de modèle de solution, comme indiqué dans le document suivant : [Guide de création d'un modèle de solution](marketplace-publishing-solution-template-creation.md). Pour revenir à la page principale des tâches du serveur de publication, consultez [Prise en main : Publier une offre dans Azure Marketplace](marketplace-publishing-getting-started.md).
+## <a name="next-steps"></a>Next steps
+Now that you have reviewed the prerequisites and completed the necessary tasks, you can move forward with creating your solution template offer as detailed in the [Guide to creating a solution template](marketplace-publishing-solution-template-creation.md). To return to the main page of publisher tasks, see [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
 
 
-[link-acct]: marketplace-publishing-accounts-creation-registration.md
+[link-acct]:marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0204_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

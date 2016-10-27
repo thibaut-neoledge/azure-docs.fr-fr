@@ -1,132 +1,133 @@
 <properties
-	pageTitle="Modifications apportées au point de terminaison Azure AD v2.0 | Microsoft Azure"
-	description="Description des modifications apportées aux protocoles de version préliminaire publique v2.0 du modèle d’application."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Changes to the Azure AD v2.0 endpoint | Microsoft Azure"
+    description="A description of changes that are being made to the app model v2.0 public preview protocols."
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/16/2016"
+    ms.author="dastrock"/>
 
-# Mises à jour importantes des protocoles d’authentification v2.0
-À l’intention des développeurs ! Au cours des deux prochaines semaines, nous allons apporter quelques mises à jour à nos protocoles d’authentification v2.0, qui peuvent impliquer des modifications de dernière minute pour les applications que vous avez écrites pendant la période de la version préliminaire.
 
-## Quelles sont les applications concernées ?
-Les applications qui ont été écrites pour utiliser le point de terminaison d’authentification convergé v2.0 :
+# <a name="important-updates-to-the-v2.0-authentication-protocols"></a>Important Updates to the v2.0 Authentication Protocols
+Attention developers! Over the next two weeks, we will be making a few updates to our v2.0 authentication protocols that may mean breaking changes for any apps you have written during our preview period.  
+
+## <a name="who-does-this-affect?"></a>Who does this affect?
+Any apps that have been written to use the v2.0 converged authentication endpoint,
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 ```
 
-Pour plus d’informations sur le point de terminaison v2.0, cliquez [ici](active-directory-appmodel-v2-overview.md).
+More information on the v2.0 endpoint can be found [here](active-directory-appmodel-v2-overview.md).
 
-Si vous avez développé une application utilisant le point de terminaison v2.0 en la codant directement dans le protocole v2.0, à l’aide de nos intergiciels web OpenID Connect ou OAuth ou à l’aide d’autres bibliothèques tierces pour effectuer l’authentification, vous devez vous préparer à tester vos projets et à leur apporter les modifications nécessaires.
+If you have built an app using the v2.0 endpoint by coding directly to the v2.0 protocol, using any of our OpenID Connect or OAuth web middlewares, or using other 3rd party libraries to perform authentication, you should be prepared to test your projects and make changes if necessary.
 
-## Quelles sont les applications non concernées ?
-Les applications qui ont été écrites par rapport au point de terminaison d’authentification Azure AD de production :
+## <a name="who-doesn`t-this-affect?"></a>Who doesn`t this affect?
+Any apps that have been written against the production Azure AD authentication endpoint,
 
 ```
 https://login.microsoftonline.com/common/oauth2/authorize
 ```
 
-Ce protocole n’est pas susceptible de subir des modifications.
+This protocol is set in stone and will not be experiencing any changes.
 
-En outre, si votre application utilise **uniquement** notre bibliothèque ADAL pour effectuer l’authentification, vous n’avez pas à modifier quoi que ce soit. ADAL protège votre application des modifications.
+Furthermore, if your app **only** uses our ADAL library to perform authentication, you won`t have to change anything.  ADAL has shielded your app from the changes.  
 
-## Quelles sont les modifications ?
-### Suppression de la valeur x5t des en-têtes JWT
-Le point de terminaison v2.0 utilise largement les jetons JWT, qui contiennent une section de paramètres d’en-tête avec des métadonnées pertinentes sur le jeton. Si vous décodez l’en-tête de l’un de nos jetons JWT actuels, le résultat ressemble à ce qui suit :
+## <a name="what-are-the-changes?"></a>What are the changes?
+### <a name="removing-the-x5t-value-from-jwt-headers"></a>Removing the x5t value from JWT headers
+The v2.0 endpoint uses JWT tokens extensively, which contain a header parameters section with relevant metadata about the token.  If you decode the header of one of our current JWTs, you would find something like:
 
 ```
 { 
-	"type": "JWT",
-	"alg": "RS256",
-	"x5t": "MnC_VZcATfM5pOYiJHMba9goEKY",
-	"kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
+    "type": "JWT",
+    "alg": "RS256",
+    "x5t": "MnC_VZcATfM5pOYiJHMba9goEKY",
+    "kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
 }
 ```
 
-Où les propriétés « x5t » et « kid » identifient la clé publique à utiliser pour valider la signature du jeton, récupérée à partir du point de terminaison des métadonnées OpenID Connect.
+Where both the "x5t" and "kid" properties identify the public key that should be used to validate the token`s signature, as retrieved from the OpenID Connect metadata endpoint.
 
-La modification que nous effectuons ici consiste à supprimer la propriété « x5t ». Vous pouvez continuer à utiliser les mêmes mécanismes pour valider les jetons, mais vous devez utiliser uniquement la propriété « kid » pour récupérer la clé publique appropriée, comme spécifié dans le protocole OpenID Connect.
+The change we are making here is to remove the "x5t" property.  You may continue to use the same mechanisms to validate tokens, but should rely only on the "kid" property to retrieve the correct public key, as specified in the OpenID Connect protocol. 
 
-> [AZURE.IMPORTANT] **Votre tâche : vous assurer que votre application ne dépend pas de l’existence de la valeur x5t.**
+> [AZURE.IMPORTANT] **Your job: Make sure your app does not depend on the existence of the x5t value.**
 
-### Suppression de profile\_info
-Auparavant, le point de terminaison v2.0 retournait un objet JSON encodé en Base64 dans les réponses de jeton `profile_info`. Lorsque vous demandiez un jeton d’accès à partir du point de terminaison v2.0 en envoyant une requête à :
+### <a name="removing-profile_info"></a>Removing profile_info
+Previously, the v2.0 endpoint has been returning a base64 encoded JSON object in token responses called `profile_info`.  When requesting an access token from the v2.0 endpoint by sending a request to:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-La réponse ressemblait à l’objet JSON suivant :
+The response would look like the following JSON object:
 ```
 { 
-	"token_type": "Bearer",
-	"expires_in": 3599,
-	"scope": "https://outlook.office.com/mail.read",
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
-	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
-	"profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "token_type": "Bearer",
+    "expires_in": 3599,
+    "scope": "https://outlook.office.com/mail.read",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+    "profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 }
 ```
 
-La valeur `profile_info` contenait des informations sur l’utilisateur connecté à l’application : son nom d’affichage, son prénom, son nom, son adresse de messagerie, son identificateur, etc. Le paramètre `profile_info` était essentiellement utilisé pour la mise en cache des jetons et l’affichage.
+The `profile_info` value contained information about the user who signed into the app - their display name, first name, surname, email address, identifier, and so on.  Primarily, the `profile_info` was used for token caching and display purposes.
 
-Nous procédons actuellement à la suppression de la valeur `profile_info`, mais ne vous inquiétez pas, nous fournirons toujours ces informations aux développeurs à un endroit légèrement différent. À la place du paramètre `profile_info`, le point de terminaison v2.0 retourne désormais un paramètre `id_token` dans chaque réponse de jeton :
+We are now removing the `profile_info` value – but don't worry, we are still providing this information to developers in a slightly different place.  Instead of `profile_info`, the v2.0 endpoint will now return an `id_token` in each token response:
 
 ```
 { 
-	"token_type": "Bearer",
-	"expires_in": 3599,
-	"scope": "https://outlook.office.com/mail.read",
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
-	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "token_type": "Bearer",
+    "expires_in": 3599,
+    "scope": "https://outlook.office.com/mail.read",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 }
 ```
 
-Vous pouvez décoder et analyser le paramètre id\_token pour récupérer les informations que vous receviez de profile\_info. Le paramètre id\_token est un jeton JWT (JSON Web Token) comportant du contenu, comme spécifié par OpenID Connect. Le code permettant d’effectuer cette opération est très semblable : il vous suffit d’extraire le segment de milieu (le corps) du paramètre id\_token et de le décoder en Base64 pour accéder à l’objet JSON qu’il contient.
+You may decode and parse the id_token to retrieve the same information that you received from profile_info.  The id_token is a JSON Web Token (JWT), with contents as specified by OpenID Connect.  The code for doing so should be very similar – you simply need to extract the middle segment (the body) of the id_token and base64 decode it to access the JSON object within.
 
-Au cours des deux prochaines semaines, vous devrez coder votre application pour récupérer les informations utilisateur des paramètres `id_token` ou `profile_info` selon celui qui sera présent. Ce faisant, lorsque la modification sera effectuée, votre application pourra gérer en toute transparence la transition de `profile_info` à `id_token` sans interruption.
+Over the next two weeks, you should code your app to retrieve the user information from either the `id_token` or `profile_info`; whichever is present.  That way when the change is made, your app can seamlessly handle the transition from `profile_info` to `id_token` without interruption.
 
-> [AZURE.IMPORTANT] **Votre tâche : vous assurer que votre application ne dépend pas de l’existence de la valeur `profile_info`.**
+> [AZURE.IMPORTANT] **Your job: Make sure your app does not depend on the existence of the `profile_info` value.**
 
-### Suppression de id\_token\_expires\_in
-Comme pour le paramètre `profile_info`, nous allons également supprimer le paramètre `id_token_expires_in` dans les réponses. Auparavant, le point de terminaison v2.0 retournait une valeur pour le paramètre `id_token_expires_in` avec chaque réponse id\_token, par exemple dans une réponse d’autorisation :
+### <a name="removing-id_token_expires_in"></a>Removing id_token_expires_in
+Similar to `profile_info`, we are also removing the `id_token_expires_in` parameter from responses.  Previously, the v2.0 endpoint would return a value for `id_token_expires_in` along with each id_token response, for instance in an authorize response:
 
 ```
 https://myapp.com?id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...&id_token_expires_in=3599...
 ```
 
-Ou dans une réponse de jeton :
+Or in a token response:
 
 ```
 { 
-	"token_type": "Bearer",
-	"id_token_expires_in": 3599,
-	"scope": "openid",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
-	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
-	"profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "token_type": "Bearer",
+    "id_token_expires_in": 3599,
+    "scope": "openid",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+    "profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 }
 ```
 
-La valeur `id_token_expires_in` indiquait le nombre de secondes pendant lesquelles le paramètre id\_token restait valide. À présent, nous allons supprimer complètement la valeur `id_token_expires_in`. À la place, vous pourrez utiliser les revendications OpenID Connect `nbf` et `exp` standard pour examiner la validité d’un paramètre id\_token. Pour plus d’informations sur ces revendications, consultez les [Informations de référence sur les jetons v2.0](active-directory-v2-tokens.md)
+The `id_token_expires_in` value would indicate the number of seconds the id_token would remain valid for.  Now, we are removing the `id_token_expires_in` value completely.  Instead, you may use the OpenID Connect standard `nbf` and `exp` claims to examine the validity of an id_token.  See the [v2.0 token reference](active-directory-v2-tokens.md) for more information on these claims.
 
-> [AZURE.IMPORTANT] **Votre tâche : vous assurer que votre application ne dépend pas de l’existence de la valeur `id_token_expires_in`.**
+> [AZURE.IMPORTANT] **Your job: Make sure your app does not depend on the existence of the `id_token_expires_in` value.**
 
 
-### Modification des revendications retournées par scope=openid
-Cette modification sera la plus importante : de fait, elle concerne pratiquement toutes les applications qui utilisent le point de terminaison v2.0. De nombreuses applications envoient des requêtes vers le point de terminaison v2.0 en utilisant l’étendue `openid`, comme :
+### <a name="changing-the-claims-returned-by-scope=openid"></a>Changing the claims returned by scope=openid
+This change will be the most significant – in fact, it will affect almost every app that uses the v2.0 endpoint.  Many applications send requests to the v2.0 endpoint using the `openid` scope, like:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -137,30 +138,30 @@ client_id=...
 &scope=openid offline_access https://outlook.office.com/mail.read
 ```
 
-Aujourd’hui, lorsque l’utilisateur autorise l’étendue `openid`, votre application reçoit une mine d’informations sur l’utilisateur dans le paramètre id\_token résultant. Ces revendications peuvent inclure son nom, son nom d’utilisateur par défaut, son adresse de messagerie, son ID objet, etc.
+Today, when the user grants consent for the `openid` scope, your app receives a wealth of information about the user in the resulting id_token.  These claims can include their name, preferred username, email address, object ID, and more.
 
-Au cours de cette mise à jour, nous allons modifier les informations auxquelles l’étendue `openid` permet à votre application d’accéder afin d’assurer une meilleure conformité avec la spécification OpenID Connect. L’étendue `openid` permettra uniquement à votre application de connecter l’utilisateur et de recevoir un identificateur propre à l’application pour l’utilisateur dans la revendication `sub` du paramètre id\_token. Les revendications contenues dans un paramètre id\_token avec uniquement l’étendue `openid` accordée seront dépourvues des informations d’identification personnelle. Exemples de revendication contenus dans le paramètre id\_token :
+In this update, we are changing the information that the `openid` scope affords your app access to, to better comform with the OpenID Connect specification.  The `openid` scope will only allow your app to sign the user in, and receive an app-specific identifier for the user in the `sub` claim of the id_token.  The claims in an id_token with only the `openid` scope granted will be devoid of any personally identifiable information.  Example id_token claims are:
 
 ```
 { 
-	"aud": "580e250c-8f26-49d0-bee8-1c078add1609",
-	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
-	"iat": 1449520283,
-	"nbf": 1449520283,
-	"exp": 1449524183,
-	"nonce": "12345",
-	"sub": "MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q",
-	"tid": "b9410318-09af-49c2-b0c3-653adc1f376e",
-	"ver": "2.0",
+    "aud": "580e250c-8f26-49d0-bee8-1c078add1609",
+    "iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
+    "iat": 1449520283,
+    "nbf": 1449520283,
+    "exp": 1449524183,
+    "nonce": "12345",
+    "sub": "MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q",
+    "tid": "b9410318-09af-49c2-b0c3-653adc1f376e",
+    "ver": "2.0",
 }
 ```
 
-Si vous souhaitez obtenir des informations d’identification personnelle (PII) sur l’utilisateur dans votre application, votre application devra lui demander des autorisations supplémentaires. Nous introduisons la prise en charge de deux nouvelles étendues de la spécification OpenID Connect, les étendues `email` et `profile`, qui vous permettront d’effectuer cette opération.
+If you want to obtain personally identifiable information (PII) about the user in your app, your app will need to request additional permissions from the user.  We are introducing support for two new scopes from the OpenID Connect spec – the `email` and `profile` scopes – which allow you to do so.
 
-- L’étendue `email` est très directe : elle permet à votre application d’accéder à l’adresse de messagerie principale de l’utilisateur via la revendication `email` contenue dans le paramètre id\_token. Notez que la revendication `email` n’est pas toujours présente dans le paramètre id\_token : elle n’est incluse que si elle est disponible dans le profil de l’utilisateur.
-- L’étendue `profile` permet à votre application d’accéder à toutes les autres informations de base sur l’utilisateur (nom, nom d’utilisateur par défaut, ID objet, etc.).
+- The `email` scope is very straightforward – it allows your app access to the user's primary email address via the `email` claim in the id_token.  Note that the `email` claim will not always be present in id_tokens – it will only be included if available in the user's profile.
+- The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
 
-Vous pouvez ainsi coder votre application en en divulguant le moins possible : vous pouvez vous contenter de demander à l’utilisateur les informations nécessaires à l’exécution de votre application. Si vous souhaitez continuer à obtenir les informations utilisateur complètes reçues actuellement par votre application, vous devez inclure les trois étendues dans vos demandes d’autorisation :
+This allows you to code your app in a minimal-disclosure fashion – you can ask the user for just the set of information that your app requires to do its job.  If you want to continue getting the full set of user information that your app is currently receiving, you should include all three scopes in your authorization requests:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -171,50 +172,54 @@ client_id=...
 &scope=openid profile email offline_access https://outlook.office.com/mail.read
 ```
 
-Votre application peut commencer à envoyer immédiatement les étendues `email` et `profile`, et le point de terminaison v2.0 acceptera ces deux étendues et commencera à demander des autorisations aux utilisateurs, si nécessaire. Toutefois, la modification de l’interprétation de l’étendue `openid` ne prendra pas effet avant quelques semaines.
+Your app can begin sending the `email` and `profile` scopes immediately, and the v2.0 endpoint will accept these two scopes and begin requesting permissions from users as necessary.  However, the change in the interpretation of the `openid` scope will not take effect for a few weeks.
 
-> [AZURE.IMPORTANT] **Votre tâche : ajouter les étendues `profile` et `email` si votre application requiert des informations sur l’utilisateur.** Notez que la bibliothèque ADAL inclut ces deux autorisations dans les requêtes par défaut.
+> [AZURE.IMPORTANT] **Your job: Add the `profile` and `email` scopes if your app requires information about the user.**  Note that ADAL will include both of these permissions in requests by default. 
 
-### Suppression de la barre oblique finale dans la valeur issuer
-Auparavant, la valeur issuer qui apparaissait dans les jetons du point de terminaison v2.0 prenait la forme suivante :
+### <a name="removing-the-issuer-trailing-slash."></a>Removing the issuer trailing slash.
+Previously, the issuer value that appears in tokens from the v2.0 endpoint took the form
 
 ```
 https://login.microsoftonline.com/{some-guid}/v2.0/
 ```
 
-Où le GUID était l’ID du locataire Azure AD qui a émis le jeton. Avec ces modifications, la valeur issuer devient :
+Where the guid was the tenantId of the Azure AD tenant which issued the token.  With these changes, the issuer value becomes
 
 ```
 https://login.microsoftonline.com/{some-guid}/v2.0 
 ```
 
-dans les deux jetons et dans le document de découverte OpenID Connect.
+in both tokens and in the OpenID Connect discovery document.
 
-> [AZURE.IMPORTANT] **Votre travail : vous assurer que votre application accepte la valeur issuer avec et sans barre oblique finale lors de la validation de l’émetteur.**
+> [AZURE.IMPORTANT] **Your job: Make sure your app accepts the issuer value both with and without a trailing slash during issuer validation.**
 
-## Pourquoi introduire des modifications ?
-La principale motivation ayant amené à introduire ces modifications est la conformité à la spécification standard OpenID Connect. Avec cette conformité, nous espérons réduire les différences entre l’intégration aux services d’identité de Microsoft et l’intégration aux autres services d’identité du secteur d’activité. Nous souhaitons permettre aux développeurs d’utiliser leurs bibliothèques d’authentification open source favorites sans avoir à les modifier pour prendre en compte les différences de Microsoft.
+## <a name="why-change?"></a>Why change?
+The primary motivation for introducing these changes is to be compliant with the OpenID Connect standard specification.  By being OpenID Connect compliant, we hope to minimize differences between integrating with Microsoft identity services and with other identity services in the industry.  We want to enable developers to use their favorite open source authentication libraries without having to alter the libraries to accommodate Microsoft differences.
 
-## Que pouvez-vous faire ?
-Dès aujourd’hui, vous pouvez commencer à effectuer toutes les modifications décrites ci-dessus. Vous devez immédiatement :
+## <a name="what-can-you-do?"></a>What can you do?
+As of today, you can begin making all of the changes described above.  You should immediately:
 
-1.	**Supprimer toutes les dépendances dans le paramètre d’en-tête `x5t`.**
-2.	**Gérer en douceur la transition entre les paramètres `profile_info` et `id_token` dans les réponses de jeton.**
-3.  **Supprimer toutes les dépendances dans le paramètre de réponse `id_token_expires_in`.**
-3.	**Ajouter les étendues `profile` et `email` à votre application, si celle-ci a besoin d’informations utilisateur de base.**
-4.	**Accepter les valeurs issuer dans les jetons avec et sans barre oblique finale.**
+1.  **Remove any dependencies on the `x5t` header parameter.**
+2.  **Gracefully handle the transition from `profile_info` to `id_token` in token responses.**
+3.  **Remove any dependencies on the `id_token_expires_in` response parameter.**
+3.  **Add the `profile` and `email` scopes to your app if your app needs basic user information.**
+4.  **Accept issuer values in tokens both with and without a trailing slash.**
 
-Notre [documentation relative au protocole v2.0](active-directory-v2-protocols.md) a déjà été mise à jour pour refléter ces modifications. Vous pouvez donc l’utiliser à titre de référence pour vous aider à mettre à jour votre code.
+Our [v2.0 protocol documentation](active-directory-v2-protocols.md) has already been updated to reflect these changes, so you may use it as reference in helping update your code.
 
-Si vous avez d’autres questions sur l’étendue de ces modifications, n’hésitez pas à nous contacter sur Twitter à @AzureAD.
+If you have any further questions on the scope of the changes, please feel free to reach out to us on Twitter at @AzureAD.
 
-## Quelle sera la fréquence des modifications du protocole ?
-Nous ne prévoyons pas d’apporter d’autres modifications de ce type aux protocoles d’authentification. Nous regroupons intentionnellement ces modifications dans une seule version afin que vous n’ayez pas à effectuer de nouveau ce type de mise à jour dans un temps rapproché. Bien entendu, nous continuerons d’ajouter des fonctionnalités au service d’authentification v2.0 convergé dont vous pourrez bénéficier. Néanmoins, ces modifications devraient constituer des ajouts et pas une rupture du code existant.
+## <a name="how-often-will-protocol-changes-occur?"></a>How often will protocol changes occur?
+We do not foresee any further breaking changes to the authentication protocols.  We are intentionally bundling these changes into one release so that you won`t have to go through this type of update process again any time soon.  Of course, we will continue to add features to the converged v2.0 authentication service that you can take advantage of, but those changes should be additive and not break existing code.
 
-Pour finir, nous souhaitons vous remercier d’avoir procédé à des essais pendant cette version préliminaire. Les informations et les expériences de nos utilisateurs précoces nous ont été très utiles jusqu’à présent, et nous espérons que vous continuerez de partager vos opinions et vos idées.
+Lastly, we would like to say thank you for trying things out during the preview period.  The insights and experiences of our early adopters have been invaluable thus far, and we hope you`ll continue to share your opinions and ideas.
 
-Codez bien !
+Happy coding!
 
-La Division d’identité de Microsoft
+The Microsoft Identity Division
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

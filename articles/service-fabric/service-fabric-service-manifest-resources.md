@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Spécification de points de terminaison de service Service Fabric | Microsoft Azure"
-   description="Comment décrire les ressources du point de terminaison dans un manifeste de service, y compris comment configurer des points de terminaison HTTPS"
+   pageTitle="Specifying Service Fabric service endpoints | Microsoft Azure"
+   description="How to describe endpoint resources in a service manifest, including how to set up HTTPS endpoints"
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -16,15 +16,16 @@
    ms.date="09/14/2016"
    ms.author="subramar"/>
 
-# Spécifier des ressources dans un manifeste de service
 
-## Vue d'ensemble
+# <a name="specify-resources-in-a-service-manifest"></a>Specify resources in a service manifest
 
-Le manifeste de service met les ressources à la disposition du service à déclarer/modifier sans changer le code compilé. Azure Service Fabric prend en charge la configuration des ressources des points de terminaison du service. L’accès aux ressources spécifiées dans le manifeste de service peut être contrôlé par le biais de la valeur SecurityGroup dans le manifeste de l’application. La déclaration des ressources permet de les modifier au moment du déploiement. Ainsi, le service n’a pas besoin d’introduire un nouveau mécanisme de configuration. La définition de schéma pour le fichier ServiceManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
+## <a name="overview"></a>Overview
 
-## Points de terminaison
+The service manifest allows resources that are used by the service to be declared/changed without changing the compiled code. Azure Service Fabric supports configuration of endpoint resources for the service. The access to the resources that are specified in the service manifest can be controlled via the SecurityGroup in the application manifest. The declaration of resources allows these resources to be changed at deployment time, meaning the service doesn't need to introduce a new configuration mechanism. The schema definition for the ServiceManifest.xml file is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-Lorsqu’une ressource de point de terminaison est définie dans le manifeste de service, Service Fabric alloue les ports de la plage de ports d’application réservés lorsqu’un port n’est pas spécifié de manière explicite. Examinez, par exemple, le point de terminaison *ServiceEndpoint1* spécifié dans l’extrait de code du manifeste fourni après ce paragraphe. En outre, les services peuvent également demander un port spécifique d’une ressource. Les réplicas de service exécutés sur des nœuds de cluster différents peuvent être alloués à des numéros de ports différents, tandis que les réplicas d’un service exécutés sur le même nœud partagent le port. Les réplicas de service peuvent alors utiliser ces ports pour la réplication et pour écouter les demandes du client.
+## <a name="endpoints"></a>Endpoints
+
+When an endpoint resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. For example, look at the endpoint *ServiceEndpoint1* specified in the manifest snippet provided after this paragraph. Additionally, services can also request a specific port in a resource. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of a service running on the same node share the port. The service replicas can then use these ports as needed for replication and listening for client requests.
 
 ```xml
 <Resources>
@@ -36,13 +37,13 @@ Lorsqu’une ressource de point de terminaison est définie dans le manifeste de
 </Resources>
 ```
 
-Reportez-vous à [Configuration de services Reliable Services avec état](service-fabric-reliable-services-configuration.md) pour en savoir plus sur le référencement des points de terminaison à partir du fichier des paramètres de package de configuration (settings.xml).
+Refer to [Configuring stateful Reliable Services](service-fabric-reliable-services-configuration.md) to read more about referencing endpoints from the config package settings file (settings.xml).
 
-## Exemple : spécification d’un point de terminaison HTTP pour votre service
+## <a name="example:-specifying-an-http-endpoint-for-your-service"></a>Example: specifying an HTTP endpoint for your service
 
-Le manifeste de service suivant définit une seule ressource de point de terminaison TCP et deux ressources de point de terminaison HTTP dans l’élément &lt;Ressources&gt;.
+The following service manifest defines one TCP endpoint resource and two HTTP endpoint resources in the &lt;Resources&gt; element.
 
-Les points de terminaison HTTP sont automatiquement répertoriés dans la liste de contrôle d’accès par Service Fabric.
+HTTP endpoints are automatically ACL'd by Service Fabric.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -88,14 +89,14 @@ Les points de terminaison HTTP sont automatiquement répertoriés dans la liste 
 </ServiceManifest>
 ```
 
-## Exemple : spécification d’un point de terminaison HTTPS pour votre service
+## <a name="example:-specifying-an-https-endpoint-for-your-service"></a>Example: specifying an HTTPS endpoint for your service
 
-Le protocole HTTPS assure l'authentification du serveur et est également utilisé pour le chiffrement des communications client-serveur. Pour activer HTTPS sur votre service Service Fabric, spécifiez le protocole dans la section *Ressources -> Points de terminaison -> Point de terminaison* du manifeste de service, comme indiqué plus haut pour le point de terminaison *ServiceEndpoint3*.
+The HTTPS protocol provides server authentication and is also used for encrypting client-server communication. To enable HTTPS on your Service Fabric service, specify the protocol in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown earlier for the endpoint *ServiceEndpoint3*.
 
->[AZURE.NOTE] Il est impossible de modifier le protocole d’un service lors de la mise à niveau de l’application sans que cela ne soit considéré comme une modification avec rupture.
+>[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade without it constituting a breaking change.
 
 
-Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous devez fournir l’empreinte numérique de votre certificat. EndpointRef est une référence à EndpointResource dans ServiceManifest, pour lequel vous définissez le protocole HTTPS. Vous pouvez ajouter plusieurs EndpointCertificate.
+Here is an example ApplicationManifest that you need to set for HTTPS. The thumbprint for your certificate must be provided. The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one EndpointCertificate.  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,4 +138,8 @@ Voici un exemple ApplicationManifest à définir pour le protocole HTTPS. Vous d
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

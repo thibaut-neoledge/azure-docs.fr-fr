@@ -1,94 +1,80 @@
 <properties
-	pageTitle="Activation du débogage distant avec la remise continue | Microsoft Azure"
-	description="Découvrez comment activer le débogage distant lors de l'utilisation de la remise continue pour publier sur Azure."
-	services="cloud-services"
-	documentationCenter=".net"
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Enable remote debugging with continuous delivery | Microsoft Azure"
+    description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure"
+    services="cloud-services"
+    documentationCenter=".net"
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="tarcher"/>
+    ms.service="cloud-services"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="tarcher"/>
 
-# Activation du débogage distant lors de l'utilisation de la remise continue pour publier sur Azure
 
-En procédant comme suit, vous pouvez activer le débogage distant dans Azure, pour des services cloud ou des machines virtuelles, quand vous utilisez la [remise continue](cloud-services-dotnet-continuous-delivery.md) afin de publier sur Azure.
+# <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Enable remote debugging when using continuous delivery to publish to Azure
 
-## Activation du débogage distant pour les services cloud
+You can enable remote debugging in Azure, for cloud services or virtual machines, when you use [continuous delivery](cloud-services-dotnet-continuous-delivery.md) to publish to Azure by following these steps.
 
-1. Dans l'agent de build, configurez l'environnement de départ pour Azure comme expliqué à la page [Génération en mode ligne de commande pour Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. L’exécution du débogage distant (msvsmon.exe) étant nécessaire pour ce package, installez les [Outils de contrôle à distance pour Visual Studio 2015](http://www.microsoft.com/fr-FR/download/details.aspx?id=48155) (ou les [Outils de contrôle à distance pour Microsoft Visual Studio 2013 Update 5](https://www.microsoft.com/fr-FR/download/details.aspx?id=48156) si vous utilisez Visual Studio 2013). Une autre méthode consiste à copier les fichiers binaires de débogage distant à partir d'un système sur lequel Visual Studio est installé.
-3. Créez un certificat comme expliqué dans [Vue d’ensemble des certificats pour Azure Cloud Services](cloud-services-certs-create.md). Conservez l'empreinte numérique de certificat .pfx et RDP et téléchargez le certificat sur le service cloud cible.
-4. Utilisez les options suivantes dans la ligne de commande MSBuild pour générer et créer des packages en activant le débogage distant. (Remplacez les chemins d'accès réels de votre système et de vos fichiers de projet pour les éléments entre crochets.)
+## <a name="enabling-remote-debugging-for-cloud-services"></a>Enabling remote debugging for cloud services
 
-		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+1. On the build agent, set up the initial environment for Azure as outlined in [Command-Line Build for Azure](http://msdn.microsoft.com/library/hh535755.aspx).
+2. Because the remote debug runtime (msvsmon.exe) is required for the package, install the [Remote Tools for Visual Studio 2015](http://www.microsoft.com/en-us/download/details.aspx?id=48155) (or the [Remote Tools for Microsoft Visual Studio 2013 Update 5](https://www.microsoft.com/en-us/download/details.aspx?id=48156) if you’re using Visual Studio 2013). As an alternative, you can copy the remote debug binaries from a system that has Visual Studio installed.
+3. Create a certificate as outlined in [Certificates Overview for Azure Cloud Services](cloud-services-certs-create.md). Keep the .pfx and RDP certificate thumbprint and upload the certificate to the target cloud service.
+4. Use the following options in the MSBuild command line to build and package with remote debug enabled. (Substitute actual paths to your system and project files for the angle-bracketed items.)
 
-	`VSX64RemoteDebuggerPath` est le chemin d’accès au dossier contenant msvsmon.exe dans les Outils de contrôle à distance de Visual Studio. `RemoteDebuggerConnectorVersion` est la version du SDK Azure de votre service cloud. Elle doit également correspondre à la version installée avec Visual Studio.
+        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
 
-5. Publiez sur le service cloud cible en utilisant le package et le fichier .cscfg générés à l'étape précédente.
-6. Importez le certificat (fichier .pfx) sur l'ordinateur sur lequel Visual Studio et le Kit de développement logiciel (SDK) Azure SDK pour .NET sont installés. Veillez à effectuer l’importation dans le magasin de certificats `CurrentUser\My` ; dans le cas contraire, l’association au débogueur dans Visual Studio échouera.
+    `VSX64RemoteDebuggerPath` is the path to the folder containing msvsmon.exe in the Remote Tools for Visual Studio.
+    `RemoteDebuggerConnectorVersion` is the Azure SDK version in your cloud service. It should also match the version installed with Visual Studio.
 
-## Activation du débogage distant pour les machines virtuelles
+5. Publish to the target cloud service by using the package and .cscfg file generated in the previous step.
+6. Import the certificate (.pfx file) to the machine that has Visual Studio with Azure SDK for .NET installed. Make sure to import to the `CurrentUser\My` certificate store, otherwise attaching to the debugger in Visual Studio will fail.
 
-1. Créez une machine virtuelle Azure. Consultez [Création d’une machine virtuelle exécutant Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md) ou [Créer et gérer des machines virtuelles Azure dans Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md).
-2. Sur la [page du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=269851), affichez le tableau de bord de la machine virtuelle pour voir l’**EMPREINTE NUMÉRIQUE DE CERTIFICAT RDP** de la machine virtuelle. Cette valeur est utilisée pour la valeur `ServerThumbprint` dans la configuration de l’extension.
-3. Créez un certificat client comme expliqué dans [Vue d’ensemble des certificats pour Azure Cloud Services](cloud-services-certs-create.md) (conservez l’empreinte numérique de certificat .pfx et RDP).
-4. Installez Azure PowerShell (version 0.7.4 ou ultérieure) comme indiqué dans [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
-5. Exécutez le script suivant pour activer l'extension RemoteDebug. Remplacez les chemins d’accès et les données personnelles par les vôtres, notamment le nom de l’abonnement, le nom du service et l’empreinte numérique.
+## <a name="enabling-remote-debugging-for-virtual-machines"></a>Enabling remote debugging for virtual machines
 
-	>[AZURE.NOTE] Ce script est configuré pour Visual Studio 2015. Si vous utilisez Visual Studio 2013, modifiez les affectations `$referenceName` et `$extensionName` ci-dessous pour utiliser `RemoteDebugVS2013` (au lieu de `RemoteDebugVS2015`).
+1. Create an Azure virtual machine. See [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md) or [Create and Manage Azure Virtual Machines in Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md).
+2. On the [Azure classic portal page](http://go.microsoft.com/fwlink/p/?LinkID=269851), view the virtual machine's dashboard to see the virtual machine’s **RDP CERTIFICATE THUMBPRINT**. This value is used for the `ServerThumbprint` value in the extension configuration.
+3. Create a client certificate as outlined in [Certificates Overview for Azure Cloud Services](cloud-services-certs-create.md) (keep the .pfx and RDP certificate thumbprint).
+4. Install Azure Powershell (version 0.7.4 or later) as outlined in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+5. Run the following script to enable the RemoteDebug extension. Replace the paths and personal data with your own, such as your subscription name, service name, and thumbprint.
 
-	<pre>
-	Add-AzureAccount
-	
-	Select-AzureSubscription "My Microsoft Subscription"
-	
-	$vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
-	
-	$endpoints = @(
-	,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
-	,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
-	)
-	
-	foreach($endpoint in $endpoints)
-	{
-	Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
-	}
-	
-	$referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
-	$publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
-	$extensionName&#160;= "RemoteDebugVS2015"
-	$version = "1.*"
-	$publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
-	
-	$vm | Set-AzureVMExtension `
-	-ReferenceName $referenceName `
-	-Publisher $publisher `
-	-ExtensionName $extensionName `
-	-Version $version `
-	-PublicConfiguration $publicConfiguration
-	
-	foreach($extension in $vm.VM.ResourceExtensionReferences)
-	{
-	if(($extension.ReferenceName -eq $referenceName) `
-	-and ($extension.Publisher -eq $publisher) `
-	-and ($extension.Name -eq $extensionName) `
-	-and ($extension.Version -eq $version))
-	{
-	$extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
-	break
-	}
-	}
-	
-	$vm | Update-AzureVM
-	</pre>
+    >[AZURE.NOTE] This script is configured for Visual Studio 2015. If you’re using Visual Studio 2013, modify the `$referenceName` and `$extensionName` assignments below to use `RemoteDebugVS2013` (instead of `RemoteDebugVS2015`).
 
-6. Importez le certificat (.pfx) sur l'ordinateur sur lequel Visual Studio et le Kit de développement logiciel (SDK) Azure pour .NET sont installés.
+    <pre>
+    Add-AzureAccount
 
-<!---HONumber=AcomDC_0817_2016-->
+    Select-AzureSubscription "My Microsoft Subscription"
+
+    $vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
+
+    $endpoints = @(  ,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}  ,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}  )
+
+    foreach($endpoint in $endpoints)  {  Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort  }
+
+    $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"  $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"  $extensionName = "RemoteDebugVS2015"  $version = "1.*"  $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
+
+    $vm | Set-AzureVMExtension `
+    -ReferenceName $referenceName `
+    -Publisher $publisher `
+    -ExtensionName $extensionName `
+    -Version $version `  -PublicConfiguration $publicConfiguration
+
+    foreach($extension in $vm.VM.ResourceExtensionReferences)  {  if(($extension.ReferenceName -eq $referenceName) `
+    -and ($extension.Publisher -eq $publisher) `
+    -and ($extension.Name -eq $extensionName) `  -and ($extension.Version -eq $version))  {  $extension.ResourceExtensionParameterValues[0].Key = 'config.txt'  break  }  }
+
+    $vm | Update-AzureVM  </pre>
+
+6. Import the certificate (.pfx) to the machine that has Visual Studio with Azure SDK for .NET installed.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

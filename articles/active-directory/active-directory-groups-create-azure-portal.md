@@ -1,27 +1,33 @@
 <properties
-	pageTitle="Créer un groupe dans la version préliminaire d’Azure Active Directory | Microsoft Azure"
-	description="Comment créer un groupe dans Active Directory Azure et ajouter des utilisateurs (membres) au groupe"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Créer un groupe dans la version préliminaire d’Azure Active Directory | Microsoft Azure"
+    description="Comment créer un groupe dans Active Directory Azure et ajouter des utilisateurs (membres) au groupe"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/29/2016"
+    ms.author="curtand"/>
 
 
-# Créez un groupe dans la version préliminaire d’Azure Active Directory
 
-Cet article explique comment créer un remplir un nouveau groupe dans la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md) Un groupe vous permet d’effectuer différentes tâches de gestion, par exemple l’attribution de licences ou autorisations à plusieurs utilisateurs ou appareils simultanément.
+# <a name="create-a-new-group-in-azure-active-directory-preview"></a>Créez un groupe dans la version préliminaire d’Azure Active Directory
 
-## Comment créer un groupe ?
+> [AZURE.SELECTOR]
+- [Portail Azure](active-directory-groups-create-azure-portal.md)
+- [Portail Azure Classic](active-directory-accessmanagement-manage-groups.md)
+- [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+
+Cet article explique comment créer un remplir un nouveau groupe dans la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)  Un groupe vous permet d’effectuer différentes tâches de gestion, par exemple l’attribution de licences ou autorisations à plusieurs utilisateurs ou appareils simultanément.
+
+## <a name="how-do-i-create-a-group?"></a>Comment créer un groupe ?
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 
@@ -37,7 +43,7 @@ Cet article explique comment créer un remplir un nouveau groupe dans la version
 
   ![Sélection de la commande Ajouter](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 
-5. Dans le panneau **Groupe**, ajoutez un nom et une description pour le groupe.
+5. Dans le panneau **Groupe** , ajoutez un nom et une description pour le groupe.
 
 6. Pour sélectionner les membres à ajouter au groupe, sélectionnez **Affecté** dans la zone **Type d’appartenance**, puis sélectionnez **Membres**. Pour plus d’informations sur la façon de gérer l’appartenance à un groupe de manière dynamique, consultez la page [Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe](active-directory-groups-dynamic-membership-azure-portal.md).
 
@@ -45,14 +51,14 @@ Cet article explique comment créer un remplir un nouveau groupe dans la version
 
 5. Dans le panneau **Membres**, sélectionnez un ou plusieurs utilisateurs ou appareils à ajouter au groupe, puis cliquez sur le **Sélectionner** en bas du panneau pour les ajouter au groupe. La zone **Utilisateur** filtre l’affichage en fonction de la correspondance de votre entrée avec une partie ou l’intégralité d’un nom d’utilisateur ou d’appareil. Dans cette zone aucun caractère générique n’est accepté.
 
-6. Lorsque vous avez terminé l’ajout de membres au groupe, sélectionnez **Créer** dans le panneau **Groupe**.
+6. Lorsque vous avez terminé l’ajout de membres au groupe, sélectionnez **Créer** dans le panneau **Groupe**.    
 
   ![Confirmation de création du groupe](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
 
 
 
-## Informations supplémentaires
+## <a name="additional-information"></a>Informations supplémentaires
 
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
@@ -62,4 +68,8 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
 * [Gérer les règles dynamiques pour les utilisateurs dans un groupe](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

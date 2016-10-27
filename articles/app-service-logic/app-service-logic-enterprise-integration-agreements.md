@@ -1,68 +1,74 @@
 <properties 
-	pageTitle="Vue d'ensemble des partenaires et Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Découvrez comment utiliser les partenaires avec Enterprise Integration Pack et vos applications logiques" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+    pageTitle="Overview of partners and Enterprise Integration Pack | Microsoft Azure App Service" 
+    description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="msftman" 
+    manager="erikre" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2016" 
-	ms.author="deonhe"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="06/29/2016" 
+    ms.author="deonhe"/>
 
 
-# En savoir plus sur les contrats et Enterprise Integration Pack
 
-## Vue d'ensemble
-Les contrats constituent la pierre angulaire des communications Business-to-Business (B2B), permettant à des entités métier de communiquer en toute transparence à l’aide de protocoles standard.
+# <a name="learn-about-agreements-and-enterprise-integration-pack"></a>Learn about agreements and Enterprise Integration Pack
 
-## Qu’est-ce qu'un contrat ?
+## <a name="overview"></a>Overview
+Agreements are the cornerstone of business-to-business (B2B) communications, allowing business entities to communicate seamlessly using industry standard protocols.  
 
-En ce qui concerne Enterprise Integration Pack, un contrat est une organisation de communications conclue entre des partenaires commerciaux B2B. Un contrat est basé sur le type de communication dont les partenaires souhaitent bénéficier. Il est propre au protocole ou au transport.
+## <a name="what-is-an-agreement?"></a>What is an agreement?
 
-L'intégration d’entreprise prend en charge trois normes de protocole/transport :
+An agreement, as far as the Enterprise Integration Pack is concerned, is a communications arrangement between B2B trading partners. An agreement is based on the communications the partners wish to achieve and is protocol or transport specific.
+
+Enterprise integration supports three protocol/transport standards:  
 
 - [AS2](./app-service-logic-enterprise-integration-as2.md)
-- [X 12](./app-service-logic-enterprise-integration-x12.md)
+- [X12](./app-service-logic-enterprise-integration-x12.md)
 - [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
-## Pourquoi utiliser des contrats ?
-Voici quelques-uns des avantages d'utiliser des contrats :
-- Permet à différentes organisations et entreprises d'échanger des informations dans un format reconnu.
-- Améliore l’efficacité des transactions B2B
-- Les accords sont faciles à créer, gérer et utiliser lors de la création d'applications d’intégration d'entreprise
+## <a name="why-use-agreements"></a>Why use agreements
+Some of the common benefits of using agreements are:
+- Enables different organizations and businesses to be able to exchange information in a well known format.  
+- Improves efficiency when conducting B2B transactions  
+- Easy to create, manage and use them when creating enterprise integration apps  
 
-## Comment créer des contrats ?
-- [Créer un contrat AS2](./app-service-logic-enterprise-integration-as2.md)
-- [Créer un contrat X12](./app-service-logic-enterprise-integration-x12.md)
+## <a name="how-to-create-agreements"></a>How to create agreements
+- [Create an AS2 agreement](./app-service-logic-enterprise-integration-as2.md)   
+- [Create an X12 agreement](./app-service-logic-enterprise-integration-x12.md)   
 
-## Comment utiliser un contrat ?
-Après avoir créé un contrat, vous pouvez l’utiliser via le portail Azure pour créer des [applications logiques](./app-service-logic-what-are-logic-apps.md "En savoir plus sur les applications logiques") avec fonctionnalités B2B.
+## <a name="how-to-use-an-agreement"></a>How to use an agreement
+After creating an agreement, you can use it via the Azure portal to create [Logic apps](./app-service-logic-what-are-logic-apps.md "Learn about Logic apps") with B2B features.
 
-## Comment modifier un contrat ?
-Vous pouvez modifier n’importe quel contrat en procédant comme suit :
-1. Sélectionnez le compte d’intégration contenant le contrat que vous souhaitez modifier.
-2. Sélectionnez la mosaïque **Contrats**
-3. Sélectionnez le contrat à modifier dans le panneau **Contrats**
-4. Sélectionnez **Modifier** dans le menu ci-dessus
-5. Dans le menu Modifier qui apparaît, effectuez vos modifications puis sélectionnez le bouton **OK** pour enregistrer les modifications
+## <a name="how-to-edit-an-agreement"></a>How to edit an agreement
+You can edit any agreement by following these steps:  
+1. Select the Integration account that contains the agreement you wish to modify.  
+2. Select the **Agreements** tile  
+3. Select the agreement you wish to modify on the **Agreements** blade  
+4. Select **Edit** from the menu above   
+5. On the Edit menu that opens, make you changes then select the **OK** button to save the changes  
 
-## Suppression d'un contrat
-Vous pouvez supprimer un contrat en suivant ces étapes depuis le compte d’intégration contenant le contrat que vous souhaitez supprimer :
-1. Sélectionnez la mosaïque **Contrats**
-2. Sélectionnez le contrat à supprimer dans le panneau **Contrats**
-3. Sélectionnez **Supprimer** dans le menu ci-dessus
-4. Confirmez que vous souhaitez réellement supprimer le contrat
-5. Notez que le contrat n’est plus répertorié dans le panneau Contrats
+## <a name="how-to-delete-an-agreement"></a>How to delete an agreement
+You can delete any agreement by following these steps from within the integration account that contains the agreement you wish to delete:   
+1. Select the **Agreements** tile  
+2. Select the agreement you wish to delete on the **Agreements** blade  
+3. Select **Delete** from the menu above  
+4. Confirm that you really want to delete the agreement  
+5. Notice that the agreement is no longer listed on the Agreements blade  
  
 
-## Étapes suivantes
-- [Créer un contrat AS2](./app-service-logic-enterprise-integration-as2.md)
+## <a name="next-steps"></a>Next steps
+- [Create an AS2 agreement](./app-service-logic-enterprise-integration-as2.md)  
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

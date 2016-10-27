@@ -1,113 +1,117 @@
 <properties
-	pageTitle="Instructions de dénomination d’infrastructure | Microsoft Azure"
-	description="Découvrez-en plus sur les principales instructions de conception et d’implémentation pour la dénomination dans des services d’infrastructure Azure."
-	documentationCenter=""
-	services="virtual-machines-linux"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Infrastructure Naming Guidelines | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for naming in Azure infrastructure services."
+    documentationCenter=""
+    services="virtual-machines-linux"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
-# Instructions de dénomination d’infrastructure
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
+# <a name="infrastructure-naming-guidelines"></a>Infrastructure naming guidelines
 
-Cet article se concentre sur la compréhension de l’approche des conventions de dénomination de vos diverses ressources Azure afin de créer un ensemble de ressources logique et facilement identifiable au sein de votre environnement.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
 
-## Instructions d’implémentation pour les conventions d’affectation de noms
+This article focuses on understanding how to approach naming conventions for all your various Azure resources to build a logical and easily identifiable set of resources across your environment.
 
-Décisions :
+## <a name="implementation-guidelines-for-naming-conventions"></a>Implementation guidelines for naming conventions
 
-- Quelles sont vos conventions d’affectation de noms pour les ressources Azure ?
+Decisions:
 
-Tâches :
+- What are your naming conventions for Azure resources?
 
-- Définissez les affixes à utiliser parmi vos ressources pour assurer la cohérence.
-- Définissez des noms de compte de stockage devant être globalement uniques.
-- Documentez la convention de dénomination à utiliser et à distribuer à toutes les parties impliquées pour assurer la conformité à travers les déploiements.
+Tasks:
 
-## Conventions d’affectation de noms
+- Define the affixes to use across your resources to maintain consistency.
+- Define storage account names given the requirement for them to be globally unique.
+- Document the naming convention to be used and distribute to all parties involved to ensure consistency across deployments.
 
-Vous devez avoir une convention d’affectation de noms adaptée avant tout processus de création dans Azure. Une convention d’affectation de noms garantit que toutes les ressources ont un nom prévisible, afin de réduire la charge administrative associée à leur gestion.
+## <a name="naming-conventions"></a>Naming conventions
 
-Vous pouvez choisir de suivre un ensemble spécifique de conventions d’affectation de noms définies pour votre organisation, ou pour un compte ou abonnement Azure spécifique. Bien qu’il soit facile d’établir des règles implicites au sein d’organisations lorsque vous travaillez avec des ressources Azure, vous devez être en mesure de les mettre à l’échelle pour des équipes collaborant dans Azure.
+You should have a good naming convention in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with managing those resources.
 
-Convenez d’un ensemble de conventions d’affectation de noms en amont. Certains facteurs sont à prendre en compte pour l’ensemble des règles de dénomination.
+You might choose to follow a specific set of naming conventions defined for your entire organization or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, you need to be able to scale for teams working together in Azure.
 
-## Affixes
+Agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across that sets of rules.
 
-Lorsque vous cherchez à définir une convention de dénomination, une décision est à prendre quant au positionnement de l’affixe :
+## <a name="affixes"></a>Affixes
 
-- au début du nom (préfixe)
-- à la fin du nom (suffixe)
+As you look to define a naming convention, one decision is whether the affix is at:
 
-Voici deux exemples de noms possibles pour un groupe de ressources avec l’affixe `rg` :
+- The beginning of the name (prefix)
+- The end of the name (suffix)
 
-- Rg-WebApp (préfixe)
-- WebApp-Rg (suffixe)
+For instance, here are two possible names for a Resource Group using the `rg` affix:
 
-Les affixes peuvent faire référence à différents aspects des ressources spécifiques. Le tableau suivant présente des exemples généralement utilisés.
+- Rg-WebApp (prefix)
+- WebApp-Rg (suffix)
 
-| Aspect | Exemples | Remarques |
+Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
+
+| Aspect                               | Examples                                                               | Notes                                                                                                      |
 |:-------------------------------------|:-----------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
-| Environnement | dev, stg, prod | En fonction de l’objectif et du nom de chaque environnement. |
-| Lieu | usw (West US), use (East US 2) | En fonction de la région du centre de données et de l’organisation. |
-| Composant, service ou produit Azure | Rg pour groupe de ressources, VNet pour réseau virtuel | En fonction du produit auquel la ressource est associée. |
-| Rôle | base de données, application, web | En fonction du rôle de la machine virtuelle. |
-| Instance | 01, 02, 03, etc. | Pour les ressources possédant plusieurs instances. Par exemple, des serveurs Web à charge équilibrée dans un service cloud. |
+| Environment                          | dev, stg, prod                                                         | Depending on the purpose and name of each environment.                                                     |
+| Location                             | usw (West US), use (East US 2)                                         | Depending on the region of the datacenter or the region of the organization.                               |
+| Azure component, service, or product | Rg for resource group, VNet for virtual network                        | Depending on the product for which the resource provides support.                                          |
+| Role                                 | db, app, web                                                           | Depending on the role of the virtual machine.                                                              |
+| Instance                             | 01, 02, 03, etc.                                                       | For resources that have more than one instance. For example, load balanced web servers in a cloud service. |
 
 
-Lors de l’établissement de conventions d’affectation de noms, assurez-vous qu’elles indiquent clairement les affixes à utiliser pour chaque type de ressource et à quelle position (suffixe ou préfixe).
+When establishing your naming conventions, make sure that they clearly state which affixes to use for each type of resource, and in which position (prefix vs suffix).
 
-## Dates
+## <a name="dates"></a>Dates
 
-Dans de nombreux cas, il est important de déterminer la date de création à partir du nom d’une ressource. Nous recommandons le format de date AAAAMMJJ. Ce format permet non seulement d’enregistrer la date complète, mais également de trier par ordre alphabétique et par ordre chronologique deux ressources dont les noms diffèrent uniquement au niveau de la date.
+It is often important to determine the date of creation from the name of a resource. We recommend the YYYYMMDD date format. This format ensures that not only is the full date is recorded, but also that two resources whose names differ only on the date are sorted alphabetically and chronologically.
 
-## Ressources d’affectation de noms
+## <a name="naming-resources"></a>Naming resources
 
-Définissez chaque type de ressource dans la convention d’affectation de noms, qui doit comprendre des règles définissant l’attribution de nom pour chaque ressource créée. Ces règles doivent s’appliquer à tous les types de ressources, par exemple :
+Define each type of resource in the naming convention, which should have rules that define how to assign names to each resource that is created. These rules should apply to all types of resources, for example:
 
-- Abonnements
-- Comptes
-- Comptes de stockage
-- Réseaux virtuels
-- Sous-réseaux
-- Groupes à haute disponibilité
-- Groupes de ressources
-- Machines virtuelles
-- Points de terminaison
-- groupes de sécurité réseau ;
-- contrôleur
+- Subscriptions
+- Accounts
+- Storage accounts
+- Virtual networks
+- Subnets
+- Availability sets
+- Resource groups
+- Virtual machines
+- Endpoints
+- Network security groups
+- Roles
 
-Les noms doivent être descriptifs, afin de fournir suffisamment d’informations pour déterminer la ressource à laquelle ils font référence.
+To ensure that the name provides enough information to determine to which resource it refers, you should use descriptive names.
 
-## Noms des ordinateurs
+## <a name="computer-names"></a>Computer names
 
-Lorsque vous créez une machine virtuelle, Azure requiert un nom de machine virtuelle contenant jusqu’à 64 caractères utilisé pour le nom de la ressource. Azure utilise le même nom pour le système d’exploitation installé sur la machine virtuelle. Toutefois, ces noms peuvent ne pas toujours être identiques.
+When you create a virtual machine (VM), Azure requires a VM name of up to 64 characters that is used for the resource name. Azure uses the same name for the operating system installed in the VM. However, these names might not always be the same.
 
-Si une machine virtuelle est créée à partir d’un fichier d’image .vhd qui contient déjà un système d’exploitation, le nom de la machine virtuelle dans Azure peut différer du nom d’ordinateur du système d’exploitation de la machine virtuelle. Dans ce cas, la gestion de la machine virtuelle devient plus difficile. C’est pourquoi nous le déconseillons. Affectez à la ressource de la machine virtuelle Azure le nom d’ordinateur attribué au système d’exploitation de cette machine virtuelle.
+If a VM is created from a .vhd image file that already contains an operating system, the VM name in Azure can differ from the VM's operating system computer name. This situation can add a degree of difficulty to VM management, which we therefore do not recommend. Assign the Azure VM resource the same name as the computer name that you assign to the operating system of that VM.
 
-Nous recommandons que le nom de la machine virtuelle Azure soit le même que le nom d’ordinateur du système d’exploitation sous-jacent.
+We recommend that the Azure VM name is the same as the underlying operating system computer name.
 
-## Noms des comptes de stockage
+## <a name="storage-account-names"></a>Storage account names
 
-Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d’informations, voir [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). En outre, le nom du compte de stockage, avec core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
+Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 - mystorageaccount.blob.core.windows.net
 - mystorageaccount.table.core.windows.net
 - mystorageaccount.queue.core.windows.net
 
 
-## Étapes suivantes
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+## <a name="next-steps"></a>Next steps
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

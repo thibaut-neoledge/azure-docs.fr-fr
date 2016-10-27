@@ -1,122 +1,128 @@
 <properties
-	pageTitle="Importer des données dans Azure Search à l’aide d’indexeurs du portail Azure | Microsoft Azure | Service de recherche cloud hébergé"
-	description="Utilisez l’Assistant Importer des données d’Azure Search dans le portail Azure pour analyser des données à partir du stockage d’objets blob Azure, du stockage de tables, de SQL Database et de SQL Server sur des machines virtuelles Azure."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="jhubbard"
-	editor=""
+    pageTitle="Import data to Azure Search using indexers in the Azure Portal | Microsoft Azure | Hosted cloud search service"
+    description="Use the Azure Search Import Data Wizard in the Azure Portal to crawl data from Azure Blob storage, table stroage, SQL Database, and SQL Server on Azure VMs."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="jhubbard"
+    editor=""
     tags="Azure Portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="08/29/2016"
+    ms.author="heidist"/>
 
-# Importer des données dans Azure Search à l’aide du portail
 
-Le portail Azure propose, sur le tableau de bord Azure Search, un Assistant **Importer des données** qui vous permet de charger des données dans un index.
+# <a name="import-data-to-azure-search-using-the-portal"></a>Import data to Azure Search using the portal
 
-  ![Importer des données dans la barre de commandes][1]
+The Azure portal provides an **Import Data** wizard on the Azure Search dashboard for loading data into an index. 
 
-En interne, l’Assistant configure et appelle un *indexeur*, ce qui permet d’automatiser plusieurs étapes du processus d’indexation :
+  ![Import Data on the command bar][1]
 
-- Connexion à une source de données externe dans l’abonnement Azure actuel
-- Génération automatique d’un schéma d’index basé sur la structure des données source
-- Création de documents à partir d’un ensemble de lignes extrait de la source de données
-- Chargement de documents vers l’index dans votre service de recherche
+Internally, the wizard configures and invokes an *indexer*, automating several steps of the indexing process: 
 
-Vous pouvez tester ce workflow à l’aide d’exemples de données dans DocumentDB. Pour obtenir des instructions, consultez la page [Prise en main d’Azure Search dans le portail Azure](search-get-started-portal.md).
+- Connect to an external data source in the current Azure subscription
+- Autogenerate an index schema based on the source data structure
+- Create documents based on a rowset retrieved from the data source
+- Upload documents to the index in your search service
 
-## Sources de données prises en charge par l’Assistant Importer des données
+You can try out this workflow using sample data in DocumentDB. Visit [Get started with Azure Search in the Azure Portal](search-get-started-portal.md) for instructions.
 
-L’Assistant Importation de données prend en charge les sources de données suivantes :
+## <a name="data-sources-supported-by-the-import-data-wizard"></a>Data sources supported by the Import Data Wizard
+
+The Import Data wizard supports the following data sources: 
 
 - Azure SQL Database
-- Données relationnelles SQL Server sur une machine virtuelle Azure
-- Document DB Azure
-- Stockage Blob Azure (version préliminaire)
-- Stockage Table Azure (version préliminaire)
+- SQL Server relational data on an Azure VM
+- Azure DocumentDB
+- Azure Blob storage (in preview)
+- Azure Table storage (in preview)
 
-Un jeu de données aplati est requis. Vous pouvez uniquement effectuer vos importations à partir d’une seule table, vue de base de données ou structure de données équivalente. Vous devez créer cette structure de données avant d’exécuter l’Assistant.
+A flattened dataset is a required input. You can only import from a single table, database view, or equivalent data structure. You should create this data structure before running the wizard.
 
-Quelques indexeurs sont toujours en version préliminaire : la définition des indexeurs est donc prise en charge par la version préliminaire de l’API. Consultez la page [Indexeurs dans Azure Search](search-indexer-overview.md) pour obtenir plus d’informations et accéder à des liens utiles.
+Note that a few of the indexers are still in preview, which means the indexer definition is backed by the preview version of the API. See [Indexer overview](search-indexer-overview.md) for more information and links.
 
-## Se connecter aux données
+## <a name="connect-to-your-data"></a>Connect to your data
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez le tableau de bord du service. Vous pouvez cliquer sur **Services de recherche** dans la barre d’index pour afficher les services existants dans l’abonnement actuel.
+1. Sign in to the [Azure Portal](https://portal.azure.com) and open service dashboard. You can click **Search services** in the jump bar to show the existing services in the current subscription. 
 
-2. Cliquez sur **Importer des données** dans la barre de commandes pour ouvrir le panneau d’importation des données.
+2. Click **Import Data** on the command bar to slide open the Import Data blade.  
 
-3. Cliquez sur **Se connecter à vos données** pour spécifier une définition de source de données utilisée par un indexeur. Pour les sources de données au sein de l’abonnement, l’Assistant est généralement en mesure de détecter et lire les informations de connexion, ce qui limite les exigences de configuration globale.
+3. Click **Connect to your data** to specify a data source definition used by an indexer. For intra-subscription data sources, the wizard can usually detect and read connection information, minimizing overall configuration requirements.
 
 | | |
 |--------|------------|
-|**Source de données existante** | Si des indexeurs sont déjà définis dans votre service de recherche, vous pouvez sélectionner une définition de source de données existante pour une autre importation.|
-|**Base de données SQL Azure** | Le nom du service, les informations d’identification d’un utilisateur de base de données avec autorisation de lecture, ainsi que le nom de la base de données peuvent être spécifiés sur la page ou par le biais d’une chaîne de connexion ADO.NET. Choisissez l’option de chaîne de connexion permettant d’afficher ou de personnaliser les propriétés. <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante.|
-|**SQL Server dans les machines virtuelles Azure** | Spécifiez un nom de service complet, un ID d’utilisateur et un mot de passe, ainsi qu’une base de données pour la chaîne de connexion. Afin d’utiliser cette source de données, vous devez avoir préalablement installé un certificat dans le magasin local pour chiffrer la connexion. <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante.
-|**Base de données de documents** |La configuration requise inclut le compte, la base de données et la collection. Tous les documents de la collection seront inclus dans l’index. Vous pouvez définir une requête pour aplatir ou filtrer l’ensemble de lignes, ou pour détecter les documents modifiés dans l’optique de l’actualisation ultérieure des données.|
-|**Stockage Blob Azure** | La configuration requise inclut le compte de stockage et un conteneur. Si les noms d’objets blob suivent une convention d’affectation de noms virtuelle à des fins de regroupement, vous pouvez indiquer la partie de répertoire virtuel du nom comme dossier sous le conteneur. Consultez la page [Indexation de documents dans Azure Blob Storage avec Azure Search](search-howto-indexing-azure-blob-storage.md) pour plus d’informations. |
-|**Azure Table Storage** | La configuration requise inclut le compte de stockage et un nom de table. Vous pouvez également spécifier une requête pour extraire un sous-ensemble des tables. Consultez la page [Indexation du stockage de tables Azure avec Azure Search](search-howto-indexing-azure-tables.md) pour plus d’informations. |
+|**Existing data source** | If you already have indexers defined in your search service, you can select an existing data source definition for another import.|
+|**Azure SQL Database** | Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection.|
+|**SQL Server on Azure VM** | Specify a fully-qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection.
+|**DocumentDB** |Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or to detect changed documents for subsequent data refresh operations.|
+|**Azure Blob Storage** | Requirements include the storage account and a container. Optionally, if blob names follow a virtual naming convention for grouping purposes, you can specify the virtual directory portion of the name as a folder under container. See [Indexing Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md) for more information. |
+|**Azure Table Storage** | Requirements include the storage account and a table name. Optionally, you can specify a query to retrieve a subset of the tables. See [Indexing Table Storage (preview)](search-howto-indexing-azure-tables.md) for more information. |
 
-## Personnaliser l’index cible
+## <a name="customize-target-index"></a>Customize target index
 
-Un index préliminaire est habituellement déduit du jeu de données. Ajoutez, modifiez ou supprimer des champs pour finaliser le schéma. En outre, définissez des attributs au niveau des champs pour déterminer le comportement des recherches ultérieures.
+A preliminary index is typically inferred from the dataset. Add, edit, or delete fields to complete the schema. Additionally, set attributes at the field level to determine its subsequent search behaviors.
 
-1. Dans **Personnaliser l’index cible**, spécifiez le nom et une **clé** utilisée pour identifier de façon unique chaque document. La clé doit être une chaîne. Si les valeurs de champ comportent des espaces ou tirets, définissez les options avancées dans **Importer vos données** de manière à supprimer la vérification de validation pour ces caractères.
+1. In **Customize target index**, specify the name and a **Key** used to uniquely identify each document. The Key must be a string. If field values include spaces or dashes be sure to set advanced options in **Import your data** to suppress the validation check for these characters.
 
-2. Passez en revue et modifiez les champs restants. Le nom et le type de champ sont généralement renseignés automatiquement. Vous pouvez cependant modifier le type de données.
+2. Review and revise the remaining fields. Field name and type are typically filled in for you. You can change the data type.
 
-3. Définissez les attributs d’index de chaque champ :
+3. Set index attributes for each field:
 
- - « Récupérable » renvoie le champ dans les résultats de la recherche.
- - « Filtrable » permet de référencer le champ dans les expressions de filtre.
- - « Triable » permet d’utiliser le champ dans un tri.
- - « À choix multiples » active le champ pour la navigation à choix multiples.
- - « Possibilité de recherche » permet une recherche en texte intégral.
+ - Retrievable returns the field in search results.
+ - Filterable allows the field to be referenced in filter expressions.
+ - Sortable allows the field to be used in a sort.
+ - Facetable enables the field for faceted navigation.
+ - Searchable enables full-text search.
   
-4. Cliquez sur l’onglet **Analyseur** si vous souhaitez spécifier un analyseur de langue au niveau du champ. Seuls les analyseurs de langage peuvent être spécifiés pour l’instant. L’utilisation d’un analyseur personnalisé ou d’un analyseur non dédié au langage, comme Keyword, Pattern, etc., nécessite du code.
+4. Click the **Analyzer** tab if you want to specify a language analyzer at the field level. Only language analyzers can be specified at this time. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, will require code.
 
- - Cliquez sur **Possibilité de recherche** pour désigner la recherche en texte intégral sur le champ et pour activer la liste déroulante de l’analyseur.
- - Cliquez sur l’analyseur de votre choix. Voir [Création d’une définition d’index de document dans plusieurs langues dans Azure Search](search-language-support.md) pour plus d’informations.
+ - Click **Searchable** to designate full-text search on the field and enable the Analyzer drop-down list.
+ - Choose the analyzer you want. See [Create an index for documents in multiple language](search-language-support.md) for details.
 
-5. Cliquez sur le **générateur de suggestions** pour activer les suggestions de requête type-ahead sur les champs sélectionnés.
+5. Click the **Suggester** to enable type-ahead query suggestions on selected fields.
 
 
-## Importer vos données
+## <a name="import-your-data"></a>Import your data
 
-1. Dans **Importer vos données**, donnez un nom à l’indexeur. Rappelez-vous que le produit de l’Assistant Importer des données est un indexeur. Par la suite, si vous souhaitez l’afficher ou le modifier, vous devrez le sélectionner à partir du portail au lieu de réexécuter l’Assistant.
+1. In **Import your data**, provide a name for the indexer. Recall that the product of the Import Data wizard is an indexer. Later, if you want to view or edit it, you'll select it from the portal rather than by rerunning the wizard. 
 
-2. Spécifiez le calendrier, qui est basé sur le fuseau horaire régional dans lequel le service est configuré.
+2. Specify the schedule, which is based on the regional time zone in which the service is provisioned.
 
-3. Définissez des options avancées pour spécifier les seuils sur lesquels l’indexation peut continuer en cas de suppression d’un document. En outre, vous pouvez spécifier si les champs **Clé** peuvent contenir des espaces et des barres obliques.
+3. Set advanced options to specify thresholds on whether indexing can continue if a document is dropped. Additionally, you can specify whether **Key** fields are allowed to contain spaces and slashes.  
 
-## Modification d’un indexeur existant
+## <a name="edit-an-existing-indexer"></a>Edit an existing indexer
 
-Dans le tableau de bord du service, double-cliquez sur la vignette Indexeur afin d’extraire la liste de tous les indexeurs créés pour votre abonnement. Double-cliquez sur l’un des indexeurs pour l’exécuter, le modifier ou le supprimer. Vous pouvez remplacer l’index existant par un autre, modifier la source de données et définir les options de seuils d’erreur lors de l’indexation.
+In the service dashboard, double-click on the Indexer tile to slide out a list of all indexers created for your subscription. Double-click one of the indexers to run, edit or delete it. You can replace the index with another existing one, change the data source, and set options for error thresholds during indexing.
 
-## Modification d’un index existant
+## <a name="edit-an-existing-index"></a>Edit an existing index
 
-Dans Azure Search, les mises à jour structurelles d’un index nécessitent une reconstruction de cet index. Cette opération consiste à supprimer l’index, à le recréer et à recharger les données. Les mises à jour structurelles incluent la modification d’un type de données et le renommage ou la suppression d’un champ.
+In Azure Search, structural updates to an index will require a rebuild of that index, which consists of deleting the index, recreating the index, and reloading data. Structural updates include changing a data type and renaming or deleting a field.
 
-L’ajout d’un nouveau champ, la modification des profils de score, la modification des générateurs de suggestions ou la modification des analyseurs de langue ne nécessitent pas de reconstruction. Consultez la page [Mettre à jour l’index](https://msdn.microsoft.com/library/azure/dn800964.aspx) pour plus de détails.
+Edits that don't require a rebuild include adding a new field, changing scoring profiles, changing suggesters, or changing language analyzers. See [Update Index](https://msdn.microsoft.com/library/azure/dn800964.aspx) for more information.
 
-## Étape suivante
+## <a name="next-step"></a>Next step
 
-Suivez ces liens pour en savoir plus sur les indexeurs :
+Review these links to learn more about indexers:
 
-- [Connexion d’Azure SQL Database à Azure Search à l’aide d’indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-- [Connexion de DocumentDB à Azure Search à l’aide d’indexeurs](../documentdb/documentdb-search-indexer.md)
-- [Indexation de documents dans Azure Blob Storage avec Azure Search](search-howto-indexing-azure-blob-storage.md)
-- [Indexation du stockage de tables Azure avec Azure Search](search-howto-indexing-azure-tables.md)
+- [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Indexing DocumentDB](../documentdb/documentdb-search-indexer.md)
+- [Indexing Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
+- [Indexing Table Storage (preview)](search-howto-indexing-azure-tables.md)
 
 
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

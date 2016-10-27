@@ -1,15 +1,17 @@
-Type | Service | Déclencheur | Entrée | Sortie 
+Type | Service | Trigger | Input | Output 
 -----|---------|---------|-------|--------
-Planification | Azure Functions | &#10004; | | 
-HTTP (REST ou webhook) | Azure Functions | &#10004; | | &#10004;*
-Stockage d’objets blob | Azure Storage | &#10004; | &#10004; | &#10004; 
-Événements | Hubs d'événements Azure | &#10004; | | &#10004;
-Files d’attente | Azure Storage | &#10004; | | &#10004;
-Tables | Azure Storage | | &#10004; | &#10004;
-Tables | Azure Mobile Apps | | &#10004; | &#10004;
-Base de données non-SQL | Document DB Azure | | &#10004; | &#10004;
-Notifications Push | Azure Notification Hubs | | | &#10004;
+Schedule | Azure Functions | &#10004; |  | 
+HTTP (REST or webhook) | Azure Functions | &#10004; |  | &#10004;\*
+Blob Storage | Azure Storage | &#10004; | &#10004; | &#10004; 
+Events | Azure Event Hubs | &#10004; | | &#10004;
+Queues | Azure Storage | &#10004; |  | &#10004;
+Tables | Azure Storage |  | &#10004; | &#10004;
+Tables | Azure Mobile Apps |  | &#10004; | &#10004;
+No-SQL DB | Azure DocumentDB |  | &#10004; | &#10004;
+Push Notifications | Azure Notification Hubs | | | &#10004;
 
-(* - L’annulation de la liaison http requiert un déclencheur http)
+(\* - The http out binding requires an http trigger)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,34 +1,35 @@
 <properties
-	pageTitle="Déclencheur de minuteur Azure Functions| Microsoft Azure"
-	description="Découvrez comment utiliser des déclencheurs de minuteur dans Azure Functions."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"/>
+    pageTitle="Azure Functions timer trigger | Microsoft Azure"
+    description="Understand how to use timer triggers in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="christopheranderson"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="chrande; glenga"/>
 
-# Déclencheur de minuteur Azure Functions
 
-[AZURE.INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
+# <a name="azure-functions-timer-trigger"></a>Azure Functions timer trigger
 
-Cet article explique comment configurer des déclencheurs de minuteur dans Azure Functions. Les déclencheurs de minuteur appellent des fonctions basées sur une planification ponctuelle ou périodique.
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+This article explains how to configure timer triggers in Azure Functions. Timer triggers call functions based on a schedule, one time or recurring.  
 
-## Fichier function.json pour le déclencheur de minuteur
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-Le fichier *function.json* contient une expression de planification. Par exemple, la planification suivante exécute la fonction chaque minute :
+## <a name="function.json-for-timer-trigger"></a>function.json for timer trigger
+
+The *function.json* file provides a schedule expression. For example, the following schedule runs the function every minute:
 
 ```json
 {
@@ -44,55 +45,55 @@ Le fichier *function.json* contient une expression de planification. Par exemple
 }
 ```
 
-Le déclencheur de minuteur gère automatiquement l’augmentation de la taille des instances multi-instance : une seule instance d’une fonction de minuteur spécifique s’exécutera dans l’ensemble des instances.
+The timer trigger handles multi-instance scale-out automatically: only a single instance of a particular timer function will be running across all instances.
 
-## Format de l’expression schedule
+## <a name="format-of-schedule-expression"></a>Format of schedule expression
 
-L’expression de planification est une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui contient 6 champs : `{second} {minute} {hour} {day} {month} {day of the week}`.
+The schedule expression is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields:  `{second} {minute} {hour} {day} {month} {day of the week}`. 
 
-Notez que la plupart des expressions cron disponibles en ligne omettent le champ {seconde} ; par conséquent, si vous copiez une expression de l’un de ces documents, vous devrez adapter votre code pour y inclure ce champ supplémentaire.
+Note that many of the cron expressions you find online omit the {second} field, so if you copy from one of those you'll have to adjust for the extra field. 
 
-Voici quelques exemples d’expressions schedule :
+Here are some other schedule expression examples:
 
-Pour déclencher la fonction toutes les 5 minutes :
+To trigger once every 5 minutes:
 
 ```json
 "schedule": "0 */5 * * * *"
 ```
 
-Pour déclencher la fonction toutes les heures :
+To trigger once at the top of every hour:
 
 ```json
 "schedule": "0 0 * * * *",
 ```
 
-Pour déclencher la fonction toutes les deux heures:
+To trigger once every two hours:
 
 ```json
 "schedule": "0 0 */2 * * *",
 ```
 
-Pour déclencher la fonction toutes les heures entre 9h et 17h :
+To trigger once every hour from 9 AM to 5 PM:
 
 ```json
 "schedule": "0 0 9-17 * * *",
 ```
 
-Pour déclencher la fonction à 9h30 tous les jours :
+To trigger At 9:30 AM every day:
 
 ```json
 "schedule": "0 30 9 * * *",
 ```
 
-Pour déclencher la fonction à 9h30 tous les jours de la semaine :
+To trigger At 9:30 AM every weekday:
 
 ```json
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## Exemple de code C# de déclencheur de minuteur
+## <a name="timer-trigger-c#-code-example"></a>Timer trigger C# code example
 
-Cet exemple de code C# écrit un journal spécifique chaque fois que la fonction est déclenchée.
+This C# code example writes a single log each time the function is triggered.
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -101,8 +102,12 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

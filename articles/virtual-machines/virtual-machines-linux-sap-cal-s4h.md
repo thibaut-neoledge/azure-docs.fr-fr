@@ -7,22 +7,24 @@ authors="hermanndms"
 manager="timlt" 
 editor="" 
 tags="azure-resource-manager" 
-  keywords=""/>
-<tags  
+  keywords=""/> 
+<tags 
   ms.service="virtual-machines-linux" 
   ms.devlang="na" 
   ms.topic="article" 
   ms.tgt_pltfrm="vm-linux" 
   ms.workload="infrastructure-services" 
   ms.date="09/15/2016" 
-  ms.author="hermannd"/>
+  ms.author="hermannd"/> 
 
 
-# Déployer S/4 HANA ou BW/4 HANA sur Microsoft Azure 
 
-Cet article explique comment déployer S/4 HANA sur Microsoft Azure via SAP Cloud Appliance Library 3.0. Les captures d’écran montrent le processus étape par étape. Le déploiement d’autres solutions basées sur SAP HANA comme BW/4 HANA fonctionne de la même façon en termes de processus. Il suffit de sélectionner une autre solution.
+# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Déployer S/4 HANA ou BW/4 HANA sur Microsoft Azure 
 
-Pour démarrer avec SAP Cloud Appliance Library (SAP CAL), accédez à [cette page](https://cal.sap.com/). Il existe un blog SAP sur le nouveau [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+Cet article explique comment déployer S/4 HANA sur Microsoft Azure via SAP Cloud Appliance Library 3.0.
+Les captures d’écran montrent le processus étape par étape. Le déploiement d’autres solutions basées sur SAP HANA comme BW/4 HANA fonctionne de la même façon en termes de processus. Il suffit de sélectionner une autre solution.
+
+Pour démarrer avec SAP Cloud Appliance Library (SAP CAL), accédez à [cette page](https://cal.sap.com/). Il existe un blog SAP sur le nouveau [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 
 Les captures d’écran suivantes présentent la procédure étape par étape pour déployer S/4 HANA sur Microsoft Azure. Le processus fonctionne de la même façon pour les autres solutions telles que BW/4 HANA.
@@ -30,7 +32,8 @@ Les captures d’écran suivantes présentent la procédure étape par étape po
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
-La première image montre toutes les solutions basées sur SAP CAL HANA qui sont disponibles sur Microsoft Azure. À titre d’exemple, le processus a été appliqué à l’« édition locale SAP S/4 HANA » (la solution présentée en bas de la capture d’écran).
+La première image montre toutes les solutions basées sur SAP CAL HANA qui sont disponibles sur Microsoft Azure.
+À titre d’exemple, le processus a été appliqué à l’« édition locale SAP S/4 HANA » (la solution présentée en bas de la capture d’écran).
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-2.jpg)
 
@@ -46,7 +49,8 @@ Dans le nouveau portail Azure, l’élément « Abonnements » se trouve sur le 
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
 
-Sélectionnez l’un des abonnements puis choisissez « Certificats de gestion » afin de découvrir le nouveau concept qui utilise des « principaux du service » pour le nouveau modèle Azure Resource Manager. SAP CAL n’étant pas encore adapté pour ce nouveau modèle, il vous faut toujours le modèle « classique » et l’ancien portail pour travailler avec les certificats de gestion.
+Sélectionnez l’un des abonnements puis choisissez « Certificats de gestion » afin de découvrir le nouveau concept qui utilise des « principaux du service » pour le nouveau modèle Azure Resource Manager.
+SAP CAL n’étant pas encore adapté pour ce nouveau modèle, il vous faut toujours le modèle « classique » et l’ancien portail pour travailler avec les certificats de gestion.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic4b.jpg)
 
@@ -66,7 +70,8 @@ Une fois que le certificat a été chargé, la connexion entre SAP CAL et l’ab
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic10.jpg)
 
-Après avoir configuré un compte, il faut sélectionner une solution devant être déployée et créer une instance. Avec le mode « de base », c’est un jeu d’enfant. Entrez un nom d’instance, choisissez une région Azure et définissez un mot de passe principal pour la solution.
+Après avoir configuré un compte, il faut sélectionner une solution devant être déployée et créer une instance.
+Avec le mode « de base », c’est un jeu d’enfant. Entrez un nom d’instance, choisissez une région Azure et définissez un mot de passe principal pour la solution.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic11.jpg)
 
@@ -88,4 +93,15 @@ Il est à présent possible de se connecter à la solution via le bouton de conn
 
 Une autre option consiste à se connecter à la machine virtuelle Windows cliente et de commencer la SAP GUI préconfigurée.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

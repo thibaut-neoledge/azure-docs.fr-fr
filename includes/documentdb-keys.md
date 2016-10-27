@@ -1,5 +1,8 @@
-  Maintenant, accédez au panneau du compte DocumentDB et cliquez sur **Clés** car nous utiliserons ces valeurs dans l’application web que nous allons créer.
+  Now navigate to the DocumentDB account blade, and click **Keys**, as we will use these values in the web application we create next.
 
-![Capture d’écran du portail Azure : affichage d’un compte DocumentDB, avec le bouton Clés mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs URI, CLÉ PRIMAIRE et CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés](./media/documentdb-keys/keys.png)
+![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

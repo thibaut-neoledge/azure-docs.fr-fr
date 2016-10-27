@@ -1,6 +1,6 @@
 <properties
- pageTitle="Solutions Azure pour l’Internet des objets | Microsoft Azure"
- description="Une vue d’ensemble d’IoT sur Azure, avec un exemple d’architecture de solution et sa relation avec Azure IoT Hub et des solutions préconfigurées."
+ pageTitle="Azure solutions for Internet of Things | Microsoft Azure"
+ description="A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and preconfigured solutions"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,22 +17,23 @@
  ms.date="08/09/2016"
  ms.author="dobett"/>
 
-[AZURE.INCLUDE [iot-azure-et-iot](../../includes/iot-azure-and-iot.md)]
 
-## Azure IoT Suite
+[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-Microsoft Azure IoT Suite est une solution d’entreprise qui permet une prise en main rapide grâce à un ensemble de solutions préconfigurées extensibles conçues pour couvrir la plupart des scénarios IoT, tels que la [surveillance à distance][lnk-preconfigured-solutions] et la [maintenance prédictive][lnk-predictive-maintenance]. Ces solutions sont des implémentations de l’architecture de solution IoT décrite dans cet article.
+## <a name="azure-iot-suite"></a>Azure IoT Suite
 
-Les solutions préconfigurées sont des solutions de bout en bout complètes et fonctionnelles, qui intègrent des simulations d’appareils conçues pour faciliter la prise en main, des services Azure préconfigurés tels qu’[Azure IoT Hub][], [Azure Event Hubs][], [Azure Stream Analytics][], [Azure Machine Learning][] et [Azure Storage][], ainsi que des consoles de gestion de solutions spécifiques. Les solutions préconfigurées contiennent du code éprouvé, prêt pour la production, que vous pouvez personnaliser et étendre pour implémenter vos propres scénarios IoT spécifiques.
+The Microsoft Azure IoT Suite is an enterprise-grade solution that enables you to get started quickly through a set of extensible preconfigured solutions that address common IoT scenarios, such as [remote monitoring][lnk-preconfigured-solutions] and [predictive maintenance][lnk-predictive-maintenance]. These solutions are implementations of the IoT solution architecture outlined in this article.
 
-Vous pouvez également être intéressé par le service [Azure IoT Hub][], utilisé par un grand nombre de solutions préconfigurées. [Azure IoT Hub][] établit une communication bidirectionnelle sécurisée et fiable entre les appareils et le cloud utilisé dans l’architecture de solution préconfigurée.
+The preconfigured solutions are complete, working, end-to-end solutions that include simulated devices to get you started, preconfigured Azure services such as [Azure IoT Hub][], [Azure Event Hubs][], [Azure Stream Analytics][], [Azure Machine Learning][], and [Azure storage][], and solution specific management consoles. The preconfigured solutions contain proven, production-ready code that you can customize and extend to implement your own specific IoT scenarios.
 
-## Étapes suivantes
+You may also be interested in the [Azure IoT Hub][] service that many of the preconfigured solutions use. [Azure IoT Hub][] provides the secure and reliable bi-directional communications between devices and the cloud used in the preconfigured solution architecture.
 
-Explorez les ressources ci-après pour en savoir plus sur IoT Suite et sur les solutions préconfigurées :
+## <a name="next-steps"></a>Next steps
 
-- [Qu’est-ce qu’Azure IoT Suite ?][lnk-whatissuite]
-- [Que sont les solutions préconfigurées Azure IoT Suite ?][lnk-whatarepreconfigured]
+Explore these resources to continue learning about IoT Suite and the preconfigured solutions:
+
+- [What is Azure IoT Suite?][lnk-whatissuite]
+- [What are the Azure IoT Suite preconfigured solutions?][lnk-whatarepreconfigured]
 
 [lnk-whatissuite]: iot-suite-overview.md
 [lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
@@ -45,4 +46,7 @@ Explorez les ressources ci-après pour en savoir plus sur IoT Suite et sur les s
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

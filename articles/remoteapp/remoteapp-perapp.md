@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Publier des applications pour des utilisateurs individuels dans une collection Azure RemoteApp (version préliminaire) | Microsoft Azure"
-   description="Apprenez à publier des applications dans Azure RemoteApp à l’attention d’utilisateurs spécifiques plutôt qu’à des groupes."
+   pageTitle="Publish applications to individual users in an Azure RemoteApp collection (Preview) | Microsoft Azure"
+   description="Learn how you can publish apps to individual users, instead of depending on groups, in Azure RemoteApp."
    services="remoteapp-preview"
    documentationCenter=""
    authors="piotrci"
@@ -16,93 +16,98 @@
    ms.date="08/15/2016"
    ms.author="piotrci"/>
 
-# Publier des applications pour des utilisateurs individuels dans une collection Azure RemoteApp (version préliminaire)
+
+# <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-(preview)"></a>Publish applications to individual users in an Azure RemoteApp collection (Preview)
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Cet article explique comment publier des applications pour des utilisateurs individuels dans une collection Azure RemoteApp. Cette nouvelle fonctionnalité d’Azure RemoteApp, actuellement disponible en « version préliminaire privée », est réservée uniquement aux utilisateurs précoces à des fins d’évaluation.
+This article explains how to publish applications to individual users in an Azure RemoteApp collection. This is new functionality in Azure RemoteApp, currently in “private preview” and available only to select early adopters for evaluation purposes.
 
-À l’origine, Azure RemoteApp n’offrait qu’un seul moyen de « publier » des applications : l’administrateur devait publier les applications à partir de l’image pour les rendre visibles à tous les utilisateurs de la collection.
+Originally Azure RemoteApp enabled only one way of “publishing” applications: the administrator would publish apps from the image and they would be visible to all users in the collection.
 
-Dans un souci de réduction des coûts de gestion, il n’est pas rare que les administrateurs intègrent de nombreuses applications dans une même image et déploient une seule collection. Mais toutes les applications ne sont pas toujours utiles à l’ensemble des utilisateurs ; aussi, les administrateurs préféreront publier des applications à l’attention de certains utilisateurs spécifiques afin de ne pas les encombrer d’applications inutiles.
+A common scenario is to include many applications in a single image and deploy one collection in order to reduce management costs. Oftentimes not all applications are relevant to all users – administrators would prefer to publish apps to individual users so they don’t see unnecessary applications in their application feed.
 
-Azure RemoteApp offre désormais cette possibilité dans le cadre d’une fonctionnalité préliminaire limitée. Voici un bref résumé de cette nouvelle fonctionnalité :
+This is now possible in Azure RemoteApp – currently as a limited preview feature. Here is a brief summary of the new functionality:
 
-1. Une collection peut être paramétrée dans deux modes différents :
+1. A collection can be set into one of two modes:
  
-  - le « mode collection » d’origine, grâce auquel tous les utilisateurs d’une collection peuvent visualiser l’ensemble des applications publiées. Il s’agit du mode par défaut ;
-  - le nouveau « mode application », dans lequel les utilisateurs voient uniquement les applications qui leur ont été explicitement affectées.
+  - the original “collection mode”, where all users in a collection can see all published applications. This is the default mode.
+  - the new “application mode”, where users only see applications that have been explicitly assigned to them
 
-2. Pour le moment, le mode application ne peut être activé qu’à l’aide des applets de commande PowerShell pour Azure RemoteApp.
+2. At the moment the application mode can only be enabled using Azure RemoteApp PowerShell cmdlets.
 
-  - En mode application, l’affectation des utilisateurs dans la collection ne peut pas être gérée via le portail Azure. Elle ne peut être gérée qu’au moyen des applets de commande PowerShell.
+  - When set to application mode, user assignment in the collection cannot be managed through the Azure portal. User assignment has to be managed through PowerShell cmdlets.
 
-3. Les utilisateurs ne voient que les applications qui ont été directement publiées à leur attention. Un utilisateur a toutefois la possibilité de lancer les autres applications disponibles sur l’image en y accédant directement depuis le système d’exploitation.
-  - Cette fonctionnalité ne garantit pas un verrouillage sécurisé des applications ; elle ne fait que restreindre la visibilité dans le flux d’applications.
-  - Si vous souhaitez isoler les utilisateurs de certaines applications, vous devez utiliser des collections distinctes.
+3. Users will only see the applications published directly to them. However, it may still be possible for a user to launch the other applications available on the image by accessing them directly in the operating system.
+  - This feature does not provide a secure lockdown of applications; it only limits visibility in the application feed.
+  - If you need to isolate users from applications, you will need to use separate collections for that.
 
-## Comment obtenir les applets de commande PowerShell pour Azure RemoteApp
+## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>How to get Azure RemoteApp PowerShell cmdlets
 
-Pour tester la nouvelle fonctionnalité en version préliminaire, vous devez utiliser les applets de commande Azure PowerShell. Vous ne pouvez pas pour le moment utiliser le portail de gestion Azure pour activer le nouveau mode de publication d’applications.
+To try the new preview functionality, you will need to use Azure PowerShell cmdlets. It is currently not possible to use the Azure Management portal to enable the new application publishing mode.
 
-Assurez-vous tout d’abord que vous disposez bien du [module Azure PowerShell](../powershell-install-configure.md).
+First, make sure you have the [Azure PowerShell module](../powershell-install-configure.md) installed.
 
-Lancez ensuite la console PowerShell en mode administrateur, puis exécutez l’applet de commande suivante :
+Then launch the PowerShell console in administrator mode and run the following cmdlet:
 
-		Add-AzureAccount
+        Add-AzureAccount
 
-Vous êtes invité à saisir vos nom d’utilisateur et mot de passe Azure. Une fois connecté, vous pouvez exécuter des applets de commande Azure RemoteApp sur vos abonnements Azure.
+It will prompt you for your Azure user name and password. Once signed in, you will be able to run Azure RemoteApp cmdlets against your Azure subscriptions.
 
-## Comment vérifier le mode d’une collection
+## <a name="how-to-check-which-mode-a-collection-is-in"></a>How to check which mode a collection is in
 
-Exécutez l’applet de commande suivante :
+Run the following cmdlet:
 
-		Get-AzureRemoteAppCollection <collectionName>
+        Get-AzureRemoteAppCollection <collectionName>
 
-![Vérifier le mode de collecte](./media/remoteapp-perapp/araacllelvel.png)
+![Check the collection mode](./media/remoteapp-perapp/araacllelvel.png)
 
-La propriété AclLevel peut avoir les valeurs suivantes :
+The AclLevel property can have the following values:
 
-- Collection : mode de publication d’origine. Tous les utilisateurs peuvent visualiser l’ensemble des applications publiées.
-- Application : nouveau mode de publication. Les utilisateurs voient uniquement les applications qui ont été directement publiées à leur attention.
+- Collection: the original publishing mode. All users see all published apps.
+- Application: the new publishing mode. Users see only the apps published directly to them.
 
-## Comment passer en mode de publication d’applications
+## <a name="how-to-switch-to-application-publishing-mode"></a>How to switch to application publishing mode
 
-Exécutez l’applet de commande suivante :
+Run the following cmdlet:
 
-		Set-AzureRemoteAppCollection -CollectionName -AclLevel Application
+        Set-AzureRemoteAppCollection -CollectionName -AclLevel Application
 
-L’état de publication des applications est conservé : tous les utilisateurs voient l’ensemble des applications initialement publiées.
+Application publishing state will be preserved: initially all users will see all of the original published apps.
 
-## Comment répertorier les utilisateurs autorisés à visualiser une application spécifique
+## <a name="how-to-list-users-who-can-see-a-specific-application"></a>How to list users who can see a specific application
 
-Exécutez l’applet de commande suivante :
+Run the following cmdlet:
 
-		Get-AzureRemoteAppUser -CollectionName <collectionName> -Alias <appAlias>
+        Get-AzureRemoteAppUser -CollectionName <collectionName> -Alias <appAlias>
 
-Cette commande permet de répertorier tous les utilisateurs pouvant visualiser l’application.
+This lists all users who can see the application.
 
-Remarque : vous pouvez voir les alias de l’application (appelés « app alias » dans la syntaxe ci-dessus) en exécutant l’applet de commande Get-AzureRemoteAppProgram - CollectionName <collectionName>.
+Note: You can see the application aliases (called "app alias" in the syntax above) by running Get-AzureRemoteAppProgram -CollectionName <collectionName>.
 
-## Comment affecter une application à un utilisateur
+## <a name="how-to-assign-an-application-to-a-user"></a>How to assign an application to a user
 
-Exécutez l’applet de commande suivante :
+Run the following cmdlet:
 
-		Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
+        Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-L’utilisateur voit à présent l’application dans le client Azure RemoteApp et sera en mesure de s’y connecter.
+The user will now see the application in the Azure RemoteApp client and will be able to connect to it.
 
-## Comment supprimer une application d’un utilisateur
+## <a name="how-to-remove-an-application-from-a-user"></a>How to remove an application from a user
 
-Exécutez l’applet de commande suivante :
+Run the following cmdlet:
 
-		Remove-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
+        Remove-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-## Appel à commentaires
-Nous vous remercions de nous faire part de vos commentaires et suggestions concernant cette fonctionnalité en version préliminaire. Veuillez répondre à cette [enquête](http://www.instant.ly/s/FDdrb) pour nous dire ce que vous en pensez.
+## <a name="providing-feedback"></a>Providing feedback
+We appreciate your feedback and suggestions regarding this preview feature. Please fill out the [survey](http://www.instant.ly/s/FDdrb) to let us know what you think.
 
-## Vous n’avez pas eu l’occasion de tester la fonctionnalité en version préliminaire ?
-Si vous n’avez pas encore participé à l’évaluation, utilisez cette [enquête](http://www.instant.ly/s/AY83p) pour demander l’accès à la fonctionnalité.
+## <a name="haven't-had-a-chance-to-try-the-preview-feature?"></a>Haven't had a chance to try the preview feature?
+If you have not participated in the preview yet, please use this [survey](http://www.instant.ly/s/AY83p) to request access.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

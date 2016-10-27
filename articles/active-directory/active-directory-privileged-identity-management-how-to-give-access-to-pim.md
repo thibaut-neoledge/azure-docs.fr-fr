@@ -16,15 +16,16 @@
    ms.date="09/22/2016"
    ms.author="kgremban"/>
 
-# Comment donner accès pour gérer Azure AD Privileged Identity Management
 
-L’administrateur global qui active Azure AD Privileged Identity Management (PIM) pour une organisation obtient automatiquement les affectations de rôles et l’accès à PIM. Aucune autre personne ne dispose d’un accès en écriture par défaut, y compris les autres administrateurs généraux. Les autres administrateurs généraux, administrateurs de sécurité et les lecteurs de sécurité ont un accès en lecture seule à Azure AD PIM. Pour donner accès à PIM, le premier utilisateur peut affecter les autres au rôle **Administrateur de rôle privilégié**. Cette affectation doit être effectuée depuis PIM proprement dit et ne peut pas être modifiée via PowerShell ou d’autres portails.
+# <a name="how-to-give-access-to-manage-azure-ad-privileged-identity-management"></a>Comment donner accès pour gérer Azure AD Privileged Identity Management
+
+L’administrateur global qui active Azure AD Privileged Identity Management (PIM) pour une organisation obtient automatiquement les affectations de rôles et l’accès à PIM. Aucune autre personne ne dispose d’un accès en écriture par défaut, y compris les autres administrateurs généraux. Les autres administrateurs généraux, administrateurs de sécurité et les lecteurs de sécurité ont un accès en lecture seule à Azure AD PIM. Pour donner accès à PIM, le premier utilisateur peut affecter les autres au rôle **Administrateur de rôle privilégié** . Cette affectation doit être effectuée depuis PIM proprement dit et ne peut pas être modifiée via PowerShell ou d’autres portails.
 
 > [AZURE.NOTE] La gestion d’Azure AD PIM requiert l’authentification Azure MFA. Les comptes Microsoft ne pouvant pas s’inscrire pour l’authentification Azure MFA, un utilisateur qui se connecte avec un compte Microsoft ne peut pas accéder à Azure AD PIM.
 
 Vérifiez qu’il y a toujours au moins deux utilisateurs dans un rôle d’administrateur de rôle privilégié, au cas où un utilisateur serait verrouillé ou son compte supprimé.
 
-## Donner accès à un autre utilisateur pour gérer PIM
+## <a name="give-another-user-access-to-manage-pim"></a>Donner accès à un autre utilisateur pour gérer PIM
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) et sélectionnez l’application **Azure AD Privileged Identity Management** sur le tableau de bord.
 2. Sélectionnez **Gérer les rôles privilégiés** > **Administrateur de rôle privilégié** > **Ajouter**.
@@ -43,17 +44,17 @@ Vérifiez qu’il y a toujours au moins deux utilisateurs dans un rôle d’admi
 8. Envoyez à l'utilisateur un lien vers la ressource [Prise en main d'Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 
 
-## Supprimez les droits d'accès d'un autre utilisateur pour la gestion de PIM
+## <a name="remove-another-user's-access-rights-for-managing-pim"></a>Supprimez les droits d'accès d'un autre utilisateur pour la gestion de PIM
 
 Avant de supprimer le rôle d’administrateur de rôle privilégié d’un utilisateur, vérifiez toujours que deux utilisateurs y sont toujours affectés.
 
-1. Dans le tableau de bord PIM, cliquez sur le rôle **Administrateur de rôle privilégié**. La liste des utilisateurs actuels de ce rôle s'affiche.
+1. Dans le tableau de bord PIM, cliquez sur le rôle **Administrateur de rôle privilégié**.  La liste des utilisateurs actuels de ce rôle s'affiche.
 2. Cliquez sur l’utilisateur dans la liste des utilisateurs.
-3. Cliquez sur **Supprimer**. Un message de confirmation s’affiche.
+3. Cliquez sur **Supprimer**.  Un message de confirmation s’affiche.
 4. Cliquez sur **Oui** pour supprimer l’utilisateur du rôle.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->
@@ -61,4 +62,8 @@ Avant de supprimer le rôle d’administrateur de rôle privilégié d’un util
 [1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

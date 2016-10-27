@@ -1,260 +1,266 @@
 <properties
-	pageTitle="Gérer les ressources Azure Blob Storage avec l’Explorateur de stockage (version préliminaire) | Microsoft Azure"
-	description="Gérer les conteneurs d’objets blob et les blobs Azure avec l’Explorateur de stockage (version préliminaire)"
-	services="storage"
-	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
-	editor="" />
+    pageTitle="Manage Azure Blob Storage resources with Storage Explorer (Preview) | Microsoft Azure"
+    description="Manage Azure Blob Containers and Blobs with Storage Explorer (Preview)"
+    services="storage"
+    documentationCenter="na"
+    authors="TomArcher"
+    manager="douge"
+    editor="" />
 
  <tags
-	ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/17/2016"
-	ms.author="tarcher" />
+    ms.service="storage"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="08/17/2016"
+    ms.author="tarcher" />
 
-# Gérer les ressources Azure Blob Storage avec l’Explorateur de stockage (version préliminaire)
 
-## Vue d'ensemble
+# <a name="manage-azure-blob-storage-resources-with-storage-explorer-(preview)"></a>Manage Azure Blob Storage resources with Storage Explorer (Preview)
 
-[Azure Blob Storage](./storage/storage-dotnet-how-to-use-blobs.md) est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications. Dans cet article, vous allez apprendre à utiliser l’Explorateur de stockage (version préliminaire) pour utiliser des conteneurs d’objets blob et des objets blob.
+## <a name="overview"></a>Overview
 
-## Composants requis
+[Azure Blob Storage](./storage/storage-dotnet-how-to-use-blobs.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
+You can use Blob storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer (Preview) to work with blob containers and blobs.
 
-Pour pouvoir suivre les étapes de cet article, vous devrez :
+## <a name="prerequisites"></a>Prerequisites
 
-- [Télécharger et installer l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com)
-- [Vous connecter à un service ou un compte de stockage Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+To complete the steps in this article, you'll need the following:
 
-## Création d’un conteneur d’objets blob
+- [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
+- [Connect to a Azure storage account or service](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
-Tous les objets blob doivent résider dans un conteneur d’objets blob, c’est-à-dire un simple regroupement logique d’objets blob. Un compte peut contenir un nombre illimité de conteneurs, et chaque conteneur peut stocker un nombre illimité d’objets blob.
+## <a name="create-a-blob-container"></a>Create a blob container
 
-Les étapes suivantes expliquent comment créer un conteneur d’objets blob dans l’Explorateur de stockage (version préliminaire).
+All blobs must reside in a blob container, which is simply a logical grouping of blobs. An account can contain an unlimited number of containers, and each container can store an unlimited number of blobs.
 
-1.	Ouvrez l’Explorateur de stockage (version préliminaire).
-1.	Dans le volet gauche, développez le compte de stockage dans lequel vous souhaitez créer le conteneur d’objets blob.
-1.	Cliquez avec le bouton droit sur **Conteneurs d’objets Blob** puis, dans le menu contextuel, sélectionnez **Créer un conteneur d’objets blob**.
+The following steps illustrate how to create a blob container within Storage Explorer (Preview).
 
-	![Création de conteneurs d’objets blob - Menu contextuel][0]
+1.  Open Storage Explorer (Preview).
+1.  In the left pane, expand the storage account within which you wish to create the blob container.
+1.  Right-click **Blob Containers**, and - from the context menu - select **Create Blob Container**.
 
-1.	Une zone de texte apparaît sous le dossier **Conteneurs d’objets blob**. Entrez le nom de votre conteneur d’objets blob. Consultez la section relative aux [règles d’affectation des noms de conteneurs](./storage/storage-dotnet-how-to-use-blobs.md#create-a-container) pour obtenir la liste des règles et restrictions applicables aux noms de conteneurs d’objets blob.
+    ![Create blob containers context menu][0]
 
-	![Création de conteneurs d’objets blob - Zone de texte][1]
+1.  A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See the [Container naming rules](./storage/storage-dotnet-how-to-use-blobs.md#create-a-container) section for a list of rules and restrictions on naming blob containers.
 
-1.	Appuyez sur **Entrée** pour créer le conteneur d’objets blob, ou sur **ÉCHAP** pour annuler. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d’objets blob** correspondant au compte de stockage sélectionné.
+    ![Create Blob Containers text box][1]
 
-	![Conteneur d’objets blob créé][2]
+1.  Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container has been successfully created, it will be displayed under the **Blob Containers** folder for the selected storage account.
 
-## Affichage du contenu d’un conteneur d’objets blob
+    ![Blob Container created][2]
 
-Les conteneurs d’objets blob contiennent des objets blob et des dossiers (qui peuvent eux-mêmes contenir des objets blob).
+## <a name="view-a-blob-container's-contents"></a>View a blob container's contents
 
-Les étapes suivantes expliquent comment afficher un conteneur d’objets blob dans l’Explorateur de stockage (version préliminaire) :
+Blob containers contain blobs and folders (that can also contain blobs).
 
-1.	Ouvrez l’Explorateur de stockage (version préliminaire).
-1.	Dans le volet gauche, développez le compte de stockage contenant le conteneur d’objets blob que vous souhaitez afficher.
-1.	Développez le dossier **Conteneurs d’objets blob** du compte de stockage.
-1.	Cliquez avec le bouton droit sur le conteneur d’objets blob que vous souhaitez afficher puis, dans le menu contextuel, sélectionnez **Ouvrir l’éditeur de conteneur d’objets blob**. Vous pouvez également double-cliquer sur le conteneur d’objets blob que vous souhaitez afficher.
+The following steps illustrate how to view the contents of a blob container within Storage Explorer (Preview):
 
-	![Ouvrir l’éditeur de conteneurs d’objets blob - Menu contextuel][19]
+1.  Open Storage Explorer (Preview).
+1.  In the left pane, expand the storage account containing the blob container you wish to view.
+1.  Expand the storage account's **Blob Containers**.
+1.  Right-click the blob container you wish to view, and - from the context menu - select **Open Blob Container Editor**.
+You can also double-click the blob container you wish to view.
 
-1.	Le volet principal affiche le contenu du conteneur d’objets blob.
+    ![Open blob container editor context menu][19]
 
-	![Éditeur de conteneurs d’objets blob][3]
+1.  The main pane will display the blob container's contents.
 
-## Suppression d’un conteneur d’objets blob
+    ![Blob container editor][3]
 
-Vous pouvez facilement créer et supprimer des conteneurs d’objets blob selon vos besoins (pour savoir comment supprimer des objets blob, reportez-vous à la section [Gestion des objets blob dans un conteneur d’objets blob](./#managing-blobs-in-a-blob-container)).
+## <a name="delete-a-blob-container"></a>Delete a blob container
 
-Les étapes suivantes expliquent comment supprimer un conteneur d’objets blob dans l’Explorateur de stockage (version préliminaire) :
+Blob containers can be easily created and deleted as needed. (To see how to delete individual blobs, refer to the section, [Managing blobs in a blob container](./#managing-blobs-in-a-blob-container).)
 
-1.	Ouvrez l’Explorateur de stockage (version préliminaire).
-1.	Dans le volet gauche, développez le compte de stockage contenant le conteneur d’objets blob que vous souhaitez afficher.
-1.	Développez le dossier **Conteneurs d’objets blob** du compte de stockage.
-1.	Cliquez avec le bouton droit sur le conteneur d’objets blob que vous souhaitez supprimer puis, dans le menu contextuel, sélectionnez **Supprimer**. Vous pouvez également appuyer sur **Supprimer** pour supprimer le conteneur d’objets blob actuellement sélectionné.
+The following steps illustrate how to delete a blob container within Storage Explorer (Preview):
 
-	![Supprimer un conteneur d’objets blob - Menu contextuel][4]
+1.  Open Storage Explorer (Preview).
+1.  In the left pane, expand the storage account containing the blob container you wish to view.
+1.  Expand the storage account's **Blob Containers**.
+1.  Right-click the blob container you wish to delete, and - from the context menu - select **Delete**.
+You can also press **Delete** to delete the currently selected blob container.
 
-1.	Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
+    ![Delete blob container context menu][4]
 
-	![Supprimer un conteneur d’objets blob - Confirmation][5]
+1.  Select **Yes** to the confirmation dialog.
 
-## Copie d’un conteneur d’objets blob
+    ![Delete blob Container confirmation][5]
 
-L’Explorateur de stockage (version préliminaire) vous permet de copier un conteneur d’objets blob dans le Presse-papiers, puis de coller ce conteneur d’objets blob dans un autre compte de stockage (pour savoir comment copier des objets blob, reportez-vous à la section [Gestion des objets blob dans un conteneur d’objets blob](./#managing-blobs-in-a-blob-container)).
+## <a name="copy-a-blob-container"></a>Copy a blob container
 
-Les étapes suivantes expliquent comment copier un conteneur d’objets blob d’un compte de stockage à un autre.
+Storage Explorer (Preview) enables you to copy a blob container to the clipboard, and then paste that blob container into another storage account. (To see how to copy individual blobs, refer to the section, [Managing blobs in a blob container](./#managing-blobs-in-a-blob-container).)
 
-1.	Ouvrez l’Explorateur de stockage (version préliminaire).
-1.	Dans le volet gauche, développez le compte de stockage contenant le conteneur d’objets blob que vous souhaitez copier.
-1.	Développez le dossier **Conteneurs d’objets blob** du compte de stockage.
-1.	Cliquez avec le bouton droit sur le conteneur d’objets blob que vous souhaitez afficher puis, dans le menu contextuel, sélectionnez **Copy Blob Container** (Copier le conteneur d’objets blob).
+The following steps illustrate how to copy a blob container from one storage account to another.
 
-	![Copier un conteneur d’objets blob - Menu contextuel][6]
+1.  Open Storage Explorer (Preview).
+1.  In the left pane, expand the storage account containing the blob container you wish to copy.
+1.  Expand the storage account's **Blob Containers**.
+1.  Right-click the blob container you wish to copy, and - from the context menu - select **Copy Blob Container**.
 
-1.	Cliquez avec le bouton droit sur le compte de stockage cible dans lequel vous souhaitez coller le conteneur d’objets blob puis, dans le menu contextuel, sélectionnez **Paste Blob Container** (Coller le conteneur d’objets blob).
+    ![Copy blob container context menu][6]
 
-	![Coller un conteneur d’objets blob - Menu contextuel][7]
+1.  Right-click the desired "target" storage account into which you want to paste the blob container, and - from the context menu - select **Paste Blob Container**.
 
-## Obtenir la signature d’accès partagé pour un conteneur d’objets blob
+    ![Paste blob container context menu][7]
 
-Une [signature d’accès partagé (SAP)](./storage/storage-dotnet-shared-access-signature-part-1.md) fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations, sans partager les clés d’accès de votre compte.
+## <a name="get-the-sas-for-a-blob-container"></a>Get the SAS for a blob container
 
-Les étapes suivantes expliquent comment créer une signature d’accès partagé pour un conteneur d’objets blob :
+A [shared access signature (SAS)](./storage/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account.
+This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.
 
-1.	Ouvrez l’Explorateur de stockage (version préliminaire).
-1.	Dans le volet gauche, développez le compte de stockage contenant le conteneur d’objets blob pour lequel vous souhaitez obtenir une SAP.
-1.	Développez le dossier **Conteneurs d’objets blob** du compte de stockage.
-1.	Cliquez avec le bouton droit sur le conteneur d’objets blob souhaité puis, dans le menu contextuel, sélectionnez **Get Shared Access Signature** (Obtenir une signature d’accès partagé).
+The following steps illustrate how to create a SAS for a blob container:
 
-	![Obtenir une signature d’accès partagé - Menu contextuel][8]
+1.  Open Storage Explorer (Preview).
+1.  In the left pane, expand the storage account containing the blob container for which you wish to get a SAS.
+1.  Expand the storage account's **Blob Containers**.
+1.  Right-click the desired blob container, and - from the context menu - select **Get Shared Access Signature**.
 
-1.	Dans la boîte de dialogue **Signature d’accès partagé**, spécifiez la stratégie, les dates de début et d’expiration, le fuseau horaire et les niveaux d’accès de la ressource.
+    ![Get SAS context menu][8]
 
-	![Obtenir une signature d’accès partagé - Options][9]
+1.  In the **Shared Access Signature** dialog, specify the policy, start and expiration dates, time zone, and access levels you want for the resource.
 
-1.	Une fois les options SAP spécifiées, sélectionnez **Créer**.
+    ![Get SAS options][9]
 
-1.	Vous accédez alors à une deuxième boîte de dialogue **Signature d’accès partagé** dans laquelle vous pouvez visualiser le conteneur d’objets blob, ainsi que les URL et les chaînes de requête que vous pouvez utiliser pour accéder à la ressource de stockage. Sélectionnez **Copier** en regard de l’URL que vous souhaitez copier dans le Presse-papiers.
+1.  When you're finished specifying the SAS options, select **Create**.
 
-	![Copier les URL de SAP][10]
+1.  A second **Shared Access Signature** dialog will then display that lists the blob container along with the URL and QueryStrings you can use to access the storage resource.
+Select **Copy** next to the URL you wish to copy to the clipboard.
 
-1.	Lorsque vous avez terminé, sélectionnez **Fermer**.
+    ![Copy SAS URLs][10]
 
-## Gestion des stratégies d’accès d’un conteneur d’objets blob
+1.  When done, select **Close**.
 
-Les étapes suivantes montrent comment gérer (ajouter et supprimer) les stratégies d’accès d’un conteneur d’objet :
+## <a name="manage-access-policies-for-a-blob-container"></a>Manage Access Policies for a blob container
 
-1.	Ouvrez l’Explorateur de stockage (version préliminaire).
-1.	Dans le volet gauche, développez le compte de stockage contenant le conteneur d’objets blob pour lequel vous souhaitez gérer les stratégies d’accès.
-1.	Développez le dossier **Conteneurs d’objets blob** du compte de stockage.
-1.	Sélectionnez le conteneur d’objets blob souhaité puis, dans le menu contextuel, sélectionnez **Manage Access Policies** (Gérer les stratégies d’accès).
+The following steps illustrate how to manage (add and remove) access policies for a blob container:
 
-	![Gérer les stratégies d’accès - Menu contextuel][11]
+1.  Open Storage Explorer (Preview).
+1.  In the left pane, expand the storage account containing the blob container whose access policies you wish to manage.
+1.  Expand the storage account's **Blob Containers**.
+1.  Select the desired blob container, and - from the context menu - select **Manage Access Policies**.
 
-1.	La boîte de dialogue **Stratégies d’accès** répertorie les stratégies d’accès déjà créées pour le conteneur d’objets blob sélectionné.
+    ![Manage access policies context menu][11]
 
-	![Options de stratégie d’accès][12]
+1.  The **Access Policies** dialog will list any access policies already created for the selected blob container.
 
-1.	Suivez ces étapes en fonction de la tâche de gestion des stratégies d’accès :
+    ![Access Policy options][12]        
 
-	- **Ajouter une nouvelle stratégie d’accès** : sélectionnez **Ajouter**. Une fois la stratégie générée, la boîte de dialogue **Stratégies d’accès** affiche la stratégie d’accès que vous venez d’ajouter (avec les paramètres par défaut).
-	- **Modifier une stratégie d’accès** : apportez les modifications souhaitées, puis cliquez sur **Enregistrer**.
-	- **Supprimer une stratégie d’accès** : sélectionnez **Supprimer** en regard de la stratégie d’accès à supprimer.
+1.  Follow these steps depending on the access policy management task:
 
-## Définir le niveau d’accès public pour un conteneur d’objets blob
+    - **Add a new access policy** - Select **Add**. Once generated, the **Access Policies** dialog will display the newly added access policy (with default settings).
+    - **Edit an access policy** -  Make any desired edits, and select **Save**.
+    - **Remove an access policy** - Select **Remove** next to the access policy you wish to remove.
 
-Par défaut, chaque conteneur d’objets blob est défini sur « No public access » (Aucun accès public).
+## <a name="set-the-public-access-level-for-a-blob-container"></a>Set the Public Access Level for a blob container
 
-Les étapes suivantes expliquent comment spécifier un niveau d’accès public pour un conteneur d’objets blob.
+By default, every blob container is set to "No public access".
 
-1.	Ouvrez l’Explorateur de stockage (version préliminaire).
-1.	Dans le volet gauche, développez le compte de stockage contenant le conteneur d’objets blob pour lequel vous souhaitez gérer les stratégies d’accès.
-1.	Développez le dossier **Conteneurs d’objets blob** du compte de stockage.
-1.	Sélectionnez le conteneur d’objets blob souhaité puis, dans le menu contextuel, sélectionnez **Set Public Access Level** (Définir le niveau d’accès public).
+The following steps illustrate how to specify a public access level for a blob container.
 
-	![Définir le niveau d’accès public - Menu contextuel][13]
+1.  Open Storage Explorer (Preview).
+1.  In the left pane, expand the storage account containing the blob container whose access policies you wish to manage.
+1.  Expand the storage account's **Blob Containers**.
+1.  Select the desired blob container, and - from the context menu - select **Set Public Access Level**.
 
-1.	Dans la boîte de dialogue **Set Container Public Access Level** (Définir le niveau d’accès public du conteneur), spécifiez le niveau d’accès souhaité.
+    ![Set public access level context menu][13]
 
-	![Définir le niveau d’accès public - Options][14]
+1.  In the **Set Container Public Access Level** dialog, specify the desired access level.
 
-1.	Sélectionnez **Appliquer**.
+    ![Set public access level options][14]
 
-## Gestion des objets blob dans un conteneur d’objets blob
+1.  Select **Apply**.
 
-Une fois que vous avez créé un conteneur d’objets blob, vous pouvez effectuer de nombreuses tâches, par exemple charger un objet blob dans ce conteneur, télécharger un objet blob sur votre ordinateur local, ouvrir un objet blob sur votre ordinateur local, etc.
+## <a name="managing-blobs-in-a-blob-container"></a>Managing blobs in a blob container
 
-Les étapes suivantes expliquent comment gérer les objets blob (et les dossiers) dans un conteneur d’objets blob.
+Once you've created a blob container, you can upload a blob to that blob container, download a blob to your local computer, open a blob on your local computer, and much more.
 
-1.	Ouvrez l’Explorateur de stockage (version préliminaire).
-1.	Dans le volet gauche, développez le compte de stockage contenant le conteneur d’objets blob que vous souhaitez gérer.
-1.	Développez le dossier **Conteneurs d’objets blob** du compte de stockage.
-1.	Double-cliquez sur le conteneur d’objets blob que vous souhaitez afficher.
-1.	Le volet principal affiche le contenu du conteneur d’objets blob.
+The following steps illustrate how to manage the blobs (and folders) within a blob container.
 
-	![Afficher le conteneur d’objets blob][3]
+1.  Open Storage Explorer (Preview).
+1.  In the left pane, expand the storage account containing the blob container you wish to manage.
+1.  Expand the storage account's **Blob Containers**.
+1.  Double-click the blob container you wish to view.
+1.  The main pane will display the blob container's contents.
 
-1.	Le volet principal affiche le contenu du conteneur d’objets blob.
+    ![View blob container][3]
 
-1.	Suivez ces étapes en fonction de la tâche que vous souhaitez effectuer :
+1.  The main pane will display the blob container's contents.
 
-	- **Télécharger des fichiers vers un conteneur d’objets blob**
+1.  Follow these steps depending on the task you wish to perform:
 
-		1.	Dans la barre d’outils du volet principal, sélectionnez **Télécharger**, puis **Télécharger des fichiers** dans le menu contextuel.
+    - **Upload files to a blob container**
 
-			![Télécharger des fichiers - Menu][15]
+        1.  On the main pane's toolbar, select **Upload**, and then **Upload Files** from the drop-down menu.
 
-		1.	Dans la boîte de dialogue **Télécharger des fichiers**, sélectionnez le bouton des points de suspension (**…**) situé sur le côté droit de la zone **Fichiers** pour sélectionner les fichiers que vous souhaitez charger.
+            ![Upload files menu][15]
 
-			![Télécharger des fichiers - Options][16]
+        1.  In the **Upload files** dialog, select the ellipsis (**…**) button on the right side of the **Files** text box to select the file(s) you wish to upload.
 
-		1.	Spécifiez le **Type d’objet blob**. L’article [Prise en main du stockage d’objets blob Azure à l’aide de .NET](./storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explique les différences entre les divers types d’objets blob.
+            ![Upload files options][16]
 
-		1.	Si vous le souhaitez, spécifiez un dossier cible dans lequel charger les fichiers sélectionnés. Si le dossier cible n’existe pas, il sera créé.
+        1.  Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](./storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explains the differences between the various blob types.
 
-		1.	Sélectionnez **Télécharger**.
+        1.  Optionally, specify a target folder into which the selected file(s) will be uploaded. If the target folder doesn’t exist, it will be created.
 
-	- **Télécharger un dossier dans un conteneur d’objets blob**
+        1.  Select **Upload**.
 
-		1.	Dans la barre d’outils du volet principal, sélectionnez **Télécharger**, puis **Upload Folder** (Télécharger un dossier) dans le menu contextuel.
+    - **Upload a folder to a blob container**
 
-			![Télécharger un dossier - Menu][17]
+        1.  On the main pane's toolbar, select **Upload**, and then **Upload Folder** from the drop-down menu.
 
-		1.	Dans la boîte de dialogue **Upload Folder** (Télécharger un dossier), sélectionnez le bouton des points de suspension (**…**) situé sur le côté droit de la zone **Dossier** pour sélectionner le dossier que vous souhaitez charger.
+            ![Upload folder menu][17]
 
-			![Télécharger un dossier - Options][18]
+        1.  In the **Upload folder** dialog, select the ellipsis (**…**) button on the right side of the **Folder** text box to select the folder whose contents you wish to upload.
 
-		1.	Spécifiez le **Type d’objet blob**. L’article [Prise en main du stockage d’objets blob Azure à l’aide de .NET](./storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explique les différences entre les divers types d’objets blob.
+            ![Upload folder options][18]
 
-		1.	Si vous le souhaitez, spécifiez un dossier cible dans lequel charger le contenu du dossier sélectionné. Si le dossier cible n’existe pas, il sera créé.
+        1.  Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](./storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explains the differences between the various blob types.
 
-		1.	Sélectionnez **Télécharger**.
+        1.  Optionally, specify a target folder into which the selected folder's contents will be uploaded. If the target folder doesn’t exist, it will be created.
 
-	- **Télécharger un objet blob sur votre ordinateur local**
+        1.  Select **Upload**.
 
-		1.	Sélectionnez l’objet blob que vous souhaitez télécharger.
+    - **Download a blob to your local computer**
 
-		1.	Dans la barre d’outils du volet principal, sélectionnez **Télécharger**.
+        1.  Select the blob you wish to download.
 
-		1.	Dans la boîte de dialogue **Specify where to save the downloaded blob** (Indiquer où enregistrer l’objet blob téléchargé), spécifiez l’emplacement dans lequel vous souhaitez enregistrer l’objet blob téléchargé ainsi que le nom que vous souhaitez lui donner.
+        1.  On the main pane's toolbar, select **Download**.
 
-		1.	Sélectionnez **Enregistrer**.
+        1.  In the **Specify where to save the downloaded blob** dialog, specify the location where you want the blob downloaded, and the name you wish to give it.  
 
-	- **Ouvrir un objet blob sur votre ordinateur local**
+        1.  Select **Save**.
 
-		1.	Sélectionnez l’objet blob que vous souhaitez ouvrir.
+    - **Open a blob on your local computer**
 
-		1.	Dans la barre d’outils du volet principal, sélectionnez **Ouvrir**.
+        1.  Select the blob you wish to open.
 
-		1.	L’objet blob est téléchargé et ouvert à l’aide de l’application associée au type de fichier sous-jacent de l’objet blob.
+        1.  On the main pane's toolbar, select **Open**.
 
-	- **Copier un objet blob dans le Presse-papiers**
+        1.  The blob will be downloaded and opened using the application associated with the blob's underlying file type.
 
-		1.	Sélectionnez l’objet blob que vous souhaitez copier.
+    - **Copy a blob to the clipboard**
 
-		1.	Dans la barre d’outils du volet principal, sélectionnez **Copier**.
+        1.  Select the blob you wish to copy.
 
-		1.	Dans le volet de gauche, accédez à un autre conteneur d’objets blob et double-cliquez dessus pour l’afficher dans le volet principal.
+        1.  On the main pane's toolbar, select **Copy**.
 
-		1.	Dans la barre d’outils du volet principal, sélectionnez **Coller** pour créer une copie de l’objet blob.
+        1.  In the left pane, navigate to another blob container, and double-click it to view it in the main pane.
 
-	- **Supprimer un blob.**
+        1.  On the main pane's toolbar, select **Paste** to create a copy of the blob.
 
-		1.	Sélectionnez l’objet blob que vous souhaitez supprimer.
+    - **Delete a blob**
 
-		1.	Dans la barre d’outils du volet principal, sélectionnez **Supprimer**.
+        1.  Select the blob you wish to delete.
 
-		1.	Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
+        1.  On the main pane's toolbar, select **Delete**.
 
-## Étapes suivantes
+        1.  Select **Yes** to the confirmation dialog.
 
-- Consultez les [dernières notes de publication et vidéos de l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com).
-- Découvrez comment [créer des applications à l’aide d'objets blob, de tables, de files d’attente et de fichiers Azure](https://azure.microsoft.com/documentation/services/storage/).
+## <a name="next-steps"></a>Next steps
+
+- View the [latest Storage Explorer (Preview) release notes and videos](http://www.storageexplorer.com).
+- Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
 [1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png
@@ -277,4 +283,7 @@ Les étapes suivantes expliquent comment gérer les objets blob (et les dossiers
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

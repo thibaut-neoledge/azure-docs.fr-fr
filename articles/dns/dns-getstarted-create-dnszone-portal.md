@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Création et gestion d’une zone DNS dans le portail Azure | Microsoft Azure"
-   description="Apprenez à créer des zones DNS pour Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone DNS et l’hébergement de votre domaine DNS à l’aide du portail Azure."
+   pageTitle="How to create and manage a DNS zone in the Azure portal | Microsoft Azure"
+   description="Learn how to create DNS zones for Azure DNS. This is a Step-by-step guide to create and manage your first DNS and start hosting your DNS domain using the Azure portal."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,115 +15,120 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
-# Créer une zone DNS dans le portail Azure
+
+# <a name="create-a-dns-zone-in-the-azure-portal"></a>Create a DNS zone in the Azure portal
 
 
 > [AZURE.SELECTOR]
-- [Portail Azure](dns-getstarted-create-dnszone-portal.md)
+- [Azure Portal](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
-- [Interface de ligne de commande Azure](dns-getstarted-create-dnszone-cli.md)
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 
 
-Cet article vous indique la procédure à suivre pour créer une zone DNS à l’aide du portail Azure. Vous pouvez également créer une zone DNS à l’aide de PowerShell ou de l’interface de ligne de commande (CLI).
+This article will walk you through the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
 
 [AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
-### À propos des balises pour Azure DNS
+### <a name="about-tags-for-azure-dns"></a>About Tags for Azure DNS
 
 
-Les balises sont une liste de paires nom-valeur. Elles sont utilisées par Azure Resource Manager pour identifier les ressources à des fins de facturation ou de regroupement. Pour plus d’informations sur les étiquettes, consultez l’article [Utilisation d’étiquettes pour organiser vos ressources Azure](../resource-group-using-tags.md).
+Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about Tags, see the article [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
-Vous pouvez ajouter des étiquettes dans le portail Azure en utilisant le panneau **Paramètres** pour votre zone DNS.
-
-
-## Création d’une zone DNS
-
-1. Connectez-vous au portail Azure.
-
-2. Dans le menu Hub, cliquez sur **Nouveau > Mise en réseau >**, puis cliquez sur **Zone DNS** pour ouvrir le panneau de la zone DNS.
- 
-	![Zone DNS](./media/dns-getstarted-create-dnszone-portal/openzone650.png)
-
-3. Dans le panneau **Zone DNS**, cliquez sur **Créer** en bas de la page. Cette action ouvre le panneau **Créer une zone DNS**.
-
-	![Créer la zone](./media/dns-getstarted-create-dnszone-portal/newzone250.png)
-
-4. Dans le panneau **Créer une zone DNS**, nommez votre zone DNS. Par exemple, *contoso.com*. Consultez [À propos des noms de zones DNS](#names) dans la section ci-dessus.
-
-5. Ensuite, spécifiez le groupe de ressources que vous souhaitez utiliser. Vous pouvez créer un groupe de ressources ou en sélectionner un qui existe déjà.
-
-6. Dans le menu déroulant **Emplacement**, spécifiez l’emplacement du groupe de ressources. Notez que ce paramètre fait référence à l’emplacement du groupe de ressources et non à l’emplacement de la zone DNS. La ressource DNS est automatiquement « globale ». Vous ne pouvez (devez) pas spécifier ceci dans le portail.
-
-7. Vous pouvez laisser la case **Épingler au tableau de bord** cochée si vous voulez localiser facilement votre nouvelle zone sur votre tableau de bord. Cliquez ensuite sur **Créer**.
-
-	![Épingler au tableau de bord](./media/dns-getstarted-create-dnszone-portal/pindashboard150.png)
-
-8. Lorsque vous cliquez sur Créer, votre nouvelle zone configurée s’affiche sur le tableau de bord.
-
-	![Creating](./media/dns-getstarted-create-dnszone-portal/creating150.png)
-
-9. Lorsque votre nouvelle zone a été créée, le panneau de votre nouvelle zone s’ouvre dans le tableau de bord.
+You can add Tags in the Azure portal by using the **Settings** blade for your DNS zone.
 
 
-## Affichage des enregistrements
+## <a name="create-a-dns-zone"></a>Create a DNS zone
 
-La création d’une zone DNS crée également les enregistrements suivants :
+1. Sign in to the Azure portal
 
-- L’enregistrement « SOA » (Start of Authority). Il est présent à la racine de chaque zone DNS.
-- Les enregistrements de serveur de noms faisant autorité (NS). Ceux-ci indiquent quels serveurs de noms hébergent la zone. Azure DNS utilise un pool de serveurs de noms. Il se peut donc que différents serveurs de noms soient attribués à différentes zones dans Azure DNS. Pour plus d’informations, consultez la page [Délégation d’un domaine à Azure DNS](dns-domain-delegation.md).
+2. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the DNS zone blade.
 
-Vous pouvez afficher les enregistrements à partir du portail Azure
+    ![DNS zone](./media/dns-getstarted-create-dnszone-portal/openzone650.png)
 
-1. Dans le panneau de votre **zone DNS**, cliquez sur **Tous les paramètres** pour ouvrir le **panneau Paramètres** pour la zone DNS.
+3. On the **DNS zone** blade, click **Create** at the bottom. This will open the **Create DNS zone** blade.
 
-	![zone](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
+    ![Create zone](./media/dns-getstarted-create-dnszone-portal/newzone250.png)
 
+4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. See [About DNS Zone Names](#names) in the section above.
 
-2. Les jeux d’enregistrements pour la zone DNS s’affichent dans la partie inférieure du volet Essentials.
+5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists.
 
+6. From the **Location** dropdown, specify the location of the resource group. Note that this setting refers to the location of the resource group, not the location for DNS zone. The actual DNS zone resource is automatically "global" and is not something that you can (or need to) specify in the portal.
 
-	![zone](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
+7. You can leave the **Pin to dashboard** checkbox selected if you want to easily locate your new zone on your dashboard. Then click **Create**.
 
-## Test
+    ![Pin to dashboard](./media/dns-getstarted-create-dnszone-portal/pindashboard150.png)
 
-Vous pouvez tester votre zone DNS à l’aide d’outils DNS comme nslookup, dig ou l’[applet de commande PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+8. After you click Create, you'll see your new zone being configured on the dashboard.
 
-Si vous n’avez pas encore délégué votre domaine pour qu’il utilise la nouvelle zone Azure DNS, vous devez diriger la requête DNS directement vers l’un des serveurs de noms pour votre zone. Les serveurs de noms de votre zone figurent dans les enregistrements NS, répertoriés ci-dessus par `Get-AzureRmDnsRecordSet`. Veillez à indiquer les valeurs correctes pour votre zone dans la commande ci-dessous.
+    ![Creating](./media/dns-getstarted-create-dnszone-portal/creating150.png)
 
-	nslookup
-	> set type=SOA
-	> server ns1-01.azure-dns.com
-	> contoso.com
-
-	Server: ns1-01.azure-dns.com
-	Address:  208.76.47.1
-
-	contoso.com
-        	primary name server = ns1-01.azure-dns.com
-        	responsible mail addr = msnhst.microsoft.com
-        	serial  = 1
-        	refresh = 900 (15 mins)
-        	retry   = 300 (5 mins)
-        	expire  = 604800 (7 days)
-        	default TTL = 300 (5 mins)
+9. When your new zone has been created, the blade for your new zone will open on the dashboard.
 
 
+## <a name="view-records"></a>View records
 
-## Suppression d’une zone DNS
+Creating a DNS zone also creates the following records:
 
-Vous pouvez supprimer la zone DNS à partir du portail. Avant de supprimer une zone DNS dans Azure DNS, vous devez supprimer tous les jeux d’enregistrements, sauf les enregistrements NS et SOA à la racine de la zone qui ont été créés automatiquement en même temps que cette dernière.
+- The "Start of Authority" (SOA) record. The SOA is present at the root of every DNS zone.
+- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See [Delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
-1. Recherchez le panneau **Zone DNS** pour la zone que vous souhaitez supprimer, puis cliquez sur **Supprimer** en haut du panneau.
- 
-2. Un message s’affiche vous informant que vous devez supprimer tous les jeux d’enregistrements, sauf les enregistrements NS et SOA qui ont été créés automatiquement. Si vous avez supprimé vos jeux d’enregistrements, cliquez sur **Oui**. Notez que lorsque vous supprimez une zone DNS à partir du portail, le groupe de ressources auquel la zone DNS est associée n’est pas supprimé.
+You can view the records from the Azure portal
+
+1. From your **DNS zone** blade, click on **All settings** to open the **Settings blade** for the DNS zone.
+
+    ![zone](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 
 
-## Étapes suivantes
+2. In the lower part of the Essentials pane, you can see the record sets for the DNS zone.
 
-Après avoir créé une zone DNS, créez des [jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-portal.md) pour démarrer la résolution des noms pour votre domaine Internet.
 
-<!---HONumber=AcomDC_0817_2016-->
+    ![zone](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
+
+## <a name="test"></a>Test
+
+You can test your DNS zone by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
+
+If you haven’t yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by `Get-AzureRmDnsRecordSet` above. Be sure the substitute the correct values for your zone into the command below.
+
+    nslookup
+    > set type=SOA
+    > server ns1-01.azure-dns.com
+    > contoso.com
+
+    Server: ns1-01.azure-dns.com
+    Address:  208.76.47.1
+
+    contoso.com
+            primary name server = ns1-01.azure-dns.com
+            responsible mail addr = msnhst.microsoft.com
+            serial  = 1
+            refresh = 900 (15 mins)
+            retry   = 300 (5 mins)
+            expire  = 604800 (7 days)
+            default TTL = 300 (5 mins)
+
+
+
+## <a name="delete-a-dns-zone"></a>Delete a DNS zone
+
+You can delete the DNS zone directly from the portal. Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created.
+
+1. Locate the **DNS zone** blade for the zone you want to delete, then click **Delete** at the top of the blade.
+
+2. A message will appear letting you know that you must delete all records sets, except the NS and SOA records that were automatically created. If you have deleted your record sets, click **Yes**. Note that when deleting a DNS zone from the portal, the Resource Group that the DNS zone is associated with will not be deleted.
+
+
+## <a name="next-steps"></a>Next steps
+
+After creating a DNS zone, create [record sets and records](dns-getstarted-create-recordset-portal.md) to start resolving names for your Internet domain.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

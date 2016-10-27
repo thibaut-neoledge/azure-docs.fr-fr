@@ -1,109 +1,110 @@
 <properties
-	pageTitle="Prise en main d’Azure AD Java | Microsoft Azure"
-	description="Comment créer une application de ligne de commande Java qui connecte les utilisateurs pour l’accès à une API."
-	services="active-directory"
-	documentationCenter="java"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD Java Getting Started | Microsoft Azure"
+    description="How to build a Java command line app that signs users in to access an API."
+    services="active-directory"
+    documentationCenter="java"
+    authors="brandwe"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
+    ms.service="active-directory"
+    ms.workload="identity"
   ms.tgt_pltfrm="na"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="brandwe"/>
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="09/16/2016"
+    ms.author="brandwe"/>
 
 
-# Utilisation d’une application en ligne de commande Java pour accéder à une API avec Azure AD
+
+# <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Using Java Command Line App To Access An API with Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD simplifie l’externalisation de la gestion des identités de votre application web en fournissant une authentification unique avec seulement quelques lignes de code. Dans les applications web Java, vous pouvez y parvenir en utilisant l’implémentation Microsoft d’ADAL4J communautaire.
+Azure AD makes it simple and straightforward to outsource your web app's identity management, providing single sign-in and sign-out with only a few lines of code.  In Java web apps, you can accomplish this using Microsoft's implementation of the community-driven ADAL4J.
 
-  Ici, nous allons utiliser ADAL4J pour :
-- connecter l’utilisateur à l’application à l’aide d’Azure AD comme fournisseur d’identité ;
-- afficher des informations sur l’utilisateur ;
-- déconnecter l’utilisateur de l’application.
+  Here we'll use ADAL4J to:
+- Sign the user into the app using Azure AD as the identity provider.
+- Display some information about the user.
+- Sign the user out of the app.
 
-Pour ce faire, vous devez :
+In order to do this, you'll need to:
 
-1. inscrire une application auprès d’Azure AD ;
-2. Configurez votre application pour utiliser la bibliothèque ADAL4J.
-3. Utilisez la bibliothèque ADAL4J pour émettre des demandes de connexion et de déconnexion dans Azure AD.
-4. afficher les données relatives à l’utilisateur.
+1. Register an application with Azure AD
+2. Set up your app to use the ADAL4J library.
+3. Use the ADAL4J library to issue sign-in and sign-out requests to Azure AD.
+4. Print out data about the user.
 
-Pour commencer, téléchargez [la structure de l’application](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\/archive/complete.zip). Vous aurez également besoin d’un client Azure AD dans lequel inscrire votre application. Si ce n’est pas déjà fait, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
+To get started, [download the app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) or [download the completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\/archive/complete.zip).  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
 
-## 1\. Inscrire une application auprès d’Azure AD
-Pour autoriser l’authentification des utilisateurs par votre application, vous devez tout d’abord inscrire une nouvelle application dans votre client.
+## <a name="1.-register-an-application-with-azure-ad"></a>1.  Register an Application with Azure AD
+To enable your app to authenticate users, you'll first need to register a new application in your tenant.
 
-- Connectez-vous au portail de gestion Azure.
-- Cliquez sur **Active Directory** dans la partie de gauche.
-- Sélectionnez le client dans lequel vous souhaitez inscrire l’application.
-- Cliquez sur l’onglet **Applications**, puis sur Ajouter dans le menu déroulant inférieur.
-- Suivez les invites et créez une **Application Web et/ou API Web**.
-    - Le **nom** de l’application doit décrire votre application aux utilisateurs finaux.
-    - L’**URL de connexion** est l’URL de base de votre application. La valeur par défaut de la structure est `http://localhost:8080/adal4jsample/`.
-    - Un **URI ID d’application** est un identificateur unique pour votre application. L’usage est d’utiliser `https://<tenant-domain>/<app-name>`, par exemple `http://localhost:8080/adal4jsample/`.
-- Une fois l’inscription terminée, AAD affecte un identificateur client unique à votre application. Copiez cette valeur à partir de l’onglet Configurer, car vous en aurez besoin dans les sections suivantes.
+- Sign into the Azure Management Portal.
+- In the left hand nav, click on **Active Directory**.
+- Select the tenant where you wish to register the application.
+- Click the **Applications** tab, and click add in the bottom drawer.
+- Follow the prompts and create a new **Web Application and/or WebAPI**.
+    - The **name** of the application will describe your application to end-users
+    - The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
+    - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`
+- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
 
-Une fois dans le portail de votre application, créez un **secret d’application** pour votre application et notez-le quelque part. Vous en aurez besoin rapidement.
+Once in the portal for your app create an **Application Secret** for your application and copy it down.  You will need it shortly.
 
 
-## 2\. Configurer votre application pour utiliser la bibliothèque ADAL4J et la configuration requise à l’aide de Maven
-Ici, nous allons configurer ADAL4J pour utiliser le protocole d’authentification OpenID Connect. ADAL4J sera utilisée pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur, entre autres.
+## <a name="2.-set-up-your-app-to-use-adal4j-library-and-prerequisites-using-maven"></a>2. Set up your app to use ADAL4J library and prerequisites using Maven
+Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
--	Dans le répertoire racine de votre projet, ouvrez/créez `pom.xml`, recherchez `// TODO: provide dependencies for Maven` et remplacez cette portion par les éléments suivants :
+-   In the root directory of your project, open/create `pom.xml` and locate the `// TODO: provide dependencies for Maven` and replace with the following:
 
 ```Java
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.microsoft.azure</groupId>
-	<artifactId>public-client-adal4j-sample</artifactId>
-	<packaging>jar</packaging>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>public-client-adal4j-sample</name>
-	<url>http://maven.apache.org</url>
-	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
-	</properties>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>public-client-adal4j-sample</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>public-client-adal4j-sample</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <spring.version>3.0.5.RELEASE</spring.version>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.microsoft.azure</groupId>
-			<artifactId>adal4j</artifactId>
-			<version>1.1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.nimbusds</groupId>
-			<artifactId>oauth2-oidc-sdk</artifactId>
-			<version>4.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20090211</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.5</version>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>adal4j</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>oauth2-oidc-sdk</artifactId>
+            <version>4.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+        </dependency>
 </dependencies>
-	<build>
-		<finalName>public-client-adal4j-sample</finalName>
-		<plugins>
-		        <plugin>
+    <build>
+        <finalName>public-client-adal4j-sample</finalName>
+        <plugins>
+                <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
             <version>1.2.1</version>
@@ -111,37 +112,37 @@ Ici, nous allons configurer ADAL4J pour utiliser le protocole d’authentificati
                 <mainClass>PublicClient</mainClass>
             </configuration>
         </plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>install</id>
-						<phase>install</phase>
-						<goals>
-							<goal>sources</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>install</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>sources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>
           <execution>
@@ -168,8 +169,8 @@ Ici, nous allons configurer ADAL4J pour utiliser le protocole d’authentificati
     </archive>
   </configuration>
 </plugin>
-		</plugins>
-	</build>
+        </plugins>
+    </build>
 
 </project>
 
@@ -178,11 +179,11 @@ Ici, nous allons configurer ADAL4J pour utiliser le protocole d’authentificati
 
 
 
-## 3\. Créer le fichier PublicClient Java
+## <a name="3.-create-the-java-publicclient-file"></a>3. Create the java PublicClient file
 
-Comme indiqué ci-dessus, nous utiliserons l’API Graph pour obtenir les données relatives à l’utilisateur connecté. Afin de nous faciliter la tâche, nous devons créer un fichier pour représenter un **objet répertoire** et un fichier individuel pour représenter l’**utilisateur** afin que le modèle OO de Java puisse être utilisé.
+As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
 
-1. Créez un fichier appelé `DirectoryObject.java` que nous utiliserons pour stocker les données de base sur n’importe quel objet répertoire (n’hésitez pas à l’utiliser ultérieurement pour toutes vos autres requêtes Graph éventuelles). Vous pouvez couper/coller ces éléments ci-dessous :
+1. Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
 
 ```Java
 import java.io.BufferedReader;
@@ -246,26 +247,31 @@ public class PublicClient {
 ```
 
 
-##Compiler et exécuter l’exemple
+##<a name="compile-and-run-the-sample"></a>Compile and run the sample
 
-Revenez à votre répertoire racine et exécutez la commande suivante pour générer l’exemple que vous venez de créer à l’aide de `maven`. L’opération utilisera le fichier `pom.xml` que vous avez écrit pour vos dépendances.
+Change back out to your root directory and run the following command to build the sample you just put together using `maven`. This will use the `pom.xml` file you wrote for dependencies.
 
 `$ mvn package`
 
-Vous devez maintenant disposer d’un fichier `adal4jsample.war` dans votre répertoire `/targets`. Vous pouvez le déployer dans votre conteneur Tomcat et ouvrir l’URL
+You should now have a `adal4jsample.war` file in your `/targets` directory. You may deploy that in your Tomcat container and visit the URL 
 
 `http://localhost:8080/adal4jsample/`
 
 
 > [AZURE.NOTE] 
-Il est très facile de déployer un fichier WAR avec les derniers serveurs Tomcat. Accédez simplement à `http://localhost:8080/manager/` et suivez les instructions pour charger votre fichier `adal4jsample.war`. Il se déploiera automatiquement pour vous avec le point de terminaison correct.
+It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your ``adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
 
-##Étapes suivantes
+##<a name="next-steps"></a>Next Steps
 
-Félicitations ! Vous disposez désormais d’une application Java fonctionnelle capable d’authentifier les utilisateurs, d’appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et d’obtenir des informations de base concernant l’utilisateur. Si vous ne l’avez pas encore fait, il est maintenant temps de remplir votre client avec quelques utilisateurs.
+Congratulations! You now have a working Java application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.
 
-Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), or you can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO4-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Création de rapports Azure Active Directory : Prise en main | Microsoft Azure"
-   description="Répertorie les différents rapports disponibles dans le rapport d'Azure Active Directory"
+   pageTitle="Azure Active Directory Reporting: Getting started | Microsoft Azure"
+   description="Lists the various available reports in Azure Active Directory reporting"
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
@@ -16,144 +16,149 @@
    ms.date="03/07/2016"
    ms.author="dhanyahk"/>
 
-# Prise en main de la création de rapports Azure Active Directory
 
-## Présentation
+# <a name="getting-started-with-azure-active-directory-reporting"></a>Getting started with Azure Active Directory Reporting
 
-Azure Active Directory (Azure AD) comprend des rapports sur la sécurité, les activités et l’audit concernant votre annuaire. Voici une liste des rapports fournis :
+## <a name="what-it-is"></a>What it is
 
-### Rapports de sécurité
+Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. Here's a list of the reports included:
 
-- Connexions à partir de sources inconnues
-- Connexions après plusieurs échecs
-- Connexions depuis plusieurs zones géographiques
-- Connexions depuis des adresses IP avec des activités suspectes
-- Activité de connexion anormale
-- Connexions à partir d’appareils potentiellement infectés
-- Utilisateurs ayant une activité de connexion anormale
+### <a name="security-reports"></a>Security reports
 
-### Rapports d’activité
+- Sign-ins from unknown sources
+- Sign-ins after multiple failures
+- Sign-ins from multiple geographies
+- Sign-ins from IP addresses with suspicious activity
+- Irregular sign-in activity
+- Sign-ins from possibly infected devices
+- Users with anomalous sign-in activity
 
-- Utilisation des applications : résumé
-- Utilisation des applications : présentation détaillée
-- Tableau de bord de l’application
-- Erreurs de configuration de compte
-- Appareils des utilisateur individuels
-- Activité des utilisateurs individuels
-- Rapport d'activité de groupes
-- Rapport d’activité de l’enregistrement de la réinitialisation de mot de passe
-- Activité de réinitialisation de mot de passe
+### <a name="activity-reports"></a>Activity reports
 
-### Rapport d’audit
+- Application usage: summary
+- Application usage: detailed
+- Application dashboard
+- Account provisioning errors
+- Individual user devices
+- Individual user Activity
+- Groups activity report
+- Password Reset Registration Activity Report
+- Password reset activity
 
-- Rapport d’audit d’annuaire
+### <a name="audit-reports"></a>Audit reports
 
-> [AZURE.TIP] Pour plus d’informations sur la création de rapports Azure AD, consultez la page [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
+- Directory audit report
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
-## Fonctionnement
 
+## <a name="how-it-works"></a>How it works
 
-### Pipeline de création de rapports
 
-Le pipeline de création de rapports se compose de trois étapes principales. Chaque fois qu’un utilisateur se connecte ou qu’une authentification est effectuée, voici ce qui se produit :
+### <a name="reporting-pipeline"></a>Reporting pipeline
 
-- Tout d’abord, l’utilisateur est authentifié (ou non) et le résultat est stocké dans les bases de données du service Azure Active Directory.
-- À intervalles réguliers, toutes les connexions récentes sont traitées. À ce stade, nos algorithmes de sécurité et de surveillance des activités anormales recherchent toute activité suspecte dans les connexions récentes.
-- Après traitement, les rapports sont écrits, mis en cache et placés dans le portail Azure Classic.
+The reporting pipeline consists of three main steps. Every time a user signs in, or an authentication is made, the following happens:
 
-### Durée de génération des rapports
+- First, the user is authenticated (successfully or unsuccessfully), and the result is stored in the Azure Active Directory service databases.
+- At regular intervals, all recent sign ins are processed. At this point, our security and anomalous activity algorithms are searching all recent sign ins for suspicious activity.
+- After processing, the reports are written, cached, and served in the Azure classic portal.
 
-En raison du volume important d’authentifications et de connexions traitées par la plateforme Azure AD, les connexions traitées les plus récentes datent en moyenne d’une heure. Dans de rares cas, il peut s’écouler jusqu’à 8 heures avant le traitement des connexions les plus récentes.
+### <a name="report-generation-times"></a>Report generation times
 
-Vous trouverez la dernière connexion traitée en examinant le texte d’aide en haut de chaque rapport.
+Due to the large volume of authentications and sign ins processed by the Azure AD platform, the most recent sign-ins processed are, on average, one hour old. In rare cases, it may take up to 8 hours to process the most recent sign-ins.
 
-![Texte d’aide en haut de chaque rapport.](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
+You can find the most recent processed sign-in by examining the help text at the top of each report.
 
-> [AZURE.TIP] Pour plus d’informations sur la création de rapports Azure AD, consultez la page [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
+![Help text at the top of each report](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
-## Prise en main
 
+## <a name="getting-started"></a>Getting started
 
-### Connectez-vous au portail Azure Classic
 
-Tout d’abord, vous devez vous connecter au [portail Azure Classic](https://manage.windowsazure.com) en tant qu’administrateur global ou administrateur de conformité. Vous devez également être administrateur ou coadministrateur de service d’abonnement Azure ou utiliser l’abonnement Azure « Accès à Azure AD ».
+### <a name="sign-into-the-azure-classic-portal"></a>Sign into the Azure classic portal
 
-### Accès aux rapports
+First, you'll need to sign into the [Azure classic portal](https://manage.windowsazure.com)  as a global or compliance administrator. You must also be an Azure subscription service administrator or co-administrator, or be using the "Access to Azure AD" Azure subscription.
 
-Pour afficher les rapports, accédez à l’onglet Rapports en haut de votre annuaire.
+### <a name="navigate-to-reports"></a>Navigate to Reports
 
-Si c’est la première fois que vous consultez les rapports, vous devez valider une boîte de dialogue avant de pouvoir les afficher. Il s’agit de vérifier qu’il est acceptable pour les administrateurs de votre organisation de consulter ces données, qui peuvent être considérées comme des informations privées dans certains pays.
+To view Reports, navigate to the Reports tab at the top of your directory.
 
-![Boîte de dialogue](./media/active-directory-reporting-getting-started/dialogBox.png)
+If this is your first time viewing the reports, you'll need to agree to a dialog box before you can view the reports. This is to ensure that it's acceptable for admins in your organization to view this data, which may be considered private information in some countries.
 
-### Explorer chaque rapport
+![Dialog box](./media/active-directory-reporting-getting-started/dialogBox.png)
 
-Naviguez dans chaque rapport pour voir les données collectées et les connexions traitées. Vous trouverez une [liste de tous les rapports ici](active-directory-reporting-guide.md).
+### <a name="explore-each-report"></a>Explore each report
 
-![Tous les rapports](./media/active-directory-reporting-getting-started/reportsMain.png)
+Navigate into each report to see the data being collected and the sign-ins processed. You can find a [list of all the reports here](active-directory-reporting-guide.md).
 
-### Télécharger les rapports au format CSV
+![All reports](./media/active-directory-reporting-getting-started/reportsMain.png)
 
-Chaque rapport peut être téléchargé dans un fichier CSV (valeurs séparées par des virgules). Vous pouvez utiliser ces fichiers dans Excel, PowerBI ou un autre programme d’analyse pour analyser vos données.
+### <a name="download-the-reports-as-csv"></a>Download the reports as CSV
 
-Pour télécharger un rapport au format CSV, accédez au rapport et cliquez sur Télécharger en bas.
+Each report can be downloaded as a CSV (comma-separated value) file. You can use these files in Excel, PowerBI or third-party analysis programs to further analyze your data.
 
-![Bouton de téléchargement](./media/active-directory-reporting-getting-started/downloadButton.png)
+To download any report as a CSV, navigate to the report and click "Download" at the bottom.
 
-> [AZURE.TIP] Pour plus d’informations sur la création de rapports Azure AD, consultez la page [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
+![Download button](./media/active-directory-reporting-getting-started/downloadButton.png)
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
 
 
-## Étapes suivantes
 
-### Personnalisation des alertes d’activité anormale dans les connexions
+## <a name="next-steps"></a>Next steps
 
-Accédez à l’onglet Configuration de votre annuaire.
+### <a name="customize-alerts-for-anomalous-sign-in-activity"></a>Customize alerts for anomalous sign in activity
 
-Accédez à la section Notifications.
+Navigate to the "Configure" tab of your directory.
 
-Activez ou désactivez la section Notification par courrier électronique des anomalies de connexion.
+Scroll to the "Notifications" section.
 
-![Section Notifications](./media/active-directory-reporting-getting-started/notificationsSection.png)
+Enable or disable the "Email Notifications of Anomalous sign-ins" section.
 
-### Intégration avec l’API de création de rapports d’Azure AD
+![The Notifications section](./media/active-directory-reporting-getting-started/notificationsSection.png)
 
-Consultez la rubrique [Prise en main de l’API de création de rapports](active-directory-reporting-api-getting-started.md).
+### <a name="integrate-with-the-azure-ad-reporting-api"></a>Integrate with the Azure AD Reporting API
 
-### Application de l’authentification multifacteur aux utilisateurs
+See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md).
 
-Sélectionnez un utilisateur dans un rapport.
+### <a name="engage-multi-factor-authentication-on-users"></a>Engage Multi-Factor Authentication on users
 
-Cliquez sur le bouton Activer l’authentification multifacteur en bas de l’écran.
+Select a user in a report.
 
-![Bouton Multi-Factor Authentication en bas de l’écran](./media/active-directory-reporting-getting-started/mfaButton.png)
+Click the "Enable MFA" button at the bottom of the screen.
 
-> [AZURE.TIP] Pour plus d’informations sur la création de rapports Azure AD, consultez la page [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
+![The Multi-Factor Authentication button at the bottom of the screen](./media/active-directory-reporting-getting-started/mfaButton.png)
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
 
-## En savoir plus
 
+## <a name="learn-more"></a>Learn more
 
-### Événements d'audit
 
-En savoir plus sur les événements audités dans l’annuaire dans les [Événements de rapport d'audit d'Azure Active Directory](active-directory-reporting-audit-events.md).
+### <a name="audit-events"></a>Audit events
 
-### Intégration de l’API
+Learn about what events are audited in the directory in [Azure Active Directory Reporting Audit Events](active-directory-reporting-audit-events.md).
 
-Consultez la rubrique [Prise en main de l’API de création de rapports](active-directory-reporting-api-getting-started.md) et la [documentation de référence de l’API](https://msdn.microsoft.com/library/azure/mt126081.aspx).
+### <a name="api-integration"></a>API Integration
 
-### Prendre contact
+See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md) and the [API reference documentation](https://msdn.microsoft.com/library/azure/mt126081.aspx).
 
-Envoyez un message à [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) pour faire part de vos commentaires, obtenir de l’aide ou poser une question.
+### <a name="get-in-touch"></a>Get in touch
 
-> [AZURE.TIP] Pour plus d’informations sur la création de rapports Azure AD, consultez la page [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
+Email [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) for feedback, help, or any questions you might have.
 
-<!---HONumber=AcomDC_0928_2016-->
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

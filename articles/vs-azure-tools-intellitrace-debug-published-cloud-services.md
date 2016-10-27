@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Débogage d’un service cloud publié avec IntelliTrace et Visual Studio | Microsoft Azure"
-   description="Débogage d’un service cloud publié avec IntelliTrace et Visual Studio"
+   pageTitle="Debugging a published cloud service with IntelliTrace and Visual Studio | Microsoft Azure"
+   description="Debugging a published cloud service with IntelliTrace and Visual Studio"
    services="visual-studio-online"
    documentationCenter="n/a"
    authors="TomArcher"
@@ -15,56 +15,62 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Débogage d’un service cloud publié avec IntelliTrace et Visual Studio
 
-##Vue d'ensemble
+# <a name="debugging-a-published-cloud-service-with-intellitrace-and-visual-studio"></a>Debugging a published cloud service with IntelliTrace and Visual Studio
 
-Avec IntelliTrace, vous pouvez enregistrer des informations de débogage détaillées pour une instance de rôle exécutée dans Azure. Si vous devez identifier la cause d’un problème, utilisez les journaux IntelliTrace pour exécuter pas à pas votre code à partir de Visual Studio comme s’il était exécuté dans Azure. En effet, IntelliTrace enregistre les principales données sur l’exécution du code et sur l’environnement quand votre application Azure est exécutée en tant que service cloud dans Azure. IntelliTrace vous permet d’examiner les données enregistrées à partir de Visual Studio. Vous pouvez également utiliser le débogage distant pour l’attachement direct à un service cloud exécuté dans Azure. Consultez [Débogage de Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=623041).
+##<a name="overview"></a>Overview
 
->[AZURE.IMPORTANT] IntelliTrace est conçu uniquement pour des scénarios de débogage et ne doit pas être utilisé dans le cadre d’un déploiement de production.
+With IntelliTrace, you can log extensive debugging information for a role instance when it runs in Azure. If you need to find the cause of a problem, you can use the IntelliTrace logs to step through your code from Visual Studio as if it were running in Azure. In effect, IntelliTrace records key code execution and environment data when your Azure application is running as a cloud service in Azure, and lets you replay the recorded data from Visual Studio. As an alternative, you can use remote debugging to attach directly to a cloud service that's running in Azure. See [Debugging Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=623041).
 
->[AZURE.NOTE] Vous pouvez utiliser IntelliTrace si Visual Studio Enterprise est installé et que votre application Azure cible .NET Framework 4 ou une version ultérieure. IntelliTrace collecte des informations pour vos rôles Azure. Les machines virtuelles pour ces rôles exécutent toujours des systèmes d’exploitation 64 bits.
+>[AZURE.IMPORTANT] IntelliTrace is intended for debug scenarios only, and should not be used for a production deployment.
 
-## Pour configurer une application Azure pour IntelliTrace
+>[AZURE.NOTE] You can use IntelliTrace if you have Visual Studio Enterprise installed and your Azure application targets .NET Framework 4 or a later version. IntelliTrace collects information for your Azure roles. The virtual machines for these roles always run 64-bit operating systems.
 
-Pour activer IntelliTrace pour une application Azure, vous devez créer et publier l’application à partir d’un projet Azure Visual Studio. Configurez IntelliTrace pour votre application Azure avant de la publier dans Azure. Si vous publiez votre application sans configurer IntelliTrace, mais que vous décidez ensuite de le faire, vous devrez republier l’application à partir de Visual Studio. Pour plus d’informations, consultez [Publication d’un service cloud à l’aide d’Azure Tools](http://go.microsoft.com/fwlink/p/?LinkId=623012).
+## <a name="to-configure-an-azure-application-for-intellitrace"></a>To configure an Azure application for IntelliTrace
 
-1. Quand vous êtes prêt à déployer votre application Azure, vérifiez que les cibles de publication de votre projet sont définies sur **Debug**.
+To enable IntelliTrace for an Azure application, you must create and publish the application from a Visual Studio Azure project. You must configure IntelliTrace for your Azure application before you publish it to Azure. If you publish your application without configuring IntelliTrace but then decide that you want to do that, you will have to publish the application again from Visual Studio. For more information, see [Publishing a Cloud Service using the Azure Tools](http://go.microsoft.com/fwlink/p/?LinkId=623012).
 
-1. Dans l’Explorateur de solutions, ouvrez le menu contextuel pour le projet Azure, puis choisissez **Publier**.
+1. When you are ready to deploy your Azure application, verify that your project build targets are set to **Debug**.
+
+1. Open the shortcut menu for the Azure project in Solution Explorer and choose **Publish**.
  
-    L’Assistant Publication d’application Azure s’affiche.
+    The Publish Azure Application wizard appears.
 
-1. Pour collecter des journaux IntelliTrace pour votre application publiée dans le cloud, cochez la case **Activer IntelliTrace**.
+1. To collect IntelliTrace logs for your application when it is published in the cloud, select the **Enable IntelliTrace** check box.
 
-    >[AZURE.NOTE] Vous pouvez activer IntelliTrace ou le profilage quand vous publiez votre application Azure, mais vous ne pouvez pas activer les deux à la fois.
+    >[AZURE.NOTE] You can enable either IntelliTrace or profiling when you publish your Azure application. You cannot enable both.
 
-1. Pour personnaliser la configuration IntelliTrace initiale, choisissez le lien hypertexte **Paramètres**.
+1. To customize the basic IntelliTrace configuration, choose the **Settings** hyperlink.
 
-    La boîte de dialogue Paramètres IntelliTrace s’affiche (voir l’illustration suivante). Vous pouvez spécifier les événements à enregistrer dans le journal, si les informations d’appel doivent être collectées ou non, pour quels modules et processus collecter les journaux, et la quantité d’espace à allouer à l’enregistrement. Pour plus d’informations sur IntelliTrace, consultez [Débogage avec IntelliTrace](http://go.microsoft.com/fwlink/?LinkId=214468).
+    The IntelliTrace Settings dialog appears, as shown in the following figure. You can specify which events to log, whether to collect call information, which modules and processes to collect logs for, and how much space to allocate to the recording. For more information about IntelliTrace, see [Debugging with IntelliTrace](http://go.microsoft.com/fwlink/?LinkId=214468).
 
-    ![VST\_IntelliTraceSettings](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC519063.png)
+    ![VST_IntelliTraceSettings](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC519063.png)
 
-Le journal IntelliTrace est un fichier journal circulaire dont la taille maximale est spécifiée dans les paramètres IntelliTrace (la taille par défaut est de 250 Mo). Les journaux IntelliTrace sont regroupés dans un même fichier, situé dans le système de fichiers de la machine virtuelle. Quand vous demandez les journaux, un instantané est pris à ce moment précis, puis téléchargé vers votre ordinateur local.
+The IntelliTrace log is a circular log file of the maximum size specified in the IntelliTrace settings (the default size is 250 MB). IntelliTrace logs are collected to a file in the file system of the virtual machine. When you request the logs, a snapshot is taken at that point in time and downloaded to your local computer.
 
-Après avoir publié l’application Azure dans Azure, vous pouvez déterminer si IntelliTrace a été activé depuis le nœud de calcul Azure dans l’Explorateur de serveurs, comme indiqué dans l’illustration suivante :
+After the Azure application has been published to Azure, you can determine if IntelliTrace has been enabled from the Azure Compute node in Server Explorer, as shown in the following image:
 
-![VST\_DeployComputeNode](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC744134.png)
+![VST_DeployComputeNode](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC744134.png)
 
-## Téléchargement des journaux IntelliTrace pour une instance de rôle
+## <a name="downloading-intellitrace-logs-for-a-role-instance"></a>Downloading IntelliTrace Logs for a Role Instance
 
-Vous pouvez télécharger les journaux IntelliTrace pour une instance de rôle à partir du nœud **Cloud Services** dans l’**Explorateur de serveurs**. Développez le nœud **Cloud Services** jusqu’à l’instance qui vous intéresse, ouvrez le menu contextuel de cette instance et choisissez **Afficher les fichiers journaux IntelliTrace**. Les journaux IntelliTrace sont téléchargés et regroupés dans un fichier, situé dans un répertoire de votre ordinateur local. Chaque fois que vous demandez les journaux IntelliTrace, un nouvel instantané est créé.
+You can download IntelliTrace logs for a role instance from the **Cloud Services** node in **Server Explorer**. Expand the **Cloud Services** node until you locate the instance you are interested in, open the shortcut menu for this instance and choose **View IntelliTrace Logs**. The IntelliTrace logs are downloaded to a file in a directory on your local computer. Each time that you request the IntelliTrace logs, a new snapshot is created.
 
-Visual Studio affiche la progression du téléchargement des journaux dans la fenêtre Journal des activités Azure. Comme le montre l’illustration ci-dessous, il est possible de développer la ligne correspondant à l’opération pour afficher plus de détails.
+When the logs are downloaded, Visual Studio displays the progress of the operation in the Azure Activity Log window. As shown in the following figure, you can expand the line item for the operation to see more detail.
 
-![VST\_IntelliTraceDownloadProgress](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC745551.png)
+![VST_IntelliTraceDownloadProgress](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC745551.png)
 
-Vous pouvez continuer à utiliser Visual Studio pendant le téléchargement des journaux IntelliTrace. Quand le téléchargement d’un journal est terminé, le journal s’ouvre automatiquement dans Visual Studio.
+You can continue to work in Visual Studio while the IntelliTrace logs are downloading. When the log has finished downloading, it will automatically open in Visual Studio.
 
->[AZURE.NOTE] Les journaux IntelliTrace peuvent contenir des exceptions que l’infrastructure génère et gère par la suite. Le code de l’infrastructure interne génère ces exceptions dans le cadre normal du démarrage d’un rôle. Vous pouvez donc les ignorer en toute sécurité.
+>[AZURE.NOTE] The IntelliTrace logs might contain exceptions that the framework generates and subsequently handles. Internal framework code generates these exceptions as a normal part of starting up a role, so you may safely ignore them.
 
-## Voir aussi
+## <a name="see-also"></a>See Also
 
-[Débogage de Cloud Services](https://msdn.microsoft.com/library/ee405479.aspx)
+[Debugging Cloud Services](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

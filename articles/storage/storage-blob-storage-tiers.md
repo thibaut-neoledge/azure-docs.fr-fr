@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Stockage froid des objets blob Azure | Microsoft Azure"
-    description="Niveaux de stockage d’objets blob Azure pour un stockage économique des données d’objet basé sur les modèles d’accès. Le niveau de stockage froid est optimisé pour les données moins fréquemment utilisées."
+    pageTitle="Azure cool storage for blobs | Microsoft Azure"
+    description="Storage tiers for Azure Blob storage offer cost-efficient storage for object data based on access patterns. The cool storage tier is optimized for data that is accessed less frequently."
     services="storage"
     documentationCenter=""
     authors="michaelhauss"
@@ -17,327 +17,345 @@
     ms.author="mihauss;robinsh"/>
 
 
-# Stockage des objets blob Azure : niveaux de stockage chauds et froids
 
-## Vue d'ensemble
+# <a name="azure-blob-storage:-hot-and-cool-storage-tiers"></a>Azure Blob Storage: Hot and cool storage tiers
 
-Le stockage Azure offre désormais deux niveaux de stockage d’objets blob (stockage d’objets) afin que vous puissiez stocker vos données de manière plus économique en fonction de leur utilisation. Le **niveau de stockage chaud** Azure est optimisé pour le stockage des données souvent sollicitées. Le **niveau de stockage froid** Azure est optimisé pour le stockage des données rarement sollicitées et durables. Les données du niveau de stockage froid peuvent tolérer une disponibilité légèrement inférieure, mais nécessitent toujours une durabilité élevée, ainsi qu’un temps d’accès et des caractéristiques de débit similaires à ceux des données chaudes. Concernant les données froides, un contrat SLA de disponibilité légèrement inférieure et des coûts d’accès supérieurs sont des compromis acceptables pour des coûts de stockage beaucoup plus faibles.
+## <a name="overview"></a>Overview
 
-Aujourd’hui, les données stockées dans le cloud connaissent une croissance exponentielle. Pour gérer les coûts liés à vos besoins de stockage en pleine expansion, il est utile d’organiser vos données selon des attributs tels que la fréquence d’accès et la période de rétention prévue. Les données stockées dans le cloud peuvent être très différentes en termes de mode de génération, de traitement et d’accès au long de leur durée de vie. Certaines données sont activement sollicitées et modifiées tout au long de leur durée de vie. Certaines sont très fréquemment sollicitées au début de leur durée de vie, puis les accès se raréfient considérablement à mesure qu’elles deviennent plus anciennes. D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées une fois stockées.
+Azure Storage now offers two storage tiers for Blob storage (object storage), so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and long-lived. Data in the cool storage tier can tolerate a slightly lower availability, but still requires high durability and similar time to access and throughput characteristics as hot data. For cool data, slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
 
-Chacun des scénarios d’accès aux données décrits ci-dessus peut bénéficier des avantages d’un niveau de stockage différencié, gage d’optimisation pour un modèle d’accès particulier. L’introduction des niveaux de stockage chauds et froids permet désormais au stockage d’objets blob Azure de répondre à ce besoin de niveaux de stockage différenciés aux modèles de tarification distincts.
+Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency of access and planned retention period. Data stored in the cloud can be quite different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed very frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
 
-## Comptes de stockage d’objets blob
+Each of these data access scenarios described above benefits from a differentiated tier of storage that is optimized for a particular access pattern. With the introduction of hot and cool storage tiers, Azure Blob storage now addresses this need for differentiated storage tiers with separate pricing models.
 
-Les **comptes de stockage d’objets blob** sont des comptes de stockage spécialisés pour le stockage des données non structurées en tant qu’objets blob dans Azure Storage. Avec les comptes de stockage d’objets blob, vous pouvez maintenant choisir entre les niveaux de stockage froid et chaud pour stocker vos données froides, moins fréquemment sollicitées, moyennant un coût de stockage plus faible, et stocker vos données chaudes, plus fréquemment sollicitées, moyennant un coût d’accès inférieur. Les comptes de stockage d’objets blob sont similaires à vos comptes de stockage à usage général existants et offrent les excellents niveaux de durabilité, disponibilité, évolutivité et performances dont vous bénéficiez aujourd’hui. Ils assurent notamment la cohérence d’API à 100 % pour les objets blob de blocs et d’ajout.
+## <a name="blob-storage-accounts"></a>Blob storage accounts
 
-> [AZURE.NOTE] Les comptes de stockage d’objets blob prennent en charge uniquement les objets blob de blocs et d’ajout, mais pas les objets blob de pages.
+**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between hot and cool storage tiers to store your less frequently accessed cool data at a lower storage cost, and store more frequently accessed hot data at a lower access cost. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs.
 
-Les comptes de stockage d’objets blob exposent l’attribut **Access Tier**, qui vous permet de spécifier le niveau de stockage comme **chaud** ou **froid** en fonction des données stockées dans le compte. Si le modèle d’utilisation de vos données est modifié, vous pouvez également basculer entre ces niveaux de stockage à tout moment.
+> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
 
-> [AZURE.NOTE] La modification du niveau de stockage peut entraîner des frais supplémentaires. Veuillez consulter la section [Tarification et facturation](storage-blob-storage-tiers.md#pricing-and-billing) pour plus de détails.
+Blob storage accounts expose the **Access Tier** attribute, which allow you to specify the storage tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time.
 
-Voici quelques exemples de scénarios d’utilisation pour le niveau de stockage chaud :
+> [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
 
-- Données activement utilisées ou censées être fréquemment sollicitées (accès en lecture et écriture).
-- Données conservées pour traitement et migration éventuelle vers le niveau de stockage froid.
+Example usage scenarios for the hot storage tier include:
 
-Voici quelques exemples de scénarios d’utilisation pour le niveau de stockage froid :
+- Data that is in active use or expected to be accessed (read from and written to) frequently.
+- Data that is staged for processing and eventual migration to the cool storage tier.
 
-- Sauvegarde, archivage et récupération d’urgence d’ensembles de données.
-- Ancien contenu multimédia qui n’est plus consulté fréquemment mais qui est censé être disponible immédiatement lors d’un accès.
-- Jeux de données volumineux qui doivent être stockés à moindre coût, sachant que des données supplémentaires sont collectées pour un traitement ultérieur (*par exemple*, un stockage à long terme de données scientifiques ou de données de télémétrie brutes provenant d’une unité de production).
-- Données d’origine (brutes) qui doivent être conservées, même après leur traitement sous un format final exploitable (*par exemple,*, des fichiers multimédias bruts après transcodage dans d’autres formats)
-- Données de conformité et d’archivage qui doivent être stockées à long terme et qui sont très rarement sollicitées (*par exemple,* séquences vidéo de sécurité, anciens clichés de radiographie ou d’IRM pour des organismes de santé ou enregistrements audio et transcriptions d’appels de clients pour des services financiers).
+Example usage scenarios for the cool storage tier include:
 
-Pour plus d’informations sur les comptes de stockage, consultez [À propos des comptes de stockage Azure](storage-create-storage-account.md).
+- Backup, archival and disaster recovery datasets.
+- Older media content not viewed frequently anymore but is expected to be available immediately when accessed.
+- Large data sets that need to be stored cost effectively while more data is being gathered for future processing. (*e.g.*, long-term storage of scientific data, raw telemetry data from a manufacturing facility)
+- Original (raw) data that must be preserved, even after it has been processed into final usable form. (*e.g.*, Raw media files after transcoding into other formats)
+- Compliance and archival data that needs to be stored for a long time and is hardly ever accessed. (*e.g.*, Security camera footage, old X-Rays/MRIs for healthcare organizations, audio recordings and transcripts of customer calls for financial services)
 
-Pour les applications qui requièrent uniquement le stockage d’objets blob de blocs ou d’objets blob d’ajout, nous recommandons d’utiliser des comptes de stockage d’objets blob, pour tirer parti du modèle de tarification différencié du stockage hiérarchisé. Toutefois, nous comprenons que cela n’est pas possible dans certains cas, notamment lorsque l’utilisation de comptes de stockage à usage général représente la meilleure option, par exemple :
+See [About Azure storage accounts](storage-create-storage-account.md) for more information on storage accounts.
 
-- Vous devez utiliser des tables, files d’attente ou fichiers et souhaitez que vos objets blob soient stockés dans le même compte de stockage. Notez qu’il n’existe aucun avantage technique à les stocker dans le même compte, si ce n’est que les clés partagées seront les mêmes.
-- Vous devez toujours utiliser le modèle de déploiement Classic. Les comptes de stockage d’objets blob sont uniquement disponibles via le modèle de déploiement Azure Resource Manager.
-- Vous devez utiliser des objets blob de pages. Les comptes de stockage d’objets blob ne gèrent pas les objets blob de pages. En général, nous recommandons d’utiliser des objets blob de blocs, sauf si vous avez spécifiquement besoin d’objets blob de pages.
-- Vous utilisez une version de l’[API REST des services de stockage](https://msdn.microsoft.com/library/azure/dd894041.aspx) antérieure à celle du 14/02/2014 ou une bibliothèque cliente avec une version inférieure à 4.x, et vous ne pouvez pas mettre à niveau votre application.
+For applications requiring only block or append blob storage, we recommend using Blob storage accounts, to take advantage of the differentiated pricing model of tiered storage. However, we understand that this might not be possible under certain circumstances where using general-purpose storage accounts would be the way to go, such as:
 
-> [AZURE.NOTE] Les comptes de stockage d’objets blob sont actuellement pris en charge dans la majorité des régions Azure, et cette prise en charge est amenée à s’élargir. Pour consulter la liste à jour des régions disponibles, voir la page [Régions Azure - Services par région](https://azure.microsoft.com/regions/#services).
+- You need to use tables, queues, or files and want your blobs stored in the same storage account. Note that there is no technical advantage to storing these in the same account other than having the same shared keys.
+- You still need to use the Classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
+- You need to use page blobs. Blob storage accounts do not support page blobs. We generally recommend using block blobs unless you have a specific need for page blobs.
+- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
 
-## Comparaison entre les niveaux de stockage
+> [AZURE.NOTE] Blob storage accounts are currently supported in a majority of Azure regions with more to follow. You can find the updated list of available regions on the [Azure Services by Region](https://azure.microsoft.com/regions/#services) page.
 
-Le tableau suivant met en évidence la comparaison entre les deux niveaux de stockage :
+## <a name="comparison-between-the-storage-tiers"></a>Comparison between the storage tiers
+
+The following table highlights the comparison between the two storage tiers:
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
-<col width="250"> <col width="250"> <col width="250">
+<col width="250">
+<col width="250">
+<col width="250">
 <tbody>
 <tr>
     <td><strong><center></center></strong></td>
-    <td><strong><center>Niveau de stockage chaud</center></strong></td>
-    <td><strong><center>Niveau de stockage froid</center></strong>&lt;/td
+    <td><strong><center>Hot storage tier</center></strong></td>
+    <td><strong><center>Cool storage tier</center></strong></td
 </tr>
 <tr>
-    <td><strong><center>Disponibilité</center></strong></td>
-    <td><center>99,9&#160;%</center></td>
-    <td><center>99 %</center></td>
+    <td><strong><center>Availability</center></strong></td>
+    <td><center>99.9%</center></td>
+    <td><center>99%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Disponibilité<br>(Lectures RA-GRS)</center></strong></td>
-    <td><center>99,99 %</center></td>
-    <td><center>99,9&#160;%</center></td>
+    <td><strong><center>Availability<br>(RA-GRS reads)</center></strong></td>
+    <td><center>99.99%</center></td>
+    <td><center>99.9%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Frais d’utilisation</center></strong></td>
-    <td><center>Coûts de stockage supérieurs<br>Coûts d’accès et de transaction inférieurs</center></td>
-    <td><center>Coûts de stockage inférieurs<br>Coûts d’accès et de transaction supérieurs</center></td>
+    <td><strong><center>Usage charges</center></strong></td>
+    <td><center>Higher storage costs<br>Lower access and transaction costs</center></td>
+    <td><center>Lower storage costs<br>Higher access and transaction costs</center></td>
 </tr>
 <tr>
-    <td><strong><center>Taille minimale des objets<center></strong></td>
+    <td><strong><center>Minimum object size<center></strong></td>
     <td colspan="2"><center>N/A</center></td>
 </tr>
 <tr>
-    <td><strong><center>Durée de stockage minimale<center></strong></td>
+    <td><strong><center>Minimum storage duration<center></strong></td>
     <td colspan="2"><center>N/A</center></td>
 </tr>
 <tr>
-    <td><strong><center>Latence<br>(Temps jusqu’au premier octet)<center></strong></td>
-    <td colspan="2"><center>millisecondes</center></td>
+    <td><strong><center>Latency<br>(Time to first byte)<center></strong></td>
+    <td colspan="2"><center>milliseconds</center></td>
 </tr>
 <tr>
-    <td><strong><center>Cibles de performance et d’évolutivité<center></strong></td>
-    <td colspan="2"><center>Identiques aux comptes de stockage à usage général</center></td>
+    <td><strong><center>Scalability and performance targets<center></strong></td>
+    <td colspan="2"><center>Same as general-purpose storage accounts</center></td>
 </tr>
 </tbody>
 </table>
 
-> [AZURE.NOTE] Les comptes de stockage d’objets blob présentent les mêmes objectifs de performance et d’évolutivité que les comptes de stockage à usage général. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité d'Azure Storage](storage-scalability-targets.md).
+> [AZURE.NOTE] Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for more information.
 
-## Tarification et facturation
+## <a name="pricing-and-billing"></a>Pricing and Billing
 
-Les comptes de stockage d’objets blob utilisent un nouveau modèle de tarification pour le stockage d’objets blob basé sur le niveau de stockage. Les considérations de facturation suivantes s’appliquent à l’utilisation des comptes de stockage d’objets blob :
+Blob storage accounts use a new pricing model for blob storage based on the storage tier. When using a Blob storage account, the following billing considerations apply:
 
-- **Coûts de stockage** : les coûts de stockage de données varient selon la quantité de données stockées et le niveau de stockage. Le coût par gigaoctet du niveau de stockage froid est inférieur à celui du niveau de stockage chaud.
-- **Coûts d’accès aux données** : pour les données du niveau de stockage froid, des frais d’accès aux données en lecture et écriture vous seront facturés par gigaoctet.
-- **Coûts de transaction** : des frais par transaction s’appliquent pour les deux niveaux. Toutefois, le coût par transaction du niveau de stockage froid est supérieur à celui du niveau de stockage chaud.
-- **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, y compris GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
-- **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
-- **Modification du niveau de stockage** : passer d’un niveau de stockage froid à un niveau de stockage chaud implique des frais correspondant à la lecture de toutes les données existantes du compte de stockage pour chaque transition. En revanche, le passage d’un niveau de stockage chaud à un niveau de stockage froid est gratuit.
+- **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage tier. The per-gigabyte cost is lower for the cool storage tier than for the hot storage tier.
+- **Data access costs**: For data in the cool storage tier, you will be charged a per-gigabyte data access charge for reads and writes.
+- **Transaction costs**: There is a per-transaction charge for both tiers. However, the per-transaction cost for the cool storage tier is higher than that for the hot storage tier.
+- **Geo-Replication data transfer costs**: This only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
+- **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
+- **Changing the storage tier**: Changing the storage tier from cool to hot will incur a charge equal to reading all the data existing in the storage account for every transition. On the other hand, changing the storage tier from hot to cool will be free of cost.
 
-> [AZURE.NOTE] Pour permettre aux utilisateurs de tester les nouveaux niveaux de stockage et de valider les fonctionnalités après lancement, le passage d’un niveau de stockage froid à un niveau de stockage chaud sera gratuit jusqu’au 30 juin 2016. À partir du 1er juillet 2016, les frais seront appliqués à toutes les transitions du niveau d’accès froid au niveau d’accès chaud. Pour plus d’informations sur le modèle de tarification des comptes de stockage d’objets blob, voir la page [Tarification d’Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur les frais qu’implique le transfert de données sortantes, consultez la page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
+> [AZURE.NOTE] In order to allow users to try out the new storage tiers and validate functionality post launch, the charge for changing the storage tier from cool to hot will be waived off until June 30th 2016. Starting July 1st 2016, the charge will be applied to all transitions from cool to hot. For more details on the pricing model for Blob storage accounts see, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more details on the outbound data transfer charges see, [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
 
-## Quick Start
+## <a name="quick-start"></a>Quick Start
 
-Dans cette section, nous décrivons les scénarios ci-après utilisant le Portail Azure :
+In this section we will demonstrate the following scenarios using the Azure portal:
 
-- Création d’un compte de stockage d’objets blob
-- Gestion d’un compte de stockage d’objets blob
+- How to create a Blob storage account.
+- How to manage a Blob storage account.
 
-### Utilisation du portail Azure
+### <a name="using-the-azure-portal"></a>Using the Azure portal
 
-#### Créer un compte de stockage d’objets blob à l’aide du Portail Azure
+#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Create a Blob storage account using the Azure portal
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Dans le menu hub, sélectionnez **Nouveau** -> **Données + stockage** -> **Compte de stockage**.
+2. On the Hub menu, select **New** > **Data + Storage** > **Storage account**.
 
-3. Entrez un nom pour votre compte de stockage.
+3. Enter a name for your storage account.
 
-	Il doit s’agir d’un nom global unique ; il fait partie de l’URL permettant d’accéder aux objets du compte de stockage.
+    This name must be globally unique; it is used as part of the URL used to access the objects in the storage account.  
 
-4. Sélectionnez **Resource Manager** comme modèle de déploiement.
+4. Select **Resource Manager** as the deployment model.
 
-	Le stockage hiérarchisé est uniquement utilisable avec des comptes de stockage Resource Manager ; ce modèle de déploiement est recommandé pour les nouvelles ressources. Pour plus d’informations, voir [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+    Tiered storage can only be used with Resource Manager storage accounts; this is the recommended deployment model for new resources. For more information, check out the [Azure Resource Manager overview](../resource-group-overview.md).  
 
-5. Dans la liste déroulante Account Kind (Type de compte), sélectionnez **Stockage d’objets blob**.
+5. In the Account Kind dropdown list, select **Blob Storage**.
 
-	Cette liste vous permet de sélectionner le type de compte de stockage. Le stockage hiérarchisé n’est pas disponible dans le stockage à usage général ; il l’est uniquement dans le type de compte Stockage d’objets blob.
+    This is where you select the type of storage account. Tiered storage is not available in general-purpose storage; it is only available in the Blob storage type account.    
 
-	Notez que lorsque vous sélectionnez cette option, le niveau de performances est défini sur Standard. Le stockage hiérarchisé n’est pas disponible avec le niveau de performances Premium.
+    Note that when you select this, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
 
-6. Sélectionnez l’option de réplication pour le compte de stockage : **LRS**, **GRS** ou **RA-GRS**. La valeur par défaut est **RA-GRS**.
+6. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
 
-	LRS = stockage localement redondant ; GRS = stockage géo-redondant (2 régions) ; RA-GRS = stockage géo-redondant avec accès en lecture (2 régions avec accès en lecture à la seconde).
+    LRS = locally redundant storage; GRS = geo-redundant storage (2 regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
 
-	Pour plus d’informations sur les options de réplication d’Azure Storage, voir [Réplication Azure Storage](storage-redundancy.md).
+    For more details on Azure Storage replication options, check out [Azure Storage replication](storage-redundancy.md).
 
-7. Sélectionnez le niveau de stockage adapté à vos besoins : définissez le **Niveau d’accès** sur **Froid** ou **Chaud**. Le niveau par défaut est **Chaud**.
+7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
 
-8. Sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
+8. Select the subscription in which you want to create the new storage account.
 
-9. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md).
+9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
 
-10. Sélectionnez la région de votre compte de stockage.
+10. Select the region for your storage account.
 
-11. Cliquez sur **Créer** pour créer le compte de stockage.
+11. Click **Create** to create the storage account.
 
-#### Modifier le niveau de stockage d’un compte de stockage d’objets blob à l’aide du Portail Azure
+#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Change the storage tier of a Blob storage account using the Azure portal
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Pour accéder à votre compte de stockage, sélectionnez Toutes les ressources, puis sélectionnez votre compte de stockage.
+2. To navigate to your storage account, select All Resources, then select your storage account.
 
-3. Dans le panneau Paramètres, cliquez sur **Configuration** pour afficher et/ou modifier la configuration du compte.
+3. In the Settings blade, click **Configuration** to view and/or change the account configuration.
 
-4. Sélectionnez le niveau de stockage adapté à vos besoins : définissez le **Niveau d’accès** sur **Froid** ou **Chaud**.
+4. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**.
 
-5. Cliquez sur Enregistrer dans la partie supérieure du panneau.
+5. Click Save at the top of the blade.
 
-> [AZURE.NOTE] La modification du niveau de stockage peut entraîner des frais supplémentaires. Veuillez consulter la section [Tarification et facturation](storage-blob-storage-tiers.md#pricing-and-billing) pour plus de détails.
+> [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
 
-## Évaluation et migration vers des comptes de stockage d’objets blob
+## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Evaluating and migrating to Blob storage accounts
 
-Cette section vise à aider les utilisateurs à effectuer une transition en douceur vers les comptes de stockage d’objets blob. Il existe deux scénarios utilisateur :
+The purpose of this section is to help users to make a smooth transition to using Blob storage accounts. There are two user scenarios:
 
-- Vous disposez d’un compte de stockage à usage général et envisagez de passer à un compte de stockage d’objets blob avec le niveau de stockage approprié.
-- Vous souhaitez utiliser un compte de stockage d’objets blob ou vous disposez déjà d’un tel compte et souhaitez savoir si vous devez utiliser le niveau de stockage chaud ou froid.
+- You have an existing general-purpose storage account and want to evaluate a change to a Blob storage account with the right storage tier.
+- You have decided to use a Blob storage account or already have one and want to evaluate whether you should use the hot or cool storage tier.
 
-Dans les deux cas, vous devez d’abord estimer les frais de stockage et d’accès aux données stockées dans un compte de stockage d’objets blob pour les comparer avec vos frais actuels.
+In both cases, the first order of business is to estimate the cost of storing and accessing your data stored in a Blob storage account and compare that against your current costs.
 
-### Évaluation des niveaux de compte de stockage d’objets blob
+### <a name="evaluating-blob-storage-account-tiers"></a>Evaluating Blob storage account tiers
 
-Pour estimer le coût de stockage et d’accès aux données stockées dans un compte de stockage d’objets blob, vous devez évaluer votre modèle d’utilisation existant ou faire une estimation du modèle d’utilisation souhaité. En général, vous souhaitez connaître :
+In order to estimate the cost of storing and accessing data stored in a Blob storage account, you will need to evaluate your existing usage pattern or approximate your expected usage pattern. In general, you will want to know:
 
-- Votre consommation de stockage : quel est le volume de données stockées et quelle est son évolution mensuelle ?
-- Votre modèle d’accès au stockage : quel est le volume de données du compte faisant l’objet d’accès en lecture et en écriture (y compris les nouvelles données) ? Le nombre et le type de transactions utilisées pour accéder aux données.
+- Your storage consumption - How much data is being stored and how does this change on a monthly basis?
+- Your storage access pattern - How much data is being read from and written to the account (including new data)? How many transactions are used for data access, and what kinds of transactions are they?
 
-#### Analyse des comptes de stockage existants
+#### <a name="monitoring-existing-storage-accounts"></a>Monitoring existing storage accounts
 
-Pour analyser vos comptes de stockage existants et rassembler ces informations, vous pouvez utiliser Azure Storage Analytics qui assure la journalisation et fournit les données de mesure d’un compte de stockage. Storage Analytics peut stocker des métriques qui comprennent les statistiques de transactions agrégées et les données de capacité relatives aux demandes adressées au service de stockage d’objets blob aussi bien pour les comptes de stockage à usage général que pour les comptes de stockage d’objets blob. Ces données sont stockées dans des tables connues dans le même compte de stockage.
+To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics which performs logging and provides metrics data for a storage account.
+Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the Blob storage service for both general-purpose storage accounts as well as Blob storage accounts.
+This data is stored in well-known tables in the same storage account.
 
-Pour plus d’informations, voir [À propos des métriques de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx) et [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx).
+For more details, please see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
-> [AZURE.NOTE] Les comptes de stockage d’objets blob exposent le point de terminaison du service de table uniquement pour le stockage et l’accès aux métriques associées à ce compte.
+> [AZURE.NOTE] Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account.
 
-Pour analyser la consommation de stockage pour le service de stockage d’objets blob, vous devez activer les métriques de capacité. Lorsque cette option est activée, les données de capacité sont enregistrées quotidiennement pour le service blob d’un compte de stockage comme une entrée de table écrite dans la table *$MetricsCapacityBlob* dans le même compte de stockage.
+To monitor the storage consumption for the Blob storage service, you will need to enable the capacity metrics.
+With this enabled, capacity data is recorded daily for a storage account’s Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
 
-Pour analyser le modèle d’accès aux données pour le service de stockage d’objets blob, vous devez activer les métriques de transaction par heure au niveau de l’API. Lorsque cette option est activée, les transactions par API sont agrégées toutes les heures et enregistrées comme une entrée de table écrite dans la table *$MetricsHourPrimaryTransactionsBlob* dans le même compte de stockage. La table *$MetricsHourSecondaryTransactionsBlob* enregistre les transactions vers le point de terminaison secondaire lorsqu’il s’agit de comptes de stockage RA-GRS.
+To monitor the data access pattern for the Blob storage service, you will need to enable the hourly transaction metrics at an API level.
+With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint in case of RA-GRS storage accounts.
 
-> [AZURE.NOTE] Ce processus d’estimation n’est pas applicable si vous avez un compte de stockage à usage général dans lequel vous avez stocké des objets blob de pages et des disques de machines virtuelles en même temps que des données d’objets blob de blocs et d’ajout. Cela s’explique par le fait que vous n’avez aucun moyen de dissocier, en fonction du type d’objet blob, les métriques de capacité et les métriques de transaction associées aux objets blob de blocs et d’ajout qui peut être migrés vers un compte de stockage d’objets blob.
+> [AZURE.NOTE] In case you have a general-purpose storage account in which you have stored page blobs and virtual machine disks alongside block and append blob data, this estimation process is not applicable. This is because you will have no way of distinguishing capacity and transaction metrics based on the type of blob for only block and append blobs which can be migrated to a Blob storage account.
 
-Pour avoir une bonne estimation de votre consommation de données et de votre modèle d’accès, nous vous recommandons de sélectionner pour les métriques une période de rétention représentative de votre utilisation régulière et d’extrapoler. Une option consiste à conserver les données de métriques pendant 7 jours et à collecter les données chaque semaine pour les analyser à la fin du mois. Une autre option consiste à conserver les données de métriques pendant les 30 derniers jours et à collecter et analyser les données à la fin de la période de 30 jours.
+To get a good approximation of you data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage, and extrapolate.
+One option is to retain the metrics data for 7 days and collect the data every week, for analysis at the end of the month.
+Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30 day period.
 
-Pour plus d’informations sur l’activation, la collecte et l’affichage des données de métriques, voir [Activation des métriques Azure Storage et affichage des données associées](storage-enable-and-view-metrics.md).
+For details on enabling, collecting and viewing metrics data, please see, [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md).
 
-> [AZURE.NOTE] Le stockage, l’accès et le téléchargement des données d’analyse sont également facturés comme des données utilisateur standard.
+> [AZURE.NOTE] Storing, accessing and downloading analytics data is also charged just like regular user data.
 
-#### Utilisation des mesures d’utilisation pour estimer les coûts
+#### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Utilizing usage metrics to estimate costs
 
-##### Coûts de stockage
+##### <a name="storage-costs"></a>Storage costs
 
-La dernière entrée de la table de métriques de capacité *$MetricsCapacityBlob* avec la clé de ligne *'data'* affiche la capacité de stockage utilisée par les données utilisateur. La dernière entrée de la table de métriques de capacité *$MetricsCapacityBlob* avec la clé de ligne *'analytics'* affiche la capacité de stockage utilisée par les journaux d’analyse.
+The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'data'* shows the storage capacity consumed by user data.
+The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'analytics'* shows the storage capacity consumed by the analytics logs.
 
-Cette capacité totale utilisée par les données utilisateur et les journaux d’analyse (si l’option est activée) permet ensuite d’estimer le coût de stockage des données dans le compte de stockage. La même méthode peut également être utilisée pour estimer les coûts de stockage des objets blob de blocs et d’ajout dans les comptes de stockage à usage général.
+This total capacity consumed by both user data and analytics logs (if enabled) can then be used to estimate the cost of storing data in the storage account.
+The same method can also be used for estimating storage costs for block and append blobs in general-purpose storage accounts.
 
-##### Frais de transaction
+##### <a name="transaction-costs"></a>Transaction costs
 
-La somme des entrées *'TotalBillableRequests'* d’une API dans la table de métriques de transaction indique le nombre total de transactions pour cette API. *Par exemple,* vous pouvez calculer le nombre total de transactions *'GetBlob'* pendant une période donnée en additionnant les demandes facturables de toutes les entrées avec la clé de ligne *'user;GetBlob''*.
+The sum of *'TotalBillableRequests'*, across all entries for an API in the transaction metrics table indicates the total number of transactions for that particular API. *e.g.*, the total number of *'GetBlob'* transactions in a given period can be calculated by the sum of total billable requests for all entries with the row key *'user;GetBlob'*.
 
-Pour estimer les frais de transaction pour les comptes de stockage d’objets blob, vous devez classer les transactions en trois groupes correspondant aux trois modèles de tarification.
+In order to estimate transaction costs for Blob storage accounts, you will need to break down the transactions into three groups since they are priced differently.
 
-- Les transactions d’écriture telles que *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* et *'CopyBlob'*.
-- Les transactions de suppression telles que *'DeleteBlob'* et *'DeleteContainer'*.
-- Toutes les autres transactions.
+- Write transactions such as *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'*, and *'CopyBlob'*.
+- Delete transactions such as *'DeleteBlob'* and *'DeleteContainer'*.
+- All other transactions.
 
-Pour estimer les frais de transaction pour les comptes de stockage à usage général, vous devez regrouper toutes les transactions, quelle que soit l’opération/l’API associée.
+In order to estimate transaction costs for general-purpose storage accounts, you need to aggregate all transactions irrespective of the operation/API.
 
-##### Coûts d’accès aux données et de transfert de données de géoréplication
+##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Data access and geo-replication data transfer costs
 
-La quantité de données lues et écrites dans un compte de stockage n’est pas fournie par Storage Analytics mais peut être estimée en consultant la table de métriques de transaction. La somme des entrées *'TotalIngress'* d’une API dans la table de métriques de transaction indique la quantité totale de données entrantes en octets pour cette API. De même, la somme des entrées *'TotalEgress'* indique la quantité totale des données sortantes en octets.
+While storage analytics does not provide the amount of data read from and written to a storage account, it can be roughly estimated by looking at the transaction metrics table.
+The sum of *'TotalIngress'* across all entries for an API in the transaction metrics table indicates the total amount of ingress data in bytes for that particular API.
+Similarly the sum of *'TotalEgress'* indicates the total amount of egress data, in bytes.
 
-Pour estimer les coûts d’accès aux données pour les comptes de stockage d’objets blob, vous devez classer les transactions en deux groupes.
+In order to estimate the data access costs for Blob storage accounts, you will need to break down the transactions into two groups.
 
-- La quantité de données récupérées à partir du compte de stockage peut être estimée en additionnant les entrées *'TotalEgress'* pour les opérations *'GetBlob'* et *'CopyBlob'*.
-- La quantité de données écrites dans le compte de stockage peut être estimée en additionnant les entrées *'TotalIngress'* pour les opérations *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* et *'AppendBlock'*.
+- The amount of data retrieved from the storage account can be estimated by looking at the sum of *'TotalEgress'* for primarily the *'GetBlob'* and *'CopyBlob'* operations.
+- The amount of data written to the storage account can be estimated by looking at the sum of *'TotalIngress'* for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
 
-Le coût de transfert de données de géoréplication des comptes de stockage d’objets blob peut également être calculé en estimant la quantité de données écrites dans le cas d’un compte de stockage GRS ou RA-GRS.
+The cost of geo-replication data transfer for Blob storage accounts can also be calculated by using the estimate for the amount of data written in case of a GRS or RA-GRS storage account.
 
-> [AZURE.NOTE] Pour un exemple plus détaillé de calcul des coûts d’un niveau de stockage chaud ou froid, consultez l’article *« Que sont les niveaux Froid et Chaud et comment savoir lequel utiliser ? »* sur la [page relative à la tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+> [AZURE.NOTE] For a more detailed example about calculating the costs for using the hot or cool storage tier, please take a look at the FAQ titled *'What are Hot and Cool access tiers and how should I determine which one to use?'* in the [Azure Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/).
 
-### Migration des données existantes
+### <a name="migrating-existing-data"></a>Migrating existing data
 
-Un compte de stockage d’objets blob est un compte spécialisé pour stocker uniquement les objets blob de blocs et d’ajout. Les comptes de stockage à usage général existants, qui vous permettent également de stocker des tables, des files d’attente, des fichiers, des disques et des objets blob ne peuvent pas être convertis en comptes de stockage d’objets blob. Pour utiliser les niveaux de stockage, vous devez créer des comptes de stockage d’objets blob et migrer vos données existantes vers les comptes nouvellement créés. Vous pouvez utiliser les méthodes suivantes pour migrer les données existantes vers les comptes de stockage d’objets blob à partir d’une solution de stockage local, d’un fournisseur de stockage cloud tiers ou de vos comptes de stockage à usage général existants dans Azure :
+A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage accounts, which allow you to store tables, queues, files and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you will need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
+You can use the following methods to migrate existing data into Blob storage accounts from on-premise storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
 
-#### AzCopy
+#### <a name="azcopy"></a>AzCopy
 
-AzCopy est un utilitaire de ligne de commande Windows conçu pour la copie de données hautes performances vers ou à partir d’Azure Storage. Vous pouvez utiliser AzCopy pour copier des données dans votre compte de stockage d’objets blob à partir de vos comptes de stockage à usage général existants, ou pour charger des données à partir de vos périphériques de stockage locaux vers votre compte de stockage d’objets blob.
+AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into your Blob storage account from your existing general-purpose storage accounts, or to upload data from your on-premises storage devices into your Blob storage account.
 
-Pour plus d’informations, voir [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
+For more details, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
-#### Bibliothèque de déplacement des données
+#### <a name="data-movement-library"></a>Data Movement Library
 
-La bibliothèque de déplacement de données Azure Storage pour .NET est basée sur l’infrastructure principale de déplacement de données sous-tendant AzCopy. La bibliothèque est conçue pour assurer des opérations de transfert de données fiables, simples et hautes performances, comme AzCopy. Cela vous permet de tirer pleinement parti des fonctionnalités offertes par AzCopy dans votre application de façon native, sans avoir à gérer l’exécution et la surveillance des instances externes d’AzCopy.
+Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable and easy data transfer operations similar to AzCopy. This allows you to take full benefits of the features provided by AzCopy in your application natively without having to deal with running and monitoring external instances of AzCopy.
 
-Pour plus d’informations, voir [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement) (Bibliothèque de déplacement des données Azure Storage pour .Net).
+For more details, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
 
-#### API REST ou bibliothèque cliente
+#### <a name="rest-api-or-client-library"></a>REST API or Client Library
 
-Vous pouvez créer une application personnalisée pour migrer vos données vers un compte de stockage d’objets blob à l’aide de l’une des bibliothèques clientes Azure ou de l’API REST des services Azure Storage. Azure Storage offre des bibliothèques clientes enrichies pour une diversité de langages et plateformes, par exemple .NET, Java, C++, Node.JS, PHP, Ruby et Python. Les bibliothèques clientes offrent des fonctionnalités avancées telles que la logique de nouvelle tentative, la journalisation et les téléchargements parallèles. Vous pouvez également développer votre application directement avec l’API REST, qui peut être appelée à l’aide de n’importe quel langage permettant de créer des requêtes HTTP/HTTPS.
+You can create a custom application to migrate your data into a Blob storage account using one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
 
-Pour plus d’informations, voir [Prise en main du stockage d’objets blob Azure](storage-dotnet-how-to-use-blobs.md).
+For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md).
 
-> [AZURE.NOTE] Les objets blob chiffrés à l’aide du chiffrement côté client stockent les métadonnées relatives au chiffrement stockées avec l’objet blob. Il est absolument essentiel que n’importe quel mécanisme de copie s’assure de la préservation des métadonnées de blob et en particulier des métadonnées relatives au chiffrement. Si vous copiez des objets blob sans ces métadonnées, le contenu de l’objet blob ne sera plus récupérable. Pour plus d’informations concernant les métadonnées liées au chiffrement, voir [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](storage-client-side-encryption.md).
+> [AZURE.NOTE] Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is absolutely critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content will not be retrievable again. For more details regarding encryption-related metadata, see [Azure Storage client side encryption](storage-client-side-encryption.md).
 
-## FAQ
+## <a name="faqs"></a>FAQs
 
-1. **Les comptes de stockage existants restent-ils disponibles ?**
+1. **Are existing storage accounts still available?**
 
-    Oui. Les comptes de stockage existants restent disponibles, avec les mêmes tarifs et fonctionnalités. Ils ne permettent pas de choisir un niveau de stockage et n’offrent plus de possibilité de hiérarchisation.
+    Yes, existing storage accounts are still available and are unchanged in pricing or functionality.  They do not have the ability to choose an storage tier and will not have tiering capabilities in the future.
 
-2. **Quand et pourquoi dois-je commencer à utiliser des comptes de stockage d’objets blob ?**
+2. **Why and when should I start using Blob storage accounts?**
 
-    Les comptes de stockage d’objets blob sont des comptes spécialisés pour le stockage des objets blob. Ils nous permettent d’introduire de nouvelles fonctionnalités axées sur les objets blob. Désormais, les comptes de stockage d’objets blob représentent la méthode recommandée pour le stockage des objets blob. En effet, certaines fonctionnalités, telles que la hiérarchisation du stockage, seront introduites pour ce type de compte. Toutefois, la migration s’effectue au moment où vous le souhaitez, selon vos besoins.
+    Blob storage accounts are specialized for storing blobs and allow us to introduce new blob-centric features. Going forward, Blob storage accounts are the recommended way for storing blobs, as future capabilities such as hierarchical storage and tiering will be introduced based on this account type. However, it is up to you when you would like to migrate based on your business requirements.
 
-3. **Puis-je convertir mon compte de stockage existant en compte de stockage d’objets blob ?**
+3. **Can I convert my existing storage account to a Blob storage account?**
 
-    Non. Le compte de stockage d’objets blob est un type de compte de stockage différent. Vous devrez créer un compte et migrer vos données comme expliqué plus haut.
+    No. Blob storage account is a different kind of storage account and you will need to create it new and migrate your data as explained above.
 
-4. **Puis-je stocker des objets dans les deux niveaux de stockage d’un même compte ?**
+4. **Can I store objects in both storage tiers in the same account?**
 
-    L’attribut *Niveau d’accès* qui indique le niveau de stockage est défini au niveau du compte et s’applique à tous les objets de ce compte. Vous ne pouvez pas définir l’attribut de niveau d’accès au niveau objet.
+    The *'Access Tier'* attribute which indicates the storage tier is set at an account level and applies to all objects in that account. You cannot set the access tier attribute at an object level.
 
-5. **Puis-je modifier le niveau de stockage de mon compte de stockage d’objets blob ?**
+5. **Can I change the storage tier of my Blob storage account?**
 
-    Oui. Vous pourrez modifier le niveau de stockage en définissant l’attribut *Niveau d’accès* du compte de stockage. La modification du niveau de stockage s’applique à tous les objets stockés dans le compte. Le passage d’un niveau de stockage chaud à un niveau froid n’implique pas de frais. En revanche, le passage d’un niveau de stockage froid à un niveau chaud entraîne un coût par Go pour la lecture de l’ensemble des données du compte.
+    Yes. You will be able to change the storage tier by setting the *'Access Tier'* attribute on the storage account. Changing the storage tier will apply to all objects stored in the account. Change the storage tier from hot to cool will not incur any charges, while changing from cool to hot will incur a per GB cost for reading all the data in the account.
 
-6. **À quelle fréquence puis-je modifier le niveau de stockage de mon compte de stockage d’objets blob ?**
+6. **How frequently can I change the storage tier of my Blob storage account?**
 
-    Nous n’appliquons pas de limite concernant la fréquence de modification du niveau de stockage. Cependant, notez que le passage d’un niveau de stockage froid à un niveau chaud entraîne des frais significatifs. Il est déconseillé de modifier le niveau de stockage trop fréquemment.
+    While we do not enforce a limitation on how frequently the storage tier can be changed, please be aware that changing the storage tier from cool to hot will incur significant charges. We do not recommend changing the storage tier frequently.
 
-7. **Les objets blob au niveau de stockage froid se comportent-ils différemment de ceux se trouvant au niveau de stockage chaud ?**
+7. **Will the blobs in the cool storage tier behave differently than the ones in the hot storage tier?**
 
-    Les objets blob au niveau de stockage chaud ont la même latence que les objets blob des comptes de stockage à usage général. Les objets blob au niveau de stockage froid ont une latence similaire (en millisecondes) à celle des objets blob des comptes de stockage à usage général.
+    Blobs in the hot storage tier have the same latency as blobs in general-purpose storage accounts. Blobs in the cool storage tier have a similar latency (in milliseconds) as blobs in general-purpose storage accounts.
 
-    Les objets blob au niveau de stockage froid auront un contrat SLA de disponibilité légèrement inférieur à celui des objets blob stockés au niveau de stockage chaud. Pour plus d’informations, voir [SLA pour Storage](https://azure.microsoft.com/support/legal/sla/storage).
+    Blobs in the cool storage tier will have a slightly lower availability service level (SLA) than the blobs stored in the hot storage tier. For more details, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage).
 
-8. **Puis-je stocker des objets blob de pages et des disques de machine virtuelle dans les comptes de stockage d’objets blob ?**
+8. **Can I store page blobs and virtual machine disks in Blob storage accounts?**
 
-    Les comptes de stockage d’objets blob prennent en charge uniquement les objets blob de blocs et d’ajout, mais pas les objets blob de pages. Les disques de machine virtuelle Azure sont soutenus par des objets blob de pages. Par conséquent, les comptes de stockage d’objets blob ne peuvent pas être utilisés pour stocker des disques de machine virtuelle. Toutefois, il est possible de stocker des sauvegardes de disques de machine virtuelle sous forme d’objets blob de blocs dans un compte de stockage d’objets blob.
+    Blob storage accounts support only block and append blobs, and not page blobs. Azure virtual machine disks are backed by page blobs and as a result Blob storage accounts cannot be used to store virtual machine disks. However it is possible to store backups of the virtual machine disks as block blobs in a Blob storage account.
 
-9. **Dois-je modifier mes applications existantes pour utiliser des comptes de stockage d’objets blob ?**
+9. **Will I need to change my existing applications to use Blob storage accounts?**
 
-    Les comptes de stockage d’objets blob sont cohérents à 100 % avec l’API avec les comptes de stockage à usage général pour les objets blob de blocs et d’ajout. Tant que votre application utilise des objets blob de blocs ou d’ajout, et que vous utilisez la version 2014-02-14 de l’[API REST Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) ou une version ultérieure, votre application doit fonctionner. Si vous utilisez une version antérieure du protocole, vous devrez mettre à jour votre application pour utiliser la nouvelle version afin de travailler en toute transparence avec les deux types de comptes de stockage. En général, nous recommandons d’utiliser la dernière version, quel que soit le type de compte de stockage que vous utilisez.
+    Blob storage accounts are 100% API consistent with general-purpose storage accounts for block and append blobs. As long as your application is using block blobs or append blobs, and you are using the 2014-02-14 version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) or greater then your application should just work. If you are using an older version of the protocol, then you will need to update your application to use the new version so as to work seamlessly with both types of storage accounts. In general, we always recommend using the latest version regardless of which storage account type you use.
 
-10. **L’expérience utilisateur changera-t-elle ?**
+10. **Will there be a change in user experience?**
 
-    Les comptes de stockage d’objets blob sont très similaires aux comptes de stockage à usage général d’objets blob de blocs et d’ajout et héritent de toutes les fonctionnalités clés d’Azure Storage, notamment de niveaux élevés de durabilité, disponibilité, évolutivité, performances et sécurité. Hormis les fonctionnalités et restrictions spécifiques aux comptes de stockage d’objets blob et aux niveaux de stockage correspondants évoqués plus haut, il n’existe aucune différence.
+    Blob storage accounts are very similar to a general-purpose storage accounts for storing block and append blobs, and support all the key features of Azure Storage, including high durability and availability, scalability, performance, and security. Other than the features and restrictions specific to Blob storage accounts and its storage tiers that have been called out above, everything else remains the same.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-### Évaluer des comptes de stockage d’objets blob
+### <a name="evaluate-blob-storage-accounts"></a>Evaluate Blob storage accounts
 
-[Vérifier la disponibilité de comptes de stockage d’objets blob par région](https://azure.microsoft.com/regions/#services)
+[Check availability of Blob storage accounts by region](https://azure.microsoft.com/regions/#services)
 
-[Évaluer l’utilisation des comptes de stockage actuels en activant les métriques Azure Storage](storage-enable-and-view-metrics.md)
+[Evaluate usage of your current storage accounts by enabling Azure Storage metrics](storage-enable-and-view-metrics.md)
 
-[Vérifier le prix du stockage d’objets blob par région](https://azure.microsoft.com/pricing/details/storage/)
+[Check Blob storage pricing by region](https://azure.microsoft.com/pricing/details/storage/)
 
-[Vérifier la tarification des transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-### Commencer à utiliser des comptes de stockage d’objets blob
+### <a name="start-using-blob-storage-accounts"></a>Start using Blob storage accounts
 
-[Prise en main du stockage d’objets blob Azure](storage-dotnet-how-to-use-blobs.md)
+[Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md)
 
-[Transfert de données vers et à partir d’Azure Storage](storage-moving-data.md)
+[Moving data to and from Azure Storage](storage-moving-data.md)
 
-[Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+[Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 
-[Parcourez et explorez vos comptes de stockage](http://storageexplorer.com/)
+[Browse and explore your storage accounts](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

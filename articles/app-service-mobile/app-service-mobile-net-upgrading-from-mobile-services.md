@@ -1,86 +1,87 @@
 <properties
-	pageTitle="Mettre à niveau à partir de Mobile Services vers Azure App Service"
-	description="Découvrez comment facilement mettre à niveau votre application Mobile Services vers App Service Mobile Apps"
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="mattchenderson"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Upgrade from Mobile Services to Azure App Service"
+    description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App"
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
 
-App Service Mobile représente une nouvelle façon de créer des applications mobiles avec Microsoft Azure. Pour en savoir plus, consultez [Que sont les applications Mobile Apps ?]
+# <a name="upgrade-your-existing-.net-azure-mobile-service-to-app-service"></a>Upgrade your existing .NET Azure Mobile Service to App Service
 
-Cette rubrique décrit comment mettre à niveau une application principale .NET existante depuis Azure Mobile Services vers une nouvelle application App Service Mobile Apps. Pendant cette mise à niveau, votre application Mobile Services existante peut continuer à fonctionner. Si vous devez mettre à niveau une application principale Node.js, voir [Upgrading your Node.js Mobile Services](./app-service-mobile-node-backend-upgrading-from-mobile-services.md) (Mise à niveau d’une application principale Node.js à partir de Mobile Services).
+App Service Mobile is a new way to build mobile applications using Microsoft Azure. To learn more, see [What are Mobile Apps?].
 
-Quand un serveur principal mobile est mis à niveau vers Azure App Service, il a accès à toutes les fonctionnalités App Service et c’est la [tarification App Service] qui est appliquée, et non celle de Mobile Services.
+This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate.   If you need to upgrade a Node.js backend application, refer to [Upgrading your Node.js Mobile Services](./app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
-##Migration et mise à niveau
+When a mobile backend is upgraded to Azure App Service, it has access to all App Service features and are billed according to [App Service pricing], not Mobile Services pricing.
+
+##<a name="migrate-vs.-upgrade"></a>Migrate vs. upgrade
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP] Il est recommandé d’[effectuer une migration](app-service-mobile-migrating-from-mobile-services.md) avant une mise à niveau. Ainsi, vous pouvez placer les deux versions de votre application sur le même plan App Service sans générer de frais supplémentaires.
+>[AZURE.TIP] It is recommended that you [perform a migration](app-service-mobile-migrating-from-mobile-services.md) before going through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional cost.
 
-###Améliorations du Kit de développement logiciel (SDK) serveur .NET Mobile Apps
+###<a name="improvements-in-mobile-apps-.net-server-sdk"></a>Improvements in Mobile Apps .NET server SDK
 
-La mise à niveau vers le nouveau [Kit de développement logiciel (SDK) Mobile Apps](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) offre les avantages suivants :
+Upgrading to the new [Mobile Apps SDK](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) provides the following benefits:
 
-- Plus de flexibilité sur les dépendances NuGet. L'environnement d'hébergement ne fournit plus ses propres versions des packages NuGet : vous pouvez donc utiliser d'autres versions compatibles. Toutefois, si de nouvelles résolutions de bogues critiques ou mises à jour de sécurité sont apportées au SDK du serveur mobile ou à ses dépendances, vous devez mettre à jour manuellement votre service.
+- More flexibility on NuGet dependencies. The hosting environment no longer provides its own versions of NuGet packages, so you can use alternative compatible versions. However, if there are new critical bugfixes or security updates to the Mobile Server SDK or dependencies, you must update your service manually.
 
-- Plus de souplesse dans le SDK mobile. Vous pouvez contrôler explicitement les fonctionnalités et itinéraires définis, comme l'authentification, les API de table et le point de terminaison de l'enregistrement Push. Pour en savoir plus, consultez [Utilisation du Kit de développement logiciel (SDK) serveur .NET pour Azure Mobile Apps](app-service-mobile-net-upgrading-from-mobile-services.md#server-project-setup).
+- More flexibility in the mobile SDK. You can explicitly control which features and routes are set up, such as authentication, table APIs, and the push registration endpoint. To learn more, see [How to use the .NET server SDK for Azure Mobile Apps](app-service-mobile-net-upgrading-from-mobile-services.md#server-project-setup).
 
-- Prise en charge d'autres itinéraires et types de projets ASP.NET. Vous pouvez désormais héberger des contrôleurs d'API web et MVC dans votre projet de backend mobile.
+- Support for other ASP.NET project types and routes. You can now host MVC and Web API controllers in the same project as your mobile backend project.
 
-- Prise en charge de nouvelles fonctionnalités d'authentification App Service. Cela vous permet d'utiliser une configuration d'authentification commune à vos applications mobiles et web.
+- Support for new App Service authentication features, which allow you to use a common authentication configuration across your web and mobile apps.
 
-##<a name="overview"></a>Présentation de la mise à niveau de base
+##<a name="<a-name="overview"></a>basic-upgrade-overview"></a><a name="overview"></a>Basic upgrade overview
 
-Dans de nombreux cas, la mise à niveau consiste simplement à basculer vers le nouveau SDK serveur Mobile Apps et à republier votre code dans une nouvelle instance Mobile Apps. Il existe toutefois des scénarios qui nécessitent une configuration supplémentaire, tels que les scénarios d'authentification avancée et l'utilisation de tâches planifiées. Ils sont couverts individuellement dans les sections ultérieures.
+In many cases, upgrading will be as simple as switching to the new Mobile Apps server SDK and republishing your code onto a new Mobile App instance. There are, however some scenarios which will require some additional configuration, such as advanced authentication scenarios and working with scheduled jobs. Each of these is covered in the later sections.
 
->[AZURE.TIP] Il est conseillé de lire et de comprendre entièrement le reste de cette rubrique avant de commencer une mise à niveau. Prenez note de toutes les fonctionnalités répertoriées ci-dessous que vous utilisez.
+>[AZURE.TIP] It is advised that you read and understand the rest of this topic completely before starting an upgrade. Make note of any features you use which are called out below.
 
-Les Kits de développement logiciel (SDK) clients Mobile Services ne sont **pas** compatibles avec le nouveau Kit de développement logiciel (SDK) serveur Mobile Apps. Afin d’assurer la continuité du service pour votre application, vous ne devez pas publier des modifications apportées à un site en train de desservir des clients publiés. Vous devez plutôt créer une application mobile qui sert de doublon. Vous pouvez placer cette application sur le même plan App Service pour éviter d’encourir des frais supplémentaires.
+The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of service for your app, you should not publish changes to a site currently serving published clients. Instead, you should create a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring additional financial cost.
 
-Vous avez alors deux versions de l’application : l’une qui reste la même et délivre les applications publiées et l’autre que vous pouvez mettre à niveau et cibler avec une nouvelle version du client. Vous pouvez déplacer et tester votre code à votre rythme, mais vous devez vous assurer que tous les correctifs de bogues que vous apportez sont appliqués aux deux versions. Une fois que le nombre souhaité d’applications clientes ont effectué la mise à jour vers la dernière version, vous supprimez l’application originale qui a migré si vous le souhaitez.
+You will then have two versions of the application: one which stays the same and serves published apps in the wild, and the other which you can then upgrade and target with a new client release. You can move and test your code at your pace, but you should make sure that any bug fixes you make get applied to both. Once you feel that a desired number of client apps in the wild have updated to the latest version, you can delete the original migrated app if you desire.
 
-Le processus de mise à niveau est le suivant :
+The full outline for the upgrade process is as follows:
 
-1. Créer une application Mobile App
-2. Mettre à jour le projet pour utiliser les nouveaux Kits de développement logiciel (SDK) serveur
-3. Publier une nouvelle version de votre application cliente
-4. (Facultatif) Supprimer l’instance originale qui a migré
+1. Create a new Mobile App
+2. Update the project to use the new Server SDKs
+3. Release a new version of your client application
+4. (Optional) Delete your original migrated instance
 
-##<a name="mobile-app-version"></a>Création d’une seconde instance d’application
-La première étape de la mise à niveau consiste à créer la ressource Mobile Apps qui hébergera la nouvelle version de votre application. Si vous avez déjà migré un service mobile existant, vous voulez créer cette version sur le même plan d’hébergement. Ouvrez le [portail Azure] et accédez à votre application migrée. Notez le plan App Service sur lequel elle s’exécute.
+##<a name="<a-name="mobile-app-version"></a>creating-a-second-application-instance"></a><a name="mobile-app-version"></a>Creating a second application instance
+The first step in upgrading is to create the Mobile App resource which will host the new version of your application. If you have already migrated an existing mobile service, you will want to create this version on the same hosting plan. Open the [Azure portal] and navigate to your migrated application. Make note of the App Service Plan it is running on.
 
-Ensuite, créez la seconde instance d’application en suivant les [instructions de création d’un serveur principal .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Quand vous êtes invité à sélectionner votre plan App Service ou « plan d’hébergement », choisissez celui de votre application qui a migré.
+Next, create the second application instance by following the [.NET backend creation instructions](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). When prompted to select you App Service Plan or "hosting plan" choose the plan of your migrated application.
 
-Vous souhaiterez probablement utiliser les mêmes base de données et hub de notifications que dans Mobile Services. Copiez ces valeurs en ouvrant le [portail Azure] et en accédant à l’application d’origine, puis cliquez sur **Paramètres** > **Paramètres d’application**. Sous **Chaînes de connexion**, copiez `MS_NotificationHubConnectionString` et `MS_TableConnectionString`. Accédez à votre nouveau site de mise à niveau et collez-les en remplaçant les valeurs existantes. Répétez ce processus pour tous les autres paramètres d’application dont votre application a besoin. Si vous n’utilisez pas un service qui a migré, vous pouvez lire des chaînes de connexion et des paramètres d’application sous l’onglet **Configurer** de la section Mobile Services du [portail Azure Classic].
+You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values by opening [Azure portal] and navigating to the original application, then click **Settings** > **Application settings**. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your new upgrade site and paste them in, overwriting any existing values. Repeat this process for any other application settings your app needs. If not using a migrated service, you can read connection strings and app settings from the **Configure** tab of the Mobile Services section of the [Azure classic portal].
 
-Faites une copie du projet ASP.NET de votre application et publiez-la sur votre nouveau site. En utilisant une copie de votre application cliente mise à jour avec la nouvelle URL, vérifiez que tout fonctionne comme prévu.
+Make a copy of the ASP.NET project for your application and publish it to your new site. Using a copy of your client application updated with the new URL, validate that everything works as expected.
 
-## Mise à jour du projet serveur
+## <a name="updating-the-server-project"></a>Updating the server project
 
-Mobile Apps fournit une nouveau [Kit de développement logiciel (SDK) Mobile App Server] qui fournit de nombreuses fonctionnalités identiques à celles du runtime Mobile Services. Tout d’abord, vous devez supprimer toutes les références aux packages Mobile Services. Dans le gestionnaire de packages NuGet, recherchez `WindowsAzure.MobileServices.Backend`. La plupart des applications affichent plusieurs packages, notamment `WindowsAzure.MobileServices.Backend.Tables` et `WindowsAzure.MobileServices.Backend.Entity`. Dans ce cas, commencez avec le package le plus bas dans l’arborescence des dépendances, notamment `Entity` et supprimez-le. Quand vous y êtes invité, ne supprimez pas tous les packages dépendants. Répétez ce processus jusqu’à ce que vous ayez supprimé `WindowsAzure.MobileServices.Backend`.
+Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime. First, you should remove all references to the Mobile Services packages. In the NuGet package manager, search for `WindowsAzure.MobileServices.Backend`. Most apps will see several packages here, including `WindowsAzure.MobileServices.Backend.Tables` and `WindowsAzure.MobileServices.Backend.Entity`. In such a case, start with the lowest package in the dependency tree, such as `Entity`, and remove it. When prompted, do not remove all dependant packages. Repeat this process until you have removed `WindowsAzure.MobileServices.Backend` itself.
 
-À ce stade, vous avez un projet qui ne fait plus référence aux SDK Mobile Services.
+At this point you will have a project that no longer references Mobile Services SDKs.
 
-Ensuite, vous allez ajouter des références aux SDK Mobile Apps. Pour cette mise à niveau, la plupart des développeurs préfèrent télécharger et installer le package `Microsoft.Azure.Mobile.Server.Quickstart`, car il permet d’extraire la totalité de l’ensemble requis.
+Next you will add references the Mobile Apps SDK. For this upgrade, most developers will want to download and install the `Microsoft.Azure.Mobile.Server.Quickstart` package, as this will pull in the entire required set.
 
-De nombreuses erreurs de compilateur proviennent des différences entre les SDK, mais elles sont faciles à corriger et elles sont décrites plus loin dans cette section.
+There will be quite a few compiler errors resulting from differences between the SDKs, but these are easy to address and are covered in the rest of this section.
 
-### Configuration de base
+### <a name="base-configuration"></a>Base configuration
 
-Ensuite, dans WebApiConfig.cs, vous pouvez remplacer :
+Then, in WebApiConfig.cs, you can replace:
 
         // Use this class to set configuration options for your mobile service
         ConfigOptions options = new ConfigOptions();
@@ -88,84 +89,84 @@ Ensuite, dans WebApiConfig.cs, vous pouvez remplacer :
         // Use this class to set WebAPI configuration options
         HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
 
-par
+with
 
         HttpConfiguration config = new HttpConfiguration();
         new MobileAppConfiguration()
             .UseDefaultConfiguration()
         .ApplyTo(config);
 
->[AZURE.NOTE] Si vous souhaitez en savoir plus sur le nouveau SDK serveur .NET et sur la façon d’ajouter/de supprimer des fonctionnalités de votre application, consultez la rubrique [Utilisation du Kit de développement logiciel (SDK) serveur .NET].
+>[AZURE.NOTE] If you wish to learn more about the new .NET server SDK and how to add/remove features from your app, please see the [How to use the .NET server SDK] topic.
 
-Si votre application utilise les fonctionnalités d’authentification, vous devez également inscrire un intergiciel (middleware) OWIN. Dans ce cas, vous devez déplacer le code de configuration ci-dessus dans une nouvelle classe de démarrage OWIN.
+If your app makes use of the authentication features, you will also need to register an OWIN middleware. In this case, you should move the above configuration code into a new OWIN Startup class.
 
-1. Ajoutez le package NuGet `Microsoft.Owin.Host.SystemWeb` s’il n’est pas déjà inclus dans votre projet.
-2. Dans Visual Studio, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Ajouter** -> **Nouvel élément**. Sélectionnez **Web** -> **Général** -> **Classe de démarrage OWIN**.
-3. Déplacez le code ci-dessus pour MobileAppConfiguration de `WebApiConfig.Register()` vers la méthode `Configuration()` de votre nouvelle classe de démarrage.
+1. Add the NuGet package `Microsoft.Owin.Host.SystemWeb` if it is not already included in your project.
+2. In Visual Studio, right click on your project and select **Add** -> **New Item**. Select **Web** -> **General** -> **OWIN Startup class**.
+3. Move the above code for MobileAppConfiguration from `WebApiConfig.Register()` to the `Configuration()` method of your new startup class.
 
-Assurez-vous que la méthode `Configuration()` se termine par :
+Make sure the `Configuration()` method ends with:
 
         app.UseWebApi(config)
         app.UseAppServiceAuthentication(config);
 
-Il existe des modifications supplémentaires liées à l’authentification qui sont abordées dans la section dédiée à l’authentification ci-après.
+There are additional changes related to authentication which are covered in the full authentication section below.
 
-### Utilisation des données
+### <a name="working-with-data"></a>Working with Data
 
-Dans Mobile Services, le nom de l’application mobile servait de nom de schéma par défaut dans la configuration Entity Framework.
+In Mobile Services, the mobile app name served as the default schema name in the Entity Framework setup.
 
-Pour vous assurer d’avoir le même schéma référencé que celui d’avant, utilisez la commande suivante pour définir le schéma dans le DbContext de votre application :
+To ensure that you have the same schema being referenced as before, use the following to set the schema in the DbContext for your application:
 
         string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
 
-Vérifiez que MS\_MobileServiceName est défini si vous effectuez l’étape ci-dessus. Vous pouvez également fournir un autre nom de schéma si votre application l’a personnalisé précédemment.
+Please make sure you have MS_MobileServiceName set if you do the above. You can also provide another schema name if your application customized this previously.
 
-### Propriétés système
+### <a name="system-properties"></a>System Properties
 
-#### Dénomination
+#### <a name="naming"></a>Naming
 
-Dans le Kit de développement logiciel (SDK) serveur Azure Mobile Services, les propriétés système contiennent toujours un préfixe constitué de deux traits de soulignement (`__`) :
+In the Azure Mobile Services server SDK, system properties always contain a double underscore (`__`) prefix for the properties:
 
-- \_\_createdAt
-- \_\_updatedAt
-- \_\_deleted
-- \_\_version
+- __createdAt
+- __updatedAt
+- __deleted
+- __version
 
-Les Kits de développement logiciel (SDK) clients Mobile Services ont une logique spéciale pour l’analyse des propriétés système dans ce format.
+The Mobile Services client SDKs have special logic for parsing system properties in this format.
 
-Dans Azure Mobile Apps, les propriétés système n’ont plus de format spécial et portent les noms suivants :
+In Azure Mobile Apps, system properties no longer have a special format and have the following names:
 
 - createdAt
 - updatedAt
 - deleted
 - version
 
-Les Kits de développement logiciel (SDK) clients Mobile Apps utilisent les nouveaux noms de propriétés système, donc aucune modification du code client n’est exigée. Toutefois, si vous effectuez directement des appels REST à votre service, alors vous devez modifier vos requêtes en conséquence.
+The Mobile Apps client SDKs use the new system properties names, so no changes are required to client code. However, if you are directly making REST calls to your service then you should change your queries accordingly.
 
-#### Magasin local
+#### <a name="local-store"></a>Local store
 
-Les modifications apportées aux noms des propriétés système signifient qu’une base de données locale de synchronisation hors connexion pour Mobile Services n’est pas compatible avec Mobile Apps. Si possible, vous devez éviter de mettre à niveau des applications clientes depuis Mobile Services vers Mobile Apps tant que les modifications en attente n’ont pas été envoyées au serveur. Ensuite, l’application mise à niveau doit utiliser un nouveau nom de fichier de base de données.
+The changes to the names of system properties mean that an offline sync local database for Mobile Services is not compatible with Mobile Apps. If possible, you should avoid upgrading client apps from Mobile Services to Mobile Apps until after pending changes have been sent to the server. Then, the upgraded app should use a new database filename.
 
-Si une application cliente est mise à niveau depuis Mobile Services vers Mobile Apps alors qu’il existe des modifications hors connexion en attente dans la file d’attente des opérations, alors la base de données système doit être mise à jour pour utiliser les nouveaux noms de colonne. Sur iOS, cette mise à jour est possible en utilisant de légères migrations pour modifier les noms de colonne. Sur Android et le client géré .NET, vous devez écrire du code SQL personnalisé pour renommer les colonnes de vos tables d’objets de données.
+If a client app is upgraded from Mobile Services to Mobile Apps while there are pending offline changes in the operation queue, then the system database must be updated to use the new column names. On iOS, this can be achieved using lightweight migrations to change the column names. On Android and the .NET managed client, you should write custom SQL to rename the columns for your data object tables.
 
-Sur iOS, vous devez modifier votre schéma de base de données principal pour vos entités de données afin qu’il corresponde à ce qui suit. Notez que les propriétés `createdAt`, `updatedAt` et `version` n’ont plus de préfixe `ms_` :
+On iOS, you should change your Core Data schema for your data entities to match the following. Note that the properties `createdAt`, `updatedAt` and `version` no longer have an `ms_` prefix:
 
-| Attribut | Type | Remarque |
+| Attribute |  Type   | Note                                                 |
 |---------- |  ------ | -----------------------------------------------------|
-| id | Chaîne, marquée requise | clé primaire dans le magasin distant |
-| createdAt | Date | (facultatif) correspond à la propriété système createdAt |
-| updatedAt | Date | (facultatif) correspond à la propriété système updatedAt |
-| version | String | (facultatif) permet de détecter les conflits, correspond à version |
+| id        | String, marked required  | primary key in remote store         |
+| createdAt | Date    | (optional) maps to createdAt system property         |
+| updatedAt | Date    | (optional) maps to updatedAt system property         |
+| version   | String  | (optional) used to detect conflicts, maps to version |
 
-#### Interrogation des propriétés système
+#### <a name="querying-system-properties"></a>Querying system properties
 
-Dans Azure Mobile Services, les propriétés système ne sont pas envoyées par défaut, mais uniquement quand elles sont demandées à l’aide de la chaîne de requête `__systemProperties`. Par opposition, dans Azure Mobile Apps, les propriétés système sont **toujours sélectionnées** car elles font partie du modèle objet du SDK serveur.
+In Azure Mobile Services, system properties are not sent by default, but only when they are requested using the query string `__systemProperties`. In contrast, in Azure Mobile Apps system properties are **always selected** since they are part of the server SDK object model.
 
-Cette modification affecte principalement les implémentations personnalisées des gestionnaires de domaine, comme les extensions de `MappedEntityDomainManager`. Dans Mobile Services, si un client ne demande jamais de propriétés système, il est possible d’utiliser un `MappedEntityDomainManager` qui ne correspond en fait pas à toutes les propriétés. Toutefois, dans Azure Mobile Apps, ces propriétés non mappées provoquent une erreur dans les requêtes GET.
+This change mainly impacts custom implementations of domain managers, such as extensions of `MappedEntityDomainManager`. In Mobile Services, if a client never requests any system properties, it is possible to use a `MappedEntityDomainManager` that does not actually map all properties. However, in Azure Mobile Apps, these unmapped properties will cause an error in GET queries.
 
-Pour résoudre ce problème, le plus simple consiste à modifier vos DTO pour qu’ils héritent de `ITableData` au lieu de `EntityData`. Ensuite, ajoutez l’attribut `[NotMapped]` aux champs à omettre.
+The easiest way to resolve the issue is to modify your DTOs so that they inherit from `ITableData` instead of `EntityData`. Then, add the `[NotMapped]` attribute to the fields that should be omitted.
 
-L’exemple suivant définit `TodoItem` sans aucune propriété système :
+For example, the following defines `TodoItem` with no system properties:
 
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -190,91 +191,96 @@ L’exemple suivant définit `TodoItem` sans aucune propriété système :
         public byte[] Version { get; set; }
     }
 
-Remarque : si vous obtenez des erreurs sur `NotMapped`, ajoutez une référence à l’assembly `System.ComponentModel.DataAnnotations`.
+Note: if you get errors on `NotMapped`, add a reference to the assembly `System.ComponentModel.DataAnnotations`.
 
-### CORS
+### <a name="cors"></a>CORS
 
-Mobile Services incluait une prise en charge de CORS en encapsulant la solution ASP.NET CORS. Cette couche d’encapsulation a été supprimée pour donner plus de contrôle au développeur, donc vous pouvez exploiter directement la [prise en charge ASP.NET CORS](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+Mobile Services included some support for CORS by wrapping the ASP.NET CORS solution. This wrapping layer has been removed to give the developer more control, so you can directly leverage [ASP.NET CORS support](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
-Les principales sources de préoccupation en cas d’utilisation de CORS concernent les en-têtes `eTag` et `Location` qui doivent être autorisés pour que les SDK clients puissent fonctionner correctement.
+The main areas of concern if using CORS are that the `eTag` and `Location` headers must be allowed in order for the client SDKs to work properly.
 
-### Notifications Push
-En matière de notifications Push, l'élément principal qui vous semblera peut-être manquant dans le kit de développement logiciel de serveur est la classe PushRegistrationHandler. Les inscriptions sont traitées légèrement différemment dans Mobile Apps et les inscriptions sans balise sont activées par défaut. La gestion des balises peut être accomplie à l'aide d'API personnalisées. Consultez les instructions liées à l’[inscription des balises](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) pour plus d’informations.
+### <a name="push-notifications"></a>Push Notifications
+For push, the main item that you may find missing from the Server SDK is the PushRegistrationHandler class. Registrations are handled slightly differently in Mobile Apps, and tagless registrations are enabled by default. Managing tags may be accomplished by using custom APIs. Please see the [registering for tags](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) instructions for more information.
 
-### Tâches planifiées
-Les tâches planifiées ne sont pas intégrées à Mobile Apps, si bien que toutes les tâches existantes dans votre serveur principal .NET doivent être mises à niveau individuellement. Une option consiste à créer une [tâche web] planifiée sur le site de code Mobile App. Vous pouvez également configurer un contrôleur contenant le code de votre tâche et configurer [Azure Scheduler] pour traiter ce point de terminaison au moment prévu.
+### <a name="scheduled-jobs"></a>Scheduled Jobs
+Scheduled jobs are not built into Mobile Apps, so any existing jobs that you have in your .NET backend will need to be upgraded individually. One option is to create a scheduled [Web Job] on the Mobile App code site. You could also set up a controller that holds your job code and configure the [Azure Scheduler] to hit that endpoint on the expected schedule.
 
-### Modifications diverses
-Tous les ApiController consommés par un client mobile doivent désormais avoir l’attribut `[MobileAppController]`. Celui-ci n’est plus inclus par défaut si bien que les autres ApiController ne sont pas affectés par les formateurs mobiles.
+### <a name="miscellaneous-changes"></a>Miscellaneous changes
+All ApiControllers which will be consumed by a mobile client must now have the `[MobileAppController]` attribute. This is no longer included by default so that other ApiControllers to go unaffected by the mobile formatters.
 
-L’objet `ApiServices` ne fait plus partie du SDK. Pour accéder aux paramètres de Mobile Apps, vous pouvez utiliser les éléments suivants :
+The `ApiServices` object is no longer part of the SDK. To access Mobile App settings, you can use the following:
 
     MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-De même, la journalisation s’effectue désormais avec le traçage ASP.NET standard :
+Similarly, logging is now accomplished using the standard ASP.NET trace writing:
 
     ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
     traceWriter.Info("Hello, World");  
 
-##<a name="authentication"></a>Considérations relatives à l’authentification
+##<a name="<a-name="authentication"></a>authentication-considerations"></a><a name="authentication"></a>Authentication considerations
 
-Les composants d’authentification de Mobile Services sont maintenant déplacés vers la fonctionnalité d’authentification/autorisation App Service. Pour en savoir plus sur l’activation de cette fonctionnalité pour votre site, consultez la rubrique [Ajouter l’authentification à votre application mobile](app-service-mobile-ios-get-started-users.md).
+The authentication components of Mobile Services have now been moved into the App Service Authentication/Authorization feature. You can learn about enabling this for your site by reading the [Add authentication to your mobile app](app-service-mobile-ios-get-started-users.md) topic.
 
-Pour certains fournisseurs, comme AAD, Facebook et Google, vous devez être en mesure d’exploiter l’inscription existante à partir de l’application de votre copie. Il vous suffit simplement d’accéder au portail du fournisseur d’identité et d’ajouter une nouvelle URL de redirection à l’inscription. Ensuite, configurez l’authentification/autorisation App Service avec l’ID client et le secret.
+For some providers, such as AAD, Facebook, and Google, you should be able to leverage the existing registration from your copy application. You simply need to navigate to the identity provider's portal and add a new redirect URL to the registration. Then configure App Service Authentication/Authorization with the client ID and secret.
 
-### Autorisation des actions de contrôleur
-Toutes les instances de l’attribut `[AuthorizeLevel(AuthorizationLevel.User)]` doivent désormais être modifiées pour utiliser l’attribut `[Authorize]` ASP.NET standard. En outre, les contrôleurs sont désormais anonymes par défaut, comme dans d’autres applications ASP.NET. Si vous utilisez une des autres options AuthorizeLevel, comme Admin ou Application, notez qu’elles ont disparu. Vous pouvez à la place configurer AuthorizationFilters pour utiliser des secrets partagés ou configurer un principal du service AAD pour activer les appels de service à service en toute sécurité.
+### <a name="controller-action-authorization"></a>Controller action authorization
+Any instances of the `[AuthorizeLevel(AuthorizationLevel.User)]` attribute must now be changed to use the standard ASP.NET `[Authorize]` attribute. Additionally, controllers are now Anonymous by default, as in other ASP.NET applications.
+If you were using one of the other AuthorizeLevel options, such as Admin or Application, please note that these are gone. You can instead set up AuthorizationFilters for shared secrets or configure an AAD Service Principal to enable service-to-service calls securely.
 
-### Obtention d’informations utilisateur supplémentaires
+### <a name="getting-additional-user-information"></a>Getting additional user information
 
-Vous pouvez obtenir des informations utilisateur supplémentaires, notamment des jetons d’accès par le biais de la méthode `GetAppServiceIdentityAsync()` :
+You can get additional user information, including access tokens through the `GetAppServiceIdentityAsync()` method:
 
         FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
 
-De plus, si votre application accepte les dépendances vis-à-vis des ID utilisateur, notamment en les stockant dans une base de données, il est important de noter que les ID utilisateur sont différents entre Mobile Services et App Service Mobile Apps. Vous pouvez quand même obtenir l’ID utilisateur Mobile Services. Toutes les sous-classes ProviderCredentials ont une propriété UserId. Ainsi, en reprenant l’exemple précédent :
+Additionally, if your application takes dependencies on user IDs, such as storing them in a database, it is important to note that the user IDs between Mobile Services and App Service Mobile Apps are different. You can still get the Mobile Services User ID, though. All of the ProviderCredentials subclasses have a UserId property. So continuing from the example before:
 
         string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
 
-si votre application accepte les dépendances vis-à-vis des ID utilisateur, il est important d’exploiter la même inscription avec un fournisseur d’identité dans la mesure du possible. Les ID utilisateur sont généralement limités à l'inscription de l'application qui a été utilisée, si bien que l'introduction d'une nouvelle inscription peut créer des problèmes de mise en correspondance des utilisateurs avec leurs données.
+If your app does take any dependencies on user IDs, it is important that you leverage the same registration with an identity provider if possible. User IDs are typically scoped to the application registration that was used, so introducing a new registration could create problems with matching users to their data.
 
-### Authentification personnalisée
+### <a name="custom-authentication"></a>Custom authentication
 
-Si votre application utilise une solution d’authentification personnalisée, assurez-vous que le site mis à niveau a accès au système. Suivez les nouvelles instructions liées à l’authentification personnalisée indiquées dans [Présentation du Kit de développement logiciel (SDK) serveur .NET] pour intégrer votre solution. Notez que les composants d’authentification personnalisée sont encore en version préliminaire.
+If your app is using a custom authentication solution, you will want to make sure that the upgraded site has access to the system. Follow the new instructions for custom authentication in the [.NET server SDK overview] to integrate your solution. Please note that the custom authentication components are still in preview.
 
-##<a name="updating-clients"></a>Mise à jour des clients
-Une fois que vous avez un serveur principal Mobile App opérationnel, vous pouvez travailler sur une nouvelle version de votre application cliente qui la consomme. Mobile Apps inclut également une nouvelle version des Kits de développement logiciel (SDK) clients, et comme pour la mise à niveau serveur ci-dessus, vous devez supprimer toutes les références aux Kits de développement logiciel (SDK) Mobile Services avant d’installer les versions Mobile Apps.
+##<a name="<a-name="updating-clients"></a>updating-clients"></a><a name="updating-clients"></a>Updating clients
+Once you have an operational Mobile App backend, you can work on a new version of your client application which consumes it. Mobile Apps also includes a new version of the client SDKs, and similar to the server upgrade above, you will need to remove all references to the Mobile Services SDKs before installing the Mobile Apps versions.
 
-L’une des principales modifications entre les versions a trait aux constructeurs qui n’exigent plus de clé d’application. Désormais, vous passez simplement l’URL de votre application mobile. Par exemple, sur les clients .NET, le constructeur `MobileServiceClient` est désormais :
+One of the main changes between the versions is that the constructors no longer require an application key. You now simply pass in the URL of your Mobile App. For example, on the .NET clients, the `MobileServiceClient` constructor is now:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://contoso.azurewebsites.net", // URL of the Mobile App
         );
 
-Pour en savoir plus sur l’installation des nouveaux Kits de développement logiciel (SDK) et l’utilisation de la nouvelle structure, cliquez sur les liens ci-dessous :
+You can read about installing the new SDKs and using the new structure via the links below:
 
-- [iOS version 3.0.0 ou ultérieure](app-service-mobile-ios-how-to-use-client-library.md)
-- [.NET (Windows/Xamarin) version 2.0.0 ou ultérieure](app-service-mobile-dotnet-how-to-use-client-library.md)
+- [iOS version 3.0.0 or later](app-service-mobile-ios-how-to-use-client-library.md)
+- [.NET (Windows/Xamarin) version 2.0.0 or later](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-Si votre application emploie des notifications Push, notez les instructions d’inscription spécifiques de chaque plateforme, car elles ont également fait l’objet de quelques modifications.
+If your application makes use of push notifications, make note of the specific registration instructions for each platform, as there have been some changes there as well.
 
-Une fois la nouvelle version cliente prête, essayez-la par rapport à votre projet de serveur mis à niveau. Après avoir vérifié qu’elle fonctionne, vous pouvez publier une nouvelle version de votre application pour vos clients. Enfin, une fois que vos clients ont eu l’occasion de recevoir ces mises à jour, vous pouvez supprimer la version Mobile Services de votre application. À ce stade, vous avez entièrement mis à niveau votre application vers App Service Mobile Apps avec le tout dernier SDK serveur Mobile Apps.
+When you have the new client version ready, try it out against your upgraded server project. After validating that it works, you can release a new version of your application to customers. Eventually, once your customers have had a chance to receive these updates, you can delete the Mobile Services version of your app. At this point, you have completely upgraded to an App Service Mobile App using the latest Mobile Apps server SDK.
 
 <!-- URLs. -->
 
-[portail Azure]: https://portal.azure.com/
-[portail Azure Classic]: https://manage.windowsazure.com/
-[Que sont les applications Mobile Apps ?]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /fr-FR/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[Kit de développement logiciel (SDK) Mobile App Server]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Azure portal]: https://portal.azure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
+[What are Mobile Apps?]: app-service-mobile-value-prop.md
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /fr-FR/documentation/services/scheduler/
-[tâche web]: ../app-service-web/websites-webjobs-resources.md
-[Utilisation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Azure Scheduler]: /en-us/documentation/services/scheduler/
+[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[tarification App Service]: https://azure.microsoft.com/fr-FR/pricing/details/app-service/
-[Présentation du Kit de développement logiciel (SDK) serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

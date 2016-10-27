@@ -1,10 +1,10 @@
 <properties
- pageTitle="Comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler"
- description="Comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler"
+ pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
+ description="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,188 +13,193 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
-
-# Comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler  
-
-## Vue d'ensemble
-
-La *planification* constitue le cœur d'un travail Azure Scheduler. La planification détermine quand et comment Azure Scheduler exécute le travail.
-
-Azure Scheduler vous permet de spécifier des planifications à usage unique et récurrentes pour un travail. Les planifications *à usage unique* se déclenchent une seule fois à un moment précis. Il s'agit en fait de planifications *récurrentes* qui ne s'exécutent qu'une seule fois. Les planifications récurrentes se déclenchent selon une fréquence prédéfinie.
-
-Grâce à cette flexibilité, Azure Scheduler vous permet de prendre en charge un large éventail de scénarios professionnels :
-
--	Nettoyage périodique des données : par exemple, tous les jours, supprimer tous les tweets de plus de 3 mois.
--	Archivage : par exemple, tous les mois, envoyer l'historique de facturation au service de sauvegarde.
--	Demandes de données externes : par exemple, toutes les 15 minutes, extraire un nouveau bulletin météorologique NOAA pour le ski.
--	Traitement des images : par exemple, tous les jours ouvrables, pendant les heures creuses, utiliser le cloud computing pour compresser les images téléchargées ce même jour.
+ ms.author="deli"/>
 
 
-Dans cet article, nous traitons d'exemples de travaux que vous pouvez créer avec Azure Scheduler. Nous fournissons les données JSON qui décrivent chaque planification. Si vous utilisez l'[API REST Scheduler](https://msdn.microsoft.com/library/mt629143.aspx), vous pouvez utiliser les mêmes données JSON pour [créer un travail Azure Scheduler](https://msdn.microsoft.com/library/mt629145.aspx).
+# <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
 
-## Scénarios pris en charge
+## <a name="overview"></a>Overview
 
-Les nombreux exemples de cette rubrique illustrent l’éventail de scénarios pris en charge par Azure Scheduler. Globalement, ces exemples illustrent comment créer des planifications pour de nombreux modèles de comportement, y compris ceux ci-dessous :
+At the heart of an Azure Scheduler job is the *schedule*. The schedule determines when and how the Scheduler executes the job.
 
--	Exécuter une seule fois à une date et une heure spécifiques
--	Exécuter et répéter un nombre de fois explicites
--	Exécuter immédiatement et répéter
--	Exécuter et répéter tou(te)s les *n* minutes, heures, jours, semaines ou mois, en commençant à un moment spécifique
--	Exécuter et répéter selon une fréquence hebdomadaire ou mensuelle, mais uniquement des jours spécifiques, des jours spécifiques de la semaine ou des jours spécifiques du mois
--	Exécuter et répéter à plusieurs reprises dans une période : par exemple, le dernier vendredi et lundi de chaque mois, ou à 5h15 et 17h15 chaque jour
+Azure Scheduler allows you to specify different one-time and recurring schedules for a job. *One-time* schedules fire once at a specified time – effectively, they are *recurring* schedules that execute only once. Recurring schedules fire on a predetermined frequency.
 
-## Dates et dates/heures
+With this flexibility, Azure Scheduler lets you support a wide variety of business scenarios:
 
-Les dates des travaux Azure Scheduler respectent la [spécification ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) et incluent uniquement la date.
+-   Periodic data cleanup –  e.g., every day, delete all tweets older than 3 months
+-   Archival – e.g., every month, push invoice history to backup service
+-   Requests for external data – e.g., every 15 minutes, pull new ski weather report from NOAA
+-   Image processing – e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day
 
-Les références date-heure des travaux Azure Scheduler respectent la [spécification ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) et incluent des parties de date et d'heure. Une date-heure qui ne spécifie pas de décalage UTC est supposée être de type UTC.
 
-## Procédure : Utiliser JSON et l'API REST pour la création de planifications
+In this article, we walk through example jobs that you can create with Azure Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx), you can use this same JSON for [creating an Azure Scheduler job](https://msdn.microsoft.com/library/mt629145.aspx).
 
-Pour créer une simple planification à l’aide de [l’API REST Azure Scheduler](https://msdn.microsoft.com/library/mt629143), [inscrivez votre abonnement auprès d’un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790548.aspx) (le nom du fournisseur pour Scheduler est _Microsoft.Scheduler_), puis [créez une collection de travaux](https://msdn.microsoft.com/library/mt629159.aspx) et [un travail](https://msdn.microsoft.com/library/mt629145.aspx). Lorsque vous créez un travail, vous pouvez spécifier la planification et la périodicité à l'aide de JSON, comme indiqué dans l'extrait ci-dessous :
+## <a name="supported-scenarios"></a>Supported Scenarios
 
-	{
-	    "startTime": "2012-08-04T00:00Z", // optional
-	     …
-	    "recurrence":                     // optional
-	    {
-	        "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-	        "interval": 1,                // optional, how often to fire (default to 1)
-	        "schedule":                   // optional (advanced scheduling specifics)
-	        {
-	            "weekDays": ["monday", "wednesday", "friday"],
-	            "hours": [10, 22]                      
-	        },
-	        "count": 10,                  // optional (default to recur infinitely)
-	        "endTime": "2012-11-04",      // optional (default to recur infinitely)
-	    },
-	    …
-	}
+The many examples in this topic illustrate the breadth of scenarios that Azure Scheduler supports. Broadly, these examples illustrate how to create schedules for many behavior patterns, including the ones below:
 
-## Vue d'ensemble : Notions fondamentales du schéma de travail
+-   Run once at a particular date and time
+-   Run and recur a number of explicit times
+-   Run immediately and recur
+-   Run and recur every *n* minutes, hours, days, weeks, or months, starting at a particular time
+-   Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month
+-   Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
 
-Le tableau suivant fournit une vue d'ensemble des éléments majeurs liés à la périodicité et la planification d'un travail :
+## <a name="dates-and-datetimes"></a>Dates and DateTimes
 
-|**Nom JSON**|**Description**|
+Dates in Azure Scheduler jobs follow the [ISO-8601 specification](http://en.wikipedia.org/wiki/ISO_8601) and include only the date.
+
+Date-Time references in Azure Scheduler jobs follow the [ISO-8601 specification](http://en.wikipedia.org/wiki/ISO_8601) and include both date and time parts. A Date-Time that does not specify a UTC offset is assumed to be UTC.  
+
+## <a name="how-to:-use-json-and-rest-api-for-creating-schedules"></a>How To: Use JSON and REST API for Creating Schedules
+
+To create a simple schedule using the [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143), first [register your subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx) (the provider name for Scheduler is _Microsoft.Scheduler_), then [create a job collection](https://msdn.microsoft.com/library/mt629159.aspx), and finally [create a job](https://msdn.microsoft.com/library/mt629145.aspx). When you create a job, you can specify scheduling and recurrence using JSON like the one excerpted below:
+
+    {
+        "startTime": "2012-08-04T00:00Z", // optional
+         …
+        "recurrence":                     // optional
+        {
+            "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
+            "interval": 1,                // optional, how often to fire (default to 1)
+            "schedule":                   // optional (advanced scheduling specifics)
+            {
+                "weekDays": ["monday", "wednesday", "friday"],
+                "hours": [10, 22]                      
+            },
+            "count": 10,                  // optional (default to recur infinitely)
+            "endTime": "2012-11-04",      // optional (default to recur infinitely)
+        },
+        …
+    }
+
+## <a name="overview:-job-schema-basics"></a>Overview: Job Schema Basics
+
+The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job:
+
+|**JSON name**|**Description**|
 |:--|:--|
-|**_startTime_**|_startTime_ est une Date-Heure. Pour les planifications simples, _startTime_ est la première occurrence et pour les planifications complexes, le travail ne démarre pas avant la valeur _startTime_.|
-|**_recurrence_**|L'objet _recurrence_ spécifie les règles de périodicité pour le travail et la périodicité selon laquelle le travail s'exécutera. L'objet de périodicité prend en charge les éléments _frequency, interval, endTime, count_ et _schedule_. Si la valeur _recurrence_ est définie, l'élément _frequency_ est obligatoire. Les autres éléments de la valeur _recurrence_ sont facultatifs.|
-|**_frequency_**|La chaîne _frequency_ représente l'unité de fréquence selon laquelle le travail se répète. Les valeurs prises en charge sont _« minute », « hour », « day », « week »_ ou _« month »_.|
-|**_interval_**|La valeur _interval_ est un entier positif et indique l'intervalle de la valeur _frequency_ qui détermine la fréquence d'exécution du travail. Par exemple, si la valeur _interval_ est définie sur 3 et la valeur _fréquency_ est définie sur « week » (semaine), le travail se répète toutes les 3 semaines. Azure Scheduler prend en charge un _intervalle_ maximum de 18 mois pour la fréquence mensuelle, 78 semaines pour la fréquence hebdomadaire ou 548 jours pour la fréquence quotidienne. Pour la fréquence heure et minute, la plage prise en charge est 1 <= _intervalle_ <= 1 000.|
-|**_endTime_**|La chaîne _endTime_ spécifie la dernière valeur date-heure après laquelle le travail ne doit pas s'exécuter. La chaîne _endTime_ ne peut pas se situer dans le passé. Si aucune valeur _endTime_ ou count n'est spécifiée, le travail s'exécute à l'infini. Vous ne pouvez pas inclure _endTime_ et _count_ dans le même travail.|
-|**_count_**|<p>La valeur _count_ est un entier positif (supérieur à zéro) qui spécifie le nombre de fois où ce travail doit s'exécuter avant de se terminer.</p><p>La valeur _count_ représente le nombre de fois où le travail s'exécute avant d'être défini comme étant terminé. Par exemple, pour un travail qui est exécuté quotidiennement avec la valeur _count_ égale à 5 et une date de début égale à lundi, le travail se termine après son exécution le vendredi. Si la date de début se situe dans le passé, la première exécution est calculée à partir de l'heure de création.</p><p>Si aucune valeur _endTime_ ou _count_ n'est spécifiée, le travail s'exécute à l'infini. Vous ne pouvez pas inclure _endTime_ et _count_ dans le même travail.</p>|
-|**_schedule_**|Un travail avec une fréquence spécifiée modifie sa périodicité selon une planification périodique. Une _planification_ contient des modifications basées sur des minutes, heures, jours de la semaine, jour du mois et numéro de semaine.|
+|**_startTime_**|_startTime_ is a Date-Time. For simple schedules, _startTime_ is the first occurrence and for complex schedules, the job will start no sooner than _startTime_.|
+|**_recurrence_**|The _recurrence_ object specifies recurrence rules for the job and the recurrence the job will execute with. The recurrence object supports the elements _frequency, interval, endTime, count,_ and _schedule_. If _recurrence_ is defined, _frequency_ is required; the other elements of _recurrence_ are optional.|
+|**_frequency_**|The _frequency_ string representing the frequency unit at which the job recurs. Supported values are _"minute", "hour", "day", "week",_ or _"month."_|
+|**_interval_**|The _interval_ is a positive integer and denotes the interval for the _frequency_ that determines how often the job will run. For example, if _interval_ is 3 and _frequency_ is "week", the job recurs every 3 weeks. Azure Scheduler supports a maximum _interval_ of 18 months for monthly frequency, 78 weeks for weekly frequency, or 548 days for daily frequency. For hour and minute frequency, the supported range is 1 <= _interval_ <= 1000.|
+|**_endTime_**|The _endTime_ string specifies the date-time past which the job should not execute. It is not valid to have an _endTime_ in the past. If no _endTime_ or count is specified, the job runs infinitely. Both _endTime_ and _count_ cannot be included for the same job.|
+|**_count_**|<p>The _count_ is a positive integer (greater than zero) that specifies the number of times this job should run before completing.</p><p>The _count_ represents the number of times the job runs before being determined as completed. For example, for a job that is executed daily with _count_ 5 and start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.</p><p>If no _endTime_ or _count_ is specified, the job runs infinitely. Both _endTime_ and _count_ cannot be included for the same job.</p>|
+|**_schedule_**|A job with a specified frequency alters its recurrence based on a recurrence schedule. A _schedule_ contains modifications based on minutes, hours, week days, month days, and week number.|
 
-## Vue d'ensemble : Valeurs par défaut, limites et exemples du schéma de travail
+## <a name="overview:-job-schema-defaults,-limits,-and-examples"></a>Overview: Job Schema Defaults, Limits, and Examples
 
-Après cette introduction, examinons chacun de ces éléments en détail.
+After this overview, let’s discuss each of these elements in detail.
 
-|**Nom JSON**|**Type de valeur**|**Obligatoire ?**|**Valeur par défaut**|**Valeurs valides**|**Exemple**|
+|**JSON name**|**Value type**|**Required?**|**Default value**|**Valid values**|**Example**|
 |:---|:---|:---|:---|:---|:---|
-|**_startTime_**|String|Non|Aucun|Dates-Heures ISO-8601|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
-|**_recurrence_**|Object|Non|Aucun|Objet de périodicité|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
-|**_frequency_**|String|Oui|Aucun|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
-|**_interval_**|Number|Non|1|1 à 1 000.|<code>"interval":10</code>|
-|**_endTime_**|String|Non|Aucun|Valeur date-heure représentant une heure dans le futur|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-|**_count_**|Number|Non|Aucun|>= 1|<code>"count": 5</code>|
-|**_schedule_**|Object|Non|Aucun|Objet de planification|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
+|**_startTime_**|String|No|None|ISO-8601 Date-Times|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
+|**_recurrence_**|Object|No|None|Recurrence object|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
+|**_frequency_**|String|Yes|None|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
+|**_interval_**|Number|No|1|1 to 1000.|<code>"interval":10</code>|
+|**_endTime_**|String|No|None|Date-Time value representing a time in the future|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+|**_count_**|Number|No|None|>= 1|<code>"count": 5</code>|
+|**_schedule_**|Object|No|None|Schedule object|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
 
-## Présentation approfondie : _startTime_
+## <a name="deep-dive:-_starttime_"></a>Deep Dive: _startTime_
 
-Le tableau suivant capture comment _startTime_ contrôle la manière dont un travail est exécuté.
+The following table captures how _startTime_ controls how a job is run.
 
-|**valeur startTime**|**Aucune périodicité**|**Périodicité. Aucune planification**|**Périodicité avec planification**|
+|**startTime value**|**No recurrence**|**Recurrence. No schedule**|**Recurrence with schedule**|
 |:--|:--|:--|:--|
-|**Aucune heure de début**|Exécuter une fois immédiatement|Exécuter une fois immédiatement. Les exécutions suivantes sont basées sur le calcul à partir de la dernière exécution|<p>Exécuter une fois immédiatement</p><p>Les exécutions suivantes sont basées sur la planification de périodicité</p>|
-|**Heure de début dans le passé**|Exécuter une fois immédiatement|<p>Calculer la première exécution ultérieure après l'heure de début, puis exécuter à ce moment-là</p><p>Les exécutions suivantes sont basées sur le calcul continu à partir de la dernière exécution</p><p>Voir l'exemple situé après ce tableau pour obtenir une explication supplémentaire</p>|<p>Le travail _ne démarre pas avant_ l'heure de début spécifiée. La première occurrence est basée sur la planification calculée à partir de l'heure de début</p><p>Les exécutions suivantes sont basées sur la planification de périodicité</p>|
-|**Heure de début dans le futur ou à l'heure actuelle**|Exécuter une fois à l'heure de début spécifiée|<p>Exécuter une fois à l'heure de début spécifiée</p><p>Les exécutions suivantes sont basées sur le calcul à partir de la dernière exécution</p>|<p>Le travail _ne démarre pas avant_ l'heure de début spécifiée. La première occurrence est basée sur la planification calculée à partir de l'heure de début</p><p>Les exécutions suivantes sont basées sur la planification de périodicité</p>|
+|**No start time**|Run once immediately|Run once immediately. Run subsequent executions based on calculating from last execution time|<p>Run once immediately</p><p>Run subsequent executions based on recurrence schedule</p>|
+|**Start time in past**|Run once immediately|<p>Calculate first future execution time after start time, and run at that time</p><p>Run subsequent executions based oncalculating from last execution time</p><p>See example after this table for a further explanation</p>|<p>Job starts _no sooner than_ the specified start time. The first occurrence is based on the schedule calculated from the start time</p><p>Run subsequent executions based on recurrence schedule</p>|
+|**Start time in future or at present**|Run once at specified start time|<p>Run once at specified start time</p><p>Run subsequent executions based on calculating from last execution time</p>|<p>Job starts _no sooner than_ the specified start time. The first occurrence is based on the schedule calculated from the start time</p><p>Run subsequent executions based on recurrence schedule</p>|
 
-Examinons un exemple de ce qui se passe lorsque _startTime_ se situe dans le passé, avec la valeur _recurrence_ définie, mais pas la valeur _schedule_. Supposons que la date et l'heure actuelle sont 2015-04-08 13:00, la valeur _startTime_ est 2015-04-07 14:00 et la valeur _recurrence_ est tous les 2 jours (définie avec _frequency_ : day et _interval_ : 2). Notez que la valeur _startTime_ se situe dans le passé et se produit avant l'heure actuelle.
+Let's see an example of what happens where _startTime_ is in the past, with _recurrence_ but no _schedule_.  Assume that the current time is 2015-04-08 13:00, _startTime_ is 2015-04-07 14:00, and _recurrence_ is every 2 days (defined with _frequency_: day and _interval_: 2.) Note that the _startTime_ is in the past, and occurs before the current time
 
-Dans ces conditions, la _première exécution_ aura lieu le 2015-04-09 à 14:00. Le moteur d'Azure Scheduler calcule les occurrences de l'exécution à partir de l'heure de début. Toutes les instances dans le passé sont ignorées. Le moteur utilise l'instance suivante qui se produit dans le futur. Dans ce cas, _startTime_ étant 2015-04-07 à 14:00, l'instance suivante aura lieu dans les 2 jours à partir de cette date, c'est-à-dire le 2015-04-09 à 14:00.
+Under these conditions, the _first execution_ will be 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time.  Any instances in the past are discarded. The engine uses the next instance that occurs in the future.  So in this case, _startTime_ is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm.
 
-Notez que la première exécution serait la même, que la valeur startTime soit égale à 2015-04-05 14:00 ou 2015-04-01 14:00. Après la première exécution, les exécutions suivantes sont calculées à l'aide de la planification, afin qu'elles aient lieu le 2015-04-11 à 14:00, puis le 2015-04-13 à 14:00, puis le 2015-04-15 à 14:00, etc.
+Note that the first execution would be the same even if the startTime 2015-04-05 14:00 or 2015-04-01 14:00\. After the first execution, subsequent executions are calculated using the scheduled – so they'd be at 2015-04-11 at 2:00pm, then 2015-04-13 at 2:00pm, then 2015-04-15 at 2:00pm, etc.
 
-Enfin, lorsqu'un travail a une planification, si les heures et/ou les minutes ne sont pas définies dans la planification, elles prennent la valeur par défaut des heures et/ou minutes de la première exécution, respectivement.
+Finally, when a job has a schedule, if hours and/or minutes aren’t set in the schedule, they default to the hours and/or minutes of the first execution, respectively.
 
-## Présentation approfondie : _schedule_
+## <a name="deep-dive:-_schedule_"></a>Deep Dive: _schedule_
 
-D'une part, une _planification_ peut _limiter_ le nombre d'exécutions du travail. Par exemple, si un travail avec une fréquence « mois » a une _planification_ qui s'exécute uniquement le 31, le travail s'exécute uniquement pendant les mois qui comptent un 31<sup>ème</sup> jour.
+On one hand, a _schedule_ can _limit_ the number of job executions.  For example, if a job with a "month" frequency has a _schedule_ that runs on only day 31, the job runs in only those months that have a 31<sup>st</sup> day.
 
-D'autre part, une _planification_ peut également _développer_ le nombre d'exécutions du travail. Par exemple, si un travail avec une fréquence « mois » a une _planification_ qui s'exécute les jours 1 et 2 du mois, le travail s'exécute le 1<sup>er</sup> et le 2<sup>ème</sup> jours du mois au lieu d'une seule fois par mois.
+On the other hand, a _schedule_ can also _expand_ the number of job executions. For example, if a job with a "month" frequency has a _schedule_ that runs on month days 1 and 2, the job runs on the 1<sup>st</sup> and 2<sup>nd</sup> days of the month instead of just once a month.
 
-Si plusieurs éléments de planification sont spécifiés, l'ordre d'évaluation va du plus grand au plus petit : numéro de semaine, jour du mois, jour de la semaine, heure et minute.
+If multiple schedule elements are specified, the order of evaluation is from the largest to smallest – week number, month day, week day, hour, and minute.
 
-Le tableau suivant décrit les éléments _schedule_ en détail.
+The following table describes _schedule_ elements in detail.
 
-|**Nom JSON**|**Description**|**Valeurs valides**|
+|**JSON name**|**Description**|**Valid Values**|
 |:---|:---|:---|
-|**minutes**|Minutes de l'heure auxquelles le travail sera exécuté|<ul><li>Entier ou</li><li>Tableau d'entiers</li></ul>|
-|**hours**|Heures de la journée auxquelles le travail sera exécuté|<ul><li>Entier ou</li><li>Tableau d'entiers</li></ul>|
-|**weekDays**|Jours de la semaine auxquels le travail sera exécuté Peut uniquement être spécifié avec une fréquence hebdomadaire.|<ul><li>« Monday », « Tuesday », « Wednesday », « Thursday », « Friday », « Saturday » ou « Sunday »</li><li>Tableau d’une des valeurs ci-dessus (taille de tableau maximale 7)</li></ul>_Ne_ respectant pas la casse|
-|**monthlyOccurrences**|Détermine les jours du mois pour l'exécution du travail. Peut uniquement être spécifié avec une fréquence mensuelle.|<ul><li>Tableau d'objets monthlyOccurence :</li></ul> <pre>{« day » : _day_,<br /> « occurrence » : _occurrence_<br />}</pre><p> _day_ est le jour de la semaine pour l'exécution du travail. Par exemple, {Sunday} correspond à tous les dimanches du mois. Obligatoire.</p><p>Occurrence est l'_occurrence_ du jour au cours du mois. Par exemple, {Sunday, -1} est le dernier dimanche du mois. Facultatif.</p>|
-|**monthDays**|Jour du mois auquel le travail sera exécuté. Peut uniquement être spécifié avec une fréquence mensuelle.|<ul><li>Toute valeur <= -1 et >= -31.</li><li>Toute valeur >= 1 et <= 31.</li><li>Un tableau des valeurs ci-dessus</li></ul>|
+|**minutes**|Minutes of the hour at which the job will run|<ul><li>Integer, or</li><li>Array of integers</li></ul>|
+|**hours**|Hours of the day at which the job will run|<ul><li>Integer, or</li><li>Array of integers</li></ul>|
+|**weekDays**|Days of the week the job will run. Can only be specified with a weekly frequency.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", or "Sunday"</li><li>Array of any of the above values (max array size 7)</li></ul>_Not_ case-sensitive|
+|**monthlyOccurrences**|Determines which days of the month the job will run. Can only be specified with a monthly frequency.|<ul><li>Array of monthlyOccurence objects:</li></ul> <pre>{ "day": _day_,<br />  "occurrence": _occurence_<br />}</pre><p> _day_ is the day of the week the job will run, e.g. {Sunday} is every Sunday of the month. Required.</p><p>Occurrence is _occurrence_ of the day during the month, e.g. {Sunday, -1} is the last Sunday of the month. Optional.</p>|
+|**monthDays**|Day of the month the job will run. Can only be specified with a monthly frequency.|<ul><li>Any value <= -1 and >= -31.</li><li>Any value >= 1 and <= 31.</li><li>An array of above values</li></ul>|
 
-## Exemples : planifications de périodicité
+## <a name="examples:-recurrence-schedules"></a>Examples: Recurrence Schedules
 
-Voici divers exemples de planifications de périodicité, avec un accent sur l'objet de planification et ses sous-éléments.
+The following are various examples of recurrence schedules – focusing on the schedule object and its sub-elements.
 
-Les planifications ci-dessous supposent toutes que la valeur _interval_ est définie sur 1. En outre, vous devez supposer la bonne fréquence conformément à ce qui est dans la _planification_. Par exemple, un utilisateur ne peut pas utiliser la fréquence « day » et une modification « monthDays » dans la planification. Ces restrictions sont décrites ci-dessus.
+The schedules below all assume that the _interval_ is set to 1\. Also, one must assume the right frequency in accordance to what is in the _schedule_ – e.g., one can't use frequency "day" and have a "monthDays" modification in the schedule. Such restrictions are described above.
 
-|**Exemple**|**Description**|
+|**Example**|**Description**|
 |:---|:---|
-|<code>{"hours":[5]}</code>|Exécution à 5h tous les jours. Azure Scheduler fait correspondre chaque valeur sous « hours » avec chaque valeur sous « minutes », une par une, pour créer une liste de toutes les fois où le travail doit être exécuté.|
-|<code>{"minutes":[15], "hours":[5]}</code>|Exécution à 5h15 tous les jours.|
-|<code>{"minutes":[15], "hours":[5,17]}</code>|Exécution à 5h15 et 17h15 tous les jours.|
-|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Exécution à 5h15, 5h45, 17h15 et 17h45 tous les jours|
-|<code>{"minutes":[0,15,30,45]}</code>|Exécution toutes les 15 minutes.|
-|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Exécution toutes les heures. Ce travail s'exécute toutes les heures. La minute est contrôlée par la valeur _startTime_, si elle est spécifiée ou, dans le cas contraire, par l'heure de création. Par exemple, si l'heure de début ou l'heure de création (selon le cas) est 00h25, le travail sera exécuté à 00h25, 01h25, 02h25, ..., 23h25. La planification équivaut à un travail avec la valeur _frequency_ définie sur « hour », la valeur _interval_ égale à 1 et aucune _planification_. La différence est que cette planification peut être utilisée avec une _fréquence_ et un _intervalle_ différents pour créer d'autres travaux. Par exemple, si la valeur _frequency_ est définie sur « month », la planification serait exécutée une seule fois par mois, au lieu de tous les jours si la valeur _frequency_ était définie sur « day ».|
-|<code>{minutes:[0]}</code>|Exécution toutes les heures sur l'heure. Ce travail s'exécute également toutes les heures, mais sur l'heure (par exemple, minuit, 1h, 2h, etc.) Cela équivaut à un travail avec une fréquence définie sur « hour », une heure de début avec zéro minute et aucune planification si la fréquence était définie sur « day » ; mais si la fréquence était définie sur « week » ou « month », la planification ne s'exécuterait qu'un seul jour par semaine ou par mois, respectivement.|
-|<code>{"minutes":[15]}</code>|Exécution 15 minutes après l'heure toutes les heures. Exécution toutes les heures, à partir de 00h15, 1h15, 2h15, etc. et se terminant à 22h15 et 23h15.|
-|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Exécution à 17h le samedi chaque semaine.|
-|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Exécution à 17h le lundi, mercredi et vendredi chaque semaine.|
-|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Exécution à 17h15 et 17h45 le lundi, mercredi et vendredi chaque semaine.|
-|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Exécution à 5h et 17h le lundi, mercredi et vendredi chaque semaine.|
-|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Exécution à 5h15, 5h45, 17h15 et 17h45 le lundi, mercredi et vendredi chaque semaine.|
-|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Exécution toutes les 15 minutes les jours de semaine.|
-|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Exécution toutes les 15 minutes les jours de semaine entre 9h et 16h45.|
-|<code>{"weekDays":["sunday"]}</code>|Exécution le dimanche à l'heure de début.|
-|<code>{"weekDays":["tuesday", "thursday"]}</code>|Exécution le mardi et le jeudi à l'heure de début.|
-|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Exécution à 6h le 28ème jour de chaque mois (en supposant une fréquence mensuelle).|
-|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Exécution à 6h le dernier jour du mois. Si vous souhaitez exécuter un travail le dernier jour du mois, utilisez -1 au lieu de jour 28, 29, 30 ou 31.|
-|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Exécution à 6h le premier et le dernier jours de chaque mois.|
-|<code>{monthDays":[1,-1]}</code>|Exécution le premier et le dernier jours de chaque mois à l'heure de début.|
-|<code>{monthDays":[1,14]}</code>|Exécution le premier et le quatorzième jours de chaque mois à l'heure de début.|
-|<code>{monthDays":[2]}</code>|Exécution le deuxième jour du mois à l'heure de début.|
-|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Exécution le premier vendredi de chaque mois à 5h.|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Exécution le premier vendredi de chaque mois à l'heure de début.|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Exécution le troisième vendredi à partir de la fin du mois, chaque mois, à l'heure de début.|
-|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Exécution le premier et le dernier vendredi de chaque mois à 5h15.|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Exécution le premier et le dernier vendredi de chaque mois à l'heure de début.|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Exécution le cinquième vendredi de chaque mois à l'heure de début. S'il n'existe pas de cinquième vendredi dans un mois, le travail ne s'exécute pas, dans la mesure où il est planifié pour s'exécuter uniquement le cinquième vendredi. Vous pouvez envisager d'utiliser -1 au lieu de 5 pour l'occurrence si vous souhaitez exécuter le travail le dernier vendredi du mois.|
-|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Exécution toutes les 15 minutes le dernier vendredi du mois.|
-|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Exécution à 5h15, 5h45, 17h15 et 17h45 le troisième mercredi de chaque mois.|
+|<code>{"hours":[5]}</code>|Run at 5AM Every Day. Azure Scheduler matches up each value in "hours" with each value in "minutes", one by one, to create a list of all the times at which the job is to be run.|
+|<code>{"minutes":[15], "hours":[5]}</code>|Run at 5:15AM Every Day|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|Run at 5:15 AM and 5:15 PM Every Day|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM Every Day|
+|<code>{"minutes":[0,15,30,45]}</code>|Run Every 15 Minutes|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Run Every Hour. This job runs every hour. The minute is controlled by the _startTime_, if one is specified, or if none is specified, by the creation time. For example, if the start time or creation time (whichever applies) is 12:25 PM, the job will be run at 00:25, 01:25, 02:25, …, 23:25. The schedule is equivalent to having a job with _frequency_ of "hour", an _interval_ of 1, and no _schedule_. The difference is that this schedule could be used with different _frequency_ and _interval_ to create other jobs too. For example, if the _frequency_ were "month", the schedule would run only once a month instead of every day if _frequency_ were "day"|
+|<code>{minutes:[0]}</code>|Run Every Hour on the Hour. This job also runs every hour, but on the hour (e.g. 12AM, 1AM, 2AM, etc.) This is equivalent to a job with frequency of "hour", a startTime with zero minutes, and no schedule if the frequency were "day", but if the frequency were "week" or "month," the schedule would execute only one day a week or one day a month, respectively.|
+|<code>{"minutes":[15]}</code>|Run at 15 Minutes Past Hour Every Hour. Runs every hour, starting at 00:15AM, 1:15AM, 2:15AM, etc. and ending at 10:15PM and 11:15PM.|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Run at 5PM on Saturdays Every Week|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15PM and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5AM and 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays between 9AM and 4:45PM|
+|<code>{"weekDays":["sunday"]}</code>|Run on Sundays at Start Time|
+|<code>{"weekDays":["tuesday", "thursday"]}</code>|Run on Tuesdays and Thursdays at Start Time|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Run at 6AM on the 28th Day of Every Month (assuming frequency of month)|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Run at 6AM on the Last Day of the Month. If you'd like to run a job on the last day of a month, use -1 instead of day 28, 29, 30, or 31.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Run at 6AM on the First and Last Day of Every Month|
+|<code>{monthDays":[1,-1]}</code>|Run on the First and Last Day of Every Month at Start Time|
+|<code>{monthDays":[1,14]}</code>|Run on the First and Fourteenth Day of Every Month at Start Time|
+|<code>{monthDays":[2]}</code>|Run on the Second Day of the Month at Start Time|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Run on First Friday of Every Month at 5AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Run on First Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Run on Third Friday from End of Month, Every Month, at Start Time|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at 5:15AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Run on Fifth Friday of Every Month at Start Time. If there is no fifth Friday in a month, this does not run, since it's scheduled to run on only fifth Fridays. You may consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Run Every 15 Minutes on Last Friday of the Month|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
 
-## Voir aussi
+## <a name="see-also"></a>See Also
 
 
- [Présentation d'Azure Scheduler](scheduler-intro.md)
+ [What is Scheduler?](scheduler-intro.md)
 
- [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
- [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

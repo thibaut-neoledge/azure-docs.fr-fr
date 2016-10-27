@@ -1,150 +1,153 @@
 <properties
-	pageTitle="Meilleures pratiques Gestion des mots de passe Azure AD | Microsoft Azure"
-	description="Meilleures pratiques concernant le déploiement et l’utilisation, exemple de documentation pour les utilisateurs finaux et guides de formation pour la gestion des mots de passe dans Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Best Practices: Azure AD Password Management | Microsoft Azure"
+    description="Deployment and usage best practices, sample end-user documentation and training guides for Password Management in Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="asteen"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="asteen"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/12/2016"
+    ms.author="asteen"/>
 
-# Déploiement de la gestion des mots de passe et formation des utilisateurs
 
-> [AZURE.IMPORTANT] **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+# <a name="deploying-password-management-and-training-users-to-use-it"></a>Deploying Password Management and training users to use it
 
-L’étape qui suit l’activation de la réinitialisation de mot de passe consiste à autoriser les utilisateurs à utiliser le service dans votre organisation. Pour ce faire, vous devez vous assurer que vos utilisateurs sont configurés pour utiliser le service correctement et également qu’ils disposent de la formation nécessaire pour réussir à gérer leurs mots de passe. Cet article vous explique les concepts suivants :
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-* [**Configuration des utilisateurs pour la gestion des mots de passe**](#how-to-get-users-configured-for-password-reset)
-  * [Configuration d’un compte pour la réinitialisation de mot de passe](#what-makes-an-account-configured)
-  * [Méthodes permettant de remplir les données d’authentification](#ways-to-populate-authentication-data)
-* [**Meilleures pratiques de déploiement de la réinitialisation de mot de passe dans votre organisation**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
-  * [Déploiement par courrier électronique et exemples de communications concernant le déploiement par courrier électronique](#email-based-rollout)
-  * [Création de votre propre portail de gestion de mot de passe personnalisé pour vos utilisateurs](#creating-your-own-password-portal)
-  * [Utilisation de l’inscription imposée pour forcer les utilisateurs à s’inscrire au moment de la connexion](#using-enforced-registration)
-  * [Téléchargement des données d’authentification des comptes d’utilisateur](#uploading-data-yourself)
-* [**Exemples de supports de formation (bientôt disponibles)**](#sample-training-materials)
+After enabling password reset, the next step you need to take is to get users using the service in your organization. To do this, you'll need to make sure your users are configured to use the service properly and also that your users have the training they need to be successful in managing their own passwords. This article will explain to you the following concepts:
 
-## Configuration des utilisateurs pour la réinitialisation de mot de passe
-Cette section décrit diverses méthodes qui vous permettent de vous assurer que chaque utilisateur de votre organisation peut utiliser la réinitialisation de mot de passe libre-service efficacement en cas d’oubli de son mot de passe.
+* [**How to get your users configured for Password Management**](#how-to-get-users-configured-for-password-reset)
+  * [What makes an account configured for password reset](#what-makes-an-account-configured)
+  * [Ways you can to populate authentication data yourself](#ways-to-populate-authentication-data)
+* [**The best ways to roll out password reset to your organization**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
+  * [Email-based rollout + sample email communications](#email-based-rollout)
+  * [Create your own custom password management portal for your users](#creating-your-own-password-portal)
+  * [How to use enforced registration to force users to register at sign in](#using-enforced-registration)
+  * [How to upload authentication data for user accounts](#uploading-data-yourself)
+* [**Sample user and support training materials (coming soon!)**](#sample-training-materials)
 
-### Configuration d’un compte
-Avant qu’un utilisateur puisse utiliser la réinitialisation de mot de passe, **toutes les** conditions suivantes doivent être remplies :
+## <a name="how-to-get-users-configured-for-password-reset"></a>How to get users configured for password reset
+This section describes to you various methods by which you can ensure every user in your organization can use self-service password reset effectively in case they forget their password.
 
-1.	La réinitialisation de mot de passe doit être activée dans l’annuaire. Découvrez comment activer la réinitialisation de mot de passe en lisant les sections [Autorisation de la réinitialisation de mot de passe Azure AD par les utilisateurs](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) ou [Autorisation de la réinitialisation ou modification de mot de passe AD par les utilisateurs](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
-2.	L’utilisateur doit disposer d’une licence.
- - Les utilisateurs du cloud doivent avoir **une licence Office 365 payante**, **AAD Basic** ou **AAD Premium**.
- - Les utilisateurs locaux (fédérés ou avec synchronisation du hachage) **doivent disposer d’une licence AAD Premium**.
-3.	L’utilisateur doit avoir l’**ensemble minimal de données d’authentification** conforme à la stratégie de réinitialisation de mot de passe actuelle.
- - Les données d’authentification sont considérées comme définies si le champ correspondant dans l’annuaire contient des données bien formées.
- - Un ensemble minimal de données d’authentification est défini comme correspondant à **au moins une** des options d’authentification activées si une stratégie comportant une seule porte est configurée, ou à **au moins deux** des options d’authentification activées si une stratégie incluant deux portes est configurée.
-4.	Si l’utilisateur utilise un compte local, l’[écriture différée de mot de passe](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) doit être activée.
+### <a name="what-makes-an-account-configured"></a>What makes an account configured
+Before a user can use password reset, **all** of the following conditions must be met:
 
-### Méthodes permettant de remplir les données d’authentification
-Vous avez plusieurs options pour spécifier les données que les utilisateurs de votre organisation doivent utiliser pour la réinitialisation du mot de passe.
+1.  Password reset must be enabled in the directory.  Learn how to enable password reset by reading [Enable users to reset their Azure AD Passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) or [Enable users to reset or change their AD Passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+2.  The user must be licensed.
+ - For cloud users, the user must have **any paid Office 365 license**, or an **AAD Basic** or **AAD Premium license** assigned.
+ - For on-prem users (federated or hash synced), the user **must have an AAD Premium license assigned**.
+3.  The user must have the **minimum set of authentication data defined** in accordance with the current password reset policy.
+ - Authentication data is considered defined if the corresponding field in the directory contains well-formed data.
+ - A minimum set of authentication data is defined as at **least one** of the enabled authentication options if a one gate policy is configured, or at **least two** of the enabled authentication options if a two gate policy is configured.
+4.  If the user is using an on-premises account, then [Password Writeback](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) must be enabled and turned on
 
-- Modifiez les utilisateurs dans le [portail de gestion Azure](https://manage.windowsazure.com) ou le [portail d’administration d’Office 365](https://portal.microsoftonline.com).
-- Utilisez Azure AD Sync pour synchroniser les propriétés de l’utilisateur dans Azure AD à partir d’un domaine Active Directory local.
-- Utilisez Windows PowerShell pour modifier les propriétés de l’utilisateur en [procédant comme indiqué ici](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
-- Autorisez les utilisateurs à inscrire leurs propres données en les guidant vers le portail d’inscription à la page [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
-- Obligez les utilisateurs à s’inscrire à la réinitialisation de mot de passe lors de leur connexion au compte Azure AD en définissant l’option de configuration [**Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent ?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) sur **Oui**.
+### <a name="ways-to-populate-authentication-data"></a>Ways to populate authentication data
+You have several options on how to specify data for users in your organization to be used for password reset.
 
-Les utilisateurs n’ont pas besoin de s’inscrire à la réinitialisation de mot de passe pour que le système fonctionne. Par exemple, si vous avez des numéros de téléphone fixes ou portables existants dans votre annuaire local, vous pouvez les synchroniser dans Azure AD et nous les utiliserons pour réinitialiser automatiquement les mots de passe.
+- Edit users in the [Azure Management Portal](https://manage.windowsazure.com) or the [Office 365 Admin Portal](https://portal.microsoftonline.com)
+- Use Azure AD Sync to synchronize user properties into Azure AD from an on-premises Active Directory domain
+- Use Windows PowerShell to edit user properties by [following the steps here](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
+- Allow users to register their own data by guiding them to the registration portal at [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+- Require users to register for password reset when they sign in to their Azure AD account by setting the  [**Require users to register when signing in?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) configuration option to **Yes**.
 
-Vous pouvez également en savoir plus sur [comment les données sont utilisées par la réinitialisation de mot de passe](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) et [comment vous pouvez remplir les différents champs d’authentification avec PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
+Users need not register for password reset for the system to work.  For example, if you have existing mobile or office phone numbers in your local directory, you can synchronize them in Azure AD and we will use them for password reset automatically.
 
-## Quelle est la meilleure façon de déployer la réinitialisation de mot de passe pour les utilisateurs ?
-Voici les étapes de déploiement générales pour la réinitialisation de mot de passe :
+You can also read more about [how data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) and [how you can populate individual authentication fields with PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 
-1.	Activez la réinitialisation de mot de passe dans votre annuaire en accédant à l’onglet **Configurer** du [portail de gestion Azure](https://manage.windowsazure.com) et en sélectionnant **Oui** pour l’option **Utilisateurs autorisés à réinitialiser leur mot de passe**.
-2.	Attribuez les licences appropriées à chaque utilisateur auquel vous souhaitez proposer la réinitialisation de mot de passe en accédant à l’onglet **Licences** dans le [portail de gestion Azure](https://manage.windowsazure.com).
-3.	Vous pouvez éventuellement restreindre la réinitialisation de mot de passe à un groupe d’utilisateurs pour déployer la fonctionnalité lentement au fil du temps en définissant le commutateur **Limiter l’accès à la réinitialisation des mots de passe** sur **Oui** et en sélectionnant un groupe de sécurité pour activer la réinitialisation de mot de passe. Notez que ces utilisateurs doivent tous avoir des licences.
-4.	Demandez à vos utilisateurs d’utiliser la réinitialisation de mot de passe soit en leur envoyant un courrier électronique leur indiquant de s’inscrire, soit en activant l’inscription forcée dans le panneau d’accès, soit en chargeant les données d’authentification appropriées pour ces utilisateurs via DirSync, PowerShell ou le [portail de gestion Azure](https://manage.windowsazure.com). Vous trouverez plus d’informations ci-dessous.
-5.	Au fil du temps, passez en revue les utilisateurs qui s’inscrivent en accédant à l’onglet Rapports et en affichant le rapport [**Activité d’inscription de réinitialisation de mot de passe**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity).
-6.	Une fois qu’un bon nombre d’utilisateurs est inscrit, passez en revue leur utilisation de la réinitialisation de mot de passe en accédant à l’onglet Rapports et en affichant le rapport [**Activité de réinitialisation de mot de passe**](active-directory-passwords-get-insights.md#view-password-reset-activity).
+## <a name="what-is-the-best-way-to-roll-out-password-reset-for-users?"></a>What is the best way to roll out password reset for users?
+The following are the general rollout steps for password reset:
 
-Il existe plusieurs façons d’informer vos utilisateurs qu’ils peuvent s’inscrire à la réinitialisation de mot de passe et l’utiliser dans votre organisation. Elles sont détaillées ci-dessous.
+1.  Enable password reset in your directory by going to the **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com) and selecting **Yes** for the **Users Enabled for Password Reset** option.
+2.  Assign the appropriate licenses to each user to whom you’d like to offer password reset in the by going to the **Licenses** tab in the [Azure Management Portal](https://manage.windowsazure.com).
+3.  Optionally restrict password reset to a group of users to roll out the feature slowly over time by setting the **Restrict Access to Password Reset** toggle to **Yes** and selecting a security group to enable for password reset (note these users must all have licenses assigned to them).
+4.  Instruct your users to use password reset by either sending them an email instructing them to register, enabling enforced registration on the access panel, or by uploading the appropriate authentication data for those users yourself via DirSync, PowerShell, or the [Azure Management Portal](https://manage.windowsazure.com).  More details on this are provided below.
+5.  Over time, review users registering by navigating to the Reports tab and viewing the [**Password Reset Registration Activity**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) report.
+6.  Once a good number of users have registered, watch them use password reset by navigating to the Reports tab and viewing the [**Password Reset Activity**](active-directory-passwords-get-insights.md#view-password-reset-activity) report.
 
-### Déploiement par courrier électronique
-L’approche la plus simple pour informer vos utilisateurs qu’ils peuvent s’inscrire à la réinitialisation de mot de passe ou l’utiliser est de leur envoyer un courrier électronique à ce sujet. Voici un modèle que vous pouvez utiliser. N’hésitez pas à remplacer les couleurs/logos par ceux de votre choix afin de le personnaliser selon vos besoins.
+There are several ways to inform your users that they can register for and use password reset in your organization.  They are detailed below.
+
+### <a name="email-based-rollout"></a>Email-based rollout
+Perhaps the simplest approach to inform your users about to register for or use password reset is by sending them an email instructing them to do so.  Below is a template you can use to do this.  Feel free to replace the colors / logos with those of your own choosing to customize it to fit your needs.
 
   ![][001]
 
-Vous pouvez [télécharger le modèle de courrier électronique ici](http://1drv.ms/1xWFtQM).
+You can [download the email template here](http://1drv.ms/1xWFtQM).
 
-### Création de votre propre portail de mot de passe
-Une stratégie adaptée aux clients de taille importante qui déploient des fonctionnalités de gestion de mot de passe consiste à créer un « portail de mot de passe » grâce auquel les utilisateurs peuvent gérer, en un emplacement unique, tous les éléments liés à leurs mots de passe.
+### <a name="creating-your-own-password-portal"></a>Creating your own password portal
+One strategy that works well for larger customers deploying password management capabilities is to create a single "password portal" that your users can use to manage all things related to their passwords in a single place.  
 
-Nombre de nos clients les plus importants optent pour la création d’une entrée DNS racine comme https://passwords.contoso.com, avec des liens vers le portail de réinitialisation de mot de passe Azure AD, le portail d’inscription pour la réinitialisation du mot de passe et les pages de modification du mot de passe. Ainsi, dans toutes vos communications par messagerie électronique ou prospectus, vous pouvez inclure une URL unique facile à retenir que les utilisateurs peuvent suivre quand ils disposent d’une seconde pour prendre le service en main.
+Many of our largest customers choose to create a root DNS entry, like https://passwords.contoso.com with links to the Azure AD password reset portal, password reset registration portal, and password change pages.  This way, in any email communications or fliers you send out, you can include a single, memorable, URL that users can go to when they have a second to get started with the service.
 
-Pour vous aider, nous avons créé une page simple qui utilise les derniers paradigmes de conception d’une interface utilisateur réactive et qui fonctionne sur tous les navigateurs et appareils mobiles.
+To get going here, we've created a simple page that uses the latest responsive UI design paradigms, and will work on all browsers and mobile devices.
 
   ![][007]
 
-Vous pouvez [télécharger le modèle de site web ici](https://github.com/kenhoff/password-reset-page). Nous vous recommandons de personnaliser le logo et les couleurs en fonction des besoins de votre organisation.
+You can [download the website template here](https://github.com/kenhoff/password-reset-page).  We recommend customizing the logo and colors to the need of your organization.
 
-### Utilisation de l’inscription forcée
-Si vous souhaitez que vos utilisateurs s’inscrivent eux-mêmes à la réinitialisation de mot de passe, vous pouvez également leur imposer de s’inscrire lorsqu’ils se connectent au volet d’accès à la page [http://myapps.microsoft.com](http://myapps.microsoft.com). Pour cela, accédez à l’onglet **Configurer** de votre annuaire et activez l’option **Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent au volet d’accès**.
+### <a name="using-enforced-registration"></a>Using enforced registration
+If you want your users to register for password reset themselves, you can also force them to register when they sign in to the access panel at [http://myapps.microsoft.com](http://myapps.microsoft.com).  You can enable this option from your directory’s **Configure** tab by enabling the **Require Users to Register when Signing in to the Access Panel** option.  
 
-Vous pouvez également choisir de leur demander de se réinscrire après une période configurable en définissant l’option **Nombre de jours avant que les utilisateurs doivent confirmer leurs données de contact** sur une valeur non nulle. Pour plus d’informations, consultez la page [Personnalisation du comportement de la gestion des mots de passe utilisateur](active-directory-passwords-customize.md#password-management-behavior).
+You can also optionally define whether or not they will be asked to re-register after a configurable period of time by modifying the **Number of days before users must confirm their contact data** option to be a non-zero value. See [Customizing User Password Management Behavior](active-directory-passwords-customize.md#password-management-behavior) for more information.
 
   ![][002]
 
-Après avoir activé cette option, lorsque les utilisateurs se connectent au volet d’accès, une fenêtre contextuelle les informe que leur administrateur leur a demandé de vérifier leurs informations de contact. Ils peuvent les utiliser pour réinitialiser leur mot de passe si jamais ils perdent l’accès à leur compte.
+After you enable this option, when users sign in to the access panel, they will see a popup that informs them that their administrator has required them to verify their contact information. They can use it to reset their password if they ever lose access to their account.
 
   ![][003]
 
-Lorsqu’ils cliquent sur **Vérifier maintenant**, les utilisateurs sont dirigés vers le **portail d’inscription à la réinitialisation de mot de passe** à la page [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup), dans laquelle ils sont invités à s’inscrire. L’inscription à l’aide de cette méthode peut être désactivée en cliquant sur le bouton **Annuler** ou en fermant la fenêtre, mais les utilisateurs reçoivent un rappel à chaque fois qu’ils se connectent s’ils ne se sont pas inscrits.
+Clicking **Verify Now** brings them to the **password reset registration portal** at [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) and requires them to register.  Registration via this method can be dismissed by clicking the **cancel** button or closing the window, but users are reminded every time they sign in if they do not register.
 
   ![][004]
 
-### Téléchargement de données
-Si vous souhaitez télécharger vous-même les données d’authentification, les utilisateurs ne sont pas obligés de s’inscrire à la réinitialisation de mot de passe pour pouvoir réinitialiser leur mot de passe. Tant que leurs données d’authentification définies sur le compte sont conformes à la stratégie de réinitialisation de mot de passe que vous avez définie, les utilisateurs sont en mesure de réinitialiser leurs mots de passe.
+### <a name="uploading-data-yourself"></a>Uploading data yourself
+If you want to upload authentication data yourself, then users need not register for password reset before being able to reset their passwords.  As long as users have the authentication data defined on their account that meets the password reset policy you have defined, then those users will be able to reset their passwords.
 
-Pour savoir quelles propriétés peuvent être définies via AAD Connect ou Windows PowerShell, consultez la section [Données utilisées par la réinitialisation de mot de passe](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
+To learn what properties you can set via AAD Connect or Windows PowerShell, see [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
-Vous pouvez télécharger les données d’authentification via le [portail de gestion Azure](https://manage.windowsazure.com) en suivant les étapes ci-dessous :
+You can upload the authentication data via the [Azure Management Portal](https://manage.windowsazure.com) by following the steps below:
 
-1.	Accédez à votre annuaire dans l’**extension Active Directory** du [portail de gestion Azure](https://manage.windowsazure.com).
-2.	Cliquez sur l’onglet **Utilisateurs**.
-3.	Sélectionnez l’utilisateur qui vous intéresse dans la liste.
-4.	Le premier onglet affiche une **Adresse de messagerie de secours**, qui peut être utilisée en tant que propriété pour activer la réinitialisation de mot de passe.
+1.  Navigate to your directory in the **Active Directory extension** in the [Azure Management Portal](https://manage.windowsazure.com).
+2.  Click on the **Users** tab.
+3.  Select the user you are interested in from the list.
+4.  On the first tab, you will find **Alternate Email**, which can be used as a property to enable password reset.
 
     ![][005]
 
-5.	Cliquez sur l’onglet **Informations professionnelles**.
-6.	Vous trouverez sur cette page les options **Téléphone professionnel**, **Téléphone mobile**, **Téléphone d’authentification** et **Adresse électronique d’authentification**. Ces propriétés peuvent également être définies pour permettre à un utilisateur de réinitialiser son mot de passe.
+5.  Click on the **Work Info** tab.
+6.  On this page, you will find **Office Phone**, **Mobile Phone**, **Authentication Phone**, and **Authentication Email**.  These properties can also be set to allow a user to reset his or her password.
 
     ![][006]
 
-Pour voir comment chacune de ces propriétés peut être utilisée, consultez la section [Données utilisées par la réinitialisation de mot de passe](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
+See [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) to see how each of these properties can be used.
 
-Consultez la page [Comment accéder aux données de réinitialisation des mots de passe pour vos utilisateurs depuis PowerSell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) pour apprendre à lire et définir ces données avec PowerShell.
+See [How to access password reset data for your users from PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) to see how you can read and set this data with PowerShell.
 
-## Exemples de supports de formation
-Nous travaillons actuellement sur des exemples de supports de formation que vous pourrez utiliser pour que votre service informatique et vos utilisateurs soient opérationnels rapidement concernant le déploiement et l’utilisation de la réinitialisation de mot de passe. Restez connecté !
+## <a name="sample-training-materials"></a>Sample training materials
+We are working on sample training materials that you can use to get your IT organization and your users up to speed quickly on how to deploy and use password reset.  Stay tuned!
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
-## Liens vers la documentation de réinitialisation du mot de passe
-Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
+## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
-* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
-* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
-* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
-* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
-* [**FAQ**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
-* [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
-* [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 
@@ -156,4 +159,8 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

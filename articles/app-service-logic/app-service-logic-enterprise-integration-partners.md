@@ -1,64 +1,82 @@
 <properties 
-	pageTitle="En savoir plus sur les partenaires et Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
-	description="Découvrez comment utiliser les partenaires avec Enterprise Integration Pack et vos applications logiques" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+    pageTitle="Learn about partners and Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
+    description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="msftman" 
+    manager="erikre" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/08/2016" 
+    ms.author="deonhe"/>
 
-# En savoir plus sur les partenaires et Enterprise Integration Pack
 
-## Vue d'ensemble
-Avant de pouvoir créer un partenaire, vous et l’organisation avec laquelle vous avez l’intention de vous associer devez partager des informations qui vous aideront à identifier et à valider les messages que vous enverrez. Après cette conversation et une fois que vous êtes prêt à lancer votre relation commerciale, vous pouvez créer un *partenaire* dans votre compte d’intégration.
+# <a name="learn-about-partners-and-enterprise-integration-pack"></a>Learn about partners and Enterprise Integration Pack
 
-## Qu’est-ce qu’un partenaire ?
-Les partenaires sont les entités qui participent à la messagerie et aux transactions d’entreprise à entreprise (B2B).
+## <a name="overview"></a>Overview
+Before you can create a partner, you and the organization you intend to do business with must share information that will help you both identify and validate messages that are sent by each other. After you have these discussion, and you are ready to begin your business relationship, you can to create a *partner* in your integration account.
 
-## Comment les partenaires sont-ils utilisés ?
-Les partenaires sont utilisés pour créer des contrats. Un contrat définit les détails des messages échangés entre les partenaires.
+## <a name="what-is-a-partner?"></a>What is a partner?
+Partners are the entities that participate in Business-To-Business (B2B) messaging and transactions. 
 
-Avant de pouvoir créer un contrat, vous devez avoir ajouté au moins deux partenaires à votre compte d’intégration. L’un des partenaires du contrat doit être votre organisation. Le partenaire représentant votre organisation est appelé le **partenaire hôte**. Le deuxième partenaire représente l’autre organisation avec laquelle votre organisation échange des messages. Le deuxième partenaire est appelé le **partenaire invité**. Le partenaire invité peut être une autre entreprise ou même un service au sein de votre organisation.
+## <a name="how-are-partners-used?"></a>How are partners used?
+Partners are used to create agreements. An agreement defines the details about the messages that will be  exchanged between partners. 
 
-Après avoir ajouté les partenaires, vous utilisez ceux-ci pour créer un contrat.
+Before you can create an agreement, you need to have added at least two partners to your integration account. One of the partners to an agreement must be your organization. The partner that represents your organization is referred to as the **host partner**. The second partner would represent the other organization with which your organization exchanges messages. The second partner is known as the **guest partner**. The guest partner can be another company, or even a department within your own organization.  
 
-Les paramètres de réception et d’envoi sont basés du point de vue du partenaire hébergé. Par exemple, les paramètres de réception dans un contrat déterminent la façon dont le partenaire hébergé reçoit les messages envoyés à partir d’un partenaire invité. De même, les paramètres d’envoi du contrat indiquent la façon dont le partenaire hébergé envoie des messages au partenaire invité.
+After you have added the partners, you would use those partners to create an agreement. 
 
-## Création d’un partenaire
-À partir du portail Azure :
-1. Sélectionnez **Parcourir** ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
-2. Entrez **intégration** dans la zone de recherche de filtre et sélectionnez **Integration Accounts** (Comptes d’intégration) dans la liste des résultats ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
-3. Sélectionnez le **compte d’intégration** auquel vous ajouterez les partenaires ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Sélectionnez la mosaïque **Partenaires** ![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)
-5. Sélectionnez le bouton **Ajouter** dans le panneau Partenaires qui s’affiche ![](./media/app-service-logic-enterprise-integration-partners/partner-2.png)
-6. Entrez un **nom** pour votre partenaire, sélectionnez le **qualificateur**, puis entrez une **valeur**. La valeur est utilisée pour identifier les documents qui entrent dans vos applications. ![](./media/app-service-logic-enterprise-integration-partners/partner-3.png)
-7. Sélectionnez l’icône de notification en forme de *cloche* pour afficher la progression du processus de création du partenaire. ![](./media/app-service-logic-enterprise-integration-partners/partner-4.png)
-8. Sélectionnez la mosaïque **Partenaires**. Cette action actualise la mosaïque. Le nombre de partenaires doit augmenter, indiquant que le nouveau partenaire a été ajouté avec succès. ![](./media/app-service-logic-enterprise-integration-partners/partner-5.png)
-10. Une fois la mosaïque Partenaires sélectionnée, le nouveau partenaire doit également s’afficher dans le panneau Partenaires. ![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)
+Receive and Send settings are oriented from the point of view of the Hosted Partner. For example, the receive settings in an agreement determine how the hosted partner receives messages sent from a guest partner. Likewise, the send settings on the agreement indicate how the hosted partner sends messages to the guest partner.
 
-## Modification d’un partenaire
+## <a name="how-to-create-a-partner?"></a>How to create a partner?
+From the Azure portal:  
+1. Select **Browse**  
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
+2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
+ ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
+3. Select the **integration account** to which you will add the partners  
+![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
+4.  Select the **Partners** tile  
+![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)  
+5. Select the **Add** button in the Partners blade that opens  
+![](./media/app-service-logic-enterprise-integration-partners/partner-2.png)  
+6. Enter a **Name** for your partner, then select the **Qualifier **, finally, enter a **Value**. The value is used to help identify documents that come into your apps.  
+![](./media/app-service-logic-enterprise-integration-partners/partner-3.png)  
+7. Select the *bell* notification icon to see the progress of the partner creation process.  
+![](./media/app-service-logic-enterprise-integration-partners/partner-4.png)  
+8. Select the **Partners** tile. This refreshes the tile and you should see the number of partners increase, reflecting the new partner has been added successfully.    
+![](./media/app-service-logic-enterprise-integration-partners/partner-5.png)  
+10. After you select the Partners tile, you will also see the newly added partner displayed in the Partners blade.    
+![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)  
 
-Suivez ces étapes pour modifier un partenaire qui existe déjà dans votre compte d’intégration :
-1. Sélectionnez la mosaïque **Partenaires**
-2. Sélectionnez le partenaire à modifier lorsque le panneau Partenaires s’ouvre
-3. Sur la mosaïque **Update Partner** (Mettre le partenaire à jour), apportez les modifications nécessaires
-4. Si vous êtes satisfait de vos modifications, sélectionnez le lien **Enregistrer**. Dans le cas contraire, sélectionnez le lien **Ignorer** pour annuler vos modifications. ![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)
+## <a name="how-to-edit-a-partner"></a>How to edit a partner
 
-## Suppression d’un partenaire
-1. Sélectionnez la mosaïque **Partenaires**
-2. Sélectionnez le partenaire à modifier lorsque le panneau Partenaires s’ouvre
-3. Sélectionnez le lien **Supprimer** ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)
+Follow these steps to edit a partner that already exists in your integration account:  
+1. Select the **Partners** tile  
+2. Select the partner you wish to edit when the Partners blade opens up  
+3. On the **Update Partner** tile, make the changes you need  
+4. If you are satisfied with your changes, select the **Save** link, else, select the **Discard** link to throw away your changes.  
+![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)  
 
-## Étapes suivantes
-- [En savoir plus sur les contrats](./app-service-logic-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")
+## <a name="how-to-delete-a-partner"></a>How to delete a partner
+1. Select the **Partners** tile  
+2. Select the partner you wish to edit when the Partners blade opens up  
+3. Select the **Delete** link    
+![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)   
 
-<!---HONumber=AcomDC_0803_2016-->
+## <a name="next-steps"></a>Next steps
+- [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

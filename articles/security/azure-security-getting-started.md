@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Prise en main de la sécurité de Microsoft Azure | Microsoft Azure"
-   description="Cet article présente les fonctionnalités de sécurité de Microsoft Azure et des considérations générales pour les organisations qui migrent leurs ressources vers un fournisseur de cloud."
+   pageTitle="Getting started with Microsoft Azure security | Microsoft Azure"
+   description="This article provides an overview of Microsoft Azure Security capabilities and general considerations for organizations that are migrating their assets to a cloud provider."
    services="security"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,229 +16,234 @@
    ms.date="05/19/2016"
    ms.author="yuridio"/>
 
-#Prise en main de la sécurité de Microsoft Azure
 
-Lorsque vous générez ou migrez des ressources informatiques vers un fournisseur de cloud, vous comptez sur les capacités de cette organisation à protéger les applications et les données que vous confiez à ses services, ainsi que sur les contrôles de sécurité qu’elle vous fournit pour contrôler la sécurité de vos ressources cloud.
+#<a name="getting-started-with-microsoft-azure-security"></a>Getting started with Microsoft Azure security
 
-L’infrastructure d’Azure est conçue de l’installation vers les applications pour héberger des millions de clients simultanément ; elle constitue une base fiable grâce à laquelle les entreprises peuvent répondre à leurs besoins en matière de sécurité. En outre, Azure vous offre un large éventail d’options de sécurité configurables, ainsi que la possibilité de les contrôler afin que vous puissiez personnaliser la sécurité et ainsi répondre aux exigences uniques de vos déploiements.
+When you build or migrate IT assets to a cloud provider, you are relying on that organization’s abilities to protect the applications and data you entrust to their services and the security controls they provide you to control the security of your cloud-based assets.
 
-Dans cet article de présentation sur la sécurité Azure, nous allons examiner les points suivants :
+Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and providing a trustworthy foundation upon which businesses’ can meet their security needs. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements for your deployments.
 
--   Services et fonctionnalités Azure que vous pouvez utiliser pour sécuriser vos services et données dans Azure
+In this overview article on Azure security, we’ll look at:
 
--   Comment Microsoft sécurise l’infrastructure Azure pour contribuer à protéger vos données et applications
+-   Azure services and features you can use to help secure your services and data within Azure
 
-##Gestion de l’identité et de l’accès
+-   How Microsoft secures the Azure infrastructure to help protect your data and applications
 
+##<a name="identity-and-access-management"></a>Identity and access management
 
-Il est essentiel de contrôler l’accès à l’infrastructure informatique, aux données et aux applications. Dans Microsoft Azure, ces fonctionnalités sont fournies par des services tels qu’Azure Active Directory, Azure Storage et la prise en charge de nombreux standards et API.
 
-[Azure Active Directory](../active-directory/active-directory-whatis.md) (Azure AD) est un référentiel d’identités et un moteur qui fournit l’authentification, l’autorisation et le contrôle d’accès aux utilisateurs, groupes et objets d’une organisation. En outre, Azure AD offre aux développeurs une méthode efficace pour intégrer la gestion des identités à leurs applications. La prise en charge de protocoles standard de l’industrie, tels que [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx) et [OpenID Connect](http://openid.net/connect/) permet l’authentification sur une grande diversité de plateformes, notamment .NET, Java, Node.js et PHP.
+Controlling access to IT infrastructure, data, and applications is critical. In Microsoft Azure, these capabilities are delivered by services such as Azure Active Directory, Azure Storage, and support for numerous standards and APIs.
 
-L’API Graph REST permet aux développeurs d’accéder en lecture et en écriture au répertoire depuis toute plateforme. Grâce à la prise en charge d’[OAuth 2.0](http://oauth.net/2/), les développeurs peuvent concevoir des applications web et mobiles qui s’intègrent avec les API web de Microsoft et tierces, et créer leurs propres API web sécurisées. Des bibliothèques clientes open source sont disponibles pour .Net, Windows Store, iOS et Android, et des bibliothèques supplémentaires sont en cours de développement.
+[Azure Active Directory](../active-directory/active-directory-whatis.md) (Azure AD) is an identity repository and engine that provides authentication, authorization, and access control for an organization's users, groups, and objects. Azure AD also offers developers an effective way to integrate identity management in their applications. Industry standard protocols such as [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx), and [OpenID Connect](http://openid.net/connect/) makes sign-in possible on a variety of platforms such as .NET, Java, Node.js, and PHP.
 
-### Comment Azure permet la gestion de l’identité et de l’accès
+The REST-based Graph API enables developers to read and write to the directory from any platform. Through support for [OAuth 2.0](http://oauth.net/2/), developers can build mobile and web applications that integrate with Microsoft and third party web APIs, and build their own secure web APIs. Open source client libraries are available for .Net, Windows Store, iOS and Android with additional libraries under development.
 
-Azure AD peut servir de répertoire cloud autonome pour votre organisation, ou de solution intégrée avec votre Active Directory local existant. Certaines fonctionnalités d’intégration incluent la synchronisation de répertoire et l’authentification unique (SSO). Celles-ci étendent la portée de vos identités locales existantes dans le cloud et améliorent l’expérience administrateur et utilisateur final.
+### <a name="how-azure-enables-identity-and-access-management"></a>How Azure enables identity and access management
 
-Parmi les autres fonctionnalités pour la gestion de l’identité et de l’accès :
+Azure AD can be used as a standalone cloud directory for your organization or as an integrated solution with your existing on-premises Active Directory. Some integration features include directory sync and single sign-on (SSO). These extend the reach of your existing on-premises identities into the cloud and improve the admin and end user experience.
 
--   Azure AD permet [l’authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) sur les applications SaaS, quel que soit l’endroit où elles sont hébergées. Certaines applications sont fédérées avec Azure AD, d’autres utilisent le mot de passe de l’authentification unique. Les applications fédérées peuvent également prendre en charge l’approvisionnement d’utilisateurs et la mise au coffre des mots de passe.
+Some other capabilities for identity and access management include:
 
--   L’accès aux données dans [Azure Storage](https://azure.microsoft.com/services/storage/) est contrôlé via l’authentification. Chaque compte de stockage possède une clé primaire ([clé de compte de stockage](https://msdn.microsoft.com/library/azure/ee460785.aspx) ou SAK) et une clé secrète secondaire (signature d’accès partagé ou SAP).
+-   Azure AD enables [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) to SaaS applications, regardless of where they are hosted. Some applications are federated with Azure AD, and others use password SSO. Federated applications can also support user provisioning and password vaulting.
 
--   Azure AD fournit l’identité en tant que service via la fédération, à l’aide d’[Active Directory Federation Services](../active-directory/fundamentals-identity.md), de la synchronisation et de la réplication avec les répertoires locaux.
+-   Access to data in [Azure Storage](https://azure.microsoft.com/services/storage/) is controlled via authentication. Each Storage Account has a primary key ([Storage Account Key](https://msdn.microsoft.com/library/azure/ee460785.aspx), or SAK) and secondary secret key (the Shared Access Signature or SAS).
 
--   [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) est le service d’authentification multifacteur qui demande aux utilisateurs de vérifier également les connexions à l’aide d’une application mobile, d’un appel téléphonique ou d’un message texte. Ce service est disponible pour une utilisation avec Azure AD afin de sécuriser les ressources locales avec le serveur MFA Azure, ainsi qu’avec des applications et répertoires personnalisés, en utilisant le Kit de développement logiciel (SDK).
+-   Azure AD provides Identity as a Service through federation (using [Active Directory Federation Services](../active-directory/fundamentals-identity.md), synchronization, and replication with on-premises directories.
 
--   [Les services de domaine Azure AD](https://azure.microsoft.com/services/active-directory-ds/) vous permettent de joindre des machines virtuelles Azure à un domaine sans avoir besoin de déployer des contrôleurs de domaine. Les utilisateurs peuvent se connecter à ces machines virtuelles à l’aide de leurs informations d’identification Active Directory d’entreprise, et administrer les machines virtuelles jointes au domaine en utilisant une stratégie de groupe pour appliquer des bases de sécurité sur toutes vos machines virtuelles Azure.
+-   [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) is the multi-factor authentication service that requires users to also verify sign-ins using a mobile app, phone call or text message. It is available to use with Azure AD, to secure on-premises resources with the Azure MFA Server, and with custom applications and directories using the SDK.
 
--   Pour les applications utilisées par les consommateurs, [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) vous fournit un service de gestion de l’identité global et hautement disponible, qui s’adapte à des centaines de millions d’identités. Le service peut être intégré sur l’ensemble des plateformes web et mobiles. Vos consommateurs peuvent se connecter à toutes vos applications via une expérience personnalisable en utilisant leurs comptes de réseaux sociaux existants ou en créant des comptes avec de nouvelles informations d’identification.
+-   [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to a domain without the need to deploy domain controllers. Users can sign in to these virtual machines using their corporate Active Directory credentials and administer domain-joined virtual machines using Group Policy to enforce security baselines on all of your Azure virtual machines.
 
-##Contrôle d’accès aux données et chiffrement
+-   [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) provides you a highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can log on to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
 
-Microsoft utilise les principes de séparation des tâches et du [moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege) pour l’ensemble des opérations Azure. L’accès aux données par le personnel de support Azure requiert une autorisation explicite de votre part et est accordé sur la base du « juste-à-temps ». Cette autorisation est consignée et auditée, puis révoquée après l’achèvement de la mission.
+##<a name="data-access-control-and-encryption"></a>Data access control and encryption
 
-En outre, Azure fournit plusieurs fonctionnalités de protection des données en transit et au repos, y compris le chiffrement pour les données, fichiers, applications, services, communications et lecteurs. Vous avez la possibilité de chiffrer les informations avant de les placer dans Azure, ainsi que de stocker des clés dans vos centres de données locaux.
+Microsoft employs the principles of Separation of Duties and [Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) throughout Azure operations. Access to data by Azure support personnel requires your explicit permission and is granted on a “just-in-time” basis that is logged and audited, then revoked after completion of the engagement.
 
-![Microsoft Antimalware dans Azure](./media/azure-security-getting-started/sec-azgsfig1.PNG)
+In addition, Azure provides multiple capabilities for protecting data in-transit and at-rest, including encryption for data, files, applications, services, communications, and drives. You have the option to encrypt information before placing it in Azure, as well as storing keys in your on-premises datacenters.
 
-### Technologies de chiffrement Azure
+![Microsoft Antimalware in Azure](./media/azure-security-getting-started/sec-azgsfig1.PNG)
 
-Vous pouvez collecter des détails sur l’accès administratif à votre environnement d’abonnement à l’aide d’[Azure Reporting AD](../active-directory/active-directory-reporting-audit-events.md). Vous avez la possibilité de configurer [le chiffrement de lecteur BitLocker](https://technet.microsoft.com/library/cc732774.aspx) sur les disques durs virtuels contenant des informations sensibles dans Azure.
+### <a name="azure-encryption-technologies"></a>Azure encryption technologies
 
-Parmi les autres fonctionnalités dans Azure qui vous aideront à sécuriser vos données :
+You can gather details on administrative access to your subscription environment by using [Azure AD Reporting](../active-directory/active-directory-reporting-audit-events.md). You have the option to configure [BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx) on VHDs containing sensitive information in Azure.
 
--   Les développeurs d’applications peuvent créer le chiffrement dans les applications qu’ils déploient dans Azure à l’aide de Windows [CryptoAPI](https://msdn.microsoft.com/library/ms867086.aspx) et de .NET Framework.
+Other capabilities in Azure that will assist you to keep your data secure include:
 
-- Le chiffrement côté client pour le stockage d’objets blob Microsoft vous permet de contrôler totalement les clés. Le service de stockage ne voit jamais les clés et est incapable de déchiffrer les données.
+-   Application developers can build encryption into the applications they deploy in Azure using the Windows [CryptoAPI](https://msdn.microsoft.com/library/ms867086.aspx) and .NET Framework.
 
--   [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) (avec le [kit de développement logiciel (SDK) RMS](https://msdn.microsoft.com/library/dn758244.aspx)) fournit un chiffrement au niveau des fichiers et des données et empêche la fuite des données grâce à la gestion de l’accès basé sur des stratégies.
+- Client side encryption for Microsoft blob storage enable you to completely control the keys.  The storage service never sees the keys and is incapable of decrypting the data.
 
--   Azure prend en charge le [chiffrement au niveau table et au niveau colonne](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database.aspx) dans les machines virtuelles SQL Server, ainsi que les serveurs de gestion des clés locaux tiers dans les centres de données des clients.
+-   [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) (with the [RMS SDK](https://msdn.microsoft.com/library/dn758244.aspx) provides file and data-level encryption and data leak prevention through policy-based access management.
 
--   Les clés de compte de stockage, signatures d’accès partagé, certificats de gestion et autres clés sont uniques pour chaque client Azure.
+-   Azure supports [table-level and column-level encryption (TDE/CLE)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database.aspx) in SQL Server Virtual Machines, and supports third-party on-premises key management servers in customers’ datacenters.
 
--   Le stockage hybride Azure [StorSimple](http://www.microsoft.com/server-cloud/products/storsimple/overview.aspx) chiffre les données à l’aide d’une paire de clés publique/privée 128 bits avant leur chargement vers Azure Storage.
+-   Storage Account Keys, Shared Access Signatures, management certificates, and other keys are unique to each Azure tenant.
 
--   Azure prend en charge et utilise de nombreux mécanismes de chiffrement, y compris SSL/TLS, IPsec et AES, selon les types de données, les conteneurs et les transports.
+-   Azure [StorSimple](http://www.microsoft.com/server-cloud/products/storsimple/overview.aspx) hybrid storage encrypts data via a 128-bit public / private key pair prior to uploading it to Azure Storage.
 
-##Virtualisation
+-   Azure supports and uses numerous encryption mechanisms, including SSL/TLS, IPsec, and AES, depending on the data types and containers and transports.
 
-La plateforme Azure utilise un environnement virtualisé. Les instances utilisateur fonctionnent comme des machines virtuelles autonomes qui n’ont pas accès à un serveur hôte physique, et cette isolation est appliquée à l’aide des [niveaux de privilège (Anneau 0/Anneau 3) de processeur](https://en.wikipedia.org/wiki/Protection_ring) physique.
+##<a name="virtualization"></a>Virtualization
 
-L’anneau 0 est le plus privilégié, et l’anneau 3 le moins privilégié. Le système d’exploitation invité s’exécute dans un anneau 1 moins privilégié, et les applications dans l’anneau 3, le moins privilégié. Cette virtualisation des ressources physiques entraîne une séparation claire entre le système d’exploitation invité et l’hyperviseur, ce qui donne lieu à une séparation de sécurité supplémentaire entre les deux.
+The Azure platform uses a virtualized environment. User instances operate as standalone virtual machines that do not have access to a physical host server and this isolation is enforced using physical [processor (ring-0/ring-3) privilege levels](https://en.wikipedia.org/wiki/Protection_ring).
 
-L’hyperviseur d’Azure agit comme un micronoyau et transfère toutes les demandes d’accès matériel des machines virtuelles invitées à l’hôte, pour un traitement à l’aide d’une interface de mémoire partagée appelée VMBus. Cela empêche les utilisateurs d’obtenir un accès brut en lecture/écriture/exécution au système, et réduit le risque de partage des ressources système.
+Ring 0 is the most privileged and 3 is the least. The guest OS runs in a lesser-privileged Ring 1 and applications in the last privileged Ring 3. This virtualization of physical resources leads to a clear separation between guest OS and hypervisor, resulting in additional security separation between the two.
 
-![Microsoft Antimalware dans Azure](./media/azure-security-getting-started/sec-azgsfig2.PNG)
+Azure’s Hypervisor acts like a micro-kernel and passes all hardware access requests from guest VMs to the host for processing using a shared-memory interface called VMBus. This prevents users from obtaining raw read/write/execute access to the system and mitigates the risk of sharing system resources.
 
-### Comment Azure implémente la virtualisation
+![Microsoft Antimalware in Azure](./media/azure-security-getting-started/sec-azgsfig2.PNG)
 
-Azure utilise un pare-feu hyperviseur (filtre de paquets), qui est implémenté dans l’hyperviseur et configuré par un agent contrôleur de structure. Cela contribue à protéger les clients contre les accès non autorisés. Par défaut, lorsqu’une machine virtuelle est créée, tout le trafic est bloqué. Ensuite, l’agent contrôleur de structure configure le filtre de paquets pour ajouter des *règles et exceptions* afin de permettre le trafic autorisé.
+### <a name="how-azure-implements-virtualization"></a>How Azure implements virtualization
 
-Il existe deux catégories de règles qui sont programmées ici :
+Azure uses a hypervisor firewall (packet filter), which is implemented in the hypervisor and configured by a fabric controller agent. This helps protect tenants from unauthorized access. By default, when a VM is created, all traffic is blocked and then the fabric controller agent configures the packet filter to add *rules and exceptions* to allow authorized traffic.
 
--   **Règles de configuration de la machine ou d’infrastructure** : par défaut, toutes les communications sont bloquées. Il existe des exceptions pour autoriser une machine virtuelle à envoyer et à recevoir le trafic DHCP et DNS. Les machines virtuelles peuvent également envoyer le trafic vers l’Internet « public » et vers d’autres machines virtuelles dans le cluster et le serveur d’activation du système d’exploitation. La liste autorisée de destinations sortantes des machines virtuelles n’inclut pas les sous-réseaux de routeur Azure, les serveurs principaux de gestion Azure et d’autres propriétés de Microsoft.
+There are two categories of rules that are programmed here:
 
--   **Fichier de configuration de rôle** : ceci définit les listes de contrôle d’accès entrant en fonction du modèle de service des clients. Par exemple, si un client possède un serveur web frontal sur le port 80 sur une certaine machine virtuelle, Azure ouvre le port TCP 80 à toutes les adresses IP si vous configurez un point de terminaison dans le modèle [de gestion des services Azure](../resource-manager-deployment-model.md). Si la machine virtuelle a un rôle de serveur principal ou de travail en cours d’exécution, nous ouvrons le rôle de travail uniquement sur la machine virtuelle au sein du même client.
+-   **Machine Configuration or Infrastructure Rules**: By default, all communication is blocked. There are exceptions to allow a VM to send and receive DHCP and DNS traffic. VMs can also send traffic to the “public” internet and send traffic to other VMs within the cluster and OS Activation server. The VMs’ allowed list of outgoing destinations does not include Azure router subnets, Azure management back end, and other Microsoft properties.
 
-##Isolement
+-   **Role Configuration File**: This defines the inbound ACLs based on the tenants’ service model. For example, if a tenant has a Web front-end on port 80 on a certain VM, then Azure opens TCP port 80 to all IPs if you’re configuring an endpoint in the [Azure Service Management](../resource-manager-deployment-model.md) model. If the VM has a backend or worker role running, then we open the worker role only to the VM within the same tenant.
 
-Maintenir une séparation pour empêcher le transfert non autorisé et non intentionnel des informations entre les déploiements dans une architecture mutualisée partagée constitue une autre exigence de sécurité cloud importante.
+##<a name="isolation"></a>Isolation
 
-Azure implémente le [contrôle d’accès réseau](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) et la répartition via l’isolation des réseaux locaux virtuels (VLAN), listes de contrôle d’accès, équilibreurs de charge et filtres IP. Le trafic externe entrant vers vos machines virtuelles est limité aux ports et protocoles que vous définissez. Le filtrage réseau est implémenté pour empêcher le trafic falsifié et limite le trafic entrant et sortant aux composants de plateforme sécurisés. Les stratégies de flux de trafic sont implémentées sur des dispositifs de protection des limites refusant le trafic par défaut.
+Maintaining separation to prevent unauthorized and unintentional transfer of information between deployments in a shared multi-tenant architecture is another important cloud security requirement.
 
-![Microsoft Antimalware dans Azure](./media/azure-security-getting-started/sec-azgsfig3.PNG)
+Azure implements [network access control](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/) and segregation through VLAN isolation, ACLs, load balancers and IP filters. External traffic inbound to your virtual machine(s) is restricted to ports and protocols you define. Network filtering is implemented to prevent spoofed traffic and restricts incoming and outgoing traffic to trusted platform components. Traffic flow policies are implemented on boundary protection devices that deny traffic by default.
 
-La traduction d’adresses réseau (NAT) est utilisée pour séparer le trafic réseau interne du trafic externe. Le trafic interne n’est pas routable en externe. Les [adresses IP virtuelles](http://blogs.msdn.com/b/cloud_solution_architect/archive/2014/11/08/vips-dips-and-pips-in-microsoft-azure.aspx) qui sont routables en externe sont traduites en adresses [IP dynamiques internes](http://blogs.msdn.com/b/cloud_solution_architect/archive/2014/11/08/vips-dips-and-pips-in-microsoft-azure.aspx) qui sont uniquement routables dans Azure.
+![Microsoft Antimalware in Azure](./media/azure-security-getting-started/sec-azgsfig3.PNG)
 
-Le trafic externe vers les machines virtuelles Azure est protégé par un pare-feu via les listes de contrôle d’accès (ACL) sur les routeurs, équilibreurs de charge et commutateurs de couche 3. Seuls les protocoles connus spécifiques sont autorisés. Les ACL sont en place pour limiter le trafic en provenance des machines virtuelles invitées vers d’autres VLAN utilisés pour la gestion. En outre, le trafic filtré via les filtres IP sur le système d’exploitation hôte limite davantage le trafic à la fois sur la liaison de données et les couches réseau.
+Network Address Translation (NAT) is used to separate internal network traffic from external traffic. Internal traffic is not externally routable. [Virtual IP addresses](http://blogs.msdn.com/b/cloud_solution_architect/archive/2014/11/08/vips-dips-and-pips-in-microsoft-azure.aspx) that are externally routable are translated into [internal Dynamic IP](http://blogs.msdn.com/b/cloud_solution_architect/archive/2014/11/08/vips-dips-and-pips-in-microsoft-azure.aspx) addresses that are only routable within Azure.
 
-### Comment Azure implémente l’isolation
+External traffic to Azure virtual machines is firewalled via Access Control Lists (ACLs) on routers, load balancers, and Layer 3 switches. Only specific known protocols are permitted. ACLs are in place to limit traffic originating from guest VMs to other VLANs used for management. In addition, traffic filtered via IP filters on the host OS, further limit the traffic on both data link and network layers.
 
-Le contrôleur de structure Azure est chargé d’allouer des ressources d’infrastructure aux charges de travail du client, et gère la communication unidirectionnelle de l’hôte vers les machines virtuelles. L’hyperviseur Azure applique la séparation de mémoire et de processus entre les machines virtuelles, et achemine en toute sécurité le trafic réseau vers les clients du système d’exploitation invité. Azure implémente également l’isolation pour les clients, le stockage et les réseaux virtuels :
+### <a name="how-azure-implements-isolation"></a>How Azure implements isolation
 
--   Chaque client Azure AD est isolé logiquement à l’aide des limites de sécurité.
+The Azure Fabric Controller is responsible for allocating infrastructure resources to tenant workloads, and manages unidirectional communications from the host to VMs. The Azure hypervisor enforces memory and process separation between VMs, and securely routes network traffic to guest OS tenants. Azure also implements isolation for tenants, storage and virtual networks:
 
--   Les comptes de stockage Azure sont uniques pour chaque abonnement, et l’accès doit être authentifié grâce à une clé de compte de stockage.
+-   Each Azure AD tenant is logically isolated using security boundaries.
 
--   Les réseaux virtuels sont isolés logiquement grâce à une combinaison d’adresses IP privées uniques, de pare-feu et de listes de contrôle d’accès IP. Les équilibreurs de charge acheminent le trafic vers les clients appropriés en fonction des définitions de point de terminaison.
+-   Azure Storage Accounts are unique to each subscription, and access must be authenticated using a Storage Account Key.
 
-##Réseau virtuel et pare-feu
+-   Virtual Networks are logically isolated through a combination of unique private IP addresses, firewalls, and IP ACLs. Load balancers route traffic to the appropriate tenants based on endpoint definitions.
 
-Les [réseaux virtuels et distribués](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) dans Azure contribuent à assurer que votre trafic réseau privé est isolé logiquement du trafic sur les autres réseaux virtuels Azure.
+##<a name="virtual-network-and-firewall"></a>Virtual Network and firewall
 
-![Microsoft Antimalware dans Azure](./media/azure-security-getting-started/sec-azgsfig4.PNG)
+The [distributed and virtual networks](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) in Azure help ensure that your private network traffic is logically isolated from traffic on other Azure Virtual Networks.
 
-Votre abonnement peut contenir plusieurs réseaux privés isolés (et inclure des pare-feu, l’équilibrage de charge et la traduction d’adresses réseau).
+![Microsoft Antimalware in Azure](./media/azure-security-getting-started/sec-azgsfig4.PNG)
 
-Azure fournit trois niveaux principaux de répartition réseau dans chaque cluster Azure pour séparer logiquement le trafic. Les [réseaux locaux virtuels](https://azure.microsoft.com/services/virtual-network/) (VLAN) sont utilisés pour séparer le trafic du client du reste du réseau Azure. L’accès au réseau Azure depuis l’extérieur du cluster est limité via les équilibreurs de charge.
+Your subscription can contain multiple isolated private networks (and include firewall, load-balancing, and network address translation).
 
-Le trafic réseau vers et depuis les machines virtuelles doit passer par le commutateur virtuel de l’hyperviseur. Le composant de filtre IP dans le système d’exploitation racine isole la machine virtuelle racine des machines virtuelles invitées, et les machines virtuelles invitées les unes des autres. Il effectue un filtrage du trafic afin de restreindre la communication entre les nœuds du client et l’Internet public (selon la configuration du service du client), les séparant des autres clients.
+Azure provides three primary levels of network segregation in each Azure cluster to logically segregate traffic. [Virtual Local Area Networks](https://azure.microsoft.com/services/virtual-network/) (VLANs) are used to separate customer traffic from the rest of the Azure network. Access to the Azure network from outside the cluster is restricted through load balancers.
 
-Le filtre IP contribue à empêcher les machines virtuelles invitées d’effectuer les actions suivantes :
+Network traffic to and from VMs must pass through the hypervisor virtual switch. The IP filter component in the Root OS isolates the root VM from the guest VMs and the guest VMs from one another. It performs filtering of traffic to restrict communication between tenant's nodes and the public Internet (based on customer's service configuration), segregating them from other tenants.
 
-- Générer un trafic falsifié
+The IP filter helps prevent guest VMs from:
 
-- Recevoir du trafic qui ne leur est pas adressé
+- Generating spoofed traffic
 
-- Diriger le trafic vers des points de terminaison d’infrastructure protégés
+- Receiving traffic not addressed to them
 
-- Envoyer ou recevoir du trafic de diffusion inapproprié
+- Directing traffic to protected infrastructure endpoints
 
-Vous pouvez placer vos machines virtuelles sur les [réseaux virtuels Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Ces réseaux virtuels sont similaires aux réseaux que vous configurez dans les environnements locaux, où ils sont généralement associés à un commutateur virtuel. Les machines virtuelles connectées au même réseau virtuel Azure peuvent communiquer entre elles sans configuration supplémentaire. Vous avez également la possibilité de configurer différents sous-réseaux au sein de votre réseau virtuel Azure.
+- Sending or receiving inappropriate broadcast traffic
 
-Vous pouvez utiliser les technologies de réseau virtuel Azure suivantes pour contribuer à sécuriser les communications sur votre réseau virtuel Azure :
+You can place your virtual machines onto [Azure Virtual Networks](https://azure.microsoft.com/documentation/services/virtual-network/). These virtual networks are similar to the networks you configure in on-premises environments, where they are typically associated with a virtual switch. Virtual machines connected to the same Azure Virtual Network can communicate with one another without additional configuration. You also have the option to configure different subnets within your Azure Virtual Network.
 
--   [**Groupes de sécurité réseau (NSG)**](../virtual-network/virtual-networks-nsg.md). Vous pouvez utiliser un groupe de sécurité réseau pour contrôler le trafic vers une ou plusieurs instances de machine virtuelle dans votre réseau virtuel. Un groupe de sécurité réseau contient les règles de contrôle d’accès qui autorisent ou refusent le trafic en fonction de la direction du trafic, du protocole, de l’adresse et du port source ainsi que de l’adresse et du port de destination.
+You can use the following Azure Virtual Network technologies to help secure communications on your Azure Virtual Network:
 
--   [**Itinéraire défini par l’utilisateur**](../virtual-network/virtual-networks-udr-overview.md). Vous pouvez contrôler le routage des paquets via une appliance virtuelle en créant des itinéraires définis par l’utilisateur qui redirigent le prochain tronçon de paquets circulant vers un sous-réseau spécifique vers votre appliance de sécurité de réseau virtuel.
+-   [**Network Security Groups (NSG)**](../virtual-network/virtual-networks-nsg.md). You can use an NSG to control traffic to one or more virtual machine (VM) instances in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port.
 
--   [**Transfert IP**](../virtual-network/virtual-networks-udr-overview.md). Une appliance de sécurité de réseau virtuel doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous activez le transfert IP pour la machine virtuelle.
+-   [**User Defined Routing**](../virtual-network/virtual-networks-udr-overview.md). You can control the routing of packets through a virtual appliance by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go a your virtual network security appliance.
 
--   [**Tunneling forcé**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic Internet généré par vos machines virtuelles dans un réseau virtuel Azure vers votre emplacement local via un tunnel VPN site à site pour l’inspection et l’audit.
+-   [**IP forwarding**](../virtual-network/virtual-networks-udr-overview.md). A virtual network security appliance must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you enable IP Forwarding for the VM.
 
--   [Listes de contrôle d’accès de **points de terminaison**](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md). Vous pouvez contrôler les machines pour lesquelles les connexions entrantes sont autorisées à partir d’Internet vers une machine virtuelle sur votre réseau virtuel Azure en définissant des listes de contrôle d’accès de points de terminaison.
+-   [**Forced tunneling**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). Forced tunneling lets you redirect or "force" all Internet-bound traffic generated by your virtual machines in an Azure Virtual back to your on-premises location via a site-to-site VPN tunnel for inspection and auditing
 
--   [**Solutions de sécurité réseau de partenaires**](https://azure.microsoft.com/marketplace/). Il existe un certain nombre de solutions de sécurité réseau de partenaires auxquelles vous pouvez accéder à partir d’Azure Marketplace.
+-   [**Endpoint** ACLs](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md). You can control which machines are allowed inbound connections from the Internet to a virtual machine on your Azure Virtual Network by defining endpoint ACLs.
 
-### Comment Azure implémente des réseaux virtuels et des pare-feu
+-   [**Partner network security solutions**](https://azure.microsoft.com/marketplace/). There are a number of partner network security solution that you can access from the Azure Marketplace.
 
-Azure implémente des pare-feu de filtrage de paquets sur l’ensemble des machines virtuelles hôtes et invitées par défaut. Le Pare-feu Windows est également activé par défaut pour les images du système d’exploitation Windows de la galerie Azure. Les équilibreurs de charge au niveau du périmètre des réseaux Azure publics contrôlent les communications en fonction des listes de contrôle d’accès IP gérées par les administrateurs de clients.
+### <a name="how-azure-implements-virtual-networks-and-firewall"></a>How Azure implements virtual networks and firewall
 
-Si Azure déplace des données d’un client dans le cadre d’opérations normales ou lors d’une urgence, il le fait sur des canaux de communication privés et chiffrés. Autres fonctionnalités exploitées par Azure à utiliser dans les réseaux virtuels et les pare-feu :
+Azure implements packet-filtering firewalls on all host and guest VMs by default. Windows OS images from the Azure Gallery also have Windows Firewall enabled by default. Load balancers at the perimeter of Azure’s public facing networks control communications based on IP ACLs managed by customer administrators.
 
--   **Pare-feu d’hôte natif** : la structure et le stockage Azure s’exécutent sur un système d’exploitation natif dépourvu d’hyperviseur et, par conséquent, le Pare-feu Windows est configuré avec les deux ensembles de règles ci-dessus. Le stockage s’exécute de manière native pour optimiser les performances.
+If Azure moves a customer’s data as part of normal operations or during a disaster, it does so over private, encrypted communications channels. Other capabilities leveraged by Azure to use in virtual networks and firewall are:
 
--   **Pare-feu hôte** : le pare-feu hôte sert à protéger le système d’exploitation hôte qui exécute l’hyperviseur. Les règles sont programmées pour autoriser uniquement le contrôleur de structure et les « jump boxes » à communiquer avec le système d’exploitation hôte sur un port spécifique. Les autres exceptions permettent d’autoriser la réponse DHCP et les réponses DNS. Azure utilise un fichier de configuration des machines qui contient le modèle de règles de pare-feu pour le système d’exploitation hôte. L’hôte lui-même est protégé des attaques externes par un Pare-feu Windows configuré pour autoriser uniquement la communication à partir de sources connues et authentifiées.
+-   **Native Host Firewall**: Azure fabric and storage run on a native OS which has no hypervisor and hence the windows firewall is configured with the above two sets of rules. Storage runs native to optimize performance.
 
--   **Pare-feu invité** : il réplique les règles figurant dans le filtre de paquets de commutateur de machines virtuelles, mais est programmé dans un logiciel différent (par exemple, l’élément Pare-feu Windows du système d’exploitation invité). Le pare-feu de machine virtuelle invitée peut être configuré pour restreindre les communications vers ou à partir de la machine virtuelle invitée, même si la communication est autorisée par les configurations du filtre IP de l’hôte. Par exemple, vous pouvez choisir d’utiliser le pare-feu de machine virtuelle invitée pour restreindre la communication entre deux de vos réseaux virtuels qui ont été configurés pour se connecter l’un à l’autre.
+-   **Host Firewall**: The host firewall is to protect the host operating system which runs the hypervisor. The rules are programmed to allow only the fabric controller and jump boxes to talk to the host OS on a specific port. The other exceptions are to allow DHCP response and DNS Replies. Azure uses a machine configuration file which it has the template of firewall rules for the host OS. The host itself is protected from external attack by a Windows firewall configured to only permit communication from known, authenticated sources.
 
--   **Pare-feu de stockage** : le pare-feu sur le stockage frontal filtre le trafic afin qu’il s’effectue uniquement sur les ports 80/443 et sur d’autres ports utilitaires nécessaires. Le pare-feu sur le stockage principal restreint les communications afin qu’elles proviennent uniquement des serveurs frontaux de stockage.
+-   **Guest Firewall**: Replicates the rules in the VM Switch packet filter but programmed in different software (i.e. the Windows Firewall piece of the guest OS). The guest VM firewall can be configured to restrict communications to or from the guest VM, even if the communication is permitted by configurations at the host IP Filter. For example, you may choose to use the guest VM firewall to restrict communication between two of your VNets that have been configured to connect to one another.
 
--   **Passerelle de réseau virtuel** : les [passerelles de réseau virtuel Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) servent de passerelles entre les locaux, connectant vos charges de travail dans un réseau virtuel Azure à vos sites locaux. Il est nécessaire de se connecter aux sites locaux via des [tunnels VPN site à site IPsec](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) ou via des circuits [ExpressRoute](../expressroute/expressroute-introduction.md). Pour les tunnels VPN IPsec/IKE, les passerelles établissent des liaisons IKE, ainsi que des tunnels VPN S2S IPsec entre les réseaux virtuels et les sites locaux. Les passerelles de réseau virtuel terminent également les [VPN de point à site ](../vpn-gateway/vpn-gateway-point-to-site-create.md).
+-   **Storage Firewall (FW)**: The firewall on the storage front-end filters traffic to be only on ports 80/443 and other necessary utility ports. The firewall on the storage back-end restricts communications to only come from storage front-end servers.
 
-##Accès à distance sécurisé
+-   **Virtual Network Gateway**: [Azure Virtual Network Gateways](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) serve as the cross premises gateways connecting your workloads in Azure Virtual Network to your on premises sites. It is required to connect to on premises sites through [IPsec site-to-site VPN tunnels](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), or through [ExpressRoute](../expressroute/expressroute-introduction.md) circuits. For IPsec/IKE VPN tunnels, the gateways perform IKE handshakes, and establish the IPsec S2S VPN tunnels between the Virtual Networks and on premises sites. Virtual Network Gateways also terminate [point-to-site VPNs](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 
-Les données stockées dans le cloud doivent disposer de protections suffisantes activées pour empêcher les attaques et maintenir la confidentialité et l’intégrité pendant le transit. Cela inclut les contrôles réseau associés aux mécanismes de gestion de l’identité et de l’accès, vérifiables et basés sur la stratégie d’une organisation.
+##<a name="secure-remote-access"></a>Secure Remote Access
 
-La technologie de chiffrement intégrée vous permet de chiffrer les communications au sein de et entre les déploiements, entre les régions Azure et depuis Azure vers les centres de données locaux. Les administrateurs accèdent aux machines virtuelles par le biais des [sessions Bureau à distance](../virtual-machines/virtual-machines-windows-classic-connect-logon.md), [Windows PowerShell à distance](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) et le portail de gestion Azure est toujours chiffré.
+Data stored in the cloud must have sufficient safeguards enabled to prevent exploits and maintain confidentiality and integrity while in-transit. This includes network controls that tie in with an organization’s policy-based, auditable identity and access management mechanisms.
 
-Pour étendre en toute sécurité votre centre de données local dans le cloud, Azure fournit un [VPN site à site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) et un [VPN point à site](../vpn-gateway/vpn-gateway-point-to-site-create.md), ainsi que des liens dédiés avec [ExpressRoute](../expressroute/expressroute-introduction.md) (les connexions aux réseaux virtuels Azure via VPN sont chiffrées).
+Built-in cryptographic technology enables you to encrypt communications within and between deployments, between Azure regions, and from Azure to on-premises datacenters. Administrator access to virtual machines through [remote desktop sessions](../virtual-machines/virtual-machines-windows-classic-connect-logon.md), [remote Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx), and the Azure Management Portal is always encrypted.
 
-### Comment Azure implémente un accès distant sécurisé
+To securely extend your on-premises datacenter to the cloud, Azure provides both [site-to-site VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) and [point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md), as well as dedicated links with [ExpressRoute](../expressroute/expressroute-introduction.md) (connections to Azure Virtual Networks over VPN are encrypted).
 
-Les connexions au portail Azure doivent toujours être authentifiées et nécessitent les protocoles SSL/TLS. Vous pouvez configurer les certificats de gestion pour activer la gestion sécurisée. Les protocoles sécurisés standards tels que [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) et [IPsec](https://en.wikipedia.org/wiki/IPsec) sont entièrement pris en charge.
+### <a name="how-azure-implements-secure-remote-access"></a>How Azure implements secure remote access
 
-[Azure ExpressRoute](../expressroute/expressroute-introduction.md) vous permet de créer des connexions privées entre les centres de données Azure et une infrastructure locale ou dans un environnement de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Ils offrent davantage de fiabilité, des vitesses supérieures, des latences inférieures et une sécurité renforcée par rapport aux liens Internet classiques. Dans certains cas, l’utilisation de connexions ExpressRoute pour le transfert de données entre l’infrastructure locale et Azure peut également générer des économies substantielles.
+Connections to Azure Portal must always be authenticated and they require SSL/TLS. You can configure management certificates to enable secure management. Industry standard secure protocols such as [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) and [IPsec](https://en.wikipedia.org/wiki/IPsec) are fully supported.
 
-##Enregistrement et surveillance
+[Azure ExpressRoute](../expressroute/expressroute-introduction.md) lets you create private connections between Azure datacenters and infrastructure that’s on your premises or in a co-location environment. ExpressRoute connections do not go over the public Internet. They offer more reliability, faster speeds, lower latencies and higher security than typical Internet-based links. In some cases, using ExpressRoute connections to transfer data between on-premises and Azure can also yield significant cost benefits.
 
-Azure fournit un enregistrement authentifié des événements liés à la sécurité qui génèrent une piste d’audit, et est conçu pour résister aux falsifications. Cela inclut les informations système, notamment les journaux des événements de sécurité dans les machines virtuelles d’infrastructure Azure et Azure AD. La surveillance des événements de sécurité inclut la collecte d’événements, notamment : modifications d’adresses IP de serveurs DHCP ou DNS, tentatives d’accès aux ports, protocoles ou adresses IP bloqués par conception, modifications de stratégies de sécurité ou de paramètres de pare-feu, création de comptes ou de groupes, processus inattendus ou installation de pilotes.
+##<a name="logging-and-monitoring"></a>Logging and monitoring
 
-![Microsoft Antimalware dans Azure](./media/azure-security-getting-started/sec-azgsfig5.PNG)
+Azure provides authenticated logging of security-relevant events that generate an audit trail, and is engineered to be resistant to tampering. This includes system information, such as security event logs in Azure infrastructure VMs and Azure AD. Security event monitoring includes collecting events such as changes in DHCP or DNS server IP addresses, attempted access to ports, protocols or IP addresses that are blocked by design, changes in security policy or firewall settings, account or group creation, unexpected processes or driver installation.
 
-Des journaux d’audit enregistrant les accès et activités utilisateur privilégiés, les tentatives d’accès autorisé et non autorisé, les exceptions de système et les événements de sécurité sont conservés pour un laps de temps défini. La conservation de vos journaux est à votre entière discrétion parce que vous configurez la collecte et la conservation selon vos propres exigences.
+![Microsoft Antimalware in Azure](./media/azure-security-getting-started/sec-azgsfig5.PNG)
 
-### Comment Azure implémente l’enregistrement et la surveillance
+Audit logs recording privileged user access and activities, authorized and unauthorized access attempts, system exceptions, and information security events are retained for a set period of time. The retention of your logs is at your discretion because you configure log collection and retention to your own requirements.
 
-Azure déploie des agents de gestion (MA) et moniteurs de sécurité Azure (ASM) pour chaque calcul, stockage ou nœud de structure gérés, qu’ils soient natifs ou virtuels. Chaque agent de gestion est configuré pour s’authentifier sur un compte de stockage d’équipe de services avec un certificat obtenu à partir du magasin de certificats Azure, et pour transférer les données de diagnostics et d’événements préconfigurées vers le compte de stockage. Ces agents ne sont pas déployés sur les machines virtuelles des clients.
+### <a name="how-azure-implements-logging-and-monitoring"></a>How Azure implements logging and monitoring
 
-Les administrateurs Azure accèdent aux journaux via un portail web de manière authentifiée et contrôlée. Un administrateur peut analyser, filtrer, mettre en corrélation et analyser les journaux. Les comptes de stockage de l’équipe de services Azure pour les journaux sont protégés de l’accès administrateur direct pour éviter la falsification de journaux.
+Azure deploys Management Agents (MA) and Azure Security Monitor (ASM) agents to each compute, storage, or fabric node under management whether they are native or virtual. Each Management Agent is configured to authenticate to a service team storage account with a certificate obtained from the Azure certificate store and forward pre-configured diagnostic and event data to the storage account. These agents are not deployed to customers’ virtual machines.
 
-Microsoft collecte des journaux à partir de périphériques réseau, à l’aide du protocole Syslog, et à partir de serveurs hôte, à l’aide de Microsoft Audit Collection Services (ACS). Ces journaux sont placés dans une base de données de journaux à partir de laquelle des alertes sont générées pour les événements suspects directement auprès d’un administrateur Microsoft. L’administrateur peut accéder à ces journaux et les analyser.
+Azure administrators access logs through a web portal for authenticated and controlled access to the logs. An administrator can parse, filter, correlate, and analyze logs. The Azure service team storage accounts for logs are protected from direct administrator access to help prevent against log tampering.
 
-Les [diagnostics Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) sont une fonctionnalité d’Azure vous permettant de collecter des données de diagnostic à partir d’une application exécutée dans Azure. Ces données de diagnostic peuvent servir au débogage et à la résolution des problèmes, à la mesure des performances, au suivi de l’utilisation des ressources, à l’analyse de trafic, à la planification de capacités et à l’audit. Une fois les données de diagnostic collectées, elles peuvent être transférées vers un compte de stockage Azure pour être conservées. Les transferts peuvent être planifiés ou effectués à la demande.
+Microsoft collects logs from network devices using the Syslog protocol and from host servers using Microsoft Audit Collection Services (ACS). These logs are placed into a log database from which alerts are generated for suspicious events directly to a Microsoft administrator. The administrator can access and analyze these logs.
 
-##Atténuation des menaces
+[Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx) is a feature of Azure that enables you to collect diagnostic data from an application running in Azure. This is diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis, and capacity planning, and auditing. After the diagnostic data is collected, it can be transferred to an Azure storage account for persistence. Transfers can either be scheduled or on-demand.
 
-Outre l’isolation, le chiffrement et le filtrage, Azure utilise un certain nombre de mécanismes et de processus d’atténuation des menaces afin de protéger l’infrastructure et les services. Ceux-ci incluent des contrôles et des technologies internes utilisés pour détecter et corriger les menaces avancées, telles que le déni de service distribué (DDoS), la réaffectation de privilèges et les risques [OWASP Top-10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+##<a name="threat-mitigation"></a>Threat Mitigation
 
-Les contrôles de sécurité et processus de gestion des risques mis en place par Microsoft pour sécuriser son infrastructure cloud réduisent le risque d’incidents de sécurité. Toutefois, en cas d’incident, l’équipe SIM (gestion des incidents de sécurité) au sein de l’équipe Microsoft OSSC (services de sécurité et conformité en ligne) se tient prête à répondre 24 h / 24, 7 j /7.
+In addition to isolation, encryption, and filtering, Azure employs a number of threat mitigation mechanisms and processes to protect infrastructure and services. These include internal controls and technologies used to detect and remediate advanced threats such as DDoS, privilege escalation, and the [OWASP Top-10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
-### Comment Azure implémente l’atténuation des menaces
+The security controls and risk management processes Microsoft has in place to secure its cloud infrastructure reduce the risk of security incidents. But, in the event an incident occurs, the Security Incident Management (SIM) team within the Microsoft Online Security Services & Compliance (OSSC) team is ready 24 x 7 to respond.
 
-Azure dispose de contrôles de sécurité en place pour implémenter l’atténuation des menaces, ainsi que pour aider les clients à atténuer les menaces potentielles dans leurs environnements. La liste suivante récapitule les fonctionnalités d’atténuation des menaces proposées par Azure :
+### <a name="how-azure-implements-threat-mitigation"></a>How Azure implements threat mitigation
 
--   [Azure Antimalware](../security/azure-security-antimalware.md) est activé par défaut sur tous les serveurs d’infrastructure. Vous avez la possibilité de l’activer dans vos propres machines virtuelles.
+Azure has security controls in place to implement threat mitigation and also to assist customers mitigate potential threats in their environments. The list below summarizes the threat mitigation capabilities offered by Azure:
 
--   Microsoft gère la surveillance continue des serveurs, réseaux et applications afin de détecter les menaces et d’empêcher les attaques. Les alertes automatisées notifient les administrateurs des comportements anormaux, ce qui leur permet de prendre des mesures correctives sur les menaces internes et externes.
+-   [Azure Anti-Malware](../security/azure-security-antimalware.md) is enabled by default on all infrastructure servers. You can optionally enable it within your own VMs.
 
--   Vous avez la possibilité de déployer des solutions de sécurité tierces dans vos abonnements, notamment des pare-feu d’applications web à partir de [Barracuda](https://techlib.barracuda.com/ng54/deployonazure).
+-   Microsoft maintains continuous monitoring across servers, networks, and applications to detect threats and prevent exploits. Automated alerts notify administrators of anomalous behaviors, allowing them to take corrective action on both internal and external threats.
 
--   L’approche de test de pénétration de Microsoft inclut [Red Teaming](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), qui implique des attaques des systèmes de production en direct (non clients) dans Azure par des professionnels de la sécurité Microsoft, afin de tester les défenses contre des menaces persistantes, réelles et avancées.
+-   You have the option to deploy 3rd-party security solutions within your subscriptions, such as web application firewalls from [Barracuda](https://techlib.barracuda.com/ng54/deployonazure).
 
--   Des systèmes de déploiement intégrés gèrent la distribution et l’installation de correctifs de sécurité sur la plateforme Azure.
+-   Microsoft’s approach to penetration-testing includes “[Red-Teaming](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)”, which involves Microsoft security professionals attacking (non-customer) live production systems in Azure to test defenses against real-world, advanced persistent threats.
 
-##Étapes suivantes
+-   Integrated deployment systems manage the distribution and installation of security patches across the Azure platform.
+
+##<a name="next-steps"></a>Next Steps
 
 [Azure Trust Center](https://azure.microsoft.com/support/trust-center/)
 
-[Blog de l’équipe de sécurité Azure](http://blogs.msdn.com/b/azuresecurity/)
+[Azure Security Team Blog](http://blogs.msdn.com/b/azuresecurity/)
 
-[Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
+[Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
-[Blog Active Directory](http://blogs.technet.com/b/ad/)
+[Active Directory Blog](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

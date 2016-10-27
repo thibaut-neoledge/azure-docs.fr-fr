@@ -1,54 +1,55 @@
 <properties
-	pageTitle="Utilisation de REST pour sauvegarder et restaurer des applications App Service"
-	description="Découvrez comment utiliser les appels d’API RESTful pour sauvegarder et restaurer une application dans Azure App Service"
-	services="app-service"
-	documentationCenter=""
-	authors="NKing92"
-	manager="wpickett"
+    pageTitle="Use REST to back up and restore App Service apps"
+    description="Learn how to use RESTful API calls to back up and restore an app in Azure App Service"
+    services="app-service"
+    documentationCenter=""
+    authors="NKing92"
+    manager="wpickett"
     editor="" />
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="nicking"/>
-# Utilisation de REST pour sauvegarder et restaurer des applications App Service
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/10/2016"
+    ms.author="nicking"/>
+
+# <a name="use-rest-to-back-up-and-restore-app-service-apps"></a>Use REST to back up and restore App Service apps
 
 > [AZURE.SELECTOR]
 - [PowerShell](../app-service/app-service-powershell-backup.md)
-- [API REST](websites-csm-backup.md)
+- [REST API](websites-csm-backup.md)
 
-Les [applications App Service](https://azure.microsoft.com/services/app-service/web/) peuvent être sauvegardées en tant qu’objets blob dans Azure Storage. La sauvegarde peut également contenir des bases de données de l’application. En cas de suppression accidentelle de l’application, ou si l’application doit être rétablie à une version antérieure, il est possible de la restaurer à partir d’une sauvegarde précédente. Les sauvegardes peuvent être effectuées à tout moment à la demande, ou être planifiées à des intervalles appropriés.
+[App Service apps](https://azure.microsoft.com/services/app-service/web/) can be backed up as blobs in Azure storage. The backup can also contain the app’s databases. If the app is ever accidentally deleted, or if the app needs to be reverted to a previous version, it can be restored from any previous backup. Backups can be done at any time on demand, or backups can be scheduled at suitable intervals.
 
-Cet article explique comment sauvegarder et restaurer une application à l’aide de requêtes d’API RESTful. Si vous souhaitez créer et gérer des sauvegardes d’application sous la forme de graphiques dans le portail Azure, consultez [Sauvegarder une application web dans Azure App Service](web-sites-backup.md)
+This article explains how to backup and restore an app with RESTful API requests. If you would like to create and manage app backups graphically through the Azure portal, see [Back up a web app in Azure App Service](web-sites-backup.md)
 
 <a name="gettingstarted"></a>
-## Prise en main
-Pour envoyer des requêtes REST, vous devez connaître le **nom**, le **groupe de ressources** et **l’ID d’abonnement** de votre application. Vous trouverez ces informations en cliquant sur votre application dans le panneau **App Service** du [portail Azure](https://portal.azure.com). Pour les exemples de cet article, nous configurons le site web **backuprestoreapiexamples.azurewebsites.net**. Celui-ci est stocké dans le groupe de ressources Default-Web-WestUS et s’exécute sur un abonnement associé à l’ID 00001111-2222-3333-4444-555566667777.
+## <a name="getting-started"></a>Getting Started
+To send REST requests, you need to know your app’s **name**, **resource group**, and **subscription id**. This information can be found by clicking your app in the **App Service** blade of the [Azure portal](https://portal.azure.com). For the examples in this article, we are configuring the website **backuprestoreapiexamples.azurewebsites.net**. It is stored in the Default-Web-WestUS resource group and is running on a subscription with the ID 00001111-2222-3333-4444-555566667777.
 
-![Informations de l’exemple de site web][SampleWebsiteInformation]
+![Sample Website Information][SampleWebsiteInformation]
 
 <a name="backup-restore-rest-api"></a>
-## API REST de sauvegarde et de restauration
-Nous allons maintenant présenter plusieurs exemples illustrant la manière dont il est possible d’utiliser l’API REST pour sauvegarder et restaurer une application. Chaque exemple inclut une URL et un corps de requête HTTP. L’exemple d’URL contient des espaces réservés entre accolades, du type {subscription-id}. Remplacez les espaces réservés par les informations correspondantes de votre application. À titre de référence, voici une explication de chaque espace réservé qui apparaît dans les exemples d’URL.
+## <a name="backup-and-restore-rest-api"></a>Backup and restore REST API
+We will now cover several examples of how to use the REST API to backup and restore an app. Each example includes a URL and HTTP request body. The sample URL contains placeholders wrapped in curly braces, such as {subscription-id}. Replace the placeholders with the corresponding information for your app. For reference, here is an explanation of each placeholder that appears in the example URLs.
 
-* subscription-id : ID de l’abonnement Azure contenant l’application
-* resource-group-name : nom du groupe de ressources contenant l’application
-* name : nom de l’application
-* backup-id : ID de la sauvegarde de l’application
+* subscription-id – ID of the Azure subscription containing the app
+* resource-group-name – Name of the resource group containing the app
+* name – Name of the app
+* backup-id – ID of the app backup
 
-Pour accéder à la documentation complète de l’API, y compris plusieurs paramètres facultatifs pouvant être inclus dans la requête HTTP, consultez l’[Explorateur de ressources Azure](https://resources.azure.com/).
+For the complete documentation of the API, including several optional parameters that can be included in the HTTP request, see the [Azure Resource Explorer](https://resources.azure.com/).
 
 <a name="backup-on-demand"></a>
-## Sauvegarde d’une application à la demande
-Pour sauvegarder immédiatement une application, envoyez une requête **POST** à **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**.
+## <a name="backup-an-app-on-demand"></a>Backup an app on demand
+To back up an app immediately, send a **POST** request to **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**.
 
-Voici à quoi ressemble l’URL dans notre exemple de site web. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
+Here is what the URL looks like using our example website. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
-Spécifiez un objet JSON dans le corps de votre requête afin de spécifier le compte de stockage à utiliser pour stocker la sauvegarde. L’objet JSON doit avoir une propriété nommée **storageAccountUrl**, qui contient une [URL SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) qui octroie un accès en écriture au conteneur Azure Storage dans lequel l’objet blob de sauvegarde sera stocké. Si vous souhaitez sauvegarder vos bases de données, vous devez également fournir une liste contenant les noms, les types et les chaînes de connexion des bases de données à sauvegarder.
+Supply a JSON object in the body of your request to specify which storage account to use to store the backup. The JSON object must have a property named **storageAccountUrl**, which holds a [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md) granting write access to the Azure Storage container that holds the backup blob. If you want to back up your databases, you must also supply a list containing the names, types, and connection strings of the databases to be backed up.
 
 ```
 {
@@ -66,7 +67,7 @@ Spécifiez un objet JSON dans le corps de votre requête afin de spécifier le c
 }
 ```
 
-Une sauvegarde de l’application débute immédiatement après la réception de la requête. Le processus de sauvegarde peut prendre un certain temps. La réponse HTTP contient un ID que vous pouvez utiliser dans une autre requête pour connaître l’état de la sauvegarde. Voici un exemple du corps de la réponse HTTP à notre requête de sauvegarde.
+A backup of the app begins immediately when the request is received. The backup process may take a long time to complete. The HTTP response contains an ID that you can use in another request to see the status of the backup. Here is an example of the body of the HTTP response to our backup request.
 
 ```
 {
@@ -96,18 +97,18 @@ Une sauvegarde de l’application débute immédiatement après la réception de
 }
 ```
 
->[AZURE.NOTE] Vous pouvez rencontrer des messages d’erreur dans la propriété du journal de la réponse HTTP.
+>[AZURE.NOTE] Error messages can be found in the log property of the HTTP response.
 
 <a name="schedule-automatic-backups"></a>
-## Planification de sauvegardes automatiques
-Si vous pouvez sauvegarder une application à la demande, vous avez également la possibilité de planifier l’exécution automatique d’une sauvegarde.
+## <a name="schedule-automatic-backups"></a>Schedule automatic backups
+In addition to backing up an app on demand, you can also schedule a backup to happen automatically.
 
-### Configurer une nouvelle planification de sauvegarde automatique
-Pour configurer une planification de sauvegarde, envoyez une requête **PUT** à **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup**.
+### <a name="set-up-a-new-automatic-backup-schedule"></a>Set up a new automatic backup schedule
+To set up a backup schedule, send a **PUT** request to **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup**.
 
-Voici à quoi ressemble l’URL dans notre exemple de site web. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup**
+Here is what the URL looks like for our example website. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup**
 
-Le corps de requête doit comporter un objet JSON qui spécifie la configuration de la sauvegarde. Cet exemple reprend tous les paramètres nécessaires.
+The request body must have a JSON object that specifies the backup configuration. Here is an example with all the required parameters.
 
 ```
 {
@@ -127,24 +128,24 @@ Le corps de requête doit comporter un objet JSON qui spécifie la configuration
 }
 ```
 
-Cet exemple configure l’application de manière à ce qu’elle soit automatiquement sauvegardée tous les sept jours. Les paramètres **frequencyInterval** et **frequencyUnit** déterminent la fréquence à laquelle les sauvegardes seront exécutées. Les valeurs valides de **frequencyUnit** sont **hour** et **day**. Par exemple, pour sauvegarder une application toutes les 12 heures, définissez le paramètre frequencyInterval sur 12 et attribuez la valeur « hour » au paramètre frequencyUnit.
+This example configures the app to be automatically backed up every seven days. The parameters **frequencyInterval** and **frequencyUnit** together determine how often the backups happen. Valid values for **frequencyUnit** are **hour** and **day**. For example, to back up an app every 12 hours, set frequencyInterval to 12 and frequencyUnit to hour.
 
-Les anciennes sauvegardes sont automatiquement supprimées du compte de stockage. Vous pouvez contrôler l’ancienneté des sauvegardes en définissant le paramètre **retentionPeriodInDays**. Si vous souhaitez qu’au moins une sauvegarde soit toujours enregistrée, quelle que soit son ancienneté, définissez le paramètre **keepAtLeastOneBackup** sur true.
+Old backups are automatically removed from the storage account. You can control how old the backups can be by setting the **retentionPeriodInDays** parameter. If you want to always have at least one backup saved, regardless of how old it is, set **keepAtLeastOneBackup** to true.
 
-### Obtenir la planification de sauvegarde automatique
-Pour obtenir la configuration de la sauvegarde d’une application, envoyez une requête **POST** à l’URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**.
+### <a name="get-the-automatic-backup-schedule"></a>Get the automatic backup schedule
+To get an app’s backup configuration, send a **POST** request to the URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**.
 
-L’URL de notre exemple de site est **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**.
+The URL for our example site is **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**.
 
 <a name="get-backup-status"></a>
-## Informations sur l’état d’une sauvegarde
-Selon la taille de l’application, une sauvegarde peut prendre un certain temps. Les sauvegardes peuvent également échouer, dépasser le délai d’attente ou n’aboutir que partiellement. Pour afficher l’état de toutes les sauvegardes d’une application, envoyez une requête **GET** à l’URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**.
+## <a name="get-the-status-of-a-backup"></a>Get the status of a backup
+Depending on how large the app is, a backup may take a while to complete. Backups might also fail, time out, or partially succeed. To see the status of all an app’s backups, send a **GET** request to the URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**.
 
-Pour afficher l’état d’une sauvegarde spécifique, envoyez une requête GET à l’URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
+To see the status of a specific backup, send a GET request to the URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
-Voici à quoi ressemble l’URL dans notre exemple de site web. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
+Here is what the URL looks like for our example website. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
-Le corps de la réponse contient un objet JSON similaire à cet exemple.
+The response body contains a JSON object similar to this example.
 
 ```
 {
@@ -165,26 +166,26 @@ Le corps de la réponse contient un objet JSON similaire à cet exemple.
 }
 ```
 
-L’état d’une sauvegarde est un type énuméré. Voici la liste de tous les états possibles.
+The status of a backup is an enumerated type. Here is every possible state.
 
-* 0 – InProgress : la sauvegarde a démarré mais n’est pas encore terminée.
-* 1 – Failed : la sauvegarde a échoué.
-* 2 – Succeeded : la sauvegarde s’est terminée correctement.
-* 3 – TimedOut : la sauvegarde ne s’est pas terminée dans les temps et a été annulée.
-* 4 – Created : la demande de sauvegarde est en attente mais n’a pas été démarrée.
-* 5 – Skipped : la sauvegarde ne s’est pas poursuivie en raison d’un trop grand nombre de sauvegardes planifiées.
-* 6 – PartiallySucceeded : la sauvegarde a réussi, mais certains fichiers n’ont pas été sauvegardés en raison de problèmes de lecture. Cela se produit généralement lorsqu’un verrou exclusif est placé sur les fichiers.
-* 7 – DeleteInProgress : la sauvegarde a fait l’objet d’une demande de suppression, mais n’a pas encore été supprimée.
-* 8 – DeleteFailed : la sauvegarde n’a pas pu être supprimée. Cela peut se produire si l’URL SAS utilisée pour créer la sauvegarde a expiré.
-* 9 – Deleted : la sauvegarde a été supprimée avec succès.
+* 0 – InProgress: The backup has been started but has not yet completed.
+* 1 – Failed: The backup was unsuccessful.
+* 2 – Succeeded: The backup completed successfully.
+* 3 – TimedOut: The backup did not finish in time and was canceled.
+* 4 – Created: The backup request is queued but has not been started.
+* 5 – Skipped: The backup did not proceed due to a schedule triggering too many backups.
+* 6 – PartiallySucceeded: The backup succeeded, but some files were not backed up because they could not be read. This usually happens because an exclusive lock was placed on the files.
+* 7 – DeleteInProgress: The backup has been requested to be deleted, but has not yet been deleted.
+* 8 – DeleteFailed: The backup could not be deleted. This might happen because the SAS URL that was used to create the backup has expired.
+* 9 – Deleted: The backup was deleted successfully.
 
 <a name="restore-app"></a>
-## Restauration d’une application à partir d’une sauvegarde
-Si votre application a été supprimée, ou si vous voulez rétablir votre application à une version antérieure, vous pouvez restaurer l’application à partir d’une sauvegarde. Pour appeler une restauration, envoyez une requête **POST** à l’URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**.
+## <a name="restore-an-app-from-a-backup"></a>Restore an app from a backup
+If your app has been deleted, or if you want to revert your app to a previous version, you can restore the app from a backup. To invoke a restore, send a **POST** request to the URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**.
 
-Voici à quoi ressemble l’URL dans notre exemple de site web. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore**
+Here is what the URL looks like for our example website. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore**
 
-Dans le corps de la requête, envoyez un objet JSON qui contient les propriétés de l’opération de restauration. Voici un exemple contenant toutes les propriétés requises :
+In the request body, send a JSON object that contains the properties for the restore operation. Here is an example containing all required properties:
 
 ```
 {
@@ -203,22 +204,22 @@ Dans le corps de la requête, envoyez un objet JSON qui contient les propriété
 }
 ```
 
-### Restauration vers une nouvelle application
-Lors de la restauration d’une sauvegarde, vous avez parfois intérêt à créer une application au lieu de remplacer une application existante. Pour ce faire, modifiez l’URL de requête pour pointer vers la nouvelle application que vous souhaitez créer et définissez la propriété **overwrite** dans le fichier JSON sur **false**.
+### <a name="restore-to-a-new-app"></a>Restore to a new app
+Sometimes you might want to create a new app when you restore a backup, instead of overwriting an already existing app. To do this, change the request URL to point to the new app you want to create, and change the **overwrite** property in the JSON to **false**.
 
 <a name="delete-app-backup"></a>
-## Suppression d’une sauvegarde d’application
-Si vous souhaitez supprimer une sauvegarde, envoyez une requête **DELETE** à l’URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
+## <a name="delete-an-app-backup"></a>Delete an app backup
+If you would like to delete a backup, send a **DELETE** request to the URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
-Voici à quoi ressemble l’URL dans notre exemple de site web. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
+Here is what the URL looks like for our example website. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
 <a name="manage-sas-url"></a>
-## Gestion de l’URL SAS d’une sauvegarde
-Les applications Azure App Service tentent de supprimer votre sauvegarde d’Azure Storage en utilisant l’URL SAS fournie au moment de la création de la sauvegarde. Si cette URL SAS n’est plus valide, la sauvegarde ne peut pas être supprimée via l’API REST. Vous pouvez toutefois mettre à jour l’URL SAS associée à une sauvegarde en envoyant une requête **POST** à l’URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**.
+## <a name="manage-a-backup’s-sas-url"></a>Manage a backup’s SAS URL
+Azure App Service will attempt to delete your backup from Azure Storage using the SAS URL that was provided when the backup was created. If this SAS URL is no longer valid, the backup cannot be deleted through the REST API. However, you can update the SAS URL associated with a backup by sending a **POST** request to the URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**.
 
-Voici à quoi ressemble l’URL dans notre exemple de site web. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list**
+Here is what the URL looks like for our example website. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list**
 
-Dans le corps de la requête, envoyez un objet JSON contenant la nouvelle URL SAS. Voici un exemple.
+In the request body, send a JSON object that contains the new SAS URL. Here is an example.
 
 ```
 {
@@ -229,9 +230,13 @@ Dans le corps de la requête, envoyez un objet JSON contenant la nouvelle URL SA
 }
 ```
 
->[AZURE.NOTE] Pour des raisons de sécurité, l’URL SAS associée à une sauvegarde n’est pas renvoyée lors de l’envoi d’une requête GET pour une sauvegarde spécifique. Si vous souhaitez afficher l’URL SAS associée à une sauvegarde, envoyez une requête POST à l’URL indiquée ci-dessus. Incluez un objet JSON vide dans le corps de la requête. La réponse du serveur contient toutes les informations relatives à cette sauvegarde, notamment son URL SAS.
+>[AZURE.NOTE] For security reasons, the SAS URL associated with a backup is not returned when sending a GET request for a specific backup. If you want to view the SAS URL associated with a backup, send a POST request to the same URL above. Include an empty JSON object in the request body. The response from the server contains all of that backup’s information, including its SAS URL.
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

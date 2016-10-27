@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Référence de recherche Log Analytics | Microsoft Azure"
-	description="La référence de recherche Log Analytics décrit le langage de recherche et fournit la syntaxe de requête générale que vous pouvez utiliser lorsque vous recherchez des données et que vous filtrez des expressions pour affiner votre recherche."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Référence de recherche Log Analytics | Microsoft Azure"
+    description="La référence de recherche Log Analytics décrit le langage de recherche et fournit la syntaxe de requête générale que vous pouvez utiliser lorsque vous recherchez des données et que vous filtrez des expressions pour affiner votre recherche."
+    services="log-analytics"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="banders"/>
+    ms.service="log-analytics"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/11/2016"
+    ms.author="banders"/>
 
 
-# Référence de recherche Log Analytics
+
+# <a name="log-analytics-search-reference"></a>Référence de recherche Log Analytics
 
 La section d’informations de référence suivante sur le langage de recherche décrit les options de syntaxe de requête générales que vous pouvez utiliser lorsque vous recherchez des données et que vous filtrez des expressions pour affiner votre recherche. Elle décrit également les commandes que vous pouvez utiliser pour effectuer une opération sur les données récupérées.
 
-Vous pouvez consulter la section [Référence de champ et de facette de recherche](#search-field-and-facet-reference) pour en savoir plus sur les champs retournés dans les recherches et sur les facettes qui vous aident à explorer des catégories de données similaires.
+Vous pouvez consulter la section [Référence de champ et de facette de recherche](#search-field-and-facet-reference)pour en savoir plus sur les champs retournés dans les recherches et sur les facettes qui vous aident à explorer des catégories de données similaires.
 
-## Syntaxe de requête générale
+## <a name="general-query-syntax"></a>Syntaxe de requête générale
 
 Syntaxe :
 
@@ -33,7 +34,7 @@ filterExpression | command1 | command2 …
 
 L’expression de filtre (`filterExpression`) définit la condition « where » pour la requête. Les commandes s'appliquent aux résultats retournés par la requête. Plusieurs commandes doivent être séparées par la barre verticale (|).
 
-### Exemples de syntaxe générale
+### <a name="general-syntax-examples"></a>Exemples de syntaxe générale
 
 Exemples :
 
@@ -55,15 +56,15 @@ Cette requête retourne des résultats qui contiennent les mots *système* et *e
 system error | sort ManagementGroupName, TimeGenerated desc | top 10
 ```
 
-Cette requête retourne des résultats qui contiennent les mots *système* et *erreur*. Elle trie ensuite les résultats selon le champ *ManagementGroupName* (dans l'ordre croissant), puis le champ *TimeGenerated* (dans l'ordre décroissant). Seuls les 10 premiers résultats sont nécessaires.
+Cette requête retourne des résultats qui contiennent les mots *système* et *erreur*. Elle trie ensuite les résultats sur le champ *ManagementGroupName* (dans l’ordre croissant), puis sur le champ *TimeGenerated* (dans l’ordre décroissant). Seuls les 10 premiers résultats sont nécessaires.
 
 >[AZURE.IMPORTANT] Tous les noms de champ et les valeurs pour les champs de texte et de chaîne respectent la casse.
 
-## Expression de filtre
+## <a name="filter-expression"></a>Expression de filtre
 
 Les sous-sections suivantes expliquent les expressions de filtre.
 
-### Littéraux de chaîne
+### <a name="string-literals"></a>Littéraux de chaîne
 
 Un littéral de chaîne est une chaîne qui n'est pas reconnue par l'analyseur comme un mot clé ou un type de données prédéfini (par exemple un nombre ou une date).
 
@@ -81,7 +82,7 @@ Cette requête recherche des résultats qui contiennent les occurrences des cinq
 
 Cela renvoie uniquement les résultats avec des correspondances exactes pour « Windows Server »
 
-### Nombres
+### <a name="numbers"></a>Nombres
 
 L'analyseur prend en charge l'entier décimal et une syntaxe de nombre à virgule flottante pour les champs numériques.
 
@@ -95,11 +96,11 @@ Type:Perf 0.5
 HTTP 500
 ```
 
-### Date/Heure
+### <a name="date/time"></a>Date/Heure
 
 Chaque élément de données dans le système a une propriété *TimeGenerated* qui représente la date et l'heure d’origine de l'enregistrement. Certains types de données peuvent en outre avoir plus de champs Date/Heure (par exemple, *LastModified*).
 
-Le sélecteur de graphique/heure de chronologie dans Log Analytics montre une répartition des résultats au fil du temps (en fonction de la requête en cours d’exécution), basée sur la valeur du champ *TimeGenerated*. Les champs Date/Heure ont un format de chaîne spécifique qui peut être utilisé dans des requêtes pour limiter celles-ci à une période particulière. Vous pouvez également utiliser la syntaxe pour faire référence à des intervalles de temps relatifs (par exemple, « entre il y a 3 jours et il y a 2 heures »).
+Le sélecteur de graphique/heure de chronologie dans Log Analytics montre une répartition des résultats au fil du temps (en fonction de la requête en cours d’exécution), basée sur la valeur du champ *TimeGenerated* . Les champs Date/Heure ont un format de chaîne spécifique qui peut être utilisé dans des requêtes pour limiter celles-ci à une période particulière. Vous pouvez également utiliser la syntaxe pour faire référence à des intervalles de temps relatifs (par exemple, « entre il y a 3 jours et il y a 2 heures »).
 
 Syntaxe :
 
@@ -143,7 +144,7 @@ Là encore, il est peu probable que cela génère des résultats, car les donné
 
 Ces exemples sont des blocs de construction à utiliser pour des dates relatives et absolues. Dans les trois sous-sections suivantes, nous expliquerons comment les utiliser dans des filtres plus avancés avec des exemples qui utilisent des plages de dates relatives.
 
-### Mathématique de Date/Heure
+### <a name="date/time-math"></a>Mathématique de Date/Heure
 
 Utilisez les opérateurs mathématiques de Date/Heure pour décaler ou arrondir la valeur de Date/Heure en utilisant de simples calculs de Date/Heure.
 
@@ -157,7 +158,7 @@ datetime/unit
 datetime[+|-]count unit
 ```
 
-|Opérateur|Description|
+|Opérateur |Description|
 |---|---|
 |/|Arrondit la valeur Date/Heure à l'unité spécifiée. Exemple : NOW/DAY arrondit la valeur Date/Heure actuelle à minuit pour le jour en cours.|
 |+ ou -|Décale la valeur Date/Heure du nombre d’unités spécifié. Exemples : NOW + 1HOUR avance la valeur Date/Heure actuelle d’une heure. 2013-10-01T12:00-10DAYS recule la valeur Date de 10 jours.|
@@ -183,7 +184,7 @@ SECOND, SECONDS|Arrondit à la seconde en cours ou décale du nombre de secondes
 MILLISECOND, MILLISECONDS, MILLI, MILLIS|Arrondit à la milliseconde en cours ou décale du nombre de millisecondes spécifié.
 
 
-### Facettes de champ
+### <a name="field-facets"></a>Facettes de champ
 
 À l'aide de facettes de champ, vous pouvez spécifier la condition de recherche pour des champs spécifiques et leurs valeurs exactes, au lieu d’écrire des requêtes de « texte libre » pour différents termes dans l'index. Nous avons déjà utilisé cette syntaxe dans plusieurs exemples dans les paragraphes précédents. Nous vous proposons maintenant des exemples plus complexes.
 
@@ -257,9 +258,9 @@ TimeGenerated:[NOW..NOW+1DAY]
 SampleValue:[0..2]
 ```
 
-### Opérateurs logiques
+### <a name="logical-operators"></a>Opérateurs logiques
 
-Les langages de requête prennent en charge les opérateurs logiques (*AND*, *OR* et *NOT*) et de leurs alias C-style (*&&*, *||* et *!*) respectifs. Vous pouvez utiliser des parenthèses pour regrouper ces opérateurs.
+Les langages de requête prennent en charge les opérateurs logiques (*AND*, *OR* et *NOT*) et de leurs alias C-style (*&&*, *||**!*). Vous pouvez utiliser des parenthèses pour regrouper ces opérateurs.
 
 Exemples :
 
@@ -280,7 +281,7 @@ Expression de filtre|Équivalent à
 erreur système|système AND erreur
 système « Windows Server » OR Gravité:1|système AND (« Windows Server » OR Gravité:1)
 
-### Utilisation des caractères génériques
+### <a name="wildcarding"></a>Utilisation des caractères génériques
 
 Le langage de requête prend en charge l’utilisation du caractère (*\*) pour représenter un ou plusieurs caractères pour une valeur dans une requête.
 
@@ -292,82 +293,79 @@ Exemples :
 Type=Event Computer=*SQL*
 ```
 
->[AZURE.NOTE] Les caractères génériques ne peuvent pas actuellement être utilisés entre guillemets. Message =`"*This text*"` considérera le symbole (\*) comme un caractère littéral (\*).
-
-## Commandes
+>[AZURE.NOTE] Les caractères génériques ne peuvent pas actuellement être utilisés entre guillemets. Message=`"*This text*"` considère le symbole (\*) utilisé comme un caractère (\*) littéral.
+## <a name="commands"></a>Commandes
 
 Les commandes s'appliquent aux résultats qui sont retournés par la requête. Utilisez la barre verticale (|) pour appliquer une commande aux résultats récupérés. Les commandes multiples doivent être séparées par la barre verticale (|).
 
 >[AZURE.NOTE] Les noms de commande peuvent être écrits en majuscules ou en minuscules, contrairement aux noms de champ et aux données.
 
-### Trier
+### <a name="sort"></a>Trier
 
 Syntaxe :
 
-	sort field1 asc|desc, field2 asc|desc, …
+    sort field1 asc|desc, field2 asc|desc, …
 
 Trie les résultats en fonction de champs particuliers. Le préfixe asc/desc est facultatif. S’il est omis, l’ordre de tri *asc* (croissant) est supposé. Si une requête n'utilise pas la commande *Sort* explicitement, Sort **TimeGenerated** desc est le comportement par défaut, qui retourne toujours les résultats les plus récents en premier.
 
-### Top/Limit
+### <a name="top/limit"></a>Top/Limit
 
 Syntaxe :
 
-	top number
+    top number
 
 
-	limit number
+    limit number
 Limite la réponse aux N premiers résultats.
 
 Exemple :
 
-	Type:Alert errors detected | top 10
+    Type:Alert errors detected | top 10
 
 Retourne les 10 premiers résultats de correspondance.
 
-### Skip
+### <a name="skip"></a>Skip
 
 Syntaxe :
 
-	skip number
+    skip number
 
 Ignore le nombre de résultats répertoriés.
 
 Exemple :
 
-	Type:Alert errors detected | top 10 | skip 200
+    Type:Alert errors detected | top 10 | skip 200
 
 Retourne les 10 premiers résultats correspondants en commençant au résultat 200.
 
-### Sélectionnez
+### <a name="select"></a>Sélectionnez
 
 Syntaxe :
 
-	select field1, field2, ...
+    select field1, field2, ...
 
 Limite les résultats aux champs que vous choisissez.
 
 Exemple :
 
-	Type:Alert errors detected | select Name, Severity
+    Type:Alert errors detected | select Name, Severity
 
-Limite les champs de résultats retournés à *Name* et *Severity*.
+Limite les champs de résultats retournés à *Name* and *Severity*pour en savoir plus sur les champs retournés dans les recherches et sur les facettes qui vous aident à explorer des catégories de données similaires.
 
-### Measure
+### <a name="measure"></a>Measure
 
-La commande *measure* est utilisée pour appliquer des fonctions statistiques pour les résultats de recherche bruts. Cela est très utile pour obtenir un affichage *groupé* des données. Lorsque vous utilisez la commande *measure*, Log Analytics affiche une table contenant des résultats agrégés.
+La commande *measure* est utilisée pour appliquer des fonctions statistiques pour les résultats de recherche bruts. Cela est très utile pour obtenir un affichage *groupé* des données. Lorsque vous utilisez la commande *measure* , Log Analytics affiche une table contenant des résultats agrégés.
 
 Syntaxe :
 
-	 measure aggregateFunction([aggregatedField]) [as fieldAlias] by groupField [interval interval]
+    measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]] by groupField1 [, groupField2 [, groupField3]]  [interval interval]
+    
 
-	 measure aggregateFunction1([aggregatedField]) [as fieldAlias1] , aggregateFunction2([aggregatedField]) [as fieldAlias2] by groupField [interval interval]
-
-	 measure aggregateFunction([aggregatedField])  interval interval
-
-	 measure aggregateFunction1([aggregatedField]), aggregateFunction2([aggregatedField]), ...  interval interval
+    measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]]  interval interval
 
 
-Agrège les résultats par valeur de *groupField* et calcule les valeurs de mesure agrégées à l'aide de *aggregatedField*.
+
+Agrège les résultats par valeur de *groupField*, puis calcule les valeurs de mesure agrégées à l’aide de *aggregatedField*.
 
 
 |Fonction statistique de mesure|Description|
@@ -379,7 +377,7 @@ Agrège les résultats par valeur de *groupField* et calcule les valeurs de mesu
 |*Intervalle*|Intervalle de temps au format :**nnnNAME** où :nnn est un nombre entier positif. **NAME** est le nom de l’intervalle. Noms d’intervalle pris en charge (sensible à la casse): MILLISECOND[S] SECOND[S] MINUTE[S] HOUR[S] DAY[S] MONTH[S] YEAR[S]|
 
 
-L'option d'intervalle ne peut être utilisée que dans des champs de groupe Date/Heure (tels que *TimeGenerated* et *TimeCreated*). Actuellement, elle n'est pas appliquée par le service, mais un champ sans la valeur Date/Heure qui est transmis au serveur principal entraîne une erreur d'exécution. Lorsque le schéma de validation est implémenté, l’API de service rejette les requêtes qui utilisent des champs sans la valeur Date/Heure pour l’agrégation d’intervalles. L’implémentation actuelle de *Measure* prend en charge le regroupement d’intervalles pour n’importe quelle fonction d’agrégation.
+L'option d'intervalle ne peut être utilisée que dans des champs de groupe Date/Heure (tels que *TimeGenerated* and *TimeCreated*). Actuellement, elle n'est pas appliquée par le service, mais un champ sans la valeur Date/Heure qui est transmis au serveur principal entraîne une erreur d'exécution. Lorsque le schéma de validation est implémenté, l’API de service rejette les requêtes qui utilisent des champs sans la valeur Date/Heure pour l’agrégation d’intervalles. L’implémentation actuelle de *Measure* prend en charge le regroupement d’intervalles pour n’importe quelle fonction d’agrégation.
 
 Si la clause BY est omise mais un intervalle est spécifié (comme seconde syntaxe), le champ *TimeGenerated* est supposé par défaut.
 
@@ -387,15 +385,15 @@ Exemples :
 
 **Exemple 1**
 
-	Type:Alert | measure count() as Count by ObjectId
+    Type:Alert | measure count() as Count by ObjectId
 
 *Explication*
 
-Groupe les alertes par *ObjectID* et calcule le nombre d'alertes pour chaque groupe. La valeur d'agrégation est retournée en tant que champ (alias) *Count*.
+Groupe les alertes par *ObjectID* et calcule le nombre d'alertes pour chaque groupe. La valeur d'agrégation est retournée en tant que champ (alias) *Count* .
 
 **Exemple 2**
 
-	Type:Alert | measure count() interval 1HOUR
+    Type:Alert | measure count() interval 1HOUR
 
 *Explication*
 
@@ -403,7 +401,7 @@ Groupe les alertes par intervalles d'une heure à l'aide du champ *TimeGenerated
 
 **Exemple 3**
 
-	Type:Alert | measure count() as AlertsPerHour interval 1HOUR
+    Type:Alert | measure count() as AlertsPerHour interval 1HOUR
 
 *Explication*
 
@@ -411,7 +409,7 @@ Comme pour l'exemple précédent, mais avec un alias de champ agrégé (*AlertsP
 
 **Exemple 4**
 
-	* | measure count() by TimeCreated interval 5DAYS
+    * | measure count() by TimeCreated interval 5DAYS
 
 *Explication*
 
@@ -419,7 +417,7 @@ Groupe les résultats par intervalles de 5 jours à l'aide du champ *TimeCreate
 
 **Exemple 5**
 
-	Type:Alert | measure max(Severity) by WorkflowName
+    Type:Alert | measure max(Severity) by WorkflowName
 
 *Explication*
 
@@ -427,15 +425,15 @@ Groupe les alertes par nom de la charge de travail et retourne la valeur de grav
 
 **Exemple 6**
 
-	Type:Alert | measure min(Severity) by WorkflowName
+    Type:Alert | measure min(Severity) by WorkflowName
 
 *Explication*
 
-Comme pour l'exemple précédent, mais avec la fonction agrégée *Min*.
+Comme pour l'exemple précédent, mais avec la fonction agrégée *Min* .
 
 **Exemple 7**
 
-	Type:Perf | measure avg(CounterValue) by Computer
+    Type:Perf | measure avg(CounterValue) by Computer
 
 *Explication*
 
@@ -443,7 +441,7 @@ Groupe les performances par ordinateur et calcule la moyenne (avg).
 
 **Exemple 8**
 
-	Type:Perf | measure sum(CounterValue) by Computer
+    Type:Perf | measure sum(CounterValue) by Computer
 
 *Explication*
 
@@ -451,7 +449,7 @@ Comme pour l'exemple précédent, mais utilise *Sum*.
 
 **Exemple 9**
 
-	Type:Perf | measure stddev(CounterValue) by Computer
+    Type:Perf | measure stddev(CounterValue) by Computer
 
 *Explication*
 
@@ -459,7 +457,7 @@ Comme pour l'exemple précédent, mais utilise *STDDEV*.
 
 **Exemple 10**
 
-	Type:Perf | measure percentile70(CounterValue) by Computer
+    Type:Perf | measure percentile70(CounterValue) by Computer
 
 *Explication*
 
@@ -467,37 +465,45 @@ Identique à l’exemple précédent, mais utilise *PERCENTILE70*.
 
 **Exemple 11**
 
-	Type:Perf | measure pct70(CounterValue) by Computer
+    Type:Perf | measure pct70(CounterValue) by Computer
 
 *Explication*
 
-Identique à l’exemple précédent, mais utilise *PCT70*. Notez que *PC ##* est uniquement un alias de la fonction *PERCENTILE##*.
+Identique à l’exemple précédent, mais utilise *PCT70*. Notez que *PCT##* est uniquement un alias de la fonction *PERCENTILE##*.
 
 **Exemple 12**
 
-	Type:Alert | measure count() as Count by WorkflowName | sort Count desc | top 5
+    Type:Perf | measure avg(CounterValue) by Computer, CounterName
+
+*Explication*
+
+Regroupe Perf d’abord par ordinateur, puis CounterName, puis calcule la moyenne (avg).
+
+**Exemple 13**
+
+    Type:Alert | measure count() as Count by WorkflowName | sort Count desc | top 5
 
 *Explication*
 
 Obtient les cinq premiers flux de travail avec le nombre maximal d'alertes.
 
-**Exemple 13**
+**Exemple 14**
 
-	* | measure countdistinct(Computer) by Type
+    * | measure countdistinct(Computer) by Type
 
 *Explication*
 
 Compte le nombre d’ordinateurs uniques générant des rapports pour chaque Type.
 
-**Exemple 14**
+**Exemple 15**
 
-	* | measure countdistinct(Computer) Interval 1HOUR
+    * | measure countdistinct(Computer) Interval 1HOUR
 
 *Explication*
 
 Compte le nombre d’ordinateurs uniques générant des rapports pour chaque heure.
 
-**Exemple 15**
+**Exemple 16**
 
 ```
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total” | measure avg(CounterValue) by Computer Interval 1HOUR
@@ -507,15 +513,15 @@ Type:Perf CounterName=”% Processor Time” InstanceName=”_Total” | measure
 
 Groupe le % de temps processeur par ordinateur et retourne la moyenne pour chaque de 1 heure.
 
-**Exemple 16**
+**Exemple 17**
 
-	Type:W3CIISLog | measure max(TimeTaken) by csMethod Interval 5MINUTES
+    Type:W3CIISLog | measure max(TimeTaken) by csMethod Interval 5MINUTES
 
 *Explication*
 
 Groupe W3CIISLog par méthode et retourne la valeur maximale pour chaque tranche de 5 minutes.
 
-**Exemple 17**
+**Exemple 18**
 
 ```
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer Interval 1HOUR
@@ -525,7 +531,18 @@ Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measur
 
 Groupe le % de temps processeur par ordinateur et retourne la valeur minimum, la moyenne, le 75e centile et la valeur maximum pour chaque tranche d’1 heure.
 
-### Where
+**Exemple 19**
+
+```
+Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer, InstanceName Interval 1HOUR
+```
+
+*Explication*
+
+Regroupe % Processor Time d’abord par ordinateur, puis par nom d’instance, puis retourne la valeur minimale, la moyenne, le 75e centile et la valeur maximale pour chaque tranche d’1 heure.
+
+
+### <a name="where"></a>Where
 
 Syntaxe :
 
@@ -533,15 +550,15 @@ Syntaxe :
 **where** AggregatedValue>20
 ```
 
-Peut être utilisée uniquement après une commande *Measure* pour filtrer davantage les résultats agrégés que la fonction d'agrégation *Measure* a produits.
+Peut être utilisée uniquement après une commande *Measure* pour filtrer davantage les résultats agrégés que la fonction d’agrégation *Measure* a produits.
 
 Exemples :
 
-	Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) as MAXCPU by Computer
+    Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) as MAXCPU by Computer
 
-	Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
+    Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
-### IN
+### <a name="in"></a>IN
 
 Syntaxe :
 
@@ -563,82 +580,101 @@ La dernière requête portant sur *tous les événements Windows pour les ordina
 Type=Event Computer IN {Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer}
 ```
 
-### Dedup
+### <a name="dedup"></a>Dedup
 
 **Syntaxe**
 
-	Dedup FieldName
+    Dedup FieldName
 
 **Description** retourne le premier document trouvé pour chaque valeur unique du champ donné.
 
 **Exemple**
 
-	Type=Event | sort TimeGenerated DESC | Dedup EventID
+    Type=Event | sort TimeGenerated DESC | Dedup EventID
 
-L’exemple ci-dessus renvoie un événement (la dernière version, puisque nous utilisons DESC sur TimeGenerated) par EventID
+L’exemple ci-dessus retourne un seul événement (le dernier puisque nous utilisons DESC sur TimeGenerated) par EventID
 
 
-### Extend
+### <a name="extend"></a>Extend
 
 **Description** vous permet de créer des champs d’exécution dans les requêtes
 
 **Exemple 1**
 
-	Type=SQLAssessmentRecommendation | Extend product(RecommendationScore, RecommendationWeight) AS RecommendationWeightedScore
+    Type=SQLAssessmentRecommendation | Extend product(RecommendationScore, RecommendationWeight) AS RecommendationWeightedScore
 Afficher le score de recommandation pondéré pour les recommandations d’évaluation SQL
 
 **Exemple 2**
 
-	Type=Perf CounterName="Private Bytes" | EXTEND div(CounterValue,1024) AS KBs | Select CounterValue,Computer,KBs
+    Type=Perf CounterName="Private Bytes" | EXTEND div(CounterValue,1024) AS KBs | Select CounterValue,Computer,KBs
 Afficher la valeur de compteur en Ko au lieu d’octets
 
 **Exemple 3**
 
-	Type=WireData | EXTEND scale(TotalBytes,0,100) AS ScaledTotalBytes | Select ScaledTotalBytes,TotalBytes | SORT TotalBytes DESC
+    Type=WireData | EXTEND scale(TotalBytes,0,100) AS ScaledTotalBytes | Select ScaledTotalBytes,TotalBytes | SORT TotalBytes DESC
 Mettre à l’échelle la valeur de WireData TotalBytes de sorte que tous les résultats soient compris entre 0 et 100.
 
 **Exemple 4**
 
 ```
 Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
-Valeurs Tag Perf Counter inférieures à 50 % définies comme LOW et les autres comme HIGH
+Tag Perf Counter Values less than 50% las LOW and others as HIGH
 ```
 
 **Fonctions prises en charge**
 
 
-|Fonction |Description |Exemples de syntaxe|
+| Fonction | Description | Exemples de syntaxe |
 |---------|---------|---------|
-| abs | Retourne la valeur absolue de la valeur ou de la fonction spécifiée.| `abs(x)` <br> `abs(-5)` |
-| and | Retourne la valeur true si et seulement si tous les opérandes ont la valeur true. | `and(not(exists(**popularity**)),exists(**price**))` |
-| def | def est l’abréviation de valeur par défaut. Retourne la valeur du champ « field » ou, si le champ n’existe pas, renvoie la valeur par défaut spécifiée et retourne la première valeur où : `exists()==true`. | `div(1,y)` <br> `div(sum(x,100),max(y,1))` |
-| div | `div(x,y)` divise x par y. | `div(1,y),div(sum(x,100),max(y,1))` |
-| dist | Retourne la distance entre deux vecteurs, (points) dans un espace à n dimensions. Prend la puissance, ainsi que deux instances ValueSource ou plus, et calcule les distances entre les deux vecteurs. Chaque ValueSource doit être un nombre. Un nombre pair d’instances ValueSource doit être transféré et la méthode suppose que la première moitié représente le premier vecteur et que la seconde moitié représente le second vecteur. | `dist(2, x, y, 0, 0)` : calcule la distance euclidienne entre (0,0) et (x,y) pour chaque document.<br> `dist(1, x, y, 0, 0)` : calcule la distance de Manhattan (taxi) entre (0,0) et (x,y) pour chaque document.<br> `dist(2,,x,y,z,0,0,0)` : distance euclidienne entre (0,0,0) et (x,y,z) pour chaque document.<br>`dist(1,x,y,z,e,f,g)` : distance de Manhattan entre (x,y,z) et (e,f,g), où chaque lettre est un nom de champ.</p> |
-| exists | Retourne TRUE si un membre du champ existe. | `exists(author)` renvoie la valeur TRUE pour tout document contenant une valeur dans le champ « author ».<br>`exists(query(price:5.00))` retourne la valeur TRUE si « price » correspond à « 5.00 ». |
-| hsin | La distance de Haversine calcule la distance entre deux points sur une sphère lorsqu’ils se déplacent le long de la sphère. Les valeurs doivent être exprimées en radians. hsinalso accepte un argument booléen pour indiquer si la fonction doit convertir sa sortie en radians. | `hsin(2, true, x, y, 0, 0)` |
-| if | Autorise les requêtes de fonction conditionnelle. Dans `if(test,value1,value2)` : · test est ou fait référence à une valeur logique ou une expression qui retourne une valeur logique (TRUE ou FALSE). `value1` est la valeur retournée par la fonction si le test renvoie la valeur TRUE. `value2` est la valeur retournée par la fonction si le test renvoie FALSE. Une expression peut être n’importe quelle fonction qui génère des valeurs booléennes, voire des fonctions qui retournent des valeurs numériques, auquel cas la valeur 0 sera interprétée comme false, ou des chaînes, auquel cas une chaîne vide est interprétée comme false. | `if(termfreq(cat,'electronics'),popularity,42)` : cette fonction vérifie chaque document pour vérifier s’il contient le terme « electronics » dans le champ cat. Si tel est le cas, la valeur du champ popularity est renvoyée ; sinon, la requête renvoie la valeur 42. |
-| linear | Implémente `m*x+c` où m et c sont des constantes et x est une fonction arbitraire. Cette requête équivaut à `sum(product(m,x),c)`, mais est un peu plus efficace puisqu’elle est implémentée comme une seule fonction. | `linear(x,m,c) linear(x,2,4)` renvoie `2*x+4` |
+| abs | Retourne la valeur absolue de la valeur ou de la fonction spécifiée. | `abs(x)` <br> `abs(-5)` |
+| acos | Retourne l’arc cosinus d’une valeur ou fonction. | `acos(x)` |
+| and | Retourne la valeur true si et seulement si tous les opérandes produise la valeur true. | `and(not(exists(popularity)),exists(price))` |
+| asin | Retourne l’arc sinus d’une valeur ou une fonction. | `asin(x)` |
+| atan | Retourne l’arc tangente d’une valeur ou fonction. | `atan(x)` |
+| atan2 |  Retourne l’angle résultant de la conversion de coordonnées rectangulaires x, y en coordonnées polaires. | `atan2(x,y)` |
+| cbrt | Racine cubique. |  `cbrt(x)` | 
+| ceil | Arrondit à un entier. | `ceil(x)`  <br> `ceil(5.6)` - Retourne 6. |
+| cos | Retourne le cosinus d’un angle. | `cos(x)` |
+| cosh | Retourne le cosinus hyperbolique d’un angle. | `cosh(x)` |
+| def | def est l’abréviation de valeur par défaut. Retourne la valeur du champ « field » ou, si le champ n’existe pas, renvoie la valeur par défaut spécifiée et retourne la première valeur où : `exists()==true` | `def(rating,5)` : cette fonction def() retourne l’évaluation ou, si aucune évaluation n’est spécifiée dans le document, retourne 5. <br> `def(myfield, 1.0)` : équivaut à `if(exists(myfield),myfield,1.0)`. |
+| deg | Convertit des radians en degrés. |  `deg(x)` | 
+| div | `div(x,y)` divise x par y. | `div(1,y)` <br> `div(sum(x,100),max(y,1))` |
+| dist | Retourne la distance entre deux vecteurs, (points) dans un espace à n dimensions. Prend la puissance, ainsi que deux instances ValueSource ou plus, et calcule les distances entre les deux vecteurs. Chaque ValueSource doit être un nombre. Un nombre pair d’instances ValueSource doit être transféré et la méthode suppose que la première moitié représente le premier vecteur et que la seconde moitié représente le second vecteur.  | `dist(2, x, y, 0, 0)` : calcule la distance euclidienne entre (0,0,0) et (x,y) pour chaque document. <br> `dist(1, x, y, 0, 0)` : calcule la distance de Manhattan (taxi) entre (0,0) et (x,y) pour chaque document. <br> `dist(2,,x,y,z,0,0,0)` : calcule la distance euclidienne entre (0,0,0) et (x,y,z) pour chaque document.<br>`dist(1,x,y,z,e,f,g)` : distance de Manhattan entre (x,y,z) et (e,f,g), où chaque lettre est un nom de champ. |
+| exists | Retourne TRUE si un membre du champ existe. | `exists(author)`retourne TRUE pour tout document contenant une valeur dans le champ « author ».<br>`exists(query(price:5.00))` : retourne TRUE si la valeur de « price » est « 5.00 ». |
+| exp | Retourne le nombre d’Euler élevé à la puissance x. | `exp(x)` |
+| floor | Arrondit à l’entier inférieur. | `floor(x)`  <br> `floor(5.6)`retourne 5 |
+| hypo | Retourne Sqrt(sum(pow(x,2),pow(y,2))) sans dépassement positif ou négatif intermédiaire. | `hypo(x,y)`  <br> ` |
+| if | Autorise les requêtes de fonction conditionnelle. Dans `if(test,value1,value2)` : · test est ou fait référence à une valeur logique ou une expression qui retourne une valeur logique (TRUE ou FALSE).  `value1` est la valeur retournée par la fonction si le test renvoie la valeur TRUE. `value2` est la valeur retournée par la fonction si le test renvoie FALSE. Une expression peut être n’importe quelle fonction qui génère des valeurs booléennes, voire des fonctions qui retournent des valeurs numériques, auquel cas la valeur 0 sera interprétée comme false, ou des chaînes, auquel cas une chaîne vide est interprétée comme false. | `if(termfreq(cat,'electronics'),popularity,42)` : cette fonction contrôle chaque document pour vérifier s’il contient le terme « electronics » dans le champ cat. Si tel est le cas, la valeur du champ popularity est renvoyée ; sinon, la requête renvoie la valeur 42. |
+| linear | Implémente `m*x+c` où m et c sont des constantes et x est une fonction arbitraire. Cette requête équivaut à `sum(product(m,x),c)`, mais est un peu plus efficace puisqu’elle est implémentée comme une seule fonction. | `linear(x,m,c) linear(x,2,4)` retourne `2*x+4` |
+| ln| Retourne le logarithme naturel de la fonction spécifiée. |  `ln(x)` | 
 | log | Retourne la base logarithmique 10 de la fonction spécifiée. | `log(x)   log(sum(x,100))` |
-| map | Mappe les valeurs d’une fonction d’entrée x comprises entre min et max (inclus) à la cible spécifiée. Les arguments min et max doivent être des constantes. Les valeurs cible et par défaut des arguments peuvent être des constantes ou des fonctions. Si la valeur de x n’est pas comprise entre min et max, la valeur de x est retournée, ou une valeur par défaut est retournée si elle est spécifiée comme 5e argument. | `map(x,min,max,target) map(x,0,0,1)` - remplace toutes les valeurs de 0 par 1. Cela peut être utile pour le traitement des valeurs par défaut 0.<br> `map(x,min,max,target,default)    map(x,0,100,1,-1)` - remplace les valeurs comprises entre 0 et 100 1 par 1 et toutes les autres valeurs par -1.<br>  `map(x,0,100,sum(x,599),docfreq(text,solr))` - remplace toutes les valeurs comprises entre 0 et 100 par x+599 et toutes les autres valeurs par la fréquence du terme « solr » dans le texte du champ.</p> |
-| max | Retourne la valeur numérique maximale de plusieurs fonctions ou constantes imbriquées, lesquelles sont spécifiées en tant qu’arguments : `max(x,y,...)`. La fonction max peut également être utile pour réduire une autre fonction ou un autre champ à une constante spécifiée. (Utilisez la syntaxe `field(myfield,max)` pour sélectionner la valeur maximale d’un seul champ à valeurs multiples) | `max(myfield,myotherfield,0)` |
-| min | Retourne la valeur numérique minimale de plusieurs fonctions ou constantes imbriquées, lesquelles sont spécifiées en tant qu’arguments : `min(x,y,...)`. La fonction min peut également être utile pour définir une « limite supérieure » sur une fonction à l’aide d’une constante. (Utilisez la syntaxe `field(myfield,min)` pour sélectionner la valeur minimale d’un seul champ à valeurs multiples) | `min(myfield,myotherfield,0)` |
-| ms | Retourne la différence en millisecondes entre ses arguments. Les dates se rapportent à l’époque Unix ou POSIX, à minuit, le 1er janvier 1970 (UTC). Les arguments peuvent prendre le nom d’un TrieDateField indexé ou d’une mathématique de date basée sur une date constante ou sur NOW. `ms()` : équivalent à `ms(NOW)`, nombre de millisecondes depuis l’époque. `ms(a)` : retourne le nombre de millisecondes depuis l’époque représentée par l’argument. `ms(a,b)` : retourne le nombre de millisecondes où b se produit avant a (autrement dit, `a - b`) | `ms(NOW/DAY)`<br>`ms(2000-01-01T00:00:00Z)`<br>`ms(mydatefield)`<br>`ms(NOW,mydatefield)`<br>`ms(mydatefield,2000-01-01T00:00:00Z)`<br>`ms(datefield1,datefield2)` |
-| not | Valeur de négation logique de la fonction encapsulée. | `not(exists(author))` : TRUE uniquement lorsque exists(author) est défini sur false. |
-| ou | Une disjonction logique. |`or(value1,value2)` : TRUE si value1 ou value2 a la valeur true. |
-| pow | Élève la base spécifiée à la puissance spécifiée. `pow(x,y)` élève x à la puissance de y. | `pow(x,y)`<br>`pow(x,log(y))`<br>`pow(x,0.5)` : identique à sqrt |
+| map | Mappe les valeurs d’une fonction d’entrée x comprises entre min et max (inclus) à la cible spécifiée. Les arguments min et max doivent être des constantes. Les valeurs cible et par défaut des arguments peuvent être des constantes ou des fonctions. Si la valeur de x n’est pas comprise entre min et max, la valeur de x est retournée, ou une valeur par défaut est retournée si elle est spécifiée comme 5e argument. |  `map(x,min,max,target) map(x,0,0,1)` : modifie les valeurs de 0 à 1. Cela peut être utile pour le traitement des valeurs par défaut 0.<br> `map(x,min,max,target,default)    map(x,0,100,1,-1)`: convertit les valeurs de 0 à 100 en 1, et toutes les autres valeurs en -1.<br>  `map(x,0,100,sum(x,599),docfreq(text,solr))` : remplace toutes les valeurs comprises entre 0 et 100 par x+599 et toutes les autres valeurs par la fréquence du terme « solr » dans le texte du champ. |
+| max | Retourne la valeur numérique maximale de plusieurs fonctions ou constantes imbriquées, lesquelles sont spécifiées en tant qu’arguments : `max(x,y,...)`. La fonction max peut également être utile pour réduire une autre fonction ou un autre champ à une constante spécifiée.  Utilisez la syntaxe `field(myfield,max)` pour sélectionner la valeur maximale d’un seul champ à valeurs multiples.  | `max(myfield,myotherfield,0)` |
+| Min | Retourne la valeur numérique minimale de plusieurs fonctions ou constantes imbriquées, lesquelles sont spécifiées en tant qu’arguments : `min(x,y,...)`. La fonction min peut également être utile pour définir une « limite supérieure » sur une fonction à l’aide d’une constante. Utilisez la syntaxe `field(myfield,min)` pour sélectionner la valeur minimale d’un seul champ à valeurs multiples. | `min(myfield,myotherfield,0)` |
+| mod | Calcule le modulo de la fonction x par la fonction y. |`mod(1,x)` <br> `mod(sum(x,100), max(y,1))`   | 
+| ms | Retourne la différence en millisecondes entre ses arguments. Les dates se rapportent à l’époque Unix ou POSIX, à minuit, le 1er janvier 1970 (UTC). Les arguments peuvent prendre le nom d’un TrieDateField indexé ou d’une mathématique de date basée sur une date constante ou sur NOW. `ms()` est équivalent à `ms(NOW)`, nombre de millisecondes depuis l’époque spécifiée. `ms(a)` : retourne le nombre de millisecondes depuis l’époque représentée par l’argument. `ms(a,b)` retourne le nombre de millisecondes avant a de la survenance de b, qui est `a - b`.| `ms(NOW/DAY)`<br>`ms(2000-01-01T00:00:00Z)`<br>`ms(mydatefield)`<br>`ms(NOW,mydatefield)`<br>`ms(mydatefield,2000-01-01T00:00:00Z)`<br>`ms(datefield1,datefield2)` |
+| not | Valeur de négation logique de la fonction encapsulée. | `not(exists(author))` : TRUE uniquement lorsque `exists(author)` a la valeur false. |
+| ou | Une disjonction logique. | `or(value1,value2)` : TRUE si value1 ou value2 a la valeur true. |
+| pow | Élève la base spécifiée à la puissance spécifiée. `pow(x,y)` élève x à la puissance de y. |  `pow(x,y)`<br>`pow(x,log(y))`<br>`pow(x,0.5)` : est identique à sqrt. |
 | product | Retourne le produit de plusieurs valeurs ou fonctions spécifiées dans une liste séparée par des virgules. `mul(...)` peut également être utilisé comme alias pour cette fonction. | `product(x,y,...)`<br>`product(x,2)`<br>`product(x,y)`<br>`mul(x,y)` |
-| recip | Exécute une fonction réciproque avec `recip(x,m,a,b)` implémentant `a/(m*x+b)`, où m,a,b sont des constantes et x représente n’importe quelle fonction arbitrairement complexe. Lorsque a et b sont égaux et que x>=0, cette fonction a une valeur maximale de 1 qui diminue à mesure que x augmente. Le fait d’augmenter simultanément la valeur de a et de b a pour effet de déplacer l’ensemble de la fonction vers une partie plus plane de la courbe. Ces propriétés peuvent en faire une fonction idéale pour améliorer les documents plus récents lorsque x `rord(datefield)`. | `recip(myfield,m,a,b)`<br>`recip(rord(creationDate),1,1000,1000)` |
-| scale | Met à l’échelle les valeurs de la fonction x de sorte qu’elles soient comprises entre les valeurs minTarget et maxTarget spécifiées (incluses). L’implémentation actuelle parcourt toutes les valeurs de la fonction pour obtenir les valeurs min et max afin de pouvoir récupérer l’échelle adéquate. L’implémentation actuelle ne peut pas déterminer lorsque des documents ont été supprimés ou lorsqu’ils ne comportent aucune valeur. Elle utilise les valeurs 0.0 dans ces cas. Cela signifie que si les valeurs sont normalement toutes supérieures à 0.0, l’une d’elles peut finir par une valeur min de 0.0 à partir de laquelle sera effectué le mappage. Dans ces cas, une fonction `map()` appropriée peut être utilisée comme solution de contournement pour remplacer 0.0 par une valeur comprise dans la plage réelle, comme indiqué ici : `scale(map(x,0,0,5),1,2)` | `scale(x,minTarget,maxTarget)`<br>`scale(x,1,2)` : met à l’échelle les valeurs de x tel de sorte que toutes les valeurs soient comprise entre 1 et 2 inclus. </p> |
-| sqedist | La distance euclidienne au carré calcule la norme 2 (la distance euclidienne) mais ne prend pas la racine carrée, ce qui évite une opération relativement coûteuse. Il arrive souvent que les applications qui tiennent compte de la distance euclidienne n’aient pas besoin de la distance réelle, mais utilisent à la place le carré de la distance. Un nombre pair d’instances ValueSource doit être transféré et la méthode suppose que la première moitié représente le premier vecteur et que la seconde moitié représente le second vecteur. | `sqedist(x_td, y_td, 0, 0)` |
+| recip | Exécute une fonction réciproque avec `recip(x,m,a,b)` implémentant `a/(m*x+b)`, où m,a,b sont des constantes, et x toute fonction arbitrairement complexe. Lorsque a et b sont égaux et que x>=0, cette fonction a une valeur maximale de 1 qui diminue à mesure que x augmente. Le fait d’augmenter simultanément la valeur de a et de b a pour effet de déplacer l’ensemble de la fonction vers une partie plus plane de la courbe. Ces propriétés peuvent en faire une fonction idéale pour améliorer les documents plus récents lorsque x est `rord(datefield)`. | `recip(myfield,m,a,b)`<br>`recip(rord(creationDate),1,1000,1000)` |
+| rad | Convertit des degrés en radians. | `rad(x)` |
+| rint| Arrondit à l’entier le plus proche. | `rint(x)`  <br> `rint(5.6)` : retourne 6. |
+| sin | Retourne le sinus d’un angle. | `sin(x)` |
+| sinh | Retourne le sinus hyperbolique d’un angle. | `sinh(x)` |
+| scale | Met à l’échelle les valeurs de la fonction x de sorte qu’elles soient comprises entre les valeurs minTarget et maxTarget spécifiées (incluses). L’implémentation actuelle parcourt toutes les valeurs de la fonction pour obtenir les valeurs min et max afin de pouvoir récupérer l’échelle adéquate. L’implémentation actuelle ne peut pas déterminer lorsque des documents ont été supprimés ou lorsqu’ils ne comportent aucune valeur. Elle utilise les valeurs 0.0 dans ces cas. Cela signifie que si les valeurs sont normalement toutes supérieures à 0.0, l’une d’elles peut finir par une valeur min de 0.0 à partir de laquelle sera effectué le mappage. Dans ces cas, une fonction `map()` appropriée peut être utilisée comme solution de contournement pour remplacer 0.0 par une valeur comprise dans la plage réelle, comme indiqué ici : `scale(map(x,0,0,5),1,2)`. | `scale(x,minTarget,maxTarget)`<br>`scale(x,1,2)` : met à l’échelle les valeurs de x tel de sorte que toutes les valeurs soient comprise entre 1 et 2 inclus. | 
 | sqrt | Retourne la racine carrée de la valeur ou fonction spécifiée. | `sqrt(x)`<br>`sqrt(100)`<br>`sqrt(sum(x,100))` |
-| strdist | Calculer la distance entre deux chaînes. Utilise l’interface StringDistance du vérificateur orthographique Lucene et prend en charge toutes les implémentations disponibles dans ce package, tout en permettant aux applications de se connecter d’elles-mêmes à l’aide des fonctionnalités de chargement de la ressource de Solr. strdist prend les valeurs `(string1, string2, mesure de distance)`. Valeurs possibles pour la mesure de distance : jw: Jaro-Winkler edit: Levenstein ou Edit distance ngram: Le paramètre NGramDistance, s’il est spécifié, peut éventuellement passer également dans la taille ngram. La valeur par défaut est 2. FQN : nomplet nom de la classe pour une implémentation de l’interface StringDistance. Doit avoir un constructeur non arg. | `strdist("SOLR",id,edit)` |
+| strdist | Calculer la distance entre deux chaînes. Utilise l’interface StringDistance du vérificateur orthographique Lucene et prend en charge toutes les implémentations disponibles dans ce package, tout en permettant aux applications de se connecter d’elles-mêmes à l’aide des fonctionnalités de chargement de la ressource de Solr. strdist prend les valeurs `(string1, string2, distance measure)`. Les valeurs possibles pour la mesure de distance sont les suivantes : <br>jw : Jaro-Winkler<br>edit : distance de Levenstein ou d’édition<br>ngram : la distance n-grammes, si elle est spécifiée, peut éventuellement exprimer la taille. La valeur par défaut est 2.<br>FQN : nomplet nom de la classe pour une implémentation de l’interface StringDistance. Doit avoir un constructeur non arg.|`strdist("SOLR",id,edit)` |
 | sub | Retourne x-y à partir de `sub(x,y)`. | `sub(myfield,myfield2)`<br>`sub(100,sqrt(myfield))` |
-| sum | Retourne la somme de plusieurs valeurs ou fonctions spécifiées dans une liste séparée par des virgules. `add(...)` peut également être utilisé comme alias pour cette fonction. | `sum(x,y,...)`<br>`sum(x,1)`<br>`sum(x,y)`<br>`sum(sqrt(x),log(y),z,0.5)`<br>`add(x,y)` |
-| xor | autre, mais pas les deux. | `xor(field1,field2)` : retourne la valeur TRUE si field1 ou field2 est défini sur true ; FALSE si les deux sont définis sur true. |
+| Sum | Retourne la somme de plusieurs valeurs ou fonctions spécifiées dans une liste séparée par des virgules. `add(...)` peut également être utilisé comme alias pour cette fonction. | `sum(x,y,...)`<br>`sum(x,1)`<br>`sum(x,y)`<br>`sum(sqrt(x),log(y),z,0.5)`<br>`add(x,y)`|
+|termfreq | Retourne le nombre de fois où que le terme apparaît dans le champ de ce document. | termfreq(text,’memory’)|
+| tan | Retourne la tangente d’un angle. | `tan(x)` |
+| tanh | Retourne la tangente hyperbolique d’un angle. | `tanh(x)` |
 
 
 
-## Référence de champ et de facette de recherche
+
+## <a name="search-field-and-facet-reference"></a>Référence de champ et de facette de recherche
 
 Lorsque vous utilisez log Search pour rechercher des données, les résultats affichent différents champs et facettes. Toutefois, certaines informations que vous verrez ne sont pas très descriptives. Vous pouvez utiliser les informations suivantes pour vous aider à comprendre les résultats.
 
@@ -672,11 +708,11 @@ Lorsque vous utilisez log Search pour rechercher des données, les résultats af
 |UpdateTitle|RequiredUpdate|Nom de la mise à jour qui a été trouvée mais pas installée|
 |PublishDate|RequiredUpdate|Date à laquelle la mise à jour a été publiée sur Microsoft Update.|
 |Serveur|RequiredUpdate|Nom de l'ordinateur auquel appartiennent les données (identique à « Computer »)|
-|Produit|RequiredUpdate|Produit auquel s’applique la mise à jour|
+|product|RequiredUpdate|Produit auquel s’applique la mise à jour|
 |UpdateClassification|RequiredUpdate|Type de mise à jour (correctif cumulatif de mise à jour, Service Pack, etc.)|
 |KBID|RequiredUpdate|ID d'article de la base de connaissances qui décrit cette meilleure pratique ou mise à jour|
 |WorkflowName|ConfigurationAlert|Nom de la règle ou du moniteur qui a généré l'alerte|
-|Niveau de gravité|ConfigurationAlert|Gravité de l'alerte|
+|Severity|ConfigurationAlert|Gravité de l'alerte|
 |Priorité|ConfigurationAlert|Priorité de l'alerte|
 |IsMonitorAlert|ConfigurationAlert|Cette alerte est-elle générée par une analyse (true) ou une règle (false) ?|
 |AlertParameters|ConfigurationAlert|XML avec les paramètres de l’alerte Log Analytics|
@@ -686,12 +722,12 @@ Lorsque vous utilisez log Search pour rechercher des données, les résultats af
 |Description|ConfigurationAlert|Description de l'alerte (en bref)|
 |DaysSinceLastUpdate|UpdateAgent|Nombre de jours (par rapport à la valeur « TimeGenerated » de cet enregistrement) auquel remonte la dernière installation par l’agent d’une mise à jour quelconque provenant de WSUS ou de Microsoft Update.|
 |DaysSinceLastUpdateBucket|UpdateAgent|Catégorisation, basée sur la valeur DaysSinceLastUpdate, en « intervalles de planification » du temps écoulé depuis qu’un ordinateur a installé pour la dernière fois une mise à jour quelconque provenant de WSUS ou de Microsoft Update.|
-|AutomaticUpdateEnabled|UpdateAgent|La vérification automatique des mises à jour est-elle activée ou désactivée sur cet agent ?v
+|AutomaticUpdateEnabled|UpdateAgent|Activation ou désactivation de la vérification de mise à jour automatique sur cet agent.
 |AutomaticUpdateValue|UpdateAgent|Configuration de la vérification de mise à jour automatique : téléchargement et installation, téléchargement uniquement ou vérification uniquement.|
 |WindowsUpdateAgentVersion|UpdateAgent|Numéro de version de l'agent Microsoft Update|
 |WSUSServer|UpdateAgent|Quel serveur WSUS cet agent de mise à jour cible-t-il ?|
 |OSVersion:|UpdateAgent|Version du système d'exploitation sur laquelle l’agent de cette mise à jour est exécuté|
-|Nom|Recommendation, ConfigurationObjectProperty|Nom ou titre de la recommandation, ou nom de la propriété de l’évaluation de configuration de Log Analytics|
+|NAME|Recommendation, ConfigurationObjectProperty|Nom ou titre de la recommandation, ou nom de la propriété de l’évaluation de configuration de Log Analytics|
 |Valeur|ConfigurationObjectProperty|Valeur d’une propriété de l’évaluation de configuration de Log Analytics|
 |KBLink|Recommandation|URL menant à l’article de la base de connaissances qui décrit cette meilleure pratique ou mise à jour|
 |RecommendationStatus|Recommandation|Les recommandations font partie des quelques types dont les enregistrements sont « mis à jour » au lieu d’être simplement ajoutés à l'index de recherche. Cet état change si la recommandation est active/ouverte ou si Log Analytics détecte qu’elle a été résolue.|
@@ -700,10 +736,10 @@ Lorsque vous utilisez log Search pour rechercher des données, les résultats af
 |EventData|Événement|XML avec toute la section « données » d'un événement Windows (tel qu’elle s’affiche dans l'observateur d'événements)|
 |Source|Événement|Source du journal des événements ayant généré l'événement|
 |EventCategory|Événement|Catégorie de l'événement, extraite directement du journal des événements Windows|
-|Nom d’utilisateur|Événement|Nom d'utilisateur de l'événement Windows (en général, NT AUTHORITY\\LOCALSYSTEM)|
+|Nom d’utilisateur|Événement|Nom d'utilisateur de l'événement Windows (en général, NT AUTHORITY\LOCALSYSTEM)|
 |SampleValue|PerfHourly|Valeur moyenne de l'agrégation de toutes les heures d'un compteur de performance|
 |Min|PerfHourly|Valeur minimale de l'intervalle horaire d'un agrégat de toutes les heures du compteur de performances|
-|Max|PerfHourly|Valeur maximale de l'intervalle horaire d'un agrégat de toutes les heures du compteur de performances|
+|max|PerfHourly|Valeur maximale de l'intervalle horaire d'un agrégat de toutes les heures du compteur de performances|
 |Percentile95|PerfHourly|La valeur du 95ème centile de l’intervalle horaire d’un agrégat de toutes les heures du compteur de performance.|
 |SampleCount|PerfHourly|Combien d’exemples de compteurs de performances « bruts » ont été utilisés pour produire cet enregistrement d’agrégation toutes les heures|
 |Menace|ProtectionStatus|Nom du programme malveillant trouvé|
@@ -751,10 +787,14 @@ Lorsque vous utilisez log Search pour rechercher des données, les résultats af
 |Précédent|ConfigurationChange|État précédent de ce logiciel (installé, non installé, version précédente)|
 |Current|ConfigurationChange|Dernier état de ce logiciel (installé, non installé, version actuelle)|
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les recherches de journal :
 
-- Familiarisez-vous avec les [recherches de journal](log-analytics-log-searches.md) pour afficher les informations détaillées collectées par les solutions.
+- Familiarisez-vous avec les [recherches de journaux](log-analytics-log-searches.md) pour afficher les informations détaillées collectées par les solutions.
 - Utilisez [Champs personnalisés dans Log Analytics](log-analytics-custom-fields.md) pour étendre les recherches de journal.
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

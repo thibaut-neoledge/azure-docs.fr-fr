@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Utilisation d’Office avec Azure RemoteApp | Microsoft Azure" 
-    description="Découvrez comment Office et Azure RemoteApp fonctionnent ensemble"
+    pageTitle="Using Office with Azure RemoteApp | Microsoft Azure" 
+    description="Learn how Office and Azure RemoteApp work together"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -16,40 +16,45 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
-# Utilisation d'Office avec Azure RemoteApp
+
+# <a name="using-office-with-azure-remoteapp"></a>Using Office with Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Vous avez deux possibilités pour l'hébergement des applications Office dans Azure RemoteApp : Office 365 ProPlus ou la version d'évaluation d'Office 2013 Professionnel Plus.
+You have two choices for hosting Office applications in Azure RemoteApp: Office 365 ProPlus or Office 2013 Professional Plus Trial.
 
-**Bonjour, saviez-vous que nous avons un nouvel article amélioré qui va bientôt remplacer celui-ci ? Découvrez [Utilisation de votre abonnement Office 365 avec Azure RemoteApp](remoteapp-officesubscription.md). Il couvre toutes les informations dont vous avez besoin pour utiliser Office 365 + Azure RemoteApp.**
+**Hey, did you know we have a new, better article that will soon replace this? Check out [How to use your Office 365 subscription with Azure RemoteApp](remoteapp-officesubscription.md). It covers all the info you need for using Office 365 + Azure RemoteApp.**
 
-## Office 365 ProPlus
-Vous pouvez créer une collection RemoteApp à l'aide de l'image de modèle Office 365 ProPlus. Cette option vous permet d'étendre votre service Office 365 à RemoteApp. Vous devez déjà disposer d’un plan d’abonnement et vos utilisateurs doivent bénéficier d’une licence pour le service Office 365 ProPlus (en version autonome ou avec les plans de service Office 365).
+## <a name="office-365-proplus"></a>Office 365 ProPlus
+You can create a RemoteApp collection using the Office 365 ProPlus template image. This option allows you to extend your Office 365 service to RemoteApp. You must have an existing subscription plan and your users must be licensed for the Office 365 ProPlus service, either standalone or through the Office 365 service plans.
 
-RemoteApp prend en charge l'activation d’ordinateurs partagés Office 365. Quand vous autorisez l'activation d’ordinateurs partagés et que vous utilisez l'[outil de déploiement Office](http://www.microsoft.com/download/details.aspx?id=36778) pour l'installation, Office 365 ProPlus s'installe sans s'activer. Quand un utilisateur se connecte à une collection qui contient Office 365, Office vérifie s'il a été approvisionné pour Office 365 ProPlus. Si c'est le cas, Office active temporairement Office 365 ProPlus. Cette activation perdure tant que l'utilisateur ne se déconnecte pas du service.
+RemoteApp supports Office 365 Shared Computer Activation. When you enable Shared Computer Activation, and use the [Office Deployment tool](http://www.microsoft.com/download/details.aspx?id=36778) for installation, Office 365 ProPlus installs without being activated. When a user signs into a collection that contains Office 365, Office checks to see if the user has been provisioned for Office 365 ProPlus. If so, Office temporarily activates Office 365 ProPlus - this activation persists until that users signs out of the service.
 
-Pour utiliser l'activation d’ordinateurs partagés Office 365, vous devez créer un [modèle personnalisé](remoteapp-create-custom-image.md) et y installer Office 365 ProPlus, en suivant [ces instructions](https://technet.microsoft.com/library/dn782858.aspx).
+To use Office 365 Shared Computer Activation, you need to create a [custom template](remoteapp-create-custom-image.md) and install Office 365 ProPlus there, following [these directions](https://technet.microsoft.com/library/dn782858.aspx).
 
-Vous pouvez gérer les licences Office 365 de vos utilisateurs dans le [portail d'administration Office 365](https://portal.office365.com/). En savoir plus sur les [plans de service Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx).
-
-
-## Version d'évaluation d'Office Professionnel Plus 2013
-Pendant la période d'évaluation de 30 jours de RemoteApp, vous pouvez utiliser l'image de modèle Office Professionnel Plus 2013 (version d'évaluation) pour créer une collection RemoteApp. Vous pouvez attribuer des utilisateurs à cette collection d'évaluation à l'aide de leurs comptes professionnels Azure Active Directory ou comptes Microsoft. Aucun abonnement supplémentaire n’est nécessaire.
-
-C'est l'option idéale pour débuter et tester l'utilisation d'Office dans RemoteApp. Toutefois, cette option est destinée à des fins d'évaluation et de test uniquement. Les collections RemoteApp créées à l'aide de l'image de modèle Office Professionnel Plus 2013 (version d'évaluation) ne peuvent pas être passées en mode de production et seront désactivées à la fin de la période d'évaluation.
-
-## Passage de la version d'évaluation au mode de production
-Quand vous commencez votre période d'évaluation gratuite de 30 jours, une note dans la section RemoteApp du portail vous indique combien de temps il vous reste avant de basculer sur un compte payant. Vous pouvez activer votre compte et passer en mode de production à l'aide du lien figurant dans cette note.
-
-L'activation de votre compte concerne toutes les collections RemoteApp de votre compte.
-
-- Les collections exécutées dans Windows Server 2012 R2 ou les images de modèle Office 365 ProPlus passent naturellement en mode de production. Tous les paramètres et données utilisateur, y compris les sessions en cours, restent intacts.
-- Si vous avez téléchargé des images de modèle personnalisées, les collections qui utilisent ces images sont également transférées naturellement.
-- L'image de modèle Office Professionnel Plus 2013 (version d'évaluation) est destinée à des fins d'évaluation uniquement. Les collections qui s'exécutent dans cette image de modèle ne peuvent pas être passées en mode de production. Elles sont mises en état « désactivé ».
+You can manage your users’ Office 365 licenses at the [Office 365 Admin Portal](https://portal.office365.com/). Read more information about [Office 365 service plans](http://technet.microsoft.com/library/office-365-plan-options.aspx).  
 
 
-Si vous ne passez pas en mode de production à l'expiration de votre version d'évaluation, vos collections RemoteApp sont désactivées. Ne vous inquiétez pas, vos paramètres et données utilisateur sont enregistrés pendant 90 jours supplémentaires, vous pouvez donc toujours activer votre service et passer en mode de production sans perte de données.
+## <a name="office-2013-professional-plus-trial"></a>Office 2013 Professional Plus Trial
+During a 30-day trial of RemoteApp, you can use the Office 2013 Professional Plus (trial) template image to create a RemoteApp collection. You can assign users to this trial collection using their Azure Active Directory work accounts or Microsoft accounts. No additional subscription is required.
 
-<!---HONumber=AcomDC_0817_2016-->
+This is a great option to kick the tires and get a good feeling for Office in RemoteApp. However, this option is intended for evaluation and testing only. RemoteApp collections created using the Office 2013 Professional Plus (trial) template image cannot be transitioned to production mode and will be disabled at the end of the trial period.
+
+## <a name="switching-from-trial-to-production"></a>Switching from trial to production
+When you start your 30-day free trial, a note in the RemoteApp section of the portal will tell you how long you have left in the trial before you need to transition to a paid account. You can activate your account and switch to production mode using the link in this note.
+
+When you activate your account, this will affect all the RemoteApp collections in your account.
+
+- Collections that are running with the Windows Server 2012 R2 or the Office 365 ProPlus template images will transition to production seamlessly. All user data and settings, including ongoing sessions, remain intact.
+- If you have uploaded custom template images, collections using those images will also transition seamlessly.
+- The Office 2013 Professional Plus (Trial) template image is intended for evaluation only. Collections running with this template image cannot be transitioned to production. They will be put in “disabled” state.
+
+
+If you do not transition to production mode by the expiration of your trial, your RemoteApp collections will be disabled. Don't worry - Your settings and users’ data are saved for another 90 days, so you can still activate your service and switch to production mode without any data loss.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

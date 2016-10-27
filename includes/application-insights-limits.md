@@ -1,30 +1,33 @@
-Il existe certaines limites au nombre de mesures et d’événements par application (c'est-à-dire, par clé d'instrumentation).
+There are some limits on the number of metrics and events per application (that is, per instrumentation key). 
 
-Les limites varient selon le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) que vous choisissez.
+Limits depend on the [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
 
-**Ressource** | **Limite par défaut** | **Limite maximale**
+**Resource** | **Default Limit** | **Maximum Limit**
 -------- | ------------- | -------------
-Points de données de session<sup>1, 2</sup> par mois | illimitée | 
-Nombre total de points de données par mois pour les demandes, événements, dépendances, traces, exceptions et pages affichées | 5 millions | 50 millions<sup>3</sup>
-Débit de données [Suivi et journalisation](../articles/application-insights/app-insights-search-diagnostic-logs.md) | 200 dp/s | 500 dp/s
-Débit de données d’[exceptions](../articles/application-insights/app-insights-asp-net-exceptions.md) | 50 dp/s | 50 dp/s
-Débit de données total pour les demandes, événements, dépendances et informations de télémétrie des pages affichées | 200 dp/s | 500 dp/s
-Conservation des données brutes pour [Search](../articles/application-insights/app-insights-diagnostic-search.md) et [Analytics](../articles/application-insights/app-insights-analytics.md) | 7 jours
-Conservation des données agrégées pour [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md) | 90 jours
-Nombre de noms de [Propriétés](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Longueur du nom de propriété | 150 | 
-Longueur de la valeur de propriété | 8 192 | 
-Longueur des messages de trace et d’exception | 10000 |
-Nombre de noms de [Mesures](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) | 100 |
-Longueur du nom de la mesure | 150 | 
-[Tests de disponibilité](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
+Session data points<sup>1, 2</sup> per month | unlimited | 
+Total data points per month for request, event, dependency, trace, exception, and page view | 5 million | 50 million<sup>3</sup>
+[Trace and Log](../articles/application-insights/app-insights-search-diagnostic-logs.md) data rate | 200 dp/s | 500 dp/s
+[Exception](../articles/application-insights/app-insights-asp-net-exceptions.md) data rate | 50 dp/s | 50 dp/s
+Total data rate for request, event, dependency, and page view telemetry | 200 dp/s | 500 dp/s
+Raw data retention for [Search](../articles/application-insights/app-insights-diagnostic-search.md) and [Analytics](../articles/application-insights/app-insights-analytics.md) | 7 days
+Aggregated data retention for [Metrics explorer](../articles/application-insights/app-insights-metrics-explorer.md) | 90 days
+[Property](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
+Property name length | 150 | 
+Property value length | 8192 | 
+Trace and Exception message length | 10000 |
+[Metric](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
+Metric name length |  150 | 
+[Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
 
-<sup>1</sup> Un point de données est une valeur métrique individuelle ou un événement, avec les mesures et les propriétés jointes.
+<sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
 
-<sup>2</sup> Un point de données de session consigne le début ou la fin d’une session, ainsi que l’identité de l’utilisateur.
+<sup>2</sup> A session data point logs the start or end of a session, and logs user identity.
 
-<sup>3</sup> Vous pouvez acheter une capacité supplémentaire au-delà de 50 millions.
+<sup>3</sup> You can purchase additional capacity beyond 50 million.
  
-[Tarification et quotas dans Application Insights](../articles/application-insights/app-insights-pricing.md)
+[About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

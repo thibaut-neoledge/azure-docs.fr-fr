@@ -1,124 +1,128 @@
 <properties
-	pageTitle="Montée en puissance d’une application dans Azure | Microsoft Azure"
-	description="Découvrez comment activer la montée en puissance d’une application dans Azure App Service pour ajouter des capacités et des fonctionnalités."
-	services="app-service"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Scale up an app in Azure | Microsoft Azure"
+    description="Learn how to scale up an app in Azure App Service to add capacity and features."
+    services="app-service"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/05/2016"
-	ms.author="cephalin"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/05/2016"
+    ms.author="cephalin"/>
 
-# Montée en puissance d’une application dans Azure #
 
-Cet article décrit la mise à l’échelle d’une application web dans Azure App Service. Il existe deux workflows de mise à l’échelle : montée en puissance et augmentation de la taille des instances. Cet article décrit le workflow de montée en puissance.
+# <a name="scale-up-an-app-in-azure"></a>Scale up an app in Azure #
 
-- [Montée en puissance](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : bénéficiez d’un surcroît de capacité d’UC, de mémoire et d’espace disque, ainsi que de fonctionnalités supplémentaires, comme des machines virtuelles dédiées, des domaines et des certificats personnalisés, des emplacements intermédiaires, la mise à l’échelle automatique, et bien davantage. Pour monter en puissance en modifiant le niveau tarifaire du plan App Service auquel appartient votre application.
-- [Augmentation de la taille des instances](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : augmentez le nombre d’instances de machine virtuelle qui exécutent votre application. Ce nombre peut atteindre 20 instances, en fonction de votre niveau tarifaire. L’utilisation [d’environnements App Service](../app-service/app-service-app-service-environments-readme.md) au niveau **Premium** permet d’étendre la capacité d’augmentation de la taille des instances à 50 instances. Pour plus d’informations sur l’augmentation de la taille des instances, voir [Mise à l’échelle manuelle ou automatique du nombre d’instances](../azure-portal/insights-how-to-scale.md). Vous y trouverez comment utiliser la mise à l’échelle automatique, qui permet de mettre à l’échelle le nombre d’instances automatiquement en fonction des planifications et des règles prédéfinies.
+This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
 
-Ces paramètres de mise à l’échelle sont applicables en quelques secondes et affectent toutes les applications de votre [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Ils ne nécessitent pas de modifier votre code ou de redéployer votre application.
+- [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features like dedicated virtual machines (VMs), custom domains and certificates, staging slots, autoscaling, and more. You scale up by changing the pricing tier of the App Service plan that your app belongs to.
+- [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of VM instances that run your app.
+You can scale out to as many as 20 instances, depending on your pricing tier. [App Service Environments](../app-service/app-service-app-service-environments-readme.md) in **Premium** tier will further increase your scale-out count to 50 instances. For more information about scaling out, see [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md). There you will find out how to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
 
-Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, voir [Détails de la tarification - App Service](/pricing/details/web-sites/).
+The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+They do not require you to change your code or redeploy your application.
 
-> [AZURE.NOTE] Avant de changer le niveau **Gratuit** d’un plan App Service, commencez par supprimer les [limites de dépense](/pricing/spending-limits/) en place pour votre abonnement Azure. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
+For information about the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/web-sites/).  
 
-<a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
+> [AZURE.NOTE] Before you switch an App Service plan from the **Free** tier, you must first remove the [spending limits](/pricing/spending-limits/) in place for your Azure subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
-## Montée en puissance de votre niveau de tarification
+<a name="scalingsharedorbasic"></a>
+<a name="scalingstandard"></a>
 
-1. Dans votre navigateur, ouvrez le [portail Azure][portal].
+## <a name="scale-up-your-pricing-tier"></a>Scale up your pricing tier
 
-2. Dans le panneau de votre application, cliquez sur **Tous les paramètres**, puis sur **Monter en puissance**.
+1. In your browser, open the [Azure portal][portal].
 
-	![Accédez à la montée en puissance pour votre application Azure.][ChooseWHP]
+2. In your app's blade, click **All settings**, and then click **Scale Up**.
 
-4. Choisissez votre niveau, puis cliquez sur **Sélectionner**.
+    ![Navigate to scale up your Azure app.][ChooseWHP]
 
-	Dans l’onglet **Notifications**, la mention **RÉUSSITE** clignote en vert une fois l’opération terminée.
+4. Choose your tier, and then click **Select**.
+
+    The **Notifications** tab will flash a green **SUCCESS** after the operation is complete.
 
 <a name="ScalingSQLServer"></a>
-## Mettre à l’échelle des ressources associées
-Si votre application dépend d’autres services, tels que Azure SQL Database ou Azure Storage, vous pouvez également faire monter en puissance ces ressources selon vos besoins. Ces ressources ne sont pas mises à l’échelle avec le plan App Service et doivent être mises à l’échelle séparément.
+## <a name="scale-related-resources"></a>Scale related resources
+If your app depends on other services, such as Azure SQL Database or Azure Storage, you can also scale up those resources based on your needs. These resources are not scaled with the App Service plan and must be scaled separately.
 
-1. Dans **Essentials**, cliquez sur le lien **Groupe de ressources**.
+1. In **Essentials**, click the **Resource group** link.
 
-	![Montée en puissance des ressources connexes de votre application Azure](./media/web-sites-scale/RGEssentialsLink.png)
+    ![Scale up your Azure app's related resources](./media/web-sites-scale/RGEssentialsLink.png)
 
-2. Dans la partie **Résumé** du panneau **Groupe de ressources**, cliquez sur une ressource à mettre à l’échelle. La capture d’écran ci-après illustre une ressource Base de données SQL et une ressource Azure Storage.
+2. In the **Summary** part of the **Resource group** blade, click a resource that you want to scale. The following screenshot shows a SQL Database resource and an Azure Storage resource.
 
-	![Accédez au panneau du groupe de ressources pour activer la montée en puissance de votre application Azure](./media/web-sites-scale/ResourceGroup.png)
+    ![Navigate to resource group blade to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
 
-3. Pour une ressource Base de données SQL, cliquez sur **Paramètres** > **Niveau tarifaire** pour mettre à l’échelle le niveau tarifaire.
+3. For a SQL Database resource, click **Settings** > **Pricing tier** to scale the pricing tier.
 
-	![Montée en puissance de la base de données SQL principale pour votre application Azure](./media/web-sites-scale/ScaleDatabase.png)
+    ![Scale up the SQL Database backend for your Azure app](./media/web-sites-scale/ScaleDatabase.png)
 
-	Vous pouvez également activer la [géoréplication](../sql-database/sql-database-geo-replication-overview.md) pour votre instance de base de données SQL.
+    You can also turn on [geo-replication](../sql-database/sql-database-geo-replication-overview.md) for your SQL Database instance.
 
-    Dans le cas d’une ressource Azure Storage, cliquez sur **Paramètres** > **Configuration** pour faire évoluer vos options de stockage.
+    For an Azure Storage resource, click **Settings** > **Configuration** to scale up your storage options.
 
-    ![Montée en puissance du compte de stockage Azure utilisé par votre application Azure](./media/web-sites-scale/ScaleStorage.png)
+    ![Scale up the Azure Storage account used by your Azure app](./media/web-sites-scale/ScaleStorage.png)
 
 <a name="devfeatures"></a>
-## En savoir plus sur les fonctionnalités de développement
-Selon le niveau de tarification, les fonctionnalités orientées développeur disponibles sont les suivantes :
+## <a name="learn-about-developer-features"></a>Learn about developer features
+Depending on the pricing tier, the following developer-oriented features are available:
 
-### Nombre de bits ###
+### <a name="bitness"></a>Bitness ###
 
-- Les modes **De base**, **Standard** et **Premium** prennent en charge les applications 64 bits et 32 bits.
-- Les niveaux de plan **Gratuit** et **Partagé** prennent uniquement en charge les applications 32 bits.
+- The **Basic**, **Standard**, and **Premium** tiers support 64-bit and 32-bit applications.
+- The **Free** and **Shared** plan tiers support 32-bit applications only.
 
-### Prise en charge du débogueur ###
+### <a name="debugger-support"></a>Debugger support ###
 
-- Une prise en charge du débogueur est disponible en modes **Gratuit**, **Partagé** et **De base** pour une connexion par plan App Service.
-- Une prise en charge du débogueur est disponible en modes **Standard** et **Premium** pour cinq connexions simultanées par plan App Service.
+- Debugger support is available for the **Free**, **Shared**, and **Basic** modes at one connection per App Service plan.
+- Debugger support is available for the **Standard** and **Premium** modes at five concurrent connections per App Service plan.
 
 <a name="OtherFeatures"></a>
-## En savoir plus sur les autres fonctionnalités
+## <a name="learn-about-other-features"></a>Learn about other features
 
-- Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment concernant la tarification et les fonctionnalités présentant de l’intérêt pour tous les utilisateurs (y compris les développeurs), consultez la page [Détails de la tarification - App Service](/pricing/details/web-sites/).
+- For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](/pricing/details/web-sites/).
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [d’essai d’App Service](http://go.microsoft.com/fwlink/?LinkId=523751), qui vous permet de créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est nécessaire, et vous ne prenez aucun engagement.
+>[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) where you can immediately create a short-lived starter web app in App Service. No credit cards are required and there are no commitments.
 
 <a name="Next Steps"></a>
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](/pricing/free-trial/).
-- Pour plus d’informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants.
+- To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
+- For information about pricing, support, and SLA, visit the following links.
 
-	[Détails de la tarification – Transferts de données](/pricing/details/data-transfers/)
+    [Data Transfers Pricing Details](/pricing/details/data-transfers/)
 
-	[Plans de support Microsoft Azure](/support/plans/)
+    [Microsoft Azure Support Plans](/support/plans/)
 
-	[Contrats de niveau de service](/support/legal/sla/)
+    [Service Level Agreements](/support/legal/sla/)
 
-	[Tarification – Base de données SQL](/pricing/details/sql-database/)
+    [SQL Database Pricing Details](/pricing/details/sql-database/)
 
-	[Tailles de machines virtuelles et services cloud pour Microsoft Azure][vmsizes]
+    [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
 
-	[Détails de la tarification – App Service](/pricing/details/app-service/)
+    [App Service Pricing Details](/pricing/details/app-service/)
 
-	[Détails de la tarification – App Service - Connexions SSL](/pricing/details/web-sites/#ssl-connections)
+    [App Service Pricing Details - SSL Connections](/pricing/details/web-sites/#ssl-connections)
 
-- Pour plus d’informations sur les meilleures pratiques liées à Azure App Service, notamment la création d’une architecture évolutive et résiliente, voir [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx) (Meilleures pratiques : Azure App Service Web Apps).
+- For information about Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
-- Pour visionner des vidéos concernant la mise à l’échelle des applications App Service, consultez les ressources suivantes :
+- For videos about scaling App Service apps, see the following resources:
 
-	- [Quand mettre à l’échelle Sites Web Azure - avec Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-	- [Mise à l’échelle automatique de Sites Web Azure, unité centrale ou planification - avec Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
-	- [Mise à l’échelle de Sites Web Azure - avec Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
+    - [When to Scale Azure Websites - with Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+    - [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
+    - [How Azure Websites Scale - with Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
 
 <!-- LINKS -->
-[vmsizes]: /pricing/details/app-service/
-[SQLaccountsbilling]: http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]: http://go.microsoft.com/fwlink/?LinkID=235288
+[vmsizes]:/pricing/details/app-service/
+[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
+[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->
@@ -137,4 +141,8 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

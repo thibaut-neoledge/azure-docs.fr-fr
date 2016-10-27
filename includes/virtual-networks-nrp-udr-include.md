@@ -1,61 +1,63 @@
-## Tables de routage
-Les ressources de table de routage contiennent les itinéraires utilisés pour définir la circulation du trafic au sein de votre infrastructure Azure. Vous pouvez utiliser les itinéraires définis par l’utilisateur (UDR) pour envoyer tout le trafic à partir d’un sous-réseau donné à un équipement virtuel, tel qu’un système de détection de pare-feu ou d’intrusion (IDS). Vous pouvez associer une table de routage à des sous-réseaux.
+## <a name="route-tables"></a>Route tables
+Route table resources contains routes used to define how traffic flows within your Azure infrastructure. You can use user defined routes (UDR) to send all traffic from a given subnet to a virtual appliance, such as a firewall or intrusion detection system (IDS). You can associate a route table to subnets. 
 
-Les tables de routage peuvent contenir les propriétés suivantes.
+Route tables contain the following properties.
 
-|Propriété|Description|Exemples de valeurs|
+|Property|Description|Sample values|
 |---|---|---|
-|**itinéraires**|Collection d’itinéraires définis par l’utilisateur dans la table de routage|voir [itinéraires définis par l’utilisateur](#User-defined-routes)|
-|**Sous-réseaux**|Collection de sous réseaux auxquels la table de routage est appliquée|voir [sous-réseaux](#Subnets)|
+|**routes**|Collection of user defined routes in the route table|see [user defined routes](#User-defined-routes)|
+|**subnets**|Collection of subnets the route table is applied to|see [subnets](#Subnets)|
 
 
-### Itinéraires définis par l’utilisateur
-Vous pouvez créer des itinéraires définis par l’utilisateur pour indiquer où le trafic doit être envoyé, en fonction de son adresse de destination. Vous pouvez considérer un itinéraire comme la définition de passerelle par défaut en fonction de l’adresse de destination d’un paquet réseau.
+### <a name="user-defined-routes"></a>User defined routes
+You can create UDRs to specify where traffic should be sent to, based on its destination address. You can think of a route as the default gateway definition based on the destination address of a network packet.
 
-Les itinéraires définis par l’utilisateur peuvent contenir les propriétés suivantes.
+UDRs contain the following properties. 
 
-|Propriété|Description|Exemples de valeurs|
+|Property|Description|Sample values|
 |---|---|---|
-|**addressPrefix**|Préfixe d’adresse ou adresse IP complète pour la destination|192\.168.1.0/24, 192.168.1.101|
-|**nextHopType**|Type d’appareil vers lequel le trafic sera envoyé|VirtualAppliance, passerelle VPN, Internet|
-|**nextHopIpAddress**|Adresse IP de tronçon suivant|192\.168.1.4|
+|**addressPrefix**|Address prefix, or full IP address for the destination|192.168.1.0/24, 192.168.1.101|
+|**nextHopType**|Type of device the traffic will be sent to|VirtualAppliance, VPN Gateway, Internet|
+|**nextHopIpAddress**|IP address for the next hop|192.168.1.4|
 
 
-Exemple de table de routage au format JSON :
+Sample route table in JSON format:
 
-	{
-	    "name": "UDR-BackEnd",
-	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd",
-	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-	    "type": "Microsoft.Network/routeTables",
-	    "location": "westus",
-	    "properties": {
-	        "provisioningState": "Succeeded",
-	        "routes": [
-	            {
-	                "name": "RouteToFrontEnd",
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd/routes/RouteToFrontEnd",
-	                "etag": "W/"v"",
-	                "properties": {
-	                    "provisioningState": "Succeeded",
-	                    "addressPrefix": "192.168.1.0/24",
-	                    "nextHopType": "VirtualAppliance",
-	                    "nextHopIpAddress": "192.168.0.4"
-	                }
-	            }
-	        ],
-	        "subnets": [
-	            {
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd"
-	            }
-	        ]
-	    }
-	}
+    {
+        "name": "UDR-BackEnd",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd",
+        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+        "type": "Microsoft.Network/routeTables",
+        "location": "westus",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "routes": [
+                {
+                    "name": "RouteToFrontEnd",
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd/routes/RouteToFrontEnd",
+                    "etag": "W/\"v\"",
+                    "properties": {
+                        "provisioningState": "Succeeded",
+                        "addressPrefix": "192.168.1.0/24",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "192.168.0.4"
+                    }
+                }
+            ],
+            "subnets": [
+                {
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd"
+                }
+            ]
+        }
+    }
 
-### Ressources supplémentaires
+### <a name="additional-resources"></a>Additional resources
 
-- Obtenez davantage d’informations sur les [itinéraires définis par l’utilisateur](../articles/virtual-network/virtual-networks-udr-overview.md).
-- Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) pour les tables de routage.
-- Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) pour les itinéraires définis par l’utilisateur (UDR).
+- Get more information about [UDRs](../articles/virtual-network/virtual-networks-udr-overview.md).
+- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502549.aspx) for route tables.
+- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502539.aspx) for user defined routes (UDRs).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

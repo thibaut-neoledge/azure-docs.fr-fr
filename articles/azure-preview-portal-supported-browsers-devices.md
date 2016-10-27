@@ -1,35 +1,40 @@
 <properties
-	pageTitle="Navigateurs et appareils pris en charge"
-	description="Décrit les navigateurs et les appareils sur lesquels le portail Azure fonctionne." 
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	writer="flanakin"
-	manager="lwelicki"
-	editor=""/>
+    pageTitle="Supported browsers and devices"
+    description="Describes the browsers and devices on which the Azure portal will work." 
+    services=""
+    documentationCenter=""
+    authors="flanakin"
+    writer="flanakin"
+    manager="lwelicki"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="micflan"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/23/2015"
+    ms.author="micflan"/>
 
-#Navigateurs et appareils pris en charge
-Le portail Microsoft Azure s’exécute sur tous les ordinateurs de bureau et tablettes et sur l’ensemble des navigateurs.
 
-### Appareils pris en charge
-Le portail fonctionne parfaitement sur les PC, les Mac et les tablettes modernes. Actuellement, les téléphones mobiles ne sont pas pris en charge.
+#<a name="supported-browsers-and-devices"></a>Supported browsers and devices
+The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.
 
-### Navigateurs pris en charge
-Les versions les plus récentes des navigateurs suivants sont prises en charge :
+### <a name="supported-devices"></a>Supported devices
+The portal will run great on modern PCs, Macs, and tablets. Mobile phones are not currently supported.
 
-- Edge (version la plus récente)
-- Internet Explorer 11
-- Safari (dernière version, Mac uniquement)
-- Chrome (version la plus récente)
-- Firefox (version la plus récente)
+### <a name="supported-browsers"></a>Supported browsers
+The latest versions of the following browsers are supported:
 
-<!---HONumber=AcomDC_0420_2016-->
+- Edge (latest)
+- Internet Explorer 11
+- Safari (latest, Mac only)
+- Chrome (latest)
+- Firefox (latest)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

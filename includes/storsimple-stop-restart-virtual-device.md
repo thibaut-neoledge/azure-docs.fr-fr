@@ -1,19 +1,26 @@
-#### Arrêt et démarrage d’un appareil virtuel
-Pour arrêter un appareil virtuel, cliquez sur son nom, puis sur **Arrêter**. Lorsque l’appareil virtuel est en train de s’arrêter, son état est **Arrêt en cours**. Une fois l’appareil virtuel arrêté, son état est **Arrêté**.
+#### <a name="to-stop-and-start-a-virtual-device"></a>To stop and start a virtual device
+To stop a virtual device, click its name, and then click **Shutdown**. While the virtual device is shutting down, its status is **Stopping**. After the virtual device is stopped, its status is **Stopped**.
 
-Utilisez les applets de commande suivantes pour arrêter et démarrer un appareil virtuel.
+Use the following cmdlets to stop and start a virtual device.
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
     
-#### Redémarrage d’un appareil virtuel
+#### <a name="to-restart-a-virtual-device"></a>To restart a virtual device
 
-Lorsqu’un appareil virtuel est en cours d’exécution et que vous souhaitez le redémarrer, cliquez sur son nom, puis sur **Redémarrer**. Lorsque l’appareil virtuel est en cours de redémarrage, son état est **Redémarrage en cours**. Lorsque l’appareil virtuel est prêt à être utilisé, son état est **En cours d’exécution**.
+When a virtual device is running and you want to restart it, click its name, and then click **Restart**. While the virtual device is restarting, its status is **Restarting**. When the virtual device is ready for you to use, its status is **Running**.
 
-Utilisez les applets de commande suivantes pour redémarrer un appareil virtuel.
+Use the following cmdlet to restart a virtual device.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

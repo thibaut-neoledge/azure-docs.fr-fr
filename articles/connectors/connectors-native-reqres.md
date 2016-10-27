@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Utilisation d’actions de requête et de réponse | Microsoft Azure"
-	description="Présentation des déclencheurs et des actions de requête et de réponse dans une application logique Azure"
-	services=""
-	documentationCenter=""
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Use request and response actions | Microsoft Azure"
+    description="Overview of the request and response trigger and action in an Azure logic app"
+    services=""
+    documentationCenter=""
+    authors="jeffhollan"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,100 +17,105 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
-# Familiarisation avec les composants de requête et de réponse
 
-Avec les composants de requête et réponse dans une application logique, vous pouvez répondre en temps réel aux événements.
+# <a name="get-started-with-the-request-and-response-components"></a>Get started with the request and response components
 
-Vous pouvez par exemple afficher :
+With the request and response components in a logic app, you can respond in real time to events.
 
-- répondre à une requête HTTP avec des données d’une base de données locale par le biais d’une application logique ;
-- déclencher une application logique à partir d’un événement webhook externe ;
-- appeler une application logique avec une action de requête et de réponse depuis une autre application logique.
+For example, you can:
 
-Pour commencer à utiliser les actions de requête et de réponse dans une application logique, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Respond to an HTTP request with data from an on-premises database through a logic app.
+- Trigger a logic app from an external webhook event.
+- Call a logic app with a request and response action from within another logic app.
 
-## Utilisation d’un déclencheur de requête HTTP
+To get started using the request and response actions in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](connectors-overview.md).
+## <a name="use-the-http-request-trigger"></a>Use the HTTP Request trigger
 
-Voici un exemple de séquence de configuration d’une requête HTTP dans le concepteur d’application logique.
+A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
 
-1. Ajoutez le déclencheur **Requête quand une demande HTTP est reçue** à votre application logique. Vous pouvez éventuellement fournir un schéma JSON (à l’aide d’un outil tel que [JSONSchema.net](http://jsonschema.net)) pour le corps de texte de la requête. Ainsi, le concepteur peut générer des jetons pour les propriétés dans la requête HTTP.
-2. Ajoutez une autre action afin d’enregistrer l’application logique.
-3. Après l’enregistrement de l'application logique, vous pouvez obtenir l’URL de la requête HTTP à partir de la carte de requête.
-4. Une requête HTTP POST (vous pouvez utiliser un outil tel que [Postman](https://www.getpostman.com/)) à l’URL déclenche l’application logique.
+Here’s an example sequence of how to set up an HTTP request in the Logic App Designer.
 
->[AZURE.NOTE] Si vous ne définissez pas une action de réponse, une réponse `202 ACCEPTED` est immédiatement renvoyée à l’appelant. Vous pouvez utiliser l’action de réponse pour personnaliser une réponse.
+1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (by using a tool like [JSONSchema.net](http://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
+2. Add another action so that you can save the logic app.
+3. After saving the logic app, you can get the HTTP request URL from the request card.
+4. An HTTP POST (you can use a tool like [Postman](https://www.getpostman.com/)) to the URL triggers the logic app.
 
-![Déclencheur de réponse](./media/connectors-native-reqres/using-trigger.png)
+>[AZURE.NOTE] If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller. You can use the response action to customize a response.
 
-## Utilisation d’une action Réponse HTTP
+![Response trigger](./media/connectors-native-reqres/using-trigger.png)
 
-L’action Réponse HTTP est uniquement valide lorsque vous l'utilisez dans un workflow déclenché par une requête HTTP. Si vous ne définissez pas une action de réponse, une réponse `202 ACCEPTED` est immédiatement renvoyée à l’appelant. Vous pouvez ajouter une action de réponse à tout moment dans le workflow. L’application logique conserve la requête entrante ouverte pendant une minute seulement pour attendre une réponse. Si aucune réponse n’a été envoyée après une minute depuis le workflow (et qu’une action de réponse existe dans la définition) un `504 GATEWAY TIMEOUT` est envoyé à l’appelant.
+## <a name="use-the-http-response-action"></a>Use the HTTP Response action
 
-Voici comment ajouter une action Réponse HTTP :
+The HTTP Response action is only valid when you use it in a workflow that is triggered by an HTTP request. If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller.  You can add a response action at any step within the workflow. The logic app only keeps the incoming request open for one minute for a response.  After one minute, if no response was sent from the workflow (and a response action exists in the definition), a `504 GATEWAY TIMEOUT` is returned to the caller.
 
-1. Sélectionnez le bouton **Nouvelle étape**.
-2. Choisissez **Ajouter une action**.
-3. Dans la zone de recherche Action, tapez **response** pour répertorier l’action de réponse.
+Here's how to add an HTTP Response action:
 
-	![Sélectionner l'action de réponse](./media/connectors-native-reqres/using-action-1.png)
+1. Select the **New Step** button.
+2. Choose **Add an action**.
+3. In the action search box, type **response** to list the Response action.
 
-4. Ajoutez tout paramètre nécessaire au message de réponse HTTP.
+    ![Select the response action](./media/connectors-native-reqres/using-action-1.png)
 
-	![Exécuter l’action de réponse](./media/connectors-native-reqres/using-action-2.png)
+4. Add in any parameters that are required for the HTTP response message.
 
-5. Cliquez dans le coin supérieur gauche de la barre d’outils pour enregistrer, et votre application logique est à la fois enregistrée et publiée (activation).
+    ![Complete the response action](./media/connectors-native-reqres/using-action-2.png)
 
-## Déclencheur de requête
+5. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
-Voici les détails du déclencheur que ce connecteur prend en charge. Il existe un seul déclencheur de requête.
+## <a name="request-trigger"></a>Request trigger
 
-|Déclencheur|Description|
+Here are the details for the trigger that this connector supports. There is a single request trigger.
+
+|Trigger|Description|
 |---|---|
-|Demande|Se produit quand une requête HTTP est reçue|
+|Request|Occurs when an HTTP request is received|
 
-## Action de réponse
+## <a name="response-action"></a>Response action
 
-Voici les détails de l'action que ce connecteur prend en charge. Il existe une action de réponse unique qui est utilisable uniquement lorsqu’elle est accompagnée d’un déclencheur de requête.
+Here are the details for the action that this connector supports. There is a single response action that can only be used when it is accompanied by a request trigger.
 
 |Action|Description|
 |---|---|
-|Response|Renvoie une réponse à requête HTTP corrélée|
+|Response|Returns a response to the correlated HTTP request|
 
-### Détail des déclencheurs et des actions
+### <a name="trigger-and-action-details"></a>Trigger and action details
 
-Les tableaux suivants décrivent les champs d’entrée du déclencheur et de l’action, les détails de sortie correspondants.
+The following tables describe the input fields for the trigger and action, and the corresponding output details.
 
-#### Déclencheur de requête
-Voici un champ d’entrée pour le déclencheur provenant d’une requête HTTP entrante.
+#### <a name="request-trigger"></a>Request trigger
+The following is an input field for the trigger from an incoming HTTP request.
 
-|Nom complet|Nom de la propriété|Description|
+|Display name|Property name|Description|
 |---|---|---|
-|JSON Schema (Schéma JSON)|schema|Le schéma JSON du corps de texte de la requête HTTP|
+|JSON Schema|schema|The JSON schema of the HTTP request body|
 <br>
 
-**Détails des résultats**
+**Output details**
 
-Vous trouverez ci-dessous les détails de sortie pour la requête.
+The following are output details for the request.
 
-|Nom de la propriété|Type de données|Description|
+|Property name|Data type|Description|
 |---|---|---|
-|En-têtes|objet|En-têtes de requête|
-|Corps|objet|Objet Requête|
+|Headers|object|Request headers|
+|Body|object|Request object|
 
-#### Action de réponse
+#### <a name="response-action"></a>Response action
 
-Les éléments suivants sont des champs d’entrée pour l’action Réponse HTTP. A * désigne est un champ obligatoire.
+The following are input fields for the HTTP Response action. A * means that it is a required field.
 
-|Nom complet|Nom de la propriété|Description|
+|Display name|Property name|Description|
 |---|---|---|
-|Status Code (Code d’état)*|statusCode|Le code d’état HTTP|
-|En-têtes|headers|Un objet JSON de tout en-tête de réponse à inclure|
-|Corps|body|Le corps de texte de la réponse|
+|Status Code*|statusCode|The HTTP status code|
+|Headers|headers|A JSON object of any response headers to include|
+|Body|body|The response body|
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Essayez maintenant la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
+Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

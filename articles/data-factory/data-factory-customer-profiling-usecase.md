@@ -1,52 +1,61 @@
 <properties 
-	pageTitle="Cas d’utilisation - Profilage des utilisateurs" 
-	description="Découvrez comment Azure Data Factory permet de créer un workflow piloté par les données (pipeline) pour définir le profil des clients de leurs jeux." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Use Case - Customer Profiling" 
+    description="Learn how Azure Data Factory is used to create a data-driven workflow (pipeline) to profile gaming customers." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="sharonlo101" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
-
-# Cas d’utilisation - Profilage des utilisateurs
-
-Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite. Pour plus d’informations sur Cortana Intelligence, consultez [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). Dans ce document, nous décrivons un cas d'utilisation simple pour vous aider à comprendre comment Azure Data Factory permet de résoudre les problèmes d'analyse courants.
-
-Pour sélectionner et tester ce cas d’utilisation simple, un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/) suffit. Vous pouvez déployer un exemple qui implémente ce cas d’utilisation en suivant les étapes décrites dans l’article [Exemples](data-factory-samples.md).
-
-## Scénario
-
-Contoso est une société qui crée des jeux pour plusieurs plateformes : des consoles de jeux, des appareils portatifs et des ordinateurs personnels (PC). À mesure que les joueurs jouent à ces jeux, des volumes importants de données de journalisation sont générés et suivent les modèles d’utilisation, le style de jeu et les préférences de l’utilisateur. Combiné à des données démographiques, régionales et de produits, Contoso peut effectuer une analyse pour les guider sur la façon d’améliorer l’expérience des joueurs et leur recommander des mises à niveau et des achats intégrés.
-
-L’objectif de Contoso est d’identifier des opportunités de vente incitative/croisée basées sur l’historique du jeu des joueurs et d’ajouter de nouvelles fonctionnalités intéressantes, pour stimuler la croissance de l’entreprise et offrir une meilleure expérience aux clients. Pour ce cas d’utilisation, nous prenons l’exemple d’un développeur de jeux. L’entreprise souhaite optimiser ses jeux en fonction du comportement des joueurs. Ces principes s’appliquent à toute entreprise cherchant à fidéliser ses clients autour de ses produits et services et à améliorer leur expérience d’achat.
-
-## Défis
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/06/2016" 
+    ms.author="shlo"/>
 
 
-## Vue d’ensemble de la solution
+# <a name="use-case---customer-profiling"></a>Use Case - Customer Profiling
 
-Ce cas d'utilisation simple peut servir d’exemple montrant comment utiliser Azure Data Factory pour recevoir, préparer, transformer, analyser et publier des données.
+Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  For more information about Cortana Intelligence, visit [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). In this document, we describe a simple use case to help you get started with understanding how Azure Data Factory can solve common analytics problems.
 
-![Workflow de bout en bout](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
+All you need to access and try out this simple use case is an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/).  You can deploy a sample that implements this use case by following the steps described in the [Samples](data-factory-samples.md) article.
 
-Cette figure montre comment les pipelines de données apparaissent dans l’interface utilisateur du portail Azure après leur déploiement.
+## <a name="scenario"></a>Scenario
 
-1.	Le pipeline **PartitionGameLogsPipeline** lit les événements de jeu bruts depuis un stockage d’objets blob et crée des partitions basées sur l’année, le mois et le jour.
-2.	Le pipeline **EnrichGameLogsPipeline** associe des événements de jeu partitionnés à des données de référence de code géographique et les enrichit en mappant les adresses IP avec les emplacements géographiques correspondants.
-3.	Le pipeline **AnalyzeMarketingCampaignPipeline** utilise les données enrichies et les traite avec les données de publicité pour créer la sortie finale contenant l’efficacité de la campagne marketing.
+Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). As players play these games, large volume of log data is produced that tracks the usage patterns, gaming style, and preferences of the user.  When combined with demographic, regional, and product data, Contoso can perform analytics to guide them about how to enhance players’ experience and target them for upgrades and in-game purchases. 
 
-Dans cet exemple, Data Factory sert à orchestrer les activités qui copient les données d’entrée, transforment et traitent les données, et à générer les données finales dans une base de données SQL Azure. Vous pouvez également visualiser le réseau des pipelines de données, les gérer et surveiller leur état à partir de l'interface utilisateur.
+Contoso’s goal is to identify up-sell/cross-sell opportunities based on the gaming history of its players and add compelling features to drive business growth and provide a better experience to customers. For this use case, we use a gaming company as an example of a business. The company wants to optimize its games based on players’ behavior. These principles apply to any business that wants to engage its customers around its goods and services and enhance their customers’ experience.
 
-## Avantages
+## <a name="challenges"></a>Challenges
 
-En optimisant l’analyse du profil de ses utilisateurs et en l’alignant sur ses objectifs commerciaux, le développeur de jeux peut recueillir rapidement des modèles d’utilisation et analyser l’efficacité de ses campagnes marketing.
 
-<!---HONumber=AcomDC_0907_2016-->
+## <a name="solution-overview"></a>Solution Overview
+
+This simple use case can be used as an example of how you can use Azure Data Factory to ingest, prepare, transform, analyze, and publish data.
+
+![End-to-end workflow](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
+
+This Figure depicts how the data pipelines appear in the Azure portal after they have been deployed.
+
+1.  The **PartitionGameLogsPipeline** reads the raw game events from blob storage and creates partitions based on year, month, and day.
+2.  The **EnrichGameLogsPipeline** joins partitioned game events with geo code reference data and enriches the data by mapping IP addresses to the corresponding geo-locations.
+3.  The **AnalyzeMarketingCampaignPipeline** pipeline uses the enriched data and processes it with the advertising data to create the final output that contains marketing campaign effectiveness.
+
+In this example, Data Factory is used to orchestrate activities that copy input data, transform, and process the data, and output the final data to an Azure SQL Database.  You can also visualize the network of data pipelines, manage them, and monitor their status from the UI.
+
+## <a name="benefits"></a>Benefits
+
+By optimizing their user profile analytics and aligning it with business goals, gaming company is able to quickly collect usage patterns, and analyze the effectiveness of its marketing campaigns.
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

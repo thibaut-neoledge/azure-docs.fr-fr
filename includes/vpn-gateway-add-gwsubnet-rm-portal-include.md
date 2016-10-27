@@ -1,15 +1,19 @@
-1. Dans le portail, accédez au réseau virtuel auquel vous souhaitez connecter une passerelle.
+1. In the portal, navigate to the virtual network to which you want to connect a gateway.
 
-2. Dans la section**Paramètres** du panneau de votre réseau virtuel, cliquez sur **Sous-réseaux** pour développer le panneau Sous-réseaux.
+2. In the **Settings** section of your VNet blade, click **Subnets** to expand the Subnets blade.
 
-3. Dans le panneau **Sous-réseaux**, cliquez sur **+ Sous-réseau de passerelle** en haut. Cette opération ouvre le panneau **Ajouter un sous-réseau**.
+3. On the **Subnets** blade, click **+Gateway subnet** at the top. This will open the **Add subnet** blade. 
 
-	![Ajouter le sous-réseau de passerelle](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Ajouter le sous-réseau de passerelle")
+    ![Add the gateway subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Add the gateway subnet")
 
-4. Le **Nom** de votre sous-réseau est automatiquement rempli avec la valeur « GatewaySubnet ». Cette valeur est nécessaire pour qu’Azure puisse reconnaître le sous-réseau en tant que sous-réseau de passerelle. Ajustez les valeurs de **plage d’adresses** renseignées automatiquement pour qu’elles correspondent à la configuration requise.
+4. The **Name** for your subnet will automatically be filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the auto-filled **Address range** values to match your configuration requirements.
 
-	![Ajout du sous-réseau](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Ajout du sous-réseau")
+    ![Adding the subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
 
-6. Cliquez sur **OK** en bas du panneau pour créer le sous-réseau.
+6. Click **OK** at the bottom of the blade to create the subnet.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

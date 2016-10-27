@@ -1,122 +1,133 @@
 <properties
-	pageTitle="Niveaux de cohérence dans DocumentDB | Microsoft Azure"
-	description="DocumentDB offre quatre niveaux de cohérence qui permettent de faire des compromis avisés entre cohérence éventuelle, disponibilité et latence."
-	keywords="cohérence éventuelle, documentdb, azure, Microsoft azure"
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="cgronlun"
-	documentationCenter=""/>
+    pageTitle="Consistency levels in DocumentDB | Microsoft Azure"
+    description="DocumentDB has four consistency levels to help balance eventual consistency, availability, and latency trade-offs."
+    keywords="eventual consistency, documentdb, azure, Microsoft azure"
+    services="documentdb"
+    authors="syamkmsft"
+    manager="jhubbard"
+    editor="cgronlun"
+    documentationCenter=""/>
 
 <tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="mimig"/>
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/24/2016"
+    ms.author="syamk"/>
 
-# Niveaux de cohérence dans DocumentDB
 
-Azure DocumentDB a été conçu dès le départ pour être distribué à l’échelle mondiale. Il offre des garanties de latence faible prévisible, un SLA de disponibilité à 99,99 % et plusieurs modèles de cohérence souples bien définis. Pour le moment, DocumentDB prend en charge quatre niveaux de cohérence : Fort, Obsolescence limitée, Session et Éventuel. Outre les modèles de cohérence **fort** et **éventuel** souvent offerts par d’autres bases de données NoSQL, DocumentDB propose deux modèles de cohérence soigneusement codifiés et mis en œuvre (**obsolescence limitée** et **session**) dont l’utilité a été validée dans des conditions d’utilisation réelles. Ensemble, ces quatre niveaux de cohérence vous permettent de trouver un bon compromis entre cohérence, disponibilité et latence.
+# <a name="consistency-levels-in-documentdb"></a>Consistency levels in DocumentDB
 
-## Portée de la cohérence
+Azure DocumentDB is designed from the ground up with global distribution in mind. It is designed to offer predictable low latency guarantees, a 99.99% availability SLA, and multiple well-defined relaxed consistency models. Currently, DocumentDB provides four consistency levels: strong, bounded-staleness, session, and eventual. Besides the **strong** and the **eventual consistency** models commonly offered by other NoSQL databases, DocumentDB also offers two carefully codified and operationalized consistency models – **bounded staleness** and **session**, and has validated their usefulness against real world use cases. Collectively these four consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
 
-La granularité de la cohérence est limitée à la demande d’un utilisateur unique. Une demande d’écriture peut correspondre à une transaction d’insertion, de remplacement, d’upsert ou de suppression (avec ou sans l’exécution d’un déclencheur préalable ou postérieur associé). Ou bien une demande d’écriture peut correspondre à l’exécution transactionnelle d’une procédure stockée JavaScript via plusieurs documents au sein d’une partition. Une transaction de lecture/requête est limitée à une demande d’utilisateur unique, comme c’est le cas des écritures. L’utilisateur peut être amené à paginer un grand jeu de résultats, s’étendant sur plusieurs partitions, mais chaque transaction de lecture se limite à une seule page et est traitée à partir d’une seule partition.
+## <a name="scope-of-consistency"></a>Scope of consistency
 
-## Niveaux de cohérence
+The granularity of consistency is scoped to a single user request. A write request may correspond to an insert, replace, upsert, or delete transaction (with or without the execution of an associated pre or post trigger). Or a write request may correspond to the transactional execution of a JavaScript stored procedure operating over multiple documents within a partition. As with the writes, a read/query transaction is also scoped to a single user request. The user may be required to paginate over a large result-set, spanning multiple partitions, but each read transaction is scoped to a single page and served from within a single partition.
 
-Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base de données qui s'applique à toutes les collections (parmi l'ensemble des bases de données) sous votre compte de base de données. Par défaut, toutes les lectures et requêtes émises vers les ressources définies par l'utilisateur utilisent le niveau de cohérence par défaut spécifié sur le compte de base de données. Vous pouvez néanmoins assouplir le niveau de cohérence d’une demande de lecture/requête donnée en spécifiant l’en-tête de demande [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx). Quatre types de niveaux de cohérence sont pris en charge par le protocole de réplication de DocumentDB. Ils fournissent un compromis clair entre les garanties de cohérence spécifiques et les performances, comme décrit ci-dessous.
+## <a name="consistency-levels"></a>Consistency levels
 
-![DocumentDB offre le choix entre plusieurs modèles de cohérence bien définis (souples)][1]
+You can configure a default consistency level on your database account that applies to all the collections (across all of the databases) under your database account. By default, all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. However, you can relax the consistency level of a specific read/query request by specifying the [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header. There are four types of consistency levels supported by the DocumentDB replication protocol that provide a clear trade-off between specific consistency guarantees and performance, as described below.
 
-**Remarque** :
+![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
 
-- La cohérence forte offre une garantie de [linéarisabilité](https://aphyr.com/posts/313-strong-consistency-models) qui permet de s’assurer que les lectures renvoient la version la plus récente d’un document.
-- la cohérence forte garantit qu'une écriture est visible uniquement après sa validation durable par le quorum majoritaire de réplicas. Une écriture est soit validée durablement de manière synchrone par les quorums principal et secondaire, soit abandonnée. Une lecture est toujours reconnue par le quorum de lecture majoritaire : un client ne voit jamais une écriture partielle ou non validée. Il est assuré de lire la toute dernière écriture reconnue.
-- Les comptes DocumentDB configurés pour utiliser une cohérence forte ne peuvent pas associer plus d’une région Azure avec leur compte DocumentDB.
-- Le coût d’une opération de lecture (en termes [d’unités de requête](documentdb-request-units.md) consommées) avec une cohérence forte est supérieur à celui des niveaux Session et Éventuel, mais équivalent à celui du niveau Obsolescence limitée.
+**Strong**: 
+
+- Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee with the reads guaranteed to return the most recent version of a document. 
+- Strong consistency guarantees that a write is only visible after it is committed durably by the majority quorum of replicas. A write is either synchronously committed durably by both the primary and the quorum of secondaries, or it is aborted. A read is always acknowledged by the majority read quorum, a client can never see an uncommitted or partial write and is always guaranteed to read the latest acknowledged write. 
+- DocumentDB accounts that are configured to use strong consistency cannot associate more than one Azure region with their DocumentDB account. 
+- The cost of a read operation (in terms of [request units](documentdb-request-units.md) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
  
 
-**Obsolescence limitée** :
+**Bounded staleness**: 
 
-- La cohérence Obsolescence limitée garantit que les lectures sont retardées derrière les écritures par, au plus, des versions ou préfixes *K* d’un document ou un intervalle de temps *t*.
-- Par conséquent, lors de la sélection de la cohérence Obsolescence limitée, « l’obsolescence » peut être configurée de deux manières :
-    - Nombre de versions *K* du document retardant les lectures derrière les écritures
-    - Intervalle de temps *t*
-- La cohérence Obsolescence limitée fournit l’ordre global total, en dehors de la « fenêtre d’obsolescence ». Notez que les garanties de lecture unitone existent dans une région à l’intérieur et en dehors de la « fenêtre d’obsolescence ».
-- La cohérence Obsolescence limitée fournit une meilleure garantie de cohérence que le niveau Session ou Éventuel. Pour les applications distribuées à l’échelle mondiale, nous recommandons d’utiliser la cohérence Obsolescence limitée pour les scénarios dans lesquels vous voulez obtenir une cohérence forte en plus d’une disponibilité à 99,99 % et d’une latence faible.
-- Les comptes DocumentDB configurés avec une cohérence Obsolescence limitée peuvent associer n’importe quel nombre de régions Azure avec leur compte DocumentDB.
-- Le coût d’une opération de lecture (en termes d’unités de requête consommées) en fonction de l’obsolescence limitée est supérieur à celui des niveaux de cohérence Session et Éventuel, mais identique au niveau de cohérence forte.
+- Bounded staleness consistency guarantees that the reads may lag behind writes by at most *K* versions or prefixes of a document or *t* time-interval. 
+- Consequently, when choosing bounded staleness, the “staleness” can be configured in two ways: 
+    - Number of versions *K* of the document by which the reads lag behind the writes
+    - Time interval *t* 
+- Bounded staleness offers total global order except within the “staleness window”. Note that the monotonic read guarantees exists within a region both inside and outside the “staleness window”. 
+- Bounded staleness provides a stronger consistency guarantee than session or eventual consistency. For globally distributed applications, we recommend you use bounded staleness for scenarios where you would like to have strong consistency but also want 99.99% availability and low latency. 
+- DocumentDB accounts that are configured with bounded staleness consistency can associate any number of Azure regions with their DocumentDB account. 
+- The cost of a read operation (in terms of RUs consumed) with bounded staleness is higher than session and eventual consistency, but the same as strong consistency.
 
-**Session** :
+**Session**: 
 
-- contrairement aux modèles de cohérence globaux offerts par les niveaux de cohérence Fort et Obsolescence limitée, le niveau Session s’étend à une session client spécifique.
-- La cohérence Session est idéale pour tous les scénarios dans lesquels une session utilisateur ou d’appareil est impliquée, car elle garantit des lectures unitones, des écritures unitones et des garanties de lecture de vos propres écritures.
-- Ce niveau fournit une cohérence prévisible pour une session, et un débit de lecture maximal en offrant la latence d’écriture et de lecture la plus basse.
-- Les comptes DocumentDB configurés avec une cohérence Session peuvent associer n’importe quel nombre de régions Azure avec leur compte DocumentDB.
-- Le coût d’une opération de lecture (en termes d’unités de requête consommées) avec un niveau de cohérence Session est inférieur à celui des niveaux Fort et Obsolescence limitée, mais supérieur au niveau Éventuel.
+- Unlike the global consistency models offered by strong and bounded staleness consistency levels, session consistency is scoped to a client session. 
+- Session consistency is ideal for all scenarios where a device or user session is involved since it guarantees monotonic reads, monotonic writes, and read your own writes (RYW) guarantees. 
+- Session consistency provides predictable consistency for a session, and maximum read throughput while offering the lowest latency writes and reads. 
+- DocumentDB accounts that are configured with session consistency can associate any number of Azure regions with their DocumentDB account. 
+- The cost of a read operation (in terms of RUs consumed) with session consistency level is less than strong and bounded staleness, but more than eventual consistency
  
 
-**Eventual (Éventuel)** :
+**Eventual**: 
 
-- Le niveau de cohérence Éventuel garantit qu’en l’absence d’autres écritures, les réplicas du groupe finiront par converger.
-- Il s’agit de la forme de cohérence la plus faible qui permet à un client d’obtenir des valeurs plus anciennes que celles qu’il a pu voir précédemment.
-- Le niveau Éventuel fournit la cohérence la plus faible en matière de lecture, tout en offrant la latence la moins élevée pour les lectures et les écritures.
-- Les comptes DocumentDB configurés avec un niveau de cohérence Éventuel peuvent associer n’importe quel nombre de régions Azure avec leur compte DocumentDB.
-- Le coût d’une opération de lecture (en termes d’unités de requête consommées) avec un niveau de cohérence Éventuel est le plus bas de tous les niveaux de cohérence DocumentDB.
+- Eventual consistency guarantees that in absence of any further writes, the replicas within the group will eventually converge. 
+- Eventual consistency is the weakest form of consistency where a client may get the values that are older than the ones it had seen before.
+- Eventual consistency provides the weakest read consistency but offers the lowest latency for both reads and writes.
+- DocumentDB accounts that are configured with eventual consistency can associate any number of Azure regions with their DocumentDB account. 
+- The cost of a read operation (in terms of RUs consumed) with the eventual consistency level is the lowest of all the DocumentDB consistency levels.
 
 
-## Garanties de cohérence
+## <a name="consistency-guarantees"></a>Consistency guarantees
 
-Le tableau suivant répertorie les différentes garanties de cohérence correspondant aux quatre niveaux de cohérence.
+The following table captures various consistency guarantees corresponding to the four consistency levels.
 
-| Garantie | Strong (Fort) | Bounded Staleness (En fonction de l'obsolescence) | Session | Eventual (Éventuel) |
+| Guarantee                                                         |    Strong                                       |    Bounded Staleness                                                                           |    Session                                       |    Eventual                                 |
 |----------------------------------------------------------|-------------------------------------------------|------------------------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------|
-| **Ordre global total** | Oui | Oui, en dehors de la « durée d’obsolescence » | Non, ordre partiel par « session » | Non |
-| **Garantie de préfixe cohérent** | Oui | Oui | Oui | Oui |
-| **Lectures unitones** | Oui | Oui, entre les régions en dehors de la durée d’obsolescence et au sein d’une région à tout moment. | Oui, pour la session donnée | Non |
-| **Écritures unitones** | Oui | Oui | Oui | Oui |
-| **Lire vos écritures** | Oui | Oui | Oui (dans la région d’écriture) | Non |
+|    **Total global order**                                |    Yes                                          |    Yes, outside of the “staleness window”                                                      |    No, partial “session” order                   |    No                                            |
+|    **Consistent prefix guarantee**                       |    Yes                                          |    Yes                                                                                         |    Yes                                           |    Yes                                           |
+|    **Monotonic reads**                                   |    Yes                                          |    Yes, across   regions outside of the staleness window and within a region all the time.     |    Yes, for the given session                    |    No                                            |
+|    **Monotonic writes**                                  |    Yes                                          |    Yes                                                                                         |    Yes                                           |    Yes                                           |
+|    **Read your writes**                                  |    Yes                                          |    Yes                                                                                         |    Yes (in the write region)                      |    No                                            |
 
 
-## Configuration du niveau de cohérence par défaut
+## <a name="configuring-the-default-consistency-level"></a>Configuring the default consistency level
 
-1.  Dans la barre de lancement du [portail Azure](https://portal.azure.com/), cliquez sur **DocumentDB (NoSQL)**.
+1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**.
 
-2. Dans le panneau **DocumentDB (NoSQL)**, sélectionnez le compte de base de données à modifier.
+2. In the **DocumentDB (NoSQL)** blade, select the database account to modify.
 
-3. Dans le panneau du compte, cliquez sur **Cohérence par défaut**.
+3. In the account blade, click **Default consistency**.
 
 
-4. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**.
+4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
 
-	![Capture d’écran montrant l’icône Paramètres et l’entrée Cohérence par défaut](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+    ![Screen shot highlighting the Settings icon and Default Consistency entry](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-## Niveaux de cohérence des requêtes
+## <a name="consistency-levels-for-queries"></a>Consistency levels for queries
 
-Par défaut, pour les ressources définies par l’utilisateur, le niveau de cohérence des requêtes est identique à celui des lectures. Par défaut, l'index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d'un document au niveau de la collection. Cela permet aux requêtes de fournir le même niveau de cohérence que celui des lectures de document. Alors que DocumentDB est optimisé pour les écritures et prend en charge des volumes soutenus d’écritures de documents, la maintenance d’index synchrone et les requêtes cohérentes, vous pouvez configurer certaines collections de manière à ce que la mise à jour de l’index soit effectuée en différé. Ce processus permet d'optimiser encore plus les performances des écritures. Il est idéal pour les scénarios d'ingestion en bloc lorsqu'une charge de travail implique principalement des lectures.
+By default, for user defined resources, the consistency level for queries is the same as the consistency level for reads. By default, the index is updated synchronously on each insert, replace, or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes, synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
 
-Mode d'indexation|	Lectures|	Requêtes  
+Indexing Mode|  Reads|  Queries  
 -------------|-------|---------
-Cohérence (par défaut)|	Choisir parmi Fort, Obsolescence limitée, Session et Éventuel|	Choisir parmi Fort, Obsolescence limitée, Session et Éventuel|
-Différé|	Choisir parmi Fort, Obsolescence limitée, Session et Éventuel|	Eventual (Éventuel)  
+Consistent (default)|   Select from strong, bounded staleness, session, or eventual|    Select from strong, bounded staleness, session, or eventual|
+Lazy|   Select from strong, bounded staleness, session, or eventual|    Eventual  
 
-À l’instar des demandes de lecture, vous pouvez réduire le niveau de cohérence d’une demande de requête donnée en spécifiant l’en-tête de demande [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx).
+As with read requests, you can lower the consistency level of a specific query request by specifying the [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents compromis, nous vous recommandons les ressources suivantes :
+If you'd like to do more reading about consistency levels and tradeoffs, we recommend the following resources:
 
--	Doug Terry. La cohérence des données répliquées expliquée par le baseball (vidéo). [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
--	Doug Terry. La cohérence des données répliquées basée sur l’exemple du baseball. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
--	Doug Terry. Le niveau Par session garantit des données répliquées peu cohérentes. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. Cohérence des compromis en termes de conception de systèmes de base de données distribuée moderne : CAP n’est qu’une partie de l’histoire. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
--	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilités en fonction de l’obsolescence (PBS) pour les quorums partiels pratiques. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. Niveau de cohérence Éventuel repensé. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+-   Doug Terry. Replicated Data Consistency explained through baseball (video).   
+[https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+-   Doug Terry. Replicated Data Consistency explained through baseball.   
+[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+-   Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
+[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
+-   Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
+[http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+-   Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
+[http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+-   Werner Vogels. Eventual Consistent - Revisited.    
+[http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

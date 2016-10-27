@@ -1,153 +1,151 @@
-<properties 
-   pageTitle="Profils Traffic Manager imbriqués | Microsoft Azure"
-   description="Cet article explique la fonctionnalité des profils imbriqués d’Azure Traffic Manager"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
-   ms.author="sewhee" />
+<properties
+    pageTitle="Nested Traffic Manager Profiles | Microsoft Azure"
+    description="This article explains the 'Nested Profiles' feature of Azure Traffic Manager"
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
+<tags
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
-# Profils Traffic Manager imbriqués
 
-Traffic Manager comprend des méthodes de routage du trafic, ce qui vous permet de contrôler la manière dont Traffic Manager choisit le point de terminaison qui doit recevoir le trafic de chaque utilisateur final. Elles sont décrites dans [Méthodes de routage de Traffic Manager](traffic-manager-routing-methods.md) et permettent à Traffic Manager de répondre aux exigences de routage du trafic les plus courantes.
+# <a name="nested-traffic-manager-profiles"></a>Nested Traffic Manager profiles
 
-Chaque profil Traffic Manager spécifie une seule méthode de routage du trafic. Toutefois, certaines applications plus complexes nécessitent parfois un routage du trafic plus sophistiqué que celui d’un unique profil Traffic Manager.
+Traffic Manager includes a range of traffic-routing methods that allow you to control how Traffic Manager chooses which endpoint should receive traffic from each end user. For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
 
-Pour prendre en charge ces applications complexes, Traffic Manager permet de combiner des profils Traffic Manager (qui sont alors *imbriqués*) pour qu’une application unique puisse tirer parti des avantages de plusieurs méthodes de routage. Les profils imbriqués vous permettent de créer des schémas de routage du trafic et de basculement plus souples et plus puissants pour répondre à des besoins de déploiements plus vastes et plus complexes.
+Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments.
 
-En outre, les profils imbriqués permettent dans certains cas d’ignorer le comportement de Traffic Manager par défaut, notamment le routage du trafic au sein d’une région ou pendant un basculement lorsque vous utilisez le routage du trafic basé sur les performances.
+The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
 
-Le reste de cette page explique à l’appui d’une série d’exemples comment les profils Traffic Manager imbriqués peuvent être utilisés dans une variété de scénarios. Et nous terminons par le Forum aux questions concernant les profils imbriqués.
+## <a name="example-1:-combining-'performance'-and-'weighted'-traffic-routing"></a>Example 1: Combining 'Performance' and 'Weighted' traffic routing
 
-## Exemple 1: combinaison de routage du trafic « performant (Performance) » et « pondéré (Weighted) »
+Suppose that you deployed an application in the following Azure regions: West US, West Europe, and East Asia. You use Traffic Manager's 'Performance' traffic-routing method to distribute traffic to the region closest to the user.
 
-Supposons que votre application est déployée dans plusieurs régions Azure (États-Unis de l'Ouest, Europe de l'Ouest, Asie de l'Est). Vous utilisez la méthode de routage du trafic « Performance » de Traffic Manager pour répartir le trafic vers la région la plus proche de l’utilisateur.
+![Single Traffic Manager profile][1]
 
-![Profil Traffic Manager unique][1]
+Now, suppose you wish to test an update to your service before rolling it out more widely. You want to use the 'weighted' traffic-routing method to direct a small percentage of traffic to your test deployment. You set up the test deployment alongside the existing production deployment in West Europe.
 
-Maintenant, supposons que vous souhaitiez évaluer une mise à jour de votre service pour un petit nombre d’utilisateurs avant d’effectuer un déploiement plus large. Pour ce faire, vous souhaitez utiliser la méthode de routage du trafic « Weighted », qui peut diriger une petite partie du trafic vers votre déploiement d’évaluation. Avec un seul profil, vous ne pouvez pas combiner les routages du trafic « Weighted » et « Performance ». Mais les profils imbriqués vous le permettent.
+You cannot combine both 'Weighted' and 'Performance traffic-routing in a single profile. To support this scenario, you create a Traffic Manager profile using the two West Europe endpoints and the 'Weighted' traffic-routing method. Next, you add this 'child' profile as an endpoint to the 'parent' profile. The parent profile still uses the Performance traffic-routing method and contains the other global deployments as endpoints.
 
-Voici comment : supposons que vous souhaitez évaluer le nouveau déploiement en Europe de l’Ouest. Vous configurez le déploiement d’évaluation en même temps que le déploiement de production existant, puis vous créez un profil Traffic Manager à l’aide de ces deux points de terminaison et la méthode de routage du trafic « Weighted ». Ajoutez ensuite ce profil « enfant » comme point de terminaison au profil « parent », qui utilise toujours la méthode de routage du trafic Performance et contient également les autres déploiements globaux comme points de terminaison.
+The following diagram illustrates this example:
 
-Le schéma suivant illustre cet exemple :
+![Nested Traffic Manager profiles][2]
 
-![Profils Traffic Manager imbriqués][2]
+In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within West Europe, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
 
-De cette manière, le trafic dirigé par le biais du profil parent est réparti entre les régions comme d’habitude. En Europe de l’Ouest, vous serez dirigé le trafic entre les déploiements de production et d’évaluation en fonction de la pondération.
+When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 
-Notez que l’emplacement de chaque point de terminaison doit être connu lorsque le profil parent utilise la méthode de routage du trafic « Performance ». Pour les points de terminaison imbriquée, comme pour les points de terminaison externes, cet emplacement doit être spécifié dans le cadre de la configuration des points de terminaison. Sélectionnez la région Azure la plus proche de votre déploiement. Les options disponibles sont les régions Azure, car ce sont les emplacements pris en charge par la table de latence Internet. Pour plus d’informations, consultez [Traffic Manager - Méthode de routage du trafic basé sur les performances](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+## <a name="example-2:-endpoint-monitoring-in-nested-profiles"></a>Example 2: Endpoint monitoring in Nested Profiles
 
-## Exemple 2 : analyse de points de terminaison dans des profils imbriqués
+Traffic Manager actively monitors the health of each service endpoint. If an endpoint is unhealthy, Traffic Manager directs users to alternative endpoints to preserve the availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Endpoint monitoring works differently for nested profiles. With nested profiles, the parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This health information is propagated up the nested profile hierarchy. The parent profile this aggregated health to determine whether to direct traffic to the child profile. See the [FAQ](#faq) section of this article for full details on health monitoring of nested profiles.
 
-Traffic Manager surveille activement l'intégrité de chaque point de terminaison de service. Si un point de terminaison défectueux est détecté, Traffic Manager dirige les utilisateurs vers d’autres points de terminaison afin de préserver la disponibilité globale de votre service. Ce comportement de surveillance et de basculement des points de terminaison s’applique à toutes les méthodes de routage du trafic. Pour plus d’informations, consultez la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md).
+Returning to the previous example, suppose the production deployment in West Europe fails. By default, the 'child' profile directs all traffic to the test deployment. If the test deployment also fails, the parent profile determines that the child profile should not receive traffic since all child endpoints are unhealthy. Then, the parent profile distributes traffic to the other regions.
 
-Pour les profils imbriqués, certaines règles spécifiques de surveillance de point de terminaison s’appliquent. Lorsqu’un profil parent est configuré avec un profil enfant comme point de terminaison imbriqué, le parent n’effectue pas les contrôles d’intégrité de l’enfant directement. Au lieu de cela, l’intégrité des points de terminaison du profil enfant est utilisée pour calculer l’intégrité globale du profil enfant, et cette information est propagée dans la hiérarchie du profil imbriqué pour déterminer l’intégrité du point de terminaison imbriqué au sein du profil parent. Ce paramètre détermine si le profil parent devra diriger le trafic vers l’enfant. Vous trouverez des informations détaillées sur le calcul exact de l’intégrité du point de terminaison imbriqué dans le profil parent à partir de l’intégrité du profil enfant [ci-dessous](#faq).
+![Nested Profile failover (default behavior)][3]
 
-En revenant à l’exemple 1, supposons que le déploiement de production en Europe de l’Ouest soit défaillant. Par défaut, le profil « enfant » dirige tout le trafic vers le déploiement d’évaluation. S’il est également défaillant, le profil parent détermine que, étant donné que tous les points de terminaison enfants ne sont pas intègres, le profil enfant ne doit pas recevoir le trafic, et il bascule le trafic entier de l’Europe de l’Ouest vers d’autres régions.
+You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
 
-![Basculement de profil imbriqué (comportement par défaut)][3]
+The following figure illustrates this configuration:
 
-Cette solution peut être satisfaisante, mais il est possible que vous ne souhaitiez pas utiliser le déploiement d’évaluation comme basculement pour tout le trafic d’Europe de l’Ouest. Dans ce cas, vous préférerez basculer le trafic vers les autres régions si le déploiement échoue en Europe de l’Ouest, *quel que soit* le niveau d’intégrité du déploiement d’évaluation. La solution suivante est également possible : lorsque vous configurez le profil enfant en tant que point de terminaison dans le profil parent, vous pouvez spécifier le paramètre « MinChildEndpoints », qui détermine le nombre minimal de points de terminaison qui doivent être disponibles dans le profil enfant. En dessous de ce seuil (par défaut : 1), le profil parent prend en compte l’intégralité du profil enfant comme non disponibles et dirige le trafic vers les autres points de terminaison du profil parent.
+![Nested Profile failover with 'MinChildEndpoints' = 2][4]
 
-L’exemple ci-dessous illustre : avec MinChildEndpoints défini sur 2, le profil parent détermine que le profil enfant ne doit pas recevoir le trafic et les utilisateurs sont dirigés vers les autres régions si un déploiement en Europe de l’Ouest est défaillant.
+>[AZURE.NOTE]
+>The 'Priority' traffic-routing method distributes all traffic to a single endpoint. Thus there is little purpose in a MinChildEndpoints setting other than '1' for a child profile.
 
-![Basculement de profil imbriqué avec « MinChildEndpoints » = 2][4]
+## <a name="example-3:-prioritized-failover-regions-in-'performance'-traffic-routing"></a>Example 3: Prioritized failover regions in 'Performance' traffic routing
 
-Notez que, lorsque le profil enfant utilise la méthode de routage de trafic « Priorité (Priority) », tout le trafic vers cet enfant est reçu par un seul point de terminaison. Par conséquent, aucune valeur autre que « 1 » n’est pertinente pour le paramètre MinChildEndpoints dans ce cas.
+The default behavior for the 'Performance' traffic-routing method is designed to avoid over-loading the next nearest endpoint and causing a cascading series of failures. When an endpoint fails, all traffic that would have been directed to that endpoint is evenly distributed to the other endpoints across all regions.
 
-## Exemple 3 : basculement hiérarchisé des régions dans le routage du trafic de type « Performance »
+!['Performance' traffic routing with default failover][5]
 
-Avec un seul profil utilisant le routage du trafic « Performance », tout le trafic qui aurait été dirigé vers ce point de terminaison est réparti entre les autres points de terminaison dans toutes les régions si un point de terminaison (par exemple, Europe de l’Ouest) est défaillant. Il s’agit du comportement par défaut pour la méthode de routage du trafic « Performance », conçu pour éviter une surcharge du point de terminaison le plus proche qui entraînerait une série d’échecs en cascade.
+However, suppose you prefer the West Europe traffic failover to West US, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
 
-![Routage du trafic « Performance » avec basculement par défaut][5]
+!['Performance' traffic routing with preferential failover][6]
 
-Toutefois, supposons que vous préférez que le trafic de l’Europe de l’Ouest soit basculé vers les États-Unis de l'Ouest et ne soit basculé vers un autre endroit que si ces points de terminaison ne sont pas disponibles. Pour cela, vous pouvez créer un profil enfant qui utilise la méthode de routage du trafic « Priority », comme indiqué ici :
+Since the West Europe endpoint has higher priority than the West US endpoint, all traffic is sent to the West Europe endpoint when both endpoints are online. If West Europe fails, its traffic is directed to West US. With the nested profile, traffic is directed to East Asia only when both West Europe and West US fail.
 
-![Routage du trafic « Performance » avec basculement préférentiel][6]
+You can repeat this pattern for all regions. Replace all three endpoints in the parent profile with three child profiles, each providing a prioritized failover sequence.
 
-Étant donné que le point de terminaison Europe de l’Ouest a une priorité plus élevée que le point de terminaison États-Unis de l'Ouest, tout le trafic est envoyé au point de terminaison Europe de l’Ouest lorsque les deux sont en ligne. En cas de défaillance du point de terminaison Europe de l’Ouest, le trafic est dirigé vers les États-Unis de l'Ouest. Le trafic de l’Europe de l’Ouest ne serait dirigé vers l’Asie de l'Est que si le point de terminaison États-Unis de l'Ouest est également défaillant.
+## <a name="example-4:-controlling-'performance'-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Example 4: Controlling 'Performance' traffic routing between multiple endpoints in the same region
 
-Vous pouvez répéter ce schéma pour toutes les régions, en remplaçant les 3 points de terminaison dans le profil parent par 3 profils enfants ayant chacun une séquence de priorité de basculement.
+Suppose the 'Performance' traffic-routing method is used in a profile that has more than one endpoint in a particular region. By default, traffic directed to that region is distributed evenly across all available endpoints in that region.
 
-## Exemple 4 : contrôle du routage du trafic de type « Performance » entre plusieurs points de terminaison dans la même région
+!['Performance' traffic routing in-region traffic distribution (default behavior)][7]
 
-Supposons que la méthode de routage du trafic « Performance » est utilisée dans un profil qui a plus d’un point de terminaison dans une région spécifique, par exemple les États-Unis de l'Ouest. Par défaut, le trafic dirigé vers cette région est distribué uniformément entre tous les points de terminaison disponibles dans cette région.
+Instead of adding multiple endpoints in West Europe, those endpoints are enclosed in a separate child profile. The child profile is added to the parent as the only endpoint in West Europe. The settings on the child profile can control the traffic distribution with West Europe by enabling priority-based or weighted traffic routing within that region.
 
-![Routage du trafic « Performance » avec distribution du trafic en région (comportement par défaut)][7]
+!['Performance' traffic routing with custom in-region traffic distribution][8]
 
-Cette valeur par défaut peut être modifiée à l’aide de profils Traffic Manager imbriqués. Au lieu d’ajouter plusieurs points de terminaison dans les États-Unis de l'Ouest, ces points de terminaison peuvent être placés entre un profil distinct, et le profil enfant ajouté au parent comme seul point de terminaison dans les États-Unis de l'Ouest. Les paramètres du profil enfant peuvent être ensuite utilisés pour contrôler la distribution du trafic vers les États-Unis de l'Ouest, ce qui permet (par exemple) un routage du trafic basé sur la priorité ou la pondération au sein de cette région.
+## <a name="example-5:-per-endpoint-monitoring-settings"></a>Example 5: Per-endpoint monitoring settings
 
-![Routage du trafic « Performance » avec distribution du trafic en région personnalisée][8]
+Suppose you are using Traffic Manager to smoothly migrate traffic from a legacy on-premises web site to a new Cloud-based version hosted in Azure. For the legacy site, you want to use the home page URI to monitor site health. But for the new Cloud-based version, you are implementing a custom monitoring page (path '/monitor.aspx') that includes additional checks.
 
-## Exemple 5 : paramètres de surveillance par point de terminaison
+![Traffic Manager endpoint monitoring (default behavior)][9]
 
-Supposons que vous utilisez Traffic Manager pour migrer en toute simplicité le trafic entre un site web local hérité et une nouvelle version cloud hébergée dans Azure. Pour le site hérité, vous utilisez la page d’accueil (chemin d’accès « / ») pour surveiller l’intégrité du site. Mais, pour la nouvelle version cloud, vous mettez en œuvre une page de surveillance personnalisée qui inclut des vérifications supplémentaires (chemin d’accès « / monitor.aspx »).
+The monitoring settings in a Traffic Manager profile apply to all endpoints within a single profile. With nested profiles, you use a different child profile per site to define different monitoring settings.
 
-![Surveillance des points de terminaison Traffic Manager (comportement par défaut)][9]
+![Traffic Manager endpoint monitoring with per-endpoint settings][10]
 
-Les paramètres de surveillance dans un profil Traffic Manager s’appliquent à tous les points de terminaison au sein du profil, ce qui signifie que vous devez utiliser auparavant le même chemin d’accès sur les deux sites. Grâce aux profils Traffic Manager imbriqués, vous pouvez désormais utiliser un profil enfant par site pour définir différents paramètres de surveillance par site :
+## <a name="faq"></a>FAQ
 
-![Surveillance des points de terminaison Traffic Manager avec paramétrage par point de terminaison][10]
+### <a name="how-do-i-configure-nested-profiles?"></a>How do I configure nested profiles?
 
-## Forum Aux Questions
+Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal. They are not supported in the classic portal.
 
-### Comment configurer des profils imbriqués ?
+### <a name="how-many-layers-of-nesting-does-traffic-manger-support?"></a>How many layers of nesting does Traffic Manger support?
 
-Les profils Traffic Manager imbriqués peuvent être configurés à l’aide d’Azure Resource Manager (ARM) et des API REST Azure Service Management (ASM), des applets de commande PowerShell et des commandes d’interface de ligne de commande Azure interplateforme. Ils sont également pris en charge par le portail Azure, mais ils ne sont pas pris en charge dans le portail « Classic ».
+You can nest profiles up to 10 levels deep. 'Loops' are not permitted.
 
-### Combien de couches d’imbrication Traffic Manager prend-il en charge ?
-Vous pouvez imbriquer jusqu’à 10 niveaux de profil. Les « boucles » ne sont pas autorisées.
+### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles,-in-the-same-traffic-manager-profile?"></a>Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?
 
-### Puis-je combiner d’autres types de point de terminaison avec des profils enfants imbriqués dans le même profil Traffic Manager ?
+Yes. There are no restrictions on how you combine endpoints of different types within a profile.
 
-Oui. Il n’existe aucune restriction sur la manière de combiner des points de terminaison de différents types au sein d’un profil.
+### <a name="how-does-the-billing-model-apply-for-nested-profiles?"></a>How does the billing model apply for Nested profiles?
 
-### Comment le modèle de facturation s’applique-t-il aux profils imbriqués ?
+There is no negative pricing impact of using nested profiles.
 
-Il n’y a aucun impact négatif sur la tarification en cas d’utilisation de profils imbriqués.
+Traffic Manager billing has two components: endpoint health checks and millions of DNS queries
 
-La facturation de Traffic Manager comporte deux composants : les contrôles d’intégrité des points de terminaison et des millions de requêtes DNS (pour plus d’informations, consultez notre [page de tarification](https://azure.microsoft.com/pricing/details/traffic-manager/).) Voici comment ce modèle s’applique aux profils imbriqués :
+- Endpoint health checks: There is no charge for a child profile when configured as an endpoint in a parent profile. Monitoring of the endpoints in the child profile are billed in the usual way.
+- DNS queries: Each query is only counted once. A query against a parent profile that returns an endpoint from a child profile is counted against the parent profile only.
 
-- Contrôles d’intégrité des points de terminaison : aucun frais n’est facturé pour un profil enfant configuré en tant que point de terminaison dans un profil parent. Les points de terminaison dans le profil enfant qui surveillent les services sous-jacents sont facturés de la manière habituelle.
+For full details, see the [Traffic Manager pricing page](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-- Requêtes DNS : chaque requête est comptabilisée une seule fois. L’interrogation d’un profil parent qui retourne un point de terminaison depuis un profil enfant est facturée sur le profil parent uniquement.
+### <a name="is-there-a-performance-impact-for-nested-profiles?"></a>Is there a performance impact for nested profiles?
 
-### Y a-t-il un impact sur les performances en cas de profils imbriqués ?
+No. There is no performance impact incurred when using nested profiles.
 
-Non, il n’a aucun impact sur les performances en cas d’utilisation de profils imbriqués.
+The Traffic Manager name servers traverse the profile hierarchy internally when processing each DNS query. A DNS query to a parent profile can receive a DNS response with an endpoint from a child profile. A single CNAME record is used whether you are using a single profile or nested profiles. There is no need to create a CNAME record for each profile in the hierarchy.
 
-Les serveurs de noms Traffic Manager parcourent la hiérarchie de profils en interne lors du traitement de chaque requête DNS, donc une requête DNS sur un profil parent peut recevoir une réponse DNS avec un point de terminaison d’un profil enfant.
+### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile?"></a>How does Traffic Manager compute the health of a nested endpoint in a parent profile?
 
-Un seul enregistrement CNAME est donc utilisé, le même que lorsque vous utilisez un seul profil Traffic Manager. Une chaîne d’enregistrements CNAME (une pour chaque profil dans la hiérarchie), n’est **pas** nécessaire, et par conséquent aucune altération des performances n’est constatée.
+The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints are used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
 
-### Comment Traffic Manager calcule l’intégrité d’un point de terminaison imbriqué dans un profil parent sur la base de l’intégrité du profil enfant ?
+The following table describes the behavior of Traffic Manager health checks for a nested endpoint.
 
-Lorsqu’un profil parent est configuré avec un profil enfant comme point de terminaison imbriqué, le parent n’effectue pas les contrôles d’intégrité de l’enfant directement. Au lieu de cela, l’intégrité des points de terminaison du profil enfant est utilisée pour calculer l’intégrité globale du profil enfant, et cette information est propagée dans la hiérarchie du profil imbriqué pour déterminer l’intégrité du point de terminaison imbriqué au sein du profil parent. Ce paramètre détermine si le profil parent devra diriger le trafic vers l’enfant.
-
-Le tableau suivant décrit le comportement des contrôles d’intégrité Traffic Manager pour un point de terminaison imbriqué dans un profil parent pointant vers un profil enfant.
-
-|État d’analyse des profils enfants|État d’analyse des points de terminaison parents|Remarques|
+|Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
 |---|---|---|
-|Désactivé. Le profil enfant a été désactivé par l’utilisateur.|Arrêté|L’état des points de terminaison parents est Arrêté, pas Désactivé. L’état Désactivé sert uniquement à indiquer que vous avez désactivé le point de terminaison dans le profil parent.|
-|Détérioré. Au moins un point de terminaison du profil enfant a l’état Détérioré.|En ligne : le nombre de points de terminaison en ligne dans le profil enfant correspond au moins à la valeur de MinChildEndpoints. CheckingEndpoint : le nombre de points de terminaison en ligne et CheckingEndpoint dans le profil enfant correspond au moins à la valeur de MinChildEndpoints. Détérioré : dans le cas contraire.|Le trafic est acheminé vers un point de terminaison à l’état CheckingEndpoint. Si la valeur définie de MinChildEndpoints est trop élevée, le point de terminaison sera toujours détérioré.|
-|En ligne. au moins un point de terminaison du profil enfant a l’état En ligne, et aucun n’a l’état Détérioré.|Voir ci-dessus.||
-|CheckingEndpoints. au moins un point de terminaison du profil enfant a l’état CheckingEndpoint. Aucun n’a l’état En ligne ou Détérioré.|Identique à ce qui précède.||
-|Inactif. tous les points de terminaison du profil enfant ont l’état Désactivé ou Arrêté, ou ce profil n’inclut aucun point de terminaison.|Arrêté||
+|Disabled. The child profile has been disabled.|Stopped|The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.|
+|Degraded. At least one child profile endpoint is in a Degraded state.| Online: the number of Online endpoints in the child profile is at least the value of MinChildEndpoints.<BR>CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints.<BR>Degraded: otherwise.|Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint is always degraded.|
+|Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state.|See above.||
+|CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded'|Same as above.||
+|Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints.|Stopped||
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md)
+Learn more about [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
 
-En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-manage-profiles.md)
+Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
@@ -161,4 +159,9 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,10 +1,10 @@
 <properties
 pageTitle="ProjectOnline | Microsoft Azure"
-description="Créer des applications logiques avec Azure App Service. Project Online est une solution flexible en ligne pour la gestion de portefeuille de projets (PPM) et des tâches quotidiennes Microsoft. Fourni via Office 365, Project Online permet aux organisations de rapidement prendre en main des fonctionnalités de gestion de projets puissantes pour planifier, hiérarchiser et gérer des projets et des investissements de portefeuille de projets, à partir de presque n’importe où sur pratiquement tout appareil."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. Project Online is a flexible online solution for project portfolio management (PPM) and everyday work from Microsoft. Delivered through Office 365, Project Online enables organizations to get started quickly with powerful project management capabilities to plan, prioritize, and manage projects and project portfolio investments—from almost anywhere on almost any device."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,505 +17,509 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Prise en main du connecteur ProjectOnline
 
-Project Online est une solution flexible en ligne pour la gestion de portefeuille de projets (PPM) et des tâches quotidiennes Microsoft. Fourni via Office 365, Project Online permet aux organisations de rapidement prendre en main des fonctionnalités de gestion de projets puissantes pour planifier, hiérarchiser et gérer des projets et des investissements de portefeuille de projets, à partir de presque n’importe où sur pratiquement tout appareil.
+# <a name="get-started-with-the-projectonline-connector"></a>Get started with the ProjectOnline connector
 
->[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
+Project Online is a flexible online solution for project portfolio management (PPM) and everyday work from Microsoft. Delivered through Office 365, Project Online enables organizations to get started quickly with powerful project management capabilities to plan, prioritize, and manage projects and project portfolio investments—from almost anywhere on almost any device.
 
-Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
-## Déclencheurs et actions
+You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Le connecteur ProjectOnline peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
- Le connecteur ProjectOnline met à votre disposition les actions et/ou les déclencheurs ci-après.
+The ProjectOnline connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-### Actions de ProjectOnline
-Vous pouvez effectuer les actions suivantes :
+ The ProjectOnline connector has the following action(s) and/or trigger(s) available:
+
+### <a name="projectonline-actions"></a>ProjectOnline actions
+You can take these action(s):
 
 |Action|Description|
 |--- | ---|
-|[ListProjects](connectors-create-api-projectonline.md#listprojects)|Répertorie les projets de votre site Project Online|
-|[CreateProject](connectors-create-api-projectonline.md#createproject)|Crée un nouveau projet sur votre site Project Online|
-|[CreateTask](connectors-create-api-projectonline.md#createtask)|Crée une nouvelle tâche dans votre projet|
-|[CreateResource](connectors-create-api-projectonline.md#createresource)|Crée des ressources d’entreprise dans votre site Project Online|
-|[ListTasks](connectors-create-api-projectonline.md#listtasks)|Répertorie les tâches publiées dans un projet|
-|[CheckoutProject](connectors-create-api-projectonline.md#checkoutproject)|Extrait un projet de votre site|
-|[PublishProject](connectors-create-api-projectonline.md#publishproject)|Archive et publie un projet existant sur votre site|
-### Déclencheurs de ProjectOnline
-Vous pouvez écouter les événements suivants :
+|[ListProjects](connectors-create-api-projectonline.md#listprojects)|Lists the projects in your project online site|
+|[CreateProject](connectors-create-api-projectonline.md#createproject)|Creates a new project in your project online site|
+|[CreateTask](connectors-create-api-projectonline.md#createtask)|Creates a new task in you project|
+|[CreateResource](connectors-create-api-projectonline.md#createresource)|Creates an Enterprise Resources in your project online site|
+|[ListTasks](connectors-create-api-projectonline.md#listtasks)|Lists the published tasks in a project|
+|[CheckoutProject](connectors-create-api-projectonline.md#checkoutproject)|Checks out a project in your site|
+|[PublishProject](connectors-create-api-projectonline.md#publishproject)|Check in and publish and existing project in your site|
+### <a name="projectonline-triggers"></a>ProjectOnline triggers
+You can listen for these event(s):
 
-|Déclencheur | Description|
+|Trigger | Description|
 |--- | ---|
-|Quand un nouveau projet est créé|Déclenche un flux lors de la création d’un nouveau projet|
-|Quand une nouvelle ressource est créée|Déclenche un flux lors de la création d’une nouvelle ressource|
-|Quand une nouvelle tâche est créée|Déclenche un flux lors de la création d’une nouvelle tâche|
+|When a new project is created|Triggers a flow whenever a new project is created|
+|When a new resource is created|Triggers a new flow when a new resource is created|
+|When a new task is created|Triggers a flow when a new task is created|
 
 
-## Créer une connexion à ProjectOnline
-Pour créer des applications logiques avec ProjectOnline, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
+## <a name="create-a-connection-to-projectonline"></a>Create a connection to ProjectOnline
+To create Logic apps with ProjectOnline, you must first create a **connection** then provide the details for the following properties: 
 
-|Propriété| Requis|Description|
+|Property| Required|Description|
 | ---|---|---|
-|Jeton|Oui|Fournir des informations d’identification ProjectOnline|
+|Token|Yes|Provide ProjectOnline Credentials|
 
->[AZURE.INCLUDE [Procédure de création d’une connexion à ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
+>[AZURE.INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 
->[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-## Référence pour ProjectOnline
-S’applique à la version 1.0.
+## <a name="reference-for-projectonline"></a>Reference for ProjectOnline
+Applies to version: 1.0
 
-## OnNewProject
-Quand un nouveau projet est créé : déclenche un flux lors de la création d’un nouveau projet
+## <a name="onnewproject"></a>OnNewProject
+When a new project is created: Triggers a flow whenever a new project is created 
 
-```GET: /trigger/_api/ProjectData/Projects```
+```GET: /trigger/_api/ProjectData/Projects``` 
 
-| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
 |200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
-|403|Interdit|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## OnNewResource
-Quand une nouvelle ressource est créée : déclenche un nouveau flux lors de la création d’une nouvelle ressource
+## <a name="onnewresource"></a>OnNewResource
+When a new resource is created: Triggers a new flow when a new resource is created 
 
-```GET: /trigger/_api/ProjectData/Resources```
+```GET: /trigger/_api/ProjectData/Resources``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
-|403|Interdit|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
-
-
-## OnNewTask
-Quand une nouvelle tâche est créée : déclenche un fluxlors de la création d’une nouvelle tâche
-
-```GET: /trigger/_api/ProjectData/Tasks```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
-
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
-|403|Interdit|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
-
-
-## ListProjects
-Répertorier les projets : répertorie les projets de votre site Project Online
-
-```GET: /_api/ProjectServer/Projects```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
-
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
 |200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
-|403|Interdit|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateProject
-Créer un nouveau projet : crée un nouveau projet sur votre site Project Online
+## <a name="onnewtask"></a>OnNewTask
+When a new task is created: Triggers a flow when a new task is created 
 
-```POST: /_api/ProjectServer/Projects```
+```GET: /trigger/_api/ProjectData/Tasks``` 
 
-| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
-|proj| |yes|body|(aucun)|Nouveau projet à créer|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Réponse
+#### <a name="response"></a>Response
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
+
+
+## <a name="listprojects"></a>ListProjects
+List projects: Lists the projects in your project online site 
+
+```GET: /_api/ProjectServer/Projects``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
+
+
+## <a name="createproject"></a>CreateProject
+Creates new project: Creates a new project in your project online site 
+
+```POST: /_api/ProjectServer/Projects``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|proj| |yes|body|none|New project to create|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
 |403|ForbIDden|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateTask
-Créer une nouvelle tâche : crée une nouvelle tâche dans votre projet
+## <a name="createtask"></a>CreateTask
+Creates new task: Creates a new task in you project 
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add```
+```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
-|project\_id|string|yes|path|(aucun)|ID unique du projet auquel ajouter la tâche|
-|task| |yes|body|(aucun)|Nouvelle tâche à ajouter au projet|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|project_id|string|yes|path|none|Unique ID of the project to add the task to|
+|task| |yes|body|none|New task to add to the project|
 
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
 |200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
-|403|Interdit|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateResource
-Créer une nouvelle ressource : crée des ressources d’entreprise dans votre site Project Online
+## <a name="createresource"></a>CreateResource
+Create new resource: Creates an Enterprise Resources in your project online site 
 
-```POST: /_api/ProjectServer/EnterpriseResources```
+```POST: /_api/ProjectServer/EnterpriseResources``` 
 
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
-|resource| |yes|body|(aucun)|Nouvelle ressource d’entreprise à ajouter au projet|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|resource| |yes|body|none|New enterprise resource to add to the project|
 
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
-|403|Interdit|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
-
-
-## ListTasks
-Répertorier les tâches : répertorie les tâches publiées dans un projet
-
-```GET: /_api/ProjectServer/Projects('{project_id}')/Tasks```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
-|project\_id|string|yes|path|(aucun)|ID unique du projet d’où extraire les tâches|
-
-#### Réponse
-
-|Nom|Description|
-|---|---|
-|200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
-|403|Interdit|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
-
-
-## CheckoutProject
-Extraire un projet : extrait un projet de votre site
-
-```POST: /_api/ProjectServer/Projects('{project_id}')/checkOut```
-
-| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
-| ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
-|project\_id|string|yes|path|(aucun)|ID unique du projet auquel ajouter la tâche|
-
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
 |200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
-|403|Interdit|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## PublishProject
-Archiver et publier le projet : archive et publie un projet existant sur votre site
+## <a name="listtasks"></a>ListTasks
+Lists tasks: Lists the published tasks in a project 
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Publish(true)```
+```GET: /_api/ProjectServer/Projects('{project_id}')/Tasks``` 
 
-| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|yes|query|(aucun)|URL du site racine de votre site de projet (exemple : https://sampletenant.sharepoint.com/teams/sampleteam )|
-|project\_id|string|yes|path|(aucun)|ID unique du projet à archiver|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|project_id|string|yes|path|none|Unique ID of the project to fetch tasks|
 
-#### Réponse
+#### <a name="response"></a>Response
 
 |Name|Description|
 |---|---|
 |200|OK|
-|400|Demande incorrecte|
-|401|Non autorisé|
-|403|Interdit|
-|404|Introuvable|
-|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
-|default|L’opération a échoué.|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## Définitions d’objet 
+## <a name="checkoutproject"></a>CheckoutProject
+Checkout a project: Checks out a project in your site 
 
-### TriggerProjectsWrapper
+```POST: /_api/ProjectServer/Projects('{project_id}')/checkOut``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|project_id|string|yes|path|none|Unique ID of the project to add the task to|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-| Nom de la propriété | Type de données | Requis |
+## <a name="publishproject"></a>PublishProject
+Checkin and publish project: Check in and publish and existing project in your site 
+
+```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Publish(true)``` 
+
+| Name| Data Type|Required|Located In|Default Value|Description|
+| ---|---|---|---|---|---|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|project_id|string|yes|path|none|Unique ID of the project to checkin|
+
+#### <a name="response"></a>Response
+
+|Name|Description|
+|---|---|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
+
+
+## <a name="object-definitions"></a>Object definitions 
+
+### <a name="triggerprojectswrapper"></a>TriggerProjectsWrapper
+
+
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### TriggerProject
+### <a name="triggerproject"></a>TriggerProject
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ProjectStartDate|string|Non |
-|ProjectFinishDate|string|Non |
-|ProjectCreatedDate|string|Non |
-|ProjectId|string|Non |
-|ProjectModifiedDate|string|Non |
-|ProjectType|integer|Non |
-|ProjectName|string|Non |
+|ProjectStartDate|string|No |
+|ProjectFinishDate|string|No |
+|ProjectCreatedDate|string|No |
+|ProjectId|string|No |
+|ProjectModifiedDate|string|No |
+|ProjectType|integer|No |
+|ProjectName|string|No |
 
 
 
-### TriggerResourcesWrapper
+### <a name="triggerresourceswrapper"></a>TriggerResourcesWrapper
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### TriggerResource
+### <a name="triggerresource"></a>TriggerResource
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ResourceId|string|Non |
-|ResourceBaseCalendar|string|Non |
-|ResourceBookingType|integer|Non |
-|ResourceCanLevel|booléenne|Non |
-|ResourceCostPerUse|number|Non |
-|ResourceCreatedDate|string|Non |
-|ResourceEarliestAvailableFrom|string|Non |
-|ResourceEmail|string|Non |
-|ResourceInitials|string|Non |
-|ResourceIsActive|booléenne|Non |
-|ResourceIsGeneric|booléenne|Non |
-|ResourceLatestAvailableTo|string|Non |
-|ResourceModifiedDate|string|Non |
-|ResourceName|string|Non |
-|ResourceStatsuName|string|Non |
-|ResourceType|integer|Non |
-|TypeDescription|string|Non |
-|TypeName|string|Non |
+|ResourceId|string|No |
+|ResourceBaseCalendar|string|No |
+|ResourceBookingType|integer|No |
+|ResourceCanLevel|boolean|No |
+|ResourceCostPerUse|number|No |
+|ResourceCreatedDate|string|No |
+|ResourceEarliestAvailableFrom|string|No |
+|ResourceEmail|string|No |
+|ResourceInitials|string|No |
+|ResourceIsActive|boolean|No |
+|ResourceIsGeneric|boolean|No |
+|ResourceLatestAvailableTo|string|No |
+|ResourceModifiedDate|string|No |
+|ResourceName|string|No |
+|ResourceStatsuName|string|No |
+|ResourceType|integer|No |
+|TypeDescription|string|No |
+|TypeName|string|No |
 
 
 
-### TriggerTasksWrapper
+### <a name="triggertaskswrapper"></a>TriggerTasksWrapper
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### TriggerTask
+### <a name="triggertask"></a>TriggerTask
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ProjectId|string|Non |
-|TaskId|string|Non |
-|ProjectName|string|Non |
-|TaskName|string|Non |
-|TaskCreatedDate|string|Non |
-|TaskModifieddate|string|Non |
-|TaskStartDate|string|Non |
-|TaskFinishDate|string|Non |
-|TaskPriority|integer|Non |
-|TaskIsActive|booléenne|Non |
+|ProjectId|string|No |
+|TaskId|string|No |
+|ProjectName|string|No |
+|TaskName|string|No |
+|TaskCreatedDate|string|No |
+|TaskModifieddate|string|No |
+|TaskStartDate|string|No |
+|TaskFinishDate|string|No |
+|TaskPriority|integer|No |
+|TaskIsActive|boolean|No |
 
 
 
-### NewProject
+### <a name="newproject"></a>NewProject
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Name|string|Oui |
-|Description|string|Non |
-|Démarrer|string|Non |
+|Name|string|Yes |
+|Description|string|No |
+|Start|string|No |
 
 
 
-### NewReource
+### <a name="newreource"></a>NewReource
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Nom|string|Oui |
-|IsBudget|booléenne|Non |
-|IsGeneric|booléenne|Non |
-|IsInactive|booléenne|Non |
+|Name|string|Yes |
+|IsBudget|boolean|No |
+|IsGeneric|boolean|No |
+|IsInactive|boolean|No |
 
 
 
-### projet
+### <a name="project"></a>Project
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ApprovedStart|string|Non |
-|ApprovedEnd|string|Non |
-|CheckedOutDate|string|Non |
-|CheckOutDescription|string|Non |
-|CheckOutId|string|Non |
-|CreatedDate|string|Non |
-|ID|string|Non |
-|IsCheckedOut|booléenne|Non |
-|LastPublishedDate|string|Non |
-|LastSavedDate|string|Non |
-|OptimizerDecision|integer|Non |
-|PlannerDecision|integer|Non |
-|ProjectType|integer|Non |
-|Name|string|Non |
-|WinprojVersion|string|Non |
+|ApprovedStart|string|No |
+|ApprovedEnd|string|No |
+|CheckedOutDate|string|No |
+|CheckOutDescription|string|No |
+|CheckOutId|string|No |
+|CreatedDate|string|No |
+|Id|string|No |
+|IsCheckedOut|boolean|No |
+|LastPublishedDate|string|No |
+|LastSavedDate|string|No |
+|OptimizerDecision|integer|No |
+|PlannerDecision|integer|No |
+|ProjectType|integer|No |
+|Name|string|No |
+|WinprojVersion|string|No |
 
 
 
-### ProjectsWrapper
+### <a name="projectswrapper"></a>ProjectsWrapper
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### NewTask
+### <a name="newtask"></a>NewTask
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|parameters|non défini|Oui |
+|parameters|not defined|Yes |
 
 
 
-### TaskParameters
+### <a name="taskparameters"></a>TaskParameters
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Name|string|Oui |
-|Remarques|string|Non |
-|Démarrer|string|Non |
-|Durée|string|Non |
+|Name|string|Yes |
+|Notes|string|No |
+|Start|string|No |
+|Duration|string|No |
 
 
 
-### EnterpriseResource
+### <a name="enterpriseresource"></a>EnterpriseResource
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|CanLevel|booléenne|Non |
-|Code|string|Non |
-|CostAccrual|integer|Non |
-|CostCenter|string|Non |
-|Date de création|string|Non |
-|DefaultBookingType|integer|Non |
-|Email|string|Non |
-|ExternalId|string|Non |
-|Groupe|string|Non |
-|HireDate|string|Non |
-|ID|string|Non |
-|Initials|string|Non |
-|IsActive|booléenne|Non |
-|IsBudget|booléenne|Non |
-|IsCheckedOut|booléenne|Non |
-|IsGeneric|booléenne|Non |
-|IsTeam|booléenne|Non |
-|MaterialLabel|string|Non |
-|Date de modification|string|Non |
-|Name|string|Non |
-|Phonetics|string|Non |
-|ResourceType|integer|Non |
-|TerminationDate|string|Non |
+|CanLevel|boolean|No |
+|Code|string|No |
+|CostAccrual|integer|No |
+|CostCenter|string|No |
+|Created|string|No |
+|DefaultBookingType|integer|No |
+|Email|string|No |
+|ExternalId|string|No |
+|Group|string|No |
+|HireDate|string|No |
+|Id|string|No |
+|Initials|string|No |
+|IsActive|boolean|No |
+|IsBudget|boolean|No |
+|IsCheckedOut|boolean|No |
+|IsGeneric|boolean|No |
+|IsTeam|boolean|No |
+|MaterialLabel|string|No |
+|Modified|string|No |
+|Name|string|No |
+|Phonetics|string|No |
+|ResourceType|integer|No |
+|TerminationDate|string|No |
 
 
 
-### TasksWrapper
+### <a name="taskswrapper"></a>TasksWrapper
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Non |
+|value|array|No |
 
 
 
-### Task
+### <a name="task"></a>Task
 
 
-| Nom de la propriété | Type de données | Requis |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Date de création|string|Non |
-|Date de modification|string|Non |
-|Démarrer|string|Non |
-|Terminer|string|Non |
-|Nom|string|Non |
-|ID|string|Non |
-|Priorité|integer|Non |
-|PercentComplete|integer|Non |
-|Remarques|string|Non |
-|Contact|string|Non |
+|Created|string|No |
+|Modified|string|No |
+|Start|string|No |
+|Finish|string|No |
+|Name|string|No |
+|Id|string|No |
+|Priority|integer|No |
+|PercentComplete|integer|No |
+|Notes|string|No |
+|Contact|string|No |
 
 
-## Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

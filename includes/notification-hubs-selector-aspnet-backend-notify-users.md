@@ -3,4 +3,8 @@
 - [iOS](../articles/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 - [Windows Runtime 8.1 universal](../articles/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

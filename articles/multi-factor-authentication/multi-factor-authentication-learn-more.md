@@ -1,38 +1,43 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - En savoir plus"
-	description="Voici la page sur Azure Multi-factor Authentication qui fournit des liens vers du contenu supplémentaire au sujet d’Azure Multi-Factor Authentication. Ici, vous pouvez découvrir des rubriques supplémentaires sur Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+    pageTitle="Azure Multi-Factor Authentication - Learn More"
+    description="This is the Azure Multi-factor authentication page that provides links to additional content for Azure Multi-Factor Authentication.  From here you can learn about additional topics on Multi-Factor Authentication."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtland"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
-
-# En savoir plus sur Azure Multi-Factor Authentication
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
 
 
-Voici un ensemble de ressources supplémentaires qui vous aideront à tirer pleinement parti de toutes les fonctionnalités disponibles dans Azure Multi-Factor Authentication
+# <a name="learn-more-about-azure-multi-factor-authentication"></a>Learn more about Azure Multi-Factor Authentication
 
-## Documentation
 
-[Configurer le serveur MFA pour une utilisation avec l’authentification IIS.](https://msdn.microsoft.com/library/azure/dn394291.aspx)
+The following is a collection of additional resources that will help you take full advantage of all the features available in Azure Multi-Factor Authentication
 
-[Configurer le serveur MFA pour une utilisation avec l’authentification Radius.](https://msdn.microsoft.com/library/azure/dn394299.aspx)
+## <a name="documentation"></a>Documentation
 
-[Configurer le serveur MFA pour une utilisation avec l’authentification LDAP.](https://msdn.microsoft.com/library/azure/dn394286.aspx)
+[Configure MFA Server for use with IIS Authentication.](https://msdn.microsoft.com/library/azure/dn394291.aspx)
 
-[Configurer le serveur MFA pour une utilisation avec l’authentification Windows.](https://msdn.microsoft.com/library/azure/dn394278.aspx)
+[Configure MFA Server for use with Radius Authentication.](https://msdn.microsoft.com/library/azure/dn394299.aspx)
 
-[Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS](https://msdn.microsoft.com/library/azure/dn394287.aspx)
+[Configure MFA Server for use with LDAP Authentication.](https://msdn.microsoft.com/library/azure/dn394286.aspx)
 
-[Création de Multi-Factor Authentication dans des applications personnalisées (SDK)](https://msdn.microsoft.com/library/azure/dn249464.aspx)
+[Configure MFA Server for use with Windows Authentication.](https://msdn.microsoft.com/library/azure/dn394278.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+[Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](https://msdn.microsoft.com/library/azure/dn394287.aspx)
+
+[Building Multi-Factor Authentication into Custom Apps (SDK)](https://msdn.microsoft.com/library/azure/dn249464.aspx)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

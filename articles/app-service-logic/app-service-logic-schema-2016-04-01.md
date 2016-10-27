@@ -1,35 +1,36 @@
 <properties 
-	pageTitle="Nouvelle version de schéma 2016-06-01 | Microsoft Azure" 
-	description="Découvrir comment écrire la définition JSON pour la dernière version des applications logiques" 
-	authors="jeffhollan" 
-	manager="dwrede" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="New schema version 2016-06-01 | Microsoft Azure" 
+    description="Learn how to write the JSON definition for the latest version of Logic apps" 
+    authors="jeffhollan" 
+    manager="dwrede" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="jehollan"/>
-	
-# Nouvelle version de schéma 2016-06-01
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/25/2016"
+    ms.author="jehollan"/>
+    
 
-Le nouveau schéma et la récente version de l’API pour les applications logiques ont bénéficié d’un certain nombre d’améliorations destinées à accroître la fiabilité et la simplicité d’utilisation des applications logiques. Voici les 3 principales différences :
+# <a name="new-schema-version-2016-06-01"></a>New schema version 2016-06-01
 
-1. Ajout d’étendues, qui sont des actions qui contiennent un ensemble d’actions.
-1. Les conditions et les boucles sont des actions de première classe
-1. L’exécution plus détaillée des classements via la propriété `runAfter` (qui remplace `dependsOn`)
+The new schema and API version for Logic apps has a number of improvements which improve the reliability and ease-of-use of Logic apps. There are 3 key differences:
 
-Pour plus d’informations sur la mise à niveau de vos applications logiques à partir du schéma 2015-08-01-preview vers le schéma 2016-06-01, [consultez la section relative à la mise à niveau ci-dessous](#upgrading-to-2016-06-01-schema).
+1. Addition of scopes, which are actions that contain a collection of actions.
+1. Conditions and loops are first-class actions
+1. Execution ordering more verbose via `runAfter` property (which replaces `dependsOn`)
+
+For information on upgrading your logic apps from the 2015-08-01-preview schema to the 2016-06-01 schema, [check out the upgrade section below.](#upgrading-to-2016-06-01-schema)
 
 
-## 1\. Étendues
+## <a name="1.-scopes"></a>1. Scopes
 
-L’un des plus grands changements dans ce schéma est l’ajout d’étendues et la possibilité d’imbriquer les actions entre elles. Cela est utile lors du regroupement d’un ensemble d’actions, ou lorsque vous avez besoin d’imbriquer les actions entre elles (par exemple une condition peut en contenir une autre). Vous trouverez plus d’informations sur la syntaxe étendue [ici](app-service-logic-loops-and-scopes.md), mais vous trouverez un exemple simple d’étendue ci-dessous :
+One of the biggest changes in this schema is the addition of scopes and the ability to nest actions within each other.  This is helpful when grouping a set of actions together, or when needing to nest actions within each other (for example a condition can contain another condition).  More details on scope syntax can be found [here](app-service-logic-loops-and-scopes.md), but a simple scope example can be found below:
 
 
 ```
@@ -52,9 +53,9 @@ L’un des plus grands changements dans ce schéma est l’ajout d’étendues e
 }
 ```
 
-## 2\. Modifications des conditions et boucles
+## <a name="2.-conditions-and-loops-changes"></a>2. Conditions and loops changes
 
-Dans les versions précédentes du schéma, les conditions et les boucles étaient des paramètres associés à une seule action. Cette limitation a été levée dans ce schéma et, à présent, les conditions et les boucles s’affichent en tant que type d’action. [Cet article](app-service-logic-loops-and-scopes.md) propose plus d’informations et un exemple simple d’une action de condition est indiqué ci-dessous :
+In the previous versions of the schema, conditions and loops were parameters associated to a single action.  This limitation has been lifted in this schema and now conditions and loops show up as a type of action.  More information can be found [in this article](app-service-logic-loops-and-scopes.md), and a simple example of a condition action is shown below:
 
 ```
 {
@@ -80,9 +81,9 @@ Dans les versions précédentes du schéma, les conditions et les boucles étaie
 }
 ```
 
-## 3\. Propriété de RunAfter
+## <a name="3.-runafter-property"></a>3. RunAfter Property
 
-La nouvelle propriété `runAfter` remplace `dependsOn` afin de permettre une plus grande précision dans l’exécution de la commande. `dependsOn` était synonyme de « l’action a été exécutée et a réussi ». Peu importe le nombre de fois que vous avez besoin d’exécuter une action si l’action précédente a réussi, échoué ou été ignorée. `runAfter` permet cette souplesse. Il existe un objet qui spécifie tous les noms d’action exécutés et définit un tableau d’états acceptables pour le déclenchement. Par exemple, si vous souhaitez exécuter après la réussite de l’étape A et la réussite ou l’échec de l’étape B, vous devez construire la propriété `runAfter` suivante :
+The new `runAfter` property is replacing `dependsOn` to help allow more precision in run ordering.  `dependsOn` was synonymous with "the action ran and was successful," however many times you need to execute an action if the previous action is successful, failed, or skipped.  `runAfter` allows for that flexibility.  It is an object that specifies all of the action names it will run after, and defines an array of status' that are acceptable to trigger from.  For example if you wanted to run after step A was succeeded and step B was succeeded or failed, you would construct the following `runAfter` property:
 
 ```
 {
@@ -94,55 +95,55 @@ La nouvelle propriété `runAfter` remplace `dependsOn` afin de permettre une pl
 }
 ```
 
-## Mise à niveau vers le schéma 2016-06-01
+## <a name="upgrading-to-2016-06-01-schema"></a>Upgrading to 2016-06-01 schema
 
-La mise à niveau vers le nouveau schéma 2016-06-01 se déroule en quelques étapes seulement. Des détails sur les modifications du schéma sont disponibles [dans cet article](app-service-logic-schema-2016-04-01.md). Le processus de mise à niveau implique l’exécution du script de mise à niveau, l’enregistrement en tant que nouvelle application logique et, éventuellement, le remplacement de l’ancienne application logique, si nécessaire.
+Upgrading to the new 2016-06-01 schema only takes a few steps.  Details on the changes from the schema can be found [in this article](app-service-logic-schema-2016-04-01.md).  The upgrade process includes running the upgrade script, saving as a new logic app, and potentially overwriting old logic app if needed.
 
-1. Ouvrez votre application logique en cours.
-1. Cliquez sur le bouton **Mise à jour de schéma** dans la barre d’outils
+1. Open your current logic app.
+1. Click the **Update Schema** button in the toolbar
    
     ![][1]
    
-    La définition mise à niveau sera retournée. Vous pouvez la copier et la coller dans une définition de ressources si vous en avez besoin, mais nous vous **recommandons vivement** d’utiliser le bouton **Enregistrer sous** pour vérifier que toutes les références de connexion sont valides dans l’application logique mise à niveau.
-1. Cliquez sur le bouton **Enregistrer sous** dans la barre d’outils du Panneau de mise à niveau.
-1. Entrez le nom et l’état logique de l’application et cliquez sur **Créer** pour déployer votre application logique mise à niveau.
-1. Vérifiez que votre application logique mise à niveau fonctionne comme prévu.
+    The upgraded definition will be returned.  You could copy and paste this into a resource definition if you need, but we **strongly recommend** you use the **Save As** button to ensure all connection references are valid in the upgraded logic app.
+1. Click the **Save As** button in the toolbar of the upgrade blade.
+1. Fill out the name and logic app status and click **Create** to deploy your upgrade logic app.
+1. Verify your upgraded logic app is working as expected.
 
-    >[AZURE.NOTE] Si vous utilisez un déclencheur manuel ou sur demande, l’URL de rappel aura changé dans votre nouvelle application logique. Utilisez la nouvelle URL pour vérifier son fonctionnement de bout en bout ; vous pouvez cloner votre application logique existante pour conserver les URL précédentes.
+    >[AZURE.NOTE] If you are using a manual or request trigger, the callback URL will have changed in your new logic app.  Use the new URL to verify it works end-to-end, and you can clone over your existing logic app to preserve previous URLs.
 
-1. *Facultatif* Utilisez le bouton **Cloner** dans la barre d’outils (adjacente à l’icône **Mettre à jour le schéma** dans l’image ci-dessus) pour remplacer votre application logique précédente avec la nouvelle version du schéma. Cela est nécessaire uniquement si vous souhaitez conserver les mêmes ID de ressource ou URL du déclencheur de demande de votre application logique.
+1. *Optional* Use the **Clone** button in the toolbar (adjacent to the **Update Schema** icon in the picture above) to overwrite your previous logic app with the new schema version.  This is necessary only if you wish to keep the same resource ID or request trigger URL of your logic app.
 
-### Notes de l’outil de mise à niveau
+### <a name="upgrade-tool-notes"></a>Upgrade tool notes
 
-#### Mappage de condition
+#### <a name="condition-mapping"></a>Condition mapping
 
-L’outil s’efforce de regrouper les actions des branches true et false dans une étendue dans la définition mise à niveau. Le modèle de concepteur de `@equals(actions('a').status, 'Skipped')` doit notamment apparaître comme une action `else`. Toutefois, si l’outil détecte des modèles qu’il ne reconnaît pas, il va potentiellement créer des conditions séparées pour les branches true et false. Les actions peuvent être remappées après la mise à niveau si nécessaire.
+The tool will make a best effort to group the true and false branch actions together in a scope in the upgraded definition.  Specifically the designer pattern of `@equals(actions('a').status, 'Skipped')` should show up as an `else` action.  However if the tool detects patterns it does not recognize it will potentially create separate conditions for both the true and the false branch.  Actions can be re-mapped post upgrade if needed.
 
-#### ForEach avec condition
+#### <a name="foreach-with-condition"></a>ForEach with Condition
   
-Le modèle précédent d’une boucle ForEach avec une condition par élément peut être répliqué dans le nouveau schéma avec l’action de filtre. Cette opération doit s’effectuer automatiquement lors de la mise à niveau. La condition devient une action de filtrage avant la boucle ForEach (pour retourner uniquement un tableau d’éléments correspondant à la condition), et ce tableau est transmis dans l’action ForEach. Vous pouvez afficher un exemple de ceci [dans cet article](app-service-logic-loops-and-scopes.md)
+The previous pattern of a foreach loop with a condition per item can be replicated in the new schema with the filter action.  This should occur automatically on upgrade.  The condition becomes a filter action before the foreach loop (to return only an array of items that match the condition), and that array is passed into the foreach action.  You can view an example of this [in this article](app-service-logic-loops-and-scopes.md)
 
-#### Balises de ressource
+#### <a name="resource-tags"></a>Resource tags
 
-Les balises de ressources seront supprimées de la mise à niveau et vous devrez les définir à nouveau pour le flux de travail mis à niveau.
+Resource tags will be removed on upgrade and you will need to set them again for the upgraded workflow.
 
-## Autres modifications
+## <a name="other-changes"></a>Other changes
 
-### Déclencheur manuel renommé déclencheur à la demande
+### <a name="manual-trigger-renamed-to-request-trigger"></a>Manual trigger renamed to Request trigger
 
-Le type `manual` a été déconseillé et renommé `request` avec le genre `http`. Cela est plus cohérent avec le type de modèle de déclencheur utilisé pour la conception.
+The type `manual` has been deprecated and renamed to `request` with the kind of `http`.  This is more consistent with the type of pattern the trigger is used to build.
 
-### Nouvelle action de « filtre »
+### <a name="new-'filter'-action"></a>New 'filter' action
 
-Si vous travaillez avec un grand tableau et que vous avez besoin de filtrer sur un ensemble plus restreint d’éléments, vous pouvez utiliser le nouveau type de « filtre ». Il accepte un tableau et une condition et va évaluer la condition pour chaque élément et renvoyer un tableau d’éléments correspondant à la condition.
+If you are working with a large array and need to filter it down to a smaller set of items, you can use the new 'filter' type.  It accepts an array and a condition and will evaluate the condition for each item and return an array of items that meet the condition.
 
-### Restrictions d’action ForEach et Until
+### <a name="foreach-and-until-action-restrictions"></a>ForEach and until action restrictions
 
-Les boucles ForEach et Until sont limitées à une seule action.
+The foreach and until loop are restricted to a single action.
 
-### TrackedProperties sur les actions
+### <a name="trackedproperties-on-actions"></a>TrackedProperties on Actions
 
-Les actions peuvent désormais avoir une propriété supplémentaire (sœur de `runAfter` et de `type`) et appelée `trackedProperties`. Il s’agit d’un objet qui spécifie certaines entrées ou sorties d’action à inclure dans la télémétrie de diagnostic Azure qui est émise dans le cadre d’un workflow. Par exemple :
+Actions can now have an additional property (sibling to `runAfter` and `type`) called `trackedProperties`.  It is an object that specifies certain action inputs or outputs to be included in the Azure Diagnostic telemetry that is emitted as part of a workflow.  For example:
 
 ```
 {                
@@ -161,12 +162,16 @@ Les actions peuvent désormais avoir une propriété supplémentaire (sœur de `
 }
 ```
 
-## Étapes suivantes
-- [Utilisation de la définition de flux de travail d’application logique](app-service-logic-author-definitions.md)
-- [Création d’un modèle de déploiement d’applications logiques](app-service-logic-create-deploy-template.md)
+## <a name="next-steps"></a>Next Steps
+- [Use the logic app workflow definition](app-service-logic-author-definitions.md)
+- [Create a logic app deployment template](app-service-logic-create-deploy-template.md)
 
 
 <!-- Image references -->
 [1]: ./media/app-service-logic-schema-2016-04-01/upgradeButton.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

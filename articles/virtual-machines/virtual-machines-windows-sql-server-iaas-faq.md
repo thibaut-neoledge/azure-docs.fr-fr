@@ -1,80 +1,85 @@
 <properties
-	pageTitle="Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Azure | Microsoft Azure"
-	description="Cet article fournit des réponses aux questions fréquemment posées sur l'exécution de SQL Server sur les machines virtuelles Azure."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="v-shysun"
-	manager="felixwu"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="SQL Server on Azure Virtual Machines FAQ | Microsoft Azure"
+    description="This article provides answers to frequently asked questions about running SQL Server on Azure VMs."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="v-shysun"
+    manager="felixwu"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/13/2016"
-	ms.author="v-shysun"/>
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/13/2016"
+    ms.author="v-shysun"/>
 
-# Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Azure
 
-Cette rubrique fournit des réponses à la plupart des questions courantes sur l’exécution de [SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+# <a name="sql-server-on-azure-virtual-machines-faq"></a>SQL Server on Azure Virtual Machines FAQ
+
+This topic provides answers to some of the most common questions about running [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Forum Aux Questions (FAQ)
+## <a name="frequently-asked-questions"></a>Frequently Asked Questions
 
-1. **Comment créer une machine virtuelle Azure avec SQL Server ?**
+1. **How do I create an Azure virtual machine with SQL Server?**
 
-	Il existe deux façons d'effectuer cette opération. La solution la plus simple consiste à créer une machine virtuelle qui inclut SQL Server. Pour obtenir un didacticiel sur l’inscription à Azure et la création d’une machine virtuelle SQL à partir du portail, consultez la rubrique [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md). Vous avez également la possibilité d’installer manuellement SQL Server sur une machine virtuelle et de réutiliser une licence locale avec [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/).
+    There are two ways to do this. The easiest solution is to create a Virtual Machine that includes SQL Server. For a tutorial on signing up for Azure and creating a SQL VM from the portal, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). You also have the option of manually installing SQL Server on a VM and reusing an on-premises license with [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-1. **Quelle est la différence entre les machines virtuelles SQL et le service SQL Database ?**
+1. **What is the difference between SQL VMs and the SQL Database service?**
 
-	Conceptuellement, l’exécution de SQL Server sur une machine virtuelle Azure n’est pas si différente de l’exécution de SQL Server dans un centre de données distant. En revanche, la [base de données SQL](../sql-database/sql-database-technical-overview.md) fournit une base de données relationnelle complète en tant que service. Avec SQL Database, vous n’avez pas besoin d’accéder aux machines qui hébergent vos bases de données. Pour obtenir une comparaison complète, consultez la rubrique [Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+    Conceptually, running SQL Server on an Azure virtual machine is not that different from running SQL Server in a remote datacenter. In contrast, [SQL Database](../sql-database/sql-database-technical-overview.md) offers database-as-a-service. With SQL Database, you do not have access to the machines that host your databases. For a full comparison, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-1. **Comment migrer ma base de données SQL Server locale vers le cloud ?**
+1. **How can I migrate my on-premises SQL Server database to the Cloud?**
 
-	Créez tout d’abord une machine virtuelle Azure avec une instance SQL Server. Puis migrez vos bases de données locales vers cette instance. Pour les stratégies de migration de données, consultez la rubrique [Migrer une base de données SQL Server vers SQL Server dans une machine virtuelle Azure](virtual-machines-windows-migrate-sql.md).
+    First create an Azure virtual machine with a SQL Server instance. Then migrate your on-premises databases to that instance. For data migration strategies, see [Migrate a SQL Server database to SQL Server in an Azure VM](virtual-machines-windows-migrate-sql.md).
 
-2. **Puis-je modifier les fonctionnalités installées ou installer une seconde instance SQL Server sur la même machine virtuelle ?**
+2. **Can I change the installed features or install a second instance of SQL Server on the same VM?**
 
-	Oui. Le support d’installation de SQL Server se trouve dans un dossier sur le lecteur **C**. Exécutez **Setup.exe** à partir de cet emplacement pour ajouter de nouvelles instances SQL Server ou pour modifier d’autres fonctionnalités SQL Server installées sur la machine.
+    Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine.
 
-3. **Comment mettre à niveau vers une nouvelle version/édition de SQL Server dans une machine virtuelle Azure ?**
+3. **How do I upgrade to a new version/edition of the SQL Server in an Azure VM?**
 
-	Il n'existe actuellement aucune mise à niveau sur place pour une instance SQL Server exécutée sur une machine virtuelle Azure. Créez une machine virtuelle Azure avec la version/édition de SQL Server souhaitée, puis migrez vos bases de données vers le nouveau serveur à l’aide des [techniques de migration de données](virtual-machines-windows-migrate-sql.md) standard.
+    Currently, there is no in-place upgrade for SQL Server running in an Azure VM. Create a new Azure virtual machine with the desired SQL Server version/edition, and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md).
 
-4. **Comment installer ma copie sous licence de SQL Server sur une machine virtuelle Azure ?**
+4. **How can I install my licensed copy of SQL Server on an Azure VM?**
 
-	Copiez le support d'installation de SQL Server dans la machine virtuelle Windows Server, puis installez SQL Server sur la machine virtuelle. Pour des raisons de licence, vous devez posséder [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/).
+    Copy the SQL Server installation media to the Windows Server VM, and then install SQL Server on the VM. For licensing reasons, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-5. **Faut-il payer les frais SQL d'une machine virtuelle si elle est utilisée uniquement comme machine de secours ou de basculement ?**
+5. **Do you have to pay the SQL costs of a VM if it is only being used for standby/failover?**
 
-	Si vous créez la machine virtuelle SQL via la galerie, vous devez posséder une licence distincte pour la machine virtuelle SQL de secours et le tarif reste le même. Si vous installez SQL Server manuellement sur une machine virtuelle avec [License Mobility](https://azure.microsoft.com/pricing/license-mobility/), vous pouvez avoir une instance SQL passive gratuite disponible pour le basculement. Veuillez consulter les restrictions et la configuration requise.
+    If you are creating the SQL VM through the gallery, then you must have a separate license for the standby SQL VM and the pricing is the same. If you install SQL Server manually on a virtual machine with [License Mobility](https://azure.microsoft.com/pricing/license-mobility/), you have the option to have one free passive SQL instance for failover. Please review the restrictions and requirements.
 
-6. **Comment les mises à jour et les service packs sont-ils appliqués sur une machine virtuelle SQL Server ?**
+6. **How are updates and service packs applied on a SQL Server VM?**
 
-	Les machines virtuelles vous permettent de contrôler la machine hôte, y compris quand et comment appliquer les mises à jour. Pour le système d’exploitation, vous pouvez appliquer manuellement les mises à jour Windows, ou activer un service de planification appelé [Mise à jour corrective automatisée](virtual-machines-windows-classic-sql-automated-patching.md). La mise à jour corrective automatisée installe toutes les mises à jour importantes, y compris les mises à jour de SQL Server de cette catégorie. Les autres mises à jour SQL Server facultatives doivent être installées manuellement.
+    Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](virtual-machines-windows-classic-sql-automated-patching.md). Automated Patching installs any updates that are marked important, including SQL Server updates in that category. Other optional updates to SQL Server must be installed manually.
 
-7. **Est-il possible de définir des configurations non affichées dans la galerie de machines virtuelles (par exemple, Windows 2008 R2 + SQL Server 2012) ?**
+7. **Is it possible to set up configurations not shown in the virtual machine gallery (For example Windows 2008 R2 + SQL Server 2012)?**
 
-	Non. Pour les images de la galerie de machines virtuelles incluant SQL Server, vous devez sélectionner une des images fournies.
+    No. For virtual machine gallery images that include SQL Server, you must select one of the provided images.
 
-9. **Comment installer les outils SQL Data sur ma machine virtuelle Azure ?**
+9. **How do I install SQL Data tools on my Azure VM?**
 
-	Téléchargez et installez les outils SQL Data à partir de [Microsoft SQL Server Data Tools - Business Intelligence pour Visual Studio 2013](https://www.microsoft.com/fr-FR/download/details.aspx?id=42313).
+    Download and install the SQL Data tools from [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013 ](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
 
-## Ressources
+## <a name="resources"></a>Resources
 
-Pour obtenir une vue d’ensemble de SQL Server sur les machines virtuelles Azure, regardez la vidéo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016). Une bonne présentation est également disponible à la rubrique [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+For an overview of SQL Server on Azure Virtual Machines, watch the video [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016). You can also get a good introduction in the topic, [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
-Les autres ressources incluent :
+Other resources include:
 
-- [Approvisionnement d’une machine virtuelle SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md)
+- [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
 - [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
-- [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
-- [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
-- [Modèles d'application et stratégies de développement pour SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+- [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
+- [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
+- [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

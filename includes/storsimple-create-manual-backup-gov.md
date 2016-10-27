@@ -1,25 +1,28 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Création d’une sauvegarde manuelle
+#### <a name="to-create-a-manual-backup"></a>To create a manual backup
 
-1. Sur la page **Appareils**, accédez à l’onglet **Stratégies de sauvegarde**. Cet onglet répertorie toutes les stratégies de sauvegarde au format tabulaire, y compris la stratégie du volume que vous souhaitez sauvegarder.
+1. On the **Devices** page, go to the **Backup Policies** tab. This tab lists all the backup policies in a tabular format, including the policy for the volume that you want to back up.
 
-2. Sélectionnez la stratégie en cliquant n’importe où dans la ligne correspondante, à l’exception de la première colonne. En bas de la page, cliquez sur **Sélectionner la sauvegarde**. Le bouton se développe pour afficher les options de sauvegarde : instantané local et instantané cloud.
+2. Select the policy by clicking anywhere in the corresponding row except for the first column. At the bottom of the page, click **Take backup**. The button will expand to show the backup options: local snapshot and cloud snapshot. 
 
-3. Lorsque vous choisissez l’une de ces options, le système vous demande de confirmer votre choix. Cliquez sur **Oui**.
+3. When you choose either of these options, you will be prompted for confirmation. Click **Yes**. 
 
-    ![Création d’une sauvegarde manuelle1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
+    ![Create manual backup1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
  
-    Cette action lance un travail pour la création d’un instantané. Vous verrez une notification au bas de la page lorsque le travail aura été créé avec succès.
+    This will start a job to create a snapshot. You will see a notification at the bottom of the page after the job is successfully created.
 
-4. Pour surveiller le travail, cliquez sur **Afficher le travail** dans la zone de notification (en bas de la page).
+4. To monitor the job, click **View Job** in the notification area (at the bottom of the page). 
 
-    ![Création d’une sauvegarde manuelle2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
+    ![Create manual backup2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
 
-5. Une fois le travail de sauvegarde terminé, accédez à l’onglet **Catalogue de sauvegarde**.
+5. After the backup job is finished, go to the **Backup catalog** tab.
 
-6. Définissez les sélections de filtre pour l’appareil approprié, la stratégie de sauvegarde et la plage horaire. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) après avoir défini les filtres.
+6. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) after setting the filters.
 
-  La sauvegarde doit apparaître dans la liste des jeux de sauvegarde qui s’affiche dans le catalogue.
+  The backup should appear in the list of backup sets that is displayed in the catalog.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

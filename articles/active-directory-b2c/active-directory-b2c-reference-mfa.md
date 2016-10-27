@@ -1,59 +1,64 @@
 <properties
-	pageTitle="Azure Active Directory B2C : Multi-Factor Authentication | Microsoft Azure"
-	description="Activation de Multi-Factor Authentication dans des applications accessibles aux consommateurs sécurisées par Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Azure"
+    description="How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C : activation de Multi-Factor Authentication dans vos applications accessibles aux consommateurs
 
-Azure Active Directory (Azure AD) B2C s’intègre directement à [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications accessibles aux consommateurs. Vous pouvez faire cela sans écrire une seule ligne de code. Actuellement, nous prenons en charge un appel téléphonique et un message texte pour la vérification. Si vous déjà créé des stratégies d’inscription et de connexion, vous pouvez toujours activer Multi-Factor Authentication.
+# <a name="azure-active-directory-b2c:-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: Enable Multi-Factor Authentication in your consumer-facing applications
+
+Azure Active Directory (Azure AD) B2C integrates directly with [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) so that you can add a second layer of security to sign-up and sign-in experiences in your consumer-facing applications. And you can do this without writing a single line of code. Currently we support phone call and text message verification. If you already created sign-up and sign-in policies, you can still enable Multi-Factor Authentication.
 
 > [AZURE.NOTE]
-Vous pouvez également activer Multi-Factor Authentication lors de la création de stratégies d’inscription et de connexion, pas seulement lors de la modification de stratégies existantes.
+Multi-Factor Authentication can also be enabled when you create sign-up and sign-in policies, not just by editing existing policies.
 
-Cette fonctionnalité permettent aux applications de gérer des scénarios tels que le suivant :
+This feature helps applications handle scenarios such as the following:
 
-- Vous n’avez pas besoin de Multi-Factor Authentication pour accéder à une application, mais en avez besoin pour accéder à une autre. Par exemple, le consommateur peut se connecter à une application d’assurance automobile avec un compte local ou social, mais il doit confirmer un numéro de téléphone avant d’accéder à l’application d’assurance domestique inscrite dans le même annuaire.
-- Vous n’avez pas besoin de Multi-Factor Authentication pour accéder à une application en général, mais en avez besoin pour accéder à des portions sensibles de celle-ci. Par exemple, le consommateur peut se connecter à une application bancaire avec un compte local ou social pour consulter le solde de son compte, mais il doit confirmer un numéro de téléphone avant de tenter d’effectuer un virement.
+- You don't require Multi-Factor Authentication to access one application, but you do require it to access another one. For example, the consumer can sign into an auto insurance application with a social or local account, but must verify the phone number before accessing the home insurance application registered in the same directory.
+- You don't require Multi-Factor Authentication to access an application in general, but you do require it to access the sensitive portions within it. For example, the consumer can sign in to a banking application with a social or local account and check account balance, but must verify the phone number before attempting a wire transfer.
 
-## Modification de votre stratégie d’inscription pour activer Multi-Factor Authentication
+## <a name="modify-your-sign-up-policy-to-enable-multi-factor-authentication"></a>Modify your sign-up policy to enable Multi-Factor Authentication
 
-1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Cliquez sur **Stratégies d'inscription**.
-3. Ouvrez votre stratégie d’inscription (par exemple, « B2C\_1\_SiUp ») en cliquant dessus.
-4. Cliquez sur **Multi-Factor Authentication**, puis **activez** **État**. Cliquez sur **OK**.
-5. Cliquez sur **Enregistrer** dans la partie supérieure du panneau.
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Sign-up policies**.
+3. Click your sign-up policy (for example, "B2C_1_SiUp") to open it.
+4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
+5. Click **Save** at the top of the blade.
 
-La fonctionnalité « Exécuter maintenant » de la stratégie permet de vérifier l’expérience utilisateur. Vérifiez les éléments suivants :
+You can use the "Run now" feature on the policy to verify the consumer experience. Confirm the following:
 
-Un compte de consommateur est créé dans votre annuaire avant l’étape Multi-Factor Authentication. Lors de cette étape, le consommateur est invité à fournir son numéro de téléphone et à le confirmer. Si la vérification réussit, le numéro de téléphone est associé au compte du consommateur en vue d’une utilisation ultérieure. Même si le consommateur annule ou abandonne, il peut être invité à confirmer à nouveau un numéro de téléphone lors de la prochaine connexion (avec Multi-Factor Authentication activée).
+A consumer account gets created in your directory before the Multi-Factor Authentication step occurs. During the step, the consumer is asked to provide his or her phone number and verify it. If verification is successful, the phone number is attached to the consumer account for later use. Even if the consumer cancels or drops out, he or she can be asked to verify a phone number again during the next sign-in (with Multi-Factor Authentication enabled).
 
-## Modification de votre stratégie de connexion pour activer Multi-Factor Authentication
+## <a name="modify-your-sign-in-policy-to-enable-multi-factor-authentication"></a>Modify your sign-in policy to enable Multi-Factor Authentication
 
-1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Cliquez sur **Stratégies d’authentification**.
-3. Ouvrez votre stratégie de connexion (par exemple, « B2C\_1\_SiIn ») en cliquant dessus. Cliquez sur **Modifier** dans la partie supérieure du panneau.
-4. Cliquez sur **Multi-Factor Authentication**, puis **activez** **État**. Cliquez sur **OK**.
-5. Cliquez sur **Enregistrer** dans la partie supérieure du panneau.
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Sign-in policies**.
+3. Click your sign-in policy (for example, "B2C_1_SiIn") to open it. Click **Edit** at the top of the blade.
+4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
+5. Click **Save** at the top of the blade.
 
-La fonctionnalité « Exécuter maintenant » de la stratégie permet de vérifier l’expérience utilisateur. Vérifiez les éléments suivants :
+You can use the "Run now" feature on the policy to verify the consumer experience. Confirm the following:
 
-Lorsque le consommateur se connecte (à l’aide d’un compte local ou social), si un numéro de téléphone vérifié est associé à son compte, il est invité à la confirmer. Si aucun numéro de téléphone n’est associé, le consommateur est invité à le fournir et à le confirmer. Si la vérification réussit, le numéro de téléphone est associé au compte du consommateur en vue d’une utilisation ultérieure.
+When the consumer signs in (using a social or local account), if a verified phone number is attached to the consumer account, he or she is asked to verify it. If no phone number is attached, the consumer is asked to provide one and verify it. On successful verification, the phone number is attached to the consumer account for later use.
 
-## Authentification multifacteur sur d’autres stratégies
+## <a name="multi-factor-authentication-on-other-policies"></a>Multi-Factor Authentication on other policies
 
-Comme décrit pour les stratégies d’inscription et de connexion ci-dessus, il est également possible d’activer l’authentification multifacteur sur les stratégies d’inscription ou d’authentification ainsi que sur les stratégies de réinitialisation de mot de passe. Cette fonctionnalité sera également disponible prochainement sur les stratégies de modification de profil.
+As described for sign-up & sign-in policies above, it is also possible to enable multi-factor authentication on sign-up or sign-in policies and password reset policies. It will be available soon on profile editing policies.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

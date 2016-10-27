@@ -1,41 +1,42 @@
 <properties
-	pageTitle="Didacticiel : application web avec une base de données mutualisée à l’aide d‘Entity Framework et de la sécurité de niveau de ligne"
-	description="Découvrez comment développer une application web d’ASP.NET MVC 5 avec une architecture mutualisée, base de données SQL principale, à l‘aide d’Entity Framework et une sécurité de niveau de ligne."
+    pageTitle="Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security"
+    description="Learn how to develop an ASP.NET MVC 5 web app with a multi-tenant SQL Database backent, using Entity Framework and Row-Level Security."
   metaKeywords="azure asp.net mvc entity framework multi tenant row level security rls sql database"
-	services="app-service\web"
-	documentationCenter=".net"
-	manager="jeffreyg"
+    services="app-service\web"
+    documentationCenter=".net"
+    manager="jeffreyg"
   authors="tmullaney"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="thmullan"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="04/25/2016"
+    ms.author="thmullan"/>
 
-# Didacticiel : application web avec une base de données mutualisée à l’aide d‘Entity Framework et de la sécurité de niveau de ligne
 
-Ce didacticiel montre comment créer une application web mutualisée avec un modèle de location « [base de données partagée, schéma partagé](https://msdn.microsoft.com/library/aa479086.aspx) » modèle de location, à l‘aide d‘Entity Framework et [sécurité de niveau de ligne](https://msdn.microsoft.com/library/dn765131.aspx). Dans ce modèle, une base de données simple contient les données de nombreux clients, et chaque ligne de chaque table est associée à un « ID client » La sécurité au niveau des lignes (RLS), nouvelle fonctionnalité de base de données SQL Azure est utilisée pour empêcher les autres clients d‘accéder aux données les uns des autres. Cela nécessite juste une modification mineure de l‘application. En centralisant la logique d‘accès client au sein de la base de données, RLS simplifie le code d‘application et réduit le risque de fuites accidentelles d’un utilisateur à l’autre.
+# <a name="tutorial:-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security"></a>Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security
 
-Commençons par l‘application Gestionnaire de contact avec la section [Créer une application ASP.NET MVP avec l‘authentification et la base de données SQL et déployer le service d’application Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Actuellement, l’application permet à tous les utilisateurs (clients) d’afficher tous les contacts :
+This tutorial shows how to build a multi-tenant web app with a "[shared database, shared schema](https://msdn.microsoft.com/library/aa479086.aspx)" tenancy model, using Entity Framework and [Row-Level Security](https://msdn.microsoft.com/library/dn765131.aspx). In this model, a single database contains data for many tenants, and each row in each table is associated with a "Tenant ID." Row-Level Security (RLS), a new feature for Azure SQL Database, is used to prevent tenants from accessing each other's data. This requires just a single, small change to the application. By centralizing the tenant access logic within the database itself, RLS simplifies the application code and reduces the risk of accidental data leakage between tenants.
 
-![Application du Gestionnaire de contacts avant d‘activer la RLS](./media/web-sites-dotnet-entity-framework-row-level-security/ContactManagerApp-Before.png)
+Let's start with the simple Contact Manager application from [Create an ASP.NET MVP app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Right now, the application allows all users (tenants) to see all contacts:
 
-Avec simplement quelques modifications mineures, nous allons ajouter la prise en charge de l’architecture mutualisée, afin que les utilisateurs puissent voir uniquement les contacts qui leur appartiennent.
+![Contact Manager application before enabling RLS](./media/web-sites-dotnet-entity-framework-row-level-security/ContactManagerApp-Before.png)
 
-## Étape 1 : Ajouter une classe d’intercepteur dans l’application pour définir la SESSION\_CONTEXT
+With just a few small changes, we will add support for multi-tenancy, so that users are able to see only the contacts that belong to them.
 
-Il faut apporter une modification à l’application. Tous les utilisateurs d‘applications se connectent à la base de données à l‘aide de la chaîne de connexion (c‘est-à-dire même connexion SQL), il n‘existe actuellement aucun moyen pour une stratégie RLS de savoir pour quel utilisateur il doit effectuer le filtrage. Cette approche est très courante dans les applications web, car elle permet un regroupement de connexions efficace. Cependant, cela signifie que nous avons besoin d‘une autre façon d’identifier l’utilisateur actuel de l’application dans la base de données. La solution consiste à utiliser l‘application pour définir une paire clé-valeur pour le UserId actuel dans le [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806) immédiatement après l’ouverture d’une connexion et avant l’exécution d’une requête quelconque. SESSION\_CONTEXT est un magasin clé-valeur session, et notre stratégie RLS utilise le nom d’utilisateur qu’il contient pour identifier l’utilisateur actuel.
+## <a name="step-1:-add-an-interceptor-class-in-the-application-to-set-the-session_context"></a>Step 1: Add an Interceptor class in the application to set the SESSION_CONTEXT
 
-Nous allons ajouter un [intercepteur](https://msdn.microsoft.com/data/dn469464.aspx) (plus particulièrement, un intercepteur [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)), nouvelle fonctionnalité dans Entity Framework (EF) 6, pour définir automatiquement le UserId actuel dans SESSION\_CONTEXT en exécutant une instruction T-SQL à chaque fois qu’Entity Framework ouvre une connexion.
+There is one application change we need to make. Because all application users connect to the database using the same connection string (i.e. same SQL login), there is currently no way for an RLS policy to know which user it should filter for. This approach is very common in web applications because it enables efficient connection pooling, but it means we need another way to identify the current application user within the database. The solution is to have the application set a key-value pair for the current UserId in the [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806) immediately after opening a connection, before it executes any queries. SESSION_CONTEXT is a session-scoped key-value store, and our RLS policy will use the UserId stored in it to identify the current user.
 
-1.	Ouvrez le projet ContactManager dans Visual Studio.
-2.	Cliquez avec le bouton droit sur le dossier Modèles dans l’Explorateur de solutions, puis sélectionnez Ajouter > Classe.
-3.	Nommez la nouvelle classe « SessionContextInterceptor.cs », puis cliquez sur Ajouter.
-4.	Remplacez le contenu de SessionContextInterceptor.cs par le code suivant :
+We will add an [interceptor](https://msdn.microsoft.com/data/dn469464.aspx) (in particular, a [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)), a new feature in Entity Framework (EF) 6, to automatically set the current UserId in the SESSION_CONTEXT by executing a T-SQL statement whenever EF opens a connection.
+
+1.  Open the ContactManager project in Visual Studio.
+2.  Right-click on the Models folder in the Solution Explorer, and choose Add > Class.
+3.  Name the new class "SessionContextInterceptor.cs" and click Add.
+4.  Replace the contents of SessionContextInterceptor.cs with the following code.
 
 ```
 using System;
@@ -53,7 +54,7 @@ namespace ContactManager.Models
     {
         public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-        	// Set SESSION_CONTEXT to current UserId whenever EF opens a connection
+            // Set SESSION_CONTEXT to current UserId whenever EF opens a connection
             try
             {
                 var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
@@ -177,77 +178,81 @@ namespace ContactManager.Models
 }
 ```
 
-Il s’agit de la seule modification d’application requise. Continuez, réalisez et publiez l’application.
+That's the only application change required. Go ahead and build and publish the application.
 
-## Étape 2 : Ajouter une colonne UserId au schéma de base de données
+## <a name="step-2:-add-a-userid-column-to-the-database-schema"></a>Step 2: Add a UserId column to the database schema
 
-Ensuite, nous devons ajouter une colonne UserId à la table Contacts à associer à chaque ligne d’un utilisateur (client). Il modifie le schéma directement dans la base de données, et nous n’avons donc pas à inclure ce champ dans notre modèle de données Entity Framework.
+Next, we need to add a UserId column to the Contacts table to associate each row with a user (tenant). We will alter the schema directly in the database, so that we don't have to include this field in our EF data model.
 
-Connectez-vous à la base de données directement en utilisant SQL Server Management Studio ou Visual Studio, puis exécutez l’instruction T-SQL suivante :
+Connect to the database directly, using either SQL Server Management Studio or Visual Studio, and then execute the following T-SQL:
 
 ```
 ALTER TABLE Contacts ADD UserId nvarchar(128)
     DEFAULT CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
 ```
 
-Cela ajoute une colonne UserId à la table Contacts. Nous utilisons le type de données nvarchar (128) pour faire correspondre les ID utilisateur stockés dans la table AspNetUsers, puis nous créons une contrainte DEFAULT qui définira automatiquement le UserId des lignes nouvellement insérées au UserId actuellement stocké dans SESSION\_CONTEXT.
+This adds a UserId column to the Contacts table. We use the nvarchar(128) data type to match the UserIds stored in the AspNetUsers table, and we create a DEFAULT constraint that will automatically set the UserId for newly inserted rows to be the UserId currently stored in SESSION_CONTEXT.
 
-Maintenant, le tableau ressemble à ce qui suit :
+Now the table looks like this:
 
-![Table de contacts SSMS](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-Contacts.png)
+![SSMS Contacts table](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-Contacts.png)
 
-Lors de la création de nouveaux contacts, ces derniers se verront affectés un ID d‘utilisateur correct. À des fins de démonstration, toutefois, nous allons affecter quelques-uns de ces contacts existants à un utilisateur existant.
+When new contacts are created, they'll automatically be assigned the correct UserId. For demo purposes, however, let's assign a few of these existing contacts to an existing user.
 
-Si vous avez déjà créé quelques utilisateurs dans l‘application (par exemple, à l‘aide de comptes locaux Google ou Facebook), vous pouvez les voir dans la table AspNetUsers. Dans la capture d‘écran ci-dessous, il n’y a jusqu‘ici qu‘un seul utilisateur.
+If you've created a few users in the application already (e.g., using local, Google, or Facebook accounts), you'll see them in the AspNetUsers table. In the screenshot below, there is only one user so far.
 
-![Tableau AspNetUsers SSMS](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-AspNetUsers.png)
+![SSMS AspNetUsers table](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-AspNetUsers.png)
 
-Copier l‘Id de user1@contoso.com, et le coller dans l‘instruction T-SQL ci-dessous. Exécutez cette instruction pour associer trois des Contacts à cet ID utilisateur.
+Copy the Id for user1@contoso.com, and paste it into the T-SQL statement below. Execute this statement to associate three of the Contacts with this UserId.
 
 ```
 UPDATE Contacts SET UserId = '19bc9b0d-28dd-4510-bd5e-d6b6d445f511'
 WHERE ContactId IN (1, 2, 5)
 ```
 
-## Étape 3 : créer une stratégie de sécurité de niveau de ligne dans la base de données
+## <a name="step-3:-create-a-row-level-security-policy-in-the-database"></a>Step 3: Create a Row-Level Security policy in the database
 
-L’étape finale consiste à créer une stratégie de sécurité qui utilise le nom d’utilisateur dans SESSION\_CONTEXT pour filtrer automatiquement les résultats renvoyés par les requêtes.
+The final step is to create a security policy that uses the UserId in SESSION_CONTEXT to automatically filter the results returned by queries.
 
-Bien que toujours connecté à la base de données, exécutez le T-SQL suivant :
+While still connected to the database, execute the following T-SQL:
 
 ```
 CREATE SCHEMA Security
 go
 
 CREATE FUNCTION Security.userAccessPredicate(@UserId nvarchar(128))
-	RETURNS TABLE
-	WITH SCHEMABINDING
+    RETURNS TABLE
+    WITH SCHEMABINDING
 AS
-	RETURN SELECT 1 AS accessResult
-	WHERE @UserId = CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
+    RETURN SELECT 1 AS accessResult
+    WHERE @UserId = CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
 go
 
 CREATE SECURITY POLICY Security.userSecurityPolicy
-	ADD FILTER PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts,
-	ADD BLOCK PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts
+    ADD FILTER PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts,
+    ADD BLOCK PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts
 go
 
 ```
 
-Ce code exécute trois opérations. Tout d‘abord, il crée un nouveau schéma en tant que meilleure pratique pour la centralisation et la limitation d’accès aux objets RLS. Ensuite, il crée une fonction de prédicat qui renverra « 1 » lorsque le UserId d’une ligne correspond au UserId dans SESSION\_CONTEXT. Enfin, il crée une stratégie de sécurité qui ajoute cette fonction en tant que prédicat de bloc et de filtre sur la table Contacts. Le prédicat de filtre fait en sorte que les requêtes retournent uniquement des lignes appartenant à l’utilisateur actuel et le prédicat de bloc agit comme un dispositif de protection pour empêcher l‘application d‘insérer une ligne pour le mauvais utilisateur.
+This code does three things. First, it creates a new schema as a best practice for centralizing and limiting access to the RLS objects. Next, it creates a predicate function that will return '1' when the UserId of a row matches the UserId in SESSION_CONTEXT. Finally, it creates a security policy that adds this function as both a filter and block predicate on the Contacts table. The filter predicate causes queries to return only rows that belong to the current user, and the block predicate acts as a safeguard to prevent the application from ever accidentally inserting a row for the wrong user.
 
-Maintenant, exécutez l’application puis connectez-vous en tant que user1@contoso.com. Cet utilisateur voit à présent que les Contacts que nous avons attribués à ce UserId :
+Now run the application, and sign in as user1@contoso.com. This user now sees only the Contacts we assigned to this UserId earlier:
 
-![Application du Gestionnaire de contacts avant d‘activer la RLS](./media/web-sites-dotnet-entity-framework-row-level-security/ContactManagerApp-After.png)
+![Contact Manager application before enabling RLS](./media/web-sites-dotnet-entity-framework-row-level-security/ContactManagerApp-After.png)
 
-Pour valider cette opération, essayez d‘enregistrer un nouvel utilisateur. Ils ne verront aucun contact, car aucun ne leur a été affecté. S’ils créent un nouveau contact, il leur sera affecté et ils seront les seuls à pouvoir le visualiser.
+To validate this further, try registering a new user. They will see no contacts, because none have been assigned to them. If they create a new contact, it will be assigned to them, and only they will be able to see it.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Et voilà ! L’application web Gestionnaire de contact a été transformée en application mutualisée où chaque utilisateur a sa propre liste de contacts. En utilisant la sécurité de niveau ligne, nous avons évité la complexité liée à l’application de la logique d‘accès aux clients dans notre code d’application. Cette transparence permet à l‘application de se concentrer sur les véritables problèmes de l’entreprise et elle réduit également le risque de fuite accidentelle des données au fur et à mesure que le code de base de l‘application augmente.
+That's it! The simple Contact Manager web app has been converted into a multi-tenant one where each user has its own contact list. By using Row-Level Security, we've avoided the complexity of enforcing tenant access logic in our application code. This transparency allows the application to focus on the real business problem at hand, and it also reduces the risk of accidentally leaking data as the application's codebase grows.
 
-Ce didacticiel a seulement effleuré la surface de ce qui est possible avec RLS. Par exemple, il est possible d‘avoir des logiques d’accès plus sophistiquées ou granulaires, et il est possible de stocker davantage que le simple UserId dans SESSION\_CONTEXT. Il est également possible d’[intégrer RLS avec les bibliothèques client des outils de base de données élastique](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) pour prendre en charge des partitions mutualisées dans une couche de données mise à l’échelle.
+This tutorial has only scratched the surface of what's possible with RLS. For instance, it's possible to have more sophisticated or granular access logic, and it's possible to store more than just the current UserId in the SESSION_CONTEXT. It's also possible to [integrate RLS with the elastic database tools client libraries](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) to support multi-tenant shards in a scale-out data tier.
 
-Au-delà de ces possibilités, nous nous efforçons d’améliorer encore RLS. Si vous avez des questions, des idées ou des choses que vous aimeriez voir, faites-le nous savoir par le biais de vos commentaires. Nous apprécions vos commentaires !
+Beyond these possibilities, we're also working to make RLS even better. If you have any questions, ideas, or things you'd like to see, please let us know in the comments. We appreciate your feedback!
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

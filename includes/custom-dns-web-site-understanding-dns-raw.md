@@ -1,55 +1,58 @@
-Le DNS (Domain Name System) permet de localiser des ressources sur Internet. Par exemple, lorsque vous entrez une adresse d’application web dans votre navigateur ou cliquez sur un lien dans une page web, le DNS est utilisé pour traduire le domaine en adresse IP. L'adresse IP joue le même rôle qu'une adresse postale, tout en étant moins significative. Par exemple, il est bien plus facile de se souvenir d'un nom DNS tel que **contoso.com** que d'une adresse IP telle que 192.168.1.88 ou 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+The Domain Name System (DNS) is used to locate resources on the internet. For example, when you enter a web app address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address. The IP address is sort of like a street address, but it's not very human friendly. For example, it is much easier to remember a DNS name like **contoso.com** than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
-Le système DNS est basé sur des *enregistrements*. Les enregistrements associent un *nom* spécifique, tel que **contoso.com**, à une adresse IP ou un autre nom DNS. Lorsqu'une application (par exemple, un navigateur Web) recherche un nom dans le DNS, elle trouve l'enregistrement et utilise sa cible comme adresse. Si la valeur ciblée correspond à une adresse IP, le navigateur l'utilise. Si la cible est un autre nom DNS, l'application doit à nouveau procéder à une résolution. En fin de compte, toute résolution de nom génère une adresse IP.
+The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
 
-Lorsque vous créez une application web dans App Service, un nom DNS lui est automatiquement attribué. Ce nom a la forme suivante : **&lt;nomdevotreapplicationweb&gt;.azurewebsites.net**. Il existe également une adresse IP virtuelle à utiliser lors de la création des enregistrements DNS. Vous pouvez donc créer des enregistrements pointant vers **.azurewebsites.net** ou pointer vers l'adresse IP.
+When you create an web app in App Service, a DNS name is automatically assigned to the web app. This name takes the form of **&lt;yourwebappname&gt;.azurewebsites.net**. There is also a virtual IP address available for use when creating DNS records, so you can either create records that point to the **.azurewebsites.net**, or you can point to the IP address.
 
-> [AZURE.NOTE] L’adresse IP de votre application web est modifiée si vous supprimez et recréez votre application web. Elle l’est également si vous définissez le mode de plan App Service sur **Gratuit** après l’avoir défini sur **De base**, **Partagé** ou **Standard**.
+> [AZURE.NOTE] The IP address of your web app will change if you delete and recreate your web app, or change the App Service plan mode to **Free** after it has been set to **Basic**, **Shared**, or **Standard**.
 
-Il existe également plusieurs types d’enregistrements, chacun avec ses fonctions et limites, mais les applications web n’en utilisent que deux : les enregistrements *A* et *CNAME*.
+There are also multiple types of records, each with their own functions and limitations, but for web apps we only care about two, *A* and *CNAME* records.
 
-###Enregistrement d'adresse (enregistrement A)
+###<a name="address-record-(a-record)"></a>Address record (A record)
 
-Un enregistrement A associe un domaine, tel que **contoso.com** ou **www.contoso.com**, *ou un nom de domaine générique* (par exemple : ***.contoso.com**) à une adresse IP. Dans le cas d’une application web dans App Service, il s’agit de l’adresse IP virtuelle du service ou d’une adresse IP spécifique que vous avez achetée pour votre application web.
+An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of a web app in App Service, either the virtual IP of the service or a specific IP address that you purchased for your web app.
 
-Les principaux avantages d'un enregistrement A par rapport à un enregistrement CNAME sont les suivants :
+The main benefits of an A record over a CNAME record are:
 
-* Vous pouvez mapper un domaine racine tel que **contoso.com** vers une adresse IP. De nombreux bureaux d'enregistrement autorisent cette action uniquement avec des enregistrements A.
+* You can map a root domain such as **contoso.com** to an IP address; many registrars only allow this using A records
 
-* Vous pouvez avoir une entrée avec un caractère générique (***.contoso.com**, par exemple) qui gère les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **blogs.contoso.com** ou **www.contso.com**.
+* You can have one entry that uses a wildcard, such as **\*.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **blogs.contoso.com**, or **www.contso.com**.
 
-> [AZURE.NOTE] L’enregistrement A étant mappé à une adresse IP statique, les changements d’adresse IP de votre application web ne sont donc pas pris en compte automatiquement. Une adresse IP à utiliser avec les enregistrements A est fournie lorsque vous configurez les paramètres de nom de domaine personnalisé pour votre application web. Cette valeur est toutefois susceptible d’être modifiée si vous supprimez et recréez votre application web ou que vous faites de nouveau passer le mode de plan App Service en mode **Gratuit**.
+> [AZURE.NOTE] Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your web app. An IP address for use with A records is provided when you configure custom domain name settings for your web app; however, this value may change if you delete and recreate your web app, or change the App Service plan mode to back to **Free**.
 
-###Enregistrement d'alias (enregistrement CNAME)
+###<a name="alias-record-(cname-record)"></a>Alias record (CNAME record)
 
-Un enregistrement CNAME mappe un nom DNS *spécifique*, tel que **mail.contoso.com** ou **www.contoso.com**, à un autre nom de domaine (canonique). Dans le cas d’App Service Web Apps, le nom de domaine canonique est le nom de domaine **&lt;nomdevotreapplicationweb>.azurewebsites.net** de votre application web. Une fois créé, l’enregistrement CNAME crée un alias pour le nom de domaine **&lt;nomdevotreapplicationweb>.azurewebsites.net**. L’entrée CNAME devient automatiquement l’adresse IP de votre nom de domaine **&lt;nomdevotreapplicationweb>.azurewebsites.net**. Ainsi, même si l’adresse IP de l’application web change, vous n’avez aucune action à effectuer.
+A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of App Service Web Apps, the canonical domain name is the **&lt;yourwebappname>.azurewebsites.net** domain name of your web app. Once created, the CNAME creates an alias for the **&lt;yourwebappname>.azurewebsites.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;yourwebappname>.azurewebsites.net** domain name automatically, so if the IP address of the web app changes, you do not have to take any action.
 
-> [AZURE.NOTE] Certains bureaux d’enregistrement de domaines n’autorisent le mappage de sous-domaines que si un enregistrement CNAME est utilisé (par exemple, **www.contoso.com**) et non un nom racine (tel que **contoso.com**). Pour plus d’informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d’enregistrement, la <a href="http://en.wikipedia.org/wiki/CNAME_record">page Wikipédia sur l’enregistrement CNAME</a> ou le document <a href="http://tools.ietf.org/html/rfc1035">Noms de domaine IETF - Implémentation et spécification</a>.
+> [AZURE.NOTE] Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
 
-###Spécifications DNS des applications web
+###<a name="web-app-dns-specifics"></a>Web app DNS specifics
 
-L’utilisation d’un enregistrement A avec Web Apps exige que vous créiez d’abord l’un des enregistrements TXT suivants :
+Using an A record with Web Apps requires you to first create one of the following TXT records:
 
-* **Pour le domaine racine** : enregistrement TXT DNS A de **@** à **&lt;yourwebappname&gt;.azurewebsites.net**.
+* **For the root domain** - A DNS TXT record of **@** to  **&lt;yourwebappname&gt;.azurewebsites.net**.
 
-* **Pour un sous-domaine spécifique** : nom DNS A de **sous-domaine>** à **&lt;yourwebappname&gt;.azurewebsites.net**. Par exemple, **blogs** si l’enregistrement A est destiné à **blogs.contoso.com**.
+* **For a specific sub-domain** - A DNS name of **&lt;sub-domain>** to **&lt;yourwebappname&gt;.azurewebsites.net**. For example, **blogs** if the A record is for **blogs.contoso.com**.
 
-* **Pour les sous-domaines génériques** : enregistrement TXT DNS A de ***** à **&lt;yourwebappname&gt;.azurewebsites.net**.
+* **For the wildcard sub-dodmains** - A DNS TXT record of ***** to  **&lt;yourwebappname&gt;.azurewebsites.net**.
 
-Cet enregistrement TXT permet de vérifier que vous détenez bien le domaine que vous tentez d’utiliser. Cette opération s’ajoute à la création d’un enregistrement A pointant vers l’adresse IP virtuelle de votre application web.
+This TXT record is used to verify that you own the domain you are attempting to use. This is in addition to creating an A record pointing to the virtual IP address of your web app.
 
-Pour connaître l’adresse IP ainsi que les noms **.azurewebsites.net** de votre application web, procédez comme suit :
+You can find the IP address and **.azurewebsites.net** names for your web app by performing the following steps:
 
-1. Dans votre navigateur, ouvrez le [portail Azure](https://portal.azure.com).
+1. In your browser, open the [Azure Portal](https://portal.azure.com).
 
-2. Dans le panneau **Web Apps**, cliquez sur le nom de votre application web, puis sélectionnez **Domaines personnalisés** au bas de la page.
+2. In the **Web Apps** blade, click the name of your web app, and then select **Custom domains** from the bottom of the page.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. Dans le panneau **Domaines personnalisés**, vous voyez l’adresse IP virtuelle. Enregistrez ces informations, car elles serviront lors de la création d’enregistrements DNS.
+3. In the **Custom domains** blade, you will see the virtual IP address. Save this information, as it will be used when creating DNS records
 
-	![](./media/custom-dns-web-site/virtual-ip-address.png)
+    ![](./media/custom-dns-web-site/virtual-ip-address.png)
 
-	> [AZURE.NOTE] Vous ne pouvez pas utiliser de noms de domaines personnalisés avec une application web **Gratuite**. Vous devez donc mettre à niveau l’offre App Service vers le niveau **Partagé**, **De base**, **Standard** ou **Premium**. Pour plus d’informations sur les niveaux tarifaires de l’offre App Service, notamment sur la modification du niveau tarifaire de votre application web, consultez [Mise à l’échelle des applications web](../articles/web-sites-scale.md).
+    > [AZURE.NOTE] You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](../articles/web-sites-scale.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

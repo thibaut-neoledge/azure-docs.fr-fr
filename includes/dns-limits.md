@@ -1,10 +1,13 @@
 
-| Ressource | Limite par défaut 
+| Resource  | Default limit 
 --- | ---
-| Zones par abonnement | 100 <sup>1</sup>
-| Jeux d’enregistrements par zone| 5000 <sup>1</sup>
-| Enregistrements par jeu d’enregistrements| 20
+| Zones per subscription | 100 <sup>1</sup>
+| Record sets per zone| 5000 <sup>1</sup>
+| Records per record set| 20
 
-<sup>1</sup> Pour accroître ces limites, contactez le support technique Azure.
+<sup>1</sup> Contact Azure Support in case you need to increase these limits.
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

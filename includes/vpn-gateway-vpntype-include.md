@@ -1,9 +1,11 @@
-- **PolicyBased :** les VPN basés sur des stratégies étaient auparavant connus sous le nom de passerelles de routage statique dans le modèle de déploiement Classic. Les VPN basés sur des stratégies chiffrent et acheminent les paquets par le biais des tunnels IPsec basés sur les stratégies IPsec configurées avec les combinaisons de préfixes d’adresses entre votre réseau local et le réseau virtuel Azure. La stratégie (ou le sélecteur de trafic) est généralement définie en tant que liste d’accès dans les configurations du périphérique VPN. Un VPN de type basé sur des stratégies a pour valeur *PolicyBased*. Lorsque vous utilisez un VPN basé sur les itinéraires (PolicyBased), gardez à l’esprit les limitations suivantes :
+- **PolicyBased:** PolicyBased VPNs were previously called static routing gateways in the classic deployment model. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies configured with the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or traffic selector) is usually defined as an access list in the VPN device configuration. The value for a PolicyBased VPN type is *PolicyBased*. When using a PolicyBased VPN, keep in mind the following limitations:
 
-	- Les VPN basés sur les itinéraires peuvent **uniquement** être utilisés sur la référence SKU de passerelle de base. Ce type de VPN n’est pas compatible avec les autres références SKU de passerelle.
-	- Vous pouvez avoir 1 seul tunnel lors de l’utilisation d’un VPN basé sur les stratégies.
-	- Vous pouvez uniquement utiliser les VPN basés sur les stratégies pour les connexions S2S et uniquement pour certaines configurations. La plupart des configurations de passerelle VPN requièrent un VPN basé sur les itinéraires.
+    - PolicyBased VPNs can **only** be used on the Basic gateway SKU. This VPN type is not compatible with other gateway SKUs.
+    - You can have only 1 tunnel when using a PolicyBased VPN.
+    - You can only use PolicyBased VPNs for S2S connections, and only for certain configurations. Most VPN Gateway configurations require a RouteBased VPN.
 
-- **RouteBased** : les VPN basés sur un itinéraire étaient auparavant connus sous le nom de passerelles de routage dynamique dans le modèle de déploiement Classic. Les VPN basés sur un itinéraire utilisent des « itinéraires » dans l’adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie (ou le sélecteur de trafic) des VPN basés sur un itinéraire est configurée comme universelle (ou en caractères génériques). Le VPN de type basé sur un itinéraire a pour valeur *RouteBased*.
+- **RouteBased**: RouteBased VPNs were previously called dynamic routing gateways in the classic deployment model. RouteBased VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy (or traffic selector) for RouteBased VPNs are configured as any-to-any (or wild cards). The value for a RouteBased VPN type is *RouteBased*.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

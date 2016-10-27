@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Bonnes pratiques pour StorSimple Virtual Array | Microsoft Azure"
-   description="Décrit les bonnes pratiques de déploiement et de gestion de la baie virtuelle StorSimple Virtual Array."
+   pageTitle="Best practices for StorSimple Virtual Array | Microsoft Azure"
+   description="Describes the best practices for deploying and managing the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,338 +15,344 @@
    ms.date="08/09/2016"
    ms.author="alkohli" />
 
-# Bonnes pratiques liées à StorSimple Virtual Array
 
-## Vue d'ensemble
+# <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices
 
-Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un appareil virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. StorSimple Virtual Array représente une alternative efficace et économique à la baie de stockage physique de la gamme 8000. La baie virtuelle peut s’exécuter sur votre infrastructure de l’hyperviseur, prend en charge les protocoles SMB et iSCSI, et est adaptée aux scénarios de bureaux distants. Pour plus d’informations sur les solutions StorSimple, consultez [Vue d’ensemble de Microsoft Azure StorSimple](https://www.microsoft.com/fr-FR/server-cloud/products/storsimple/overview.aspx).
+## <a name="overview"></a>Overview
 
-Cet article aborde les bonnes pratiques à implémenter au cours de l’installation initiale, du déploiement et de la gestion de la baie virtuelle StorSimple Virtual Array. Ces bonnes pratiques fournissent des instructions validées pour l’installation et la gestion de votre baie virtuelle. Cet article est destiné aux administrateurs informatiques qui déploient et gèrent les baies virtuelles dans leurs centres de données.
+Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. StorSimple Virtual Array is an efficient, cost-effective alternative to the 8000 series physical array. The virtual array can run on your existing hypervisor infrastructure, supports both the iSCSI and the SMB protocols, and is well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
-Nous vous recommandons une révision périodique des bonnes pratiques afin de garantir que votre périphérique est toujours en conformité lorsque des modifications sont apportées au flux des opérations ou au flux d’installation. Si vous rencontrez des problèmes lors de l’implémentation de ces bonnes pratiques sur votre baie virtuelle, [contactez le support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir une assistance.
+This article covers the best practices implemented during the initial setup, deployment, and management of the StorSimple Virtual Array. These best practices provide validated guidelines for the setup and management of your virtual array. This article is targeted towards the IT administrators who deploy and manage the virtual arrays in their datacenters.
 
-## Bonnes pratiques de configuration 
+We recommend a periodic review of the best practices to help ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
-Ces bonnes pratiques couvrent les instructions à suivre lors de la configuration initiale et du déploiement des baies virtuelles. Elles incluent les bonnes pratiques relatives à l’approvisionnement de la machine virtuelle, aux paramètres de stratégie de groupe, au dimensionnement, au paramétrage de la mise en réseau, à la configuration des comptes de stockage et à la création de partages et de volumes pour la baie virtuelle.
+## <a name="configuration-best-practices"></a>Configuration best practices 
 
-### Approvisionnement 
+These best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These best practices include those related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
 
-StorSimple Virtual Array est une machine virtuelle mise en service sur l’hyperviseur (Hyper-V ou VMware) de votre serveur hôte. Lors de l’approvisionnement de la machine virtuelle, assurez-vous que votre hôte est en mesure de dédier des ressources suffisantes. Pour plus d’informations, consultez la page [ressources minimales requises](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) pour mettre en service une baie.
+### <a name="provisioning"></a>Provisioning 
 
-Implémentez les bonnes pratiques suivantes lors de l’approvisionnement de la baie virtuelle :
+StorSimple Virtual Array is a virtual machine (VM) provisioned on the hypervisor (Hyper-V or VMware) of your host server. When provisioning the virtual machine, ensure that your host is able to dedicate sufficient resources. For more information, go to [minimum resource requirements](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) to provision an array. 
+
+Implement the following best practices when provisioning the virtual array:
 
 
-| | Hyper-V | VMware |
+|                        | Hyper-V                                                                                                                                        | VMware                                                                                                               |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **Type de machine virtuelle** | Machine virtuelle de **génération 2** à utiliser avec Windows Server 2012 ou version ultérieure et une image *.vhdx*. <br></br> Machine virtuelle de **génération 1** à utiliser avec un serveur Windows Server 2008 ou version ultérieure et une image *.vhd*. | Utilisez la machine virtuelle version 8 - 11 lorsque vous utilisez une image *.vmdk*. |
-| **Type de mémoire** | Configurez-la en tant que **mémoire statique**. <br></br> N’utilisez pas l’option de **mémoire dynamique**. | |
-| **Type de disque de données** | Sélectionnez **Taille dynamique**.<br></br> **Taille fixe** prend beaucoup de temps. <br></br> N’utilisez pas l’option de **différenciation**. | Utilisez l’option **Allocation dynamique**. |
-| **Modification du disque de données** | L’expansion et la réduction ne sont pas autorisées. Une tentative dans ce sens entraîne la perte de toutes les données locales sur l’appareil. | L’expansion et la réduction ne sont pas autorisées. Une tentative dans ce sens entraîne la perte de toutes les données locales sur l’appareil. |
+| **Virtual machine type**   | **Generation 2** VM for use with Windows Server 2012 or later and a *.vhdx* image. <br></br> **Generation 1** VM for use with a Windows Server 2008 or later and a *.vhd* image.                                                                                                              | Use virtual machine version 8 - 11 when using *.vmdk* image.                                                                      |
+| **Memory type**            | Configure as **static memory**. <br></br> Do not use the **dynamic memory** option.            |                                                    |
+| **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** takes a long time. <br></br> Do not use the **differencing** option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
+| **Data disk modification** | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device.                       | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device. |
 
-### Dimensionnement
+### <a name="sizing"></a>Sizing
 
-Lorsque vous dimensionnez votre baie virtuelle StorSimple Virtual Array, tenez compte des facteurs suivants :
+When sizing your StorSimple Virtual Array, consider the following factors:
 
-- Réservation locale pour des volumes ou des partages. Environ 12 % de l’espace est réservé au niveau local pour chaque volume hiérarchisé et chaque partage à plusieurs niveaux alloué. Environ 10 % de l’espace est également réservé pour un volume épinglé localement pour le système de fichiers.
-- Charge des instantanés. Environ 15 % de l’espace au niveau local est réservé pour les instantanés.
-- Besoins liés aux restaurations. Si la restauration s’effectue en tant que nouvelle opération, le dimensionnement doit prendre en compte l’espace nécessaire pour la restauration. La restauration s’effectue sur un partage ou un volume de taille identique ou supérieure.
-- Une certaine mémoire tampon doit être allouée pour toute croissance inattendue.
+- Local reservation for volumes or shares. Approximately 12% of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10% of the space is also reserved for a locally pinned volume for file system.
+- Snapshot overhead. Roughly 15% space on the local tier is reserved for snapshots.
+- Need for restores. If doing restore as a new operation, sizing should account for the space needed for restore. Restore is done to a share or volume of the same size or larger.
+- Some buffer should be allocated for any unexpected growth.
 
-En fonction des facteurs précédents, les exigences de dimensionnement peuvent être représentées par l’équation suivante :
+Based on the preceding factors, the sizing requirements can be represented by the following equation:
 
 `Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
 `Data disk size = Total usable local disk size + Snapshot overhead + buffer for unexpected growth or new share or volume`
 
 
-Les exemples suivants illustrent la façon de dimensionner une baie virtuelle selon vos besoins.
+The following examples illustrate how you can size a virtual array based on your requirements.
 
-#### Exemple 1 :
-Sur votre baie virtuelle, vous souhaitez être en mesure de
+#### <a name="example-1:"></a>Example 1:
+On your virtual array, you want to be able to 
 
-- configurer un partage ou un volume hiérarchisé de 2 To ;
-- configurer un partage ou un volume hiérarchisé de 1 To ;
-- configurer un partage ou un volume épinglé localement de 300 Go.
-
-
-Pour les partages ou volumes précédents, calculons l’espace nécessaire au niveau local.
-
-Tout d’abord, pour chaque partage/volume hiérarchisé, la réservation locale serait égale à 12 % de la taille du partage/volume. Pour le partage/volume épinglé localement, la réservation locale serait égale à 10 % de la taille du partage/volume. Dans cet exemple, vous avez besoin
-
-- d’une réservation locale de 240 Go (pour un partage/volume hiérarchisé de 2 To) ;
-- d’une réservation locale de 120 Go (pour un partage/volume hiérarchisé de 1 To) ;
-- de 330 Go pour le partage ou le volume épinglé localement.
-
-L’espace total requis à ce stade au niveau local est de : 240 Go + 120 Go + 330 Go = 690 Go.
-
-Deuxièmement, nous avons besoin d’au moins autant d’espace au niveau local que la réservation unique la plus grande. Ce montant supplémentaire est utilisé au cas où il serait nécessaire d’effectuer une restauration à partir d’un instantané cloud. Dans cet exemple, la plus grande réservation locale est de 330 Go (y compris la réservation pour le système de fichiers), donc vous devez l’ajouter aux 660 Go : 660 Go + 330 Go = 990 Go. Si nous avons effectué des restaurations supplémentaires ultérieures, nous pouvons toujours libérer l’espace utilisé pour l’opération de restauration précédente.
-
-Troisièmement, nous avons besoin de 15 % de votre espace local total jusqu’ici pour stocker les instantanés locaux, si bien que 85 % de celui-ci est disponible. Dans cet exemple, cela représente environ 990 Go = 0,85&ast;To du disque de données configuré. Par conséquent, le disque de données configuré aurait une taille de (990&ast;(1/0,85)) = 1164 Go = 1,16 To ~ 1,25 To (en arrondissant au quartile le plus proche)
-
-En tenant compte de la croissance inattendue et de nouvelles restaurations, vous devez configurer un disque local d’environ 1,25 - 1,5 To.
-
-> [AZURE.NOTE] Nous vous recommandons également de configurer dynamiquement le disque local. Cette recommandation est due au fait que l’espace de restauration est nécessaire uniquement lorsque vous souhaitez restaurer des données datant de plus de cinq jours. La récupération au niveau de l’élément vous permet de restaurer les données des cinq derniers jours sans nécessiter d’espace supplémentaire pour la restauration.
-
-#### Exemple 2 : 
-Sur votre baie virtuelle, vous souhaitez être en mesure de
-
-- configurer un volume hiérarchisé de 2 To ;
-- configurer un volume épinglé localement de 300 Go.
-
-En tenant compte des 12 % de réservation de l’espace local pour les partages/volumes hiérarchisés et des 10 % pour les partages/volumes épinglés localement, nous avons besoin
-
-- d’une réservation locale de 240 Go (pour un partage/volume hiérarchisé de 2 To) ;
-- de 330 Go pour le partage ou le volume épinglé localement.
-
-L’espace total requis au niveau local est de : 240 Go + 330 Go = 570 Go.
-
-L’espace local minimal requis pour la restauration est de 330 Go.
-
-15 % de votre disque total sont utilisés pour stocker les instantanés, si bien que seuls 85 % sont disponibles. Ainsi, la taille du disque est de (900&ast;(1/0,85)) = 1,06 To ~ 1,25 To (en arrondissant au quartile le plus proche)
-
-En tenant compte d’une éventuelle croissance inattendue, vous pouvez configurer un disque local de 1,25 - 1,5 To.
+- provision a 2 TB tiered volume or share.
+- provision a 1 TB tiered volume or share.
+- provision a 300 GB of locally pinned volume or share.
 
 
-### Stratégie de groupe
+For the preceding volumes or shares, let us calculate the space requirements on the local tier. 
 
-La stratégie de groupe est une infrastructure qui vous permet d’implémenter des configurations spécifiques pour les utilisateurs et les ordinateurs. Les paramètres de stratégie de groupe sont contenus dans des objets de stratégie de groupe (GPO), qui sont liés aux conteneurs des services de domaine Active Directory (AD DS) suivants : sites, domaines ou unités d’organisation (UO).
+First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation would be 10 % of the volume/share size. In this example, you need
 
-Si votre baie virtuelle est jointe à un domaine, des objets GPO peuvent lui être appliqués. Ces objets de stratégie de groupe peuvent installer des applications, telles qu’un logiciel antivirus, susceptibles d’affecter négativement le fonctionnement de la baie virtuelle StorSimple Virtual Array.
+- 240 GB local reservation (for a 2 TB tiered volume/share)
+- 120 GB local reservation (for a 1 TB tiered volume/share)
+- 330 GB for locally pinned volume or share
 
-Par conséquent, nous vous recommandons de :
+The total space required on the local tier so far is: 240 GB + 120 GB + 330 GB = 690 GB.
 
--   vous assurer que votre baie virtuelle figure dans sa propre unité d’organisation (UO) pour Active Directory ;
+Second, we need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
+If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
 
--   vous assurer qu’aucun objet de stratégie de groupe (GPO) n’est appliqué à votre baie virtuelle. Vous pouvez bloquer l’héritage pour vous assurer que la baie virtuelle (nœud enfant) n’hérite pas automatiquement des objets de stratégie de groupe du parent. Pour plus d'informations, consultez la page [Bloquer l’héritage](https://technet.microsoft.com/library/cc731076.aspx).
+Third, we need 15 % of your total local space so far to store local snapshots, so that only 85% of it is available. In this example, that would be around 990 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (990&ast;(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
 
+Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.5 TB.
 
-### Mise en réseau
+> [AZURE.NOTE] We also recommend that the local disk is thinly provisioned. This recommendation is because the restore space is only needed when you want to restore data that is older than five days. Item-level recovery allows you to restore data for the last five days without requiring the extra space for restore.
 
-La configuration réseau de votre baie virtuelle s’effectue via l’interface utilisateur web locale. Une interface réseau virtuelle est activée via l’hyperviseur dans lequel la baie virtuelle est mise en service. Utilisez la page [Paramètres réseau](storsimple-ova-deploy3-fs-setup.md) pour configurer l’adresse IP, le sous-réseau et la passerelle de l’interface réseau virtuelle. Vous pouvez également configurer les serveurs DNS principal et secondaire, les paramètres de temps et les paramètres proxy facultatifs de votre appareil. La plus grande partie de la configuration réseau correspond à une installation unique. Examinez la [configuration requise de mise en réseau pour StorSimple](storsimple-ova-system-requirements.md#networking-requirements) avant de déployer la baie virtuelle.
+#### <a name="example-2:"></a>Example 2: 
+On your virtual array, you want to be able to 
 
-Lorsque vous déployez une baie virtuelle, nous vous recommandons d’appliquer les bonnes pratiques suivantes :
+- provision a 2 TB tiered volume
+- provision a 300 GB locally pinned volume
 
--   Assurez-vous que le réseau dans lequel la baie virtuelle est déployée a toujours la capacité de dédier une bande passante Internet de 5 Mbits/s (ou plus).
+Based on 12 % of local space reservation for tiered volumes/shares and 10 % for locally pinned volumes/shares, we need
 
-    -   La bande passante Internet requise varie selon les caractéristiques de votre charge de travail et le taux de modification des données.
+- 240 GB local reservation (for 2 TB tiered volume/share)
+- 330 GB for locally pinned volume or share
 
-    -   La modification des données qui peut être gérée est directement proportionnelle à la bande passante Internet. Par exemple, lorsque vous effectuez une sauvegarde, une bande passante de 5 Mbits/s peut prendre en charge une modification des données d’environ 18 Go en 8 heures. Avec une bande passante quatre fois supérieure (20 Mbits/s), vous pouvez gérer une modification des données quatre fois supérieure (72 Go).
+Total space required on the local tier is: 240 GB + 330 GB = 570 GB
 
--   Vérifiez que la connectivité Internet est disponible en permanence. Des connexions Internet sporadiques ou non fiables pour les appareils peuvent entraîner une perte d’accès aux données dans le cloud et peuvent aboutir à une configuration non prise en charge.
+The minimum local space needed for restore is 330 GB. 
 
--   Si vous envisagez de déployer votre appareil en tant que serveur iSCSI :
-	-   Nous vous recommandons de désactiver l’option **Obtenir automatiquement une adresse IP** (DHCP).
-	-   Configurez des adresses IP statiques. Vous devez configurer un serveur DNS principal et un serveur DNS secondaire.
+15 % of your total disk is used to store snapshots so that only 0.85 is available. So, the disk size is (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
 
-	-   Si vous définissez plusieurs interfaces réseau sur votre baie virtuelle, seule la première interface réseau (par défaut, il s’agit d’**Ethernet**) peut atteindre le cloud. Pour contrôler le type de trafic, vous pouvez créer plusieurs interfaces réseau virtuelles sur votre baie virtuelle (configurée comme un serveur iSCSI) et les connecter aux différents sous-réseaux.
-
--   Pour limiter uniquement la bande passante cloud (utilisée par la baie virtuelle), configurez la limitation sur le routeur ou le pare-feu. Si vous définissez la limitation dans votre hyperviseur, il limite tous les protocoles, y compris iSCSI et SMB, et non pas simplement la bande passante cloud.
-
--   Assurez-vous que la synchronisation date/heure des hyperviseurs est activée. Si vous utilisez Hyper-V, sélectionnez votre baie virtuelle dans le Gestionnaire Hyper-V, accédez à **Paramètres &gt; Services d’intégration** et assurez-vous que l’option **Synchronisation date/heure** est activée.
-
-### Comptes de stockage
-
-Une baie virtuelle StorSimple Virtual Array peut être associée à un compte de stockage unique. Ce compte de stockage peut être un compte de stockage généré automatiquement, un compte figurant dans le même abonnement que le service, ou un compte de stockage associé à un autre abonnement. Pour plus d'informations, découvrez comment [gérer des comptes de stockage pour votre baie virtuelle](storsimple-ova-manage-storage-accounts.md).
-
-Utilisez les recommandations suivantes pour les comptes de stockage associés à votre baie virtuelle.
-
--   Lorsque vous liez plusieurs baies virtuelles à un compte de stockage unique, tenez compte de la capacité maximale (64 To) d’une baie virtuelle et de la taille maximale (500 To) d’un compte de stockage. Cela limite le nombre de baies virtuelles pleinement dimensionnées pouvant être associées au compte de stockage à environ 7.
-
--   Lors de la création d’un compte de stockage
-	-   Nous vous recommandons de le créer dans la région la plus proche du bureau distant où votre baie virtuelle StorSimple Virtual Array est déployée, pour réduire au maximum la latence.
-
-	-   N’oubliez pas que vous ne pouvez pas déplacer un compte de stockage d’une région à une autre. De plus, vous ne pouvez pas déplacer un service d’un abonnement à un autre.
-
-	-   Utilisez un compte de stockage qui met en œuvre la redondance entre les centres de données. Le stockage géoredondant (GRS), le stockage redondant dans une zone (ZRS) et le stockage localement redondant (LRS) sont tous pris en charge avec votre baie virtuelle. Pour plus d’informations sur les différents types de comptes de stockage, consultez la page [Réplication du stockage Azure](../storage/storage-redundancy.md).
+Factoring in any unexpected growth, you can provision a 1.25 - 1.5 TB local disk.
 
 
-### Partages et volumes
+### <a name="group-policy"></a>Group policy
 
-Pour votre baie virtuelle StorSimple Virtual Array, vous pouvez mettre en service des partages lorsqu’elle est configurée comme un serveur de fichiers et des volumes lorsqu’elle est configurée comme un serveur iSCSI. Les bonnes pratiques permettant la création de partages et de volumes sont associées à la taille et au type configuré.
+Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory Domain Services (AD DS) containers: sites, domains, or organizational units (OUs). 
 
-#### Taille des volumes/partages
+If your virtual array is domain-joined, GPOs can be applied to it. These GPOs can install applications such as an antivirus software that can adversely impact the operation of the StorSimple Virtual Array.
 
-Sur votre baie virtuelle, vous pouvez mettre en service des partages lorsqu’elle est configurée comme un serveur de fichiers et des volumes lorsqu’elle est configurée comme un serveur iSCSI. Les bonnes pratiques permettant la création de partages et de volumes sont associées à la taille et au type configuré.
+Therefore, we recommend that you:
 
-Gardez à l’esprit les bonnes pratiques suivantes lors de l’approvisionnement des partages ou des volumes sur votre appareil virtuel.
+-   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. 
 
--   La taille des fichiers par rapport à la taille configurée d’un partage hiérarchisé peut affecter les performances de hiérarchisation. L'utilisation de fichiers volumineux peut entraîner une montée en charge lente. Lorsque vous utilisez des fichiers volumineux, vérifiez que la taille du plus grand fichier est inférieure à 3 % de la taille du partage.
+-   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
 
--   Au plus, 16 volumes/partages peuvent être créés sur la baie virtuelle. S’ils sont épinglés localement, les volumes/partages peuvent avoir une taille comprise entre 50 Go et 2 To. S’ils sont hiérarchisés, les volumes/partages doivent avoir une taille comprise entre 500 Go et 20 To.
 
--   Lorsque vous créez un volume, tenez compte de la consommation des données attendue, ainsi que de la croissance future. Le volume ne peut pas être développé ultérieurement, mais vous pouvez toujours effectuer une restauration sur un volume plus important.
+### <a name="networking"></a>Networking
 
--   Une fois que le volume a été créé, vous ne pouvez pas réduire la taille du volume sur StorSimple.
+The network configuration for your virtual array is done through the local web UI. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. Use the [Network Settings](storsimple-ova-deploy3-fs-setup.md) page to configure the virtual network interface IP address, subnet, and gateway.  You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
+
+When deploying your virtual array, we recommend that you follow these best practices:
+
+-   Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5 Mbps Internet bandwidth (or more). 
+
+    -   Internet bandwidth need varies depending on your workload characteristics and the rate of data change.
+
+    -   The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours. With four times more bandwidth (20 Mbps), you can handle four times more data change (72 GB). 
+
+-   Ensure connectivity to the Internet is always available. Sporadic or unreliable Internet connections to the devices may result in a loss of access to data in the cloud and could result in an unsupported configuration.
+
+-   If you plan to deploy your device as an iSCSI server: 
+    -   We recommend that you disable the **Get IP address automatically** option (DHCP). 
+    -   Configure static IP addresses. You must configure a primary and a secondary DNS server.
+
+    -   If defining multiple network interfaces on your virtual array, only the first network interface (by default, this interface is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those interfaces to different subnets.
+
+-   To throttle the cloud bandwidth only (used by the virtual array), configure throttling on the router or the firewall. If you define throttling in your hypervisor, it will throttle all the protocols including iSCSI and SMB instead of just the cloud bandwidth. 
+
+-   Ensure that time synchronization for hypervisors is enabled. If using Hyper-V, select your virtual array in the Hyper-V Manager, go to **Settings &gt; Integration Services**, and ensure that the **Time synchronization** is checked.
+
+### <a name="storage-accounts"></a>Storage accounts
+
+StorSimple Virtual Array can be associated with a single storage account. This storage account could be an automatically generated storage account, an account in the same subscription as the service, or a storage account related to another subscription. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
+
+Use the following recommendations for storage accounts associated with your virtual array.
+
+-   When linking multiple virtual arrays with a single storage account, factor in the maximum capacity (64 TB) for a virtual array and the maximum size (500 TB) for a storage account. This limits the number of full-sized virtual arrays that can be associated with that storage account to about 7.
+
+-   When creating a new storage account
+    -   We recommend that you create it in the region closest to the remote office/branch office where your StorSimple Virtual Array is deployed to minimize latencies.
+
+    -   Bear in mind that you cannot move a storage account across different regions. Also you cannot move a service across subscriptions.
+
+    -   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](../storage/storage-redundancy.md).
+
+
+### <a name="shares-and-volumes"></a>Shares and volumes
+
+For your StorSimple Virtual Array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes are related to the size and the type configured.
+
+#### <a name="volume/share-size"></a>Volume/Share size
+
+On your virtual array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes relate to the size and the type configured. 
+
+Keep in mind the following best practices when provisioning shares or volumes on your virtual device.
+
+-   The file sizes relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in a slow tier out. When working with large files, we recommend that the largest file is smaller than 3% of the share size.
+
+-   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
+
+-   When creating a volume, factor in the expected data consumption as well as future growth. While the volume cannot be expanded later, you can always restore to a larger volume.
+
+-   Once the volume has been created, you cannot shrink the size of the volume on StorSimple.
    
--   Lors de l’écriture sur un volume hiérarchisé sur StorSimple, lorsque les données du volume atteignent un certain seuil (par rapport à l’espace local réservé pour le volume), les E/S sont limitées. Continuer à écrire sur ce volume ralentit considérablement les E/S. Bien que vous puissiez écrire sur un volume hiérarchisé au-delà de sa capacité déployée (nous n’empêchons pas activement l’utilisateur d’écrire au-delà de la capacité déployée), une notification d’alerte apparaît lorsque vous effectuez une demande trop importante. Quand cette alerte apparaît, il est impératif que vous preniez des mesures correctives, en supprimant par exemple les données du volume ou en restaurant le volume sur un plus grand volume (l’expansion des volumes n’est pas prise en charge actuellement).
+-   When writing to a tiered volume on StorSimple, when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume slows down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data or restore the volume to a larger volume (volume expansion is currently not supported).
 
--   Pour les cas d’utilisation liés à la récupération d’urgence, comme le nombre de partages/volumes autorisés est de 16 et que le nombre maximal de partages/volumes pouvant être traités en parallèle est également de 16, le nombre de partages/volumes n’a pas d’incidence sur vos RPO et RTO.
+-   For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs. 
 
-#### Type de volume/partage
+#### <a name="volume/share-type"></a>Volume/Share type
 
-StorSimple prend en charge deux types de volume/partage en fonction de l’utilisation : épinglés localement et hiérarchisés. Les volumes/partages épinglés localement sont alloués statiquement tandis que les volumes/partages hiérarchisés sont alloués dynamiquement.
+StorSimple supports two volume/share types based on the usage: locally pinned and tiered. Locally pinned volumes/shares are thickly provisioned whereas the tiered volumes/shares are thinly provisioned. 
 
-Nous vous recommandons d’implémenter les bonnes pratiques suivantes lors de la configuration de volumes/partages StorSimple :
+We recommend that you implement the following best practices when configuring StorSimple volumes/shares:
 
--   Identifiez le type de volume en fonction des charges de travail que vous envisagez de déployer avant de créer un volume. Utilisez des volumes épinglés localement pour les charges de travail qui requièrent des garanties locales de données (même pendant une panne du cloud) et qui nécessitent de faibles temps de latence du cloud. Une fois que vous avez créé un volume sur votre baie virtuelle, vous ne pouvez pas modifier le type de volume en remplaçant le type épinglé localement par le type hiérarchisé, ou *inversement*. Par exemple, créez des volumes épinglés localement lors du déploiement de charges de travail SQL ou de charges de travail hébergeant des machines virtuelles ; utilisez des volumes hiérarchisés pour des charges de travail de partage de fichiers.
+-   Identify the volume type based on the workloads that you intend to deploy before you create a volume. Use locally pinned volumes for workloads that require local guarantees of data (even during a cloud outage) and that require low cloud latencies. Once you create a volume on your virtual array, you cannot change the volume type from locally pinned to tiered or *vice-versa*. As an example, create locally pinned volumes when deploying SQL workloads or workloads hosting virtual machines (VMs); use tiered volumes for file share workloads.
 
--   Activez l’option pour les données d’archivage moins fréquemment utilisées lors du traitement de fichiers volumineux. Une plus grande taille de segment de déduplication de 512 Ko est utilisée lorsque cette option est activée, afin d’accélérer le transfert des données vers le cloud.
+-   Check the option for less frequently used archival data when dealing with large file sizes. A larger deduplication chunk size of 512 K is used when this option is enabled to expedite the data transfer to the cloud.
 
-#### Format des volumes
+#### <a name="volume-format"></a>Volume format
 
-Après avoir créé des volumes StorSimple sur votre serveur iSCSI, vous devez initialiser, monter et formater ces volumes. Cette opération est effectuée sur l’hôte connecté à votre appareil StorSimple. Les bonnes pratiques suivantes sont recommandées lors du montage et du formatage des volumes sur l’hôte StorSimple.
+After you create StorSimple volumes on your iSCSI server, you need to initialize, mount, and format the volumes. This operation is performed on the host connected to your StorSimple device. Following best practices are recommended when mounting and formatting volumes on the StorSimple host.
 
--   Effectuez un formatage rapide sur tous les volumes StorSimple.
+-   Perform a quick format on all StorSimple volumes.
 
--   Lorsque vous formatez un volume StorSimple, utilisez une taille d’unité d’allocation de 64 Ko (la valeur par défaut est de 4 Ko). La taille d’unité d’allocation de 64 Ko est basée sur les tests effectués en interne pour les charges de travail StorSimple courantes et d’autres charges de travail.
+-   When formatting a StorSimple volume, use an allocation unit size (AUS) of 64 KB (default is 4 KB). The 64 KB AUS is based on testing done in-house for common StorSimple workloads and other workloads.
 
--   Lorsque vous utilisez la baie virtuelle StorSimple Virtual Array configurée comme un serveur iSCSI, n’utilisez pas de volumes fractionnés ni de disques dynamiques, car ceux-ci ne sont pas pris en charge par StorSimple.
+-   When using the StorSimple Virtual Array configured as an iSCSI server, do not use spanned volumes or dynamic disks as these volumes or disks are not supported by StorSimple.
 
-#### Accès aux partages
+#### <a name="share-access"></a>Share access
 
-Lorsque vous créez des partages sur le serveur de fichiers de votre baie virtuelle, suivez ces instructions :
+When creating shares on your virtual array file server, follow these guidelines:
 
--   Lorsque vous créez un partage, affectez un groupe d’utilisateurs en tant qu’administrateur de partage à la place d’un utilisateur individuel.
+-   When creating a share, assign a user group as a share administrator instead of a single user.
 
--   Vous pouvez gérer les autorisations NTFS après la création du partage en modifiant les partages via l’Explorateur Windows.
+-   You can manage the NTFS permissions after the share is created by editing the shares through Windows Explorer.
 
-#### Accès aux volumes
+#### <a name="volume-access"></a>Volume access
 
-Lorsque vous configurez les volumes iSCSI sur votre baie virtuelle StorSimple Virtual Array, il est important de contrôler l’accès chaque fois que nécessaire. Afin de déterminer quels serveurs hôtes peuvent accéder aux volumes, créez et associez des enregistrements de contrôle d’accès (ACR) aux volumes StorSimple.
+When configuring the iSCSI volumes on your StorSimple Virtual Array, it is important to control access wherever necessary. To determine which host servers can access volumes, create, and associate access control records (ACRs) with StorSimple volumes.
 
-Utilisez les bonnes pratiques suivantes lors de la configuration d’ACR pour les volumes StorSimple :
+Use the following best practices when configuring ACRs for StorSimple volumes:
 
--   Associez toujours au moins un ACR à un volume.
+-   Always associate at least one ACR with a volume.
 
--   Définissez plusieurs ACR uniquement dans un environnement en cluster.
+-   Define multiple ACRs only in a clustered environment.
 
--   Lorsque vous attribuez plusieurs ACR à un volume, veillez à ce que ce volume ne soit pas exposé de façon à ce que plusieurs hôtes non-cluster puissent y accéder simultanément. Si vous avez affecté plusieurs ACR à un volume, un message d’avertissement s’affiche pour vous inviter à vérifier votre configuration.
+-   When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message pops up for you to review your configuration.
 
-### Chiffrement et sécurité des données
+### <a name="data-security-and-encryption"></a>Data security and encryption
 
-Votre baie virtuelle StorSimple Virtual Array a des fonctionnalités de chiffrement et de sécurité des données qui garantissent la confidentialité et l’intégrité de vos données. Lorsque vous utilisez ces fonctionnalités, nous vous recommandons de suivre ces bonnes pratiques :
+Your StorSimple Virtual Array has data security and encryption features that ensure the confidentiality and integrity of your data. When using these features, it is recommended that you follow these best practices: 
 
--   Définissez une clé de chiffrement de stockage cloud pour générer un chiffrement AES-256 avant l’envoi des données de votre baie virtuelle vers le cloud. Cette clé n’est pas requise si vos données sont chiffrées dès le départ. La clé peut être générée et protégée à l’aide d’un système de gestion de clés tel qu’[Azure Key Vault](../key-vault/key-vault-whatis.md).
+-   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to begin with. The key can be generated and kept safe using a key management system such as [Azure key vault](../key-vault/key-vault-whatis.md).
 
--   Lorsque vous configurez le compte de stockage via le service StorSimple Manager, veillez à activer le mode SSL pour créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud.
+-   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
 
--   Régénérez les clés de vos comptes de stockage (en accédant au service Stockage Azure) régulièrement pour prendre en compte toutes les modifications de l’accès en fonction de la liste modifiée des administrateurs.
+-   Regenerate the keys for your storage accounts (by accessing the Azure Storage service) periodically to account for any changes to access based on the changed list of administrators.
 
--   Les données figurant sur votre baie virtuelle sont compressées et dédupliquées avant leur envoi vers Azure. Nous ne recommandons pas l’utilisation du service de rôle Déduplication des données sur votre hôte Windows Server.
+-   Data on your virtual array is compressed and deduplicated before it is sent to Azure. We don't recommend using the Data Deduplication role service on your Windows Server host.
 
 
-## Bonnes pratiques opérationnelles
+## <a name="operational-best-practices"></a>Operational best practices
 
-Les bonnes pratiques opérationnelles sont des instructions à suivre lors de la gestion ou de l’exploitation quotidienne de la baie virtuelle. Elles couvrent des tâches de gestion spécifiques telles que la réalisation de sauvegardes, la restauration à partir d’un jeu de sauvegarde, la réalisation d’un basculement, la désactivation et la suppression de la baie, l’analyse de l’intégrité et de l’utilisation du système, et l’exécution d’analyses antivirus sur votre baie virtuelle.
+The operational best practices are guidelines that should be followed during the day-to-day management or operation of the virtual array. These practices cover specific management tasks such as taking backups, restoring from a backup set, performing a failover, deactivating and deleting the array, monitoring system usage and health, and running virus scans on your virtual array.
 
-### Sauvegardes
+### <a name="backups"></a>Backups
 
-Les données figurant sur votre baie virtuelle sont sauvegardées dans le cloud de deux manières, via une sauvegarde quotidienne par défaut automatisée de l’ensemble de l’appareil commençant à 22h30 et via une sauvegarde manuelle à la demande. Par défaut, l’appareil crée automatiquement des instantanés cloud quotidiens de toutes les données résidant sur ce dernier. Pour plus d’informations, consultez la page [Sauvegarder votre StorSimple Virtual Array](storsimple-ova-backup.md).
+The data on your virtual array is backed up to the cloud in two ways, a default automated daily backup of the entire device starting at 22:30 or via a manual on-demand backup. By default, the device automatically creates daily cloud snapshots of all the data residing on it. For more information, go to [back up your StorSimple Virtual Array](storsimple-ova-backup.md).
 
-Il est impossible de modifier la fréquence et la rétention associées aux sauvegardes par défaut, mais vous pouvez configurer l’heure à laquelle les sauvegardes quotidiennes sont lancées chaque jour. Lorsque vous configurez l’heure de début des sauvegardes automatisées, nous vous recommandons de procéder comme suit :
+The frequency and retention associated with the default backups cannot be changed but you can configure the time at which the daily backups are initiated every day. When configuring the start time for the automated backups, we recommend that:
 
--   Planifiez vos sauvegardes pendant les heures creuses. L’heure de début de la sauvegarde ne doit pas coïncider avec un grand nombre d’E/S d’hôte.
+-   Schedule your backups for off-peak hours. Backup start time should not coincide with numerous host IO.
 
--   Lancez une sauvegarde manuelle à la demande lorsque vous envisagez d’effectuer un basculement de l’appareil ou avant la fenêtre de maintenance, pour protéger les données figurant sur votre baie virtuelle.
+-   Initiate a manual on-demand backup when planning to perform a device failover or prior to the maintenance window, to protect the data on your virtual array.
 
-### Restauration
+### <a name="restore"></a>Restore
 
-Vous pouvez restaurer à partir d’un jeu de sauvegarde de deux manières : restaurez vers un autre volume ou partage, ou effectuez une récupération au niveau de l’élément (disponible uniquement sur une baie virtuelle configurée en tant que serveur de fichiers). La récupération au niveau de l’élément vous permet d'effectuer une récupération granulaire de fichiers et de dossiers à partir d'une sauvegarde cloud contenant tous les partages sur l'appareil StorSimple. Pour plus d’informations, consultez la page [Restaurer à partir d’une sauvegarde](storsimple-ova-restore.md).
+You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (available only on a virtual array configured as a file server). Item-level recovery allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to [restore from a backup](storsimple-ova-restore.md).
 
-Lorsque vous effectuez une restauration, gardez à l’esprit les instructions suivantes :
+When performing a restore, keep the following guidelines in mind:
 
--   Votre baie virtuelle StorSimple Virtual Array ne prend pas en charge la restauration sur place. Celle-ci peut néanmoins être réalisée facilement via un processus en deux étapes : libérez de l’espace sur la baie virtuelle, puis restaurez vers un autre volume/partage.
+-   Your StorSimple Virtual Array does not support in-place restore. This can however be readily achieved by a two-step process: make space on the virtual array and then restore to another volume/share.
 
--   Lors de la restauration à partir d’un volume local, n’oubliez pas que la restauration est une opération longue. Le volume peut être mis en ligne rapidement, mais l’alimentation des données continue en arrière-plan.
+-   When restoring from a local volume, keep in mind the restore will be a long running operation. Though the volume may quickly come online, the data continues to be hydrated in the background.
 
--   Le type de volume reste le même pendant le processus de restauration. Un volume hiérarchisé est restauré vers un autre volume hiérarchisé, et un volume épinglé localement vers un autre volume épinglé localement.
+-   The volume type remains the same during the restore process. A tiered volume is restored to another tiered volume and a locally pinned volume to another locally pinned volume.
 
--   Lorsque vous tentez de restaurer un volume ou un partage à partir d’un jeu de sauvegarde, si le travail de restauration échoue, un volume ou partage cible peut toujours être créé dans le portail. Il est important de supprimer ce volume ou partage cible inutilisé dans le portail pour réduire les problèmes futurs découlant de cet élément.
+-   When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this unused target volume or share in the portal to minimize any future issues arising from this element.
 
-### Basculement et récupération d'urgence
+### <a name="failover-and-disaster-recovery"></a>Failover and disaster recovery
 
-Un basculement de l’appareil vous permet de migrer vos données à partir d'un appareil *source* dans le centre de données vers un autre appareil *cible* situé à un emplacement géographique identique ou différent. Le basculement de l'appareil s'applique à l'ensemble de l'appareil. Lors du basculement, les données de cloud pour l'appareil source deviennent la propriété de l'appareil cible.
+A device failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
 
-Pour votre baie virtuelle StorSimple Virtual Array, vous pouvez basculer uniquement vers une autre baie virtuelle gérée par le même service StorSimple Manager. Un basculement vers un appareil de gamme 8000 ou vers une baie gérée par un autre service StorSimple Manager (que celui de l’appareil source) n’est pas autorisé. Pour en savoir plus sur les considérations relatives au basculement, consultez la page [Configuration requise pour le basculement d’appareil](storsimple-ova-failover-dr.md).
+For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to an 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-ova-failover-dr.md).
 
-Lorsque vous effectuez un basculement pour votre baie virtuelle, gardez à l’esprit les éléments suivants :
+When performing a fail over for your virtual array, keep the following in mind:
 
--   Pour un basculement planifié, une bonne pratique consiste à déconnecter tous les volumes/partages avant de lancer le basculement. Suivez les instructions spécifiques au système d’exploitation pour déconnecter au préalable les volumes/partages sur l’hôte, puis déconnectez ces éléments sur votre appareil virtuel.
+-   For a planned failover, it is a recommended best practice to take all the volumes/shares offline prior to initiating the failover. Follow the operating system-specific instructions to take the volumes/shares offline on the host first and then take those offline on your virtual device.
 
--   Pour la récupération d'urgence du serveur de fichiers, nous vous recommandons de joindre l'appareil cible au même domaine que celui de la source, afin que les autorisations de partage soient résolues automatiquement. Cette version prend en charge uniquement le basculement vers un appareil cible dans le même domaine.
+-   For a file server disaster recovery (DR), we recommend that you join the target device to the same domain as the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
 
--   Une fois la récupération d’urgence terminée, l’appareil source est supprimé automatiquement. Même si l'appareil n'est plus disponible, la machine virtuelle que vous avez configurée sur le système hôte continue de consommer des ressources. Nous vous recommandons de supprimer cette machine virtuelle de votre système hôte pour empêcher l’apparition de frais.
+-   Once the DR is successfully completed, the source device is automatically deleted. Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. We recommend that you delete this virtual machine from your host system to prevent any charges from accruing.
 
--   Notez que même si le basculement échoue, **les données sont toujours sûres dans le cloud**. Considérez les trois scénarios suivants, dans lesquels le basculement n’a pas réussi :
+-   Do note that even if the failover is unsuccessful, **the data is always safe in the cloud**. Consider the following three scenarios in which the failover did not complete successfully:
 
-    -   Une erreur s’est produite dans les étapes initiales du basculement, par exemple lors de la réalisation des vérifications préalables de récupération d’urgence. Dans ce cas, votre appareil cible est toujours utilisable. Vous pouvez réessayer le basculement sur le même appareil cible.
+    -   A failure occurred in the initial stages of the failover such as when the DR pre-checks are being performed. In this situation, your target device is still usable. You can retry the failover on the same target device.
 
-    -   Une erreur s’est produite pendant le processus de basculement lui-même. Dans ce cas, l’appareil cible est marqué comme inutilisable. Vous devez mettre en service et configurer une autre baie virtuelle cible, et l’utiliser pour le basculement.
+    -   A failure occurred during the actual failover process. In this case, the target device is marked unusable. You must provision and configure another target virtual array and use that for failover.
 
-    -   Le basculement a été effectué, après quoi l’appareil source a été supprimé, mais l’appareil cible a des problèmes et vous ne pouvez pas accéder aux données. Les données sont toujours sûres dans le cloud et il est aisé de les récupérer en créant une autre baie virtuelle, puis en l’utilisant comme appareil cible pour la récupération d’urgence.
+    -   The failover was complete following which the source device was deleted but the target device has issues and you cannot access any data. The data is still safe in the cloud and can be easily retrieved by creating another virtual array and then using it as a target device for the DR.
 
-### Désactivation
+### <a name="deactivate"></a>Deactivate
 
-Quand vous désactivez un StorSimple Virtual Array, vous interrompez la connexion entre l’appareil et le service StorSimple Manager correspondant. La désactivation est une opération **définitive** et ne peut pas être annulée. Un appareil désactivé ne peut pas être de nouveau enregistré auprès du service StorSimple Manager. Pour plus d’informations, consultez la page [Désactiver et supprimer votre baie virtuelle StorSimple Virtual Array](storsimple-deactivate-and-delete-device.md).
+When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a **permanent** operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. For more information, go to [deactivate and delete your StorSimple Virtual Array](storsimple-deactivate-and-delete-device.md).
 
-Tenez compte des bonnes pratiques suivantes lors de la désactivation de votre baie virtuelle :
+Keep the following best practices in mind when deactivating your virtual array:
 
--   Prenez un instantané cloud de toutes les données avant de désactiver un appareil virtuel. Lorsque vous désactivez une baie virtuelle, toutes les données locales de l’appareil sont perdues. La prise d’un instantané cloud vous permettra de récupérer les données à un stade ultérieur.
+-   Take a cloud snapshot of all the data prior to deactivating a virtual device. When you deactivate a virtual array, all the local device data is lost. Taking a cloud snapshot will allow you to recover data at a later stage.
 
--   Avant de désactiver une baie virtuelle StorSimple Virtual Array, veillez à arrêter ou supprimer les clients et les hôtes qui dépendent de cet appareil.
+-   Before you deactivate a StorSimple Virtual Array, make sure to stop or delete clients and hosts that depend on that device.
 
--   Supprimez un appareil désactivé si vous ne l’utilisez plus, afin qu’il n’engendre pas de frais.
+-   Delete a deactivated device if you are no longer using so that it doesn't accrue charges.
 
-### Surveillance
+### <a name="monitoring"></a>Monitoring
 
-Pour vous assurer que votre baie virtuelle StorSimple Virtual Array est en permanence dans un état sain, vous devez surveiller la baie et vérifier que vous recevez des informations à partir du système, y compris les alertes. Pour surveiller l’intégrité globale de la baie virtuelle, mettez en œuvre les bonnes pratiques suivantes :
+To ensure that your StorSimple Virtual Array is in a continuous healthy state, you need to monitor the array and ensure that you receive information from the system including alerts. To monitor the overall health of the virtual array, implement the following best practices:
 
-- Configurez la surveillance pour effectuer le suivi de l’utilisation du disque de données de votre baie virtuelle, ainsi que du disque du système d’exploitation. Si vous exécutez Hyper-V, vous pouvez utiliser une combinaison de System Center Virtual Machine Manager (SCVMM) et de System Center Operations Manager (SCOM) pour surveiller vos hôtes de virtualisation.
+- Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.   
 
-- Configurez les notifications par courrier électronique sur votre baie virtuelle pour envoyer des alertes à certains niveaux d’utilisation.
+- Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                                                                                                                
 
-### Applications d’analyse antivirus et de recherche d’index
+### <a name="index-search-and-virus-scan-applications"></a>Index search and virus scan applications
 
-Une baie virtuelle StorSimple Virtual Array peut faire passer automatiquement les données du niveau local au cloud Microsoft Azure. Lorsqu’une application telle qu’une recherche d’index ou une analyse antivirus est utilisée pour analyser les données stockées sur StorSimple, vous devez faire en sorte que les données cloud ne soient pas accessibles ni ramenées au niveau local.
+A StorSimple Virtual Array can automatically tier data from the local tier to the Microsoft Azure cloud. When an application such as an index search or a virus scan is used to scan the data stored on StorSimple, you need to take care that the cloud data does not get accessed and pulled back to the local tier.
 
-Nous vous recommandons de mettre en œuvre les bonnes pratiques suivantes lors de la configuration de la recherche d’index ou de l’analyse antivirus sur votre baie virtuelle :
+We recommend that you implement the following best practices when configuring the index search or virus scan on your virtual array:
 
--   Désactivez toutes les opérations d’analyse complète configurées automatiquement.
+-   Disable any automatically configured full scan operations.
 
--   Pour les volumes hiérarchisés, configurez l’application de recherche d’index ou d’analyse antivirus pour qu’elle effectue une analyse incrémentielle. Cela permet d’analyser uniquement les nouvelles données résidant éventuellement au niveau local. Les données qui sont transférées dans le cloud ne sont pas accessibles pendant une opération incrémentielle.
+-   For tiered volumes, configure the index search or virus scan application to perform an incremental scan. This would scan only the new data likely residing on the local tier. The data that is tiered to the cloud is not accessed during an incremental operation.
 
--   Veillez à ce que les paramètres et les filtres de recherche corrects soient configurés de sorte que seuls les types prévus de fichiers soient analysés. Par exemple, les fichiers image (JPEG, GIF et TIFF) et les dessins techniques ne doivent pas être analysés au cours de la reconstruction d’index complet ou incrémentiel.
+-   Ensure the correct search filters and settings are configured so that only the intended types of files get scanned. For example, image files (JPEG, GIF, and TIFF) and engineering drawings should not be scanned during the incremental or full index rebuild.
 
-Si vous utilisez le processus d’indexation de Windows, suivez ces instructions :
+If using Windows indexing process, follow these guidelines:
 
--   N’utilisez pas l’indexeur Windows pour les volumes hiérarchisés, car cela entraînera le rappel de grandes quantités de données (plusieurs To) à partir du cloud si l’index doit être reconstruit fréquemment. La reconstruction de l’index entraîne la récupération de tous les types de fichiers pour l’indexation de leur contenu.
+-   Do not use the Windows Indexer for tiered volumes as it recalls large amounts of data (TBs) from the cloud if the index needs to be rebuilt frequently. Rebuilding the index would retrieve all file types to index their content.
 
--   Utilisez le processus d’indexation de Windows pour les volumes épinglés localement, car il n’accède qu’aux données figurant sur les couches locales pour créer l’index (il n’accède pas aux données cloud).
+-   Use the Windows indexing process for locally pinned volumes as this would only access data on the local tiers to build the index (the cloud data will not be accessed).
 
-### Verrouillage de plage d’octets
+### <a name="byte-range-locking"></a>Byte range locking
 
-Les applications peuvent verrouiller une plage d’octets donnée au sein des fichiers. Si le verrouillage de plage d’octets est activé sur les applications qui écrivent sur votre appareil StorSimple, la hiérarchisation ne fonctionne pas sur votre baie virtuelle. Pour que la hiérarchisation fonctionne, toutes les zones des fichiers auxquels vous accédez doivent être déverrouillées. Le verrouillage de plage d’octets n’est pas pris en charge avec les volumes hiérarchisés sur votre baie virtuelle.
+Applications can lock a specified range of bytes within the files. If byte range locking is enabled on the applications that are writing to your StorSimple, then tiering does not work on your virtual array. For the tiering to work, all areas of the files accessed should be unlocked. Byte range locking is not supported with tiered volumes on your virtual array.
 
-Les mesures recommandées pour éviter le verrouillage de plage d’octets incluent :
+Recommended measures to alleviate byte range locking include:
 
--   Désactivez le verrouillage de plage d'octets dans la logique de votre application.
+-   Turn off byte range locking in your application logic.
 
--   Utilisez des volumes épinglés localement (à la place de volumes hiérarchisés) pour les données associées à cette application. Les volumes épinglés localement ne hiérarchisent pas les données dans le cloud.
+-   Use locally pinned volumes (instead of tiered) for the data associated with this application. Locally pinned volumes do not tier into the cloud.
 
--   Lorsque vous utilisez des volumes épinglés localement avec le verrouillage de plage d’octets activé, un volume peut être mis en ligne avant la fin de la restauration. Dans ce cas, vous devez attendre la fin de la restauration.
+-   When using locally pinned volumes with byte range locking enabled, the volume can come online before the restore is complete. In these instances, you must wait for the restore to be complete.
 
-## Baies multiples
+## <a name="multiple-arrays"></a>Multiple arrays
 
-Il peut être nécessaire de déployer plusieurs baies virtuelles pour prendre en compte un ensemble de données de travail croissant, susceptible de déborder dans le cloud et d’affecter ainsi les performances de l’appareil. Dans ce cas, l’idéal est de dimensionner les appareils à mesure que l’ensemble de données de travail augmente. Cette opération nécessite l’ajout d’un ou de plusieurs appareils dans le centre de données local. Lors de l’ajout des appareils, vous pouvez procéder comme suit :
+Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This requires one or more devices to be added in the on-premises data center. When adding the devices, you could:
 
--   Fractionnez le jeu de données actuel.
--   Déployez de nouvelles charges de travail sur un ou plusieurs nouveaux périphériques.
--   Si vous déployez plusieurs baies virtuelles, nous vous recommandons, du point de vue de l’équilibrage de charge, de distribuer une baie entre différents hôtes de l’hyperviseur.
+-   Split the current set of data.
+-   Deploy new workloads to new device(s).
+-   If deploying multiple virtual arrays, we recommend that from load-balancing perspective, distribute the array across different hypervisor hosts.
 
--  Plusieurs baies virtuelles (lorsqu’elles sont configurées en tant que serveur de fichiers ou serveur iSCSI) peuvent être déployées dans un espace de noms de système de fichiers distribué. Pour des instructions détaillées, consultez la page [Guide de déploiement d’une solution d’espace de noms de système de fichiers distribué avec stockage cloud hybride](https://www.microsoft.com/download/details.aspx?id=45507). La réplication du système de fichiers distribué n’est actuellement pas recommandée avec la baie virtuelle.
+-  Multiple virtual arrays (when configured as a file server or an iSCSI server) can be deployed in a Distributed File System Namespace. For detailed steps, go to [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507). Distributed File System Replication is currently not recommended for use with the virtual array. 
 
 
-## Voir aussi
-Découvrez la [gestion de votre baie virtuelle StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) par le biais du service StorSimple Manager.
+## <a name="see-also"></a>See also
+Learn how to [administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) via the StorSimple Manager service.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,31 +1,37 @@
 <properties
-	pageTitle="Créer rapidement des jeux de mise à l’échelle avec CLI | Microsoft Azure"
-	description="Déployez des jeux de mise à l'échelle en utilisant l’option de création rapide de CLI."
-	keywords="Jeux de mise à l’échelle de machine virtuelle" 
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gatneil"
-	manager="madhana"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+    pageTitle="Scale sets CLI quick create | Microsoft Azure"
+    description="Deploy scale sets using CLI quick create."
+    keywords="virtual machine scale sets" 
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gatneil"
+    manager="madhana"
+    editor="tysonn"
+    tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machine-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/31/2016"
-	ms.author="gatneil"/>
+    ms.service="virtual-machine-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/31/2016"
+    ms.author="gatneil"/>
 
-# Créer rapidement un jeu de mise à l’échelle avec l'interface de ligne de commande (CLI) Azure
+
+# <a name="quickly-create-a-scale-set-using-the-azure-cli"></a>Quickly create a scale set using the Azure CLI
 
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Pour les modèles Resource Manager utilisant des jeux de mise à l’échelle, recherchez « vmss » dans le [dépôt Github de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
+For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
 
-Pour plus d’informations, consultez la [page d’accueil principale pour les jeux de mise à l’échelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

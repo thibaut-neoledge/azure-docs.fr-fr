@@ -1,56 +1,56 @@
 <properties
-	pageTitle="Mise à jour corrective automatisée pour les machines virtuelles SQL Server (classiques) | Microsoft Azure"
-	description="Décrit la fonctionnalité de mise à jour corrective automatisée pour les machines virtuelles SQL Server exécutées dans Azure à l’aide du modèle de déploiement classique."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"
-	editor=""
-	tags="azure-service-management" />
+    pageTitle="Mise à jour corrective automatisée pour les machines virtuelles SQL Server (classiques) | Microsoft Azure"
+    description="Décrit la fonctionnalité de mise à jour corrective automatisée pour les machines virtuelles SQL Server exécutées dans Azure à l’aide du modèle de déploiement classique."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"
+    editor=""
+    tags="azure-service-management" />
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/26/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/26/2016"
+    ms.author="jroth" />
 
-# Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)
+
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-(classic)"></a>Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)
 
 > [AZURE.SELECTOR]
 - [Gestionnaire de ressources](virtual-machines-windows-sql-automated-patching.md)
 - [Classique](virtual-machines-windows-classic-sql-automated-patching.md)
 
-La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, les mises à jour système et les redémarrages associés ont ainsi lieu au meilleur moment possible pour la base de données. La mise à jour corrective automatisée utilise l’[extension de l’agent IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, les mises à jour système et les redémarrages associés ont ainsi lieu au meilleur moment possible pour la base de données. La mise à jour corrective automatisée utilise l’ [extension de l’agent IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
-Pour afficher la version Resource Manager de cet article, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](virtual-machines-windows-sql-automated-patching.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Pour afficher la version Resource Manager de cet article, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](virtual-machines-windows-sql-automated-patching.md).
 
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 
 Pour utiliser la mise à jour corrective automatisée, prenez en compte les conditions préalables suivantes :
 
-**Système d’exploitation** :
+**Système d’exploitation**:
 
 - Windows Server 2012
 - Windows Server 2012 R2
 
-**Version de SQL Server** :
+**Version de SQL Server**:
 
 - SQL Server 2012
 - SQL Server 2014
 - SQL Server 2016
 
-**Azure PowerShell** :
+**Azure PowerShell**:
 
 - [Installez les commandes de la version la plus récente d’Azure PowerShell](../powershell-install-configure.md).
 
-**Extension IaaS SQL Server** :
+**Extension IaaS SQL Server**:
 
 - [Installez l’extension IaaS SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-## Paramètres
+## <a name="settings"></a>Paramètres
 
 Le tableau suivant décrit les options qui peuvent être configurées pour une mise à jour corrective automatisée. Pour les machines virtuelles classiques, vous devez utiliser PowerShell pour configurer ces paramètres.
 
@@ -62,7 +62,7 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une m
 |**Durée de la fenêtre de maintenance**|30 à 180|Nombre de minutes autorisées pour terminer le téléchargement et l’installation des mises à jour.|
 |**Catégorie de correctif**|Important|Catégorie des mises à jour à télécharger et installer.|
 
-## Configuration avec PowerShell
+## <a name="configuration-with-powershell"></a>Configuration avec PowerShell
 
 Dans l’exemple suivant, PowerShell permet de configurer une mise à jour corrective automatisée sur une machine virtuelle SQL Server existante. La commande **New-AzureVMSqlServerAutoPatchingConfig** configure une nouvelle fenêtre de maintenance pour les mises à jour automatiques.
 
@@ -83,10 +83,14 @@ L’installation et la configuration de l’agent IaaS de SQL Server peuvent 
 
 Pour désactiver la mise à jour corrective automatisée, exécutez le même script sans le paramètre -Enable pour la commande New-AzureVMSqlServerAutoPatchingConfig. À l’instar de l’installation, la désactivation de la mise à jour corrective automatisée peut prendre plusieurs minutes.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les autres tâches d’automatisation disponibles, voir [Extension de l’agent IaaS SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, voir [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,25 +1,27 @@
-#### Type de VPN : modèle de déploiement Resource Manager
+#### <a name="vpn-type---resource-manager-deployment-model"></a>VPN type - Resource Manager deployment model
 
-| | **RouteBased** | **PolicyBased** |
+|      | **RouteBased**    | **PolicyBased** |
 |-----------------------------------|-------------|------------------|
-| **De site à site** | Pris en charge | Pris en charge |
-| **Connexion entre deux réseaux virtuels** | Pris en charge | Non pris en charge |
-| **Multi-sites** | Pris en charge | Non pris en charge |
-| **Coexistence de S2S et ExpressRoute** | Pris en charge | Non pris en charge |
-| **De point à site** | Pris en charge | Non pris en charge |
-| **Classic vers Gestionnaire de ressources** | Pris en charge | Non pris en charge |
+| **Site-to-Site**                  | Supported   | Supported        |
+| **VNet-to-VNet**                  | Supported   | Not Supported    |
+| **Multi-Site**                    | Supported   | Not Supported    |
+| **S2S and ExpressRoute coexist**  | Supported   | Not Supported    |
+| **Point-to-Site**                 | Supported   | Not Supported    |
+| **Classic to Resource Manager**   | Supported   | Not Supported    |
 
 
-#### Type de VPN : modèle de déploiement classique
+#### <a name="vpn-type---classic-deployment-model"></a>VPN type - classic deployment model
 
 
-| | **Dynamique** | **Statique** |
+|       | **Dynamic**        | **Static**   |
 |---------------------------------------------|--------------|--------------|
-| **De site à site** | Pris en charge | Pris en charge |
-| **Connexion entre deux réseaux virtuels** | Pris en charge | Non pris en charge |
-| **Multi-sites** | Pris en charge | Non pris en charge |
-| **Coexistence de S2S et ExpressRoute** | Pris en charge | Non pris en charge |
-| **De point à site** | Pris en charge | Non pris en charge |
-| **Classic vers Gestionnaire de ressources** | Pris en charge | Non pris en charge |
+| **Site-to-Site**                            | Supported    | Supported      |
+| **VNet-to-VNet**                            | Supported    | Not Supported  |
+| **Multi-Site**                              | Supported    | Not Supported  |
+| **S2S and ExpressRoute coexist**            | Supported    | Not Supported  |
+| **Point-to-Site**                           | Supported    | Not Supported  |
+| **Classic to Resource Manager**             | Supported    | Not Supported  |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

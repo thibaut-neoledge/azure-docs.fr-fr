@@ -1,23 +1,24 @@
 
 <properties
-	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de contrôle d’accès | Microsoft Azure"
-	description="Couvre les piliers de l'identité et l'identification des conditions d'accès aux ressources pour les utilisateurs dans un environnement hybride."
-	documentationCenter=""
-	services="active-directory"
-	authors="billmath"
-	manager="femila"
-	editor=""/>
+    pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de contrôle d’accès | Microsoft Azure"
+    description="Couvre les piliers de l'identité et l'identification des conditions d'accès aux ressources pour les utilisateurs dans un environnement hybride."
+    documentationCenter=""
+    services="active-directory"
+    authors="billmath"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="08/08/2016"
-	ms.author="billmath"/>
+    ms.date="08/08/2016"
+    ms.author="billmath"/>
 
-# Déterminer les besoins de contrôle d'accès pour votre solution d'identité hybride
+
+# <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins de contrôle d'accès pour votre solution d'identité hybride
 Lorsqu'une organisation conçoit sa solution d'identité hybride, elle peut également profiter de cette opportunité pour passer en revue les exigences d'accès pour les ressources qu'elle envisage de mettre à la disposition des utilisateurs. L'accès aux données couvre les quatre piliers suivants de l'identité :
 
 - Administration
@@ -30,7 +31,7 @@ Les sections suivantes couvriront l'authentification et l'autorisation de maniè
 >[AZURE.NOTE]
 Lire [Les quatre piliers de l'identité - Gestion des identités à l'ère de l'informatique hybride](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) pour plus d'informations sur chacun de ces piliers.
 
-## Authentification et autorisation
+## <a name="authentication-and-authorization"></a>Authentification et autorisation
 Il existe différents scénarios d'authentification et d'autorisation aux exigences spécifiques desquelles la solution d'identité hybride que l'entreprise va adopter devra satisfaire. Les scénarios impliquant une communication interentreprises (B2B) peuvent constituer un défi supplémentaire pour les administrateurs informatiques, qui devront s'assurer que la méthode d'authentification et d'autorisation utilisée par l'organisation peut communiquer avec leurs partenaires commerciaux. Pendant le processus de conception des exigences d'authentification et d'autorisation, vérifiez que les questions suivantes sont traitées :
 
 - Votre organisation authentifiera et autorisera-t-elle uniquement des utilisateurs se trouvant sur son système de gestion d'identité ?
@@ -50,7 +51,7 @@ Le modèle adopté par votre organisation variera en fonction de ses besoins mé
 - Votre organisation utilise-t-elle l'authentification unique pour les applications locales ou dans le cloud ?
  - Si oui, l'adoption d'un modèle d'identité hybride affecte-t-elle ce processus ?
 
-## Contrôle d’accès
+## <a name="access-control"></a>Contrôle d’accès
 Bien que l'authentification et l'autorisation soient des éléments essentiels pour activer l'accès aux données d'entreprise grâce à la validation de l'utilisateur, il est également important de contrôler le niveau d'accès de ces utilisateurs, ainsi que le niveau d'accès des administrateurs aux ressources qu'ils gèrent. Votre solution d'identité hybride doit être en mesure de fournir un accès granulaire aux ressources, la délégation et le contrôle d'accès basé sur les rôles. Assurez-vous que les questions suivantes sur le contrôle d'accès ont fait l'objet d'une réponse :
 
 - Votre entreprise a-t-elle plus d'un utilisateur avec des privilèges élevés pour gérer votre système d'identité ?
@@ -64,13 +65,17 @@ Bien que l'authentification et l'autorisation soient des éléments essentiels p
  - Si oui, où se trouvent ces ressources cibles (locales ou dans le cloud) ?
 
 >[AZURE.NOTE]
-Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option. En répondant à ces questions, vous sélectionnerez l’option la mieux adaptée à vos besoins métier.
+Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option.  En répondant à ces questions, vous sélectionnerez l’option la mieux adaptée à vos besoins métier.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Azure RemoteApp : quelle est la corrélation entre la bande passante réseau et la qualité de l’expérience d’utilisation ? | Microsoft Azure"
-	description="Découvrez l’impact de la bande passante réseau dans Azure RemoteApp sur la qualité de l’expérience utilisateur."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+    pageTitle="Azure RemoteApp - how do network bandwidth and quality of experience work together? | Microsoft Azure"
+    description="Learn how network bandwidth in Azure RemoteApp can impact your user's quality of experience."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -15,27 +15,31 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
 
-# Azure RemoteApp : quelle est la corrélation entre la bande passante réseau et la qualité de l’expérience d’utilisation ?
+
+# <a name="azure-remoteapp---how-do-network-bandwidth-and-quality-of-experience-work-together?"></a>Azure RemoteApp - how do network bandwidth and quality of experience work together?
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Lorsque vous examinez la [bande passante réseau globale](remoteapp-bandwidth.md) requise pour Azure RemoteApp, gardez à l’esprit les facteurs suivants ; ils font tous partie d’un système dynamique qui a un impact sur l’expérience utilisateur globale.
+When you are looking at the [overall network bandwidth](remoteapp-bandwidth.md) required for Azure RemoteApp, keep in mind the following factors - these are all part of a dynamic system that impacts the overall user experience. 
 
-- **Bande passante réseau disponible et conditions actuelles du réseau** : un ensemble de paramètres (perte, latence, instabilité) sur le même réseau à un moment donné peut avoir un impact sur l’expérience de diffusion en continu de l’application, entraînant une expérience utilisateur globale de qualité inférieure. La bande passante disponible sur votre réseau est une fonction de congestion, de perte aléatoire, de latence, car tous ces paramètres affectent le mécanisme de contrôle de la congestion, qui à son tour contrôle la vitesse de transmission pour éviter les collisions. Par exemple, un réseau avec perte de données ou un réseau avec une latence élevée donnera une expérience utilisateur de mauvaise qualité, même sur un réseau avec une bande passante de 1 000 Mo. La perte et la latence varient en fonction du nombre d’utilisateurs qui se trouvent sur le même réseau et ce qu’ils font (par exemple, regarder des vidéos, télécharger ou transférer des fichiers volumineux, imprimer).
-- **Scénario d’utilisation** : l’expérience dépend de ce que font les utilisateurs en tant qu’individus et en tant que groupe sur le même réseau. Par exemple, la lecture d’une diapositive nécessite la mise à jour d’une seule image. Si l’utilisateur consulte et fait défiler le contenu d’un document texte, le nombre d’images devant être mises à jour par seconde est plus élevé. La communication dans les deux sens avec le serveur dans ce scénario finira par consommer davantage de bande passante réseau. Envisagez également un exemple extrême : plusieurs utilisateurs visionnent des vidéos haute définition (résolution 4K, par exemple), organisent des téléconférences HD, jouent à des jeux vidéo 3D ou utilisent des systèmes de CAO. Tous ces éléments peuvent rendre même un réseau à bande passante réellement élevée pratiquement inutilisable.
-- **Résolution d’écran et nombre d’écrans** : davantage de bande passante réseau est requise pour la mise à jour complète des écrans plus grands que pour les écrans plus petits. La technologie sous-jacente fait un assez bon travail concernant l’encodage et le transfert uniquement des parties des écrans qui ont été mises à jour, mais de temps en temps, l’écran en entier doit être mis à jour. Lorsque l’utilisateur a un écran de résolution plus élevée (par exemple, 4K), cette mise à jour nécessite plus de bande passante réseau qu’un écran avec une résolution inférieure (par exemple, 1 024 x 768 px). Cette même logique s’applique si vous utilisez plusieurs écrans pour la redirection. La bande passante doit augmenter parallèlement au nombre d’écrans.
-- **Presse-papiers et redirection de périphériques** : il ne s’agit pas d’un problème très évident, mais dans de nombreux cas, si un utilisateur stocke une grande quantité de données dans le Presse-papiers, il faut un peu de temps pour que ces informations soient transférées à partir du client Bureau à distance vers le serveur. L’expérience en aval peut être affectée par l’expérience d’envoi du contenu du Presse-papiers en amont. Il en va de même pour la redirection de périphériques. Si un scanneur ou une webcam génère une grande quantité de données qui doivent être envoyées en amont vers le serveur, ou si une imprimante doit recevoir un document volumineux, ou si un périphérique de stockage local doit être disponible pour une application s’exécutant sur le cloud pour copier un fichier volumineux, les utilisateurs peuvent constater la perte d’images ou une vidéo temporairement « figée », car les données nécessaires à la redirection de périphériques augmentent les besoins en bande passante réseau.
+- **Available network bandwidth and current network conditions** - A set of parameters (loss, latency, jitter) on the same network at a given time can impact the application streaming experience, meaning a lowered overall user experience. The bandwidth available in your network is a function of congestion, random loss, latency because all these parameters affect the congestion control mechanism, which in turn controls the transmission speed to avoid collisions.  For example, a lossy network or network with high latency will make the user experience bad even on a network with 1000 MB bandwidth. The loss and latency vary based on the number of users that are on the same network and what those users are doing (for example, watching videos, downloading or uploading large files, printing).
+- **Usage scenario** - The experience depends on what the users are doing as individuals and as a group on the same network. For example, reading one slide requires only a single frame to be updated; if the user skims and scrolls over the content of a text document, they need a higher number of frames to be updated per second. The communication back and forth to the server in this scenario will eventually consume more network bandwidth. Also consider an extreme example: multiple users are watching high-definition videos (like 4K resolution), holding HD conference calls, playing 3D video games, or working on CAD systems. All of these can make even a really high bandwidth network practically unusable.
+- **Screen resolution and the number of screens** - More network bandwidth is required to full update bigger screens than smaller screens. The underlying technology does a pretty good job of encoding and transmitting only the regions of the screens that have been updated, but once in a while, the whole screen needs to be updated. When the user has a higher resolution screen (for example 4K resolution), that update requires more network bandwidth than a screen with lower resolution (like 1024x768px). This same logic applies if you use more than one screen for redirection. Bandwidth needs to increase with the number of screens.
+- **Clipboard and device redirection** - This is a not very obvious issue, but in many cases if a user stores a large chunk of data to the clipboard, it takes a bit of time for that information to transfer from the Remote Desktop client to the server. The downstream experience can be impacted by the experience of sending the clipboard content upstream. The same applies for device redirection - if a scanner or web cam produces a lot of data that needs to be sent upstream to the server, or a printer needs to receive a large document, or local storage needs to be available to an app running in the cloud to copy a large file, users might notice dropped frames or temporarily "frozen" video because the data needed for the device redirection is increasing the network bandwidth needs. 
 
-Lorsque vous évaluez vos besoins en bande passante réseau, veillez à prendre en compte tous ces facteurs dans le cadre d’un système.
+When you evaluate your network bandwidth needs, make sure to consider all of these factors working as a system.
 
-Maintenant, revenez à l’[article principal sur la bande passante réseau](remoteapp-bandwidth.md) ou passez au test de votre [bande passante réseau](remoteapp-bandwidthtests.md).
+Now, go back to the [main network bandwidth article](remoteapp-bandwidth.md), or move on to testing your [network bandwidth](remoteapp-bandwidthtests.md).
 
-## En savoir plus
-- [Estimation de l’utilisation de la bande passante réseau Azure RemoteApp](remoteapp-bandwidth.md)
+## <a name="learn-more"></a>Learn more
+- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
 
-- [Azure RemoteApp : test de votre bande passante réseau avec quelques scénarios courants](remoteapp-bandwidthtests.md)
+- [Azure RemoteApp - testing your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
 
-- [Bande passante réseau Azure RemoteApp : instructions générales (si vous ne pouvez pas tester votre propre bande passante)](remoteapp-bandwidthguidelines.md)
+- [Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

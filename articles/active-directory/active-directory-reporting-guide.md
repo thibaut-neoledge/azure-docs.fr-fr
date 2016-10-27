@@ -13,11 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/27/2016"
+   ms.date="09/30/2016"
    ms.author="femila"/>
 
 
-# Guide Azure Active Directory Reporting Guide
+
+# <a name="azure-active-directory-reporting-guide"></a>Guide Azure Active Directory Reporting Guide
+
+> [AZURE.SELECTOR]
+- [Portail Azure](active-directory-reporting-azure-portal.md)
+- [Portail Azure Classic](active-directory-reporting-guide.md)
 
  - [Création de rapports Azure Active Directory - version préliminaire](active-directory-reporting-azure-portal.md)
  - [Prise en main de l'API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md)
@@ -29,4 +34,8 @@
  - [Événement « Acteur inconnu » lors de la création de rapports Azure Active Directory](active-directory-reporting-unknown-actor.md)
  - [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

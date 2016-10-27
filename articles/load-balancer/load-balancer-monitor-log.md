@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Surveiller les opérations, les événements et les compteurs pour l’équilibreur de charge | Microsoft Azure"
-   description="Découvrez comment activer la journalisation des événements d'alerte et de l'état des sondes d'intégrité pour l'équilibreur de charge Azure"
+   pageTitle="Monitor operations, events, and counters for Load Balancer | Microsoft Azure"
+   description="Learn how to enable alert events, and probe health status logging for Azure Load Balancer"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -17,47 +17,50 @@
    ms.date="04/05/2016"
    ms.author="sewhee" />
 
-# Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)
-Vous pouvez utiliser différents types de journaux dans Azure pour gérer les équilibreurs de charge et résoudre les problèmes associés. Certains de ces journaux sont accessibles via le portail et tous les journaux peuvent être extraits à partir d’un stockage blob Azure et affichés dans différents outils, comme Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste ci-dessous.
+
+# <a name="log-analytics-for-azure-load-balancer-(preview)"></a>Log analytics for Azure Load Balancer (Preview)
+You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 
 
-- **Journaux d’audit :** vous pouvez utiliser les [journaux d’audit Azure](../../articles/azure-portal/insights-debugging-with-events.md) (anciennement journaux des opérations) pour afficher toutes les opérations soumises à votre ou vos abonnements Azure, ainsi que leur état. Les journaux d’audit sont activés par défaut et peuvent être affichés dans le portail Azure.
-- **Journaux des événements d'alerte :** vous pouvez utiliser ce journal pour afficher les alertes relatives à l’équilibreur de charge. L'état de l'équilibreur de charge est collecté toutes les cinq minutes. Ce journal est écrit uniquement si un événement d'alerte d’équilibreur de charge est généré.
-- **Journaux des sondes d'intégrité :** vous pouvez utiliser ce journal pour vérifier l’état des sondes d'intégrité, le nombre d'instances en ligne dans l’équilibreur de charge principal, et le pourcentage de machines virtuelles qui reçoivent le trafic de l’équilibreur de charge. Ce journal est écrit à chaque changement de l’événement d’état de la sonde.
+- **Audit logs:** You can use [Azure Audit Logs](../../articles/azure-portal/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription(s), and their status. Audit logs are enabled by default, and can be viewed in the Azure portal.
+- **Alert event logs:** You can use this log to view what alerts for load balancer are raised. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.  
+- **Health probe logs:** You can use this log to check for probe health check status, how many instances are online in the load balancer back-end and percentage of virtual machines receiving network traffic from the load balancer. This log is written on probe status event change.
 
->[AZURE.WARNING] Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, reportez-vous à l’article [Présentation du déploiement de Resource Manager et du déploiement classique](../../articles/resource-manager-deployment-model.md). <BR> L'analyse des journaux s’applique uniquement aux équilibreurs de charge accessibles sur Internet. Cette limitation est temporaire et peut changer à tout moment. N'oubliez pas de revenir sur cette page pour consulter les modifications.
+>[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../../articles/resource-manager-deployment-model.md) article. <BR>
+>Log analytics currently works only for Internet facing load balancers. This limitation is temporary, and may change at any time. Make sure to revisit this page to verify future changes.
 
-## Activation de la journalisation
-La journalisation d’audit est automatiquement activée systématiquement pour chaque ressource Resource Manager. Vous devez activer la journalisation des événements et des sondes d’intégrité pour commencer à collecter les données disponibles dans ces journaux. Pour activer la journalisation, procédez comme suit.
+## <a name="enable-logging"></a>Enable logging
+Audit logging is automatically enabled at all times for every Resource Manager resource. You need to enable event and health probe logging to start collecting the data available through those logs. To enable logging, follow the steps below. 
 
-Connectez-vous au [portail Azure](http://portal.azure.com). Si vous ne disposez pas déjà d'un équilibreur de charge, [créez un équilibreur de charge](load-balancer-get-started-internet-arm-ps.md) avant de continuer.
+Sign-in to the [Azure portal](http://portal.azure.com). If you don't already have a load balancer, [create a load balancer](load-balancer-get-started-internet-arm-ps.md) before you continue. 
 
-Dans le portail, cliquez sur **Parcourir** >> **Équilibreurs de charge**.
+In the portal, click **Browse** >> **Load Balancers**.
 
-![portail - équilibreur-charge](./media/load-balancer-monitor-log/load-balancer-browse.png)
+![portal - load-balancer](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
-Sélectionnez un équilibreur de charge existant >> **Tous les paramètres**.
+Select an existing load balancer >> **All Settings**.
 
-![portail - paramètres-équilibreur-charge](./media/load-balancer-monitor-log/load-balancer-settings.png) <BR>
+![portal - load-balancer-settings](./media/load-balancer-monitor-log/load-balancer-settings.png)
+<BR>
 
-Dans le panneau **Paramètres**, cliquez sur **Diagnostics**, puis dans le volet **Diagnostics**, en regard de **État**, cliquez sur **Activé** dans le panneau **Paramètres**, cliquez sur **Compte de stockage**, puis sélectionnez un compte de stockage existant ou créez-en un.
+In the **Settings** blade, click **Diagnostics**, and then in the **Diagnostics** pane, next to **Status**, click **On** In the **Settings** blade, click **Storage Account**, and either select an existing storage account, or create a new one.
 
-Dans la liste déroulante sous **Compte de stockage**, indiquez si vous souhaitez journaliser des événements et/ou l’état des sondes d’intégrité, puis cliquez sur **Enregistrer**.
+In the drop-down list just under **Storage Account**, select whether you want to log alert events, probe health status or both and then click **Save**.
 
-![Portail en version préliminaire - Journaux de diagnostics](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+![Preview portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
->[AZURE.INFORMATION] Les journaux d’audit ne nécessitent pas de compte de stockage distinct. L’utilisation du stockage pour la journalisation des événements et des sondes d’intégrité occasionnera des frais de service.
+>[AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for event and health probe logging will incur service charges.
 
-## Journal d’audit
-Ce journal (anciennement appelé « journal des opérations ») est généré par Azure par défaut. Les journaux sont conservés pendant 90 jours dans la banque de journalisation des événements d’Azure. Pour en savoir plus sur ces journaux, lisez l’article [Affichage des événements et des journaux d’audit](../../articles/azure-portal/insights-debugging-with-events.md).
+## <a name="audit-log"></a>Audit log
+This log (formerly known as the "operational log") is generated by Azure by default.  The logs are preserved for 90 days in Azure’s Event Logs store. Learn more about these logs by reading the [View events and audit logs](../../articles/azure-portal/insights-debugging-with-events.md) article.
 
-## Journal des événements d'alerte
-Ce journal n’est généré que si vous l’avez activé au niveau de chaque équilibreur de charge, comme détaillé ci-dessous. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Les informations sont enregistrées au format JSON, comme indiqué ci-dessous.
+## <a name="alert-event-log"></a>Alert event log
+This log is only generated if you've enabled it on a per load balancer basis as detailed above. The data is stored in the storage account you specified when you enabled the logging. The information is logged in JSON format, as seen below.
 
-	
-	{
+    
+    {
     "time": "2016-01-26T10:37:46.6024215Z",
-	"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
     "category": "LoadBalancerAlertEvent",
     "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
     "operationName": "LoadBalancerProbeHealthStatus",
@@ -68,64 +71,68 @@ Ce journal n’est généré que si vous l’avez activé au niveau de chaque é
             "public ip address": "40.117.227.32"
         }
     }
-	
+    
 
-La sortie JSON affiche la propriété *eventname* qui décrit la raison pour laquelle l'équilibreur de charge a créé une alerte. Dans ce cas, l'alerte a été générée en raison de l'épuisement du port TCP à cause des limites de l’IP NAT source (SNAT).
+The JSON output shows the *eventname* property which will describe the reason for the load balancer created an alert. In this case, the alert generated was due to TCP port exhaustion caused by source IP NAT limits (SNAT).
 
-## Journal des sondes d’intégrité
-Ce journal n’est généré que si vous l’avez activé au niveau de chaque équilibreur de charge, comme détaillé ci-dessous. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Un conteneur nommé « insights-logs-loadbalancerprobehealthstatus » est créé et les données suivantes sont enregistrées :
+## <a name="health-probe-log"></a>Health probe log
+This log is only generated if you've enabled it on a per load balancer basis as detailed above. The data is stored in the storage account you specified when you enabled the logging.  A container named 'insights-logs-loadbalancerprobehealthstatus' is created and the following data is logged:
 
-		{
-	    "records":
+        {
+        "records":
 
-	    {
-	   		"time": "2016-01-26T10:37:46.6024215Z",
-	        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-	        "category": "LoadBalancerProbeHealthStatus",
-	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-	        "operationName": "LoadBalancerProbeHealthStatus",
-	        "properties": {
-	            "publicIpAddress": "40.83.190.158",
-	            "port": "81",
-	            "totalDipCount": 2,
-	            "dipDownCount": 1,
-	            "healthPercentage": 50.000000
-	        }
-	    },
-	    {
-	        "time": "2016-01-26T10:37:46.6024215Z",
-			"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-	        "category": "LoadBalancerProbeHealthStatus",
-	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-	        "operationName": "LoadBalancerProbeHealthStatus",
-	        "properties": {
-	            "publicIpAddress": "40.83.190.158",
-	            "port": "81",
-	            "totalDipCount": 2,
-	            "dipDownCount": 0,
-	            "healthPercentage": 100.000000
-	        }
-	    }
+        {
+            "time": "2016-01-26T10:37:46.6024215Z",
+            "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+            "category": "LoadBalancerProbeHealthStatus",
+            "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
+            "operationName": "LoadBalancerProbeHealthStatus",
+            "properties": {
+                "publicIpAddress": "40.83.190.158",
+                "port": "81",
+                "totalDipCount": 2,
+                "dipDownCount": 1,
+                "healthPercentage": 50.000000
+            }
+        },
+        {
+            "time": "2016-01-26T10:37:46.6024215Z",
+            "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+            "category": "LoadBalancerProbeHealthStatus",
+            "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
+            "operationName": "LoadBalancerProbeHealthStatus",
+            "properties": {
+                "publicIpAddress": "40.83.190.158",
+                "port": "81",
+                "totalDipCount": 2,
+                "dipDownCount": 0,
+                "healthPercentage": 100.000000
+            }
+        }
 
-	]
-	}
+    ]
+    }
 
-La sortie JSON apparaît dans le champ des propriétés des informations de base pour l'état des sondes d’intégrité. La propriété *dipDownCount* indique le nombre total d'instances sur le serveur principal qui ne reçoivent pas le trafic réseau en raison d’une absence de réponse de la part de la sonde.
+The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end which are not receiving network traffic due to failed probe responses. 
 
-## Afficher et analyser le journal d’audit
-Vous pouvez afficher et analyser les données du journal d’audit en utilisant l’une des méthodes suivantes :
+## <a name="view-and-analyze-the-audit-log"></a>View and analyze the audit log
+You can view and analyze audit log data using any of the following methods:
 
-- **Outils Azure :** récupérez les informations à partir des journaux via Azure PowerShell, l’interface de ligne de commande Azure, l’API REST Azure ou le portail Azure en version préliminaire. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../../articles/resource-group-audit.md).
-- **Power BI :** si vous n’avez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing), vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’audit Azure pour Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), vous pouvez analyser vos données avec des tableaux de bord préconfigurés à utiliser en l’état ou à personnaliser.
+- **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure preview portal.  Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../../articles/resource-group-audit.md) article.
+- **Power BI:** If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs) you can analyze your data with pre-configured dashboards that you can use as-is, or customize.
 
-## Afficher et analyser les journaux des sondes d’intégrité et des événements 
-Vous devez vous connecter à votre compte de stockage et récupérer les entrées de journal JSON pour les journaux des événements et des sondes d’intégrité. Une fois que vous avez téléchargé les fichiers JSON, vous pouvez les convertir en CSV et les afficher dans Excel, PowerBI ou tout autre outil de visualisation de données.
+## <a name="view-and-analyze-the-health-probe-and-event-log"></a>View and analyze the health probe and event log 
+You need to connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
 
->[AZURE.TIP] Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans Github.
+>[AZURE.TIP] If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
 
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Additional resources
 
-- Billet de blog [Visualiser vos journaux d’audit Azure avec Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
-- Billet de blog [Afficher et analyser les journaux d’audit Azure dans Power BI et bien plus encore](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
+- [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
+- [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

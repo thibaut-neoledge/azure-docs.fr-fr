@@ -1,33 +1,33 @@
-## Créer un hub IoT
+## <a name="create-an-iot-hub"></a>Create an IoT hub
 
-Créez un hub IoT pour que votre périphérique simulé puisse se connecter. Les étapes suivantes vous montrent comment exécuter cette tâche à l’aide du portail Azure.
+Create an IoT hub for your simulated device to connect to. The following steps show you how to complete this task by using the Azure portal.
 
-1. Connectez-vous au [portail Azure][lnk-portal].
+1. Sign in to the [Azure portal][lnk-portal].
 
-2. Dans la barre de lancement, cliquez sur **Nouveau** > **Internet des objets** > **Azure IoT Hub**.
+2. In the Jumpbar, click **New** > **Internet of Things** > **Azure IoT Hub**.
 
-    ![Barre de lancement du portail Azure][1]
+    ![Azure portal Jumpbar][1]
 
-3. Dans le panneau **IoT hub**, choisissez la configuration de votre concentrateur IoT.
+3. In the **IoT hub** blade, choose the configuration for your IoT hub.
 
-    ![Panneau IoT Hub][2]
+    ![IoT hub blade][2]
 
-    * Dans la zone **Nom**, saisissez un nom pour identifier votre hub IoT. Une fois le **Nom** validé et disponible, une coche verte apparaît dans la case **Nom**.
-    * Sélectionnez une [tarification et un niveau de mise à l’échelle][lnk-pricing]. Ce didacticiel ne nécessite pas un niveau spécifique. Pour ce didacticiel, utilisez le niveau F1 gratuit.
-    * Dans **Groupe de ressources**, créez un groupe de ressources Azure ou sélectionnez un groupe existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure][lnk-resource-groups].
-    * Dans **Emplacement**, sélectionnez l’emplacement destiné à héberger votre concentrateur IoT. Pour ce didacticiel, choisissez l’emplacement le plus proche.
+    * In the **Name** box, enter a name for your IoT hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
+    * Select a [pricing and scale tier][lnk-pricing]. This tutorial does not require a specific tier. For this tutorial, use the free F1 tier.
+    * In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources][lnk-resource-groups].
+    * In **Location**, select the location to host your IoT hub. For this tutorial, choose your nearest location.
 
-4. Une fois que vous avez choisi les options de configuration de votre hub IoT, cliquez sur **Créer**. La création du hub IoT par Azure peut prendre plusieurs minutes. Pour vérifier l’état d’avancement de l’opération, vous pouvez consulter le tableau d’accueil ou le panneau Notifications.
+4. When you have chosen your IoT hub configuration options, click **Create**.  It can take a few minutes for Azure to create your IoT hub. To check the status, you can monitor the progress on the Startboard or in the Notifications panel.
 
-    ![Nouveau statut IoT Hub][3]
+    ![New IoT hub status][3]
 
-5. Lorsque l’IoT hub a été créé avec succès, cliquez sur la nouvelle vignette représentant votre IoT hub dans le portail pour ouvrir le panneau du nouveau IoT hub. Notez la valeur **Hostname**, puis cliquez sur **Stratégies d’accès partagé**.
+5. When the IoT hub has been created successfully, click the new tile for your IoT hub in the portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
 
-    ![Nouveau panneau IoT Hub][4]
+    ![New IoT hub blade][4]
 
-6. Dans le panneau **Stratégies d’accès partagé**, cliquez sur la stratégie **iothubowner**, puis copiez et notez la chaîne de connexion dans le panneau **iothubowner**. Consultez la rubrique [Access Control][lnk-access-control] du "guide du développeur Azure IoT Hub" pour plus d’informations.
+6. In the **Shared access policies** blade, click the **iothubowner** policy, and then copy and make note of the connection string in the **iothubowner** blade. For more information, see [Access control][lnk-access-control] in the "Azure IoT Hub developer guide."
 
-    ![Panneau des stratégies d’accès partagées][5]
+    ![Shared access policies blade][5]
 
 
 <!-- Images. -->
@@ -43,4 +43,7 @@ Créez un hub IoT pour que votre périphérique simulé puisse se connecter. Les
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
-<!---HONumber=AcomDC_1005_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

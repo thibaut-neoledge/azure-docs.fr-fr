@@ -1,8 +1,8 @@
-## Obtention d’un jeton Resource Manager
+## <a name="obtain-a-resource-manager-token"></a>Obtain a Resource Manager token
 
-Azure Active Directory doit authentifier toutes les tâches que vous effectuez sur des ressources à l’aide d’Azure Resource Manager. L’exemple présenté ici utilise une authentification par mot de passe. Pour d’autres approches, consultez [Demandes d’authentification Azure Resource Manager][lnk-authenticate-arm].
+Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager. The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].
 
-1. Ajoutez le code suivant à la méthode **Main** dans le fichier Program.cs pour récupérer un jeton d’Azure AD à l’aide de l’ID d’application et d’un mot de passe.
+1. Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.
 
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -18,7 +18,7 @@ Azure Active Directory doit authentifier toutes les tâches que vous effectuez s
     }
     ```
 
-2. Créez un objet **ResourceManagementClient** qui utilise le jeton en ajoutant le code suivant à la fin de la méthode **Main** :
+2. Create a **ResourceManagementClient** object that uses the token by adding the following code to the end of the **Main** method:
 
     ```
     var creds = new TokenCredentials(token.AccessToken);
@@ -26,7 +26,7 @@ Azure Active Directory doit authentifier toutes les tâches que vous effectuez s
     client.SubscriptionId = subscriptionId;
     ```
 
-3. Créez ou obtenez une référence au groupe de ressources que vous utilisez :
+3. Create, or obtain a reference to, the resource group you are using:
 
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,
@@ -40,4 +40,6 @@ Azure Active Directory doit authentifier toutes les tâches que vous effectuez s
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

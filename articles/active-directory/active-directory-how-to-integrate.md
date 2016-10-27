@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Intégration à Azure Active Directory | Microsoft Azure"
-   description="Un guide sur les avantages et les ressources de l'intégration avec Azure Active Directory."
+   pageTitle="How to Integrate with Azure Active Directory | Microsoft Azure"
+   description="A guide to benefits of and resources for integration with Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor=""/>
 
@@ -16,78 +16,83 @@
    ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
-# Intégration avec Azure Active Directory
+
+# <a name="integrating-with-azure-active-directory"></a>Integrating with Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure Active Directory offre aux organisations la gestion des identités professionnelles pour les applications cloud. L’intégration d'Azure AD offre à vos utilisateurs une expérience de connexion rationalisée et permet à votre application d’être conforme à la stratégie informatique.
+Azure Active Directory provides organizations with enterprise-grade identity management for cloud applications.  Azure AD integration gives your users a streamlined sign-in experience, and helps your application conform to IT policy.
 
-## Processus d’intégration
+## <a name="how-to-integrate"></a>How To Integrate
 
-Il existe plusieurs façons d’intégrer votre application à Azure AD. Bénéficiez d’autant de ces scénarios nécessaires à votre application.
+There are several ways for your application to integrate with Azure AD.  Take advantage of as many or as few of these scenarios as is appropriate for your application.
 
-### Prise en charge d'Azure AD pour de se connecter à votre application
+### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Support Azure AD as a Way to Sign In to Your Application
 
-**Réduction des problèmes de connexion et réduction des coûts de prise en charge.** En utilisant Azure AD pour se connecter à votre application, vos utilisateurs n'auront pas un nom et un mot de passe supplémentaires à mémoriser. En tant que développeur, vous aurez un mot de passe en moins à stocker et à protéger. Ne pas avoir à gérer les réinitialisations de mots de passe oubliés peut être en soi une économie considérable. Azure AD alimente les connexions pour certaines des applications cloud les plus populaires au monde, y compris Office 365 et Microsoft Azure. Avec des centaines de millions d'utilisateurs dans des millions d'organisations, il est fort probable que votre utilisateur soit déjà connecté à Azure AD. En savoir plus sur [l’ajout de la prise en charge pour la connexion Azure AD](active-directory-authentication-scenarios.md).
+**Reduce sign in friction and reduce support costs.** By using Azure AD to sign in to your application, your users won't have one more name and password to remember.  As a developer, you'll have one less password to store and protect.  Not having to handle forgotten password resets may be a significant savings alone.  Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure.  With hundreds of millions users from millions of organizations, chances are your user is already signed in to Azure AD.  Learn more about [adding support for Azure AD sign in](active-directory-authentication-scenarios.md).
 
-**Simplifiez l’inscription à votre application.** Lors de l'inscription de votre application, Azure AD peut envoyer des informations essentielles sur un utilisateur pour vous permettre de remplir au préalable votre formulaire d'inscription ou de le supprimer complètement. Les utilisateurs peuvent s’inscrire à votre application à l'aide de leur compte Azure AD via une expérience de consentement courante, similaire à celles des réseaux sociaux et des applications mobiles. N'importe quel utilisateur peut s'inscrire et se connecter à une application qui est intégrée à Azure AD sans avoir besoin de l’intervention des services informatiques. En savoir plus sur l’[inscription de votre application pour la connexion d’un compte Azure AD](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md).
+**Simplify sign up for your application.**  During sign up for your application, Azure AD can send essential information about a user so that you can pre-fill your sign up form or eliminate it completely.  Users can sign up for your application using their Azure AD account via a familiar consent experience similar to those found in social media and mobile applications.  Any user can sign up and sign in to an application that is integrated with Azure AD without requiring IT involvement.  Learn more about [signing up your application for Azure AD Account login](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md) .
 
-### Recherche des utilisateurs, gestion de l’attribution de privilèges d’accès des utilisateurs et contrôle de l’accès à votre application
+### <a name="browse-for-users,-manage-user-provisioning,-and-control-access-to-your-application"></a>Browse for Users, Manage User Provisioning, and Control Access to Your Application
 
-**Rechercher des utilisateurs dans le répertoire.** Utilisez l'API Graph pour la recherche d’utilisateurs et recherchez d'autres personnes dans leur organisation lorsque vous invitez d'autres personnes ou que vous leur permettez l’accès, au lieu de leur demander de taper leur adresse e-mail. Les utilisateurs peuvent effectuer leur recherche dans une interface similaire à un carnet d’adresses, notamment en affichant les détails de la hiérarchie organisationnelle. En savoir plus sur l’[API Graph](active-directory-graph-api.md).
+**Browse for users in the directory.**  Use the Graph API to help users search and browse for other people in their organization when inviting others or granting access, instead of requiring them to type email addresses.  Users can browse using a familiar address book style interface, including viewing the details of the organizational hierarchy.  Learn more about the [Graph API](active-directory-graph-api.md).
 
-**Réutilisation des groupes Active Directory et des listes de distribution déjà gérées par votre client.** Azure AD contient les groupes que votre client utilise déjà pour la distribution d’e-mail et la gestion des accès. À l'aide de l'API Graph, réutiliser ces groupes au lieu de demander à votre client de créer et de gérer un ensemble de groupes distinct dans votre application. Les informations sur les groupes peuvent également être envoyées à votre application dans les jetons de connexion. En savoir plus sur l’[API Graph](active-directory-graph-api.md).
+**Re-use Active Directory groups and distribution lists your customer is already managing.**  Azure AD contains the groups that your customer is already using for email distribution and managing access.  Using the Graph API, re-use these groups instead of requiring your customer to create and manage a separate set of groups in your application.  Group information can also be sent to your application in sign in tokens.  Learn more about the [Graph API](active-directory-graph-api.md).
 
-**Utilisation d’Azure AD pour contrôler quels utilisateurs ont accès à votre application.** Les administrateurs et les propriétaires d’applications dans Azure AD peuvent attribuer l’accès aux applications à des utilisateurs et des groupes spécifiques. À l'aide de l'API Graph, vous pouvez lire cette liste et l'utiliser pour contrôler l’attribution de privilèges d’accès et la suppression de privilèges d’accès pour les ressources et l’accès à votre application.
+**Use Azure AD to control who has access to your application.**  Administrators and application owners in Azure AD can assign access to applications to specific users and groups.  Using the Graph API, you can read this list and use it to control provisioning and de-provisioning of resources and access within your application.  
 
-**Utilisation d’Azure AD pour les rôles en fonction d’Access Control.** Les administrateurs et les propriétaires d'applications peuvent attribuer des utilisateurs et des groupes aux rôles que vous définissez lorsque vous enregistrez votre application dans Azure AD. Les informations sur les rôles sont envoyées à votre application dans des jetons de connexion et peuvent également être lues à l'aide de l'API Graph. En savoir plus sur l’[utilisation d'Azure AD pour les autorisations](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
+**Use Azure AD for Roles Based Access Control.**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Azure AD.  Role information is sent to your application in sign in tokens and can also be read using the Graph API.  Learn more about [using Azure AD for authorization](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
 
-### Accéder au profil de l'utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et plus encore
+### <a name="get-access-to-user's-profile,-calendar,-email,-contacts,-files,-and-more"></a>Get Access to User's Profile, Calendar, Email, Contacts, Files, and More
 
-**Azure AD est le serveur d'autorisation pour Office 365 et d'autres services métiers de Microsoft.** Si vous prenez en charge Azure AD pour la connexion à votre application ou si vous prenez en charge la liaison de vos comptes d'utilisateur actuels aux comptes d'utilisateur Azure AD à l'aide d'OAuth 2.0, vous pouvez demander l'accès en lecture et en écriture à un profil utilisateur, un calendrier, des e-mails, des contacts, des fichiers et d’autres informations. Vous pouvez écrire des événements en toute transparence dans le calendrier de l'utilisateur et lire ou écrire des fichiers dans leur OneDrive. En savoir plus sur l’[accès aux API Office 365](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
+**Azure AD is the authorization server for Office 365 and other Microsoft business services.**  If you support Azure AD for sign in to your application or support linking your current user accounts to Azure AD user accounts using OAuth 2.0, you can request read and write access to a user's profile, calendar, email, contacts, files, and other information.  You can seamlessly write events to user's calendar, and read or write files to their OneDrive.  Learn more about [accessing the Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
 
-### Promotion de votre application dans les Marketplace d’Azure et d’Office 365
+### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promote Your Application in the Azure and Office 365 Marketplaces
 
-**Promouvez votre application aux millions d'organisations qui utilisent déjà Azure AD.** Les utilisateurs qui recherchent ces marketplace utilisent déjà un ou plusieurs services cloud, ce qui les définit en tant que clients de service cloud. En savoir plus sur la promotion de votre application dans [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
+**Promote your application to the millions of organizations who are already using Azure AD.**  Users who search and browse these marketplaces are already using one or more cloud services, making them qualified cloud service customers.  Learn more about promoting your application in [the Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Lorsque des utilisateurs s’inscrivent à votre application, cela apparaîtra dans leur panneau d'accès Azure AD et le lanceur d'applications Office 365.** Les utilisateurs pourront rapidement et facilement retourner à votre application plus tard, ce qui améliore ainsi l’engagement utilisateur. En savoir plus sur le [panneau d'accès Azure AD](active-directory-saas-access-panel-introduction.md).
+**When users sign up for your application, it will appear in their Azure AD access panel and Office 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement.  Learn more about the [Azure AD access panel](active-directory-saas-access-panel-introduction.md).
 
-### Sécurisation de la communication de périphérique à service et de service à service
+### <a name="secure-device-to-service-and-service-to-service-communication"></a>Secure Device-to-Service and Service-to-Service Communication
 
-**L’utilisation d'Azure AD pour la gestion des identités des services et des périphériques réduit le code que vous devez écrire et permet au service informatique de gérer les accès.** Les services et périphériques peuvent obtenir des jetons d'Azure AD à l'aide d'OAuth et utiliser ces jetons pour accéder aux API web. Grâce à Azure AD, vous pouvez éviter d'écrire du code d'authentification complexe. Étant donné que les identités des services et des périphériques sont stockées dans Azure AD, le service informatique peut gérer les clés et la révocation dans un même endroit plutôt que de faire cela séparément dans votre application.
+**Using Azure AD for identity management of services and devices reduces the code you need to write and enables IT to manage access.**  Services and devices can get tokens from Azure AD using OAuth and use those tokens to access web APIs.  Using Azure AD you can avoid writing complex authentication code.  Since the identities of the services and devices are stored in Azure AD, IT can manage keys and revocation in one place instead of having to do this separately in your application.
 
-## Avantages de l'intégration
+## <a name="benefits-of-integration"></a>Benefits of Integration
 
-L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent pas d'écrire du code supplémentaire.
+Integration with Azure AD comes with benefits that do not require you to write additional code.
 
-### Intégration avec la gestion des identités d'entreprise
+### <a name="integration-with-enterprise-identity-management"></a>Integration with Enterprise Identity Management
 
-**Aidez votre application à se conformer aux stratégies informatiques.** Les organisations intègrent leurs systèmes de gestion des identités d’entreprise à Azure AD, donc si une personne quitte une organisation, elle perdra automatiquement accès à votre application sans que le service informatique ait besoin de prendre des mesures supplémentaires. Le service informatique peut gérer quels utilisateurs peuvent accéder à votre application et déterminer quelles sont les stratégies d'accès requises (par exemple, une authentification multifacteur), réduisant ainsi la nécessité d'écrire du code pour se conformer aux stratégies d'entreprise complexes. Azure AD fournit aux administrateurs un journal d'audit détaillé des utilisateurs qui se sont connectés à votre application, ce qui permet au service informatique d’effectuer un suivi de l’utilisation.
+**Help your application comply with IT policies.**  Organizations integrate their enterprise identity management systems with Azure AD, so when a person leaves an organization, they will automatically lose access to your application without IT needing to take extra steps.  IT can manage who can access your application and determine what access policies are required - for example multi-factor authentication - reducing your need to write code to comply with complex corporate policies.  Azure AD provides administrators with a detailed audit log of who signed in to your application so IT can track usage.
 
-**Azure AD étend Active Directory au cloud afin que votre application puisse être intégrée à Active Directory.** De nombreuses organisations dans le monde utilisent Active Directory comme leur principal système de gestion des identités et des connexions et ont besoin que leurs applications fonctionnent avec Active Directory. L’intégration avec Azure AD permet d’intégrer votre application à Active Directory.
+**Azure AD extends Active Directory to the cloud so that your application can integrate with AD.**  Many organizations around the world use Active Directory as their principal sign-in and identity management system, and require their applications to work with AD.  Integrating with Azure AD integrates your app with Active Directory.
 
-### Fonctionnalités de sécurité avancées
+### <a name="advanced-security-features"></a>Advanced Security Features
 
-**Authentification multifacteur** Azure AD fournit une authentification multifacteur native. Les administrateurs informatiques peuvent avoir besoin d'une authentification multifacteur pour accéder à votre application afin que vous n'ayez pas à écrire le code vous-même. En savoir plus sur l’[authentification multifacteur](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Multi-factor authentication.**  Azure AD provides native multi-factor authentication.  IT administrators can require multi-factor authentication to access your application, so that you do not have to code this support yourself.  Learn more about [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**Détection de connexion anormale** Azure AD traite plus d'un milliard de connexions par jour, tout en utilisant des algorithmes d'apprentissage automatique pour détecter des activités suspectes et signaler tout problème éventuel aux administrateurs informatiques. En prenant en charge la connexion à Azure AD, votre application bénéficie de cette protection. En savoir plus sur l’[affichage des rapports d'accès Azure Active Directory](active-directory-view-access-usage-reports.md).
+**Anomalous sign in detection.**  Azure AD processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems.  By supporting Azure AD sign-in, your application gets the benefit of this protection. Learn more about [viewing Azure Active Directory access report](active-directory-view-access-usage-reports.md).
 
-**Accès conditionnel.** Outre l'authentification multifacteur, les administrateurs peuvent exiger que les utilisateurs remplissent certaines conditions avant qu’ils puissent se connecter à votre application. Les conditions qui peuvent être définies incluent la plage d'adresses IP d’un périphérique client, l'appartenance à des groupes spécifiques et l'état du périphérique utilisé pour l'accès. En savoir plus sur l’[accès conditionnel d’Azure Active Directory](active-directory-conditional-access.md).
+**Conditional access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application.  Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access.  Learn more about [Azure Active Directory conditional access](active-directory-conditional-access.md).
 
-### Développement facile :
+### <a name="easy-development"></a>Easy Development
 
-**Protocoles standard de l’industrie.** Microsoft s'engage à prendre en charge les normes industrielles. Azure AD prend en charge les protocoles d'authentification SAML 2.0, OpenID Connect 1.0, OAuth 2.0, et WS-Federation 1.2 L'API Graph est conforme à OData 4.0. Si votre application prend déjà en charge les protocoles SAML 2.0 ou OpenID Connect 1.0 pour la connexion fédérée, l’ajout de la prise en charge par Azure AD peut être facile. En savoir plus sur les [protocoles d'authentification pris en charge par Azure AD](active-directory-authentication-protocols.md).
+**Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](active-directory-authentication-protocols.md).
 
-**Bibliothèques open source.** Microsoft fournit les bibliothèques open source entièrement prises en charge pour les langages et plateformes courants afin d’accélérer le développement. Le code source est acquis sous licence sous Apache 2.0 et vous êtes libre de répliquer et de contribuer aux projets. En savoir plus sur les [bibliothèques d'authentification Azure AD](active-directory-authentication-libraries.md).
+**Open source libraries.**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development.  The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects.  Learn more about [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
-### Présence dans le monde entier et haute disponibilité
+### <a name="worldwide-presence-and-high-availability"></a>Worldwide Presence and High Availability
 
-**Azure AD est déployé dans des centres de données dans le monde entier et est géré et surveillé en permanence.** Azure AD est le système de gestion des identités de Microsoft Azure et Office 365 et est déployé dans 28 centres de données dans le monde entier. Les données d’Active Directory sont garanties pour être répliquées sur au moins trois centres de données. Les équilibrages de charge globaux garantissent aux utilisateurs un accès à la copie la plus fidèle d'Azure AD contenant leurs données. Ils retransmettent automatiquement les demandes vers d’autres centres de données si un problème est détecté.
+**Azure AD is deployed in datacenters around the world and is managed and monitored around the clock.**  Azure AD is the identity management system for Microsoft Azure and Office 365 and is deployed in 28 datacenters around the world.  Directory data is guaranteed to be replicated to at least three datacenters.  Global load balancers ensure users access the closest copy of Azure AD containing their data, and automatically re-route requests to other datacenters if a problem is detected.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next Steps
 
-[Commencer à écrire du code](active-directory-developers-guide.md#getting-started).
+[Get started writing code](active-directory-developers-guide.md#getting-started).
 
-[Connexion des utilisateurs à l'aide d'Azure AD](active-directory-authentication-scenarios.md)
+[Sign Users In Using Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,61 +1,66 @@
 <properties
-	pageTitle="Surveiller le stockage en mémoire XTP | Microsoft Azure"
-	description="Estimer et surveiller la capacité et l’utilisation du stockage en mémoire XTP ; résoudre l’erreur de capacité 41823"
-	services="sql-database"
-	documentationCenter=""
-	authors="jodebrui"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Monitor XTP in-memory storage | Microsoft Azure"
+    description="Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41823"
+    services="sql-database"
+    documentationCenter=""
+    authors="jodebrui"
+    manager="jhubbard"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="jodebrui"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="jodebrui"/>
 
 
-# Surveiller le stockage OLTP In-Memory
 
-Lorsque vous utilisez [OLTP en mémoire](sql-database-in-memory.md), les données des tables à mémoire optimisée et les variables de table résident dans un stockage OLTP en mémoire. Chaque niveau de service Premium est doté d’une taille de stockage OLTP en mémoire maximale, qui est décrite dans l’article de [Niveaux de service des bases de données SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Une fois que cette limite est dépassée, des opérations d’insertion et de mise à jour peuvent commencer à échouer (en générant l’erreur 41823). À ce stade, vous devez soit supprimer des données pour libérer de la mémoire, soit mettre à niveau le niveau de performances de votre base de données.
+# <a name="monitor-in-memory-oltp-storage"></a>Monitor In-Memory OLTP Storage
 
-## Déterminer si la taille des données est adaptée à la capacité de stockage en mémoire
+When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium service tier has a maximum In-Memory OLTP storage size, which is documented in the [SQL Database Service Tiers article](sql-database-service-tiers.md#service-tiers-for-single-databases). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
 
-Déterminer la capacité de stockage : consultez l’article de [niveaux de Service de base de données SQL](sql-database-service-tiers.md#service-tiers-for-single-databases) pour connaître les capacités de stockage des différents niveaux de service Premium.
+## <a name="determine-whether-data-will-fit-within-the-in-memory-storage-cap"></a>Determine whether data will fit within the in-memory storage cap
 
-L’estimation de la mémoire requise pour une table à mémoire optimisée s’effectue de la même façon pour SQL Server que dans Base de données SQL Azure. Prenez quelques minutes pour consulter cette rubrique sur [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
+Determine the storage cap: consult the [SQL Database Service Tiers article](sql-database-service-tiers.md#service-tiers-for-single-databases) for the storage caps of the different Premium service tiers.
 
-Notez que la table et les lignes de variable de table, ainsi que les index, sont pris en compte pour le calcul de la taille maximale des données utilisateur. En outre, l’instruction ALTER TABLE a besoin de suffisamment d’espace pour créer une version de la table entière et de ses index.
+Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database. Take a few minutes to review that topic on [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
-## Surveillance et alerte
+Note that the table and table variable rows, as well as indexes, count toward the max user data size. In addition, ALTER TABLE needs enough room to create a new version of the entire table and its indexes.
 
-Vous pouvez surveiller l’utilisation du stockage en mémoire sous forme de pourcentage de la [capacité de stockage de votre niveau de performances](sql-database-service-tiers.md#service-tiers-for-single-databases) dans le [portail](https://portal.azure.com/) Azure :
+## <a name="monitoring-and-alerting"></a>Monitoring and alerting
 
-- Sur le panneau Base de données, recherchez la zone Utilisation de ressources, puis cliquez sur Modifier.
-- Puis sélectionnez la métrique `In-Memory OLTP Storage percentage`.
-- Pour ajouter une alerte, cliquez sur la zone Taux d’utilisation de la ressource pour ouvrir le panneau Métriques, puis cliquez sur Ajouter une alerte.
+You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#service-tiers-for-single-databases) in the Azure [portal](https://portal.azure.com/): 
 
-Vous pouvez également utiliser la requête suivante pour afficher l’utilisation du stockage en mémoire :
+- On the Database blade, locate the Resource utilization box and click on Edit.
+- Then select the metric `In-Memory OLTP Storage percentage`.
+- To add an alert, click on the Resource Utilization box to open the Metric blade, then click on Add alert.
+
+Or use the following query to show the in-memory storage utilization:
 
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
 
-## Résoudre les situations de mémoire insuffisante - erreur 41823
+## <a name="correct-out-of-memory-situations---error-41823"></a>Correct out-of-memory situations - Error 41823
 
-Quand la mémoire devient insuffisante, les opérations INSERT, UPDATE et CREATE échouent en générant le message d’erreur 41823.
+Running out-of-memory results in INSERT, UPDATE, and CREATE operations failing with error message 41823.
 
-Le message d’erreur 41823 indique que les tables à mémoire optimisée et les variables de table ont dépassé la taille maximale.
+Error message 41823 indicates that the memory-optimized tables and table variables have exceeded the maximum size.
 
-Pour résoudre cette erreur, deux possibilités s’offrent à vous :
+To resolve this error, either:
 
 
-- supprimer des données des tables à mémoire optimisée, en déchargeant potentiellement les données vers des tables traditionnelles sur disque ;
-- adapter le niveau de service afin de disposer d’un stockage en mémoire suffisant pour les données que vous devez conserver dans des tables à mémoire optimisée.
+- Delete data from the memory-optimized tables, potentially offloading the data to traditional, disk-based tables; or,
+- Upgrade the service tier to one with enough in-memory storage for the data you need to keep in memory-optimized tables.
 
-## Étapes suivantes
-Ressources supplémentaires sur l’[analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
+## <a name="next-steps"></a>Next steps
+Additional resources about about [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

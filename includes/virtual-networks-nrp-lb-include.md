@@ -1,82 +1,82 @@
-## Équilibrage de charge
-Un équilibrage de charge est utilisé lorsque vous voulez étendre vos applications. Les scénarios de déploiement classiques impliquent des applications s'exécutant sur plusieurs instances de machine virtuelle. Les instances de machine virtuelle sont pilotées par un équilibrage de charge qui permet de répartir le trafic réseau entre les différentes instances.
+## <a name="load-balancer"></a>Load Balancer
+A load balancer is used when you want to scale your applications. Typical deployment scenarios involve applications running on multiple VM instances. The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances. 
 
-![Cartes d'interface réseau sur une seule machine virtuelle](./media/resource-groups-networking/figure8.png)
+![NIC's on a single VM](./media/resource-groups-networking/figure8.png)
 
-| Propriété | Description |
+| Property | Description |
 |---|---|
-| *frontendIPConfigurations* | un équilibrage de charge peut inclure une ou plusieurs adresses IP frontales, également appelées « adresses IP virtuelles ». Ces adresses IP servent d'entrée pour le trafic et peuvent être publiques ou privées |
-|*backendAddressPools* | il s'agit des adresses IP associées aux cartes réseau des machines virtuelles vers lesquelles la charge sera distribuée |
-|*loadBalancingRules* | une propriété de règle mappe une combinaison donnée d'adresse IP et de port frontaux vers un ensemble de combinaisons d'adresses IP et de port principaux. Avec une seule définition d'une ressource d'équilibrage de charge, vous pouvez définir plusieurs règles d'équilibrage de charge, chaque règle reflétant une combinaison d'une adresse IP et d'un port frontaux d'une part, et d'une adresse IP et d'un port principaux d'autre part, associés à des machines virtuelles. Vous devez utiliser un port dans le pool frontal pour plusieurs machines virtuelles dans le pool principal |  
-| *Sondes* | les sondes vous permettent d'effectuer le suivi de l'intégrité des instances de machine virtuelle. En cas d'échec d'une sonde d'intégrité, l'instance de machine virtuelle est automatiquement mise hors service. |
-| *inboundNatRules* | règles NAT définissant le trafic entrant qui transite via l'adresse IP frontale et est distribué à l'adresse IP principale vers une instance de machine virtuelle spécifique. La règle NAT est d’utiliser un port dans le pool frontal pour une machine virtuelle dans le pool principal | 
+| *frontendIPConfigurations* | a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic and can be public IP or private IP |
+|*backendAddressPools* | these are IP addresses associated with the VM NICs to which load will be distributed |
+|*loadBalancingRules* | a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with virtual machines. The rule is one port in the front end pool to many virtual machines in the back end pool |  
+| *Probes* | probes enable you to keep track of the health of VM instances. If a health probe fails, the virtual machine instance will be taken out of rotation automatically |
+| *inboundNatRules* | NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP to a specific virtual machine instance. NAT rule is one port in the front end pool to one virtual machine in the back end pool | 
 
-Exemple de modèle d'équilibrage de charge au format Json :
+Example of load balancer template in Json format:
 
-	{
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "dnsNameforLBIP": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "Unique DNS name"
-	      }
-	    },
-	    "location": {
-	      "type": "string",
-	      "allowedValues": [
-	        "East US",
-	        "West US",
-	        "West Europe",
-	        "East Asia",
-	        "Southeast Asia"
-	      ],
-	      "metadata": {
-	        "description": "Location to deploy"
-	      }
-	    },
-	    "addressPrefix": {
-	      "type": "string",
-	      "defaultValue": "10.0.0.0/16",
-	      "metadata": {
-	        "description": "Address Prefix"
-	      }
-	    },
-	    "subnetPrefix": {
-	      "type": "string",
-	      "defaultValue": "10.0.0.0/24",
-	      "metadata": {
-	        "description": "Subnet Prefix"
-	      }
-	    },
-	    "publicIPAddressType": {
-	      "type": "string",
-	      "defaultValue": "Dynamic",
-	      "allowedValues": [
-	        "Dynamic",
-	        "Static"
-	      ],
-	      "metadata": {
-	        "description": "Public IP type"
-	      }
-	    }
-	  },
-	  "variables": {
-	    "virtualNetworkName": "virtualNetwork1",
-	    "publicIPAddressName": "publicIp1",
-	    "subnetName": "subnet1",
-	    "loadBalancerName": "loadBalancer1",
-	    "nicName": "networkInterface1",
-	    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-	    "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-	    "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
-	    "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
-	    "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
-	    "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
-	    "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
-	  },
-	  "resources": [
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "dnsNameforLBIP": {
+          "type": "string",
+          "metadata": {
+            "description": "Unique DNS name"
+          }
+        },
+        "location": {
+          "type": "string",
+          "allowedValues": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ],
+          "metadata": {
+            "description": "Location to deploy"
+          }
+        },
+        "addressPrefix": {
+          "type": "string",
+          "defaultValue": "10.0.0.0/16",
+          "metadata": {
+            "description": "Address Prefix"
+          }
+        },
+        "subnetPrefix": {
+          "type": "string",
+          "defaultValue": "10.0.0.0/24",
+          "metadata": {
+            "description": "Subnet Prefix"
+          }
+        },
+        "publicIPAddressType": {
+          "type": "string",
+          "defaultValue": "Dynamic",
+          "allowedValues": [
+            "Dynamic",
+            "Static"
+          ],
+          "metadata": {
+            "description": "Public IP type"
+          }
+        }
+      },
+      "variables": {
+        "virtualNetworkName": "virtualNetwork1",
+        "publicIPAddressName": "publicIp1",
+        "subnetName": "subnet1",
+        "loadBalancerName": "loadBalancer1",
+        "nicName": "networkInterface1",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
+        "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+        "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+        "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
+        "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
+        "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
+      },
+      "resources": [
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -183,11 +183,14 @@ Exemple de modèle d'équilibrage de charge au format Json :
         ]
       }
     }
-	  ]
-	}
+      ]
+    }
 
-### Ressources supplémentaires
+### <a name="additional-resources"></a>Additional resources
 
-Pour plus d’informations, consultez la page [API REST d’équilibrage de charge](https://msdn.microsoft.com/library/azure/mt163651.aspx).
+Read [load balancer REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) for more information.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

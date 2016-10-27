@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Interface utilisateur du gestionnaire d’instantanés StorSimple | Microsoft Azure"
-   description="Décrit l’interface utilisateur de gestionnaire d’instantanés StorSimple et explique comment l’utiliser pour gérer les tâches de sauvegarde et le catalogue de sauvegarde."
+   pageTitle="StorSimple Snapshot Manager user interface | Microsoft Azure"
+   description="Describes the StorSimple Snapshot Manager user interface and explains how to use it to manage backup jobs and the backup catalog."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,505 +15,510 @@
    ms.date="04/25/2016"
    ms.author="v-sharos" />
 
-# Interface utilisateur du gestionnaire d’instantanés StorSimple
 
-## Vue d'ensemble
+# <a name="storsimple-snapshot-manager-user-interface"></a>StorSimple Snapshot Manager user interface
 
-StorSimple Snapshot Manager présente une interface utilisateur intuitive qui vous permet de procéder à des sauvegardes et de les gérer. Ce didacticiel présente l’interface utilisateur, puis explique comment utiliser chacun des composants. Pour obtenir une description détaillée du Gestionnaire d'instantanés StorSimple, consultez [Qu'est-ce que le Gestionnaire d'instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
+## <a name="overview"></a>Overview
 
-### Description de la console
+The StorSimple Snapshot Manager has an intuitive user interface that you can use to take and manage backups. This tutorial provides an introduction to the user interface, and then explains how to use each of the components. For a detailed description of the StorSimple Snapshot Manager, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-Pour afficher l’interface utilisateur, cliquez sur l’icône Gestionnaire d’instantanés StorSimple de votre bureau. La fenêtre de console s’affiche, comme indiqué dans l’illustration suivante.
+### <a name="console-description"></a>Console description
 
-![Volets du gestionnaire d’instantanés StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
+To view the user interface, click the StorSimple Snapshot Manager icon on your desktop. The console window appears, as shown in the following illustration.
 
-La fenêtre de console comporte cinq éléments principaux. Cliquez sur le lien approprié pour une description complète de chaque élément.
+![StorSimple Snapshot Manager panes](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
 
-- [Barre de menus](#menu-bar) 
-- [Barre d’outils](#tool-bar) 
-- [Volet Étendue](#scope-pane) 
-- [Volet Résultats](#results-pane) 
-- [Volet Actions](#actions-pane) 
+The console window has five major elements. Click the appropriate link for a complete description of each element.
 
-En outre, le Gestionnaire d’instantanés StorSimple prend en charge [navigation par clavier et un certain nombre de raccourcis](#keyboard-navigation-and-shortcuts).
+- [Menu bar](#menu-bar) 
+- [Tool bar](#tool-bar) 
+- [Scope pane](#scope-pane) 
+- [Results pane](#results-pane) 
+- [Actions pane](#actions-pane) 
 
-### Accessibilité de la console
+Additionally, the StorSimple Snapshot Manager supports [keyboard navigation and a number of shortcuts](#keyboard-navigation-and-shortcuts).
 
-L’interface utilisateur du gestionnaire d’instantanés StorSimple prend en charge les fonctionnalités d’accessibilité fournies par le système d’exploitation Windows et la console Microsoft Management Console (MMC), ainsi que certains raccourcis clavier de gestionnaire d’instantanés StorSimple spécifiques.
+### <a name="console-accessibility"></a>Console accessibility
 
-- Pour obtenir une description des fonctionnalités d’accessibilité de Windows, accédez aux [raccourcis clavier pour Windows](https://support.microsoft.com/kb/126449). 
+The StorSimple Snapshot Manager user interface supports the accessibility features provided by the Windows operating system and the Microsoft Management Console (MMC), as well as some StorSimple Snapshot Manager–specific keyboard shortcuts. 
 
-- Pour obtenir une description des fonctionnalités d’accessibilité MMC, consultez la section [Accessibilité à MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
+- For a description of the Windows accessibility features, go to [Keyboard shortcuts for Windows](https://support.microsoft.com/kb/126449). 
 
-- Pour obtenir une description des fonctionnalités d’accessibilité du Gestionnaire d’instantanés StorSimple, consultez la section [Navigation et raccourcis clavier](#keyboard-navigation-and-shortcuts).
+- For a description of the MMC accessibility features, go to [Accessibility for MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
 
-## Barre de menus
+- For a description of the StorSimple Snapshot Manager accessibility features, go to [Keyboard navigation and shortcuts](#keyboard-navigation-and-shortcuts).
 
-La barre de menus située en haut de la fenêtre de console contient les menus [Fichier](#file-menu), [Action](#action-menu), [Affichage](#view-menu), [Favoris](#favorites-menu), [Fenêtre](#window-menu) et [Aide](#help-menu).
+## <a name="menu-bar"></a>Menu bar
 
-Cliquez sur n’importe quel élément de la barre de menus pour afficher la liste des commandes disponibles dans ce menu. L’exemple suivant montre le menu **Affichage** sélectionné dans la barre de menus.
+The menu bar at the top of the console window contains [File](#file-menu), [Action](#action-menu), [View](#view-menu), [Favorites](#favorites-menu), [Window](#window-menu), and [Help](#help-menu) menus.
 
-![Menu Affichage sélectionné](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
+Click any item on the menu bar to see a list of available commands on that menu. The following example shows the **View** menu selected on the menu bar.
 
-### Menu Fichier
+![View menu selected](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-Le menu **Fichier** contient les commandes standard de Microsoft Management Console (MMC).
+### <a name="file-menu"></a>File menu
 
-#### Accès au menu
+The **File** menu contains standard Microsoft Management Console (MMC) commands.
 
-Pour afficher le menu **Fichier**, cliquez sur **Fichier** dans la barre de menus. Le menu suivant s’affiche.
+#### <a name="menu-access"></a>Menu access
 
-![Menu Fichier Gestionnaire d’instantanés StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png)
+To view the **File** menu, click **File** on the menu bar. The following menu appears.
 
-#### Description de menu
+![StorSimple Snapshot Manager File menu](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png) 
 
-Le tableau suivant décrit des éléments qui apparaissent dans le menu **Fichier**.
+#### <a name="menu-description"></a>Menu description
 
-| Élément de menu | Description |
+The following table describes items that appear on the **File** menu.
+
+| Menu item | Description |
 |:----------|:-------------|
-| Nouveau | Cliquez sur **Nouveau** pour créer une nouvelle console à partir du Gestionnaire d’instantanés StorSimple. |
-| Ouvrir | Cliquez sur **Ouvrir** pour ouvrir une console existante. |
-| Enregistrer | Cliquez sur **Enregistrer** pour enregistrer la console actuelle. |
-| Enregistrer sous | Cliquez sur **Enregistrer sous** pour créer une nouvelle instance de la console actuelle avec un nouveau nom. Utilisez l’option **Enregistrer sous** pour personnaliser un affichage et l’enregistrer pour une récupération ultérieure. Par exemple, vous pouvez créer des composants logiciels enfichables Gestionnaire d’instantanés StorSimple pointant vers des serveurs spécifiques. |
-| Ajouter/Supprimer le composant logiciel enfichable | Cliquez sur **Ajouter/Supprimer le composant logiciel enfichable** pour ajouter ou supprimer des composants et organiser les nœuds dans le volet **Étendue**. Pour plus d’informations, consultez la page [Ajouter, supprimer et organiser des composants logiciels enfichables et les extensions dans MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
-| Options | Cliquez sur **Options** pour modifier l’icône de la console, spécifier des modes d’accès et les autorisations utilisateur, ou supprimer des fichiers de console pour augmenter l’espace disque disponible. |
-| Liste des chemins d’accès | Cliquez sur un chemin d’accès dans la liste numérotée pour rouvrir un fichier récemment ouvert. |
-| Quitter | Cliquez sur **Quitter** pour fermer le menu **Fichier**. |
+| New       | Click **New** to create a new console based on the StorSimple Snapshot Manager. |
+| Open      | Click **Open** to open an existing console. |
+| Save      | Click **Save** to save the current console. |
+| Save as   | Click **Save As** to create a new, renamed instance of the current console. Use the **Save As** option to customize a view and save it for later retrieval. For example, you could create StorSimple Snapshot Manager snap-ins that point to specific servers. |
+| Add/Remove Snap-in | Click **Add/Remove Snap-in** to add or remove snap-ins and to organize nodes in the **Scope** pane. For more information, go to [Add, Remove, and Organize Snap-ins and Extensions in MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Options   | Click **Options** to change the console icon, specify user access modes and permissions, or delete console files to increase available disk space. |
+| List of file paths | Click a path in the numbered list to reopen a file that you recently opened. |
+| Exit      | Click **Exit** to close the **File** menu. |
  
-### Menu Action
+### <a name="action-menu"></a>Action menu
 
-Utilisez le menu **Action** pour effectuer votre choix parmi les actions disponibles. Les éléments disponibles dépendent de la sélection effectuée dans le volet **Étendue** ou **Résultats**.
+Use the **Action** menu to select from available actions. The items available to you depend on the selection you make in the **Scope** pane or **Results** pane.
 
-#### Accès au menu
+#### <a name="menu-access"></a>Menu access
 
-Pour afficher le menu **Action**, effectuez l’une des opérations suivantes :
+To view the **Action** menu, do one of the following:
 
-- Cliquez avec le bouton droit sur un élément dans le volet **Étendue** ou **Résultats**.
+- Right-click an item in the **Scope** pane or **Results** pane.
 
-- Sélectionnez un élément dans le volet **Étendue** ou le volet **Résultats**, puis, sur la barre de menus, cliquez sur **Action**.
+- Select an item in the **Scope** pane or **Results** pane, and then click **Action** on the menu bar. 
 
-Par exemple, si vous sélectionnez le nœud supérieur dans le volet **Étendue**, puis effectuez un clic droit ou, dans la barre de menus, cliquez sur **Action**, le menu suivant s’affiche.
+For example, if you select the top node in the **Scope** pane, and then right-click or click **Action** in the menu bar, the following menu appears.
  
-![Menu Action du Gestionnaire d’instantanés StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
+![StorSimple Snapshot Manager Action menu](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-Le volet **Actions** (à droite de la console) contient la même liste d’actions que le menu **Action**. En outre, le volet **Actions** contient les options du menu **Affichage** qui vous permettent de créer une vue personnalisée du volet **Résultats**.
+The **Actions** pane (on the right of the console) contains the same list of actions as the **Action** menu. Additionally, the **Actions** pane contains the **View** menu options, which enable you to create a custom view of the **Results** pane.
 
-![Volet Actions avec menu Affichage ouvert](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+![Actions pane with View menu open](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
-#### Description de menu
+#### <a name="menu-description"></a>Menu description
 
-Le tableau suivant contient une liste alphabétique des actions du Gestionnaire d’instantanés StorSimple.
+The following table contains an alphabetical list of StorSimple Snapshot Manager actions. 
 
-- La colonne **Action** répertorie les actions que vous pouvez effectuer sur les nœuds et les résultats. 
+- The **Action** column lists actions that you can perform on nodes and results. 
 
-- La colonne **Navigation** explique comment afficher le menu **Action** approprié pour que vous puissiez sélectionner l’action. Certaines actions apparaissent dans plusieurs menus **Action**. Pour ces actions, dans la liste à puces, sélectionnez l’option **Navigation**.
+- The **Navigation** column explains how to display the appropriate **Action** menu so that you can select the action. Some actions appear in multiple **Action** menus. For these actions, select one **Navigation** option from the bulleted list. 
 
-- La colonne **Description** explique comment utiliser chaque action présente dans le menu **Action** ou le volet Actions et explique ce qu’elle fait.
+- The **Description** column describes how to use each action on the **Action** menu or Actions pane, and explains what it does.
 
->[AZURE.NOTE] Le volet **Actions** et les menus **Action** contiennent des options supplémentaires telles qu’**Affichage**, **Nouvelle fenêtre à partir d’ici**, **Actualiser**, **Exporter la liste** et **Aide**. Ces options sont disponibles dans le cadre de la console MMC et ne sont pas spécifiques au gestionnaire d’instantanés StorSimple. La table comprend des descriptions de ces options.
+>[AZURE.NOTE] The **Actions** pane and **Action** menus contain additional options, such as **View**, **New Window from here**, **Refresh**, **Export List**, and **Help**. These options are available as a part of the MMC, and are not specific to StorSimple Snapshot Manager. The table includes descriptions of these options.
  
-| Action | Navigation | Description |
+| Action  | Navigation  | Description  |
 |:--------|:------------|:-------------|
-| Authentifier | Cliquez sur le nœud **Appareils**, puis cliquez avec le bouton droit de la souris dans le volet **Résultats**. | Cliquez sur **Authentifier** pour saisir le mot de passe que vous avez configuré pour l’appareil. |
-| Cloner | Développez **Catalogue de sauvegarde**, développez **Instantanés Cloud**, cliquez sur une sauvegarde datée, puis sélectionnez un volume dans le volet **Résultats**. | Cliquez sur **Clone** pour créer une copie d’instantané cloud et pour stocker celle-ci dans l’emplacement que vous désignez. |
-| Configuration d’un appareil | Cliquez avec le bouton droit de la souris sur le nœud **Appareils**. | Cliquez sur **Configurer un appareil** pour configurer un ou plusieurs appareils pour se connecter à l’hôte Windows. |
-| Créer la stratégie de sauvegarde | Effectuez l’une des opérations suivantes : <ul><li>cliquez avec le bouton droit de la souris sur **Stratégies de sauvegarde**.</li><li>Cliquez sur ou développez **Groupes de volumes**, puis cliquez avec le bouton droit de la souris sur un groupe de volumes.</li><li>Cliquez sur ou développez **Catalogue de sauvegarde**, puis cliquez avec le bouton droit de la souris sur un groupe de volumes.</li></ul> | Cliquez sur **Créer une stratégie de sauvegarde** pour configurer une sauvegarde planifiée pour un groupe de volumes. |
-| Créer un groupe de volumes | Effectuez l’une des opérations suivantes :<ul><li>cliquez sur le nœud **Volumes**, puis cliquez avec le bouton droit sur un volume dans le volet **Résultats**.</li><li>Cliquez avec le bouton droit sur le nœud **Groupes de volumes**.</li></ul> | Cliquez sur **Créer un groupe de volumes** pour affecter des volumes à un groupe de volumes. |
-| Supprimer | Cliquez sur un nœud ou sur un résultat (cet élément apparaît dans de nombreux menus **Action** et volets **Actions**). | Cliquez sur **Supprimer** pour supprimer le nœud ou le résultat que vous avez sélectionné. Lorsque la boîte de dialogue de confirmation s’affiche, confirmez ou annulez la suppression. |
-| Détails | Cliquez sur le nœud **Appareils**, puis cliquez avec le bouton droit sur un appareil dans le volet **Résultats**. | Cliquez sur **Détails** pour afficher les détails de configuration d’un appareil. |
-| Modifier | Cliquez sur **Stratégies de sauvegarde**, puis cliquez avec le bouton droit sur une stratégie dans le volet **Résultats**. | Cliquez sur **Modifier** pour modifier la planification de sauvegarde d’un groupe de volumes. |
-| Exporter la liste | Cliquez sur un nœud ou un résultat (cet élément apparaît dans tous les menus **Action** et les volets **Actions**). | Cliquez sur **Exporter la liste** pour enregistrer une liste dans un fichier CSV (fichier de valeurs séparées par des virgules). Vous pouvez ensuite importer ce fichier dans un tableur pour analyse. |
-| Aide | Cliquez sur un nœud ou un résultat. (Cet élément apparaît dans tous les menus **Action** et les volets **Actions**.) | Cliquez sur **Aide** pour ouvrir l’aide en ligne dans une fenêtre de navigateur distincte. |
-| Nouvelle fenêtre à partir d’ici | Cliquez sur un nœud ou un résultat (cet élément apparaît dans tous les menus **Action** et les volets **Actions**). | Cliquez sur **Nouvelle fenêtre à partir d’ici** pour ouvrir une nouvelle fenêtre du Gestionnaire d’instantanés StorSimple.|
-| Actualiser | Cliquez sur un nœud ou un résultat (cet élément apparaît dans tous les menus **Action** et les volets **Actions**). | Cliquez sur **Actualiser** pour mettre à jour la fenêtre Gestionnaire d’instantanés StorSimple actuellement affichée. |
-| Actualiser l’appareil | Cliquez sur le nœud **Appareils**, puis cliquez avec le bouton droit dans le volet **Résultats**. | Cliquez sur **Actualiser l’appareil** pour synchroniser un appareil spécifique connecté avec le Gestionnaire d’instantanés StorSimple. |
-| Actualiser la liste des appareils | Cliquez avec le bouton droit sur le nœud **Appareils**. | Cliquez sur **Actualiser la liste des appareils** pour synchroniser la liste des appareils connectés avec le Gestionnaire d’instantanés StorSimple. |
-| Relancer l’analyse des volumes | Cliquez avec le bouton droit sur le nœud **Volumes**. | Cliquez sur **Relancer l’analyse des volumes** pour mettre à jour la liste des volumes qui s’affiche dans le volet **Résultats**. |
-| Restauration | Développez **Catalogue de sauvegarde**, développez un groupe de volumes, développez**Instantanés locaux**ou**Instantanés Cloud**, puis cliquez avec le bouton droit sur une sauvegarde. | Cliquez sur **Restaurer** pour remplacer les données du groupe de volumes actuel par les données de la sauvegarde sélectionnée. |
-| Effectuer la sauvegarde | Effectuez l’une des opérations suivantes : <ul><li>Développez **Groupes de volumes**, puis cliquez avec le bouton droit sur un groupe de volumes.</li><li>Développez **Catalogue de sauvegarde**, puis cliquez avec le bouton droit sur un groupe de volumes.</li></ul> | Cliquez sur **Créer une sauvegarde** pour démarrer immédiatement une opération de sauvegarde. |
-| Activer/désactiver l’affichage des importations | Cliquez avec le bouton droit sur le nœud supérieur dans le volet **Étendue** (nœud **Gestionnaire d’instantanés StorSimple** dans les exemples). | Cliquez sur **Activer/Désactiver l’affichage des importations** pour afficher ou masquer les groupes de volumes et les sauvegardes associées importés depuis le tableau de bord du service StorSimple Manager. |
+| Authenticate | Click the **Devices** node, and right-click a device in the **Results** pane. | Click **Authenticate** to enter the password that you configured for the device. |
+| Clone  | Expand **Backup Catalog**, expand **Cloud Snapshots**, click a dated backup, and then select a volume in the **Results** pane. | Click **Clone** to create a copy of a cloud snapshot and store it in a location that you designate. |
+| Configure a Device | Right-click the **Devices** node. | Click **Configure a Device** to configure a single device or multiple devices to connect to the Windows host. |
+| Create Backup Policy | Do one of the following:<ul><li>Right-click **Backup Policies**.</li><li>Click or expand **Volume Groups**, and then right-click a volume group.</li><li>Click or expand **Backup Catalog**, and then right-click a volume group.</li></ul> | Click **Create Backup Policy** to configure a scheduled backup for a volume group. |
+| Create Volume Group | Do one of the following:<ul><li>Click the **Volumes** node, and then right-click a volume in the **Results** pane.</li><li>Right-click the **Volume Groups** node.</li></ul> | Click **Create Volume Group** to assign volumes to a volume group. |
+| Delete | Click a node or result (This item appears on many **Action** menus and  **Actions** panes.) | Click **Delete** to delete the node or result that you selected. When the confirmation dialog box appears, confirm or cancel the deletion. |
+| Details | Click the **Devices** node, and then right-click a device in the **Results** pane. | Click **Details** to see the configuration details for a device. |
+| Edit | Click **Backup Policies**, and then right-click a policy in the **Results** pane. | Click **Edit** to change the backup schedule for a volume group. |
+| Export List | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **Export List** to save a list in a comma-separated value (CSV) file. You can then import this file into a spreadsheet application for analysis. |
+| Help | Click any node or result. (This item appears on all **Action** menus and **Actions** panes.) | Click **Help** to open online Help in a separate browser window. |
+| New Window from Here | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **New Window from Here** to open a new StorSimple Snapshot Manager window.|
+| Refresh | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **Refresh** to update the currently displayed StorSimple Snapshot Manager window. |
+| Refresh Device | Click the **Devices** node, and right-click a device in the **Results** pane. | Click **Refresh Device** to synchronize a specific connected device with StorSimple Snapshot Manager. |
+| Refresh Devices | Right-click the **Devices** node. | Click **Refresh Devices** to synchronize your list of connected devices with StorSimple Snapshot Manager. |
+| Rescan volumes | Right-click the **Volumes** node. | Click **Rescan volumes** to update the list of volumes that appears in the **Results** pane. |
+| Restore | Expand **Backup Catalog**, expand a volume group, expand **Local Snapshots** or **Cloud Snapshots**, and then right-click a backup. | Click **Restore** to replace the current volume group data with the data from the selected backup. |
+| Take Backup | Do one of the following:<ul><li>Expand **Volume Groups**, and then right-click a volume group.</li><li>Expand **Backup Catalog**, and then right-click a volume group.</li></ul> | Click **Take Backup** to start a backup job immediately. |
+| Toggle Imports Display | Right-click the top node in the **Scope** pane (the **StorSimple Snapshot Manager** node in the examples). | Click **Toggle Imports Display** to show or hide the volume groups and associated backups that were imported from the StorSimple Manager service dashboard. |
 
-### Menu Affichage
+### <a name="view-menu"></a>View menu
 
-Utilisez le menu **Affichage** pour créer une vue personnalisée du contenu du volet **Résultats**. Le menu **Affichage** contient les options **Ajout/Suppression de colonnes** et **Personnaliser**.
+Use the **View** menu to create a custom view of the **Results** pane contents. The **View** menu contains **Add/Remove Columns** and **Customize** options.
 
-#### Accès au menu
+#### <a name="menu-access"></a>Menu access
 
-Vous pouvez accéder au menu **Affichage** sur la barre de menus et dans le volet **Actions**.
+You can access the **View** menu on the menu bar or in the **Actions** pane.
 
-![Menu Affichage du Gestionnaire d’instantanés StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
+![StorSimple Snapshot Manager View menu](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png) 
 
-#### Description de menu
+#### <a name="menu-description"></a>Menu description
 
-Le tableau suivant décrit les éléments qui apparaissent dans le menu **Affichage**.
+The following table describes items that appear on the **View** menu.
 
-| Élément de menu | Description |
+| Menu item  | Description |
 |:-----------|:-------------|
-| Ajouter/supprimer des colonnes | Cliquez sur **Ajout/Suppression de colonnes** pour ajouter ou supprimer des colonnes dans le volet **Résultats**. |
-| Personnaliser | Cliquez sur **Personnaliser** pour afficher ou masquer des éléments dans la fenêtre de console du Gestionnaire d’instantanés StorSimple. |
+| Add/Remove Columns | Click **Add/Remove Columns** to add or remove columns in the **Results** pane. |
+| Customize | Click **Customize** to show or hide items in the StorSimple Snapshot Manager console window. |
 
-### Menu Favoris
+### <a name="favorites-menu"></a>Favorites menu
 
-Utilisez le menu **Favoris** pour ajouter, supprimer et organiser des vues de page et des tâches que vous utilisez fréquemment.
+Use the **Favorites** menu to add, remove, and organize page views and tasks that you use frequently. 
 
-#### Accès au menu
+#### <a name="menu-access"></a>Menu access
 
-Vous pouvez accéder au menu **Favoris** dans la barre de menus.
+You can access the **Favorites** menu on the menu bar.
 
-![Menu Favoris du Gestionnaire d’instantanés StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
+![StorSimple Snapshot Manager Favorites menu](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
-#### Description de menu
+#### <a name="menu-description"></a>Menu description
 
-Le tableau suivant décrit les éléments qui apparaissent dans le menu **Favoris**.
+The following table describes items that appear on the **Favorites** menu.
 
-| Élément de menu | Description |
+| Menu item |  Description |
 |:----------|:-------------|
-| Ajouter aux Favoris | Cliquez sur **Ajouter aux Favoris** pour ajouter la vue actuelle à votre liste des Favoris. |
-| Organiser les Favoris | Cliquez sur **Organiser les Favoris** pour organiser le contenu de votre dossier Favoris. |
+| Add to Favorites | Click **Add to Favorites** to add the current view to your list of favorites. |
+| Organize Favorites | Click **Organize Favorites** to organize the contents of your Favorites folder. |
 
-### Menu Fenêtre
+### <a name="window-menu"></a>Window menu
 
-Utilisez le menu **Fenêtre** pour ajouter et réorganiser les fenêtres de la console du Gestionnaire d’instantanés StorSimple.
+Use the **Window** menu to add and rearrange StorSimple Snapshot Manager console windows.
 
-#### Accès au menu
+#### <a name="menu-access"></a>Menu access
 
-Vous pouvez accéder au menu **Fenêtre** dans la barre de menus.
+You can access the **Window** menu on the menu bar.
 
-![Menu de la Fenêtre Gestionnaire d’instantanés StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
+![StorSimple Snapshot Manager Window menu](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
 
-La liste numérotée au bas du menu affiche les fenêtres actuellement ouvertes. Cliquez sur n’importe quelle fenêtre de cette liste pour l’afficher au premier plan.
+The numbered list at the bottom of the menu shows the windows that are currently open. Click any window in that list to bring the window into the foreground. 
 
-#### Description de menu
+#### <a name="menu-description"></a>Menu description
 
-Le tableau suivant décrit les éléments qui apparaissent dans le menu Fenêtre.
+The following table describes the items that appear on the Window menu.
 
-| Élément de menu | Description |
+| Menu item  | Description |
 |:-----------|:-------------|
-| Nouvelle fenêtre | Cliquez sur **Nouvelle fenêtre** pour ouvrir une nouvelle fenêtre de console (en plus de la fenêtre existante). |
-| Cascade | Cliquez sur **Cascade** pour afficher les fenêtres de console ouvertes en cascade. |
-| Mosaïque horizontale | Cliquez sur **Mosaïque horizontale** pour afficher les fenêtres de console ouvertes sous forme de mosaïque (ou de grille). |
-| Réorganiser les icônes | Si plusieurs fenêtres de console sont ouvertes et éparpillées sur votre bureau, réduisez-les, puis cliquez sur **Réorganiser les icônes** pour les aligner horizontalement en bas de votre écran. |
+| New Window | Click **New Window** to open a new console window (in addition to the existing window). |
+| Cascade   | Click **Cascade** to display the open console windows in a cascading style. |
+| Tile Horizontally | Click **Tile Horizontally** to display the open console windows in a tile (or grid) format. |
+| Arrange Icons | If you have multiple console windows open and scattered over your desktop, minimize them and then click **Arrange Icons** to arrange them in a horizontal row on the bottom of your screen. |
 
-### Menu aide
+### <a name="help-menu"></a>Help menu
 
-Utilisez le menu **Aide** pour afficher l’aide en ligne disponible du Gestionnaire d’instantanés StorSimple et de MMC. Vous pouvez également afficher les informations relatives aux logiciels MMC et Gestionnaire d’instantanés StorSimple actuellement installés sur votre système.
+Use the **Help** menu to view available online help for StorSimple Snapshot Manager and the MMC. You can also view information about the MMC and StorSimple Snapshot Manager software versions that are currently installed on your system. 
 
-Vous pouvez accéder au menu **Aide** dans la barre de menus. Vous pouvez également accéder aux Rubriques d’aide du Gestionnaire d’instantanés StorSimple à partir du volet **Actions**.
+You can access the **Help** menu on the menu bar. You can also access StorSimple Snapshot Manager help topics from the **Actions** pane.
 
-![Menu Aide du Gestionnaire d’instantanés StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
+![StorSimple Snapshot Manager Help menu](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
 
-#### Description de menu
+#### <a name="menu-description"></a>Menu description
 
-Le tableau suivant décrit les éléments qui apparaissent dans le menu Aide.
+The following table describes items that appear on the Help menu.
 
-| Élément de menu | Description |
+| Menu item  | Description  |
 |:-----------|:-------------|
-| Aide du Gestionnaire d’instantanés StorSimple | Cliquez sur l’**Aide sur Gestionnaire d’instantanés StorSimple** pour ouvrir l’aide du gestionnaire d’instantanés StorSimple dans une fenêtre distincte. |
-| Rubriques d’aide |Cliquez sur **Rubriques d’aide** pour ouvrir l’aide en ligne de MMC dans une fenêtre distincte. |
-| Site web TechCenter | Cliquez sur **Site Web TechCenter** pour ouvrir la page d’accueil Microsoft TechNet TechCenter dans une fenêtre distincte. |
-| À propos de Microsoft Management Console | Cliquez sur **À propos de Microsoft Management Console** pour connaître la version de Microsoft Management Console installée sur votre système. |
-| À propos du Gestionnaire d’instantanés StorSimple | Cliquez sur **À propos du Gestionnaire d’instantanés StorSimple** pour connaître la version du composant logiciel enfichable installée sur votre système. |
+| Help on StorSimple Snapshot Manager | Click **Help on StorSimple Snapshot Manager** to open StorSimple Snapshot Manager help in a separate window. |
+| Help Topics |Click **Help Topics** to open MMC online help in a separate window. |
+| TechCenter Web Site | Click **TechCenter Web Site** to open the Microsoft TechNet Tech Center home page in a separate window. |
+| About Microsoft Management Console | Click **About Microsoft Management Console** to see which version of the Microsoft Management Console is installed on your system. |
+| About StorSimple Snapshot Manager | Click **About StorSimple Snapshot Manager** to see which version of the snap-in is installed on your system. |
 
-## Barre d’outils
+## <a name="tool-bar"></a>Tool bar
 
-La barre d’outils située sous la barre de menus contient les icônes de navigation et des tâches. Chaque icône est un raccourci vers une tâche spécifique.
+The tool bar, located below the menu bar, contains navigation and task icons. Each icon is a shortcut to a specific task.
 
-### Description des icônes
+### <a name="icon-descriptions"></a>Icon descriptions
 
-Le tableau suivant décrit les icônes qui apparaissent dans la barre d’outils.
+The following table describes the icons that appear on the tool bar. 
 
-| Icône | Description |
+| Icon  | Description  |
 |:------|:-------------| 
-| ![Flèche gauche](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) | Cliquez sur l’icône flèche gauche pour revenir à la page précédente. |
-| ![Flèche droite](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | Cliquez sur la flèche droite pour accéder à la page suivante (si la flèche est grisée, l’action est indisponible). |
-| ![Icône Haut](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) | Cliquez sur l’icône pour monter d’un niveau dans l’arborescence de la console (volet **Étendue**). |
-| ![Afficher/Masquer l’arborescence de console](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) | Cliquez sur l’icône d’arborescence de la console afficher/masquer pour afficher ou masquer le volet **Étendue**. |
-| ![Exporter la liste](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) | Cliquez sur l’icône Exporter la liste pour exporter une liste vers un fichier CSV que vous indiquez. |
-| ![Icône Aide](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png) |Cliquez sur l’icône d’aide pour ouvrir une rubrique d’aide en ligne MMC. |
-| ![Afficher/masquer le volet Actions](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) | Cliquez sur l’icône Afficher/masquer du volet **Actions** pour afficher ou masquer le volet **Actions**. 
+| ![Left arrow](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) | Click the left arrow icon to return to the previous page. |
+| ![Right arrow](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | Click the right arrow to go to the next page (if the arrow is gray, the action is unavailable). |
+| ![Up icon](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) | Click the up icon to go up one level in the console tree (the **Scope** pane). |
+| ![Show/hide console tree](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) | Click the show/hide console tree icon to show or hide the **Scope** pane. |
+| ![Export list](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) | Click the export list icon to export a list to a CSV file that you specify. |
+| ![Help icon](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png)  |Click the help icon to open an online MMC help topic. |
+| ![Show/hide Actions pane](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) | Click the show/hide **Actions** pane icon to show or hide the **Actions** pane. 
  
-## Volet Étendue
+## <a name="scope-pane"></a>Scope pane
 
-Le volet **Étendue** est le volet le plus à gauche de l’interface utilisateur StorSimple Snapshot Manager. Il contient l’arborescence de la console (ou nœud) et est le mécanisme de navigation principal du Gestionnaire d’instantanés StorSimple.
+The **Scope** pane is the leftmost pane in the StorSimple Snapshot Manager UI. It contains the console (or node) tree and is the primary navigation mechanism for StorSimple Snapshot Manager. 
  
-### Structure du volet Étendue
+### <a name="scope-pane-structure"></a>Scope pane structure
 
-Le volet **Étendue** contient une série d’objets interactifs (nœuds) organisée en arborescence.
+The **Scope** pane contains a series of clickable objects (nodes) organized in a tree structure. 
 
-![Volet Étendue](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png)
+![Scope pane](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png) 
 
-- Pour développer ou réduire un nœud, cliquez sur l’icône fléchée en regard du nom de nœud.
+- To expand or collapse a node, click the arrow icon next to the node name.
 
-- Pour afficher l’état ou le contenu d’un nœud, cliquez sur le nom du nœud. Les informations apparaissent dans le volet **Résultats**.
+- To view the status or contents of a node, click the node name. The information appears in the **Results** pane. 
 
-Le volet **Étendue** contient les nœuds suivants :
+The **Scope** pane contains the following nodes: 
 
-- [Nœud Appareils](#devices-node) 
-- [Nœud Volumes](#volumes-node) 
-- [Nœud Groupes de volumes](#volume-groups-node) 
-- [Nœud Stratégies de sauvegarde](#backup-policies-node) 
-- [Nœud Catalogue de sauvegarde](#backup-catalog-node) 
-- [Nœud Travaux](#jobs-node) 
+- [Devices node](#devices-node) 
+- [Volumes node](#volumes-node) 
+- [Volume Groups node](#volume-groups-node) 
+- [Backup Policies node](#backup-policies-node) 
+- [Backup Catalog node](#backup-catalog-node) 
+- [Jobs node](#jobs-node) 
 
-### Tâches du volet Étendue
+### <a name="scope-pane-tasks"></a>Scope pane tasks
 
-Vous pouvez utiliser le volet **Étendue** pour effectuer une action sur un nœud spécifique. Pour sélectionner une tâche, effectuez l’une des opérations suivantes :
+You can use the **Scope** pane to complete an action on a specific node. To select a task, do one of the following:
 
-- Cliquez sur le nœud, puis sélectionnez la tâche dans le menu qui s’affiche.
+- Right-click the node, and then select the task from the menu that appears.
 
-- Cliquez sur le nœud, puis sur **Action** sur la barre de menus.dans Sélectionnez la tâche dans le menu qui s’affiche.
+- Click the node, and then click **Action** on the menu bar. Select the task from the menu that appears.
 
-- Cliquez sur le nœud, puis sélectionnez l’action dans le volet **Actions**.
+- Click the node, and then select the action in the **Actions** pane.
 
-Lorsque vous sélectionnez un nœud et utilisez une des méthodes suivantes pour afficher une liste de tâches, uniquement les actions qui peuvent être effectuées sur ce nœud sont affichées.
+When you select a node and use any of these methods to see a task list, only those actions that can be performed on that node are shown.
 
-### Nœud Appareils
+### <a name="devices-node"></a>Devices node
 
-Le nœud **Appareils** représente les appareils et les périphériques virtuels StorSimple connectés au gestionnaire d’instantanés StorSimple. Sélectionnez ce nœud pour vous connecter et configurer un appareil et importer ses volumes associés, les groupes de volumes et les copies de sauvegarde existants. Plusieurs appareils peuvent être connectés au même hôte.
+The **Devices** node represents the StorSimple devices and StorSimple virtual devices that are connected to StorSimple Snapshot Manager. Select this node to connect and configure a device, and import its associated volumes, volumes groups, and existing backup copies. Multiple devices can be connected to a single host.
 
-- Pour développer le nœud, cliquez sur l’icône fléchée en regard de **Appareils**.
+- To expand the node, click the arrow icon next to **Devices**.
 
-- Pour afficher un menu d’actions disponibles, cliquez avec le bouton droit sur le nœud **Appareils** ou sur les nœuds qui s’affichent dans la vue étendue.
+- To see a menu of available actions, right-click the **Devices** node or right-click any of the nodes that appear in the expanded view.
 
-- Pour afficher la liste des appareils configurés, cliquez sur **Appareils** dans le volet **Étendue**. La liste des appareils, ainsi que des informations sur chaque appareil, s’affichent dans le volet **Résultats**.
+- To see a list of configured devices, click **Devices** in the **Scope** pane. The list of devices, together with information about each device, appears in the **Results** pane.
 
-### Nœud Volumes
+### <a name="volumes-node"></a>Volumes node
 
-Le nœud **Volumes** représente les lecteurs correspondant aux volumes montés par l’hôte, y compris ceux détectés via iSCSI et ceux détectés via un appareil. Utilisez ce nœud pour afficher la liste des volumes disponibles et attribuer des volumes individuels aux groupes de volumes.
+The **Volumes** node represents the drives that correspond to the volumes mounted by the host, including those discovered through iSCSI and those discovered through a device. Use this node to view the list of available volumes and assign individual volumes to volume groups.
 
-- Pour développer le nœud, cliquez sur l’icône en forme de flèche en regard de **Volumes**.
+- To expand the node, click the arrow icon next to **Volumes**.
 
-- Pour afficher un menu d’actions disponibles, cliquez avec le bouton droit sur le nœud **Volumes** ou sur les nœuds qui s’affichent dans la vue développée.
+- To see a menu of available actions, right-click the **Volumes** node or right-click any of the nodes that appear in the expanded view.
 
-- Pour afficher une liste des volumes, cliquez sur **Volumes** dans le volet **Étendue**. La liste des volumes ainsi que les informations relatives à chaque volume s’affichent dans le volet **Résultats**.
+- To see a list of volumes, click **Volumes** in the **Scope** pane. The list of volumes, together with information about each volume, appears in the **Results** pane.
 
-### Nœud Groupes de volumes
+### <a name="volume-groups-node"></a>Volume Groups node
 
-Les groupes de volumes sont également appelés groupes de cohérence. Chaque groupe de volumes est un pool de volumes liés à l’application qui permet de garantir la cohérence des applications lors des opérations de sauvegarde. Utilisez le nœud **Groupes de volumes** pour configurer ces groupes et effectuer des sauvegardes interactives ou créer des planifications de sauvegarde.
+Volume groups are also known as consistency groups. Each volume group is a pool of application-related volumes that helps to ensure application consistency during backup operations. Use the **Volume Groups** node to configure these groups and to take interactive backups or create backup schedules. 
 
-- Pour développer le nœud, cliquez sur l’icône de flèche en regard de **Groupes de volumes**.
+- To expand the node, click the arrow icon next to **Volume Groups**.
 
-- Pour afficher un menu d’actions disponibles, cliquez avec le bouton droit sur le nœud **Groupes de volumes** ou sur les nœuds qui s’affichent dans la vue développée.
+- To see a menu of available actions, right-click the **Volume Groups** node or right-click any of the nodes that appear in the expanded view.
 
-- Pour afficher la liste des groupes de volumes, cliquez sur **Groupes de volumes** dans le volet **Étendue**. La liste des groupes de volumes ainsi que des informations sur chaque groupe de volumes s’affichent dans le volet **Résultats**.
+- To see a list of volume groups, click **Volume Groups** in the **Scope** pane. The list of volume groups, together with information about each volume group, appears in the **Results** pane.
 
-### Nœud Stratégies de sauvegarde
+### <a name="backup-policies-node"></a>Backup Policies node
 
-Les stratégies de sauvegarde sont des planifications de tâches liées à des instantanés locaux et du cloud. Utilisez le nœud **Stratégies de sauvegarde** pour spécifier la fréquence de création des sauvegardes et la durée pendant laquelle une sauvegarde doit être conservée.
+Backup policies are job schedules for local and cloud snapshots. Use the **Backup Policies** node to specify how often a backup is created and how long a backup should be retained. 
 
-- Pour développer le nœud, cliquez sur l’icône en forme de flèche en regard de **Stratégies de sauvegarde**.
+- To expand the node, click the arrow icon next to **Backup Policies**.
 
-- Pour afficher un menu d’actions disponibles, cliquez avec le bouton droit sur le nœud **Stratégies de sauvegarde** ou sur les nœuds qui s’affichent dans la vue développée.
+- To see a menu of available actions, right-click the **Backup Policies** node or right-click any of the nodes that appear in the expanded view.
 
-- Pour afficher la liste des stratégies de sauvegarde, cliquez sur **Stratégies de sauvegarde** dans le volet **Étendue**. La liste des stratégies de sauvegarde ainsi que des informations sur chaque stratégie s’affichent dans le volet **Résultats**.
+- To see a list of backup policies, click **Backup Policies** in the **Scope** pane. The list of backup policies, together with information about each policy, appears in the **Results** pane.
 
->[AZURE.NOTE] Vous pouvez conserver un maximum de 64 sauvegardes.
+>[AZURE.NOTE] You can retain a maximum of 64 backups.
 
 
-### Nœud Catalogue de sauvegarde
+### <a name="backup-catalog-node"></a>Backup Catalog node
 
-Le nœud **Catalogue de sauvegarde** contient des listes de sauvegardes sur site et hors site des volumes Azure StorSimple. Ce nœud est organisé par groupes de volumes et chaque conteneur de groupe de volumes contient des structures séparées pour les instantanés locaux (nœud **Instantanés locaux**) et les instantanés cloud (nœud** Instantanés Cloud**). Une fois développé, chaque conteneur de groupe de volumes répertorie toutes les sauvegardes réussies effectuées de façon interactive ou via une politique configurée.
+The **Backup Catalog** node contains lists of on-site and off-site backups of Azure StorSimple volumes. This node is organized by volume group, and each volume group container contains separate structures for local snapshots (the **Local Snapshot**s node) and cloud snapshots (the **Cloud Snapshots** node). When expanded, each volume group container lists all the successful backups that were taken interactively or by a configured policy.
 
-- Pour développer le nœud, cliquez sur l’icône de flèche en regard de **Catalogue de sauvegarde**.
+- To expand the node, click the arrow icon next to **Backup Catalog**.
 
-- Pour afficher un menu d’actions disponibles, cliquez avec le bouton droit sur le nœud **Catalogue de sauvegarde** ou sur les nœuds qui s’affichent dans la vue développée.
+- To see a menu of available actions, right-click the **Backup Catalog** node or right-click any of the nodes that appear in the expanded view.
 
-- Pour afficher une liste d’instantanés de sauvegarde, cliquez sur **Catalogue de sauvegarde** dans le volet **Étendue**. La liste d’instantanés ainsi que des informations sur chaque instantané s’affichent dans le volet **Résultats**.
+- To see a list of backup snapshots, click **Backup Catalog** in the **Scope** pane. The list of snapshots, together with information about each snapshot, appears in the **Results** pane.
 
-### Nœud Instantanés locaux
+### <a name="local-snapshots-node"></a>Local Snapshots node
 
-Le nœud **Instantanés locaux** répertorie les instantanés locaux d’un groupe de volumes spécifique. Le nœud est situé sous le nœud **Catalogue de sauvegarde** dans le volet **Étendue**. Les instantanés locaux sont des copies ponctuelles dans le temps de données de volume stockées sur l’appareil Azure StorSimple. En règle générale, ce type de sauvegarde peut être créé et restauré rapidement. Vous pouvez utiliser un instantané local comme vous utiliseriez une copie de sauvegarde locale.
+The **Local Snapshots** node lists local snapshots for a specific volume group. The node is located under the **Backup Catalog** node in the **Scope** pane. Local snapshots are point-in-time copies of volume data that are stored on the Azure StorSimple device. Typically, this type of backup can be created and restored quickly. You can use a local snapshot as you would a local backup copy.
 
-- Pour développer le nœud, cliquez sur l’icône de flèche en regard d’**Instantanés locaux**.
+- To expand the node, click the arrow icon next to **Local Snapshots**.
 
-- Pour afficher un menu d’actions disponibles, cliquez avec le bouton droit sur le nœud **Instantanés locaux** ou sur l’un des nœuds qui s’affichent dans la vue développée.
+- To see a menu of available actions, right-click the **Local Snapshots** node or right-click any of the nodes that appear in the expanded view.
 
-- Pour afficher une liste des instantanés locaux, cliquez sur **Instantanés locaux** dans le volet **Étendue**. La liste d’instantanés ainsi que des informations sur chaque instantané s’affichent dans le volet **Résultats**.
+- To see a list of local snapshots, click **Local Snapshots** in the **Scope** pane. The list of snapshots, together with information about each snapshot, appears in the **Results** pane.
 
-### Nœud Instantanés Cloud
+### <a name="cloud-snapshots-node"></a>Cloud Snapshots node
 
-Le nœud **Instantanés Cloud** répertorie les instantanés cloud pour un groupe de volumes spécifique. Le nœud est situé sous le nœud **Catalogue de sauvegarde** dans le volet **Étendue**. Les instantanés cloud sont des copies ponctuelles de données de volume stockées dans le cloud. Un instantané cloud est équivalent à un instantané répliqué sur un système de stockage hors site distinct. Les instantanés cloud sont particulièrement utiles dans les scénarios de récupération d’urgence.
+The **Cloud Snapshots** node lists cloud snapshots for a specific volume group. The node is located under the **Backup Catalog** node in the **Scope** pane. Cloud snapshots are point-in-time copies of volume data that are stored in the cloud. A cloud snapshot is equivalent to a snapshot replicated on a different, off-site storage system. Cloud snapshots are particularly useful in disaster recovery scenarios.
 
-- Pour développer le nœud, cliquez sur l’icône en forme de flèche en regard d’**Instantanés Cloud**.
+- To expand the node, click the arrow icon next to **Cloud Snapshots**.
 
-- Pour afficher un menu d’actions disponibles, cliquez avec le bouton droit sur le nœud **Instantanés Cloud** ou sur l’un des nœuds qui s’affichent dans la vue développée.
+- To see a menu of available actions, right-click the **Cloud Snapshots** node or right-click any of the nodes that appear in the expanded view.
 
-- Pour afficher une liste des instantanés cloud, cliquez sur **Instantanés Cloud** dans le volet **Étendue**. La liste d’instantanés ainsi que des informations sur chaque instantané s’affichent dans le volet **Résultats**.
+- To see a list of cloud snapshots, click **Cloud Snapshots** in the **Scope** pane. The list of snapshots, together with information about each snapshot, appears in the **Results** pane.
 
-### Nœud Tâches
+### <a name="jobs-node"></a>Jobs node
 
-Le nœud **Travaux** contient des informations sur les travaux de sauvegarde planifiés, en cours d’exécution et récemment terminés.
+The **Jobs** node contains information about scheduled, running, and recently completed backup jobs. 
 
-- Pour développer le nœud, cliquez sur l’icône en forme de flèche située en regard de **Tâches**.
+- To expand the node, click the arrow icon next to **Jobs**.
 
-- Pour afficher un menu d’actions disponibles, cliquez avec le bouton droit sur le nœud **Tâches** ou sur les nœuds qui s’affichent dans la vue développée.
+- To see a menu of available actions, right-click the **Jobs** node or right-click any of the nodes that appear in the expanded view.
 
-- Pour afficher la liste des tâches planifiées, développez le nœud **Tâches**, puis cliquez sur **Planifiée**. La liste des tâches précédemment configurées et des informations relatives à chaque tâche s’affiche dans le volet **Résultats**.
+- To see a list of scheduled jobs, expand the **Jobs** node, and then click **Scheduled**. The list of previously configured jobs and information about each job appears in the **Results** pane. 
 
-- Pour afficher la liste des tâches effectuées récemment, développez le nœud **Tâches**, puis cliquez sur **Ces dernières 24 heures**. Une liste de tâches qui ont été effectuées dans les 24 dernières heures s’affiche dans le volet **Résultats**. Le volet **Résultats** contient également des informations sur chaque tâche terminée.
+- To see a list of recently completed jobs, expand the **Jobs** node, and then click **Last 24 Hours**. A list of jobs that were completed in the last 24 hours appears in the **Results** pane. The **Results** pane also contains information about each completed job.
 
-- Pour afficher une liste des tâches en cours d’exécution, développez le nœud **Tâches**, puis cliquez sur **En cours d’exécution**. La liste des tâches en cours et des informations sur chaque tâche s’affichent dans le volet **Résultats**.
+- To see a list of jobs that are currently running, expand the **Jobs** node, and then click **Running**. The list of currently running jobs and information about each job appears in the **Results** pane.
 
-## Volet Résultats
+## <a name="results-pane"></a>Results pane
 
-Le volet **Résultats** est le volet central de l’interface utilisateur du Gestionnaire d’instantanés StorSimple. Il contient des listes et des informations d’état détaillées sur le nœud sélectionné dans le volet **Étendue**.
+The **Results** pane is the center pane in the StorSimple Snapshot Manager UI. It contains lists and detailed status information for the node you selected in the **Scope** pane.
 
-### Exemple
+### <a name="example"></a>Example
 
-Pour voir l’exemple suivant, cliquez sur le nœud **Groupes de volumes** dans le volet **Étendue**. Le volet **Résultats** affiche une liste des groupes de volumes contenant des détails sur chaque groupe.
+To see the following example, click the **Volume Groups** node in the **Scope** pane. The **Results** pane displays a list of volume groups with details about each group.
 
-![Volet Résultats](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png)
+![Results pane](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
 
-Vous pouvez configurer les détails affichés dans le volet **Résultats** : cliquez avec le bouton droit sur un nœud du volet **Étendue**, cliquez sur **Affichage**, puis sur **Ajout/Suppression de colonnes**.
+You can configure the details shown in the **Results** pane: right-click a node in the **Scope** pane, click **View**, and then click **Add/Remove Columns**.
 
-## Volet Actions
+## <a name="actions-pane"></a>Actions pane
 
-Le volet **Actions**volet est le volet droit de l’interface du Gestionnaire d’instantanés StorSimple. Il contient un menu d’opérations que vous pouvez effectuer sur le nœud ou afficher, ou des données que vous sélectionnez dans le volet **Étendue** ou le volet **Résultats**. Le volet **Actions** contient les mêmes commandes que les menus **Action** disponibles pour les éléments dans le volet **Étendue** et le volet **Résultats**. Pour obtenir une description de chaque action, consultez le tableau dans la section de menu **Action**.
+The **Actions** pane is the right pane in the StorSimple Snapshot Manager UI. It contains a menu of operations that you can perform on the node, view, or data that you select in the **Scope** pane or **Results** pane. The **Actions** pane contains the same commands as the **Action** menus that are available for items in the **Scope** pane and **Results** pane. For a description of each action, see the table in the **Action** menu section.
 
-### Exemples
+### <a name="examples"></a>Examples
 
-Pour voir l’exemple suivant, dans le volet **Étendue**, développez le nœud **Tâches**, puis cliquez sur **Planifiée**. Le volet **Actions** affiche les actions disponibles pour le nœud **Planifiée**.
+To see the following example, in the **Scope** pane, expand the **Jobs** node and click **Scheduled**. The **Actions** pane displays the available actions for the **Scheduled** node.
 
-![Exemple de tâches planifiées dans le volet Actions](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png)
+![Actions pane scheduled jobs example](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png) 
 
-Pour afficher davantage d’options, dans le volet **Étendue**, développez le nœud **Tâches**, cliquez sur **Planifiée**, puis cliquez sur une tâche planifiée dans le volet **Résultats**. Le volet **Actions** affiche les actions disponibles pour la tâche planifiée, comme indiqué dans l’exemple suivant.
+To see more options, in the **Scope** pane, expand the **Jobs** node, click **Scheduled**, and then click a scheduled job in the **Results** pane. The **Actions** pane displays the available actions for the scheduled job, as shown in the following example.
 
-![Exemple d’actions de tâche dans le volet Actions](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+![Actions pane job actions example](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
-## Navigation et raccourcis clavier
+## <a name="keyboard-navigation-and-shortcuts"></a>Keyboard navigation and shortcuts
 
-Gestionnaire d’instantanés StorSimple active les fonctionnalités d’accessibilité du système d’exploitation Windows et la console Microsoft Management Console (MMC). Il inclut également des fonctionnalités de navigation et les raccourcis claviers spécifiques aux Gestionnaire d’instantanés StorSimple, comme décrit dans les sections suivantes.
+StorSimple Snapshot Manager enables the accessibility features of the Windows operating system and the Microsoft Management Console (MMC). It also includes some keyboard navigation features and shortcuts that are specific to the StorSimple Snapshot Manager, as described in the following sections.
  
-- [Touches de déplacement clavier](#keyboard-navigation-keys) 
-- [Touches de raccourci de la barre de menus](#menu-bar-shortcut-keys) 
-- [Touches de raccourci du volet Étendue](#scope-pane-shortcut-keys) 
+- [Keyboard navigation keys](#keyboard-navigation-keys) 
+- [Menu bar shortcut keys](#menu-bar-shortcut-keys) 
+- [Scope pane shortcut keys](#scope-pane-shortcut-keys) 
 
-### Touches de déplacement clavier
+### <a name="keyboard-navigation-keys"></a>Keyboard navigation keys
 
-Le tableau suivant décrit les touches que vous pouvez utiliser pour naviguer dans l’interface utilisateur du gestionnaire d’instantanés StorSimple.
+The following table describes the keys that you can use to navigate the StorSimple Snapshot Manager user interface. 
 
-| Touche de navigation | Action |
+| Navigation key  | Action  |
 |:----------------|:--------| 
-| Touche flèche bas | Utiliser la touche avec flèche vers le bas pour vous déplacer verticalement vers l’élément suivant d’un menu ou d’un volet. |
-| Entrez | Appuyez sur la touche entrée pour exécuter une action, puis passez à l’étape suivante. Par exemple, vous pouvez appuyer sur Entrée pour sélectionner **Suivant**, **OK** ou **Créer**, puis passer à l’étape suivante dans l’Assistant.|
-| Échap | Appuyez sur la touche ÉCHAP pour fermer un menu ou pour annuler puis fermer une page.|
-| F1 | Appuyez sur la touche F1 pour afficher la rubrique d’aide correspondant à la fenêtre active.|
-| F5 | Appuyez sur la touche F5 pour actualiser un nœud. |
-| F6 | Appuyez sur la touche F6 pour passer du volet **Étendue** au volet **Résultats**.|
-| F10 | Appuyez sur la touche F10 pour accéder à la barre de menus. |
-| Touche de flèche gauche | Utilisez la touche de direction gauche pour vous déplacer horizontalement depuis une option de la barre de menu vers l’option précédente. Lorsque vous revenez à l’élément précédent de la barre de menus, le menu d’action ou (contextuel) correspondant à l’élément précédent s’affiche. |
-| Touche de direction droite | Utilisez la touche de direction droite pour vous déplacer horizontalement d’une option de menu de la barre vers le suivant. Lorsque vous passez à l’élément suivant de la barre de menus, l’action ou le menu (contextuel) correspondant au nouvel élément s’affiche.
-| Touche de tabulation | Utilisez la touche Tab pour passer au volet de console suivant, à la sélection suivante ou à la zone de texte d’une page. |
-| Touche de direction Haut | Utilisez la touche de direction Haut pour déplacer verticalement vers l’élément précédent dans un menu ou d’un volet. |
+| Down arrow key | Use the down arrow key to move vertically to the next item in a menu or pane. |
+| Enter | Press the Enter key to complete an action and then proceed to the next step. For example, you can press Enter to select **Next**, **OK**, or **Create**, and then go to the next step in a wizard.|
+| Esc | Press the Esc key to close a menu or to cancel and close a page.|
+| F1 | Press the F1 key to view a help topic for the currently active window.|
+| F5 | Press the F5 key to refresh a node. |
+| F6 | Press the F6 key to move from the **Scope** pane to the **Results** pane.|
+| F10 | Press the F10 key to go to the menu bar. |
+| Left arrow key | Use the left arrow key to move horizontally from a menu bar option to the previous option. When you move to the previous item on the menu bar, the action (or context) menu for the previous item appears. |
+| Right arrow key | Use the right arrow key to move horizontally from one menu bar option to the next. When you move to the next item on the menu bar, the action (or context) menu for the new item appears.
+| Tab key | Use the Tab key to move to the next pane on the console or to the next selection or text box in a page. |
+| Up arrow key | Use the up arrow key to move vertically to the previous item on a menu or pane. |
 
-### Touches de raccourci de la barre de menus
+### <a name="menu-bar-shortcut-keys"></a>Menu bar shortcut keys
 
-Le tableau suivant décrit les combinaisons de touches de raccourci de la barre de menus. Lorsque vous appuyez sur les touches de raccourci et que le menu s’ouvre, vous pouvez utiliser les touches de raccourci du menu (touches soulignées dans le menu). Pour plus d’informations sur la barre de menus, accédez à la [Barre de menus](#menu-bar).
+The following table describes the shortcut key combinations for the menu bar. After you press the shortcut keys and the menu opens, you can use menu shortcut keys (the underlined keys on the menu). For more information about the menu bar, go to [Menu bar](#menu-bar).
 
-| Raccourci | Résultat | Touche de raccourci du menu | Résultat |
+| Shortcut | Result                    | Menu Shortcut Key | Result          |
 |:---------|:--------------------------|:------------------|:----------------|
-| ALT + F | Ouvre le menu **Fichier**. | N | Ouvre une nouvelle instance de console. |
-| | | O | Ouvre la page **Outils d’administration**. |
-| | | S | Enregistre la console du Gestionnaire d’instantanés StorSimple.|
-| | | A | Ouvre la page **Enregistrer sous**. |
-| | | M | Ouvre la page **Ajouter/Supprimer un composant logiciel enfichable**.|
-| | | P | Ouvre la page **Options**. |
-| | | H | Ouvre l’aide en ligne.|
-| ALT + A | Ouvre le menu **Action**.| I | Active et désactive l’option d’affichage de l’importation.|
-| | | W | Ouvre une nouvelle console de gestionnaire d’instantanés StorSimple.|
-| | | F | Met à jour la console du Gestionnaire d’instantanés StorSimple.|
-| | | L | Ouvre la page **Exporter la liste**. 
-| | | H | Ouvre l’aide en ligne.|
-| ALT + V | Ouvre le menu **Affichage**. | A | Ouvre la page **Ajout/Suppression de colonnes**. |
-| | | U | Ouvre la page **Personnalisation de l’affichage**. |
-| ALT + O | Ouvre le menu **Favoris**. | A | Ouvre la page **Ajouter aux favoris**. |
-| | | O | Ouvre la page **Organiser les favoris**.|
-| ALT + W | Ouvre le menu **Fenêtre**.| N | Ouvre une autre fenêtre de Gestionnaire d’instantanés StorSimple.|
-| | | C | Affiche toutes les fenêtres de console ouvertes en cascade.|
-| | | T | Affiche toutes les fenêtres de console ouvertes dans une grille. |
-| | | I | Réorganise les icônes sur une rangée horizontale en bas de votre écran.|
-| ALT + H | Ouvre le menu **Aide**. | H | Ouvre l’aide en ligne.|
-| | | T | Ouvre la page web Microsoft TechNet Tech Center.|
-| | | A | Ouvre la page **À propos de Microsoft Management Console**. |
+| ALT+F    | Opens the **File** menu.  | N | Opens a new console instance.   |
+|          |                           | O | Opens the **Administrative Tools** page. |
+|          |                           | S | Saves the StorSimple Snapshot Manager console.|
+|          |                           | A | Opens the **Save As** page. |
+|          |                           | M | Opens the **Add/Remove Snap-in** page.|
+|          |                           | P | Opens the **Options** page. |
+|          |                           | H | Opens online Help.|
+| ALT+A    | Opens the **Action** menu.| I | Turns the import display option on and off.|
+|          |                           | W | Opens a new StorSimple Snapshot Manager console.|
+|          |                           | F | Updates the StorSimple Snapshot Manager console.|
+|          |                           | L | Opens the **Export List** page. 
+|          |                           | H | Opens online Help.|
+| ALT+V    | Opens the **View** menu.  | A | Opens the **Add/Remove Columns** page. |
+|          |                           | U | Opens the **Customize View** page. |
+| ALT+O    | Opens the **Favorites** menu. | A | Opens the **Add to Favorites** page. |
+|          |                           | O | Opens the **Organize Favorites** page.|
+| ALT+W    | Opens the **Window** menu.| N | Opens another StorSimple Snapshot Manager window.|
+|          |                           | C | Displays all open console windows in a cascading style.|
+|          |                           | T | Displays all open console windows in a grid pattern. |
+|          |                           | I | Arranges icons in a horizontal row at the bottom of your screen.|
+| ALT+H    | Opens the **Help** menu.  | H | Opens online Help.|
+|          |                           | T | Opens the Microsoft TechNet Tech Center web page.|
+|          |                           | A | Opens the **About Microsoft Management Console** page. |
  
-### Touches de raccourci du volet Étendue
+### <a name="scope-pane-shortcut-keys"></a>Scope pane shortcut keys
 
-Les tableaux suivants montrent les combinaisons de touches de raccourci de chaque nœud dans le volet **Étendue**.
+The following tables show the shortcut key combinations for each node in the **Scope** pane. 
 
-- [Touches de raccourci du nœud Périphériques](#devices-node-shortcut-keys)
-- [Touches de raccourci du nœud Volumes](#volumes-node-shortcut-keys)
-- [Touches de raccourci du nœud Groupes de volumes](#volume-groups-node-shortcut-keys)
-- [Touches de raccourci du nœud Stratégies de sauvegarde](#backup-policies-node-shortcut-keys)
-- [Touches de raccourci du nœud Catalogue de sauvegarde](#backup-catalog-node-shortcut-keys)
-- [Touches de raccourci du nœud Tâches](#jobs-node-shortcut-keys)
+- [Devices node shortcut keys](#devices-node-shortcut-keys)
+- [Volumes node shortcut keys](#volumes-node-shortcut-keys)
+- [Volume Groups node shortcut keys](#volume-groups-node-shortcut-keys)
+- [Backup Policies node shortcut keys](#backup-policies-node-shortcut-keys)
+- [Backup Catalog node shortcut keys](#backup-catalog-node-shortcut-keys)
+- [Jobs node shortcut keys](#jobs-node-shortcut-keys)
 
-#### Touches de raccourci du nœud Appareils
+#### <a name="devices-node-shortcut-keys"></a>Devices node shortcut keys
 
-| Raccourci du menu | Résultat |
+| Menu Shortcut | Result                               |
 |:--------------|:-------------------------------------|
-| C | Ouvre la page **Configurer un appareil**. |
-| D | Actualise la liste des appareils et les détails de l’appareil|
-| V | Ouvre le menu **Affichage**. |
-| W | Ouvre une nouvelle console du Gestionnaire d’instantanés StorSimple axée sur le nœud **Détails**. |
-| F | Met à jour la console du Gestionnaire d’instantanés StorSimple. |
-| L | Ouvre la page **Exporter la liste**. 
-| H | Ouvre l’aide en ligne.|
+| C             | Opens the **Configure a Device** page. |
+| D             | Refreshes the list of devices and device details.|
+| V             | Opens the **View** menu. |
+| W             | Opens a new StorSimple Snapshot Manager console focused on the **Details** node. |
+| F             | Updates the StorSimple Snapshot Manager console. |
+| L             | Opens the **Export List** page. 
+| H             | Opens online Help.|
  
 
-#### Touches de raccourci du nœud Volumes
+#### <a name="volumes-node-shortcut-keys"></a>Volumes node shortcut keys
 
-| Raccourci du menu | Résultat |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| V | Met à jour la liste des volumes. |
-| V (appuyer deux fois) | Ouvre le menu **Affichage**. |
-| W | Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Volumes**.|
-| F | Met à jour la console du Gestionnaire d’instantanés StorSimple.|
-| L | Ouvre la page **Exporter la liste**. 
-| H | Ouvre l’aide en ligne.|
+| V               | Updates the list of volumes.        |
+| V (press twice) | Opens the **View** menu.            |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volumes** node.|
+| F               | Updates the StorSimple Snapshot Manager console.|
+| L               | Opens the **Export List** page. 
+| H               | Opens online Help.|
  
-#### Touches de raccourci du nœud Groupes de volumes
+#### <a name="volume-groups-node-shortcut-keys"></a>Volume Groups node shortcut keys
 
-| Raccourci du menu | Résultat |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| G | Ouvre la page **Créer un groupe de volumes**. |
-| V | Ouvre le menu **Affichage**. |
-| W | Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes**.|
-| F | Met à jour la console du Gestionnaire d’instantanés StorSimple. |
-| L | Ouvre la page **Exporter la liste**. |
-| H | Ouvre l’aide en ligne.|
+| G               | Opens the **Create a Volume Group** page. |
+| V               | Opens the **View** menu. |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node.|
+| F               | Updates the StorSimple Snapshot Manager console. |
+| L               | Opens the **Export List** page. |
+| H               | Opens online Help.|
 
-#### Touches de raccourci du nœud Stratégies de sauvegarde
+#### <a name="backup-policies-node-shortcut-keys"></a>Backup Policies node shortcut keys
 
-| Raccourci du menu | Résultat |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| B | Ouvre la page **Créer une stratégie**. |
-| V | Ouvre le menu **Affichage**. |
-| W | Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes**.|
-| F | Met à jour la console du Gestionnaire d’instantanés StorSimple.|
-| L | Ouvre la page **Exporter la liste**. 
-| H | Ouvre l’aide en ligne.|
+| B               | Opens the **Create a Policy** page. |
+| V               | Opens the **View** menu.            |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node.|
+| F               | Updates the StorSimple Snapshot Manager console.|
+| L               | Opens the **Export List **page. 
+| H               | Opens online Help.|
  
-#### Touches de raccourci du nœud Catalogue de sauvegarde
+#### <a name="backup-catalog-node-shortcut-keys"></a>Backup Catalog node shortcut keys
 
-| Raccourci du menu | Résultat |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| W | Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes**. |
-| F | Met à jour la console du Gestionnaire d’instantanés StorSimple. |
-| H | Ouvre l’aide en ligne.|
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node. |
+| F               | Updates the StorSimple Snapshot Manager console. |
+| H               | Opens online Help.|
  
-#### Touches de raccourci du nœud Tâches
+#### <a name="jobs-node-shortcut-keys"></a>Jobs node shortcut keys
 
-| Raccourci du menu | Résultat |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| V | Ouvre le menu **Affichage**. |
-| W | Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Tâches**.|
-| F | Met à jour la console du Gestionnaire d’instantanés StorSimple.|
-| L | Ouvre la page **Exporter la liste**. |
-| H | Ouvre l’Aide en ligne |
+| V               | Opens the **View** menu.            |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Jobs** node.|
+| F               | Updates the StorSimple Snapshot Manager console.|
+| L               | Opens the **Export List** page.     |
+| H               | Opens online Help                   |
  
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
-- Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter à des appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to connect and manage devices](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

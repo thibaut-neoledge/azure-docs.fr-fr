@@ -1,64 +1,69 @@
 <properties
-	pageTitle="Azure B2C Active Directory : clients de mise à l’échelle pour production/clients B2C de la version préliminaire | Microsoft Azure"
-	description="Une rubrique sur les types de clients Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Production-scale vs. preview B2C tenants | Microsoft Azure"
+    description="A topic on the types of Azure Active Directory B2C tenants"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/30/2016"
+    ms.author="swkrish"/>
 
-# Azure B2C Active Directory : clients de mise à l’échelle pour production/clients B2C de la version préliminaire
 
-Si vous envisagez d’écrire une application de production sur Azure Active Directory (Azure AD) B2C, vous devez être certain d’avoir le type de client approprié sur lequel travailler. Pour savoir ce que vous avez, suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure et regardez dans **Type de client**.
+# <a name="azure-active-directory-b2c:-production-scale-vs.-preview-b2c-tenants"></a>Azure Active Directory B2C: Production-scale vs. preview B2C tenants
 
-## Résumé
+If you are planning to write a production app on Azure Active Directory (Azure AD) B2C, you'll need to be certain that you have the right tenant "type" to go live on. To see what you have, follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal and look under **Tenant type**.
 
-Azure AD B2C prend en charge les applications de production UNIQUEMENT sur les clients B2C **de mise à l’échelle pour production** en Amérique du Nord.
+## <a name="summary"></a>Summary
 
-| Type de client | Pays/régions | Disponible ? |
+Azure AD B2C supports production apps ONLY on **Production-scale** B2C tenants in North America.
+
+| Tenant type | Countries/regions | Generally-available? |
 | ----------- | -------------- | --------------------- |
-| **Client de mise à l’échelle pour production** | Pays/régions d’Amérique du Nord | Oui |
-| **Client de mise à l’échelle pour production** | Tous les pays/régions, à l’exception de l’Amérique du Nord | Non |
-| **Client de la version préliminaire** | Tous les pays/régions | Non |
+| **Production-scale tenant** | North American countries/regions | Yes |
+| **Production-scale tenant** | All countries/regions except North America | No |
+| **Preview tenant** | All countries/regions | No |
 
 > [AZURE.NOTE]
-Les clients Azure AD B2C (pour les consommateurs) sont actuellement indisponibles dans certains pays ou régions où les clients Azure AD (pour les employés) sont disponibles. Lisez les sections suivantes pour plus de détails.
+Azure AD B2C tenants (for consumers) are currently unavailable in a few countries or regions where Azure AD tenants (for employees) are available. Read the following sections for more details.
 
-## Client B2C de mise à l’échelle pour production en Amérique du Nord
+## <a name="production-scale-b2c-tenant-in-north-america"></a>Production-scale B2C tenant in North America
 
-Si vous [avez créé votre client B2C](active-directory-b2c-get-started.md) en Amérique du Nord, c’est-à-dire dans l’un des pays ou l’une des régions ci-après : États-Unis, Canada, Costa Rica, République dominicaine, El Salvador, Guatemala, Mexique, Panama, Porto Rico et Trinité-et-Tobago ET que le **type de client** sur votre interface utilisateur d’administrateur B2C indique **Mise à l’échelle pour production**, votre client peut être utilisé pour les applications de production.
+If you [created your B2C tenant](active-directory-b2c-get-started.md) in North America, i.e., in one of the following countries or regions: United States, Canada, Costa Rica, Dominican Republic, El Salvador, Guatemala, Mexico, Panama, Puerto Rico and Trinidad & Tobago, AND the **Tenant type** on your B2C Admin UI says **Production-scale**, your tenant can be used for production apps.
 
 > [AZURE.NOTE]
-Les clients de mise à l’échelle pour production sont capables de mettre à l’échelle des centaines de millions d’identités de consommateurs par client.
+Production-scale tenants are capable of scaling to 100s of millions of consumer identities per tenant.
 
-![Capture d’écran d’un client de mise à l’échelle pour production](./media/active-directory-b2c-reference-tenant-type/production-scale-b2c-tenant.png)
+![Screen shot of a production-scale tenant](./media/active-directory-b2c-reference-tenant-type/production-scale-b2c-tenant.png)
 
-## Client B2C de la version préliminaire dans un pays/région
+## <a name="preview-b2c-tenant-in-any-country/region"></a>Preview B2C tenant in any country/region
 
-Si vous avez créé un client B2C pendant la période d’évaluation d’Azure AD B2C, il est probable que votre **type de client** indique **Client de la version préliminaire**. Si c’est le cas, vous DEVEZ utiliser votre client uniquement à des fins de développement et de test, mais PAS pour les applications de production.
+If you had created a B2C tenant during Azure AD B2C's preview period, it is likely that your **Tenant type** says **Preview tenant**. If this is the case, you MUST use your tenant only for development and testing purposes, and NOT for production apps.
 
 > [AZURE.IMPORTANT]
-Il n’existe aucun chemin de migration à partir d’un client B2C de la version préliminaire vers un client B2C de mise à l’échelle pour production. Notez qu’il existe des problèmes connus liés à la suppression d’un client B2C en version préliminaire et à la recréation d’un client B2C de mise à l’échelle pour production portant le même nom de domaine. Vous devez créer un client B2C de mise à l’échelle pour production portant un nom de domaine différent.
+There is no migration path from a preview B2C tenant to a production-scale B2C tenant. Note that there are known issues when you delete a preview B2C tenant and re-create a production-scale B2C tenant with the same domain name. You have to create a production-scale B2C tenant with a different domain name.
 
-![Capture d’écran d’un client de la version préliminaire](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![Screen shot of a preview tenant](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
 
-## Client B2C de mise à l’échelle pour production en dehors de l’Amérique du Nord
+## <a name="production-scale-b2c-tenant-outside-of-north-america"></a>Production-scale B2C tenant outside of North America
 
-Azure AD B2C n’est généralement PAS disponible en dehors de l’Amérique du Nord. Toutefois vous pouvez créer et utiliser des clients de mise à l’échelle pour production, à des fins de développement et de test dans l’un des pays ou régions suivants : Algérie, Autriche, Azerbaïdjan, Bahreïn, Biélorussie, Belgique, Bulgarie, Croatie, Chypre, République tchèque, Danemark, Égypte, Estonie, Finlande, France, Allemagne, Grèce, Hongrie, Islande, Irlande, Israël, Italie, Jordanie, Kazakhstan, Kenya, Koweït, Lettonie, Liban, Liechtenstein, Lituanie, Luxembourg, Macédoine, Malte, Monténégro, Maroc, Pays-Bas, Nigeria, Norvège , Oman, Pakistan, Pologne, Portugal, Qatar, Roumanie, Russie, Arabie saoudite, Serbie, Slovaquie, Slovénie, Afrique du Sud, Espagne, Suède, Suisse, Tunisie, Turquie, Ukraine, Émirats Arabes Unis et Royaume-Uni.
+Azure AD B2C is currently NOT generally-available outside of North America. However you can create and use production-scale tenants, for development and testing purposes, in one of the following countries or regions: Algeria, Austria, Azerbaijan, Bahrain, Belarus, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Egypt, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Israel, Italy, Jordan, Kazakhstan, Kenya, Kuwait, Lativa, Lebanon, Liechtenstein, Lituania, Luxembourg, Macedonia FYRO, Malta, Montenegro, Morocco, Netherlands, Nigeria, Norway, Oman, Pakistan, Poland, Portugal, Qatar, Romania, Russia, Saudi Arabia, Serbia, Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Tunisia, Turkey, Ukraine, United Arab Emirates and United Kingdom.
 
-Dès l’annonce de la disponibilité mondiale d’Azure AD B2C dans les pays ou régions ci-dessus, vous pouvez continuer à utiliser ces clients de mise à l’échelle pour production et à mettre en service vos applications de production sans perte de données.
+Once Azure AD B2C announces general availability in above countries or regions, you can continue to use these production-scale tenants and go-live with your production apps without any data loss.
 
-## Disponibilité des clients B2C
+## <a name="availability-of-b2c-tenants"></a>Availability of B2C tenants
 
-Les clients B2C sont actuellement indisponibles dans les pays ou régions suivants : Afghanistan, Argentine, Australie, Brésil, Chili, Colombie, Équateur, RAS de Hong Kong, Inde, Indonésie, Irak, Japon, Corée, Malaisie, Nouvelle-Zélande, Paraguay, Pérou, Philippines, Singapour, Sri Lanka, Taïwan, Thaïlande, Uruguay et Venezuela. Nous prévoyons de les inclure dans le futur.
+B2C tenants are currently unavailable in the following countries or regions: Afghanistan, Argentina, Australia, Brazil, Chile, Colombia, Ecuador, Hong Kong SAR, India, Indonesia, Iraq, Japan, Korea, Malaysia, New Zealand, Paraguay, Peru, Philippines, Singapore, Sri Lanka, Taiwan, Thailand, Uruguay and Venezuela. We plan to include them in the future.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

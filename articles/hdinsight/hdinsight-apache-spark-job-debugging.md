@@ -1,149 +1,154 @@
 <properties 
-	pageTitle="Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight | Microsoft Azure" 
-	description="Utilisez l’interface utilisateur YARN, l’interface utilisateur Spark et le serveur d’historique Spark pour suivre et déboguer les tâches en cours d’exécution sur un cluster Spark dans Azure HDInsight" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="jhubbard" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Track and debug jobs running on Apache Spark cluster in HDInsight | Microsoft Azure" 
+    description="Use YARN UI, Spark UI, and Spark History server to track and debug jobs running on a Spark cluster in Azure HDInsight" 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="nitinme" 
+    manager="jhubbard" 
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="nitinme"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/25/2016" 
+    ms.author="nitinme"/>
 
-# Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight Linux
 
-Dans cet article, vous allez apprendre à effectuer le suivi et à déboguer les tâches Spark à l’aide de l’interface utilisateur YARN, de l’interface utilisateur Spark et du serveur d’historique Spark. Nous allons lancer un travail Spark à partir d’un bloc-notes disponible avec le cluster Spark, **Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib**. Vous pouvez utiliser les étapes ci-dessous pour effectuer le suivi d’une application que vous avez envoyée selon une autre méthode, par exemple, **spark-submit**.
+# <a name="track-and-debug-jobs-running-on-apache-spark-cluster-in-hdinsight-linux"></a>Track and debug jobs running on Apache Spark cluster in HDInsight Linux
 
-##Composants requis
+In this article you will learn how to track and debug Spark jobs using the YARN UI, Spark UI, and the Spark History Server. For this article, we will start a Spark job using a notebook available with the Spark cluster, **Machine learning: Predictive analysis on food inspection data using MLLib**. You can use the steps below to track an application that you submitted using any other approach as well, for example, **spark-submit**.
 
-Vous devez disposer des éléments suivants :
+##<a name="prerequisites"></a>Prerequisites
 
-- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Créer des clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-- Vous devez normalement avoir commencé à exécuter le bloc-notes, **[Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. Pour obtenir des instructions sur l’exécution de ce bloc-notes, suivez le lien.
+You must have the following:
 
-## Effectuer le suivi d’une application dans l’interface utilisateur YARN
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+- You should have started running the notebook, **[Machine learning: Predictive analysis on food inspection data using MLLib](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. For instructions on how to run this notebook, follow the link.  
 
-1. Lancez l’interface utilisateur YARN. Dans le panneau du cluster, cliquez sur **Tableau de bord du cluster**, puis sur **YARN**.
+## <a name="track-an-application-in-the-yarn-ui"></a>Track an application in the YARN UI
 
-	![Lancer l’interface utilisateur Yarn](./media/hdinsight-apache-spark-job-debugging/launch-yarn-ui.png)
+1. Launch the YARN UI. From the cluster blade, click **Cluster Dashboard**, and then click **YARN**.
 
-	>[AZURE.TIP] Vous pouvez également lancer l’interface utilisateur de YARN à partir de celle d’Ambari. Pour lancer l’interface utilisateur d’Ambari, dans le panneau du cluster, cliquez sur **Tableau de bord du cluster**, puis sur **Tableau de bord de cluster HDInsight**. À partir de l’interface utilisateur d’Ambari, cliquez successivement sur **YARN**, **Quick Links (Liens rapides)**, le gestionnaire de ressources actif et **ResourceManager UI (IU de ResourceManager)**.
+    ![Launch YARN UI](./media/hdinsight-apache-spark-job-debugging/launch-yarn-ui.png)
 
-3. Étant donné que vous avez démarré le travail Spark à l’aide des blocs-notes Jupyter, l’application porte le nom **remotesparkmagics** (nom de toutes les applications démarrées à partir du bloc-notes). Cliquez sur l’ID d’application en regard du nom de l’application pour obtenir plus d’informations sur le travail. Cette action lance la vue de l’application.
+    >[AZURE.TIP] Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active resource manager, and then click **ResourceManager UI**.  
 
-	![Rechercher l’ID d’application Spark](./media/hdinsight-apache-spark-job-debugging/find-application-id.png)
+3. Because you started the Spark job using Jupyter notebooks, the application has the name **remotesparkmagics** (this is the name for all applications that are started from the notebooks). Click the application ID against the application name to get more information about the job. This launches the application view.
 
-	Pour les applications lancées à partir des bloc-notes Jupyter, l’état est toujours **EN COURS D’EXÉCUTION** tant que vous ne fermez pas le bloc-notes.
+    ![Find Spark application ID](./media/hdinsight-apache-spark-job-debugging/find-application-id.png)
 
-4. Dans la vue de l’application, vous pouvez descendre pour rechercher les conteneurs associés à l’application et aux journaux (stdout/stderr). Vous pouvez également lancer l’interface utilisateur Spark en cliquant sur le lien qui correspond à l’**URL de suivi**, comme indiqué ci-dessous.
+    For such applications that are launched from the Jupyter notebooks, the status is always **RUNNING** until you exit the notebook.
 
-	![Télécharger les journaux de conteneur](./media/hdinsight-apache-spark-job-debugging/download-container-logs.png)
+4. From the application view, you can drill down further to find out the containers associated with the application and the logs (stdout/stderr). You can also launch the Spark UI by clicking the linking corresponding to the **Tracking URL**, as shown below. 
 
-## Effectuer le suivi d’une application dans l’interface utilisateur Spark
+    ![Download container logs](./media/hdinsight-apache-spark-job-debugging/download-container-logs.png)
 
-Dans l’interface utilisateur Spark, vous pouvez explorer les travaux Spark générés par l’application que vous avez démarrée précédemment.
+## <a name="track-an-application-in-the-spark-ui"></a>Track an application in the Spark UI
 
-1. Pour lancer l’interface utilisateur Spark, dans la vue de l’application, cliquez sur le lien **URL de suivi**, comme illustré dans la capture d’écran ci-dessus. Vous pouvez y voir tous les travaux Spark lancés par l’application en cours d’exécution dans le bloc-notes Jupyter.
+In the Spark UI, you can drill down into the Spark jobs that are spawned by the application you started earlier.
 
-	![Afficher les travaux Spark](./media/hdinsight-apache-spark-job-debugging/view-spark-jobs.png)
+1. To launch the Spark UI, from the application view, click the link against the **Tracking URL**, as shown in the screen capture above. You can see all the Spark jobs that are launched by the application running in the Jupyter notebook.
 
-2. Cliquez sur l’onglet **Exécuteurs** pour consulter les informations de traitement et de stockage pour chaque exécuteur. Vous pouvez également récupérer la pile des appels en cliquant sur le lien **Thread Dump**.
+    ![View Spark jobs](./media/hdinsight-apache-spark-job-debugging/view-spark-jobs.png)
 
-	![Afficher les exécuteurs Spark](./media/hdinsight-apache-spark-job-debugging/view-spark-executors.png)
+2. Click the **Executors** tab to see processing and storage information for each executor. You can also retrieve the call stack by clicking on the **Thread Dump** link.
+
+    ![View Spark executors](./media/hdinsight-apache-spark-job-debugging/view-spark-executors.png)
  
-3. Cliquez sur l’onglet **Étapes** pour consulter les étapes de l’application.
+3. Click the **Stages** tab to see the stages associated with the application.
 
-	![Afficher les étapes Spark](./media/hdinsight-apache-spark-job-debugging/view-spark-stages.png)
+    ![View Spark stages](./media/hdinsight-apache-spark-job-debugging/view-spark-stages.png)
 
-	Chaque étape peut comporter plusieurs tâches dont vous pouvez afficher les statistiques d’exécution, comme illustré ci-dessous.
+    Each stage can have multiple tasks for which you can view execution statistics, like shown below.
 
-	![Afficher les étapes Spark](./media/hdinsight-apache-spark-job-debugging/view-spark-stages-details.png)
+    ![View Spark stages](./media/hdinsight-apache-spark-job-debugging/view-spark-stages-details.png) 
 
-4. Dans la page de détails de l’étape, vous pouvez lancer la visualisation DAG. Développez le lien **DAG Visualization** (Visualisation DAG) situé en haut de la page, comme indiqué ci-dessous.
+4. From the stage details page, you can launch DAG Visualization. Expand the **DAG Visualization** link at the top of the page, as shown below.
 
-	![Afficher la visualisation DAG des étapes Spark](./media/hdinsight-apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
+    ![View Spark stages DAG visualization](./media/hdinsight-apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
 
-	Le graphique DAG (Direct Aclyic Graph) représente les différentes étapes de l’application. Chaque rectangle bleu dans le graphique représente une opération Spark appelée à partir de l’application.
+    DAG or Direct Aclyic Graph represents the different stages in the application. Each blue box in the graph represents a Spark operation invoked from the application.
 
-5. Dans la page de détails de l’étape, vous pouvez également lancer la vue Chronologie de l’application. Développez le lien **Event Timeline** (Chronologie de l’événement) situé en haut de la page, comme indiqué ci-dessous.
+5. From the stage details page, you can also launch the application timeline view. Expand the **Event Timeline** link at the top of the page, as shown below.
 
-	![Afficher la chronologie d’événement des étapes Spark](./media/hdinsight-apache-spark-job-debugging/view-spark-stages-event-timeline.png)
+    ![View Spark stages event timeline](./media/hdinsight-apache-spark-job-debugging/view-spark-stages-event-timeline.png)
 
-	Vous obtenez les événements Spark sous la forme d’une chronologie. La vue chronologie est disponible sur trois niveaux : entre différents travaux, dans un travail et dans une étape. L’image ci-dessus capture la vue chronologie pour une étape donnée.
+    This displays the Spark events in the form of a timeline. The timeline view is available at three levels, across jobs, within a job, and within a stage. The image above captures the timeline view for a given stage.
 
-	>[AZURE.TIP] Si vous cochez la case **Activer le zoom**, vous pouvez faire défiler la vue chronologie vers la gauche et vers la droite.
+    >[AZURE.TIP] If you select the **Enable zooming** check box, you can scroll left and right across the timeline view.
 
-6. Les autres onglets de l’interface utilisateur Spark fournissent également des informations utiles sur l’instance Spark.
+6. Other tabs in the Spark UI provide useful information about the Spark instance as well.
 
-	* Onglet Stockage : si votre application crée des RDD, vous trouverez des informations à ce sujet sous l’onglet Stockage.
-	* Onglet Environnement : cet onglet fournit de nombreuses informations utiles concernant votre instance Spark, par exemple :
-		* version de Scala ;
-		* répertoire du journal des événements associé au cluster ;
-		* nombre de cœurs d’exécuteur de l’application ;
-		* etc.
+    * Storage tab - If your application creates an RDDs, you can find information about those in the Storage tab.
+    * Environment tab - This tab provides a lot of useful information about your Spark instance such as the 
+        * Scala version
+        * Event log directory associated with the cluster
+        * Number of executor cores for the application
+        * Etc.
 
-## Rechercher des informations sur les tâches terminées à l’aide du serveur d’historique Spark
+## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Find information about completed jobs using the Spark History Server
 
-Une fois qu’un travail est terminé, les informations concernant ce travail sont conservées dans le serveur d’historique Spark.
+Once a job is completed, the information about the job is persisted in the Spark History Server.
 
-1. Pour lancer le serveur d’historique Spark, dans le panneau du cluster, cliquez sur **Tableau de bord du cluster**, puis cliquez sur **Serveur d’historique Spark**.
+1. To launch the Spark History Server, from the cluster blade, click **Cluster Dashboard**, and then click **Spark History Server**.
 
-	![Lancer le serveur d’historique Spark](./media/hdinsight-apache-spark-job-debugging/launch-spark-history-server.png)
+    ![Launch Spark History Server](./media/hdinsight-apache-spark-job-debugging/launch-spark-history-server.png)
 
-	>[AZURE.TIP] Vous pouvez également lancer l’interface utilisateur du serveur d’historique Spark à partir de celle d’Ambari. Pour lancer l’interface utilisateur d’Ambari, dans le panneau du cluster, cliquez sur **Tableau de bord du cluster**, puis sur **Tableau de bord de cluster HDInsight**. À partir de l’interface utilisateur Ambari, cliquez sur **Spark**, **Liens rapides**, puis cliquez sur **Spark History Server UI** (Interface utilisateur du serveur d’historique Spark).
+    >[AZURE.TIP] Alternatively, you can also launch the Spark History Server UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **Spark**, click **Quick Links**, and then click **Spark History Server UI**.
 
-2. Les applications terminées s’affichent dans une liste. Cliquez sur un ID d’application pour obtenir plus d’informations sur l’application.
+2. You will see all the completed applications listed. Click an application ID to drill down into an application for more info.
 
-	![Lancer le serveur d’historique Spark](./media/hdinsight-apache-spark-job-debugging/view-completed-applications.png)
-	
+    ![Launch Spark History Server](./media/hdinsight-apache-spark-job-debugging/view-completed-applications.png)
+    
 
-## <a name="seealso"></a>Voir aussi
+## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
 
 
-* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### Scénarios
+### <a name="scenarios"></a>Scenarios
 
-* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### Créer et exécuter des applications
+### <a name="create-and-run-applications"></a>Create and run applications
 
-* [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Outils et extensions
+### <a name="tools-and-extensions"></a>Tools and extensions
 
-* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-* [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Gestion des ressources
+### <a name="manage-resources"></a>Manage resources
 
-* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

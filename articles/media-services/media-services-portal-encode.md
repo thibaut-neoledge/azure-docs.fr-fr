@@ -1,62 +1,69 @@
 <properties
-	pageTitle="Encoder un élément multimédia à l’aide de Media Encoder Standard avec le Portail Azure | Microsoft Azure"
-	description="Ce didacticiel vous guide à travers les étapes d’encodage d’un élément multimédia à l’aide de Media Encoder Standard avec le Portail Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Encode an asset using Media Encoder Standard with the Azure portal | Microsoft Azure"
+    description="This tutorial walks you through the steps of encoding an asset using Media Encoder Standard with the Azure portal."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/29/2016"
+    ms.author="juliako"/>
 
 
-# Encoder un élément multimédia à l’aide de Media Encoder Standard avec le Portail Azure
 
-> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+# <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>Encode an asset using Media Encoder Standard with the Azure portal
 
-Lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement). Pour préparer vos vidéos au streaming à débit adaptatif, vous devez encoder votre vidéo source en fichiers à débit binaire multiple. Vous devez utiliser **Media Encoder Standard** pour encoder vos vidéos.
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-Media Services fournit également l’empaquetage dynamique qui vous permet de distribuer des fichiers MP4 à débit binaire multiple dans les formats MPEG DASH, HLS, Smooth Streaming ou HDS, sans avoir à recréer de nouveaux packages dans ces formats. Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
+When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). To prepare your videos for adaptive bitrate streaming, you need to encode your source video into multi-bitrate files. You should use the **Media Encoder Standard** encoder to encode your videos.  
 
-Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
+Media Services also provides dynamic packaging which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to re-package into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
 
-- Encoder votre fichier source dans un ensemble de fichiers MP4 à débit binaire multiple (les étapes de codage sont décrites plus loin dans cette section).
-- Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez la section [Configuration des points de terminaison de diffusion en continu](media-services-portal-vod-get-started.md#configure-streaming-endpoints).
+To take advantage of dynamic packaging, you need to do the following:
 
-Pour mettre à l’échelle le traitement multimédia, consultez [cette](media-services-portal-scale-media-processing.md) rubrique.
+- Encode your source file into a set of multi-bitrate MP4 files (the encoding steps are demonstrated later in this section).
+- Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [configuring streaming endpoints](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
 
-## Encoder à l’aide du Portail Azure
+To scale media processing, see [this](media-services-portal-scale-media-processing.md) topic.
 
-Cette section décrit les étapes à suivre pour encoder votre contenu avec Media Encoder Standard.
+## <a name="encode-with-the-azure-portal"></a>Encode with the Azure portal
 
-1.  Dans la fenêtre **Paramètres**, sélectionnez **Éléments multimédias**.
-2.  Dans la fenêtre **Éléments multimédias**, sélectionnez l’élément que vous souhaitez encoder.
-3.  Appuyez sur le bouton **Encoder**.
-4.  Dans la fenêtre **Encode an asset** (Encoder un élément multimédia), sélectionnez le processeur Media Encoder Standard et choisissez une présélection. Par exemple, si vous savez que votre vidéo d’entrée possède une résolution de 1920 x 1080 pixels, vous pouvez utiliser la présélection « H264 Multiple Bitrate 1080p ». Pour plus d’informations sur les présélections, consultez [cet article](https://msdn.microsoft.com/library/azure/mt269960.aspx). Il est important de choisir la présélection qui convient le mieux à votre vidéo. Si vous avez une vidéo de basse résolution (640 x 360), il est préférable de ne pas utiliser la présélection par défaut « H264 Multiple Bitrate1080p ».
-	
-	Pour des questions pratiques, vous avez la possibilité de modifier le nom de l’élément multimédia de sortie ainsi que le nom de la tâche.
-		
-	![Encoder des éléments multimédias](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Appuyez sur **Créer**.
+This section describes the steps you can take to encode your content with Media Encoder Standard.
+
+1.  In the **Settings** window, select **Assets**.  
+2.  In the **Assets** window, select the asset that you would like to encode.
+3.  Press the **Encode** button.
+4.  In the **Encode an asset** window, select the "Media Encoder Standard" processor and a preset. For example, if you know your input video has a resolution of 1920x1080 pixels, then you could use the "H264 Multiple Bitrate 1080p" preset. For more information about presets, see [this](https://msdn.microsoft.com/library/azure/mt269960.aspx) article – it is important to select the preset that is most appropriate for your input video. If you have a low resolution (640x360) video, then you should not be using the default "H264 Multiple Bitrate 1080p" preset.
+    
+    For easier management, you have an option of editing the name of the output asset, and the name of the job.
+        
+    ![Encode assets](./media/media-services-portal-vod-get-started/media-services-encode1.png)
+5. Press **Create**.
 
 
-##Étape suivante
+##<a name="next-step"></a>Next step
 
-Vous pouvez surveiller la progression du travail d’encodage avec le Portail Azure, comme le décrit [cet](media-services-portal-check-job-progress.md) article.
+You can monitor encoding job progress with the Azure portal, as described in [this](media-services-portal-check-job-progress.md) article.  
 
-##Parcours d’apprentissage de Media Services
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fournir des commentaires
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

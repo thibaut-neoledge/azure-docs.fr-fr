@@ -16,7 +16,8 @@
    ms.date="09/21/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
-# Restauration d’un Azure SQL Data Warehouse (Portail)
+
+# <a name="restore-an-azure-sql-data-warehouse-(portal)"></a>Restauration d’un Azure SQL Data Warehouse (Portail)
 
 > [AZURE.SELECTOR]
 - [Vue d'ensemble][]
@@ -26,17 +27,17 @@
 
 Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse à l’aide du portail Azure.
 
-## Avant de commencer
+## <a name="before-you-begin"></a>Avant de commencer
 
-**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Avant de pouvoir restaurer un SQL Data Warehouse, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change][] \(Demander une modification du quota DTU).
+**Vérifiez votre capacité de DTU.**  Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Avant de pouvoir restaurer un SQL Data Warehouse, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change][](Demander une modification du quota DTU).
 
 
-## Restauration d’une base de données active ou en pause
+## <a name="restore-an-active-or-paused-database"></a>Restauration d’une base de données active ou en pause
 
 Pour restaurer une base de données :
 
-1. Connectez-vous au [portail Azure][].
-2. Sur le côté gauche de l’écran, sélectionnez l’option **Parcourir**, puis choisissez **Serveurs SQL Server**.
+1. Connectez-vous au [portail Azure][]
+2. Sur le côté gauche de l’écran, sélectionnez **Parcourir**, puis choisissez **Serveurs SQL Server**.
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
     
@@ -47,28 +48,28 @@ Pour restaurer une base de données :
 4. Rechercher l’entrepôt SQL Data Warehouse à partir duquel effectuer la restauration et sélectionnez-le.
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
-5. En haut du panneau de l’entrepôt de données, cliquez sur **Restaurer**.
+5. En haut du panneau de l’entrepôt de données, cliquez sur **Restaurer**
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
 
-6. Spécifiez un nouveau **nom pour la base de données**.
-7. Sélectionnez le dernier **point de restauration**.
-    1. Assurez-vous de sélectionner le dernier point de restauration. Étant donné que les points de restauration sont affichés au format UTC, parfois, l’option par défaut affichée n’est pas le dernier point de restauration.
+6. Spécifiez un nouveau **nom pour la base de données**
+7. Sélectionnez le dernier **point de restauration**
+    1. Assurez-vous de sélectionner le dernier point de restauration.  Étant donné que les points de restauration sont affichés au format UTC, parfois, l’option par défaut affichée n’est pas le dernier point de restauration.
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
 
 8. Cliquez sur **OK**
-9. Le processus de restauration de la base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**.
+9. Le processus de restauration de la base de données commence. Vous pouvez le surveiller dans **NOTIFICATIONS**.
 
 >[AZURE.NOTE] Une fois la restauration terminée, vous pouvez configurer votre base de données restaurée en suivant les instructions de la section [Configurer votre base de données après récupération][].
 
 
-## restauration d’une base de données supprimée.
+## <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée.
 
 Pour restaurer une base de données supprimée :
 
-1. Connectez-vous au [portail Azure][].
-2. Sur le côté gauche de l’écran, sélectionnez l’option **Parcourir**, puis choisissez **Serveurs SQL Server**.
+1. Connectez-vous au [portail Azure][]
+2. Sur le côté gauche de l’écran, sélectionnez **Parcourir**, puis choisissez **Serveurs SQL Server**.
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 
@@ -77,7 +78,7 @@ Pour restaurer une base de données supprimée :
     ![](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
 
 4. Faites défiler jusqu’à la section Opérations dans le panneau de votre serveur.
-5. Cliquez sur la vignette **Bases de données supprimées**.
+5. Cliquez sur la vignette **Bases de données supprimées** .
     
     ![](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
 
@@ -85,22 +86,22 @@ Pour restaurer une base de données supprimée :
     
     ![](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
 
-7. Spécifiez un nouveau **nom pour la base de données**.
+7. Spécifiez un nouveau **nom pour la base de données**
     
     ![](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
     
 8. Cliquez sur **OK**
-9. Le processus de restauration de la base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**.
+9. Le processus de restauration de la base de données commence. Vous pouvez le surveiller dans **NOTIFICATIONS**.
 
->[AZURE.NOTE] Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération][].
+>[AZURE.NOTE] Pour configurer votre base de données une fois la restauration terminée, consultez la page [Configurer votre base de données après récupération][]. 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
+[vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ./sql-database-business-continuity.md
 [Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
 [Portail]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
@@ -115,4 +116,8 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 <!--Other Web references-->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

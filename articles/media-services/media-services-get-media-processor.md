@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="Création d'un processeur multimédia | Microsoft Azure" 
-	description="Apprenez à créer un composant processeur multimédia pour encoder, chiffrer ou déchiffrer un contenu multimédia, ou convertir son format pour Azure Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Création d'un processeur multimédia | Microsoft Azure" 
+    description="Apprenez à créer un composant processeur multimédia pour encoder, chiffrer ou déchiffrer un contenu multimédia, ou convertir son format pour Azure Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016" 
+    ms.author="juliako"/>
 
 
-#Obtention d’une instance de processeur multimédia
+
+#<a name="how-to:-get-a-media-processor-instance"></a>Obtention d’une instance de processeur multimédia
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-get-media-processor.md)
 - [REST](media-services-rest-get-media-processor.md)
 
 
-##Vue d'ensemble
+##<a name="overview"></a>Vue d'ensemble
 
 Dans Media Services, un processeur multimédia est un composant qui gère une tâche de traitement spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Le plus souvent, vous devez créer un processeur multimédia lorsque vous créez une tâche visant à encoder, à chiffrer ou à convertir le format du contenu multimédia.
 
@@ -41,32 +42,38 @@ Storage Decryption| Amorti|
 Azure Media Packager|Amorti|
 Azure Media Encryptor|Amorti|
 
-##Obtention d'un processeur multimédia
+##<a name="get-media-processor"></a>Obtention d'un processeur multimédia
 
-La méthode suivante montre comment obtenir une instance de processeur multimédia. L’exemple de code implique l’utilisation d’une variable au niveau du module, nommée **\_context**, pour conserver une référence au contexte, tel que décrit dans la section [Procédure : se connecter à Media Services par programme](media-services-dotnet-connect-programmatically.md).
+La méthode suivante montre comment obtenir une instance de processeur multimédia. L’exemple de code implique l’utilisation d’une variable au niveau du module, nommée **_context**, pour conserver une référence au contexte, tel que décrit dans la section [Comment : se connecter à Media Services par programmation](media-services-dotnet-connect-programmatically.md).
 
-	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-	{
-		var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-		ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-		
-		if (processor == null)
-		throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-		
-		return processor;
-	}
+    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+        
+        if (processor == null)
+        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+        
+        return processor;
+    }
 
 
-##Parcours d’apprentissage de Media Services
+##<a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fournir des commentaires
+##<a name="provide-feedback"></a>Fournir des commentaires
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Étapes suivantes
+##<a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous savez comment obtenir une instance de processeur multimédia, consultez la rubrique [Encodage d’un élément multimédia](media-services-dotnet-encode-with-media-encoder-standard.md) pour savoir comment utiliser Media Encoder Standard afin d’encoder un élément multimédia.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

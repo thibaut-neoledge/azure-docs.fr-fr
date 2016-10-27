@@ -1,26 +1,28 @@
 <properties
-	pageTitle="Prise en main d’Azure Mobile Engagement pour le déploiement de l’application Unity pour Android"
-	description="Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications Push pour les applications Unity déployées sur des appareils iOS."
-	services="mobile-engagement"
-	documentationCenter="unity"
-	authors="piyushjo"
-	manager=""
-	editor="" />
+    pageTitle="Prise en main d’Azure Mobile Engagement pour le déploiement de l’application Unity pour Android"
+    description="Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications Push pour les applications Unity déployées sur des appareils iOS."
+    services="mobile-engagement"
+    documentationCenter="unity"
+    authors="piyushjo"
+    manager=""
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-unity-android"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-unity-android"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="08/19/2016"
+    ms.author="piyushjo" />
 
-# Prise en main d’Azure Mobile Engagement pour le déploiement de l’application Unity pour Android
 
-[AZURE.INCLUDE [Sélecteur de didacticiel Hero](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+# <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Prise en main d’Azure Mobile Engagement pour le déploiement de l’application Unity pour Android
 
-Cette rubrique montre comment utiliser Azure Mobile Engagement pour comprendre l’utilisation de votre application et envoyer des notifications Push à des utilisateurs segmentés d’une application Unity lors de son déploiement sur un appareil Android. Ce didacticiel utilise le didacticiel classique Unity Roll-a-Ball comme point de départ. Vous devez suivre la procédure décrite dans ce [didacticiel](mobile-engagement-unity-roll-a-ball.md) avant de procéder à l’intégration de Mobile Engagement que nous présentons dans le didacticiel ci-après.
+[AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+
+Cette rubrique montre comment utiliser Azure Mobile Engagement pour comprendre l’utilisation de votre application et envoyer des notifications Push à des utilisateurs segmentés d’une application Unity lors de son déploiement sur un appareil Android.
+Ce didacticiel utilise le didacticiel classique Unity Roll-a-Ball comme point de départ. Vous devez suivre la procédure décrite dans ce [didacticiel](mobile-engagement-unity-roll-a-ball.md) avant de procéder à l’intégration de Mobile Engagement que nous présentons dans le didacticiel ci-après. 
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -28,115 +30,115 @@ Ce didacticiel requiert les éléments suivants :
 + [Kit de développement logiciel (SDK) Mobile Engagement pour Unity](https://aka.ms/azmeunitysdk)
 + Kit de développement logiciel (SDK) pour Google Android
 
-> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Essai gratuit d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
 
-##<a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application Android
+##<a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application Android
 
-[AZURE.INCLUDE [Création d’application Mobile Engagement dans le portail](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-##<a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
+##<a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
 
-###Importer le package Unity
+###<a name="import-the-unity-package"></a>Importer le package Unity
 
-1. Téléchargez le [package Unity pour Mobile Engagement](https://aka.ms/azmeunitysdk) et enregistrez-le sur votre ordinateur local.
+1. Téléchargez le [package Unity pour Mobile Engagement](https://aka.ms/azmeunitysdk) et enregistrez-le sur votre ordinateur local. 
 
-2. Accédez à **Assets -> Import Package -> Custom Package** et sélectionnez le package que vous avez téléchargé à l’étape précédente.
+2. Accédez à **Assets -> Import Package -> Custom Package** (Ressources -> Importer le package -> Package personnalisé) et sélectionnez le package que vous avez téléchargé à l’étape précédente. 
 
-	![][70]
+    ![][70] 
 
-3. Vérifiez que tous les fichiers sont sélectionnés, puis cliquez sur le bouton **Import**.
+3. Vérifiez que tous les fichiers sont sélectionnés, puis cliquez sur le bouton **Import** . 
 
-	![][71]
+    ![][71] 
 
-4. Une fois l’importation effectuée, les fichiers du Kit de développement logiciel (SDK) importé dans votre projet s’affichent.
+4. Une fois l’importation effectuée, les fichiers du Kit de développement logiciel (SDK) importé dans votre projet s’affichent.  
 
-	![][72]
+    ![][72] 
 
-###Mettre à jour le fichier EngagementConfiguration
+###<a name="update-the-engagementconfiguration"></a>Mettre à jour le fichier EngagementConfiguration
 
-1. Ouvrez le fichier de script **EngagementConfiguration** contenu dans le dossier SDK et mettez à jour la chaîne **ANDROID\_CONNECTION\_STRING** en la remplaçant par la chaîne de connexion obtenue plus tôt à partir du portail Azure.
+1. Ouvrez le fichier de script **EngagementConfiguration** contenu dans le dossier SDK et mettez à jour la chaîne **ANDROID\_CONNECTION\_STRING** en la remplaçant par la chaîne de connexion obtenue plus tôt à partir du portail Azure.  
 
-	![][73]
+    ![][73]
 
-2. Enregistrez le fichier.
+2. Enregistrez le fichier. 
 
-3. Exécutez **File -> Engagement -> Generate Android Manifest**. Il s’agit du plug-in ajouté par le Kit de développement logiciel (SDK) Mobile Engagement. Cliquez dessus pour mettre à jour automatiquement les paramètres du projet.
+3. Exécutez **File -> Engagement -> Generate Android Manifest** (Fichier -> Engagement -> Générer le manifeste Android). Il s’agit du plug-in ajouté par le Kit de développement logiciel (SDK) Mobile Engagement. Cliquez dessus pour mettre à jour automatiquement les paramètres du projet. 
 
-	![][74]
+    ![][74]
 
-> [AZURE.IMPORTANT] Veillez à exécuter cette procédure à chaque mise à jour du fichier **EngagementConfiguration**, faute de quoi vos modifications ne seront pas prises en compte dans l’application.
+> [AZURE.IMPORTANT] Veillez à exécuter cette procédure à chaque mise à jour du fichier **EngagementConfiguration** , faute de quoi vos modifications ne seront pas prises en compte dans l’application. 
 
-###Configurer l’application pour un suivi de base
+###<a name="configure-the-app-for-basic-tracking"></a>Configurer l’application pour un suivi de base
 
-1. Ouvrez le script **PlayerController** joint à l’objet Player pour le modifier.
+1. Ouvrez le script **PlayerController** joint à l’objet Player pour le modifier. 
 
 2. Ajoutez les instructions using suivantes :
 
-		using Microsoft.Azure.Engagement.Unity;
+        using Microsoft.Azure.Engagement.Unity;
 
 3. Ajoutez ce qui suit à la méthode `Start()` :
     
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-###Déployer et exécuter l’application
-Vérifiez que le Kit de développement logiciel (SDK) Android est installé sur votre ordinateur avant d’essayer de déployer l’application Unity sur votre appareil.
+###<a name="deploy-and-run-the-app"></a>Déployer et exécuter l’application
+Vérifiez que le Kit de développement logiciel (SDK) Android est installé sur votre ordinateur avant d’essayer de déployer l’application Unity sur votre appareil. 
 
-1. Connectez un appareil Android à votre ordinateur.
+1. Connectez un appareil Android à votre ordinateur. 
 
-2. Accédez à **File -> Build Settings**.
+2. Accédez à **File -> Build Settings** (Fichier -> Paramètres de build). 
 
-	![][40]
+    ![][40]
 
-3. Sélectionnez **Android**, puis cliquez sur **Switch Platform**.
+3. Sélectionnez **Android** (Android), puis cliquez sur **Switch Platform** (Changer de plateforme).
 
-	![][51]
+    ![][51]
 
-	![][52]
+    ![][52]
 
-4. Cliquez sur **Player settings** et indiquez un identificateur Bundle Identifier valide.
+4. Cliquez sur **Player settings** et indiquez un identificateur Bundle Identifier valide. 
 
-	![][53]
+    ![][53]
 
-5. Pour finir, cliquez sur **Build And Run**.
+5. Pour finir, cliquez sur **Build And Run**
 
-	![][54]
+    ![][54]
 
-6. Vous pouvez être invité à fournir un nom de dossier pour y stocker le package Android.
+6. Vous pouvez être invité à fournir un nom de dossier pour y stocker le package Android. 
 
-7. Si tout se passe bien, le package doit être déployé sur votre appareil connecté, et votre jeu Unity doit apparaître sur votre téléphone.
+7. Si tout se passe bien, le package doit être déployé sur votre appareil connecté, et votre jeu Unity doit apparaître sur votre téléphone. 
 
-##<a id="monitor"></a>Connexion d’application avec l’analyse en temps réel
+##<a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Connexion d’application avec l’analyse en temps réel
 
-[AZURE.INCLUDE [Connexion d’application avec l’analyse en temps réel](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Activation des notifications Push et de la messagerie in-app
+##<a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Activation des notifications Push et de la messagerie in-app
 
-[AZURE.INCLUDE [Activer Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-###Mettre à jour le fichier EngagementConfiguration
+###<a name="update-the-engagementconfiguration"></a>Mettre à jour le fichier EngagementConfiguration
 
-1. Ouvrez le fichier de script **EngagementConfiguration** contenu dans le dossier SDK et mettez à jour la chaîne **ANDROID\_GOOGLE\_NUMBER** en la remplaçant par le numéro **Google Project Number** obtenu plus tôt à partir du portail Google Cloud Developer. Comme il s’agit d’une chaîne de valeur, veillez à l’insérer entre des guillemets.
+1. Ouvrez le fichier de script **EngagementConfiguration** contenu dans le dossier SDK et mettez à jour la chaîne **ANDROID\_GOOGLE\_NUMBER** en la remplaçant par le numéro **Google Project Number** obtenu plus tôt à partir du portail Google Cloud Developer. Comme il s’agit d’une chaîne de valeur, veillez à l’insérer entre des guillemets. 
 
-	![][75]
+    ![][75]
 
-2. Enregistrez le fichier .
+2. Enregistrez le fichier. 
 
-3. Exécutez **File -> Engagement -> Generate Android Manifest**. Il s’agit du plug-in ajouté par le Kit de développement logiciel (SDK) Mobile Engagement. Cliquez dessus pour mettre à jour automatiquement les paramètres du projet.
+3. Exécutez **File -> Engagement -> Generate Android Manifest** (Fichier -> Engagement -> Générer le manifeste Android). Il s’agit du plug-in ajouté par le Kit de développement logiciel (SDK) Mobile Engagement. Cliquez dessus pour mettre à jour automatiquement les paramètres du projet. 
 
-	![][74]
+    ![][74]
 
-###Configurer l’application pour recevoir des notifications
+###<a name="configure-the-app-to-receive-notifications"></a>Configurer l’application pour recevoir des notifications
 
-1. Ouvrez le script **PlayerController** joint à l’objet Player pour le modifier.
+1. Ouvrez le script **PlayerController** joint à l’objet Player pour le modifier. 
 
 2. Ajoutez ce qui suit à la méthode `Start()` :
 
-		EngagementReachAgent.Initialize();
+        EngagementReachAgent.Initialize();
 
-3. À présent que l’application est mise à jour, déployez et exécutez l’application sur un appareil conformément aux instructions ci-dessous.
+3. À présent que l’application est mise à jour, déployez et exécutez l’application sur un appareil conformément aux instructions ci-dessous. 
 
-[AZURE.INCLUDE [Envoyer des notifications à partir du portail](../../includes/mobile-engagement-android-send-push-from-portal.md)]
+[AZURE.INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
 <!-- Images -->
 [40]: ./media/mobile-engagement-unity-android-get-started/40.png
@@ -151,4 +153,8 @@ Vérifiez que le Kit de développement logiciel (SDK) Android est installé sur 
 [53]: ./media/mobile-engagement-unity-android-get-started/53.png
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,42 +1,43 @@
 <properties
-	pageTitle="Application de stratégies aux machines virtuelles Azure Resource Manager | Microsoft Azure"
-	description="Comment appliquer une stratégie à une machine virtuelle Azure Resource Manager Linux"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="singhkays"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Apply policies to Azure Resource Manager Virtual Machines | Microsoft Azure"
+    description="How to apply a policy to an Azure Resource Manager Linux Virtual Machine"
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="singhkays"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/13/2016"
-	ms.author="singhkay"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="04/13/2016"
+    ms.author="singhkay"/>
 
-# Application de stratégies aux machines virtuelles Azure Resource Manager
 
-Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous allons décrire comment utiliser les stratégies d'Azure Resource Manager pour définir le comportement souhaité pour les machines virtuelles de votre organisation.
+# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Apply policies to Azure Resource Manager Virtual Machines
 
-Les grandes lignes des étapes sont présentées ci-dessous.
+By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we will describe how you can use Azure Resource Manager policies to define the desired behavior for your organization’s Virtual Machines.
 
-1. Introduction aux stratégies Azure Resource Manager
-2. Définition d’une stratégie pour votre machine virtuelle
-3. Création de la stratégie
-4. Application de la stratégie
+The outline for the steps to accomplish this is as below
 
-## Introduction aux stratégies Azure Resource Manager
+1. Azure Resource Manager Policy 101
+2. Define a policy for your Virtual Machine
+3. Create the policy
+4. Apply the policy
 
-Pour débuter avec les stratégies Azure Resource Manager, nous vous conseillons de lire l’article ci-dessous et de continuer avec les étapes de cet article. L'article ci-dessous décrit la définition de base et la structure d'une stratégie, la façon dont les stratégies sont évaluées, et divers exemples de définitions de stratégie.
+## <a name="azure-resource-manager-policy-101"></a>Azure Resource Manager Policy 101
 
-* [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](../resource-manager-policy.md)
+For getting started with Azure Resource Manager policies, we recommend reading the article below and then continuing with the steps in this article. The article below describes the basic definition and structure of a policy, how policies get evaluated and gives various examples of policy definitions.
 
-## Définition d’une stratégie pour votre machine virtuelle
+* [Use Policy to manage resources and control access](../resource-manager-policy.md)
 
-L'un des scénarios courants pour une entreprise peut consister à autoriser uniquement les utilisateurs à créer des machines virtuelles à partir de systèmes d'exploitation spécifiques dont la compatibilité avec une application métier a été vérifiée. À l'aide d'une stratégie Azure Resource Manager, cette tâche peut être accomplie en quelques étapes. Dans cet exemple de stratégie, nous allons autoriser uniquement la création de machines virtuelles Ubuntu 14.04.2-LTS. La définition de stratégie se présente comme suit
+## <a name="define-a-policy-for-your-virtual-machine"></a>Define a policy for your Virtual Machine
+
+One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps. In this policy example, we are going to allow only Ubuntu 14.04.2-LTS Virtual Machines to be created. The policy definition looks like below
 
 ```
 "if": {
@@ -70,7 +71,7 @@ L'un des scénarios courants pour une entreprise peut consister à autoriser uni
 }
 ```
 
-La stratégie ci-dessus peut facilement être modifiée pour un scénario dans lequel vous souhaitez autoriser l’utilisation de n'importe quelle image Ubuntu LTS pour un déploiement de machines virtuelles avec les modifications ci-dessous
+The above policy can easily be modified to a scenario where you might want to allow any Ubuntu LTS image to be used for a Virtual Machine deployment with the below change
 
 ```
 {
@@ -79,31 +80,35 @@ La stratégie ci-dessus peut facilement être modifiée pour un scénario dans l
 }
 ```
 
-#### Champs de propriété de la machine virtuelle
+#### <a name="virtual-machine-property-fields"></a>Virtual Machine Property Fields
 
-Le tableau ci-dessous décrit les propriétés de machine virtuelle qui peuvent être utilisées en tant que champs dans votre définition de stratégie. Pour plus d'informations sur les champs de stratégie, consultez l'article ci-dessous :
+The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more on policy fields, see the article below:
 
-* [Champs et sources](../resource-manager-policy.md#fields-and-sources)
+* [Fields and Sources](../resource-manager-policy.md#fields-and-sources)
 
 
-| Nom du champ | Description |
+| Field Name     | Description                                        |
 |----------------|----------------------------------------------------|
-| imagePublisher | Spécifie l’éditeur de l'image |
-| imageOffer | Spécifie l'offre pour l'éditeur d'image sélectionné |
-| imageSku | Spécifie le SKU de l’offre choisie |
-| imageVersion | Spécifie la version de l’image du SKU choisi |
+| imagePublisher | Specifies the publisher of the image               |
+| imageOffer     | Specifies the offer for the chosen image publisher |
+| imageSku       | Specifies the SKU for the chosen offer             |
+| imageVersion   | Specifies the image version for the chosen SKU     |
 
-## Création de la stratégie
+## <a name="create-the-policy"></a>Create the Policy
 
-Une stratégie peut facilement être créée directement à l'aide de l'API REST ou avec des applets de commande PowerShell. Pour créer la stratégie, consultez l'article ci-dessous :
+A policy can easily be created using the REST API directly or the PowerShell cmdlets. For creating the policy, see the article below:
 
-* [Création d’une stratégie](../resource-manager-policy.md#creating-a-policy)
+* [Creating a Policy](../resource-manager-policy.md#creating-a-policy)
 
 
-## Application de la stratégie
+## <a name="apply-the-policy"></a>Apply the Policy
 
-Après avoir créé la stratégie, vous devez l’appliquer sur une étendue définie. L’étendue peut être appliquée à un abonnement, à un groupe de ressources ou même à une ressource. Pour appliquer la stratégie, consultez l'article ci-dessous :
+After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. For applying the policy, see the article below:
 
-* [Création d’une stratégie](../resource-manager-policy.md#applying-a-policy)
+* [Creating a Policy](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

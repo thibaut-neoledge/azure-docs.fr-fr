@@ -1,49 +1,55 @@
 <properties
-	pageTitle="Que sont les jeux de mise à l’échelle de machine virtuelle ? | Microsoft Azure"
-	description="En savoir plus sur les jeux de mise à l’échelle de machine virtuelle."
-	keywords="machine virtuelle linux, jeux de mise à l’échelle de machine virtuelle" 
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="gatneil"
-	manager="madhana"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+    pageTitle="What are VM scale sets? | Microsoft Azure"
+    description="Learn about VM scale sets."
+    keywords="linux virtual machine,virtual machine scale sets" 
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="gatneil"
+    manager="madhana"
+    editor="tysonn"
+    tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machine-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/24/2016"
-	ms.author="gatneil"/>
+    ms.service="virtual-machine-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/24/2016"
+    ms.author="gatneil"/>
 
-# Que sont les jeux de mise à l’échelle de machine virtuelle ?
 
-Les jeux de mise à l’échelle de machine virtuelle vous permettent de gérer plusieurs machines virtuelles sous forme d’un ensemble. À un niveau élevé, les jeux de mise à l’échelle ont les avantages et inconvénients suivants :
+# <a name="what-are-virtual-machine-scale-sets?"></a>What are virtual machine scale sets?
 
-Avantages :
+Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
 
-1. Haute disponibilité : Chaque jeu de mise à l’échelle place ses machines virtuelles dans un groupe à haute disponibilité avec 5 domaines d’erreur et 5 domaines de mise à jour pour garantir la disponibilité (pour plus d’informations sur les domaines d’erreur et les domaines de mise à jour, consultez la rubrique sur la [disponibilité des machines virtuelles](./virtual-machines-linux-manage-availability.md)). 
-2. Intégration facile dans l’équilibreur de charge Azure et App Gateway.
-3. Intégration facile dans Azure Autoscale.
-4. Déploiement, gestion et nettoyage de machines virtuelles simplifiés.
-5. Prise en charge des versions courantes de Windows et Linux, ainsi que d’images personnalisées.
+Pros:
 
-Inconvénients :
+1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](./virtual-machines-linux-manage-availability.md)). 
+2. Easy integration with Azure Load Balancer and App Gateway.
+3. Easy integration with Azure Autoscale.
+4. Simplified deployment, management, and clean up of VMs.
+5. Support common Windows and Linux flavors, as well as custom images.
 
-1. Impossible d’attacher des disques de données à des instances de machine virtuelle dans un jeu de mise à l’échelle. Au lieu de cela, vous devez utiliser le stockage d’objets Blob (Blob Storage), des fichiers Azure, des tables Azure ou une autre solution de stockage.
+Cons:
 
-## Création rapide de machines virtuelles à l’aide de l’interface de ligne de commande
+1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
+
+## <a name="quick-create-using-azure-cli"></a>Quick-create using Azure CLI
 
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Pour plus d’informations, consultez la [page d’accueil principale pour les jeux de mise à l’échelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-Pour rechercher de la documentation, consultez la [page de documentation principale pour les jeux de mise à l’échelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+For more documentation, check out the [main documentation page for scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
-Pour les modèles Resource Manager utilisant des jeux de mise à l’échelle, recherchez « vmss » dans le [dépôt Github de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
+For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,28 +1,33 @@
 <properties
-	pageTitle="Identité Azure | Microsoft Azure"
-	description="Découvrez l’utilisation d’Active Directory dans Azure."
-	services="active-directory"
-	documentationCenter=".net"
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Identité Azure | Microsoft Azure"
+    description="Découvrez l’utilisation d’Azure Active Directory."
+    services="active-directory"
+    documentationCenter=".net"
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/20/2016"
-	ms.author="curtand"/>
-
-
-# Principes de base de la gestion des identités Azure
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="curtand"/>
 
 
 
+# <a name="the-fundamentals-of-azure-identity-management"></a>Principes de base de la gestion des identités Azure
 
 
-[AZURE.INCLUDE [identité](../../includes/identity.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+[AZURE.INCLUDE [identity](../../includes/identity.md)]
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

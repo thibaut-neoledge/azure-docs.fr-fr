@@ -1,91 +1,96 @@
 <properties
-	pageTitle="Ajouter des utilisateurs à partir d’autres répertoires ou entreprises partenaires dans Azure Active Directory | Microsoft Azure"
-	description="Explique comment ajouter des utilisateurs ou modifier les informations utilisateur dans Azure Active Directory, y compris celles des utilisateurs externes et invités."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Add users from other directories or partner companies in Azure Active Directory | Microsoft Azure"
+    description="Explains how to add users or change user information in Azure Active Directory, including external and guest users."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/22/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
-# Ajouter des utilisateurs à partir d’autres répertoires ou entreprises partenaires dans Azure Active Directory
+
+# <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Add users from other directories or partner companies in Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Portail Azure](active-directory-users-create-external-azure-portal.md)
-- [Portail Azure Classic](active-directory-create-users-external.md)
+- [Azure portal](active-directory-users-create-external-azure-portal.md)
+- [Azure classic portal](active-directory-create-users-external.md)
 
-Cet article explique comment ajouter des utilisateurs à partir d’autres répertoires dans Azure Active Directory, ou comment ajouter des utilisateurs d’entreprises partenaires. Pour en savoir plus sur l’ajout de nouveaux utilisateurs dans votre organisation, et en particulier l’ajout d’utilisateurs disposant de comptes Microsoft, voir [Ajout ou modification d’utilisateurs dans Azure Active Directory](active-directory-create-users.md). Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez leur attribuer des rôles à tout moment.
+This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
 
-## Ajouter un utilisateur
+## <a name="add-a-user"></a>Add a user
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) en utilisant un compte d’administrateur général pour le répertoire.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) with an account that's a global admin for the directory.
 
-2. Sélectionnez **Active Directory**, puis ouvrez votre répertoire.
+2. Select **Active Directory**, and then open your directory.
 
-3. Sélectionnez l’onglet **Utilisateurs** et, dans la barre de commandes, sélectionnez **Ajouter un utilisateur**.
+3. Select the **Users** tab, and then, in the command bar, select **Add User**.
 
-4. Sur la page **Dites-nous en plus sur cet utilisateur**, sous **Type d’utilisateur**, sélectionnez l’une des options suivantes :
+4. On the **Tell us about this user** page, under **Type of user**, select either:
 
-	- **Utilisateur dans un autre annuaire Azure AD** : permet d’ajouter un compte d’utilisateur à votre répertoire, en provenance d’un autre répertoire Azure AD. Vous pouvez sélectionner un utilisateur dans un autre répertoire uniquement si vous êtes également membre de ce répertoire.
-	- **Utilisateurs dans les entreprises partenaires** : permet d’inviter et d’autoriser les utilisateurs des entreprises partenaires dans votre répertoire (voir [Collaboration B2B Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md)). Vous devrez [télécharger un fichier CSV spécifiant des adresses e-mail](active-directory-b2b-references-csv-file-format.md).
+    - **User in another Azure AD directory** – adds a user account to your directory that's sourced from another Azure AD directory. You can select a user in another directory only if you're also a member of that directory.
+    - **Users in partner companies** - to invite and authorize partner company users to your directory (See [Azure Active Directory B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)). You'll need to [upload a CSV file specifying email addresses](active-directory-b2b-references-csv-file-format.md).
 
-6. Sur la page **Profil** de l’utilisateur, entrez les nom et prénom de l’utilisateur, un nom convivial et un rôle d’utilisateur, à partir de la liste **Rôles**. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md). Indiquez si vous voulez choisir l’option **Activer l’authentification multifacteur** pour cet utilisateur.
+6. On the user **Profile** page, provide a first and last name, a user-friendly name, and a user role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md). Specify whether to **Enable Multi-Factor Authentication** for the user.
 
-7. Sur la page **Obtenir un mot de passe temporaire**, sélectionnez **Créer**.
+7. On the **Get temporary password** page, select **Create**.
 
-> [AZURE.IMPORTANT] Si votre organisation utilise plusieurs domaines, vous devez avoir connaissance des problèmes suivants lorsque vous ajoutez un compte d’utilisateur :
+> [AZURE.IMPORTANT] If your organization uses more than one domain, you should know about the following issues when you add a user account:
 >
-> - Pour ajouter des comptes d’utilisateurs avec le même nom d’utilisateur principal (UPN) sur plusieurs domaines, ajoutez **d’abord** geoffgrisso@contoso.onmicrosoft.com, par exemple, **suivi de** geoffgrisso@contoso.com.
-> - **N’ajoutez pas** geoffgrisso@contoso.com avant d’avoir indiqué geoffgrisso@contoso.onmicrosoft.com. Il est important de respecter cet ordre et il peut être difficile de revenir en arrière.
+> - TO add user accounts with the same user principal name (UPN) across domains, **first** add, for example, geoffgrisso@contoso.onmicrosoft.com, **followed by** geoffgrisso@contoso.com.
+> - **Don't** add geoffgrisso@contoso.com before you add geoffgrisso@contoso.onmicrosoft.com. This order is important, and can be cumbersome to undo.
 
-Si vous modifiez les informations d’un utilisateur dont l’identité est synchronisée avec votre service Active Directory local, vous ne pouvez pas modifier les informations utilisateur dans le portail Azure Classic. Pour modifier les informations d’un utilisateur, servez-vous de vos outils de gestion Active Directory locaux.
+If you change information for a user whose identity is synchronized with your on-premises Active Directory service, you can't change the user information in the Azure classic portal. To change the user information, use your on-premises Active Directory management tools.
 
-## Ajouter des utilisateurs externes
+## <a name="add-external-users"></a>Add external users
 
-Vous pouvez également ajouter des utilisateurs à partir d’un autre répertoire Azure AD auquel vous appartenez ou à partir d’entreprises partenaires en téléchargeant un fichier CSV. Pour ajouter un utilisateur externe, indiquez **Utilisateur dans un autre annuaire Microsoft Azure AD** ou **Utilisateurs dans les entreprises partenaires** pour **Type d’utilisateur**.
+You can also add users from another Azure AD directory to which you belong, or from partner companies by uploading a CSV file. To add an external user, for **Type of User**, specify **User in another Microsoft Azure AD directory** or **Users in partner companies**.
 
-Les deux types d’utilisateurs proviennent d’un autre répertoire et sont ajoutés en tant **qu’utilisateurs externes**. Les utilisateurs externes peuvent collaborer avec d’autres utilisateurs dans un répertoire sans qu’il y ait besoin d’ajouter de nouveaux comptes et informations d’identification. Quand ils se connectent, les utilisateurs externes sont authentifiés par leur répertoire de base, et cette authentification fonctionne pour tout autre répertoire dans lequel ils ont été ajoutés.
+Users of either type are sourced from another directory and are added as **external users**. External users can collaborate with other users in a directory without any requirement to add new accounts and credentials. External users authenticate with their home directory when they sign in, and that authentication works for any other directories to which they have been added.
 
-## Gestion des utilisateurs externes et limitations
+## <a name="external-user-management-and-limitations"></a>External user management and limitations
 
-Lorsque vous ajoutez à votre annuaire un utilisateur provenant d’un autre annuaire, cet utilisateur est ajouté à votre annuaire en tant qu’utilisateur externe. Le nom d’affichage et le nom d’utilisateur sont copiés à partir de son répertoire de base et utilisés pour l’utilisateur externe dans votre répertoire. Dès lors, les propriétés du compte d’utilisateur externe sont entièrement indépendantes. Si des modifications sont apportées aux propriétés de l’utilisateur dans son répertoire de base, ces modifications ne seront pas appliquées au compte d’utilisateur externe dans votre répertoire.
+When you add a user from another directory to your directory, that user is an external user in your directory. The display name and user name are copied from their home directory and used for the external user in your directory. From then on, properties of the external user account are entirely independent. If property changes are made to the user in their home directory, those changes aren't propagated to the external user account in your directory.
 
-Le seul lien entre les deux comptes est que l’utilisateur s’authentifie toujours auprès de l’annuaire de base ou à l’aide de son compte Microsoft. C’est pourquoi l’option de réinitialisation du mot de passe ou de l’activation de l’authentification multifacteur ne s’affiche pas pour un utilisateur externe. Actuellement, la stratégie d’authentification du répertoire de base ou du compte Microsoft est la seule qui est évaluée lorsque l’utilisateur se connecte.
+The only linkage between the two accounts is that the user always authenticates against their home directory or with their Microsoft account. That's why you don't see an option to reset the password or enable multi-factor authentication for an external user. Currently, the authentication policy of the home directory or Microsoft account is the only one that's evaluated when the user signs in.
 
 > [AZURE.NOTE]
-Vous pouvez quand même désactiver l’utilisateur externe dans le répertoire, ce qui l’empêche d’accéder à votre répertoire.
+> You can still disable the external user in the directory, which blocks access to your directory.
 
-Si un utilisateur est supprimé de son annuaire de base ou s’il annule son compte Microsoft, l’utilisateur externe existe toujours dans votre annuaire. Cependant, l’utilisateur de votre répertoire ne peut pas accéder aux ressources étant donné qu’il ne peut pas s’authentifier avec son répertoire de base ni à l’aide de son compte Microsoft.
+If a user is deleted in their home directory or they cancel their Microsoft account, the external user still exists in your directory. However, the user in your directory can't access resources because they can't authenticate with a home directory or Microsoft account.
 
-### Services auxquels peuvent avoir accès les utilisateurs externes Azure AD
+### <a name="services-that-currently-support-access-by-azure-ad-external-users"></a>Services that currently support access by Azure AD external users
 
-- **Portail Azure Classic** : permet aux utilisateurs externes administrant plusieurs répertoires de gérer chacun d’entre eux.
-- **SharePoint Online** : si le partage externe est activé, permet aux utilisateurs externes d’accéder aux ressources SharePoint Online autorisées.
-- **Dynamics CRM** : permet aux utilisateurs externes d’accéder aux ressources Dynamics CRM autorisées, s’ils sont sous licence via PowerShell.
-- **Dynamics AX** : permet aux utilisateurs externes d’accéder aux ressources Dynamics AX autorisées s’ils sont sous licence via PowerShell. Les limitations relatives aux [utilisateurs externes Azure AD](#known-limitations-of-azure-ad-external-users) s’appliquent également aux utilisateurs externes dans Dynamics AX.
+- **Azure classic portal**: allows an external user who's an administrator of multiple directories to manage each of those directories.
+- **SharePoint Online**: if external sharing is enabled, allows an external user to access SharePoint Online authorized resources.
+- **Dynamics CRM**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics CRM.
+- **Dynamics AX**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics AX. The limitations for [Azure AD external users](#known-limitations-of-azure-ad-external-users) apply to external users in Dynamics AX as well.
 
-### Limitations connues des utilisateurs externes d’Azure AD
+### <a name="known-limitations-of-azure-ad-external-users"></a>Known limitations of Azure AD external users
 
-- Les utilisateurs externes qui sont administrateurs ne peuvent pas ajouter d’utilisateurs issus d’entreprises partenaires à des répertoires (collaboration B2B) en dehors de leur répertoire de base
-- Les utilisateurs externes ne peuvent pas donner leur consentement aux applications mutualisées dans des répertoires en dehors de leur répertoire de base
-- Pour l’instant, les utilisateurs externes ne peuvent pas accéder à PowerBI
-- Les utilisateurs externes ne peuvent pas avoir de licences pour le portail Office
-- En ce qui concerne Azure AD PowerShell, les utilisateurs externes sont connectés à leur annuaire de base et ne peuvent pas gérer les annuaires dans lesquels ils sont utilisateurs externes
+- External users who are admins can't add users from partner companies to directories (B2B collaboration) outside their home directory
+- External users can't consent to multi-tenant applications in directories outside of their home directory
+- PowerBI doesn't currently support access by external users
+- Office Portal doesn't support licensing external users
+- With respect to Azure AD PowerShell, external users are logged into their home directory and cannot manage directories in which they are external users
 
 
-## Étapes suivantes
+## <a name="what's-next"></a>What's next
 
-- [Ajout de nouveaux utilisateurs à Azure Active Directory](active-directory-create-users.md)
-- [Administration d’Azure AD](active-directory-administer.md)
-- [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
-- [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
+- [Add new users to Azure Active Directory](active-directory-create-users.md)
+- [Administering Azure AD](active-directory-administer.md)
+- [Manage passwords in Azure AD](active-directory-manage-passwords.md)
+- [Manage groups in Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

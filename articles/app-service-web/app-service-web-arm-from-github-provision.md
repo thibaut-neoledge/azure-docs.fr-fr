@@ -1,72 +1,74 @@
 <properties 
-	pageTitle="Déployer une application Web liée à un référentiel GitHub" 
-	description="Utiliser un modèle Azure Resource Manager pour déployer une application Web qui contient un projet issu d'un référentiel GitHub." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Deploy a web app that is linked to a GitHub repository" 
+    description="Use an Azure Resource Manager template to deploy a web app that contains a project from a GitHub repository." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="cephalin"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="04/27/2016" 
+    ms.author="cephalin"/>
 
-# Déployer une application Web liée à un référentiel GitHub
 
-Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie une application Web liée à un projet dans un référentiel GitHub. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
+# <a name="deploy-a-web-app-linked-to-a-github-repository"></a>Deploy a web app linked to a GitHub repository
 
-Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+In this topic, you will learn how to create an Azure Resource Manager template that deploys a web app that is linked to a project in a GitHub repository. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-Pour le modèle complet, consultez [Application Web liée au modèle GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+For the complete template, see [Web App Linked to GitHub template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
 
-## Ce que vous allez déployer
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
-Avec ce modèle, vous allez déployer une application Web qui contient le code d'un projet dans GitHub.
+## <a name="what-you-will-deploy"></a>What you will deploy
 
-Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+With this template, you will deploy a web app that contains the code from a project in GitHub.
 
-[![Déploiement sur Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+To run the deployment automatically, click the following button:
 
-## Paramètres
+[![Deploy to Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+
+## <a name="parameters"></a>Parameters
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
-### repoURL
+### <a name="repourl"></a>repoURL
 
-L'URL du référentiel GitHub qui contient le projet à déployer. Ce paramètre contient une valeur par défaut, mais cette valeur est uniquement destinée à vous montrer comment fournir l'URL du référentiel. Vous pouvez utiliser cette valeur lorsque vous testez le modèle, mais vous devrez fournir l'URL de votre propre référentiel lors de l'utilisation du modèle.
+The URL for GitHub repository that contains the project to deploy. This parameter contains a default value but this value is only intended to show you how to provide the URL for repository. You can use this value when testing the template but you will want to provide the URL your own repository when working with the template.
 
     "repoURL": {
         "type": "string",
         "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
     }
 
-### branche
+### <a name="branch"></a>branch
 
-La branche du référentiel à utiliser lors du déploiement de l'application. La valeur par défaut est master, mais vous pouvez fournir le nom de n'importe quelle branche dans le référentiel que vous souhaitez déployer.
+The branch of the repository to use when deploying the application. The default value is master, but you can provide the name of any branch in the repository that you wish to deploy.
 
     "branch": {
         "type": "string",
         "defaultValue": "master"
     }
     
-## Ressources à déployer
+## <a name="resources-to-deploy"></a>Resources to deploy
 
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Application web
+### <a name="web-app"></a>Web app
 
-Crée l'application Web qui est liée au projet dans GitHub.
+Creates the web app that is linked to the project in GitHub. 
 
-Vous spécifiez le nom de l'application Web par le biais du paramètre **siteName** et l'emplacement de l'application Web par le biais du paramètre **siteLocation**. Dans l'élément **dependsOn**, le modèle définit l'application Web comme dépendante du plan d'hébergement de service. Étant donné qu'elle dépend du plan d'hébergement, l'application Web n'est pas créée tant que le plan d'hébergement est en cours de création. L'élément **dependsOn** est uniquement utilisé pour spécifier l'ordre de déploiement. Si vous ne marquez pas l'application Web comme dépendante du plan d'hébergement, Azure Resource Manager tentera de créer les deux ressources en même temps et vous pourriez recevoir une erreur si l'application Web est créée avant le plan d'hébergement.
+You specify the name of the web app through the **siteName** parameter, and the location of the web app through the **siteLocation** parameter. In the **dependsOn** element, the template defines the web app as dependent on the service hosting plan. Because it is dependent on the hosting plan, the web app is not created until the hosting plan has finished being created. The **dependsOn** element is only used to specify deployment order. If you do not mark the web app as dependent on the hosting plan, Azure Resource Mananger will attempt to create both resources at the same time and you may receive an error if the web app is created before the hosting plan.
 
-L'application Web a également une ressource enfant qui est définie dans la section des **ressources** ci-dessous. Cette ressource enfant définit le contrôle de code source pour le projet déployé avec l'application Web. Dans ce modèle, le contrôle de code source est lié à un référentiel GitHub particulier. Le référentiel GitHub est défini avec le code **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** Vous pouvez coder en dur l'URL du référentiel lorsque vous souhaitez créer un modèle qui déploie de façon répétée un projet unique tout en nécessitant le nombre minimal de paramètres. Au lieu de coder en dur l'URL du référentiel, vous pouvez ajouter un paramètre pour l'URL du référentiel et utiliser cette valeur pour la propriété **RepoUrl**.
+The web app also has a child resource which is defined in **resources** section below. This child resource defines source control for the project deployed with the web app. In this template, the source control is linked to a particular GitHub repository. The GitHub repository is defined with the code **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** You might hard-code the repository URL when you want to create a template that repeatedly deploys a single project while requiring the minimum number of parameters.
+Instead of hard-coding the repository URL, you can add a parameter for the repository URL and use that value for the **RepoUrl** property.
 
     {
       "apiVersion": "2015-08-01",
@@ -96,19 +98,23 @@ L'application Web a également une ressource enfant qui est définie dans la sec
       ]
     }
 
-## Commandes pour l’exécution du déploiement
+## <a name="commands-to-run-deployment"></a>Commands to run deployment
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
-### Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

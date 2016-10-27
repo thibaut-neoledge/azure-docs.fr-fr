@@ -1,12 +1,15 @@
 
-| NIVEAU : | GRATUIT | DE BASE | STANDARD |
+| TIER: | FREE | BASIC | STANDARD |
 |----|----|----|----|
-| Notifications Push incluses | 1 million | 10 millions | 10 millions |
-| Appareils actifs | 500 | Illimité | Illimité |
-| Quota de balises par installation/inscription | 60 | 60 | 60 |
+| Included Pushes | 1 Million | 10 Million | 10 Million |
+| Active Devices | 500 | Unlimited | Unlimited |
+| Tag quota per installation/registration | 60 | 60 | 60 |
 
 
 
-Pour plus d'informations sur ces limites et sur la tarification, voir [Tarification des concentrateurs de notification](https://azure.microsoft.com/pricing/details/notification-hubs/).
+For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/). 
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

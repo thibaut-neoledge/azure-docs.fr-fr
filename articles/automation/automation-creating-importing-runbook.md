@@ -1,96 +1,97 @@
 <properties
-	pageTitle="Création ou importation d’un runbook dans Azure Automation"
-	description="Cet article explique comment créer un runbook dans Azure Automation ou comment en importer un à partir d’un fichier."
-	services="automation"
-	documentationCenter=""
-	authors="mgoedtel"
-	manager="jwhit"
-	editor="tysonn" />
+    pageTitle="Creating or importing a runbook in Azure Automation"
+    description="This article describes how to create a new runbook in Azure Automation or import one from a file."
+    services="automation"
+    documentationCenter=""
+    authors="mgoedtel"
+    manager="jwhit"
+    editor="tysonn" />
 <tags
-	ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/12/2016"
-	ms.author="magoedte;bwren" />
-
-# Création ou importation d’un runbook dans Azure Automation
-
-Vous pouvez ajouter un runbook à Azure Automation en [en créant un](#creating-a-new-runbook) ou en important un runbook existant à partir d’un fichier ou de la [galerie de runbooks](automation-runbook-gallery.md). Cet article fournit des informations sur la création et l’importation des runbooks à partir d’un fichier. Vous pouvez obtenir toutes les informations sur l’accès aux runbooks et modules communautaires dans [Galeries de runbooks et de modules pour Azure Automation](automation-runbook-gallery.md).
-
-## Création d’un runbook
-
-Vous pouvez créer un runbook dans Azure Automation à l’aide de l’un des portails Azure ou de Windows PowerShell. Une fois que le runbook a été créé, vous pouvez le modifier à l’aide des informations disponibles dans [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md) et [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
-
-### Pour créer un runbook Azure Automation avec le portail Azure Classic
-
-Vous pouvez uniquement travailler avec des [runbooks de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) dans le portail Azure.
-
-1. Dans le portail Azure Classic, cliquez sur **Nouveau**, **Services d’application**, **Automation**, **Runbook**, **Création rapide**.
-2. Entrez les informations requises, puis cliquez sur **Créer**. Le nom du runbook doit commencer par une lettre et peut contenir des lettres, des chiffres, des traits de soulignement et des tirets.
-3. Si vous souhaitez modifier le runbook maintenant, cliquez sur **Modifier le runbook**. Sinon, cliquez sur **OK**.
-4. Votre nouveau runbook apparaît sur l’onglet **Runbooks**.
+    ms.service="automation"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="09/12/2016"
+    ms.author="magoedte;bwren" />
 
 
-### Pour créer un runbook Azure Automation avec le portail Azure
+# <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Creating or importing a runbook in Azure Automation
 
-1. Dans le portail Azure, ouvrez votre compte Automation.
-2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des runbooks.
-3. Cliquez sur le bouton **Ajouter un runbook**, puis sur **Créer un runbook**.
-2. Saisissez un **Nom** pour le runbook et sélectionnez son [Type](automation-runbook-types.md). Le nom du runbook doit commencer par une lettre et peut contenir des lettres, des chiffres, des traits de soulignement et des tirets.
-3. Cliquez sur **Créer** pour créer le runbook et ouvrez l’éditeur.
+You can add a runbook to Azure Automation by either [creating a new one](#creating-a-new-runbook) or by importing an existing runbook from a file or from the [Runbook Gallery](automation-runbook-gallery.md). This article provides information on creating and importing runbooks from a file.  You can get all of the details on accessing community runbooks and modules in [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
+
+## <a name="creating-a-new-runbook"></a>Creating a new runbook
+
+You can create a new runbook in Azure Automation using one of the Azure portals or Windows PowerShell. Once the runbook has been created, you can edit it using information in [Learning PowerShell Workflow](automation-powershell-workflow.md) and [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
+
+### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-classic-portal"></a>To create a new Azure Automation runbook with the Azure Classic portal
+
+You can only work with [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks) in the Azure portal.
+
+1. In the Azure Classic portal, click, **New**, **App Services**, **Automation**, **Runbook**, **Quick Create**.
+2. Enter the required information, and then click **Create**. The runbook name must start with a letter and can have letters, numbers, underscores, and dashes.
+3. If you want to edit the runbook now, then click **Edit Runbook**. Otherwise, click **OK**.
+4. Your new runbook will appear on the **Runbooks** tab.
 
 
-### Pour créer un runbook Azure Automation avec Windows PowerShell
+### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>To create a new Azure Automation runbook with the Azure portal
 
-Vous pouvez utiliser l’applet de commande [New-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt619376.aspx) pour créer un [runbook de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) vide. Vous pouvez spécifier le paramètre **Name** pour créer un runbook vide que vous pouvez modifier ultérieurement, ou vous pouvez spécifier le paramètre **Path** pour importer un fichier de runbook. Le paramètre **Type** doit être également inclus pour spécifier l’un des quatre types de runbook.
+1. In the Azure portal, open your Automation account.
+2. Click on the **Runbooks** tile to open the list of runbooks.
+3. Click on the **Add a runbook** button and then **Create a new runbook**.
+2. Type a **Name** for the runbook and select its [Type](automation-runbook-types.md). The runbook name must start with a letter and can have letters, numbers, underscores, and dashes.
+3. Click **Create** to create the runbook and open the editor.
 
-Les exemples de commandes suivants montrent comment créer un runbook vide.
+
+### <a name="to-create-a-new-azure-automation-runbook-with-windows-powershell"></a>To create a new Azure Automation runbook with Windows PowerShell
+
+You can use the [New-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt619376.aspx) cmdlet to create an empty [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). You can either specify the **Name** parameter to create an empty runbook that you can later edit, or you can specify the **Path** parameter to import a runbook file. The **Type** parameter should also be included to specify one of the four runbook types.
+
+The following sample commands show how to create a new empty runbook.
 
     New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
     -Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
 
-## Importation d’un runbook à partir d’un fichier dans Azure Automation
+## <a name="importing-a-runbook-from-a-file-into-azure-automation"></a>Importing a runbook from a file into Azure Automation
 
-Vous pouvez créer un runbook dans Azure Automation en important un script PowerShell, un workflow PowerShell (extension .ps1) ou un runbook graphique exporté (.graphrunbook). Vous devez spécifier le [type de runbook](automation-runbook-types.md) qui sera créé à partir de l’importation en tenant compte des considérations suivantes.
+You can create a new runbook in Azure Automation by importing a PowerShell script or PowerShell Workflow (.ps1 extension) or an exported graphical runbook (.graphrunbook).  You must specify the [type of runbook](automation-runbook-types.md) that will be created from the import taking into account the following considerations.
 
-- Un fichier .graphrunbook peut uniquement être importé dans un nouveau [runbook graphique](automation-runbook-types.md#graphical-runbooks), et les runbooks graphiques ne peuvent être créés qu’à partir d’un fichier .graphrunbook.
-- Un fichier .ps1 contenant un workflow PowerShell peut uniquement être importé dans un [runbook de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Si le fichier contient plusieurs workflows PowerShell, l’importation échoue. Vous devez enregistrer chaque workflow dans son propre fichier, puis les importer séparément.
-- Un fichier .ps1 qui ne contient pas de workflow peut être importé dans un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) ou un [runbook de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). S’il est importé dans un runbook de workflow PowerShell, il est ensuite converti en workflow et les commentaires sont inclus dans le runbook spécifiant les modifications qui ont été apportées.
+- A .graphrunbook file may only be imported into a new [graphical runbook](automation-runbook-types.md#graphical-runbooks), and graphical runbooks can only be created from a .graphrunbook file.
+- A .ps1 file containing a PowerShell Workflow can only be imported into a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks).  If the file contains multiple PowerShell Workflows, then the import will fail. You must save each workflow to its own file and import each separately.
+- A .ps1 file that does not contain a workflow can be imported into either a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks).  If it is imported into a PowerShell Workflow runbook, then it will be converted to a workflow, and comments will be included in the runbook specifying the changes that were made.
 
-### Pour importer un runbook à partir d’un fichier avec le portail Azure Classic
-Vous pouvez utiliser la procédure suivante pour importer un fichier de script dans Azure Automation. Notez que vous pouvez uniquement importer un fichier .ps1 dans un runbook de workflow PowerShell à l’aide de ce portail. Vous devez utiliser le portail Azure pour les autres types.
+### <a name="to-import-a-runbook-from-a-file-with-the-azure-classic-portal"></a>To import a runbook from a file with the Azure Classic portal
+You can use the following procedure to import a script file into Azure Automation.  Note that you can only import a .ps1 file into a PowerShell Workflow runbook using this portal.  You must use the Azure portal for other types.
 
-1. Dans le portail de gestion Azure, sélectionnez **Automation**, puis sélectionnez un compte Automation.
-2. Cliquez sur **Importer**.
-3. Cliquez sur **Rechercher le fichier** et recherchez le fichier de script à importer.
-4. Si vous souhaitez modifier le runbook maintenant, cliquez sur **Modifier le runbook**. Sinon, cliquez sur OK.
-5. Le nouveau runbook apparaît sur l’onglet **Runbooks** pour le compte Automation.
-6. Vous devez [Publier le runbook](#publishing-a-runbook) avant de pouvoir l’exécuter.
+1. In the Azure Management portal, select **Automation** and then select an Automation Account.
+2. Click **Import**.
+3. Click **Browse for File** and locate the script file to import.
+4. If you want to edit the runbook now, then click **Edit Runbook**. Otherwise, click OK.
+5. The new runbook will appear on the **Runbooks** tab for the Automation Account.
+6. You must [publish the runbook](#publishing-a-runbook) before you can run it.
 
 
-### Pour importer un runbook à partir d’un fichier avec le portail Azure
-Vous pouvez utiliser la procédure suivante pour importer un fichier de script dans Azure Automation.
+### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>To import a runbook from a file with the Azure portal
+You can use the following procedure to import a script file into Azure Automation.  
 
->[AZURE.NOTE] Notez que vous pouvez uniquement importer un fichier .ps1 dans un runbook de workflow PowerShell à l’aide de ce portail.
+>[AZURE.NOTE] Note that you can only import a .ps1 file into a PowerShell Workflow runbook using the portal.
 
-1. Dans le portail Azure, ouvrez votre compte Automation.
-2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des runbooks.
-3. Cliquez sur le bouton **Ajouter un runbook**, puis sur **Importer**.
-4. Cliquez sur **Fichier runbook** pour sélectionner le fichier à importer.
-2. Si le champ **Nom** est activé, vous avez la possibilité de modifier le nom. Le nom du runbook doit commencer par une lettre et peut contenir des lettres, des chiffres, des traits de soulignement et des tirets.
-3. Le [type de runbook](automation-runbook-types.md) est sélectionné automatiquement, mais vous pouvez le modifier après avoir pris en compte les restrictions applicables.
-3. Le nouveau runbook apparaît sur la liste des runbooks pour le compte Automation.
-4. Vous devez [Publier le runbook](#publishing-a-runbook) avant de pouvoir l’exécuter.
+1. In the Azure portal, open your Automation account.
+2. Click on the **Runbooks** tile to open the list of runbooks.
+3. Click on the **Add a runbook** button and then **Import**.
+4. Click **Runbook file** to select the file to import
+2. If the **Name** field is enabled, then you have the option to change it.  The runbook name must start with a letter and can have letters, numbers, underscores, and dashes.
+3. The [runbook type](automation-runbook-types.md) will be automatically selected, but you can change the type after taking the applicable restrictions into account. 
+3. The new runbook will appear in the list of runbooks for the Automation Account.
+4. You must [publish the runbook](#publishing-a-runbook) before you can run it.
 
->[AZURE.NOTE] Après avoir importé un runbook graphique ou un runbook de workflow PowerShell graphique, vous pouvez effectuer une conversion dans l’autre type le cas échéant. Vous ne pouvez pas effectuer de conversion textuelle.
+>[AZURE.NOTE] After you import a graphical runbook or a graphical PowerShell workflow runbook, you have the option to convert to the other type if wanted. You can’t convert to textual.
 
-### Pour importer un runbook à partir d’un fichier de script avec Windows PowerShell
+### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>To import a runbook from a script file with Windows PowerShell
 
-Vous pouvez utiliser l’applet de commande [Import-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603735.aspx) pour importer un fichier de script en tant que brouillon de runbook de workflow PowerShell. Si le runbook existe déjà, l’importation échoue, sauf si vous utilisez le paramètre *-Force*.
+You can use the [Import-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603735.aspx) cmdlet to import a script file as a draft PowerShell Workflow runbook. If the runbook already exists, the import will fail unless you use the *-Force* parameter. 
 
-Les exemples de commandes suivants montrent comment importer un fichier de script dans un runbook.
+The following sample commands show how to import a script file into a runbook.
 
     $automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
@@ -102,38 +103,42 @@ Les exemples de commandes suivants montrent comment importer un fichier de scrip
     -Type PowerShellWorkflow 
 
 
-## Publication d’un runbook
+## <a name="publishing-a-runbook"></a>Publishing a runbook
 
-Lorsque vous créez ou importez un runbook, vous devez le publier avant de pouvoir l’exécuter. Dans Automation, chaque Runbook a un brouillon et une version publiée. Seule la version publiée est disponible à l'exécution, et seul le brouillon peut être modifié. La version publiée n'est pas affectée par les modifications apportées à la version Bouillon. Lorsque le brouillon doit être rendu disponible, vous le publiez, ce qui remplace la version publiée par le brouillon.
+When you create or import a new runbook, you must publish it before you can run it.  Each runbook in Automation has a Draft and a Published version. Only the Published version is available to be run, and only the Draft version can be edited. The Published version is unaffected by any changes to the Draft version. When the Draft version should be made available, then you publish it which overwrites the Published version with the Draft version.
 
-## Pour publier un runbook à l’aide du portail Azure Classic
+## <a name="to-publish-a-runbook-using-the-azure-classic-portal"></a>To publish a runbook using the Azure Classic portal
 
-1. Ouvrez le runbook dans le portail Azure Classic.
-1. En haut de l’écran, cliquez sur **Auteur**.
-1. En bas de l’écran, cliquez sur **Publier**, puis sur **Oui** pour le message de vérification.
+1. Open the runbook in the Azure Classic portal.
+1. At the top of the screen, click **Author**.
+1. At the bottom of the screen, click **Publish** and then **Yes** to the verification message.
 
-## Pour publier un runbook à l’aide du portail Azure
+## <a name="to-publish-a-runbook-using-the-azure-portal"></a>To publish a runbook using the Azure portal
 
-1. Ouvrez le runbook dans le portail Azure.
-1. Cliquez sur le bouton **Edit**.
-1. Cliquez sur le bouton **Publier**, puis sur **Oui** pour le message de vérification.
+1. Open the runbook in the Azure portal.
+1. Click the **Edit** button.
+1. Click the **Publish** button and then **Yes** to the verification message.
 
 
-## Pour publier un runbook à l’aide de Windows PowerShell
+## <a name="to-publish-a-runbook-using-windows-powershell"></a>To publish a runbook using Windows PowerShell
 
-Vous pouvez utiliser l’applet de commande [Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) pour publier un runbook avec Windows PowerShell. Les exemples de commandes suivants montrent comment publier un exemple de runbook.
+You can use the [Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) cmdlet to publish a runbook with Windows PowerShell. The following sample commands show how to publish a sample runbook.
 
-	$automationAccountName =  AutomationAccount"
+    $automationAccountName =  AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $RGName = "ResourceGroup"
 
-	Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
+    Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
     -Name $runbookName -ResourceGroupName $RGName
 
 
-## Étapes suivantes
-- Pour savoir comment vous pouvez tirer parti de la galerie de runbooks et de modules PowerShell, consultez [Galeries de runbooks et de modules pour Azure Automation](automation-runbook-gallery.md)
-- Pour en savoir plus sur la modification des runbooks PowerShell et de workflow PowerShell avec un éditeur de texte, consultez [Modifier des runbooks textuels dans Azure Automation](automation-edit-textual-runbook.md)
-- Pour en savoir plus sur la création de Runbooks graphiques, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
+## <a name="next-steps"></a>Next Steps
+- To learn about how you can benefit from the Runbook and PowerShell Module Gallery, see  [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md)
+- To learn more about editing PowerShell and PowerShell Workflow runbooks with a textual editor, see [Editing textual runbooks in Azure Automation](automation-edit-textual-runbook.md)
+- To learn more about Graphical runbook authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

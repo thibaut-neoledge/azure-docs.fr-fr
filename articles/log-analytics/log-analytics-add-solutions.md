@@ -1,24 +1,25 @@
 <properties
-	pageTitle="Ajouter des solutions Log Analytics à partir de la galerie de solutions | Microsoft Azure"
-	description="Les solutions Log Analytics représentent une collection de règles logiques, de visualisation et d'acquisition des données qui fournissent des mesures cernant un domaine problématique en particulier."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Ajouter des solutions Log Analytics à partir de la galerie de solutions | Microsoft Azure"
+    description="Les solutions Log Analytics représentent une collection de règles logiques, de visualisation et d'acquisition des données qui fournissent des mesures cernant un domaine problématique en particulier."
+    services="log-analytics"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="banders"/>
+    ms.service="log-analytics"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="banders"/>
 
-# Ajouter des solutions Log Analytics à partir de la galerie de solutions
 
-Les solutions Log Analytics représentent une collection de règles **logiques**, de **visualisation** et **d'acquisition des données** qui fournissent des mesures cernant un domaine problématique en particulier. Cet article répertorie les solutions prises en charge par Log Analytics et vous indique comment les ajouter et les supprimer à l'aide de la galerie de solutions.
+# <a name="add-log-analytics-solutions-from-the-solutions-gallery"></a>Ajouter des solutions Log Analytics à partir de la galerie de solutions
+
+Les solutions Log Analytics représentent une collection de règles **logiques**, de **visualisation** et **d’acquisition des données** qui fournissent des mesures cernant un domaine problématique en particulier. Cet article répertorie les solutions prises en charge par Log Analytics et vous indique comment les ajouter et les supprimer à l'aide de la galerie de solutions.
 
 Les solutions vous offrent des informations plus approfondies pour :
 
@@ -34,7 +35,7 @@ Après avoir ajouté une solution, les données sont collectées à partir des s
 Vous pouvez facilement supprimer une solution quand vous n'en avez plus besoin. Quand vous supprimez une solution, ses données ne sont pas envoyées au service OMS, ce qui peut réduire la quantité de données utilisées par rapport à votre quota quotidien (si vous en avez un).
 
 
-## Solutions prises en charge par Microsoft Monitoring Agent
+## <a name="solutions-supported-by-the-microsoft-monitoring-agent"></a>Solutions prises en charge par Microsoft Monitoring Agent
 
 Pour le moment, les serveurs qui sont connectés directement à OMS à l'aide de Microsoft Monitoring Agent peuvent utiliser la plupart des solutions disponibles, notamment :
 
@@ -54,31 +55,42 @@ Les solutions suivantes ne sont toutefois *pas* prises en charge par Microsoft M
 
 Reportez-vous à la rubrique [Connexion d’Operations Manager à Log Analytics](log-analytics-om-agents.md) pour plus d’informations sur la connexion de l’agent SCOM à Log Analytics.
 
-### Pour ajouter une solution à l’aide de la galerie de solutions
+### <a name="to-add-a-solution-using-the-solutions-gallery"></a>Pour ajouter une solution à l’aide de la galerie de solutions
 
-1. Dans la page de présentation d’OMS, cliquez sur la vignette **Galerie des solutions**. ![galerie de solutions](./media/log-analytics-add-solutions/sol-gallery.png)
+1. Dans la page de présentation d’OMS, cliquez sur la vignette **Galerie des solutions** .    
+    ![Galerie de solutions](./media/log-analytics-add-solutions/sol-gallery.png)
 2. Vous pouvez en savoir plus sur chaque solution disponible en consultant la page Galerie des solutions d'OMS. Cliquez sur le nom de la solution que vous souhaitez ajouter à OMS.
 3. Des informations détaillées sur la solution que vous avez choisie s'affichent dans la page de la solution en question. Cliquez sur **Add**.
 4. Une nouvelle vignette représentant la solution que vous avez ajoutée apparaît dans la page d'aperçu dans OMS. Vous pouvez commencer à l'utiliser une fois que le service OMS a traité vos données.
 
-## Pour configurer des solutions
+## <a name="to-configure-solutions"></a>Pour configurer des solutions
 1. Vous devrez configurer certaines solutions. Par exemple, vous devrez configurer Automation, Azure Site Recovery et Backup avant de pouvoir les utiliser.
-2. Pour chacune de ces solutions, cliquez sur sa vignette dans la page Vue d’ensemble. ![configurer la solution](./media/log-analytics-add-solutions/configure-additional.png)
-3. Configurez la solution avec les informations nécessaires, puis cliquez sur **Enregistrer**. ![configurer la solution](./media/log-analytics-add-solutions/configure.png)
+2. Pour chacune de ces solutions, cliquez sur sa vignette dans la page Vue d’ensemble.  
+    ![configurer la solution](./media/log-analytics-add-solutions/configure-additional.png)
+3. Configurez la solution avec les informations nécessaires, puis cliquez sur **Enregistrer**.  
+    ![Configurer la solution](./media/log-analytics-add-solutions/configure.png)
 
-### Pour supprimer une solution à l’aide de la galerie de solutions
+### <a name="to-remove-a-solution-using-the-solutions-gallery"></a>Pour supprimer une solution à l’aide de la galerie de solutions
 
-1. Dans la page de présentation d’OMS, cliquez sur la vignette **Paramètres**.
+1. Dans la page de présentation d’OMS, cliquez sur la vignette **Paramètres** .
 2. Dans la page Paramètres, sous l’onglet Solutions, cliquez sur **Supprimer** pour la solution que vous souhaitez supprimer.
 3. Dans la boîte de dialogue de confirmation, cliquez sur **Oui** pour supprimer la solution.
 
-## Détails sur la collecte des données pour les fonctionnalités et les solutions OMS
+## <a name="data-collection-details-for-oms-features-and-solutions"></a>Détails sur la collecte des données pour les fonctionnalités et les solutions OMS
 
-Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte pour les fonctionnalités et les solutions OMS.
+Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte pour les fonctionnalités et les solutions OMS. Les agents directs et SCOM sont pratiquement identiques, mais un agent direct inclut des fonctionnalités supplémentaires lui permettant de se connecter à l’espace de travail OMS et d’acheminer via un proxy. Si vous utilisez un agent SCOM, celui-ci doit être ciblé en tant qu’Agent OMS pour communiquer avec OMS. Les agents SCOM dans ce tableau sont des agents OMS connectés à SCOM. Pour plus d’informations sur la connexion de votre environnement SCOM existant à OMS, voir [Connexion d’Operations Manager à Log Analytics](log-analytics-om-agents.md).
+
+>[AZURE.NOTE] Le type d’agent que vous utilisez détermine la façon dont les données sont envoyées à OMS, avec les conditions suivantes :
+
+- Vous utilisez l’agent direct ou un Agent OMS attaché à SCOM.
+- Lorsque SCOM est requis, les données de l’agent SCOM pour la solution sont toujours envoyées à OMS à l’aide du groupe d’administration SCOM. De plus, lorsque SCOM est requis, seul l’agent SCOM est utilisé par la solution.
+- Lorsque SCOM n’est pas requis et que le tableau indique que les données de l’agent SCOM sont envoyées à OMS à l’aide du groupe d’administration, les données de l’agent SCOM sont toujours envoyées à OMS à l’aide de groupes d’administration. Les agents directs contournent le groupe d’administration et envoient leurs données directement à OMS.
+- Lorsque les données de l’agent SCOM ne sont pas envoyées au groupe d’administration, elles sont envoyées directement à OMS, en contournant le groupe d’administration.
+
 
 |type de données| plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 |---|---|---|---|---|---|---|---|
-|Évaluation d'AD|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|	7 jours|
+|Évaluation d'AD|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|  7 jours|
 |État de la réplication AD|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 jours|
 |Alertes (Nagios)|Linux|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|à l'arrivée|
 |Alertes (Zabbix)|Linux|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|1 minute|
@@ -90,12 +102,14 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 |Évaluation de la configuration (Advisor hérité)|Windows|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)| deux fois par jour|
 |ETW|Windows|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 minutes|
 |Journaux IIS|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 minutes|
+|Key Vaults|Windows|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 minutes|
+|Passerelles d’application réseau|Windows|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 minutes|
 |Groupes de sécurité réseau|Windows|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 minutes|
 |Office 365|Windows|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|sur notification|
 |Compteurs de performance|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|comme prévu, minimum de 10 secondes|
 |Compteurs de performance|Linux|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|comme prévu, minimum de 10 secondes|
 |Service Fabric|Windows|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 minutes|
-|Évaluation de SQL|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|	7 jours|
+|Évaluation de SQL|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)| 7 jours|
 |SurfaceHub|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|à l'arrivée|
 |Syslog|Linux|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|depuis Azure Storage : 10 minutes ; à partir de l’agent : à l’arrivée|
 |Mises à jour du système|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)| au moins 2 fois par jour et 15 minutes après l'installation d'une mise à jour|
@@ -104,7 +118,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 |Journaux d’événements Windows|Windows|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)| pour Azure Storage : 1 minutes ; pour l'agent : à l'arrivée|
 |Données de communication|Windows (2012 R2 / 8.1 ou version ultérieure)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Oui](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Non](./media/log-analytics-add-solutions/oms-bullet-red.png)| chaque minute|
 
-## Solutions et fonctionnalités Log Analytics en version préliminaire
+## <a name="log-analytics-preview-solutions-and-features"></a>Solutions et fonctionnalités Log Analytics en version préliminaire
 
 En exécutant un service et en suivant des pratiques de développement, nous pouvons collaborer avec des clients pour développer des solutions et des fonctionnalités.
 
@@ -117,7 +131,7 @@ Pendant la phase de la version préliminaire publique, nous mettons la fonctionn
 - Les fonctionnalités en version préliminaire apparaissent sous l’onglet Paramètres et peuvent être activées par tout utilisateur.
 - Les solutions en version préliminaire peuvent être ajoutées par le biais de la galerie ou à l’aide d’un script publié
 
-### Que dois-je savoir sur les fonctionnalités et solutions en version préliminaire ?
+### <a name="what-should-i-know-about-preview-features-and-solutions?"></a>Que dois-je savoir sur les fonctionnalités et solutions en version préliminaire ?
 
 Nous sommes motivés par les nouvelles fonctionnalités et solutions, et à l’idée de travailler avec vous pour les développer.
 
@@ -125,11 +139,11 @@ Toutefois, les fonctionnalités et solutions en version préliminaire ne s’adr
 
 Quand vous activez une fonctionnalité en version préliminaire par le biais du portail, un avertissement apparaît, vous rappelant que la fonctionnalité est disponible en version préliminaire.
 
-#### Pour les versions préliminaires *privées* et *publiques*
+#### <a name="for-both-*private*-and-*public*-preview"></a>Pour les versions préliminaires *privées* et *publiques*
 
 Les points suivants s’appliquent aux versions préliminaires publiques et privées :
 
-- Les choses ne marchent pas toujours correctement. 
+- Les choses ne marchent pas toujours correctement.
   - Les problèmes vont d’une gêne mineure à quelque chose qui ne fonctionne pas du tout.
 - La version préliminaire peut avoir un impact négatif sur vos systèmes et environnement.
   - Malgré tous nos efforts, des événements inattendus peuvent parfois affecter les systèmes que vous utilisez avec OMS.
@@ -150,7 +164,7 @@ Les points suivants s’appliquent aux versions préliminaires publiques et priv
 - L’interface utilisateur (IU) est inachevée et peut changer d’un jour à l’autre.
 - Les versions préliminaires publiques peuvent ne pas être appropriées pour vos systèmes de production ou critiques.
 
-#### Pour la version préliminaire *privée*
+#### <a name="for-*private*-preview"></a>Pour la version préliminaire *privée*
 
 Outre les points ci-dessus, ce qui suit est propre aux versions préliminaires privées :
 
@@ -162,18 +176,22 @@ Outre les points ci-dessus, ce qui suit est propre aux versions préliminaires p
 - N’exécutez pas la fonctionnalité ou solution sur des systèmes de production ou critiques.
 
 
-### Comment puis-je accéder aux fonctionnalités et solutions privées en version préliminaire ?
+### <a name="how-do-i-get-access-to-private-preview-features-and-solutions?"></a>Comment puis-je accéder aux fonctionnalités et solutions privées en version préliminaire ?
 
 La nature de la version préliminaire privée détermine la forme de l’invitation.
 
 - En répondant à l’enquête client mensuelle et en nous autorisant à vous suivre, vous augmentez vos chances d’être invité à une version préliminaire privée.
 - Votre équipe des comptes Microsoft peut vous désigner.
-- Vous pouvez vous inscrire en fonction des détails publiés sur twitter ([msopsmgmt](https://twitter.com/msopsmgmt)). 
-- Vous pouvez vous inscrire en fonction des détails partagés à l’occasion d’événements communautaires : recherchez-nous dans les rencontres, conférences et communautés en ligne. 
+- Vous pouvez vous inscrire en fonction des détails publiés sur twitter ( [msopsmgmt](https://twitter.com/msopsmgmt)
+- Vous pouvez vous inscrire en fonction des détails partagés à l’occasion d’événements communautaires : recherchez-nous dans les rencontres, conférences et communautés en ligne.
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Recherchez dans les journaux](log-analytics-log-searches.md) les informations détaillées collectées par les solutions.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

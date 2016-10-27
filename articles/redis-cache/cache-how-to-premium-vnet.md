@@ -1,156 +1,157 @@
 <properties 
-	pageTitle="Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium | Microsoft Azure" 
-	description="Découvrez comment créer et gérer la prise en charge de réseau virtuel pour vos instances de Cache Redis Azure de niveau Premium" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="How to configure Virtual Network support for a Premium Azure Redis Cache | Microsoft Azure" 
+    description="Learn how to create and manage Virtual Network support for your Premium tier Azure Redis Cache instances" 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="douge" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/15/2016" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/15/2016" 
+    ms.author="sdanie"/>
 
-# Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium
-Le Cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité, y compris le nouveau niveau Premium.
 
-Le niveau Premium de Cache Redis Azure comprend des fonctionnalités comme clustering, la persistance et la prise en charge de réseau virtuel (VNet). Un réseau VNet est un réseau privé dans le cloud. Lorsqu’une instance de Cache Redis Azure est configurée avec un réseau virtuel, elle n’est pas adressable publiquement et est accessible uniquement à partir de machines virtuelles et d’applications sur le réseau virtuel. Cet article décrit comment configurer la prise en charge de réseau virtuel pour une instance Premium de Cache Redis Azure.
+# <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>How to configure Virtual Network Support for a Premium Azure Redis Cache
+Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including the new Premium tier.
 
->[AZURE.NOTE] Le Cache Redis Azure prend en charge les réseaux virtuels classiques et ARM.
+The Azure Redis Cache premium tier features include clustering, persistence, and virtual network (VNet) support. A VNet is a private network in the cloud. When an Azure Redis Cache instance is configured with a VNet, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNet. This article describes how to configure virtual network support for a premium Azure Redis Cache instance.
 
-Pour plus d’informations sur les autres fonctionnalités du cache Premium, consultez [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md).
+>[AZURE.NOTE] Azure Redis Cache supports both classic and ARM VNets.
 
-## Pourquoi un réseau virtuel ?
-Le déploiement de [réseau virtuel Azure (VNet)](https://azure.microsoft.com/services/virtual-network/) fournit une sécurité et un isolement renforcés pour votre Cache Redis Azure, ainsi que des sous-réseaux, des stratégies de contrôle d’accès et d’autres fonctionnalités permettant de restreindre davantage l’accès au Cache Redis Azure.
+For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
-## Prise en charge des réseaux virtuels
-La configuration de la prise en charge du réseau virtuel (VNet) s’effectue dans le panneau **Nouveau cache Redis** lors de la création du cache.
+## <a name="why-vnet?"></a>Why VNet?
+[Azure Virtual Network (VNet)](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access to Azure Redis Cache.
+
+## <a name="virtual-network-support"></a>Virtual network support
+Virtual Network (VNet) support is configured on the **New Redis Cache** blade during cache creation. 
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Une fois que vous avez sélectionné le niveau tarifaire Premium, vous pouvez configurer l’intégration du réseau virtuel du Cache Redis Azure en sélectionnant un réseau virtuel situé dans le même abonnement et le même emplacement que votre cache. Pour utiliser un nouveau réseau virtuel, vous devez tout d’abord le créer en suivant les étapes indiquées dans [Créer un réseau virtuel au moyen du portail Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Revenez ensuite au panneau **Nouveau cache Redis** pour créer et configurer votre cache Premium.
+Once you have selected a premium pricing tier, you can configure Azure Redis Cache VNet integration by selecting a VNet that is in the same subscription and location as your cache. To use a new VNet, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md) and then return to the **New Redis Cache** blade to create and configure your premium cache.
 
-Pour configurer le réseau virtuel pour votre nouveau cache, cliquez sur **Réseau virtuel** dans le panneau **Nouveau cache Redis**, puis sélectionnez le réseau virtuel souhaité dans la liste déroulante.
+To configure the VNet for your new cache, click **Virtual Network** on the **New Redis Cache** blade, and select the desired VNet from the drop-down list.
 
-![Réseau virtuel][redis-cache-vnet]
+![Virtual network][redis-cache-vnet]
 
-Sélectionnez le sous-réseau souhaité dans la liste déroulante **Sous-réseau**, puis spécifiez l’**adresse IP statique** souhaitée. Si vous utilisez un réseau virtuel classique, le champ **Adresse IP statique** est facultatif. Si aucune adresse IP statique n’est spécifiée, une option sera choisie dans le sous-réseau sélectionné.
+Select the desired subnet from the **Subnet** drop-down list, and specify the desired **Static IP address**. If you are using a classic VNet the **Static IP address** field is optional, and if none is specified, one is chosen from the selected subnet.
 
->[AZURE.IMPORTANT] Lorsque vous déployez un Cache Redis Azure sur un réseau virtuel ARM, le cache doit se trouver dans un sous-réseau dédié qui ne contient aucune autre ressource à l’exception des instances du Cache Redis Azure. Si vous essayez de déployer un Cache Redis Azure sur un réseau virtuel ARM dans un sous-réseau qui contient d’autres ressources, le déploiement échoue.
+>[AZURE.IMPORTANT] When deploying an Azure Redis Cache to an ARM VNet, the cache must be in a dedicated subnet that contains no other resources except for Azure Redis Cache instances. If an attempt is made to deploy an Azure Redis Cache to an ARM VNet to a subnet that contains other resources, the deployment fails.
 
-![Réseau virtuel][redis-cache-vnet-ip]
+![Virtual network][redis-cache-vnet-ip]
 
->[AZURE.IMPORTANT] Les quatre premières adresses dans un sous-réseau sont réservées et ne peuvent pas être utilisées. Pour plus d’informations, consultez [Existe-t-il des restrictions sur l’utilisation des adresses IP au sein de ces sous-réseaux ?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+>[AZURE.IMPORTANT] The first four addresses in a subnet are reserved and can't be used. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Une fois le cache créé, vous pouvez afficher la configuration du réseau virtuel en cliquant sur **Réseau virtuel** dans le panneau **Paramètres**.
+After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Settings** blade.
 
-![Réseau virtuel][redis-cache-vnet-info]
-
-
-Pour vous connecter à votre instance de Cache Redis Azure lorsque vous utilisez un réseau virtuel, vous devez spécifier le nom d’hôte de votre cache dans la chaîne de connexion, comme indiqué dans l’exemple suivant.
-
-	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-	{
-	    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-	});
-	
-	public static ConnectionMultiplexer Connection
-	{
-	    get
-	    {
-	        return lazyConnection.Value;
-	    }
-	}
-
-## Forum aux questions sur le réseau virtuel de Cache Redis Azure
-
-La liste suivante présente différentes réponses aux questions les plus fréquemment posées sur la mise à l’échelle du Cache Redis Azure.
-
--	[Quels sont les problèmes de configuration les plus courants au niveau du Cache Redis Azure et des réseaux virtuels ?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
--	[Puis-je utiliser des réseaux virtuels avec un cache De base ou Standard ?](#can-i-use-vnets-with-a-standard-or-basic-cache)
--	[Pourquoi la création d’un cache Redis échoue-t-elle dans certains sous-réseaux mais pas d’autres ?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
--	[Toutes les fonctionnalités fonctionnent-elles lorsque vous hébergez un cache dans un réseau virtuel ?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+![Virtual network][redis-cache-vnet-info]
 
 
-## Quels sont les problèmes de configuration les plus courants au niveau du Cache Redis Azure et des réseaux virtuels ?
+To connect to your Azure Redis cache instance when using a VNet, specify the host name of your cache in the connection string as shown in the following example.
 
-Lorsque le Cache Redis Azure est hébergé dans un réseau virtuel, les ports du tableau suivant sont utilisés. Si ces ports sont bloqués, le cache risque de ne pas fonctionner correctement. Le blocage d’un ou plusieurs de ces ports constitue le problème de configuration le plus courant lorsque vous utilisez le Cache Redis Azure dans un réseau virtuel.
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
+        }
+    }
 
-| Port(s) | Direction | Protocole de transfert | Objectif | Adresse IP distante |
+## <a name="azure-redis-cache-vnet-faq"></a>Azure Redis Cache VNet FAQ
+
+The following list contains answers to commonly asked questions about the Azure Redis Cache scaling.
+
+-   [What are some common misconfiguration issues with Azure Redis Cache and VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+-   [Can I use VNets with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
+-   [Why does creating a Redis cache fail in some subnets but not others?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+-   [Do all cache features work when hosting a cache in a VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+
+
+## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets?"></a>What are some common misconfiguration issues with Azure Redis Cache and VNets?
+
+When Azure Redis Cache is hosted in a VNet, the ports in the following table are used. If these ports are blocked, the cache may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using Azure Redis Cache in a VNet.
+
+| Port(s)     | Direction        | Transport Protocol | Purpose                                                                           | Remote IP                           |
 |-------------|------------------|--------------------|-----------------------------------------------------------------------------------|-------------------------------------|
-| 80, 443 | Règle de trafic sortant | TCP | Dépendances Redis sur Azure Storage/l’infrastructure à clé publique (Internet) | * |
-| 53 | Règle de trafic sortant | TCP/UDP | Dépendances Redis sur le DNS (Internet/réseau virtuel) | * |
-| 6379, 6380 | Trafic entrant | TCP | Communication client avec Redis, équilibrage de charge Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
-| 8443 | Entrant/sortant | TCP | Détail d’implémentation de Redis | VIRTUAL\_NETWORK |
-| 8500 | Trafic entrant | TCP/UDP | Équilibrage de charge Azure | AZURE\_LOADBALANCER |
-| 10221-10231 | Entrant/sortant | TCP | Détail d’implémentation de Redis (peut restreindre le point de terminaison distant à VIRTUAL\_NETWORK) | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
-| 13000-13999 | Trafic entrant | TCP | Communication client avec les clusters Redis, équilibrage de charge Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
-| 15000-15999 | Trafic entrant | TCP | Communication client avec les clusters Redis, équilibrage de charge Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
-| 16001 | Trafic entrant | TCP/UDP | Équilibrage de charge Azure | AZURE\_LOADBALANCER |
-| 20226 | Entrant+sortant | TCP | Détail d’implémentation des clusters Redis | VIRTUAL\_NETWORK |
+| 80, 443     | Outbound         | TCP                | Redis dependencies on Azure Storage/PKI (Internet)                                | *                                   |
+| 53          | Outbound         | TCP/UDP            | Redis dependencies on DNS (Internet/VNet)                                         | *                                   |
+| 6379, 6380  | Inbound          | TCP                | Client communication to Redis, Azure Load Balancing                               | VIRTUAL_NETWORK, AZURE_LOADBALANCER |
+| 8443        | Inbound/Outbound | TCP                | Implementation Detail for Redis                                                   | VIRTUAL_NETWORK                     |
+| 8500        | Inbound          | TCP/UDP            | Azure Load Balancing                                                              | AZURE_LOADBALANCER                  |
+| 10221-10231 | Inbound/Outbound | TCP                | Implementation Detail for Redis (can restrict remote endpoint to VIRTUAL_NETWORK) | VIRTUAL_NETWORK, AZURE_LOADBALANCER |
+| 13000-13999 | Inbound          | TCP                | Client communication to Redis Clusters, Azure Load Balancing                      | VIRTUAL_NETWORK, AZURE_LOADBALANCER |
+| 15000-15999 | Inbound          | TCP                | Client communication to Redis Clusters, Azure Load Balancing                      | VIRTUAL_NETWORK, AZURE_LOADBALANCER |
+| 16001       | Inbound          | TCP/UDP            | Azure Load Balancing                                                              | AZURE_LOADBALANCER                  |
+| 20226       | Inbound+Outbound | TCP                | Implementation Detail for Redis Clusters                                          | VIRTUAL_NETWORK                     |
 
 
-Il existe des exigences de connectivité réseau pour le Cache Redis Azure qui peuvent ne pas être initialement satisfaites dans un réseau virtuel. Le Cache Redis Azure nécessite tous les éléments suivants pour fonctionner correctement lorsqu’il est utilisé dans un réseau virtuel.
+There are network connectivity requirements for Azure Redis Cache that may not be initially met in a virtual network. Azure Redis Cache requires all of the following items in order to function properly when used within a virtual network.
 
--  Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier. Cela inclut les points de terminaison situés dans la même région que le cache Redis Azure, ainsi que les points de terminaison de stockage situés dans d’**autres** régions Azure. Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.
--  Connectivité réseau sortante à *ocsp.msocsp.com*, *mscrl.microsoft.com* et *crl.microsoft.com*. Cette connectivité est nécessaire pour prendre en charge la fonctionnalité SSL.
--  La configuration DNS pour le réseau virtuel doit être capable de résoudre tous les points de terminaison et les domaines mentionnés dans les points précédents. La configuration DNS requise peut être satisfaite en garantissant qu'une infrastructure DNS valide est configurée et gérée pour le réseau virtuel.
-
-
-
-### Puis-je utiliser des réseaux virtuels avec un cache De base ou Standard ?
-
-Vous ne pouvez utiliser des réseaux virtuels qu’avec les caches de niveau Premium.
-
-### Pourquoi la création d’un cache Redis échoue-t-elle dans certains sous-réseaux mais pas d’autres ?
-
-Si vous déployez un Cache Redis Azure sur un réseau virtuel ARM, le cache doit se trouver dans un sous-réseau dédié qui ne contient aucune autre type de ressource. Si vous essayez de déployer un Cache Redis Azure sur un sous-réseau de réseau virtuel ARM qui contient d’autres ressources, le déploiement échoue. Vous devez supprimer les ressources existantes dans le sous-réseau avant de pouvoir créer un nouveau cache Redis.
-
-Vous pouvez déployer plusieurs types de ressources sur un réseau virtuel classique, à condition de disposer de suffisamment d’adresses IP disponibles.
-
-### Toutes les fonctionnalités fonctionnent-elles lorsque vous hébergez un cache dans un réseau virtuel ?
-
-Quand votre cache fait partie d’un réseau virtuel, seuls les clients de ce réseau virtuel peuvent accéder au cache. Par conséquent, les fonctionnalités de gestion de cache suivantes ne fonctionnent pas pour l’instant.
-
--	Console Redis - Étant donné que la Console Redis utilise le client redis-cli.exe hébergé sur des machines virtuelles qui ne font pas partie de votre réseau virtuel, il ne peut pas se connecter à votre cache.
+-  Outbound network connectivity to Azure Storage endpoints worldwide. This includes endpoints located in the same region as the Azure Redis Cache instance, as well as storage endpoints located in **other** Azure regions. Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net*, and *file.core.windows.net*. 
+-  Outbound network connectivity to *ocsp.msocsp.com*, *mscrl.microsoft.com* and *crl.microsoft.com*. This connectivity is needed to support SSL functionality.
+-  The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
 
 
-## Utiliser ExpressRoute avec le Cache Redis Azure
 
-Les clients peuvent connecter un circuit [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) à leur infrastructure de réseau virtuel pour étendre leur réseau local à Azure.
+### <a name="can-i-use-vnets-with-a-standard-or-basic-cache?"></a>Can I use VNets with a standard or basic cache?
 
-Par défaut, un circuit ExpressRoute nouvellement créé publie un itinéraire par défaut qui autorise la connectivité Internet sortante. Avec cette configuration, les applications clientes sont en mesure de se connecter à d’autres points de terminaison Azure, notamment le Cache Redis Azure.
+VNets can only be used with premium caches.
 
-Toutefois, une configuration client courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force le trafic Internet sortant à évoluer sur site. Ce flux de trafic interrompt la connectivité avec le Cache Redis Azure, car le trafic sortant est soit bloqué sur site, soit fait l’objet d’une opération NAT sur un jeu d’adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure.
+### <a name="why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others?"></a>Why does creating a Redis cache fail in some subnets but not others?
 
-La solution consiste à définir un (ou plusieurs) itinéraires définis par l’utilisateur (UDR) sur le sous-réseau qui contient le Cache Redis Azure. Un itinéraire défini par l'utilisateur définit des itinéraires spécifiques au sous-réseau qui seront respectés au lieu de l'itinéraire par défaut.
+If you are deploying an Azure Redis Cache to an ARM VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Redis Cache to an ARM VNet subnet that contains other resources, the deployment fails. You must delete the existing resources inside the subnet before you can create a new Redis cache.
 
-Si possible, il est recommandé d'utiliser la configuration suivante :
+You can deploy multiple types of resources to a classic VNet as long as you have enough IP addresses available.
 
-- La configuration ExpressRoute annonce 0.0.0.0/0 et par défaut, tunnelise de force tout le trafic sortant sur site.
-- L’UDR (itinéraire défini par l’utilisateur) appliqué au sous-réseau contenant le Cache Redis Azure définit 0.0.0.0/0 avec Internet de type saut suivant (un exemple de ceci est présenté plus bas dans cet article).
+### <a name="do-all-cache-features-work-when-hosting-a-cache-in-a-vnet?"></a>Do all cache features work when hosting a cache in a VNET?
 
-L’effet combiné de ces étapes est que l’UDR de niveau sous-réseau a la priorité sur le tunneling forcé ExpressRoute, garantissant ainsi un accès Internet sortant à partir du Cache Redis Azure.
+When your cache is part of a VNET, only clients in the VNET can access the cache. As a result, the following cache management features don't work at this time.
 
-Bien que la connexion à une instance de Cache Redis Azure à partir d’une application sur site à l’aide d’ExpressRoute ne constitue pas un scénario d’utilisation classique pour des raisons de performances (pour des performances optimales, les clients de Cache Redis Azure doivent se trouver dans la même région que le Cache Redis Azure), dans ce scénario, le chemin d’accès réseau sortant ne peut pas transiter via des serveurs proxy d’entreprise internes, ni faire l’objet d’un tunneling forcé sur des serveurs locaux. Ceci modifie l’adresse NAT réelle du trafic réseau sortant à partir du Cache Redis Azure. La modification de l’adresse NAT du trafic réseau sortant d’une instance de Cache Redis Azure entraîne des échecs de connectivité vers plusieurs des points de terminaison répertoriés ci-dessus. Cela entraîne l’échec des tentatives de création du Cache Redis Azure.
+-   Redis Console - Because Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
 
-**IMPORTANT :** les itinéraires définis dans un UDR **doivent** être suffisamment spécifiques pour avoir la priorité sur les itinéraires annoncés par la configuration ExpressRoute. L'exemple suivant utilise la plage d'adresses 0.0.0.0/0 étendue qui peut potentiellement être remplacée accidentellement par les annonces de routage à l'aide de plages d'adresses plus spécifiques.
 
-**TRÈS IMPORTANT :** le cache Redis Azure n’est pas pris en charge avec les configurations ExpressRoute qui **publient incorrectement de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée**. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les annonces de routage depuis Microsoft pour un grand ensemble de plages d'adresses IP Microsoft Azure. Si ces plages d’adresses sont incorrectement publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’instance de Cache Redis Azure sont incorrectement acheminés de force vers l’infrastructure réseau sur site d’un client. Ce flux réseau interrompt le Cache Redis Azure. La solution à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée.
+## <a name="use-expressroute-with-azure-redis-cache"></a>Use ExpressRoute with Azure Redis Cache
 
-Vous trouverez des informations générales sur les itinéraires définis par l'utilisateur dans cette [présentation](../virtual-network/virtual-networks-udr-overview.md).
+Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to their virtual network infrastructure, thus extending their on-premises network to Azure. 
 
-Pour plus d'informations sur ExpressRoute, consultez la rubrique [ExpressRoute - Aperçu technique](../expressroute/expressroute-introduction.md)
+By default, a newly created ExpressRoute circuit advertises a default route that allows outbound Internet connectivity. With this configuration, client applications are able to connect to other Azure endpoints including Azure Redis Cache.
 
-## Étapes suivantes
-Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
+However a common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure Redis Cache because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints.
 
--	[Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md)
+The solution is to define one (or more) user-defined routes (UDRs) on the subnet that contains the Azure Redis Cache. A UDR defines subnet-specific routes that will be honored instead of the default route.
+
+If possible, it is recommended to use the following configuration:
+
+- The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
+- The UDR applied to the subnet containing the Azure Redis Cache defines 0.0.0.0/0 with a next hop type of Internet (an example of this is farther down in this article).
+
+The combined effect of these steps is that the subnet level UDR takes precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure Redis Cache.
+
+Although connecting to an Azure Redis Cache instance from an on-premises application using ExpressRoute is not a typical usage scenario due to performance reasons (for best performance Azure Redis Cache clients should be in the same region as the Azure Redis Cache), in this scenario the outbound network path cannot travel through internal corporate proxies, nor can it be force tunneled to on-premises. Doing so changes the effective NAT address of outbound network traffic from the Azure Redis Cache. Changing the NAT address of an Azure Redis Cache instance's outbound network traffic causes connectivity failures to many of the endpoints listed above. This results in failed Azure Redis Cache creation attempts.
+
+**IMPORTANT:**  The routes defined in a UDR **must** be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The following example uses the broad 0.0.0.0/0 address range, and as such can potentially be accidentally overridden by route advertisements using more specific address ranges.
+
+**VERY IMPORTANT:**  Azure Redis Cache is not supported with ExpressRoute configurations that **incorrectly cross-advertise routes from the public peering path to the private peering path**. ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges. If these address ranges are incorrectly cross-advertised on the private peering path, the end result is that all outbound network packets from the Azure Redis Cache instance's subnet are incorrectly force-tunneled to a customer's on-premises network infrastructure. This network flow breaks Azure Redis Cache. The solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.
+
+Background information on user-defined routes is available in this [overview](../virtual-network/virtual-networks-udr-overview.md). 
+
+For more information about ExpressRoute, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md)
+
+## <a name="next-steps"></a>Next steps
+Learn how to use more premium cache features.
+
+-   [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md)
 
 
 
@@ -165,4 +166,9 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

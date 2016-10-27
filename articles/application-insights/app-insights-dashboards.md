@@ -1,158 +1,169 @@
 <properties
-	pageTitle="Utilisation du portail Application Insights"
-	description="Mesures, recherche, tableaux de bord et paramètres dans Application Insights."
-	services="application-insights"
+    pageTitle="Using the Application Insights portal"
+    description="Metrics, search, dashboards and settings in the Application Insights portal."
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="07/30/2016"
-	ms.author="awills"/>
-
-# Navigation et tableaux de bord dans le portail Application Insights
-
-Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
-
-## Rechercher vos données de télémétrie
-
-Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à la ressource Application Insights que vous avez créée pour votre application.
-
-![Cliquez sur Parcourir, sélectionnez Application Insights, puis sélectionnez votre application.](./media/app-insights-dashboards/00-start.png)
-
-La page Vue d’ensemble fournit des données de télémétrie de base et offre une diversité de liens. Le contenu dépend du type de votre application et peut être personnalisé.
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="multiple"
+    ms.topic="article" 
+    ms.date="07/30/2016"
+    ms.author="awills"/>
 
 
-## Panneau Vue d’ensemble de l’application
+# <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigation and Dashboards in the Application Insights portal
 
-Le panneau de vue d’ensemble (page) de votre application affiche un résumé des principales mesures de diagnostic de votre application et constitue une passerelle vers les autres fonctionnalités du portail.
+After you have [set up Application Insights on your project](app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
 
-Cliquez sur :
+## <a name="find-your-telemetry"></a>Find your telemetry
 
-* **N’importe quel graphique ou mosaïque** pour plus de détails sur ce qui est affiché sur le graphique.
-* **Paramètres** pour obtenir des panneaux prédéfinis d’autres mesures, ainsi que des pages de configuration.
-* [**Metrics Explorer**](app-insights-metrics-explorer.md) pour créer des pages de mesures de votre choix ;
-* [**Rechercher**](app-insights-diagnostic-search.md) pour analyser des instances spécifiques d’événements tels que les demandes, les exceptions ou les suivis du journal.
-* [**Analytics**](app-insights-analytics.md) pour des requêtes puissantes sur vos données de télémétrie.
-* [**Flux en direct**](app-insights-metrics-explorer.md#live-stream) pour un ensemble de mesures quasi instantanées, ce qui est utile lors du déploiement d’une nouvelle version ou du débogage.
+Sign in to the [Azure portal](https://portal.azure.com) and browse to the Application Insights resource that you created for your app.
 
+![Click Browse, select Application Insights, then your app.](./media/app-insights-dashboards/00-start.png)
 
-![Procédures principales d'affichage de vos données de télémétrie](./media/app-insights-dashboards/010-oview.png)
+The overview page gives you some basic telemetry, plus links to more.
+The contents depend on the type of your app, and can be customized.
 
 
-### Personnalisation du panneau Vue d’ensemble 
+## <a name="the-app-overview-blade"></a>The app overview blade
 
-Choisissez ce que vous souhaitez afficher sur le panneau Vue d’ensemble. Dans la zone de personnalisation, vous pouvez insérer des titres de section, faire glisser des vignettes et des graphiques, supprimer des éléments et ajouter de nouvelles vignettes et graphiques à partir de la galerie.
+The overview blade (page) for your app shows a summary of the key diagnostic metrics of your app, and is a gateway to the other features of the portal.
 
-![Cliquez sur Modifier. Faites glisser les vignettes et les graphiques. Ajoutez des vignettes de la galerie. Cliquez ensuite sur Terminé.](./media/app-insights-dashboards/020-customize.png)
+Click:
 
-## Tableaux de bord
+* **Any chart or tile** to see more detail about what's displayed on the chart.
+* **Settings** to get to predefined blades of other metrics, as well as configuration pages.
+* [**Metrics Explorer**](app-insights-metrics-explorer.md) to create metrics pages of your own choice.
+* [**Search**](app-insights-diagnostic-search.md) to investigate specific instances of events such as requests, exceptions, or log traces.
+* [**Analytics**](app-insights-analytics.md) for powerful queries over your telemetry.
+* [**Live Stream**](app-insights-metrics-explorer.md#live-stream) for a fixed set of near-instant metrics, useful when deploying a new build or debugging.
 
-La première chose que vous voyez après vous être connecté au [portail Microsoft Azure](https://portal.azure.com) est un tableau de bord. Celui-ci vous permet de rassembler les graphiques les plus importants pour vous pour toutes vos ressources Azure, notamment les données de télémétrie de [Visual Studio Application Insights](app-insights-overview.md).
+
+![Major routes to view your telemetry](./media/app-insights-dashboards/010-oview.png)
+
+
+### <a name="customize-the-overview-blade"></a>Customize the overview blade 
+
+Choose what you want to see on the overview. In Customize, you can insert section titles, drag tiles and charts around, remove items, and add new tiles and charts from the gallery.
+
+![Click Edit. Drag tiles and charts. Add tiles from the gallery. Then click Done.](./media/app-insights-dashboards/020-customize.png)
+
+## <a name="dashboards"></a>Dashboards
+
+The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Visual Studio Application Insights](app-insights-overview.md).
  
 
-![Un tableau de bord personnalisé.](./media/app-insights-dashboards/31.png)
+![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
 
-1. Modifiez, créez et partagez des tableaux de bord à l’aide de la barre d’outils du tableau de bord.
-2. Revenez au tableau de bord actuel ou basculez vers les autres vues récentes.
-3. Changez de tableau de bord.
-4. Créez, modifiez et partagez des tableaux de bord.
-5. Pointez sur une vignette, puis utilisez sa barre supérieure pour déplacer, personnaliser ou supprimer la vignette.
+1. Edit, create, and share dashboards using the dashboard toolbar.
+2. Return to the current dashboard, or switch to other recent views.
+3. Switch dashboards.
+4. Create, edit, and share dashboards.
+5. Hover over a tile and then use its top bar to move, customize, or remove it.
 
-## Ajouter des données à un tableau de bord
+## <a name="add-to-a-dashboard"></a>Add to a dashboard
 
-Lorsque vous examinez un panneau ou un ensemble de graphiques qui est particulièrement intéressant, vous pouvez en épingler une copie au tableau de bord. Celui-ci sera affiché lors de votre prochain accès au tableau de bord.
+When you're looking at a blade or set of charts that's particularly interesting, you can pin a copy of it to the dashboard. You'll see it next time you return there.
 
-![Pour épingler un graphique, passez la souris sur celui-ci, puis cliquez sur « ... » dans l’en-tête.](./media/app-insights-dashboards/33.png)
+![To pin a chart, hover over it and then click "..." in the header.](./media/app-insights-dashboards/33.png)
 
-1. Épinglez un graphique au tableau de bord. Une copie du graphique apparaît sur le tableau de bord.
-2. Épinglez la totalité du panneau au tableau de bord. Il apparaît alors sur le tableau de bord sous la forme d’une vignette sur laquelle vous pouvez cliquer.
-3. Cliquez sur le coin supérieur gauche pour revenir au tableau de bord actuel. Vous pouvez ensuite utiliser le menu déroulant pour revenir à la vue actuelle.
+1. Pin chart to dashboard. A copy of the chart appears on the dashboard.
+2. Pin the whole blade to the dashboard - it appears on the dashboard as a tile that you can click through.
+3. Click the top left corner to return to the current dashboard. Then you can use the drop-down menu to return to the current view.
 
-Notez que les graphiques sont regroupés en vignettes : une vignette peut contenir plusieurs graphiques. Vous épinglez la vignette entière au tableau de bord.
+Notice that charts are grouped into tiles: a tile can contain more than one chart. You pin the whole tile to the dashboard.
 
-### Graphiques Analytics
+### <a name="analytics-charts"></a>Analytics charts
 
-Vous pouvez également [épingler des graphiques Analytics](app-insights-analytics-using.md#pin-to-dashboard) à un tableau de bord [partagé](#share-dashboards-with-your-team). Ainsi, vous pouvez ajouter les graphiques de toute requête arbitraire en parallèle des mesures standards.
+You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics.
 
-## Ajustement d’une vignette sur le tableau de bord
+## <a name="adjust-a-tile-on-the-dashboard"></a>Adjust a tile on the dashboard
 
-Lorsqu’une vignette se trouve sur le tableau de bord, vous pouvez l’ajuster.
+Once a tile is on the dashboard, you can adjust it.
 
-![Survolez un graphique avec la souris pour le modifier.](./media/app-insights-dashboards/36.png)
+![Hover over a chart in order to edit it.](./media/app-insights-dashboards/36.png)
 
-1. Ajoutez un graphique à la vignette.
-2. Définissez la mesure, la dimension et le style de regroupement (tableau, graphique) d’un graphique.
-3. Définissez les propriétés de filtre et d’intervalle de temps pour les graphiques sur la vignette. Vous pouvez définir votre propre intervalle de temps du graphique, ou utiliser l’intervalle du tableau de bord.
-4. Définissez le titre de la vignette.
+1. Add a chart to the tile. 
+2. Set the metric, group-by dimension and style (table, graph) of a chart.
+3. Set the timespan and filter properties for the charts on the tile. You can set the chart's own timespan, or inherit from the timespan of the dashboard.
+4. Set tile title.
 
-Les vignettes épinglées à partir des panneaux de Metrics Explorer ont davantage d’options d’édition que les vignettes épinglées à partir d’un panneau Vue d’ensemble.
+Tiles pinned from metric explorer blades have more editing options than tiles pinned from an Overview blade.
 
-La vignette d’origine que vous avez épinglée n’est pas affectée par vos modifications.
-
-
-## Basculement entre les tableaux de bord
-
-Vous pouvez enregistrer plusieurs tableaux de bord et basculer entre ceux-ci. Lorsque vous épinglez un graphique ou un panneau, il est ajouté au tableau de bord actuel.
-
-![Pour basculer entre les tableaux de bord, cliquez sur Tableau de bord et sélectionnez un tableau de bord enregistré. Pour créer et enregistrer un nouveau tableau de bord, cliquez sur Nouveau. Pour les réorganiser, cliquez sur Modifier.](./media/app-insights-dashboards/32.png)
-
-Vous pouvez, par exemple, avoir un tableau de bord pour l’affichage en plein écran dans la salle de réunion et un autre pour le développement général.
+The original tile that you pinned isn't affected by your edits.
 
 
-Sur le tableau de bord, un panneau s’affiche sous forme de vignette : cliquez dessus pour accéder au panneau. Un graphique réplique le graphique dans son emplacement d’origine.
+## <a name="switch-between-dashboards"></a>Switch between dashboards
 
-![Cliquez sur une vignette pour ouvrir le panneau qu’elle représente.](./media/app-insights-dashboards/35.png)
+You can save more than one dashboard and switch between them. When you pin a chart or blade, they're added to the current dashboard.
+
+![To switch between dashboards, click Dashboard and select a saved dashboard. To create and save a new dashboard, click New. To rearrange, click Edit.](./media/app-insights-dashboards/32.png)
+
+For example, you might have one dashboard for displaying full screen in the team room, and another for general development.
 
 
-## Partage de tableaux de bord avec votre équipe
+On the dashboard, a blade appears as a tile: click it to go to the blade. A chart replicates the chart in its original location.
 
-Lorsque vous avez créé un tableau de bord, vous pouvez le partager avec d’autres utilisateurs.
+![Click a tile to open the blade it represents](./media/app-insights-dashboards/35.png)
 
-![Dans l’en-tête du tableau de bord, cliquez sur Partager](./media/app-insights-dashboards/41.png)
 
-Apprenez-en davantage sur [les rôles et le contrôle d’accès](app-insights-resources-roles-access-control.md).
+## <a name="share-dashboards-with-your-team"></a>Share dashboards with your team
 
-## Paramètres
+When you've created a dashboard, you can share it with other users.
 
-Le bouton Paramètres du panneau de la vue d’ensemble ne se limite pas à la configuration, il permet également d’afficher plusieurs types de graphiques.
+![In the dashboard header, click Share](./media/app-insights-dashboards/41.png)
 
-* **Journaux d’audit** : examinez les alertes et les actions qui ont été appliquées à votre ressource d’application.
-* [Nouvelle demande de support](app-insights-get-dev-support.md) : découvrez les options permettant d’obtenir de l’aide sur tous les aspects d’Azure. Pour Application Insights, vous pouvez également obtenir de l’aide en utilisant le bouton émoticône en haut à droite de la fenêtre.
-* [Plan de l’application](app-insights-dependencies.md#application-map) : plan actif présentant les composants de votre application, dérivé des informations de dépendance.
-* [Live Metrics Stream (Flux de métriques en temps réel)](app-insights-metrics-explorer.md#live-metrics-stream) : métriques clés, avec une latence d’environ 1 seconde, pour la surveillance d’une nouvelle version.
-* **Échecs** : demandes ayant échoué, appels de dépendance ayant échoué et exceptions. [Panneau de métriques modifiables](app-insights-metrics-explorer.md).
-* **Performances** : temps de réponse, temps de réponse de dépendance. [Panneau de métriques modifiables](app-insights-metrics-explorer.md).
-* [Serveurs](app-insights-web-monitor-performance.md) : compteurs de performances. Disponible si vous [installez Status Monitor](app-insights-monitor-performance-live-website-now.md).
-* **Navigateur** : nombre de pages consultées et performances AJAX. Disponible si vous [instrumentez vos pages web](app-insights-javascript.md).
-* **Utilisation** : nombre de pages consultées, d’utilisateurs et de sessions. Disponible si vous [instrumentez vos pages web](app-insights-javascript.md).
-* **Prise en main** : didacticiel en ligne.
-* **Propriétés** : clé d’instrumentation, abonnement et ID de ressource.
-* [Disponibilité](app-insights-monitor-web-app-availability.md) : configuration et résultats du test web.
-* [Alertes](app-insights-alerts.md) : configuration des alertes de métriques.
-* [Exportation continue](app-insights-export-telemetry.md) : configurez l’exportation des données de télémétrie vers le stockage Azure.
-* [Tests de performances](app-insights-monitor-web-app-availability.md#performance-tests) : configurez une charge synthétique sur votre site web.
-* [Quota et tarification](app-insights-pricing.md) et [échantillonnage d’ingestion](app-insights-sampling.md).
-* **Accès à l’API** : actuellement utilisé pour créer des [annotations de version](app-insights-annotations.md) et pour l’API d’accès aux données.
-* [**Éléments de travail**](app-insights-diagnostic-search.md#create-work-item) : connectez-vous à un système de suivi du travail afin de créer des bogues lors de l’inspection de la télémétrie.
-* [**Utilisateurs**](app-insights-resources-roles-access-control.md) : gérez les personnes qui ont accès à vos ressources d’application.
-* [**Rôles**](app-insights-resources-roles-access-control.md) : gérez les actions exécutables par les utilisateurs.
-* [**Balises**](..\resource-group-using-tags.md) : organisez les ressources Azure.
-* [**Verrous**](..\resource-group-lock-resources.md) : verrouillez les ressources Azure.
-* [**Exporter un modèle**](app-insights-powershell.md) : exportez une définition de la ressource Azure afin de l’utiliser comme modèle pour créer d’autres ressources.
+Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
 
-## Et ensuite ?
+## <a name="settings"></a>Settings
+
+The Settings button on the overview blade is not only about configuration, but also provides a way into several types of chart.
+
+* **Audit logs** - Review alerts and actions that have been performed on your app resource.
+* [New support request](app-insights-get-dev-support.md) - Options for help with any aspect of Azure. For Application Insights, you can also get help by using the smiley button at top right of the window.
+* [Application map](app-insights-dependencies.md#application-map) - Active map showing the components of your application, derived from the dependency information.
+* [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) - Key metrics with a latency of about 1s, for monitoring a new release.
+* **Failures** - Failed requests, failed dependency calls, and exceptions. [Editable metrics blade](app-insights-metrics-explorer.md).
+* **Performance** - Response time, dependency response times. [Editable metrics blade](app-insights-metrics-explorer.md).
+* [Servers](app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](app-insights-monitor-performance-live-website-now.md).
+* **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](app-insights-javascript.md).
+* **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](app-insights-javascript.md).
+* **Getting started** - inline tutorial.
+* **Properties** - instrumentation key, subscription and resource id.
+* [Availability](app-insights-monitor-web-app-availability.md) - web test configuration and results.
+* [Alerts](app-insights-alerts.md) - metric alert configuration.
+* [Continuous export](app-insights-export-telemetry.md) - configure export of telemetry to Azure storage.
+* [Performance testing](app-insights-monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
+* [Quota and pricing](app-insights-pricing.md) and [ingestion sampling](app-insights-sampling.md).
+* **API Access** - currently used to create [release annotations](app-insights-annotations.md) and for the Data Access API.
+* [**Work Items**](app-insights-diagnostic-search.md#create-work-item) - connect to a work tracking system so that you can create bugs while inspecting telemetry.
+* [**Users**](app-insights-resources-roles-access-control.md) - Manage who has access to your app resource.
+* [**Roles**](app-insights-resources-roles-access-control.md) - manage what users can do.
+* [**Tags**](..\resource-group-using-tags.md) - organize Azure resources.
+* [**Locks**](..\resource-group-lock-resources.md) - lock Azure resources
+* [**Export template**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
+
+## <a name="what's-next?"></a>What's next?
 
 ||
 |---|---
-|[Metrics Explorer](app-insights-metrics-explorer.md)<br/>Filtrez et segmentez les mesures.|![Exemple de recherche](./media/app-insights-dashboards/64.png)
-|[Recherche de diagnostic](app-insights-diagnostic-search.md)<br/>Recherchez et examinez des événements, ainsi que les événements associés, et créez des bogues. |![Exemple de recherche](./media/app-insights-dashboards/61.png)
-|[Analytics](app-insights-analytics.md)<br/>Tirez parti d’un puissant langage de requête.| ![Exemple de recherche](./media/app-insights-dashboards/63.png)
+|[Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics|![Search example](./media/app-insights-dashboards/64.png)
+|[Diagnostic search](app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png)
+|[Analytics](app-insights-analytics.md)<br/>Powerful query language| ![Search example](./media/app-insights-dashboards/63.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -17,25 +17,26 @@
    ms.author="dkshir"/>
 
 
-# Paramètres de configuration pour un cluster Windows autonome
 
-Cet article explique comment configurer un cluster Service Fabric autonome à l’aide du fichier _**ClusterConfig.JSON**_. Ce fichier est téléchargé sur votre ordinateur de travail lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). Le fichier ClusterConfig.JSON vous permet de spécifier des informations telles que les nœuds Service Fabric et leurs adresses IP, différents types de nœuds sur le cluster, les configurations de sécurité, ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau, pour votre cluster Service Fabric.
+# <a name="configuration-settings-for-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
+
+Cet article explique comment configurer un cluster Service Fabric autonome à l’aide du fichier _**ClusterConfig.JSON**_. Ce fichier est téléchargé sur votre ordinateur de travail lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). Le fichier ClusterConfig.JSON vous permet de spécifier des informations telles que les nœuds Service Fabric et leurs adresses IP, différents types de nœuds sur le cluster, les configurations de sécurité, ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau, pour votre cluster Service Fabric. 
 
 Nous allons examiner ci-dessous les différentes sections de ce fichier.
 
-## Configurations de cluster générales
+## <a name="general-cluster-configurations"></a>Configurations de cluster générales
 Cette section couvre les configurations spécifiques à de larges clusters, comme indiqué dans l’extrait de code JSON ci-dessous.
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "2016-09-26",
 
-Vous pouvez attribuer un nom convivial à votre cluster Service Fabric en lui assignant la variable **name**. Vous pouvez modifier la valeur **clusterManifestVersion** selon votre configuration ; cette valeur doit être mise à jour avant la mise à niveau de votre configuration Service Fabric. Vous pouvez également conserver la valeur par défaut attribuée à **apiVersion**.
+Vous pouvez attribuer un nom convivial à votre cluster Service Fabric en lui assignant la variable **name** . Vous pouvez modifier la valeur **clusterManifestVersion** selon votre configuration ; cette valeur doit être mise à jour avant la mise à niveau de votre configuration Service Fabric. Vous pouvez également conserver la valeur par défaut attribuée à **apiVersion** .
 
 
 <a id="clusternodes"></a>
-## Nœuds sur le cluster
-Vous pouvez configurer les nœuds de votre cluster Service Fabric à l’aide de la section **nœuds**, comme le montre l’extrait de code suivant.
+## <a name="nodes-on-the-cluster"></a>Nœuds sur le cluster
+Vous pouvez configurer les nœuds de votre cluster Service Fabric à l’aide de la section **nœuds** , comme le montre l’extrait de code suivant.
 
     "nodes": [{
         "nodeName": "vm0",
@@ -62,18 +63,18 @@ Un cluster Service Fabric a besoin d’un minimum de 3 nœuds. Vous pouvez ajout
 |**Configuration de nœuds**|**Description**|
 |-----------------------|--------------------------|
 |nodeName|Vous pouvez attribuer n’importe quel nom convivial au nœud.|
-|iPAddress|Identifiez l’adresse IP de votre nœud en ouvrant une fenêtre de commande puis en tapant `ipconfig`. Notez l’adresse IPV4 et assignez-la à la variable **iPAddress**.|
+|iPAddress|Identifiez l’adresse IP de votre nœud en ouvrant une fenêtre de commande puis en tapant `ipconfig`. Notez l’adresse IPV4 et assignez-la à la variable **iPAddress** .|
 |nodeTypeRef|Chaque nœud peut être associé à un type de nœud différent. Les [types de nœuds](#nodetypes) sont définis dans la section ci-dessous.|
 |faultDomain|Les domaines d'erreur permettent aux administrateurs de cluster de définir les nœuds physiques qui sont susceptibles de rencontrer un échec en même temps en raison des dépendances physiques partagées.|
 |upgradeDomain|Les domaines de mise à niveau décrivent des ensembles de nœuds qui sont arrêtés pour les mises à niveau Service Fabric, à peu près au même moment. Vous pouvez choisir les nœuds à attribuer aux domaines de mise à niveau car ils ne sont pas limités par des exigences physiques.| 
 
 
-## **Propriétés** du cluster
+## <a name="cluster-**properties**"></a> **Propriétés**
 
 La section **properties** du fichier ClusterConfig.JSON permet de configurer le cluster comme suit.
 
-### **diagnosticsStore**
-Vous pouvez configurer des paramètres pour activer les diagnostics et corriger les défaillances de nœud et du cluster à l’aide de la section **diagnosticsStore** comme illustré dans l’extrait de code suivant.
+### <a name="**diagnosticsstore**"></a>**diagnosticsStore**
+Vous pouvez configurer des paramètres pour activer les diagnostics et corriger les défaillances de nœud et du cluster à l’aide de la section **diagnosticsStore** comme illustré dans l’extrait de code suivant. 
 
     "diagnosticsStore": {
         "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
@@ -83,9 +84,9 @@ Vous pouvez configurer des paramètres pour activer les diagnostics et corriger 
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
     }
 
-La section **metadata** est une description du diagnostic de votre cluster et peut être définie selon votre installation. Ces variables vous aident à collecter les journaux de suivi ETW, les vidages sur incident ainsi que les compteurs de performance. Consultez les sections [Journal de suivi](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) et [Suivi ETW](https://msdn.microsoft.com/library/ms751538.aspx) pour plus d’informations sur les journaux de suivi ETW. Tous les journaux, notamment les [vidages sur incident](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) et les [compteurs de performance](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) peuvent être dirigés vers le dossier **connectionString** sur votre ordinateur. Vous pouvez également utiliser **AzureStorage** pour le stockage des diagnostics. Voici un exemple d’extrait de code.
+La section **metadata** est une description du diagnostic de votre cluster et peut être définie selon votre installation. Ces variables vous aident à collecter les journaux de suivi ETW, les vidages sur incident ainsi que les compteurs de performance. Consultez les sections [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) (Journal de suivi) et [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx) pour plus d’informations sur les journaux de suivi ETW. Tous les journaux, notamment les [vidages sur incident](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) et les [compteurs de performance](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) peuvent être dirigés vers le dossier **connectionString** sur votre ordinateur. Vous pouvez également utiliser **AzureStorage** pour le stockage des diagnostics. Voici un exemple d’extrait de code.
 
-	"diagnosticsStore": {
+    "diagnosticsStore": {
         "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
         "dataDeletionAgeInDays": "7",
         "storeType": "AzureStorage",
@@ -93,29 +94,29 @@ La section **metadata** est une description du diagnostic de votre cluster et pe
         "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
     }
 
-### **security** 
+### <a name="**security**"></a>**security** 
 La section **security** est nécessaire pour garantir la sécurité d’un cluster Service Fabric autonome. L’extrait de code suivant montre une partie de cette section.
 
     "security": {
         "metadata": "This cluster is secured using X509 certificates.",
         "ClusterCredentialType": "X509",
         "ServerCredentialType": "X509",
-		. . .
-	}
+        . . .
+    }
 
-La section **metadata** est une description de votre cluster sécurisé et peut être définie selon votre installation. Les propriétés **ClusterCredentialType** et **ServerCredentialType** déterminent le type de sécurité que le cluster et les nœuds implémenteront. Elles peuvent avoir la valeur *X509* pour une sécurité basée sur un certificat, ou *Windows* pour une sécurité de type Azure Active Directory. Le reste de la section **security** varie selon le type de sécurité. Consultez les rubriques [Sécurité basée sur des certificats dans un cluster autonome](service-fabric-windows-cluster-x509-security.md) ou [Sécurité Windows dans un cluster autonome](service-fabric-windows-cluster-windows-security.md) pour plus d’informations sur la façon de remplir le reste de la section **security**.
+La section **metadata** est une description de votre cluster sécurisé et peut être définie selon votre installation. Les propriétés **ClusterCredentialType** et **ServerCredentialType** déterminent le type de sécurité que le cluster et les nœuds implémenteront. Elles peuvent avoir la valeur *X509* pour une sécurité basée sur un certificat, ou *Windows* pour une sécurité basée sur Azure Active Directory. Le reste de la section **security** varie selon le type de sécurité. Consultez les rubriques [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md) ou [Sécuriser un cluster autonome sur Windows à l’aide de la sécurité Windows](service-fabric-windows-cluster-windows-security.md) pour plus d’informations sur la façon de remplir le reste de la section **security**.
 
-### **reliabilityLevel**
+### <a name="**reliabilitylevel**"></a>**reliabilityLevel**
 La propriété **reliabilityLevel** définit le nombre de copies des services système qui peuvent s’exécuter sur les nœuds principaux du cluster. Cette valeur augmente la fiabilité de ces services et, par conséquent, du cluster. Vous pouvez définir cette variable sur *Bronze*, *Silver*, *Gold* ou *Platinum* pour 3, 5, 7 ou 9 copies de ces services, respectivement. Reportez-vous à l’exemple ci-dessous.
 
-	"reliabilityLevel": "Bronze",
-	
+    "reliabilityLevel": "Bronze",
+    
 Notez que dans la mesure où un nœud principal exécute une copie unique des services système, vous avez besoin d’au moins 3 nœuds principaux pour le niveau de fiabilité *Bronze*, 5 pour *Silver*, 7 pour *Gold* et 9 pour *Platinum*.
 
 
 <a id="nodetypes"></a>
-### **nodeTypes**
-La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins un type de nœud doit être spécifié pour un cluster, comme indiqué dans l’extrait de code ci-dessous.
+### <a name="**nodetypes**"></a>**nodeTypes**
+La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins un type de nœud doit être spécifié pour un cluster, comme indiqué dans l’extrait de code ci-dessous. 
 
     "nodeTypes": [{
         "name": "NodeType0",
@@ -125,7 +126,7 @@ La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins u
         "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
         "applicationPorts": {
-			"startPort": "20001",
+            "startPort": "20001",
             "endPort": "20031"
         },
         "ephemeralPorts": {
@@ -135,10 +136,10 @@ La section **nodeTypes** décrit le type des nœuds de votre cluster. Au moins u
         "isPrimary": true
     }]
 
-La valeur **name** représente le nom convivial de ce type de nœud particulier. Pour créer un nœud de ce type de nœud, vous devez affecter le nom convivial pour ce type de nœud en utilisant la variable **nodeTypeRef**, comme indiqué dans la section [Nœuds sur le cluster](#clusternodes) ci-dessus. Pour chaque type de nœud, vous pouvez définir plusieurs points de terminaison pour la connexion à ce cluster. Vous pouvez choisir n’importe quel numéro de port pour ces points de terminaison de connexion, à condition qu’ils n’entrent pas en conflit avec d’autres points de terminaison de ce cluster. Si vous souhaitez créer un port de passerelle d’application HTTP, vous pouvez spécifier la chaîne « reverseProxyEndpointPort » : [Numéro de port] en plus des autres ports, comme ci-dessus. Un cluster avec plusieurs types de nœud inclura un type de nœud principal dont la propriété **isPrimary** est définie sur *true*. Pour les nœuds restants, la propriété **isPrimary** est définie sur *false*. Consultez la rubrique [Considérations en matière de planification de la capacité du cluster Service Fabric](service-fabric-cluster-capacity.md) pour plus d’informations sur les valeurs **nodeTypes** et **reliabilityLevel** selon la capacité de votre cluster, et pour connaître la différence entre les types de nœud principal et non principal.
+La valeur **name** représente le nom convivial de ce type de nœud particulier. Pour créer un nœud de ce type de nœud, vous devez affecter le nom convivial pour ce type de nœud en utilisant la variable **nodeTypeRef** , comme indiqué dans la section [Nœuds sur le cluster](#clusternodes) ci-dessus. Pour chaque type de nœud, vous pouvez définir plusieurs points de terminaison pour la connexion à ce cluster. Vous pouvez choisir n’importe quel numéro de port pour ces points de terminaison de connexion, à condition qu’ils n’entrent pas en conflit avec d’autres points de terminaison de ce cluster. Si vous souhaitez créer un port de passerelle d’application HTTP, vous pouvez spécifier la chaîne « reverseProxyEndpointPort » : [Numéro de port] en plus des autres ports, comme ci-dessus. Un cluster avec plusieurs types de nœud inclura un type de nœud principal dont la propriété **isPrimary** est définie sur *true*. Pour les nœuds restants, la propriété **isPrimary** est définie sur *false*. Consultez la rubrique [Considérations en matière de planification de la capacité du cluster Service Fabric](service-fabric-cluster-capacity.md) pour plus d’informations sur les valeurs **nodeTypes** et **reliabilityLevel** selon la capacité de votre cluster, et pour connaître la différence entre les types de nœud principal et non principal.
 
 
-### **fabricSettings**
+### <a name="**fabricsettings**"></a>**fabricSettings**
 Cette section vous permet de définir les répertoires racine des données et journaux Service Fabric. Vous pouvez personnaliser ces éléments uniquement lors de la création initiale du cluster. Voici un exemple d’extrait de cette section.
 
     "fabricSettings": [{
@@ -154,8 +155,14 @@ Cette section vous permet de définir les répertoires racine des données et jo
 Nous vous recommandons d’utiliser un lecteur autre que celui du système d’exploitation pour FabricDataRoot et FabricLogRoot pour plus de fiabilité en cas de défaillance du système d’exploitation. Notez que si vous personnalisez uniquement la racine des données, la racine du journal sera placée un niveau en dessous de la racine des données.
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Création d’un cluster Azure Service Fabric en local ou dans le cloud](service-fabric-cluster-creation-for-windows-server.md) puis passer à la section [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Créer et gérer un cluster exécuté sur Windows Server](service-fabric-cluster-creation-for-windows-server.md) puis passer à l’étape [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

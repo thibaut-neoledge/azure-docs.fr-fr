@@ -14,14 +14,15 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/04/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# Planificateur Azure AD Connect Sync
+
+# <a name="azure-ad-connect-sync:-scheduler"></a>Planificateur Azure AD Connect Sync
 Cette rubrique décrit le planificateur intégré dans Azure AD Connect Sync (également appelé moteur de synchronisation).
 
 Cette fonctionnalité a été introduite avec la version 1.1.105.0 (publiée en février 2016).
 
-## Vue d'ensemble
+## <a name="overview"></a>Vue d'ensemble
 Azure AD Connect Sync synchronise les modifications dans votre répertoire local à l’aide d’un planificateur. Il existe deux processus de planificateur, l’un pour la synchronisation de mot de passe et l’autre pour la synchronisation d’attribut/d’objet, ainsi que des tâches de maintenance. Cette rubrique couvre le planificateur de synchronisation d’attribut/d’objet.
 
 Dans les versions antérieures, le planificateur des objets et attributs était externe au moteur de synchronisation, et le planificateur de tâches de Windows ou un service Windows distinct était utilisé pour déclencher le processus de synchronisation. Le planificateur de la version 1.1 est intégré au moteur de synchronisation et permet de personnaliser certains aspects. La nouvelle valeur de la fréquence de synchronisation par défaut est de 30 minutes.
@@ -33,7 +34,7 @@ Le planificateur supervise deux tâches :
 
 Le planificateur est toujours en cours d’exécution, mais il peut être configuré pour exécuter uniquement une tâche, ou bien aucune tâche. Par exemple, si vous avez besoin d’avoir votre propre processus de cycle de synchronisation, vous pouvez désactiver cette tâche dans le planificateur, mais toujours exécuter la tâche de maintenance.
 
-## Configuration du planificateur
+## <a name="scheduler-configuration"></a>Configuration du planificateur
 Pour afficher vos paramètres de configuration en cours, accédez à PowerShell et exécutez `Get-ADSyncScheduler`. Le résultat suivant doit s’afficher :
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
@@ -60,25 +61,30 @@ Vous pouvez modifier certains de ces paramètres avec `Set-ADSyncScheduler`. Les
 
 La configuration du planificateur est stockée dans Azure AD. Si vous avez un serveur intermédiaire, toute modification sur le serveur principal aura également un effet sur le serveur intermédiaire (à l'exception de IsStagingModeEnabled).
 
-### CustomizedSyncCycleInterval
-Syntaxe : `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss` d - jours, HH - heures, mm - minutes, ss - secondes
+### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
+Syntaxe : `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+ d - jours, HH - heures, mm - minutes, ss - secondes
 
-Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00` modifiera le Planificateur pour qu’il s’exécute toutes les 3 heures.
+Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
+ modifiera le Planificateur pour qu’il s’exécute toutes les 3 heures.
 
-Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0` modifiera le Planificateur pour qu’il s’exécute tous les jours.
+Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
+ modifiera le Planificateur pour qu’il s’exécute tous les jours.
 
-## Démarrer le planificateur
+## <a name="start-the-scheduler"></a>Démarrer le planificateur
 Par défaut, le planificateur s’exécutera toutes les 30 minutes. Dans certains cas, vous souhaiterez peut-être exécuter un cycle de synchronisation entre les cycles planifiés ou vous devrez exécuter un autre type de synchronisation.
 
-**Cycle de synchronisation delta** Un cycle de synchronisation delta comprend les étapes suivantes :
+**Cycle de synchronisation delta**  
+ Un cycle de synchronisation delta comprend les étapes suivantes :
 
 - Importation delta sur tous les connecteurs
 - Synchronisation delta sur tous les connecteurs
 - Exportation sur tous les connecteurs
 
-Cela peut indiquer une modification urgente à synchroniser immédiatement, nécessitant l’exécution manuelle d’un cycle. Si vous avez besoin d’exécuter un cycle manuellement, exécutez `Start-ADSyncSyncCycle -PolicyType Delta` à partir de PowerShell.
+Cela peut indiquer une modification urgente à synchroniser immédiatement, nécessitant l’exécution manuelle d’un cycle. Si vous avez besoin d’exécuter un cycle manuellement, exécutez `Start-ADSyncSyncCycle -PolicyType Delta`à partir de PowerShell.
 
-**Cycle de synchronisation complète** Si vous avez effectué l’une des modifications de configuration suivantes, vous devez exécuter un cycle de synchronisation complet (également appelé Initial) :
+**Cycle de synchronisation complet**  
+Si vous avez effectué l’une des modifications de configuration suivantes, vous devez exécuter un cycle de synchronisation complet (également appelé Initial) :
 
 - Ajout de plusieurs objets ou attributs à importer à partir d’un répertoire source
 - Modifications apportées aux règles de synchronisation
@@ -92,7 +98,7 @@ Si vous avez effectué l’une de ces modifications, vous devez exécuter un cyc
 
 Pour initier un cycle de synchronisation complète, exécutez `Start-ADSyncSyncCycle -PolicyType Initial` à partir d’une invite PowerShell. Ceci démarrera un cycle de synchronisation complète.
 
-## Arrêter le planificateur
+## <a name="stop-the-scheduler"></a>Arrêter le planificateur
 Si le planificateur exécute un cycle de synchronisation, vous devrez l’arrêter. Par exemple, si vous démarrez l’Assistant d’installation et que vous obtenez l’erreur suivante :
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
@@ -105,21 +111,21 @@ Lorsqu’un cycle de synchronisation est en cours d’exécution, vous ne pouvez
 
 Le planificateur est toujours actif et redémarrera à la prochaine occasion.
 
-## Planificateur personnalisé
-Les applets de commande décrites dans cette section sont uniquement disponibles dans le build [1\.1.130.0](active-directory-aadconnect-version-history.md#111300) et versions ultérieures.
+## <a name="custom-scheduler"></a>Planificateur personnalisé
+Les applets de commande décrites dans cette section sont uniquement disponibles dans le build [1.1.130.0](active-directory-aadconnect-version-history.md#111300) et versions ultérieures.
 
 Si le planificateur intégré ne satisfait pas à vos exigences, vous pouvez planifier les connecteurs à l'aide de PowerShell.
 
-### Invoke-ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Vous pouvez démarrer un profil pour un connecteur de cette façon :
 
 ```
 Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
 ```
 
-Les noms à utiliser pour [Noms de connecteur](active-directory-aadconnectsync-service-manager-ui-connectors.md) et [Exécuter les noms de profil](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) se trouvent dans l[’interface utilisateur Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
+Les noms à utiliser pour [Noms de connecteur](active-directory-aadconnectsync-service-manager-ui-connectors.md) et [Exécuter les noms de profil](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) se trouvent dans [l’interface utilisateur Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
 
-![Appeler le profil d’exécution](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
+![Appeler le profil d’exécution](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)  
 
 L’Applet de commande `Invoke-ADSyncRunProfile` est synchrone, c'est-à-dire qu'il ne retournera pas de contrôle avant que le connecteur ait terminé l'opération, avec succès ou avec une erreur.
 
@@ -134,21 +140,26 @@ Lorsque vous planifiez vos connecteurs, il est recommandé de le faire dans l'or
 
 Si vous regardez le planificateur intégré, il s'agit de l'ordre d’exécution des connecteurs.
 
-### Get-ADSyncConnectorRunStatus
+### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
 Vous pouvez également surveiller le moteur de synchronisation pour voir s'il est occupé ou inactif. Cet Applet de commande renvoie un résultat vide si le moteur de synchronisation est inactif et qu'il n'exécute pas un connecteur. Si un connecteur est en cours d'exécution, il retournera le nom du connecteur.
 
 ```
 Get-ADSyncConnectorRunStatus
 ```
 
-![État d’exécution du connecteur](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png) Dans l'illustration ci-dessus, la première ligne est dans un état où le moteur de synchronisation est inactif. La deuxième ligne lorsque le Connecteur Azure AD est en cours d'exécution.
+![État d’exécution du connecteur](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
+ Dans l'illustration ci-dessus, la première ligne est dans un état où le moteur de synchronisation est inactif. La deuxième ligne lorsque le Connecteur Azure AD est en cours d'exécution.
 
-## Planificateur et Assistant d’installation
+## <a name="scheduler-and-installation-wizard"></a>Planificateur et Assistant d’installation
 Si vous démarrez l’Assistant d’installation, le planificateur sera temporairement interrompu. Nous supposons que vous allez apporter des modifications de configuration et celles-ci ne peuvent pas être appliquées si le moteur de synchronisation s’exécute activement. Pour cette raison, ne laissez pas l’Assistant d’installation ouvert, car il empêche le moteur de synchronisation d’effectuer toutes les actions de synchronisation.
 
-## Étapes suivantes
-En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
-En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

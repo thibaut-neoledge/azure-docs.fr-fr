@@ -1,6 +1,6 @@
 <properties
- pageTitle="Sécurisation de l’Internet des objets de bout en bout | Microsoft Azure"
- description="Cet article décrit les fonctionnalités de sécurité intégrées de Microsoft Azure IoT Suite"
+ pageTitle="Securing your Internet of Things from the ground up | Microsoft Azure"
+ description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,26 +17,31 @@
  ms.date="08/16/2016"
  ms.author="yurid"/>
 
+
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
+To learn more about securing your IoT solution, see:
 
-- [Meilleures pratiques relatives à la sécurité IoT][lnk-security-best-practices]
-- [Architecture de la sécurité IoT][lnk-security-architecture]
-- [Sécuriser votre déploiement IoT][lnk-security-deployment]
+- [IoT Security Best Practices][lnk-security-best-practices]
+- [IoT Security Architecture][lnk-security-architecture]
+- [Secure your IoT deployment][lnk-security-deployment]
 
 [lnk-security-best-practices]: iot-security-best-practices.md
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
+You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
-- [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]
-- [Forum Aux Questions (FAQ) relatives à IoT Suite][lnk-faq]
+- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+- [Frequently asked questions for IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

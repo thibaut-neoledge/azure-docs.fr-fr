@@ -1,23 +1,25 @@
-**Pour créer un profil CDN**
+**To create a new CDN profile**
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Nouveau** dans l’angle supérieur gauche. Dans le panneau **Nouveau**, sélectionnez **Médias + CDN**, puis **CDN**.
+1. In the [Azure Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Media + CDN**, then **CDN**.
 
-    Le panneau du nouveau profil CDN s'affiche.
+    The new CDN profile blade appears.
 
-    ![Nouveau profil CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
+    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile-include.png)
 
-2. Entrez un nom pour votre profil CDN.
+2. Enter a name for your CDN profile.
 
-3. Sélectionnez un **emplacement**. Il s'agit de l'emplacement Azure où seront stockées les informations de votre profil CDN. Cela n'a aucun impact sur les emplacements de point de terminaison CDN.
+3. Select a **Location**.  This is the Azure location where your CDN profile information will be stored.  It has no impact on CDN endpoint locations.
 
-4. Sélectionnez ou créez un **groupe de ressources**. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md#resource-groups).
+4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
 
-5. Sélectionner un **niveau de tarification**. Consultez la [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md#azure-cdn-features) pour obtenir une comparaison des niveaux de tarification.
+5. Select a **Pricing tier**.  See the [CDN Overview](cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers.
     
-    ![Sélection du niveau de tarification CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
+    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
-6. Sélectionnez l’**abonnement** pour ce profil CDN.
+6. Select the **Subscription** for this CDN profile.
 
-7. Cliquez sur le bouton **Créer** pour créer le profil.
+7. Click the **Create** button to create the new profile. 
 
-<!---HONumber=AcomDC_0706_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

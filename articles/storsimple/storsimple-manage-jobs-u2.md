@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Affichage et gestion des tâches StorSimple | Microsoft Azure"
-   description="Décrit la page Tâches du service StorSimple Manager et explique comment l’utiliser pour effectuer le suivi des tâches de sauvegarde planifiées, actuelles et récentes."
+   pageTitle="View and manage StorSimple jobs | Microsoft Azure"
+   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent, current, and scheduled backup jobs."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,82 +15,88 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# Utilisez le service StorSimple Manager pour afficher et gérer les tâches StorSimple (Mise à jour 2)
+
+# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs-(update-2)"></a>Use the StorSimple Manager service to view and manage StorSimple jobs (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
-## Vue d'ensemble
+## <a name="overview"></a>Overview
 
-La page **Tâches** est un portail centralisé unique qui permet de consulter et de gérer les tâches qui ont été lancées sur les appareils connectés à votre service StorSimple Manager. Vous pouvez consulter les tâches planifiées, en cours d'exécution, terminées, annulées et en échec pour plusieurs appareils. Les résultats sont présentés sous forme de tableau.
+The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, canceled, and failed jobs for multiple devices. Results are presented in a tabular format. 
 
-![Page Tâches](./media/storsimple-manage-jobs-u2/jobs.png)
+![Jobs page](./media/storsimple-manage-jobs-u2/jobs.png)
 
-Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant sur les champs, à savoir :
+You can quickly find the jobs you are interested in by filtering on fields such as:
 
-- **État** : les tâches peuvent être en cours d'exécution, terminées, annulées, en échec, en cours d'annulation ou terminées avec des erreurs.
-- **De et À** : les tâches peuvent être filtrées selon la date et l'heure.
-- **Type** : le type de tâche peut être sauvegarde, sauvegarde manuelle, restauration, clonage, basculement d'appareil, créer un volume épinglé localement, modifier le volume, mettre à jour, prendre en charge le package ou approvisionnement de l'appareil virtuel.
+- **Status** – Jobs can be running, completed, canceled, failed, canceling, or completed with errors.
+- **From and To** – Jobs can be filtered based on the date and time range.
+- **Type** – The job type can be backup, manual backup, restore, clone, device failover, create locally pinned volume, modify volume, update, support package, or virtual device provisioning.
 
-- **Appareils** : les tâches sont initiées sur un certain appareil connecté à votre service. Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
+- **Devices** – Jobs are initiated on a certain device connected to your service.
+The filtered jobs are then tabulated on the basis of the following attributes:
 
-    - **Type** : sauvegarde, sauvegarde manuelle, restauration, clonage, basculement d'appareil, créer un volume épinglé localement, modifier le volume, mettre à jour, prendre en charge le package ou approvisionnement de l'appareil virtuel.
+    - **Type** – backup, manual backup, restore, clone, device failover, create locally pinned volume, modify volume, update, support package, or virtual device provisioning.
 
-    - **État** : en cours d'exécution, terminées, annulées, en échec, en cours d'annulation ou terminées avec des erreurs.
+    - **Status** – running, completed, canceled, failed, canceling, or completed with errors.
 
-    - **Entité** : les tâches peuvent être associées à un volume, une stratégie de sauvegarde ou un appareil. Par exemple, une tâche de clonage est associée à un volume, tandis qu'une tâche de sauvegarde planifiée est associée à une stratégie de sauvegarde. Une tâche d’appareil est créée à la suite d’une récupération d'urgence ou d’une opération de restauration.
+    - **Entity** – The jobs can be associated with a volume, a backup policy, or a device. For example, a clone job is associated with a volume, whereas a scheduled backup job is associated with a backup policy. A device job is created as a result of a disaster recovery (DR) or a restore operation.
 
-    - **Appareil** : nom de l'appareil sur lequel la tâche a été lancée.
+    - **Device** – The name of the device on which the job was started.
 
-    - **Démarré le** : heure à laquelle la tâche a été lancée.
+    - **Started on** – The time when the job was started.
 
-    - **Progression** : pourcentage d'achèvement d'une tâche en cours d'exécution. Pour une tâche terminée, le pourcentage doit toujours être de 100 %.
+    - **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
 
-La liste des tâches est actualisée toutes les 30 secondes.
+The list of jobs is refreshed every 30 seconds.
 
-Cette page vous permet d’effectuer diverses actions liées aux tâches, à savoir :
+You can perform the following job-related actions on this page:
 
-- Affichage des détails d’une tâche
+- View job details
 
-- Annulation d’une tâche
+- Cancel a job
 
-## Affichage des détails d’une tâche
+## <a name="view-job-details"></a>View job details
 
-Pour afficher les détails d’une tâche, procédez comme suit.
+Perform the following steps to view the details of any job.
 
-#### Pour afficher les détails d’une tâche
+#### <a name="to-view-job-details"></a>To view job details
 
-1. Dans la page **Tâches**, affichez la ou les tâches qui vous intéressent en exécutant une requête avec les filtres appropriés. Vous pouvez rechercher des tâches terminées, en cours d'exécution ou annulées.
+1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed, running, or canceled jobs.
 
-2. Sélectionnez une tâche.
+2. Select a job.
 
-3. En bas de la page, cliquez sur **Détails**.
+3. At the bottom of the page, click **Details**.
 
-4. Dans la boîte de dialogue **Détails de la tâche de sauvegarde**, vous pouvez consulter l'état, les détails, les statistiques temporelles et les statistiques de données.
+4. In the **Backup Job Details** dialog box, you can view the status, details, time statistics, and data statistics.
  
-    ![Page Détails de la tâche](./media/storsimple-manage-jobs-u2/JobDetails.png)
+    ![Job details page](./media/storsimple-manage-jobs-u2/JobDetails.png)
 
-## Annulation d’une tâche
+## <a name="cancel-a-job"></a>Cancel a job
 
-Pour annuler une tâche en cours d’exécution, procédez comme suit.
+Perform the following steps to cancel a running job.
 
->[AZURE.NOTE] Certaines tâches, telles que la modification d'un volume pour modifier le type de volume ou l'extension d'un volume, ne peuvent pas être annulées.
+>[AZURE.NOTE] Some jobs, such as modifying a volume to change the volume type or expanding a volume, cannot be canceled.
 
-### Pour annuler une tâche
+### <a name="to-cancel-a-job"></a>To cancel a job
 
-1. Dans la page **Tâches**, affichez les tâches en cours d’exécution que vous voulez annuler en exécutant une requête avec les filtres appropriés.
+1. On the **Jobs** page, display the running job(s) that you want to cancel by running a query with appropriate filters.
 
-1. Sélectionnez la tâche.
+1. Select the job.
 
-1. En bas de la page, cliquez sur **Annuler**.
+1. At the bottom of the page, click **Cancel**.
 
-1. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
+1. When prompted for confirmation, click **Yes**.
 
-Cette tâche est à présent annulée.
+This job is now canceled.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-- En savoir plus sur la [gestion de vos stratégies de sauvegarde StorSimple](storsimple-manage-backup-policies.md).
+- Learn how to [manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
 
-- Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

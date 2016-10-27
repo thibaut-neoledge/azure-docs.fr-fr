@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Didacticiel de sauvegarde de StorSimple Virtual Array | Microsoft Azure"
-   description="Décrit comment sauvegarder des partages et des volumes StorSimple Virtual Array."
+   pageTitle="StorSimple Virtual Array backup tutorial | Microsoft Azure"
+   description="Describes how to back up StorSimple Virtual Array shares and volumes."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,93 +15,98 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
-# Sauvegarder votre StorSimple Virtual Array
 
-## Vue d'ensemble 
+# <a name="back-up-your-storsimple-virtual-array"></a>Back up your StorSimple Virtual Array
 
-Ce didacticiel s’applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version de mise à la disposition générale (mars 2016) ou des versions ultérieures.
+## <a name="overview"></a>Overview 
 
-StorSimple Virtual Array est un périphérique virtuel local de stockage cloud hybride qui peut être configuré comme un serveur de fichiers ou un serveur iSCSI. Il peut créer des sauvegardes, restaurer des données à partir de sauvegardes et effectuer le basculement d'un appareil si une récupération d'urgence est nécessaire. Configuré comme serveur de fichiers, il permet également la récupération au niveau de l’élément. Ce didacticiel explique comment utiliser le portail Azure Classic ou l'interface utilisateur web StorSimple pour créer des sauvegardes planifiées et manuelles de votre StorSimple Virtual Array.
+This tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later versions.
+
+The StorSimple Virtual Array is a hybrid cloud storage on-premises virtual device that can be configured as a file server or an iSCSI server. It can create backups, restore from backups, and perform device failover if disaster recovery is needed. When configured as a file server, it also allows item-level recovery. This tutorial describes how to use the Azure classic portal or the StorSimple web UI to create scheduled and manual backups of your StorSimple Virtual Array.
 
 
-## Sauvegarder des partages et des volumes
+## <a name="back-up-shares-and-volumes"></a>Back up shares and volumes
 
-Les sauvegardes fournissent une protection jusqu’à une date et une heure, et optimisent la récupération tout en réduisant les délais de restauration pour les partages et les sauvegardes. Vous pouvez sauvegarder un partage ou un volume sur votre appareil StorSimple de deux manières : **planifiée** ou **manuelle**. Chacune des méthodes est abordée dans les sections suivantes.
+Backups provide point-in-time protection, improve recoverability, and minimize restore times for shares and volumes. You can back up a share or volume on your StorSimple device in two ways: **Scheduled** or **Manual**. Each of the methods is discussed in the following sections.
 
-> [AZURE.NOTE] Dans cette version, les sauvegardes planifiées sont créées à l’aide d’une stratégie par défaut qui s'exécute tous les jours à un moment précis et sauvegarde tous les partages ou volumes sur l'appareil. Il n'est pour l’instant pas possible de créer des stratégies personnalisées pour les sauvegardes planifiées.
+> [AZURE.NOTE] In this release, scheduled backups are created by a default policy that runs daily at a specified time and backs up all the shares or volumes on the device. It is not possible to create custom policies for scheduled backups at this time.
 
-## Modifier la planification de sauvegarde
+## <a name="change-the-backup-schedule"></a>Change the backup schedule
 
-Votre appareil virtuel StorSimple comporte une stratégie de sauvegarde par défaut qui démarre à une heure spécifique de la journée (22h30) et sauvegarde une fois par jour tous les partages ou volumes sur le périphérique. Vous pouvez modifier l'heure à laquelle la sauvegarde démarre, mais la fréquence et la durée de rétention (qui spécifie le nombre de sauvegardes à conserver) ne peuvent pas être modifiées. Au cours de ces sauvegardes, la totalité de l’appareil virtuel est enregistrée ; par conséquent, nous vous recommandons de planifier ces sauvegardes pendant les heures creuses.
+Your StorSimple virtual device has a default backup policy that starts at a specified time of day (22:30) and backs up all the shares or volumes on the device once a day. You can change the time at which the backup starts, but the frequency and the retention (which specifies the number of backups to retain) cannot be changed. During these backups, the entire virtual device is backed up; therefore, we recommend that you schedule these backups for off-peak hours.
 
-Procédez comme suit dans le [portail Azure Classic](https://manage.windowsazure.com/) pour modifier l’heure de début de la sauvegarde par défaut.
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) to change the default backup start time.
 
-#### Pour modifier l'heure de début de la stratégie de sauvegarde par défaut
+#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>To change the start time for the default backup policy
 
-1. Naviguez jusqu’à l’onglet **Configuration** de l’appareil.
+1. Navigate to the device **Configuration** tab.
 
-2. Sous la section **Sauvegarde**, spécifiez l'heure de début de la sauvegarde quotidienne.
+2. Under the **Backup** section, specify the start time for the daily backup.
 
-3. Cliquez sur **Enregistrer**.
+3. Click **Save**.
 
-### Exécuter une sauvegarde manuelle
+### <a name="take-a-manual-backup"></a>Take a manual backup
 
-Outre les sauvegardes planifiées, vous pouvez à tout moment effectuer une sauvegarde manuelle (à la demande).
+In addition to scheduled backups, you can take a manual (on-demand) backup at any time.
 
-#### Pour créer une sauvegarde manuelle (à la demande)
+#### <a name="to-create-a-manual-(on-demand)-backup"></a>To create a manual (on-demand) backup
 
-1. Accédez à l’onglet **Partages** ou l’onglet **Volumes**.
+1. Navigate to the **Shares** tab or the **Volumes** tab.
 
-2. En bas de la page, cliquez sur **Sauvegarder tout**. Vous devrez confirmer que vous souhaitez effectuer la sauvegarde maintenant. Cliquez sur l'icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-backup/image3.png) pour poursuivre la sauvegarde.
+2. At the bottom of the page, click **Backup all**. You will be prompted to verify that you would like to take the backup now. Click the check icon ![check icon](./media/storsimple-ova-backup/image3.png) to proceed with the backup.
 
-    ![confirmation de sauvegarde](./media/storsimple-ova-backup/image4.png)
+    ![backup confirmation](./media/storsimple-ova-backup/image4.png)
 
-    Un message vous informe qu'une tâche de sauvegarde a démarré.
+    You will be notified that a backup job is starting.
 
-    ![démarrage de sauvegarde](./media/storsimple-ova-backup/image5.png)
+    ![backup starting](./media/storsimple-ova-backup/image5.png)
 
-    Un message vous informe que la tâche a été créée.
+    You will be notified that the job was created successfully.
 
-    ![travail de sauvegarde créé](./media/storsimple-ova-backup/image7.png)
+    ![backup job created](./media/storsimple-ova-backup/image7.png)
 
-3. Pour suivre la progression de la tâche, cliquez sur **Afficher la tâche**.
+3. To track the progress of the job, click **View Job**.
 
-4. Une fois le travail de sauvegarde terminé, accédez à l’onglet **Catalogue de sauvegarde**. Votre sauvegarde devrait être terminée.
+4. After the backup job is finished, go to the **Backup catalog** tab. You should see your completed backup.
 
-    ![Sauvegarde terminée](./media/storsimple-ova-backup/image8.png)
+    ![Completed backup](./media/storsimple-ova-backup/image8.png)
 
-5. Définissez les sélections de filtre pour l’appareil approprié, la stratégie de sauvegarde et la plage horaire, puis cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-ova-backup/image3.png).
+5. Set the filter selections to the appropriate device, backup policy, and time range, and then click the check icon ![check icon](./media/storsimple-ova-backup/image3.png).
 
-    La sauvegarde doit apparaître dans la liste des jeux de sauvegarde qui s’affiche dans le catalogue.
+    The backup should appear in the list of backup sets that is displayed in the catalog.
 
-## Afficher les sauvegardes existantes
+## <a name="view-existing-backups"></a>View existing backups
 
-Procédez comme suit dans le portail Azure Classic pour afficher les sauvegardes existantes.
+Perform the following steps in the Azure classic portal to view the existing backups.
 
-#### Pour afficher les sauvegardes existantes
+#### <a name="to-view-existing-backups"></a>To view existing backups
 
-1. Dans la page du service StorSimple Manager, cliquez sur l’onglet **Catalogue de sauvegarde**.
+1. On the StorSimple Manager service page, click the **Backup catalog** tab.
 
-2. Sélectionnez un jeu de sauvegarde comme suit :
+2. Select a backup set as follows:
 
-    1. Sélectionnez le périphérique.
+    1. Select the device.
 
-    2. Dans la liste déroulante, choisissez le partage ou le volume pour la sauvegarde à sélectionner.
+    2. In the drop-down list, choose the share or volume for the backup that you wish to select.
 
-    3. Indiquez l’intervalle de temps.
+    3. Specify the time range.
 
-    4. Cliquez sur l’icône en forme de coche ![](./media/storsimple-ova-backup/image3.png) pour exécuter cette requête.
+    4. Click the check icon ![](./media/storsimple-ova-backup/image3.png) to execute this query.
 
-    Les sauvegardes associées au partage ou volume sélectionné doivent figurer dans la liste des jeux de sauvegarde.
+    The backups associated with the selected share or volume should appear in the list of backup sets.
 
-![icône\_vidéo](./media/storsimple-ova-backup/video_icon.png) **Vidéo disponible**
+![video_icon](./media/storsimple-ova-backup/video_icon.png) **Video available**
 
-Regardez la vidéo pour voir comment vous pouvez créer des partages, sauvegarder les partages et restaurer des données sur un StorSimple Virtual Array.
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
 
 > [AZURE.VIDEO use-the-storsimple-virtual-array]
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-En savoir plus sur la [gestion de votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

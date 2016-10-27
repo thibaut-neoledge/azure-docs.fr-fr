@@ -1,72 +1,76 @@
 <properties
-	pageTitle="Instructions pour les abonnements et les comptes | Microsoft Azure"
-	description="Découvrez les principales instructions de conception et d’implémentation pour les abonnements et les comptes sur Azure."
-	documentationCenter=""
-	services="virtual-machines-windows"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Subscription and Accounts Guidelines | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for subscriptions and accounts on Azure."
+    documentationCenter=""
+    services="virtual-machines-windows"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
-
-# Instructions pour les abonnements et les comptes
-
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
-
-Cet article se concentre sur la compréhension de l’approche de la gestion des abonnements et des comptes lorsque votre environnement et votre base d’utilisateurs augmentent.
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
 
-## Instructions d’implémentation pour les abonnements et les comptes
+# <a name="subscription-and-accounts-guidelines"></a>Subscription and accounts guidelines
 
-Décisions :
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)] 
 
-- Quel est l’ensemble d’abonnements et de comptes dont vous avez besoin pour héberger votre charge de travail ou votre infrastructure informatique ?
-- Comment détailler la hiérarchie pour l’adapter à votre organisation ?
-
-Tâches :
-
-- Définissez la hiérarchie logique de votre organisation que vous souhaitez gérer à partir d’un niveau d’abonnement.
-- Pour faire correspondre cette hiérarchie logique, définissez les comptes nécessaires et les abonnements sous chaque compte.
-- Créez l’ensemble d’abonnements et de comptes à l’aide de votre convention d’affectation de noms.
+This article focuses on understanding how to approach subscription and account management as your environment and user base grows.
 
 
-## Abonnements et comptes
+## <a name="implementation-guidelines-for-subscriptions-and-accounts"></a>Implementation guidelines for subscriptions and accounts
 
-Pour utiliser Azure, vous avez besoin d’un ou de plusieurs abonnements Azure. Des ressources telles que des machines virtuelles ou des réseaux virtuels existent dans le contexte de ces abonnements.
+Decisions:
 
-- Les clients d’entreprises disposent généralement d’une inscription d’entreprise, qui est la ressource principale dans la hiérarchie et est associée à un ou plusieurs comptes.
-- Pour les particuliers et les clients sans inscription d’entreprise, la ressource principale est le compte.
-- Les abonnements sont associés à des comptes, et chaque compte peut être associé à un ou plusieurs abonnements. Azure enregistre les informations de facturation au niveau de l’abonnement.
+- What set of subscriptions and accounts do you need to host your IT workload or infrastructure?
+- How to break down the hierarchy to fit your organization?
 
-La relation compte/abonnement étant limitée à deux niveaux de hiérarchie, il est important d'aligner la convention d'affectation de noms des comptes et des abonnements sur les besoins liés à la facturation. Par exemple, si une entreprise multinationale utilise Azure, elle peut choisir d’avoir un seul compte par région et des abonnements gérés au niveau régional :
+Tasks:
+
+- Define your logical organization hierarchy as you would like to manage it from a subscription level.
+- To match this logical hierarchy, define the accounts required and subscriptions under each account.
+- Create the set of subscriptions and accounts using your naming convention.
+
+
+## <a name="subscriptions-and-accounts"></a>Subscriptions and accounts
+
+To work with Azure, you need one or more Azure subscriptions. Resources like virtual machines (VMs) or virtual networks exist in of those subscriptions.
+
+- Enterprise customers typically have an Enterprise Enrollment, which is the top-most resource in the hierarchy, and is associated to one or more accounts.
+- For consumers and customers without an Enterprise Enrollment, the top-most resource is the account.
+- Subscriptions are associated to accounts, and there can be one or more subscriptions per account. Azure records billing information at the subscription level.
+
+Due to the limit of two hierarchy levels on the Account/Subscription relationship, it is important to align the naming convention of accounts and subscriptions to the billing needs. For instance, if a global company uses Azure, they might choose to have one account per region, and have subscriptions managed at the region level:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
-Par exemple, vous pouvez utiliser la structure suivante :
+For instance, you might use the following structure:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
-Si une région décide d’avoir plusieurs abonnements associés à un groupe spécifique, la convention d’affectation de noms doit comprendre un code pour les données supplémentaires dans le nom du compte ou de l’abonnement. Cette organisation permet le transfert de données de facturation pour générer de nouveaux niveaux de hiérarchie lors de l’établissement de rapports de facturation :
+If a region decides to have more than one subscription associated to a particular group, the naming convention should incorporate a way to encode the extra data on either the account or the subscription name. This organization allows massaging billing data to generate the new levels of hierarchy during billing reports:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-L’organisation peut ressembler à l’exemple suivant :
+The organization could look like the following:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
-Nous fournissons une facturation détaillée au moyen d’un fichier téléchargeable, pour un compte unique ou pour tous les comptes liés à un accord d’entreprise.
+We provide detailed billing via a downloadable file for a single account, or for all accounts in an enterprise agreement.
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)] 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

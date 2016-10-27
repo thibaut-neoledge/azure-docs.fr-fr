@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Chargement de données dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
-    description="Découvrez comment charger des données dans un index dans Azure Search."
+    pageTitle="Data upload in Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="Learn how to upload data to an index in Azure Search."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -17,32 +17,37 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
-# Charger des données dans Azure Search
+
+# <a name="upload-data-to-azure-search"></a>Upload data to Azure Search
 > [AZURE.SELECTOR]
-- [Vue d'ensemble](search-what-is-data-import.md)
+- [Overview](search-what-is-data-import.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
 
 
-## Modèles de chargement de données dans Azure Search
-Deux méthodes permettent de renseigner votre index Azure Search avec vos données. La première option consiste à envoyer manuellement vos données dans l’index à l’aide de l’[API REST](search-import-data-rest-api.md) ou du [Kit de développement logiciel (SDK) .NET](search-import-data-dotnet.md) d’Azure Search. La seconde option consiste à [pointer une source de données prise en charge](search-indexer-overview.md) vers votre index Azure Search et à permettre à Azure Search d’extraire automatiquement vos données dans le service de recherche.
+## <a name="data-upload-models-in-azure-search"></a>Data upload models in Azure search
+There are two ways to populate your Azure Search index with your data. The first option is manually pushing your data into the index using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your Azure Search index and let Azure Search automatically pull your data into the search service.
 
-Ce guide couvre uniquement les instructions portant sur l’utilisation du modèle d’émission de chargement de données (qui est pris en charge uniquement dans l’[API REST](search-import-data-rest-api.md) et dans le [Kit de développement logiciel (SDK) .NET](search-import-data-dotnet.md)), mais vous pouvez en savoir plus sur le modèle d’émission ci-dessous.
+This guide will only cover instructions on using the push model of data upload (which is supported only in the [REST API](search-import-data-rest-api.md) and [.NET SDK](search-import-data-dotnet.md)), but you can still learn more about the pull model below.
 
-### Envoyer des données à un index
+### <a name="push-data-to-an-index"></a>Push data to an index
 
-Cette approche désigne l’envoi par programme de vos données à Azure Search pour les rendre disponibles pour la recherche. Pour les applications ayant des exigences à très faible latence (par exemple, si vous devez synchroniser les opérations de recherche avec les bases de données d’inventaire dynamiques), le modèle d’émission est la seule option.
+This approach refers to programmatically sending your data to Azure Search to make it available for searching. For applications having very low latency requirements (e.g. if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
 
-Vous pouvez utiliser l’[API REST](https://msdn.microsoft.com/library/azure/dn798930.aspx) ou le [Kit de développement logiciel (SDK) .NET](search-import-data-dotnet.md) pour envoyer des données à un index. Il n’existe actuellement aucune prise en charge de l’outil de diffusion de données via le portail.
+You can use the [REST API](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [.NET SDK](search-import-data-dotnet.md) to push data to an index. There is currently no tool support for pushing data via the portal.
 
-Cette approche est plus flexible que le modèle d’extraction, car vous pouvez charger des documents individuellement ou par lots (jusqu’à 1 000 par lot ou 16 Mo, quelle que soit la limite atteinte en premier). Le modèle d’émission vous permet également de charger des documents dans Azure Search indépendamment de l’emplacement des données.
+This approach is more flexible than the pull model because you can upload documents individually or in batches (up to 1000 per batch or 16 MB, whichever limit comes first). The push model also allows you to upload documents to Azure Search regardless of where your data is.
 
-### Extraire des données dans un index
+### <a name="pull-data-into-an-index"></a>Pull data into an index
 
-Le modèle d’extraction analyse une source de données prise en charge et charge automatiquement les données dans votre index Azure Search. En suivant les modifications et les suppressions effectuées dans les documents existants, et en reconnaissant les nouveaux documents, les indexeurs suppriment la nécessité de gérer activement les données de votre index.
+The pull model crawls a supported data source and automatically uploads the data into you Azure Search index for you. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index.
 
-Dans Azure Search, cette fonctionnalité est implémentée via des *indexeurs*, actuellement disponibles pour le [stockage d’objets blob (version préliminaire)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Base de données SQL Azure et SQL Server sur les machines virtuelles Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+In Azure Search, this capability is implemented through *indexers*, currently available for [Blob storage (preview)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 
-La fonctionnalité de l’indexeur est exposée dans le [portail Azure](search-import-data-portal.md) ainsi que dans l’[API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
+The indexer functionality is exposed in the [Azure Portal](search-import-data-portal.md) as well as in the [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Central Desktop | Microsoft Azure" 
-    description="Apprenez à utiliser Central Desktop avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
+    pageTitle="Tutorial: Azure Active Directory integration with Central Desktop | Microsoft Azure" 
+    description="Learn how to use Central Desktop with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,160 +11,165 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Didacticiel : Intégration d’Azure Active Directory à Central Desktop
 
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Central Desktop. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+#<a name="tutorial:-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Azure Active Directory integration with Central Desktop
 
--   Un abonnement Azure valide
--   Un abonnement Central Desktop pour lequel l’authentification unique est activée / locataire Central Desktop
+The objective of this tutorial is to show the integration of Azure and Central Desktop. The scenario outlined in this tutorial assumes that you already have the following items:
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+-   A valid Azure subscription
+-   A Central desktop single sign on enabled subscription / Central desktop tenant
 
-1.  Activation de l’intégration d’applications pour Central Desktop
-2.  Configuration de l’authentification unique
-3.  Configuration de l'approvisionnement des utilisateurs
-4.  Affectation d’utilisateurs
+The scenario outlined in this tutorial consists of the following building blocks:
 
-![Scénario](./media/active-directory-saas-central-desktop-tutorial/IC769558.png "Scénario")
-##Activation de l’intégration d’applications pour Central Desktop
+1.  Enabling the application integration for Central Desktop
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-Cette section décrit l’activation de l’intégration d’applications pour Central Desktop.
+![Scenario](./media/active-directory-saas-central-desktop-tutorial/IC769558.png "Scenario")
+##<a name="enabling-the-application-integration-for-central-desktop"></a>Enabling the application integration for Central Desktop
 
-###Pour activer l’intégration d’applications pour Central Desktop, procédez comme suit :
+The objective of this section is to outline how to enable the application integration for Central Desktop.
 
-1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
+###<a name="to-enable-the-application-integration-for-central-desktop,-perform-the-following-steps:"></a>To enable the application integration for Central Desktop, perform the following steps:
+
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-central-desktop-tutorial/IC700993.png "Active Directory")
 
-2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
     ![Applications](./media/active-directory-saas-central-desktop-tutorial/IC700994.png "Applications")
 
-4.  Cliquez sur **Ajouter** en bas de la page.
+4.  Click **Add** at the bottom of the page.
 
-    ![Ajouter l’application](./media/active-directory-saas-central-desktop-tutorial/IC749321.png "Ajouter l’application")
+    ![Add application](./media/active-directory-saas-central-desktop-tutorial/IC749321.png "Add application")
 
-5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-central-desktop-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+    ![Add an application from gallerry](./media/active-directory-saas-central-desktop-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Dans la **zone de recherche**, tapez **Central Desktop**.
+6.  In the **search box**, type **Central Desktop**.
 
-    ![Galerie d’applications](./media/active-directory-saas-central-desktop-tutorial/IC769559.png "Galerie d’applications")
+    ![Application gallery](./media/active-directory-saas-central-desktop-tutorial/IC769559.png "Application gallery")
 
-7.  Dans le volet de résultats, sélectionnez **Central Desktop**, puis cliquez sur **Terminer** pour ajouter l’application.
+7.  In the results pane, select **Central Desktop**, and then click **Complete** to add the application.
 
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
-##Configuration de l’authentification unique
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Central Desktop avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-Dans le cadre de cette procédure, vous devez télécharger un certificat codé en base 64 sur votre locataire Central Desktop.  
-Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Central Desktop with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to upload a base-64 encoded certificate to your Central Desktop tenant.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
 
 
-###Pour configurer l’authentification unique, procédez comme suit :
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Dans le portail Azure Classic, puis dans la page d’intégration d’applications **Central Desktop**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  In the Azure classic portal, on the **Central Desktop** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "Configure single sign-on")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Central Desktop**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  On the **How would you like users to sign on to Central Desktop** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-central-desktop-tutorial/IC777628.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-central-desktop-tutorial/IC777628.png "Configure single sign-on")
 
-3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit, puis cliquez sur **Suivant** :
+3.  On the **Configure App URL** page, perform the following steps, and then click **Next**: 
 
-    -   Dans la zone de texte **URL de connexion à Central Desktop**, tapez l’URL de votre locataire Central Desktop (par exemple, *http://contoso.centraldesktop.com*).
-    -   Dans la zone de texte URL de réponse Central Desktop, tapez votre URL AssertionConsumerService Central Desktop (par exemple, https://contoso.centraldesktop.com/saml2-assertion.php).
+    -   In the **Central Desktop Sign In URL** textbox, type the URL of your Central Desktop tenant (e.g.: *http://contoso.centraldesktop.com*).
+    -   In the Central  Desktop Reply URL textbox, type your Central Desktop AssertionConsumerService URL (e.g.:  https://contoso.centraldesktop.com/saml2-assertion.php).
 
-    >[AZURE.NOTE] Vous pouvez obtenir la valeur à partir des métadonnées de Central Desktop (par exemple, *http://contoso.centraldesktop.com*).
+    >[AZURE.NOTE] You can get the value from the central desktop metadata (e.g.: *http://contoso.centraldesktop.com*).
 
-    ![Configurer l’URL de l’application](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "Configurer l’URL de l’application")
+    ![Configure app URL](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "Configure app URL")
 
-4.  Dans la page **Configurer l’authentification unique sur Central Desktop**, pour télécharger votre certificat, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
+4.  On the **Configure single sign-on at Central Desktop** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-central-desktop-tutorial/IC769562.png "Configurer l’authentification unique")
+    ![Configure single sign-on](./media/active-directory-saas-central-desktop-tutorial/IC769562.png "Configure single sign-on")
 
-5.  Connectez-vous à votre locataire **Central Desktop**.
+5.  Log in to your **Central Desktop** tenant.
 
-6.  Accédez à **Settings**, cliquez sur **Advanced**, puis sur **Single Sign On**.
+6.  Go to **Settings**, click **Advanced**, and then click **Single Sign On**.
 
-    ![Paramétrage - Avancé](./media/active-directory-saas-central-desktop-tutorial/IC769563.png "Paramétrage - Avancé")
+    ![Setup - Advanced](./media/active-directory-saas-central-desktop-tutorial/IC769563.png "Setup - Advanced")
 
-7.  Dans la page **Single Sign On Settings**, procédez comme suit :
+7.  On the **Single Sign On Settings** page, perform the following steps:
 
-    ![Paramètres d’authentification unique](./media/active-directory-saas-central-desktop-tutorial/IC769564.png "Paramètres d’authentification unique")
+    ![Single Sign On Settings](./media/active-directory-saas-central-desktop-tutorial/IC769564.png "Single Sign On Settings")
 
-    1.  Sélectionnez **Activer l’authentification unique SAMLv2**.
-    2.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **SSO URL**.
-    3.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **SSO Login URL**.
-    4.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur Central Desktop**, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **SSO Logout URL**.
+    1.  Select **Enable SAML v2 Single Sign On**.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Central Desktop** page, copy the **Issuer URL** value, and then paste it into the **SSO URL** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Central Desktop** page, copy the **Remote Login URL** value, and then paste it into the **SSO Login URL** textbox.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Central Desktop** page, copy the **Single Sign-Out Service URL** value, and then paste it into the **SSO Logout URL** textbox.
 
-8.  Dans la section **Message Signature Verification Method**, procédez comme suit :
+8.  In the **Message Signature Verification Method** section, perform the following steps:
 
-    ![Méthode de vérification de signature de message](./media/active-directory-saas-central-desktop-tutorial/IC769565.png "Méthode de vérification de signature de message")
+    ![Message Signature Verification Method](./media/active-directory-saas-central-desktop-tutorial/IC769565.png "Message Signature Verification Method")
 
-    1.  Sélectionnez **Certificate**.
-    2.  Dans la liste **SSO Certificate**, sélectionnez **RSH SHA256**.
-    3.  Créez un fichier texte à partir du certificat téléchargé, copiez le contenu du fichier texte et collez-le dans le champ **SSO Certificate**.
+    1.  Select **Certificate**.
+    2.  From the **SSO Certificate** list, select **RSH SHA256**.
+    3.  Create a text file from the downloaded certificate, copy the content of the text file, and then paste it into the **SSO Certificate** field.  
 
-        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    4.  Sélectionnez **Display a link to your SAMLv2 login page**.
+    4.  Select **Display a link to your SAMLv2 login page**.
 
-9.  Cliquez sur **Update**.
+9.  Click **Update**.
 
-10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "Configurer l’authentification unique")
-##Configuration de l’approvisionnement des utilisateurs
+    ![Configure single sign-on](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisionnés dans l’application Central Desktop. Cette section explique comment créer des comptes d’utilisateur AAD dans Central Desktop.
+For AAD users to be able to sign in, they must be provisioned to the Central Desktop application. This section describes how to create AAD user accounts in Central Desktop.
 
-###Pour approvisionner des comptes d’utilisateur dans Central Desktop :
+###<a name="to-provision-user-accounts-to-central-desktop:"></a>To provision user accounts to Central Desktop:
 
-1.  Connectez-vous à votre locataire Central Desktop.
+1.  Log in to your Central Desktop tenant.
 
-2.  Accédez à **People > Internal Members**.
+2.  Go to **People \> Internal Members**.
 
-3.  Cliquez sur **Ajouter des membres internes**.
+3.  Click **Add Internal Members**.
 
-    ![Personnes](./media/active-directory-saas-central-desktop-tutorial/IC781051.png "Personnes")
+    ![People](./media/active-directory-saas-central-desktop-tutorial/IC781051.png "People")
 
-4.  Dans la zone de texte **Email Address of New Members**, tapez un compte AAD à approvisionner, puis cliquez sur **Next**.
+4.  In the **Email Address of New Members** textbox, type an AAD account you want to provision, and then click **Next**.
 
-    ![Adresses de messagerie des nouveaux membres](./media/active-directory-saas-central-desktop-tutorial/IC781052.png "Adresses de messagerie des nouveaux membres")
+    ![Email Addresses of New Members](./media/active-directory-saas-central-desktop-tutorial/IC781052.png "Email Addresses of New Members")
 
-5.  Cliquez sur **Add Internal member(s)**.
+5.  Click **Add Internal member(s)**.
 
-    ![Ajouter un membre interne](./media/active-directory-saas-central-desktop-tutorial/IC781053.png "Ajouter un membre interne")
+    ![Add Internal Member](./media/active-directory-saas-central-desktop-tutorial/IC781053.png "Add Internal Member")
 
-    >[AZURE.NOTE] Les utilisateurs que vous avez ajoutés recevront un message électronique contenant un lien de confirmation sur lequel ils doivent cliquer pour activer le compte.
+    >[AZURE.NOTE] The users you have added will receive an email that includes a confirmation link they need to click to activate the account.
 
->[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Central Desktop pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>[AZURE.NOTE] You can use any other Central Desktop user account creation tools or APIs provided by Central Desktop to provision AAD user accounts
 
-##Affectation d’utilisateurs
+##<a name="assigning-users"></a>Assigning users
 
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Pour affecter des utilisateurs à Central Desktop, procédez comme suit :
+###<a name="to-assign-users-to-central-desktop,-perform-the-following-steps:"></a>To assign users to Central Desktop, perform the following steps:
 
-1.  Dans le portail Azure Classic, créez un compte de test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Dans la page d’intégration d’applications **Central Desktop**, cliquez sur **Affecter des utilisateurs**.
+2.  On the **Central Desktop** application integration page, click **Assign users**.
 
-    ![Affecter des utilisateurs](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "Affecter des utilisateurs")
+    ![Assign users](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "Assign users")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Oui](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Oui")
+    ![Yes](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Yes")
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

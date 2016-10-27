@@ -1,86 +1,91 @@
 <properties
-	pageTitle="Résolution des problèmes d'allocation de service cloud | Microsoft Azure"
-	description="Résolution des problèmes d'échec d'allocation lors du déploiement de services cloud dans Azure"
-	services="azure-service-management, cloud-services"
-	documentationCenter=""
-	authors="simonxjx"
-	manager="felixwu"
-	editor=""
-	tags="top-support-issue"/>
+    pageTitle="Troubleshooting Cloud Service allocation failure | Microsoft Azure"
+    description="Troubleshooting allocation failure when you deploy Cloud Services in Azure"
+    services="azure-service-management, cloud-services"
+    documentationCenter=""
+    authors="simonxjx"
+    manager="felixwu"
+    editor=""
+    tags="top-support-issue"/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="na"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="v-six"/>
+    ms.service="cloud-services"
+    ms.workload="na"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/12/2016"
+    ms.author="v-six"/>
 
 
 
-# Résolution des problèmes d'échec d'allocation lors du déploiement de services cloud dans Azure
 
-## Résumé
-Lorsque vous déployez des instances sur un service cloud ou ajoutez de nouvelles instances de rôle Web ou de rôle de travail, Microsoft Azure alloue des ressources de calcul. Vous pouvez parfois recevoir des erreurs lorsque vous effectuez ces opérations avant même d’avoir atteint les limites de votre abonnement Azure. Cet article explique les causes de certains échecs d’allocation courants et propose des solutions possibles. Les informations qu’il contient peuvent également vous être utiles dans le cadre de la planification du déploiement de vos services.
+# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Troubleshooting allocation failure when you deploy Cloud Services in Azure
+
+## <a name="summary"></a>Summary
+When you deploy instances to a Cloud Service or add new web or worker role instances, Microsoft Azure allocates compute resources. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### Fonctionne de l’allocation en arrière-plan
-Les serveurs des centres de données Azure sont partitionnés en clusters. Une nouvelle demande d'allocation de service cloud est tentée dans plusieurs clusters. Lorsque la première instance est déployée sur un service cloud (intermédiaire ou de production), ce service cloud est épinglé sur un cluster. Les déploiements ultérieurs du service cloud s'effectueront dans le même cluster. Dans cet article, nous parlerons « d’épinglage à un cluster ». La Figure 1 ci-dessous illustre le cas d'une allocation normale dans laquelle la tentative est exécutée dans plusieurs clusters. La Figure 2 illustre le cas d'une allocation épinglée au Cluster 2, là où est hébergé le service cloud CS\_1 existant.
+### <a name="background-–-how-allocation-works"></a>Background – How allocation works
+The servers in Azure datacenters are partitioned into clusters. A new cloud service allocation request is attempted in multiple clusters. When the first instance is deployed to a cloud service(in either staging or production), that cloud service gets pinned to a cluster. Any further deployments for the cloud service will happen in the same cluster. In this article, we'll refer to this as "pinned to a cluster". Diagram 1 below illustrates the case of a normal allocation which is attempted in multiple clusters; Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 is hosted.
 
-![Schéma d’allocation](./media/cloud-services-allocation-failure/Allocation1.png)
+![Allocation Diagram](./media/cloud-services-allocation-failure/Allocation1.png)
 
-### Raisons de l’échec d’une allocation
-Lorsqu'une demande d'allocation est épinglée à un cluster, il y a plus de risques de ne pas trouver de ressources disponibles puisque le pool de ressources disponibles est limité à un cluster. En outre, si votre demande d’allocation est épinglée à un cluster alors que le type de ressource que vous avez demandé n’est pas pris en charge par ce cluster, votre demande échouera, même si le cluster comporte des ressources disponibles. La Figure 3 ci-dessous illustre le cas d’une allocation épinglée qui échoue car le seul cluster candidat ne comporte pas de ressources disponibles. La Figure 4 illustre le cas de figure où une allocation épinglée échoue parce que le seul cluster candidat ne prend pas en charge la taille de machine virtuelle demandée, bien qu'il puisse libérer des ressources.
+### <a name="why-allocation-failure-happens"></a>Why allocation failure happens
+When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is limited to a cluster. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resource. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
 
-![Échec d’allocation épinglée](./media/cloud-services-allocation-failure/Allocation2.png)
+![Pinned Allocation Failure](./media/cloud-services-allocation-failure/Allocation2.png)
 
-## Résolution des problèmes d'échec d'allocation pour les services cloud
-### Message d’erreur
-Il peut vous arriver de voir le message d'erreur suivant :
+## <a name="troubleshooting-allocation-failure-for-cloud-services"></a>Troubleshooting allocation failure for cloud services
+### <a name="error-message"></a>Error Message
+You may see the following error message:
 
-	"Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
-### Problèmes courants
-Voici les scénarios d'allocation courants qui entraînent l'épinglage d'une demande d'allocation à un seul cluster.
+### <a name="common-issues"></a>Common Issues
+Here are the common allocation scenarios that cause an allocation request to be pinned to a single cluster.
 
-- Déploiement sur un emplacement intermédiaire : si un service cloud est déployé dans l'un des deux emplacements, l'ensemble du service cloud est épinglé à un cluster spécifique. Par conséquent, s'il existe déjà un déploiement dans l'emplacement de production, un nouveau déploiement intermédiaire ne peut être affecté que dans le même cluster que l'emplacement de production. Si le cluster est presque plein, la demande peut échouer.
+- Deploying to Staging Slot - If a cloud service has a deployment in either slot, then the entire cloud service is pinned to a specific cluster.  This means that if a deployment already exists in the production slot, then a new staging deployment can only be allocated in the same cluster as the production slot. If the cluster is nearing capacity, the request may fail.
 
-- Mise à l'échelle : l'ajout de nouvelles instances à un service cloud existant doit être alloué au même cluster. Les demandes de mise à l'échelle minime peuvent généralement être allouées, mais pas toujours. Si le cluster est presque plein, la demande peut échouer.
+- Scaling - Adding new instances to an existing cloud service must allocate in the same cluster.  Small scaling requests can usually be allocated, but not always. If the cluster is nearing capacity, the request may fail.
 
-- Groupe d'affinités : un nouveau déploiement vers un service cloud vide peut être alloué par l'infrastructure à un cluster de cette région, sauf si le service cloud est épinglé à un groupe d'affinités. Des déploiements vers le même groupe d'affinités seront tentés sur le même cluster. Si le cluster est presque plein, la demande peut échouer.
+- Affinity Group - A new deployment to an empty cloud service can be allocated by the fabric in any cluster in that region, unless the cloud service is pinned to an affinity group. Deployments to the same affinity group will be attempted on the same cluster. If the cluster is nearing capacity, the request may fail.
 
-- Réseau virtuel de groupe d'affinités : des réseaux virtuels plus anciens ont été liés à des groupes d'affinités plutôt qu'à des régions ; des services cloud dans ces réseaux virtuels seraient épinglés au cluster du groupe d'affinités. Des déploiements vers ce type de réseau virtuel seront tentés sur le cluster épinglé. Si le cluster est presque plein, la demande peut échouer.
+- Affinity Group vNet - Older Virtual Networks were tied to affinity groups instead of regions, and cloud services in these Virtual Networks would be pinned to the affinity group cluster. Deployments to this type of virtual network will be attempted on the pinned cluster. If the cluster is nearing capacity, the request may fail.
 
-## Solutions
+## <a name="solutions"></a>Solutions
 
-1. Redéployer vers un service cloud : cette solution est la plus susceptible de réussir car elle permet à la plateforme de choisir parmi tous les clusters de cette région.
+1. Redeploy to a new cloud service - This solution is likely to be most successful as it allows the platform to choose from all clusters in that region.
 
-	- Déployez la charge de travail vers un nouveau service cloud
+    - Deploy the workload to a new cloud service  
 
-	- Mettez à jour l'enregistrement CNAME ou A pour faire pointer le trafic vers le nouveau service cloud
+    - Update the CNAME or A record to point traffic to the new cloud service
 
-	- Une fois le trafic de l'ancien site nul, vous pouvez supprimer l'ancien service cloud. Cette solution ne devrait pas entraîner de temps d'arrêt.
+    - Once zero traffic is going to the old site, you can delete the old cloud service. This solution should incur zero downtime.
 
-2. Supprimer les emplacements intermédiaire et de production : cette solution permet de conserver votre nom DNS, mais entraînera un temps d'arrêt de votre application.
+2. Delete both production and staging slots - This solution will preserve your existing DNS name, but will cause downtime to your application.
 
-	- Supprimez les emplacements de production et intermédiaire d'un service cloud de sorte que le service cloud soit vide, puis
+    - Delete the production and staging slots of an existing cloud service so that the cloud service is empty, and then
 
-	- Créez un nouveau déploiement dans le service cloud. Cela retentera l'allocation sur tous les clusters de la région. Vérifiez que le service cloud n'est pas lié à un groupe d'affinités.
+    - Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group.
 
-3. IP réservée : cette solution permet de conserver votre adresse IP existante, mais entraîne un temps d'arrêt de votre application.
+3. Reserved IP -  This solution will preserve your existing IP address, but will cause downtime to your application.  
 
-	- Créez une IP réservée pour votre déploiement à l'aide de PowerShell
+    - Create a ReservedIP for your existing deployment using Powershell
 
-	```
-	New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
-	```
+    ```
+    New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
+    ```
 
-	- Suivez la solution 2 mentionnée plus haut, en veillant à spécifier la nouvelle IP réservée dans le .cscfg du service.
+    - Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
 
-4. Supprimer le groupe d'affinités pour les nouveaux déploiements : les groupes d'affinités ne sont plus recommandés. Suivez les étapes de la solution 1 ci-dessus pour déployer un nouveau service cloud. Vérifiez que le service cloud n'est pas dans un groupe d'affinités.
+4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group.
 
-5. Convertir en réseau virtuel régional : consultez [Comment migrer des groupes d'affinités vers un réseau virtuel régional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

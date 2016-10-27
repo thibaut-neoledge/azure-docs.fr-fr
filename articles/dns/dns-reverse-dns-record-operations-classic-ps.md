@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gestion des enregistrements DNS inversés pour vos services à l’aide de PowerShell dans le modèle de déploiement classique | Microsoft Azure"
-   description="Gestion des enregistrements DNS inversés ou des enregistrements PTR pour vos services Azure à l’aide de PowerShell dans le modèle de déploiement classique. "
+   pageTitle="How to manage reverse DNS records for your services using PowerShell in the classic deployment model | Microsoft Azure"
+   description="How to manage reverse DNS records or PTR records for Azure services using PowerShell in the classic deployment model. "
    services="DNS"
    documentationCenter="na"
    authors="s-malone"
@@ -17,42 +17,47 @@
    ms.date="09/05/2016"
    ms.author="smalone" />
 
-# Gestion des enregistrements DNS inversés pour vos services (classiques) à l’aide de PowerShell
+
+# <a name="how-to-manage-reverse-dns-records-for-your-services-(classic)-using-powershell"></a>How to manage reverse DNS records for your services (classic) using PowerShell
 
 [AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 <BR>
 [AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 <BR>
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](dns-reverse-dns-record-operations-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](dns-reverse-dns-record-operations-ps.md).
 
-## Validation des enregistrement DNS inversés
-Pour vous assurer qu’un tiers ne soit pas en mesure de créer des mappages d’enregistrements DNS inversés vers vos domaines DNS, Azure autorise uniquement la création d’un enregistrement DNS inversé lorsque l’une des conditions suivantes est vraie :
+## <a name="validation-of-reverse-dns-records"></a>Validation of reverse DNS records
+To ensure a third party can’t create reverse DNS records mapping to your DNS domains, Azure only allows the creation of a reverse DNS record where one of the following is true:
 
-- Le nom de domaine complet du DNS inversé est le nom du service cloud pour lequel il a été spécifié, ou n’importe quel nom de service cloud dans le même abonnement, par exemple, le DNS inversé est « contosoapp1.cloudapp.net. ».
-- Le nom de domaine complet du DNS inversé explicite correspond au nom ou à l’adresse IP du service cloud pour lequel il a été spécifié, ou n’importe quel nom ou adresse IP de service cloud dans le même abonnement, par exemple, le DNS inversé est « app1.cloudapp.net. », qui est un alias CName pour contosoapp1.cloudapp.net.
+- The reverse DNS FQDN is the name of the Cloud Service for which it has been specified, or any Cloud Service name within the same subscription e.g., reverse DNS is “contosoapp1.cloudapp.net.”.
+- The reverse DNS FQDN forward resolves to the name or IP of the Cloud Service for which it has been specified, or to any Cloud Service name or IP within the same subscription e.g., reverse DNS is “app1.contoso.com.” which is a CName alias for contosoapp1.cloudapp.net.
 
-Les contrôles de validation sont exécutés uniquement lorsque la propriété DNS inversée pour un service cloud est définie ou modifiée. Aucune nouvelle validation périodique n’est effectuée.
+Validation checks are only performed when the reverse DNS property for a Cloud Service is set or modified. Periodic re-validation is not performed.
 
-## Ajout d’un DNS inversé aux services cloud existants
-Vous pouvez ajouter un DNS inversé à un service cloud existant à l’aide de l’applet de commande « Set-AzureService » :
+## <a name="add-reverse-dns-to-existing-cloud-services"></a>Add reverse DNS to existing Cloud Services
+You can add a reverse DNS record to an existing Cloud Service using the “Set-AzureService” cmdlet:
 
-	PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
+    PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
 
-## Création d’un service cloud avec un DNS inversé
-Vous pouvez ajouter un nouveau service cloud avec la propriété DNS inversée spécifiée à l’aide de l’applet de commande « Set-AzureService » :
+## <a name="create-a-cloud-service-with-reverse-dns"></a>Create a Cloud Service with reverse DNS
+You can add a new Cloud Service with the reverse DNS property specified using the “Set-AzureService” cmdlet:
 
-	PS C:\> New-AzureService –ServiceName “contosoapp1” –Location “West US” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
+    PS C:\> New-AzureService –ServiceName “contosoapp1” –Location “West US” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
 
-## Affichage d’un DNS inversé pour les services cloud existants
-Vous pouvez afficher la valeur configurée pour un service cloud existant à l’aide de l’applet de commande « Get-AzureService » :
+## <a name="view-reverse-dns-for-existing-cloud-services"></a>View reverse DNS for existing Cloud Services
+You can view the configured value for an existing Cloud Service using the “Get-AzureService” cmdlet:
 
-	PS C:\> Get-AzureService "contosoapp1"
+    PS C:\> Get-AzureService "contosoapp1"
 
-## Suppression d’un DNS inversé des services cloud existants
-Vous pouvez supprimer une propriété DNS inversée d’un service cloud existant à l’aide de l’applet de commande « Set-AzureService ». Pour ce faire, définissez la valeur de la propriété DNS inversée sur une valeur vide :
+## <a name="remove-reverse-dns-from-existing-cloud-services"></a>Remove reverse DNS from existing Cloud Services
+You can remove a reverse DNS property from an existing Cloud Service using the “Set-AzureService” cmdlet. This is done by setting the reverse DNS property value to blank:
 
-	PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “”
+    PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “”
 
-[AZURE.INCLUDE [FORUM AUX QUESTIONS](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
+[AZURE.INCLUDE [FAQ](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

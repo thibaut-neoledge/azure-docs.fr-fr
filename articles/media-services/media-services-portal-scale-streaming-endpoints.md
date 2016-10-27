@@ -1,66 +1,73 @@
 <properties
-	pageTitle=" Mettre à l’échelle des points de terminaison de streaming avec le Portail Azure | Microsoft Azure"
-	description="Ce didacticiel vous guide à travers les étapes de mise à l’échelle des points de terminaison de streaming avec le Portail Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle=" Scale streaming endpoints with the Azure portal | Microsoft Azure"
+    description="This tutorial walks you through the steps of scaling streaming endpoints with the Azure portal."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/29/2016"
+    ms.author="juliako"/>
 
 
-# Mettre à l’échelle des points de terminaison de streaming avec le Portail Azure
 
-##Vue d'ensemble
+# <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Scale streaming endpoints with the Azure portal
 
-> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+##<a name="overview"></a>Overview
 
-Lorsque vous utilisez Azure Media Services, la diffusion à vos clients de vidéos en continu à débit binaire adaptatif constitue l’un des scénarios les plus courants. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-Media Services fournit l’empaquetage dynamique qui permet de distribuer un contenu encodé en MP4 à débit binaire adaptatif dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sans avoir à stocker de versions pré-empaquetées de chacun de ces formats de diffusion en continu.
+When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
 
-Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
-- Encoder votre fichier mezzanine (source) dans un ensemble de fichiers MP4 à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).
-- Créez au moins une unité de diffusion pour le *point de terminaison de diffusion en continu* à partir duquel vous envisagez de distribuer votre contenu. La procédure ci-dessous explique comment modifier le nombre d’unités de diffusion en continu.
+To take advantage of dynamic packaging, you need to do the following:
 
-Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files (the encoding steps are demonstrated later in this tutorial).  
+- Create at least one streaming unit for the *streaming endpoint* from which you plan to delivery your content. The steps below show how to change the number of streaming units.
 
-En outre, vous pouvez contrôler la capacité du service de point de terminaison de streaming afin de gérer les besoins croissants en matière de bande passante en ajustant les unités de diffusion en continu. Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production. Les unités de diffusion en continu fournissent à la fois une capacité de sortie dédiée que vous pouvez acquérir par incréments de 200 Mbit/s et des fonctionnalités supplémentaires incluant : [l’empaquetage dynamique](media-services-dynamic-packaging-overview.md), l’intégration au CDN et la configuration avancée. Pour plus d’informations, consultez [Gérer les points de terminaison de streaming avec le Portail Azure](media-services-portal-manage-streaming-endpoints.md).
+With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
 
-## Mettre à l’échelle les points de terminaison de streaming
+In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming units. It is recommended to allocate one or more scale units for applications in production environment. Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which functionality which includes: [dynamic packaging](media-services-dynamic-packaging-overview.md), CDN integration, and advanced configuration. For more information, see [Manage streaming endpoints with the Azure portal](media-services-portal-manage-streaming-endpoints.md).
 
-Pour créer et modifier le nombre d’unités réservées de diffusion en continu, procédez comme suit :
+## <a name="scale-streaming-endpoints"></a>Scale streaming endpoints
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans la fenêtre **Paramètres**, sélectionnez **Points de terminaison de streaming**.
-3. Cliquez sur le point de terminaison de streaming que vous souhaitez mettre à l’échelle.
-4. Déplacez le curseur pour spécifier le nombre d’unités de diffusion en continu
+To create and change the number of streaming reserved units, do the following:
+
+1. Log in at the [Azure portal](https://portal.azure.com/).
+2. In the **Settings** window, select **Streaming endpoints**.
+3. Click on the streaming endpoint that you want to scale. 
+4. Move the slider to specify the number of streaming units
  
-![Point de terminaison de diffusion en continu](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
+![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
-Les considérations suivantes s'appliquent :
+The following considerations apply:
 
-- L’allocation de nouvelles unités de diffusion en continu peut prendre environ 20 minutes.
-- Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
-- C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
+- The allocation of any new streaming units can take around 20 minutes to complete. 
+- Currently, going from any positive value of streaming units back to none, can disable on-demand streaming for up to an hour.
+- The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-##Étapes suivantes
+##<a name="next-steps"></a>Next steps
 
-Consultez les parcours d’apprentissage de Media Services.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fournir des commentaires
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

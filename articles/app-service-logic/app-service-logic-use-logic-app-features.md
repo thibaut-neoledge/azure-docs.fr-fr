@@ -1,115 +1,120 @@
 <properties 
-	pageTitle="Utiliser les fonctionnalités d’une application logique | Microsoft Azure" 
-	description="Découvrez comment utiliser les fonctionnalités avancées des applications logiques." 
-	authors="stepsic-microsoft-com" 
-	manager="erikre" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="Use Logic App features | Microsoft Azure" 
+    description="Learn how to use the advanced features of logic apps." 
+    authors="stepsic-microsoft-com" 
+    manager="erikre" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/28/2016"
-	ms.author="stepsic"/>
-	
-# Utiliser les fonctionnalités des applications logiques
-
-Dans la [rubrique précédente](app-service-logic-create-a-logic-app.md), vous avez créé votre première application logique. Nous allons maintenant voir comment créer un processus plus complet avec des applications logiques App Services. Cette rubrique présente les nouveaux concepts suivants liés aux applications logiques :
-
-- logique conditionnelle, qui exécute une action uniquement si une certaine condition est remplie ;
-- mode code pour modifier une application logique existante ;
-- options de démarrage d'un flux de travail.
-
-Avant d’effectuer les étapes de cette rubrique, vous devez effectuer celles de la rubrique [Créer une application logique](app-service-logic-create-a-logic-app.md). Dans le [portail Azure], accédez à votre application logique, cliquez sur **Déclencheurs et actions** dans le résumé pour modifier la définition de l’application logique.
-
-## Documents de référence
-
-Les documents suivants peuvent vous être utiles :
-
-- [API REST de gestion et d’exécution](https://msdn.microsoft.com/library/azure/mt643787.aspx) - notamment comment appeler directement des applications logiques
-- [Référence sur le langage](https://msdn.microsoft.com/library/azure/mt643789.aspx) - liste complète de toutes les fonctions/expressions prises en charge
-- [Types de déclencheurs et d'actions](https://msdn.microsoft.com/library/azure/mt643939.aspx) - les différents types d'actions et ce qu’elles prennent en entrée
-- [Vue d'ensemble d’App Service](../app-service/app-service-value-prop-what-is.md) - description des composants à choisir pour la création d’une solution
-
-## Ajout d’une logique conditionnelle
-
-Bien que le flux d'origine fonctionne, certaines zones pourraient être améliorées.
-
-
-### Logique conditionnelle
-Cette application logique risque de causer un grand volume d’e-mails. Les étapes suivantes ajoutent une logique pour s’assurer que vous recevez uniquement un message électronique lorsque le tweet provient d’une personne avec un certain nombre de followers.
-
-1. Cliquez sur le signe plus et recherchez l’action *Get User* pour Twitter.
-
-2. Transmettez le champ **Tweeted by** à partir du déclencheur pour obtenir les informations relatives à l’utilisateur Twitter.
-
-	![Get User](./media/app-service-logic-use-logic-app-features/getuser.png)
-
-3. Cliquez sur le signe plus à nouveau, mais cette fois-ci, sélectionnez **Add Condition**
-
-4. Dans la première zone, cliquez sur **...** sous **Get User** pour trouver le champ **Followers count**.
-
-5. Dans la liste déroulante, sélectionnez **Greater than**
-
-6. Dans la deuxième zone, tapez le nombre de followers que les utilisateurs doivent avoir.
-
-	![Logique conditionnelle](./media/app-service-logic-use-logic-app-features/conditional.png)
-
-7.  Enfin, effectuez un glisser-déplacer de la zone e-mail vers la zone **If Yes**. Cela signifie que vous ne recevrez des e-mails que lorsque le nombre de followers est atteint.
-
-## Répétition sur une liste à l’aide de forEach
-
-La boucle forEach spécifie un tableau sur lequel répéter une action. Le flux échouera s’il ne se présente pas sous la forme d’un tableau. Par exemple, si action1 génère un tableau de messages et que vous souhaitez envoyer chaque message, vous pouvez inclure cette instruction forEach dans les propriétés de votre action : forEach : "@action(’action1’).outputs.messages"
- 
-
-## Utilisation du mode code pour modifier une application logique
-
-Outre le concepteur, vous pouvez modifier directement le code qui définit une application logique en procédant comme suit.
-
-1. Cliquez sur le bouton **Mode code** dans la barre de commandes.
-
-	Cela ouvre un éditeur complet qui affiche la définition que vous venez de modifier.
-
-	![Mode Code](./media/app-service-logic-use-logic-app-features/codeview.png)
-
-    À l'aide de l'éditeur de texte, vous pouvez copier et coller les actions de votre choix dans la même application logique ou d'une application logique vers une autre. Vous pouvez aussi ajouter ou supprimer facilement des sections entières de la définition et partager des définitions avec d'autres utilisateurs.
-
-2. Après avoir apporté vos modifications en mode code, cliquez simplement sur **Enregistrer**.
-
-### Paramètres
-Certaines fonctionnalités des applications logiques ne peuvent être utilisées qu'en mode code. Les paramètres en constituent un exemple. Les paramètres simplifient la réutilisation des valeurs dans votre application logique. Par exemple, si vous avez une adresse de messagerie que vous souhaitez utiliser dans plusieurs actions, vous devez la définir en tant que paramètre.
-
-Le code suivant met à jour votre application logique existante pour utiliser des paramètres pour le terme de requête.
-
-1. En mode code, recherchez l’objet `parameters : {}` et insérez l’objet de rubrique suivant :
-
-	    "topic" : {
-		    "type" : "string",
-		    "defaultValue" : "MicrosoftAzure"
-	    }
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/28/2016"
+    ms.author="stepsic"/> 
     
-2. Faites défiler la page jusqu’à l’action `twitterconnector`, recherchez la valeur de la requête et remplacez-la par `#@{parameters('topic')}`. Vous pouvez également utiliser la fonction **concat** pour joindre deux ou plusieurs chaînes, par exemple : `@concat('#',parameters('topic'))` est identique à celle ci-dessus.
+
+# <a name="use-logic-apps-features"></a>Use Logic Apps features
+
+In the [previous topic](app-service-logic-create-a-logic-app.md), you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
+
+- Conditional logic, which executes an action only when a certain condition is met.
+- Code view to edit an existing logic app.
+- Options for starting a workflow.
+
+Before you complete this topic, you should complete the steps in [Create a new logic app](app-service-logic-create-a-logic-app.md). In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
+
+## <a name="reference-material"></a>Reference material
+
+You may find the following documents useful:
+
+- [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/mt643787.aspx) - including how to invoke Logic apps directly
+- [Language reference](https://msdn.microsoft.com/library/azure/mt643789.aspx) - a comprehensive list of all supported functions/expressions
+- [Trigger and action types](https://msdn.microsoft.com/library/azure/mt643939.aspx) - the different types of actions and the inputs they take
+- [Overview of App Service](../app-service/app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
+
+## <a name="adding-conditional-logic"></a>Adding conditional logic
+
+Although the original flow works, there are some areas that could be improved. 
+
+
+### <a name="conditional"></a>Conditional
+This logic app may result in you getting a lot of emails. The following steps add logic to make sure that you only receive an email when the tweet comes from someone with a certain number of followers. 
+
+1. Click the plus and find the action *Get User* for Twitter.
+
+2. Pass in the **Tweeted by** field from the trigger to get the information about the Twitter user.
+
+    ![Get user](./media/app-service-logic-use-logic-app-features/getuser.png)
+
+3. Click the plus again, but this time select **Add Condition**
+
+4. In the first box, click the **...** underneath **Get User** to find the **Followers count** field.
+
+5. In the dropdown, select **Greater than**
+
+6. In the second box type the number of followers you want users to have.
+
+    ![Conditional](./media/app-service-logic-use-logic-app-features/conditional.png)
+
+7.  Finally, drag-and-drop the email box into the **If Yes** box. This will mean you'll only get emails when the follower count is met.
+
+## <a name="repeating-over-a-list-with-foreach"></a>Repeating over a list with forEach
+
+The forEach loop specifies an array to repeat an action over. If it is not an array the flow fails. As an example, if you have action1 that outputs an array of messages, and you want to send each message, you can include this forEach statement in the properties of your action: forEach : "@action('action1').outputs.messages"
  
-Les paramètres constituent un bon moyen d'extraire des valeurs que vous êtes susceptible de modifier souvent. Ils sont particulièrement utiles quand vous devez substituer des paramètres dans différents environnements. Pour plus d’informations sur la façon de substituer des paramètres en fonction de l’environnement, consultez notre [Documentation sur l’API REST](https://msdn.microsoft.com/library/mt643787.aspx).
 
-À présent, quand vous cliquez sur **Enregistrer**, toutes les heures, les nouveaux tweets qui ont plus de 5 retweets sont envoyés dans un dossier nommé **tweets** dans votre dossier Dropbox.
+## <a name="using-the-code-view-to-edit-a-logic-app"></a>Using the code view to edit a Logic App
 
-Pour en savoir plus sur les définitions d'application logique, consultez la rubrique [Créer des définitions d'application logique](app-service-logic-author-definitions.md).
+In addition to the designer, you can directly edit the code that defines a logic app, as follows. 
 
-## Démarrage d'un flux de travail d'application logique
-Il existe plusieurs options pour démarrer le flux de travail défini dans votre application logique. Un flux de travail peut toujours être démarré à la demande dans le [portail Azure].
+1. Click on the **Code view** button in the command bar. 
 
-### Déclencheurs de périodicité
-Un déclencheur de périodicité s'exécute selon un intervalle que vous spécifiez. Quand le déclencheur a une logique conditionnelle, il détermine si le flux de travail doit s'exécuter. Un déclencheur indique qu’il doit s’exécuter en retournant un code d’état `200`. Quand il ne doit pas s’exécuter, il renvoie un code d’état `202`.
+    This opens a full editor that shows the definition you just edited.
 
-### Rappel à l'aide des API REST
-Les services peuvent appeler un point de terminaison d'application logique pour démarrer un flux de travail. Pour plus d’informations, consultez la page [Applications logiques en tant que points de terminaison pouvant être appelés](app-service-logic-connector-http.md). Pour démarrer ce type d’application logique à la demande, cliquez sur le bouton **Exécuter maintenant** dans la barre de commandes.
+    ![Code view](./media/app-service-logic-use-logic-app-features/codeview.png)
+
+    By using the text editor, you can copy and paste any number of actions within the same logic app or between logic apps. You can also easily add or remove entire sections from the definition, and you can also share definitions with others.
+
+2. After you make your changes in code view, simply click **Save**. 
+
+### <a name="parameters"></a>Parameters
+There are some capabilities of Logic Apps that can only be used in the code view. One example of these is parameters. Parameters make it easy to re-use values throughout your logic app. For example, if you have an email address that you want use in several actions, you should define it as a parameter.
+
+The following updates your existing logic app to use parameters for the query term.
+
+1. In the code view, locate the `parameters : {}` object and insert the following topic object:
+
+        "topic" : {
+            "type" : "string",
+            "defaultValue" : "MicrosoftAzure"
+        }
+    
+2. Scroll to the `twitterconnector` action, locate the query value, and replace it with `#@{parameters('topic')}`.
+    You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
+ 
+Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](https://msdn.microsoft.com/library/mt643787.aspx).
+
+Now, when you click **Save**, every hour you get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
+
+To learn more about Logic App definitions, see [author Logic App definitions](app-service-logic-author-definitions.md).
+
+## <a name="starting-a-logic-app-workflow"></a>Starting a logic app workflow
+There are several different options for starting the workflow defined in you logic app. A workflow can always be started on-demand in the [Azure portal].
+
+### <a name="recurrence-triggers"></a>Recurrence triggers
+A recurrence trigger runs at an interval that you specify. When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run. A trigger indicates it should run by returning a `200` status code. When it does not need to run, it returns a `202` status code.
+
+### <a name="callback-using-rest-apis"></a>Callback using REST APIs
+Services can call a logic app endpoint to start a workflow. See [Logic apps as callable endpoints](app-service-logic-connector-http.md) for more information. To start that kind of logic app on-demand, click the **Run now** button on the command bar. 
 
 <!-- Shared links -->
-[portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

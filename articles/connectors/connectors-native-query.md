@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Ajout de l’action de requête dans des applications logiques | Microsoft Azure"
-	description="Vue d’ensemble de l’action de requête pour les actions comme Filtrer le tableau."
-	services=""
-	documentationCenter=""
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the query action in logic apps | Microsoft Azure"
+    description="Overview of the query action for performing actions like filter array."
+    services=""
+    documentationCenter=""
+    authors="jeffhollan"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,68 +17,74 @@
    ms.date="07/20/2016"
    ms.author="jehollan"/>
 
-# Prise en main de l’action de requête
 
-L’action de requête vous permet d’utiliser des lots et des tableaux pour obtenir des flux de travail afin d’effectuer les tâches suivantes :
+# <a name="get-started-with-the-query-action"></a>Get started with the query action
 
-- Créer une tâche pour tous les enregistrements à priorité élevée à partir d’une base de données.
-- Enregistrer toutes les pièces jointes PDF pour les messages électroniques dans l’objet blob Azure.
+By using the query action, you can work with batches and arrays to accomplish workflows to:
 
-Pour commencer à utiliser l’action de requête dans une application logique, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Create a task for all high-priority records from a database.
+- Save all PDF attachments for emails into an Azure blob.
 
-## Utilisation de l’action de requête
+To get started using the query action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](connectors-overview.md).
+## <a name="use-the-query-action"></a>Use the query action
 
-L’action de requête a actuellement une opération, appelée Filtrer le tableau, exposée dans le concepteur. Celle-ci vous permet d’interroger un tableau et de retourner un jeu de résultats filtrés.
+An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).  
 
-Voici comment vous pouvez l’ajouter dans une application logique :
+The query action currently has one operation, called the filter array, that is exposed in the designer. This allows you to query an array and return a set of filtered results.
 
-1. Sélectionnez le bouton **Nouvelle étape**.
-2. Choisissez **Ajouter une action**.
-3. Dans la zone de recherche d’action, tapez **Filtrer** pour afficher l’action **Filtrer le tableau**.
+Here's how you can add it in a logic app:
 
-	![Sélectionner l’action de requête](./media/connectors-native-query/using-action-1.png)
+1. Select the **New Step** button.
+2. Choose **Add an action**.
+3. In the action search box, type **filter** to list the **Filter array** action.
 
-4. Sélectionnez un tableau à filtrer. (La capture d’écran suivante affiche le tableau des résultats de la recherche Twitter.)
-5. Créez une condition à évaluer pour chaque élément. (La capture d’écran suivante filtre les tweets publiés par les utilisateurs ayant plus de 100 abonnés.)
+    ![Select the query action](./media/connectors-native-query/using-action-1.png)
 
-	![Terminer l’action de requête](./media/connectors-native-query/using-action-2.png)
+4. Select an array to filter. (The following screenshot shows the array of results from a Twitter search.)
+5. Create a condition to evaluate on each item. (The following screenshot filters tweets from users who have more than 100 followers.)
 
-	L’action génère un nouveau tableau qui contient uniquement les résultats respectant les exigences du filtre.
-6. Cliquez dans le coin supérieur gauche de la barre d’outils pour enregistrer, et votre application logique est à la fois enregistrée et publiée (activation).
+    ![Complete the query action](./media/connectors-native-query/using-action-2.png)
 
-## Action de requête
+    The action will output a new array that contains only results that met the filter requirements.
+6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
-Voici les détails de l’action que ce connecteur prend en charge. Le connecteur n’a qu’une seule action possible.
+## <a name="query-action"></a>Query action
+
+Here are the details for the action that this connector supports. The connector has one possible action.
 
 |Action|Description|
 |---|---|
-|Filtrer le tableau|Évalue une condition pour chaque élément d’un tableau et renvoie les résultats|
+|Filter array|Evaluates a condition for each item in an array and returns the results|
 
-## Détails de l’action
+## <a name="action-details"></a>Action details
 
-L’action de requête est créée avec une action possible. Les tableaux suivants décrivent les champs de saisie obligatoires et facultatifs pour l’action, ainsi que les détails des résultats correspondants associés à son utilisation.
+The query action comes with one possible action. The following tables describe the required and optional input fields for the action and the corresponding output details that are associated with using the action.
 
-### Filtrer le tableau
-Vous trouverez ci-dessous les champs de saisie de l’action permettant de générer une demande HTTP sortante. Le symbole * désigne est un champ obligatoire.
+### <a name="filter-array"></a>Filter array
+The following are input fields for the action, which makes an HTTP outbound request.
+A * means that it is a required field.
 
-|Nom complet|Nom de la propriété|Description|
+|Display name|Property name|Description|
 |---|---|---|
-|De*|from|Le tableau à filtrer|
-|Condition*|où|La condition à évaluer pour chaque élément|
+|From*|from|The array to filter|
+|Condition*|where|The condition to evaluate for each item|
 <br>
 
-### Détails des résultats
+### <a name="output-details"></a>Output details
 
-Vous trouverez ci-dessous les détails de sortie correspondant à la requête HTTP.
+The following are output details for the HTTP response.
 
-|Nom de la propriété|Type de données|Description|
+|Property name|Data type|Description|
 |---|---|---|
-|Tableau filtré|array|Tableau contenant un objet pour chaque résultat filtré|
+|Filtered array|array|An array that contains an object for each filtered result|
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Essayez maintenant la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
+Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

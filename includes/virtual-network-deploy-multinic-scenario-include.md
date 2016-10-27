@@ -1,7 +1,11 @@
-## Scénario
+## <a name="scenario"></a>Scenario
 
-Ce document vous explique un déploiement qui utilise plusieurs cartes d’interface réseau dans des machines virtuelles, dans un scénario spécifique. Dans ce scénario, vous avez une charge de travail IaaS à deux niveaux hébergée dans Azure. Chaque niveau est déployé dans son propre sous-réseau dans un réseau virtuel (VNet). Le niveau frontal est composé de plusieurs serveurs Web, regroupés dans un équilibreur de charge configuré pour la haute disponibilité. Le niveau principal est composé de plusieurs serveurs de base de données. Ces serveurs de base de données seront déployés avec deux cartes d’interface réseau chacun, une pour l'accès à la base de données et l'autre pour la gestion. Le scénario inclut également les groupes de sécurité réseau (NSG) pour contrôler le trafic autorisé sur chaque sous-réseau, ainsi que la carte d’interface réseau dans le déploiement. La figure ci-dessous illustre l'architecture de base de ce scénario.
+This document will walk through a deployment that uses multiple NICs in VMs in a specific scenario. In this scenario, you have a two-tiered IaaS workload hosted in Azure. Each tier is deployed in its own subnet in a virtual network (VNet). The front end tier is composed of several web servers, grouped together in a load balancer set for high availability. The back end tier is composed of several database servers. These database servers will be deployed with two NICs each, one for database access, the other for management. The scenario also includes Network Security Groups (NSGs) to control what traffic is allowed to each subnet, and NIC in the deployment. The figure below shows the basic architecture of this scenario.  
 
-![Scénario à cartes d’interface réseau multiples](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
+![MultiNIC scenario](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
 
-<!---HONumber=Nov15_HO4-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

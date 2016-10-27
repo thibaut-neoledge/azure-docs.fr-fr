@@ -1,45 +1,52 @@
 <properties
-	 pageTitle="Séries de références (SKU) non disponibles | Microsoft Azure"
-	 description="Certaines séries de références (SKU) ne sont pas disponibles pour l’abonnement sélectionné pour cette région."
-	 services="Azure Supportability"
-	 documentationCenter=""
-	 authors="ganganarayanan"
-	 manager="scotthit"
-	 editor=""/>
+     pageTitle="SKU series unavailable | Microsoft Azure"
+     description="Some SKU series are unavailable for the selected subscription for this region."
+     services="Azure Supportability"
+     documentationCenter=""
+     authors="ganganarayanan"
+     manager="scotthit"
+     editor=""/>
 
 <tags
-	 ms.service="azure-supportability"
-	 ms.workload="na"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="08/12/2016"
-	 ms.author="gangan"/>
+     ms.service="azure-supportability"
+     ms.workload="na"
+     ms.tgt_pltfrm="na"
+     ms.devlang="na"
+     ms.topic="article"
+     ms.date="08/12/2016"
+     ms.author="gangan"/>
 
-# Séries de références (SKU) non disponibles
 
-Dans certaines régions, certaines références (SKU) ne sont pas automatiquement disponibles pour les nouveaux abonnements. Cela peut se produire lorsque [de meilleures références sont commercialisées dans une région](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) et que les anciennes références sont moins demandées. Le message « *Some SKU series are unavailable for the selected subscription for this region »* (Certaines séries de références ne sont pas disponibles pour l’abonnement sélectionné pour cette région) s’affiche lors de la création d’une demande de support pour augmenter le quota de cœurs de calcul.
+# <a name="sku-series-unavailable"></a>SKU series unavailable
 
-Vous pouvez consulter la disponibilité des références sur la page [Services Azure par région](https://azure.microsoft.com/regions/#services).
+In some regions, certain SKUs are not automatically available on new subscriptions.  This may occur when [more powerful SKUs are introduced in a region](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) and the popularity of the legacy SKU declines.
+The message "*Some SKU series are unavailable for the selected subscription for this region*" is displayed when creating a support request to increase compute core quota.
 
-Pour avoir accès à une référence non disponible depuis votre abonnement, créez une demande de support « Gestion de l’abonnement ».
+You may review SKU availability on the [Azure services by region](https://azure.microsoft.com/regions/#services) page. 
 
-- Sur la page Paramètres de base, sélectionnez le type de problème « Gestion de l’abonnement » et cliquez sur « Suivant ».
+To request access to a SKU that has been restricted from your subscription, create a "Subscription Management" support request.
 
-![Panneau Informations de base](./media/SKU-series-unavailable/BasicsSubMgmt.png)
+- On the Basics page, select Issue type as "Subscription Management" and click "Next".
 
-- Sur la page Problème, sélectionnez le type de problème « Other General questions » (Autres questions d’ordre général), puis entrez la région exacte et la référence que vous ne voyez pas. Cela permet d’accélérer le processus de support.
+![Basics blade](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-![Problème](./media/SKU-series-unavailable/ProblemSubMgmt.png)
+- On the Problem page, select the Problem type as “Other General questions” and enter the exact region and SKU you aren’t seeing.
+This helps expedite the support process.
 
-- Sur la page Informations de contact, entrez vos coordonnées et cliquez sur « Créer ».
+![Problem](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-![Informations de contact](./media/SKU-series-unavailable/ContactInformation.png)
+- On the Contact Information page, enter your contact details and click "Create".
 
-## Commentaires
-Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
+![Contact Information](./media/SKU-series-unavailable/ContactInformation.png)
 
-## En savoir plus
-[FAQ du support Azure](https://azure.microsoft.com/support/faq)
+## <a name="feedback"></a>Feedback
+We are always open to feedback and suggestions! Send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us via [Twitter](https://twitter.com/azuresupport) or the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0817_2016-->
+## <a name="learn-more"></a>Learn more
+[Azure Support FAQ](https://azure.microsoft.com/support/faq)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

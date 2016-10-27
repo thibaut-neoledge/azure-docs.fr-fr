@@ -1,95 +1,96 @@
 <properties
-	pageTitle="Présentation du portail Microsoft Azure"
-	description="Apprenez à utiliser le portail Microsoft Azure."
-	services=""
-	documentationCenter=""
-	authors="davidwrede"
-	manager="dwrede"
-	editor="jimbe"/>
+    pageTitle="Microsoft Azure portal overview"
+    description="Learn how to use the Microsoft Azure portal."
+    services=""
+    documentationCenter=""
+    authors="davidwrede"
+    manager="dwrede"
+    editor="jimbe"/>
 
 <tags
-	ms.service="na"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/16/2015"
-	ms.author="dwrede"/>
-
-# Présentation du portail Microsoft Azure
-
-Le portail Microsoft Azure permet de configurer et de gérer l’ensemble de vos ressources Azure. Ce didacticiel va vous permettre de vous familiariser avec le portail et vous montrer comment utiliser certaines des fonctionnalités clés suivantes :
-- Un **marketplace complet** permettant de parcourir des milliers d’articles de Microsoft et d’autres fournisseurs qui peuvent être achetés et/ou mis en service.
-- Une **expérience de navigation unifiée et évolutive** qui permet de trouver facilement les ressources qui vous intéressent et d’effectuer diverses opérations de gestion.
-- Des **pages de gestion cohérente** (ou panneaux) qui permettent de gérer de nombreux services Azure grâce à un affichage cohérent des paramètres, des actions, des informations de facturation, des données d’utilisation et d’analyse d’intégrité, et bien plus encore.
-- Une **expérience personnelle** qui vous permet de créer un écran d’accueil personnalisé avec les informations que vous voulez voir chaque fois que vous vous connectez. Vous pouvez également personnaliser n'importe quel panneau contenant des vignettes.
-
- ![Navigation au sein de l'interface utilisateur du portail Azure][UIOrientation]
-
-## Avant de commencer
-
-Vous aurez besoin d'un abonnement Azure valide pour suivre ce didacticiel. Si vous n'en avez pas, [inscrivez-vous pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/) dès aujourd'hui. Une fois abonné, vous pourrez accéder au portail à l’adresse [https://portal.azure.com].
-
-## Comment créer une ressource
-
-Azure possède un marketplace proposant des milliers d'articles que vous pouvez créer depuis un seul et même endroit. Supposons que vous vouliez créer une machine virtuelle Windows Server 2012. Le hub +Nouveau constitue le point d'entrée des différentes catégories proposées par le marketplace. Chaque catégorie comporte un petit groupe d'articles proposés avec un lien vers l'intégralité du marketplace où vous trouverez toutes les catégories et pourrez effectuer vos recherches. Pour créer cette nouvelle machine virtuelle Windows Server 2012, effectuez les actions suivantes :
-
-1.	Windows Server 2012 est proposé, vous pouvez donc le sélectionner dans la catégorie Calcul.  
-2.	Saisissez les informations de base dans un formulaire.
-3.	Cliquez sur « Créer ». Votre machine virtuelle sera immédiatement configurée.
-
-L'unité Notification Hub vous préviendra une fois votre ressource créée et un panneau de gestion s'ouvrira (vous pourrez toujours accéder à ces ressources plus tard).
-
-![Catégories du portail][PortalCategories]
+    ms.service="na"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="12/16/2015"
+    ms.author="dwrede"/>
 
 
-## Comment trouver vos ressources
+# <a name="microsoft-azure-portal-overview"></a>Microsoft Azure portal overview
 
-Vous pouvez épingler à votre tableau d'accueil les ressources que vous utilisez fréquemment. Toutefois, il peut arriver que vous ayez besoin d'accéder à une ressource que vous n'utilisez pas souvent. Le hub Parcourir ci-dessous vous permet d'accéder à toutes vos ressources. Vous pouvez filtrer par abonnement, sélectionner ou redimensionner des colonnes, et accéder aux panneaux de gestion en cliquant sur chaque élément correspondant.
+The Microsoft Azure portal is a central place where you can provision and manage your Azure resources.  This tutorial will familiarize you with the portal and show you how to use some of these key capabilities:
+- A **comprehensive marketplace** that lets you browse through thousands of items from Microsoft and other vendors that can be purchased and/or provisioned.
+- A **unified and scalable browse experience** that makes it easy to find the resources you care about and perform various management operations.
+- **Consistent management pages** (or blades) that let you manage Azure’s wide variety of services through a consistent way of exposing settings, actions, billing information, health monitoring and usage data, and much more.
+- A **personal experience** that lets you create a customized start screen that shows the information that you want to see whenever you log in.  You can also customize any of the management blades that contain tiles.
 
-![Parcourir le Hub][BrowseHub]
+ ![Azure Portal UI Orientation][UIOrientation]
 
-## Comment gérer une ressource et déléguer son accès
+## <a name="before-you-get-started"></a>Before you get started
 
-Depuis ce panneau, vous pouvez vous connecter à la machine virtuelle à l'aide du Bureau à distance, surveiller les mesures de performances clés, contrôler l'accès à la machine virtuelle à l'aide du contrôle d'accès en fonction du rôle (RBAC), configurer la machine virtuelle et effectuer d'autres tâches de gestion importantes. La délégation de l'accès basé sur le rôle est essentielle à la gestion à grande échelle. Cliquez [ici](./active-directory/role-based-access-control-configure.md) pour en savoir plus à ce sujet. Pour déléguer l'accès à une ressource, effectuez les actions suivantes :
+You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at [https://portal.azure.com].
 
-1.	Accédez à votre ressource.
-2.	Cliquez sur Tous les paramètres dans la section Essentials.
-3.	Cliquez sur Utilisateurs dans la liste des paramètres.
-4.	Cliquez sur Ajouter dans la barre de commandes.
-5.	Choisissez un utilisateur et un rôle.
+## <a name="how-to-create-a-resource"></a>How to create a resource
 
-![Gestion d'une ressource][ManageResource]
+Azure has a marketplace with thousands of items that you can create from one place.  Let’s say you want to create a new Windows Server 2012 VM.  The +NEW hub is your entry point into a curated set of featured categories from the marketplace.  Each category has a small set of featured items along with a link to the full marketplace that shows all categories and search. To create that new Windows Server 2012 VM, perform the following actions:  
 
-## Comment personnaliser un panneau de ressource
+1.  Windows Server 2012 is featured, so you can select it from the Compute category.  
+2.  Fill out some basic inputs on a form.
+3.  Click ‘Create’ and your VM will begin to provision immediately.
 
-Azure préconfigure les panneaux de vos ressources. Toutefois, vous avez la possibilité de configurer les vignettes. Vous pouvez facilement passer en mode de personnalisation pour ajouter, supprimer, redimensionner ou réorganiser les vignettes. Pour personnaliser un panneau, effectuez les actions suivantes :
+The notifications hub will alert you when your resource has been created and a management blade will open (you can always browse to resources later).
 
-1.	Accédez à votre ressource.
-2.	Cliquez sur les points de suspension (...) en haut du panneau que vous voulez personnaliser.
-3.	Cliquez sur Ajouter des sections.
-4.	Vous pouvez maintenant glisser-déplacer les sections.  
+![Portal Categories][PortalCategories]
 
-![Personnalisation des panneaux][CustomizeBlades]
 
-## Comment obtenir de l'aide
+## <a name="how-to-find-your-resources"></a>How to find your resources
 
-Si vous rencontrez un problème, nous sommes là pour vous. Le portail comporte une page d'aide qui peut vous aider à trouver la solution appropriée. En fonction de votre [plan de support](https://azure.microsoft.com/support/plans/), vous pouvez également créer des tickets de support directement depuis le portail. Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie depuis le portail. Vous pouvez accéder aux pages d'aide en cliquant sur Parcourir -> Aide + support.
+You can always pin frequently accessed resources to your startboard, but you might need to browse to something that you don’t frequently access.  The browse hub shown below is your way to get to all of your resources.  You can filter by subscription, choose/resize columns, and navigate to the management blades by clicking on individual items.
 
-![Aide et support][HelpSupport]
+![Browse Hub][BrowseHub]
 
-## Résumé
+## <a name="how-to-manage-and-delegate-access-to-a-resource"></a>How to manage and delegate access to a resource
 
-Passons en revue ce que vous avez appris dans ce didacticiel :
-- Vous avez appris comment vous inscrire, obtenir un abonnement et accéder au portail
-- Vous vous êtes familiarisé avec l’interface utilisateur du portail et vous avez appris à créer des ressources et à les parcourir
-- Vous avez appris à créer une ressource et à parcourir les ressources
-- Vous avez découvert la structure ou les panneaux de gestion et comment gérer de façon cohérente différents types de ressources
-- Vous avez appris à personnaliser le portail pour afficher les informations importantes au premier plan
-- Vous avez appris à contrôler l’accès aux ressources à l’aide de l’accès en fonction du rôle (RBAC)
-- Vous avez appris comment obtenir de l’aide et un support
+From this blade you can connect to the virtual machine using remote desktop, monitor key performance metrics, control access to this VM using role based access (RBAC), configure the VM, and perform other important management tasks.  Delegating access based on role is critical to managing at scale.  Click [here](./active-directory/role-based-access-control-configure.md) to learn more about it. To delegate access to a resource, perform the following actions:
 
-Le portail Microsoft Azure simplifie grandement la création et la gestion de vos applications dans le cloud. Jetez un œil au [blog de gestion](https://azure.microsoft.com/blog/topics/management/) pour vous tenir informé, car nous [prenons en compte les commentaires](https://feedback.azure.com/forums/223579-azure-preview-portal/) et apportons les améliorations nécessaires. [ScottGu's blog](http://weblogs.asp.net/scottgu) fournit lui aussi toutes les mises à jour Azure disponibles.
+1.  Browse to your resource.
+2.  Click ‘All settings’ in the Essentials section.
+3.  Click ‘Users’ in the settings list.
+4.  Click ‘Add’ in the command bar.
+5.  Choose a user and a role.
+
+![Managing a Resource][ManageResource]
+
+## <a name="how-to-customize-a-resource-blade"></a>How to customize a resource blade
+
+Azure preconfigures the blades for your resources, but the tiles on these blades are yours to control.  You can easily go into customize mode to add, remove, resize, or re-arrange the tiles. To customize a blade, perform the following actions:
+
+1.  Browse to your resource.
+2.  Click the ‘…’ at the top of the blade you want to customize.
+3.  Click ‘Add parts’.
+4.  Start dragging and dropping parts.  
+
+![Customizing Blades][CustomizeBlades]
+
+## <a name="how-to-get-help"></a>How to get help
+
+If you ever have a problem, we’re here for you.  The portal has a help and support page that can point you in the right direction.  Depending on your [support plan](https://azure.microsoft.com/support/plans/), you can also create support tickets directly in the portal.  After creating a support ticket, you can manage the lifecycle of the ticket from within the portal. You can get to the help and support page by navigating to Browse -> Help + support.  
+
+![Help and support][HelpSupport]
+
+## <a name="summary"></a>Summary
+
+Let’s review what you learned in this tutorial:
+- You learned how to sign up, get a subscription, and browse to the portal
+- You got oriented with the portal UI and learned how to create and browse resources
+- You learned how to create a resource and browse resources
+- You learned about the structure or management blades and how you can consistently manage different types of resources
+- You learned how to customize the portal to bring the information you care about to the front and center
+- You learned how to control access to resources using role based access (RBAC)
+- You learned how to get help and support
+
+The Microsoft Azure portal radically simplifies building and managing your applications in the cloud.  Take a look at the [management blog](https://azure.microsoft.com/blog/topics/management/) to keep up to date as we’re constantly [listening to feedback](https://feedback.azure.com/forums/223579-azure-preview-portal/) and making improvements.  [ScottGu’s blog](http://weblogs.asp.net/scottgu) is another great place to look for all Azure updates.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -98,4 +99,8 @@ Le portail Microsoft Azure simplifie grandement la création et la gestion de vo
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

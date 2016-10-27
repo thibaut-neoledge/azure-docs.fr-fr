@@ -1,14 +1,14 @@
 <properties
     pageTitle="Prise en main des files d’attente Service Bus | Microsoft Azure"
     description="Comment écrire une application de console C# pour la messagerie Service Bus"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="hero-article"
     ms.tgt_pltfrm="dotnet"
@@ -16,11 +16,12 @@
     ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
-# Prise en main des files d’attente Service Bus
+
+# <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## Les opérations que nous allons effectuer
+## <a name="what-will-be-accomplished"></a>Les opérations que nous allons effectuer
 
 Dans ce didacticiel, nous allons :
 
@@ -32,7 +33,7 @@ Dans ce didacticiel, nous allons :
 
 4. Écrire une application de console pour recevoir des messages.
 
-## Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 1. [Visual Studio 2013 ou Visual Studio 2015](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2015.
 
@@ -40,35 +41,35 @@ Dans ce didacticiel, nous allons :
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1\. Créer un espace de noms à l’aide du Portail Azure
+## <a name="1.-create-a-namespace-using-the-azure-portal"></a>1. Créer un espace de noms à l’aide du Portail Azure
 
-Si vous disposez déjà d’un espace de noms Service Bus créé précédemment, passez directement à la section [Créer une file d’attente à l’aide du Portail Azure](#2-create-a-queue-using-the-azure-portal).
+Si vous disposez déjà d’un espace de noms Service Bus créé précédemment, passez directement à la section [Créer une file d’attente à l’aide du portail Azure](#2-create-a-queue-using-the-azure-portal).
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2\. Créer une file d’attente à l’aide du Portail Azure
+## <a name="2.-create-a-queue-using-the-azure-portal"></a>2. Créer une file d’attente à l’aide du Portail Azure
 
 Si vous disposez déjà d’une file d’attente Service Bus créée précédemment, passez directement à la section [Envoyer des messages à la file d’attente](#3-send-messages-to-the-queue).
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## 3\. Envoyez des messages à la file d'attente
+## <a name="3.-send-messages-to-the-queue"></a>3. Envoyez des messages à la file d'attente
 
 Pour envoyer des messages vers la file d’attente, nous allons écrire une application de console C# à l’aide de Visual Studio.
 
-### Création d’une application console
+### <a name="create-a-console-application"></a>Création d’une application console
 
 1. Ouvrez Visual Studio et créez une nouvelle application de console.
 
-### Ajout du package NuGet Service Bus
+### <a name="add-the-service-bus-nuget-package"></a>Ajout du package NuGet Service Bus
 
 1. Cliquez avec le bouton droit sur le projet créé et sélectionnez **Gérer les packages NuGet**.
 
-2. Cliquez sur l’onglet **Parcourir**, puis recherchez « Microsoft Azure Service Bus » et sélectionnez l’élément **Microsoft Azure Service Bus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
+2. Cliquez sur l’onglet **Parcourir**, puis recherchez « Microsoft Azure Service Bus » et sélectionnez l’élément **Microsoft Azure Service Bus**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
 
     ![Sélectionner un package NuGet][nuget-pkg]
 
-### Écrire du code pour envoyer un message vers la file d’attente
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Écrire du code pour envoyer un message vers la file d’attente
 
 1. Ajoutez l’instruction using suivante au début du fichier Program.cs.
 
@@ -76,7 +77,7 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
     using Microsoft.ServiceBus.Messaging;
     ```
     
-2. Ajoutez le code ci-après à la méthode `Main` et définissez la variable **connectionString** en tant que chaîne de connexion obtenue lors de la création de l’espace de noms, et la variable **queueName** en tant que nom de file d’attente utilisé lors de la création de la file d’attente.
+2. Ajoutez le code suivant à la méthode `Main`, définissez la variable **connectionString** en tant que chaîne de connexion obtenue lors de la création de l’espace de noms, et la variable **queueName** en tant que nom de file d’attente utilisé lors de la création de la file d’attente.
 
     ```
     var connectionString = "<Your connection string>";
@@ -111,11 +112,11 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
     }
     ```
   
-3. Exécutez le programme et vérifiez le Portail Azure. Cliquez sur le nom de votre file d’attente dans le panneau de l’espace de noms **Vue d’ensemble**. Notez que la valeur **Nombre de messages actifs** doit à présent être 1.
+3. Exécutez le programme et vérifiez le Portail Azure. Cliquez sur le nom de votre file d’attente dans le panneau de l’espace de noms **Vue d’ensemble**. Notez que la valeur **Nombre de messages actifs** doit à présent être de 1.
     
       ![Nombre de messages][queue-message]
     
-## 4\. Recevoir les messages d'une file d'attente
+## <a name="4.-receive-messages-from-the-queue"></a>4. Recevoir les messages d'une file d'attente
 
 1. Créez une autre application de console et ajoutez une référence au package NuGet Service Bus, identique à celle de l’application émettrice précédente.
 
@@ -142,7 +143,7 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
     Console.ReadLine();
     ```
 
-	Voici à quoi doit ressembler votre fichier Program.cs :
+    Voici à quoi doit ressembler votre fichier Program.cs :
 
     ```
     using System;
@@ -171,15 +172,15 @@ Pour envoyer des messages vers la file d’attente, nous allons écrire une appl
     }
     ```
   
-4. Exécutez le programme et vérifiez le portail. Notez que la valeur **Longueur de la file d’attente** doit désormais correspondre à 0.
+4. Exécutez le programme et vérifiez le portail. Notez que la valeur **Longueur de la file d’attente** doit être de 0.
 
     ![Longueur de la file d’attente][queue-message-receive]
   
 Félicitations ! Vous avez maintenant créé une file d’attente, envoyé un message et reçu un message.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les [exemples fournis dans notre référentiel GitHub](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) qui illustrent certaines des fonctionnalités les plus avancées de la messagerie Azure Service Bus.
+Consultez les [exemples fournis dans le dépôt GitHub](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) qui illustrent certaines des fonctionnalités les plus avancées de la messagerie Azure Service Bus.
 
 <!--Image references-->
 
@@ -192,4 +193,7 @@ Consultez les [exemples fournis dans notre référentiel GitHub](https://github.
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_1005_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

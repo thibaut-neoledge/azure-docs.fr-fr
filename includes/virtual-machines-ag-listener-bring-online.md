@@ -1,23 +1,26 @@
-1. Retournez dans le Gestionnaire du cluster de basculement. Développez les **Rôles**, puis mettez votre groupe de disponibilité en surbrillance. Dans l'onglet **Ressources**, cliquez avec le bouton droit sur le nom de l'écouteur, puis cliquez sur Propriétés.
+1. Navigate back to Failover Cluster Manager.  Expand **Roles** and then highlight your Availability Group.  On the **Resources** tab, right-click the listener name and click Properties.
 
-1. Cliquez sur l'onglet **Dépendances**. Si plusieurs ressources sont répertoriées, vérifiez que les adresses IP ont des dépendances OR (et non des dépendances AND). Cliquez sur **OK**.
+1. Click the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies.  Click **OK**.
 
-1. Cliquez avec le bouton droit sur l'écouteur, puis cliquez sur **Mettre en ligne**.
+1. Right-click the listener name and click **Bring Online**.
 
-1. Une fois l'écouteur en ligne, allez dans l'onglet **Ressources**, cliquez avec le bouton droit sur le groupe de disponibilité, puis cliquez sur **Propriétés**.
+1. Once the listener is online, from the **Resources** tab, right-click the availability group and click **Properties**.
 
-	![Configurer la ressource du groupe de disponibilité](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+    ![Configure the Availability Group Resource](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
-1. Créez une dépendance sur la ressource de nom d'écouteur (pas le nom de ressources Adresse IP). Cliquez sur **OK**.
+1. Create a dependency on the listener name resource (not the IP address resources name). Click **OK**.
 
-	![Ajouter une dépendance pour le nom de l'écouteur](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+    ![Add Dependency on the Listener Name](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-1. Lancez **SQL Server Management Studio** et connectez-vous au réplica principal.
+1. Launch **SQL Server Management Studio** and connect to the primary replica.
 
-1. Accédez à **Haute disponibilité AlwaysOn** | **Groupes de disponibilité** | **<AvailabilityGroupName>** | **Écouteurs du groupe de disponibilité**.
+1. Navigate to **AlwaysOn High Availability** | **Availability Groups** | **<AvailabilityGroupName>** | **Availability Group Listeners**. 
 
-3. Vous devez maintenant voir le nom de l'écouteur que vous avez créé dans le Gestionnaire du cluster de basculement. Cliquez avec le bouton droit sur l’écouteur, puis cliquez sur **Propriétés**.
+3. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
 
-1. Dans la zone **Port**, spécifiez le numéro de port pour l’écouteur du groupe de disponibilité à l’aide du $EndpointPort utilisé précédemment (dans ce didacticiel, la valeur par défaut était 1433), puis cliquez sur **OK**.
+1. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (in this tutorial, 1433 was the default), then click **OK**.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+
