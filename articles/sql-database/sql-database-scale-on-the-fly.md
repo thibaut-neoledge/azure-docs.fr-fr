@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Scales on the Fly"
-   description="Learn how SQL Database scales on the fly"
+   pageTitle="Mises à l’échelle instantanées de bases de données SQL Azure"
+   description="Apprenez comment mettre à l’échelle de manière instantanée les bases de données SQL"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -14,50 +14,44 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/13/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
+# Mises à l’échelle instantanées de bases de données SQL Azure
 
-# <a name="azure-sql-database-scales-on-the-fly"></a>Azure SQL Database Scales on the fly
+## Lorsque votre application passe d’un petit nombre de clients à une utilisation quasi universelle, votre base de données SQL Azure peut évoluer simultanément avec une interruption minimale de l’application.
 
-## <a name="when-your-app-grows-from-a-small-number-of-customers-to-just-about-everyone,-azure-sql-database-can-scale-on-the-fly-with-minimal-app-downtime"></a>When your app grows from a small number of customers to just about everyone, Azure SQL Database can scale on the fly with minimal app downtime
-
-One of the advantages of running SQL Database on Microsoft Azure is being able to scale performance up or down, and on the fly to quickly adapt to changing workload demands. SQL Database offers a broad spectrum of performance levels to meet the specific needs of your application. And each level guarantees performance, so your app users have a predictable performance experience.
+L’un des avantages de disposer d’une base de données SQL sur Microsoft Azure est de pouvoir augmenter ou diminuer les performances en temps réel, pour s’adapter rapidement aux demandes de charge de travail. Une base de données SQL propose un large éventail de niveaux de performances permettant de répondre aux besoins spécifiques de votre application. Chaque niveau garantit des performances données, afin que les utilisateurs de votre application aient une expérience homogène.
 
 ![scale-on-the-fly](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
 
-## <a name="when-your-app-is-an-overnight-success"></a>When your app is an overnight success
-SQL Database makes it easy to scale at a moment's notice. So if your app becomes an overnight success, it's just one click to accommodate the new performance needs. Plus, with minimal downtime, you won't have to worry about your app taking a hit when the time comes to scale up or down.
+## Lorsque votre application rencontre un succès fulgurant,
+une base de données SQL facilite sa mise à l’échelle instantanée. Ainsi, si votre application rencontre un succès fulgurant, il vous suffit d’un clic pour adapter votre base de données aux nouveaux besoins de performances. De plus, sans interruption de service, vous n’aurez pas à vous préoccuper de l’impact sur votre application lorsque vous augmentez ou diminuez les capacités.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787569)
+[Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787569)
 
-## <a name="within-your-budget"></a>Within your budget  
+## Respecter le budget  
 
-The last thing you should think about when you're trying to create an app is how much your database is going to cost you. That's why SQL Database has a pay-what-you-need plan. With Basic, Standard, and Premium performance options, you can decide which performance option will fit your budget. And, if your app takes off, you can scale up at anytime.
+La dernière chose dont vous devriez vous préoccuper lorsque vous créez une application est le coût de la base de données. C’est pourquoi les bases de données SQL disposent d’un plan de paiement à l’utilisation. Choisissez l’offre de base, standard ou premium, en fonction des performances dont vous avez besoin et de votre budget. Ensuite, si votre application rencontre un franc succès, vous pouvez à tout moment passer à un plan supérieur.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787570)
+[Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787570)
 
-## <a name="get-the-fastest-performance"></a>Get the fastest performance
+## Obtenir des performances optimales
 
-SQL Database includes cutting edge in-memory technology to execute extremely fast transactions and perform real-time analytical queries at the same time. Built-in advisors help developers migrate to in-memory tables, indexes, or store procedures. As a result, end users can experience up to 30x faster transaction processing and 100x faster query processing.  
+Les bases de données SQL incluent une innovante technologie de mise en mémoire afin d’exécuter des transactions extrêmement rapides et d’effectuer simultanément des requêtes analytiques en temps réel. Des conseils intégrés aident les développeurs à effectuer une migration vers des tables, index et procédures de stockage en mémoire. Les utilisateurs bénéficient alors de transactions 30 fois plus rapides et de requêtes 100 fois plus rapides.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787580)
+[Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787580)
 
-Go to the homepage to see what else SQL Database has to offer.
-[Check it out](https://azure.microsoft.com/services/sql-database/) 
+Accédez à la page d’accueil pour voir les autres avantages du service Base de données SQL. [Voyez par vous-même](https://azure.microsoft.com/services/sql-database/)
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+Demandez un [abonnement Azure gratuit](https://azure.microsoft.com/get-started/) et [créez votre première base de données SQL Azure](sql-database-get-started.md).
 
-## <a name="additional-resources"></a>Additional resources
+## Ressources supplémentaires
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/).
  
-Review the [technical overview of SQL Database](sql-database-technical-overview.md).
+Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

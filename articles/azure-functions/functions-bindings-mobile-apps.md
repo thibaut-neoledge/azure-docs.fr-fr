@@ -1,177 +1,172 @@
 <properties
-    pageTitle="Azure Functions Mobile Apps bindings | Microsoft Azure"
-    description="Understand how to use Azure Mobile Apps bindings in Azure Functions."
-    services="functions"
-    documentationCenter="na"
-    authors="ggailey777"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
+	pageTitle="Liaisons Mobile Apps Azure Functions| Microsoft Azure"
+	description="Découvrez comment utiliser des liaisons Azure Mobile Apps dans Azure Functions."
+	services="functions"
+	documentationCenter="na"
+	authors="ggailey777"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="multiple"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="08/30/2016"
-    ms.author="glenga"/>
+	ms.service="functions"
+	ms.devlang="multiple"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/30/2016"
+	ms.author="glenga"/>
+
+# Liaisons Azure Mobile Apps Azure Functions
+
+[AZURE.INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
+
+Cet article explique comment configurer et coder des liaisons Azure Mobile Apps dans Azure Functions.
+
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+Azure App Service Mobile Apps vous permet d’exposer les données de point de terminaison de table aux clients mobiles. Ces mêmes données tabulaires sont utilisables avec les liaisons d’entrée et de sortie dans Azure Functions. Une application mobile de serveur principal Node.js est idéale pour exposer les données tabulaires à utiliser avec vos fonctions, grâce à sa prise en charge des schémas dynamiques. Le schéma dynamique est activé par défaut et doit être désactivé dans une application mobile de production. Pour plus d’informations sur les points de terminaison de table dans un serveur principal Node.js, consultez [Vue d’ensemble : opérations de table](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). Dans Mobile Apps, le serveur principal Node.js prend en charge la navigation sur portail et la modification des tables. Pour plus d’informations, consultez [Modification sur le portail](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) dans la rubrique du Kit de développement logiciel Node.js. Lorsque vous utilisez une application mobile de serveur principal .NET avec Azure Functions, vous devez manuellement mettre à jour votre modèle de données, comme requis par votre fonction. Pour plus d’informations sur les points de terminaison de table dans une application mobile de serveur principal .NET, consultez [Définir un contrôleur de table](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) dans la rubrique du Kit de développement logiciel de .NET.
+
+## Création d’une variable d’environnement pour votre URL de backend d’application mobile
+
+Les liaisons d’applications mobiles vous obligent à créer une variable d’environnement qui renvoie l’URL du backend d’application mobile elle-même. Cette URL se trouve dans le [portail Azure](https://portal.azure.com) : recherchez-y votre application mobile et ouvrez le panneau correspondant.
+
+![Panneau Mobile Apps dans le portail Azure](./media/functions-bindings-mobile-apps/mobile-app-blade.png)
+
+Pour définir cette URL comme variable d’environnement dans votre application de fonction (Function App) :
+
+1. Dans votre application de fonction dans le [portail Azure Functions](https://functions.azure.com/signin), cliquez sur les **Paramètres Function App** > **Accéder aux paramètres App Service**.
+
+	![Paramètres Function App](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
+
+2. Dans votre application de fonction, cliquez sur **Tous les paramètres**, accédez aux **Paramètres de l’application**, puis, sous les **paramètres de l’application**, entrez un nouveau **Nom** pour la variable d’environnement, collez l’URL dans **Valeur** en prenant soin d’utiliser le schéma HTTPS, puis cliquez sur **Enregistrer** et fermez le panneau Function App pour retourner au portail Functions.
+
+	![Ajout d’une variable d’environnement de paramètre application](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
+
+Vous pouvez maintenant définir cette nouvelle variable d’environnement dans le champ *Connexion* de vos liaisons.
+
+## <a id="mobiletablesapikey"></a> Utilisez une clé API pour sécuriser l’accès à vos points de terminaison de table Mobile Apps.
+
+Dans Azure Functions, les liaisons de tables vous permettent de spécifier une clé API, qui est une clé secrète partagée pouvant être utilisée pour empêcher les accès indésirables à partir d’applications autres que vos fonctions. Mobile Apps n’intègre aucune prise en charge de l’authentification par clé API. Toutefois, vous pouvez implémenter une clé API dans votre application mobile backend Node.js en suivant les exemples présentés dans [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Backend Azure App Service Mobile Apps implémentant une clé API). Vous pouvez implémenter une clé API dans une [application mobile backend .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key) de la même façon.
+
+>[AZURE.IMPORTANT] Cette clé API ne doit pas être distribuée avec vos clients d’application mobile ; elle doit uniquement être distribuée de façon sécurisée aux clients côté service, comme Azure Functions.
+
+## <a id="mobiletablesinput"></a> Liaison d’entrée Azure Mobile Apps
+
+Les liaisons d’entrée peuvent charger un enregistrement à partir d’un système d'extrémité de table mobile et le transmettre directement à votre liaison. L’ID d’enregistrement est déterminé en fonction du déclencheur qui a appelé la fonction. Dans une fonction C#, toutes les modifications apportées à l’enregistrement sont automatiquement renvoyées à la table une fois que la fonction s’est correctement terminée.
+
+#### function.json pour les liaisons d’entrée Mobile Apps
+
+Le fichier *function.json* prend en charge les propriétés suivantes :
+
+- `name` : nom de variable utilisé dans le code de fonction pour le nouvel enregistrement.
+- `type` : type de liaison devant être défini sur *mobileTable*.
+- `tableName` : table dans laquelle le nouvel enregistrement sera créé.
+- `id` : ID de l’enregistrement à récupérer. Cette propriété prend en charge des liaisons semblables à `{queueTrigger}`, qui utilisent la valeur de chaîne du message de file d’attente en tant qu’ID d’enregistrement.
+- `apiKey` : chaîne correspondant au paramètre d’application qui spécifie la clé API facultative pour l’application mobile. Cette propriété est requise lorsque votre application mobile utilise une clé API pour restreindre l’accès client.
+- `connection` : chaîne correspondant au nom de la variable d’environnement dans les paramètres d’application qui spécifie l’URL du backend de votre application mobile.
+- `direction` : sens de la liaison, qui doit être défini sur *in*.
+
+Exemple de fichier *function.json* :
+
+	{
+	  "bindings": [
+	    {
+	      "name": "record",
+	      "type": "mobileTable",
+	      "tableName": "MyTable",
+	      "id" : "{queueTrigger}",
+	      "connection": "My_MobileApp_Url",
+	      "apiKey": "My_MobileApp_Key",
+	      "direction": "in"
+	    }
+	  ],
+	  "disabled": false
+	}
+
+#### Exemple de code Azure Mobile Apps pour un déclencheur de file d’attente C#
+
+Sur la base de l’exemple de fichier function.json ci-dessus, la liaison d’entrée récupère l’enregistrement dont l’ID correspond à la chaîne de message de file d’attente depuis un point de terminaison de table Mobile Apps et le transmet au paramètre *record*. Si l’enregistrement est introuvable, le paramètre présente la valeur Null. L’enregistrement est ensuite mis à jour avec la nouvelle valeur *Text* une fois la fonction terminée.
+
+	#r "Newtonsoft.Json"	
+	using Newtonsoft.Json.Linq;
+	
+	public static void Run(string myQueueItem, JObject record)
+	{
+	    if (record != null)
+	    {
+	        record["Text"] = "This has changed.";
+	    }    
+	}
+
+#### Exemple de code Azure Mobile Apps pour un déclencheur de file d’attente Node.js
+
+Sur la base de l’exemple de fichier function.json ci-dessus, la liaison d’entrée récupère l’enregistrement dont l’ID correspond à la chaîne de message de file d’attente depuis un point de terminaison de table Mobile Apps et le transmet au paramètre *record*. Dans les fonctions Node.js, les enregistrements mis à jour ne sont pas renvoyés à la table. Cet exemple de code écrit l’enregistrement récupéré dans le journal.
+
+	module.exports = function (context, input) {    
+	    context.log(context.bindings.record);
+	    context.done();
+	};
 
 
-# <a name="azure-functions-mobile-apps-bindings"></a>Azure Functions Mobile Apps bindings
+## <a id="mobiletablesoutput"></a> Liaison de sortie Azure Mobile Apps
 
-[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+Votre fonction peut écrire un enregistrement dans un système d'extrémité de table Mobile Apps à l’aide d’une liaison de sortie.
 
-This article explains how to configure and code Azure Mobile Apps bindings in Azure Functions. 
+#### function.json pour les liaisons de sortie Mobile Apps
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
+Le fichier function.json prend en charge les propriétés suivantes :
 
-Azure App Service Mobile Apps lets you expose table endpoint data to mobile clients. This same tabular data can be used with both input and output bindings in Azure Functions. Because it supports dynamic schema, a Node.js backend mobile app is ideal for exposing tabular data for use with your functions. Dynamic schema is enabled by default and should be disabled in a production mobile app. For more information about table endpoints in a Node.js backend, see [Overview: table operations](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). In Mobile Apps, the Node.js backend supports in-portal browsing and editing of tables. For more information, see [in-portal editing](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) in the Node.js SDK topic. When you use a .NET backend mobile app with Azure Functions, you must manually update your data model as required by your function. For more information about table endpoints in a .NET backend mobile app, see [How to: Define a table controller](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) in the .NET backend SDK topic. 
+- `name` : nom de variable utilisé dans le code de fonction pour le nouvel enregistrement.
+- `type` : type de liaison devant être défini sur *mobileTable*.
+- `tableName` : table dans laquelle le nouvel enregistrement est créé.
+- `apiKey` : chaîne correspondant au paramètre d’application qui spécifie la clé API facultative pour l’application mobile. Cette propriété est requise lorsque votre application mobile utilise une clé API pour restreindre l’accès client.
+- `connection` : chaîne correspondant au nom de la variable d’environnement dans les paramètres d’application qui spécifie l’URL du backend de votre application mobile.
+- `direction` : sens de la liaison, qui doit être défini sur *out*.
 
-## <a name="create-an-environment-variable-for-your-mobile-app-backend-url"></a>Create an environment variable for your mobile app backend URL
+Exemple de fichier function.json :
 
-Mobile Apps bindings currently require you to create an environment variable that returns the URL of the mobile app backend itself. This URL can be found in the [Azure portal](https://portal.azure.com) by locating your mobile app and opening the blade.
+	{
+	  "bindings": [
+	    {
+	      "name": "record",
+	      "type": "mobileTable",
+	      "tableName": "MyTable",
+	      "connection": "My_MobileApp_Url",
+	      "apiKey": "My_MobileApp_Key",
+	      "direction": "out"
+	    }
+	  ],
+	  "disabled": false
+	}
 
-![Mobile Apps blade in the Azure portal](./media/functions-bindings-mobile-apps/mobile-app-blade.png)
+#### Exemple de code Azure Mobile Apps pour un déclencheur de file d’attente C#
 
-To set this URL as an environment variable in your function app:
+Cet exemple de code C# insère un nouvel enregistrement sur un point de terminaison de table Mobile Apps avec une propriété *Text* dans la table spécifiée dans la liaison ci-dessus.
 
-1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Go to App Service settings**. 
+	public static void Run(string myQueueItem, out object record)
+	{
+	    record = new {
+	        Text = $"I'm running in a C# function! {myQueueItem}"
+	    };
+	}
 
-    ![Function app settings blade](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
+#### Exemple de code Azure Mobile Apps pour un déclencheur de file d’attente Node.js
 
-2. In your function app, click **All settings**, scroll down to **Application settings**, then under **App settings** type a new **Name** for the environment variable, paste the URL into **Value**, making sure to use the HTTPS scheme, then click **Save** and close the function app blade to return to the Functions portal.   
+Cet exemple de code Node.js insère un nouvel enregistrement sur un point de terminaison de table Mobile Apps avec une propriété *Text* dans la table spécifiée dans la liaison ci-dessus.
 
-    ![Add an app setting environment variable](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
+	module.exports = function (context, input) {
+	
+	    context.bindings.record = {
+	        text : "I'm running in a Node function! Data: '" + input + "'"
+	    }   
+	
+	    context.done();
+	};
 
-You can now set this new environment variable as the *connection* field in your bindings.
+## Étapes suivantes
 
-## <a name="<a-id="mobiletablesapikey"></a>-use-an-api-key-to-secure-access-to-your-mobile-apps-table-endpoints."></a><a id="mobiletablesapikey"></a> Use an API key to secure access to your Mobile Apps table endpoints.
+[AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-In Azure Functions, mobile table bindings let you specify an API key, which is a shared secret that can be used to prevent unwanted access from apps other than your functions. Mobile Apps does not have built-in support for API key authentication. However, you can implement an API key in your Node.js backend mobile app by following the examples in [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key). You can similarly implement an API key in a [.NET backend mobile app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).
-
->[AZURE.IMPORTANT] This API key must not be distributed with your mobile app clients, it should only be distributed securely to service-side clients, like Azure Functions. 
-
-## <a name="<a-id="mobiletablesinput"></a>-azure-mobile-apps-input-binding"></a><a id="mobiletablesinput"></a> Azure Mobile Apps input binding
-
-Input bindings can load a record from a mobile table endpoint and pass it directly to your binding. The record ID is determined based on the trigger that invoked the function. In a C# function, any changes made to the record are automatically sent back to the table when the function exits successfully.
-
-#### <a name="function.json-for-mobile-apps-input-binding"></a>function.json for Mobile Apps input binding
-
-The *function.json* file supports the following properties:
-
-- `name` : Variable name used in function code for the new record.
-- `type` : Biding type must be set to *mobileTable*.
-- `tableName` : The table where the new record will be created.
-- `id` : The ID of the record to retrieve. This property supports bindings similar to `{queueTrigger}`, which will use the string value of the queue message as the record Id.
-- `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
-- `connection` : String that is the name of the environment variable in application settings that specifies the URL of your mobile app backend.
-- `direction` : Binding direction, which must be set to *in*.
-
-Example *function.json* file:
-
-    {
-      "bindings": [
-        {
-          "name": "record",
-          "type": "mobileTable",
-          "tableName": "MyTable",
-          "id" : "{queueTrigger}",
-          "connection": "My_MobileApp_Url",
-          "apiKey": "My_MobileApp_Key",
-          "direction": "in"
-        }
-      ],
-      "disabled": false
-    }
-
-#### <a name="azure-mobile-apps-code-example-for-a-c#-queue-trigger"></a>Azure Mobile Apps code example for a C# queue trigger
-
-Based on the example function.json above, the input binding retrieves the record from a Mobile Apps table endpoint with the ID that matches the queue message string and passes it to the *record* parameter. When the record is not found, the parameter is null. The record is then updated with the new *Text* value when the function exits.
-
-    #r "Newtonsoft.Json"    
-    using Newtonsoft.Json.Linq;
-    
-    public static void Run(string myQueueItem, JObject record)
-    {
-        if (record != null)
-        {
-            record["Text"] = "This has changed.";
-        }    
-    }
-
-#### <a name="azure-mobile-apps-code-example-for-a-node.js-queue-trigger"></a>Azure Mobile Apps code example for a Node.js queue trigger
-
-Based on the example function.json above, the input binding retrieves the record from a Mobile Apps table endpoint with the ID that matches the queue message string and passes it to the *record* parameter. In Node.js functions, updated records are not sent back to the table. This code example writes the retrieved record to the log.
-
-    module.exports = function (context, input) {    
-        context.log(context.bindings.record);
-        context.done();
-    };
-
-
-## <a name="<a-id="mobiletablesoutput"></a>azure-mobile-apps-output-binding"></a><a id="mobiletablesoutput"></a>Azure Mobile Apps output binding
-
-Your function can write a record to a Mobile Apps table endpoint using an output binding. 
-
-#### <a name="function.json-for-mobile-apps-output-binding"></a>function.json for Mobile Apps output binding
-
-The function.json file supports the following properties:
-
-- `name` : Variable name used in function code for the new record.
-- `type` : Binding type that must be set to *mobileTable*.
-- `tableName` : The table where the new record is created.
-- `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
-- `connection` : String that is the name of the environment variable in application settings that specifies the URL of your mobile app backend.
-- `direction` : Binding direction, which must be set to *out*.
-
-Example function.json:
-
-    {
-      "bindings": [
-        {
-          "name": "record",
-          "type": "mobileTable",
-          "tableName": "MyTable",
-          "connection": "My_MobileApp_Url",
-          "apiKey": "My_MobileApp_Key",
-          "direction": "out"
-        }
-      ],
-      "disabled": false
-    }
-
-#### <a name="azure-mobile-apps-code-example-for-a-c#-queue-trigger"></a>Azure Mobile Apps code example for a C# queue trigger
-
-This C# code example inserts a new record into a Mobile Apps table endpoint with a *Text* property into the table specified in the above binding.
-
-    public static void Run(string myQueueItem, out object record)
-    {
-        record = new {
-            Text = $"I'm running in a C# function! {myQueueItem}"
-        };
-    }
-
-#### <a name="azure-mobile-apps-code-example-for-a-node.js-queue-trigger"></a>Azure Mobile Apps code example for a Node.js queue trigger
-
-This Node.js code example inserts a new record into a Mobile Apps table endpoint with a *text* property into the table specified in the above binding.
-
-    module.exports = function (context, input) {
-    
-        context.bindings.record = {
-            text : "I'm running in a Node function! Data: '" + input + "'"
-        }   
-    
-        context.done();
-    };
-
-## <a name="next-steps"></a>Next steps
-
-[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

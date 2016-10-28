@@ -1,16 +1,13 @@
-1. From the Visual Studio menu, select **File > New > Project**.
+1. Dans le menu Visual Studio, sélectionnez **Fichier > Nouveau > Projet**.
 
-1. Under the **Templates** section of the **New Project** dialog box, select **Visual C# > Web**.
+1. Sous la section **Modèles** de la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C# > Web**.
 
-1. Select **ASP.NET Core Web Application (.NET Core)**.
+1. Sélectionnez **ASP.NET Core Web Application (.NET Core)**.
 
-1. Give your new application a name (or take the default) and select **OK**.
+1. Donnez un nom à votre nouvelle application (ou utilisez la valeur par défaut) et sélectionnez **OK**.
 
-1. Under **ASP.NET Core Templates**, select **Web Application** and select **OK**.
+1. Sous **Modèles ASP.NET Core**, sélectionnez **Application web** et sélectionnez **OK**.
 
-1. Unselect **Host in the cloud**. You'll be using Docker as your deployment solution.
+1. Désélectionnez **Héberger dans le cloud**. Vous allez utiliser Docker comme solution de déploiement.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

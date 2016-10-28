@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Create an Azure Search index using the REST API | Microsoft Azure | Hosted cloud search service"
-    description="Create an index in code using the Azure Search HTTP REST API."
+    pageTitle="Créer un index Azure Search à l’aide de l’API REST | Microsoft Azure | Service de recherche cloud hébergé"
+    description="Créer un index dans le code à l’aide de l’API REST HTTP d’Azure Search."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -17,45 +17,44 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
-
-# <a name="create-an-azure-search-index-using-the-rest-api"></a>Create an Azure Search index using the REST API
+# Création d’un index Azure Search à l’aide de l’API REST
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-an-index.md)
-- [Portal](search-create-index-portal.md)
+- [Vue d'ensemble](search-what-is-an-index.md)
+- [Portail](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST](search-create-index-rest-api.md)
 
 
-This article will walk you through the process of creating an Azure Search [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) using the Azure Search REST API.
+Cet article vous guidera dans la création d’un [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) Azure Search à l’aide de l’API REST Azure Search.
 
-Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
+Avant de suivre ce guide et de passer à la création d’un index, vous devez avoir déjà [créé un service Azure Search](search-create-service-portal.md).
 
-To create an Azure Search index using the REST API, you will issue a single HTTP POST request to your Azure Search service's URL endpoint. Your index definition will be contained in the request body as well-formed JSON content.
+Pour créer un index Azure Search à l’aide de l’API REST, vous allez générer une seule requête POST HTTP sur le point de terminaison URL de votre service Azure Search. Votre définition d’index figurera dans le corps de la requête sous la forme d’un contenu JSON correct.
 
 
-## <a name="i.-identify-your-azure-search-service's-admin-api-key"></a>I. Identify your Azure Search service's admin api-key
-Now that you have provisioned an Azure Search service, you can issue HTTP requests against your service's URL endpoint using the REST API. However, *all* API requests must include the api-key that was generated for the Search service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+## I. Identifier la clé API d’administration de votre service Azure Search
+Maintenant que vous avez configuré un service Azure Search, vous pouvez émettre des requêtes HTTP sur le point de terminaison URL de votre service à l’aide de l’API REST. *Toutes les* requêtes d’API doivent cependant inclure la clé API générée pour le service Search que vous avez configuré. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
-2. Go to your Azure Search service's blade
-3. Click on the "Keys" icon
+1. Pour accéder aux clés API de votre service, vous devez vous connecter au [portail Azure](https://portal.azure.com/)
+2. Accédez au panneau de votre service Azure Search
+3. Cliquez sur l’icône « Clés »
 
-Your service will have *admin keys* and *query keys*.
+Votre service comporte à la fois des *clés d’administration* et des *clés de requête*.
 
- - Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
- - Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
+ - Les *clés d’administration* principales et secondaires vous accordent des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service ou de créer et supprimer des index, des indexeurs et des sources de données. Deux clés sont à votre disposition afin que vous puissiez continuer à utiliser la clé secondaire si vous décidez de régénérer la clé primaire et inversement.
+ - Vos *clés de requête* vous accordent un accès en lecture seule aux index et documents ; elles sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.
 
-For the purposes of creating an index, you can use either your primary or secondary admin key.
+Dans le cadre de la création d’un index, vous pouvez utiliser votre clé d’administration principale ou secondaire.
 
-## <a name="ii.-define-your-azure-search-index-using-well-formed-json"></a>II. Define your Azure Search index using well-formed JSON
-A single HTTP POST request to your service will create your index. The body of your HTTP POST request will contain a single JSON object that defines your Azure Search index.
+## II. Définir votre index Azure Search à l’aide d’un code JSON correct
+Une simple requête HTTP POST transmise à votre service vous permet de créer votre index. Le corps de votre requête HTTP POST doit contenir un seul objet JSON qui définit votre index Azure Search.
 
-1. The first property of this JSON object is the name of your index.
-2. The second property of this JSON object is a JSON array named `fields` that contains a separate JSON object for each field in your index. Each of these JSON objects contain multiple name/value pairs for each of the field attributes including "name," "type," etc.
+1. La première propriété de cet objet JSON correspond au nom de l’index.
+2. La deuxième propriété de cet objet JSON est un tableau JSON nommé `fields`, qui contient un objet JSON distinct pour chaque champ de votre index. Chacun de ces objets JSON contient plusieurs paires nom/valeur pour chacun des attributs de champ, à savoir « nom », « type », etc.
 
-It is important that you keep your search user experience and business needs in mind when designing your index as each field must be assigned the [proper attributes](https://msdn.microsoft.com/library/azure/dn798941.aspx). These attributes control which search features (filtering, faceting, sorting full-text search, etc.) apply to which fields. For any attribute you do not specify, the default will be to enable the corresponding search feature unless you specifically disable it.
+Il est important de ne perdre de vue ni votre expérience de recherche ni vos besoins métiers lorsque vous concevez votre index, chaque champ devant être associé à des [attributs corrects](https://msdn.microsoft.com/library/azure/dn798941.aspx). Ces attributs déterminent les fonctionnalités de recherche (filtrage, facettes, tri de recherche en texte intégral, etc.) qui s’appliqueront à chaque champ. Si vous ne spécifiez pas d’attribut, le paramètre par défaut consistera à activer la fonctionnalité de recherche correspondante à moins que vous ne la désactiviez spécifiquement.
 
-For our example, we've named our index "hotels" and defined our fields as follows:
+Dans notre exemple, nous avons nommé notre index « hotels » et défini ses champs de la manière suivante :
 
 ```JSON
 {
@@ -77,18 +76,18 @@ For our example, we've named our index "hotels" and defined our fields as follow
 }
 ```
 
-We have carefully chosen the index attributes for each field based on how we think they will be used in an application. For example, `hotelId` is a unique key that people searching for hotels likely won't know, so we disable full-text search for that field by setting `searchable` to `false`, which saves space in the index.
+Nous avons soigneusement choisi les attributs d’index pour chaque champ en fonction de la manière dont ils seront vraisemblablement utilisés dans une application. Par exemple, `hotelId` est une clé unique qui sera vraisemblablement méconnue des utilisateurs effectuant une recherche d’hôtels. Nous allons donc désactiver la recherche en texte intégral pour ce champ en définissant le paramètre `searchable` sur `false`, afin d’économiser de l’espace au niveau de l’index.
 
-Please note that exactly one field in your index of type `Edm.String` must be the designated as the 'key' field.
+Notez que, dans votre index, un seul champ de type `Edm.String` doit être désigné en tant que « clé ».
 
-The index definition above uses a custom language analyzer for the `description_fr` field because it is intended to store French text. See [the Language support topic on MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) as well as the corresponding [blog post](https://azure.microsoft.com/blog/language-support-in-azure-search/) for more information about language analyzers.
+La définition d’index ci-dessus utilise un analyseur de langue personnalisé pour le champ `description_fr` dans la mesure où il est destiné à stocker du texte en français. Pour plus d’informations sur les analyseurs de langue, consultez la [rubrique relative à la prise en charge linguistique sur MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) ainsi que le [billet de blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) correspondant.
 
-## <a name="iii.-issue-the-http-request"></a>III. Issue the HTTP request
-1. Using your index definition as the request body, issue an HTTP POST request to your Azure Search service endpoint URL. In the URL, be sure to use your service name as the host name, and put the proper `api-version` as a query string parameter (the current API version is `2015-02-28` at the time of publishing this document).
-2. In the request headers, specify the `Content-Type` as `application/json`. You will also need to provide your service's admin key that you identified in Step I in the `api-key` header.
+## III. Envoyer la requête HTTP
+1. En utilisant votre définition d’index dans le corps de votre requête, envoyez une requête HTTP POST vers l’URL de point de terminaison de votre service Azure Search. Dans l’URL, veillez à utiliser le nom de votre service en tant que nom d’hôte et placez l’attribut `api-version` approprié comme paramètre de chaîne de requête (à la date de publication de ce document, l’API `2015-02-28` correspond à la version la plus récente).
+2. Dans les en-têtes de requête, spécifiez `Content-Type` comme `application/json`. Vous devrez également renseigner dans l’en-tête `api-key` la clé d’administration de votre service que vous avez identifiée à l’étape I.
 
 
-You will have to provide your own service name and api key to issue the request below:
+Vous devrez fournir vos propres nom de service et clé d’API pour émettre la requête ci-dessous :
 
 
     POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
@@ -96,19 +95,15 @@ You will have to provide your own service name and api key to issue the request 
     api-key: [api-key]
 
 
-For a successful request, you should see status code 201 (Created). For more information on creating an index via the REST API, please visit the API reference on [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Pour que votre requête aboutisse, vous devez voir le code d’état « 201 créé ». Pour plus d’informations sur la création d’un index via l’API REST, consultez la référence d’API sur [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez la page [Codes d’état HTTP (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-When you're done with an index and want to delete it, just issue an HTTP DELETE request. For example, this is how we would delete the "hotels" index:
+Pour supprimer un index, il vous suffit de générer une requête HTTP DELETE. Voici, par exemple, la requête à utiliser pour supprimer l’index « hotels » :
 
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
     api-key: [api-key]
 
 
-## <a name="next"></a>Next
-After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
+## Suivant
+Après avoir créé un index Azure Search, vous pouvez commencer à [télécharger du contenu dans votre index](search-what-is-data-import.md) afin d’y lancer des recherches.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

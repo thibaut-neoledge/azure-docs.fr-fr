@@ -1,49 +1,44 @@
 <properties
-    pageTitle="Azure Active Directory B2C: Self-service password reset | Microsoft Azure"
-    description="A topic demonstrating how to set up self-service password reset for your consumers in Azure Active Directory B2C"
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="swkrish"
-    manager="mbaldwin"
-    editor="curtand"/>
+	pageTitle="Azure Active Directory B2C : réinitialisation de mot de passe libre-service | Microsoft Azure"
+	description="Rubrique montrant comment configurer une réinitialisation de mot de passe libre-service pour vos consommateurs dans Azure Active Directory B2C"
+	services="active-directory-b2c"
+	documentationCenter=""
+	authors="swkrish"
+	manager="msmbaldwin"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/24/2016"
-    ms.author="swkrish"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/24/2016"
+	ms.author="swkrish"/>
 
 
+# Azure Active Directory B2C : configuration de la réinitialisation du mot de passe libre-service pour vos consommateurs
 
-# <a name="azure-active-directory-b2c:-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: Set up self-service password reset for your consumers
-
-With the self-service password reset feature, your consumers (who have signed up for local accounts) can reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of consumers using it on a regular basis. Currently, we only support using a verified email address as a recovery method. We will add additional recovery methods (verified phone number, security questions, etc.) in the future.
-
-> [AZURE.NOTE]
-This article applies to self-service password reset used in the context of a sign-in policy. If you need fully customizable password reset policies invoked from your app, see [this article](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
-
-By default, your directory will not have self-service password reset turned on. Use the following steps to turn it on:
-
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to create your directory.
-2. Navigate to the Active Directory extension on the navigation bar on the left side.
-3. Find your directory under the **Directory** tab and click it.
-4. Click the **Configure** tab.
-5. Scroll down to the **User password reset policy** section and toggle the **Users enabled for password reset** option to **YES**. Notice that the **Alternate Email Address** option is checked; leave it as it is.
-
-    ![Self-service password reset](./media/active-directory-b2c-reference-sspr/sspr.png)
-
-6. Click **Save** at the bottom of the page. You're done!
-
-To test, use the "Run now" feature on any sign-in policy that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the consumer experience.
+La fonctionnalité de réinitialisation du mot de passe en libre-service permet à vos consommateurs (qui ont souscrit des comptes locaux) de réinitialiser eux-mêmes leurs mots de passe. Cela réduit considérablement la charge pesant sur votre personnel de support, surtout si votre application est utilisée régulièrement par des millions de consommateurs. Actuellement, nous prenons uniquement en charge l’utilisation d’une adresse électronique vérifiée comme méthode de récupération. Nous allons ajouter des méthodes de récupération supplémentaires (numéro de téléphone vérifié, questions de sécurité, etc.) à l’avenir.
 
 > [AZURE.NOTE]
-The self-service password reset pages can be customized by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
+Cet article s’applique à un mot de passe libre-service utilisé dans le contexte d’une stratégie de connexion. Si vous avez besoin de stratégies de réinitialisation de mot de passe entièrement personnalisables appelées à partir de votre application, consultez [cet article](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
 
+Par défaut, la réinitialisation de mot de passe libre-service ne sera pas activée pour votre annuaire. Pour l’activer, procédez comme suit :
 
+1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. Il s’agit du compte professionnel ou scolaire, ou du compte Microsoft que vous avez utilisé pour créer votre annuaire.
+2. Accédez à l’extension Active Directory dans la barre de navigation sur le côté gauche.
+3. Recherchez votre répertoire sous l’onglet **Répertoire**, puis cliquez dessus.
+4. Cliquez sur l’onglet **Configurer**.
+5. Faites défiler jusqu’à la section **Stratégie de réinitialisation du mot de passe utilisateur**, puis définissez l’option **Utilisateurs autorisés à réinitialiser leur mot de passe** sur **OUI**. Notez que l’option **Autre adresse de messagerie** est activée ; laissez-la telle quelle.
 
-<!--HONumber=Oct16_HO2-->
+    ![Réinitialisation de mot de passe libre-service](./media/active-directory-b2c-reference-sspr/sspr.png)
 
+6. Cliquez sur **Enregistrer** au bas de la page. Vous avez terminé !
 
+Pour tester, utilisez la fonctionnalité « Exécuter maintenant » sur une stratégie de connexion (qui comporte des comptes locaux en tant que fournisseur d’identité). Sur la page de connexion au compte local (où vous entrez une adresse e-mail et un mot de passe, ou un nom d’utilisateur et un mot de passe), cliquez sur **Votre compte n’est pas accessible ?** pour vérifier l’expérience du consommateur.
+
+> [AZURE.NOTE]
+Les pages de réinitialisation de mot de passe libre-service sont personnalisables à l’aide de la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md).
+
+<!---HONumber=AcomDC_0727_2016-->

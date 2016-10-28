@@ -1,116 +1,92 @@
 <properties
-    pageTitle="Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Azure"
-    description="Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+	pageTitle="Synchronisation d’Azure AD Connect : Interface utilisateur de Synchronization Service Manager | Microsoft Azure"
+	description="Comprendre l’onglet Connecteurs dans Synchronization Service Manager pour Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/07/2016"
-    ms.author="billmath"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2016"
+	ms.author="andkjell"/>
 
 
+# Synchronisation d’Azure AD Connect : Synchronization Service Manager
 
-# <a name="azure-ad-connect-sync:-synchronization-service-manager"></a>Azure AD Connect sync: Synchronization Service Manager
-
-[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+[Operations](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Concepteur de métaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Recherche de métaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
 --- | --- | --- | ---
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
-The Connectors tab is used to manage all systems the sync engine is connected to.
+L’onglet Connecteurs permet de gérer tous les systèmes auquel le moteur de synchronisation est connecté.
 
-## <a name="connector-actions"></a>Connector actions
+## Actions du connecteur
 
-Action | Comment
+Action | Commentaire
 --- | ---
-Create | Do not use. For connecting to additional AD forests, use the installation wizard.
-Properties | Used for domain and OU filtering.
-[Delete](#delete) | Used to either delete the data in the connector space or to delete connection to a forest.
-[Configure Run Profiles](#configure-run-profiles) | Except for domain filtering, nothing to configure here. You can use this action to see already configured run profiles.
-Run | Used to start a one-off run of a profile.
-Stop | Stops a Connector currently running a profile.
-Export Connector | Do not use.
-Import Connector | Do not use.
-Update Connector | Do not use.
-Refresh Schema | Refreshes the cached schema. It is preferred to use the option in the installation wizard instead, since that also updates sync rules.
-[Search Connector Space](#search-connector-space) | Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system).
+Créer | Ne pas utiliser. Pour la connexion à des forêts Active Directory supplémentaires, utilisez l’Assistant Installation.
+Propriétés | Permet le filtrage de domaine et d’unité organisationnelle.
+[Supprimer](#delete) | Permet de supprimer les données dans l’espace connecteur ou de supprimer la connexion à une forêt.
+[Configurer les profils d’exécution](#configure-run-profiles) | À l’exception du filtrage de domaine, il n’y a rien à configurer ici. Vous pouvez vous servir de cette action pour voir les profils d’exécution déjà configurés.
+Exécuter | Permet de lancer l’exécution unique d’un profil.
+Arrêter | Arrête un connecteur qui exécute un profil.
+Exporter le connecteur | Ne pas utiliser.
+Importer le connecteur | Ne pas utiliser.
+Mettre à jour le connecteur | Ne pas utiliser.
+Actualiser le schéma | Actualise le schéma mis en cache. Il est préférable d’utiliser l’option dans l’Assistant Installation, car les règles de synchronisation sont également mises à jour.
+[Espace de connecteur de recherche](#search-connector-space) | Permet de rechercher des objets et de [Suivre un objet et ses données dans le système](#follow-an-object-and-its-data-through-the-system).
 
-### <a name="delete"></a>Delete
-The delete action is used for two different things.
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
+### Supprimer
+L’action de suppression est utilisée dans deux cas. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
-The option **Delete connector space only** removes all data, but keep the configuration.
+L’option **Supprimer l’espace connecteur uniquement** supprime toutes les données en conservant la configuration.
 
-The option **Delete Connector and connector space** removes the data and the configuration. This option is used when you do not want to connect to a forest anymore.
+L’option **Supprimer le connecteur et l’espace connecteur** supprime les données et la configuration. Utilisez cette option quand vous ne souhaitez plus vous connecter à une forêt.
 
-Both options sync all objects and update the metaverse objects. This action is a long running operation.
+Les deux options synchronisent tous les objets et mettent à jour les objets du métaverse. Cette action est une opération de longue durée.
 
-### <a name="configure-run-profiles"></a>Configure Run Profiles
-This option allows you to see the run profiles configured for a Connector.
+### Configurer les profils d’exécution
+Cette option vous permet de voir les profils d'exécution configurées pour un connecteur.
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
 
-### <a name="search-connector-space"></a>Search Connector Space
-The search connector space action is useful to find objects and troubleshoot data issues.
+### Espace de connecteur de recherche
+L’action de recherche dans l’espace connecteur permet de rechercher des objets et de résoudre les problèmes relatifs aux données.
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
 
-Start by selecting a **scope**. You can search based on data (RDN, DN, Anchor, Sub-Tree), or state of the object (all other options).  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
-If you for example do a Sub-Tree search, you get all objects in one OU.
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png) From this grid you can select an object, select **properties**, and [follow it](#follow-an-object-and-its-data-through-the-system) from the source connector space, through the metaverse, and to the target connector space.
+Commencez par sélectionner une **portée**. Vous pouvez rechercher des données (nom unique relatif, nom de domaine, ancre, sous-arborescence) ou l’état de l’objet (toutes les autres options). ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png) Par exemple, si vous effectuez une recherche dans la sous-arborescence, vous obtenez tous les objets d’une unité d’organisation. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png) À partir de cette grille, vous pouvez sélectionner un objet, sélectionner des **propriétés** et [les suivre](#follow-an-object-and-its-data-through-the-system) par le biais du métaverse, de l’espace connecteur source vers l’espace connecteur cible.
 
-## <a name="follow-an-object-and-its-data-through-the-system"></a>Follow an object and its data through the system
-When you are troubleshooting a problem with data, follow an object from the source connector space, to the metaverse, and to the target connector space is a key procedure to understand why data does not have the expected values.
+## Suivre un objet et ses données dans le système
+Lorsque vous résolvez un problème avec les données, suivre un objet à partir de l’espace connecteur source, vers le métaverse et vers l’espace connecteur cible est une procédure essentielle pour comprendre pourquoi les données n’ont pas les valeurs attendues.
 
-### <a name="connector-space-object-properties"></a>Connector Space Object Properties
-**Import**  
-When you open a cs object, there are several tabs at the top. The **Import** tab shows the data that is staged after an import.
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png) The **Old Value** shows what currently is stored in the system and the **New Value** what has been received from the source system and has not been applied yet. In this case, since there is a synchronization error, the change cannot be applied.
+### Propriétés de l’objet espace connecteur
+**Importer** Quand vous ouvrez un objet cs, plusieurs onglets sont affichés en haut. L’onglet **Importer** affiche les données mises en lot après une importation. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png) L’**Ancienne valeur** montre ce qui est actuellement stocké dans le système, et la **Nouvelle valeur** ce qui a été reçu à partir du système source et n’a pas encore été appliqué. Dans ce cas, comme il existe une erreur de synchronisation, la modification ne peut pas être appliquée.
 
-**Error**  
-The error page is only visible if there is a problem with the object. See the details on the operations page for more information on how to [troubleshoot synchronization errors](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab).
+**Erreur** : la page d’erreur est visible uniquement s’il existe un problème au niveau de l’objet. Pour plus d’informations sur la [résolution des erreurs de synchronisation](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab), consultez les détails dans la page sur les opérations.
 
-**Lineage**  
-The lineage tab shows how the connector space object is related to the metaverse object. You can see when the Connector last imported a change from the connected system and which rules applied to populate data in the metaverse.
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png) In the **Action** column, you can see there is one **Inbound** sync rule with the action **Provision**. That indicates that as long as this connector space object is present, the metaverse object remains. If the list of sync rules instead shows a sync rule with direction **Outbound** and **Provision**, it indicates that this object is deleted when the metaverse object is deleted.
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png) You can also see in the **PasswordSync** column that the inbound connector space can contribute changes to the password since one sync rule has the value **True**. This password is then sent to Azure AD through the outbound rule.
+**Lignage** : l’onglet Lignage montre de quelle manière l’objet espace connecteur est lié à l’objet métaverse. Vous pouvez voir à quel moment le connecteur a importé pour la dernière fois une modification dans le système connecté et connaître les règles appliquées pour remplir les données dans le métaverse. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png) Dans la colonne **Action**, vous pouvez voir une règle de synchronisation **Entrante** avec l’action **Approvisionner**. Cela signifie que tant que cet objet espace connecteur est présent, l’objet métaverse est conservé. Si la liste des règles de synchronisation affiche à la place une règle de synchronisation avec la direction **Sortante** et **Approvisionner**, cela indique que cet objet est supprimé en même temps que l’objet métaverse. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png) Vous pouvez également voir dans la colonne **PasswordSync** que l’espace connecteur entrant peut modifier le mot de passe, car une règle de synchronisation a la valeur **True**. Ce mot de passe est ensuite envoyé à Azure AD au moyen de la règle sortante.
 
-From the lineage tab, you can get to the metaverse by clicking [Metaverse Object Properties](#metaverse-object-properties).
+Sous l’onglet Lignage, vous pouvez accéder au métaverse en cliquant sur [Propriétés de l’objet métaverse](#metaverse-object-properties).
 
-At the bottom of all tabs are two buttons: **Preview** and **Log**.
+Deux boutons apparaissent en bas de tous les onglets : **Aperçu** et **Journal**.
 
-**Preview**  
-The preview page is used to synchronize one single object. It is useful if you are troubleshooting some customer sync rules and want to see the effect of a change on a single object. You can select between **Full Sync** and **Delta sync**. You can also select between **Generate Preview**, which only keeps the change in memory, and **Commit Preview**, which stages all changes to target connector spaces.
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png) You can inspect the object and which rule applied for a particular attribute flow.
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
+**Aperçu** : la page d’aperçu sert à synchroniser un seul objet. Elle est utile si vous résolvez des problèmes liés aux règles de synchronisation du client et que vous souhaitez voir l’effet d’une modification sur un seul objet. Vous pouvez choisir entre **Synchronisation complète** et **Synchronisation delta**. Vous pouvez également choisir entre **Générer l’aperçu**, qui permet de conserver uniquement la modification en mémoire, et **Valider l’aperçu**, qui implémente toutes les modifications dans les espaces connecteur cibles. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png) Vous pouvez inspecter l’objet et la règle appliquée pour un flux d’attribut particulier. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
 
-**Log**  
-The Log page is used to see the password sync status and history, see [Troubleshoot password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization) for more information.
+**Journal** : la page Journal permet d’afficher le statut et l’historique de synchronisation du mot de passe. Pour plus d’informations, consultez [Résoudre les problèmes de synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
 
-### <a name="metaverse-object-properties"></a>Metaverse Object Properties
-**Attributes**  
-On the attributes tab, you can see the values and which Connector contributed it.
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png)
-**Connectors**  
-The Connectors tab shows all connector spaces that have a representation of the object.
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png) This tab also allows you to navigate to the [connector space object](#connector-space-object-properties).
+### Propriétés de l’objet métaverse
+**Attributs** : sous l’onglet Attributs, vous pouvez voir les valeurs et le connecteur qui y a contribué. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png) **Connecteurs** : l’onglet Connecteurs affiche tous les espaces connecteur qui ont une représentation de l’objet. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png) Cet onglet permet également d’accéder à l’[objet CS (Connector Space)](#connector-space-object-properties).
 
-## <a name="next-steps"></a>Next steps
-Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
+## Étapes suivantes
+En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

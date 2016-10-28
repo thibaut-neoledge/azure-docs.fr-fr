@@ -1,230 +1,225 @@
 
 <properties
-    pageTitle="Manage Resource Manager-deployed virtual machine backups | Microsoft Azure"
-    description="Learn how to manage and monitor Resource Manager-deployed virtual machine backups"
-    services="backup"
-    documentationCenter=""
-    authors="trinadhk"
-    manager="shreeshd"
-    editor=""/>
+	pageTitle="Gestion des sauvegardes de machines virtuelles déployées via Resource Manager | Microsoft Azure"
+	description="Découvrez comment gérer et surveiller les sauvegardes d’une machine virtuelle déployée via Resource Manager"
+	services="backup"
+	documentationCenter=""
+	authors="trinadhk"
+	manager="shreeshd"
+	editor=""/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/11/2016"
-    ms.author="jimpark; markgal; trinadhk"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2016"
+	ms.author="jimpark; markgal; trinadhk"/>
 
-
-# <a name="manage-azure-virtual-machine-backups"></a>Manage Azure virtual machine backups
+# Gestion des sauvegardes de machines virtuelles Azure
 
 > [AZURE.SELECTOR]
-- [Manage Azure VM backups](backup-azure-manage-vms.md)
-- [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
+- [Gestion des sauvegardes de machines virtuelles Azure](backup-azure-manage-vms.md)
+- [Gestion des sauvegardes de machines virtuelles classiques](backup-azure-manage-vms-classic.md)
 
-This article provides guidance on managing VM backups, and explains the backup alerts information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of virtual machines, nor does it explain how to protect virtual machines. For a primer on protecting Azure Resource Manager-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
+Cet article fournit des conseils sur la gestion des sauvegardes de machines virtuelles et décrit les données d’alertes de sauvegarde disponibles dans le tableau de bord du portail. Les instructions contenues dans cet article s’appliquent à l’utilisation de machines virtuelles avec des coffres Recovery Services. Cet article ne couvre pas la création des machines virtuelles et n’explique pas comment protéger les machines virtuelles. Pour une introduction à la protection des machines virtuelles déployées via Azure Resource Manager dans Azure à l’aide d’un coffre Recovery Services, consultez la page [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md).
 
-## <a name="manage-vaults-and-protected-virtual-machines"></a>Manage vaults and protected virtual machines
+## Gérer les coffres et les machines virtuelles protégées
 
-In the Azure portal, the Recovery Services vault dashboard provides access to information about the vault including:
+Dans le portail Azure, le tableau de bord Coffre Recovery Services permet d’accéder à des informations concernant le coffre, notamment :
 
-- the most recent backup snapshot, which is also the latest restore point <br\>
-- the backup policy <br\>
-- total size of all backup snapshots <br\>
-- number of virtual machines that are protected with the vault <br\>
+- l’instantané de sauvegarde le plus récent, c’est-à-dire le dernier point de restauration <br>
+- la stratégie de sauvegarde <br>
+- la taille totale de tous les instantanés de sauvegarde <br>
+- le nombre de machines virtuelles protégées par le coffre <br>
 
-Many management tasks with a virtual machine backup begin with opening the vault in the dashboard. However, because vaults can be used to protect multiple items (or multiple VMs), to view details about a particular VM, open the vault item dashboard. The following procedure shows you how to open the *vault dashboard* and then continue to the *vault item dashboard*. There are "tips" in both procedures that point out how to add the vault and vault item to the Azure dashboard by using the Pin to dashboard command. Pin to dashboard is a way of creating a shortcut to the vault or item. You can also execute common commands from the shortcut.
+L’ouverture du coffre dans le tableau de bord permet d’initier de nombreuses tâches de gestion associées à une sauvegarde de machine virtuelle. Dans la mesure où les coffres peuvent être utilisés pour protéger plusieurs éléments (ou plusieurs machines virtuelles), vous devez cependant ouvrir le tableau de bord de l’élément du coffre pour afficher les détails d’une machine virtuelle spécifique. La procédure suivante vous montre comment ouvrir le *tableau de bord du coffre* puis le *tableau de bord de l’élément du coffre*. Pour les deux procédures, nous vous proposons des « astuces » pour vous aider à ajouter le coffre et l’élément du coffre au tableau de bord Azure à l’aide de la commande Épingler au tableau de bord. La commande Épingler au tableau de bord permet de créer un raccourci vers le coffre ou l’élément. Vous pouvez également utiliser le raccourci pour exécuter des commandes courantes.
 
->[AZURE.TIP] If you have multiple dashboards and blades open, use the dark-blue slider at the bottom of the window to slide the Azure dashboard back and forth.
+>[AZURE.TIP] Si vous avez ouvert plusieurs tableaux de bord et panneaux, utilisez le curseur bleu foncé situé en bas de la fenêtre pour faire défiler le tableau de bord Azure.
 
-![Full view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
+![Vue complète avec curseur](./media/backup-azure-manage-vms/bottom-slider.png)
 
-### <a name="open-a-recovery-services-vault-in-the-dashboard:"></a>Open a Recovery Services vault in the dashboard:
+### Ouvrez un coffre Recovery Services dans le tableau de bord :
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**.
+2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Coffre Recovery Services**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults are displayed.
+    La liste des archivages de Recovery Services est affichée.
 
-    ![List of Recovery Services vaults ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![Liste des coffres Recovery Services](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
 
-    >[AZURE.TIP] If you pin a vault to the Azure Dashboard, that vault is immediately accessible when you open the Azure portal. To pin a vault to the dashboard, in the vault list, right-click the vault, and select **Pin to dashboard**.
+    >[AZURE.TIP] Si vous épinglez un coffre au tableau de bord Azure, ce coffre est immédiatement accessible à l’ouverture du portail Azure. Pour épingler un coffre au tableau de bord, accédez à la liste des coffres, cliquez avec le bouton droit sur le coffre, puis sélectionnez **Épingler au tableau de bord**.
 
-3. From the list of vaults, select the vault to open its dashboard. When you select the vault, the vault dashboard and the **Settings** blade open. In the following image, the **Contoso-vault** dashboard is highlighted.
+3. Dans la liste des coffres, sélectionnez le coffre pour ouvrir le tableau de bord correspondant. Lorsque vous sélectionnez le coffre, vous accédez à son tableau de bord et au panneau **Paramètres**. Dans la capture d’écran ci-dessous, le tableau de bord **Contoso-vault** est mis en surbrillance.
 
-    ![Open vault dashboard and Settings blade](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+    ![Ouvrir le tableau de bord du coffre et le panneau Paramètres](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-### <a name="open-a-vault-item-dashboard"></a>Open a vault item dashboard
+### Ouvrir le tableau de bord d’un élément du coffre
 
-In the previous procedure you opened the vault dashboard. To open the vault item dashboard:
+Dans la procédure précédente, vous avez ouvert le tableau de bord du coffre. Pour ouvrir maintenant le tableau de bord d’un élément du coffre, procédez comme suit :
 
-1. In the vault dashboard, on the **Backup Items** tile, click **Azure Virtual Machines**.
+1. Dans la mosaïque **Éléments de sauvegarde** du tableau de bord du coffre, cliquez sur **Machines virtuelles Azure**.
 
-    ![Open backup items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Ouvrir la mosaïque Éléments de sauvegarde](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-    The **Backup Items** blade lists the last backup job for each item. In this example, there is one virtual machine, demovm-markgal, protected by this vault.  
+    Le panneau **Éléments de sauvegarde** affiche la dernière tâche de sauvegarde pour chaque élément. Dans cet exemple, une machine virtuelle nommée demovm-markgal est protégée par ce coffre.
 
-    ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade.png)
+    ![Mosaïque Éléments de sauvegarde](./media/backup-azure-manage-vms/backup-items-blade.png)
 
-    >[AZURE.TIP] For ease of access, you can pin a vault item to the Azure Dashboard. To pin a vault item, in the vault item list, right-click the item and select **Pin to dashboard**.
+    >[AZURE.TIP] Pour y accéder plus facilement, vous pouvez épingler un élément du coffre au tableau de bord Azure. Pour épingler un élément du coffre, accédez à la liste des éléments du coffre, cliquez avec le bouton droit sur l’élément, puis sélectionnez **Épingler au tableau de bord**.
 
-2. In the **Backup Items** blade, click the item to open the vault item dashboard.
+2. Dans le panneau **Éléments de sauvegarde**, cliquez sur l’élément pour ouvrir le tableau de bord correspondant.
 
-    ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Mosaïque Éléments de sauvegarde](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-    The vault item dashboard and its **Settings** blade open.
+    Le tableau de bord de l’élément du coffre s’ouvre sur le panneau **Paramètres**.
 
-    ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+    ![Tableau de bord Éléments de sauvegarde avec panneau Paramètres](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    From the vault item dashboard, you can accomplish many key management tasks, such as:
+    Le tableau de bord de l’élément du coffre vous permet d’accomplir plusieurs tâches de gestion essentielles, par exemple :
 
-    - change policies or create a new backup policy<br\>
-    - view restore points, and see their consistency state <br\>
-    - on-demand backup of a virtual machine <br\>
-    - stop protecting virtual machines <br\>
-    - resume protection of a virtual machine <br\>
-    - delete a backup data (or recovery point) <br\>
-    - [restore a backup (or recovery point)](./backup-azure-arm-restore-vms.md#restore-a-recovery-point)  <br\>
+    - modifier des stratégies ou créer une stratégie de sauvegarde <br>
+	- afficher les points de restauration et vérifier leur état de cohérence <br>
+	- sauvegarde à la demande d’une machine virtuelle <br>
+	- suspendre la protection des machines virtuelles <br>
+	- reprendre la protection d’une machine virtuelle <br>
+	- supprimer des données de sauvegarde (ou un point de récupération) <br>
+	- [restaurer une sauvegarde (ou un point de récupération)](./backup-azure-arm-restore-vms.md#restore-a-recovery-point) <br>
 
-For the following procedures, the starting point is the vault item dashboard.
+Pour les procédures suivantes, nous allons travailler à partir du tableau de bord de l’élément du coffre.
 
-## <a name="manage-backup-policies"></a>Manage backup policies
+## Gestion des stratégies de sauvegarde
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **All Settings** to open the **Settings** blade.
+1. Dans le [tableau de bord de l’élément du coffre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), cliquez sur **Tous les paramètres** pour ouvrir le panneau **Paramètres**.
 
-    ![Backup policy blade](./media/backup-azure-manage-vms/all-settings-button.png)
+    ![Panneau Stratégie de sauvegarde](./media/backup-azure-manage-vms/all-settings-button.png)
 
-2. On the **Settings** blade, click **Backup policy** to open that blade.
+2. Dans le panneau **Paramètres**, cliquez sur **Stratégie de sauvegarde** pour ouvrir le panneau correspondant.
 
-    On the blade, the backup frequency and retention range details are shown.
+    Ce panneau affiche les détails de la plage de rétention et de la fréquence de sauvegarde.
 
-    ![Backup policy blade](./media/backup-azure-manage-vms/backup-policy-blade.png)
+    ![Panneau Stratégie de sauvegarde](./media/backup-azure-manage-vms/backup-policy-blade.png)
 
-3. From the **Choose backup policy** menu:
-    - To change policies, select a different policy and click **Save**. The new policy is immediately applied to the vault. <br\>
-    - To create a policy, select **Create New**.
+3. Dans le menu **Choisir une stratégie de sauvegarde** :
+    - Pour modifier les stratégies, sélectionnez une autre stratégie, puis cliquez sur **Enregistrer**. La nouvelle stratégie est appliquée immédiatement au coffre. <br>
+    - Pour créer une stratégie, sélectionnez **Créer**.
 
-    ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+    ![Sauvegarde de machine virtuelle](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-    For instructions on creating a backup policy, see [Defining a backup policy](backup-azure-manage-vms.md#defining-a-backup-policy).
+    Pour savoir comment créer une stratégie de sauvegarde, consultez la section [Définition d’une stratégie de sauvegarde](backup-azure-manage-vms.md#defining-a-backup-policy).
 
 [AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 
-## <a name="on-demand-backup-of-a-virtual-machine"></a>On-demand backup of a virtual machine
-You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault. If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault. That is, subsequent backups are always incremental.
+## Sauvegarde à la demande d’une machine virtuelle
+Vous pouvez effectuer une sauvegarde à la demande d’une machine virtuelle une fois que celle-ci est configurée pour la protection. Si la sauvegarde initiale est en attente, la sauvegarde à la demande crée une copie complète de la machine virtuelle dans le coffre Recovery Services. Si la sauvegarde initiale est terminée, une sauvegarde à la demande enverra au coffre Recovery Services uniquement les modifications par rapport à l’instantané précédent. Autrement dit, les sauvegardes suivantes sont toujours incrémentielles.
 
->[AZURE.NOTE] The retention range for an on-demand backup is the retention value specified for the Daily backup point in the policy. If no Daily backup point is selected, then the weekly backup point is used.
+>[AZURE.NOTE] La plage de rétention pour une sauvegarde à la demande correspond à la valeur de rétention spécifiée pour le point de sauvegarde quotidien de la stratégie. Si aucun point de sauvegarde quotidien n’est sélectionné, le point de sauvegarde hebdomadaire est utilisé.
 
-To trigger an on-demand backup of a virtual machine:
+Pour déclencher une sauvegarde à la demande d’une machine virtuelle :
 
-- On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Backup now**.
+- Sur le [tableau de bord de l’élément du coffre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), cliquez sur **Sauvegarder maintenant**.
 
-    ![Backup now button](./media/backup-azure-manage-vms/backup-now-button.png)
+    ![Bouton Sauvegarder maintenant](./media/backup-azure-manage-vms/backup-now-button.png)
 
-    The portal makes sure that you want to start an on-demand backup job. Click **Yes** to start the backup job.
+    Le portail vous demande de confirmer que vous souhaitez démarrer un travail de sauvegarde à la demande. Cliquez sur **Oui** pour démarrer le travail de sauvegarde.
 
-    ![Backup now button](./media/backup-azure-manage-vms/backup-now-check.png)
+    ![Bouton Sauvegarder maintenant](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    The backup job creates a recovery point. The retention range of the recovery point is the same as retention range specified in the policy associated with the virtual machine. To track the progress for the job, in the vault dashboard, click the **Backup Jobs** tile.  
-
-
-## <a name="stop-protecting-virtual-machines"></a>Stop protecting virtual machines
-If you choose to stop protecting a virtual machine, you are asked if you want to retain the recovery points. There are two ways to stop protecting virtual machines:
-- stop all future backup jobs and delete all recovery points, or
-- stop all future backup jobs but leave the recovery points <br/>
-
-There is a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the virtual machine later, if desired. For information about the cost of leaving the recovery points, see the  [pricing details](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, you cannot restore the virtual machine.
-
-To stop protection for a virtual machine:
-
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Stop backup**.
-
-    ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button.png)
-
-    The Stop Backup blade opens.
-
-    ![Stop backup blade](./media/backup-azure-manage-vms/stop-backup-blade.png)
-
-2. On the **Stop Backup** blade, choose whether to retain or delete the backup data. The information box provides details about your choice.
-
-    ![Stop protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
-
-3. If you chose to retain the backup data, skip to step 4. If you chose to delete backup data, confirm that you want to stop the backup jobs and delete the recovery points - type the name of the item.
-
-    ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
-
-    If you aren't sure of the item name, hover over the exclamation mark to view the name. Also, the name of the item is under **Stop Backup** at the top of the blade.
-
-4. Optionally provide a **Reason** or **Comment**.
-
-5. To stop the backup job for the current item, click  ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
-
-    A notification message lets you know the backup jobs have been stopped.
-
-    ![Confirm stop protection](./media/backup-azure-manage-vms/stop-message.png)
+    Le travail de sauvegarde crée un point de récupération. La plage de rétention du point de récupération est identique à celle spécifiée dans la stratégie associée à la machine virtuelle. Pour suivre la progression du travail, dans le tableau de bord du coffre, cliquez sur la mosaïque **Travaux de sauvegarde**.
 
 
-## <a name="resume-protection-of-a-virtual-machine"></a>Resume protection of a virtual machine
-If the **Retain Backup Data** option was chosen when protection for the virtual machine was stopped, then it is possible to resume protection. If the **Delete Backup Data** option was chosen, then protection for the virtual machine cannot resume.
+## Arrêt de la protection des machines virtuelles
+Si vous décidez d’arrêter la protection d’une machine virtuelle, vous devrez indiquer si vous souhaitez conserver les points de récupération. Il existe deux façons de suspendre la protection des machines virtuelles :
+- arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération, ou
+- arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération <br/>
 
-To resume protection for the virtual machine
+La conservation des points de récupération dans le stockage présente un coût, mais elle a l’avantage de vous permettre de restaurer ultérieurement la machine virtuelle, si vous le souhaitez. Pour plus d’informations sur les coûts de conservation des points de récupération, consultez la [tarification](https://azure.microsoft.com/pricing/details/backup/). Si vous choisissez de supprimer tous les points de récupération, vous ne pourrez pas restaurer la machine virtuelle.
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Resume backup**.
+Pour arrêter la protection d’une machine virtuelle :
 
-    ![Resume protection](./media/backup-azure-manage-vms/resume-backup-button.png)
+1. Sur le [tableau de bord de l’élément du coffre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), cliquez sur **Arrêter la sauvegarde**.
 
-    The Backup Policy blade opens.
+    ![Bouton Arrêter la sauvegarde](./media/backup-azure-manage-vms/stop-backup-button.png)
 
-    >[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
+    Le panneau Arrêter la sauvegarde s’ouvre.
 
-2. Follow the steps in [Change policies or Create a new backup policy](backup-azure-manage-vms.md#change-policies-or-create-a-new-backup-policy), to assign the policy for the virtual machine.
+    ![Panneau Arrêter la sauvegarde](./media/backup-azure-manage-vms/stop-backup-blade.png)
 
-    Once the backup policy is applied to the virtual machine, you see the following message.
+2. Dans le panneau **Arrêter la sauvegarde**, indiquez si vous souhaitez conserver ou supprimer les données de sauvegarde. La zone d’informations fournit des détails pour vous guider dans votre choix.
 
-    ![Successfully protected VM](./media/backup-azure-manage-vms/success-message.png)
+    ![Arrêter la protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
-## <a name="delete-backup-data"></a>Delete Backup data
-You can delete the backup data associated with a virtual machine during the **Stop backup** job, or anytime after the backup job has completed. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you cannot choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
+3. Si vous avez choisi de conserver les données de sauvegarde, passez à l’étape 4. Si vous avez choisi de supprimer les données de sauvegarde, confirmez que vous souhaitez bien arrêter les travaux de sauvegarde et supprimer les points de récupération. Saisissez le nom de l’élément.
 
-The following procedure assumes the Backup job for the virtual machine has been stopped or disabled. Once the Backup job is disabled, the **Resume backup** and **Delete backup** options are available in the vault item dashboard.
+    ![Arrêter la vérification](./media/backup-azure-manage-vms/item-verification-box.png)
 
-![Resume and delete buttons](./media/backup-azure-manage-vms/resume-delete-buttons.png)
+    Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour en afficher le nom. Le nom de l’élément figure également sous **Arrêter la sauvegarde** en haut du panneau.
 
-To delete backup data on a virtual machine with the *Backup disabled*:
+4. Vous pouvez, si vous le souhaitez, indiquer une **Raison** ou un **Commentaire**.
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Delete backup**.
+5. Pour arrêter le travail de sauvegarde pour l’élément actif, cliquez sur ![Bouton Arrêter la sauvegarde](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
-    ![VM Type](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+    Un message de notification vous informe que les travaux de sauvegarde ont été interrompus.
 
-    The **Delete Backup Data** blade opens.
-
-    ![VM Type](./media/backup-azure-manage-vms/delete-backup-blade.png)
-
-2. Type the name of the item to confirm you want to delete the recovery points.
-
-    ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
-
-    If you aren't sure of the item name, hover over the exclamation mark to view the name. Also, the name of the item is under **Delete Backup Data** at the top of the blade.
-
-3. Optionally provide a **Reason** or **Comment**.
-
-4. To delete the backup data for the current item, click  ![Stop backup button](./media/backup-azure-manage-vms/delete-button.png)
-
-    A notification message lets you know the backup data has been deleted.
+    ![Confirmation l’arrêt de la protection](./media/backup-azure-manage-vms/stop-message.png)
 
 
-## <a name="next-steps"></a>Next steps
+## Reprendre la protection d’une machine virtuelle
+Si vous avez choisi l’option **Conserver les données de sauvegarde** au moment de l’arrêt de la protection de la machine virtuelle, vous avez la possibilité de restaurer la protection. Si vous avez choisi l’option **Supprimer les données de sauvegarde**, vous ne pourrez pas restaurer la protection de la machine virtuelle.
 
-For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). For information on monitoring events, see [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md).
+Pour reprendre la protection de la machine virtuelle
+
+1. Sur le [tableau de bord de l’élément du coffre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), cliquez sur **Reprendre la sauvegarde**.
+
+    ![Reprendre la protection](./media/backup-azure-manage-vms/resume-backup-button.png)
+
+    Le panneau Stratégie de sauvegarde s’ouvre.
+
+    >[AZURE.NOTE] Lors de l’application d’une nouvelle protection à la machine virtuelle, vous pouvez choisir une autre stratégie que la stratégie avec laquelle la machine virtuelle a été initialement protégée.
+
+2. Suivez les étapes de la section [Modifier des stratégies ou créer une stratégie de sauvegarde](backup-azure-manage-vms.md#change-policies-or-create-a-new-backup-policy) pour attribuer la stratégie de la machine virtuelle.
+
+    Une fois la stratégie de sauvegarde appliquée à la machine virtuelle, le message suivant s’affiche.
+
+    ![Machine virtuelle protégée](./media/backup-azure-manage-vms/success-message.png)
+
+## Suppression des données de sauvegarde
+Vous pouvez supprimer les données de sauvegarde associées à une machine virtuelle au cours du travail **Arrêter la sauvegarde**, ou à tout moment après la fin du travail de sauvegarde. Il peut même être préférable d’attendre plusieurs jours ou semaines avant de supprimer les points de récupération. Contrairement à la restauration des points de récupération, lors de la suppression des données de sauvegarde, vous ne pouvez pas choisir des points de récupération spécifiques à supprimer. Si vous choisissez de supprimer vos données de sauvegarde, vous supprimerez tous les points de récupération associés à l’élément.
+
+La procédure suivante suppose que le travail de sauvegarde de la machine virtuelle a été arrêté ou désactivé. Les options **Reprendre la sauvegarde** et **Supprimer la sauvegarde** sont accessibles dans le tableau de bord de l’élément du coffre seulement lorsque l’opération de sauvegarde a été désactivée.
+
+![Boutons Reprendre et Supprimer](./media/backup-azure-manage-vms/resume-delete-buttons.png)
+
+Pour supprimer les données de sauvegarde d’une machine virtuelle avec l’option *Sauvegarde désactivée* :
+
+1. Sur le [tableau de bord de l’élément du coffre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), cliquez sur **Supprimer la sauvegarde**.
+
+    ![Type de machine virtuelle](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+    Le panneau **Supprimer les données de sauvegarde** s’ouvre.
+
+    ![Type de machine virtuelle](./media/backup-azure-manage-vms/delete-backup-blade.png)
+
+2. Saisissez le nom de l’élément pour confirmer la suppression des points de récupération.
+
+    ![Arrêter la vérification](./media/backup-azure-manage-vms/item-verification-box.png)
+
+    Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour en afficher le nom. Le nom de l’élément figure également sous **Supprimer les données de sauvegarde** en haut du panneau.
+
+3. Vous pouvez, si vous le souhaitez, indiquer une **Raison** ou un **Commentaire**.
+
+4. Pour supprimer les données de sauvegarde pour l’élément actif, cliquez sur ![Bouton Arrêter la sauvegarde](./media/backup-azure-manage-vms/delete-button.png)
+
+    Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 
 
+## Étapes suivantes
 
-<!--HONumber=Oct16_HO2-->
+Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles Azure](backup-azure-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). Pour plus d’informations sur la surveillance des événements, consultez [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md) (Surveiller les alertes des sauvegardes de machines virtuelles Azure).
 
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Specifying DNS Settings in a service configuration file | Microsoft Azure"
-   description="specifying custom DNS settings using service configuration file for virtual network"
+   pageTitle="Définition des paramètres DNS dans un fichier de configuration de service | Microsoft Azure"
+   description="spécification de paramètres DNS personnalisés à l'aide du fichier de configuration de service d’un réseau virtuel"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,14 +15,13 @@
    ms.date="02/24/2016"
    ms.author="jdial" />
 
+# Définition des paramètres DNS dans un fichier de configuration de service
 
-# <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Specifying DNS Settings in a Service Configuration File
+## Éléments DNS
 
-## <a name="dns-elements"></a>DNS elements
+Un fichier de configuration de service peut contenir un élément DnsServers avec une liste d’adresses IPv4 dédiée aux serveurs DNS que le service utilisera. Les paramètres du fichier de configuration de service priment sur les paramètres du fichier de configuration de réseau. Pour plus d’informations, consultez la rubrique [Schéma de configuration de service Azure (.cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
-A service configuration file may contain a DnsServers element with a list of IPv4 addresses for the Domain Name System (DNS) servers that the service will use. Settings in the service configuration file take precedence over settings in the network configuration file. For more information, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
-
-**NetworkConfiguration element**
+**Élément NetworkConfiguration**
 
       <DnsServers>
         <DnsServer name="ID1" IPAddress="IPAddress1" />
@@ -30,21 +29,16 @@ A service configuration file may contain a DnsServers element with a list of IPv
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING] The **name** attribute in the **DnsServer** element is used only as a reference name. It does not represent the host name for the DNS server. Each **DnsServer** attribute value must be unique across the entire Microsoft Azure subscription.
+>[AZURE.WARNING] L’attribut **name** de l’élément **DnsServer** est utilisé uniquement en tant que nom de référence. Il ne représente aucunement le nom d’hôte attribué au serveur DNS. Chaque valeur d’attribut **DnsServer** doit être unique au sein de l’abonnement Microsoft Azure.
 
-## <a name="see-also"></a>See Also
+## Voir aussi
 
-[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
+[Schéma de configuration de service Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Schéma de configuration du réseau virtuel Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Configure a Virtual Network Using Network Configuration Files](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-[About Virtual Network settings in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=248092)
+[À propos des paramètres de réseau virtuel dans le Portail de gestion](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

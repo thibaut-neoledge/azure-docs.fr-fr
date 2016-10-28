@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Technical guidance: Recovery from on-premises to Azure | Microsoft Azure"
-   description="Article on understanding and designing recovery systems from on-premises infrastructure to Azure"
+   pageTitle="Guide technique : récupération de l’environnement local vers Azure | Microsoft Azure"
+   description="Cet article permet de comprendre et concevoir des systèmes de récupération de l’infrastructure locale vers Azure"
    services=""
    documentationCenter="na"
    authors="adamglick"
@@ -16,98 +16,94 @@
    ms.date="08/18/2016"
    ms.author="aglick"/>
 
+#Guide technique de la résilience Azure : récupération de l’environnement local vers Azure
 
-#<a name="azure-resiliency-technical-guidance:-recovery-from-on-premises-to-azure"></a>Azure resiliency technical guidance: Recovery from on-premises to Azure
+Azure offre un ensemble complet de services conçus pour étendre un centre de données local vers Azure afin de faciliter la récupération d’urgence et de garantir une haute disponibilité :
 
-Azure provides a comprehensive set of services for enabling the extension of an on-premises datacenter to Azure for high availability and disaster recovery purposes:
+* __Réseau__ : l’utilisation d’un réseau privé virtuel vous permet d’étendre en toute sécurité votre réseau local vers le cloud.
+* __Calcul__ : les clients qui utilisent Hyper-V en local peuvent « élever et déplacer » des machines virtuelles existantes vers Azure.
+* __Stockage__ : StorSimple étend votre système de fichiers à Azure Storage. Le service Azure Backup assure la sauvegarde des fichiers et des bases de données SQL dans Azure Storage.
+* __Réplication de base de données__ : grâce aux groupes de disponibilité SQL Server 2014 (ou version ultérieure), vous pouvez garantir la haute disponibilité et la récupération d’urgence de vos données locales.
 
-* __Networking__: With a virtual private network, you securely extend your on-premises network to the cloud.
-* __Compute__: Customers using Hyper-V on-premises can “lift and shift” existing virtual machines (VMs) to Azure.
-* __Storage__: StorSimple extends your file system to Azure Storage. The Azure Backup service provides backup for files and SQL databases to Azure Storage.
-* __Database replication__: With SQL Server 2014 (or later) Availability Groups, you can implement high availability and disaster recovery for your on-premises data.
+##Mise en réseau
 
-##<a name="networking"></a>Networking
+Vous pouvez utiliser le réseau virtuel Azure pour créer une section isolée logiquement dans Azure et la connecter en toute sécurité à votre centre de données local ou à un seul ordinateur client à l’aide d’une connexion IPsec. Grâce au réseau virtuel, vous pouvez tirer parti de l’infrastructure évolutive et à la demande d’Azure tout en assurant la connectivité aux données et aux applications locales, y compris aux systèmes s’exécutant sur Windows Server, les ordinateurs centraux et les systèmes UNIX. Pour plus d’informations, consultez la [documentation réseau d’Azure](../virtual-network/virtual-networks-overview.md).
 
-You can use Azure Virtual Network to create a logically isolated section in Azure and securely connect it to your on-premises datacenter or a single client machine by using an IPsec connection. With Virtual Network, you can take advantage of the scalable, on-demand infrastructure in Azure while providing connectivity to data and applications on-premises, including systems running on Windows Server, mainframes, and UNIX. See [Azure networking documentation](../virtual-network/virtual-networks-overview.md) for more information.
+##Calcul
 
-##<a name="compute"></a>Compute
+Si vous utilisez Hyper-V en local, vous pouvez « élever et déplacer » des machines virtuelles existantes vers Azure et vers des fournisseurs de services exécutant Windows Server 2012 (ou version ultérieure), sans avoir à apporter de modifications à la machine virtuelle ni à la convertir dans un autre format. Pour plus d’informations, consultez l’article [À propos des disques et des VHD pour les machines virtuelles Azure](../virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
-If you're using Hyper-V on-premises, you can “lift and shift” existing virtual machines to Azure and service providers running Windows Server 2012 (or later), without making changes to the VM or converting VM formats. For more information, see [About disks and VHDs for Azure virtual machines](../virtual-machines/virtual-machines-linux-about-disks-vhds.md).
+##Azure Site Recovery
 
-##<a name="azure-site-recovery"></a>Azure Site Recovery
+Si vous souhaitez bénéficier d’une récupération d’urgence en tant que service (DRaaS), vous pouvez utiliser [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/). Azure Site Recovery offre une protection complète pour les serveurs VMware, Hyper-V et physiques. Avec Azure Site Recovery, vous pouvez utiliser un autre serveur local ou Azure comme site de récupération. Pour plus d’informations sur Azure Site Recovery, consultez la [Documentation d’Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/).
 
-If you want disaster recovery as a service (DRaaS), Azure provides [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/). Azure Site Recovery offers comprehensive protection for VMware, Hyper-V, and physical servers. With Azure Site Recovery, you can use another on-premises server or Azure as your recovery site. For more information on Azure Site Recovery, see the [Azure Site Recovery documentation](https://azure.microsoft.com/documentation/services/site-recovery/).
+##Storage
 
-##<a name="storage"></a>Storage
+Pour utiliser Azure comme site de sauvegarde pour les données locales, vous disposez de plusieurs options.
 
-There are several options for using Azure as a backup site for on-premises data.
+###StorSimple
 
-###<a name="storsimple"></a>StorSimple
+StorSimple intègre le stockage cloud en toute sécurité et en toute transparence pour les applications locales. Il propose également une appliance unique conçue pour garantir un stockage en local et dans le cloud hiérarchisé et performant, tout en offrant des fonctions d’archivage dynamique, de protection des données dans le cloud et de récupération d’urgence. Pour plus d’informations, consultez la [page produit StorSimple](https://azure.microsoft.com/services/storsimple/).
 
-StorSimple securely and transparently integrates cloud storage for on-premises applications. It also offers a single appliance that delivers high-performance tiered local and cloud storage, live archiving, cloud-based data protection, and disaster recovery. For more information, see the [StorSimple product page](https://azure.microsoft.com/services/storsimple/).
+###Azure Backup
 
-###<a name="azure-backup"></a>Azure Backup
+Azure Backup exécute des sauvegardes dans le cloud à l’aide des outils de sauvegarde classiques de Windows Server 2012 (ou version ultérieure), de Windows Server 2012 Essentials (ou version ultérieure) et de System Center 2012 Data Protection Manager (ou version ultérieure). Ces outils établissent pour la gestion des sauvegarde un workflow totalement indépendant de l’emplacement de stockage des sauvegardes, qu’il s’agisse d’un disque local ou d’Azure Storage. Une fois les données sauvegardées dans le cloud, les utilisateurs autorisés peuvent facilement restaurer les sauvegardes sur un serveur.
 
-Azure Backup enables cloud backups by using the familiar backup tools in Windows Server 2012 (or later), Windows Server 2012 Essentials (or later), and System Center 2012 Data Protection Manager (or later). These tools provide a workflow for backup management that is independent of the storage location of the backups, whether a local disk or Azure Storage. After data is backed up to the cloud, authorized users can easily recover backups to any server.
+Avec les sauvegardes incrémentielles, seules les modifications des fichiers sont transférées dans le cloud. Cela permet d’utiliser efficacement le stockage, de réduire la consommation de bande passante et d’assurer une récupération à tout moment des différentes versions des données. Vous pouvez également choisir d’utiliser des fonctionnalités supplémentaires, telles que les stratégies de rétention des données, la compression des données et la limitation du transfert de données. L’utilisation d’Azure comme emplacement de sauvegarde a l’avantage d’offrir des sauvegardes qui sont automatiquement exécutées « hors site ». Cette approche vous évite d’avoir à sécuriser et protéger vos supports de sauvegarde sur site.
 
-With incremental backups, only changes to files are transferred to the cloud. This helps to efficiently use storage space, reduce bandwidth consumption, and support point-in-time recovery of multiple versions of the data. You can also choose to use additional features, such as data retention policies, data compression, and data transfer throttling. Using Azure as the backup location has the obvious advantage that the backups are automatically “offsite”. This eliminates the extra requirements to secure and protect on-site backup media.
+Pour plus d’informations, consultez [Qu’est-ce qu’Azure Backup ?](../backup/backup-introduction-to-azure-backup.md) et [Configuration d’une sauvegarde Azure pour des données DPM](https://technet.microsoft.com/library/jj728752.aspx).
 
-For more information, see [What is Azure Backup?](../backup/backup-introduction-to-azure-backup.md) and [Configure Azure Backup for DPM data](https://technet.microsoft.com/library/jj728752.aspx).
+##Base de données
 
-##<a name="database"></a>Database
+Vous pouvez disposer d’une solution de récupération d’urgence pour vos bases de données SQL Server dans un environnement informatique hybride utilisant des groupes de disponibilité AlwaysOn, la mise en miroir de bases de données, la copie des journaux de transaction et la sauvegarde et la restauration avec le stockage d’objets blob Azure. Toutes ces solutions utilisent une implémentation SQL Server exécutée sur Azure Virtual Machines.
 
-You can have a disaster recovery solution for your SQL Server databases in a hybrid-IT environment by using AlwaysOn Availability Groups, database mirroring, log shipping, and backup and restore with Azure Blob storage. All of these solutions use SQL Server running on Azure Virtual Machines.
+Les groupes de disponibilité AlwaysOn peuvent être utilisés dans un environnement informatique hybride comportant des réplicas de base de données à la fois en local et dans le cloud. Cette situation est présentée dans le diagramme suivant.
 
-AlwaysOn Availability Groups can be used in a hybrid-IT environment where database replicas exist both on-premises and in the cloud. This is shown in the following diagram.
+![Groupes de disponibilité SQL Server AlwaysOn dans une architecture de cloud hybride](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-3.png)
 
-![SQL Server AlwaysOn Availability Groups in a hybrid cloud architecture](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-3.png)
+La mise en miroir de base de données peut également s’étendre à la fois à des serveurs locaux et au cloud dans une installation basée sur un certificat. Le schéma suivant illustre ce concept.
 
-Database mirroring can also span on-premises servers and the cloud in a certificate-based setup. The following diagram illustrates this concept.
+![Mise en miroir de la base de données SQL Server dans une architecture de cloud hybride](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-4.png)
 
-![SQL Server database mirroring in a hybrid cloud architecture](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-4.png)
+L’envoi de journaux peut être utilisé pour synchroniser une base de données locale avec une base de données SQL Server dans une machine virtuelle Azure.
 
-Log shipping can be used to synchronize an on-premises database with a SQL Server database in an Azure virtual machine.
+![Envoi de journaux SQL Server dans une architecture de cloud hybride](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-5.png)
 
-![SQL Server log shipping in a hybrid cloud architecture](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-5.png)
+Vous pouvez enfin sauvegarder une base de données locale directement dans Azure Blob Storage.
 
-Finally, you can back up an on-premises database directly to Azure Blob storage.
+![Sauvegarde de SQL Server sur Azure Blob Storage dans une architecture de cloud hybride](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-6.png)
 
-![Back up SQL Server to Azure Blob storage in a hybrid cloud architecture](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-6.png)
+Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md) et [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md).
 
-For more information, see [High availability and disaster recovery for SQL Server in Azure virtual machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md) and [Backup and restore for SQL Server in Azure virtual machines](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md).
+##Listes de vérification pour la récupération des données locales dans Microsoft Azure
 
-##<a name="checklists-for-on-premises-recovery-in-microsoft-azure"></a>Checklists for on-premises recovery in Microsoft Azure
+###Mise en réseau
 
-###<a name="networking"></a>Networking
+  1. Consultez la section Mise en réseau de ce document.
+  2. Utilisez un réseau virtuel pour connecter en toute sécurité votre environnement local au cloud.
 
-  1. Review the Networking section of this document.
-  2. Use Virtual Network to securely connect on-premises to the cloud.
+###Calcul
 
-###<a name="compute"></a>Compute
+  1. Consultez la section Calcul de ce document.
+  2. Déplacez des machines virtuelles entre Hyper-V et Azure.
 
-  1. Review the Compute section of this document.
-  2. Relocate VMs between Hyper-V and Azure.
+###Storage
 
-###<a name="storage"></a>Storage
+  1. Consultez la section Stockage de ce document.
+  2. Utilisez les services StorSimple pour tirer parti du stockage cloud.
+  3. Utilisez le service Azure Backup.
 
-  1. Review the Storage section of this document.
-  2. Take advantage of StorSimple services for using cloud storage.
-  3. Use the Azure Backup service.
+###Base de données
 
-###<a name="database"></a>Database
+  1. Consultez la section Base de données de ce document.
+  2. Envisagez d’utiliser comme sauvegarde une instance SQL Server exécutée sur des machines virtuelles Azure.
+  3. Configurez les groupes de disponibilité AlwaysOn.
+  4. Configurez la mise en miroir de base de données basée sur un certificat.
+  5. Utilisez l’envoi de journaux.
+  6. Sauvegardez les bases de données locales dans Azure Blob Storage.
 
-  1. Review the Database section of this document.
-  2. Consider using SQL Server on Azure VMs as the backup.
-  3. Set up AlwaysOn Availability Groups.
-  4. Configure certificate-based database mirroring.
-  5. Use log shipping.
-  6. Back up on-premises databases to Azure Blob storage.
+##Étapes suivantes
 
-##<a name="next-steps"></a>Next steps
+Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). L’article suivant de cette série s’intitule [Récupération suite à une corruption de données ou à une suppression accidentelle](./resiliency-technical-guidance-recovery-data-corruption.md).
 
-This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). The next article in this series is [Recovery from data corruption or accidental deletion](./resiliency-technical-guidance-recovery-data-corruption.md).
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

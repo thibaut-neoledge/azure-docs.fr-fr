@@ -1,96 +1,91 @@
 <properties
-    pageTitle="How to set up the Business Glossary for governed tagging | Microsoft Azure"
-    description="How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets."
-    services="data-catalog"
-    documentationCenter=""
-    authors="steelanddata"
-    manager="NA"
-    editor=""
-    tags=""/>
+	pageTitle="Comment configurer le glossaire métier pour un balisage géré | Microsoft Azure"
+	description="Article de procédure relatif au glossaire métier d’Azure Data Catalog, qui permet de définir et d’utiliser un vocabulaire métier commun en vue de baliser les ressources de données inscrites."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-    ms.service="data-catalog"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-catalog"
-    ms.date="09/21/2016"
-    ms.author="maroche"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="09/21/2016"
+	ms.author="maroche"/>
+
+# Comment configurer le glossaire métier pour un balisage géré
+
+## Introduction
+
+Azure Data Catalog intègre des fonctionnalités de découverte de sources de données qui permettent aux utilisateurs de découvrir et comprendre facilement les sources de données dont ils ont besoin pour effectuer des analyses et prendre des décisions. Ces fonctionnalités de découverte se révèlent tout particulièrement utiles quand les utilisateurs peuvent trouver et comprendre le plus large éventail de sources de données disponibles.
+
+L’une des fonctionnalité de Data Catalog qui favorise une meilleure compréhension des données de ressources est le balisage. Le balisage permet aux utilisateurs d’associer des mots clés à une ressource ou à une colonne, qui facilite à son tour la découverte de la ressource via la recherche et la navigation, et permet aux utilisateurs de comprendre plus facilement le contexte et l’intention de la ressource.
+
+Cependant, le balisage peut parfois engendrer des problèmes qui lui sont propres. Voici quelques exemples de problèmes potentiels liés au balisage :
+
+1.	Utilisateurs balisant certaines ressources avec des abréviations et d’autres avec du texte développé. Cette incohérence est un obstacle à la découverte de ressources même si l’intention était de baliser les ressources avec la même balise.
+2.	Balises ayant plusieurs significations selon le contexte. Par exemple, l’application de la balise « Chiffre d’affaires » sur un jeu de données clients pourra-t-elle désigner le chiffre d’affaires par client, alors que l’application de la même balise appliquée à un jeu de données de ventes trimestrielles pourra désigner le chiffre d’affaires trimestriel de l’entreprise.
+
+Pour faire face à ce type de difficulté, Data Catalog met à disposition un glossaire métier.
+
+Le glossaire métier de Data Catalog permet aux organisations de rassembler les principaux termes métier et leurs définitions pour créer un vocabulaire métier commun. Cette gouvernance favorise une utilisation cohérente des données à l’échelle de l’organisation. Une fois que des termes sont définis dans le glossaire métier, ils peuvent être affectés à des ressources de données dans le catalogue, selon le même principe que le balisage, ce qui autorise ainsi un _balisage géré_.
+
+> [AZURE.NOTE] La fonctionnalité décrite dans cet article est uniquement disponible dans l’édition Standard d’Azure Data Catalog. L’édition gratuite ne propose pas de fonctionnalités de balisage géré ni de glossaire métier.
+
+## Disponibilité du glossaire et privilèges
+
+/*Le glossaire métier est disponible dans l’Édition Standard d’Azure Data Catalog. L’Édition gratuite de Data Catalog n’intègre pas de glossaire.*/
+
+Le glossaire métier est accessibles via l’option « Glossaire » du menu de navigation du portail Data Catalog.
+
+![Accès au glossaire métier](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 
-# <a name="how-to-set-up-the-business-glossary-for-governed-tagging"></a>How to set up the Business Glossary for Governed Tagging
+Les administrateurs de Data Catalog et les membres du rôle Administrateurs de glossaire peuvent créer, modifier et supprimer des termes dans le glossaire métier. Tous les utilisateurs de Data Catalog peuvent consulter les définitions des termes et baliser les ressources avec ces termes du glossaire.
 
-## <a name="introduction"></a>Introduction
-
-Azure Data Catalog provides capabilities for data source discovery, enabling users to easily discover and understand the data sources they need to perform analysis and make decisions. These discovery capabilities make the biggest impact when users can find and understand the broadest range of available data sources.
-
-One Data Catalog feature that promotes greater understanding of assets data is tagging. Tagging allows users to associate keywords with an asset or a column, which in turn makes it easier to discover the asset via searching or browsing, and allows users to more easily understand the context and intent of the asset.
-
-However, tagging can sometimes cause problems of its own. Some examples of problems that can be introduced by tagging are:
-
-1.  Users using abbreviations on some assets and expanded text on others while tagging. This inconsistency hinders the discovery of assets even though the intent was to tag the assets with the same tag.
-2.  Tags which mean different things in different contexts. For example, a tag called "Revenue" on a customer data set might mean revenue by customer, but the same tag on a quarterly sales dataset could mean quarterly revenue for the company.  
-
-To help address these and other similar challenges, Data Catalog includes a Business Glossary.
-
-The Data Catalog Business Glossary allows organizations to document key business terms and their definitions to create a common business vocabulary. This governance enables consistency in data usage across the organization. Once terms are defined in the business glossary, they can be assigned to data assets in the catalog, using the same approach as tagging, thereby enabling _governed tagging_.
-
-> [AZURE.NOTE] The functionality described in this article are available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
-
-## <a name="glossary-availability-and-privileges"></a>Glossary availability and privileges
-
-/*The business glossary is available in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary.*/
-
-The business glossary can be accessed via the "Glossary" option in the Data Catalog portal's navigation menu.  
-
-![Accessing the business glossary](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Ajout d’un nouveau terme de glossaire](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 
-Data Catalog administrators and members of the Glossary Administrators role can create, edit and delete glossary terms in the business glossary. All Data Catalog users can view the term definitions, and can tag assets with glossary terms.
+## Création de termes de glossaire
 
-![Adding a new glossary term](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+Les administrateurs de Data Catalog et les administrateurs de glossaire peuvent créer des termes de glossaire en cliquant sur le bouton Nouveau terme. Des termes de glossaire sont alors créés avec les champs suivants :
 
-
-## <a name="creating-glossary-terms"></a>Creating glossary terms
-
-Data Catalog administrators and Glossary administrators can create new glossary terms by clicking on the New Term’ button to create glossary terms with the following fields:
-
-* A business definition for the term
-* A description which captures the intended use or business rules for the asset/column
-* A list of stakeholders who know the most about the term
-* The parent term, which defines the hierarchy in which the term is organized
+* définition métier du terme ;
+* description qui rend compte de l’usage prévu ou des règles métier de la ressource/colonne ;
+* liste des parties prenantes qui connaissent le mieux le terme ;
+* terme parent qui définit la hiérarchie dont dépend le terme.
 
 
-## <a name="glossary-term-hierarchies"></a>Glossary term hierarchies
+## Hiérarchies de termes de glossaire
 
-The Data Catalog business glossary provides the ability to describe your business vocabulary as a hierarchy of terms. This allows organizations to create a classification of terms which better represents their business taxonomy.
+Le glossaire métier de Data Catalog permet de décrire le vocabulaire métier sous la forme d’une hiérarchie de termes. Les organisations peuvent ainsi créer une classification de termes qui représente mieux leur taxonomie métier.
 
-The name of a term must be unique at a given level of hierarchy - duplicate names are not allowed. There is no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
+La désignation d’un terme doit être unique à un niveau donné de la hiérarchie (les noms en double ne sont pas autorisés). Il n’existe aucune limite quant au nombre de niveaux dont est constituée une hiérarchie, mais celle-ci sera plus facile à cerner si elle n’en comporte pas plus de trois.
 
-The use of hierarchies in the business glossary is optional. Leaving the parent term field blank for glossary terms will create a flat (non-hierarchical) list of terms in the glossary.  
+L’utilisation de hiérarchies dans le glossaire métier est facultative. Le fait de laisser le champ Terme parent vide pour des termes du glossaire a pour effet de créer une liste de termes plate (non hiérarchisée) dans le glossaire.
 
-## <a name="tagging-assets-with-glossary-terms"></a>Tagging assets with glossary terms
+## Balisage de ressources avec des termes de glossaire
 
-Once glossary terms have been defined within the catalog, the experience of tagging assets is optimized to search the glossary as the user types their tag. The Data Catalog portal displays a list of matching glossary terms for the user to choose from. If the user selects a glossary term from the list it is added to the asset as a tag (a.k.a. glossary tag). The user can also choose to create a new tag by typing a term which is not in the glossary (a.k.a. user tag).
+Dès lors que des termes de glossaire sont définis dans le catalogue, le balisage de ressources est optimisé pour les recherches dans le glossaire à mesure que l’utilisateur tape sa balise. Le portail Data Catalog affiche une liste de termes de glossaire correspondants que l’utilisateur peut choisir. Si l’utilisateur sélectionne un terme de glossaire dans la liste, il est ajouté à la ressource sous forme de balise (c’est ce que l’on appelle une balise de glossaire). L’utilisateur peut aussi choisir de créer une balise en tapant un terme qui ne se trouve pas dans le glossaire (dans ce cas, on parle de balise utilisateur).
 
-![Data asset tagged with one user tag and two glossary tags](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
+![Ressource de données balisée avec une balise utilisateur et deux balises de glossaire](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
-> [AZURE.NOTE] User Tags are the only type of tag supported in the Free Edition of Data Catalog.
+> [AZURE.NOTE] La balise utilisateur est le seul type de balise pris en charge dans l’édition gratuite de Data Catalog.
 
-### <a name="hover-behavior-on-tags"></a>Hover behavior on tags
-In the Data Catalog portal the two types of tags are visually distinct, with different hover behaviors. When the user hovers over a user tag they can see the tag text and the user or users who have added the tag. When the user hovers over a glossary tag, they also see the definition of the glossary term and a link to open the business glossary to view the full definition of the term.
+### Comportement du pointage sur les balises
+Dans le portail Data Catalog, les deux types de balise se distinguent l’un de l’autre tant sur le plan visuel que sur le plan du comportement du pointage. Quand l’utilisateur pointe sur une balise utilisateur, il peut voir le texte de la balise et l’identité du ou des utilisateurs ayant ajouté la balise. Quand l’utilisateur pointe sur une balise de glossaire, il obtient aussi la définition du terme de glossaire, ainsi qu’un lien permettant d’ouvrir le glossaire métier pour y consulter la définition complète du terme.
 
-### <a name="search-filters-for-tags"></a>Search filters for tags
-Both glossary tags and user tags are searchable, and can be applied as filters in a search.
+### Filtres de recherche pour les balises
+Les balises de glossaire comme les balises utilisateur peuvent non seulement faire l’objet de recherches, mais elles peuvent aussi servir de filtres dans une recherche.
 
-## <a name="summary"></a>Summary
-The business glossary in Azure Data Catalog, and the governed tagging it enables, allow data assets to be identified, managed, and discovered in a consistent manner. The business glossary can promote learning of the business vocabulary amongst users of an organization and supports meaningful meta-data to be captured, making asset discovery and understanding a breeze.
+## Résumé
+Le glossaire métier d’Azure Data Catalog et le balisage géré qu’il autorise permettent d’identifier, de gérer et de découvrir les ressources de données de façon cohérente. Le glossaire métier offre la possibilité aux utilisateurs d’une organisation d’apprendre le vocabulaire métier et contribue à la capture de métadonnées explicites, ce qui fait de la découverte et de l’identification des ressources un jeu d’enfant.
 
-## <a name="see-also"></a>See Also
+## Voir aussi
 
-- [REST API documentation for business glossary operations](https://msdn.microsoft.com/library/mt708855.aspx)
+- [Documentation de l’API REST pour les opérations de glossaire métier](https://msdn.microsoft.com/library/mt708855.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

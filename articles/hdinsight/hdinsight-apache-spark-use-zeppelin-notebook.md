@@ -1,381 +1,380 @@
 <properties 
-    pageTitle="Use Zeppelin notebooks with Spark cluster on HDInsight Linux | Azure" 
-    description="Step-by-step instructions on how to use Zeppelin notebooks with Spark clusters on HDInsight Linux." 
-    services="hdinsight" 
-    documentationCenter="" 
-    authors="nitinme" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+	pageTitle="Utilisation de blocs-notes Zeppelin avec un cluster Spark sur HDInsight Linux | Azure" 
+	description="Instructions détaillées sur l'utilisation des blocs-notes Zeppelin avec les clusters Spark sur HDInsight Linux." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="hdinsight" 
-    ms.workload="big-data" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/25/2016" 
-    ms.author="nitinme"/>
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/25/2016" 
+	ms.author="nitinme"/>
 
 
+# Utilisation de blocs-notes Zeppelin avec un cluster Apache Spark sur HDInsight Linux
 
-# <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-hdinsight-linux"></a>Use Zeppelin notebooks with Apache Spark cluster on HDInsight Linux
+Découvrez comment installer des blocs-notes Zeppelin sur des clusters Apache Spark et comment utiliser les blocs-notes Zeppelin pour exécuter des tâches Spark.
 
-Learn how to install Zeppelin notebooks on Apache Spark clusters and how to use the Zeppelin notebooks to run Spark jobs.
+> [AZURE.IMPORTANT] Le bloc-notes Zeppelin pour le cluster Spark sur HDInsight permet simplement d’illustrer l’utilisation de Zeppelin dans un environnement Azure HDInsight Spark. Si vous souhaitez utiliser des ordinateurs portables pour travailler avec HDInsight Spark, nous vous recommandons d’utiliser plutôt des blocs-notes Jupyter. Les blocs-notes Jupyter fournissent également des options de noyau différentes, telles que Scala, et continuent à bénéficier d’améliorations de fonctionnalités. Pour obtenir des instructions sur l’utilisation des blocs-notes Jupyter avec HDInsight Spark, consultez la rubrique [Exécuter des requêtes Spark SQL à l’aide d’un bloc-notes Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
-> [AZURE.IMPORTANT] Zeppelin notebook for HDInsight Spark cluster is an offering just to showcase how to use Zeppelin in an Azure HDInsight Spark environment. If you want to use notebooks to work with HDInsight Spark, we recommend that you use Jupyter notebooks instead. Jupyter notebooks also provide different kernel options, such as Scala, and will continue to have feature improvements. For instructions on how to use Jupyter notebooks with HDInsight spark, see [Run Spark SQL queries using a Jupyter notebook](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter). 
+**Configuration requise :**
 
-**Prerequisites:**
+* Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Un cluster Apache Spark. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un client SSH. Pour les distributions Linux et Unix ou pour Macintosh OS X, la commande `ssh` est fournie avec le système d'exploitation. Pour Windows, nous vous recommandons [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-* Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-* An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+	> [AZURE.NOTE] Si vous souhaitez utiliser un client SSH autre que `ssh` ou PuTTY, veuillez consulter la documentation de votre client qui explique comment établir un tunnel SSH.
 
-    > [AZURE.NOTE] If you want to use an SSH client other than `ssh` or PuTTY, please consult the documentation for your client on how to establish an SSH tunnel.
+* Un navigateur Web qui peut être configuré pour utiliser un proxy SOCKS
 
-* A web browser that can be configured to use a SOCKS proxy
+* __(facultatif)__ : un plug-in comme [FoxyProxy](http://getfoxyproxy.org/,) pouvant appliquer des règles qui acheminent uniquement les demandes spécifiques via le tunnel.
 
-* __(optional)__: A plugin such as [FoxyProxy](http://getfoxyproxy.org/,) that can apply rules that only route specific requests through the tunnel.
+	> [AZURE.WARNING] Sans un plug-in comme FoxyProxy, toutes les demandes effectuées via le navigateur peuvent être routées via le tunnel. Cela peut entraîner un chargement plus lent des pages Web dans votre navigateur.
 
-    > [AZURE.WARNING] Without a plugin such as FoxyProxy, all requests made through the browser may be routed through the tunnel. This can result in slower loading of web pages in your browser.
+## Installation de Zeppelin sur un cluster Spark
 
-## <a name="install-zeppelin-on-a-spark-cluster"></a>Install Zeppelin on a Spark cluster
+Vous pouvez installer Zeppelin sur un cluster Spark à l’aide d’une action de script. L’action de script utilise des scripts personnalisés pour installer sur le cluster des composants qui ne sont pas disponibles par défaut. Vous pouvez utiliser le script personnalisé pour installer Zeppelin à partir du portail Azure, à l’aide du Kit de développement logiciel (SDK) .NET HDInsight ou à l’aide d’Azure PowerShell. Vous pouvez utiliser le script pour installer Zeppelin lors de la création du cluster ou lorsque le cluster est prêt à fonctionner. Les liens dans les sections ci-dessous fournissent les instructions sur la marche à suivre.
 
-You can install Zeppelin on a Spark cluster using script action. Script action uses custom scripts to install components on the cluster that are not available by default. You can use the custom script to install Zeppelin from the Azure Portal, by using HDInsight .NET SDK, or by using Azure PowerShell. You can use the script to install Zeppelin either as part of cluster creation, or after the cluster is up and running. Links in the sections below provide the instructions on how to do so. 
+### Utilisation du portail Azure
 
-### <a name="using-the-azure-portal"></a>Using the Azure Portal
+Pour connaître les instructions liées à l’utilisation du portail Azure pour exécuter une action de script afin d’installer Zeppelin, consultez [Personnalisation des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). Vous devez apporter quelques modifications aux instructions de cet article.
 
-For instructions on how to use the Azure Portal to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). You must make a couple of changes to the instructions in that article.
+* Vous devez utiliser le script pour installer Zeppelin. Le script personnalisé permettant d’installer Zeppelin sur un cluster Spark sur HDInsight est disponible aux liens suivants :
+	* Pour les clusters Spark 1.6.0 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+	* Pour les clusters Spark 1.5.2 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
-* You must use the script to install Zeppelin. The custom script to install Zeppelin on a Spark cluster on HDInsight is available from the following links:
-    * For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
-    * For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
+* Vous devez exécuter l'action de script uniquement sur le nœud principal.
 
-* You must run the script action only on the headnode.
+* Le script n'a pas besoin de paramètres.
 
-* The script does not need any parameters. 
+### Utilisation du Kit de développement logiciel (SDK) HDInsight .NET
 
-### <a name="using-hdinsight-.net-sdk"></a>Using HDInsight .NET SDK
+Pour connaître les instructions liées à l’utilisation du Kit de développement logiciel (SDK) HDInsight .NET pour exécuter une action de script afin d’installer Zeppelin, consultez [Personnalisation des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). Vous devez apporter quelques modifications aux instructions de cet article.
 
-For instructions on how to use HDInsight .NET SDK to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). You must make a couple of changes to the instructions in that article.
+* Vous devez utiliser le script pour installer Zeppelin. Le script personnalisé permettant d’installer Zeppelin sur un cluster Spark sur HDInsight est disponible aux liens suivants :
+	* Pour les clusters Spark 1.6.0 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+	* Pour les clusters Spark 1.5.2 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
-* You must use the script to install Zeppelin. The custom script to install Zeppelin on a Spark cluster on HDInsight is available from the following links:
-    * For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
-    * For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
+* Le script n'a pas besoin de paramètres.
 
-* The script does not need any parameters. 
+* Définissez le type de cluster que vous créez sur Spark.
 
-* Set the cluster type you are creating to Spark.
+### Utilisation de Microsoft Azure PowerShell
 
-### <a name="using-azure-powershell"></a>Using Azure PowerShell
+Utilisez l'extrait de code PowerShell suivant pour créer un cluster Spark sur HDInsight Linux sur lequel Zeppelin est installé. Selon la version de cluster Spark dont vous disposez, vous devez mettre à jour l’extrait de code PowerShell ci-dessous pour inclure le lien vers le script personnalisé correspondant.
 
-Use the following PowerShell snippet to create a Spark cluster on HDInsight Linux with Zeppelin installed. Depending on which version of Spark cluster you have, you must update the PowerShell snippet below to include the link to the corresponding custom script. 
-
-* For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
-* For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
+* Pour les clusters Spark 1.6.0 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+* Pour les clusters Spark 1.5.2 : `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
 [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
-    Login-AzureRMAccount
-    
-    # PROVIDE VALUES FOR THE VARIABLES
-    $clusterAdminUsername="admin"
-    $clusterAdminPassword="<<password>>"
-    $clusterSshUsername="adminssh"
-    $clusterSshPassword="<<password>>"
-    $clusterName="<<clustername>>"
-    $clusterContainerName=$clusterName
-    $resourceGroupName="<<resourceGroupName>>"
-    $location="<<region>>"
-    $storage1Name="<<storagename>>"
-    $storage1Key="<<storagekey>>"
-    $subscriptionId="<<subscriptionId>>"
-    
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
-    
-    $passwordAsSecureString=ConvertTo-SecureString $clusterAdminPassword -AsPlainText -Force
-    $clusterCredential=New-Object System.Management.Automation.PSCredential ($clusterAdminUsername, $passwordAsSecureString)
-    $passwordAsSecureString=ConvertTo-SecureString $clusterSshPassword -AsPlainText -Force
-    $clusterSshCredential=New-Object System.Management.Automation.PSCredential ($clusterSshUsername, $passwordAsSecureString)
-    
-    $azureHDInsightConfigs= New-AzureRmHDInsightClusterConfig -ClusterType Spark
-    $azureHDInsightConfigs.DefaultStorageAccountKey = $storage1Key
-    $azureHDInsightConfigs.DefaultStorageAccountName = "$storage1Name.blob.core.windows.net"
-    
-    Add-AzureRMHDInsightScriptAction -Config $azureHDInsightConfigs -Name "Install Zeppelin" -NodeType HeadNode -Parameters "void" -Uri "https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh"
-    
-    New-AzureRMHDInsightCluster -Config $azureHDInsightConfigs -OSType Linux -HeadNodeSize "Standard_D12" -WorkerNodeSize "Standard_D12" -ClusterSizeInNodes 2 -Location $location -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $clusterCredential -DefaultStorageContainer $clusterContainerName -SshCredential $clusterSshCredential -Version "3.3"
+	Login-AzureRMAccount
+	
+	# PROVIDE VALUES FOR THE VARIABLES
+	$clusterAdminUsername="admin"
+	$clusterAdminPassword="<<password>>"
+	$clusterSshUsername="adminssh"
+	$clusterSshPassword="<<password>>"
+	$clusterName="<<clustername>>"
+	$clusterContainerName=$clusterName
+	$resourceGroupName="<<resourceGroupName>>"
+	$location="<<region>>"
+	$storage1Name="<<storagename>>"
+	$storage1Key="<<storagekey>>"
+	$subscriptionId="<<subscriptionId>>"
+	
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	$passwordAsSecureString=ConvertTo-SecureString $clusterAdminPassword -AsPlainText -Force
+	$clusterCredential=New-Object System.Management.Automation.PSCredential ($clusterAdminUsername, $passwordAsSecureString)
+	$passwordAsSecureString=ConvertTo-SecureString $clusterSshPassword -AsPlainText -Force
+	$clusterSshCredential=New-Object System.Management.Automation.PSCredential ($clusterSshUsername, $passwordAsSecureString)
+	
+	$azureHDInsightConfigs= New-AzureRmHDInsightClusterConfig -ClusterType Spark
+	$azureHDInsightConfigs.DefaultStorageAccountKey = $storage1Key
+	$azureHDInsightConfigs.DefaultStorageAccountName = "$storage1Name.blob.core.windows.net"
+	
+	Add-AzureRMHDInsightScriptAction -Config $azureHDInsightConfigs -Name "Install Zeppelin" -NodeType HeadNode -Parameters "void" -Uri "https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh"
+	
+	New-AzureRMHDInsightCluster -Config $azureHDInsightConfigs -OSType Linux -HeadNodeSize "Standard_D12" -WorkerNodeSize "Standard_D12" -ClusterSizeInNodes 2 -Location $location -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $clusterCredential -DefaultStorageContainer $clusterContainerName -SshCredential $clusterSshCredential -Version "3.3"
  
-## <a name="set-up-ssh-tunneling-to-access-a-zeppelin-notebook"></a>Set up SSH tunneling to access a Zeppelin notebook
+## Configurez le tunnel SSL pour accéder à un bloc-notes Zeppelin
 
-You will use SSH tunnels to access the Zeppelin notebooks running on Spark cluster on HDInsight Linux. The steps below demonstrate how to create an SSH tunnel using ssh command line (Linux) and PuTTY (Windows).
+Vous utiliserez des tunnels SSH pour accéder aux blocs-notes Zeppelin s'exécutant sur le cluster Spark sur HDInsight Linux. Les étapes ci-dessous montrent comment créer un tunnel SSH à l'aide de la ligne de commande SSH (Linux) et PuTTY (Windows).
 
-### <a name="create-a-tunnel-using-the-ssh-command-(linux)"></a>Create a tunnel using the SSH command (Linux)
+### Création d’un tunnel à l'aide de la commande SSH (Linux)
 
-Use the following command to create an SSH tunnel using the `ssh` command. Replace __USERNAME__ with an SSH user for your HDInsight cluster, and replace __CLUSTERNAME__ with the name of your HDInsight cluster
+Utilisez la commande suivante pour créer un tunnel SSH à l'aide de la commande `ssh`. Remplacez __USERNAME__ par un utilisateur SSH de votre cluster HDInsight et __CLUSTERNAME__ par le nom de votre cluster HDInsight
 
-    ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+	ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-This creates a connection that routes traffic to local port 9876 to the cluster over SSH. The options are:
+Cette commande va permettre de créer une connexion qui achemine le trafic vers le port local 9876 du cluster via SSH. Les options sont :
 
-* **D 9876** - The local port that will route traffic through the tunnel.
+* **D 9876** : port local qui acheminera le trafic via le tunnel.
 
-* **C** - Compress all data, because web traffic is mostly text.
+* **C** : compresse toutes les données car le trafic web est principalement du texte
 
-* **2** - Force SSH to try protocol version 2 only.
+* **2** : force le SSH à essayer le protocole version 2 uniquement
 
-* **q** - Quiet mode.
+* **q** : mode silencieux
 
-* **T** - Disable pseudo-tty allocation, since we are just forwarding a port.
+* **T** : désactive l’allocation pseudo-tty puisque nous transférons simplement un port
 
-* **n** - Prevent reading of STDIN, since we are just forwarding a port.
+* **n** : empêche la lecture STDIN puisque nous transférons simplement un port
 
-* **N** - Do not execute a remote command, since we are just forwarding a port.
+* **N** : n’exécute pas une commande à distance puisque nous transférons simplement un port
 
-* **f** - Run in the background.
+* **f** : s’exécute à l’arrière-plan
 
-If you configured the cluster with an SSH key, you may need use the `-i` parameter and specify the path to the private SSH key.
+Si vous avez configuré le cluster avec une clé SSH, il vous faudra peut-être utiliser le paramètre `-i` et indiquer le chemin d’accès vers la clé SSH privée.
 
-Once the command finishes, traffic sent to port 9876 on the local computer will be routed over Secure Sockets Layer (SSL) to the cluster head node and appear to originate there.
+Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinateur local sera acheminé via SSL au nœud principal du cluster et semblera provenir de celui-ci.
 
-### <a name="create-a-tunnel-using-putty-(windows)"></a>Create a tunnel using PuTTY (Windows)
+### Création d’un tunnel à l'aide de PuTTY (Windows)
 
-Use the following steps to create an SSH tunnel using PuTTY.
+Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit.
 
-1. Open PuTTY, and enter your connection information. If you are not familiar with PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) for information on how to use it with HDInsight.
+1. Ouvrez PuTTY et saisissez vos informations de connexion. Si vous ne connaissez pas PuTTY, consultez [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md) pour plus d'informations sur son utilisation avec HDInsight.
 
-2. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
+2. Dans la rubrique **Catégorie** située à gauche dans la boîte de dialogue, développez **Connexion** et **SSH**, puis sélectionnez **Tunnels**.
 
-3. Provide the following information on the **Options controlling SSH port forwarding** form:
+3. Indiquez les informations suivantes dans le formulaire des **Options de contrôle de transfert du port SSH**.
 
-    * **Source port** - The port on the client that you wish to forward. For example, **9876**.
+	* **Port source** : le port sur le client que vous souhaitez transférer. Par exemple : **9876**.
 
-    * **Destination** - The SSH address for the Linux-based HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**.
+	* **Destination** : l’adresse SSH pour le cluster HDInsight sous Linux. Par exemple : **moncluster-ssh.azurehdinsight.net**.
 
-    * **Dynamic** - Enables dynamic SOCKS proxy routing.
+	* **Dynamique** : active le routage dynamique du proxy SOCKS.
 
-    ![image of tunneling options](./media/hdinsight-apache-spark-use-zeppelin-notebook/puttytunnel.png)
+	![image des options de tunneling](./media/hdinsight-apache-spark-use-zeppelin-notebook/puttytunnel.png)
 
-4. Click **Add** to add the settings, and then click **Open** to open an SSH connection.
+4. Cliquez sur **Ajouter** pour ajouter les paramètres, puis cliquez sur **Ouvrir** pour ouvrir une connexion SSH.
 
-5. When prompted, log in to the server. This will establish an SSH session and enable the tunnel.
+5. Lorsque vous y êtes invité, connectez-vous au serveur. Cela permettra d'établir une session SSH et d'activer le tunnel.
 
-### <a name="use-the-tunnel-from-your-browser"></a>Use the tunnel from your browser
+### Utilisation du tunnel à partir de votre navigateur
 
-> [AZURE.NOTE] The steps in this section use the FireFox browser, as it is freely available for Linux, Unix, Macintosh OS X and Windows systems. Other modern browsers such as Google Chrome, Microsoft Edge, or Apple Safari should work as well; however, the FoxyProxy plugin used in some steps may not be available for all browsers.
+> [AZURE.NOTE] Dans les étapes de cette section, nous utilisons le navigateur FireFox, car il est disponible gratuitement pour les systèmes d’exploitation Linux, Unix, Macintosh OS X et Windows. Les autres navigateurs modernes comme Google Chrome, Microsoft Edge ou Apple Safari devraient fonctionner aussi bien ; cependant, le plug-in FoxyProxy utilisé dans certaines étapes peut ne pas être disponible pour tous les navigateurs.
 
-1. Configure the browser to use **localhost:9876** as a **SOCKS v5** proxy. Here's what the Firefox settings look like. If you used a different port than 9876, change the port to the one you used:
+1. Configurez le navigateur pour utiliser **localhost:9876** comme un proxy **SOCKS v5**. Voici comment se présentent les paramètres Firefox : si vous avez utilisé un port autre que 9876, modifiez le port par celui que vous avez utilisé :
 
-    ![image of Firefox settings](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
+	![image des paramètres de Firefox](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
 
-    > [AZURE.NOTE] Selecting **Remote DNS** will resolve Domain Name System (DNS) requests by using the HDInsight cluster. If this is unselected, DNS will be resolved locally.
+	> [AZURE.NOTE] La sélection de **DNS Distant** résout les requêtes DNS à l’aide du cluster HDInsight. Si cette option n’est pas sélectionnée, le DNS est résolu localement.
 
-2. Verify that traffic is being routed through the tunnel by vising a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/) with the proxy settings enabled and disabled in Firefox. While the settings are enabled, the IP address will be for a machine in the Microsoft Azure datacenter.
+2. Vérifiez que le trafic est routé via le tunnel en accédant à un site, comme [http://www.whatismyip.com/](http://www.whatismyip.com/), avec les paramètres de proxy activés et désactivés dans Firefox. Quand ils sont activés, l’adresse IP est celle d’une machine du centre de données Microsoft Azure.
 
-### <a name="browser-extensions"></a>Browser extensions
+### Extensions du navigateur
 
-While configuring the browser to use the tunnel works, you don't usually want to route all traffic over the tunnel. Browser extensions such as [FoxyProxy](http://getfoxyproxy.org/) support pattern matching for URL requests (FoxyProxy Standard or Plus only), so that only requests for specific URLs will be sent over the tunnel.
+Si la configuration du navigateur pour utiliser le tunnel fonctionne, en principe vous n'avez pas besoin d'acheminer tout le trafic via le tunnel. Les extensions de navigateur comme [FoxyProxy](http://getfoxyproxy.org/) prennent en charge la correspondance des requêtes URL (FoxyProxy Standard ou Plus uniquement) pour que seules les requêtes d'URL spécifiques soient envoyées via le tunnel.
 
-If you have installed FoxyProxy Standard, use the following steps to configure it to only forward traffic for HDInsight over the tunnel.
+Si vous avez installé FoxyProxy Standard, suivez les étapes suivantes pour configurer celui-ci uniquement pour le trafic de transfert de HDInsight via le tunnel.
 
-1. Open the FoxyProxy extension in your browser. For example, in Firefox, select the FoxyProxy icon next to the address field.
+1. Ouvrez l'extension FoxyProxy dans votre navigateur. Par exemple, dans Firefox, sélectionnez l'icône FireProxy à côté du champ d'adresse.
 
-    ![foxyproxy icon](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxy.png)
+	![icône foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxy.png)
 
-2. Select **Add New Proxy**, select the **General** tab, and then enter a proxy name of **HDInsightProxy**.
+2. Sélectionnez **Ajouter un nouveau proxy**, puis l’onglet **Général** et entrez un nom de proxy pour **HDInsightProxy**.
 
-    ![foxyproxy general](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxygeneral.png)
+	![onglet général foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxygeneral.png)
 
-3. Select the **Proxy Details** tab and populate the following fields:
+3. Sélectionnez l’onglet **Informations du proxy** et remplissez les champs suivants :
 
-    * **Host or IP Address** - This is localhost, since we are using an SSH tunnel on the local machine.
+	* **Hôte ou adresse IP** : il s’agit de localhost, puisque nous utilisons un tunnel SSH sur la machine locale.
 
-    * **Port** - This is the port you used for the SSH tunnel.
+	* **Port** : port que vous avez utilisé pour le tunnel SSH
 
-    * **SOCKS proxy** - Select this to enable the browser to use the tunnel as a proxy.
+	* **Proxy SOCKS** : sélectionnez celui-ci pour autoriser le navigateur à utiliser le tunnel comme proxy.
 
-    * **SOCKS v5** - Select this to set the required version for the proxy.
+	* **SOCKS v5** : sélectionnez celui-ci pour définir la version requise pour le proxy.
 
-    ![foxyproxy proxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxyproxy.png)
+	![proxy foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxyproxy.png)
 
-4. Select the **URL Patterns** tab, and then select **Add New Pattern**. Use the following to define the pattern, and then click **OK**:
+4. Sélectionnez l’onglet **Type d’URL**, puis **Ajouter un nouveau type**. Utilisez ce qui suit pour définir le type, puis cliquez sur **OK** :
 
-    * **Pattern Name** - **zeppelinnotebook** - This is just a friendly name for the pattern.
+	* **Nom de type** – **zeppelinnotebook** : il s’agit simplement d’un nom de type convivial.
 
-    * **URL pattern** - **\*hn0*** - This defines a pattern that matches the internal fully qualified domain name of endpoint where the Zeppelin notebooks are hosted. Because Zeppelin notebooks are available only on the headnode0 of the cluster, and the endpoint is typically `http://hn0-<string>.internal.cloudapp.net`, using the pattern **hn0** would ensure that the request is redirected to the Zeppelin endpoint.
+	* **Modèle d’URL** – **\*hn0\*** : définit un modèle qui correspond au nom de domaine complet interne du système d’extrémité où sont hébergés les blocs-notes Zeppelin. Étant donné que les blocs-notes Zeppelin sont uniquement disponibles sur headnode0 du cluster et que le système d’extrémité est généralement `http://hn0-<string>.internal.cloudapp.net`, l'utilisation du modèle **hn0** garantit que la requête est redirigée vers le point de terminaison Zeppelin.
 
-        ![foxyproxy pattern](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
+		![type foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
-4. Click **OK** to add the proxy and close **Proxy Settings**.
+4. Cliquez sur **OK** pour ajouter le proxy et fermer les **Paramètres de proxy**.
 
-5. At the top of the FoxyProxy dialog, change **Select Mode** to **Use proxies based on their pre-defined patterns and priorities**, and then click **Close**.
+5. Dans la partie supérieure de la boîte de dialogue FoxyProxy, changez le **Mode de sélection** pour **Utiliser les proxys en fonction de leurs types et priorités prédéfinis**, puis cliquez sur **Fermer**.
 
-    ![foxyproxy select mode](./media/hdinsight-apache-spark-use-zeppelin-notebook/selectmode.png)
+	![mode de sélection foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/selectmode.png)
 
-After following these steps, only requests for URLs that contain the string __hn0__ will be routed over the SSL tunnel. 
+Après avoir suivi ces étapes, seules les requêtes pour les URL qui contiennent la chaîne __hn0__ seront acheminées via le tunnel SSL.
 
-## <a name="access-the-zeppelin-notebook"></a>Access the Zeppelin notebook
+## Accès au bloc-notes Zeppelin
 
-Once you have SSH tunneling setup, you can use the following steps to access Zeppelin notebook on the Spark cluster by following the steps below. In this section, you will see how to run %sql and %hive statements.
+Une fois les tunnels SSH configurés, vous pouvez accéder au bloc-notes Zeppelin sur le cluster Spark en suivant les étapes ci-dessous. Dans cette section, vous allez apprendre à exécuter des instructions %sql et %hive.
 
-1. From the web browser, open the following endpoint:
+1. À partir du navigateur Web, ouvrez le système d’extrémité suivant :
 
-        http://hn0-myspar:9995
+		http://hn0-myspar:9995
 
-    * **hn0** denotes headnode0
-    * **myspar** is the first six letters of the Spark cluster name.
-    * **9995** is the port where Zeppelin notebook is accessible.
+	* **hn0** correspond à headnode0
+	* **myspar** correspond aux six premières lettres du nom du cluster Spark.
+	* **9995** est le port sur lequel le bloc-notes Zeppelin est accessible.
 
-2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
+2. Créer un nouveau bloc-notes. Dans le volet d'en-tête, cliquez sur **Bloc-notes**, puis sur **Créer une note**.
 
-    ![Create a new Zeppelin notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Create a new Zeppelin notebook")
+	![Créer un nouveau bloc-notes Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Créer un nouveau bloc-notes Zeppelin")
 
-    On the same page, under the **Notebook** heading, you should see a new notebook with the name starting with **Note XXXXXXXXX**. Click the new notebook.
+	Dans la même page, sous le titre **Bloc-notes**, un nouveau bloc-notes dont le nom commence par **Note XXXXXXXXX** doit s’afficher. Cliquez sur le nouveau bloc-notes.
 
-3. On the web page for the new notebook, click the heading, and change the name of the notebook if you want to. Press ENTER to save the name change. Also, make sure the notebook header shows a **Connected** status in the top-right corner.
+3. Sur la page web du nouveau bloc-notes, cliquez sur l'en-tête et modifiez le nom du bloc-notes si vous le souhaitez. Appuyez sur ENTRÉE pour enregistrer la modification de nom. Vérifiez également que l’en-tête du bloc-notes indique l’état **Connected** dans le coin supérieur droit.
 
-    ![Zeppelin notebook status](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Zeppelin notebook status")
+	![État du bloc-notes Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "État du bloc-notes Zeppelin")
 
-### <a name="run-sql-statements"></a>Run SQL statements
+### Exécuter des instructions SQL
 
-4. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\SensorSampleData\hvac**.
+4. Chargez un exemple de données dans une table temporaire. Lorsque vous créez un cluster Spark dans HDInsight, l’exemple de fichier de données **hvac.csv** est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
 
-    In the empty paragraph that is created by default in the new notebook, paste the following snippet.
+	Collez l’extrait suivant dans le paragraphe vide créé par défaut dans le nouveau bloc-notes.
 
-        // Create an RDD using the default Spark context, sc
-        val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-        
-        // Define a schema
-        case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
-        
-        // Map the values in the .csv file to the schema
-        val hvac = hvacText.map(s => s.split(",")).filter(s => s(0) != "Date").map(
-            s => Hvac(s(0), 
-                    s(1),
-                    s(2).toInt,
-                    s(3).toInt,
-                    s(6)
-            )
-        ).toDF()
-        
-        // Register as a temporary table called "hvac"
-        hvac.registerTempTable("hvac")
-        
-    Press **SHIFT + ENTER** or click the **Play** button for the paragraph to run the snippet. The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output shows up at the bottom of the same paragraph. The screenshot looks like the following:
+		// Create an RDD using the default Spark context, sc
+		val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		
+		// Define a schema
+		case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
+		
+		// Map the values in the .csv file to the schema
+		val hvac = hvacText.map(s => s.split(",")).filter(s => s(0) != "Date").map(
+    		s => Hvac(s(0), 
+            		s(1),
+            		s(2).toInt,
+            		s(3).toInt,
+            		s(6)
+        	)
+		).toDF()
+		
+		// Register as a temporary table called "hvac"
+		hvac.registerTempTable("hvac")
+		
+	Appuyez sur **MAJ + ENTRÉE** ou cliquez sur le bouton **Lire** pour que le paragraphe exécute l'extrait de code. L’état indiqué dans le coin supérieur droit du paragraphe doit progresser de READY, PENDING, RUNNING à FINISHED. Le résultat s’affiche au bas du même paragraphe. La capture d’écran ressemble à ceci :
 
-    ![Create a temporary table from raw data](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Create a temporary table from raw data")
+	![Créer une table temporaire à partir de données brutes](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Créer une table temporaire à partir de données brutes")
 
-    You can also provide a title to each paragraph. From the right-hand corner, click the **Settings** icon, and then click **Show title**.
+	Vous pouvez également indiquer un titre pour chaque paragraphe. Dans le coin droit, cliquez sur l’icône **Settings**, puis sur **Show title**.
 
-5. You can now run Spark SQL statements on the **hvac** table. Paste the following query in a new paragraph. The query retrieves the building ID and the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
+5. Vous pouvez maintenant exécuter des instructions Spark SQL dans la table **hvac**. Collez la requête suivante dans un nouveau paragraphe. La requête récupère l’ID de bâtiment et la différence entre les températures cibles et réelles pour chaque bâtiment à une date donnée. Appuyez sur **MAJ + ENTRÉE**.
 
-        %sql
-        select buildingID, (targettemp - actualtemp) as temp_diff, date 
-        from hvac
-        where date = "6/1/13" 
+		%sql
+		select buildingID, (targettemp - actualtemp) as temp_diff, date 
+		from hvac
+		where date = "6/1/13" 
 
-    The **%sql** statement at the beginning tells the notebook to use the Spark  SQL interpreter. You can look at the defined interpreters from the **Interpreter** tab in the notebook header.
+	L'instruction **%sql** du début indique au bloc-notes d'utiliser l'interpréteur Spark SQL. Vous pouvez consulter les interpréteurs définis dans l'onglet **Interpreter** dans l'en-tête du bloc-notes.
 
-    The following screenshot shows the output.
+	La capture d’écran qui suit présente le résultat.
 
-    ![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery1.png "Run a Spark SQL statement using the notebook")
+	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery1.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
 
-     Click the display options (highlighted in rectangle) to switch between different representations for the same output. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key and the average of **temp_diff** as the value.
+	 Cliquez sur les options d’affichage (mis en exergue dans un rectangle) pour basculer entre les différentes représentations du même résultat. Cliquez sur **Paramètres** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d'écran ci-dessus utilise la clé **buildingID** et la moyenne **temp\_diff** comme valeur.
 
-    
-6. You can also run Spark SQL statements using variables in the query. The next snippet shows how to define a variable, **Temp**, in the query with the possible values you want to query with. When you first run the query, a drop-down is automatically populated with the values you specified for the variable.
+	
+6. Vous pouvez également exécuter des instructions Spark SQL à l’aide de variables dans la requête. L’extrait suivant montre comment définir la variable **Temp** dans la requête avec les valeurs possibles d’interrogation. Lors de la première exécution de la requête, une liste déroulante est automatiquement renseignée avec les valeurs que vous avez spécifiées pour la variable.
 
-        %sql
-        select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
-        from hvac
-        where targettemp > "${Temp = 65,65|75|85}" 
+		%sql
+		select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
+		from hvac
+		where targettemp > "${Temp = 65,65|75|85}" 
 
-    Paste this snippet in a new paragraph and press **SHIFT + ENTER**. The following screenshot shows the output.
+	Collez cet extrait dans un nouveau paragraphe, puis appuyez sur **MAJ + ENTRÉE**. La capture d’écran qui suit présente le résultat.
 
-    ![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Run a Spark SQL statement using the notebook")
+	![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
 
-    For subsequent queries, you can select a new value from the drop-down and run the query again. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key, the average of **temp_diff** as the value, and **targettemp** as the group.
+	Pour les requêtes suivantes, vous pouvez sélectionner une nouvelle valeur dans la liste déroulante et réexécuter la requête. Cliquez sur **Settings** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d'écran ci-dessus utilise la clé **buildingID**, la moyenne **temp\_diff** comme valeur, et le groupe **targettemp**.
 
-7. Restart the Spark SQL interpreter to exit the application. Click the **Interpreter** tab at the top, and for the Spark interpreter, click **Restart**.
+7. Redémarrez l’interpréteur Spark SQL pour quitter l’application. Cliquez sur l’onglet **Interpreter** en haut de l’écran et, pour l’interpréteur Spark, cliquez sur **Restart**.
 
-    ![Restart the Zeppelin intepreter](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Restart the Zeppelin intepreter")
+	![Redémarrer l’interpréteur Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Redémarrez l'interpréteur Zeppelin")
 
-### <a name="run-hive-statements"></a>Run hive statements
+### Exécutez des instructions hive
 
-1. From the Zeppelin notebook, click the **Interpreter** button.
+1. À partir du bloc-notes Zeppelin, cliquez sur le bouton **Interpreter**.
 
-    ![Update Hive interpreter](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "Update Hive interpreter")
+	![Mettre à jour l’interpréteur Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "Mettre à jour l’interpréteur Hive")
 
-2. For the **hive** interpreter, click **edit**.
+2. Pour l’interpréteur **hive**, cliquez sur **edit** (modifier).
 
-    ![Update Hive interpreter](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-2.png "Update Hive interpreter")
+	![Mettre à jour l’interpréteur Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-2.png "Mettre à jour l’interpréteur Hive")
 
-    Update the following properties.
+	Mettez les propriétés suivantes à jour.
 
-    * Set **default.password** to the password you specified for the admin user while creating the HDInsight Spark cluster.
-    * Set **default.url** to `jdbc:hive2://<spark_cluster_name>.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`. Replace **\<spark_cluster_name>** with the name of your Spark cluster.
-    * Set **default.user** to the name of the admin user you specified while creating the cluster. For example, *admin*.
+	* Définissez **default.password** sur le mot de passe que vous avez spécifié pour l’utilisateur administrateur lors de la création du cluster HDInsight Spark.
+	* Définissez **default.url** sur `jdbc:hive2://<spark_cluster_name>.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`. Remplacez **<nom\_cluster\_spark>** par le nom de votre cluster Spark.
+	* Définissez **default.user** sur le nom de l’utilisateur administrateur que vous avez spécifié lors de la création du cluster. Par exemple, *admin*.
 
-3. Click **Save** and when prompted to restart the hive interpreter, click **OK**.
+3. Cliquez sur **Save** (Enregistrer) et lorsque vous êtes invité à redémarrer l’interpréteur hive, cliquez sur **OK**.
 
-4. Create a new notebook and run the following statement to list all the hive tables on the cluster.
+4. Créez un nouveau bloc-notes et exécutez l’instruction suivante pour répertorier toutes les tables hive sur le cluster.
 
-        %hive
-        SHOW TABLES
+		%hive
+		SHOW TABLES
 
-    By default, an HDInsight cluster has a sample table called **hivesampletable** so you should see the following output.
+	Par défaut, un cluster HDInsight contient un exemple de table nommé **hivesampletable**, donc la sortie suivante doit s’afficher.
 
-    ![Hive output](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "Hive output")
+	![Sortie Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "Sortie Hive")
 
-5. Run the following statement to list the records in the table.
+5. Exécutez l’instruction suivante pour répertorier les enregistrements dans la table.
 
-        %hive
-        SELECT * FROM hivesampletable LIMIT 5
+		%hive
+		SELECT * FROM hivesampletable LIMIT 5
 
-    You should an output like the following.
+	Un résultat similaire à ce qui suit doit s’afficher.
 
-    ![Hive output](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Hive output")
+	![Sortie Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Sortie Hive")
 
-## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
+## <a name="seealso"></a>Voir aussi
 
 
-* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### <a name="scenarios"></a>Scenarios
+### Scénarios
 
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>Create and run applications
+### Créer et exécuter des applications
 
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-### <a name="tools-and-extensions"></a>Tools and extensions
+### Outils et extensions
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Manage resources
+### Gestion des ressources
 
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -386,17 +385,6 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: storage-create-storage-account.md 
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-
-
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

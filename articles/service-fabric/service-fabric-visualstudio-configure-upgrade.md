@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure the upgrade of a Service Fabric application | Microsoft Azure"
-   description="Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio."
+   pageTitle="Configuration de la mise à niveau d’une application Service Fabric | Microsoft Azure"
+   description="Apprenez à configurer les paramètres de mise à niveau d'une application Service Fabric à l'aide de Microsoft Visual Studio."
    services="service-fabric"
    documentationCenter="na"
    authors="cawaMS"
@@ -15,69 +15,68 @@
    ms.date="07/29/2016"
    ms.author="cawa" />
 
+# Configuration de la mise à niveau d’une application Service Fabric dans Visual Studio
 
-# <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configure the upgrade of a Service Fabric application in Visual Studio
+Les outils Visual Studio pour Azure Service Fabric fournissent une prise en charge des mises à niveau pour la publication vers des clusters locaux ou distants. Le fait de mettre à niveau votre application vers une version plus récente au lieu de la remplacer durant les tests et le débogage présente deux avantages :
 
-Visual Studio tools for Azure Service Fabric provide upgrade support for publishing to local or remote clusters. There are two advantages to upgrading your application to a newer version instead of replacing the application during testing and debugging:
+- Les données d’application ne sont pas perdues lors de la mise à niveau.
+- La disponibilité reste élevée, car le service n’est pas interrompu au cours de la mise à niveau s’il y a suffisamment d’instances de service réparties sur plusieurs domaines de mise à niveau.
 
-- Application data won't be lost during the upgrade.
-- Availability remains high so there won't be any service interruption during the upgrade, if there are enough service instances spread across upgrade domains.
+Une application peut faire l’objet de tests pendant sa mise à niveau.
 
-Tests can be run against an application while it's being upgraded.
+## Paramètres nécessaires à la mise à niveau
 
-## <a name="parameters-needed-to-upgrade"></a>Parameters needed to upgrade
+Vous avez le choix entre deux types de déploiement : standard ou mise à niveau. Un déploiement standard efface les informations relatives à tout déploiement précédent ainsi que les données du cluster, tandis qu’un déploiement de mise à niveau les conserve. Lorsque vous mettez à niveau une application Service Fabric dans Visual Studio, vous devez fournir les paramètres de mise à niveau de l'application et les stratégies de contrôle d’intégrité. Les paramètres de mise à niveau de l’application permettent de contrôler la mise à niveau, tandis que les stratégies de contrôle d’intégrité déterminent si la mise à niveau a réussi. Pour en savoir plus, consultez [Mise à niveau d’une application Service Fabric : paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
 
-You can choose from two types of deployment: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade a Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade, while health check policies determine whether the upgrade was successful. See [Service Fabric application upgrade: upgrade parameters](service-fabric-application-upgrade-parameters.md) for more details.
+Il existe trois modes de mise à niveau : *Monitored*, *UnmonitoredAuto* et *UnmonitoredManual*.
 
-There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *UnmonitoredManual*.
+  - Une mise à niveau Monitored automatise la mise à niveau et le contrôle d’intégrité de l’application.
 
-  - A Monitored upgrade automates the upgrade and application health check.
+  - Une mise à niveau UnmonitoredAuto automatise la mise à niveau, mais ignore le contrôle d’intégrité de l’application.
 
-  - An UnmonitoredAuto upgrade automates the upgrade, but skips the application health check.
+  - Quand vous effectuez une mise à niveau UnmonitoredManual, vous devez mettre à niveau manuellement chaque domaine de mise à niveau.
 
-  - When you do an UnmonitoredManual upgrade, you need to manually upgrade each upgrade domain.
+Chaque mode de mise à niveau nécessite différents jeux de paramètres. Pour en savoir plus sur les options de mise à niveau disponibles, consultez [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md).
 
-Each upgrade mode requires different sets of parameters. See [Application upgrade parameters](service-fabric-application-upgrade-parameters.md) to learn more about the available upgrade options.
+## Mise à niveau d’une application Service Fabric dans Visual Studio
 
-## <a name="upgrade-a-service-fabric-application-in-visual-studio"></a>Upgrade a Service Fabric application in Visual Studio
+Si vous utilisez les outils Service Fabric de Visual Studio pour mettre à niveau une application Service Fabric, vous pouvez préciser si le processus de publication doit être une mise à niveau plutôt qu’un déploiement standard en cochant la case **Mettre à niveau l’application**.
 
-If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fabric application, you can specify a publish process to be an upgrade rather than a regular deployment by checking the **Upgrade the application** check box.
+### Pour configurer les paramètres de mise à niveau
 
-### <a name="to-configure-the-upgrade-parameters"></a>To configure the upgrade parameters
+1. Cliquez sur le bouton **Paramètres** en regard de la case à cocher. La boîte de dialogue **Modifier les paramètres de mise à niveau** s’affiche. La boîte de dialogue **Modifier les paramètres de mise à niveau** prend en charge les modes de mise à niveau Monitored, UnmonitoredAuto et UnmonitoredManual.
 
-1. Click the **Settings** button next to the check box. The **Edit Upgrade Parameters** dialog box appears. The **Edit Upgrade Parameters** dialog box supports the Monitored, UnmonitoredAuto, and UnmonitoredManual upgrade modes.
+2. Sélectionnez le mode de mise à niveau que vous souhaitez utiliser, puis remplissez la grille de paramètres.
 
-2. Select the upgrade mode that you want to use and then fill out the parameter grid.
+    Chaque paramètre a des valeurs par défaut. Le paramètre facultatif *DefaultServiceTypeHealthPolicy* accepte une entrée de table de hachage. Voici un exemple du format d'entrée de table de hachage pour *DefaultServiceTypeHealthPolicy* :
 
-    Each parameter has default values. The optional parameter *DefaultServiceTypeHealthPolicy* takes a hash table input. Here’s an example of the hash table input format for *DefaultServiceTypeHealthPolicy*:
-
-    ```
+	```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
+	```
+
+    *ServiceTypeHealthPolicyMap* est un autre paramètre facultatif qui acceptant une entrée de table de hachage au format suivant :
+
+	```    
+	@ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
+	```
+
+    Voici un exemple concret :
+
     ```
+	@{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
+	```
 
-    *ServiceTypeHealthPolicyMap* is another optional parameter that takes a hash table input in the following format:
+3. Si vous sélectionnez le mode de mise à niveau UnmonitoredManual, vous devrez démarrer manuellement une console PowerShell pour continuer et terminer le processus de mise à niveau. Pour en savoir plus sur le fonctionnement de la mise à niveau manuelle, consultez [Mise à niveau d’une application Service Fabric : rubriques avancées](service-fabric-application-upgrade-advanced.md).
 
-    ```    
-    @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
-    ```
+## Mettre à niveau une application à l’aide de PowerShell
 
-    Here's a real-life example:
+Vous pouvez utiliser les applets de commande PowerShell pour mettre à niveau une application Service Fabric. Pour plus d’informations, consultez [Didacticiel sur la mise à niveau d’une application Service Fabric](service-fabric-application-upgrade-tutorial.md) et [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx).
 
-    ```
-    @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
-    ```
+## Spécifier une stratégie de contrôle d’intégrité dans le fichier manifeste d’application
 
-3. If you select UnmonitoredManual upgrade mode, you must manually start a PowerShell console to continue and finish the upgrade process. Refer to [Service Fabric application upgrade: advanced topics](service-fabric-application-upgrade-advanced.md) to learn how manual upgrade works.
+Chaque service d’une application Service Fabric peut avoir ses propres paramètres de stratégie de contrôle d'intégrité, qui remplacent alors les valeurs par défaut. Vous pouvez définir les valeurs de ces paramètres dans le fichier manifeste d’application.
 
-## <a name="upgrade-an-application-by-using-powershell"></a>Upgrade an application by using PowerShell
-
-You can use PowerShell cmdlets to upgrade a Service Fabric application. See [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md) and [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx) for detailed information.
-
-## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Specify a health check policy in the application manifest file
-
-Every service in a Service Fabric application can have its own health policy parameters that override the default values. You can provide these parameter values in the application manifest file.
-
-The following example shows how to apply a unique health check policy for each service in the application manifest.
+L'exemple suivant montre comment appliquer une stratégie de contrôle d'intégrité unique pour chaque service du manifeste d'application.
 
 ```
 <Policies>
@@ -92,11 +91,7 @@ The following example shows how to apply a unique health check policy for each s
     </HealthPolicy>
 </Policies>
 ```
-## <a name="next-steps"></a>Next steps
-For more information about deploying an application, see [Deploy an existing application in Azure Service Fabric](service-fabric-deploy-existing-app.md).
+## Étapes suivantes
+Pour plus d'informations sur le déploiement d'une application, consultez la page [Déploiement d’une application existante dans Azure Service Fabric](service-fabric-deploy-existing-app.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

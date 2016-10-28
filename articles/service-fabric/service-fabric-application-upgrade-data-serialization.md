@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Application upgrade: data serialization | Microsoft Azure"
-   description="Best practices for data serialization and how it affects rolling application upgrades."
+   pageTitle="Mise à niveau d'une application : sérialisation des données | Microsoft Azure"
+   description="Meilleures pratiques pour la sérialisation de données et son impact sur le déploiement des mises à niveau d'applications."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,62 +13,57 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/19/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
+# Impact de la sérialisation des données sur la mise à niveau d’une application
 
-# <a name="how-data-serialization-affects-an-application-upgrade"></a>How data serialization affects an application upgrade
-
-In a [rolling application upgrade](service-fabric-application-upgrade.md), the upgrade is applied to a subset of nodes, one upgrade domain at a time. During this process, some upgrade domains will be on the newer version of your application, and some upgrade domains will be on the older version of your application. During the rollout, the new version of your application must be able to read the old version of your data, and the old version of your application must be able to read the new version of your data. If the data format is not forward and backward compatible, the upgrade may fail, or worse, data may be lost or corrupted. This article discusses what constitutes your data format and offers best practices for ensuring that your data is forward and backward compatible.
-
-
-## <a name="what-makes-up-your-data-format?"></a>What makes up your data format?
-
-In Azure Service Fabric, the data that is persisted and replicated comes from your C# classes. For applications that use [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), that is the objects in the reliable dictionaries and queues. For applications that use [Reliable Actors](service-fabric-reliable-actors-introduction.md), that is the backing state for the actor. These C# classes must be serializable to be persisted and replicated. Therefore, the data format is defined by the fields and properties that are serialized, as well as how they are serialized. For example, in an `IReliableDictionary<int, MyClass>` the data is a serialized `int` and a serialized `MyClass`.
-
-### <a name="code-changes-that-result-in-a-data-format-change"></a>Code changes that result in a data format change
-
-Since the data format is determined by C# classes, changes to the classes may cause a data format change. Care must be taken to ensure that a rolling upgrade can handle the data format change. Examples that may cause data format changes:
-
-- Adding or removing fields or properties
-- Renaming fields or properties
-- Changing the types of fields or properties
-- Changing the class name or namespace
-
-### <a name="data-contract-as-the-default-serializer"></a>Data Contract as the default serializer
-
-The serializer is generally responsible for reading the data and deserializing it into the current version, even if the data is in an older or *newer* version. The default serializer is the [Data Contract serializer](https://msdn.microsoft.com/library/ms733127.aspx), which has well-defined versioning rules. Reliable Collections allow the serializer to be overridden, but Reliable Actors currently do not. The data serializer plays an important role in enabling rolling upgrades. The Data Contract serializer is the serializer that we recommend for Service Fabric applications.
+Dans un [mise à niveau d'application propagée](service-fabric-application-upgrade.md), la mise à niveau est appliquée à un sous-ensemble de nœuds, à raison d'un domaine de mise à niveau à la fois. Pendant ce processus, certains domaines de mise à niveau se trouvent sur la version la plus récente de votre application, tandis que d'autres se trouvent sur la version antérieure. Pendant le déploiement, la nouvelle version de votre application doit être en mesure de lire l’ancienne version de vos données, tandis que l’ancienne version de votre application doit être à même de lire la nouvelle version de vos données. Si le format de données n’offre pas une compatibilité ascendante et descendante, la mise à niveau peut échouer ou, pire, des données peuvent être perdues ou endommagées. Cet article explique ce qui constitue le format de données et détaille les méthodes recommandées pour que les données offrent une compatibilité ascendante et descendante.
 
 
-## <a name="how-the-data-format-affects-a-rolling-upgrade"></a>How the data format affects a rolling upgrade
+## Qu'est-ce qui constitue le format de données ?
 
-During a rolling upgrade, there are two main scenarios where the serializer may encounter an older or *newer* version of your data:
+Dans Azure Service Fabric, les données qui sont rendues persistantes et répliquées proviennent de vos classes C#. Dans le cas des applications utilisant des [collections fiables](service-fabric-reliable-services-reliable-collections.md), il s’agit des objets qui se trouvent dans les files d’attente et les dictionnaires fiables. Dans le cas des applications utilisant [Reliable Actors](service-fabric-reliable-actors-introduction.md), il s’agit de l’état de sauvegarde de l’acteur. Ces classes C# doivent être sérialisables pour être persistantes et répliquées. Le format de données est donc défini par les champs et propriétés sérialisés, ainsi que par la manière dont ils sont sérialisés. Par exemple, dans un `IReliableDictionary<int, MyClass>`, les données sont un `int` sérialisé et un `MyClass` sérialisé.
 
-1. After a node is upgraded and starts back up, the new serializer will load the data that was persisted to disk by the old version.
-2. During the rolling upgrade, the cluster will contain a mix of the old and new versions of your code. Since replicas may be placed in different upgrade domains, and replicas send data to each other, the new and/or old version of your data may be encountered by the new and/or old version of your serializer.
+### Modifications du code résultant dans une modification du format de données
 
-> [AZURE.NOTE] The "new version" and "old version" here refer to the version of your code that is running. The "new serializer" refers to the serializer code that is executing in the new version of your application. The "new data" refers to the serialized C# class from the new version of your application.
+Le format de données étant déterminé par les classes C#, les modifications apportées aux classes peuvent entraîner une modification du format de données. Veillez à ce que la mise à niveau propagée puisse gérer la modification du format de données. Exemples d'opérations pouvant entraîner une modification du format de données :
 
-The two versions of code and data format must be both forward and backward compatible. If they are not compatible, the rolling upgrade may fail or data may be lost. The rolling upgrade may fail because the code or serializer may throw exceptions or a fault when it encounters the other version. Data may be lost if, for example, a new property was added but the old serializer discards it during deserialization.
+- Ajout ou suppression de champs ou de propriétés
+- Modification du nom d'un champ ou d'une propriété
+- Modification des types de champs ou de propriétés
+- Modification du nom de la classe ou de l'espace de noms
 
-Data Contract is the recommended solution for ensuring that your data is compatible. It has well-defined versioning rules for adding, removing, and changing fields. It also has support for dealing with unknown fields, hooking into the serialization and deserialization process, and dealing with class inheritance. For more information, see [Using Data Contract](https://msdn.microsoft.com/library/ms733127.aspx).
+### Le contrat de données est le sérialiseur par défaut.
 
-
-## <a name="next-steps"></a>Next steps
-
-[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
-
-[Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
-
-Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
-
-Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
-
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
+Le sérialiseur est généralement chargé de lire les données et de les désérialiser dans la version actuelle, même si les données sont dans une version antérieure ou *plus récente*. Le sérialiseur par défaut est le [sérialiseur de contrat de données](https://msdn.microsoft.com/library/ms733127.aspx), qui possède des règles de gestion de version bien définies. Les collections fiables permettent la substitution du sérialiseur, contrairement à Reliable Actors. Le sérialiseur de données joue un rôle important dans l'activation des mises à niveau propagées. Le sérialiseur de contrat de données est le sérialiseur recommandé pour les applications Service Fabric.
 
 
+## Impact du format de données sur la mise à niveau propagée
 
-<!--HONumber=Oct16_HO2-->
+Pendant une mise à niveau propagée, il existe deux scénarios principaux où le sérialiseur peut rencontrer une version antérieure ou *plus récente* de vos données :
+
+1. Une fois qu'un nœud est mis à niveau et démarre la sauvegarde, le nouveau sérialiseur charge les données qui ont été rendues persistantes sur le disque par l'ancienne version.
+2. Au cours de la mise à niveau propagée, le cluster contiendra une combinaison des versions ancienne et nouvelle de votre code. Dans la mesure où les réplicas peuvent être placés dans différents domaines de mise à niveau, et que les réplicas s’envoient mutuellement des données, les versions anciennes et/ou nouvelles de vos données peuvent être rencontrées par la nouvelle et/ou ancienne version de votre sérialiseur.
+
+> [AZURE.NOTE] « nouvelle version » et « ancienne version » font ici référence à la version de votre code en cours d'exécution. Le terme « nouveau sérialiseur » fait référence au code de sérialiseur s’exécutant dans la nouvelle version de votre application. « nouvelles données » fait référence à la classe C# sérialisée issue de la nouvelle version de votre application.
+
+Les deux versions de format de données et de code doivent être mutuellement compatibles. Si elles ne le sont pas, la mise à niveau propagée risque d'échouer ou des données peuvent être perdues. La mise à niveau propagée risque d’échouer, car le code ou le sérialiseur peut lever des exceptions ou une erreur quand il rencontre l’autre version. Des données peuvent être perdues si, par exemple, une nouvelle propriété a été ajoutée, mais que l'ancien sérialiseur l'ignore pendant la désérialisation.
+
+Le contrat de données est la solution recommandée pour s’assurer de la compatibilité des données. Il possède des règles de gestion de version bien définies pour l'ajout, la suppression et la modification de champs. En outre, il prend en charge les champs inconnus, avec raccordement au processus de sérialisation et de désérialisation, ainsi que l’héritage de classe. Pour plus d'informations, consultez la page [Utilisation du contrat de données](https://msdn.microsoft.com/library/ms733127.aspx).
 
 
+## Étapes suivantes
+
+La [mise à niveau de votre application à l'aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l'application à l'aide de Visual Studio.
+
+La [mise à niveau de votre application à l'aide de Powershell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l'application à l'aide de PowerShell.
+
+Contrôlez les mises à niveau de votre application à l'aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
+
+Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
+
+Résolvez les problèmes courants de mise à niveau de l'application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
+
+<!---HONumber=AcomDC_0713_2016-->

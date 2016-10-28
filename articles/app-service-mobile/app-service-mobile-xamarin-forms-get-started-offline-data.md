@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Enable offline sync for your Azure Mobile App (Xamarin.Forms) | Microsoft Azure"
-    description="Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin.Forms application"
+    pageTitle="Activation de la synchronisation hors connexion pour votre application Azure Mobile App (Xamarin.Forms) | Microsoft Azure"
+    description="Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Xamarin.Forms"
     documentationCenter="xamarin"
-    authors="adrianhall"
-    manager="yochayk"
+    authors="ggailey777"
+    manager="erikre"
     editor=""
     services="app-service\mobile"/>
 
@@ -13,56 +13,57 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="adrianha"/>
+	ms.date="06/18/2016"
+    ms.author="glenga"/>
 
-
-# <a name="enable-offline-sync-for-your-xamarin.forms-mobile-app"></a>Enable offline sync for your Xamarin.Forms mobile app
+# Activer la synchronisation hors connexion pour votre application mobile Xamarin.Forms
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Overview
-This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamarin.Forms. Offline sync allows end users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote service.
+## Vue d'ensemble
+Ce didacticiel présente la fonctionnalité de synchronisation hors connexion d’Azure Mobile Apps pour Xamarin.Forms. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le service distant.
 
-This tutorial is based on the Xamarin.Forms quickstart solution for Mobile Apps that you create when you complete the tutorial [Create a Xamarin iOS app]. The quickstart solution for Xamarin.Forms contains the code to support offline sync, which just needs to be enabled. In this tutorial, you update the quickstart solution to turn on the offline features of Azure Mobile Apps. We also highlight the offline-specific code in the app. If you do not use the downloaded quickstart solution, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps][1].
+Ce didacticiel est basé sur la solution de démarrage rapide de Xamarin.Forms pour les applications mobiles créées en suivant le didacticiel [Création d’une application Xamarin iOS]. La solution de démarrage rapide de Xamarin.Forms contient le code de prise en charge de la synchronisation hors connexion, qui doit simplement être activé. Dans ce didacticiel, vous allez mettre à jour la solution de démarrage rapide pour activer les fonctionnalités hors connexion d’Azure Mobile Apps. Vous allez également en savoir plus sur le code hors connexion spécifique dans l’application. Si vous n’utilisez pas la solution de démarrage rapide téléchargée, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps][2].
+Pour plus d’informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
-## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>Enable offline sync functionality in the quickstart solution
+## Activer la fonctionnalité de synchronisation hors connexion dans la solution de démarrage rapide
 
-The offline sync code is included in the project by using C# preprocessor directives. When the **OFFLINE\_SYNC\_ENABLED** symbol is defined, these code paths are included in the build. For Windows apps, you must also install the SQLite platform.
+Le code de synchronisation hors connexion est inclus dans le projet à l’aide de directives de préprocesseur C#. Lorsque le symbole **OFFLINE\_SYNC\_ENABLED** est défini, ces chemins de code sont inclus dans la build. Pour les applications Windows, vous devez également installer la plateforme SQLite.
 
-1. In Visual Studio, right-click the solution > **Manage NuGet Packages for Solution...**, then search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package for all projects in the solution.
+1. Dans Visual Studio, cliquez sur la solution > **Gérer les packages NuGet pour la solution...**, puis recherchez et installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** pour tous les projets dans la solution.
 
-2. In the Solution Explorer, open the TodoItemManager.cs file from the project with **Portable** in the name, which is Portable Class Library project, then uncomment the following preprocessor directive:
+2. Dans l’Explorateur de solutions, ouvrez le fichier TodoItemManager.cs du projet comportant **Portable** dans son nom (projet de bibliothèque de classes portables), puis supprimez les marques de commentaire de la directive de préprocesseur suivante :
 
-        #define OFFLINE_SYNC_ENABLED
+		#define OFFLINE_SYNC_ENABLED
 
-3. In the Solution Explorer, open the TodoList.xaml.cs file from the **Portable** project, locate the **OnAppearing** method, and make sure that `true` is passed for *syncItems* when calling **RefreshItems**, as follows:
+3. Dans l’Explorateur de solutions, ouvrez le fichier TodoList.xaml.cs du projet **Portable**, recherchez la méthode **OnAppearing** et assurez-vous que la valeur `true` est transmise pour *syncItems* lors de l’appel de **RefreshItems**, comme suit :
 
-        await RefreshItems(true, syncItems: true);
+		await RefreshItems(true, syncItems: true);
+	Cela signifie que l’application tente de se synchroniser avec le serveur principal lorsqu’elle démarre.
+ 
+4. (Facultatif) Si vous prenez en charge les appareils iOS, ouvrez le fichier AppDelegate.cs du projet **iOS** et supprimez les marques de commentaire de la ligne de code suivante dans la méthode **FinishedLaunching** :
 
-    The app attempts to sync with the backend when it starts.
+		SQLitePCL.CurrentPlatform.Init();
 
-5. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
+	Cette opération initialise le magasin SQLite sur les appareils iOS. Les tâches restantes sont uniquement requises pour prendre en charge des appareils Windows.
 
-    * **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1][3].
-    * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1][4].
-    * **Universal Windows Platform** Install [SQLite for the Universal Windows Universal][5].
+5. (Facultatif) Pour prendre en charge des appareils Windows, installez l’un des packages runtime SQLite suivants :
 
-    Although the quickstart does not contain a Universal Windows project, the Universal Windows platform is supported with Xamarin Forms.
+	* **Windows 8.1 Runtime :** installez [SQLite pour Windows 8.1](http://go.microsoft.com/fwlink/p/?LinkID=716919).
+    * **Windows Phone 8.1 :** installez [SQLite for Windows Phone 8.1](http://go.microsoft.com/fwlink/p/?LinkID=716920).
+    * **Plateforme Windows universelle** : installez [SQLite pour plateforme Windows universelle](http://sqlite.org/2016/sqlite-uwp-3120200.vsix). Pour le moment, le démarrage rapide ne comprend pas de projet UWP (plateforme Windows universelle).
 
-6. (Optional) In each Windows app project, right-click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**.
-    Enable the appropriate **SQLite for Windows** SDK along with the **Visual C++ 2013 Runtime for Windows** SDK.
-    The SQLite SDK names vary slightly with each Windows platform.
+6. (Facultatif) Dans chaque projet d’application Windows, cliquez avec le bouton droit sur **Références** > **Ajouter une référence**, développez le dossier **Windows** > **Extensions**, puis activez le Kit de développement logiciel (SDK) **SQLite pour Windows Runtime** approprié en même temps que le SDK **Runtime Visual C++ 2013 pour Windows**. Notez que les noms de SDK SQLite varient légèrement en fonction de la plate-forme Windows utilisée. Pour un projet UWP, installez le SDK **Runtime Visual C++ 2015 pour les applications de la plateforme Windows universelle**.
 
-## <a name="review-the-client-sync-code"></a>Review the client sync code
 
-Here is a brief overview of what is already included in the tutorial code inside the `#if OFFLINE_SYNC_ENABLED` directives. The offline sync functionality is in the TodoItemManager.cs project file in the Portable Class Library project. For a conceptual overview of the feature, see [Offline Data Sync in Azure Mobile Apps][2].
+## Examiner le code de synchronisation client
 
-* Before any table operations can be performed, the local store must be initialized. The local store database is initialized in the **TodoItemManager** class constructor by using the following code:
+Voici un bref aperçu de ce qui est déjà inclus dans le code du didacticiel au sein des directives `#if OFFLINE_SYNC_ENABLED`. Notez que la fonctionnalité de synchronisation hors connexion se trouve dans le fichier TodoItemManager.cs du projet de bibliothèque de classes portables. Pour obtenir une vue d’ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
-        var store = new MobileServiceSQLiteStore(OfflineDbPath);
+* Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. La base de données du magasin local est initialisée dans le constructeur de classe **TodoItemManager** en utilisant le code suivant :
+
+	    var store = new MobileServiceSQLiteStore("localstore.db");
         store.DefineTable<TodoItem>();
 
         //Initializes the SyncContext using the default IMobileServiceSyncHandler.
@@ -70,15 +71,13 @@ Here is a brief overview of what is already included in the tutorial code inside
 
         this.todoTable = client.GetSyncTable<TodoItem>();
 
-    This code creates a new local SQLite database using the **MobileServiceSQLiteStore** class.
+	Ce code crée une nouvelle base de données SQLite locale à l’aide de la classe **MobileServiceSQLiteStore**. La méthode **DefineTable** crée une table dans le magasin local qui correspond aux champs dans le type fourni (ici, `ToDoItem`). Ce type n’a pas besoin d’inclure toutes les colonnes qui se trouvent dans la base de données distante. Il est possible de stocker uniquement un sous-ensemble de colonnes.
 
-    The **DefineTable** method creates a table in the local store that matches the fields in the provided type.  The type doesn't have to include all the columns that are in the remote database. It is possible to store a subset of columns.
+* Le champ **todoTable** dans **TodoItemManager** est un type **IMobileServiceSyncTable** au lieu du type **IMobileServiceTable**. Cette classe utilise la base de données locale pour toutes les opérations de table CRUD (Create, Read, Update et Delete). Vous décidez à quel moment ces modifications sont envoyées au serveur principal Mobile App en appelant **PushAsync** sur le type **IMobileServiceSyncContext** utilisé par le client. Le contexte de synchronisation permet de conserver les relations entre les tables grâce au suivi et à l’envoi des modifications dans toutes les tables qu’une application cliente modifie quand **PushAsync** est appelé.
 
-* The **todoTable** field in **TodoItemManager** is an **IMobileServiceSyncTable** type instead of **IMobileServiceTable**. This class uses the local database for all create, read, update, and delete (CRUD) table operations. You decide when those changes are pushed to the Mobile App backend by calling **PushAsync** on the **IMobileServiceSyncContext**. The sync context helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when **PushAsync** is called.
+	La méthode **SyncAsync** suivante est appelée pour la synchronisation avec le serveur principal Mobile App :
 
-    The following **SyncAsync** method is called to sync with the Mobile App backend:
-
-        public async Task SyncAsync()
+		public async Task SyncAsync()
         {
             ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
 
@@ -98,7 +97,7 @@ Here is a brief overview of what is already included in the tutorial code inside
                 }
             }
 
-            // Simple error/conflict handling.
+            // Simple error/conflict handling. 
             if (syncErrors != null)
             {
                 foreach (var error in syncErrors)
@@ -115,76 +114,86 @@ Here is a brief overview of what is already included in the tutorial code inside
                     }
 
                     Debug.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.",
-                        error.TableName, error.Item["id"]);
+						error.TableName, error.Item["id"]);
                 }
             }
         }
 
-    This sample uses simple error handling with the default sync handler. A real application would handle the various errors like network conditions and server conflicts by using a custom **IMobileServiceSyncHandler** implementation.
+	Cet exemple utilise la gestion simple des erreurs avec le gestionnaire de synchronisation par défaut. Une application réelle gèrerait les différentes erreurs telles que les conditions du réseau, les conflits de serveur et autres à l’aide d’une implémentation personnalisée de **IMobileServiceSyncHandler**.
 
-## <a name="offline-sync-considerations"></a>Offline sync considerations
+##Considérations relatives à la synchronisation hors connexion
 
-In the sample, the **SyncAsync** method is only called on start-up and when a sync is requested.  To initiate a sync in an Android or iOS app, pull down on the items list; for Windows, use the **Sync** button. In a real-world application, you could also make the sync trigger when the network state changes.
+Dans l’exemple, la méthode **SyncAsync** est appelée uniquement au démarrage et lorsqu’une synchronisation est spécifiquement demandée. Pour lancer la synchronisation dans une application Android ou iOS, extrayez la liste des éléments ; pour Windows, utilisez le bouton **Synchronisation**. Dans une application réelle, vous pourriez également provoquer le déclenchement de la fonctionnalité de synchronisation lorsque l’état du réseau change.
 
-When a pull is executed against a table that has pending local updates tracked by the context, that pull operation automatically triggers a preceding context push. When refreshing, adding, and completing items in this sample, you can omit the explicit **PushAsync** call.
+Si une extraction est exécutée sur une table qui comporte des mises à jour locales en attente faisant l’objet d’un suivi en fonction du contexte, cette opération déclenche automatiquement un envoi préalable sur le contexte. Lors de l’actualisation, de l’ajout et de l’achèvement des éléments dans cet exemple, vous pouvez omettre l’appel explicite de **PushAsync**, puisqu’il est redondant.
 
-In the provided code, all records in the remote TodoItem table are queried, but it is also possible to filter records by passing a query id and query to **PushAsync**. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
+Dans le code fourni, tous les enregistrements de la table TodoItem distante sont interrogés, mais il est également possible de filtrer les enregistrements en transmettant un ID de requête et une requête à **PushAsync**. Pour plus d’informations, consultez la section *Synchronisation incrémentielle* dans [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
-## <a name="run-the-client-app"></a>Run the client app
 
-With offline sync now enabled, run the client application at least once on each platform to populate the local store database. Later, simulate an offline scenario and modify the data in the local store while the app is offline.
+## Exécuter l’application cliente
 
-## <a name="update-the-sync-behavior-of-the-client-app"></a>Update the sync behavior of the client app
+Maintenant que la synchronisation hors connexion est activée, vous pouvez exécuter l’application cliente au moins une fois sur chaque plateforme pour remplir la base de données du magasin local. Ensuite, vous allez simuler un scénario hors connexion et modifier les données du magasin local pendant que l’application est hors connexion.
 
-In this section, modify the client project to simulate an offline scenario by using an invalid application URL for your backend. Alternatively, you can turn off network connections by moving your device to "Airplane mode."  When you add or change data items, these changes are held in the local store, but not synced to the backend data store until the connection is re-established.
+## Mettre à jour le comportement de synchronisation de l’application cliente
 
-1. In the Solution Explorer, open the Constants.cs project file from the **Portable** project and change the value of `ApplicationURL` to point to an invalid URL:
+Dans cette section, vous allez modifier le projet client pour simuler un scénario hors connexion à l’aide d’une URL d’application non valide pour votre backend. Quand vous ajoutez ou modifiez des éléments de données, ces modifications sont conservées dans le magasin local, mais ne sont synchronisées avec le magasin de données principal qu’une fois la connexion rétablie.
 
-        public static string ApplicationURL = @"https://your-service.azurewebsites.net/";
+2. Dans l’Explorateur de solutions, ouvrez le fichier Constants.cs dans le projet **Portable** et changez la valeur de `ApplicationURL` pour pointer vers une URL non valide, comme suit :
 
-2. Open the TodoItemManager.cs file from the **Portable** project, then add a **catch** for the base **Exception** class to the **try...catch** block in **SyncAsync**. This **catch** block writes the exception message to the console, as follows:
+        publis static string ApplicationURL = @"https://your-service.azurewebsites.xxx/";
+
+
+2. Ouvrez le fichier TodoItemManager.cs du projet **Portable**, puis ajoutez un **catch** supplémentaire pour la classe **Exception** de base au bloc **try... catch** dans **SyncAsync**. Ce bloc **catch** écrit le message d’exception dans la console, comme suit :
 
             catch (Exception ex)
             {
                 Console.Error.WriteLine(@"Exception: {0}", ex.Message);
             }
 
-3. Build and run the client app.  Add some new items. Notice that an exception is logged in the console for each attempt to sync with the backend. These new items exist only in the local store until they can be pushed to the mobile backend. The client app behaves as if it is connected to the backend, supporting all create, read, update, delete (CRUD) operations.
+3. Créez et exécutez l’application cliente, ajoutez de nouveaux éléments et notez l’exception consignée dans la console pour chaque tentative de synchronisation avec le serveur principal. Ces nouveaux éléments se trouvent uniquement dans le magasin local jusqu’à ce qu’ils puissent être transmis par push vers le backend mobile. L’application cliente se comporte comme si elle est connectée au backend et prend en charge toutes les opérations de création, lecture, mise à jour et suppression.
 
-4. Close the app and restart it to verify that the new items you created are persisted to the local store.
+4. Fermez l’application et redémarrez-la pour vérifier que les nouveaux élément que vous avez créés sont conservés dans le magasin local.
 
-5. (Optional) Use Visual Studio to view your Azure SQL Database table to see that the data in the backend database has not changed.
+5. (Facultatif) À l’aide de Visual Studio, affichez votre table Azure SQL Database pour constater que les données dans la base de données principale n’ont pas changé.
 
-    In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents.
+	Dans Visual Studio, ouvrez l'**Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu.
 
-## <a name="update-the-client-app-to-reconnect-your-mobile-backend"></a>Update the client app to reconnect your mobile backend
 
-In this section, reconnect the app to the mobile backend, which simulates the app coming back to an online state. When you perform the refresh gesture, data is synced to your mobile backend.
+## Mettre à jour l’application cliente pour reconnecter votre backend mobile
 
-1. Reopen Constants.cs. Correct the `applicationURL` to point to the correct URL.
+Dans cette section, vous allez reconnecter l'application au backend mobile, ce qui simule le retour de l'application à un état en ligne. Quand vous effectuez le mouvement d'actualisation, les données sont synchronisées avec votre backend mobile.
 
-2. Rebuild and run the client app. The app attempts to sync with the mobile app backend after launching. Verify that no exceptions are logged in the debug console.
+1. Rouvrez le fichier Constants.cs, puis corrigez `applicationURL` pour pointer vers l’URL correcte.
 
-3. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler or [Postman][6]. Notice the data has been synchronized between the backend database and the local store.
+2. Régénérez et exécutez l’application cliente. Après son lancement, l’application tente une synchronisation avec le serveur principal Mobile App. Vérifiez qu’aucune exception n’est consignée dans la console de débogage.
 
-    Notice the data has been synchronized between the database and the local store and contains the items you added while your app was disconnected.
+3. (Facultatif) Affichez les données mises à jour à l’aide de l’Explorateur d’objets SQL Server ou d’un outil REST tel que Fiddler. Notez que les données n’ont pas été synchronisées entre la base de données du serveur principal et le magasin local.
 
-## <a name="additional-resources"></a>Additional Resources
+    Notez que les données ont été synchronisées entre la base de données et le magasin local et qu’elles contiennent les éléments que vous avez ajoutés pendant que votre application était déconnectée.
 
-* [Offline Data Sync in Azure Mobile Apps][2]
-* [Azure Mobile Apps .NET SDK HOWTO][8]
+## Ressources supplémentaires
+
+* [Synchronisation des données hors connexion dans Azure Mobile Apps]
+
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+
+<!-- ##Summary
+
+[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../../includes/mobile-services-offline-summary-csharp.md)]
+
+## Next steps
+
+* [Handling conflicts with offline support for Mobile Services]
+
+* [How to use the Xamarin Component client for Azure Mobile Services]
+ -->
+
+<!-- Images -->
 
 <!-- URLs. -->
-[1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[2]: app-service-mobile-offline-data-sync.md
-[3]: http://go.microsoft.com/fwlink/p/?LinkID=716919
-[4]: http://go.microsoft.com/fwlink/p/?LinkID=716920
-[5]: http://sqlite.org/2016/sqlite-uwp-3120200.vsix
-[6]: https://www.getpostman.com/
-[7]: http://www.telerik.com/fiddler
-[8]: app-service-mobile-dotnet-how-to-use-client-library.md
+[Création d’une application Xamarin iOS]: app-service-mobile-xamarin-ios-get-started.md
+[Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
+[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

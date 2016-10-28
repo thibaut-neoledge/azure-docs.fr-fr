@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshooting with event tracing | Microsoft Azure"
-   description="The most common issues encountered while deploying services on Microsoft Azure Service Fabric."
+   pageTitle="Résolution des problèmes avec le suivi d’événements | Microsoft Azure"
+   description="Problèmes les plus courants rencontrés lors du déploiement de services sur Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="mattrowmsft"
@@ -17,43 +17,36 @@
    ms.author="mattrow"/>
 
 
+# Résoudre les problèmes courants rencontrés pendant le déploiement de services dans Azure Service Fabric
 
-# <a name="troubleshoot-common-issues-when-you-deploy-services-on-azure-service-fabric"></a>Troubleshoot common issues when you deploy services on Azure Service Fabric
+Lors de l'exécution de services sur votre ordinateur de développement, il est facile d’utiliser les [outils de dépannage de Visual Studio](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Pour les clusters à distance, [les rapports d'intégrité](service-fabric-view-entities-aggregated-health.md) sont toujours un bon point de départ. Le plus simple pour accéder à ces rapports est de passer par PowerShell ou [SFX](service-fabric-visualizing-your-cluster.md). Cet article suppose que vous résolvez les problèmes d’un cluster à distance et que vous avez des notions de base concernant l'utilisation de l’un de ces outils.
 
-When you're running services on your developer computer, it is easy to use [Visual Studio's debugging tools](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). For remote clusters, [health reports](service-fabric-view-entities-aggregated-health.md) are always a good place to start. The easiest ways to access these reports are through PowerShell or [SFX](service-fabric-visualizing-your-cluster.md). This article assumes that you are debugging a remote cluster and have a basic understanding of how to use either of these tools.
+##Blocage d'application
+Le rapport « La partition présente un nombre de réplicas ou d’instances inférieur à la valeur cible » est un bon moyen de savoir que votre service se bloque. Pour savoir où votre service se bloque, cela demande un peu plus d’investigation. Lors d’une exécution de votre service à grande l'échelle, votre meilleur ami est un ensemble de traces bien planifiées. Nous vous suggérons d’essayer les [diagnostics Azure](service-fabric-diagnostics-how-to-setup-wad.md) pour collecter ces traces et d’utiliser une solution comme [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) pour afficher et rechercher les traces.
 
-##<a name="application-crash"></a>Application crash
-The "Partition is below target replica or instance count" report is a good indication that your service is crashing. To find out where your service is crashing takes a little more investigation. When your service is running at scale, your best friend will be a set of well-thought-out traces.  We suggest that you try [Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) for collecting those traces and using a solution such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) for viewing and searching the traces.
+![Intégrité de la partition SFX](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
 
-![SFX Partition Health](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
-
-###<a name="during-service-or-actor-initialization"></a>During service or actor initialization
-Any exceptions before the service type is initialized will cause the process to crash. For these types of crashes, the application event log will show the error from your service.
-These are the most common exceptions to see before the service is initialized.
+###Au cours de l’initialisation du service ou de l’acteur
+Toutes les exceptions qui surviennent avant l’initialisation du type de service entraînent le blocage du processus. Pour ces types de blocage, le journal d’événements des applications affiche l'erreur à partir de votre service. Il s'agit des exceptions les plus courantes qui se produisent avant l’initialisation du service.
 
 ***System.IO.FileNotFoundException***
 
-This error is often due to missing assembly dependencies. Check the CopyLocal property in Visual Studio or the global assembly cache for the node.
+Cette erreur est souvent due à des dépendances d'assembly manquantes. Vérifiez la propriété CopyLocal dans Visual Studio ou dans le Global Assembly Cache (GAC) pour le nœud.
 
-***System.Runtime.InteropServices.COMException***
- *at System.Fabric.Interop.NativeRuntime+IFabricRuntime.RegisterStatefulServiceFactory(IntPtr, IFabricStatefulServiceFactory)*
+***System.Runtime.InteropServices.COMException*** *at System.Fabric.Interop.NativeRuntime+IFabricRuntime.RegisterStatefulServiceFactory(IntPtr, IFabricStatefulServiceFactory)*
  
- This indicates that the registered service type name does not match the service manifest.
+ Cette erreur indique que le nom du type de service inscrit ne correspond pas au manifeste du service.
 
-[Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) can be configured to upload the application event log for all your nodes automatically.
+Les [diagnostics Azure](service-fabric-diagnostics-how-to-setup-wad.md) peuvent être configurés pour télécharger le journal d’événements des applications pour tous les nœuds automatiquement.
 
-###<a name="runasync()-or-onactivateasync()"></a>RunAsync() or OnActivateAsync()
-If the crash happens during the initialization or running of your registered service type or actor, the exception will be caught by Azure Service Fabric. You can view these from the EventSource providers detailed in the "Next steps" section.
+###RunAsync() or OnActivateAsync()
+Si le blocage se produit pendant l'initialisation ou l'exécution de votre type de service ou acteur inscrit, l'exception est interceptée par Azure Service Fabric. Vous pouvez l’afficher à partir des fournisseurs EventSource détaillés dans la section « Étapes suivantes ».
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-Learn more about existing diagnostics provided by Service Fabric:
+En savoir plus sur les diagnostics existants fournis par Service Fabric :
 
-* [Reliable Actors diagnostics](service-fabric-reliable-actors-diagnostics.md)
-* [Reliable Services diagnostics](service-fabric-reliable-services-diagnostics.md)
+* [Diagnostics Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* [Diagnostics Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016-->

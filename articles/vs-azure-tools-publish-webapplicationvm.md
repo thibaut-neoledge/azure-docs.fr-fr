@@ -1,6 +1,6 @@
 <properties
    pageTitle="Publish-WebApplicationVM | Microsoft Azure"
-   description="Learn how to deploy a web application to a virtual machine. This script creates the required resources in your Azure subscription if they don't exist."
+   description="Découvrez comment déployer une application web sur une machine virtuelle. Ce script crée les ressources requises dans votre abonnement Azure si elles n’existent pas."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,10 +15,9 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Publish-WebApplicationVM (script Windows PowerShell)
 
-# <a name="publish-webapplicationvm-(windows-powershell-script)"></a>Publish-WebApplicationVM (Windows PowerShell script)
-
-Deploys a web application to a virtual machine. The script creates the required resources in your Azure subscription if they don't exist.
+Déploie une application web sur un ordinateur virtuel. Le script crée les ressources requises dans votre abonnement Azure si elles n’existent pas.
 
 ```
 Publish-WebApplicationVM
@@ -31,95 +30,95 @@ Publish-WebApplicationVM
 -Verbose
 ```
 
-### <a name="configuration"></a>Configuration
+### Configuration
 
-The path to the JSON configuration file that describes the details of the deployment.
+Le chemin d'accès au fichier de configuration JSON qui décrit les détails du déploiement.
 
-|Aliases|none|
+|Alias|(aucun)|
 |---|---|
-|Required?|true|
+|Requis ?|true|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|(aucun)|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-### <a name="subscriptionname"></a>SubscriptionName
+### SubscriptionName
 
-The name of the Azure subscription in which you want to create the virtual machine.
+Nom de l’abonnement Azure dans lequel vous souhaitez créer la machine virtuelle.
 
-|Aliases|none|
+|Alias|(aucun)|
 |---|---|
-|Required?|false|
+|Requis ?|false|
 |Position|named|
-|Default value|Uses the first subscription in the subscription file|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|Utilise le premier abonnement dans le fichier d’abonnement|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-### <a name="webdeploypackage"></a>WebDeployPackage
+### WebDeployPackage
 
-The path to the web deployment package to publish to the virtual machine. You can create this package by using the Publish Web wizard in Visual Studio. See [How to: Create a Web Deployment Package in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
+Le chemin d’accès au package de déploiement web à publier sur la machine virtuelle. Vous pouvez créer ce package à l'aide de l'Assistant Publier le site web dans Visual Studio. Consultez [Création d’un package de déploiement web dans Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
-|Aliases|none|
+|Alias|(aucun)|
 |---|---|
-|Required?|false|
+|Requis ?|false|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|(aucun)|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-### <a name="allowuntrusted"></a>AllowUntrusted
+### AllowUntrusted
 
-If true, allow the use of certificates that aren't signed by a trusted root authority.
+Si la valeur est true, autorise l’utilisation de certificats qui ne sont pas signés par une autorité racine approuvée.
 
-|Aliases|none|
+|Alias|(aucun)|
 |---|---|
-|Required?|false|
+|Requis ?|false|
 |Position|named|
-|Default value|false|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|false|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-### <a name="vmpassword"></a>VMPassword
+### VMPassword
 
-The credentials for the virtual machine account. Example: -VMPassword @{Name = "admin"; Password = "password"}
+Informations d’identification de votre compte de machine virtuelle. Exemple : -VMPassword @{Name = "admin"; Password = "mdp"}
 
-|Aliases|none|
+|Alias|(aucun)|
 |---|---|
-|Required?|false|
+|Requis ?|false|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|(aucun)|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-### <a name="databaseserverpassword"></a>DatabaseServerPassword
+### DatabaseServerPassword
 
-The credentials for the SQL database in Azure. Example: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
+Informations d’identification de la base de données SQL Azure. Exemple : -DatabaseServerPassword @{Name = "admin"; Password = "mdp"}
 
-|Aliases|none|
+|Alias|(aucun)|
 |---|---|
-|Required?|false|
+|Requis ?|false|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|(aucun)|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
+### SendHostMessagesToOutput
 
-If true, print messages from the script to the output stream.
+Si true, imprime des messages à partir du script dans le flux de sortie.
 
-|Aliases|none|
+|Alias|(aucun)|
 |---|---|
-|Required?|false|
+|Requis ?|false|
 |Position|named|
-|Default value|false|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|false|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-## <a name="remarks"></a>Remarks
+## Remarques
 
-For a complete explanation of how to use the script to create Dev and Test environments, see [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](vs-azure-tools-publishing-using-powershell-scripts.md).
+Pour obtenir une explication complète de la façon d'utiliser le script pour créer des environnements de développement et de test, consultez [Utilisation des scripts Windows PowerShell pour la publication dans des environnements de développement et de test](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-The JSON configuration file specifies the details of what is to be deployed. It includes the information that you specified when you created the project, such as the name, affinity group, VHD image, and size of the virtual machine. It also includes the endpoints on the virtual machine, the databases to provision, if any, and web deployment parameters. The following code shows an example JSON configuration file:
+Le fichier de configuration JSON spécifie les détails de ce qui doit être déployé. Il inclut les informations que vous avez spécifiées lorsque vous avez créé le projet, comme le nom, le groupe d’affinités, l’image VHD et la taille de la machine virtuelle. Il inclut également les points de terminaison sur la machine virtuelle, les bases de données à configurer, le cas échéant, et les paramètres de déploiement web. Le code suivant montre un exemple de fichier de configuration JSON :
 
 ```
 {
@@ -188,10 +187,6 @@ The JSON configuration file specifies the details of what is to be deployed. It 
 }
 ```
 
-You can edit the JSON configuration file to change what is provisioned. A virtual machine and a cloud service are required, but the database section is optional.
+Vous pouvez modifier le fichier de configuration JSON pour modifier ce qui est configuré. Une machine virtuelle et un service cloud sont requis, mais la section de la base de données est facultative.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

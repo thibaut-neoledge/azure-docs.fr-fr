@@ -1,165 +1,160 @@
 <properties
-    pageTitle="Virtual Machine Scale Sets Overview | Microsoft Azure"
-    description="Learn more about Virtual Machine Scale Sets"
-    services="virtual-machine-scale-sets"
-    documentationCenter=""
-    authors="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Présentation des groupes de machines virtuelles identiques | Microsoft Azure"
+	description="En savoir plus sur les groupes de machines virtuelles identiques"
+	services="virtual-machine-scale-sets"
+	documentationCenter=""
+	authors="gbowerman"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machine-scale-sets"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/13/2016"
-    ms.author="guybo"/>
+	ms.service="virtual-machine-scale-sets"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/13/2016"
+	ms.author="guybo"/>
 
+# Présentation des groupes de machines virtuelles identiques
 
-# <a name="virtual-machine-scale-sets-overview"></a>Virtual Machine Scale Sets Overview
+Les groupes de machines virtuelles identiques sont des ressources Azure Compute que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques. Avec toutes les machines virtuelles configurées de la même façon, les groupes de machines virtuelles identiques sont conçus pour prendre en charge une véritable mise à l’échelle automatique (aucun préapprovisionnement de machine virtuelle n’est nécessaire) et faciliter ainsi la création de services à grande échelle pour le big compute, le big data et les charges de travail en conteneurs.
 
-Virtual machine scale sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs is required – and as such makes it easier to build large-scale services targeting big compute, big data, and containerized workloads.
+Pour les applications nécessitant une mise à l’échelle des ressources de calcul internes et externes, les opérations de mise à l’échelle sont équilibrées de façon implicite sur plusieurs domaines d’erreur et de mise à jour. Pour accéder à une présentation des groupes identiques de machines virtuelles, reportez-vous à [l’Annonce du blog Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
+Regardez ces vidéos pour en savoir plus sur les groupes de machines virtuelles identiques :
 
-Take a look at these videos for more about VM scale sets:
+ - [Mark Russinovich parle des groupes de machines virtuelles identiques Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 
- - [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+ - [Groupes de machines virtuelles identiques, avec Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
- - [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+## Création et gestion des groupes de machines virtuelles identiques
 
-## <a name="creating-and-managing-vm-scale-sets"></a>Creating and managing VM scale sets
+Vous pouvez créer un groupe identique de machines virtuelles sur le [Portail Azure](https://portal.azure.com) en sélectionnant _Nouveau_ et en tapant « identique » dans la barre de recherche. « groupe identique de machines virtuelles » apparaîtra dans les résultats. À partir de là, vous pourrez renseigner les champs obligatoires pour personnaliser et déployer votre groupe identique.
 
-You can create a VM Scale Set in the [Azure portal](https://portal.azure.com) by selecting _new_ and typing in "scale" in the search bar. You will see "Virtual machine scale set" in the results. From there you can fill in the required fields to customize and deploy your scale set. 
+Les groupes identiques de machines virtuelles peuvent également être définis et déployés à l’aide de modèles JSON et [d’API REST](https://msdn.microsoft.com/library/mt589023.aspx), tout comme des machines virtuelles Azure Resource Manager individuelles. Par conséquent, les méthodes de déploiement d’Azure Resource Manager standard peuvent être utilisées. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-VM scale sets can also be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+Vous trouverez des modèles d’exemple de groupes identiques de machines virtuelles dans le dépôt GitHub des modèles de démarrage rapide Azure, [ici](https://github.com/Azure/azure-quickstart-templates) (recherchez les modèles dont le titre contient _vmss_).
 
-A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository [here.](https://github.com/Azure/azure-quickstart-templates) (look for templates with _vmss_ in the title)
+Dans les pages de détail correspondant à ces modèles, vous pouvez voir un bouton qui est associé à la fonction de déploiement de portail. Pour déployer le groupe de machines virtuelles identiques, cliquez sur le bouton et renseignez ensuite tous les paramètres nécessaires dans le portail. Si vous ne savez pas si une ressource prend en charge les majuscules ou les casses mixtes, il est préférable d’utiliser toujours les valeurs de paramètre en minuscules. Il existe également une pratique de dissection vidéo d’un modèle de groupe de machines virtuelles identiques ici :
 
-In the detail pages for these templates you'll see a button that links to the portal deployment feature. To deploy the VM scale set, click on the button and then fill in any parameters that are required in the portal. If you're not sure whether a resource supports upper or mixed case it is safer to always use lower case parameter values. There is also a handy video dissection of a VM scale set template here:
+[Dissection des modèles de jeu de mise à l’échelle de machine virtuelle](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
 
-[VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+## Augmentation ou diminution du nombre de machines virtuelles identiques dans un groupe
 
-## <a name="scaling-a-vm-scale-set-out-and-in"></a>Scaling a VM scale set out and in
+Pour augmenter ou diminuer le nombre de machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle, il suffit de changer la propriété _capacité_ et redéployez le modèle. Cette simplicité rend plus facile l’écriture de votre couche de mise à l’échelle personnalisée si vous souhaitez définir des événements d’échelle personnalisée qui ne sont pas pris en charge par l’échelle automatique Azure.
 
-To increase or decrease the number of virtual machines in a VM scale set, simply change the _capacity_ property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale.
+Si vous redéployez un modèle pour modifier la capacité, vous pouvez définir un modèle beaucoup plus petit incluant uniquement la référence SKU et la capacité mise à jour. Un exemple est présenté [ici.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
 
-If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown [here.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
+Pour être guidé parmi les étapes qui crée un jeu de mise à l’échelle automatique, consultez les [machines de mise à l’échelle automatique dans un jeu de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-windows-autoscale.md)
 
-To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md)
+## Surveillance de votre groupe de machines virtuelles identiques
 
-## <a name="monitoring-your-vm-scale-set"></a>Monitoring your VM scale set
+Le [Portail Azure](https://portal.azure.com) répertorie les groupes identiques de machines virtuelles et affiche les propriétés de base, ainsi que la liste des machines virtuelles du groupe. Pour obtenir plus de détails, vous pouvez utiliser [Azure Resource Explorer](https://resources.azure.com) pour afficher les groupes identiques de machines virtuelles. Les groupes de machines virtuelles identiques sont des ressources sous Microsoft.Compute, vous pouvez donc les voir à partir de ce site en développant les liens suivants :
 
-The [Azure portal](https://portal.azure.com) lists scale sets and shows basic properties, as well as listing VMs in the set. For more detail you can use the [Azure Resource Explorer](https://resources.azure.com) to view VM scale sets. VM scale sets are a resource under Microsoft.Compute, so from this site you can see them by expanding the following links:
+	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
-    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+## Scénarios de groupe de machines virtuelles identiques
 
-## <a name="vm-scale-set-scenarios"></a>VM scale set scenarios
+Cette section répertorie quelques scénarios typiques de groupe de machines virtuelles identiques. Certains services Azure plus généraux (comme Batch, Service Fabric, Azure Container Service) utilisent également ces scénarios.
 
-This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
+ - **RDP/SSH vers des instances de groupes identiques de machines virtuelles** - Un groupe identique de machines virtuelles est créé dans un réseau virtuel et les machines virtuelles individuelles du groupe ne se voient pas allouer d’adresses IP publiques. C’est préférable car vous ne souhaiterez pas être soumis à des frais supplémentaires liés à l’affectation d’adresses IP publiques séparées à toutes les ressources sans état dans la grille de calcul. De plus, vous pouvez facilement vous connecter à ces machines virtuelles à partir d’autres ressources de votre réseau virtuel, notamment celles qui ont des adresses IP publiques telles que les équilibreurs de charge ou les machines virtuelles autonomes.
 
- - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate public IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
-
- - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set. For example:
+ - **Se connecter à des machines virtuelles à l’aide de règles NAT** - Vous pouvez créer une adresse IP publique, l’affecter à un équilibreur de charge et définir des règles NAT entrantes qui mappent un port de l’adresse IP sur un port de machine virtuelle dans le jeu de mise à l’échelle de machine virtuelle. Par exemple :
  
-    Source | Source Port | Destination | Destination Port
-    --- | --- | --- | ---
-    Public IP | Port 50000 | vmss\_0 | Port 22
-    Public IP | Port 50001 | vmss\_1 | Port 22
-    Public IP | Port 50002 | vmss\_2 | Port 22
+	Source | Port source | Destination | Port de destination
+	--- | --- | --- | ---
+	Adresse IP publique | Port 50000 | vmss\_0 | Port 22
+	Adresse IP publique | Port 50001 | vmss\_1 | Port 22
+	Adresse IP publique | Port 50002 | vmss\_2 | Port 22
 
-    Here's an example of creating a VM scale set which uses NAT rules to enable SSH connection to every VM in a scale set using a single public IP: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
+	Voici un exemple de création d’un jeu de mise à l’échelle de machine virtuelle qui utilise les règles NAT pour activer la connexion SSH à chaque machine virtuelle dans une échelle à l’aide d’une adresse IP publique unique : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
 
-    Here's an example of doing the same with RDP and Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
+	Voici un exemple faisant la même chose avec RDP et Windows : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 
- - **Connect to VMs using a "jumpbox"** - If you create a VM scale set and a standalone VM in the same VNET, the standalone VM and the VM scale set VMs can connect to one another using their internal IP addresses as defined by the VNET/Subnet. If you create a public IP address and assign it to the standalone VM you can RDP or SSH to the standalone VM and then connect from that machine to your VM scale set instances. You may notice at this point that a simple VM scale set is inherently more secure than a simple standalone VM with a public IP address in its default configuration.
+ - **Connectez-vous à la machine virtuelle à l’aide d’une « jumpbox »** -Si vous créez un jeu de mise à l’échelle de machine virtuelle et un ordinateur virtuel autonome dans le même réseau virtuel, la machine virtuelle autonome et les machines virtuelles de jeu de mise à l’échelle de machine virtuelle peuvent se connecter entre elles en utilisant leurs adresses IP internes comme défini par le réseau virtuel/sous-réseau. Si vous créez une adresse IP publique et l’affectez à la machine virtuelle autonome, vous pouvez lancer un RDP ou un SSH sur la machine virtuelle autonome, puis vous connecter depuis cette machine à vos instances de groupe de machines virtuelles identiques. À ce stade, vous pouvez remarquer qu’un simple groupe de machines virtuelles identiques est intrinsèquement plus sûr qu’une machine virtuelle autonome simple avec une adresse IP publique dans sa configuration par défaut.
 
-    [For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+	[Pour obtenir un exemple de cette approche, ce modèle crée un cluster Mesos simple composé d’une machine virtuelle Master qui gère un cluster de machines virtuelles de jeu de mise à l’échelle de machine virtuelle.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **Load balancing to VM scale set instances** - If you want to deliver work to a compute cluster of VMs using a "round-robin" approach, you can configure an Azure load balancer with load-balancing rules accordingly. You can define probes to verify your application is running by pinging ports with a specified protocol, interval and request path. The Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) also supports scale sets, along with more sophisticated load balancing scenarios.
+ - **Équilibrage de charge pour les instances de groupes identiques de machines virtuelles** - Si vous souhaitez remettre un travail à un cluster de calcul de machines virtuelles selon une approche de type « tourniquet », vous pouvez configurer un équilibreur de charge Azure avec des règles d’équilibrage de charge appropriées. Vous pouvez définir des sondes pour vérifier que votre application s’exécute en envoyant des requêtes ping aux ports, en spécifiant un protocole, un intervalle et un chemin d'accès à la demande. Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) prend également en charge les groupes identiques de machines virtuelles, ainsi que des scénarios d’équilibrage de charge plus sophistiqués.
 
-    [Here is an example which creates a VM scale set of VMs running IIS web server, and uses a load balancer to balance the load that each VM receives. It also uses the HTTP protocol to ping a specific URL on each VM.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (look at the Microsoft.Network/loadBalancers resource type and the networkProfile and extensionProfile in the virtualMachineScaleSet)
+	[Voici un exemple qui montre comment créer un groupe identique de machines virtuelles exécutant le serveur web IIS, puis utiliser un équilibreur de charge pour équilibrer la charge reçue par chaque machine virtuelle. Il utilise également le protocole HTTP pour lancer une commande ping sur une URL spécifique sur chaque machine virtuelle. ](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (examiner le type de ressource Microsoft.Network/loadBalancers et networkProfile et extensionProfile dans virtualMachineScaleSet)
 
- - **Deploying a VM scale set as a compute cluster in a PaaS cluster manager** - VM scale sets are sometimes described as a next-generation worker role. It's a valid description but it also runs the risk of confusing scale set features with PaaS v1 Worker role features. In a sense VM scale sets provide a true "worker role" or worker resource, in that they provide a generalized compute resource which is platform/runtime independent, customizable and integrates into Azure Resource Manager IaaS.
+ - **Déploiement d’un jeu de mise à l’échelle en tant que cluster de calcul dans un gestionnaire de cluster PaaS** - les jeux de mise à l’échelle de machine virtuelle sont parfois décrits en tant que rôle de travail de la prochaine génération. Cette description est juste, mais le risque est de confondre les fonctionnalités de groupe de machines virtuelles identiques avec les fonctionnalités du rôle de travail PaaS v1. Dans un sens, les groupes de machines virtuelles identiques fournissent un véritable « rôle » ou une ressource de travail, car ils fournissent une ressource de calcul générale indépendante de la plateforme/runtime, personnalisable et s’intègrent au Gestionnaire de ressources IaaS Azure.
 
-    A PaaS v1 worker role, while limited in terms of platform/runtime support (Windows platform images only) also includes services such as VIP swap, configurable upgrade settings, runtime/app deployment specific settings which are either not _yet_ available in VM scale sets, or will be delivered by other higher level PaaS services like Service Fabric. With this in mind you can look at VM scale sets as an infrastructure which supports PaaS. I.e. PaaS solutions like Service Fabric or cluster managers like Mesos can build on top of VM scale sets as a scalable compute layer.
+	Un rôle de travail PaaS v1, limité en termes de prise en charge de plate-forme/runtime (images de plateforme Windows) inclut également les services d’échange d’adresse IP virtuelle, de paramètres de mise à niveau configurables, de paramètres spécifiques de runtime/déploiement d’application spécifiques qui ne sont pas _encore_ disponibles dans les jeux de mise à l’échelle de machine virtuelle ou sera fournie par des services PaaS de plus haut niveau tels que Service Fabric. Avec cela à l’esprit, vous pouvez considérer les groupes de machines virtuelles identiques comme une infrastructure qui prend en charge PaaS. Par exemple, des solutions PaaS telles que Service Fabric ou gestionnaires de cluster comme Mesos peuvent se construire sur des groupes de machines virtuelles identiques en tant que couche de calcul évolutive.
 
-    [For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Future versions of the [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) will deploy more complex/hardened versions of this scenario based on VM scale sets.
+	[Pour obtenir un exemple de cette approche, ce modèle crée un cluster Mesos simple composé d’une machine virtuelle Master qui gère un cluster de machines virtuelles de groupe de machines virtuelles identiques.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Les versions futures de [Service de conteneur Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) déploieront des versions plus complexes / renforcées de ce scénario basées sur des jeux de mise à l’échelle de machine virtuelle.
 
-## <a name="vm-scale-set-performance-and-scale-guidance"></a>VM scale set performance and scale guidance
+## Performances des groupes de machines virtuelles identiques et conseils de mise à l’échelle
 
-- Do not create more than 500 VMs in multiple VM Scale Sets at a time.
-- Plan for no more than 20 VMs per storage account (unless you set the _overprovision_ property to "false", in which case you can go up to 40).
-- Spread out the first letters of storage account names as much as possible.  The example VMSS templates in [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/) provide examples of how to do this.
-- If using custom VMs, plan for no more than 40 VMs per VM scale set, in a single storage account.  You will need the image pre-copied into the storage account before you can begin VM scale set deployment. See the FAQ for more information.
-- Plan for no more than 4096 VMs per VNET.
-- The number of VMs you can create is limited by the core quota in the region in which you are deploying. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: `azure vm list-usage`, and the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
+- Ne créez pas plus de 500 machines virtuelles dans plusieurs groupes de machines virtuelles identiques à la fois.
+- Ne prévoyez pas plus de 20 machines virtuelles par compte de stockage (sauf si vous définissez la propriété _overprovision_ sur « false », auquel cas vous pouvez en prévoir jusqu’à 40).
+- Fractionnez le plus possible les premières lettres des noms de compte de stockage. Les modèles VMSS exemple [modèles Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/) fournissent des exemples montrant comment effectuer cette opération.
+- Si vous utilisez des machines virtuelles personnalisées, ne prévoyez pas plus de 40 machines virtuelles par groupe de machines virtuelles identiques, dans un seul compte de stockage. Vous aurez besoin de l’image pré copiée dans le compte de stockage avant de pouvoir commencer le déploiement du groupe de machines virtuelles identiques. Visitez le FAQ pour plus d’informations.
+- Ne prévoyez pas plus de 4096 machines virtuelles par réseau virtuel.
+- Le nombre de machines virtuelles que vous pouvez créer est limité par le quota de base dans la région dans laquelle vous déployez. Vous devrez peut-être contacter le support technique pour augmenter votre limite de quota de calcul augmentée, même si vous avez une limite de cœurs haute à utiliser avec vos services cloud ou IaaS v1 dès aujourd’hui. Pour interroger votre quota, vous pouvez exécuter la commande CLI Azure suivante : `azure vm list-usage`, et la commande PowerShell suivante : `Get-AzureRmVMUsage` (si vous utilisez une version de PowerShell inférieure à 1.0, utilisez `Get-AzureVMUsage`).
 
-## <a name="vm-scale-set-frequently-asked-questions"></a>VM scale set frequently asked questions
+## Forum aux questions sur les groupes de machines virtuelles identiques
 
-**Q.** How many VMs can you have in a VM scale set?
+**Q.** Combien de machines virtuelles peut-il y avoir dans un groupe de machines virtuelles identiques ?
 
-**A.** 100 if you use platform images which can be distributed across multiple storage accounts. If you use custom images, up to 40 (if the _overprovision_ property is set to "false", 20 by default), since custom images are currently limited to a single storage account.
+**A.** 100 si vous utilisez des images de plateforme qui peuvent être distribuées sur plusieurs comptes de stockage. Si vous utilisez des images personnalisées, jusqu’à 40 (si la propriété _overprovision_ est définie sur « false », sinon 20 par défaut), étant donné que les images personnalisées sont actuellement limitées à un seul compte de stockage.
 
-**Q** What other resource limits exist for VM scale sets?
+**Q** Quelles sont les autres limites de ressource qui existent pour les jeux de mise à l’échelle de machine virtuelle ?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**A.** Vous êtes limité à la création de seulement 500 machines virtuelles dans plusieurs groupes identiques par région pendant une période de 10 minutes. Les [limites du Service d’abonnement Azure /](../azure-subscription-service-limits.md) s’appliquent.
 
-**Q.** Are Data Disks Supported within VM scale sets?
+**Q.** Les disques de données sont-ils pris en charge dans les groupes de machines virtuelles identiques ?
 
-**A.** Not in the initial release. Your options for storing data are:
+**A.** Pas dans la version initiale. Vos options de stockage des données sont :
 
-- Azure files (SMB shared drives)
+- Fichiers Azure (lecteurs SMB partagés)
 
-- OS drive
+- Système d’exploitation de lecteur
 
-- Temp drive (local, not backed by Azure storage)
+- Lecteur temp (local, non sauvegardé par le stockage Azure)
 
-- Azure data service (e.g. Azure tables, Azure blobs)
+- Service de données Azure (tables Azure, objets blob Azure)
 
-- External data service (e.g. remote DB)
+- Service de données externe (base de données distante)
 
-**Q.** Which Azure regions support VM scale sets?
+**Q.** Quelles sont les régions Azure qui prennent en charge les groupes de machines virtuelles identiques ?
 
-**A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
+**A.** N’importe quelle région qui prend en charge Azure Resource Manager prend en charge les groupes de machines virtuelles identiques.
 
-**Q.** How do you create a VM scale set using a custom image?
+**Q.** Comment créer un groupe de machines virtuelles identiques à l’aide d’une image personnalisée ?
 
-**A.** Leave the vhdContainers property blank, for example:
+**A.** Laissez la propriété vhdContainers vide, par exemple :
 
-    "storageProfile": {
-        "osDisk": {
-            "name": "vmssosdisk",
-            "caching": "ReadOnly",
-            "createOption": "FromImage",
-            "image": {
-                "uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
-            },
-            "osType": "Windows"
-        }
-    },
-
-
-**Q.** If I reduce my VM scale set capacity from 20 to 15, which VMs will be removed?
-
-**A.** Virtual machines are removed from the scale set evenly across upgrade domains and fault domains to maximize availability. VMs with the highest id's are removed first.
-
-**Q.** How about it if I then increase the capacity from 15 to 18?
-
-**A.** If you increase capacity to 18, then 3 new VMs will be created. Each time the VM instance id will be incremented from the previous highest value (e.g. 20, 21, 22). VMs are balanced across FDs and UDs.
-
-**Q.** When using multiple extensions in a VM scale set, can I enforce an execution sequence?
-
-**A.** Not directly, but for the customScript extension, your script could wait for another extension to complete ([for example by monitoring the extension log](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Additional guidance on extension sequencing can be found in this blog post: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
-
-**Q.** Do VM scale sets work with Azure availability sets?
-
-**A.** Yes. A VM scale set is an implicit availability set with 5 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. In future releases, VM scale sets are likely to span multiple tenants but for now a scale set is a single availability set.
+	"storageProfile": {
+		"osDisk": {
+			"name": "vmssosdisk",
+			"caching": "ReadOnly",
+			"createOption": "FromImage",
+			"image": {
+				"uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
+			},
+			"osType": "Windows"
+		}
+	},
 
 
+**Q.** Si je réduis ma capacité de groupe de machines virtuelles identiques de 20 à 15, quelles sont les machines virtuelles qui seront supprimées ?
 
-<!--HONumber=Oct16_HO2-->
+**A.** Les machines virtuelles sont supprimées du groupe uniformément entre les domaines de mise à niveau et les domaines d’erreur pour optimiser la disponibilité. Les machines virtuelles avec les ID les plus élevés sont supprimées en premier.
 
+**Q.** Que diriez-vous si j’augmente par la suite la capacité de 15 à 18 ?
 
+**A.** Si vous augmentez la capacité à 18, 3 machines virtuelles seront créées. À chaque fois, l’ID d’instance de la machine virtuelle sera incrémentée avec la valeur la plus élevée précédente (par exemple, 20, 21, 22). Les machines virtuelles sont réparties entre FD et UD.
+
+**Q.** Lorsque vous utilisez plusieurs extensions dans un groupe de machines virtuelles identiques, puis-je appliquer une séquence d’exécution ?
+
+**A.** Pas directement, mais pour l’extension customScript, votre script peut attendre une autre extension avant de s’exécuter ([par exemple en surveillant le journal d’extension](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Vous trouverez des conseils supplémentaires sur le séquencement d’extensions dans ce billet de blog : [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Séquencement d’extensions dans les groupes identiques de machines virtuelles Azure).
+
+**Q.** Les groupes de machines virtuelles identiques fonctionnent-ils avec des groupes à haute disponibilité Azure ?
+
+**A.** Oui. Un groupe de machines virtuelles identiques est un groupe à haute disponibilité implicite avec 5 FD et 5 UD. Vous n’avez pas besoin de configurer quoi que ce soit sous virtualMachineProfile. Dans les futures versions, les groupes de machines virtuelles identiques peuvent s’étendre sur plusieurs clients, mais dans l’immédiat, un groupe identique est un groupe à haute disponibilité unique.
+
+<!---HONumber=AcomDC_0914_2016-->

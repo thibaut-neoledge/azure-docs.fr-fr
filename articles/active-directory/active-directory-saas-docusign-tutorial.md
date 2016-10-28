@@ -1,264 +1,262 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with DocuSign | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and DocuSign."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Didacticiel : Intégration d’Azure Active Directory avec DocuSign | Microsoft Azure"
+	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et DocuSign."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/16/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/16/2016"
+	ms.author="jeedes"/>
+
+
+# Didacticiel : Intégration d’Azure Active Directory avec DocuSign
+
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et DocuSign. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+
+- Un abonnement Azure valide
+- Un locataire dans DocuSign
 
 
 
-# <a name="tutorial:-azure-active-directory-integration-with-docusign"></a>Tutorial: Azure Active Directory integration with DocuSign
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-The objective of this tutorial is to show the integration of Azure and DocuSign.
-The scenario outlined in this tutorial assumes that you already have the following items:
-
-- A valid Azure subscription
-- A tenant in DocuSign
+1. [Activation de l’intégration d’applications pour DocuSign](#enabling-the-application-integration-for-docusign)
 
 
-
-The scenario outlined in this tutorial consists of the following building blocks:
-
-1. [Enabling the application integration for DocuSign](#enabling-the-application-integration-for-docusign) 
+2. [Configuration de l'authentification unique](#configuring-single-sign-on)
 
 
-2. [Configuring single sign-on](#configuring-single-sign-on) 
+3. [Configuration de l’approvisionnement de compte](#configuring-account-provisioning)
 
 
-3. [Configuring account provisioning](#configuring-account-provisioning) 
+4. [Affectation d’utilisateurs](#assigning-users)
 
-
-4. [Assigning users](#assigning-users) 
-
-    ![Configuring single sign-on][0]
+    ![Configuration de l'authentification unique][0]
  
 
-## <a name="enabling-the-application-integration-for-docusign"></a>Enabling the application integration for DocuSign
+## Activation de l’intégration d’applications pour DocuSign
 
-The objective of this section is to outline how to enable the application integration for DocuSign.
+L’objectif de cette section est d’expliquer comment souligner l’intégration d’application pour DocuSign.
 
-### <a name="to-enable-the-application-integration-for-docusign,-perform-the-following-steps:"></a>To enable the application integration for DocuSign, perform the following steps:
+### Pour activer l’intégration d’application pour DocuSign, procédez comme suit :
 
-1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
-    ![Configuring single sign-on][1]
+	![Configuration de l'authentification unique][1]
 
-2. From the Directory list, select the directory for which you want to enable directory integration.
+2. Dans la liste Annuaire, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
-    ![Configuring single sign-on][2]
+	![Configuration de l'authentification unique][2]
 
-4. Click **Add** at the bottom of the page.
+4. Cliquez sur **Ajouter** en bas de la page.
 
-    ![Applications][3]
+	![Applications][3]
 
-5. On the What do you want to do dialog, click **Add an application from the gallery**.
+5. Dans la boîte de dialogue Que voulez-vous faire ?, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Configuring single sign-on][4]
-
-
-6. In the search box, type **DocuSign**.
-
-    ![Configuring single sign-on][5]
-
-7. In the results pane, select **DocuSign**, and then click **Complete** to add the application.
-
-    ![Configuring single sign-on][6]
+	![Configuration de l'authentification unique][4]
 
 
-## <a name="configuring-single-sign-on"></a>Configuring single sign-on
+6. Dans la zone de recherche, tapez **DocuSign**.
 
-The objective of this section is to outline how to enable users to authenticate to DocuSign with their account in Azure AD using federation based on the SAML protocol.
+	![Configuration de l'authentification unique][5]
+
+7. Dans le volet de résultats, sélectionnez **DocuSign**, puis cliquez sur **Terminer** pour ajouter l’application.
+
+	![Configuration de l'authentification unique][6]
 
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+## Configuration de l'authentification unique
 
-1. In the Azure classic portal, on the **DocuSign application integration** page, click **Configure single sign-on** to open the Configure Single Sign On dialog.
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur DocuSign avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
-    ![Configuring single sign-on][7]
 
-2. On the **How would you like users to sign on to DocuSign** page, select **Microsoft Azure AD Single Sign-On**, and then click Next.
+### Pour configurer l’authentification unique, procédez comme suit :
 
-    ![Configuring single sign-on][8]
+1. Dans le portail Azure Classic, accédez à la page **Intégration d’application DocuSign**, puis cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue Configurer l’authentification unique.
 
-3. On the **Configure App Settings** page, perform the following steps:
+	![Configuration de l'authentification unique][7]
 
-    ![Configuring single sign-on][61]
+2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à DocuSign**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur Suivant.
 
-    a. In the **Sign on URL** textbox, type `https://account.docusign.com/*`.  
+	![Configuration de l'authentification unique][8]
 
-    b. In the **Identifier** textbox, type `https://account.docusign.com/*`.  
+3. Dans la page **Configurer les paramètres de l’application**, procédez comme suit :
+
+	![Configuration de l'authentification unique][61]
+
+	a. Dans la zone de texte **URL d’authentification**, tapez `https://account.docusign.com/*`.
+
+	b. Dans la zone de texte **Identificateur**, tapez `https://account.docusign.com/*`.
    
-    c. Click **Next**. 
+	c. Cliquez sur **Next**.
 
 
-    > [AZURE.TIP] The Sign On URL and the Identifier values are only placeholders. Instructions for how to retrieve the actual values for your environment are covered later in this topic.
+    > [AZURE.TIP] Les valeurs URL d’authentification et Identificateur sont uniquement des espaces réservés. Les instructions relatives à l’extraction des valeurs réelles de votre environnement sont traitées plus loin dans cette rubrique.
  
 
-4. On the **Configure single sign-on at DocuSign** page, click **Download certificate**, and then save the certificate file locally on your computer.
+4. Dans la page **Configurer l’authentification unique à DocuSign**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sur votre ordinateur.
 
-    ![Configuring single sign-on][10]
-
-
-5. In a different web browser window, log into your **DocuSign admin portal** as an administrator.
+	![Configuration de l'authentification unique][10]
 
 
-6. In the navigation menu on the left, click **Domains**.
-
-    ![Configuring single sign-on][51]
-
-7. On the right pane, click **Claim Domain**.
-
-    ![Configuring single sign-on][52]
-
-8. On the **Claim a domain** dialog, in the **Domain Name** textbox, type your company domain, and then click **Claim**. Make sure that you verify the domain and the status is active.
-
-    ![Configuring single sign-on][53]
-
-9. In menu on the left side, click **Identity Providers**  
-
-    ![Configuring single sign-on][54]
-
-10. In the right pane, click **Add Identity Provider**. 
-    
-    ![Configuring single sign-on][55]
-
-11. On the **Identity Provider Settings** page, perform the following steps:
-
-    ![Configuring single sign-on][56]
+5. Dans une autre fenêtre de navigateur web, connectez-vous à votre **portail d’administration DocuSign** en tant qu’administrateur.
 
 
-    a. In the **Name** textbox, type a unique name for your configuration. Please do not use spaces.
+6. Dans le menu de navigation à gauche, cliquez sur **Domaines**.
 
-    b. In the Azure classic portal, copy the Issuer URL, and then paste it into the **Identity Provider Issuer** textbox.
+	![Configuration de l'authentification unique][51]
 
-    c. In the Azure classic portal, copy the **Remote Login URL**, and then paste it into the **Identity Provider Login URL** textbox.
+7. Dans le volet droit, cliquez sur **Claim Domain** (Revendiquer un domaine).
 
-    d. In the Azure classic portal, copy the **Remote Logout URL**, and then paste it into the **Identity Provider Logout URL** textbox.
+	![Configuration de l'authentification unique][52]
 
-    e. Select **Sign AuthN Request**.
+8. Dans la boîte de dialogue **Claim a domain** (Revendiquer un domaine), dans la zone de texte **Nom du domaine**, indiquez votre domaine d’entreprise, puis cliquez sur **Revendication**. Veillez à vérifier le domaine et assurez-vous que son état est actif.
 
-    f. As **Send AuthN request by**, select **POST**.
+	![Configuration de l'authentification unique][53]
 
-    g. As **Send logout request by**, select **POST**. 
+9. Dans le menu de gauche, cliquez sur **Fournisseurs d’identité**.
 
+	![Configuration de l'authentification unique][54]
 
-12. In the **Custom Attribute Mapping** section, choose the field you want to map with Azure AD Claim. In this example, the **emailaddress** claim is mapped with the value of **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. This is the default claim name from Azure AD for email claim. 
+10. Dans le volet de droite, cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité).
+	
+	![Configuration de l'authentification unique][55]
 
-    > [AZURE.NOTE] Use the appropriate **User identifier** to map the user from Azure AD to Docusign user mapping. Select the proper Field and enter the appropriate value based on your organization settings.
+11. Dans la page **Identity Provider Settings** (Paramètres du fournisseur d’identité), effectuez les actions suivantes :
 
-    ![Configuring single sign-on][57]
-
-13. In the **Identity Provider Certificate** section, click **Add Certificate**, and then upload the certificate you have downloaded from Azure AD classic portal.   
-
-    ![Configuring single sign-on][58]
-
-14. Click **Save**.
-
-15. In the **Identity Providers** section, click **Actions**, and then click **Endpoints**.   
-
-    ![Configuring single sign-on][59]
+	![Configuration de l'authentification unique][56]
 
 
+	a. Dans la zone de texte **Nom**, entrez le nom de votre configuration. N’utilisez pas d’espaces.
 
-10. On the Azure classic portal, go back to the **Configure App Settings** page. 
+	b. Dans le portail Azure Classic, copiez l’URL de l’émetteur et collez-la dans la zone de texte **Émetteur du fournisseur d’identité**.
 
-16. On **DocuSign admin portal**, in the **View SAML 2.0 Endpoints** section perform, the following steps:
+	c. Dans le portail Azure Classic, copiez **l’URL de connexion distante** et collez-la dans la zone de texte **Identity Provider Login URL** (URL de connexion du fournisseur d’identité).
 
-    ![Configuring single sign-on][60]
+	d. Dans le portail Azure Classic, copiez **l’URL de déconnexion distante** et collez-la dans la zone de texte **Identity Provider Logout URL** (URL de déconnexion du fournisseur d’identité).
 
-    a. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** textbox on the Azure classic portal.
+	e. Sélectionnez **Sign AuthN Request** (Signer la demande d’authentification).
 
-    b. Copy the **Service Provider Login URL**, and then paste into the **Sign On URL** textbox on the Azure classic portal.
+	f. Sous **Send AuthN request by** (Envoyer la demande d’authentification par), sélectionnez **POST**.
 
-    c.  Click **Close**  
-
-
-10. On the Azure classic portal, click **Next**. 
+	g. Sous **Send logout request by** (Envoyer la demande de déconnexion par), sélectionnez **POST**.
 
 
-15. On the Azure classic portal, select the **Single sign-on configuration confirmation**, and then click **Next**.
+12. Dans la section **Custom Attribute Mapping** (Mappage d’attributs personnalisé), choisissez le champ à mapper avec la revendication Azure AD. Dans cet exemple, la revendication **emailaddress** est mappée avec la valeur de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Il s’agit du nom de revendication par défaut d’Azure AD pour la revendication de courrier électronique.
 
-    ![Applications][14]
+	> [AZURE.NOTE] Utilisez **l’identificateur d’utilisateur** approprié pour mapper l’utilisateur d’Azure AD au mappage utilisateur DocuSign. Sélectionnez le champ correct et entrez la valeur appropriée en fonction des paramètres de votre organisation.
 
-10. On the **Single sign-on confirmation** page, click **Complete**.
+	![Configuration de l'authentification unique][57]
 
-    ![Applications][15]
+13. Dans **Identity Provider Certificate** (Certificat du fournisseur d’identité), cliquez sur **Ajouter un certificat**, puis chargez le certificat que vous avez téléchargé à partir du portail Azure Classic.
+
+	![Configuration de l'authentification unique][58]
+
+14. Cliquez sur **Save**.
+
+15. Dans la section **Identity Providers** (Fournisseurs d’identité), cliquez **Actions**, puis cliquez sur **Endpoints** (Points de terminaison).
+
+	![Configuration de l'authentification unique][59]
+
+
+
+10. Dans le portail Azure Classic, revenez à la page **Configurer les paramètres de l’application**.
+
+16. Dans le **Portail d’administration DocuSign**, sous la section **View SAML 2.0 Endpoints** (Afficher les points de terminaison SAML 2.0), effectuez les étapes suivantes :
+
+	![Configuration de l'authentification unique][60]
+
+	a. Dans le portail Azure Classic, copiez la valeur **Service Provider Issuer URL** (URL de l’émetteur du fournisseur d’identité) et collez-la dans la zone de texte **Identificateur**.
+
+	b. Dans le portail Azure Classic, copiez la valeur **Service Provider Login URL** (URL de connexion du fournisseur d’identité) et collez-la dans la zone de texte **URL de connexion**.
+
+	c. Cliquez sur **Fermer**.
+
+
+10. Dans le portail Azure Classic, cliquez sur **Suivant**.
+
+
+15. Dans le portail Azure Classic, sélectionnez la **confirmation de la configuration de l’authentification unique**, puis cliquez sur **Suivant**.
+
+	![Applications][14]
+
+10. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
+
+	![Applications][15]
  
 
-## <a name="configuring-account-provisioning"></a>Configuring account provisioning
+## Configuration de l’approvisionnement de compte
 
-The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to DocuSign.
+L’objectif de cette section est d’expliquer comment activer l’approvisionnement utilisateur des comptes d’utilisateurs Active Directory sur DocuSign.
 
-### <a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+### Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1. In the **Azure classic portal**, on the **DocuSign application integration** page, click **Configure account provisioning** to open the Configure User Provisioning dialog.
+1. Dans le **portail Azure Classic**, accédez à la page **Intégration d’application DocuSign**, puis cliquez sur **Configurer l’approvisionnement de compte** pour ouvrir la boîte de dialogue Configurer l’approvisionnement d’utilisateurs.
 
-    ![Configuring account provisioning][30]
+	![Configuration de l’approvisionnement de compte][30]
 
-2. On the **Settings and admin credentials** page, to enable automatic user provisioning, provide the credentials of a DocuSign account with sufficient rights, and then click **Next**. 
+2. Dans la page **Paramètres et informations d’identification administrateur**, pour activer l’approvisionnement automatique d’utilisateurs, fournissez les informations d’identification d’un compte DocuSign avec des droits suffisants, puis cliquez sur **Suivant**.
 
-    ![Configuring account provisioning][31]
+	![Configuration de l’approvisionnement de compte][31]
 
-3. On the **Test connection** dialog, click **Start test**, and upon a successful test, click **Next**.
+3. Dans la boîte de dialogue **Tester la connexion**, cliquez sur **Lancer le test**. Si le test réussit, cliquez sur **Suivant**.
 
-    ![Configuring account provisioning][32]
+	![Configuration de l’approvisionnement de compte][32]
 
-3. On the **Confirmation** page, click **Complete**.
+3. Sur la page **Confirmation**, cliquez sur **Terminé**.
 
-    ![Configuring account provisioning][33]
+	![Configuration de l’approvisionnement de compte][33]
  
 
-## <a name="assigning-users"></a>Assigning users
+## Affectation d’utilisateurs
 
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-docusign,-perform-the-following-steps:"></a>To assign users to DocuSign, perform the following steps:
+### Pour affecter des utilisateurs à DocuSign, procédez comme suit :
 
-1. In the **Azure classic portal**, create a test account.
+1. Dans le **portail Azure Classic**, créez un compte de test.
 
-2. On the **DocuSign application integration** page, click **Assign users**.
+2. Dans la page **Intégration d’application DocuSign**, cliquez sur **Affecter des utilisateurs**.
 
-    ![Assigning users][40]
+	![Affectation d’utilisateurs][40]
  
 
-3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
-    ![Assigning users][41]
-
-
-You should now wait for 10 minutes and verify that the account has been synchronized to DocuSign.
-
-As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the DocuSign application integration page on the Azure classic portal.
-
-![Assigning users][42]
-
-A successfully completed user provisioning cycle is indicated by a related status:
-
-![Assigning users][43]
+	![Affectation d’utilisateurs][41]
 
 
-If you want to test your single sign-on settings, open the Access Panel.
+À présent, patientez 10 minutes et vérifiez que le compte est bien synchronisé avec DocuSign.
 
-For more details about the Access Panel, see Introduction to the Access Panel.
+Une première étape de vérification consiste à contrôler l’état de l’approvisionnement en cliquant sur le tableau de bord sur le D de la page d’intégration d’application DocuSign dans le portail Azure Classic.
+
+![Affectation d’utilisateurs][42]
+
+Si le cycle d’approvisionnement d’utilisateur a abouti, l’état associé suivant est indiqué :
+
+![Affectation d’utilisateurs][43]
 
 
-## <a name="additional-resources"></a>Additional Resources
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès.
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+Pour plus d’informations sur le panneau d’accès, consultez Présentation du panneau d’accès.
+
+
+## Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -301,7 +299,4 @@ For more details about the Access Panel, see Introduction to the Access Panel.
 [60]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_28.png
 [61]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_29.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

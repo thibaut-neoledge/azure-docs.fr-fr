@@ -1,41 +1,37 @@
 <properties
-    pageTitle="Set up endpoints on a classic Linux VM | Microsoft Azure"
-    description="Learn to set up endpoints for a Linux VM in the Azure classic portal to allow communication with a Linux virtual machine in Azure"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management"/>
+	pageTitle="Configurer des points de terminaison sur une machine virtuelle Linux classique | Microsoft Azure"
+	description="Apprenez à configurer des points de terminaison pour une machine virtuelle Linux dans le portail Azure Classic pour permettre la communication avec une machine virtuelle Linux dans Azure"
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/13/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2016"
+	ms.author="cynthn"/>
 
+# Comment configurer des points de terminaison sur une machine virtuelle Linux classique dans Azure
 
-# <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>How to set up endpoints on a Linux classic virtual machine in Azure
+Toutes les machines virtuelles Linux créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer sur un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur Internet ou d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle. Cet article est également disponible pour les [machines virtuelles Windows](virtual-machines-windows-classic-setup-endpoints.md).
 
-All Linux virtual machines that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. This article is also available for [Windows virtual machines](virtual-machines-windows-classic-setup-endpoints.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Dans le modèle de déploiement **Resource Manager**, les points de terminaison sont configurés à l’aide de **groupes de sécurité réseau (NSG)**. Pour plus d’informations, consultez la page [Ouverture des ports et des points de terminaison](virtual-machines-linux-nsg-quickstart.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] In the **Resource Manager** deployment model, endpoints are configured using **Network Security Groups (NSGs)**. For more information, see [Opening ports and endpoints] (virtual-machines-linux-nsg-quickstart.md).
-
-When you create a Linux virtual machine in the Azure classic portal, an endpoint for Secure Shell (SSH) is typically created for you automatically. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
+Lorsque vous créez une machine virtuelle Linux sur le portail Azure Classic, un point de terminaison pour Secure Shell (SSH) est en général créé automatiquement pour vous. Vous pouvez configurer des points de terminaison supplémentaires lors de la création de la machine virtuelle, ou ultérieurement si nécessaire.
  
 
 [AZURE.INCLUDE [virtual-machines-common-classic-setup-endpoints](../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-* You can also create a VM endpoint by using the [Azure Command-Line Interface](../virtual-machines-command-line-tools.md). Run the **azure vm endpoint create** command.
+* Vous pouvez également créer un point de terminaison de machine virtuelle à l’aide de l’[interface de ligne de commande Azure](../virtual-machines-command-line-tools.md). Exécutez la commande **azure vm endpoint create**.
 
-* If you created a virtual machine in the Resource Manager deployment model, you can use the Azure CLI in Resource Manager mode to [create network security groups](../virtual-network/virtual-networks-create-nsg-arm-cli.md) to control traffic to the VM.
+* Si vous avez créé une machine virtuelle dans le modèle de déploiement Resource Manager, vous pouvez utiliser l’interface CLI Azure en mode Resource Manager pour [créer des groupes de sécurité réseau](../virtual-network/virtual-networks-create-nsg-arm-cli.md) afin de contrôler le trafic vers la machine virtuelle.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,56 +1,51 @@
 <properties
-    pageTitle="Set up billing alerts for your Microsoft Azure subscriptions | Microsoft Azure"
-    description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
-    services=""
-    documentationCenter=""
-    authors="vikdesai"
-    manager="mbaldwin"
-    editor=""
-    tags="billing"
-    />
+	pageTitle="Configurer des alertes de facturation pour vos abonnements Microsoft Azure | Microsoft Azure"
+	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
+	services=""
+	documentationCenter=""
+	authors="vikdesai"
+	manager="msmbaldwin"
+	editor=""
+	tags="billing"
+	/>
 
 <tags
-    ms.service="billing"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/18/2016"
-    ms.author="vikdesai"/>
+	ms.service="billing"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/18/2016"
+	ms.author="vikdesai"/>
 
+# Configurer des alertes de facturation pour vos abonnements Microsoft Azure
 
-# <a name="set-up-billing-alerts-for-your-microsoft-azure-subscriptions"></a>Set up billing alerts for your Microsoft Azure subscriptions
+Souhaitez-vous connaître le montant de vos dépenses mensuelles pour votre abonnement Azure ? Si vous êtes l'administrateur de compte d'un abonnement Azure, vous pouvez utiliser le service d'alerte de facturation Azure pour créer des alertes de facturation personnalisées qui vous aident à surveiller et à gérer l'activité de facturation de vos comptes Azure.
 
-Are you concerned about how much you're spending each month for your Azure subscription? If you’re the account administrator for an Azure subscription, you can use the Azure Billing Alert Service to create customized billing alerts that help you monitor and manage billing activity for your Azure accounts.
+Dans la mesure où ce service est en version préliminaire, la première chose à faire est de vous y inscrire. Pour activer cette fonctionnalité, visitez [la page Fonctionnalités préliminaires](https://account.windowsazure.com/PreviewFeatures) dans le portail de gestion des comptes Azure.
 
-This service is a preview service, so the first thing you have to do is sign up for it. Visit [the Preview Features page](https://account.windowsazure.com/PreviewFeatures) in the Azure account management portal to do enable this feature.
+## Définir le seuil d'alerte et les destinataires des messages électroniques
 
-## <a name="set-the-alert-threshold-and-email-recipients"></a>Set the alert threshold and email recipients
-
-After you receive the email confirmation that the billing service is turned on for your subscription, visit [the Subscriptions page](https://account.windowsazure.com/Subscriptions) in the account portal. Click the subscription you want to monitor, and then click **Alerts**.
+Lorsque vous aurez reçu par courrier électronique la confirmation que le service de facturation a été activé pour votre abonnement, rendez-vous sur la [page Abonnements](https://account.windowsazure.com/Subscriptions) du portail des comptes. Cliquez sur l’abonnement à surveiller, puis sur **Alertes**.
 
 ![][Image1]
 
-Next, click **Add Alert** to create your first one - you can set up a total of five billing alerts per subscription, with a different threshold and up to two email recipients for each alert.
+Cliquez ensuite sur **Ajouter une alerte** pour créer votre première alerte. Vous pouvez configurer un total de cinq alertes de facturation par abonnement, avec un seuil distinct, et jusqu’à deux destinataires de courrier électroniques pour chaque alerte.
 
 ![][Image2]
 
-When you add an alert, you give it a unique name, choose a spending threshold, and choose the email addresses where alerts will be sent. When setting up the threshold, you can choose either a **Billing Total** or a **Monetary Credit** from the **Alert For** list. For a billing total, an alert is sent when subscription spending exceeds the threshold. For a monetary credit, an alert is sent when monetary credits drop below the limit. Monetary credits usually apply to free trials and subscriptions associated with MSDN accounts.
+Quand vous ajoutez une alerte, vous lui donnez un nom unique, vous choisissez un seuil de dépenses, et vous choisissez également les adresses électroniques auxquelles les alertes sont envoyées. Quand vous configurez le seuil, vous pouvez choisir un **Total facturé** ou un **Crédit monétaire** dans la liste **Alerte pour**. Pour un total facturé, une alerte est envoyée quand les dépenses d'abonnement dépassent le seuil. Pour un crédit monétaire, une alerte est envoyée quand les crédits monétaires passent sous la limite. Les crédits monétaires s'appliquent habituellement aux essais et abonnements gratuits associés à des comptes MSDN.
 
 ![][Image3]
 
-Azure supports any email address but doesn’t verify that the email address works, so double-check for typos.
+Azure prend en charge toutes les adresses de messagerie mais ne vérifie pas si elles sont valides. Vous devez donc vous assurer qu'il n'y a aucune faute de frappe.
 
-## <a name="check-on-your-alerts"></a>Check on your alerts
+## Vérifier vos alertes
 
-After you set up alerts, the Account Center lists them and shows how many more you can set up. For each alert, you see the date and time it was sent, whether it’s an alert for Billing Total or Monetary Credit, and the limit you set up. The date and time format is 24-hour Universal Time Coordinate (UTC) and the date is yyyy-mm-dd format. Click the plus sign for an alert in the list to edit it, or click the trash-can to delete it.
+Une fois que vous avez configuré des alertes, le Centre des comptes les répertorie et vous montre le nombre d'alertes que vous pouvez encore configurer. Pour chaque alerte, vous voyez la date et l'heure d'envoi, s'il s'agit d'une alerte relative au total facturé ou au crédit monétaire, ainsi que la limite que vous avez configurée. L'heure est au format 24 heures UTC (Universal Time Coordinate) et la date est au format aaaa-mm-jj. Cliquez sur le signe plus pour modifier une alerte listée, ou cliquez sur la poubelle pour la supprimer.
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

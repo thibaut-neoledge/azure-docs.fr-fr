@@ -1,309 +1,299 @@
 <properties
-    pageTitle="Demand Forecast in Energy Technical Guide | Microsoft Azure"
-    description="A technical guide to the Solution Template with Microsoft Cortana Intelligence for demand forecast in energy."
-    services="cortana-analytics"
-    documentationCenter=""
-    authors="yijichen"
-    manager="ilanr9"
-    editor="yijichen"/>
+	pageTitle="Prévision de la demande énergétique : guide technique | Microsoft Azure"
+	description="Guide technique de l’utilisation du modèle de solution avec Microsoft Cortana Intelligence pour prévoir la demande énergétique."
+	services="cortana-analytics"
+	documentationCenter=""
+	authors="yijichen"
+	manager="ilanr9"
+	editor="yijichen"/>
 
 <tags
-    ms.service="cortana-analytics"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/16/2016"
-    ms.author="inqiu;yijichen;ilanr9"/>
+	ms.service="cortana-analytics"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/16/2016"
+	ms.author="inqiu;yijichen;ilanr9"/>
 
+# Guide technique de l’utilisation du modèle de solution Cortana Intelligence pour prévoir la demande énergétique
 
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technical guide to the Cortana Intelligence Solution Template for demand forecast in energy
+## **Vue d'ensemble**
 
-## <a name="**overview**"></a>**Overview**
+Les modèles de solution visent à accélérer le processus de création d’une démonstration E2E sur Cortana Intelligence Suite. Un modèle déployé fournit à votre abonnement les composants Cortana Intelligence nécessaires et établit les relations entre eux. Il amorce également le pipeline de données avec des exemples de données générées à partir d'une application de simulation de données. Téléchargez le simulateur de données en cliquant sur le lien fourni et installez-le sur votre ordinateur local. Pour obtenir des instructions sur l'utilisation du simulateur, consultez le fichier readme.txt. Les données issues du simulateur alimentent le pipeline de données et génèrent des prédictions Machine Learning que vous pouvez ensuite visualiser dans le tableau de bord Power BI.
 
-Solution Templates are designed to accelerate the process of building an E2E demo on top of Cortana Intelligence Suite. A deployed template will provision your subscription with necessary Cortana Intelligence component and build the relationships between. It also seeds the data pipeline with sample data getting generated from a data simulation application. Download the data simulator from the link provided and install it on your local machine, refer to the readme.txt file for instruction on using the simulator. Data generated from the simulator will hydrate the data pipeline and start generating machine learning prediction which can then be visualized on the Power BI dashboard.
+Le modèle de solution se trouve [ici](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
 
-The solution template can be found [here](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1) 
+Le processus de déploiement vous guide à travers plusieurs étapes permettant de configurer les informations d’identification de votre solution. Veillez à consigner les informations d’identification, telles que le nom de la solution, le nom d’utilisateur et le mot de passe, que vous renseignez pendant le déploiement.
 
-The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.
+L’objectif de ce document est de vous présenter l’architecture de référence et les différents composants configurés dans votre abonnement dans le cadre de ce modèle de solution. Ce document explique également comment remplacer les exemples de données par vos propres données réelles afin de vous permettre de visualiser des analyses et des prévisions dérivées de vos propres données. Il décrit enfin les éléments du modèle de solution que vous devez modifier si vous souhaitez personnaliser la solution avec vos propres données. Vous trouverez à la fin de ce document des instructions sur la façon de configurer le tableau de bord Power BI pour ce modèle de solution.
 
-The goal of this document is to explain the reference architecture and different components provisioned in your subscription as part of this Solution Template. The document also talks about how to replace the sample data, with real data of your own to be able to see insights/predictions from you won data. Additionally, the document talks about the parts of the Solution Template that would need to be modified if you want to customize the solution with your own data. Instructions on how to build the Power BI dashboard for this Solution Template are provided at the end.
-
-## <a name="**big-picture**"></a>**Big Picture**
+## **Grandes lignes**
 
 ![](media\cortana-analytics-technical-guide-demand-forecast\ca-topologies-energy-forecasting.png)
 
-### <a name="architecture-explained"></a>Architecture Explained
-When the solution is deployed, various Azure services within Cortana Analytics Suite are activated (*i.e.* Event Hub, Stream Analytics, HDInsight, Data Factory, Machine Learning, *etc.*). The architecture diagram above shows, at a high level, how the Demand Forecasting for Energy Solution Template is constructed from end-to-end. You will be able to investigate these services by clicking on them on the solution template diagram created with the deployment of the solution. The following sections describe each piece.
+### Architecture
+Le déploiement de la solution entraîne l’activation de divers services Azure dans Cortana Analytics Suite (*c’est-à-dire* Event Hub, Stream Analytics, HDInsight, Data Factory, Machine Learning, *etc.*). Le schéma d’architecture ci-dessus illustre globalement la construction de bout en bout du modèle de solution de prévision de la demande énergétique. Vous pouvez passer en revue ces services en cliquant dessus sur le schéma du modèle de solution créé avec le déploiement de la solution. Les sections suivantes décrivent chaque élément du schéma.
 
-## <a name="**data-source-and-ingestion**"></a>**Data Source and Ingestion**
+## **Source et ingestion de données**
 
-### <a name="synthetic-data-source"></a>Synthetic Data Source
+### Source de données de synthèse
 
-For this template the data source used is generated from a desktop application that you will download and run locally after successful deployment. You will find the instructions to download and install this application in the properties bar when you select the first node called Energy Forecasting Data Simulator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service with data points, or events, that will be used in the rest of the solution flow.
+Pour ce modèle, la source de données utilisée est générée à partir d’une application de bureau que vous allez télécharger et exécuter localement après la réussite du déploiement. Vous trouverez les instructions de téléchargement et d’installation de cette application dans la barre des propriétés lorsque vous sélectionnez le premier nœud appelé Energy Forecasting Data Simulator sur le schéma du modèle de solution. Cette application alimente le service [Azure Event Hub](#azure-event-hub) avec des points de données, ou événements, qui seront utilisés dans le reste du flux de la solution.
 
-The event generation application will populate the Azure Event Hub only while it's executing on your computer.
+L’application de génération d’événements alimente le service Azure Event Hub uniquement lorsqu’elle est exécutée sur votre ordinateur.
 
-### <a name="azure-event-hub"></a>Azure Event Hub
+### Azure Event Hub
 
-The [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) service is the recipient of the input provided by the Synthetic Data Source described above.
+Le service [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) est le destinataire des données fournies par la source de données de synthèse décrite ci-dessus.
 
-## <a name="**data-preparation-and-analysis**"></a>**Data Preparation and Analysis**
-
-
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
-
-The [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service is used to provide near real-time analytics on the input stream from the [Azure Event Hub](#azure-event-hub) service and publish results onto a [Power BI](https://powerbi.microsoft.com) dashboard as well as archiving all raw incoming events to the [Azure Storage](https://azure.microsoft.com/services/storage/) service for later processing by the [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service.
-
-### <a name="hd-insights-custom-aggregation"></a>HD Insights Custom Aggregation
-
-The Azure HD Insight service is used to run [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (orchestrated by Azure Data Factory) to provide aggregations on the raw events that were archived using the Azure Stream Analytics service.
-
-### <a name="azure-machine-learning"></a>Azure Machine Learning
-
-The [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) service is used (orchestrated by Azure Data Factory) to make forecast on future power consumption of a particular region given the inputs received.
-
-## <a name="**data-publishing**"></a>**Data Publishing**
+## **Préparation et analyse des données**
 
 
-### <a name="azure-sql-database-service"></a>Azure SQL Database Service
+### Azure Stream Analytics
 
-The [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) service is used to store (managed by Azure Data Factory) the predictions received by the Azure Machine Learning service that will be consumed in the [Power BI](https://powerbi.microsoft.com) dashboard.
+Le service [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) sert à fournir des analyses en temps quasi-réel sur le flux d’entrée du service [Azure Event Hub](#azure-event-hub) et à publier les résultats dans un tableau de bord [Power BI](https://powerbi.microsoft.com). Il permet également d’archiver, dans le service [Azure Storage](https://azure.microsoft.com/services/storage/), tous les événements bruts entrants qui seront ensuite traités par le service [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
-## <a name="**data-consumption**"></a>**Data Consumption**
+### Agrégation personnalisée HDInsight
 
-### <a name="power-bi"></a>Power BI
+Le service Azure HD Insight est utilisé pour exécuter des scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orchestrés par Azure Data Factory) pour agréger les événements bruts ayant été archivés à l’aide du service Azure Stream Analytics.
 
-The [Power BI](https://powerbi.microsoft.com) service is used to show a dashboard that contains aggregations provided by the [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service as well as demand forecast results stored in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) that were produced using the [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) service. For Instructions on how to build the Power BI dashboard for this Solution Template, refer to the section below.
+### Azure Machine Learning
 
-## <a name="**how-to-bring-in-your-own-data**"></a>**How to bring in your own data**
+Le service [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) est utilisé (et orchestré par Azure Data Factory) pour prédire la consommation électrique future d’une région particulière compte tenu des entrées reçues.
 
-This section describes how to bring your own data to Azure, and what areas would require changes for the data you bring into this architecture.
-
-It's unlikely that any dataset you bring would match the dataset used for this solution template. Understanding your data and the requirements will be crucial in how you modify this template to work with your own data. If this is your first exposure to the Azure Machine Learning service, you can get an introduction to it by using the example in [How to create your first experiment](machine-learning\machine-learning-create-experiment.md).
-
-The following sections will discuss the sections of the template that will require modifications when a new dataset is introduced.
-
-### <a name="azure-event-hub"></a>Azure Event Hub
-
-The [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) service is very generic, such that data can be posted to the hub in either CSV or JSON format. No special processing occurs in the Azure Event Hub, but it is important you understand the data that is fed into it.
-
-This document does not describe how to ingest your data, but one can easily send events or data to an Azure Event Hub, using the [Event Hub API](event-hubs\event-hubs-programming-guide.md).
-
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
-
-The [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service is used to provide near real-time analytics by reading from data streams and outputting data to any number of sources.
-
-For the Demand Forecasting for Energy Solution Template, the Azure Stream Analytics query consists of two sub-queries, each consuming events from the Azure Event Hub service as inputs and having outputs to two distinct locations. These outputs consist of one Power BI dataset and one Azure Storage location.
-
-The [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) query can be found by:
-
--   Logging into the [Azure management portal](https://manage.windowsazure.com/)
-
--   Locating the stream analytics jobs ![](media\cortana-analytics-technical-guide-demand-forecast\icon-stream-analytics.png) that were generated when the solution was deployed. One is for pushing data to blob storage (e.g. mytest1streaming432822asablob) and the other one is for pushing data to Power BI (e.g. mytest1streaming432822asapbi).
+## **Publication des données**
 
 
--   Selecting
+### Service de base de données SQL Azure
 
-    -   ***INPUTS*** to view the query input
+Le service de [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) sert à stocker (sous le contrôle d’Azure Data Factory) les prédictions reçues par le service Azure Machine Learning et qui seront utilisées dans le tableau de bord [Power BI](https://powerbi.microsoft.com).
 
-    -   ***QUERY*** to view the query itself
+## **Consommation des données**
 
-    -   ***OUTPUTS*** to view the different outputs
+### Power BI
 
-Information about Azure Stream Analytics query construction can be found in the [Stream Analytics Query Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) on MSDN.
+Le service [Power BI](https://powerbi.microsoft.com) permet d’afficher un tableau de bord contenant les agrégations fournies par le service [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), ainsi que les résultats des prévisions de la demande stockés dans [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) qui ont été générés à l’aide du service [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Pour obtenir des instructions sur la façon de configurer le tableau de bord Power BI pour ce modèle de solution, consultez la section ci-dessous.
 
-In this solution, the Azure Stream Analytics job which outputs dataset with near real-time analytics information about the incoming data stream to a Power BI dashboard is provided as part of this solution template. Because there's implicit knowledge about the incoming data format, these queries would need to be altered based on your data format.
+## **Comment importer vos propres données**
 
-The other Azure Stream Analytics job outputs all [Event Hub](https://azure.microsoft.com/services/event-hubs/) events to [Azure Storage](https://azure.microsoft.com/services/storage/) and hence requires no alteration regardless of your data format as the full event information is streamed to storage.
+Cette section explique comment importer vos propres données dans Azure et décrit les éléments à modifier compte tenu des données que vous importez dans cette architecture.
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+Les jeux de données que vous importez ont peu de chance de correspondre parfaitement à ce modèle de solution. Il est important de bien comprendre vos données et besoins pour déterminer la façon dont vous allez modifier ce modèle pour l’utiliser avec vos propres données. Si vous n’êtes pas familiarisé avec le service Azure Machine Learning, vous pouvez consulter la page [Didacticiel sur l’apprentissage automatique : création de votre première expérience dans Azure Machine Learning Studio](machine-learning\machine-learning-create-experiment.md) pour en obtenir un premier aperçu.
 
-The [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service orchestrates the movement and processing of data. In the Demand Forecasting for Energy Solution Template the data factory is made up of twelve [pipelines](data-factory\data-factory-create-pipelines.md) that move and process the data using various technologies.
+Dans les sections suivantes, nous allons décrire les sections du modèle que vous devrez modifier lors de l’introduction d’un nouveau jeu de données.
 
-  You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure management portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
+### Azure Event Hub
 
-This section discusses the necessary [pipelines](data-factory\data-factory-create-pipelines.md) and [activities](data-factory\data-factory-create-pipelines.md) contained in the [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
+Le service [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) est très générique, au point que les données peuvent être publiées sur le hub au format CSV ou JSON. Bien que le service Azure Event Hub n’implique aucun traitement particulier, il est important de comprendre les données qui l’alimentent.
+
+Ce document ne décrit pas le mode de réception de vos données, mais vous pouvez facilement envoyer des événements ou des données vers un service Azure Event Hub à l’aide de [l’API Event Hub](event-hubs\event-hubs-programming-guide.md).
+
+### Azure Stream Analytics
+
+Le service [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) permet de fournir des analyses en temps quasi-réel grâce à une lecture des flux de données et à l’envoi de données vers diverses sources.
+
+Dans le cas du modèle de solution de prévision de la demande énergétique, la requête Azure Stream Analytics se compose de deux sous-requêtes, chacune utilisant les événements du service Azure Event Hub en tant qu’entrées et générant des sorties à deux emplacements distincts. Ces sorties comprennent un jeu de données Power BI et un emplacement Azure Storage.
+
+Pour accéder à la requête[ Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) :
+
+-   Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com/)
+
+-   Recherchez les travaux Stream Analytics ![](media\cortana-analytics-technical-guide-demand-forecast\icon-stream-analytics.png) qui ont été générés au moment du déploiement de la solution. L’un effectue un Push des données vers Blob Storage (par exemple, mytest1streaming432822asablob), et l'autre vers Power BI (par exemple, mytest1streaming432822asapbi).
+
+
+-   Sélectionnez
+
+    -   ***INPUTS*** pour afficher l’entrée de la requête
+
+    -   ***QUERY*** pour afficher la requête elle-même
+
+    -   ***OUTPUTS*** pour afficher les différentes sorties
+
+Pour plus d’informations sur la construction des requêtes Azure Stream Analytics, consultez la [référence de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) sur MSDN.
+
+Dans cette solution, le travail Azure Stream Analytics qui génère le jeu de données avec des informations d’analyse en temps quasi-réel concernant le flux de données entrant dans un tableau de bord Power BI est fourni dans le cadre de ce modèle de solution. Étant donné que le format des données entrantes est implicitement connu, ces requêtes devront être modifiées en fonction de votre format de données.
+
+L’autre travail Azure Stream Analytics génère tous les événements [Event Hub](https://azure.microsoft.com/services/event-hubs/) dans [Azure Storage](https://azure.microsoft.com/services/storage/) et ne nécessite donc aucune modification, quel que soit votre format de données, puisque les informations d’événement complètes sont transmises en continu vers le stockage.
+
+### Azure Data Factory
+
+Le service [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orchestre le déplacement et le traitement des données. Dans le modèle de solution de prévision de la demande énergétique, la fabrique de données est constituée de douze [pipelines](data-factory\data-factory-create-pipelines.md) qui déplacent et traitent les données à l’aide de différentes technologies.
+
+  Vous pouvez accéder à votre fabrique de données en ouvrant le nœud Data Factory en bas du diagramme du modèle de solution créé avec le déploiement de la solution. Vous êtes alors redirigé vers la fabrique de données sur votre portail de gestion Azure. Si vous rencontrez des erreurs dans vos jeux de données, vous pouvez les ignorer car ces erreurs sont liées à la fabrique de données déployée avant le démarrage du générateur de données. Ces erreurs ne perturbent pas le fonctionnement de votre fabrique de données.
+
+Cette section décrit les [pipelines](data-factory\data-factory-create-pipelines.md) et les [activités](data-factory\data-factory-create-pipelines.md) nécessaires qui sont contenus dans le service [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Vous trouverez ci-dessous une vue schématique de la solution.
 
 ![](media\cortana-analytics-technical-guide-demand-forecast\ADF2.png)
 
-Five of the pipelines of this factory contain [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts that are used to partition and aggregate the data. When noted, the scripts will be located in the [Azure Storage](https://azure.microsoft.com/services/storage/) account created during setup. Their location will be: demandforecasting\\\\script\\\\hive\\\\ (or https://[Your solution name].blob.core.windows.net/demandforecasting).
+Cinq des pipelines de cette fabrique contiennent des scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) utilisés pour partitionner et agréger les données. Quand ils sont référencés, les scripts apparaissent dans le compte [Azure Storage](https://azure.microsoft.com/services/storage/) créé pendant l’installation, à l’emplacement suivant : demandforecasting\\\script\\\hive\\\ (ou https://[Your nom de votre solution].blob.core.windows.net/demandforecasting).
 
-Similar to the [Azure Stream Analytics](#azure-stream-analytics-1) queries, the [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts have implicit knowledge about the incoming data format, these queries would need to be altered based on your data format and [feature engineering](machine-learning\machine-learning-feature-selection-and-engineering.md) requirements.
+De la même manière que les requêtes [Azure Stream Analytics](#azure-stream-analytics-1), les scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) ont une connaissance du format des données entrantes ; vous devrez donc modifier ces requêtes en fonction de votre format de données et des exigences [d’ingénierie des caractéristiques](machine-learning\machine-learning-feature-selection-and-engineering.md).
 
-#### <a name="*aggregatedemanddatato1hrpipeline*"></a>*AggregateDemandDataTo1HrPipeline*
+#### *AggregateDemandDataTo1HrPipeline*
 
-This [pipeline](data-factory\data-factory-create-pipelines.md) pipeline contains a single activity - an [HDInsightHive](data-factory\data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script to aggregate the every 10 seconds streamed in demand data in substation level to hourly region level and put in [Azure Storage](https://azure.microsoft.com/services/storage/) through the Azure Stream Analytics job.
+Ce [pipeline](data-factory\data-factory-create-pipelines.md) contient une seule activité, [HDInsightHive](data-factory\data-factory-hive-activity.md). Cette activité utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) qui exécute un script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) pour agréger les données à la demande diffusées en continu toutes les 10 secondes au niveau de la sous-station en données horaires au niveau de la région et les placer dans [Azure Storage](https://azure.microsoft.com/services/storage/) par le biais du travail Azure Stream Analytics.
 
-The [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script for this partitioning task is ***AggregateDemandRegion1Hr.hql***
+Le script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) utilisé pour cette tâche de partitionnement est ***AggregateDemandRegion1Hr.hql***
 
 
-#### <a name="*loadhistorydemanddatapipeline*"></a>*LoadHistoryDemandDataPipeline*
+#### *LoadHistoryDemandDataPipeline*
 
-This [pipeline](data-factory\data-factory-create-pipelines.md) contains two activities:
-- [HDInsightHive](data-factory\data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to aggregate the hourly history demand data in substation level to hourly region level and put in Azure Storage during the Azure Stream Analytics job
+Ce [pipeline](data-factory\data-factory-create-pipelines.md) contient deux activités :
+- [HDInsightHive](data-factory\data-factory-hive-activity.md), qui utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) exécutant un script Hive pour agréger les données de demande d’historique horaire au niveau de la sous-station en données horaires au niveau de la région et les placer dans Azure Storage pendant le travail Azure Stream Analytics
 
-- [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated data from Azure Storage blob to the Azure SQL Database that was provisioned as part of the solution template installation.
+- [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), qui déplace les données agrégées de l’objet blob Azure Storage vers la base de données SQL Microsoft Azure approvisionnée dans le cadre de l’installation du modèle de solution.
 
-The [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script for this task is ***AggregateDemandHistoryRegion.hql***.
+Le script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) pour cette tâche est ***AggregateDemandHistoryRegion.hql***.
 
 
-#### <a name="*mlscoringregionxpipeline*"></a>*MLScoringRegionXPipeline*
+#### *MLScoringRegionXPipeline*
 
-These [pipelines](data-factory\data-factory-create-pipelines.md) contain several activities and whose end result is the scored predictions from the Azure Machine Learning experiment associated with this solution template. They are almost identical except each of them only handles the different region which is being done by different RegionID passed in the ADF pipeline and the hive script for each region.  
-The activities contained in this are:
--   [HDInsightHive](data-factory\data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to perform aggregations and feature engineering necessary for the Azure Machine Learning experiment. The Hive scripts for this task are respective ***PrepareMLInputRegionX.hql***.
+Ces [pipelines](data-factory\data-factory-create-pipelines.md) comprennent plusieurs activités dont le résultat final contient les prédictions notées à partir de l’expérience Azure Machine Learning associée à ce modèle de solution. Ils sont quasiment identiques : ce qui les différencie, c’est qu’ils gèrent chacun une région différente. Pour cela, un RegionID différent est passé dans le pipeline ADF et le script Hive pour chaque région. Ce pipeline contient les activités suivantes :
+-	[HDInsightHive](data-factory\data-factory-hive-activity.md), qui utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) exécutant un script Hive pour effectuer les agrégations et l’ingénierie de fonctionnalités nécessaires pour l’expérience Azure Machine Learning. Les scripts Hive pour cette tâche sont le ***PrepareMLInputRegionX.hql*** respectif ;
 
--   [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results from the [HDInsightHive](data-factory\data-factory-hive-activity.md) activity to a single Azure Storage blob that can be access by the  [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity.
+-	Activité [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) qui déplace les résultats de l’activité [HDInsightHive](data-factory\data-factory-hive-activity.md) vers un objet blob Azure Storage unique, accessible à l’activité [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx).
 
--   [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity that calls the Azure Machine Learning experiment which results in the results being put in a single Azure Storage blob.
+-	Activité [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) qui appelle l’expérience Azure Machine Learning pour placer les résultats dans un objet blob Azure Storage unique.
 
-#### <a name="*copyscoredresultregionxpipeline*"></a>*CopyScoredResultRegionXPipeline*
-These [pipelines](data-factory\data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results of the Azure Machine Learning experiment from the respective ***MLScoringRegionXPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
+#### *CopyScoredResultRegionXPipeline*
+Ces [pipelines](data-factory\data-factory-create-pipelines.md) contiennent une seule activité, [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx). Cette activité déplace les résultats de l’expérience Azure Machine Learning du ***MLScoringRegionXPipeline*** respectif vers la base de données SQL Microsoft Azure approvisionnée dans le cadre de l’installation du modèle de solution.
 
-#### <a name="*copyaggdemandpipeline*"></a>*CopyAggDemandPipeline*
-This [pipelines](data-factory\data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated ongoing demand data from ***LoadHistoryDemandDataPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
+#### *CopyAggDemandPipeline*
+Ces [pipelines](data-factory\data-factory-create-pipelines.md) contiennent une seule activité, [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx). Cette activité déplace les données à la demande agrégées en continu de ***LoadHistoryDemandDataPipeline*** vers la base de données SQL Microsoft Azure approvisionnée dans le cadre de l’installation du modèle de solution.
 
-#### <a name="*copyregiondatapipeline,-copysubstationdatapipeline,-copytopologydatapipeline*"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-These [pipelines](data-factory\data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the reference data of Region/Substation/Topologygeo that are uploaded to Azure Storage blob as part of the solution template installation to the Azure SQL Database that was provisioned as part of the solution template installation.
+#### *CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
+Ces [pipelines](data-factory\data-factory-create-pipelines.md) contiennent une seule activité, [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx). Cette activité déplace les données de référence de Region/Substation/Topologygeo chargées dans l’objet blob Azure Storage dans le cadre de l’installation du modèle de solution vers la base de données SQL Microsoft Azure approvisionnée dans le cadre de l’installation du modèle de solution.
 
-### <a name="azure-machine-learning"></a>Azure Machine Learning
-The [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment used for this solution template provides the prediction of demand of region. The experiment is specific to the data set consumed and therefore will require modification or replacement specific to the data that is brought in.
+### Azure Machine Learning
+L’expérience [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) utilisée pour ce modèle de solution fournit la prédiction de la demande de la région. L’expérience est spécifique au jeu de données consommé et doit donc être modifiée ou remplacée compte tenu des données qui y sont importées.
 
-## <a name="**monitor-progress**"></a>**Monitor Progress**
-Once the Data Generator is launched, the pipeline begins to get hydrated and the different components of your solution start kicking into action following the commands issued by the Data Factory. There are two ways you can monitor the pipeline.
+## **Surveiller la progression**
+Une fois le Générateur de données lancé, l’alimentation du pipeline commence et les différents composants de votre solution entrent en action selon les commandes émises par la fabrique de données. Il existe deux méthodes de surveillance du pipeline.
 
-1. Check the data from Azure Blob Storage.
+1. Vérifiez les données à partir d’Azure Blob Storage.
 
-    One of the Stream Analytics job writes the raw incoming data to blob storage. If you click on **Azure Blob Storage** component of your solution from the screen you successfully deployed the solution and then click **Open** in the right panel, it will take you to the [Azure management portal](https://portal.azure.com). Once there, click on **Blobs**. In the next panel, you will see a list of Containers. Click on **"energysadata"**. In the next panel, you will see the **"demandongoing"** folder. Inside the rawdata folder, you will see folders with names such as date=2016-01-28 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see files that should have finite sizes in MB in those folders.
+	Un des travaux Stream Analytics enregistre les données brutes entrantes dans Blob Storage. Si vous cliquez sur le composant **Azure Blob Storage** de votre solution dans l’écran à partir duquel vous avez déployé la solution, puis cliquez sur **Ouvrir** dans le volet droit, vous accédez au [portail de gestion Azure](https://portal.azure.com). Une fois dans le portail, cliquez sur **Objets BLOB**. Dans le panneau suivant, vous verrez une liste de conteneurs. Cliquez sur **energysadata**. Le panneau suivant affiche le dossier **demandongoing**. Celui-ci comprend des dossiers nommés par exemple date=2016-01-28, etc. Si vous voyez ces dossiers, cela signifie que les données brutes sont correctement générées sur votre ordinateur et stockées dans Blob Storage. Vous devriez voir des fichiers avec des tailles finies en Mo dans ces dossiers.
 
-2. Check the data from Azure SQL Database.
+2. Vérifiez les données à partir d’Azure SQL Database.
 
-    The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of 2 hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [Azure management portal](https://manage.windowsazure.com/). On the left panel locate SQL DATABASES![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon2.png)  and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page under **"Connect to your database"** section, click **"Run Transact-SQL queries against your SQL database"**.
+	La dernière étape du pipeline consiste à enregistrer des données (par exemple, les prédictions générées à partir de Machine Learning) dans SQL Database. Vous devrez peut-être attendre un maximum de deux heures pour que les données s'affichent dans SQL Database. Le [portail de gestion Azure](https://manage.windowsazure.com/) offre un moyen de surveiller la quantité de données disponible dans votre base de données SQL. Dans le volet gauche, identifiez les bases de données SQL ![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon2.png) et cliquez dessus. Recherchez ensuite votre base de données (par exemple, demo123456db), puis cliquez dessus. Dans la page suivante, sous la section **Se connecter à votre base de données**, cliquez sur **Exécuter des requêtes Transact-SQL sur votre base de données SQL**.
 
-    Here, you can click on New Query and query for the number of rows (e.g. "select count(*) from DemandRealHourly)" As your database grows, the number of rows in the table should increase.)
+	Ici, vous pouvez cliquer sur Nouvelle requête et entrez une requête pour obtenir le nombre de lignes (par exemple, select count(*) from DemandRealHourly). À mesure que votre base de données augmente, le nombre de lignes de la table doit augmenter.
 
-3. Check the data from Power BI dashboard.
+3. Vérifiez les données à partir du tableau de bord Power BI.
 
-    You can set up Power BI hot path dashboard to monitor the raw incoming data. Please follow the instruction in the "Power BI Dashboard" section.
+	Vous pouvez configurer un tableau de bord de chemin à chaud Power BI pour surveiller les données brutes entrantes. Suivez les instructions contenues dans la section « Tableau de bord Power BI ».
 
 
 
-## <a name="**power-bi-dashboard**"></a>**Power BI Dashboard**
+## **Tableau de bord Power BI**
 
-### <a name="overview"></a>Overview
+### Vue d'ensemble
 
-This section describes how to set up Power BI dashboard to visualize your real time data from Azure stream analytics (hot path), as well as forecast results from Azure machine learning (cold path).
+Cette section décrit comment configurer un tableau de bord Power BI afin de visualiser vos données en temps réel à partir d’Azure Stream Analytics (chemin à chaud), ainsi que les résultats des prévisions à partir d’Azure Machine Learning (chemin à froid).
 
 
-### <a name="setup-hot-path-dashboard"></a>Setup Hot Path Dashboard
+### Configurer le tableau de bord de chemin à chaud
 
-The following steps will guide you how to visualize real time data output from Stream Analytics jobs that were generated at the time of solution deployment. A [Power BI online](http://www.powerbi.com/) account is required to perform the following steps. If you don't have an account, you can [create one](https://powerbi.microsoft.com/pricing).
+Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sortie de données en temps réel des tâches Stream Analytics qui ont été générées au moment du déploiement de la solution. Les étapes suivantes nécessitent un compte [Power BI en ligne](http://www.powerbi.com/). Si vous ne possédez pas de compte, vous pouvez en [créer un](https://powerbi.microsoft.com/pricing).
 
-1.  Add Power BI output in Azure Stream Analytics (ASA).
+1.  Ajouter une sortie Power BI dans Azure Stream Analytics (ASA).
 
-    -  You will need to follow the instructions in [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md) to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
+    -  Pour configurer la sortie de votre travail Azure Stream Analytics en tant que tableau de bord Power BI, vous devez suivre les instructions contenues dans [Azure Stream Analytics et Power BI : tableau de bord d’analyse permettant de visualiser en temps réel les données de diffusion en continu](stream-analytics-power-bi-dashboard.md).
 
-    - Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSolutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
+	- Dans votre [portail de gestion Azure](https://manage.windowsazure.com), recherchez le travail Stream Analytics. Le nom du travail doit être au format nom\_solution+"streamingjob"+nombre\_aléatoire+"asapbi" (c’est-à-dire, demostreamingjob123456asapbi).
 
-    - Add a PowerBI output for the ASA job. Set the **Output Alias** as **‘PBIoutput’**. Set your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once you have added the output, click **"Start"** at the bottom of the page to start the Stream Analytics job. You should get a confirmation message (*e.g.*, "Starting stream analytics job myteststreamingjob12345asablob succeeded").
+	- Ajoutez une sortie PowerBI pour le travail ASA. Définissez l**’alias de sortie** sur **« PBIoutput »**. Dans **Nom du jeu de données** et **Nom de la table**, entrez **EnergyStreamData**. Une fois que vous avez ajouté la sortie, cliquez sur **Démarrer** en bas de la page pour démarrer le travail Stream Analytics. Un message de confirmation doit s’afficher (*par exemple* : La tâche Stream Analytics ’myteststreamingjob12345asablob’ a bien démarré).
 
-2. Log in to [Power BI online](http://www.powerbi.com)
+2. Se connecter à [Power BI en ligne](http://www.powerbi.com)
 
-    -   On the left panel Datasets section in My Workspace, you should be able to see a new dataset showing on the left panel of Power BI. This is the streaming data you pushed from Azure Stream Analytics in the previous step.
+    -   Dans la section Jeux de données du volet gauche de Mon espace de travail, un nouveau jeu de données doit apparaître dans le volet gauche de Power BI. Il s'agit des données de diffusion en continu qui ont fait l’objet d’un Push à partir d'Azure Stream Analytics au cours de l'étape précédente.
 
-    -   Make sure the ***Visualizations*** pane is open and is shown on the right side of the screen.
+    -   Assurez-vous que le volet ***Visualisations*** est ouvert et qu’il s’affiche à droite de l’écran.
 
-3. Create the "Demand by Timestamp" tile:
-    -   Click dataset **‘EnergyStreamData’** on the left panel Datasets section.
+3. Créez la vignette Demand by Timestamp :
+	-	Cliquez sur le jeu de données **EnergyStreamData** dans la section Jeux de données du volet gauche.
 
-    -   Click **"Line Chart"** icon ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
+	-	Cliquez sur l’icône **Courbes** ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic8.png).
 
-    -   Click ‘EnergyStreamData’ in **Fields** panel.
+	-	Cliquez sur EnergyStreamData dans le panneau **Champs**.
 
-    -   Click **“Timestamp”** and make sure it shows under "Axis". Click **“Load”** and make sure it shows under "Values".
+	-	Cliquez sur **Horodatage** et vérifiez qu’il apparaît sous Axe. Cliquez sur **Charger** et vérifiez qu’il apparaît sous Valeurs.
 
-    -   Click **SAVE** on the top and name the report as “EnergyStreamDataReport”. The report named “EnergyStreamDataReport” will be shown in Reports section in the Navigator pane on left.
+	-	Cliquez sur **ENREGISTRER** en haut de l’écran et nommez le rapport EnergyStreamDataReport. Le rapport EnergyStreamDataReport s’affiche dans la section Rapports du volet Navigateur de gauche.
 
-    -   Click **“Pin Visual”**![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) icon on top right corner of this line chart, a "Pin to Dashboard" window may show up for you to choose a dashboard. Please select "EnergyStreamDataReport", then click "Pin".
+	-	Cliquez sur l’icône **Épingler au tableau de bord**![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) dans le coin supérieur droit de ce graphique en courbes. Une fenêtre Épingler au tableau de bord peut apparaître pour vous permettre de sélectionner un tableau de bord. Sélectionnez EnergyStreamDataReport, puis cliquez sur Épingler.
 
-    -   Hover the mouse over this tile on the dashboard, click "edit" icon on top right corner to change its title as "Demand by Timestamp"
+	-	Dans le tableau de bord, pointez la souris sur cette vignette, cliquez sur l’icône Modifier située en haut à droite pour donner le titre « Demand by Timestamp ».
 
-4.  Create other dashboard tiles based on appropriate datasets. The final dashboard view is shown below.
-        ![](media\cortana-analytics-technical-guide-demand-forecast\PBIFullScreen.png)
+4.	Créez d’autres vignettes de tableau de bord en fonction des jeux de données appropriés. La vue Tableau de bord finale est illustrée ci-dessous. ![](media\cortana-analytics-technical-guide-demand-forecast\PBIFullScreen.png)
 
 
-### <a name="setup-cold-path-dashboard"></a>Setup Cold Path Dashboard
-In cold path data pipeline, the essential goal is to get the demand forecast of each region. Power BI connects to an Azure SQL database as its data source, where the prediction results are stored.
+### Configurer le tableau de bord de chemin à froid
+Dans le pipeline de données de chemin à froid, l'objectif principal est d’obtenir la prévision de la demande de chaque région. Power BI se connecte à une base de données SQL Azure en tant que source de données où sont stockés les résultats de la prédiction.
 
-> [AZURE.NOTE] 1) It takes few hours to collect enough forecast results for the dashboard. We recommend you start this process 2-3 hours after you lunch the data generator. 2) In this step, the prerequisite is to download and install the free software [Power BI desktop](https://powerbi.microsoft.com/desktop).
+> [AZURE.NOTE] \(1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Avant d’effectuer cette étape, vous devez télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 
 
-1.  Get the database credentials.
+1.  Obtenez les informations d’identification de la base de données.
 
-    You will need **database server name, database name, user name and password** before moving to next steps. Here are the steps to guide you how to find them.
+    Avant de passer aux étapes suivantes, vous devez rechercher **le nom du serveur de base de données, le nom de la base de données, le nom d’utilisateur et le mot de passe**. Voici les étapes à suivre pour obtenir ces informations.
 
-    -   Once **"Azure SQL Database"** on your solution template diagram turns green, click it and then click **"Open"**. You will be guided to Azure management portal and your database information page will be opened as well.
+    -   Une fois que la **« Base de données SQL Azure »** apparaît en vert sur votre schéma de modèle de solution, cliquez dessus, puis cliquez sur **« Ouvrir »**. Vous accédez alors au portail de gestion Azure qui affiche une page d'informations sur votre base de données.
 
-    -   On the page, you can find a "Database" section. It lists out the database you have created. The name of your database should be **"Your Solution Name + Random Number + 'db'"** (e.g. "mytest12345db").
+    -   La page contient une section Base de données dans laquelle figure la base de données que vous avez créée. Le nom de votre base de données doit être au format **nom\_solution+nombre\_aléatoire+’db’** (par exemple, montest12345db).
 
-    -   Click your database, in the new pop out pannel, you can find your database server name on the top. Your database server name name shoud be **"Your Solution Name + Random Number + 'database.windows.net,1433'"** (e.g. "mytest12345.database.windows.net,1433").
+	-	Cliquez sur votre base de données. Dans le nouveau panneau contextuel, le nom de votre serveur de base de données apparaît dans la partie supérieure. Le nom de votre serveur de base de données doit être au format **nom\_solution+nombre\_aléatoire+’database.windows.net,1433’** (par exemple, montest12345.database.windows.net,1433).
 
-    -   Your database **username** and **password** are the same as the username and password previously recorded during deployment of the solution.
+	-   Les **nom d’utilisateur** et **mot de passe** de votre base de données sont identiques aux nom d’utilisateur et mot de passe précédemment enregistrés au moment du déploiement de la solution.
 
-2.  Update the data source of the cold path Power BI file
-    -  Make sure you have installed the latest version of [Power BI desktop](https://powerbi.microsoft.com/desktop).
+2.	Mettez à jour la source de données du fichier Power BI de chemin à froid.
+	-  Vérifiez que vous avez installé la dernière version de [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-    -   In the **"DemandForecastingDataGeneratorv1.0"** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. The initial visualizations are based on dummy data. **Note:** If you see an error massage, please make sure you have installed the latest version of Power BI Desktop.
+	-	Dans le dossier **DemandForecastingDataGeneratorv1.0** que vous avez téléchargé, double-cliquez sur le fichier **Power BI Template\\DemandForecastPowerBI.pbix**. Les visualisations initiales sont basées sur des données fictives. **Remarque :** si un message d’erreur s’affiche, vérifiez que vous avez installé la dernière version de Power BI Desktop.
 
-        Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
-    ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Après avoir ouvert le fichier, cliquez sur **Modifier les requêtes** dans la partie supérieure. Dans la fenêtre contextuelle, double-cliquez sur **Source** dans le volet droit. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
-    -   In the pop out window, replace **"Server"** and **"Database"** with your own server and database names, and then click **"OK"**. For server name, make sure you specify the port 1433 (**YourSolutionName.database.windows.net, 1433**). Ignore the warning messages that appear on the screen.
+	-   Dans la fenêtre contextuelle, remplacez **Serveur** et **Base de données** par vos propres noms de serveur et de base de données, puis cliquez sur **OK**. Pour le nom du serveur, veillez à spécifier le port 1433 (**NomVotreSolution.database.windows.net, 1433**). Ignorez les messages d’avertissement qui s’affichent à l’écran.
 
-    -   In the next pop out window, you'll see two options on the left pane (**Windows** and **Database**). Click **"Database"**, fill in your **"Username"** and **"Password"** (this is the username and password you entered when you first deployed the solution and created an Azure SQL database). In ***Select which level to apply these settings to***, check database level option. Then click **"Connect"**.
+	-   Dans la fenêtre contextuelle suivante, deux options s’affichent dans le volet gauche (**Windows** et **Base de données**). Cliquez sur **Base de données** et renseignez vos **Nom d’utilisateur** et **Mot de passe** (il s’agit des nom d’utilisateur et mot de passe que vous avez entrés au moment du déploiement de la solution et de la création de la base de données SQL Azure). Dans ***Sélectionnez le niveau auquel appliquer ces paramètres***, cochez l’option du niveau de base de données. Cliquez ensuite sur **Se connecter**.
 
-    -   Once you're guided back to the previous page, close the window. A message will pop out - click **Apply**. Lastly, click the **Save** button to save the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you will only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
+	-   Une fois redirigé sur la page précédente, fermez la fenêtre. Un message s’affiche ; cliquez sur **Appliquer**. Pour finir, cliquez sur le bouton **Enregistrer** pour enregistrer les modifications. Votre fichier Power BI a maintenant établi la connexion au serveur. Si vos visualisations sont vides, veillez à désactiver les sélections de visualisation pour visualiser toutes les données en cliquant sur l’icône de suppression en haut à droite des légendes. Utilisez le bouton Actualiser pour afficher les nouvelles données sur les visualisations. Au départ, vous verrez uniquement les données d’amorçage sur vos visualisations, étant donné que la fabrique de données est planifiée pour s’actualiser toutes les 3 heures. Au bout de 3 heures, les nouvelles prédictions sont reflétées dans vos visualisations lorsque vous actualisez les données.
 
-3. (Optional) Publish the cold path dashboard to [Power BI online](http://www.powerbi.com/). Note that this step needs a Power BI account (or Office 365 account).
+3. (Facultatif) Publier le tableau de bord de chemin à froid dans [Power BI en ligne](http://www.powerbi.com/). Notez que vous avez besoin d’un compte Power BI (ou d’un compte Office 365) pour cette étape.
 
-    -   Click **"Publish"** and few seconds later a window appears displaying "Publishing to Power BI Success!" with a green check mark. Click the link below "Open demoprediction.pbix in Power BI". To find detailed instructions, see [Publish from Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
+	-   Cliquez sur **Publier** et attendez quelques secondes ; une fenêtre s’affiche avec une coche verte pour confirmer que la publication dans Power BI a bien été effectuée. Cliquez sur le lien sous Ouvrir demoprediction.pbix dans Power BI. Pour obtenir des instructions détaillées, consultez la page [Publier à partir de Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
 
-    -   To create a new dashboard: click the **+** sign next to the **Dashboards** section on the left pane. Enter the name "Demand Forecasting Demo" for this new dashboard.
+	-   Pour créer un tableau de bord : cliquez sur le signe **+** en regard de la section **Tableaux de bord** dans le volet gauche. Nommez ce nouveau tableau de bord « Prévision de la demande - Démonstration ».
 
-    -   Once you open the report, click ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) to pin all the visualizations to your dashboard. To find detailed instructions, see [Pin a tile to a Power BI dashboard from a report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
-        Go to the dashboard page and adjust the size and location of your visualizations and edit their titles. To find detailed instructions on how to edit your tiles, see [Edit a tile -- resize, move, rename, pin, delete, add hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Here is an example dashboard with some cold path visualizations pinned to it.
+	-   Après avoir ouvert le rapport, cliquez sur ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) pour épingler toutes les visualisations à votre tableau de bord. Pour obtenir des instructions détaillées, consultez la page [Épingler une vignette à un tableau de bord Power BI à partir d’un rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Accédez à la page Tableau de bord et ajustez la taille et l’emplacement de vos visualisations, puis modifier leurs titres. Pour obtenir des instructions détaillées sur la modification de vos vignettes, consultez [Modifier une vignette -- redimensionner, déplacer, renommer, épingler, supprimer, ajouter un lien hypertexte](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Voici un exemple de tableau de bord sur lequel sont épinglées des visualisations de chemin à froid.
 
-        ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic7.png)
+		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic7.png)
 
-4. (Optional) Schedule refresh of the data source.
-    -     To schedule refresh of the data, hover your mouse over the **EnergyBPI-Final** dataset, click ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic3.png) and then choose **Schedule Refresh**.
-    **Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
+4. (Facultatif) Planifiez l'actualisation de la source de données.
+	-	  Pour planifier l’actualisation des données, pointez sur le jeu de données **EnergyBPI-Final**, cliquez sur ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic3.png), puis sélectionnez **Planifier l’actualisation**. **Remarque :** si vous voyez un message d’avertissement, cliquez sur **Modifier les informations d’identification** et assurez-vous que vos informations d’identification de base de données sont les mêmes que celles décrites à l’étape 1.
 
-    ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic4.png)
+	![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic4.png)
 
-    -   Expand the **Schedule Refresh** section. Turn on "keep your data up-to-date".
+	-   Développez la section **Planifier l’actualisation**. Activez l’option Tenir vos données à jour.
 
-    -   Schedule the refresh based on your needs. To find more information, see [Data refresh in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
+	-   Planifiez l’actualisation selon vos besoins. Pour plus d’informations, consultez la page [Actualisation des données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
-## <a name="**how-to-delete-your-solution**"></a>**How to delete your solution**
-Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution will delete all the components provisioned in your subscription when you deployed the solution. To delete the solution click on your solution name in the left panel of the solution template and click on delete.
+## **Comment supprimer votre solution**
+Veillez à arrêter le générateur de données quand vous n’utilisez pas la solution activement, car l’exécution du générateur de données entraîne des coûts plus élevés. Supprimez la solution si vous ne l’utilisez pas. La suppression de votre solution supprime tous les composants qui étaient configurés dans votre abonnement quand vous avez déployé la solution. Pour supprimer la solution, cliquez sur son nom dans le volet gauche du modèle de solution, puis cliquez sur Supprimer.
 
-## <a name="**cost-estimation-tools**"></a>**Cost Estimation Tools**
+## **Outils d’estimation des coûts**
 
-The following two tools are available to help you better understand the total costs involved in running the Demand Forecasting for Energy Solution Template in your subscription:
+Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impliqués dans l’exécution du modèle de solution de prévision de la demande énergétique dans votre abonnement :
 
--   [Microsoft Azure Cost Estimator Tool (online)](https://azure.microsoft.com/pricing/calculator/)
+-   [Microsoft Azure Cost Estimator Tool (en ligne)](https://azure.microsoft.com/pricing/calculator/)
 
--   [Microsoft Azure Cost Estimator Tool (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
+-   [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-## <a name="**acknowledgements**"></a>**Acknowledgements**
-This article is authored by data scientist Yijing Chen and software engineer Qiu Min at Microsoft.
+## **Remerciements**
+Cet article a été créé par le scientifique de données Yijing Chen et l’ingénieur logiciel Min Qiu de Microsoft.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

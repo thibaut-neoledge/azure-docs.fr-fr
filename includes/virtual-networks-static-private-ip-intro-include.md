@@ -1,7 +1,5 @@
-Your IaaS virtual machines (VMs) and PaaS role instances in a virtual network automatically receive a private IP address from a range that you specify, based on the subnet they are connected to. That address is retained by the VMs and role instances, until they are decommissioned. You decommission a VM or role instance by stopping it from PowerShell, the Azure CLI, or the Azure portal. In those cases, once the VM or role instance starts again, it will receive an available IP address from the Azure infrastructure, which might not be the same it previously had. If you shut down the VM or role instance from the guest operating system, it retains the IP address it had.  
+Vos machines virtuelles IaaS et instances de rôle PaaS dans un réseau virtuel reçoivent automatiquement une adresse IP privée à partir d’une plage que vous spécifiez, selon le sous-réseau auquel elles sont connectées. Cette adresse est conservée par les machines virtuelles et les instances de rôle, jusqu'à ce qu'elles soient mises hors service. Vous mettez une machine virtuelle ou une instance de rôle hors service en l'arrêtant à partir de PowerShell, l'interface de ligne de commande Azure ou le portail Azure. Dans ce cas, lorsque la machine virtuelle ou l'instance de rôle redémarre, elle reçoit une adresse IP disponible à partir de l'infrastructure Azure, qui peut ne pas être identique à celle qu'elle avait précédemment. Si vous arrêtez la machine virtuelle ou l’instance de rôle à partir du système d’exploitation invité, elle conserve l’adresse IP attribuée.
 
-In certain cases, you want a VM or role instance to have a static IP address, for example, if your VM is going to run DNS or will be a domain controller. You can do so by setting a static private IP address.
+Dans certains cas, vous souhaitez qu’une machine virtuelle ou instance de rôle ait une adresse IP statique, par exemple si votre machine virtuelle doit exécuter DNS ou faire office de contrôleur de domaine. Pour ce faire, définissez une adresse IP privée statique.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

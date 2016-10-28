@@ -1,16 +1,12 @@
-A DNS zone is used to host the DNS records for a particular domain. In order to start hosting your domain, you need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain. 
+Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Afin d’héberger votre domaine, vous devez créer une zone DNS. Les enregistrements DNS créés pour un domaine particulier sont situés dans une zone DNS pour le domaine.
 
-For example, the domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site). 
+Par exemple, le domaine « contoso.com » peut contenir un certain nombre d’enregistrements DNS, tels que « mail.contoso.com » (pour un serveur de messagerie) et « www.contoso.com » (pour un site web).
 
 
-## <a name="<a-name="names"></a>about-dns-zone-names"></a><a name="names"></a>About DNS zone names
+## <a name="names"></a>À propos des noms de zones DNS
  
-- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
+- Le nom de la zone doit être unique dans le groupe de ressources et la zone ne doit pas déjà exister. Sinon, l’opération échoue.
 
-- The same zone name can be re-used in a different resource group or a different Azure subscription. 
+- Le même nom de zone peut être réutilisé dans un autre groupe de ressources ou abonnement Azure.
 
-- Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
-
-<!--HONumber=Oct16_HO2-->
-
-
+- Lorsque plusieurs zones partagent le même nom, chaque instance se voit affecter différentes adresses de serveur de noms, et une seule instance peut être déléguée à partir du domaine parent. Pour plus d’informations, consultez la page [Délégation d’un domaine à Azure DNS](../articles/dns/dns-domain-delegation.md).

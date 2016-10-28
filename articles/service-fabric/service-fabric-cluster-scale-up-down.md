@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Scale a Service Fabric cluster in or out | Microsoft Azure"
-   description="Scale a Service Fabric cluster in or out to match demand by setting auto-scale rules for each node type/VM scale set. Add or remove nodes to a Service Fabric cluster"
+   pageTitle="Augmenter ou diminuer la taille des instances d’un cluster Service Fabric | Microsoft Azure"
+   description="Augmenter ou diminuer la taille des instances d’un cluster Service Fabric pour répondre à la demande en définissant des règles de mise à l’échelle automatique pour chaque type de nœud/jeu de mise à l’échelle de machine virtuelle. Ajouter ou supprimer des nœuds d’un cluster Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -17,18 +17,17 @@
    ms.author="chackdan"/>
 
 
+# Augmenter ou diminuer la taille des instances d’un cluster Service Fabric à l’aide de règles de mise à l’échelle automatique
 
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Scale a Service Fabric cluster in or out using auto-scale rules
+Les jeux de mise à l’échelle de machine virtuelle sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que jeu. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que jeu de mise à l’échelle de machine virtuelle distinct. Chaque type de nœud peut ensuite faire l’objet d’une augmentation ou d’une diminution de la taille des instances de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. Pour en savoir plus, voir le document portant sur les [types de nœuds Service Fabric](service-fabric-cluster-nodetypes.md). Étant donné que les types de nœuds Service Fabric de votre cluster sont constitués de jeux de mise à l’échelle de machine virtuelle sur le principal, vous devez définir des règles de mise à l’échelle automatique pour chaque type de nœud/jeu de mise à l’échelle de machine virtuelle.
 
-Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate VM scale set. Each node type can then be scaled in or out independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Since the Service Fabric node types in your cluster are made of VM scale sets at the backend, you need to set up auto-scale rules for each node type/VM scale set.
+>[AZURE.NOTE] Votre abonnement doit avoir suffisamment de cœurs pour ajouter les nouvelles machines virtuelles qui composeront ce cluster. Il n’existe actuellement aucune validation de modèle. Vous obtenez donc une erreur liée au temps de déploiement si l’une des limites de quota est atteinte.
 
->[AZURE.NOTE] Your subscription must have enough cores to add the new VMs that make up this cluster. There is no model validation currently, so you get a deployment time failure, if any of the quota limits are hit.
+## Choisir le type de nœud/jeu de mise à l’échelle de machine virtuelle à mettre à l’échelle
 
-## <a name="choose-the-node-type/vm-scale-set-to-scale"></a>Choose the node type/VM scale set to scale
+Actuellement, vous n’êtes pas en mesure de spécifier les règles de mise à l’échelle automatique pour les jeux de mise à l’échelle de machine virtuelle à l’aide du portail. Nous allons donc utiliser Azure PowerShell (1.0 et versions ultérieures) pour répertorier les types de nœud et leur ajouter des règles de mise à l’échelle automatique.
 
-Currently, you are not able to specify the auto-scale rules for VM scale sets using the portal, so let us use Azure PowerShell (1.0+) to list the node types and then add auto-scale rules to them.
-
-To get the list of VM scale set that make up your cluster, run the following cmdlets:
+Pour obtenir la liste des jeux de mise à l’échelle de machine virtuelle qui composent votre cluster, exécutez les applets de commande suivantes :
 
 ```powershell
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
@@ -36,82 +35,77 @@ Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/
 Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <VM Scale Set name>
 ```
 
-## <a name="set-auto-scale-rules-for-the-node-type/vm-scale-set"></a>Set auto-scale rules for the node type/VM scale set
+## Définir des règles de mise à l’échelle automatique pour le type de nœud/jeu de mise à l’échelle de machine virtuelle
 
-If your cluster has multiple node types, then repeat this for each node types/VM scale sets that you want to scale (in or out). Take into account the number of nodes that you must have before you set up auto-scaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. Read more about [reliability levels](service-fabric-cluster-capacity.md).
+Si votre cluster comporte plusieurs types de nœud, vous devez effectuer cette opération pour chaque type de nœud/jeu de mise à l’échelle de machine virtuelle pour lequel vous voulez augmenter ou diminuer la taille des instances. Tenez compte du nombre de nœuds dont vous devez disposer avant de configurer la mise à l’échelle automatique. Le nombre de nœuds minimal dont vous devez disposer pour le type de nœud principal est déterminé par le niveau de fiabilité que vous avez choisi. En savoir plus sur les [niveaux de fiabilité](service-fabric-cluster-capacity.md).
 
->[AZURE.NOTE]  Scaling down the primary node type to less than the minimum number make the cluster unstable or bring it down. This could result in data loss for your applications and for the system services.
+>[AZURE.NOTE]  Une descente en puissance du type de nœud principal en deçà du nombre minimal rend le cluster instable ou entraîne son interruption. Cela peut entraîner une perte de données pour vos applications et pour les services système.
 
-Currently the auto-scale feature is not driven by the loads that your applications may be reporting to Service Fabric. So at this time the auto-scale you get is purely driven by the performance counters that are emitted by each of the VM scale set instances.  
+Actuellement, la fonctionnalité de mise à l’échelle automatique ne dépend pas des charges que vos applications peuvent signaler à Service Fabric. Par conséquent, pour le moment, la mise à l’échelle automatique que vous obtenez dépend purement des compteurs de performances émis par chaque instance du jeu de mise à l’échelle de machine virtuelle.
 
-Follow these instructions [to set up auto-scale for each VM scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
+Suivez ces instructions pour [configurer la mise à l’échelle automatique pour chaque jeu de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
->[AZURE.NOTE] In a scale down scenario, unless your node type has a durability level of Gold or Silver you need to call the [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/azure/mt125993.aspx) with the appropriate node name.
+>[AZURE.NOTE] Dans un scénario de descente en puissance, à moins que votre type de nœud ne possède un niveau de durabilité Gold ou Silver, vous devez appeler [l’applet de commande Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) avec le nom de nœud approprié.
 
-## <a name="manually-add-vms-to-a-node-type/vm-scale-set"></a>Manually add VMs to a node type/VM scale set
+## Ajouter manuellement des machines virtuelles à un type de nœud/jeu de mise à l’échelle de machine virtuelle
 
-Follow the sample/instructions in the [quick start template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs in each Nodetype. 
+Suivez les exemples/les instructions dans la [galerie de modèles de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) pour modifier le nombre de machines virtuelles dans chaque Nodetype.
 
->[AZURE.NOTE] Adding of VMs takes time, so do not expect the additions to be instantaneous. So plan to add capacity well in time, to allow for over 10 minutes before the VM capacity is available for the replicas/ service instances to get placed.
+>[AZURE.NOTE] L’ajout de machines virtuelles prend du temps, donc ne vous attendez pas à ce que les ajouts soient instantanés. Par conséquent, envisagez d’ajouter de la capacité bien à l’avance ; plus de 10 minutes sont nécessaires avant que la capacité de la machine virtuelle soit disponible pour les réplicas/instances de service à placer.
 
-## <a name="manually-remove-vms-from-the-primary-node-type/vm-scale-set"></a>Manually remove VMs from the primary node type/VM scale set
+## Supprimer manuellement des machines virtuelles du type de nœud/jeu de mise à l’échelle de machine virtuelle principal
 
->[AZURE.NOTE] The service fabric system services run in the Primary node type in your cluster. So should never shut down or scale down the number of instances in that node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md). 
+>[AZURE.NOTE] Les services système Service Fabric s’exécutent sur le type de nœud principal de votre cluster. Vous ne devez donc jamais arrêter ou faire descendre en puissance le nombre d’instances dans ces types de nœuds sur une valeur inférieure à celle garantie par le niveau de fiabilité. Consultez [les détails sur les niveaux de fiabilité ici](service-fabric-cluster-capacity.md).
 
-You need to execute the following steps one VM instance at a time. This allows for the system services (and your stateful services) to be shut down gracefully on the VM instance you are removing and new replicas created on other nodes.
+Vous devez exécuter les étapes suivantes sur une instance de machine virtuelle à la fois. Ceci permet d’arrêter correctement les services système (et vos services avec état) sur l’instance de machine virtuelle que vous supprimez et les nouveaux réplicas créés sur d’autres nœuds.
 
-1. Run [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
+1. Exécutez [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) avec « RemoveNode » pour désactiver le nœud que vous souhaitez supprimer (l’instance la plus élevée dans ce type de nœud).
 
-2. Run [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) to make sure that the node has indeed transitioned to disabled. If not, wait until the node is disabled. You cannot hurry this step.
+2. Exécutez [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) pour vous assurer que le nœud est en effet passé à l’état désactivé. Si ce n’est pas le cas, patientez jusqu'à ce que le nœud soit désactivé. Vous ne pouvez pas accélérer cette étape.
 
-2. Follow the sample/instructions in the [quick start template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs by one in that Nodetype. The instance removed is the highest VM instance. 
+2. Suivez les exemples/instructions dans la [galerie de modèles de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) pour modifier le nombre de machines virtuelles d’une unité dans ce Nodetype. L’instance supprimée est l’instance de machine virtuelle la plus élevée.
 
-3. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md). 
+3. Répétez les étapes 1 à 3 selon vos besoins, mais ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Consultez [les détails sur les niveaux de fiabilité ici](service-fabric-cluster-capacity.md).
 
-## <a name="manually-remove-vms-from-the-non-primary-node-type/vm-scale-set"></a>Manually remove VMs from the non-primary node type/VM scale set
+## Supprimer manuellement des machines virtuelles du type de nœud/jeu de mise à l’échelle de machine virtuelle non principal
 
->[AZURE.NOTE] For a stateful service, you need a certain number of nodes to be always up to maintain availability and preserve state of your service. At the very minimum, you need the number of nodes equal to the target replica set count of the partition/service. 
+>[AZURE.NOTE] Pour un service avec état, un certain nombre de nœuds doivent toujours fonctionner afin de maintenir la disponibilité et de conserver l’état de votre service. Au minimum, le nombre de nœuds doit être égal au nombre de jeux de réplicas cibles du service/de la partition.
 
-You need the execute the following steps one VM instance at a time. This allows for the system services (and your stateful services) to be shut down gracefully on the VM instance you are removing and new replicas created else where.
+Vous devez exécuter les étapes suivantes sur une instance de machine virtuelle à la fois. Ceci permet d’arrêter correctement les services système (et vos services avec état) sur l’instance de machine virtuelle que vous supprimez et les nouveaux réplicas créés ailleurs.
 
-1. Run [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
+1. Exécutez [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) avec « RemoveNode » pour désactiver le nœud que vous souhaitez supprimer (l’instance la plus élevée dans ce type de nœud).
 
-2. Run [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) to make sure that the node has indeed transitioned to disabled. If not wait till the node is disabled. You cannot hurry this step.
+2. Exécutez [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) pour vous assurer que le nœud est en effet passé à l’état désactivé. Si ce n’est pas le cas, patientez jusqu'à ce que le nœud soit désactivé. Vous ne pouvez pas accélérer cette étape.
 
-2. Follow the sample/instructions in the [quick start template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs by one in that Nodetype. This will now remove the highest VM instance. 
+2. Suivez les exemples/instructions dans la [galerie de modèles de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) pour modifier le nombre de machines virtuelles d’une unité dans ce Nodetype. Ceci supprime l’instance de machine virtuelle la plus élevée.
 
-3. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md).
+3. Répétez les étapes 1 à 3 selon vos besoins, mais ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Consultez [les détails sur les niveaux de fiabilité ici](service-fabric-cluster-capacity.md).
 
-## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Behaviors you may observe in Service Fabric Explorer
+## Comportements que vous pouvez observer dans Service Fabric Explorer
 
-When you scale up a cluster the Service Fabric Explorer will reflect the number of nodes (VM scale set instances) that are part of the cluster.  However, when you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) with the appropriate node name.   
+Lorsque vous faites monter un cluster en puissance, Service Fabric Explorer reflète le nombre de nœuds (instances de jeu de mise à l’échelle de machine virtuelle) qui font partie du cluster. Toutefois, lorsque vous faites descendre un cluster en puissance, le nœud/l’instance de machine virtuelle supprimé reste affiché avec un état défectueux, sauf si vous appelez la [commande Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx) avec le nom de nœud approprié.
 
-Here is the explanation for this behavior.
+Voici l’explication de ce comportement.
 
-The nodes listed in Service Fabric Explorer are a reflection of what the Service Fabric system services (FM specifically) knows about the number of nodes the cluster had/has. When you scale the VM scale set down, the VM was deleted but FM system service still thinks that the node (that was mapped to the VM that was deleted) will come back. So Service Fabric Explorer continues to display that node (though the health state may be error or unknown).
+Les nœuds répertoriés dans Service Fabric Explorer reflètent ce que savent les services système Service Fabric (FM spécifiquement) quant au nombre de nœuds que possède/possédait le cluster. Lorsque vous faites descendre en puissance le jeu de mise à l’échelle de machine virtuelle, la machine virtuelle est supprimée mais le service système FM pense toujours que le nœud (mappé à la machine virtuelle qui a été supprimée) reviendra. Par conséquent, Service Fabric Explorer continue d’afficher ce nœud (même si l’état d’intégrité peut être inconnu ou un état d’erreur).
 
-In order to make sure that a node is removed when a VM is removed, you have two options:
+Pour vous assurer qu’un nœud est supprimé lorsqu’une machine virtuelle est supprimée, vous avez deux possibilités :
 
-1) Choose a durability level of Gold or Silver (available soon) for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale down.
-Refer to [the details on durability levels here](service-fabric-cluster-capacity.md)
+1) Choisissez un niveau de durabilité Gold ou Silver (disponible prochainement) pour les types de nœuds de votre cluster, ce qui assure l’intégration de l’infrastructure. Ceci supprimera automatiquement les nœuds de l’état de nos services système (FM) lors de la descente en puissance. Consultez les [détails sur les niveaux de durabilité ici](service-fabric-cluster-capacity.md)
 
-2) Once the VM instance has been scaled down, you need to call the [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/mt125993.aspx).
+2) Après la descente en puissance de l’instance de machine virtuelle, vous devez appeler [l’applet de commande Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).
 
->[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all the time in order to maintain availability and preserve state - referred to as "maintaining quorum." So, it is typically unsafe to shut down all the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
+>[AZURE.NOTE] Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l’état, situation appelée « conservation du quorum ». Il est donc généralement déconseillé d’arrêter toutes les machines du cluster, sauf si vous avez d’abord effectué une [sauvegarde complète de votre état](service-fabric-reliable-services-backup-restore.md).
 
-## <a name="next-steps"></a>Next steps
-Read the following to also learn about planning cluster capacity, upgrading a cluster, and partitioning services:
+## Étapes suivantes
+Lisez les documents suivants pour en savoir plus sur la planification de la capacité du cluster, la mise à niveau d’un cluster et le partitionnement des services :
 
-- [Plan your cluster capacity](service-fabric-cluster-capacity.md)
-- [Cluster upgrades](service-fabric-cluster-upgrade.md)
-- [Partition stateful services for maximum scale](service-fabric-concepts-partitioning.md)
+- [Planification de la capacité de votre cluster](service-fabric-cluster-capacity.md)
+- [Mise à niveau des clusters](service-fabric-cluster-upgrade.md)
+- [Partitionnement des services avec état pour une mise à l’échelle maximale](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

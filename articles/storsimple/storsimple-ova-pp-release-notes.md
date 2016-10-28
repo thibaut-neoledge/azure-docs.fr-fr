@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Virtual Array release notes| Microsoft Azure"
-   description="Describes critical open issues and resolutions for the StorSimple Virtual Array."
+   pageTitle="Notes de publication pour StorSimple Virtual Array | Microsoft Azure"
+   description="Décrit les problèmes critiques non résolus et les solutions possibles pour StorSimple Virtual Array."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,36 +15,31 @@
    ms.date="05/13/2016"
    ms.author="alkohli" />
 
+# Notes de publication pour StorSimple Virtual Array
 
-# <a name="storsimple-virtual-array-release-notes"></a>StorSimple Virtual Array release notes
+## Vue d’ensemble
 
-## <a name="overview"></a>Overview
+Les notes de publication suivantes identifient les problèmes critiques non résolus pour la version de disponibilité générale de mars 2016 de Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel local StorSimple ou appareil virtuel StorSimple). Cette version correspond à la version logicielle n° 10.0.10271.0.
 
-The following release notes identify the critical open issues for the March 2016 general availability (GA) release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). This release corresponds to software version 10.0.10271.0.
+Les notes de publication sont régulièrement mises à jour ; les problèmes critiques nécessitant une solution de contournement sont ajoutés au fur et à mesure de leur découverte. Lisez les informations contenues dans les notes de publication avant de déployer votre appareil virtuel StorSimple.
 
-The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
-
-The following table provides a summary of known issues in this release.
+Le tableau suivant récapitule les problèmes connus de cette version.
 
 
-| No. | Feature | Issue | Workaround/comments |
+| N° | Fonctionnalité | Problème | Solution de contournement/commentaires |
 |-----|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1.** | Updates | The virtual devices created in the preview release cannot be updated to a supported General Availability version. | These virtual devices must be failed over for the General Availability release using a disaster recovery (DR) workflow. |
-| **2.** | Provisioned data disk | Once you have provisioned a data disk of a certain specified size and created the corresponding StorSimple virtual device, you must not expand or shrink the data disk. Attempting to do so will result in a  loss of all the data in the local tiers of the device. |   |
-| **3.** | Group policy | When a device is domain-joined, applying a group policy can adversely affect the device operation. | Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects (GPO) are applied to it.|
-| **4.** | Local web UI | If enhanced security features are enabled in Internet Explorer (IE ESC), some local web UI pages such as Troubleshooting or Maintenance may not work properly. Buttons on these pages may also not work. | Turn off enhanced security features in Internet Explorer.|
-| **5.** | Local web UI | In a Hyper-V virtual machine, the network interfaces in the web UI are displayed as 10 Gbps interfaces. | This behavior is a reflection of Hyper-V. Hyper-V always shows 10 Gbps for virtual network adapters. |
-| **6.** | Tiered volumes or shares | Byte range locking for applications that work with the StorSimple tiered volumes is not supported. If byte range locking is enabled, StorSimple tiering will not work. | Recommended measures include: <br></br>Turn off byte range locking in your application logic.<br></br>Choose to put data for this application in locally pinned volumes as opposed to tiered volumes.<br></br>*Caveat*: If using locally pinned volumes and byte range locking is enabled, be aware that the locally pinned volume can be online even before the restore is complete. In such instances, if a restore is in progress, then you must wait for the restore to complete. |
-| **7.** | Tiered shares | Working with large files could result in slow tier out. | When working with large files, we recommend that the largest file is smaller than 3% of the share size. |
-| **8.** | Used capacity for shares | You may see share consumption in the absence of any data on the share. This is because the used capacity for shares includes metadata. |   |
-| **9.** | Disaster recovery | You can only perform the disaster recovery of a file server to the same domain as that of the source device. Disaster recovery to a target device in another domain is not supported in this release. | This will be implemented in a later release. |
-| **10.** | Azure PowerShell | The StorSimple virtual devices cannot be managed through the Azure PowerShell in this release. | All the management of the virtual devices should be done through the Azure classic portal and the local web UI. |
-| **11.** | Password change | The virtual array device console only accepts input in en-US keyboard format. |   |
-| **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you will need to take the volumes offline and then bring them online for the change to take effect. | These will be addressed in a later release. |
-| **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem  view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
+| **1.** | Mises à jour | Les appareils virtuels créés dans la version préliminaire ne peuvent pas être mis à jour vers une version à disponibilité générale prise en charge. | Ces appareils virtuels doivent être basculés vers la version à disponibilité générale à l'aide d'un flux de travail de récupération d'urgence (DR). |
+| **2.** | Disque de données configuré | Une fois que vous avez configuré un disque de données d'une certaine spécifiée et créé l'appareil virtuel StorSimple correspondant, vous ne devez pas développer, ni réduire le disque de données. Toute tentative de ce type entraînera une perte de toutes les données au niveau local de l’appareil. | |
+| **3.** | Stratégie de groupe | Lorsqu’un appareil est joint à un domaine, le fait d’appliquer une stratégie de groupe peut avoir un impact négatif sur son fonctionnement. | Assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Active Directory et qu'aucun objet de stratégie de groupe (GPO) ne lui est appliqué.|
+| **4.** | Interface utilisateur web locale | Si les fonctionnalités de sécurité améliorées sont activées dans Internet Explorer (IE ESC), certaines pages de l’interface utilisateur web locale, comme Dépannage ou Maintenance, peuvent ne pas fonctionner correctement. Les boutons sur ces pages peuvent également ne pas fonctionner. | Désactivez les fonctionnalités de sécurité améliorées d'Internet Explorer.|
+| **5.** | Interface utilisateur web locale | Sur une machine virtuelle Hyper-V, les interfaces réseau de l'interface utilisateur web sont affichées sous forme d'interfaces 10 Gbits/s. | Ce comportement est le reflet de Hyper-V. Hyper-V affiche toujours 10 Gbits/s pour les cartes de réseau virtuel. |
+| **6.** | Partages ou volumes à plusieurs niveaux | Le verrouillage de la plage d'octets pour les applications qui fonctionnent avec les volumes à plusieurs niveaux StorSimple n'est pas pris en charge. Si le verrouillage de la plage d'octets est activé, la hiérarchisation StorSimple ne fonctionnera pas. | Les mesures recommandées incluent : <br></br>Désactiver le verrouillage de la plage d’octets dans la logique de votre application.<br></br>Choisir de placer les données de cette application dans des volumes localement épinglés par opposition à des volumes à plusieurs niveaux.<br></br>*Inconvénient* : si le verrouillage de la plage d’octets est activé avec l’utilisation de volumes localement épinglés, n’oubliez pas que le volume localement épinglé peut être en ligne avant même que la restauration ne soit terminée. Dans ce cas, si une restauration est en cours, vous devez attendre que l'opération se termine. |
+| **7.** | Partages à plusieurs niveaux | L'utilisation de fichiers volumineux peut entraîner montée en charge de niveau lente. | Lorsque vous utilisez des fichiers volumineux, vérifiez que la taille du plus grand fichier est inférieure à 3 % de la taille du partage. |
+| **8.** | Capacité utilisée pour les partages | Vous pouvez constater la consommation du partage en l'absence de données sur le partage. Ceci est dû au fait que la capacité utilisée pour les partages inclut des métadonnées. | |
+| **9.** | Récupération d'urgence | La récupération d'urgence d'un serveur de fichiers ne peut s'effectuer que dans le même domaine que celui de l'appareil source. La récupération d'urgence vers un appareil cible dans un autre domaine n'est pas prise en charge dans cette version. | Ceci sera implémenté dans une version ultérieure. |
+| **10.** | Azure PowerShell | Les appareils virtuels StorSimple ne peuvent pas être gérés via Azure PowerShell dans cette version. | La gestion des appareils virtuels doit être effectuée par le biais du portail Azure Classic et l'interface utilisateur web locale. |
+| **11.** | Modification de mot de passe | La console de l’appareil exécutant le tableau virtuel accepte uniquement les entrées au format de clavier en-US. | |
+| **12.** | CHAP | Il est impossible de supprimer les informations d’identification CHAP une fois qu’elles ont été créées. En outre, si vous modifiez les informations d’identification CHAP, vous devrez mettre les volumes hors connexion, puis les remettre en ligne pour que la modification prenne effet. | Ceci sera résolu dans une version ultérieure. |
+| **13.** | Serveur iSCSI | Le « stockage utilisé » affiché pour un volume iSCSI peut différer entre le service StorSimple Manager et l’hôte iSCSI. | L’hôte iSCSI dispose de la vue du système de fichiers.<br></br>L’appareil voit les blocs alloués lorsque le volume était à sa taille maximale.|
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

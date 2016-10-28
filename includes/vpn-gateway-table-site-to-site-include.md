@@ -1,17 +1,13 @@
-|  | **Classic Deployment**  | **Resource Manager Deployment** |
+| | **Déploiement classique** | **Déploiement Resource Manager** |
 |----------------------------------------|--------------|----------------------|
-| **Classic Portal**                     |[Article*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |  Not Supported |
-| **Azure Portal**                       | Supported**              | [Article](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
-| **PowerShell**               |[Article+](..articles/vpn-gateway/vpn-gateway-multi-site.md)          | [Article](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
+| **Portail Classic** |[Article*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) | Non pris en charge |
+| **Portail Azure** | Pris en charge** | [Article](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
+| **PowerShell** |[Article+](..articles/vpn-gateway/vpn-gateway-multi-site.md) | [Article](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
 
-(*) denotes that the classic portal can only support creating one S2S VPN connection.
+« * » indique que le portail classique peut uniquement prendre en charge la création d’une connexion VPN S2S unique.
 
-(**) denotes that an end-to-end scenario is not yet available for the Azure portal.
+(**) indique qu’aucun scénario de bout en bout n’est encore disponible pour le portail Azure.
 
-(+) denotes that this article is written for multi-site connections.
+« + » indique que cet article a été écrit pour les connexions multi-sites.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

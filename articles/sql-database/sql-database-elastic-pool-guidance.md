@@ -1,143 +1,134 @@
 <properties
-    pageTitle="When should an elastic database pool be used?"
-    description="An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic database pool for a group of databases."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Quand utiliser un pool de base de données élastique ?"
+	description="Un pool de bases de données élastique est un ensemble de ressources disponibles partagé par un groupe de bases de données élastiques. Ce document fournit des conseils pour vous aider à évaluer la pertinence de l'utilisation d'un pool de bases de données élastique pour un groupe de bases de données."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="08/08/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="08/08/2016"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"/>
 
 
+# Quand utiliser un pool de base de données élastique ?
+Déterminez si l’utilisation d’un pool de base de données élastique est économique selon les modèles d’utilisation de base de données et les différences de tarification entre un pool de base de données élastique et des bases de données uniques. Des conseils supplémentaires sont également fournis pour vous aider à déterminer la taille de pool actuelle requise pour un ensemble existant de bases de données SQL.
 
-# <a name="when-should-an-elastic-database-pool-be-used?"></a>When should an elastic database pool be used?
-Assess whether using an elastic database pool is cost efficient based on database usage patterns and pricing differences between an elastic database pool and single databases. Additional guidance is also provided to assist in determining the current pool size required for an existing set of SQL databases.  
+- Pour obtenir une vue d’ensemble des pools, consultez [Pools de bases de données SQL élastiques](sql-database-elastic-pool.md).
 
-- For an overview of pools, see [SQL Database elastic database pools](sql-database-elastic-pool.md).
+> [AZURE.NOTE] Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception du Nord du centre des États-Unis et de l’Inde de l’Ouest, où ils sont actuellement en préversion. Les pools élastiques seront mis à la disposition générale dans ces régions dès que possible.
 
-> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will be provided as soon as possible.
+## Pool de bases de données élastique
 
-## <a name="elastic-database-pools"></a>Elastic database pools
+Les développeurs SaaS créent des applications qui reposent sur des couches de données à grande échelle composées de plusieurs bases de données. Un modèle d’application courant consiste à approvisionner une base de données pour chaque client. Toutefois, les modèles d’utilisation sont souvent imprévisibles et varient d’un client à l’autre, et il est difficile de prévoir les besoins en ressources de chaque utilisateur de base de données spécifique. Le développeur peut ainsi approvisionner de façon excessive les ressources moyennant un coût considérable pour garantir un débit et des temps de réponse favorables pour toutes les bases de données. Il peut aussi réduire ses dépenses, ce qui risque d’entraîner une expérience de performances médiocres pour ses clients. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Modèles de conception pour les applications SaaS mutualisées avec la base de données SQL Azure).
 
-SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. So the developer may overprovision resources at considerable expense to ensure favorable throughput and response times for all databases. Or, the developer can spend less and risk a poor performance experience for their customers. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Les pools élastiques dans Azure SQL Database permettent aux développeurs SaaS d’optimiser le rapport performance/prix pour un groupe de bases de données dans un budget prescrit tout en offrant une élasticité des performances pour chaque base de données. Les pools permettent au développeur d’acheter des unités de transaction de base de données élastiques (eDTU) pour un pool partagé par plusieurs bases de données afin de s’adapter aux périodes imprévisibles d’utilisation par les bases de données. Le besoin en eDTU d’un pool est déterminé par l'utilisation globale de ses bases de données. La quantité d’eDTU disponible pour le pool est contrôlée par le budget du développeur. Les pools permettent au développeur de déduire plus facilement l’incidence du budget sur les performances et vice versa pour son pool. Le développeur ajoute simplement des bases de données au pool, définit le nombre minimal et maximal d’eDTU pour les bases de données, puis définit l’eDTU du pool en fonction de son budget. Un développeur peut utiliser des pools pour faire évoluer en toute transparence son service en passant d’une lean startup à une entreprise mature à une vitesse sans cesse croissante.
+## Quand envisager d’utiliser un pool
 
-Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. Pools enable the developer to purchase elastic Database Transaction Units (eDTUs) for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. The eDTU requirement for a pool is determined by the aggregate utilization of its databases. The amount of eDTUs available to the pool is controlled by the developer budget. Pools make it easy for the developer to reason over the impact of budget on performance and vice versa for their pool. The developer simply adds databases to the pool, sets the minimum and maximum eDTUs  for the databases, and then sets the eDTU of the pool based on their budget. A developer can use pools  to seamlessly grow their service from a lean startup to a mature business at ever-increasing scale.  
-## <a name="when-to-consider-a-pool"></a>When to consider a pool
+Les pools sont idéaux dans le cas de nombreuses bases de données avec des modèles d’utilisation spécifiques. Pour une base de données indiquée, ce modèle se caractérise par une faible utilisation moyenne avec des pics d'utilisation relativement rares.
 
-Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
+Plus vous ajoutez de bases de données à un pool, plus vous faites d'économies. En fonction de votre modèle d’utilisation de l’application, il est possible de faire des économies avec seulement deux bases de données S3.
 
-The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases.  
+Les sections suivantes vous aident à comprendre comment évaluer si votre collection de bases de données spécifique tirera profit de l’utilisation d’un pool. Les exemples utilisent les pools Standard, mais ces principes s’appliquent également aux pools De base et Premium.
 
-The following sections help you understand how to assess if your specific collection of databases will benefit from being in a pool. The examples use Standard pools but the same principles also apply to Basic and Premium pools.
+### Évaluation des modèles d'utilisation de base de données
 
-### <a name="assessing-database-utilization-patterns"></a>Assessing database utilization patterns
+La figure suivante montre l’exemple d'une base de données qui est très souvent inactive, mais qui connaît de temps en temps des pics d’activité. Il s’agit d’un modèle d’utilisation qui est particulièrement adapté à un pool :
 
-The following figure shows an example of a database that spends much time idle, but also periodically spikes with activity. This is a utilization pattern that is well suited for a pool:
+   ![une base de données unique adaptée à un pool](./media/sql-database-elastic-pool-guidance/one-database.png)
 
-   ![a single database suitable for a pool](./media/sql-database-elastic-pool-guidance/one-database.png)
+Pour la période de cinq minutes illustrée ci-dessus, DB1 culmine à 90 DTU, mais son utilisation moyenne totale est inférieure à cinq DTU. Un niveau de performance S3 est requis pour exécuter cette charge de travail dans une base de données unique. Cependant, cela laisse la plupart des ressources inutilisées pendant les périodes de faible activité.
 
-For the five-minute period illustrated above, DB1 peaks up to 90 DTUs, but its overall average usage is less than five DTUs. An S3 performance level is required to run this workload in a single database, but this leaves most of the resources unused during periods of low activity.
+Un pool permet de partager ces DTU inutilisées entre plusieurs bases de données et réduit donc la quantité totale de DTU nécessaires et le coût global.
 
-A pool allows these unused DTUs to be shared across multiple databases, and so reduces the total amount of DTUs needed and overall cost.
+En s'appuyant sur l'exemple précédent, supposons qu'il y ait des bases de données supplémentaires avec des modèles d'utilisation similaires comme DB1. Dans les deux figures ci-dessous, l’utilisation de quatre bases de données et celle de 20 bases de données sont représentées sur le même graphique pour montrer que leur utilisation ne se chevauche pas dans le temps :
 
-Building on the previous example, suppose there are additional databases with similar utilization patterns as DB1. In the next two figures below, the utilization of four databases and 20 databases are layered onto the same graph to illustrate the non-overlapping nature of their utilization over time:
+   ![quatre bases de données avec un modèle d’utilisation adapté à un pool](./media/sql-database-elastic-pool-guidance/four-databases.png)
 
-   ![four databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool-guidance/four-databases.png)
+   ![vingt bases de données avec un modèle d’utilisation adapté à un pool](./media/sql-database-elastic-pool-guidance/twenty-databases.png)
 
-   ![twenty databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool-guidance/twenty-databases.png)
-
-The aggregate DTU utilization across all 20 databases is illustrated by the black line in the above figure. This shows that the aggregate DTU utilization never exceeds 100 DTUs, and indicates that the 20 databases can share 100 eDTUs over this time period. This results in a 20x reduction in DTUs and a 13x price reduction compared to placing each of the databases in S3 performance levels for single databases.
+L'utilisation globale des DTU pour les 20 bases de données est illustrée par la ligne noire dans la figure ci-dessus. Cela montre que l'utilisation globale des DTU ne dépasse jamais 100 DTU et que les 20 bases de données peuvent partager 100 eDTU sur cette période. Le nombre de DTU est diminué par 20 et le prix par 13 par rapport au placement de chacune des bases de données dans des niveaux de performances S3 pour les bases de données uniques.
 
 
-This example is ideal for the following reasons:
+Cet exemple est idéal pour les raisons suivantes :
 
-- There are large differences between peak utilization and average utilization per database.  
-- The peak utilization for each database occurs at different points in time.
-- eDTUs are shared between a large number of databases.
+- Il existe de grandes différences entre les pics d’utilisation et l'utilisation moyenne par base de données.
+- Les pics d’utilisation de chaque base de données se produisent à différents moments dans le temps.
+- Les eDTU sont partagés entre plusieurs bases de données.
 
-The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and so in many cases fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
+Le prix d’un pool dépend des eDTU du pool. Alors que le prix unitaire d’une eDTU pour un pool est 1,5 fois supérieur au prix unitaire d’une base de données unique, les **eDTU de pool peuvent être partagées par de nombreuses bases de données et donc un nombre moins important d’eDTU est nécessaire au total**. Ces différences en matière de prix et de partage des eDTU constituent la base du potentiel d'économies que les pools peuvent présenter.
 
-The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using performance levels for single databases.
+Les règles élémentaires suivantes relatives au nombre de bases de données et à l’utilisation des bases de données permettent de s’assurer qu’un pool coûte moins cher que l’utilisation de niveaux de performances pour des bases de données uniques.
 
-### <a name="minimum-number-of-databases"></a>Minimum number of databases
+### Nombre minimal de bases de données
 
-If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Si la somme des DTU des niveaux de performances pour une base de données unique est égale à plus de 1,5 x les eDTU nécessaires pour le pool, un pool élastique est plus rentable. Pour les tailles disponibles, voir [Limites relatives aux eDTU et au stockage pour les pools de bases de données et bases de données élastiques](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-***Example***<br>
-At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using performance levels for single databases.
+***Exemple***<br> Au moins deux bases de données S3 ou au moins 15 bases de données S0 sont nécessaires pour qu’un pool de 100 eDTU soit plus rentable que l’utilisation de niveaux de performances pour des bases de données uniques.
 
-### <a name="maximum-number-of-concurrently-peaking-databases"></a>Maximum number of concurrently peaking databases
+### Nombre maximal de bases de données connaissant un pic simultané
 
-By sharing eDTUs, not all databases in a pool can simultaneously use eDTUs up to the limit available when using performance levels for single databases. The fewer databases that concurrently peak, the  lower the pool eDTU can be set and the more cost-effective the pool becomes. In general, not more than 2/3 (or 67%) of the databases in the pool should simultaneously peak to their eDTU limit.
+En partageant les eDTU, toutes les bases de données d’un pool ne peuvent pas utiliser simultanément les eDTU jusqu'à la limite disponible lors de l'utilisation de niveaux de performances pour les bases de données uniques. Plus le nombre de bases de données connaissant un pic simultané est faible, plus le nombre d’eDTU du pool peut être revu à la baisse et plus le pool devient rentable. En général, pas plus de 2/3 (ou 67 %) des bases de données du pool doivent connaître un pic simultané à leur limite d’eDTU.
 
-***Example***<br>
-To reduce costs for three S3 databases in a 200 eDTU pool, at most two of these databases can simultaneously peak in their utilization.  Otherwise, if more than two of these four S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs.  And if the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than performance levels for single databases.  
+***Exemple***<br> Pour réduire les coûts pour trois bases de données S3 dans un pool de 200 eDTU, au moins deux de ces bases de données peuvent connaître un pic simultané au niveau de leur utilisation. Sinon, si plus de deux de ces quatre bases de données S3 connaissent un pic simultané, le pool devra être redimensionné à plus de 200 eDTU. Et si le pool est redimensionné à plus de 200 eDTU, plusieurs bases de données S3 devront être ajoutées au pool pour maintenir des coûts inférieurs aux niveaux de performances pour les bases de données unique.
 
-Note this example does not consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously.
+Notez que cet exemple ne tient pas compte de l'utilisation des autres bases de données dans le pool. Si toutes les bases de données connaissent une utilisation à un moment donné, moins de 2/3 (ou 67 %) des bases de données peuvent connaître un pic simultané.
 
-### <a name="dtu-utilization-per-database"></a>DTU utilization per database
+### Utilisation de DTU par base de données
 
-A large difference between the peak and average utilization of a database indicates prolonged periods of low utilization and short periods of high utilization. This utilization pattern is ideal for sharing resources across databases. A database should be considered for a pool when its peak utilization is about 1.5 times greater than its average utilization.
+Une différence importante entre le pic d’utilisation et l'utilisation moyenne d’une base de données indique de longues périodes de faible utilisation et de courtes périodes d'utilisation intensive. Ce modèle d'utilisation est idéal pour partager des ressources entre les bases de données. Une base de données doit être envisagée pour un pool quand son pic d’utilisation est environ 1,5 fois supérieur à son utilisation moyenne.
 
-***Example***<br>
-An S3 database that peaks to 100 DTUs and on average uses 67 DTUs or less is a good candidate for sharing eDTUs in a pool.  Alternatively, an S1 database that peaks to 20 DTUs and on average uses 13 DTUs or less is a good candidate for a pool.
+***Exemple***<br> Une base de données S3 qui culmine à 100 DTU et qui utilise en moyenne 67 DTU ou moins est un bon candidat pour le partage des eDTU dans un pool. Sinon, une base de données S1 qui culmine à 20 DTU et qui utilise en moyenne 13 DTU ou moins est un bon candidat à un pool.
 
-## <a name="sizing-an-elastic-pool"></a>Sizing an elastic pool
+## Dimensionnement d’un pool élastique
 
-The best size for a pool depends on the aggregate eDTUs and storage resources needed for all databases in the pool. This involves determining the larger of the following:
+La taille optimale pour un pool dépend du nombre global d’eDTU et des ressources de stockage nécessaires pour toutes les bases de données du pool. Cela implique de déterminer la plus grande des deux quantités suivantes :
 
-* Maximum DTUs utilized by all databases in the pool.
-* Maximum storage bytes utilized by all databases in the pool.
+* Nombre maximal de DTU que se partagent toutes les bases de données du pool.
+* Nombre maximal d’octets de stockage que se partagent toutes les bases de données du pool.
 
-For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Pour les tailles disponibles, voir [Limites relatives aux eDTU et au stockage pour les pools de bases de données et bases de données élastiques](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom group of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md).
+La base de données SQL évalue automatiquement l’historique d’utilisation en ressources des bases de données dans un serveur de base de données SQL existant et recommande la configuration de pool appropriée dans le portail Azure. En plus des recommandations, une expérience intégrée estime l’utilisation d’eDTU pour un groupe personnalisé de bases de données sur le serveur. Cela vous permet de faire une analyse de scénarios en ajoutant de façon interactive des bases de données au pool et en les supprimant pour obtenir l’analyse de l’utilisation des ressources et des conseils de dimensionnement avant de valider vos modifications. Pour afficher une procédure, consultez [Surveiller, gérer et dimensionner un pool élastique](sql-database-elastic-pool-manage-portal.md).
 
-For more flexible resource usage assessments that allow ad hoc sizing estimates for servers earlier than V12, as well as sizing estimates for databases in different servers, see the [Powershell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md).
+Pour obtenir des évaluations de l’utilisation des ressources plus flexibles acceptant des estimations de dimensionnement ad hoc pour les serveurs antérieurs à V12, ainsi que des estimations de dimensionnement pour les bases de données de différents serveurs, consultez [Script PowerShell pour identifier les bases de données adaptées à un pool de base de données élastique](sql-database-elastic-pool-database-assessment-powershell.md).
 
-| Capability     | Portal experience|   PowerShell script|
+| Fonctionnalité | Utilisation du portail|	Script PowerShell|
 |:---------------|:----------|:----------|
-| Granularity    | 15 seconds | 15 seconds
-| Considers pricing differences between a pool and performance levels for single databases| Yes| No
-| Allows customizing the list of the databases analyzed| Yes| Yes
-| Allows customizing the period of time used in the analysis| No| Yes
-| Allows customizing the list of databases analyzed across different servers| No| Yes
-| Allows customizing the list of databases analyzed on v11 servers| No| Yes
+| Granularité | 15 secondes | 15 secondes
+| Prend en compte les différences de prix entre un pool et les niveaux de performances pour les bases de données uniques| Oui| Non
+| Permet la personnalisation de la liste des bases de données analysées| Oui| Oui
+| Permet la personnalisation de la période de temps utilisée pour l’analyse| Non| Oui
+| Permet la personnalisation de la liste des bases de données analysées sur différents serveurs| Non| Oui
+| Permet la personnalisation de la liste des bases de données analysées sur des serveurs v11| Non| Oui
 
-In cases where you can't use tooling, the following step-by-step can help you estimate whether a pool is more cost-effective than single databases:
+Dans les cas où vous ne pouvez pas utiliser les outils, la procédure pas à pas suivante peut vous aider à estimer si un pool est plus économique que les bases de données uniques :
 
-1.  Estimate the eDTUs needed for the pool as follows:
+1.	Estimez les eDTU nécessaires pour le pool comme suit :
 
-    MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
-    <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
+    MAX(<*nombre total de BD* X *utilisation moyenne en DTU par BD*>, <br> <*nombre de BD connaissant un pic simultané* X *pic d’utilisation en DTU par BD*)
 
-2.  Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool.  Then determine the eDTU pool size that provides this amount of storage.  For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
-3.  Take the larger of the eDTU estimates from Step 1 and Step 2.
-4.  See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
-5.  Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
-
-
-## <a name="summary"></a>Summary
-
-Not all single databases are optimum candidates for pools. Databases with usage patterns that are characterized by low average utilization and relatively infrequent utilization spikes are excellent candidates. Application usage patterns are dynamic, so use the information and tools described in this article to make an initial assessment to see if a pool is a good choice for some or all of your databases. This article is just a starting point to help with your decision as to whether or not an elastic pool is a good fit. Remember that you should continually monitor historical resource usage and constantly reassess the performance levels of all of your databases. Keep in mind that you can easily move databases in and out of elastic pools, and if you have a very large number of databases you can have multiple pools of varying sizes that you can divide your databases into.
-
-## <a name="next-steps"></a>Next steps
-
-- [Create an elastic database pool](sql-database-elastic-pool-create-portal.md)
-- [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
-- [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
-- [PowerShell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md)
+2.	Estimez l’espace de stockage nécessaire pour le pool en ajoutant le nombre d’octets nécessaires pour toutes les bases de données du pool. Déterminez ensuite la taille du pool d’eDTU qui fournit cette quantité de stockage. Pour connaître les limites de stockage du pool en fonction de la taille du pool d’eDTU, consultez [Limites relatives aux eDTU et au stockage pour les pools et bases de données élastiques](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+3.	Prenez la plus grande des estimations d’eDTU de l’étape 1 et de l’étape 2.
+4.	Consultez la [page de tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/) et recherchez la plus petite taille du pool d’eDTU qui est supérieure à l’estimation de l’étape 3.
+5.	Comparez le prix du pool trouvé à l’étape 5 à celui de l’utilisation des niveaux de performances appropriés pour les bases de données uniques.
 
 
+## Résumé
 
-<!--HONumber=Oct16_HO2-->
+Les bases de données uniques ne sont pas toutes de parfaits candidats à un pool. Les bases de données avec des modèles d’utilisation qui se caractérisent par une faible utilisation moyenne et des pics d’utilisation relativement rares constituent d’excellents candidats. Comme les modèles d’utilisation applicatifs sont dynamiques, utilisez les informations et outils décrits dans cet article pour réaliser une évaluation initiale permettant de déterminer si un pool est un bon choix pour une partie ou la totalité de vos bases de données. Cet article est simplement un point de départ pour faciliter votre décision quant à la pertinence d’un pool élastique. N’oubliez pas que vous devez surveiller en permanence l’historique d’utilisation des ressources et réévaluer constamment les niveaux de performances de toutes vos bases de données. N'oubliez pas que vous pouvez facilement déplacer des bases de données dans et en dehors des pools élastiques et que si vous avez un très grand nombre de bases de données, vous pouvez avoir plusieurs pools de tailles différentes dans lesquels vous pouvez répartir vos bases de données.
 
+## Étapes suivantes
 
+- [Créer un pool de bases de données élastiques](sql-database-elastic-pool-create-portal.md)
+- [Surveiller, gérer et dimensionner un pool de bases de données élastique.](sql-database-elastic-pool-manage-portal.md)
+- [Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service](sql-database-service-tiers.md)
+- [Script PowerShell pour identifier les bases de données adaptées à un pool de bases de données élastique](sql-database-elastic-pool-database-assessment-powershell.md)
+
+<!---HONumber=AcomDC_0921_2016-->

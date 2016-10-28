@@ -1,32 +1,31 @@
 <properties 
-    pageTitle="Adding a shard using elastic database tools | Microsoft Azure" 
-    description="How to use Elastic Scale APIs to add new shards to a shard set." 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+	pageTitle="Ajout d'une partition à l'aide des outils de base de données élastique | Microsoft Azure" 
+	description="Utilisation des API avec infrastructure élastique pour ajouter de nouvelles partitions à un ensemble de partitions." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="ddove" 
+	editor=""/>
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove"/>
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
+# Ajout d’une partition à l’aide des outils de base de données élastique
 
-# <a name="adding-a-shard-using-elastic-database-tools"></a>Adding a shard using Elastic Database tools
+## Pour ajouter une partition pour une nouvelle plage ou clé  
 
-## <a name="to-add-a-shard-for-a-new-range-or-key"></a>To add a shard for a new range or key  
+Souvent, les applications n'ont qu'à ajouter de nouvelles partitions pour gérer des données prévues à partir de nouvelles clés ou plages de clés, pour une carte de partitions qui existe déjà. Par exemple, une application partitionnée par un ID de client peut requérir l'approvisionnement d'une nouvelle partition pour un nouveau client, ou des données partitionnées mensuellement peuvent requérir l'approvisionnement d'une nouvelle partition avant le début de chaque mois.
 
-Applications often need to simply add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month. 
+Si la nouvelle plage de valeurs de clé n’appartient pas déjà à un mappage existant, il est très simple d’ajouter la nouvelle partition et d’associer la nouvelle clé ou la plage à cette partition.
 
-If the new range of key values is not already part of an existing mapping, it is very simple to add the new shard and associate the new key or range to that shard. 
-
-### <a name="example:-adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Example:  adding a shard and its range to an existing shard map
-This sample uses the [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx) the [CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})) methods, and creates an instance of the [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.) class. In the sample below, a database named **sample_shard_2** and all necessary schema objects inside of it have been created to hold range [300, 400).  
+### Exemple : ajout d’une partition et de sa plage à une carte de partition existante
+Cet exemple utilise les méthodes [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx), [CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx) et [CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})), et crée une instance de la classe [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.). Dans l’exemple ci-dessous, une base de données nommée **sample\_shard\_2** et tous les objets de schéma nécessaires qu’elle contient ont été créés pour contenir la plage [300, 400).
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -42,14 +41,14 @@ This sample uses the [TryGetShard](https://msdn.microsoft.com/library/azure/dn82
                             (new Range<long>(300, 400), shard2, MappingStatus.Online)); 
 
 
-As an alternative, you can use Powershell to create a new Shard Map Manager. An example is available [here](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
-## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>To add a shard for an empty part of an existing range  
+Comme alternative, vous pouvez utiliser PowerShell pour créer un gestionnaire de cartes de partitions. Un exemple est disponible [ici](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+## Pour ajouter une partition pour une partie vide d’une plage existante  
 
-In some circumstances, you may have already mapped a range to a shard and partially filled it with data, but you now want upcoming data to be directed to a different shard. For example, you shard by day range and have already allocated 50 days to a shard, but on day 24, you want future data to land in a different shard. The elastic database [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) can perform this operation, but if data movement is not necessary (for example, data for the range of days [25, 50), i.e., day 25 inclusive to 50 exclusive, does not yet exist) you can perform this entirely using the Shard Map Management APIs directly.
+Il peut arriver que vous ayez déjà mappé une plage à une partition et l’ayez partiellement remplie avec des données, mais que vous souhaitiez maintenant que les données futures soient dirigées vers une autre partition. Par exemple, vous partitionnez par plage de jours et avez déjà alloué 50 jours à une partition, mais le jour 24, vous souhaitez que les données futures soient dirigées vers une autre partition. [L’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md) de la base de données élastique peut effectuer cette opération, mais s’il n’est pas nécessaire de déplacer des données (par exemple, les données de la plage de jours [25, 50), c’est-à-dire le jour 25 inclus et le jour 50 exclu, qui n’existe pas encore) vous pouvez effectuer cela entièrement en utilisant directement les API de gestion de carte de partition.
 
-### <a name="example:-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>Example: splitting a range and assigning the empty portion to a newly-added shard
+### Exemple : fractionnement d’une plage et affectation de la partie vide dans une partition nouvellement ajoutée
 
-A database named “sample_shard_2” and all necessary schema objects inside of it have been created.  
+Une base de données nommée « sample\_shard\_2 » et tous les objets de schéma nécessaires qu’elle contient ont été créés.
 
  
     // sm is a RangeShardMap object.
@@ -74,14 +73,10 @@ A database named “sample_shard_2” and all necessary schema objects inside of
     upd.Shard = shard2; 
     sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd)); 
 
-**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty.  The methods above do not check data for the range being moved, so it is best to include checks in your code.  If rows exist in the range being moved, the actual data distribution will not match the updated shard map. Use the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) to perform the operation instead in these cases.  
+**Important** : utilisez cette technique seulement si vous êtes certain que la plage de la carte mise à jour est vide. Les méthodes ci-dessus ne vérifient pas les données de la plage déplacée, il est donc préférable d’inclure des vérifications dans votre code. S’il existe des lignes dans la plage déplacée, la distribution des données réelle ne correspondra pas à la carte des partitions mise à jour. Utilisez [l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md) pour effectuer cette opération, au lieu de le faire dans ces cases.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

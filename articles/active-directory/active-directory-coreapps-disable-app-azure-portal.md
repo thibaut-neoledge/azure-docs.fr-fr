@@ -1,58 +1,53 @@
 <properties
-    pageTitle="Disable user sign-ins for an enterprise app in Azure Active Directory preview | Microsoft Azure"
-    description="How to disable an enterprise application so that no users may sign in to it in Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Désactiver les connexions utilisateur pour une application d’entreprise dans la version préliminaire d’Azure Active Directory | Microsoft Azure"
+	description="Comment désactiver une application d’entreprise afin qu’aucun utilisateur ne puisse s’y connecter dans Azure Active Directory"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
 
+# Désactiver les connexions utilisateur pour une application d’entreprise dans la version préliminaire d’Azure Active Directory
 
-# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory-preview"></a>Disable user sign-ins for an enterprise app in Azure Active Directory preview
+Il est facile de désactiver une application d’entreprise afin qu’aucun utilisateur ne puisse s’y connecter dans la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md) Vous devez disposer des autorisations appropriées pour gérer l’application d’entreprise. Dans la version préliminaire actuelle, vous devez être administrateur global pour le répertoire.
 
-It's easy to disable an enterprise application so that no users may sign in to it in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) You must have the appropriate permissions to manage the enterprise app. In the current preview, you must be global admin for the directory.
+## Comment désactiver les connexions des utilisateurs ?
 
-## <a name="how-do-i-disable-user-sign-ins?"></a>How do I disable user sign-ins?
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2. Sélectionnez **Plus de services**, saisissez **Azure Active Directory** dans la zone de texte, puis sélectionnez **Entrée**.
 
-2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+3. Sur le panneau **Azure Active Directory - *NomRépertoire*** panneau (autrement dit, le panneau Azure Active Directory pour le répertoire que vous gérez), sélectionnez **Applications d’entreprise**.
 
-3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
+	![Ouverture des applications d’entreprise](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)
 
-    ![Opening Enterprise apps](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)
+4. Sur le panneau**Applications d’entreprise**, sélectionnez **Toutes les applications**. Vous verrez une liste des applications que vous pouvez gérer.
 
-4. On the **Enterprise applications** blade, select **All applications**. You see a list of the apps you can manage.
+5. Sur le panneau**Applications d’entreprise - Toutes les applications**, sélectionnez une application.
 
-5. On the **Enterprise applications - All applications** blade, select an app.
+6. Sur le panneau ***NomApplication*** (autrement dit, le panneau avec le nom de l’application sélectionnée dans le titre), sélectionnez **Propriétés**.
 
-6. On the ***appname*** blade (that is, the blade with the name of the selected app in the title), select **Properties**.
+	![Sélection de la commande Toutes les applications](./media/active-directory-coreapps-disable-app-azure-portal/select-app.png)
 
-    ![Selecting the all applications command](./media/active-directory-coreapps-disable-app-azure-portal/select-app.png)
+7. Dans le panneau ***NomApplication*** **- Propriétés**, sélectionnez **Non** pour **Les utilisateurs peuvent-ils se connecter ?**.
 
-7. On the ***appname*** **- Properties** blade, select **No** for **Enabled for users to sign-in?**.
+8. Sélectionnez la commande **Enregistrer**.
 
-8. Select the **Save** command.
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+- [Voir tous mes groupes](active-directory-groups-view-azure-portal.md)
+- [Affecter un utilisateur ou un groupe à une application d’entreprise](active-directory-coreapps-assign-user-azure-portal.md)
+- [Suppression d’une affectation d’utilisateur ou de groupe à partir d’une application d’entreprise](active-directory-coreapps-remove-assignment-user-azure-portal.md)
+- [Modifier le nom ou le logo d’une application d’entreprise](active-directory-coreapps-change-app-logo-azure-portal.md)
 
-- [See all my groups](active-directory-groups-view-azure-portal.md)
-- [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
-- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
-- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user- azure-portal.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

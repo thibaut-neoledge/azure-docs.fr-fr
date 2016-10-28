@@ -1,186 +1,184 @@
 <properties
-    pageTitle="Get started by running the Enable Database for Stretch Wizard | Microsoft Azure"
-    description="Learn how to configure a database for Stretch Database by running the Enable Database for Stretch Wizard."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+	pageTitle="Commencez par exécuter l’Assistant Activer la base de données pour Stretch | Microsoft Azure"
+	description="Découvrez comment configurer une base de données pour Stretch Database en exécutant l’Assistant Activer la base de données pour Stretch."
+	services="sql-server-stretch-database"
+	documentationCenter=""
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/05/2016"
-    ms.author="douglasl"/>
+	ms.service="sql-server-stretch-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="08/05/2016"
+	ms.author="douglasl"/>
 
+# Commencez par exécuter l’Assistant Activer la base de données pour Stretch
 
-# <a name="get-started-by-running-the-enable-database-for-stretch-wizard"></a>Get started by running the Enable Database for Stretch Wizard
+Pour configurer une base de données pour Stretch Database, exécutez l’Assistant Activer la base de données pour Stretch. Cette rubrique décrit les informations que vous devez entrer et les choix que vous devez effectuer dans l’Assistant.
 
-To configure a database for Stretch Database, run the Enable Database for Stretch Wizard.  This topic describes the info that you have to enter and the choices that you have to make in the wizard.
+Pour en savoir plus sur Stretch Database, consultez [Stretch Database](sql-server-stretch-database-overview.md).
 
-To learn more about Stretch Database, see [Stretch Database](sql-server-stretch-database-overview.md).
+ >   [AZURE.NOTE] Plus tard, si vous désactivez Stretch Database, gardez à l’esprit que la désactivation pour une table ou une base de données ne supprime pas l’objet distant. Si vous souhaitez supprimer la table distante ou la base de données distante, vous devez le faire à l’aide du portail de gestion Azure. Les objets distants continuent d’entraîner des coûts Azure jusqu’à leur suppression manuelle.
 
- >   [AZURE.NOTE] Later, if you disable Stretch Database, remember that disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them manually. 
+## Lancer l’Assistant
 
-## <a name="launch-the-wizard"></a>Launch the wizard
+1.  Dans SQL Server Management Studio, dans l’Explorateur d’objets, sélectionnez la base de données sur laquelle vous souhaitez activer Stretch.
 
-1.  In SQL Server Management Studio, in Object Explorer, select the database on which you want to enable Stretch.
+2.  Cliquez avec le bouton droit et sélectionnez **Tâches**, sélectionnez **Stretch**, puis **Activer** pour lancer l’Assistant.
 
-2.  Right\-click and select **Tasks**, and then select **Stretch**, and then select **Enable** to launch the wizard.
+## <a name="Intro"></a>Introduction
+Examinez l’objectif de l’Assistant et les conditions préalables.
 
-## <a name="<a-name="intro"></a>introduction"></a><a name="Intro"></a>Introduction
-Review the purpose of the wizard and the prerequisites.
+Vous devez au préalable remplir les conditions suivantes :
 
-The important prerequisites include the following:
+-   Vous devez être administrateur pour modifier les paramètres de base de données.
+-   Vous devez avoir un abonnement Microsoft Azure.
+-   Votre serveur SQL Server doit être en mesure de communiquer avec le serveur Azure à distance.
 
--   You have to be an administrator to change database settings.
--   You have to have a Microsoft Azure subscription.
--   Your SQL Server has to be able to communicate with the remote Azure server.
+![Page d’introduction de l’Assistant Stretch Database][StretchWizardImage1]
 
-![Introduction page of the Stretch Database wizard][StretchWizardImage1]
+## <a name="Tables"></a>Sélectionner des tables
+Sélectionnez les tables que vous souhaitez activer pour Stretch.
 
-## <a name="<a-name="tables"></a>select-tables"></a><a name="Tables"></a>Select tables
-Select the tables that you want to enable for Stretch.
+Les tables comportant un grand nombre de lignes apparaissent en haut de la liste triée. Avant d’afficher la liste des tables, l’Assistant y recherche les types de données qui ne sont pas actuellement pris en charge par Stretch Database.
 
-Tables with lots of rows appear at the top of the sorted list. Before the Wizard displays the list of tables, it analyzes them for data types that are not currently supported by Stretch Database.
+![Page de sélection des tables de l’Assistant Stretch Database][StretchWizardImage2]
 
-![Select tables page of the Stretch Database wizard][StretchWizardImage2]
-
-|Column|Description|
+|Colonne|Description|
 |----------|---------------|
-|(no title)|Check the check box in this column to enable the selected table for Stretch.|
-|**Name**|Specifies the name of the column in the table.|
-|(no title)|A symbol in this column may represent a warning that doesn\'t prevent you from enabling the selected table for Stretch. It may also represent a blocking issue that prevents you from enabling the selected table for Stretch \- for example, because the table uses an unsupported data type. Hover over the symbol to display more info in a tooltip. For more info, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).|
-|**Stretched**|Indicates whether the table is already enabled for Stretch.|
-|**Migrate**|You can migrate an entire table (**Entire Table**) or you can specify a filter on an existing column in the table. If you want to use a different filter function to select rows to migrate, run the ALTER TABLE statement to specify the filter function after you exit the wizard. For more info about the filter function, see [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md). For more info about how to apply the function, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) or [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
-|**Rows**|Specifies the number of rows in the table.|
-|**Size (KB)**|Specifies the size of the table in KB.|
+|(sans titre)|Cochez la case de cette colonne pour activer la table sélectionnée pour Stretch.|
+|**Nom**|Spécifie le nom de la colonne dans la table.|
+|(sans titre)|Dans cette colonne, un symbole peut représenter un avertissement qui n’empêche pas l’activation de la table sélectionnée pour Stretch. Il peut également représenter un problème de blocage qui vous empêche d’activer la table sélectionnée pour Stretch (par exemple, lorsque la table utilise un type de données non pris en charge). Placez le pointeur de la souris sur le symbole pour afficher plus d’informations dans une info-bulle. Pour plus d’informations, consultez [Limites de Stretch Database](sql-server-stretch-database-limitations.md).|
+|**Étendu**|Indique si la table est déjà activée pour Stretch.|
+|**Migrer**|Vous pouvez migrer une table entière (**Table entière**) ou appliquer un filtre sur une colonne existante de la table. Si vous souhaitez utiliser une autre fonction de filtre pour sélectionner les lignes à migrer, exécutez l’instruction ALTER TABLE afin de spécifier la fonction de filtre après avoir quitté l’Assistant. Pour plus d’informations sur la fonction de filtre, consultez [Sélection des lignes à migrer à l’aide d’une fonction de filtre](sql-server-stretch-database-predicate-function.md). Pour plus d’informations sur l’application de la fonction, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Lignes**|Spécifie le nombre de lignes dans la table.|
+|**Taille (Ko)**|Spécifie la taille de la table en Ko.|
 
-## <a name="<a-name="filter"></a>optionally-provide-a-row-filter"></a><a name="Filter"></a>Optionally provide a row filter
+## <a name="Filter"></a>Fournir un filtre de ligne (facultatif)
 
-If you want to provide a filter function to select rows to migrate, do the following things on the **Select tables** page.
+Si vous souhaitez fournir une fonction de filtre pour sélectionner les lignes à migrer, effectuez les opérations suivantes dans la page **Sélectionner des tables**.
 
-1.  In the **Select the tables you want to stretch** list, click **Entire Table** in the row for the table. The **Select rows to stretch** dialog box opens.
+1.  Dans la liste **Sélectionner les tables à étirer**, cliquez sur **Table entière** dans la ligne de la table. La boîte de dialogue **Sélectionner les lignes à étirer** s’ouvre.
 
-    ![Define a filter function][StretchWizardImage2a]
+    ![Définir une fonction de filtre][StretchWizardImage2a]
 
-2.  In the **Select rows to stretch** dialog box, select **Choose Rows**.
+2.  Dans la boîte de dialogue **Sélectionner les lignes à étirer**, sélectionnez **Choisir les lignes**.
 
-3.  In the **Name field**, provide a name for the filter function.
+3.  Dans le champ **Nom**, indiquez le nom de la fonction de filtre.
 
-4.  For the **Where** clause, pick a column from the table, pick an operator, and provide a value.
+4.  Pour la clause **Où**, sélectionnez une colonne dans la table, choisissez un opérateur et spécifiez une valeur.
 
-5. Click **Check** to test the function. If the function returns results from the table - that is, if there are rows to migrate that satisfy the condition - the test reports **Success**.
+5. Cliquez sur **Vérifier** pour tester la fonction. Si la fonction renvoie des résultats de la table, autrement dit, s’il existe des lignes à migrer qui remplissent la condition, le test indique **Réussite**.
 
-    >   [AZURE.NOTE] The textbox that displays the filter query is read-only. You can't edit the query in the textbox.
+    >   [AZURE.NOTE] La zone de texte qui affiche la requête de filtre est en lecture seule. Vous ne pouvez pas modifier la requête dans la zone de texte.
 
-6.  Click Done to return to the **Select tables** page.
+6.  Cliquez sur Terminé pour revenir à la page **Sélectionner des tables**.
 
-The filter function is created in SQL Server only when you finish the wizard. Until then, you can return to the **Select tables** page to change or rename the filter function.
+La fonction de filtre n’est créée dans SQL Server qu’une fois l’Assistant terminé. En attendant, vous pouvez revenir à la page **Sélectionner des tables** pour modifier ou renommer la fonction de filtre.
 
-![Select Tables page after defining a filter function][StretchWizardImage2b]
+![Page Sélectionner des tables après définition d’une fonction de filtre][StretchWizardImage2b]
 
-If you want to use a different type of filter function to select rows to migrate, do one of the following things.  
+Si vous souhaitez utiliser un type différent de fonction de filtre pour sélectionner les lignes à migrer, effectuez l’une des opérations suivantes.
 
--   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a filter function. For more info, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).  
+-   Quittez l’assistant et exécutez l’instruction ALTER TABLE pour activer Stretch pour la table et spécifier une fonction de filtre. Pour plus d’informations, consultez [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md).
 
--   Run the ALTER TABLE statement to specify a filter function after you exit the wizard. For the required steps, see [Add a filter function after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
+-   Exécutez l’instruction ALTER TABLE pour spécifier une fonction de filtre une fois que vous avez quitté l’assistant. Pour connaître les étapes requises, reportez-vous à [Ajouter une fonction de filtre après avoir exécuté l’Assistant](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
-## <a name="<a-name="configure"></a>configure-azure-deployment"></a><a name="Configure"></a>Configure Azure deployment
+## <a name="Configure"></a>Configurer un déploiement Azure
 
-1.  Sign in to Microsoft Azure with a Microsoft account.
+1.  Connectez-vous à Microsoft Azure avec un compte Microsoft.
 
-    ![Sign in to Azure - Stretch Database wizard][StretchWizardImage3]
+    ![Connexion à Azure dans l’Assistant Stretch Database][StretchWizardImage3]
 
-2.  Select the existing Azure subscription to use for Stretch Database.
+2.  Sélectionnez l’abonnement Azure existant à utiliser pour Stretch Database.
 
-3.  Select an Azure region.
-    -   If you create a new server, the server is created in this region.  
-    -   If you have existing servers in the selected region, the wizard lists them when you choose **Existing server**.
+3.  Sélectionnez une région Azure.
+    -   Si vous créez un serveur, il est créé dans cette région.
+    -   Si vous avez déjà des serveurs dans la région sélectionnée, l’Assistant les répertorie lorsque vous choisissez **Serveur existant**.
 
-    To minimize latency, pick the Azure region in which your SQL Server is located. For more info about regions, see [Azure Regions](https://azure.microsoft.com/regions/).
+    Pour réduire la latence, choisissez la région Azure où se trouve votre ordinateur SQL Server. Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).
 
-4.  Specify whether you want to use an existing server or create a new Azure server.
+4.  Spécifiez si vous souhaitez utiliser un serveur existant ou créer un serveur Azure.
 
-    If the Active Directory on your SQL Server is federated with Azure Active Directory, you can optionally use a federated service account for SQL Server to communicate with the remote Azure server. For more info about the requirements for this option, see [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
+    Si l’annuaire Active Directory sur votre serveur SQL Server est fédéré avec Azure Active Directory, vous pouvez éventuellement utiliser un compte de service fédéré pour que SQL Server communique avec le serveur Azure distant. Pour plus d’informations sur la configuration requise pour cette option, consultez [Options SET d’ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
 
-    -   **Create new server**
+	-   **Créer un serveur**
 
-        1.  Create a login and password for the server administrator.
+        1.  Créez une connexion et un mot de passe pour l’administrateur du serveur.
 
-        2.  Optionally, use a federated service account for SQL Server to communicate with the remote Azure server.
+        2.  Si vous le souhaitez, utilisez un compte de service fédéré pour que SQL Server communique avec le serveur Azure distant.
 
-        ![Create new Azure server - Stretch Database wizard][StretchWizardImage4]
+		![Création d’un serveur Azure dans l’Assistant Stretch Database][StretchWizardImage4]
 
-    -   **Existing server**
+    -   **Serveur existant**
 
-        1.  Select the existing Azure server.
+        1.  Sélectionnez le serveur Azure existant.
 
-        2.  Select the authentication method.
+        2.  Sélectionnez la méthode d’authentification.
 
-            -   If you select **SQL Server Authentication**, provide the administrator login and password.
+            -   Si vous sélectionnez **Authentification SQL Server**, fournissez l’identifiant et le mot de passe administrateur.
 
-            -   Select **Active Directory Integrated Authentication** to use a federated service account for SQL Server to communicate with the remote Azure server. If the selected server is not integrated with Azure Active Directory, this option doesn't appear.
+            -   Sélectionnez **Authentification intégrée à Active Directory** afin d’utiliser un compte de service fédéré pour la communication de SQL Server avec le serveur Azure distant. Si le serveur sélectionné n’est pas intégré à Azure Active Directory, cette option n’apparaît pas.
 
-        ![Select existing Azure server - Stretch Database wizard][StretchWizardImage5]
+		![Sélection d’un serveur Azure existant dans l’Assistant Stretch Database][StretchWizardImage5]
 
-## <a name="<a-name="credentials"></a>secure-credentials"></a><a name="Credentials"></a>Secure credentials
-You have to have a database master key to secure the credentials that Stretch Database uses to connect to the remote database.  
+## <a name="Credentials"></a>Informations d’identification sécurisées
+Vous devez avoir une clé principale de base de données pour sécuriser les informations d’identification utilisées par Stretch Database pour se connecter à la base de données distante.
 
-If a database master key already exists, enter the password for it.  
+Si une clé principale de base de données existe déjà, entrez le mot de passe pour celle-ci.
 
-![Secure credentials page of the Stretch Database wizard][StretchWizardImage6b]
+![Page des informations d’identification sécurisées de l’Assistant Stretch Database][StretchWizardImage6b]
 
-If the database does not have an existing master key, enter a strong password to create a database master key.  
+Si la base de données ne dispose pas d’une clé principale existante, entrez un mot de passe fort pour créer une clé principale de base de données.
 
-![Secure credentials page of the Stretch Database wizard][StretchWizardImage6]
+![Page des informations d’identification sécurisées de l’Assistant Stretch Database][StretchWizardImage6]
 
-For more info about the database master key, see [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) and [Create a Database Master Key](https://msdn.microsoft.com/library/aa337551.aspx). For more info about the credential that the wizard creates,  see [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
+Pour plus d’informations sur la clé principale de base de données, consultez [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) et [Créer une clé principale de base de données](https://msdn.microsoft.com/library/aa337551.aspx). Pour plus d’informations sur les informations d’identification créées par l’Assistant, consultez [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
 
-## <a name="<a-name="network"></a>select-ip-address"></a><a name="Network"></a>Select IP address
-Use the subnet IP address range (recommended), or the public IP address of your SQL Server, to create a firewall rule on Azure that lets SQL Server communicate with the remote Azure server.
+## <a name="Network"></a>Sélectionner l’adresse IP
+Utilisez la plage d’adresses IP de sous-réseau (recommandé) ou l’adresse IP publique, pour créer une règle de pare-feu sur Azure qui autorise SQL Server à communiquer avec le serveur Azure distant.
 
-The IP address or addresses that you provide on this page tell the Azure server to allow incoming data, queries, and management operations initiated by SQL Server to pass through the Azure firewall. The wizard doesn't change anything in the firewall settings on the SQL Server.
+L’adresse IP, ou les adresses que vous entrez sur cette page, indiquent au serveur Azure d’autoriser les données entrantes, les requêtes et les opérations de gestion initiées par SQL Server à traverser le pare-feu Azure. L’Assistant ne modifie pas les paramètres du pare-feu sur le serveur SQL Server.
 
-![Select IP address page of the Stretch Database wizard][StretchWizardImage7]
+![Page de sélection de l’adresse IP de l’Assistant Stretch Database][StretchWizardImage7]
 
-## <a name="<a-name="summary"></a>summary"></a><a name="Summary"></a>Summary
-Review the values that you entered and the options that you selected in the wizard and the estimated costs on Azure. Then select **Finish** to enable Stretch.
+## <a name="Summary"></a>Résumé
+Examinez les valeurs que vous avez entrées et les options que vous avez sélectionnées dans l’Assistant, ainsi que les coûts estimés sur Azure. Ensuite, sélectionnez **Terminer** pour activer Stretch.
 
-![Summary page of the Stretch Database wizard][StretchWizardImage8]
+![Page Résumé de l’Assistant Stretch Database][StretchWizardImage8]
 
-## <a name="<a-name="results"></a>results"></a><a name="Results"></a>Results
-Review the results.
+## <a name="Results"></a>Résultats
+Passez en revue les résultats.
 
-To monitor the status of data migration, see [Monitor and troubleshoot data migration (Stretch Database)](sql-server-stretch-database-monitor.md).
+Pour surveiller l’état de migration des données, consultez [Surveillance et dépannage de la migration de données (Stretch Database)](sql-server-stretch-database-monitor.md).
 
-![Results page of the Stretch Database wizard][StretchWizardImage9]
+![Page Résultats de l’Assistant Stretch Database][StretchWizardImage9]
 
-## <a name="<a-name="knownissues"></a>troubleshooting-the-wizard"></a><a name="KnownIssues"></a>Troubleshooting the wizard
-**The Stretch Database wizard failed.**
-If Stretch Database is not yet enabled at the server level, and you run the wizard without the system administrator permissions to enable it, the wizard fails. Ask the  system administrator to enable Stretch Database on the local server instance, and then run the wizard again. For more info, see [Prerequisite: Permission to enable Stretch Database on the server](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
+## <a name="KnownIssues"></a>Dépannage de l’Assistant
+**Échec de l’Assistant Stretch Database.** Si Stretch Database n’est pas encore activé au niveau du serveur et que vous exécutez l’Assistant sans disposer des autorisations d’administrateur système pour l’activer, l’Assistant échoue. Demandez à l’administrateur système d’activer Stretch Database sur l’instance de serveur local, puis réexécutez l’Assistant. Pour plus d’informations, consultez [Condition préalable : Autorisation pour activer Stretch Database sur le serveur](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
 
-## <a name="next-steps"></a>Next steps
-Enable additional tables for Stretch Database. Monitor data migration and manage Stretch\-enabled databases and tables.
+## Étapes suivantes
+Activer des tables supplémentaires pour Stretch Database. Surveiller la migration des données et gérer des tables et des bases de données Stretch.
 
--   [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) to enable additional tables.
+-   [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) afin d’activer des tables supplémentaires.
 
--   [Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md) to see the status of data migration.
+-   [Surveiller et résoudre les problèmes de migration de données (Stretch Database)](sql-server-stretch-database-monitor.md) pour connaître l’état de migration des données.
 
--   [Pause and resume Stretch Database](sql-server-stretch-database-pause.md)
+-   [Suspendre et reprendre Stretch Database](sql-server-stretch-database-pause.md)
 
--   [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
+-   [Gérer et dépanner Stretch Database](sql-server-stretch-database-manage.md)
 
--   [Backup Stretch-enabled databases](sql-server-stretch-database-backup.md)
+-   [Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md)
 
-## <a name="see-also"></a>See also
+## Voir aussi
 
-[Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
+[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md)
 
-[Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
+[Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
@@ -195,8 +193,4 @@ Enable additional tables for Stretch Database. Monitor data migration and manage
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!-----HONumber=AcomDC_0810_2016-->

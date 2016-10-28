@@ -1,68 +1,63 @@
 
 <properties
-    pageTitle="Using Azure AD Connect Health with AD DS | Microsoft Azure"
-    description="This is the Azure AD Connect Health page that will discuss how to monitor AD DS."
-    services="active-directory"
-    documentationCenter=""
-    authors="arluca"
-    manager="samueld"
-    editor="curtand"/>
+	pageTitle="Utilisation d’Azure AD Connect Health avec AD DS | Microsoft Azure"
+	description="Cette page dédiée à Azure AD Connect Health explique comment surveiller AD DS."
+	services="active-directory"
+	documentationCenter=""
+	authors="arluca"
+	manager="samueld"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="10/18/2016"
-    ms.author="arluca"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/30/2016"
+	ms.author="arluca"/>
 
+# Utilisation d’Azure AD Connect Health avec AD DS
+La documentation suivante s’applique à la surveillance des services de domaine Active Directory avec Azure AD Connect Health. Les versions prises en charge d’AD DS sont les suivantes : Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2.
 
-# <a name="using-azure-ad-connect-health-with-ad-ds"></a>Using Azure AD Connect Health with AD DS
-The following documentation is specific to monitoring Active Directory Domain Services with Azure AD Connect Health. The supported versions of AD DS are: Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.
+Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md). En outre, pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md).
 
-For more information on monitoring AD FS with Azure AD Connect Health, see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md).
+![Azure AD Connect Health pour AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
 
-![Azure AD Connect Health for AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
+## Alertes d’Azure AD Connect Health pour AD DS
+La section Alertes disponible dans Azure AD Connect Health pour AD DS vous propose une liste d’alertes actives et résolues, liées à vos contrôleurs de domaine. Si vous sélectionnez une alerte active ou résolue, un nouveau panneau contenant des informations supplémentaires, ainsi que les étapes de résolution et des liens vers la documentation de support, s’ouvre. Chaque type d’alerte peut avoir une ou plusieurs instances, qui correspondent à chacun des contrôleurs de domaine affectés par cette alerte. Au bas du panneau d’alerte, vous pouvez double-cliquer sur un contrôleur de domaine affecté pour ouvrir un autre panneau contenant des informations supplémentaires sur cette instance d’alerte.
 
-## <a name="alerts-for-azure-ad-connect-health-for-ad-ds"></a>Alerts for Azure AD Connect Health for AD DS
-The Alerts section within Azure AD Connect Health for AD DS, provides you a list of active and resolved alerts, related to your domain controllers. Selecting an active or resolved alert opens a new blade with additional information, along with resolution steps, and links to supporting documentation. Each alert type can have one or more instances, which correspond to each of the domain controllers affected by that particular alert. Near the bottom of the alert blade, you can double-click an affected domain controller to open an additional blade with more details about that alert instance.
+Dans ce panneau, vous pouvez activer les notifications par courrier électronique pour les alertes et modifier l’intervalle de temps dans la vue. Étendez l’intervalle de temps pour voir les alertes résolues antérieures.
 
-Within this blade, you can enable email notifications for alerts and change the time range in view. Expanding the time range allows you to see prior resolved alerts.
+![Erreur de synchronisation d’Azure AD Connect](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
 
-![Azure AD Connect sync error](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
+## Tableau de bord Contrôleurs de domaine
+Ce tableau de bord fournit une vue de topologie de votre environnement, ainsi que les mesures opérationnelles essentielles et l’état d’intégrité de chacun de vos contrôleurs de domaine surveillés. Les mesures présentées permettent d’identifier rapidement des contrôleurs de domaine qui peuvent nécessiter un examen supplémentaire. Par défaut, seul un sous-ensemble des colonnes est affiché. Cependant, vous pouvez accéder à l’ensemble des colonnes disponibles en double-cliquant sur la commande Colonnes. Sélectionnez les colonnes qui vous intéressent le plus pour faire de ce tableau de bord un emplacement unique et facile pour afficher l’état de votre environnement AD DS.
 
-## <a name="domain-controllers-dashboard"></a>Domain Controllers Dashboard
-This dashboard provides a topological view of your environment, along with key operational metrics and health status of each of your monitored domain controllers. The presented metrics help to quickly identify, any domain controllers that might require further investigation. By default, only a subset of the columns is displayed. However, you can find the entire set of available columns, by double-clicking the columns command. Selecting the columns that you most care about, turns this dashboard into a single and easy place to view the health of your AD DS environment.
+![Contrôleurs de domaine](./media/active-directory-aadconnect-health/aadconnect-health-adds-domainsandsites-dashboard.png)
 
-![Domain Controllers](./media/active-directory-aadconnect-health/aadconnect-health-adds-domainsandsites-dashboard.png)
+Les contrôleurs de domaine peuvent être regroupés par leur domaine ou site respectif, ce qui est utile pour comprendre la topologie de l’environnement. Enfin, si vous double-cliquez sur l’en-tête du panneau, le tableau de bord est agrandi pour pouvoir utiliser l’écran réel disponible. Cette vue plus large est utile lorsque plusieurs colonnes sont affichées.
 
-Domain controllers can be grouped by their respective domain or site, which is helpful for understanding the environment topology. Lastly, if you double-click the blade header, the dashboard maximizes to utilize the available screen real-estate. This larger view is helpful when multiple columns are displayed.
+## Tableau de bord État de la réplication
+Ce tableau de bord fournit une vue de l’état de réplication et de la topologie de réplication de vos contrôleurs de domaine surveillés. L’état de la dernière tentative de réplication est indiqué, ainsi que la documentation utile en cas de détection d’erreur. Vous pouvez double-cliquer sur un contrôleur de domaine qui présente une erreur pour ouvrir un nouveau panneau contenant des informations telles que des détails sur l’erreur, les étapes de résolution recommandées et des liens vers la documentation de dépannage.
 
-## <a name="replication-status-dashboard"></a>Replication Status Dashboard
-This dashboard provides a view of the replication status and replication topology of your monitored domain controllers. The status of the most recent replication attempt is listed, along with helpful documentation for any error that is found. You can double-click a domain controller with an error, to open a new blade with information such as: details about the error, recommended resolution steps, and links to troubleshooting documentation.
+![État de la réplication](./media/active-directory-aadconnect-health/aadconnect-health-adds-replication.png)
 
-![Replication Status](./media/active-directory-aadconnect-health/aadconnect-health-adds-replication.png)
+## Analyse
+Cette fonctionnalité fournit les tendances graphiques de différents compteurs de performances, qui sont collectées en permanence à partir de chacun des contrôleurs de domaine surveillés. Les performances d’un contrôleur de domaine peuvent être facilement comparées avec tous les autres contrôleurs de domaine surveillés de votre forêt. En outre, vous pouvez afficher plusieurs compteurs de performances côte à côte, ce qui est utile lors du dépannage de problèmes dans votre environnement.
 
-## <a name="monitoring"></a>Monitoring
-This feature provides graphical trends of different performance counters, which are continuously collected from each of the monitored domain controllers. Performance of a domain controller can easily be compared across all other monitored domain controllers in your forest. Additionally, you can see various performance counters side by side, which is helpful when troubleshooting issues in your environment.
+![Surveillance](./media/active-directory-aadconnect-health/aadconnect-health-adds-monitoring.png)
 
-![Monitoring](./media/active-directory-aadconnect-health/aadconnect-health-adds-monitoring.png)
+Par défaut, nous avons présélectionné quatre compteurs de performances. Vous pouvez toutefois en inclure d’autres en cliquant sur la commande de filtre et en sélectionnant ou en désélectionnant les compteurs de performances de votre choix. En outre, vous pouvez double-cliquer sur un graphique de compteur de performances pour ouvrir un nouveau panneau incluant les points de données de chacun des contrôleurs de domaine surveillés.
 
-By default, we have preselected four performance counters; however, you can include others by clicking the filter command and selecting or deselecting any desired performance counters. Additionally, you can double-click a performance counter graph to open a new blade, which includes data points for each of the monitored domain controllers.
+## Liens connexes
 
-## <a name="related-links"></a>Related links
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Installation de l'agent Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
+* [Opérations Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)
+* [Utilisation d'Azure AD Connect Health pour la synchronisation (en Anglais)](active-directory-aadconnect-health-sync.md)
+* [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Historique de publication des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-* [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
-* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
-* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
-* [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
-* [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

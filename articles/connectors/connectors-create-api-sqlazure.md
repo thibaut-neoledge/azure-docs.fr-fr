@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Add the Azure SQL Database connector in your Logic Apps | Microsoft Azure"
-    description="Overview of Azure SQL Database connector with REST API parameters"
+    pageTitle="Ajouter le connecteur de base de données SQL Azure à vos applications logiques | Microsoft Azure"
+    description="Vue d’ensemble du connecteur de base de données SQL Azure avec les paramètres de l’API REST"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
-    manager="anneta"
+    manager="erikre"
     editor=""
     tags="connectors"/>
 
@@ -14,225 +14,220 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="10/18/2016"
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 
+# Prise en main du connecteur de base de données SQL Azure
+Créez des flux de travail pour votre organisation destinés à gérer les données dans vos tables à l’aide du connecteur de base de données SQL Azure.
 
-# <a name="get-started-with-the-azure-sql-database-connector"></a>Get started with the Azure SQL Database connector
-Using the Azure SQL Database connector, create workflows for your organization that manage data in your tables. 
+Avec Base de données SQL, vous pouvez effectuer les opérations suivantes :
 
-With SQL Database, you:
+- Créez votre flux de travail en ajoutant un nouveau client à une base de données clients ou en mettant à jour une commande dans une base de données de commandes.
+- Utilisez des actions pour obtenir une ligne de données, insérer une nouvelle ligne ou en supprimer. Par exemple, lorsqu’un enregistrement est créé dans Dynamics CRM Online (déclencheur), insérer une ligne dans une base de données SQL Azure (action).
 
-- Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
-- Use actions to get a row of data, insert a new row, and even delete. For example,  when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Azure SQL Database (an action). 
+Cette rubrique décrit comment utiliser le connecteur de base de données SQL dans une application logique et répertorie également les actions.
 
-This topic shows you how to use the SQL Database connector in a logic app, and also lists the actions.
+>[AZURE.NOTE] Cette version de l’article s’applique à la disponibilité générale des applications logiques.
 
->[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
+Pour plus d’informations sur Logic Apps, voir [Qu’est-ce qu’une application logique ?](../app-service-logic/app-service-logic-what-are-logic-apps.md) et [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Connexion à la base de données SQL Azure
 
-## <a name="connect-to-azure-sql-database"></a>Connect to Azure SQL Database
+Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à Base de données SQL, vous devez commencer par créer une *connexion* Base de données SQL. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ensuite, dans la base de données SQL, entrez vos informations d’identification de base de données SQL pour créer la connexion.
 
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to SQL Database, you first create a SQL Database *connection*. To create a connection, you enter the credentials you normally use to access the service you are connecting to. So, in SQL Database, enter your SQL Database credentials to create the connection. 
+#### Créer la connexion
 
-#### <a name="create-the-connection"></a>Create the connection
+>[AZURE.INCLUDE [Créer la connexion à SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
 
->[AZURE.INCLUDE [Create the connection to SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
+## Utilisation d’un déclencheur
 
-## <a name="use-a-trigger"></a>Use a trigger
+Ce connecteur ne possède aucun déclencheur. Utilisez d’autres déclencheurs pour démarrer l’application logique, notamment un déclencheur de périodicité, un déclencheur Webhook HTTP, des déclencheurs disponibles avec d’autres connecteurs, etc. La page [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) vous fournit un exemple.
 
-This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
+## Utilisation d’une action
+	
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [Apprenez-en davantage sur les actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## <a name="use-an-action"></a>Use an action
-    
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+1. Sélectionnez le signe plus. Vous disposez de plusieurs options : **Ajouter une action**, **Ajouter une condition** ou l’une des options **Plus**.
 
-1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+	![](./media/connectors-create-api-sqlazure/add-action.png)
 
-    ![](./media/connectors-create-api-sqlazure/add-action.png)
+2. Choisissez **Ajouter une action**.
 
-2. Choose **Add an action**.
+3. Dans la zone de texte, saisissez « sql » pour obtenir la liste de toutes les actions disponibles.
 
-3. In the text box, type “sql” to get a list of all the available actions.
+	![](./media/connectors-create-api-sqlazure/sql-1.png)
 
-    ![](./media/connectors-create-api-sqlazure/sql-1.png) 
+4. Dans notre exemple, choisissez **SQL Server - Obtenir une ligne**. Si une connexion existe déjà, sélectionnez le **nom de la table** dans la liste déroulante, puis entrez **l’ID de la ligne** à laquelle vous souhaitez accéder.
 
-4. In our example, choose **SQL Server - Get row**. If a connection already exists, then select the **Table name** from the drop-down list, and enter the **Row ID** you want to return.
+	![](./media/connectors-create-api-sqlazure/sample-table.png)
 
-    ![](./media/connectors-create-api-sqlazure/sample-table.png)
+	Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-sqlazure.md#create-the-connection) figurant dans cette rubrique décrit ces propriétés.
 
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-sqlazure.md#create-the-connection) in this topic describes these properties. 
+	> [AZURE.NOTE] Dans cet exemple, nous obtiendrons une ligne d’une table. Pour consulter les données de cette ligne, ajoutez une autre action qui crée un fichier en utilisant les champs de la table. Par exemple, ajoutez une action OneDrive qui utilise les champs FirstName et LastName pour créer un nouveau fichier dans le compte de stockage cloud.
 
-    > [AZURE.NOTE] In this example, we return a row from a table. To see the data in this row, add another action that creates a file using the fields from the table. For example, add a OneDrive action that uses the FirstName and LastName fields to create a new file in the cloud storage account. 
-
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+5. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
 
 
-## <a name="technical-details"></a>Technical Details
+## Détails techniques
 
-## <a name="sql-database-actions"></a>SQL Database actions
-An action is an operation carried out by the workflow defined in a logic app. The SQL Database connector includes the following actions. 
+## Actions Base de données SQL
+Une action est une opération effectuée par le flux de travail défini dans une application logique. Le connecteur de base de données SQL inclut les actions suivantes.
 
 |Action|Description|
 |--- | ---|
-|[ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure)|Executes a stored procedure in SQL|
-|[GetRow](connectors-create-api-sqlazure.md#get-row)|Retrieves a single row from a SQL table|
-|[GetRows](connectors-create-api-sqlazure.md#get-rows)|Retrieves rows from a SQL table|
-|[InsertRow](connectors-create-api-sqlazure.md#insert-row)|Inserts a new row into a SQL table|
-|[DeleteRow](connectors-create-api-sqlazure.md#delete-row)|Deletes a row from a SQL table|
-|[GetTables](connectors-create-api-sqlazure.md#get-tables)|Retrieves tables from a SQL database|
-|[UpdateRow](connectors-create-api-sqlazure.md#update-row)|Updates an existing row in a SQL table|
+|[ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure)|Exécute une procédure stockée dans SQL|
+|[GetRow](connectors-create-api-sqlazure.md#get-row)|Récupère une seule ligne d’une table SQL|
+|[GetRows](connectors-create-api-sqlazure.md#get-rows)|Récupère les lignes d’une table SQL|
+|[InsertRow](connectors-create-api-sqlazure.md#insert-row)|Insère une nouvelle ligne dans une table SQL|
+|[DeleteRow](connectors-create-api-sqlazure.md#delete-row)|Supprime une ligne d’une table SQL|
+|[GetTables](connectors-create-api-sqlazure.md#get-tables)|Extrait des tables à partir d’une base de données SQL|
+|[UpdateRow](connectors-create-api-sqlazure.md#update-row)|Met à jour une ligne existante dans une table SQL|
 
-### <a name="action-details"></a>Action Details
+### Détails de l’action
 
-In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
+Dans cette section, consultez les détails relatifs à chaque action, y compris toutes les propriétés d’entrée requises ou facultatives et toute sortie correspondante associée au connecteur.
 
 
-#### <a name="execute-stored-procedure"></a>Execute stored procedure
-Executes a stored procedure in SQL.  
+#### Exécuter une procédure stockée
+Exécute une procédure stockée dans SQL.
 
-| Property Name| Display Name |Description|
+| Nom de la propriété| Display Name |Description|
 | ---|---|---|
-|procedure * | Procedure name | The name of the stored procedure you want to execute |
-|parameters * | Input parameters | The parameters are dynamic and based on the stored procedure you choose. <br/><br/> For example, if you're using the Adventure Works sample database, choose the *ufnGetCustomerInformation* stored procedure. The **Customer ID** input parameter is displayed. Enter "6" or one of the other customer IDs. |
+|procedure * | Nom de la procédure | Nom de la procédure stockée à exécuter |
+|parameters * | Paramètres d'entrée | Les paramètres sont dynamiques et dépendent de la procédure stockée que vous choisissez. <br/><br/> Par exemple, si vous utilisez l’exemple de base de données Adventure Works, choisissez la procédure stockée *ufnGetCustomerInformation*. Le paramètre d’entrée **ID du client** est affiché. Entrez « 6 » ou l’un des autres ID de client. |
 
-An asterisk (*) means the property is required.
+Un astérisque (*) signifie que la propriété est requise.
 
-##### <a name="output-details"></a>Output Details
-ProcedureResult: Carries result of stored procedure execution
+##### Détails des résultats
+ProcedureResult : transmet le résultat de l’exécution de la procédure stockée
 
-| Property Name | Data Type | Description |
+| Nom de la propriété | Type de données | Description |
 |---|---|---|
-|OutputParameters|object|Output parameter values |
-|ReturnCode|integer|Return code of a procedure |
-|ResultSets|object| Result sets|
+|OutputParameters|objet|Valeurs de paramètres de sortie |
+|ReturnCode|integer|Code de retour d’une procédure |
+|ResultSets|objet| Jeux de résultats|
 
 
-#### <a name="get-row"></a>Get row 
-Retrieves a single row from a SQL table.  
+#### Obtenir une ligne 
+Récupère une seule ligne d’une table SQL.
 
-| Property Name| Display Name |Description|
+| Nom de la propriété| Display Name |Description|
 | ---|---|---|
-|table * | Table name |Name of SQL table|
-|id * | Row id |Unique identifier of the row to retrieve|
+|table * | Nom de la table |Nom de la table SQL|
+|id * | ID de la ligne |Identificateur unique de la ligne à récupérer|
 
-An asterisk (*) means the property is required.
+Un astérisque (*) signifie que la propriété est requise.
 
-##### <a name="output-details"></a>Output Details
+##### Détails des résultats
 Item
 
-| Property Name | Data Type |
+| Nom de la propriété | Type de données |
 |---|---|
 |ItemInternalId|string|
 
 
-#### <a name="get-rows"></a>Get rows 
-Retrieves rows from a SQL table.  
+#### Obtenir des lignes 
+Récupère les lignes d’une table SQL.
 
-|Property Name| Display Name|Description|
+|Nom de la propriété| Display Name|Description|
 | ---|---|---|
-|table*|Table name|Name of SQL table|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
-|$filter|Filter Query|An ODATA filter query to restrict the number of entries|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|table*|Nom de la table|Nom de la table SQL|
+|$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
+|$top|Nombre maximal à récupérer|Nombre maximal d’entrées à récupérer (valeur par défaut : 256)|
+|$filter|Requête de filtre|Requête filter ODATA pour limiter le nombre d’entrées|
+|$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 
-An asterisk (*) means the property is required.
+Un astérisque (*) signifie que la propriété est requise.
 
-##### <a name="output-details"></a>Output Details
+##### Détails des résultats
 ItemsList
 
-| Property Name | Data Type |
+| Nom de la propriété | Type de données |
 |---|---|
 |value|array|
 
 
-#### <a name="insert-row"></a>Insert row 
-Inserts a new row into a SQL table.  
+#### Insérer une ligne 
+Insère une nouvelle ligne dans une table SQL.
 
-|Property Name| Display Name|Description|
+|Nom de la propriété| Display Name|Description|
 | ---|---|---|
-|table*|Table name|Name of SQL table|
-|item*|Row|Row to insert into the specified table in SQL|
+|table*|Nom de la table|Nom de la table SQL|
+|item*|Ligne|Ligne à insérer dans la table SQL spécifiée|
 
-An asterisk (*) means the property is required.
+Un astérisque (*) signifie que la propriété est requise.
 
-##### <a name="output-details"></a>Output Details
+##### Détails des résultats
 Item
 
-| Property Name | Data Type |
+| Nom de la propriété | Type de données |
 |---|---|
 |ItemInternalId|string|
 
 
-#### <a name="delete-row"></a>Delete row 
-Deletes a row from a SQL table.  
+#### Supprimer la ligne 
+Supprime une ligne d’une table SQL.
 
-|Property Name| Display Name|Description|
+|Nom de la propriété| Display Name|Description|
 | ---|---|---|
-|table*|Table name|Name of SQL table|
-|id*|Row id|Unique identifier of the row to delete|
+|table*|Nom de la table|Nom de la table SQL|
+|id*|ID de la ligne|Identificateur unique de la ligne à supprimer|
 
-An asterisk (*) means the property is required.
+Un astérisque (*) signifie que la propriété est requise.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Détails des résultats
+Aucun.
 
-#### <a name="get-tables"></a>Get tables 
-Retrieves tables from a SQL database.  
+#### Obtenir des tables 
+Extrait des tables à partir d’une base de données SQL.
 
-There are no parameters for this call. 
+Il n'existe aucun paramètre pour cet appel.
 
-##### <a name="output-details"></a>Output Details 
+##### Détails des résultats 
 TablesList
 
-| Property Name | Data Type |
+| Nom de la propriété | Type de données |
 |---|---|
 |value|array|
 
-#### <a name="update-row"></a>Update row 
-Updates an existing row in a SQL table.  
+#### Mettre à jour une ligne 
+Met à jour une ligne existante dans une table SQL.
 
-|Property Name| Display Name|Description|
+|Nom de la propriété| Display Name|Description|
 | ---|---|---|
-|table*|Table name|Name of SQL table|
-|id*|Row id|Unique identifier of the row to update|
-|item*|Row|Row with updated values|
+|table*|Nom de la table|Nom de la table SQL|
+|id*|ID de la ligne|Identificateur unique de la ligne à mettre à jour|
+|item*|Ligne|Ligne avec valeurs mises à jour|
 
-An asterisk (*) means the property is required.
+Un astérisque (*) signifie que la propriété est requise.
 
-##### <a name="output-details"></a>Output Details  
+##### Détails des résultats  
 Item
 
-| Property Name | Data Type |
+| Nom de la propriété | Type de données |
 |---|---|
 |ItemInternalId|string|
 
 
-### <a name="http-responses"></a>HTTP Responses
+### Réponses HTTP
 
-When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
+Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certaines réponses. Le tableau suivant présente les réponses et leurs descriptions :
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
-|default|Operation Failed.|
+|202|Acceptée|
+|400|Demande incorrecte|
+|401|Non autorisé|
+|403|Interdit|
+|404|Introuvable|
+|500|Erreur interne du serveur. Une erreur inconnue s'est produite|
+|default|L’opération a échoué.|
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans Logic Apps en consultant notre [liste d’API](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

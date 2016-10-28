@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with AppDynamics | Microsoft Azure" 
-    description="Learn how to use AppDynamics with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à AppDynamics | Microsoft Azure" 
+    description="Apprenez à utiliser AppDynamics avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,152 +11,143 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
+#Didacticiel : Intégration d’Azure Active Directory à AppDynamics
 
-#<a name="tutorial:-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Azure Active Directory integration with AppDynamics
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et AppDynamics. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-The objective of this tutorial is to show the integration of Azure and AppDynamics. The scenario outlined in this tutorial assumes that you already have the following items:
+-   Un abonnement Azure valide
+-   Un abonnement AppDynamics pour lequel l’authentification unique est activée
 
--   A valid Azure subscription
--   An AppDynamics single sign-on enabled subscription
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à AppDynamics pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise AppDynamics (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-After completing this tutorial, the Azure AD users you have assigned to AppDynamics will be able to single sign into the application at your AppDynamics company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-The scenario outlined in this tutorial consists of the following building blocks:
+1.  Activation de l’intégration d’applications pour AppDynamics
+2.  Configuration de l'authentification unique
+3.  Configuration de l'approvisionnement des utilisateurs
+4.  Affectation d’utilisateurs
 
-1.  Enabling the application integration for AppDynamics
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+![Scénario](./media/active-directory-saas-appdynamics-tutorial/IC790209.png "Scénario")
+##Activation de l’intégration d’applications pour AppDynamics
 
-![Scenario](./media/active-directory-saas-appdynamics-tutorial/IC790209.png "Scenario")
-##<a name="enabling-the-application-integration-for-appdynamics"></a>Enabling the application integration for AppDynamics
+Cette section décrit l’activation de l’intégration d’applications pour AppDynamics.
 
-The objective of this section is to outline how to enable the application integration for AppDynamics.
+###Pour activer l’intégration d’applications pour AppDynamics, procédez comme suit :
 
-###<a name="to-enable-the-application-integration-for-appdynamics,-perform-the-following-steps:"></a>To enable the application integration for AppDynamics, perform the following steps:
-
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-appdynamics-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-appdynamics-tutorial/IC700994.png "Applications")
 
-4.  Click **Add** at the bottom of the page.
+4.  Cliquez sur **Ajouter** en bas de la page.
 
-    ![Add application](./media/active-directory-saas-appdynamics-tutorial/IC749321.png "Add application")
+    ![Ajouter l’application](./media/active-directory-saas-appdynamics-tutorial/IC749321.png "Ajouter l’application")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-appdynamics-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-appdynamics-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  In the **search box**, type **AppDynamics**.
+6.  Dans la **zone de recherche**, tapez **AppDynamics**.
 
-    ![Application Gallery](./media/active-directory-saas-appdynamics-tutorial/IC790210.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-appdynamics-tutorial/IC790210.png "Galerie d’applications")
 
-7.  In the results pane, select **AppDynamics**, and then click **Complete** to add the application.
+7.  Dans le volet de résultats, sélectionnez **AppDynamics**, puis cliquez sur **Terminer** pour ajouter l’application.
 
     ![AppDynamics](./media/active-directory-saas-appdynamics-tutorial/IC790211.png "AppDynamics")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuration de l'authentification unique
 
-The objective of this section is to outline how to enable users to authenticate to AppDynamics with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur AppDynamics avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  In the Azure classic portal, on the **AppDynamics** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’application **AppDynamics**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Configure Single SignOn")
+    ![Configurer l’authentification unique](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Configurer l’authentification unique")
 
-2.  On the **How would you like users to sign on to AppDynamics** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à AppDynamics**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Configure Single SignOn")
+    ![Configurer l’authentification unique](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Configurer l’authentification unique")
 
-3.  On the **Configure App URL** page, in the **AppDynamics Sign On URL** textbox, type your URL used by your users to sign-on to AppDynamics ("*https://companyname.saas.appdynamics.com*"), and then click **Next**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à AppDynamics (« *https://companyname.saas.appdynamics.com*"), puis cliquez sur **Suivant**.
 
-    ![Configure App URL](./media/active-directory-saas-appdynamics-tutorial/IC790214.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-appdynamics-tutorial/IC790214.png "Configurer l’URL de l’application")
 
-4.  On the **Configure single sign-on at AppDynamics** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+4.  Dans la page **Configurer l’authentification unique sur AppDynamics**, pour télécharger votre certificat, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
-    ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790215.png "Configure Single SignOn")
+    ![Configurer l’authentification unique](./media/active-directory-saas-appdynamics-tutorial/IC790215.png "Configurer l’authentification unique")
 
-5.  In a different web browser window, log into your AppDynamics company site as an administrator.
+5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise AppDynamics en tant qu’administrateur.
 
-6.  In the toolbar on the top, click **Settings**, and then click **Administration**.
+6.  Dans la barre d’outils située en haut, cliquez sur **Settings**, puis sur **Administration**.
 
     ![Administration](./media/active-directory-saas-appdynamics-tutorial/IC790216.png "Administration")
 
-7.  Click the **Authentication Provider** tab.
+7.  Cliquez sur l’onglet **Authentication Provider**.
 
-    ![Authentication Provider](./media/active-directory-saas-appdynamics-tutorial/IC790224.png "Authentication Provider")
+    ![Fournisseur d’authentification](./media/active-directory-saas-appdynamics-tutorial/IC790224.png "Fournisseur d’authentification")
 
-8.  In the **Authentication Provider** section, perform the following steps:
+8.  Dans la section **Authentication Provider**, procédez comme suit :
 
-    ![SAML Configuration](./media/active-directory-saas-appdynamics-tutorial/IC790225.png "SAML Configuration")
+    ![Configuration SAML](./media/active-directory-saas-appdynamics-tutorial/IC790225.png "Configuration SAML")
 
-    1.  As **Authentication Provider**, select **SAML**.
-    2.  In the Azure classic portal, on the **Configure single sign-on at AppDynamics** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
-    3.  In the Azure classic portal, on the **Configure single sign-on at AppDynamics** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
-    4.  Create a **base-64 encoded** file from your downloaded certificate.  
+    1.  Dans **Authentication Provider**, sélectionnez **SAML**.
+    2.  Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur AppDynamics**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Login URL**.
+    3.  Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur AppDynamics**, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Logout URL**.
+    4.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    5.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox
-    6.  Click **Save**.
-        ![Save](./media/active-directory-saas-appdynamics-tutorial/IC777673.png "Save")
+    5.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificate**.
+    6.  Cliquez sur **Save**. ![Enregistrer](./media/active-directory-saas-appdynamics-tutorial/IC777673.png "Enregistrer")
 
-9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790226.png "Configure Single SignOn")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configurer l’authentification unique](./media/active-directory-saas-appdynamics-tutorial/IC790226.png "Configurer l’authentification unique")
+##Configuration de l'approvisionnement des utilisateurs
 
-In order to enable Azure AD users to log into AppDynamics, they must be provisioned into AppDynamics.  
-In the case of AppDynamics, provisioning is a manual task.
+Pour permettre aux utilisateurs Azure AD de se connecter à AppDynamics, vous devez les approvisionner dans AppDynamics. En l’occurrence, cet approvisionnement est une tâche manuelle.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1.  Log into your AppDynamics company site as an administrator.
+1.  Connectez-vous à votre site d’entreprise AppDynamics en tant qu’administrateur.
 
-2.  Go to **Users**, and then click **+** to open the **Create User** dialog.
+2.  Accédez à **Users**, puis cliquez sur **+** pour ouvrir la boîte de dialogue **Create User**.
 
-    ![Users](./media/active-directory-saas-appdynamics-tutorial/IC790229.png "Users")
+    ![Utilisateurs](./media/active-directory-saas-appdynamics-tutorial/IC790229.png "Utilisateurs")
 
-3.  In the **Create User** section, perform the following steps:
+3.  Dans la section **Create User**, procédez comme suit :
 
-    ![Create User](./media/active-directory-saas-appdynamics-tutorial/IC790230.png "Create User")
+    ![Créer un utilisateur](./media/active-directory-saas-appdynamics-tutorial/IC790230.png "Créer un utilisateur")
 
-    1.  Type the **Username**, **Name**, **Email**, **New Password**, **Repeat New Password** of a valid AAD account you want to provision into the related textboxes.
-    2.  Click **Save**.
+    1.  Tapez le **nom d’utilisateur**, le **nom**, l’**adresse de messagerie**, le **nouveau mot de passe** et la **confirmation du nouveau mot de passe** d’un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
+    2.  Cliquez sur **Enregistrer**.
 
->[AZURE.NOTE] You can use any other AppDynamics user account creation tools or APIs provided by AppDynamics to provision Azure AD user accounts.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par AppDynamics pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
-##<a name="assigning-users"></a>Assigning users
+##Affectation d’utilisateurs
 
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###<a name="to-assign-users-to-appdynamics,-perform-the-following-steps:"></a>To assign users to AppDynamics, perform the following steps:
+###Pour affecter des utilisateurs à AppDynamics, procédez comme suit :
 
-1.  In the Azure classic portal, create a test account.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  On the **AppDynamics **application integration page, click **Assign users**.
+2.  Dans la page d’intégration d’applications **AppDynamics**, cliquez sur **Affecter des utilisateurs**.
 
-    ![Assign Users](./media/active-directory-saas-appdynamics-tutorial/IC790231.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-appdynamics-tutorial/IC790231.png "Affecter des utilisateurs")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
-    ![Yes](./media/active-directory-saas-appdynamics-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-appdynamics-tutorial/IC767830.png "Oui")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

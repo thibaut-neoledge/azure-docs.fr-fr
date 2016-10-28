@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal | Microsoft Azure" 
-    description="Initiate a planned or unplanned failover for Azure SQL Database using the Azure portal" 
+    pageTitle="Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure | Microsoft Azure" 
+    description="Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,46 +16,45 @@
     ms.date="08/29/2016"
     ms.author="sstein"/>
 
-
-# <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-the-azure-portal"></a>Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal
+# Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-failover-portal.md)
+- [Portail Azure](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-This article shows you how to initiate failover to a secondary SQL Database with the [Azure portal](http://portal.azure.com). To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-portal.md).
+Cet article montre comment lancer le basculement vers une base de données SQL secondaire avec le [portail Azure](http://portal.azure.com). Pour configurer la géoréplication, consultez [Configurer la géoréplication pour Base de données SQL Azure](sql-database-geo-replication-portal.md).
 
 
-## <a name="initiate-a-failover"></a>Initiate a failover
+## Initialisation d’un basculement
 
-The secondary database can be switched to become the primary.  
+La base de données secondaire peut être basculée en base de données primaire.
 
-1. In the [Azure portal](http://portal.azure.com) browse to the primary database in the Geo-Replication partnership.
-2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
-3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Failover**.
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géoréplication.
+2. Dans le panneau de la base de données SQL, sélectionnez **Tous les paramètres** > **Géo-réplication**.
+3. Dans la liste des bases de données **SECONDAIRES**, sélectionnez la base de données qui doit devenir la nouvelle base de données primaire et cliquez sur **Basculement**.
 
-    ![failover][2]
+    ![basculement][2]
 
-4. Click **Yes** to begin the failover.
+4. Cliquez sur **Oui** pour commencer le basculement.
 
-The command will immediately switch the secondary database into the primary role. 
+La commande fait immédiatement basculer la base de données secondaire vers le rôle primaire.
 
-There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command will automatically reconfigure the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances. 
+Il existe une courte période pendant laquelle les deux bases de données ne sont pas disponibles (de l’ordre de 0 à 25 secondes) pendant que les rôles sont activés. Si la base de données primaire comporte plusieurs bases de données secondaires, la commande reconfigure automatiquement les autres bases de données secondaires pour qu’elles se connectent à la nouvelle base de données primaire. Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales.
 
->[AZURE.NOTE] If the primary is online and committing transactions when the command is issued some data loss may occur.
+>[AZURE.NOTE] Si la base de données primaire est en ligne et valide des transactions lorsque la commande est émise, une perte de données peut se produire.
 
 
-## <a name="next-steps"></a>Next steps   
+## Étapes suivantes   
 
-- After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
-- To learn recovering after a disaster using Active Geo-Replication, including pre and post recovery steps and performing a disaster recovery drill, see [Disaster Recovery Drills](sql-database-disaster-recovery.md)
-- For a Sasha Nosov blog post about Active Geo-Replication, see [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- For information about designing cloud applications to use Active Geo-Replication, see [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- For information about using Active Geo-Replication with elastic database pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-- For an overview of business continurity, see [Business Continuity Overview](sql-database-business-continuity.md)
+- Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
+- Pour en savoir plus sur la reprise après un sinistre à l’aide de la géoréplication active, notamment les étapes de pré/post-récupération et la simulation d’une récupération d’urgence, consultez [Exécution d’un exercice de récupération d’urgence](sql-database-disaster-recovery.md)
+- Consultez le billet de blog publié par Sasha Nosov concernant la géoréplication active : [Coup de projecteur sur les nouvelles fonctionnalités de géoréplication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (en Anglais)
+- Pour plus d’informations sur la conception d’applications cloud afin d’utiliser la géoréplication active, consultez [Conception d’applications cloud pour la continuité d’activité à l’aide de la géoréplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- Pour plus d’informations sur l’utilisation de la géoréplication active avec des pools de bases de données élastiques, consultez [Stratégies de récupération d’urgence pour les applications utilisant le pool élastique de base de données SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+- Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
 
 
@@ -64,8 +63,4 @@ There is a short period during which both databases are unavailable (on the orde
 [1]: ./media/sql-database-geo-replication-failover-portal/failover.png
 [2]: ./media/sql-database-geo-replication-failover-portal/secondaries.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

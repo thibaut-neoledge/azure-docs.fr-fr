@@ -1,12 +1,9 @@
-## <a name="peering-virtual-networks-from-rm-to-classic"></a>Peering virtual networks from RM to classic
+## Homologation d’un réseau virtuel RM à un réseau virtuel Classic
 
-In this scenario, you will create a peering between two VNets, namely **VNET1** and **VNET2** belonging to Azure Resource Manager deployment model and classic deployment model respectively.
+Dans ce scénario, vous allez créer une homologation entre deux réseaux virtuels, à savoir **VNET1** et **VNET2**, qui utilisent respectivement le modèle de déploiement Azure Resource Manager et le modèle de déploiement Classic.
 
-> [AZURE.NOTE] The virtual networks must be in the same subscription.
+> [AZURE.NOTE] Les réseaux virtuels doivent se trouver dans le même abonnement.
 
-![asm to arm deployment scenario](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
+![scénario de déploiement asm à arm](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

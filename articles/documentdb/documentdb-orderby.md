@@ -1,55 +1,54 @@
 <properties 
-    pageTitle="Sorting DocumentDB data using Order By | Microsoft Azure" 
-    description="Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries." 
-    services="documentdb" 
-    authors="arramac" 
-    manager="jhubbard" 
-    editor="cgronlun" 
-    documentationCenter=""/>
+	pageTitle="Tri de données DocumentDB à l'aide de la clause Order By | Microsoft Azure" 
+	description="Découvrez comment utiliser ORDER BY dans des requêtes DocumentDB dans LINQ et SQL, et comment spécifier une stratégie d'indexation pour les requêtes ORDER BY." 
+	services="documentdb" 
+	authors="arramac" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
 <tags 
-    ms.service="documentdb" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/03/2016" 
-    ms.author="arramac"/>
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/07/2016" 
+	ms.author="arramac"/>
 
+# Tri de données DocumentDB à l'aide de la clause Order By
+Microsoft Azure DocumentDB prend en charge l'interrogation de documents à l'aide du langage SQL sur les documents JSON. Il est possible de trier les résultats de la requête à l'aide de la clause ORDER BY dans les instructions de requête SQL.
 
-# <a name="sorting-documentdb-data-using-order-by"></a>Sorting DocumentDB data using Order By
-Microsoft Azure DocumentDB supports querying documents using SQL over JSON documents. Query results can be ordered using the ORDER BY clause in SQL query statements.
+Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
-After reading this article, you'll be able to answer the following questions: 
+- Comment interroger avec la clause Order By ?
+- Comment configurer une stratégie d'indexation pour la clause Order By ?
+- Quelles sont les étapes suivantes ?
 
-- How do I query with Order By?
-- How do I configure an indexing policy for Order By?
-- What's coming next?
+Des [exemples](#samples) et un [FAQ](#faq) sont également fournis.
 
-[Samples](#samples) and an [FAQ](#faq) are also provided.
+Pour obtenir une référence complète sur les requêtes SQL, consultez le [didacticiel sur les requêtes DocumentDB](documentdb-sql-query.md).
 
-For a complete reference on SQL querying, see the [DocumentDB Query tutorial](documentdb-sql-query.md).
+## Interrogation avec la clause Order By
+Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative dans les instructions SQL lors de l'interrogation de DocumentDB. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés.
 
-## <a name="how-to-query-with-order-by"></a>How to Query with Order By
-Like in ANSI-SQL, you can now include an optional Order By clause in SQL statements when querying DocumentDB. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. 
-
-### <a name="ordering-using-sql"></a>Ordering using SQL
-For example here's a query to retrieve the top 10 books in descending order of their titles. 
+### Classement à l'aide de SQL
+Par exemple, voici une requête pour récupérer les 10 premiers livres dans l’ordre décroissant de leurs titres.
 
     SELECT TOP 10 * 
     FROM Books 
     ORDER BY Books.Title DESC
 
-### <a name="ordering-using-sql-with-filtering"></a>Ordering using SQL with Filtering
-You can order using any nested property within documents like Books.ShippingDetails.Weight, and you can specify additional filters in the WHERE clause in combination with Order By like in this example:
+### Classement à l'aide de SQL avec filtrage
+Vous pouvez classer à l'aide de n'importe quelle propriété imbriquée au sein de documents comme Books.ShippingDetails.Weight, et vous pouvez spécifier des filtres supplémentaires dans la clause WHERE en combinaison avec Order By, comme dans l'exemple suivant :
 
     SELECT * 
     FROM Books 
     WHERE Books.SalePrice > 4000
     ORDER BY Books.ShippingDetails.Weight
 
-### <a name="ordering-using-the-linq-provider-for-.net"></a>Ordering using the LINQ Provider for .NET
-Using the .NET SDK version 1.2.0 and higher, you can also use the OrderBy() or OrderByDescending() clause within LINQ queries like in this example:
+### Classement à l'aide du fournisseur LINQ pour .NET
+À l'aide du Kit de développement logiciel (SDK) .NET version 1.2.0 et versions ultérieures, vous pouvez également utiliser la clause OrderBy() ou OrderByDescending() dans les requêtes LINQ comme dans l'exemple suivant :
 
     foreach (Book book in client.CreateDocumentQuery<Book>(UriFactory.CreateDocumentCollectionUri("db", "books"))
         .OrderBy(b => b.PublishTimestamp)
@@ -58,20 +57,20 @@ Using the .NET SDK version 1.2.0 and higher, you can also use the OrderBy() or O
         // Iterate through books
     }
 
-DocumentDB supports ordering with a single numeric, string or Boolean property per query, with additional query types coming soon. Please see [What's coming next](#Whats_coming_next) for more details.
+DocumentDB prend en charge le tri avec une chaîne numérique unique ou une propriété booléenne par requête, avec des types de requêtes supplémentaires prochainement disponibles. Pour plus de détails, consultez la section [Quelles sont les étapes suivantes ?](#Whats_coming_next).
 
-## <a name="configure-an-indexing-policy-for-order-by"></a>Configure an indexing policy for Order By
+## Configurer une stratégie d'indexation pour la clause Order By
 
-Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value). Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy with Range on numbers, strings or both, in order to use Order By. 
+Rappelez-vous que DocumentDB prend en charge deux types d'index (le hachage et la plage), qui peuvent être définis pour des chemins d'accès ou des propriétés spécifiques, des types de données (chaînes ou numéros) et à des valeurs de précision différentes (précision maximale ou une valeur de précision fixe). Étant donné que DocumentDB utilise le hachage indexation par défaut, vous devez créer une nouvelle collection avec une stratégie d'indexation personnalisée avec une plage de nombres, de chaînes ou les deux, pour pouvoir utiliser Order By.
 
->[AZURE.NOTE] String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03. In order to create policies for Order By against strings, you must use SDK version 1.2.0 of the .NET SDK, or version 1.1.0 of the Python, Node.js or Java SDK.
+>[AZURE.NOTE] Les index de plage de chaîne ont été introduits le 7 juillet 2015 avec la version 2015-06-03 de l'API REST. Pour créer des stratégies pour Order By sur les chaînes, vous devez utiliser la version 1.2.0 du Kit de développement logiciel (SDK) .NET ou la version 1.1.0 du Kit de développement logiciel (SDK) Python, Node.js ou Java.
 >
->Prior to REST API version 2015-06-03, the default collection indexing policy was Hash for both strings and numbers. This has been changed to Hash for strings, and Range for numbers. 
+>Avant la version 2015-06-03 de l'API REST, la stratégie d'indexation de la collection par défaut était le hachage des chaînes et des nombres. Désormais, la stratégie est définie par le hachage pour les chaînes et la plage pour les nombres.
 
-For more details see [DocumentDB indexing policies](documentdb-indexing-policies.md).
+Pour plus d'informations, consultez [Stratégies d'indexation de DocumentDB](documentdb-indexing-policies.md).
 
-### <a name="indexing-for-order-by-against-all-properties"></a>Indexing for Order By against all properties
-Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it. Here we override the default index type for string values to Range, and at the maximum precision (-1).
+### Indexation pour la clause Order By sur toutes les propriétés numériques
+Voici comment vous pouvez créer une collection avec l’indexation « Toutes les plages » pour Order By sur toutes les propriétés numériques ou de chaîne qui apparaissent dans les documents JSON. Ici, nous remplaçons le type d’index par défaut pour les valeurs de chaîne par le type Plage, et nous définissons la précision maximale (-1).
                    
     DocumentCollection books = new DocumentCollection();
     books.Id = "books";
@@ -79,10 +78,12 @@ Here's how you can create a collection with "All Range" indexing for Order By ag
     
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
->[AZURE.NOTE] Note that Order By only will return results of the data types (String and Number) that are indexed with a RangeIndex. For example, if you have the default indexing policy which only has RangeIndex on numbers, an Order By against a path with string values will return no documents.
+>[AZURE.NOTE] Notez que Order By retourne uniquement des résultats des types de données (chaîne et nombre) qui sont indexés avec un RangeIndex. Par exemple, si vous disposez d'une stratégie d’indexation par défaut qui ne possède qu’une RangeIndex pour les nombres, une clause Order By sur un chemin d'accès avec des valeurs de chaîne ne retournera aucun document.
+>
+> Si vous avez défini une clé de partition pour vos collections, notez que la clause Order By est uniquement prise en charge dans les requêtes qui effectuent un filtrage par rapport à une clé de partition unique.
 
-### <a name="indexing-for-order-by-for-a-single-property"></a>Indexing for Order By for a single property
-Here's how you can create a collection with indexing for Order By against just the Title property, which is a string. There are two paths, one for the Title property ("/Title/?") with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.                    
+### Indexation pour la clause Order By d'une propriété unique
+Voici comment vous pouvez créer une collection avec une indexation pour la clause Order By pour la propriété Title qui est une chaîne. Il existe deux chemins d'accès, un pour la propriété Title ("/Titre/?") avec l'indexation de plage, et l'autre pour toutes les autres propriétés avec le modèle d'indexation par défaut, qui est le hachage pour les chaînes et la plage pour les nombres.
     
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -94,56 +95,45 @@ Here's how you can create a collection with indexing for Order By against just t
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), booksCollection);  
 
 
-## <a name="samples"></a>Samples
-Take a look at this [Github samples project](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) that demonstrates how to use Order By, including creating indexing policies and paging using Order By. The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. Please refer to the [Contribution guidelines](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) for guidance on how to contribute.  
+## Exemples
+Examinez ce [projet d'exemples Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) qui montre comment utiliser la clause Order By, y compris la création de stratégies d'indexation et de pagination à l'aide de la clause Order By. Les exemples sont open source et nous vous invitons à envoyer des requêtes d'extraction avec des contributions qui permettront aux autres développeurs DocumentDB de les exploiter. Veuillez vous reporter aux [instructions de contribution](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) pour obtenir des conseils sur la façon de contribuer.
 
-## <a name="faq"></a>FAQ
+## Forum Aux Questions
 
-**What is the expected Request Unit (RU) consumption of Order By queries?**
+**Quelle est la consommation d'unités de demande (RU) des requêtes Order By ?**
 
-Since Order By utilizes the DocumentDB index for lookups, the number of request units consumed by Order By queries will be similar to the equivalent queries without Order By. Like any other operation on DocumentDB, the number of request units depends on the sizes/shapes of documents as well as the complexity of the query. 
+Étant donné que la clause Order By utilise l'index DocumentDB pour les recherches, le nombre d'unités de demande consommées par les requêtes Order By sera semblable aux requêtes équivalentes sans Order By. Comme toute autre opération sur DocumentDB, le nombre d'unités de demande dépend de la taille/forme des documents, ainsi que de la complexité de la requête.
 
 
-**What is the expected indexing overhead for Order By?**
+**Quelle est la surcharge d'index attendue pour Order By ?**
 
-The indexing storage overhead will be proportionate to the number of properties. In the worst case scenario, the index overhead will be 100% of the data. There is no difference in throughput (Request Units) overhead between Range/Order By indexing and the default Hash indexing.
+La surcharge de stockage de l'indexation sera proportionnelle au nombre de propriétés. Dans le pire des cas, la surcharge d'index représentera 100 % des données. Il n'existe aucune différence en termes de surcharge de débit (unités de demande) entre l'indexation Range/Order By et l'indexation de hachage par défaut.
 
-**How do I query my existing data in DocumentDB using Order By?**
+**Comment puis-je interroger mes données existantes dans DocumentDB à l'aide de la clause Order By ?**
 
-In order to sort query results using Order By, you must modify the indexing policy of the collection to use a Range index type against the property used to sort. See [Modifying Indexing Policy](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection). 
+Pour trier les résultats de la requête à l’aide de la clause Order By, vous devez modifier la stratégie d’indexation de la collection afin d’utiliser un type d’index de plage (Range) par rapport à la propriété utilisée pour le tri. Consultez [Modification de la stratégie d’indexation](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection).
 
-**What are the current limitations of Order By?**
+**Quelles sont les limitations actuelles de la clause Order By ?**
 
-Order By can be specified only against a property, either numeric or String when it is range indexed with the Maximum Precision (-1).
+La clause Order By peut être spécifiée uniquement pour une propriété numérique ou une chaîne lorsqu'il s’agit d’une indexation de plage avec la précision maximale (-1).
 
-You cannot perform the following:
+Vous ne pouvez pas effectuer les opérations suivantes :
  
-- Order By with internal string properties like id, _rid, and _self (coming soon).
-- Order By with properties derived from the result of an intra-document join (coming soon).
-- Order By multiple properties (coming soon).
-- Order By with queries on databases, collections, users, permissions or attachments (coming soon).
-- Order By with computed properties e.g. the result of an expression or a UDF/built-in function.
+- Order By avec des propriétés de chaîne internes comme id, \_rid et \_self (disponible prochainement).
+- Order By avec des propriétés dérivées du résultat d'une jointure à l'intérieur du document (disponible prochainement).
+- Order By sur plusieurs propriétés (disponible prochainement).
+- La clause Order By avec des requêtes sur les bases de données, les collections, les utilisateurs, les autorisations ou les pièces jointes (prochainement disponible).
+- Order By avec des propriétés calculées, par exemple : le résultat d'une expression ou une fonction UDF/intégrée.
 
-Order By is not currently supported for cross-partition queries when using Query Explorer in the Azure portal.
+## Étapes suivantes
 
-## <a name="troubleshooting"></a>Troubleshooting
+Répliquez le [projet d'exemples Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) et classez vos données !
 
-If you receive an error that Order By is not supported, check to ensure that you're using a version of the [SDK](documentdb-sdk-dotnet.md) that supports Order By. 
-
-## <a name="next-steps"></a>Next steps
-
-Fork the [Github samples project](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) and start ordering your data! 
-
-## <a name="references"></a>References
-* [DocumentDB Query Reference](documentdb-sql-query.md)
-* [DocumentDB Indexing Policy Reference](documentdb-indexing-policies.md)
-* [DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [DocumentDB Order By Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
+## Références
+* [Référence de requête DocumentDB](documentdb-sql-query.md)
+* [Référence de stratégie d'indexation de DocumentDB](documentdb-indexing-policies.md)
+* [Référence SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+* [Exemples Order By de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

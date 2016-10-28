@@ -1,24 +1,23 @@
 <properties
-    pageTitle="Introduction to Azure DPM backup | Microsoft Azure"
-    description="An introduction to backing up DPM servers using the Azure Backup service"
-    services="backup"
-    documentationCenter=""
-    authors="Nkolli1"
-    manager="shreeshd"
-    editor=""
-    keywords="System Center Data Protection Manager, data protection manager, dpm backup"/>
+	pageTitle="Présentation d'Azure DPM Backup | Microsoft Azure"
+	description="Présentation de la sauvegarde de serveurs DPM à l'aide du service Azure Backup"
+	services="backup"
+	documentationCenter=""
+	authors="Nkolli1"
+	manager="shreeshd"
+	editor=""
+	keywords="System Center Data Protection Manager, Data Protection Manager, sauvegarde DPM"/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/21/2016"
-    ms.author="trinadhk;giridham;jimpark;markgal"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2016"
+	ms.author="trinadhk;giridham;jimpark;markgal"/>
 
-
-# <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparing to back up workloads to Azure with DPM
+# Préparation de la sauvegarde des charges de travail dans Azure avec DPM
 
 > [AZURE.SELECTOR]
 - [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
@@ -27,38 +26,38 @@
 - [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 
 
-This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it, you’ll understand:
+Cet article présente l'utilisation de Microsoft Azure Backup pour protéger vos serveurs System Center Data Protection Manager (DPM) et vos charges de travail. En le lisant, vous comprendrez :
 
-- How Azure DPM server backup works
-- The prerequisites to achieve a smooth backup experience
-- The typical errors encountered and how to deal with them
-- Supported scenarios
+- le fonctionnement de la sauvegarde du serveur Azure DPM ;
+- les conditions requises pour une expérience de sauvegarde fluide ;
+- les erreurs classiques rencontrées et comment les gérer ;
+- Scénarios pris en charge
 
-System Center DPM backs up file and application data. Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup. DPM interacts with Azure Backup as follows:
+System Center DPM sauvegarde les données des fichiers et des applications. Les données sauvegardées dans DPM peuvent être stockées sur bande, sur disque, ou sauvegardées dans Azure avec Microsoft Azure Backup. DPM interagit avec Azure Backup comme suit :
 
-- **DPM deployed as a physical server or on-premises virtual machine** — If DPM is deployed as a physical server or as an on-premises Hyper-V virtual machine you can back up data to an Azure Backup vault in addition to disk and tape backup.
-- **DPM deployed as an Azure virtual machine** — From System Center 2012 R2 with Update 3, DPM can be deployed as an Azure virtual machine. If DPM is deployed as an Azure virtual machine you can back up data to Azure disks attached to the DPM Azure virtual machine, or you can offload the data storage by backing it up to an Azure Backup vault.
+- **DPM déployé comme un serveur physique ou une machine virtuelle en local** : si DPM est déployé comme un serveur physique ou comme une machine virtuelle Hyper-V en local, vous pouvez sauvegarder les données dans un coffre Azure Backup en plus d'une sauvegarde sur disque et sur bande.
+- **DPM déployé comme une machine virtuelle Azure** : depuis la mise à jour 3 de System Center 2012 R2, DPM peut être déployé comme une machine virtuelle Azure. Si DPM est déployé comme une machine virtuelle Azure, vous pouvez sauvegarder les données sur des disques Azure connectés à la machine virtuelle DPM Azure, ou décharger le stockage de données en les sauvegardant dans un coffre Azure Backup.
 
-## <a name="why-backup-your-dpm-servers?"></a>Why backup your DPM servers?
+## Pourquoi sauvegarder vos serveurs DPM ?
 
-The business benefits of using Azure Backup for backing up DPM servers include:
+Les avantages commerciaux de l'utilisation d'Azure Backup pour la sauvegarde de serveurs DPM sont les suivants :
 
-- For on-premises DPM deployment, you can use Azure backup as an alternative to long-term deployment to tape.
-- For DPM deployments in Azure, Azure Backup allows you to offload storage from the Azure disk, allowing you to scale up by storing older data in Azure Backup and new data on disk.
+- Pour le déploiement DPM en local, vous pouvez utiliser la sauvegarde Azure au lieu d'un déploiement à long terme sur bande.
+- Pour les déploiements DPM dans Azure, Azure Backup vous permet de décharger le stockage du disque Azure et ainsi d'évoluer en stockant les données plus anciennes dans Azure Backup et les nouvelles données sur un disque.
 
-## <a name="how-does-dpm-server-backup-work?"></a>How does DPM server backup work?
-To back up a virtual machine, first a point-in-time snapshot of the data is needed. The Azure Backup service initiates the backup job at the scheduled time, and triggers the backup extension to take a snapshot. The backup extension coordinates with the in-guest VSS service to achieve consistency, and invokes the blob snapshot API of the Azure Storage service once consistency has been reached. This is done to get a consistent snapshot of the disks of the virtual machine, without having to shut it down.
+## Comment fonctionne la sauvegarde d'un serveur DPM ?
+Pour sauvegarder une machine virtuelle, il est d’abord nécessaire de capturer un instantané des données. Le service Azure Backup lance le travail de sauvegarde à l’heure planifiée et déclenche l’extension de sauvegarde pour capturer un instantané. L’extension de sauvegarde se coordonne avec le service VSS in-guest pour assurer la cohérence et appelle l’API d’instantané d’objet blob du service Azure Storage une fois que la cohérence a été atteinte. Cela permet d’obtenir un instantané cohérent des disques de la machine virtuelle sans avoir à l’arrêter.
 
-After the snapshot has been taken, the data is transferred by the Azure Backup service to the backup vault. The service takes care of identifying and transferring only the blocks that have changed from the last backup making the backups storage and network efficient. When the data transfer is completed, the snapshot is removed and a recovery point is created. This recovery point can be seen in the  Azure classic portal.
+Une fois l’instantané capturé, les données sont transférées par le service Azure Backup dans le coffre de sauvegarde. Le service se charge d'identifier et de transférer uniquement les blocs qui ont été modifiés depuis la dernière sauvegarde, ce qui garantit l'efficacité du stockage des sauvegardes et les performances du réseau. Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé. Ce point de récupération est affiché dans le portail Azure Classic.
 
->[AZURE.NOTE] For Linux virtual machines, only file-consistent backup is possible.
+>[AZURE.NOTE] Pour les machines virtuelles Linux, seule une sauvegarde cohérente au niveau des fichiers est possible.
 
-## <a name="prerequisites"></a>Prerequisites
-Prepare Azure Backup to back up DPM data as follows:
+## Conditions préalables
+Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 
-1. **Create a Backup vault** — Create a vault in the Azure Backup console.
-2. **Download vault credentials** — In Azure Backup, upload the management certificate you created to the vault.
-3. **Install the Azure Backup Agent and register the server** — From Azure Backup, install the agent on each DPM server and register the DPM server in the backup vault.
+1. **Créer un coffre de sauvegarde** : créez un coffre dans la console Azure Backup.
+2. **Télécharger les informations d'identification de l'archivage** : dans Azure Backup, téléchargez dans l'archivage le certificat de gestion que vous avez créé.
+3. **Installer l'Agent Azure Backup et inscrire le serveur** : à partir d'Azure Backup, installez l'agent sur chaque serveur DPM et inscrivez le serveur DPM dans le coffre de sauvegarde.
 
 [AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
@@ -67,38 +66,34 @@ Prepare Azure Backup to back up DPM data as follows:
 [AZURE.INCLUDE [backup-install-agent](../../includes/backup-install-agent.md)]
 
 
-## <a name="requirements-(and-limitations)"></a>Requirements (and limitations)
+## Spécifications (et limitations)
 
-- DPM can be running as a physical server or a Hyper-V virtual machine installed on System Center 2012 SP1 or System Center 2012 R2. It can also be running as an Azure virtual machine running on System Center 2012 R2 with at least DPM 2012 R2 Update Rollup 3 or a Windows virtual machine in VMWare running on System Center 2012 R2 with at least Update Rollup 5.
-- If you’re running DPM with System Center 2012 SP1, you should install Update Rollup 2 for System Center Data Protection Manager SP1. This is required before you can install the Azure Backup Agent.
-- The DPM server should have Windows PowerShell and .Net Framework 4.5 installed.
-- DPM can back up most workloads to Azure Backup. For a full list of what’s supported see the Azure Backup support items below.
-- Data stored in Azure Backup can’t be recovered with the “copy to tape” option.
-- You’ll need an Azure account with the Azure Backup feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. Read about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
-- Using Azure Backup requires the Azure Backup Agent to be installed on the servers you want to back up. Each server must have at least 10% of the size of the data that is being backed up, available as local free storage. For example, backing up 100 GB of data requires a minimum of 10 GB of free space in the scratch location. While the minimum is 10%, 15% of free local storage space to be used for the cache location is recommended.
-- Data will be stored in the Azure vault storage. There’s no limit to the amount of data you can back up to an Azure Backup vault but the size of a data source (for example a virtual machine or database) shouldn’t exceed 54,400 GB.
+- DPM peut s'exécuter en tant que serveur physique ou machine virtuelle Hyper-V installée sur System Center 2012 SP1 ou System Center 2012 R2. DPM peut également s'exécuter en tant que machine virtuelle Azure sur System Center 2012 R2 avec au moins le correctif cumulatif 3 pour DPM 2012 R2, ou en tant que machine virtuelle Windows dans VMWare sur System Center 2012 R2 avec au moins le correctif cumulatif 5.
+- Si vous exécutez DPM avec System Center 2012 SP1, vous devez installer le correctif cumulatif 2 pour System Center Data Protection Manager SP1. Cette opération est nécessaire avant d'installer l'agent Azure Backup.
+- Windows PowerShell et .Net Framework 4.5 doivent être installés sur le serveur DPM.
+- DPM permet de sauvegarder la plupart des charges de travail dans Azure Backup. Pour une liste complète des éléments pris en charge par Azure Backup, consultez la liste ci-dessous.
+- Des données stockées dans Azure Backup ne peuvent pas être récupérées avec l'option « Copie sur bande ».
+- Vous devez posséder un compte Azure avec la fonctionnalité Azure Backup activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+- L'utilisation d'Azure Backup nécessite l'installation de l'agent Azure Backup sur les serveurs que vous souhaitez sauvegarder. Chaque serveur doit disposer d’au moins 10 % de la taille des données en cours de sauvegarde en tant que stockage local libre. Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 10 Go d'espace libre dans l'emplacement temporaire. La valeur minimale est de 10 %, mais il est recommander d’utiliser 15 % de l'espace de stockage local pour l'emplacement du cache.
+- Les données seront stockées dans le coffre Azure. Il n’existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Azure Backup, mais la taille d’une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54 400 Go.
 
-These file types are supported for back up to Azure:
+Les types de fichiers suivants sont pris en charge pour une sauvegarde vers Azure :
 
-- Encrypted (Full backups only)
-- Compressed (Incremental backups supported)
-- Sparse (Incremental backups supported)
-- Compressed and sparse (Treated as Sparse)
+- Chiffré (sauvegardes complètes uniquement)
+- Compressé (sauvegardes incrémentielles prises en charge)
+- Partiellement alloué (sauvegardes incrémentielles prises en charge)
+- Compressé et partiellement alloué (traité comme partiellement alloué)
 
-And these are unsupported:
+Et les types suivants ne sont pas pris en charge :
 
-- Servers on case-sensitive file systems aren’t supported.
-- Hard links (Skipped)
-- Reparse points (Skipped)
-- Encrypted and compressed (Skipped)
-- Encrypted and sparse (Skipped)
-- Compressed stream
-- Sparse stream
+- Les serveurs sur des systèmes de fichiers respectant la casse ne sont pas pris en charge.
+- Liens physiques (ignorés)
+- Points d'analyse (ignorés)
+- Chiffré et compressé (ignoré)
+- Chiffré et partiellement alloué (ignoré)
+- Flux compressé
+- Flux partiellement alloué
 
->[AZURE.NOTE] From in System Center 2012 DPM with SP1 onwards, you can backup up workloads protected by DPM to Azure using Microsoft Azure Backup.
+>[AZURE.NOTE] À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

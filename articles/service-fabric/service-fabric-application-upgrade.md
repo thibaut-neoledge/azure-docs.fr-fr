@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric application upgrade | Microsoft Azure"
-   description="This article provides an introduction to upgrading a Service Fabric application, including choosing upgrade modes and performing health checks."
+   pageTitle="Mise à niveau d'application Service Fabric | Microsoft Azure"
+   description="Cet article fournit une introduction à la mise à niveau d'une application Service Fabric, y compris le choix des modes de mise à niveau et les vérifications d'intégrité exécutées."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -17,62 +17,57 @@
    ms.author="subramar"/>
 
 
+# Mise à niveau des applications Service Fabric
 
-# <a name="service-fabric-application-upgrade"></a>Service Fabric application upgrade
+Une application Azure Service Fabric est une collection de services. Pendant une mise à niveau, Service Fabric compare le nouveau [manifeste d'application](service-fabric-application-model.md#describe-an-application) à la version précédente et détermine les services qui, dans l'application, nécessitent des mises à jour. Service Fabric compare les numéros des versions dans les manifestes de service avec les numéros des versions dans la version précédente. Si un service n'a pas changé, ce service n'est pas mis à niveau.
 
-An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-model.md#describe-an-application) with the previous version and determines which services in the application require updates. Service Fabric compares the version numbers in the service manifests with the version numbers in the previous version. If a service has not changed, that service is not upgraded.
+## Vue d'ensemble des mises à niveau propagées
 
-## <a name="rolling-upgrades-overview"></a>Rolling upgrades overview
+Une mise à niveau d'application propagée s'effectue par étapes. À chaque étape, la mise à niveau est appliquée à un sous-ensemble de nœuds du cluster, appelé domaine de mise à jour. Ainsi, l'application demeure disponible tout au long de la mise à niveau. Au cours de la mise à niveau, le cluster peut contenir une combinaison des versions ancienne et nouvelle.
 
-In a rolling application upgrade, the upgrade is performed in stages. At each stage, the upgrade is applied to a subset of nodes in the cluster, called an update domain. As a result, the application remains available throughout the upgrade. During the upgrade, the cluster may contain a mix of the old and new versions.
+De ce fait, les deux versions doivent être mutuellement compatibles. Si ce n'est pas le cas, l'administrateur d'application doit effectuer une mise à niveau échelonnée pour maintenir la disponibilité. Dans une mise à niveau à plusieurs phases, la première étape consiste à effectuer une mise à niveau vers une version intermédiaire de l’application qui est compatible avec la version précédente. La deuxième étape consiste à mettre à niveau la version finale qui interrompt la compatibilité avec la version antérieure à la mise à jour, mais qui est compatible avec la version intermédiaire.
 
-For that reason, the two versions must be forward and backward compatible. If they are not compatible, the application administrator is responsible for staging a multiple-phase upgrade to maintain availability. In a multiple-phase upgrade, the first step is upgrading to an intermediate version of the application that is compatible with the previous version. The second step is to upgrade the final version that breaks compatibility with the pre-update version, but is compatible with the intermediate version.
+Les domaines de mise à jour sont spécifiés dans le manifeste de cluster quand vous configurez le cluster. Les domaines de mise à jour ne reçoivent pas les mises à jour dans un ordre particulier. Un domaine de mise à jour est une unité logique de déploiement pour une application. Grâce aux domaines de mise à jour, les services demeurent hautement disponibles pendant une mise à niveau.
 
-Update domains are specified in the cluster manifest when you configure the cluster. Update domains do not receive updates in a particular order. An update domain is a logical unit of deployment for an application. Update domains allow the services to remain at high availability during an upgrade.
+Une mise à niveau non propagée est possible si elle est appliquée à tous les nœuds du cluster, ce qui est le cas quand l'application n'a qu'un seul domaine de mise à jour. Cette approche n’est pas recommandée, car le service est arrêté et indisponible au moment de la mise à niveau. En outre, Azure ne fournit aucune garantie quand un cluster est configuré avec un seul domaine de mise à jour.
 
-Non-rolling upgrades are possible if the upgrade is applied to all nodes in the cluster, which is the case when the application has only one update domain. This approach is not recommended, since the service goes down and isn't available at the time of upgrade. Additionally, Azure doesn't provide any guarantees when a cluster is set up with only one update domain.
+## Vérifications d'intégrité pendant les mises à niveau
 
-## <a name="health-checks-during-upgrades"></a>Health checks during upgrades
+Pour une mise à niveau, vous devez définir des stratégies d'intégrité (ou utiliser éventuellement des valeurs par défaut). Une mise à niveau est considérée comme ayant réussi quand tous les domaines de mise à jour sont mis à niveau dans les délais spécifiés et que tous les domaines de mise à jour sont considérés comme intègres. Un domaine de mise à jour intègre signifie que le domaine de mise à jour a réussi toutes les vérifications d'intégrité spécifiées dans la stratégie de contrôle d'intégrité. Par exemple, une stratégie d'intégrité peut imposer que tous les services dans une instance d'application doivent être *intègres*, car l'intégrité est définie par Service Fabric.
 
-For an upgrade, health policies have to be set (or default values may be used). An upgrade is termed successful when all update domains are upgraded within the specified time-outs, and when all update domains are deemed healthy.  A healthy update domain means that the update domain passed all the health checks specified in the health policy. For example, a health policy may mandate that all services within an application instance must be *healthy*, as health is defined by Service Fabric.
+Pendant une mise à jour effectuée par Service Fabric, les stratégies et vérifications d'intégrité sont indépendantes du service et de l'application. Autrement dit, aucun test spécifique au service n'est exécuté. Par exemple, votre service peut avoir une exigence de débit, mais Service Fabric ne dispose pas des informations pour vérifier le débit. Consultez les [articles sur l’intégrité](service-fabric-health-introduction.md) pour connaître les vérifications qui sont effectuées. Les contrôles qui se produisent pendant une mise à niveau incluent des tests pour savoir si le package d'application a été copié correctement, si l'instance a été démarrée, etc.
 
-Health policies and checks during upgrade by Service Fabric are service and application agnostic. That is, no service-specific tests are done.  For example, your service might have a throughput requirement, but Service Fabric does not have the information to check throughput. Refer to the [health articles](service-fabric-health-introduction.md) for the checks that are performed. The checks that happen during an upgrade include tests for whether the application package was copied correctly, whether the instance was started, and so on.
+L'intégrité de l'application est un regroupement des entités enfants de l'application. En bref, Service Fabric évalue l'intégrité de l'application au travers de l'intégrité établie au sujet de celle-ci. Il évalue également l'intégrité de la totalité des services de l'application de cette façon. De plus, Service Fabric évalue l'intégrité des services d'application par l'agrégation de l'intégrité de leurs enfants, tels que le réplica de service. Une fois que la stratégie d'intégrité d'application est satisfaite, la mise à niveau peut continuer. Si la stratégie d'intégrité n'est pas respectée, la mise à niveau de l'application échoue.
 
-The application health is an aggregation of the child entities of the application. In short, Service Fabric evaluates the health of the application through the health that is reported on the application. It also evaluates the health of all the services for the application this way. Service Fabric further evaluates the health of the application services by aggregating the health of their children, such as the service replica. Once the application health policy is satisfied, the upgrade can proceed. If the health policy is violated, the application upgrade fails.
+## Modes de mise à niveau
 
-## <a name="upgrade-modes"></a>Upgrade modes
+Le mode que nous recommandons pour la mise à niveau d’application est le mode surveillé, qui est couramment utilisé. Le mode surveillé effectue la mise à niveau sur un domaine de mise à jour spécifique, puis, si toutes les vérifications d'intégrité sont satisfaites (suivant la stratégie spécifiée), il passe automatiquement au domaine de mise à jour suivant. Si les vérifications d’intégrité échouent et/ou que les délais d’expiration sont atteints, la mise à niveau est restaurée pour le domaine de mise à jour ou le système bascule sur le mode manuel non surveillé. Vous pouvez configurer la mise à niveau pour choisir l’un de ces deux modes pour les mises à niveau ayant échoué.
 
-The mode that we recommend for application upgrade is the monitored mode, which is the commonly used mode. Monitored mode performs the upgrade on one update domain, and if all health checks pass (per the policy specified), moves on to the next update domain automatically.  If health checks fail and/or time-outs are reached, the upgrade is either rolled back for the update domain, or the mode is changed to unmonitored manual. You can configure the upgrade to choose one of those two modes for failed upgrades. 
+Le mode manuel non surveillé nécessite une intervention manuelle après chaque mise à niveau sur un domaine de mise à jour pour lancer la mise à niveau sur le domaine de mise à jour suivant. Aucune vérification de l'intégrité de Service Fabric n'est effectuée. L'administrateur effectue les vérifications d'intégrité ou d'état avant de commencer la mise à niveau dans le domaine de mise à jour suivant.
 
-Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. No Service Fabric health checks are performed. The administrator performs the health or status checks before starting the upgrade in the next update domain.
+## Organigramme de la mise à niveau d'application
 
-## <a name="application-upgrade-flowchart"></a>Application upgrade flowchart
+L’organigramme suivant ce paragraphe peut vous aider à comprendre le processus de mise à niveau d’une application Service Fabric. En particulier, le flux indique dans quelle mesure les délais, notamment *HealthCheckStableDuration*, *HealthCheckRetryTimeout* et *UpgradeHealthCheckInterval*, déterminent l'échec ou la réussite de la mise à niveau dans un domaine de mise à jour donné.
 
-The flowchart following this paragraph can help you understand the upgrade process of a Service Fabric application. In particular, the flow describes how the time-outs, including *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, and *UpgradeHealthCheckInterval*, help control when the upgrade in one update domain is considered a success or a failure.
-
-![The upgrade process for a Service Fabric Application][image]
+![Processus de mise à niveau d'une application Service Fabric][image]
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-[Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
+La [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+La [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.
 
-Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
+Contrôlez les mises à niveau de votre application à l'aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
 
-Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
+Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 
-Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
+Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
 
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
+Résolvez les problèmes courants de mise à niveau de l’application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
  
 
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

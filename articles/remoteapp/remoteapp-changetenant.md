@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Change the Azure Active Directory tenant in Azure RemoteApp | Microsoft Azure"
-    description="Learn how to change the Azure Active Directory tenant associated with Azure RemoteApp"
+    pageTitle="Modifier le client Azure Active Directory dans Azure RemoteApp | Microsoft Azure"
+    description="Apprenez à modifier le client Azure Active Directory associé à Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,41 +18,36 @@
 
 
 
-
-# <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Change the Azure Active Directory tenant in Azure RemoteApp
+# Modification du client Azure Active Directory dans Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
-Azure RemoteApp uses Azure Active Directory (Azure AD) to allow user access. The only Azure AD tenant that you can use in Azure RemoteApp is the one associated with the Azure subscription. You can view the associated subscription on the **Settings** page in the portal. Look at the **Directory** column on the **Subscriptions** tab.
+Azure RemoteApp utilise Azure Active Directory (Azure AD) pour autoriser l’accès utilisateur. Le seul locataire Azure AD que vous pouvez utiliser dans Azure RemoteApp est celui qui est associé à l'abonnement Azure. Vous pouvez afficher l'abonnement associé dans la page **Paramètres** du portail. Examinez la colonne **Annuaire** dans l'onglet **Abonnements**.
 
-> [AZURE.NOTE] For this change to succeed, first remove all users from the existing Azure Active Directory tenant from all Azure RemoteApp collections. To do this, go to the Azure Portal, go to the **Azure RemoteApp** tab and open every Azure RemoteApp collection. Go to the **Users** tab and remove users that belong to your current Azure Active Directory tenant. Repeat for all existing Azure RemoteApp collections. Without doing this, you will not be able to create or patch collections.
+> [AZURE.NOTE] Pour que cette modification réussisse, commencez par supprimer tous les utilisateurs dans le locataire Azure Active Directory existant à partir de toutes les collections Azure RemoteApp. Pour cela, accédez au portail Azure, puis à l'onglet **Azure RemoteApp** et ouvrez chaque collection Azure RemoteApp. Accédez à l’onglet **Utilisateurs** et supprimez les utilisateurs qui appartiennent à votre client Azure Active Directory actuel. Répétez l’opération pour toutes les collections Azure RemoteApp. Sans cela, vous ne serez pas en mesure de créer des collections ni de les corriger.
 
-If you want to use a different tenant, use these steps to change the association with your subscription:
+Si vous souhaitez utiliser un autre locataire, suivez ces étapes pour modifier l’association avec votre abonnement :
 
-1. In the portal, remove any Azure AD users to which you’ve given access to Azure RemoteApp collections. (See the note above for steps on how to do this.)
-
-
-2. Set a Microsoft account (formerly called a Live ID) as the Service administrator. (Don't know if you already are the service admin? You can find out by clicking **Settings -> Administrators**.) Now, here's how you change that:
-    1. Click the user in the upper right corner, and then click **View my bill**.
-    2. Click the subscription. Then, on the new page, scroll down and click **Edit subscription details** in the right. (Sort of the middle bottom right, if that helps you find it.)
-    3. Type the Microsoft account for the user that should be the service admin.
-
-3. Now, sign out of the portal, and then sign back in with the Microsoft account you specified in the previous step.
+1. Dans le portail, supprimez les utilisateurs Azure AD auxquels vous avez donné accès aux collections Azure RemoteApp. (Voir la remarque précédente pour les étapes de cette procédure).
 
 
-4. Click **New -> App Services -> Active Directory -> Directory -> Custom Create**.
-5. Under **Directory**, choose **Use existing directory**. We're going to have to sign you out of the portal now, so choose **I am ready to be signed out now**.
-6. Sign back into the portal as a global admin of the directory you want to add. (If you weren't already a global admin, you will be after a round of sign in and then sign out.)
-7. You'll be asked when you sign in if you want to use your existing AD tenant with your subscription. Click **Continue**, and then click **Sign out now**.
-5. Sign back in again, and go back to **Settings -> Subscriptions**. Select your subscription, and then click **Edit Directory**. Select the Azure AD tenant that you want to use.
+2. Définissez un compte Microsoft (anciennement appelé Live ID) comme administrateur du service. (Ne savez pas si vous êtes déjà l'administrateur de service ? Vous pouvez vous en assurer en cliquant sur **Paramètres -> administrateurs**.) À présent, voici comment effectuer les modifications
+	1. Cliquez sur l'utilisateur actuellement connecté dans le coin supérieur droit, puis cliquez sur **Afficher ma facture**.
+	2. Cliquez sur l'abonnement. Ensuite, sur la nouvelle page, faites défiler vers le bas et cliquez sur **Modifiez les données d'abonnement** à droite. (Triez du milieu en bas à droite, si cela peut vous aider.)
+	3. Saisissez le compte Microsoft pour l'utilisateur qui doit être l'administrateur du service.
+
+3. Déconnectez-vous maintenant du portail, puis reconnectez-vous avec le compte Microsoft que vous avez spécifié à l'étape précédente.
 
 
-
-You can now use the new Azure AD tenant to control access to the Azure subscription and to configure user access in Azure RemoteApp.
+4. Cliquez sur **New -> App Services -> Active Directory -> Annuaire -> Créer personnalisée**.
+5. Sous **Annuaire**, choisissez **Utiliser un annuaire existant**. Vous allez devoir vous déconnecter du portail maintenant. Appuyez sur **Je suis prêt à me déconnecter**.
+6. Reconnectez-vous au portail en tant qu'un administrateur général de l'annuaire que vous souhaitez ajouter. (Si vous n'étiez pas déjà un administrateur général, vous le serez après vous être reconnecté et déconnecté.)
+7. Lors de votre connexion, il vous sera demandé si vous souhaitez utiliser votre locataire Active Directory existant avec votre abonnement. Cliquez sur **Continuer**, puis sur **Se déconnecter maintenant**.
+5. Connectez-vous à nouveau et revenez à **Paramètres -> Abonnements**. Sélectionnez votre abonnement, puis cliquez sur **Modifier l'annuaire**. Sélectionnez le locataire Azure AD à utiliser.
 
 
 
-<!--HONumber=Oct16_HO2-->
+Vous pouvez à présent utiliser le client Azure AD pour contrôler l’accès à l’abonnement Azure et configurer l’accès utilisateur dans Azure RemoteApp.
 
-
+<!---HONumber=AcomDC_0817_2016-->

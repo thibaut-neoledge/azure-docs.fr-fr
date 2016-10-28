@@ -1,167 +1,162 @@
 <properties
-    pageTitle="How to create, manage, or delete a storage account in the Azure Portal | Microsoft Azure"
-    description="Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts."
-    services="storage"
-    documentationCenter=""
-    authors="robinsh"
-    manager="carmonm"
-    editor="tysonn"/>
+	pageTitle="Création, gestion ou suppression d’un compte de stockage dans le portail Azure | Microsoft Azure"
+	description="Créez un compte de stockage, gérez vos clés d’accès au compte ou supprimez un compte de stockage dans le portail Azure. En savoir plus sur les comptes de stockage standard et Premium."
+	services="storage"
+	documentationCenter=""
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="07/26/2016"
-    ms.author="micurd;robinsh"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/26/2016"
+	ms.author="micurd;robinsh"/>
 
 
-
-# <a name="about-azure-storage-accounts"></a>About Azure storage accounts
+# À propos des comptes de stockage Azure
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## <a name="overview"></a>Overview
+## Vue d'ensemble
 
-An Azure storage account provides a unique namespace to store and access your Azure Storage data objects. All objects in a storage account are billed together as a group. By default, the data in your account is available only to you, the account owner.
+Un compte de stockage Azure fournit un espace de noms unique pour stocker vos objets de données Azure Storage et y accéder. Tous les objets d’un compte de stockage sont facturés ensemble en tant que groupe. Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte.
 
 [AZURE.INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
-## <a name="storage-account-billing"></a>Storage account billing
+## Facturation du compte de stockage
 
 [AZURE.INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
-> [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more details.
+> [AZURE.NOTE] Lorsque vous créez une machine virtuelle Azure, un compte de stockage est créé automatiquement pour vous sur le lieu de déploiement si vous ne disposez pas déjà de ce type de compte à cet emplacement. Il n’est donc pas nécessaire de suivre les étapes ci-dessous pour créer un compte de stockage pour vos disques de machines virtuelles. Le nom du compte de stockage dépend du nom de la machine virtuelle. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## <a name="storage-account-endpoints"></a>Storage account endpoints
+## Points de terminaison d'un compte de stockage
 
-Every object that you store in Azure Storage has a unique URL address. The storage account name forms the subdomain of that address. The combination of subdomain and domain name, which is specific to each service, forms an *endpoint* for your storage account.
+Chaque objet que vous stockez dans Azure Storage possède une adresse URL unique. Le nom du compte de stockage constitue le sous-domaine de cette adresse. La combinaison sous-domaine/nom du domaine, qui est propre à chaque service, forme un *point de terminaison* pour votre compte de stockage.
 
-For example, if your storage account is named *mystorageaccount*, then the default endpoints for your storage account are:
+Par exemple, si le nom de votre compte de stockage est *mystorageaccount*, les points de terminaison par défaut de votre compte de stockage sont les suivants :
 
-- Blob service: http://*mystorageaccount*.blob.core.windows.net
+- Service BLOB : http://*mystorageaccount*.blob.core.windows.net
 
-- Table service: http://*mystorageaccount*.table.core.windows.net
+- Service de table : http://*mystorageaccount*.table.core.windows.net
 
-- Queue service: http://*mystorageaccount*.queue.core.windows.net
+- Service de file d'attente : http://*mystorageaccount*.queue.core.windows.net
 
-- File service: http://*mystorageaccount*.file.core.windows.net
+- Service de fichiers : http://*mystorageaccount*.file.core.windows.net
 
-> [AZURE.NOTE] A Blob storage account only exposes the Blob service endpoint.
+> [AZURE.NOTE] Un compte de stockage d’objets blob expose uniquement le point de terminaison de service blob.
 
-The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+L’URL permettant d’accéder à un objet dans un compte de stockage est constituée de l’ajout de l’emplacement de l’objet dans le compte de stockage au point de terminaison. Par exemple, une adresse d’objet blob peut avoir ce format : http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-You can also configure a custom domain name to use with your storage account. For classic storage accounts, see [Configure a custom domain Name for your Blob Storage Endpoint](storage-custom-domain-name.md) for details. For Resource Manager storage accounts, this capability has not been added to the [Azure portal](https://portal.azure.com) yet, but you can configure it with PowerShell. For more information, see the [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet.  
+Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Dans le cas de comptes de stockage classiques, consultez la page [Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage](storage-custom-domain-name.md) pour plus d’informations. Pour les comptes de stockage Resource Manager, cette fonctionnalité n’a pas encore été ajoutée au [Portail Azure](https://portal.azure.com), mais vous pouvez la configurer avec PowerShell. Pour plus d’informations, référez-vous à l’applet de commande [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## Créez un compte de stockage.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
+2. Dans le menu Hub, sélectionnez **Nouveau** -> **Données et stockage** -> **Compte de stockage**.
 
-3. Enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) for details about how the storage account name will be used to address your objects in Azure Storage.
+3. Entrez un nom pour votre compte de stockage. Pour plus d’informations sur l’utilisation du nom de compte de stockage pour adresser les objets que vous stockez dans Azure Storage, consultez [Points de terminaison d’un compte de stockage](#storage-account-endpoints).
 
-    > [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-    >  
-    > Your storage account name must be unique within Azure. The Azure portal will indicate if the storage account name you select is already in use.
+	> [AZURE.NOTE] Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
+	>  
+	> Le nom de votre compte de stockage doit être unique dans Azure. Le portail Azure indique si le nom du compte de stockage sélectionné est déjà utilisé.
 
-4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
+4. Sélectionnez le modèle de déploiement à utiliser : **Resource Manager** ou **Classique**. **Resource Manager** est le modèle de déploiement recommandé. Pour plus d’informations, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
 
-    > [AZURE.NOTE] Blob storage accounts can only be created using the Resource Manager deployment model.
+	> [AZURE.NOTE] Les comptes de stockage d’objets blob peuvent être créés uniquement avec le modèle de déploiement Resource Manager.
 
-5. Select the type of storage account: **General purpose** or **Blob storage**. **General purpose** is the default.
+5. Sélectionnez le type de compte de stockage : **Usage général** ou **Blob Storage**. Le type par défaut est **Usage général**.
 
-    If **General purpose** was selected, then specify the performance tier: **Standard** or **Premium**. The default is **Standard**. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
+	Si **Usage général** est sélectionné, spécifiez le niveau de performances **Standard** ou **Premium**. Le niveau par défaut est **Standard**. Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Introduction à Microsoft Azure Storage](storage-introduction.md) et [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md).
 
-    If **Blob Storage** was selected, then specify the access tier: **Hot** or **Cool**. The default is **Hot**. See [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md) for more details.
+	Si **Blob Storage** est sélectionné, spécifiez le niveau d’accès **Chaud** ou **Froid**. Le niveau par défaut est **Chaud**. Pour plus d’informations, voir [Stockage d’objets blob Azure : niveaux froid et chaud](storage-blob-storage-tiers.md).
 
-6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
+6. Sélectionnez l’option de réplication pour le compte de stockage : **LRS**, **GRS**, **RA-GRS** ou **ZRS**. La valeur par défaut est **RA-GRS**. Pour plus d’informations sur les options de réplication d’Azure Storage, consultez [Réplication Azure Storage](storage-redundancy.md).
 
-7. Select the subscription in which you want to create the new storage account.
+7. Sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 
-8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
+8. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md).
 
-9. Select the geographic location for your storage account. See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
+9. Sélectionnez l’emplacement géographique de votre compte de stockage. Pour plus d’informations sur les services disponibles dans chaque région, voir [Régions Azure](https://azure.microsoft.com/regions/#services).
 
-10. Click **Create** to create the storage account.
+10. Cliquez sur **Créer** pour créer le compte de stockage.
 
-## <a name="manage-your-storage-account"></a>Manage your storage account
+## Gérer votre compte de stockage
 
-### <a name="change-your-account-configuration"></a>Change your account configuration
+### Modifier la configuration de votre compte
 
-After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Configuration** to view and/or change the account configuration.
+Après avoir créé votre compte de stockage, vous pouvez modifier sa configuration, notamment modifier l’option de réplication utilisée pour le compte ou modifier le niveau d’accès pour un compte de stockage d’objets blob. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, cliquez sur **Tous les paramètres**, puis sur **Configuration** pour afficher et/ou modifier la configuration du compte.
 
-> [AZURE.NOTE] Depending on the performance tier you chose when creating the storage account, some replication options may not be available.
+> [AZURE.NOTE] Selon le niveau de performances que vous avez choisi lors de la création du compte de stockage, certaines options de réplication peuvent ne pas être disponibles.
 
-Changing the replication option will change your pricing. For more details, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page.
+La modification de l’option de réplication entraîne une modification de vos tarifs. Pour plus d’informations, voir [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-For Blob storage accounts, changing the access tier may incur charges for the change in addition to changing your pricing. Please see the [Blob storage accounts - Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+Pour les comptes de stockage d’objets blob, changer le niveau d’accès peut entraîner des frais, outre la modification des prix appliqués. Pour plus d’informations, voir [Stockage des objets blob Azure - section Tarification et facturation](storage-blob-storage-tiers.md#pricing-and-billing).
 
-### <a name="manage-your-storage-access-keys"></a>Manage your storage access keys
+### Gérer vos clés d’accès de stockage
 
-When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
+Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
-> [AZURE.NOTE] We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information.
+> [AZURE.NOTE] Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
-#### <a name="view-and-copy-storage-access-keys"></a>View and copy storage access keys
+#### Afficher et copier les clés d’accès de stockage
 
-In the [Azure portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Access keys** to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications.
+Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage, cliquez sur **Tous les paramètres**, puis cliquez sur **Clés d’accès** pour visualiser, copier et régénérer les clés d’accès de votre compte. Le panneau **Clés d’accès** inclut également des chaînes de connexion préconfigurées utilisant vos clés principales et secondaires, que vous pouvez copier pour utilisation dans vos applications.
 
-#### <a name="regenerate-storage-access-keys"></a>Regenerate storage access keys
+#### Régénération des clés d'accès de stockage
 
-We recommend that you change the access keys to your storage account periodically to help keep your storage connections secure. Two access keys are assigned so that you can maintain connections to the storage account by using one access key while you regenerate the other access key.
+Nous vous recommandons de modifier périodiquement les clés d’accès à votre compte de stockage pour garantir la sécurité des connexions de stockage. Vous bénéficiez de deux clés d’accès, ce qui vous permet de conserver des connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé.
 
-> [AZURE.WARNING] Regenerating your access keys can affect services in Azure as well as your own applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
+> [AZURE.WARNING] La régénération des clés d’accès peut affecter les services dans Azure, ainsi que vos applications qui dépendent du compte de stockage. Tous les clients qui utilisent la clé d'accès pour accéder au compte de stockage doivent être mis à jour pour utiliser la nouvelle clé.
 
-**Media services** - If you have media services that are dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
+**Media Services** : si des services de médias sont liés à votre compte de stockage, vous devez resynchroniser les clés d’accès avec ces services après avoir régénéré les clés.
 
-**Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys.
+**Applications** : si des applications web ou des services cloud utilisent le compte de stockage, vous perdez les connexions en régénérant les clés, à moins de les substituer.
 
-**Storage Explorers** - If you are using any [storage explorer applications](storage-explorers.md), you will probably need to update the storage key used by those applications.
+**Explorateurs de stockage** : si vous utilisez des [applications d’explorateur de stockage](storage-explorers.md), vous devrez probablement mettre à jour la clé de stockage utilisée par ces applications.
 
-Here is the process for rotating your storage access keys:
+Voici le processus de rotation de vos clés d’accès de stockage :
 
-1. Update the connection strings in your application code to reference the secondary access key of the storage account.
+1. Mettez à jour les chaînes de connexion dans votre code d'application pour désigner la clé d'accès secondaire du compte de stockage.
 
-2. Regenerate the primary access key for your storage account. On the **Access Keys** blade, click **Regenerate Key1**, and then click **Yes** to confirm that you want to generate a new key.
+2. Régénérez la clé d'accès principale de votre compte de stockage. Dans le panneau **Clés d’accès**, cliquez sur **Régénérer Key1**, puis sur **Oui** pour confirmer que vous souhaitez générer une nouvelle clé.
 
-3. Update the connection strings in your code to reference the new primary access key.
+3. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
 
-4. Regenerate the secondary access key in the same manner.
+4. Régénérez la clé d’accès secondaire de la même manière.
 
-## <a name="delete-a-storage-account"></a>Delete a storage account
+## Suppression d'un compte de stockage
 
-To remove a storage account that you are no longer using, navigate to the storage account in the [Azure portal](https://portal.azure.com), and click **Delete**. Deleting a storage account deletes the entire account, including all data in the account.
+Pour supprimer un compte de stockage que vous n’utilisez plus, accédez au compte de stockage dans le [portail Azure](https://portal.azure.com), puis cliquez sur **Supprimer**. La suppression d’un compte de stockage supprime l’intégralité du compte, y compris toutes les données qu’il contient.
 
-> [AZURE.WARNING] It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
+> [AZURE.WARNING] Il n’est pas possible de restaurer un compte de stockage supprimé ou son contenu avant la suppression. Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible.
 
-To delete a storage account that is associated with an Azure virtual machine, you must first ensure that any virtual machine disks have been deleted. If you do not first delete your virtual machine disks, then when you attempt to delete your storage account, you will see an error message similar to:
+Pour supprimer un compte de stockage qui est associé à une machine virtuelle Azure, vous devez tout d’abord vous assurer que tous les disques des machines virtuelles ont été supprimés. Si vous ne commencez pas par supprimer les disques des machines virtuelles, vous voyez un message d’erreur semblable au suivant lorsque vous essayez de supprimer votre compte de stockage :
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-If the storage account uses the Classic deployment model, you can remove the virtual machine disk by following these steps in the [Azure portal](https://manage.windowsazure.com):
+Si le compte de stockage utilise le modèle de déploiement Classic, vous pouvez supprimer le disque de machine virtuelle en procédant comme suit dans le [portail Azure](https://manage.windowsazure.com) :
 
-1. Navigate to the [classic Azure portal](https://manage.windowsazure.com).
-2. Navigate to the Virtual Machines tab.
-3. Click the Disks tab.
-4. Select your data disk, then click Delete Disk.
-5. To delete disk images, navigate to the Images tab and delete any images that are stored in the account.
+1. Accédez au [portail Azure Classic](https://manage.windowsazure.com).
+2. Accédez à l’onglet Virtual Machines.
+3. Cliquez sur l’onglet Disques.
+4. Sélectionnez votre disque de données, puis cliquez sur Supprimer le disque.
+5. Pour supprimer des images de disque, accédez à l’onglet Images et supprimez les images qui sont stockées dans le compte.
 
-For more information, see the [Azure Virtual Machine documentation](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Pour plus d’informations, voir la [documentation sur les machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md)
-- [Azure Storage replication](storage-redundancy.md)
-- [Configure Azure Storage Connection Strings](storage-configure-connection-string.md)
-- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
-- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Stockage d’objets blob Azure : niveaux froid et chaud](storage-blob-storage-tiers.md)
+- [Réplication Azure Storage](storage-redundancy.md)
+- [Configuration des chaînes de connexion Azure Storage](storage-configure-connection-string.md)
+- [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+- Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

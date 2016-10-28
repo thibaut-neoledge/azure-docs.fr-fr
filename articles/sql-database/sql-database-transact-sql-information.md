@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Unsupported in Azure SQL Database T-SQL | Microsoft Azure"
-   description="Transact-SQL statements that are less than fully supported in Azure SQL Database"
+   pageTitle="Non pris en charge dans Azure SQL Database T-SQL | Microsoft Azure"
+   description="Instructions Transact-SQL qui ne sont pas entièrement prises en charge dans Azure SQL Database"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -17,99 +17,93 @@
    ms.date="08/30/2016"
    ms.author="rick.byham@microsoft.com"/>
 
+# Différences dans le langage Transact-SQL Azure SQL Database.
 
-# <a name="azure-sql-database-transact-sql-differences"></a>Azure SQL Database Transact-SQL differences
 
+La plupart des fonctionnalités Transact-SQL que les applications utilisent sont prises en charge dans Microsoft SQL Server et Azure SQL Database. Vous trouverez ci-dessous une liste partielle des fonctionnalités prises en charge pour les applications :
 
-Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. A partial list of supported features for applications follows:
+- Types de données.
+- Opérateurs.
+- Fonctions de chaîne, arithmétiques, logiques et de curseur.
 
-- Data types.
-- Operators.
-- String, arithmetic, logical, and cursor functions.
-
-However, Azure SQL Database is designed to isolate features from any dependency on the **master** database. As a consequence many server-level activities are inappropriate for SQL Database and are unsupported. Features that are deprecated in SQL Server are generally not supported in SQL Database.
+Toutefois, Azure SQL Database est conçu pour isoler les fonctionnalités de toute dépendance sur la base de données **maître**. Par conséquent, de nombreuses activités au niveau du serveur ne correspondent pas à la base de données SQL et ne sont pas prises en charge. Les fonctionnalités déconseillées dans SQL Server ne sont généralement pas prises en charge dans la base de données SQL.
 
 > [AZURE.NOTE]
-> This topic discusses the features that are available with SQL Database when upgraded to the current version; SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md).
+Cette rubrique traite des fonctionnalités disponibles avec la base de données SQL lors de la mise à niveau à la version V12 de la base de données SQL. Pour plus d'informations sur la V12, consultez [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md).
 
-The following sections list features that are partially supported, and the features that are completely unsupported.
+Les sections suivantes répertorient les fonctionnalités partiellement prises en charge et les fonctionnalités qui ne sont pas du tout prises en charge.
 
 
-## <a name="features-partially-supported-in-sql-database-v12"></a>Features partially supported in SQL Database V12
+## Fonctionnalités partiellement prises en charge par la V12 de la base de données SQL
 
-SQL Database V12 supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however all the options of CREATE PROCEDURE are not available. Refer to the linked syntax topics for details about the supported areas of each statement.
+La version V12 de la base de données SQL prend en charge certains arguments qui existent dans les instructions Transact-SQL correspondantes pour SQL Server 2016. Par exemple, l’instruction CREATE PROCEDURE est disponible, mais toutes les options de CREATE PROCEDURE ne sont pas disponibles. Reportez-vous aux rubriques sur la syntaxe liées pour plus d’informations sur la prise en charge des fonctionnalités de chaque instruction.
 
-- Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx )/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
-- DMVs are generally available for features that are available.
-- Functions: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
-- [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 
-- Logins: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
-- Stored procedures: [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
-- Tables: [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER](https://msdn.microsoft.com/library/ms190273.aspx)
-- Types (custom): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)
-- Users: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
-- Views: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
+- Bases de données : [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
+- Les DMV sont généralement disponibles pour les fonctionnalités disponibles.
+- Fonctions : [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
+- [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
+- Connexions : [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
+- Procédures stockées : [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
+- Tables : [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER](https://msdn.microsoft.com/library/ms190273.aspx)
+- Types (personnalisés) : [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)
+- Utilisateurs : [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
+- Onglets : [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
 
-## <a name="features-not-supported-in-sql-database"></a>Features not supported in SQL Database
+## Fonctionnalités non prises en charge par la base de données SQL
 
-- Collation of system objects
-- Connection related: Endpoint statements, ORIGINAL_DB_NAME. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
-- Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](sql-database-elastic-query-overview.md).)
-- Cross database ownership chaining, TRUSTWORTHY setting
-- Data Collector
-- Database Diagrams
-- Database Mail
-- DATABASEPROPERTY (use DATABASEPROPERTYEX instead)
-- EXECUTE AS logins
-- Encryption: extensible key management
-- Eventing: events, event notifications, query notifications
-- Features related to database file placement, size, and database files that are automatically managed by Microsoft Azure.
-- Features that relate to high availability, which is managed through your Microsoft Azure account: backup, restore, AlwaysOn, database mirroring, log shipping, recovery modes. For more information, see Azure SQL Database Backup and Restore.
-- Features that rely upon the log reader running on SQL Database: Push Replication, Change Data Capture.
-- Features that rely upon the SQL Server Agent or the MSDB database: jobs, alerts, operators, Policy-Based Management, database mail, central management servers.
+- Classement des objets système
+- Connexions liées  : instructions de point de terminaison, ORIGINAL\_DB\_NAME. La Base de données SQL ne prend pas en charge l’authentification Windows, mais elle prend en charge l’authentification Azure Active Directory similaire. Certains types d’authentification nécessitent la version la plus récente de SSMS. Pour plus d’informations, voir [Connexion au service Base de données SQL ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
+- Requêtes dans plusieurs bases de données à l’aide de noms à trois ou quatre parties. (Les requêtes sur plusieurs bases de données en lecture seule sont prises en charge à l’aide d’une [requête de base de données élastique](sql-database-elastic-query-overview.md).)
+- Chaînage d’appartenance entre plusieurs bases de données, paramètre TRUSTWORTHY
+- Classement des données
+- Schémas de base de données
+- Messagerie de base de données
+- DATABASEPROPERTY (utilisez plutôt DATABASEPROPERTYEX)
+- Connexions EXECUTE AS
+- Chiffrement : gestion extensible de clés
+- Gestion des événements : événements, notifications d’événements, notifications de requête
+- Fonctionnalités liées à l’emplacement du fichier de la base de données, à la taille et aux fichiers de la base de données qui sont gérés automatiquement par Microsoft Azure.
+- Fonctionnalités à haute disponibilité gérée par le biais de votre compte Microsoft Azure : sauvegarde, restauration, AlwaysOn, mise en miroir de la base de données, envoi de journaux, modes de récupération. Pour en savoir plus, consultez Sauvegarde et restauration de la base de données SQL Azure.
+- Fonctionnalités qui reposent sur le lecteur de journal exécuté dans une base de données SQL : réplication par émission, capture de données modifiées.
+- Fonctionnalités qui reposent sur l’Agent SQL Server ou la base de données MSDB : travaux, alertes et les opérateurs, gestion basée sur la stratégie, messagerie de la base de données, serveurs d’administration centrale.
 - FILESTREAM
-- Functions: fn_get_sql, fn_virtualfilestats, fn_virtualservernodes
-- Global temporary tables
-- Hardware-related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
-- HAS_DBACCESS
+- Fonctions : fn\_get\_sql fn\_virtualfilestats, fn\_virtualservernodes
+- Tables globales temporaires
+- Paramètres du serveur relatifs au matériel : mémoire, threads de travail, affinité du processeur, indicateurs de trace, etc. Utilisez plutôt les niveaux de service.
+- HAS\_DBACCESS
 - KILL STATS JOB
-- Linked servers, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, and four-part names
-- Master/target servers
-- .NET Framework [CLR integration with SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
-- Resource governor
-- Semantic search
-- Server credentials. Use database scoped credentials instead.
-- Sever-level items: Server roles, IS_SRVROLEMEMBER, sys.login_token. Server level permissions are not available though some are replaced by database-level permissions. Some server-level DMVs are not available though some are replaced by database-level DMVs.
-- Serverless express: localdb, user instances
+- Serveurs liés, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, nom à quatre parties
+- Serveurs maître/cible
+- [Intégration du CLR avec SQL Server](http://msdn.microsoft.com/library/ms254963.aspx) .NET Framework
+- Gouverneur de ressources
+- Recherche sémantique
+- Informations d’identification du serveur. Utilisez à la place les informations d’identification de niveau base de données.
+- Éléments de niveau serveur : rôles du serveur, sys.login\_token IS\_SRVROLEMEMBER. Les autorisations de niveau serveur ne sont pas disponibles, bien que certaines soient remplacées par des autorisations de niveau base de données. Certaines DMV de niveau serveur ne sont pas disponibles, bien que certaines soient remplacées par des DMV de niveau base de données.
+- Express sans serveur : localdb, instances utilisateur
 - Service broker
-- SET REMOTE_PROC_TRANSACTIONS
+- SET REMOTE\_PROC\_TRANSACTIONS
 - SHUTDOWN
-- sp_addmessage
-- sp_configure options and RECONFIGURE. Some options are available using [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-- sp_helpuser
-- sp_migrate_user_to_contained
-- SQL Server audit. Use SQL Database auditing instead.
-- SQL Server Profiler
+- sp\_addmessage
+- Options sp\_configure et RECONFIGURE. Certaines options sont disponibles à l’aide [d’ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+- sp\_helpuser
+- sp\_migrate\_user\_to\_contained
+- SQL Server Audit. Utilisez l’audit de base de données SQL Azure à la place.
+- Générateur de profils SQL Server
 - SQL Server trace
-- Trace flags. Some trace flag items have been moved to compatibility modes.
-- Transact-SQL debugging
-- Triggers: Server-scoped or logon triggers
-- USE statement: To change the database context to a different database, you must make a new connection to the new database.
+- Indicateurs de trace. Certains éléments d’indicateur de trace ont été déplacés vers les modes de compatibilité.
+- Débogage Transact-SQL
+- Déclencheurs : déclencheurs au niveau du serveur ou de connexion
+- Instruction USE : pour basculer le contexte de base de données vers une autre base de données, vous devez établir une nouvelle connexion à la nouvelle base de données.
 
 
-## <a name="full-transact-sql-reference"></a>Full Transact-SQL reference
+## Référence complète Transact-SQL
 
-For more information about Transact-SQL grammar, usage, and examples, see [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx) in SQL Server Books Online. 
+Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transact-SQL, consultez [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx) dans la documentation en ligne de SQL Server.
 
-### <a name="about-the-"applies-to"-tags"></a>About the "Applies to" tags
+### À propos des balises « S’applique à »
 
-The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012). The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
+La référence sur Transact-SQL comprend des rubriques relatives aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de la rubrique se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) indique que les instructions s’appliquent à** SQL Server (à partir de 2012). L’instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, à la base de données SQL Azure, à Azure SQL Data Warehouse ou à Parallel Data Warehouse.
 
-In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
+Dans certains cas, le sujet général d'une rubrique peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans la rubrique comme il convient.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

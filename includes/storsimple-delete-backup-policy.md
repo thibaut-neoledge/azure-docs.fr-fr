@@ -1,21 +1,15 @@
 
 <!--author=SharS last changed: 11/06/15-->
 
-#### <a name="to-delete-a-storsimple-backup-policy"></a>To delete a StorSimple backup policy
+#### Pour supprimer une stratégie de sauvegarde StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. Dans la page **Démarrage rapide**, cliquez sur l’onglet **Stratégies de sauvegarde**. La page **Stratégies de sauvegarde** s’affiche.
 
-2. Select the policy by clicking anywhere in the corresponding row except for the first column, and then click **Delete** at the bottom of the page.
+2. Sélectionnez la stratégie en cliquant n’importe où dans la ligne correspondante, à l’exception de la première colonne, puis cliquez sur **Supprimer** en bas de la page.
 
-3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **Yes** to delete.
+3. Vous êtes invité à confirmer l’opération. N’oubliez pas que la suppression d’une stratégie de sauvegarde entraîne celle de toutes les sauvegardes associées. Cliquez sur **Oui** pour supprimer.
 
-The **Backup Policies** page will be updated to display the new list of policies.
+La page **Stratégies de sauvegarde** affiche la nouvelle liste des stratégies.
  
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1217_2015-->

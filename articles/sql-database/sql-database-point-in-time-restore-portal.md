@@ -1,59 +1,54 @@
 <properties
-    pageTitle="Restore an Azure SQL Database to a previous point in time (Azure Portal) | Microsoft Azure"
-    description="Restore an Azure SQL Database to a previous point in time."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Restaurer une base de données SQL Azure à un point antérieur dans le temps (portail Azure) | Microsoft Azure"
+	description="Restaurez une base de données SQL Azure à un point antérieur dans le temps."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="07/17/2016"
-    ms.author="sstein"
-    ms.workload="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="07/17/2016"
+	ms.author="sstein"
+	ms.workload="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"/>
 
 
-
-# <a name="restore-an-azure-sql-database-to-a-previous-point-in-time-with-the-azure-portal"></a>Restore an Azure SQL Database to a previous point in time with the Azure Portal
+# Restaurer une base de données SQL Azure à un point antérieur dans le temps avec le portail Azure
 
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-recovery-using-backups.md)
-- [Point-In-Time Restore: PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [Vue d'ensemble](sql-database-recovery-using-backups.md)
+- [Limite de restauration dans le temps : PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using the Azure Portal.
+Cet article explique comment restaurer votre base de données à un point antérieur dans le temps à partir de [sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md) à l’aide du portail Azure.
 
-## <a name="select-a-database-to-restore-to-a-previous-point-in-time"></a>Select a database to restore to a previous point in time
+## Sélectionner une base de données à restaurer à un point antérieur dans le temps
 
-To restore a database in the Azure Portal do the following:
+Pour restaurer une base de données dans le portail Azure, procédez comme suit :
 
-1.  Open the [Azure Portal](https://portal.azure.com).
-2.  On the left side of the screen select **BROWSE** > **SQL databases**.
-3.  Navigate to the database you want to restore and select it.
-4.  At the top of your database's blade, select **Restore**:
+1.	Ouvrez le [portail Azure](https://portal.azure.com).
+2.  Sur le côté gauche de l’écran, sélectionnez **PARCOURIR** > **Bases de données SQL**.
+3.  Accédez à la base de données à restaurer et sélectionnez-la.
+4.  Dans la partie supérieure du panneau de votre base de données, sélectionnez **Restaurer** :
 
-    ![Restore an Azure SQL database](./media/sql-database-point-in-time-restore-portal/restore.png)
+    ![Restaurer une base de données SQL Azure](./media/sql-database-point-in-time-restore-portal/restore.png)
 
-5.  Specify a database name, point in time and then click Ok:
+5.  Indiquez un nom de base de données et un point de restauration, puis cliquez sur OK :
 
-    ![Restore an Azure SQL database](./media/sql-database-point-in-time-restore-portal/restore-details.png)
-
-
-
-## <a name="next-steps"></a>Next steps
-
-- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
-- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
+    ![Restaurer une base de données SQL Azure](./media/sql-database-point-in-time-restore-portal/restore-details.png)
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Étapes suivantes
 
+- Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
+- Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
 
+<!---HONumber=AcomDC_0727_2016-->

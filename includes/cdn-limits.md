@@ -1,13 +1,10 @@
 
-Resource | Soft limit
+Ressource | Limite logicielle
 ---------|-----------
-CDN profiles | 8
-CDN endpoints per profile | 10
-Custom domains per endpoint | 10 
+Profils CDN | 8
+Points de terminaison CDN par profil | 10
+Domaines personnalisés par point de terminaison | 10 
 
-Request an update to your subscription's soft limits by opening a support ticket.
+Demandez une mise à jour des limites logicielles de votre abonnement en ouvrant un ticket de support.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

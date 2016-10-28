@@ -1,84 +1,74 @@
 <properties
-    pageTitle="Restore a single table from Azure SQL Database backup | Microsoft Azure"
-    description="Learn how to restore a single table from Azure SQL Database backup."
-    services="sql-database"
-    documentationCenter=""
-    authors="dalechen"
-    manager="felixwu"
-    editor=""/>
+	pageTitle="Restauration d’une table spécifique à partir d’une sauvegarde Base de données SQL Azure | Microsoft Azure"
+	description="Découvrez comment restaurer une table unique à partir d’une sauvegarde Base de données SQL Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="dalechen"
+	manager="felixwu"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="daleche"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2016"
+	ms.author="daleche"/>
 
 
+# Comment restaurer une table unique à partir d’une sauvegarde Azure SQL Database
 
-# <a name="how-to-restore-a-single-table-from-an-azure-sql-database-backup"></a>How to restore a single table from an Azure SQL Database backup
+Vous pouvez rencontrer une situation dans laquelle vous avez modifié par inadvertance les données d’une base de données SQL et vous voulez récupérer l’unique table affectée. Cet article décrit comment restaurer une simple table dans une base de données à partir d’une des [sauvegardes automatiques](sql-database-automated-backups.md) de Base de données SQL.
 
-You may encounter a situation in which you accidentally modified some data in a SQL database and now you want to recover the single affected table. This article describes how to restore a single table in a database from one of the SQL Database [automatic backups](sql-database-automated-backups.md).
+## Étapes de préparation : renommer la table et restaurer une copie de la base de données
+1. Identifiez la table dans votre base de données SQL Azure que vous souhaitez remplacer par la copie restaurée. Utilisez Microsoft SQL Management Studio pour renommer la table. Par exemple, renommez la table &lt;nom de la table&gt;\_old.
 
-## <a name="preparation-steps:-rename-the-table-and-restore-a-copy-of-the-database"></a>Preparation steps: Rename the table and restore a copy of the database
-1. Identify the table in your Azure SQL database that you want to replace with the restored copy. Use Microsoft SQL Management Studio to rename the table. For example, rename the table as &lt;table name&gt;_old.
+	**Remarque** Pour éviter d’être bloqué, vérifiez qu’aucune activité n’est en cours d’exécution sur la table que vous renommez. Si vous rencontrez des problèmes, veillez à effectuer cette procédure pendant une fenêtre de maintenance.
 
-    **Note** To avoid being blocked, make sure that there's no activity running on the table that you are renaming. If you encounter issues, make sure that perform this procedure during a maintenance window.
+2. Restaurez une sauvegarde de votre base de données à un point dans le temps auquel vous souhaitez la récupérer en suivant la procédure [Point-In\_Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-2. Restore a backup of your database to a point in time that you want to recover to using the [Point-In_Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) steps.
+	**Remarques** :
+	- Le nom de la base de données restaurée doit être au format NomBD+Horodatage, par exemple, **Adventureworks2012\_2016-01-01T22-12Z**. Cette étape ne remplace pas le nom existant de la base de données sur le serveur. Il s’agit d’une mesure de sécurité. Elle vous permet de vérifier la base de données restaurée avant de supprimer la base de données en cours, et de renommer la base de données restaurée pour une utilisation en production.
+	- Tous les niveaux de performances De base à Premium sont automatiquement sauvegardés par le service, avec diverses mesures de rétention de sauvegarde, selon le niveau :
 
-    **Notes**:
-    - The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to allow you to verify the restored database before they drop their current database and rename the restored database for production use.
-    - All performance tiers from Basic to Premium are automatically backed up by the service, with varying backup retention metrics, depending on the tier:
-
-| DB Restore | Basic tier | Standard tiers | Premium tiers |
+| Restauration de base de données | Niveau de base | Niveaux Standard | Niveaux Premium |
 | :-- | :-- | :-- | :-- |
-|  Point In Time Restore |  Any restore point within 7 days|Any restore point within 35 days| Any restore point within 35 days|
+| Limite de restauration dans le temps | Tout point de restauration dans un délai de 7 jours|Tout point de restauration dans un délai de 35 jours| Tout point de restauration dans un délai de 35 jours|
 
-## <a name="copying-the-table-from-the-restored-database-by-using-the-sql-database-migration-tool"></a>Copying the table from the restored database by using the SQL Database Migration tool
-1. Download and install the [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
+## Copie de la table à partir de la base de données restaurée à l’aide de l’outil Migration de base de données SQL
+1. Téléchargez et installez [l’Assistant Migration de base de données SQL](https://sqlazuremw.codeplex.com).
 
-2. Open the SQL Database Migration Wizard, on the **Select Process** page, select **Database under Analyze/Migrate**, and then click **Next**.
-![SQL Database Migration wizard - Select Process](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
-3. In the **Connect to Server** dialog box, apply the following settings:
- - **Server name**: Your SQL Azure instance
- - **Authentication**: **SQL Server Authentication**. Enter your login credentials.
- - **Database**: **Master DB (List all databases)**.
- - **Note** By default the wizard saves your login information. If you don't want it to, select **Forget Login Information**.
-![SQL Database Migration wizard - Select Source - step 1](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
-4. In the **Select Source** dialog box, select the restored database name from the **Preparation steps** section as your source, and then click **Next**.
+2. Ouvrez l’Assistant Migration de base de données SQL. Dans la page **Sélectionner le processus**, sélectionnez **Base de données sous Analyser/Migrer**, puis cliquez sur **Suivant**. ![Assistant Migration de la base de données SQL - Sélectionner un processus](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/1.png)
+3. Dans la boîte de dialogue **Se connecter au serveur**, entrez les valeurs suivantes :
+ - **Nom du serveur** : votre instance SQL Azure
+ - **Authentification** : **Authentification SQL Server**. Entrez vos informations d’identification.
+ - **Base de données** : **Master DB (Lister toutes les bases de données)**.
+ - **Remarque** Par défaut, l’Assistant enregistre vos informations de connexion. Si cela ne vous convient pas, sélectionnez **Oublier les informations de connexion**. ![Assistant Migration de la base de données SQL - Sélectionner une source - étape 1](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/2.png)
+4. Dans la boîte de dialogue **Sélectionner une source**, sélectionnez le nom de la base de données restaurée lors des **étapes de préparation** comme source, puis cliquez sur **Suivant**.
 
-    ![SQL Database Migration wizard - Select Source - step 2](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/3.png)
+	![Assistant Migration de la base de données SQL - Sélectionner une source - étape 2](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/3.png)
 
-5. In the **Choose Objects** dialog box, select the **Select specific database objects** option, and then select the table(or tables) that you want to migrate to the target server.
-![SQL Database Migration wizard - Choose Objects](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/4.png)
+5. Dans la boîte de dialogue **Sélectionner les objets**, sélectionnez l’option **Sélectionner des objets de base de données spécifiques**, puis sélectionnez la ou les tables que vous souhaitez migrer vers le serveur cible. ![Assistant Migration de la base de données SQL - Sélectionner les objets](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/4.png)
 
-6. On the **Script Wizard Summary** page, click **Yes** when you’re prompted about whether you’re ready to generate a SQL script. You also have the option to save the TSQL Script for later use.
-![SQL Database Migration wizard - Script Wizard Summary](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/5.png)
+6. Dans la page **Résumé de l’Assistant Script**, cliquez sur **Oui** lorsque vous êtes invité à indiquer si vous êtes prêt à générer un script SQL. Vous avez également la possibilité d’enregistrer le script TSQL pour une utilisation ultérieure. ![Assistant Migration de la base de données SQL - Résumé de l’Assistant Script](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/5.png)
 
-7. On the **Results Summary** page, click **Next**.
-![SQL Database Migration wizard - Results Summary](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
+7. Dans la page **Résumé des résultats**, cliquez sur **Suivant**. ![Assistant Migration de la base de données SQL - Résumé des résultats](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
 
-8. On the **Setup Target Server Connection** page, click **Connect to Server**, and then enter the details as follows:
-    - **Server Name**: Target server instance
-    - **Authentication**: **SQL Server authentication**. Enter your login credentials.
-    - **Database**: **Master DB (List all databases)**. This option lists all the databases on the target server.
+8. Dans la page **Configurer la connexion au serveur cible**, cliquez sur **Se connecter au serveur**, puis entrez les détails comme suit :
+	- **Nom du serveur** : instance de serveur cible
+	- **Authentification** : **Authentification SQL Server**. Entrez vos informations d’identification.
+	- **Base de données** : **Master DB (Lister toutes les bases de données)**. Cette option répertorie toutes les bases de données sur le serveur cible.
 
-    ![SQL Database Migration wizard - Setup Target Server Connection](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/7.png)
+	![Assistant Migration de la base de données SQL - Configurer la connexion au serveur cible](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/7.png)
 
-9. Click **Connect**, select the target database that you want to move the table to, and then click **Next**. This should finish running the previously generated script, and you should see the newly moved table copied to the target database.
+9. Cliquez sur **Se connecter**, sélectionnez la base de données cible dans laquelle vous souhaitez déplacer la table, puis cliquez sur **Suivant**. L’exécution du script généré précédemment doit être terminée et vous devez voir que la table qui vient d’être déplacée a été copiée dans la base de données cible.
 
-## <a name="verification-step"></a>Verification step
-1. Query and test the newly copied table to make sure that the data is intact. Upon confirmation, you can drop the renamed table form **Preparation steps** section. (for example, &lt;table name&gt;_old).
+## Étape de vérification
+1. Interrogez et testez la table nouvellement copiée pour vérifier que les données sont intactes. Après confirmation, vous pouvez supprimer la table renommée de la section **Etapes de préparation** (par exemple, &lt;nom de la table&gt;\_old).
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-[SQL Database automatic backups](sql-database-automated-backups.md)
+[Sauvegardes automatiques d’une base de données SQL](sql-database-automated-backups.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

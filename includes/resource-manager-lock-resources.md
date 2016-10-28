@@ -1,19 +1,17 @@
-1. In the Settings blade for the resource, resource group, or subscription that you wish to lock, select **Locks**.
+1. Dans le panneau Paramètres de la ressource, du groupe de ressources ou de l’abonnement que vous voulez verrouiller, sélectionnez **Verrous**.
 
-      ![select lock](./media/resource-manager-lock-resources/select-lock.png)
+      ![sélectionner verrou](./media/resource-manager-lock-resources/select-lock.png)
 
-2. To add a lock, select **Add**. If you want to create a lock at a parent level, select the parent. The currently selected resource inherits the lock from the parent. For example, you could lock the resource group to apply a lock to all its resources.
+2. Pour ajouter un verrou, sélectionnez **Ajouter**. Si vous souhaitez créer un verrou au niveau du parent, sélectionnez le parent. La ressource actuellement sélectionnée hérite du verrou du parent. Vous pouvez par exemple verrouiller le groupe de ressources afin d’appliquer un verrou à toutes ses ressources.
 
-      ![add lock](./media/resource-manager-lock-resources/add-lock.png) 
+      ![ajouter verrou](./media/resource-manager-lock-resources/add-lock.png)
 
-3. Give the lock a name and lock level. Optionally, you can add notes that describe the lock.
+3. Choisissez un nom et un niveau de verrouillage pour le verrou. Si vous le souhaitez, vous pouvez ajouter des notes décrivant le verrou.
 
-      ![set lock](./media/resource-manager-lock-resources/set-lock.png) 
+      ![définir verrou](./media/resource-manager-lock-resources/set-lock.png)
 
-4. To delete the lock, select the ellipsis and **Delete** from the available options.
+4. Pour supprimer le verrou, sélectionnez les points de suspension, puis **Supprimer** parmi les options disponibles.
 
-      ![delete lock](./media/resource-manager-lock-resources/delete-lock.png) 
+      ![supprimer verrou](./media/resource-manager-lock-resources/delete-lock.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Lynda.com | Microsoft Azure" 
-    description="Learn how to use Lynda.com with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Lynda.com | Microsoft Azure" 
+    description="Apprenez à utiliser Lynda.com avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,115 +11,108 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-lynda.com"></a>Tutorial: Azure Active Directory integration with Lynda.com
+#Didacticiel : Intégration d’Azure Active Directory à Lynda.com
   
-The objective of this tutorial is to show the integration of Azure and Lynda.com.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+L'objectif de ce didacticiel est de montrer comment intégrer Azure et Lynda.com. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
--   A valid Azure subscription
--   A Lynda.com tenant
+-   Un abonnement Azure valide
+-   Un locataire Lynda.com
   
-After completing this tutorial, the Azure AD users you have assigned to Lynda.com will be able to single sign into the application at your Lynda.com company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Lynda.com pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Lynda.com (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1.  Enabling the application integration for Lynda.com
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Activation de l’intégration d’applications pour Lynda.com
+2.  Configuration de l'authentification unique
+3.  Configuration de l'approvisionnement des utilisateurs
+4.  Affectation d’utilisateurs
 
-![Scenario](./media/active-directory-saas-lynda-tutorial/IC781046.png "Scenario")
-##<a name="enabling-the-application-integration-for-lynda.com"></a>Enabling the application integration for Lynda.com
+![Scénario](./media/active-directory-saas-lynda-tutorial/IC781046.png "Scénario")
+##Activation de l’intégration d’applications pour Lynda.com
   
-The objective of this section is to outline how to enable the application integration for Lynda.com.
+Cette section décrit l'activation de l'intégration de l'application pour Lynda.com.
 
-###<a name="to-enable-the-application-integration-for-lynda.com,-perform-the-following-steps:"></a>To enable the application integration for Lynda.com, perform the following steps:
+###Pour activer l'intégration d’applications pour Lynda.com, procédez comme suit :
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-lynda-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-lynda-tutorial/IC700994.png "Applications")
 
-4.  Click **Add** at the bottom of the page.
+4.  Cliquez sur **Ajouter** en bas de la page.
 
-    ![Add application](./media/active-directory-saas-lynda-tutorial/IC749321.png "Add application")
+    ![Ajouter l’application](./media/active-directory-saas-lynda-tutorial/IC749321.png "Ajouter l’application")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-lynda-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-lynda-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  In the **search box**, type **Lynda.com**.
+6.  Dans la **zone de recherche**, entrez **Lynda.com**.
 
-    ![Application Gallery](./media/active-directory-saas-lynda-tutorial/IC777524.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-lynda-tutorial/IC777524.png "Galerie d’applications")
 
-7.  In the results pane, select **Lynda.com**, and then click **Complete** to add the application.
+7.  Dans le volet des résultats, sélectionnez **Lynda.com**, puis cliquez sur **Terminer** pour ajouter l’application.
 
     ![Lynda.com](./media/active-directory-saas-lynda-tutorial/IC777525.png "Lynda.com")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuration de l'authentification unique
   
-The objective of this section is to outline how to enable users to authenticate to Lynda.com with their account in Azure AD using federation based on the SAML protocol.
+Cette section explique comment permettre aux utilisateurs de s'authentifier sur Lynda.com avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
->[AZURE.IMPORTANT]In order to be able to configure single sign-on on your Lynda.com tenant, you need to contact first the Lynda.com technical support to get this feature enabled.
+>[AZURE.IMPORTANT]Pour être en mesure de configurer l'authentification unique sur votre locataire Lynda.com, vous devez au préalable contacter le support technique Lynda.com pour faire activer cette fonctionnalité.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  In the Azure classic portal, on the **Lynda.com** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Dans le portail Azure Classic puis dans la page d’intégration d’applications **Lynda.com**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure single sign-on](./media/active-directory-saas-lynda-tutorial/IC777526.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-lynda-tutorial/IC777526.png "Configurer l’authentification unique")
 
-2.  On the **How would you like users to sign on to Lynda.com** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Lynda.com**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Configure single sign-on](./media/active-directory-saas-lynda-tutorial/IC777527.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-lynda-tutorial/IC777527.png "Configurer l’authentification unique")
 
-3.  On the **Configure App URL** page, in the **Lynda.com Sign In URL** textbox, type your Lynda.com tenant URL (e.g.: *https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=https://sts.windows-ppe.net/6247032d-9415-403c-b72b-277e3fb6f2c8/&target=https://shib.lynda.com/InCommon*), and then click **Next**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Lynda.com**, tapez l’URL de votre locataire Lynda.com (par exemple, *https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=https://sts.windows-ppe.net/6247032d-9415-403c-b72b-277e3fb6f2c8/&target=https://shib.lynda.com/InCommon*) puis cliquez sur **Suivant**.
 
-    ![Configure app URL](./media/active-directory-saas-lynda-tutorial/IC781047.png "Configure app URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-lynda-tutorial/IC781047.png "Configurer l’URL de l’application")
 
-4.  On the **Configure single sign-on at Lynda.com** page, to download your metadata, click **Download metadata**, and then save the certificate file locally on your computer.
+4.  Dans la page **Configurer l’authentification unique sur Lynda.com**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de certificat en local sur votre ordinateur.
 
-    ![Configure single sign-on](./media/active-directory-saas-lynda-tutorial/IC777529.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-lynda-tutorial/IC777529.png "Configurer l’authentification unique")
 
-5.  Send the downloaded metadata file to the Lynda.com support team. The Lynda.com support team does the Single Sign On configuration for you.
+5.  Envoyez le fichier de métadonnées téléchargé à l’équipe de support technique Lynda.com. L'équipe de support technique Lynda.com effectue la configuration de l'authentification unique pour vous.
 
-6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure single sign-on](./media/active-directory-saas-lynda-tutorial/IC777530.png "Configure single sign-on")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configurer l’authentification unique](./media/active-directory-saas-lynda-tutorial/IC777530.png "Configurer l’authentification unique")
+##Configuration de l'approvisionnement des utilisateurs
   
-There is no action item for you to configure user provisioning to Lynda.com.  
-When an assigned user tries to log into Lynda.com using the access panel, Lynda.com checks whether the user exists.  
-If there is no user account available yet, it is automatically created by Lynda.com.
+Aucun élément d'action ne vous permet de configurer l’approvisionnement des utilisateurs dans Lynda.com. Lorsqu'un utilisateur tente de se connecter à Lynda.com à l'aide du panneau d'accès, Lynda.com vérifie si cet utilisateur existe. Si aucun compte d'utilisateur n’est disponible, Lynda.com le crée automatiquement.
 
->[AZURE.NOTE]You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision AAD user accounts.
+>[AZURE.NOTE]Vous pouvez utiliser n'importe quel outil ou API de création de compte utilisateur, fourni par Lynda.com, pour approvisionner des comptes utilisateur AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Affectation d’utilisateurs
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###<a name="to-assign-users-to-lynda.com,-perform-the-following-steps:"></a>To assign users to Lynda.com, perform the following steps:
+###Pour affecter des utilisateurs à Lynda.com, procédez comme suit :
 
-1.  In the Azure classic portal, create a test account.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  On the **Lynda.com **application integration page, click **Assign users**.
+2.  Dans la page d’intégration d’applications **Lynda.com**, cliquez sur **Affecter des utilisateurs**.
 
-    ![Assign users](./media/active-directory-saas-lynda-tutorial/IC777531.png "Assign users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-lynda-tutorial/IC777531.png "Affecter des utilisateurs")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
-    ![Yes](./media/active-directory-saas-lynda-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-lynda-tutorial/IC767830.png "Oui")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

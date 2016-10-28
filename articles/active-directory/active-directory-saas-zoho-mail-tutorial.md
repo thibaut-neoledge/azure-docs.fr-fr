@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Zoho Mail | Microsoft Azure" 
-    description="Learn how to use Zoho Mail with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Zoho Mail | Microsoft Azure" 
+    description="Découvrez comment utiliser Zoho Mail avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,161 +14,153 @@
     ms.date="09/09/2016" 
     ms.author="markvi" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-zoho-mail"></a>Tutorial: Azure Active Directory integration with Zoho Mail
+#Didacticiel : Intégration d’Azure AD à Zoho Mail
   
-The objective of this tutorial is to show the integration of Azure and Zoho Mail.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Zoho Mail. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
--   A valid Azure subscription
--   A Zoho Mail tenant
+-   Un abonnement Azure valide
+-   Un client Zoho Mail
   
-After completing this tutorial, the Azure AD users you have assigned to Zoho Mail will be able to single sign into the application at your Zoho Mail company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Zoho Mail pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Zoho Mail (connexion initiée par le fournisseur de services) ou à l’aide de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1.  Enabling the application integration for Zoho Mail
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Activation de l’intégration d’applications pour Zoho Mail
+2.  Configuration de l'authentification unique
+3.  Configuration de l'approvisionnement des utilisateurs
+4.  Affectation d’utilisateurs
 
-![Scenario](./media/active-directory-saas-zoho-mail-tutorial/IC789600.png "Scenario")
+![Scénario](./media/active-directory-saas-zoho-mail-tutorial/IC789600.png "Scénario")
 
-##<a name="enabling-the-application-integration-for-zoho-mail"></a>Enabling the application integration for Zoho Mail
+##Activation de l’intégration d’applications pour Zoho Mail
   
-The objective of this section is to outline how to enable the application integration for Zoho Mail.
+Cette section décrit l’activation de l’intégration d’applications pour Zoho Mail.
 
-###<a name="to-enable-the-application-integration-for-zoho-mail,-perform-the-following-steps:"></a>To enable the application integration for Zoho Mail, perform the following steps:
+###Pour activer l’intégration d’applications pour Zoho Mail, procédez comme suit :
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zoho-mail-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-zoho-mail-tutorial/IC700994.png "Applications")
 
-4.  Click **Add** at the bottom of the page.
+4.  Cliquez sur **Ajouter** en bas de la page.
 
-    ![Add application](./media/active-directory-saas-zoho-mail-tutorial/IC749321.png "Add application")
+    ![Ajouter l’application](./media/active-directory-saas-zoho-mail-tutorial/IC749321.png "Ajouter l’application")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-zoho-mail-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-zoho-mail-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  In the **search box**, type **Zoho Mail**.
+6.  Dans la **zone de recherche**, tapez **Zoho Mail**.
 
-    ![Application Gallery](./media/active-directory-saas-zoho-mail-tutorial/IC789601.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-zoho-mail-tutorial/IC789601.png "Galerie d’applications")
 
-7.  In the results pane, select **Zoho Mail**, and then click **Complete** to add the application.
+7.  Dans le volet de résultats, sélectionnez **Zoho Mail**, puis cliquez sur **Terminer** pour ajouter l’application.
 
     ![Zoho Mail](./media/active-directory-saas-zoho-mail-tutorial/IC789602.png "Zoho Mail")
 
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuration de l'authentification unique
   
-The objective of this section is to outline how to enable users to authenticate to Zoho Mail with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Zoho Mail avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  In the Azure classic portal, on the **Zoho Mail** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Dans la page d’intégration d’applications **Zoho Mail** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-zoho-mail-tutorial/IC789603.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zoho-mail-tutorial/IC789603.png "Configurer l’authentification unique")
 
-2.  On the **How would you like users to sign on to Zoho Mail** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zoho Mail**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-zoho-mail-tutorial/IC789604.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zoho-mail-tutorial/IC789604.png "Configurer l’authentification unique")
 
-3.  On the **Configure App URL** page, perform the following steps:
+3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit :
 
-    ![Configure App URL](./media/active-directory-saas-zoho-mail-tutorial/IC789605.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-zoho-mail-tutorial/IC789605.png "Configurer l’URL de l’application")
 
-    a. In the **Zoho Mail Sign On URL** textbox, type your URL using the following pattern: `http://<company name>.ZohoMail.com`
+	a. Dans la zone de texte **URL de connexion de Zoho Mail**, tapez votre URL au format suivant : `http://<company name>.ZohoMail.com`
 
-    b. Click **Next**.
+	b. Cliquez sur **Suivant**.
 
 
-4.  On the **Configure single sign-on at Zoho Mail** page, click **Download certificate**, and then save the certificate file on your computer.
+4.  Dans la page **Configurer l’authentification unique sur Zoho Mail**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-zoho-mail-tutorial/IC789606.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zoho-mail-tutorial/IC789606.png "Configurer l’authentification unique")
 
-5.  In a different web browser window, log into your Zoho Mail company site as an administrator.
+5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zoho Mail en tant qu’administrateur.
 
-6.  Go to the **Control panel**.
+6.  Accédez à **Control panel**.
 
-    ![Control Panel](./media/active-directory-saas-zoho-mail-tutorial/IC789607.png "Control Panel")
+    ![Panneau de configuration](./media/active-directory-saas-zoho-mail-tutorial/IC789607.png "Panneau de configuration")
 
-7.  Click the **SAML Authentication** tab.
+7.  Cliquez sur l’onglet **SAML Authentication**.
 
-    ![SAML Authentication](./media/active-directory-saas-zoho-mail-tutorial/IC789608.png "SAML Authentication")
+    ![Authentification SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789608.png "Authentification SAML")
 
-8.  In the **SAML Authentication Details** section, perform the following steps:
+8.  Dans la section **SAML Authentication Details**, procédez comme suit :
 
-    ![SAML Authentication Details](./media/active-directory-saas-zoho-mail-tutorial/IC789609.png "SAML Authentication Details")
+    ![Détails de l’authentification SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789609.png "Détails de l’authentification SAML")
 
-    1.  In the Azure classic portal, on the **Configure single sign-on at Zoho Mail** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
-    2.  In the Azure classic portal, on the **Configure single sign-on at Zoho Mail** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
-    3.  In the Azure classic portal, on the **Configure single sign-on at Zoho Mail** dialog page, copy the **Change Password URL** value, and then paste it into the **Change Password URL** textbox.
-    4.  Create a **base-64 encoded** file from your downloaded certificate.  
+    1.  Dans la page **Configurer l’authentification unique sur Zoho Mail** du portail Azure Classic, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion**.
+    2.  Dans la page **Configurer l’authentification unique sur Zoho Mail** du portail Azure Classic, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **URL de déconnexion**.
+    3.  Dans la page **Configurer l’authentification unique sur Zoho Mail** du portail Azure Classic, copiez la valeur **Modifier l’URL de mot de passe**, puis collez-la dans la zone de texte **Modifier l’URL de mot de passe**.
+    4.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    5.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **PublicKey** textbox.
-    6.  As **Algorithm**, select **RSA**.
-    7.  Click **OK**.
+    5.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **PublicKey**.
+    6.  Comme **Algorithme**, sélectionnez **RSA**.
+    7.  Cliquez sur **OK**.
 
-9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-zoho-mail-tutorial/IC789610.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zoho-mail-tutorial/IC789610.png "Configurer l’authentification unique")
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##Configuration de l'approvisionnement des utilisateurs
   
-In order to enable Azure AD users to log into Zoho Mail, they must be provisioned into Zoho Mail.  
-In the case of Zoho Mail, provisioning is a manual task.
+Pour que les utilisateurs d’Azure AD puissent se connecter à Zoho Mail, ils doivent être approvisionnés dans Zoho Mail. Dans le cas de Zoho Mail, l’approvisionnement est une tâche manuelle.
 
-###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
+###Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
-1.  Log in to your **Zoho Mail** company site as an administrator.
+1.  Connectez-vous à votre site d’entreprise **Zoho Mail** en tant qu’administrateur.
 
-2.  Go to **Control Panel \> Mail & Docs**.
+2.  Accédez à **Control Panel > Mail & Docs**.
 
-3.  Go to **User Details \> Add User**.
+3.  Accédez à **User Details > Add User**.
 
-    ![Add User](./media/active-directory-saas-zoho-mail-tutorial/IC789611.png "Add User")
+    ![Ajouter un utilisateur](./media/active-directory-saas-zoho-mail-tutorial/IC789611.png "Ajouter un utilisateur")
 
-4.  On the **Add users** dialog, perform the following steps:
+4.  Dans la boîte de dialogue **Add users**, procédez comme suit :
 
-    ![Add User](./media/active-directory-saas-zoho-mail-tutorial/IC789612.png "Add User")
+    ![Ajouter un utilisateur](./media/active-directory-saas-zoho-mail-tutorial/IC789612.png "Ajouter un utilisateur")
 
-    1.  Type the **First Name**, **Last Name**, **Email ID**, **Password** of a valid Azure Active Directory account you want to provision into the related textboxes.
-    2.  Click **OK**.  
+    1.  Tapez le prénom, le nom, l’ID de messagerie et le mot de passe du compte Azure AD valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir **First Name**, **Last Name**, **Email ID** et **Password**.
+    2.  Cliquez sur **OK**.
 
-        >[AZURE.NOTE] The Azure Active Directory account holder will receive an email with a link to confirm the account before it becomes active.
+        >[AZURE.NOTE] Le titulaire du compte Azure AD reçoit un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
 
->[AZURE.NOTE] You can use any other Zoho Mail user account creation tools or APIs provided by Zoho Mail to provision AAD user accounts.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zoho Mail pour approvisionner des comptes d’utilisateurs Azure AD.
 
-##<a name="assigning-users"></a>Assigning users
+##Affectation d’utilisateurs
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###<a name="to-assign-users-to-zoho-mail,-perform-the-following-steps:"></a>To assign users to Zoho Mail, perform the following steps:
+###Pour affecter des utilisateurs à Zoho Mail, procédez comme suit :
 
-1.  In the Azure classic portal, create a test account.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  On the **Zoho Mail **application integration page, click **Assign users**.
+2.  Dans la page d’intégration d’applications **Zoho Mail**, cliquez sur **Affecter des utilisateurs**.
 
-    ![Assign Users](./media/active-directory-saas-zoho-mail-tutorial/IC789613.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-zoho-mail-tutorial/IC789613.png "Affecter des utilisateurs")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
-    ![Yes](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "Oui")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

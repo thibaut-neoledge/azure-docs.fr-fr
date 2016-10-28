@@ -1,6 +1,6 @@
 <properties
- pageTitle="IoT Security Best Practices | Microsoft Azure"
- description="Security best practices for securing your IoT infrastructure"
+ pageTitle="IoT : meilleures pratiques en matière de sécurité | Microsoft Azure"
+ description="Meilleures pratiques en matière de sécurité pour sécuriser votre infrastructure IoT"
  services="iot-hub"
  documentationCenter=""
  authors="YuriDio"
@@ -16,26 +16,28 @@
  ms.date="08/02/2016"
  ms.author="yurid"/>
  
-
 [AZURE.INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-To learn more about securing your IoT solution, see:
+Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
 
-- [IoT Security Architecture][lnk-security-architecture]
-- [Secure your IoT deployment][lnk-security-deployment]
+- [Architecture de la sécurité IoT][lnk-security-architecture]
+- [Sécuriser votre déploiement IoT][lnk-security-deployment]
 
-To further explore the capabilities of IoT Hub, see:
+Pour explorer davantage les capacités de IoT Hub, consultez :
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Conception de votre solution][lnk-design]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

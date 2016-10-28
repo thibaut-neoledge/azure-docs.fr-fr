@@ -1,275 +1,272 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with People | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and People."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Didacticiel : Intégration d’Azure Active Directory à People | Microsoft Azure"
+	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et People."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/29/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/11/2016"
+	ms.author="jeedes"/>
 
 
+# Didacticiel : Intégration d’Azure Active Directory à People
 
-# <a name="tutorial:-azure-active-directory-integration-with-people"></a>Tutorial: Azure Active Directory integration with People
+L’objectif de ce didacticiel est de vous montrer comment intégrer People à Azure AD (Azure Active Directory).
 
-The objective of this tutorial is to show you how to integrate People with Azure Active Directory (Azure AD).
+L’intégration de People à Azure AD vous offre les avantages suivants :
 
-Integrating People with Azure AD provides you with the following benefits:
+- Dans Azure AD, vous pouvez contrôler qui a accès à People
+- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à People (via l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
-- You can control in Azure AD who has access to People
-- You can enable your users to automatically get signed-on to People (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Configuration requise
 
-## <a name="prerequisites"></a>Prerequisites
+Pour configurer l’intégration d’Azure AD à People, vous avez besoin des éléments suivants :
 
-To configure Azure AD integration with People, you need the following items:
-
-- An Azure subscription
-- A People single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Un abonnement Azure
+- Un abonnement People pour lequel l’authentification unique est activée
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 
-## <a name="scenario-description"></a>Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. The scenario outlined in this tutorial consists of two main building blocks:
+Vous devez en outre suivre les recommandations ci-dessous :
 
-1. Adding People from the gallery
-2. Configuring and testing Azure AD single sign-on
+- Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-people-from-the-gallery"></a>Adding People from the gallery
-To configure the integration of People into Azure AD, you need to add People from the gallery to your list of managed SaaS apps.
+## Description du scénario
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-**To add People from the gallery, perform the following steps:**
+1. Ajout de People à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+## Ajout de People à partir de la galerie
+Pour configurer l’intégration de People à Azure AD, vous devez ajouter People, disponible dans la galerie, à votre liste d’applications SaaS gérées.
+
+**Pour ajouter People à partir de la galerie, procédez comme suit :**
+
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
  
-    ![Active Directory][1]
+	![Active Directory][1]
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
-    ![Applications][2]
+	![Applications][2]
 
-4. Click **Add** at the bottom of the page.
+4. Cliquez sur **Ajouter** en bas de la page.
 
-    ![Applications][3]
+	![Applications][3]
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Applications][4]
+	![Applications][4]
 
-6. In the search box, type **People**.
+6. Dans la zone de recherche, tapez **People**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/tutorial_people_01.png)
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/tutorial_people_01.png)
 
-7. In the results pane, select **People**, and then click **Complete** to add the application.
+7. Dans le volet de résultats, sélectionnez **People**, puis cliquez sur **Terminer** pour ajouter l’application.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/tutorial_people_02.png)
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/tutorial_people_02.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with People based on a test user called "Britta Simon".
+##  Configuration et test de l’authentification unique Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec People avec un utilisateur de test appelé « Britta Simon ».
 
-To configure and test Azure AD single sign-on with People, you need to complete the following building blocks:
+Pour configurer et tester l’authentification unique Azure AD avec People, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a People test user](#creating-a-people-test-user)** - to have a counterpart of Britta Simon in People that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test People](#creating-a-people-test-user)** pour avoir un équivalent de Britta Simon dans People lié à la représentation Azure AD associée.
+4. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+### Configuration de l’authentification unique Azure AD
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your People application.
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application People.
 
 
 
-**To configure Azure AD single sign-on with People, perform the following steps:**
+**Pour configurer l’authentification unique Azure AD avec People, procédez comme suit :**
 
-1. In the Azure classic portal, on the **People** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. Dans le portail Azure Classic, dans la page d’intégration d’application **People**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    [Configure Single Sign-On][6] 
+	[Configurer l’authentification unique][6]
 
-2. On the **How would you like users to sign on to People** page, select **Azure AD Single Sign-On**, and then click **Next**.
+2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à People**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
  
-    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_03.png) 
+	![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_03.png)
 
-3. On the **Configure App Settings** dialog page, perform the following steps and then click **Next**:
+3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit et cliquez sur **Suivant** :
  
-    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_04.png) 
+	![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_04.png)
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your People application using the following pattern: **“https://\<company name\>.peoplehr.com/”**. 
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par les utilisateurs pour se connecter à votre application People au format suivant : **« https://<nom\_entreprise>.peoplehr.com/ »**.
 
-    b. If you don't know your tenant URL, contact the People support team via [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) to get it.  
+    b. Si vous ne connaissez pas l’URL de votre locataire, contactez l’équipe de support People via [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) pour l’obtenir.
 
-    c. In the **Identifier** textbox, type the tenant URL. 
+	c. Dans la zone de texte **Identificateur**, tapez l’URL du locataire.
 
-    d. In the **Reply URL** textbox, type the URL in the following pattern: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
+    d. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : « **https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
 
-    e. Click **Next**
-
-
-4. On the **Configure single sign-on at People** page, perform the following steps and then click **Next**:
-
-    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_05.png) 
-
-    a. Click **Download metadata**, and then save the file on your computer.
-
-    b. Click **Next**.
+	e. Cliquez sur **Suivant**
 
 
-5. To get SSO configured for your application, you need to sign-on to your People tenant as an administrator.
+4. Dans la page **Configurer l’authentification unique sur People**, procédez comme suit et cliquez sur **Suivant** :
+
+	![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_05.png)
+
+    a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
+
+    b. Cliquez sur **Next**.
+
+
+5. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire People en tant qu’administrateur.
+	
+	a. Dans le menu sur le côté gauche, cliquez sur **Paramètres**.
     
-    a. In the menu on the left side, click **Settings**.
+	![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)
+
+	b. Cliquez sur **Company** (Entreprise).
     
-    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_001.png) 
+	![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_002.png)
 
-    b. Click **“Company”**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_002.png) 
+	c. Dans **Upload 'Single Sign On' SAML meta-data file** (Charger le fichier de métadonnées SAML Authentification unique), cliquez sur **Browse** (Parcourir) pour charger le fichier de métadonnées téléchargé.
 
-    c. On the **“Upload 'Single Sign On' SAML meta-data file”**, click **Browse** to upload the downloaded metadata file.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
+	![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
 
 
 
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
  
-    ![Azure AD Single Sign-On][10]
+	![Authentification unique Azure AD][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
 
-    ![Azure AD Single Sign-On][11]
-
-
+	![Authentification unique Azure AD][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
-In the Users list, select **Britta Simon**.
-
-![Create Azure AD User][20]
 
 
-**To create a People test user in Azure AD, perform the following steps:**
+### Création d’un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+![Créer un utilisateur Azure AD][20]
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+**Pour créer un utilisateur de test People dans Azure AD, procédez comme suit :**
 
-3. To display the list of users, in the menu on the top, click **Users**.
+1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_09.png)
+
+2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+
+3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
  
-    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_03.png) 
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_04.png) 
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. Dans la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :
  
-    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_05.png) 
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Cliquez sur **Next**.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  Dans la page de boîte de dialogue **Profil utilisateur**, procédez comme suit :
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_06.png) 
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. Dans la zone de texte **Prénom**, entrez **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. Dans la zone de texte **Nom**, tapez **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
 
-    e. Click **Next**.
+    e. Cliquez sur **Next**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_07.png) 
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. Dans la page de boîte de dialogue **Obtenir un mot de passe temporaire**, procédez comme suit :
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-people-tutorial/create_aaduser_08.png) 
+	![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Notez la valeur du **Nouveau mot de passe**.
 
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-a-people-test-user"></a>Creating a People test user
-
-The objective of this section is to create a user called Britta Simon in People. People does not support just-in-time provisioning so you need contact the People support team to create an user manually.
+    b. Cliquez sur **Terminé**.
 
 
 
+### Création d’un utilisateur de test People
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to People.
-
-![Assign User][200] 
-
-**To assign Britta Simon to People, perform the following steps:**
-
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **People**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_50.png) 
-
-1. In the menu on the top, click **Users**.
-
-    ![Assign User][203] 
-
-1. In the Users list, select **Britta Simon**.
-
-2. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans People. People ne prenant pas en charge l’approvisionnement juste-à-temps, vous devez contacter l’équipe de support People pour créer un utilisateur manuellement.
 
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
-When you click the People tile in the Access Panel, you should get automatically signed-on to your People application.
+### Affectation de l’utilisateur de test Azure AD
+
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à People.
+
+![Affecter des utilisateurs][200]
+
+**Pour affecter Britta Simon à People, procédez comme suit :**
+
+1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue de répertoire, cliquez sur **Applications** dans le menu du haut.
+
+	![Affecter des utilisateurs][201]
+
+2. Dans la liste des applications, sélectionnez **People**.
+
+	![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_50.png)
+
+1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
+
+	![Affecter des utilisateurs][203]
+
+1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+
+2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
+
+	![Affecter des utilisateurs][205]
 
 
-## <a name="additional-resources"></a>Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### Test de l’authentification unique
+
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Quand vous cliquez sur la vignette People dans le volet d’accès, vous devez être connecté automatiquement à votre application People.
+
+
+## Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -290,8 +287,4 @@ When you click the People tile in the Access Panel, you should get automatically
 [204]: ./media/active-directory-saas-people-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-people-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

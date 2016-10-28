@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Setting Up Named Authentication Credentials | Microsoft Azure"
-   description="Learn how to to provide credentials that Visual Studio can use to authenticate requests to Azure to publish an application to Azure from Visual Studio or to monitor an existing cloud service.. "
+   pageTitle="Configuration des informations d’authentification nommées | Microsoft Azure"
+   description="Découvrez comment fournir des informations d’identification que Visual Studio pourra utiliser pour authentifier les demandes effectuées auprès d’Azure dans le cadre de la publication d’une application dans Azure à partir de Visual Studio, ou de l’analyse d’un service cloud existant. "
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,65 +15,60 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Configuration des informations d’authentification nommées
 
-# <a name="setting-up-named-authentication-credentials"></a>Setting Up Named Authentication Credentials
+Pour publier une application dans Azure à partir de Visual Studio, ou pour analyser un service cloud existant, vous devez fournir des informations d’identification que Visual Studio pourra utiliser pour authentifier les demandes effectuées auprès d’Azure. Il existe plusieurs emplacements dans Visual Studio à partir desquels vous pouvez vous connecter pour fournir ces informations d’identification. Par exemple, à partir de l’Explorateur de serveurs, vous pouvez ouvrir le menu contextuel du nœud **Azure**, puis sélectionner **Se connecter à Azure**. Quand vous vous connectez, les informations d’abonnement associées à votre compte Azure sont disponibles dans Visual Studio. Vous n’avez donc rien à faire de plus.
 
-To publish an application to Azure from Visual Studio or to monitor an existing cloud service, you must provide credentials that Visual Studio can use to authenticate requests to Azure. There are several places in Visual Studio where you can sign in to provide these credentials. For example, from the Server Explorer, you can open the shortcut menu for the **Azure** node and choose **Connect to Azure**. When you sign in, the subscription information associated with your Azure account is available in Visual Studio, and there is nothing more you need to do.
+Les outils Azure prennent également en charge une ancienne méthode d’authentification, qui est l’utilisation du fichier d’abonnement (fichier .publishsettings). Cette rubrique explique cette méthode, qui est toujours prise en charge dans le kit de développement logiciel (SDK) Azure 2.2.
 
-Azure Tools also supports an older way of providing credentials, using the subscription file (.publishsettings file). This topic describes this method, which is still supported in Azure SDK 2.2.
+Les éléments suivants sont requis pour l’authentification dans Azure.
 
-The following items are required for authentication to Azure.
+- Votre ID d’abonnement
 
-- Your subscription ID
+- Un certificat X.509 v3 valide
 
-- A valid X.509 v3 certificate
+>[AZURE.NOTE] La longueur de la clé du certificat X.509 v3 doit être de 2 048 bits au minimum. Azure rejette les certificats qui ne répondent pas à cette exigence ou qui ne sont pas valides.
 
->[AZURE.NOTE] The length of the X.509 v3 certificate's key must be at least 2048 bits. Azure will reject any certificate that doesn’t meet this requirement or that isn’t valid.
+Visual Studio utilise votre ID d’abonnement et les données du certificat comme informations d’identification. Les informations d’identification sont référencées dans le fichier d’abonnement (fichier .publishsettings), qui contient une clé publique pour le certificat. Le fichier d’abonnement peut contenir des informations d’identification pour plusieurs abonnements.
 
-Visual Studio uses your subscription ID together with the certificate data as credentials. The appropriate credentials are referenced in the subscription file (.publishsettings file), which contains a public key for the certificate. The subscription file can contain credentials for more than one subscription.
+Vous pouvez modifier les informations d’abonnement à partir de la boîte de dialogue **Modifier l’abonnement/Nouvel abonnement**, comme expliqué plus loin dans cette rubrique.
 
-You can edit the subscription information from the **New/Edit Subscription** dialog box, as explained later in this topic.
+Si vous souhaitez créer vous-même un certificat, vous pouvez consulter les instructions fournies dans [Vue d’ensemble des certificats pour Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx), puis charger manuellement le certificat vers le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-If you want to create a certificate yourself, you can refer to the instructions in [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) and then manually upload the certificate to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+>[AZURE.NOTE] Les informations d’identification dont Visual Studio a besoin pour gérer vos services cloud ne sont pas les mêmes que celles nécessaires pour authentifier une demande effectuée auprès des services de stockage Azure.
 
->[AZURE.NOTE] These credentials that Visual Studio requires to manage your cloud services aren’t the same credentials that are required to authenticate a request against the Azure storage services.
+## Modifier ou exporter des informations d’authentification dans Visual Studio
 
-## <a name="modify-or-export-authentication-credentials-in-visual-studio"></a>Modify or Export Authentication Credentials in Visual Studio
+Vous pouvez également configurer, modifier ou exporter vos informations d’authentification à partir de la boîte de dialogue **Nouvel abonnement** qui s’affiche quand vous effectuez l’une des actions suivantes :
 
-You can also set up, modify, or export your authentication credentials in the **New Subscription** dialog box, which appears if you perform either of the following actions:
+- Dans l’**Explorateur de serveurs**, ouvrez le menu contextuel du nœud **Azure**, puis choisissez **Gérer les abonnements**. Sélectionnez l’onglet **Certificats**, puis choisissez le bouton **Nouveau** ou **Modifier**.
 
-- In **Server Explorer**, open the shortcut menu for the **Azure** node, choose **Manage Subscriptions**, choose the **Certificates** tab, and choose the **New** or **Edit** button.
+- Quand vous publiez un service cloud Azure à partir de l’Assistant **Publication d’application Azure**, sélectionnez **Gérer** dans la liste **Choisir votre abonnement**. Ensuite, sélectionnez l’onglet Certificats, puis sélectionnez le bouton **Nouveau** ou **Modifier**.
 
-- When you publish an Azure cloud service from the **Publish Azure Application** wizard, choose **Manage** in the **Choose your Subscription** list, then choose the Certificates tab, and then choose the **New** or **Edit** button.
+La procédure suivante suppose que la boîte de dialogue **Nouvel abonnement** est ouverte.
 
-The following procedure assumes that the **New Subscription** dialog box is open.
+### Pour modifier ou exporter des informations d’authentification dans Visual Studio
 
-### <a name="to-set-up-authentication-credentials-in-visual-studio"></a>To set up authentication credentials in Visual Studio
+1. Dans la liste **Sélectionnez un certificat existant pour l’authentification**, choisissez un certificat.
 
-1. In the **Select an existing certificate** for authentication list, choose a certificate.
+1. Choisissez le bouton **Copier le chemin d’accès complet**. Le chemin d’accès du certificat (fichier .cer) est copié dans le Presse-papiers.
 
-1. Choose the **Copy the full path** button.The path for the certificate (.cer file) is copied to the Clipboard.
+    >[AZURE.IMPORTANT] Pour publier votre application Azure à partir de Visual Studio, vous devrez charger ce certificat vers le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-    >[AZURE.IMPORTANT] To publish your Azure application from Visual Studio, you must upload this certificate to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Pour télécharger le certificat sur le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) :
 
-1. To upload the certificate to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885):
+    1. Cliquez sur le lien du portail Azure.
 
-    1. Choose the Azure Portal link.
+         Le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885) s’ouvre.
 
-         The [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) opens.
+    1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885), puis cliquez sur le bouton **Cloud Services**.
 
-    1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), and then choose the **Cloud Services** button.
+    1. Sélectionnez le service cloud qui vous intéresse.
 
-    1. Choose the cloud service that interests you.
+        La page du service s’ouvre.
 
-        The page for the service opens.
+    1. Sous l’onglet **Certificats**, choisissez le bouton **Télécharger**.
 
-    1. On the **Certificates** tab, choose the **Upload** button.
+    1. Collez le chemin d’accès complet du fichier .cer que vous venez de créer, puis entrez le mot de passe que vous avez spécifié.
 
-    1. Paste the full path of the .cer file that you just created, and then enter the password that you specified.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

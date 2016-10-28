@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Data Catalog release notes | Microsoft Azure"
-   description="Release notes for Azure Data Catalog."
+   pageTitle="Notes de publication sur Azure Data Catalog | Microsoft Azure"
+   description="Notes de publication d’Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -16,77 +16,72 @@
    ms.date="09/21/2016"
    ms.author="maroche"/>
 
+# Notes de publication sur Azure Data Catalog
 
-# <a name="azure-data-catalog-release-notes"></a>Azure Data Catalog release notes
+## Notes pour la version du 20 novembre 2015 d’Azure Data Catalog
 
-## <a name="notes-for-the-november-20,-2015-release-of-azure-data-catalog"></a>Notes for the November 20, 2015 release of Azure Data Catalog
+### Ouverture de sources de données dans Power BI Desktop
 
-### <a name="opening-data-sources-in-power-bi-desktop"></a>Opening Data Sources in Power BI Desktop
+Lorsque vous utilisez l'option « Ouvrir dans Power BI Desktop » à partir du portail **Catalogue de données Azure**, les utilisateurs peuvent rencontrer un ou deux problèmes dans l'application Power BI Desktop :
 
-When using the "Open in Power BI Desktop" option from the **Azure Data Catalog** portal, users may encounter one of two problems in the Power BI Desktop application:
+- Une boîte de dialogue avec le titre « Impossible d’ouvrir le document » s'affiche.
+- L'application Power BI Desktop s'ouvre, mais le fichier semble être vide.
 
-- A dialog box with the title "Unable to Open Document" is displayed
-- The Power BI Desktop application opens, but the file appears to be empty
+Pour chaque cas, le problème peut être résolu en téléchargeant et en installant la dernière version de Power BI Desktop sur [PowerBI.com](https://powerbi.com).
 
-For each situation, the problem can be resolved by downloading and installing the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com).
+## Notes pour la version du 13 novembre 2015 d’Azure Data Catalog
 
-## <a name="notes-for-the-november-13,-2015-release-of-azure-data-catalog"></a>Notes for the November 13, 2015 release of Azure Data Catalog
+### Inscription et connexion sur Teradata
 
-### <a name="registering-and-connecting-to-teradata"></a>Registering and connecting to Teradata
+Lors de la connexion aux sources de données Teradata, les utilisateurs doivent avoir installé le pilote ODBC Teradata qui correspond au nombre de bits (32 ou 64) du logiciel utilisé.
 
-When connecting to Teradata data sources users must have installed the correct Teradata ODBC driver that match the bitness (32-bit or 64-bit) of the software being used.
+À compter de cette date de version d’ADC, le [pilote ODBC de Teradata pour Windows (version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) le plus récent est compatible avec Office 2013, mais pas avec Office 2016.
 
-As of this ADC release date, the most recent [Teradata ODBC driver for windows ( version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatible with Office 2013, but not with Office 2016.
+## Notes pour la version du 13 juillet 2015 d’Azure Data Catalog
 
-## <a name="notes-for-the-july-13,-2015-release-of-azure-data-catalog"></a>Notes for the July 13, 2015 release of Azure Data Catalog
+### Inscription et connexion à Oracle Database
 
-### <a name="registering-and-connecting-to-oracle-database"></a>Registering and connecting to Oracle Database
+Lors de la connexion aux sources de données Oracle Database, les utilisateurs doivent avoir installé les pilotes Oracle appropriés qui correspondent au nombre de bits (32 ou 64) du logiciel utilisé.
 
-When connecting to Oracle Database data sources users must have installed the correct Oracle drivers that match the bitness (32-bit or 64-bit) of the software being used.
+-	Lors de l’inscription des sources de données Oracle sur un ordinateur exécutant Windows 32 bits, les pilotes Oracle 32 bits seront utilisés.
+-	Lors de l’inscription des sources de données Oracle sur un ordinateur exécutant Windows 64 bits, les pilotes Oracle 64 bits seront utilisés.
+-	Lors de la connexion aux sources de données Oracle à l'aide d'Excel sur un ordinateur exécutant la version 32 bits de Microsoft Office, y compris sur Windows 64 bits, les pilotes Oracle 32 bits seront utilisés.
+-	Lors de la connexion aux sources de données Oracle à l'aide d'Excel sur un ordinateur exécutant la version 64 bits de Microsoft Office, les pilotes Oracle 64 bits seront utilisés.
 
--   When registering Oracle data sources on a computer running 32-bit Windows, the 32-bit Oracle drivers will be used
--   When registering Oracle data sources on a computer running 64-bit Windows, the 64-bit Oracle drivers will be used
--   When connecting to Oracle data sources using Excel on a computer running the 32-bit version of Microsoft Office, including on 64-bit Windows, the 32-bit Oracle drivers will be used
--   When connecting to Oracle data sources using Excel on a computer running the 64-bit version of Microsoft Office, the 64-bit Oracle drivers will be used
+### Inscription et connexion à SQL Server Reporting Services
 
-### <a name="registering-and-connecting-to-sql-server-reporting-services"></a>Registering and connecting to SQL Server Reporting Services
+La prise en charge des sources de données SQL Server Reporting Services (SSRS) est actuellement limitée aux serveurs en mode natif. La prise en charge de SSRS en mode SharePoint sera disponible dans une version ultérieure.
 
-Support for SQL Server Reporting Services (SSRS) data sources is currently limited to Native Mode servers only. Support for SSRS in SharePoint mode will be added in a later release.
+### Ouverture des ressources de données dans Excel
 
-### <a name="opening-data-assets-in-excel"></a>Opening data assets in Excel
+Au moment de l’ouverture des ressources de données dans Microsoft Excel à partir du portail **Azure Data Catalog**, les utilisateurs peuvent voir apparaître la boîte de dialogue **Avis de sécurité Microsoft Excel**. Il s’agit là d’un comportement attendu standard et les utilisateurs peuvent sélectionner **Activer** pour continuer.
 
-When opening data assets in Microsoft Excel from the **Azure Data Catalog** portal, users may be prompted with a **Microsoft Excel Security Notice** dialog box. This is standard, expected behavior, and users can select **Enable** to continue.
+Pour plus d’informations, consultez [Activer ou désactiver les alertes de sécurité relatives aux liens et aux fichiers de sites web suspects](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
-For more information, see [Enable or disable security alerts about links and files from suspicious websites](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+### Configuration du proxy et de la stratégie, et inscription de la source de données
 
-### <a name="proxy-and-policy-configuration-and-data-source-registration"></a>Proxy and policy configuration and data source registration
+Les utilisateurs parviennent parfois à se connecter au portail d’Azure Data Catalog, mais lorsqu'ils tentent de se connecter à l'outil de référencement de la source de données, un message d'erreur s’affiche et les empêche de se connecter.
 
-Users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on.
+Deux causes possibles à ce problème de comportement :
 
-There are two potential causes for this problem behavior:
+**Cause n°1 : configuration d’Active Directory Federation Services** L’outil d’inscription de la source de données utilise l’authentification par formulaire pour valider les connexions utilisateur avec Active Directory. Pour une ouverture de session réussie, l'authentification par formulaire doit être activée dans la stratégie d'authentification globale par un administrateur Active Directory.
 
-**Cause 1: Active Directory Federation Services configuration** The data source registration tool uses Forms Authentication to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.
+Cette erreur peut également survenir lorsque l'utilisateur est connecté au réseau d'entreprise ou lorsque l'utilisateur se connecte en dehors du réseau d'entreprise. La stratégie d'authentification globale permet d’activer séparément des méthodes d'authentification pour les connexions intranet et extranet. Des erreurs de connexion peuvent survenir si l'authentification par formulaire n'est pas activée pour le réseau à partir duquel l'utilisateur se connecte.
 
-In some situations, this error behavior may occur only when the user is on the company network, or only when the user is connecting from outside the company network. The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
+Pour plus d’informations, consultez [Configuration des stratégies d’authentification](https://technet.microsoft.com/library/dn486781.aspx).
 
-For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
-
-**Cause 2: Network proxy configuration** If the corporate network uses a proxy server, the registration tool may not be able to connect to Azure Active Directory through the proxy. Users can ensure that the registration tool by editing the tool’s configuration file, adding this section to the file:
-
-
-      <system.net>
-        <defaultProxy useDefaultCredentials="true" enabled="true">
-          <proxy usesystemdefault="True"
-                          proxyaddress="http://<your corporate network proxy url>"
-                          bypassonlocal="True"/>
-        </defaultProxy>
-      </system.net>
+**Cause n°2 : configuration du proxy réseau** Si le réseau d’entreprise utilise un serveur proxy, l’outil d’inscription ne peut peut-être pas se connecter à Azure Active Directory via le proxy. Les utilisateurs peuvent s’assurer de l'outil d'inscription en modifiant le fichier de configuration de l'outil, et en ajoutant au fichier la section suivante :
 
 
-To locate the RegistrationTool.exe.config file, launch the registration tool, and then open the Windows Task Manager utility. On the Details tab in Task manager, right-click on RegistrationTool.exe and choose Open file location from the pop-up menu.
+	  <system.net>
+	    <defaultProxy useDefaultCredentials="true" enabled="true">
+	      <proxy usesystemdefault="True"
+	                      proxyaddress="http://<your corporate network proxy url>"
+	                      bypassonlocal="True"/>
+	    </defaultProxy>
+	  </system.net>
 
 
+Pour localiser le fichier RegistrationTool.exe.config, lancez l'outil d'inscription, puis ouvrez l'utilitaire Gestionnaire des tâches de Windows. Sous l'onglet Détails du Gestionnaire des tâches, cliquez avec le bouton droit sur RegistrationTool.exe et choisissez Ouvrir l'emplacement du fichier dans le menu contextuel.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

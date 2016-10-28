@@ -1,49 +1,44 @@
 <properties
-    pageTitle="Azure Active Directory Conditional Access FAQ | Microsoft Azure"
-    description="Frequently asked questions about conditional access "
-    services="active-directory"
-    documentationCenter=""
-    authors="MarkusVi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Forum aux questions sur l’accès conditionnel Azure Active Directory | Microsoft Azure"
+	description="Forum Aux Questions concernant l’accès conditionnel "
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="swadhwa"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/20/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
+# Forum aux questions sur l’accès conditionnel Azure Active Directory
 
-# <a name="azure-active-directory-conditional-access-faq"></a>Azure Active Directory Conditional Access FAQ
+## A quelles applications les stratégies d’accès conditionnel s’appliquent-elles ?
 
-## <a name="which-applications-work-with-conditional-access-policies?"></a>Which applications work with conditional access policies?
+**R :** Consultez la rubrique [Accès conditionnel - applications prises en charge](active-directory-conditional-access-supported-apps.md).
 
-**A:** Please see the topic, [Conditional access- What applications are supported](active-directory-conditional-access-supported-apps.md).
+## Les stratégies d’accès conditionnel s’appliquent-elles à la collaboration B2B et aux utilisateurs invités ?
 
-## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users?"></a>Are conditional access policies enforced for B2B collaboration and guest users?
+**R :** Les stratégies sont appliquées aux utilisateurs dans le cadre d’une collaboration B2B. Toutefois, dans certains cas, un utilisateur peut ne pas remplir les conditions de la stratégie, par exemple si son organisation ne prend pas en charge l’authentification multifacteur.
 
-**A:** Policies are enforced for B2B collaboration users. However, in some cases, a user might not be able to satisfy the policy requirement if, for example, an organization does not support multi-factor authentication. 
+La stratégie ne s’applique actuellement pas aux utilisateurs SharePoint invités. Comme la relation d’invité est conservée au sein de SharePoint, les comptes d’invités ne bénéficient pas des stratégies d’accès au niveau du serveur d’authentification. L’accès invité peut être géré au niveau de SharePoint.
 
-The policy is currently not enforced for SharePoint guest users. The guest relationship is maintained within SharePoint. Guest users accounts are not subject to access polices at the authentication server. Guest access can be managed at SharePoint.
+## La stratégie SharePoint Online s’applique-t-elle également à OneDrive Entreprise ?
 
-## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business?"></a>Does a SharePoint Online policy also apply to OneDrive for Business?
-
-**A:** Yes.
+**R :** Oui.
  
-## <a name="why-can’t-i-set-a-policy-on-client-apps,-like-word-or-outlook?"></a>Why can’t I set a policy on client apps, like Word or Outlook?
+## Pourquoi ne puis-je pas définir une stratégie pour les applications clientes telles que Word ou Outlook ?
 
-**A:** A conditional access policy sets requirements for accessing a service and is enforced when authentication happens to that service. The policy is not set directly on a client application; instead, it is applied when it calls into a service. For example, a policy set on SharePoint applies to clients calling SharePoint and a policy set on Exchange applies to Outlook.
-
-
-## <a name="does-a-conditional-access-policy-apply-to-service-accounts?"></a>Does a conditional access policy apply to service accounts?
-
-**A:** Conditional access policies apply to all user accounts. This includes user accounts used as service accounts. In many cases, a service account that runs unattended is not able to satisfy a policy. This is, for example the case, when MFA is required. In these cases, services accounts can be excluded from a policy, using conditional access policy management settings. Learn more about applying a policy to users here.
+**R :** La stratégie d’accès conditionnel définit les conditions requises pour accéder à un service et s’applique lorsque l’authentification est effectuée sur ce service. La stratégie n’est donc pas définie directement sur une application cliente, mais appliquée lorsqu’elle est appelée dans un service. Par exemple, une stratégie définie sur SharePoint s’applique aux clients qui appellent SharePoint, et la stratégie définie sur Exchange s’applique à Outlook.
 
 
+## La stratégie d’accès conditionnel s’applique-t-elle aux comptes de service ?
 
-<!--HONumber=Oct16_HO2-->
+**R :** Les stratégies d’accès conditionnel s’appliquent à tous les comptes d’utilisateurs. Cela inclut les comptes d’utilisateurs utilisés comme comptes de service. Dans de nombreux cas, un compte de service qui s’exécute sans assistance n’est pas en mesure de remplir les conditions d’une stratégie. C’est par exemple le cas lorsque l’authentification multi-facteur est requise. Dans ces cas, les comptes de service peuvent être exclus d’une stratégie à l’aide des paramètres de gestion de stratégie accès conditionnel. Pour en savoir plus sur l’application d’une stratégie à des utilisateurs, rendez-vous ici.
 
-
+<!---HONumber=AcomDC_0727_2016-->

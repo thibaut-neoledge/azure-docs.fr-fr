@@ -1,66 +1,62 @@
 <properties 
-    pageTitle="Profiling a Cloud Service Locally in the Compute Emulator | Microsoft Azure" 
-    services="cloud-services"
-    description="Investigate performance issues in cloud services with the Visual Studio profiler" 
-    documentationCenter=""
-    authors="TomArcher" 
-    manager="douge" 
-    editor=""
-    tags="" 
-    />
+	pageTitle="Profilage d’un service cloud local dans l’émulateur de calcul | Microsoft Azure" 
+	services="cloud-services"
+	description="Examen des problèmes de performances dans les services cloud à l’aide du profileur Visual Studio" 
+	documentationCenter=""
+	authors="TomArcher" 
+	manager="douge" 
+	editor=""
+	tags="" 
+	/>
 
 <tags 
-    ms.service="cloud-services" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="multiple" 
-    ms.topic="article" 
-    ms.date="07/30/2016" 
-    ms.author="tarcher"/>
+	ms.service="cloud-services" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="07/30/2016" 
+	ms.author="tarcher"/>
 
+# Test des performances d'un service cloud local dans l'émulateur de calcul Azure avec le profileur Visual Studio
 
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
+Différents outils et diverses techniques permettent de tester les performances des services cloud. Lorsque vous publiez un service cloud sur Azure, vous pouvez demander à ce que Visual Studio collecte des données de profilage, puis les analyse en local, comme décrit dans la page [Analyse du profil d'une application Azure][1]. Vous pouvez également utiliser le diagnostic pour suivre tout un ensemble de compteurs de performances, comme décrit dans la rubrique [Utilisation de compteurs de performances dans Azure][2]. Vous pouvez également profiler votre application en local dans l'émulateur de calcul avant de la déployer dans le cloud.
 
-A variety of tools and techniques are available for testing the performance of cloud services.
-When you publish a cloud service to Azure, you can have Visual Studio collect profiling data and then analyze it locally, as described in [Profiling an Azure Application][1].
-You can also use diagnostics to track a variety of performance counters, as described in [Using performance counters in Azure][2].
-You might also want to profile your application locally in the compute emulator before deploying it to the cloud.
-
-This article covers the CPU Sampling method of profiling, which can be done locally in the emulator. CPU sampling is a method of profiling that is not very intrusive. At a designated sampling interval, the profiler takes a snapshot of the call stack. The data is collected over a period of time, and shown in a report. This method of profiling tends to indicate where in a computationally intensive application most of the CPU work is being done.  This gives you the opportunity to focus on the "hot path" where your application is spending the most time.
+Cet article présente la méthode de profilage par échantillonnage de l'UC, qui peut se faire en local dans l'émulateur. Cette méthode de profilage est peu intrusive. Selon une fréquence d'échantillonnage définie, le profileur enregistre un instantané de la pile d'appels. Les données sont collectées pendant un certain temps, puis sont présentées dans un rapport. Cette méthode de profilage indique plutôt, dans une application qui effectue beaucoup de calculs, où se fait la plus grande part du travail du processeur. Ceci vous permet de vous occuper en priorité des « points chauds », là où votre application passe le plus de temps.
 
 
 
-## <a name="1:-configure-visual-studio-for-profiling"></a>1: Configure Visual Studio for profiling
+## 1\. Configuration de Visual Studio pour le profilage
 
-First, there are a few Visual Studio configuration options that might be helpful when profiling. To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries. You'll want to make sure that you reference the available symbol servers. To do this, on the **Tools** menu in Visual Studio, choose **Options**, then choose **Debugging**, then **Symbols**. Make sure that Microsoft Symbol Servers is listed under **Symbol file (.pdb) locations**.  You can also reference http://referencesource.microsoft.com/symbols, which might have additional symbol files.
+Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)**. Vous pouvez également référencer http://referencesource.microsoft.com/symbols, qui est susceptible d’inclure d’autres fichiers de symboles.
 
-![Symbol options][4]
+![Options de symbole][4]
 
-If desired, you can simplify the reports that the profiler generates by setting Just My Code. With Just My Code enabled, function call stacks are simplified so that calls entirely internal to libraries and the .NET Framework are hidden from the reports. On the **Tools** menu, choose **Options**. Then expand the **Performance Tools** node, and choose **General**. Select the checkbox for **Enable Just My Code for profiler reports**.
+Si vous le souhaitez, vous pouvez simplifier les rapports générés par le profileur en choisissant Uniquement mon code. Lorsque cette option est activée, les piles d'appels de fonction sont simplifiées afin que les appels purement internes aux bibliothèques et à .NET Framework soient masqués dans les rapports. Dans le menu **Outils**, choisissez **Options**. Développez le nœud **Outils de performances** et choisissez **Général**. Activez la case à cocher **Activer Uniquement mon code pour les rapports du profileur**.
 
-![Just My Code options][17]
+![Options Uniquement mon code][17]
 
-You can use these instructions with an existing project or with a new project.  If you create a new project to try the techniques described below, choose a C# **Azure Cloud Service** project, and select a **Web Role** and a **Worker Role**.
+Vous pouvez utiliser ces instructions dans un projet existant ou un nouveau projet. Si vous créez un projet pour tester une des techniques décrites plus bas, choisissez un projet C# **Service cloud Azure** et sélectionnez un **rôle web** et un **rôle de travail**.
 
-![Azure Cloud Service project roles][5]
+![Rôles de projet Azure Cloud Services][5]
 
-For example purposes, add some code to your project that takes a lot of time and demonstrates some obvious performance problem. For example, add the following code to a worker role project:
+Pour l'exemple, ajoutez à votre projet du code qui demande beaucoup de temps et provoque des problèmes de performances évidents. Par exemple, ajoutez le code suivant à un projet de rôle de travail :
 
-    public class Concatenator
-    {
-        public static string Concatenate(int number)
-        {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
-        }
-    }
+	public class Concatenator
+	{
+	    public static string Concatenate(int number)
+	    {
+	        int count;
+	        string s = "";
+	        for (count = 0; count < number; count++)
+	        {
+	            s += "\n" + count.ToString();
+	        }
+	        return s;
+	    }
+	}
 
-Call this code from the RunAsync method in the worker role's RoleEntryPoint-derived class. (Ignore the warning about the method running synchronously.)
+Appelez ce code depuis la méthode RunAsync dans la classe RoleEntryPoint-derived du rôle de travail. (Ne tenez pas compte de l'avertissement indiquant l'exécution synchrone de la méthode.)
 
         private async Task RunAsync(CancellationToken cancellationToken)
         {
@@ -72,104 +68,103 @@ Call this code from the RunAsync method in the worker role's RoleEntryPoint-deri
             }
         }
 
-Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to **Release**. This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started. Start the Compute Emulator UI from the taskbar to verify that your worker role is running.
+Générez et exécutez le service cloud en local sans débogage (Ctrl+F5), la configuration de solution étant définie sur **Version finale**. Les fichiers et dossiers sont ainsi créés pour l'exécution de l'application en local et tous les émulateurs sont démarrés. Démarrez l'interface de l'émulateur de calcul à partir de la barre des tâches pour vérifier que votre rôle de travail fonctionne correctement.
 
-## <a name="2:-attach-to-a-process"></a>2: Attach to a process
+## 2\. Attachement à un processus
 
-Instead of profiling the application by starting it from the Visual Studio 2010 IDE, you must attach the profiler to a running process. 
+Au lieu de profiler l'application en la démarrant depuis l'interface de développement de Visual Studio 2010, vous devez attacher le profileur à un processus en cours d'exécution.
 
-To attach the profiler to a process, on the **Analyze** menu, choose **Profiler** and **Attach/Detach**.
+Pour ce faire, dans le menu **Analyse**, sélectionnez **Profileur**, puis **Attacher/Détacher**.
 
-![Attach profile option][6]
+![Option Joindre un profil][6]
 
-For a worker role, find the WaWorkerHost.exe process.
+Pour un rôle de travail, recherchez le processus WaWorkerHost.exe.
 
-![WaWorkerHost process][7]
+![Processus WaWorkerHost][7]
 
-If your project folder is on a network drive, the profiler will ask you to provide another location to save the profiling reports.
+Si votre dossier de projet se trouve sur un disque réseau, le profileur vous demande d'indiquer un autre emplacement pour enregistrer les rapports de profilage.
 
- You can also attach to a web role by attaching to WaIISHost.exe.
-If there are multiple worker role processes in your application, you need to use the processID to distinguish them. You can query the processID programmatically by accessing the Process object. For example, if you add this code to the Run method of the RoleEntryPoint-derived class in a role, you can look at the log in the Compute Emulator UI to know what process to connect to.
+ Vous pouvez également l'attacher à un rôle web en l'attachant à WaIISHost.exe. Si votre application comporte plusieurs processus de rôle de travail, utilisez l'ID de processus pour les distinguer les uns des autres. Vous pouvez effectuer une requête par programme sur l'ID de processus en accédant à l'objet Process. Par exemple, si vous ajoutez ce code à la méthode Run de la classe RoleEntryPoint-derived dans un rôle, vous pouvez consulter le journal dans l'interface de l'émulateur de calcul pour savoir à quel processus se connecter.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+	var process = System.Diagnostics.Process.GetCurrentProcess();
+	var message = String.Format("Process ID: {0}", process.Id);
+	Trace.WriteLine(message, "Information");
 
-To view the log, start the Compute Emulator UI.
+Pour consulter le journal, ouvrez l'interface utilisateur de l'émulateur de calcul.
 
-![Start the Compute Emulator UI][8]
+![Démarrage de l’interface de l’émulateur de calcul][8]
 
-Open the worker role log console window in the Compute Emulator UI by clicking on the console window's title bar. You can see the process ID in the log.
+Ouvrez la fenêtre de console du journal du rôle de travail dans l'interface utilisateur de l'émulateur de calcul en cliquant sur la barre de titre de la fenêtre de la console. L'ID du processus figure dans le journal.
 
-![View process ID][9]
+![Afficher l’ID du processus][9]
 
-One you've attached, perform the steps in your application's UI (if needed) to reproduce the scenario.
+Une fois le profileur attaché, suivez les étapes de l'interface utilisateur de votre application (le cas échéant) afin de reproduire le scénario.
 
-When you want to stop profiling, choose the **Stop Profiling** link.
+Lorsque vous souhaitez arrêter le profilage, cliquez sur le lien **Terminer le profilage**.
 
-![Stop Profiling option][10]
+![Option Terminer le profilage][10]
 
-## <a name="3:-view-performance-reports"></a>3: View performance reports
+## 3\. Affichage des rapports de performances
 
-The performance report for your application is displayed.
+Le rapport de performances de votre application s'affiche.
 
-At this point, the profiler stops executing, saves data in a .vsp file, and displays a report that shows an analysis of this data.
+À ce stade, le profileur s'arrête, il enregistre les données dans un fichier .vsp et il affiche un rapport présentant une analyse des données.
 
-![Profiler report][11]
+![Rapport du profileur][11]
 
 
-If you see String.wstrcpy in the Hot Path, click on Just My Code to change the view to show user code only.  If you see String.Concat, try pressing the Show All Code button.
+Si vous voyez String.wstrcpy dans le Chemin réactif, cliquez sur Uniquement mon code pour modifier l'affichage et ne voir que le code utilisateur. Si vous voyez String.Concat, essayez de cliquer sur le bouton Afficher tout le code.
 
-You should see the Concatenate method and String.Concat taking up a large portion of the execution time.
+Vous devez voir que la méthode Concatenate et String.Concat occupent une grande partie du temps d'exécution.
 
-![Analysis of report][12]
+![Analyse du rapport][12]
 
-If you added the string concatenation code in this article, you should see a warning in the Task List for this. You may also see a warning that there is an excessive amount of garbage collection, which is due to the number of strings that are created and disposed.
+Si vous avez ajouté le code de concaténation de chaîne dans cet article, vous devez obtenir un avertissement correspondant dans la Liste des tâches. Il est possible que vous voyiez également un avertissement lié au nettoyage de la mémoire, ce qui est dû au nombre de chaînes créées et rejetées.
 
-![Performance warnings][14]
+![Avertissements liés aux performances][14]
 
-## <a name="4:-make-changes-and-compare-performance"></a>4: Make changes and compare performance
+## 4 : Application de modifications et comparaison des performances
 
-You can also compare the performance before and after a code change.  Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:
+Vous pouvez également comparer les performances avant et après la modification du code. Interrompez le processus en cours d'exécution et modifiez le code de façon à remplacer l'opération de concaténation de chaîne à l'aide de StringBuilder :
 
-    public static string Concatenate(int number)
-    {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
-    }
+	public static string Concatenate(int number)
+	{
+	    int count;
+	    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+	    for (count = 0; count < number; count++)
+	    {
+	         builder.Append("\n" + count.ToString());
+	    }
+	    return builder.ToString();
+	}
 
-Do another performance run, and then compare the performance. In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose **Compare Performance Reports**. If you want to compare with a run in another performance session, open the **Analyze** menu, and choose **Compare Performance Reports**. Specify both files in the dialog box that appears.
+Lancez un nouveau test de performances, et comparez les résultats. Dans l'Explorateur de performances, si les tests font partie de la même session, vous pouvez simplement sélectionner les deux rapports, ouvrir le menu contextuel et sélectionner **Comparer les rapports de performances**. Si vous souhaitez comparer un test avec un test d'une autre session de performances, ouvrez le menu **Analyse**, puis sélectionnez **Comparer les rapports de performances**. Spécifiez les deux fichiers dans la boîte de dialogue qui s'affiche.
 
-![Compare performance reports option][15]
+![Option Comparer les rapports de performances][15]
 
-The reports highlight differences between the two runs.
+Les rapports indiquent les différences entre les deux tests.
 
-![Comparison report][16]
+![Rapport de comparaison][16]
 
-Congratulations! You've gotten started with the profiler.
+Félicitations ! Vous avez fait connaissance avec le profileur.
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Résolution de problèmes
 
-- Make sure you are profiling a Release build and start without debugging.
+- Assurez-vous que le profilage porte bien sur une build Release et exécutez sans débogage.
 
-- If the Attach/Detach option is not enabled on the Profiler menu, run the Performance Wizard.
+- Si l'option Attacher/Détacher n'est pas activée dans le menu Profileur, exécutez l'Assistant Performance.
 
-- Use the Compute Emulator UI to view the status of your application. 
+- Utilisez l'émulateur de calcul pour connaître l'état de votre application.
 
-- If you have problems starting applications in the emulator, or attaching the profiler, shut down the compute emulator and restart it. If that doesn't solve the problem, try rebooting. This problem can occur if you use the Compute Emulator to suspend and remove running deployments.
+- Si vous rencontrez des problèmes pour démarrer les applications dans l'émulateur de calcul ou pour attacher le profileur, arrêtez l'émulateur de calcul et redémarrez-le. Si cela ne résout pas le problème, essayez de redémarrer votre ordinateur. Ce problème peut survenir lorsque vous utilisez l'émulateur de calcul pour suspendre et supprimer des déploiements en cours d'exécution.
 
-- If you have used any of the profiling commands from the command line, especially the global settings, make sure that VSPerfClrEnv /globaloff has been called and that VsPerfMon.exe has been shut down.
+- Si vous avez utilisé une des commandes de profilage depuis la ligne de commande, en particulier les paramètres globaux, assurez-vous que VSPerfClrEnv /globaloff a été appelé et que VsPerfMon.exe est arrêté.
 
-- If when sampling, you see the message "PRF0025: No data was collected," check that the process you attached to has CPU activity. Applications that are not doing any computational work might not produce any sampling data.  It's also possible that the process exited before any sampling was done. Check to see that the Run method for a role that you are profiling does not terminate.
+- Si lors de l’échantillonnage, le message « PRF0025 : aucune donnée n’a été collectée » s’affiche, vérifiez si le processus que vous avez attaché présente une activité dans le processeur. Les applications qui n'effectuent pas de calculs peuvent ne pas produire de données d'échantillonnage. Il est également possible que le processus se soit terminé avant l'exécution de l'échantillonnage. Vérifiez si la méthode Run du rôle pour lequel vous établissez le profil ne s'est pas terminée.
 
-## <a name="next-steps"></a>Next Steps
+## Étapes suivantes
 
-Instrumenting Azure binaries in the emulator is not supported in the Visual Studio profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see the blog post [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
+L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas prise en charge par le profileur Visual Studio, mais si vous souhaitez tester l'allocation de la mémoire, vous pouvez choisir cette option au moment du profilage. Vous pouvez également choisir le profilage d'accès concurrentiel, qui vous aide à savoir si des threads perdent du temps à se disputer les verrouillages, ou bien le profilage d'interaction de couche, qui permet de détecter les problèmes de performances lors de l'interaction entre différentes couches de l'application, la plupart du temps entre la couche de données et un rôle de travail. Vous pouvez consulter les requêtes de base de données que votre application génère et utiliser les données de profilage pour optimiser l'utilisation de la base de données. Pour plus d’informations sur le profilage d’interaction de couche, consultez le billet de blog qui explique pas à pas comment [utiliser le profileur d’interaction de couche dans Visual Studio Team System 2010][3].
 
 
 
@@ -185,13 +180,10 @@ Instrumenting Azure binaries in the emulator is not supported in the Visual Stud
 [10]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally06.png
 [11]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally03.png
 [12]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally011.png
-[14]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally04.png 
+[14]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally04.png
 [15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

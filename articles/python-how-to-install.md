@@ -1,179 +1,175 @@
 <properties
-    pageTitle="Install Python and the SDK - Azure"
-    description="Learn how to install Python and the SDK to use with Azure."
-    services=""
-    documentationCenter="python"
-    authors="lmazuel"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Installation de Python et du Kit de développement logiciel (SDK) - Azure"
+	description="Découvrez comment installer Python et le Kit de développement logiciel (SDK) à utiliser avec Azure."
+	services=""
+	documentationCenter="python"
+	authors="lmazuel"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="lmazuel"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="lmazuel"/>
 
+# Installation de Python et du Kit de développement logiciel (SDK)
 
-# <a name="installing-python-and-the-sdk"></a>Installing Python and the SDK
+La configuration de Python sous Windows s’effectue en toute simplicité. La solution est préinstallée sous Mac, Linux et [Bash pour Windows](https://msdn.microsoft.com/commandline/wsl/about). Ce guide décrit les étapes d'installation et de préparation de votre système à l'utilisation d'Azure.
 
-Python is easy to setup on Windows and comes pre-installed on Mac, Linux, and [Bash for Windows](https://msdn.microsoft.com/commandline/wsl/about). This guide walks you through installation and getting your machine ready for use with Azure.
+## Que contient le Kit de développement logiciel (SDK) Python Azure ?
 
-## <a name="what's-in-the-python-azure-sdk?"></a>What's in the Python Azure SDK?
+Le Kit de développement logiciel (SDK) Azure pour Python contient les composants qui vous permettent de développer, déployer et gérer des applications Python pour Azure. Il inclut plus précisément les éléments suivants :
 
-The Azure SDK for Python includes components that allow you to develop, deploy, and manage Python applications for Azure. Specifically, the Azure SDK for Python includes the following:
+* **Bibliothèques de gestion**. Ces bibliothèques de classes fournissent une interface de gestion des ressources Azure, comme les comptes de stockage ou les machines virtuelles.
 
-* **Management libraries**. These class libraries provide an interface managing Azure resources, such as storage accounts, virtual machines.
+* **Bibliothèques Runtime**. Ces bibliothèques de classes fournissent une interface permettant d’accéder aux fonctionnalités Azure, notamment le stockage et Service Bus.
 
-* **Runtime libraries**. These class libraries provide an interface for accessing Azure features, such as storage and service bus.
+## Quelle solution Python et quelle version utiliser ?
 
-## <a name="which-python-and-which-version-to-use"></a>Which Python and which version to use
+Il existe différentes versions des interpréteurs Python, par exemple :
 
-There are several flavors of Python interpreters available - examples include:
+* CPython : interpréteur Python standard le plus couramment utilisé
+* PyPy : implémentation rapide et conforme autre que CPython
+* IronPython : interpréteur Python qui s'exécute sur .Net/CLR
+* Jython : interpréteur Python qui s’exécute sur la Machine Virtuelle Java
 
-* CPython - the standard and most commonly used Python interpreter
-* PyPy - fast, compliant alternative implementation to CPython
-* IronPython - Python interpreter that runs on .Net/CLR
-* Jython - Python interpreter that runs on the Java Virtual Machine
+**CPython** v2.7 ou v3.3+ et PyPy 5.4.0 sont testés et pris en charge par le Kit de développement logiciel (SDK) Python Azure.
 
-**CPython** v2.7 or v3.3+ and PyPy 5.4.0 are tested and supported for the Python Azure SDK.
+## Où télécharger Python ?
 
-## <a name="where-to-get-python?"></a>Where to get Python?
+Il existe plusieurs façons de télécharger CPython :
 
-There are several ways to get CPython:
+* Directement depuis [www.python.org][]
+* Auprès d’un distributeur fiable comme [www.continuum.io][], [www.enthought.com][] ou [www.activestate.com][]
+* Génération à partir de la source !
 
-* Directly from [www.python.org][]
-* From a reputable distro such as [www.continuum.io][], [www.enthought.com][] or [www.activestate.com][]
-* Build from source!
+Sauf en cas de nécessité particulière, nous vous recommandons d’opter pour l’une des deux premières options.
 
-Unless you have a specific need, we recommend the first two options.
+## Installation du SDK sous Windows, Linux et macOS (bibliothèques client uniquement)
 
-## <a name="sdk-installation-on-windows,-linux,-and-macos-(client-libraries-only)"></a>SDK Installation on Windows, Linux, and MacOS (client libraries only)
+Si vous avez déjà installé Python, vous pouvez utiliser pip pour installer un lot de toutes les bibliothèques client dans votre environnement Python 2.7 ou Python 3.3+ existant. Cela télécharge les packages à partir du [Python Package Index][] \(PyPI).
 
-If you already have Python installed, you can use pip to install a bundle of all the client libraries in your existing Python 2.7 or Python 3.3+ environment. This will download the packages from the [Python Package Index][] (PyPI).
+Vous aurez peut-être besoin de droits d’administrateur :
 
-You may need administrator rights:
+- Linux et macOS, utilisez la commande `sudo` : `sudo pip install azure-mgmt-compute`.
+- Windows : ouvrez votre invite de commandes/PowerShell en tant qu’administrateur
 
-- Linux and MacOS, use the `sudo` command: `sudo pip install azure-mgmt-compute`.
-- Windows: open your PowerShell/Command prompt as an administrator
-
-You can install individually each library for each Azure service:
+Vous pouvez installer chaque bibliothèque individuellement pour chaque service Azure :
 
 ```console
    $ pip install azure-batch          # Install the latest Batch runtime library
    $ pip install azure-mgmt-scheduler # Install the latest Storage management library
 ```
 
-Preview packages can be installed using the `--pre` flag:
+L’aperçu des packages peut être installé à l’aide de l’indicateur `--pre` :
 
 ```console
    $ pip install --pre azure-mgmt-compute # will install only the latest Compute Management library
 ```
 
-You can also install a set of Azure libraries in a single line using the `azure` meta-package. Since not all packages in this meta-package are published as stable yet, the `azure` meta-package is still in preview. However, the core packages, from code quality/completeness perspectives can be considered "stable" at this time
-- it will be officially labeled as such in sync with other languages as soon as possible. We are not planning on any further major changes until then.
+Vous pouvez également installer un ensemble de bibliothèques Azure d’une seule ligne à l’aide du méta-package `azure`. Étant donné que tous les packages de ce méta-package ne sont pas encore publiés de façon stable, le méta-package `azure` est encore en version préliminaire. Toutefois, les packages de base peuvent pour l’instant être considérés comme « stables » du point de vue de la qualité / l’exhaustivité du code
+- ils seront officiellement étiquetés comme tels, en phase avec d’autres langages, dès que possible. Nous ne prévoyons pas d’autres changements majeurs d’ici-là.
 
-Since it's a preview release, you need to use the `--pre` flag:
+Puisqu’il s’agit d’une version préliminaire, vous devez utiliser l’indicateur `--pre` :
 
 ```console
    $ pip install --pre azure
 ```
    
-or directly
+ou directement
 
 ```console
    $ pip install azure==2.0.0rc6
 ```
 
-## <a name="getting-more-packages"></a>Getting More Packages
+## Téléchargement d'autres packages
 
-The [Python Package Index][] (PyPI) has a rich selection of Python libraries.  If you chose to install a Distro, you'll already have most of the interesting bits for various scenarios from web development to Technical Computing.
+[Python Package Index][] \(PyPI) comporte une sélection étoffée de bibliothèques Python. Si vous avez installé une version fournie par un distributeur, vous disposez déjà de la plupart des éléments nécessaires pour différents scénarios, du développement web au calcul technique.
 
 
-## <a name="python-tools-for-visual-studio"></a>Python Tools for Visual Studio
+## Python Tools for Visual Studio
 
-[Python Tools for Visual Studio][] (PTVS) is a free/OSS plugin from Microsoft, which turns VS into a full-fledged Python IDE:
+[Python Tools for Visual Studio][] \(PTVS) est un plug-in gratuit/OSS de Microsoft, qui transforme Visual Studio en un environnement de développement intégré (IDE) Python à part entière :
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
-Using PTVS is optional, but is recommended as it gives you Python and Web Project/Solution support, debugging, profiling, interactive window, Template editing, and Intellisense.
+Nous vous recommandons d’utiliser PTVS même s’il est facultatif, car il vous apporte pour les projets/solutions Python et web les fonctionnalités suivantes : support technique, débogage, profilage, fenêtre interactive, modification des modèles et Intellisense.
 
-PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services][] and [Websites][].
+PTVS simplifie également le déploiement sur Microsoft Azure, avec une prise en charge du déploiement sur [Cloud Services][] et [Sites Web][].
 
-PTVS works with your existing Visual Studio 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
+PTVS fonctionne avec votre installation existante de Visual Studio 2013 ou 2015. Pour accéder à la documentation, aux téléchargements et aux discussions, consultez le site [Python Tools pour Visual Studio].
 
-## <a name="python-azure-scenarios-for-linux-and-macos"></a>Python Azure Scenarios for Linux and MacOS
+## Scénarios Python Azure pour Linux et MacOS
 
-For Linux or MacOS, main Azure scenarios that are supported:
+Pour Linux et macOS, les principaux scénarios Azure pris en charge sont les suivants :
 
-1. Consuming Azure Services by using the client libraries for Python
+1. Consommation des services Azure par le biais des bibliothèques clientes pour Python
 
-2. Running your app in a Linux VM
+2. Exécution de votre application sur une machine virtuelle Linux
 
-3. Developing and publishing to Azure Websites using Git
+3. Développement et publication de sites web Azure à l'aide de Git
 
-The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as [blob storage][], [queue storage][], [table storage][] etc. via Pythonic wrappers for the Azure REST APIs. These works identically on Windows, Mac, and Linux.  You can also use these client libraries from your local development machine or a Linux VM running on Azure.
+Le premier scénario vous permet de créer des applications web enrichies qui tirent parti des fonctionnalités PaaS d’Azure, comme le [Stockage Blob][], le [Stockage File d’attente][] ou le [Stockage Table][], par le biais de wrappers Python pour les API REST Azure. Le fonctionnement de ces derniers est identique sous Windows, Mac et Linux. Vous pouvez également utiliser ces bibliothèques clientes à partir de votre ordinateur de développement local ou une machine virtuelle Linux s'exécutant sur Azure.
 
-For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython][] REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. See the [IPython Notebook on Azure][] tutorial for more information.
+Pour le scénario nécessitant une machine virtuelle, vous pouvez tout simplement démarrer une machine virtuelle Linux de votre choix (Ubuntu, CentOS, Suse) et exécuter/gérer les logiciels souhaités. Par exemple, vous pouvez exécuter [IPython][] REPL/Notebook sur votre machine Windows/Mac/Linux et pointer votre navigateur vers une machine virtuelle multiprocesseur Linux ou Windows exécutant le moteur IPython Engine sur Azure. Pour plus d’informations, voir le didacticiel [IPython Notebook sur Azure][].
 
-For information on how to setup a Linux VM, please see the [Create a Virtual Machine Running Linux][] tutorial.
+Pour plus d’informations sur la configuration d’une machine virtuelle Linux, voir le didacticiel [Création d’une machine virtuelle exécutant Linux][].
 
-Using Git deployment, you can develop a Python web application and publish it to an Azure Website from any operating system.  When you push your repository to Azure, it will automatically create a virtual environment and pip install your required packages.
+À l'aide du déploiement Git, vous pouvez développer une application web Python et la publier sur un site web Azure à partir de n'importe quel système d'exploitation. Quand vous placez votre référentiel sur Azure, il crée automatiquement un environnement virtuel et utilise pip pour installer vos packages requis.
 
-For more information on developing and publishing Azure Websites, see the tutorials for [Creating Websites with Django][], [Creating Websites with Bottle][], and [Creating Websites with Flask][]. For more general information on using any WSGI-compliant framework, see [Configuring Python with Azure Websites][].
+Pour plus d’informations sur le développement et la publication de sites web Azure, consultez les didacticiels [Création de sites web avec Django][], [Création de sites web avec Bottle][] et [Création de sites web avec Flask][]. Pour des informations plus générales sur l’utilisation de n’importe quelle infrastructure compatible WSGI, consultez [Configuration de Python avec des Sites Web Azure][].
 
 
-## <a name="additional-software-and-resources:"></a>Additional Software and Resources:
+## Logiciels et ressources supplémentaires :
 
-* [Azure SDK for Python ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
-* [Azure SDK for Python Github](https://github.com/Azure/azure-sdk-for-python)
-* [Official Azure samples for Python](https://azure.microsoft.com/documentation/samples/?platform=python)
-* [Continuum Analytics Python Distribution][]
-* [Enthought Python Distribution][]
-* [ActiveState Python Distribution][]
-* [SciPy - A suite of Scientific Python libraries][]
-* [NumPy - A numerics library for Python][]
-* [Django Project - A mature web framework/CMS][]
-* [IPython - an advanced REPL/Notebook for Python][]
-* [IPython Notebook on Azure][]
-* [Python Tools for Visual Studio on GitHub][]
-* [Python Developer Center](/develop/python/)
+* [Kit de développement logiciel (SDK) Azure pour Python Read The Docs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+* [Kit de développement logiciel (SDK) Azure pour Python GitHub](https://github.com/Azure/azure-sdk-for-python)
+* [Exemples Azure officiels pour Python](https://azure.microsoft.com/documentation/samples/?platform=python)
+* [Distribution de Python par Continuum Analytics (en anglais)][]
+* [Distribution de Python par Enthought (en anglais)][]
+* [Distribution de Python par ActiveState (en anglais)][]
+* [SciPy : un vaste panel de bibliothèques Scientific Python (en anglais)][]
+* [NumPy : une bibliothèque de valeurs numériques pour Python (en anglais)][]
+* [Projet Django : une infrastructure web/un système de gestion du contenu arrivés à maturité (en anglais)][]
+* [IPython : une solution REPL/Notebook avancée pour Python (en anglais)][]
+* [IPython Notebook sur Azure][]
+* [Python Tools pour Visual Studio sur GitHub][]
+* [Centre de développement Python](/develop/python/)
 
-[Continuum Analytics Python Distribution]: http://continuum.io
-[Enthought Python Distribution]: http://www.enthought.com
-[ActiveState Python Distribution]: http://www.activestate.com
+[Distribution de Python par Continuum Analytics (en anglais)]: http://continuum.io
+[Distribution de Python par Enthought (en anglais)]: http://www.enthought.com
+[Distribution de Python par ActiveState (en anglais)]: http://www.activestate.com
 [www.python.org]: http://www.python.org
 [www.continuum.io]: http://continuum.io
 [www.enthought.com]: http://www.enthought.com
 [www.activestate.com]: http://www.activestate.com
-[SciPy - A suite of Scientific Python libraries]: http://www.scipy.org
-[NumPy - A numerics library for Python]: http://www.numpy.org
-[Django Project - A mature web framework/CMS]: http://www.djangoproject.com
-[IPython - an advanced REPL/Notebook for Python]: http://ipython.org
+[SciPy : un vaste panel de bibliothèques Scientific Python (en anglais)]: http://www.scipy.org
+[NumPy : une bibliothèque de valeurs numériques pour Python (en anglais)]: http://www.numpy.org
+[Projet Django : une infrastructure web/un système de gestion du contenu arrivés à maturité (en anglais)]: http://www.djangoproject.com
+[IPython : une solution REPL/Notebook avancée pour Python (en anglais)]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook on Azure]: virtual-machines-linux-jupyter-notebook.md
+[IPython Notebook sur Azure]: virtual-machines-linux-jupyter-notebook.md
 [Cloud Services]: cloud-services-python-ptvs.md
-[Websites]: web-sites-python-ptvs-django-mysql.md
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
+[Sites Web]: web-sites-python-ptvs-django-mysql.md
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools pour Visual Studio]: http://aka.ms/ptvs
+[Python Tools pour Visual Studio sur GitHub]: https://github.com/microsoft/ptvs
 [Python Package Index]: http://pypi.python.org/pypi
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Create a Virtual Machine Running Linux]: virtual-machines-linux-quick-create-cli.md
-[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
-[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
-[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md
-[Configuring Python with Azure Websites]: web-sites-python-configure.md
-[table storage]: storage-python-how-to-use-table-storage.md
-[queue storage]: storage-python-how-to-use-queue-storage.md
-[blob storage]: storage-python-how-to-use-blob-storage.md
+[Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-quick-create-cli.md
+[Création de sites web avec Django]: web-sites-python-create-deploy-django-app.md
+[Création de sites web avec Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Création de sites web avec Flask]: web-sites-python-create-deploy-flask-app.md
+[Configuration de Python avec des Sites Web Azure]: web-sites-python-configure.md
+[Stockage Table]: storage-python-how-to-use-table-storage.md
+[Stockage File d’attente]: storage-python-how-to-use-queue-storage.md
+[Stockage Blob]: storage-python-how-to-use-blob-storage.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

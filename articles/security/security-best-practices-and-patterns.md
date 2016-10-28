@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure security best practices and patterns | Microsoft Azure"
-   description="The article provides an introduction about Azure Security Best Practices and Patterns and a curated list of security best practices for different Azure resources."
+   pageTitle="Meilleures pratiques et tendances Azure relatives à la sécurité | Microsoft Azure"
+   description="Cet article fournit une introduction sur les meilleures pratiques et tendances de sécurité Azure, ainsi qu’une liste organisée de meilleures pratiques de sécurité pour les différentes ressources Azure."
    services="azure-security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,37 +16,32 @@
    ms.date="09/16/2016"
    ms.author="terrylan"/>
 
+# Meilleures pratiques et tendances Azure relatives à la sécurité
 
-# <a name="azure-security-best-practices-and-patterns"></a>Azure security best practices and patterns
+Nous disposons actuellement des articles suivants sur les tendances et meilleures pratiques de sécurité Azure. Veillez à consulter ce site régulièrement pour voir les mises à jour de notre liste croissante de tendances et meilleures pratiques de sécurité Azure :
 
-We currently have the following Azure security best practices and patterns articles. Make sure to visit this site periodically to see updates to our growing list of Azure security best practices and patterns:  
+- [Meilleures pratiques Azure en matière de sécurité réseau](azure-security-network-security-best-practices.md)
+- [Meilleures pratiques Azure en matière de chiffrement et de sécurité des données](azure-security-data-encryption-best-practices.md)
+- [Meilleures pratiques en matière de sécurité du contrôle d’accès et de gestion des identités](azure-security-identity-management-best-practices.md)
+- [Meilleures pratiques de sécurité pour l’Internet des objets (IoT)](azure-security-iot-best-practices.md)
+- [Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
+- [Meilleures pratiques Azure en matière de sécurité des limites](../best-practices-network-security.md)
+- [Implémentation d’une architecture réseau hybride sécurisée dans Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
-- [Azure network security best practices](azure-security-network-security-best-practices.md)
-- [Azure data security and encryption best practices](azure-security-data-encryption-best-practices.md)
-- [Identity management and access control security best practices](azure-security-identity-management-best-practices.md)
-- [Internet of Things security best practices](azure-security-iot-best-practices.md)
-- [Best practices for software update on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
-- [Azure boundary security best practices](../best-practices-network-security.md)
-- [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+Azure fournit une plateforme sécurisée sur laquelle vous pouvez créer vos solutions. Nous proposons également des services et des technologies pour sécuriser davantage vos solutions sur Azure. En raison de la multitude d’options disponibles, vous êtes nombreux à avoir demandé à Microsoft de recommander les meilleures pratiques et tendances pour améliorer la sécurité.
 
-Azure provides a secure platform on which you can build your solutions. We also provide services and technologies to make your solutions on Azure more secure. Because of the many options available to you, many of you have voiced an interest in what Microsoft recommends as best practices and patterns for improving security.
+Nous comprenons votre intérêt et avons créé une collection de documents qui décrivent les choses à faire, en fonction du contexte, pour améliorer la sécurité des déploiements Azure.
 
-We understand your interest and have created a collection of documents that describe things you can do, given the right context, to improve the security of Azure deployments.
+Ces articles présentent un ensemble de meilleures pratiques et de tendances utiles sur des sujets spécifiques. Ces meilleures pratiques et tendances sont issues de notre expérience avec ces technologies, mais également de celle des clients, comme vous.
 
-In these best practices and patterns articles, we discuss a collection of best practices and useful patterns for specific topics. These best practices and patterns are derived from our experiences with these technologies and the experiences of customers like yourself.
+Pour chaque meilleure pratique, nous tentons d’expliquer les éléments suivants :
 
-For each best practice we strive to explain:
+- Nature de la meilleure pratique
+- Raison pour laquelle activer cette meilleure pratique
+- Conséquence possible en cas de non-utilisation de la meilleure pratique
+- Alternatives possibles à la meilleure pratique
+- Comment apprendre à utiliser la meilleure pratique
 
-- What the best practice is
-- Why you want to enable that best practice
-- What might be the result if you fail to enable the best practice
-- Possible alternatives to the best practice
-- How you can learn to enable the best practice
+Nous sommes impatients d’ajouter de nombreux autres articles sur l’architecture de sécurité Azure et les meilleures pratiques. Si vous souhaitez que nous incluions certaines rubriques, faites-le nous savoir dans la zone de discussion en bas de cette page.
 
-We look forward to including many more articles on Azure security architecture and best practices. If there are topics that you'd like us to include, let us know in the discussion area at the bottom of this page.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

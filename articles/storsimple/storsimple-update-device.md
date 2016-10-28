@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Update your StorSimple device | Microsoft Azure"
-   description="Explains how to use the StorSimple update feature to install regular and maintenance mode updates and hotfixes."
+   pageTitle="Mettre à jour votre appareil StorSimple | Microsoft Azure"
+   description="Explique comment utiliser la fonctionnalité de mise à jour de StorSimple pour installer les mises à jour et les correctifs ordinaires et en mode Maintenance."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,113 +15,108 @@
    ms.date="06/28/2016"
    ms.author="v-sharos" />
 
+# Mettre à jour votre appareil StorSimple 8000 Series
 
-# <a name="update-your-storsimple-8000-series-device"></a>Update your StorSimple 8000 Series device
+## Vue d’ensemble
 
-## <a name="overview"></a>Overview
+Les fonctionnalités de mise à jour StorSimple permettent de maintenir facilement à jour votre appareil StorSimple. Selon le type de mise à jour, vous pouvez appliquer des mises à jour à l’appareil par le biais du portail Azure Classic ou de l’interface Windows PowerShell. Ce didacticiel décrit les différents types de mise à jour et leur installation.
 
-The StorSimple updates features allow you to easily keep your StorSimple device up-to-date. Depending on the update type, you can apply updates to the device via the Azure classic portal or via the Windows PowerShell interface. This tutorial describes the update types and how to install each of them.
+Vous pouvez appliquer deux types de mises à jour d’appareil :
 
-You can apply two types of device updates: 
+- Mises à jour ordinaires (ou en mode Normal)
+- Mises à jour en mode Maintenance
 
-- Regular (or Normal mode) updates
-- Maintenance mode updates
+Vous pouvez installer des mises à jour périodiques au moyen du portail Azure Classic ou de Windows PowerShell. Toutefois, vous devez utiliser Windows PowerShell pour installer les mises à jour en mode Maintenance.
 
-You can install regular updates via the Azure classic portal or Windows PowerShell; however, you must use Windows PowerShell to install Maintenance mode updates. 
+Chaque type de mise à jour est décrit séparément, ci-dessous.
 
-Each update type is described separately, below.
+### Mises à jour ordinaires
 
-### <a name="regular-updates"></a>Regular updates
+Les mises à jour ordinaires s’effectuent sans interruption du service et peuvent être installées lorsque l’appareil est en mode Normal. Ces mises à jour sont appliquées à chaque contrôleur d’appareil via le site web Microsoft Update.
 
-Regular updates are non-disruptive updates that can be installed when the device is in Normal mode. These updates are applied through the Microsoft Update website to each device controller. 
+> [AZURE.IMPORTANT] Un basculement de contrôleur peut se produire pendant le processus de mise à jour. Mais cela n’aura aucune incidence sur la disponibilité ou le fonctionnement du système.
 
-> [AZURE.IMPORTANT] A controller failover may occur during the update process. However, this will not affect system availability or operation.
+- Pour plus de détails sur l’installation de mises à jour périodiques par le biais du portail Azure Classic, consultez [Installation de mises à jour périodiques via le portail Azure Classic(#install-regular-updates-via-the-azure-classic-portal).
 
-- For details on how to install regular updates via the Azure classic portal, see [Install regular updates via the Azure classic portal(#install-regular-updates-via-the-azure-classic-portal).
+- Vous pouvez également installer les mises à jour ordinaires via Windows PowerShell pour StorSimple Pour des informations détaillées, consultez la page [Installer les mises à jour ordinaires via Windows PowerShell pour StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
 
-- You can also install regular updates via Windows PowerShell for StorSimple. For details, see [Install regular updates via Windows PowerShell for StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
+### Mises à jour en mode Maintenance
 
-### <a name="maintenance-mode-updates"></a>Maintenance mode updates
+Les mises à jour en mode Maintenance provoquent une interruption du service. Il s’agit, par exemple, des mises à niveau du microprogramme du disque. Ces mises à jour nécessitent que l’appareil soit placé en mode Maintenance. Pour plus d’informations, consultez l’[Étape 2 : Passage en mode Maintenance](#step2). Vous ne pouvez pas utiliser le portail Azure Classic pour installer des mises à jour en mode Maintenance. Vous devez utiliser Windows PowerShell pour StorSimple.
 
-Maintenance Mode updates are disruptive updates such as disk firmware upgrades. These updates require the device to be put into Maintenance mode. For details, see [Step 2: Enter Maintenance mode](#step2). You cannot use the Azure classic portal to install Maintenance mode updates. Instead, you must use Windows PowerShell for StorSimple. 
+Pour plus d’informations sur l’installation des mises à jour en mode Maintenance, voir la section [Installer les mises à jour en mode Maintenance via Windows PowerShell pour StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
-For details on how to install Maintenance mode updates, see [Install Maintenance mode updates via Windows PowerShell for StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
+> [AZURE.IMPORTANT] Les mises à jour en mode Maintenance doivent être appliquées séparément à chaque contrôleur.
 
-> [AZURE.IMPORTANT] Maintenance mode updates must be applied separately to each controller. 
+## Installer des mises à jour périodiques via le portail Azure Classic
 
-## <a name="install-regular-updates-via-the-azure-classic-portal"></a>Install regular updates via the Azure classic portal
-
-You can use the Azure classic portal to apply updates to your StorSimple device.
+Vous pouvez utiliser le portail Azure Classic pour appliquer des mises à jour à votre appareil StorSimple.
 
 [AZURE.INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
-## <a name="install-regular-updates-via-windows-powershell-for-storsimple"></a>Install regular updates via Windows PowerShell for StorSimple
+## Installer les mises à jour ordinaires via Windows PowerShell pour StorSimple
 
-Alternatively, you can use Windows PowerShell for StorSimple to apply regular (Normal mode) updates.
+Sinon, vous pouvez utiliser Windows PowerShell pour StorSimple pour appliquer les mises à jour ordinaires (mode Normal).
 
-> [AZURE.IMPORTANT] Although you can install regular updates using Windows PowerShell for StorSimple, we strongly recommend that you install regular updates through the Azure classic portal. Beginning with Update 1, pre-checks will be performed prior to installing updates from the portal. These pre-checks will preempt failures and ensure a smoother experience. 
+> [AZURE.IMPORTANT] Bien que vous puissiez installer des mises à jour périodiques à l’aide de Windows PowerShell pour StorSimple, nous vous recommandons vivement de les installer au moyen du portail Azure Classic. À partir de la mise à jour 1, des vérifications préalables seront effectuées avant l’installation de mises à jour à partir du portail. Ces vérifications préalables permettent de prévenir les échecs et de garantir une expérience avec moins de problèmes.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
-## <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Install Maintenance mode updates via Windows PowerShell for StorSimple
+## Installer les mises à jour en mode Maintenance via Windows PowerShell pour StorSimple
 
-You use Windows PowerShell for StorSimple to apply Maintenance mode updates to your StorSimple device. All I/O requests are paused in this mode. Services such as non-volatile random access memory (NVRAM) or the clustering service are also stopped. Both controllers are rebooted when you enter or exit this mode. When you exit this mode, all the services will resume and should be healthy. (This may take a few minutes.)
+Vous utilisez Windows PowerShell pour StorSimple pour appliquer les mises à jour en mode Maintenance à votre appareil StorSimple. Dans ce mode, toutes les demandes d’E/S sont suspendues. Les services tels que la mémoire vive non volatile (NVRAM) ou le service de cluster sont également arrêtés. Les deux contrôleurs sont redémarrés lorsque vous entrez dans ce mode ou que vous le quittez. Lorsque vous quittez ce mode, tous les services reprennent et doivent être sains. (Cela peut prendre quelques minutes.)
 
-If you need to apply Maintenance mode updates, you will receive an alert through the Azure classic portal that you have updates that must be installed. This alert will include instructions for using Windows PowerShell for StorSimple to install the updates. After you update your device, use the same procedure to change the device to Regular mode. For step-by-step instructions, see [Step 4: Exit Maintenance mode](#step4).
+Si vous devez appliquer des mises à jour en mode Maintenance, vous recevez une alerte par le biais du portail Azure Classic, vous informant que vous avez des mises à jour à installer. Cette alerte inclut des instructions pour installer les mises à jour à l’aide de Windows PowerShell pour StorSimple. Après avoir mis à jour votre appareil, utilisez la même procédure pour faire passer l’appareil en mode Normal. Pour obtenir des instructions détaillées, consultez l’[Étape 4 : Sortie du mode Maintenance](#step4).
 
 > [AZURE.IMPORTANT] 
 > 
-> - Before entering Maintenance mode, verify that both device controllers are healthy by checking the **Hardware Status** on the **Maintenance** page in the Azure classic portal. If the controller is not healthy, contact Microsoft Support for the next steps. For more information, go to Contact Microsoft Support. 
-> - When you are in Maintenance mode, you need to apply the update first on one controller and then on the other controller.
+> - Avant de passer en mode Maintenance, vérifiez que les deux contrôleurs d’appareil sont intègres en vérifiant le **Statut matériel** sur la page **Maintenance** du portail Azure Classic. Si le contrôleur n’est pas sain, contactez le support technique Microsoft pour connaître les étapes suivantes. Pour plus d’informations, accédez à Contacter le support technique Microsoft.
+> - En mode Maintenance, vous devez appliquer la mise à jour d’abord à un contrôleur, puis à l’autre contrôleur.
 
-### <a name="step-1:-connect-to-the-serial-console-<a-name="step1">"></a>Step 1: Connect to the serial console <a name="step1">
+### Étape 1 : Connexion à la console série <a name="step1">
 
-First, use an application such as PuTTY to access the serial console. The following procedure explains how to use PuTTY to connect to the serial console.
+Tout d’abord, utilisez une application telle que PuTTY pour accéder à la console série. La procédure suivante explique comment utiliser PuTTY pour se connecter à la console série.
 
 [AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2:-enter-maintenance-mode-<a-name="step2">"></a>Step 2: Enter Maintenance mode <a name="step2">
+### Étape 2 : Passage en mode Maintenance <a name="step2">
 
-After you connect to the console, determine whether there are updates to install, and enter Maintenance mode to install them.
+Une fois que vous êtes connecté à la console, déterminez s’il existe des mises à jour à installer, puis passez en mode Maintenance pour les installer.
 
 [AZURE.INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3:-install-your-updates-<a-name="step3">"></a>Step 3: Install your updates <a name="step3">
+### Étape 3 : Installation des mises à jour <a name="step3">
 
-Next, install your updates.
+Ensuite, installez les mises à jour.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
  
-### <a name="step-4:-exit-maintenance-mode-<a-name="step4">"></a>Step 4: Exit Maintenance mode <a name="step4">
+### Étape 4 : Sortie du mode Maintenance <a name="step4">
 
-Finally, exit Maintenance mode.
+Pour finir, quittez le mode Maintenance.
 
 [AZURE.INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]
 
-## <a name="install-hotfixes-via-windows-powershell-for-storsimple"></a>Install hotfixes via Windows PowerShell for StorSimple
+## Installer les correctifs logiciels via Windows PowerShell pour StorSimple
 
-Unlike updates for Microsoft Azure StorSimple, hotfixes are installed from a shared folder. As with updates, there are two types of hotfixes: 
+Contrairement aux mises à jour pour Microsoft Azure StorSimple, les correctifs logiciels sont installés à partir d’un dossier partagé. Comme pour les mises à jour, il existe deux types de correctifs :
 
-- Regular hotfixes 
-- Maintenance mode hotfixes  
+- Correctifs logiciels ordinaires
+- Correctifs logiciels en mode Maintenance
 
-The following procedures explain how to use Windows PowerShell for StorSimple to install regular and Maintenance mode hotfixes.
+Les procédures suivantes expliquent comment utiliser Windows PowerShell pour StorSimple pour installer les correctifs logiciels ordinaires et en mode Maintenance.
 
 [AZURE.INCLUDE [storsimple-install-regular-hotfixes](../../includes/storsimple-install-regular-hotfixes.md)]
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
-## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device?"></a>What happens to updates if you perform a factory reset of the device?
+## Que se passe-t-il pour les mises à jour si vous effectuez une réinitialisation de l’appareil aux paramètres d’usine ?
 
-If a device is reset to factory settings, then all the updates are lost. After the factory-reset device is registered and configured, you will need to manually install updates through the Azure classic portal and/or Windows PowerShell for StorSimple. For more information about factory reset, see [Reset the device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à jour sont perdues. Une fois que l’appareil réinitialisé avec les paramètres par défaut est inscrit et configuré, vous devez installer manuellement les mises à jour par le biais du portail Azure Classic et/ou de Windows PowerShell pour StorSimple. Pour plus d’informations sur la réinitialisation des paramètres d’usine, consultez [Rétablissement des paramètres par défaut de l’appareil](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- Learn more about [using Windows PowerShell for StorSimple to administer your StorSimple device](storsimple-windows-powershell-administration.md).
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- En savoir plus sur [l’utilisation de Windows PowerShell pour StorSimple pour administrer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour administrer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

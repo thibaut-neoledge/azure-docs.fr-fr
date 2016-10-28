@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the Facebook Connector in Logic Apps | Microsoft Azure App Service"
-   description="How to create and configure the Facebook Connector or API app and use it in a logic app in Azure App Service"
+   pageTitle="Utilisation du connecteur Facebook dans des applications logiques | Microsoft Azure App Service"
+   description="Comment créer et configurer le connecteur Facebook ou une application API et l'utiliser dans une application logique d’Azure App Service"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
@@ -17,18 +17,14 @@
    ms.author="deonhe"/>
 
 
+# Nous avons amélioré le connecteur Facebook 
 
-# <a name="we've-improved-the-facebook-connector"></a>We've improved the Facebook connector 
-
-We've removed the content (which targeted Logic apps version 2014-12-01-preview) from this page because this connector has been upgraded and is now only supported on the new [Logic Apps schema version 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) and later. 
-
-
-## <a name="next-steps"></a>Next steps    
-
-- [Learn more about the this new connector](../connectors/connectors-create-api-facebook.md)
-- See [the full list](../connectors/apis-list.md) of all connectors that run on the new Logic Apps schema version 2015-08-01-preview  
+Nous avons supprimé le contenu (associé à la version 2014-12-01-preview de Logic Apps) de cette page, car ce connecteur a été mis à niveau et est maintenant uniquement pris en charge sur le nouveau [schéma Logic Apps version 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) et les versions ultérieures.
 
 
-<!--HONumber=Oct16_HO2-->
+## Étapes suivantes    
 
+- [En savoir plus sur ce nouveau connecteur](../connectors/connectors-create-api-facebook.md)
+- Consultez la [liste complète](../connectors/apis-list.md) de tous les connecteurs qui s’exécutent sur la nouvelle version de schéma Logic Apps 2015-08-01-preview.
 
+<!---HONumber=AcomDC_0803_2016-->

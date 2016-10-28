@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resiliency technical guidance for recovering from data corruption or accidental deletion | Microsoft Azure"
-   description="Article on understanding how to recover from data corruption of data or accidental data deletion to and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery"
+   pageTitle="Guide technique de la résilience Azure pour la récupération suite à une corruption de données ou à une suppression accidentelle | Microsoft Azure"
+   description="Article dédié à la description de la récupération suite à une corruption de données ou à une suppression accidentelle de données et à la conception d’applications résilientes, hautement disponibles et tolérantes aux pannes, ainsi qu’à la planification de la récupération d’urgence"
    services=""
    documentationCenter="na"
    authors="adamglick"
@@ -16,89 +16,85 @@
    ms.date="08/18/2016"
    ms.author="aglick"/>
 
+#Guide technique de la résilience Azure : récupération suite à une corruption de données ou à une suppression accidentelle
 
-#<a name="azure-resiliency-technical-guidance:-recovery-from-data-corruption-or-accidental-deletion"></a>Azure resiliency technical guidance: recovery from data corruption or accidental deletion
+Un plan solide de continuité d’activité englobe une portion dédiée à la récupération suite aux corruptions ou aux suppressions de données. Vous trouverez ci-après des informations sur la récupération suite à une corruption ou à une suppression accidentelle de vos données en raison d’erreurs applicatives ou d’erreurs de l’opérateur.
 
-Part of a robust business continuity plan is having a plan if your data gets corrupted or accidentally deleted. The following is information about recovery after data has been corrupted or accidentally deleted, due to application errors or operator error.
+##Machines virtuelles
 
-##<a name="virtual-machines"></a>Virtual Machines
+Pour protéger votre système Azure Virtual Machines (parfois appelé machines virtuelles infrastructure as a service) contre les erreurs applicatives ou les suppressions accidentelles, utilisez [Azure Backup](https://azure.microsoft.com/services/backup/). Azure Backup prend en charge la création de sauvegardes cohérentes sur plusieurs disques de machine virtuelle. En outre, l’archivage de sauvegarde peut être répliqué entre les régions, afin d’assurer la prise en charge de la récupération suite à une perte de région.
 
-To protect your Azure Virtual Machines (sometimes called infrastructure-as-a-service VMs) from application errors or accidental deletion, use [Azure Backup](https://azure.microsoft.com/services/backup/). Azure Backup enables the creation of backups that are consistent across multiple VM disks. In addition, the Backup Vault can be replicated across regions to provide recovery from region loss.
+##Storage
 
-##<a name="storage"></a>Storage
+Notez que si Azure Storage assure la résilience des données via des réplicas automatisés, cela n’empêche aucunement la corruption des données par votre code d’application (ou les développeurs/utilisateurs) par le biais d’une suppression accidentelle ou involontaire, une mise à jour, etc. La conservation de l’intégrité des données sous la menace d’erreurs des utilisateurs et des applications nécessite des techniques plus avancées, comme la copie des données vers un emplacement de stockage secondaire avec un journal d’audit. Les développeurs peuvent tirer parti de la [fonctionnalité d’instantané d’objet blob](https://msdn.microsoft.com/library/azure/ee691971.aspx), qui peut créer des instantanés en lecture seule d’objets blob. Elle peut être utilisée comme solution de base dédiée à l’intégrité des données des objets blob Azure Storage.
 
-Note that while Azure Storage provides data resiliency through automated replicas, this does not prevent your application code (or developers/users) from corrupting data through accidental or unintended deletion, update, and so on. Maintaining data fidelity in the face of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log. Developers can take advantage of the blob [snapshot capability](https://msdn.microsoft.com/library/azure/ee691971.aspx), which can create read-only point-in-time snapshots of blob contents. This can be used as the basis of a data-fidelity solution for Azure Storage blobs.
+###Sauvegarde d’objets blob et Table Storage
 
-###<a name="blob-and-table-storage-backup"></a>Blob and Table Storage Backup
+Les objets blob et les tables sont hautement durables, mais ils représentent toujours l’état actuel des données. La récupération de modifications ou de suppressions non souhaitées des données peut nécessiter leur restauration vers un état précédent. Pour ce faire, vous pouvez profiter des fonctionnalités fournies par Azure pour stocker et conserver des copies ponctuelles.
 
-While blobs and tables are highly durable, they always represent the current state of the data. Recovery from unwanted modification or deletion of data may require restoring data to a previous state. This can be achieved by taking advantage of the capabilities provided by Azure to store and retain point-in-time copies.
+Pour les objets blob Azure, vous pouvez effectuer des sauvegardes ponctuelles à l’aide de la [fonctionnalité d’instantané blob](https://msdn.microsoft.com/library/ee691971.aspx). Pour chaque instantané, vous êtes facturé pour le stockage requis pour stocker les différences identifiées sur l’objet blob depuis le dernier état d’instantané. Les instantanés dépendant de l’existence de l’objet blob d’origine sur lequel ils sont basés, nous vous recommandons de copier les données sur un autre objet blob voire sur un autre compte de stockage. Cela garantit la protection des données de sauvegarde contre tout risque de suppression accidentelle. Pour les tables Azure, vous pouvez générer des copies ponctuelles vers une autre table ou vers des objets blob Azure. Pour consulter des recommandations détaillées et des exemples de sauvegardes de tables et d’objets blob au niveau de l’application, consultez la page :
 
-For Azure Blobs, you can perform point-in-time backups using the [blob snapshot feature](https://msdn.microsoft.com/library/ee691971.aspx). For each snapshot, you are only charged for the storage required to store the differences within the blob since the last snapshot state. The snapshots are dependent on the existence of the original blob they are based on, so a copy operation to another blob or even another storage account is advisable. This ensures that backup data is properly protected against accidental deletion. For Azure Tables, you can make point-in-time copies to a different table or to Azure Blobs. More detailed guidance and examples of performing application-level backups of tables and blobs can be found here:
+  * [Protecting Your Tables Against Application Errors](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/05/03/protecting-your-tables-against-application-errors/) (Protection de vos tables contre les erreurs des applications)
+  * [Protecting Your Blobs Against Application Errors](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/04/29/protecting-your-blobs-against-application-errors/) (Protection de vos objets blob contre les erreurs des applications)
 
-  * [Protecting Your Tables Against Application Errors](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/05/03/protecting-your-tables-against-application-errors/)
-  * [Protecting Your Blobs Against Application Errors](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/04/29/protecting-your-blobs-against-application-errors/)
+##Base de données
 
-##<a name="database"></a>Database
+Plusieurs options de [continuité d’activité](../sql-database/sql-database-business-continuity.md) (sauvegarde, restauration) sont disponibles pour la base de données SQL Azure. Les bases de données peuvent être copiées avec la fonctionnalité de [copie de base de données](../sql-database/sql-database-copy.md) ou avec [l’exportation](../sql-database/sql-database-export.md) et [l’importation](https://msdn.microsoft.com/library/hh710052.aspx) d’un fichier .bacpac SQL Server. La fonctionnalité de copie de base de données offre des résultats cohérents d’un point de vue transactionnel, ce qui n’est pas le cas du fichier bacpac (par le biais du service d’importation/d’exportation). Ces deux options sont exécutées en tant que services basés sur file d’attente au sein du centre de données. Aucun contrat de niveau de service de durée d’exécution n’est actuellement fourni.
 
-There are several [business continuity](../sql-database/sql-database-business-continuity.md) (backup, restore) options available for Azure SQL Database. Databases can be copied by using the [Database Copy](../sql-database/sql-database-copy.md) functionality, or by  [exporting](../sql-database/sql-database-export.md) and [importing](https://msdn.microsoft.com/library/hh710052.aspx) a SQL Server bacpac file. Database Copy provides transactionally consistent results, while a bacpac (through the import/export service) does not. Both of these options run as queue-based services within the data center, and they do not currently provide a time-to-completion SLA.
+>[AZURE.NOTE]Les options de copie de base de données et d’importation/exportation placent un niveau de charge considérable sur la base de données source. Elles peuvent déclencher la contention des ressources ou la limitation des événements.
 
->[AZURE.NOTE]The database copy and import/export options place a significant degree of load on the source database. They can trigger resource contention or throttling events.
+###Sauvegarde de base de données SQL
 
-###<a name="sql-database-backup"></a>SQL Database Backup
+Les sauvegardes dans le temps des bases de données SQL Microsoft Azure sont accomplies via la [copie de votre base de données Azure SQL](../sql-database/sql-database-copy.md). Vous pouvez utiliser cette commande pour créer une copie cohérente sur le plan transactionnel d’une base de données sur le même serveur logique de base de données ou sur un serveur différent. Dans les deux cas, la copie de base de données est pleinement fonctionnelle et entièrement indépendante de la base de données source. Chaque copie créée représente une option de récupération dans le temps. Pour récupérer intégralement l’état de base de données, attribuez à la nouvelle base de données le nom de la base de données source. Sinon, vous pouvez récupérer un sous-ensemble spécifique des données de la nouvelle base. Pour ce faire, exécutez des requêtes Transact-SQL. Pour plus d’informations sur la base de données SQL, consultez la rubrique [Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL](../sql-database/sql-database-business-continuity.md).
 
-Point-in-time backups for Microsoft Azure SQL Database are achieved by [copying your Azure SQL database](../sql-database/sql-database-copy.md). You can use this command to create a transactionally consistent copy of a database on the same logical database server or to a different server. In either case, the database copy is fully functional and completely independent of the source database. Each copy you create represents a point-in-time recovery option. You can recover the database state completely by renaming the new database with the source database name. Alternatively, you can recover a specific subset of data from the new database by using Transact-SQL queries. For additional details about SQL Database, see [Overview of business continuity with Azure SQL Database](../sql-database/sql-database-business-continuity.md).
+###Sauvegarde SQL Server sur les machines virtuelles
 
-###<a name="sql-server-on-virtual-machines-backup"></a>SQL Server on Virtual Machines Backup
+Quand SQL Server est utilisé avec l’infrastructure Azure sous la forme de machines virtuelles de service (souvent appelées modèles IaaS ou machines virtuelles IaaS), vous disposez de deux options : les sauvegardes traditionnelles et la copie des journaux de transaction. Le recours aux sauvegardes traditionnelles vous permet de restaurer les données à un point spécifique dans le temps, mais le processus de récupération est lent. Avec la restauration de sauvegardes traditionnelles, vous devez démarrer par une sauvegarde initiale complète, puis appliquer toutes les sauvegardes effectuées ultérieurement. La seconde option consiste en la configuration d’une session de copie des journaux de transaction pour reporter la restauration des sauvegardes des journaux (par exemple, de deux heures). Vous disposez ainsi d’une fenêtre permettant de récupérer des erreurs identifiées sur la sauvegarde primaire.
 
-For SQL Server used with Azure infrastructure as a service virtual machines (often called IaaS or IaaS VMs), there are two options: traditional backups and log shipping. Using traditional backups enables you to restore to a specific point in time, but the recovery process is slow. Restoring traditional backups requires starting with an initial full backup, and then applying any backups taken after that. The second option is to configure a log shipping session to delay the restore of log backups (for example, by two hours). This provides a window to recover from errors made on the primary.
+##Autres services de plateforme Azure
 
-##<a name="other-azure-platform-services"></a>Other Azure platform services
+Certains services de plateforme Azure stockent des informations dans un compte de stockage contrôlé par l’utilisateur ou une base de données SQL Azure. Si le compte ou la ressource de stockage est supprimé ou corrompu, de graves erreurs peuvent être signalées sur le service. Dans ces cas, il est important de conserver des sauvegardes qui peuvent être utilisées pour recréer ces ressources en cas de suppression ou de corruption.
 
-Some Azure platform services store information in a user-controlled storage account or Azure SQL Database. If the account or storage resource is deleted or corrupted, this could cause serious errors with the service. In these cases, it is important to maintain backups that would enable you to re-create these resources if they were deleted or corrupted.
+Pour les Sites Web Azure et Azure Mobile Services, vous devez sauvegarder et mettre à jour les bases de données associées. For Azure Media Service et Virtual Machines, vous devez gérer le compte Azure Storage associé et l’ensemble des ressources de ce compte. Par exemple, pour Virtual Machines, vous devez sauvegarder et gérer les disques de machines virtuelles dans le stockage d’objets blob Azure.
 
-For Azure Web Sites and Azure Mobile Services, you must backup and maintain the associated databases. For Azure Media Service and Virtual Machines, you must maintain the associated Azure Storage account and all resources in that account. For example, for Virtual Machines, you must back up and manage the VM disks in Azure blob storage.
+##Listes de contrôle pour la corruption ou la suppression accidentelle des données
 
-##<a name="checklists-for-data-corruption-or-accidental-deletion"></a>Checklists for data corruption or accidental deletion
+##Liste de contrôle de Virtual Machines
 
-##<a name="virtual-machines-checklist"></a>Virtual Machines checklist
+  1. Consulter la section Machines virtuelles de ce document.
+  2. Sauvegardez et gérer les disques de machines virtuelles avec Azure Backup (ou votre propre système de sauvegarde à l’aide du stockage d’objets blob Azure et d’instantanés VHD).
 
-  1. Review the Virtual Machines section of this document.
-  2. Back up and maintain the VM disks with Azure Backup (or your own backup system by using Azure blob storage and VHD snapshots).
+##Liste de contrôle du stockage
 
-##<a name="storage-checklist"></a>Storage checklist
+  1. Consultez la section Stockage de ce document.
+  2. Sauvegardez régulièrement les ressources de stockage critiques.
+  3. Envisagez d’utiliser la fonctionnalité d’instantané pour les objets blob.
 
-  1. Review the Storage section of this document.
-  2. Regularly back up critical storage resources.
-  3. Consider using the snapshot feature for blobs.
+##Liste de contrôle de la base de données
 
-##<a name="database-checklist"></a>Database checklist
+  1. Consultez la section Base de données de ce document.
+  2. Créez des sauvegardes dans le temps à l’aide de la commande de copie de base de données.
 
-  1. Review the Database section of this document.
-  2. Create point-in-time backups by using the Database Copy command.
+##Liste de contrôle de la sauvegarde SQL Server sur les machines virtuelles
 
-##<a name="sql-server-on-virtual-machines-backup-checklist"></a>SQL Server on Virtual Machines Backup checklist
+  1. Consultez la section Sauvegarde SQL Server sur les machines virtuelles de ce document.
+  2. Utilisez des techniques traditionnelles de sauvegarde et de restauration.
+  3. Créez une session reportée de copie des journaux de transaction.
 
-  1. Review the SQL Server on Virtual Machines Backup section of this document.
-  2. Use traditional backup and restore techniques.
-  3. Create a delayed log shipping session.
+##Liste de contrôle Web Apps
 
-##<a name="web-apps-checklist"></a>Web Apps checklist
+  1. Sauvegardez et gérez la base de données associée, le cas échéant.
 
-  1. Back up and maintain the associated database, if any.
+##Liste de contrôle Media Services
 
-##<a name="media-services-checklist"></a>Media Services checklist
+  1. Sauvegardez et gérez les ressources de stockage associées.
 
-  1. Back up and maintain the associated storage resources.
+##Plus d’informations
 
-##<a name="more-information"></a>More information
+Pour plus d’informations sur les fonctionnalités de sauvegarde et de restauration d’Azure, consultez la rubrique [Scénarios de stockage, sauvegarde et récupération](https://azure.microsoft.com/documentation/scenarios/storage-backup-recovery/).
 
-For more information about backup and restore features in Azure, see [Storage, backup and recovery scenarios](https://azure.microsoft.com/documentation/scenarios/storage-backup-recovery/).
+##Étapes suivantes
 
-##<a name="next-steps"></a>Next steps
+Cet article fait partie d’une série intitulée [Guide technique de la résilience Azure](./resiliency-technical-guidance.md). Si vous cherchez à accroître les ressources de résilience, de récupération d’urgence et de haute disponibilité, consultez les [ressources supplémentaires](./resiliency-technical-guidance.md#additional-resources) du Guide technique de la résilience Azure.
 
-This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). If you are looking for more resiliency, disaster recovery, and high availability resources, see the Azure resiliency technical guidance [additional resources](./resiliency-technical-guidance.md#additional-resources).
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

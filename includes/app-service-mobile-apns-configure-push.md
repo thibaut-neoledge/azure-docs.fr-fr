@@ -1,20 +1,17 @@
 
 
-1.  On your Mac, launch **Keychain Access**. Open **Category** > **My Certificates**. Find the SSL certificate to export (that you downloaded earlier) and disclose its contents. Select only the certificate without selecting the private key, and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
+1.  Sur votre Mac, démarrez **Trousseau d’accès**. Ouvrez **Catégorie** > **Mes certificats**. Recherchez le certificat SSL à exporter (que vous avez téléchargé précédemment) et publiez son contenu. Sélectionnez uniquement le certificat sans la clé privée, et [exportez-le](https://support.apple.com/kb/PH20122?locale=en_US).
 
-2. In the Azure portal, click **Browse All** > **App Services** > your Mobile App backend > **Settings** > **Mobile** > **Push** > **Configure required settings** > **+ Notification Hub**, and provide a name and namespace for your notification hub, and then click the **OK** button.
+2. Dans le portail Azure, cliquez sur **Parcourir tout** > **App Services** > votre serveur principal d’applications mobiles > **Paramètres** > **Application mobile** > **Notifications push** > **Configurer les paramètres requis** > **+ concentrateur de notification**, et indiquez le nom et l’espace de noms de votre concentrateur de notification. Cliquez ensuite sur **OK**.
 
-    ![][1]
+  	![][1]
 
-3. In the **Create Notification Hub** blade, click the **Create** button.
+3. Dans le panneau **Créer un concentrateur de notification**, cliquez sur le bouton **Créer**.
      
-    Before you proceed to the next step, click **Notifications**, to ensure that your notification hub setup is complete. 
+    Avant de passer à l'étape suivante, cliquez sur **Notifications**, pour vous assurer que votre installation de concentrateur de notification est terminée.
 
-4. In the Azure portal, click **Browse All** > **App Services** > your Mobile App backend > **Settings** > **Mobile** > **Push** > **Apple Push Notification Services** > **Upload Certificate**. Upload the .p12 file, selecting the correct **Mode** (corresponding to whether the client SSL certificate you generated earlier was Development or Distribution.) Your service is now configured to work with push notifications on iOS!
+4. Dans le portail Azure, cliquez sur **Parcourir tout** > **Applications mobiles** > votre serveur principal d’applications mobiles > **Paramètres** > **Application mobile** > **Push** > **Services de notification push Apple** > **Télécharger le certificat**. Téléchargez le fichier .p12 en sélectionnant le **Mode** approprié (selon que le certificat SSL client généré précédemment concerne le Développement ou la Distribution.) Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS !
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1203_2015-->

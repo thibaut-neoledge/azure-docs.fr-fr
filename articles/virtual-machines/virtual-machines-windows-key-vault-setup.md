@@ -1,57 +1,56 @@
 <properties
-    pageTitle="Set up Key Vault for virtual machines in Azure Resource Manager | Microsoft Azure"
-    description="How to set up Key Vault for use with an Azure Resource Manager virtual machine."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="singhkays"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Configuration de Key Vault pour des machines virtuelles dans Azure Resource Manager | Microsoft Azure"
+	description="Comment configurer Key Vault pour une utilisation avec une machine virtuelle Azure Resource Manager."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="singhkays"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/31/2016"
-    ms.author="singhkay"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/31/2016"
+	ms.author="singhkay"/>
 
+# Configuration de Key Vault pour des machines virtuelles dans Azure Resource Manager
 
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Set up Key Vault for virtual machines in Azure Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modèle de déploiement classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model
-
-In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the resource provider of Key Vault. To learn more about Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
+Dans la pile Azure Resource Manager, les secrets/certificats sont modélisés en tant que ressources fournies par le fournisseur de ressources de Key Vault. Pour en savoir plus sur les coffres de clés, consultez [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-whatis.md)
 
 >[AZURE.NOTE] 
 >
->1. In order for Key Vault to be used with Azure Resource Manager virtual machines, the **EnabledForDeployment** property on Key Vault must be set to true. You can do this in various clients.
+>1. Pour que Key Vault puisse être utilisé avec des machines virtuelles Azure Resource Manager, la propriété **EnabledForDeployment** doit être définie sur true dans Key Vault. Vous pouvez le faire dans différents clients.
 >
->2. The Key Vault needs to be created in the same subscription and location as the Virtual Machine.
+>2. Le coffre de clés doit être créé dans le même abonnement et le même emplacement que la machine virtuelle.
 
-## <a name="use-powershell-to-set-up-key-vault"></a>Use PowerShell to set up Key Vault
-To create a key vault by using PowerShell, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md#vault).
+## Utilisation de PowerShell pour configurer Key Vault
+Pour créer un coffre de clés à l’aide de PowerShell, consultez [Prise en main d’Azure Key Vault](../key-vault/key-vault-get-started.md#vault).
 
-For new key vaults, you can use this PowerShell cmdlet:
+Pour de nouveaux coffres de clé, vous pouvez utiliser l’applet de commande PowerShell suivante :
 
-    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
+	New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
 
-For existing key vaults, you can use this PowerShell cmdlet:
+Pour des coffres de clé existants, vous pouvez utiliser l’applet de commande PowerShell suivante :
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+	Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
-## <a name="us-cli-to-set-up-key-vault"></a>Us CLI to set up Key Vault
-To create a key vault by using the command-line interface (CLI), see [Manage Key Vault using CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+## Utilisation de l’interface de ligne de commande pour configurer Key Vault
+Pour créer un coffre de clés à l’aide de l’interface de ligne de commande (CLI), consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
 
-For CLI, you have to create the key vault before you assign the deployment policy. You can do this by using the following command:
+Pour l’interface de ligne de commande, vous devez créer d’abord le coffre de clés avant d’affecter la stratégie de déploiement. Pour ce faire, vous pouvez utiliser la commande suivante :
 
-    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+	azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-## <a name="use-templates-to-set-up-key-vault"></a>Use templates to set up Key Vault
-While you use a template, you need to set the `enabledForDeployment` property to `true` for the Key Vault resource.
+## Utilisation de modèles pour configurer Key Vault
+Quand vous utilisez un modèle, vous devez définir la propriété `enabledForDeployment` sur `true` pour la ressource Key Vault.
 
-    {
+	{
       "type": "Microsoft.KeyVault/vaults",
       "name": "ContosoKeyVault",
       "apiVersion": "2015-06-01",
@@ -63,10 +62,6 @@ While you use a template, you need to set the `enabledForDeployment` property to
       }
     }
 
-For other options that you can configure when you create a key vault by using templates, see [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+Pour les autres options que vous pouvez configurer lorsque vous créez un coffre de clés à l’aide de modèles, consultez la rubrique [Création d’un coffre de clés](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

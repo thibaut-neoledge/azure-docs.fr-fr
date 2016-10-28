@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Manage DNS record sets and records using the Azure portal | Microsoft Azure"
-   description="Managing DNS record sets and records when hosting your domain on Azure DNS."
+   pageTitle="Gestion des jeux d’enregistrements DNS et des enregistrements à l’aide du portail Azure | Microsoft Azure"
+   description="Gestion des jeux d'enregistrements DNS et des enregistrements lorsque votre domaine est hébergé dans Azure DNS."
    services="dns"
    documentationCenter="na"
-   authors="sdwheeler"
+   authors="cherylmc"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,128 +15,123 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="sewhee"/>
+   ms.author="cherylmc"/>
 
-
-# <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Manage DNS records and record sets by using the Azure portal
+# Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](dns-operations-recordsets-portal.md)
-- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Portail Azure](dns-operations-recordsets-portal.md)
+- [Interface de ligne de commande Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
 
-This article shows you how to manage record sets and records for your DNS zone by using the Azure portal.
+Cet article explique comment gérer les jeux d’enregistrements et les enregistrements pour votre zone DNS À l’aide du portail Azure.
 
-It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
+Il est important de comprendre la différence entre les jeux d’enregistrements DNS et les enregistrements DNS individuels. Un jeu d’enregistrements est une collection d’enregistrements dans une zone ayant le même nom et le même type. Pour plus d’informations, consultez [Création de jeux d’enregistrements et d’enregistrements DNS à l’aide du portail Azure](dns-getstarted-create-recordset-portal.md).
 
-## <a name="create-a-new-record-set-and-record"></a>Create a new record set and record
+## Création d’un jeu d’enregistrements et d’un enregistrement
 
-To create a record set in the Azure portal, see [Create DNS records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
-
-
-## <a name="view-a-record-set"></a>View a record set
-
-1. In the Azure portal, go to the **DNS zone** blade.
-
-2. Search for the record set and select it. This opens the record set properties.
-
-    ![Search for a record set](./media/dns-operations-recordsets-portal/searchset500.png)
+Pour créer un jeu d’enregistrements dans le portail Azure, consultez [Création d’enregistrements DNS à l’aide du portail Azure](dns-getstarted-create-recordset-portal.md).
 
 
-## <a name="add-a-new-record-to-a-record-set"></a>Add a new record to a record set
+## Affichage d’un jeu d’enregistrements
 
-You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear on the Azure DNS name servers. Record sets of type CNAME can contain one record at most.
+1. Dans le portail Azure, accédez au panneau **zone DNS**.
 
+2. Recherchez le jeu d’enregistrements et sélectionnez-le. Les propriétés du jeu d’enregistrements s’affichent.
 
-1. On the **Record set properties** blade for your DNS zone, click the record set that you want to add a record to.
-
-    ![Select a record set](./media/dns-operations-recordsets-portal/selectset500.png)
-
-2. Specify the record set properties by filling in the fields.
-
-    ![Add a record](./media/dns-operations-recordsets-portal/addrecord500.png)
-
-2. Click **Save** at the top of the blade to save your settings. Then close the blade.
-
-3. In the corner, you will see that the record is saving.
-
-    ![Saving record set](./media/dns-operations-recordsets-portal/saving150.png)
-
-After the record has been saved, the values on the **DNS zone** blade will reflect the new record.
+	![Recherche d’un jeu d’enregistrements](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## <a name="update-a-record"></a>Update a record
+## Ajouter un nouvel enregistrement à un jeu d’enregistrements
 
-When you update a record in an existing record set, the fields you can update depend on the type of record you're working with.
-
-1. On the **Record set properties** blade for your record set, search for the record.
-
-2. Modify the record. When you modify a record, you can change the available settings for the record. In the following example, the **IP address** field is selected, and the IP address is in the process of being modified.
-
-    ![Modify a record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
-
-3. Click **Save** at the top of the blade to save your settings. In the upper right corner, you'll see the notification that the record has been saved.
-
-    ![Saved record set](./media/dns-operations-recordsets-portal/saved150.png)
+Vous pouvez ajouter jusqu'à 20 enregistrements à n'importe quel jeu d'enregistrements. Un jeu d’enregistrements ne peut pas contenir deux enregistrements identiques. Des jeux d'enregistrements vides (avec zéro enregistrement) peuvent être créés, mais ils n'apparaîtront pas sur les serveurs de noms Azure DNS. Les jeux d’enregistrements du type CNAME peuvent contenir un enregistrement au maximum.
 
 
-After the record has been saved, the values for the record set on the **DNS zone** blade will reflect the updated record.
+1. Dans le panneau des **propriétés du jeu d’enregistrements** de votre zone DNS, cliquez sur le jeu d’enregistrements auquel vous souhaitez ajouter un enregistrement.
+
+	![Sélection d’un jeu d'enregistrements](./media/dns-operations-recordsets-portal/selectset500.png)
+
+2. Spécifiez les propriétés du jeu d’enregistrements en remplissant les champs.
+
+	![Ajouter un enregistrement](./media/dns-operations-recordsets-portal/addrecord500.png)
+
+2. Cliquez sur **Enregistrer** en haut du panneau pour enregistrer vos paramètres. Puis fermez le panneau.
+
+3. Dans l’angle, vous verrez que l’enregistrement est en cours de sauvegarde.
+
+	![Enregistrement d’un jeu d'enregistrements](./media/dns-operations-recordsets-portal/saving150.png)
+
+Une fois que l’enregistrement a été sauvegardé, les valeurs du panneau **Zone DNS** reflètent le nouvel enregistrement.
 
 
-## <a name="remove-a-record-from-a-record-set"></a>Remove a record from a record set
+## Mise à jour d’un enregistrement
 
-You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set.
+Lors de la mise à jour d’un enregistrement dans un jeu d’enregistrements existant, les champs pouvant être mis à jour varient selon le type d’enregistrement que vous utilisez.
 
-1. On the **Record set properties** blade for your record set, search for the record.
+1. Dans le panneau **Propriétés du jeu d’enregistrements** de votre jeu d’enregistrements, recherchez l’enregistrement.
 
-2. Click the record that you want to remove. Then select **Remove**.
+2. Modifiez l’enregistrement. Lorsque vous modifiez un enregistrement, vous pouvez modifier les paramètres disponibles pour l’enregistrement. Dans l’exemple suivant, le champ **Adresse IP** est sélectionné et l’adresse IP est en cours de modification.
 
-    ![Remove a record](./media/dns-operations-recordsets-portal/removerecord500.png)
+	![Modification d’un enregistrement](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
-3. Click **Save** at the top of the blade to save your settings.
+3. Cliquez sur **Enregistrer** en haut du panneau pour enregistrer vos paramètres. Une notification s’affiche dans le coin supérieur droit indiquant que l’enregistrement a été sauvegardé.
 
-3. After the record has been removed, the values for the record on the **DNS zone** blade will reflect the removal.
-
-
-## <a name="<a-name="delete"></a>delete-a-record-set"></a><a name="delete"></a>Delete a record set
-
-1. On the **Record set properties** blade for your record set, click **Delete**.
-
-    ![Delete a record set](./media/dns-operations-recordsets-portal/deleterecordset500.png)
-
-2. A message appears asking if you want to delete the record set.
-
-3. Verify that the name matches the record set that you want to delete, and then click **Yes**.
-
-4. On the **DNS zone** blade, verify that the record set is no longer visible.
+	![Ajout d’un jeu d’enregistrements](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-## <a name="work-with-ns-and-soa-records"></a>Work with NS and SOA records
-
-NS and SOA records that are automatically created are managed differently from other record types.
-
-### <a name="modify-soa-records"></a>Modify SOA records
-
-You cannot add or remove records from the automatically created SOA record set at the zone apex (name = "@"). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
-
-### <a name="modify-ns-records-at-the-zone-apex"></a>Modify NS records at the zone apex
-
-You cannot add to, remove, or modify the records in the automatically created NS record set at the zone apex (name = "@"). The only change that's permitted is to modify the record set TTL.
-
-### <a name="delete-soa-or-ns-record-sets"></a>Delete SOA or NS record sets
-
-You cannot delete the SOA and NS record sets at the zone apex (name = "@") that are created automatically when the zone is created. They are deleted automatically when you delete the zone.
-
-## <a name="next-steps"></a>Next steps
-
--   For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
--   For more information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
--   For more information about reverse DNS records, see [How to manage reverse DNS records for your services using PowerShell](dns-reverse-dns-record-operations-ps.md).
+Une fois que l’enregistrement a été sauvegardé, les valeurs du jeu d’enregistrements dans le panneau **Zone DNS** reflètent l’enregistrement mis à jour.
 
 
+## Suppression d’un enregistrement d’un jeu d’enregistrements
 
-<!--HONumber=Oct16_HO2-->
+Vous pouvez utiliser le portail Azure pour supprimer des enregistrements d’un jeu d’enregistrements. Notez que la suppression du dernier enregistrement d’un jeu d’enregistrements ne supprime pas le jeu d’enregistrements.
+
+1. Dans le panneau **Propriétés du jeu d’enregistrements** de votre jeu d’enregistrements, recherchez l’enregistrement.
+
+2. Cliquez sur l’enregistrement que vous souhaitez supprimer. Puis sélectionnez **Supprimer**.
+
+	![Suppression d’un enregistrement](./media/dns-operations-recordsets-portal/removerecord500.png)
+
+3. Cliquez sur **Enregistrer** en haut du panneau pour enregistrer vos paramètres.
+
+3. Une fois que l’enregistrement a été supprimé, les valeurs du jeu d’enregistrements dans le panneau **Zone DNS** reflètent la suppression de l’enregistrement.
 
 
+## <a name="delete"></a>Suppression d’un jeu d'enregistrements
+
+1. Dans le panneau **Propriétés du jeu d’enregistrements** de votre jeu d’enregistrements, cliquez sur **Supprimer**.
+
+	![Suppression d’un jeu d'enregistrements](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+
+2. Un message s’affiche vous demandant si vous souhaitez supprimer le jeu d’enregistrements.
+
+3. Vérifiez que le nom correspond au jeu d’enregistrements que vous souhaitez supprimer, puis cliquez sur **Oui**.
+
+4. Dans le panneau de **Zone DNS**, vous pouvez vérifier que le jeu d’enregistrements n’est plus visible.
+
+
+## Utilisation d’enregistrements NS et SOA
+
+Les enregistrements NS et SOA qui sont créés automatiquement sont gérés différemment des autres types d’enregistrements.
+
+### Modification d'enregistrements SOA
+
+Vous ne pouvez pas ajouter ou supprimer d’enregistrements dans le jeu d’enregistrements SOA créé automatiquement à l’extrémité de la zone (nom = « @ »). Vous pouvez cependant modifier les paramètres dans l’enregistrement SOA (à l’exception de « l’hôte ») et pendant la durée de vie du jeu d’enregistrements.
+
+### Modification d’enregistrements NS à l’extrémité de la zone
+
+Vous ne pouvez pas ajouter, supprimer ou modifier les enregistrements dans le jeu d'enregistrements NS créé automatiquement à l’extrémité de la zone (nom = « @ »). La seule modification possible est la modification de la durée de vie du jeu d’enregistrements.
+
+### Suppression de jeux d’enregistrements SOA ou NS
+
+Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’extrémité de la zone (nom = « @ ») qui sont créés automatiquement lorsque la zone est créée. Ils sont automatiquement supprimés lorsque vous supprimez la zone.
+
+## Étapes suivantes
+
+-   Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md).
+-   Pour plus d’informations sur l’automatisation de DNS, consultez la rubrique [Création des zones DNS et de jeux d’enregistrements à l’aide du Kit de développement logiciel (SDK) .NET](dns-sdk.md).
+-   Pour plus d’informations sur les enregistrements DNS inversés, consultez la rubrique [Gestion des enregistrements DNS inversés pour vos services à l’aide de PowerShell](dns-reverse-dns-record-operations-ps.md).
+
+<!---HONumber=AcomDC_0824_2016-->

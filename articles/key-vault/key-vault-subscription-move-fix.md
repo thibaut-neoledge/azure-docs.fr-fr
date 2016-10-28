@@ -1,47 +1,46 @@
 <properties
-    pageTitle="Change key vault tenant ID after subscription move | Microsoft Azure"
-    description="Learn how to switch tenant ID for a key vault after a subscription is moved to a different tenant"
-    services="key-vault"
-    documentationCenter=""
-    authors="amitbapat"
-    manager="mbaldwin"
-    tags="azure-resource-manager"/>
+	pageTitle="Modifier l’ID de client du coffre de clés après un déplacement d’abonnement | Microsoft Azure"
+	description="Apprenez à changer l’ID de client d’un coffre de clés après le déplacement d’un abonnement vers un autre client"
+	services="key-vault"
+	documentationCenter=""
+	authors="amitbapat"
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="key-vault"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="09/13/2016"
-    ms.author="ambapat"/>
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="09/13/2016"
+	ms.author="ambapat"/>
 
+# Modifier l’ID de client du coffre de clés après un déplacement d’abonnement
+### Q : Mon abonnement a été déplacé du client A vers le client B. Comment modifier l’ID de client du coffre de clés existant et définir des ACL correctes pour les principaux dans le client B ?
 
-# <a name="change-key-vault-tenant-id-after-subscription-move"></a>Change key vault tenant ID after subscription move
-### <a name="q:-my-subscription-was-moved-from-tenant-a-to-tenant-b.-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b?"></a>Q: My subscription was moved from tenant A to tenant B. How do I change the tenant ID for my existing key vault and set correct ACLs for principals in tenant B?
+Lorsque vous créez un coffre de clés dans un abonnement, il est automatiquement lié à l’ID de client Azure Active Directory par défaut pour cet abonnement. Toutes les entrées de stratégie d’accès sont également liées à cet ID de client. Lorsque vous déplacez votre abonnement Azure du client A vers le client B, vos coffres de clés existants ne sont pas accessibles par les principaux (utilisateurs et applications) dans le client B. Pour résoudre ce problème, vous devez
 
-When you create a new key vault in a subscription, it is automatically tied to the default Azure Active Directory tenant ID for that subscription. All access policy entries are also tied to this tenant ID. When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to
+- modifier l’ID de client associé à tous les coffres de clés existants dans cet abonnement pour le client B
+- supprimer toutes les entrées de stratégie d’accès existantes
+- ajouter de nouvelles entrées de stratégie d’accès associées au client B.
 
-- change the tenant ID associated with all existing key vaults in this subscription to tenant B
-- remove all existing access policy entries
-- add new access policy entries that are associated with tenant B.
-
-For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault and remove old access policies.
+Par exemple, si vous avez un coffre de clés 'myvault' dans un abonnement qui a été déplacé du client A vers le client B, voici comment modifier l’ID de client de ce coffre de clés et supprimer d’anciennes stratégies d’accès.
 
 <pre>
-$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId $vault.Properties.AccessPolicies = @() Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
+$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
+$vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
+$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
+$vault.Properties.AccessPolicies = @()
+Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Since this vault was in tenant A before move original value of **$vault.Properties.TenantId** is tenant A, while **(Get-AzureRmContext).Tenant.TenantId** is tenant B.
+Dans la mesure où ce coffre se trouvant dans le client A avant son déplacement, la valeur d’origine de **$vault. Properties.TenantId** est le client A, tandis que **(Get-AzureRmContext). Tenant.TenantId** est le client B.
 
-Now that your vault is associated with the correct tenant Id and old access policy entries are removed, set new access policy entries with [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
+Maintenant que votre coffre est associé avec l’ID de client correct et que les anciennes entrées de stratégie d’accès sont supprimées, définissez les nouvelles entrées de stratégie d’accès avec [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
 
-## <a name="next-steps"></a>Next Steps
+## Étapes suivantes
 
-- If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
+- Pour toute question concernant le coffre de clés, rendez-vous sur les [forums sur les coffres de clés Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

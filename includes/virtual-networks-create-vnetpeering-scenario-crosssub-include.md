@@ -1,14 +1,11 @@
-## <a name="peering-across-subscriptions"></a>Peering across subscriptions
+## Homologation entre des abonnements
 
-In this scenario you will create a peering between two VNets belonging to different subscriptions.
+Dans ce scénario, vous allez créer une homologation entre deux réseaux virtuels appartenant à différents abonnements.
 
-![cross sub scenario](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
+![scénario impliquant différents abonnements](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
 
-VNet peering relies on Role based access control (RBAC) for authorization. For cross-subscriptions scenario, you first need to grant sufficient permission to users who will create the peering link:
+VNet Peering s’appuie sur le contrôle d’accès en fonction du rôle (RBAC) pour l’autorisation. Pour un scénario impliquant différents abonnements, vous devez tout d’abord octroyer une autorisation suffisante aux utilisateurs qui créeront le lien d’homologation :
 
-> [AZURE.NOTE] If the same user has the privilege over both subscriptions, then you can skip step1-4 below.
+> [AZURE.NOTE] Si un même utilisateur dispose du privilège sur les deux abonnements, vous pouvez ignorer les étapes 1 à 4 indiquées ci-dessous.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

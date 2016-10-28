@@ -1,46 +1,42 @@
 
 <!--author=SharS last changed: 11/04/15-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
+#### Pour ajouter ou modifier une planification de sauvegarde StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. Dans la page **Démarrage rapide**, cliquez sur l’onglet **Stratégies de sauvegarde**. La page **Stratégies de sauvegarde** s’affiche.
 
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
+2. Dans la liste des stratégies, cliquez sur la stratégie que vous souhaitez modifier.
 
-3. Under **General**, you can modify the backup policy name.
+3. Dans **Général**, vous pouvez modifier le nom de la stratégie de sauvegarde.
 
-     ![manage schedules](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
+     ![gérer les planifications](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
 
-4. Click **Manage Schedules**. 
+4. Cliquez sur **Gérer les planifications**.
 
-5. In the **Manage Schedule** dialog box, under **Add or Modify a schedule**, do the following:
+5. Dans la boîte de dialogue **Gérer la planification**, dans **Ajouter ou modifier une planification**, procédez comme suit :
 
-    1. From the drop-down list, choose an existing schedule or select **Add** to create a new schedule.
-    2. Click the check icon ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png). 
+    1. Dans la liste déroulante, sélectionnez une planification existante ou sélectionnez **Ajouter** pour créer une nouvelle planification.
+    2. Cliquez sur l’icône en forme de coche ![modifier les planifications 1](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png). 
 
-        ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
+        ![modifier les planifications 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
 
-    2. Select the type of backup as local or cloud snapshot.
+    2. Sélectionnez le type de sauvegarde (instantané local ou cloud).
 
-        ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
+        ![modifier les planifications 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png)
 
-    3. Specify the backup frequency, retention, and starting time for the schedule.
+    3. Indiquez la fréquence de sauvegarde, la rétention et l’heure de début de la planification.
 
-    4. Select the check box to enable or disable the schedule.
+    4. Cochez la case pour activer ou désactiver la stratégie.
 
-    5. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) to save the schedule.
+    5. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) pour enregistrer la planification.
 
-5. In the **Volumes** section, choose the volumes that this policy will be applied to.
+5. Dans la section **Volumes**, choisissez les volumes auxquels appliquer cette stratégie.
 
-6. At the bottom of the page, click **Save** to save the changes to this policy.
+6. Pour enregistrer les modifications de cette stratégie, cliquez sur **Enregistrer** en bas de la page.
 
-7. You will prompted for confirmation. Click **Yes** to save the policy.
+7. Vous êtes invité à confirmer l’opération. Cliquez sur **Oui** pour enregistrer la stratégie.
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+La page **Stratégies de sauvegarde** affiche la stratégie mise à jour.
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1217_2015-->

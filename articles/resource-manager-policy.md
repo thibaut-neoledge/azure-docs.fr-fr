@@ -1,58 +1,56 @@
 <properties
-    pageTitle="Azure Resource Manager Policy | Microsoft Azure"
-    description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like subscription, resource groups or individual resources."
-    services="azure-resource-manager"
-    documentationCenter="na"
-    authors="ravbhatnagar"
-    manager="ryjones"
-    editor="tysonn"/>
+	pageTitle="Azure Resource Manager Policy | Microsoft Azure"
+	description="Décrit comment utiliser Azure Resource Manager Policy pour éviter les violations au niveau de différentes étendues comme l’abonnement, les groupes de ressources ou les ressources individuelles."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="ravbhatnagar"
+	manager="ryjones"
+	editor="tysonn"/>
 
 <tags
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="07/12/2016"
-    ms.author="gauravbh;tomfitz"/>
+	ms.service="azure-resource-manager"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="07/12/2016"
+	ms.author="gauravbh;tomfitz"/>
 
+# Utiliser le service Policy pour gérer les ressources et contrôler l’accès
 
-# <a name="use-policy-to-manage-resources-and-control-access"></a>Use Policy to manage resources and control access
+Azure Resource Manager vous permet désormais de contrôler l’accès par le biais de stratégies personnalisées. Avec les stratégies, vous pouvez empêcher les utilisateurs de votre organisation de rompre les conventions qui sont nécessaires pour gérer les ressources de votre organisation.
 
-Azure Resource Manager now allows you to control access through custom policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
+Vous créez des définitions de stratégies qui décrivent les actions ou les ressources qui sont spécifiquement refusées. Vous affectez ces définitions de stratégies selon l'étendue souhaitée, au niveau de l'abonnement, du groupe de ressources ou d'une ressource individuelle.
 
-You create policy definitions that describe the actions or resources that are specifically denied. You assign those policy definitions at the desired scope, such as the subscription, resource group, or an individual resource. 
+Dans cet article, nous allons expliquer la structure de base du langage de définition de stratégies que vous pouvez utiliser pour créer des stratégies. Ensuite, nous décrirons comment vous pouvez appliquer ces stratégies au niveau de différentes étendues et, enfin, nous présenterons des exemples d'application par le biais de l'API REST.
 
-In this article, we will explain the basic structure of the policy definition language that you can use to create policies. Then we will describe how you can apply these policies at different scopes and finally we will show some examples of how you can achieve this through REST API.
+## Quelle est la différence avec RBAC ?
 
-## <a name="how-is-it-different-from-rbac?"></a>How is it different from RBAC?
+Il existe quelques différences importantes entre la stratégie et le contrôle d'accès en fonction du rôle, mais la première chose à comprendre est que les stratégies et le contrôle d'accès en fonction du rôle (RBAC) fonctionnent ensemble. Pour pouvoir utiliser la stratégie, l'utilisateur doit être authentifié au moyen de RBAC. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d'autorisation et de refus.
 
-There are a few key differences between policy and role-based access control, but the first thing to understand is that policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike RBAC, policy is a default allow and explicit deny system. 
+Le contrôle d’accès en fonction du rôle (RBAC) porte principalement sur les actions qu’un **utilisateur** peut effectuer dans différentes étendues. Par exemple, un utilisateur particulier est ajouté au rôle de collaborateur pour un groupe de ressources dans l'étendue de votre choix, ce qui permet à l'utilisateur d'apporter des modifications dans ce groupe de ressources.
 
-RBAC focuses on the actions a **user** can perform at different scopes. For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that resource group. 
+La stratégie porte principalement sur les actions des **ressources** dans différentes étendues. Par exemple, avec les stratégies, vous pouvez contrôler les types de ressources qui peuvent être mises en service ou restreindre les emplacements dans lesquels les ressources peuvent être mises en service.
 
-Policy focuses on **resource** actions at various scopes. For example, through policies, you can control the types of resources that can be provisioned or restrict the locations in which the resources can be provisioned.
+## Scénarios courants
 
-## <a name="common-scenarios"></a>Common Scenarios
+Un scénario courant consiste à rendre nécessaire l’utilisation de balises de service à des fins de facturation interne. Une organisation peut choisir de n’autoriser des opérations que si le centre de coût approprié est associé ; sinon, elle rejette la demande. Cela l’aide à facturer le centre de coût approprié pour les opérations effectuées.
 
-One common scenario is to require departmental tags for chargeback purpose. An organization might want to allow operations only when the appropriate cost center is associated; otherwise, they will deny the request.
-This would help them charge the appropriate cost center for the operations performed.
+Dans un autre scénario courant, l’organisation peut souhaiter contrôler les emplacements où les ressources sont créées. Ou bien elle peut vouloir contrôler l’accès aux ressources en autorisant l’approvisionnement de certains types de ressources uniquement.
 
-Another common scenario is that the organization might want to control the locations where resources are created. Or they might want to control access to the resources by allowing only certain types of resources to be provisioned.
+De même, une organisation peut contrôler le catalogue de services ou appliquer les conventions d’affectation de noms souhaitées pour les ressources.
 
-Similarly, an organization can control the service catalog or enforce the desired naming conventions for the resources.
+À l’aide de stratégies, ces scénarios peuvent être facilement mis en œuvre comme décrit ci-après.
 
-Using policies, these scenarios can easily be achieved as described below.
+## Structure de la définition de stratégie
 
-## <a name="policy-definition-structure"></a>Policy Definition structure
+Une définition de stratégie est créée à l’aide de JSON. Elle se compose d’un ou plusieurs opérateurs logiques/conditions qui définissent les actions et d’un résultat qui indique ce qui se passe quand les conditions sont remplies. Le schéma est publié à l’adresse [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
 
-Policy definition is created using JSON. It consists of one or more conditions/logical operators which define the actions and an effect which tells what happens when the conditions are fulfilled. The schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
+Essentiellement, une stratégie contient les éléments suivants :
 
-Basically, a policy contains the following:
+**Opérateurs logiques/conditions :** ensemble de conditions qui peuvent être manipulées via un ensemble d’opérateurs logiques.
 
-**Condition/Logical operators:** It contains a set of conditions which can be manipulated through a set of logical operators.
-
-**Effect:** This describes what the effect will be when the condition is satisfied – either deny or audit. An audit effect will emit a warning event service log. For example, an administrator can create a policy which causes an audit if anyone creates a large VM, then review the logs later.
+**Résultat :** résultat obtenu quand la condition est satisfaite (refus ou audit). Un résultat d’audit émet un journal de service d’événement d’avertissement. Par exemple, un administrateur peut créer une stratégie qui provoque un audit si quelqu’un crée une machine virtuelle de grande taille, puis passer en revue les journaux ultérieurement.
 
     {
       "if" : {
@@ -63,104 +61,104 @@ Basically, a policy contains the following:
       }
     }
     
-## <a name="policy-evaluation"></a>Policy Evaluation
+## Évaluation de a stratégie
 
-Policy will be evaluated when resource creation or template deployment happens using HTTP PUT. In case of template deployment, policy will be evaluated during the creation of each resource in the template. 
+Une stratégie doit être évaluée lors de la création d’une ressource ou du déploiement d’un modèle à l'aide de HTTP PUT. En cas de déploiement d’un modèle, la stratégie doit être évaluée lors de la création de chaque ressource dans le modèle.
 
-> [AZURE.NOTE] Currently, policy does not evaluate resource types that do not support tags, kind, and location, such as the Microsoft.Resources/deployments resource type. This support will be added at a future time. To avoid backward compatibility issues, you should explicitly specify type when authoring policies. For example, a tag policy that does not specify types will be applied for all types. In that case, a template deployment may fail in the future if there is a nested resource that don't support tag, and the deployment resource type has been added to policy evaluation. 
+> [AZURE.NOTE] Actuellement, la stratégie n'évalue pas les types de ressources qui ne prennent pas en charge les balises, le type et l'emplacement, par exemple, le type de ressource Microsoft.Resources/deployments. Cette prise en charge sera ajoutée prochainement. Pour éviter des problèmes de compatibilité descendante, vous devriez spécifier explicitement le type lors de la création de stratégies. Par exemple, une stratégie de balises sans spécification des types sera appliquée à tous les types. Dans ce cas, le déploiement d'un modèle risque d’échouer à l'avenir s'il existe une ressource imbriquée ne prenant pas en charge les balises, et le type de ressource du déploiement sera ajouté à l'évaluation de la stratégie.
 
-## <a name="logical-operators"></a>Logical Operators
+## Opérateurs logiques
 
-The supported logical operators along with the syntax are listed below:
+Les opérateurs logiques pris en charge avec la syntaxe sont répertoriés ci-après :
 
-| Operator Name     | Syntax         |
+| Nom de l’opérateur | Syntaxe |
 | :------------- | :------------- |
-| Not            | "not" : {&lt;condition  or operator &gt;}             |
-| And           | "allOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
-| Or                         | "anyOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
+| Not | "not" : {&lt;condition ou opérateur &gt;} |
+| Et | « allOf »: [ {&lt; condition ou opérateur &gt;},{&lt; condition ou opérateur &gt;}] |
+| Ou | « anyOf »: [ {&lt; condition ou opérateur &gt;},{&lt; condition ou opérateur &gt;}] |
 
-Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested operators is shown below.
+Resource Manager vous permet de spécifier une logique complexe dans votre stratégie via des opérateurs imbriqués. Par exemple, vous pouvez refuser la création de ressources à un emplacement particulier pour un type de ressource spécifié. Voici un exemple d’opérateurs imbriqués.
 
-## <a name="conditions"></a>Conditions
+## Conditions
 
-A condition evaluates whether a **field** or **source** meets certain criteria. The supported condition names and syntax are listed below:
+Une condition évalue si un **champ** ou une **source** répond à certains critères. Les noms et la syntaxe des conditions prises en charge sont répertoriés ci-après :
 
-| Condition Name | Syntax                |
+| Nom de la condition | Syntaxe |
 | :------------- | :------------- |
-| Equals             | "equals" : "&lt;value&gt;"               |
-| Like                  | "like" : "&lt;value&gt;"                   |
-| Contains          | "contains" : "&lt;value&gt;"|
-| In                        | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
-| ContainsKey    | "containsKey" : "&lt;keyName&gt;" |
-| Exists     | "exists" : "&lt;bool&gt;" |
+| Égal à | "equals" : "&lt;valeur&gt;" |
+| Comme | "like" : "&lt;valeur&gt;" |
+| Contient | "contains" : "&lt;valeur&gt;"|
+| Dans | "in" : [ "&lt;valeur1&gt;","&lt;valeur2&gt;" ]|
+| Contient clé | "containsKey" : "&lt;nom\_clé&gt;" |
+| Exists | "exists" : "&lt;bool&gt;" |
 
-### <a name="fields"></a>Fields
+### Champs
 
-Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
+Les conditions sont formées à partir de champs et de sources. Un champ représente des propriétés dans la charge utile de la requête de ressource qui est utilisée pour décrire l'état de la ressource. Une source représente les caractéristiques de la requête elle-même.
 
-The following fields and sources are supported:
+Les sources et champs suivants sont pris en charge :
 
-Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
+Champs : **name** (nom), **kind (genre)**, **type**, **location** (emplacement), **tags** (balises), **tags.** * et **property alias** (alias de propriété)*.
 
-### <a name="property-aliases"></a>Property aliases 
-Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and skus. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
+### Alias de propriété 
+L’alias de propriété est un nom pouvant servir de définition de stratégie pour accéder aux propriétés propres au type de ressource, telles que les paramètres et les références (SKU). Il fonctionne sur toutes les versions d’API pour lesquelles la propriété existe. Les alias peuvent être récupérés à l'aide de l'API REST ci-dessous (la prise en charge Powershell sera ajoutée ultérieurement) :
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
-    
-The definition of an alias is shown below. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
+	
+Vous trouverez ci-dessous la définition d'un alias. Comme vous pouvez le voir, un alias définit des chemins dans différentes versions d'API, même en cas de changement de nom de propriété.
 
-    "aliases": [
-        {
-          "name": "Microsoft.Storage/storageAccounts/sku.name",
-          "paths": [
-            {
-              "path": "properties.accountType",
-              "apiVersions": [
-                "2015-06-15",
-                "2015-05-01-preview"
-              ]
-            },
-            {
-              "path": "sku.name",
-              "apiVersions": [
-                "2016-01-01"
-              ]
-            }
-          ]
-        }
-    ]
+	"aliases": [
+	    {
+	      "name": "Microsoft.Storage/storageAccounts/sku.name",
+	      "paths": [
+	        {
+	          "path": "properties.accountType",
+	          "apiVersions": [
+	            "2015-06-15",
+	            "2015-05-01-preview"
+	          ]
+	        },
+	        {
+	          "path": "sku.name",
+	          "apiVersions": [
+	            "2016-01-01"
+	          ]
+	        }
+	      ]
+	    }
+	]
 
-Currently, the supported aliases are:
+Actuellement, les alias pris en charge sont les suivants :
 
-| Alias name | Description |
+| Nom d'alias | Description |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
-| {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
-| {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
-| Microsoft.Compute/virtualMachines/imagePublisher |  |
-| Microsoft.Compute/virtualMachines/imageOffer  |  |
-| Microsoft.Compute/virtualMachines/imageSku  |  |
-| Microsoft.Compute/virtualMachines/imageVersion  |  |
-| Microsoft.Cache/Redis/enableNonSslPort |  |
-| Microsoft.Cache/Redis/shardCount |  |
-| Microsoft.SQL/servers/version |  |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveId |  |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveName |  |
-| Microsoft.SQL/servers/databases/edition |  |
-| Microsoft.SQL/servers/databases/elasticPoolName |  |
-| Microsoft.SQL/servers/elasticPools/dtu |  |
-| Microsoft.SQL/servers/elasticPools/edition |  |
+| {resourceType}/sku.name | Les types de ressources pris en charge sont les suivants : Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
+| {resourceType}/sku.family | Le type de ressource pris en charge est Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | Le type de ressource pris en charge est Microsoft.Cache/Redis |
+| Microsoft.Compute/virtualMachines/imagePublisher | |
+| Microsoft.Compute/virtualMachines/imageOffer | |
+| Microsoft.Compute/virtualMachines/imageSku | |
+| Microsoft.Compute/virtualMachines/imageVersion | |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+| Microsoft.SQL/servers/version | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
+| Microsoft.SQL/servers/databases/edition | |
+| Microsoft.SQL/servers/databases/elasticPoolName | |
+| Microsoft.SQL/servers/elasticPools/dtu | |
+| Microsoft.SQL/servers/elasticPools/edition | |
 
-Currently, policy only works on PUT requests. 
+Actuellement, la stratégie fonctionne uniquement sur les demandes PUT.
 
-## <a name="effect"></a>Effect
-Policy supports three types of effect - **deny**, **audit**, and **append**. 
+## Résultat
+La stratégie prend en charge trois types d’effet : **deny**, **audit** et **append**.
 
-- Deny generates an event in the audit log and fails the request
-- Audit generates an event in audit log but does not fail the request
-- Append adds the defined set of fields to the request 
+- Deny génère un événement dans le journal d'audit et fait échouer la requête
+- Audit génère un événement dans le journal d'audit mais ne fait pas échouer la requête
+- Append ajoute l'ensemble des champs défini à la requête
 
-For **append**, you must provide the details as shown below:
+Pour **append**, vous devez fournir les détails comme indiqué ci-dessous :
 
     ....
     "effect": "append",
@@ -171,15 +169,15 @@ For **append**, you must provide the details as shown below:
       }
     ]
 
-The value can be either a string or a JSON format object. 
+La valeur peut être une chaîne ou un objet au format JSON.
 
-## <a name="policy-definition-examples"></a>Policy Definition Examples
+## Exemples de définition de stratégie
 
-Now let's take a look at how we will define the policy to achieve the scenarios listed above.
+Voyons à présent comment nous pouvons définir la stratégie pour mettre en œuvre les scénarios évoqués plus haut.
 
-### <a name="chargeback:-require-departmental-tags"></a>Chargeback: Require departmental tags
+### Facturation interne : rendre nécessaire l’utilisation de balises de service
 
-The below policy denies all requests which don’t have a tag containing "costCenter" key.
+La stratégie ci-dessous refuse toutes les demandes dépourvues de balise contenant la clé « costCenter ».
 
     {
       "if": {
@@ -193,55 +191,55 @@ The below policy denies all requests which don’t have a tag containing "costCe
       }
     }
 
-The below policy appends costCenter tag with a predefined value if no tags are present. 
+La stratégie ci-dessous ajoute la balise costCenter, avec une valeur prédéfinie si aucune balise n'est présente.
 
-    {
-      "if": {
-        "field": "tags",
-        "exists": "false"
-      },
-      "then": {
-        "effect": "append",
-        "details": [
-          {
-            "field": "tags",
-            "value": {"costCenter":"myDepartment" }
-          }
-        ]
-      }
-    }
-    
-The below policy appends costCenter tag with a predefined value if other tags are present. 
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": {"costCenter":"myDepartment" }
+	      }
+	    ]
+	  }
+	}
+	
+La stratégie ci-dessous ajoute la balise costCenter, avec une valeur prédéfinie si aucune autre balise n'est présente.
 
-    {
-      "if": {
-        "allOf": [
-          {
-            "field": "tags",
-            "exists": "true"
-          },
-          {
-            "field": "tags.costCenter",
-            "exists": "false"
-          }
-        ]
-    
-      },
-      "then": {
-        "effect": "append",
-        "details": [
-          {
-            "field": "tags.costCenter",
-            "value": "myDepartment"
-          }
-        ]
-      }
-    }
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
 
 
-### <a name="geo-compliance:-ensure-resource-locations"></a>Geo Compliance: Ensure resource locations
+### Conformité géographique : vérifier les emplacements des ressources
 
-The below example shows a policy which will deny all requests where location is not North Europe or West Europe.
+L’exemple ci-dessous illustre une stratégie qui refuse toutes les demandes où l’emplacement n’est pas l’Europe du Nord ou l’Europe de l’Ouest.
 
     {
       "if" : {
@@ -255,9 +253,9 @@ The below example shows a policy which will deny all requests where location is 
       }
     }
 
-### <a name="service-curation:-select-the-service-catalog"></a>Service Curation: Select the service catalog
+### Curation des services : sélectionner le catalogue de services
 
-The below example shows the use of source. It shows that actions only on the services of type Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\* are allowed. Anything else will be denied.
+L’exemple ci-dessous illustre l’utilisation de la source. Il indique que seules sont autorisées les actions sur les services de type Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/* et Microsoft.Network/*. Toutes les autres sont refusées.
 
     {
       "if" : {
@@ -287,9 +285,9 @@ The below example shows the use of source. It shows that actions only on the ser
       }
     }
 
-### <a name="use-approved-skus"></a>Use Approved SKUs
+### Utiliser des références (SKU) approuvées
 
-The below example shows the use of property alias to restrict SKUs. In the example below, only Standard_LRS and Standard_GRS is approved to use for storage accounts.
+L'exemple ci-dessous illustre l'utilisation d'alias de propriété pour restreindre les SKU. Dans l'exemple ci-dessous, seule l’utilisation de Standard\_LRS et Standard\_GRS est approuvée pour les comptes de stockage.
 
     {
       "if": {
@@ -316,9 +314,9 @@ The below example shows the use of property alias to restrict SKUs. In the examp
     }
     
 
-### <a name="naming-convention"></a>Naming Convention
+### Conventions d’affectation de noms
 
-The below example shows the use of wildcard which is supported by the condition "like". The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request.
+L’exemple ci-dessous illustre l’utilisation de caractères génériques, grâce à la condition « like ». La condition stipule que la demande est refusée si le nom ne correspond pas au modèle indiqué (namePrefix*nameSuffix).
 
     {
       "if" : {
@@ -332,9 +330,9 @@ The below example shows the use of wildcard which is supported by the condition 
       }
     }
     
-### <a name="tag-requirement-just-for-storage-resources"></a>Tag requirement just for Storage resources
+### Spécification de balise uniquement pour les ressources de stockage
 
-The below example shows how to nest logical operators to require an application tag for only Storage resources.
+L’exemple ci-dessous montre comment imbriquer des opérateurs logiques pour requérir une balise d’application seulement pour les ressources de stockage.
 
     {
         "if": {
@@ -356,23 +354,23 @@ The below example shows how to nest logical operators to require an application 
         }
     }
 
-## <a name="policy-assignment"></a>Policy Assignment
+## Affectation de rôle
 
-Policies can be applied at different scopes like subscription, resource groups and individual resources. Policies are inherited by all child resources. So if a policy is applied to a resource group, it will be applicable to all the resources in that resource group.
+Les stratégies peuvent être appliquées au niveau de différentes étendues comme l’abonnement, les groupes de ressources et les ressources individuelles. Toutes les ressources enfants héritent des stratégies. Ainsi, si une stratégie est appliquée à un groupe de ressources, elle est applicable à toutes les ressources appartenant à ce groupe de ressources.
 
-## <a name="creating-a-policy"></a>Creating a Policy
+## Création d’une stratégie
 
-This section provides detail on how a policy can be created using REST API.
+Cette section fournit des détails sur la façon dont une stratégie peut être créée à l’aide de l’API REST.
 
-### <a name="create-policy-definition-with-rest-api"></a>Create Policy Definition with REST API
+### Créer la définition de stratégie avec l’API REST
 
-You can create a policy with the [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx). The REST API enables you to create and delete policy definitions, and get information about existing definitions.
+Vous pouvez créer une stratégie avec l’[API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx). L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes.
 
-To create a new policy, run:
+Pour créer une stratégie, exécutez la commande suivante :
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-With a request body similar to the following:
+Avec un corps de demande semblable au suivant :
 
     {
       "properties":{
@@ -394,39 +392,38 @@ With a request body similar to the following:
     }
 
 
-The policy-definition can be defined as one of the examples shown above.
-For api-version use *2016-04-01*. For examples and more details, see [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l’API, utilisez *2016-04-01*. Pour plus d’informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
-### <a name="create-policy-definition-using-powershell"></a>Create Policy Definition using PowerShell
+### Création d'une définition de stratégie à l'aide de PowerShell
 
-You can create a new policy definition using the New-AzureRmPolicyDefinition cmdlet as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
+Vous pouvez créer une nouvelle définition de stratégie à l'aide de l'applet de commande New-AzureRmPolicyDefinition comme indiqué ci-dessous. Les exemples ci-dessous créent une stratégie permettant d'attribuer des ressources uniquement en Europe du Nord et en Europe de l'ouest.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{  
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
       "if" : {
         "not" : {
           "field" : "location",
           "in" : ["northeurope" , "westeurope"]
-        }
+    	}
       },
       "then" : {
         "effect" : "deny"
       }
-    }'          
+    }'    		
 
-The output of execution is stored in $policy object, and can used later during policy assignment. For the policy parameter, the path to a .json file containing the policy can also be provided instead of specifying the policy inline as shown below.
+Le résultat de l'exécution est stocké dans l'objet $policy, car il peut être utilisé ultérieurement lors de l'affectation de la stratégie. Pour le paramètre de stratégie, vous pouvez également utiliser le chemin d'accès au fichier .json contenant la stratégie au lieu de spécifier la stratégie en ligne, comme indiqué ci-dessous.
 
-    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain    regions" -Policy "path-to-policy-json-on-disk"
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
-### <a name="create-policy-definition-using-azure-cli"></a>Create Policy Definition using Azure CLI
+### Création d’une définition de stratégie à l’aide de l’interface CLI Azure
 
-You can create a new policy definition using the azure CLI with the policy definition command as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
+Vous pouvez créer une nouvelle définition de stratégie à l’aide de l’interface de ligne de commande Azure avec la commande de définition de stratégie, comme indiqué ci-dessous. Les exemples ci-dessous créent une stratégie permettant d'attribuer des ressources uniquement en Europe du Nord et en Europe de l'ouest.
 
-    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{   
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
       "if" : {
         "not" : {
           "field" : "location",
           "in" : ["northeurope" , "westeurope"]
-        }
+    	}
       },
       "then" : {
         "effect" : "deny"
@@ -434,25 +431,24 @@ You can create a new policy definition using the azure CLI with the policy defin
     }'    
     
 
-It is possible to specify the path to a .json file containing the policy instead of specifying the policy inline as shown below.
+Il est possible de spécifier le chemin d’accès au fichier .json contenant la stratégie plutôt que la stratégie en ligne, comme indiqué ci-dessous.
 
     azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
 
 
-## <a name="applying-a-policy"></a>Applying a Policy
+## Application d’une stratégie
 
-### <a name="policy-assignment-with-rest-api"></a>Policy Assignment with REST API
+### Affectation de stratégie avec l’API REST
 
-You can apply the policy definition at the desired scope through the [REST API for policy assignments](https://msdn.microsoft.com/library/azure/mt588466.aspx).
-The REST API enables you to create and delete policy assignments, and get information about existing assignments.
+Vous pouvez appliquer la définition de stratégie à l’étendue souhaitée via l’[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
 
-To create a new policy assignment, run:
+Pour créer une affectation de stratégie, exécutez la commande suivante :
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-The {policy-assignment} is the name of the policy assignment. For api-version use *2016-04-01*. 
+{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l’API, utilisez *2016-04-01*.
 
-With a request body similar to the following:
+Avec un corps de demande semblable au suivant :
 
     {
       "properties":{
@@ -463,68 +459,64 @@ With a request body similar to the following:
       "name":"VMPolicyAssignment"
     }
 
-For examples and more details, see [REST API for Policy Assignments](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+Pour plus d’informations et des exemples, consultez [API REST pour l’affectation de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
-### <a name="policy-assignment-using-powershell"></a>Policy Assignment using PowerShell
+### Affectation de stratégies à l'aide de PowerShell
 
-You can apply the policy created above through PowerShell to the desired scope by using the New-AzureRmPolicyAssignment cmdlet as shown below:
+Vous pouvez appliquer la stratégie créée précédemment à l'aide de PowerShell selon l'étendue de votre choix à l'aide de l'applet de commande New-AzureRmPolicyAssignment, comme indiqué ci-dessous :
 
     New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-Here $policy is the policy object that was returned as a result of executing the New-AzureRmPolicyDefinition cmdlet as shown above. The scope here is the name of the resource group you specify.
+Dans ce cas, $policy est l'objet de stratégie qui a été renvoyé suite à l'exécution de l'applet de commande New-AzureRmPolicyDefinition, comme indiqué ci-dessus. L'étendue est ici le nom du groupe de ressources que vous spécifiez.
 
-If you want to remove the above policy assignment, you can do it as follows:
+Si vous souhaitez supprimer l'affectation de stratégie ci-dessus, procédez comme suit :
 
     Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-You can get, change or remove policy definitions through Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition and Remove-AzureRmPolicyDefinition cmdlets respectively.
+Vous pouvez obtenir, modifier ou supprimer des définitions de stratégie à l'aide des applets de commande Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition et Remove-AzureRmPolicyDefinition respectivement.
 
-Similarly, you can get, change or remove policy assignments through the Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment and Remove-AzureRmPolicyAssignment cmdlets respectively.
+De même, vous pouvez obtenir, modifier ou supprimer les affectations de stratégies à l'aide des applets de commande Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment et Remove-AzureRmPolicyAssignment respectivement.
 
-### <a name="policy-assignment-using-azure-cli"></a>Policy Assignment using Azure CLI
+### Affectation de stratégies à l’aide de l’interface CLI Azure
 
-You can apply the policy created above through Azure CLI to the desired scope by using the policy assignment command as shown below:
+Vous pouvez appliquer la stratégie créée précédemment à l’aide de l’interface de ligne de commande Azure sur l’étendue de votre choix à l’aide de la commande d’affectation de stratégies, comme indiqué ci-dessous :
 
     azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-The scope here is the name of the resource group you specify. If the value of the parameter policy-definition-id is unknown, it is possible to obtain it through the Azure CLI as shown below: 
+L'étendue est ici le nom du groupe de ressources que vous spécifiez. Si la valeur du paramètre policy-definition-id est inconnue, il est possible de l’obtenir grâce à l’interface CLI Azure, comme indiqué ci-dessous :
 
     azure policy definition show <policy-name>
 
-If you want to remove the above policy assignment, you can do it as follows:
+Si vous souhaitez supprimer l'affectation de stratégie ci-dessus, procédez comme suit :
 
-    azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-You can get, change or remove policy definitions through policy definition show, set and delete commands respectively.
+Vous pouvez récupérer, modifier ou supprimer des définitions de stratégies par le biais des commandes d’affichage, de configuration et de suppression de définitions de stratégies respectivement.
 
-Similarly, you can get, change or remove policy assignments through the policy assignment show and delete commands respectively.
+De même, vous pouvez récupérer, modifier ou supprimer des affectations de stratégies par le biais des commandes d’affichage et de suppression des affectations de stratégies respectivement.
 
-##<a name="policy-audit-events"></a>Policy Audit Events
+##Événements d’audit de stratégie
 
-After you have applied your policy, you will begin to see policy-related events. You can either go to portal, use PowerShell or the Azure CLI to get this data. 
+Après avoir appliqué votre stratégie, vous commencez à voir des événements liés à la stratégie. Vous pouvez accéder au portail ou utiliser PowerShell ou l’interface CLI Azure pour obtenir ces données.
 
-### <a name="policy-audit-events-using-powershell"></a>Policy Audit Events using PowerShell
+### Événements d’audit de stratégie avec PowerShell
 
-To view all events that related to deny effect, you can use the following PowerShell command. 
+Pour afficher tous les événements liés au résultat « refus », vous pouvez utiliser la commande PowerShell suivante.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
-To view all events related to audit effect, you can use the following command. 
+Pour afficher tous les événements liés au résultat « audit », vous pouvez utiliser la commande suivante.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
 
-### <a name="policy-audit-events-using-azure-cli"></a>Policy Audit Events using Azure CLI
+### Événements d’audit de stratégie avec l’interface CLI Azure
 
-To view all events from a resource group that related to deny effect, you can use the following CLI command. 
+Pour afficher tous les événements d’un groupe de ressources liés au résultat « refus », vous pouvez utiliser la commande CLI suivante.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/deny/action\")"
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
 
-To view all events related to audit effect, you can use the following CLI command. 
+Pour afficher tous les événements liés au résultat « audit », vous pouvez utiliser la commande CLI suivante.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/audit/action\")"
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

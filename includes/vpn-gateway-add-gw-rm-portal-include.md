@@ -1,40 +1,34 @@
-1. In the portal, go to **New**. Type "Virtual Network Gateway" in search. Locate **Virtual network gateway** in the search return and click the entry. This opens the **Create virtual network gateway** blade.
-2. Click **Create** at the bottom of the **Virtual network gateway** blade. The **Create virtual network gateway** blade will open. Fill in the values for your virtual network gateway.
+1. Dans le portail, accédez à **Nouveau**. Tapez « passerelle de réseau virtuel » dans la zone de recherche. Recherchez **passerelle de réseau virtuel** dans la zone de recherche et cliquez sur l’entrée. Cette opération ouvre le panneau **Créer une passerelle de réseau virtuel**.
+2. Cliquez sur **Créer** en bas du panneau **Passerelle de réseau virtuel**. Le panneau **Créer une passerelle de réseau virtuel** s’ouvre. Renseignez les valeurs de la passerelle de réseau virtuel.
 
-    ![Create virtual network gateway blade fields](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Create virtual network gateway blade fields")
+	![Créer les champs du panneau de la passerelle de réseau virtuel](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Créer les champs du panneau de la passerelle de réseau virtuel")
 
-3. **Name**: Name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
+3. **Nom** : nommez votre passerelle. Cela ne revient pas au même que de nommer un sous-réseau de passerelle. Il s’agit du nom de l’objet de passerelle que vous créez.
 
-4. **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**. 
+4. **Type de passerelle** : sélectionnez **VPN**. Les passerelles VPN utilisent le type de passerelle de réseau virtuel **VPN**.
 
-5. **VPN type**: Select the VPN type that is specified for your configuration. Most configurations require a Route-based VPN type.
+5. Dans **Type de réseau privé virtuel** : sélectionnez le type de VPN spécifié pour votre configuration. La plupart des configurations requièrent un type de VPN basé sur un itinéraire.
 
-6. **SKU**: Select the gateway SKU from the dropdown. The SKUs listed in the dropdown depend on the VPN type you select.
+6. **Référence** : sélectionnez la référence de passerelle dans la liste déroulante. Les références répertoriées dans la liste déroulante dépendent du type de VPN que vous sélectionnez.
 
-7. **Location**: Adjust the **Location** field to point to the location where your virtual network is located.
+7. **Emplacement** : définissez le champ **Emplacement** pour pointer sur l’emplacement dans lequel le réseau virtuel est situé.
  
-8. Choose the virtual network to which you want to add this gateway. Click **Virtual network** to open the **Choose a virtual network** blade. Select the VNet. If you don't see your VNet, make sure the **Location** field is pointing to the region in which your virtual network is located.
+8. Choisissez le réseau virtuel auquel vous souhaitez ajouter cette passerelle. Cliquez sur **Réseau virtuel** pour ouvrir le panneau **Choisir un réseau virtuel**. Sélectionnez le réseau virtuel. Si vous ne voyez pas votre réseau virtuel, assurez-vous que le champ **Emplacement** pointe sur la région dans laquelle se trouve votre réseau virtuel.
 
-9. Choose a public IP address. Click **Public IP address** to open the **Choose public IP address** blade. Click **+Create New** to open the **Create public IP address blade**. Input a name for your public IP address. This blade creates a public IP address object to which a public IP address will be dynamically assigned.<br>Click **OK** to save your changes to this blade.
+9. Définissez une adresse IP publique. Cliquez sur **l’adresse IP publique** pour ouvrir le panneau **Choisir une adresse IP publique**. Cliquez sur **Créer** pour ouvrir le panneau **Créer une adresse IP publique**. Donnez à un nom à votre adresse IP publique. Ce panneau crée un objet d’adresse IP publique à laquelle une adresse IP publique sera affectée dynamiquement.<br>Cliquez sur **OK** pour enregistrer vos modifications dans ce panneau.
 
-10. **Subscription**: Verify that the correct subscription is selected.
+10. **Abonnement** : vérifiez que l’abonnement approprié est sélectionné.
 
-11. **Resource group**: This setting is determined by the Virtual Network that you select. 
+11. **Groupe de ressources** : ce paramètre est déterminé par le réseau virtuel que vous sélectionnez.
 
-12. Don't adjust the **Location** after you've specified the previous settings.
+12. Ne changez pas **l’emplacement** après avoir spécifié les paramètres ci-dessus.
 
-13. Verify the settings. You can select **Pin to dashboard** at the bottom of the blade if you want your gateway to appear on the dashboard.
+13. Vérifiez les paramètres. Vous pouvez sélectionner **Épingler au tableau de bord** en bas du panneau si vous souhaitez que votre passerelle apparaisse sur le tableau de bord.
 
-14. Click **Create** to begin creating the gateway. The settings will be validated and you'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
+14. Cliquez sur **Créer** pour créer la passerelle. Les paramètres sont alors validés et la vignette « Déploiement d’une passerelle de réseau virtuel » s’affiche sur le tableau de bord. La création d’une passerelle peut prendre jusqu’à 45 minutes Vous devrez peut-être actualiser la page du portail pour que l’état terminé apparaisse.
 
-    ![Deploying Virtual network gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Deploying Virtual network gateway")
+	![Déploiement d’une passerelle de réseau virtuel](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Déploiement d’une passerelle de réseau virtuel")
 
-11. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway will appear as a connected device. You can click the connected device (your virtual network gateway) to view more information.
+11. Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît comme un appareil connecté. Vous pouvez cliquer sur l’appareil connecté (votre passerelle de réseau virtuel) pour afficher davantage d’informations.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

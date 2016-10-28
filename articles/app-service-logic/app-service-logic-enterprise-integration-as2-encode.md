@@ -1,81 +1,75 @@
 <properties 
-    pageTitle="Learn about Enterprise Integration Pack Encode AS2 Message Connctor | Microsoft Azure App Service | Microsoft Azure" 
-    description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="padmavc" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="En savoir plus sur le connecteur Enterprise Integration Pack Encode AS2 Message | Microsoft Azure App Service | Microsoft Azure" 
+	description="Découvrez comment utiliser les partenaires avec Enterprise Integration Pack et vos applications logiques" 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="padmavc" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="padmavc"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016" 
+	ms.author="padmavc"/>
 
+# Prise en main d’Encode AS2 Message
 
-# <a name="get-started-with-encode-as2-message"></a>Get started with Encode AS2 Message
+Connectez-vous à Encode AS2 Message pour créer des conditions sûres et fiables de transmission de messages. Encode AS2 Message fournit des fonctionnalités de signature numérique, de cryptage et d’accusés de réception par vérification des notifications de messages (Message Disposition Notifications, MDN), ce qui renforce par ailleurs la non-répudiation.
 
-Connect to Encode AS2 Message to establish security and reliability while transmitting messages. It provides digital signing, encryption, and acknowledgements via Message Disposition Notifications (MDN), which also leads to support for Non-Repudiation.
+## Créer la connexion
 
-## <a name="create-the-connection"></a>Create the connection
+### Composants requis
 
-### <a name="prerequisites"></a>Prerequisites
+* Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
 
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
+* Un compte d’intégration est nécessaire pour utiliser le connecteur Encode AS2 Message. Plus d’informations sur la création d’un [compte d’intégration](./app-service-logic-enterprise-integration-create-integration-account.md), de [partenaires](./app-service-logic-enterprise-integration-partners.md) et d’un [contrat AS2](./app-service-logic-enterprise-integration-as2.md)
 
-* An Integration Account is required to use Encode AS2 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-partners.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-as2.md)
+### Connectez-vous à Encode AS2 Message en procédant comme suit :
 
-### <a name="connect-to-encode-as2-message-using-the-following-steps:"></a>Connect to Encode AS2 Message using the following steps:
+1. La page [Créer une application logique](./app-service-logic-create-a-logic-app.md) vous fournit un exemple.
 
-1. [Create a Logic App](./app-service-logic-create-a-logic-app.md) provides an example
+2. Ce connecteur ne possède aucun déclencheur. Utilisez d’autres déclencheurs pour démarrer l’application logique, tel qu’un déclencheur de demande. Dans le concepteur d’applications logiques, ajoutez un déclencheur et une action. Sélectionnez Afficher les API gérées par Microsoft dans la liste déroulante, puis saisissez « AS2 » dans la zone de recherche. Sélectionnez AS2 - Encode AS2 Message.
 
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “AS2” in the search box.  Select AS2 – Encode AS2 Message
+	![Rechercher AS2](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)
 
-    ![search AS2](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)
+3. Si vous n’avez pas encore créé de connexion aux comptes d’intégration, vous êtes invité à saisir les informations de connexion.
+	
+	![Créer une connexion de compte d’intégration](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage1.png)
 
-3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
-    
-    ![create connection to integration account](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage1.png)  
+4. Entrez les détails du compte d’intégration. Les propriétés marquées d’un astérisque sont obligatoires.
 
-4. Enter the Integration Account details.  Properties with an asterisk are required
+	| Propriété | Détails |
+	| --------   | ------- |
+	| Nom de connexion * | Entrez un nom pour votre connexion |
+	| Compte d’intégration * | Entrez le nom du compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure |
 
-  	| Property   | Details |
-  	| --------   | ------- |
-  	| Connection Name *    | Enter any name for your connection |
-  	| Integration Account * | Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
+  	Une fois complets, les détails de votre connexion se présentent comme suit
 
-    Once complete, your connection details look similar to the following
+  	![Connexion d’intégration créée](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage2.png)
 
-    ![integration connection established](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage2.png)  
+5. Sélectionnez **Créer**
 
-5. Select **Create**
+6. Vous pouvez voir que la connexion a été créée. Renseignez les informations relatives aux identificateurs AS2-From et AS2-To (tels que configurés dans le contrat), ainsi qu’au corps (ou charge utile) du message.
 
-6. Notice the connection has been created.  Provide AS2-From, AS2-To identifiers (as configured in agreement) and Body (the message payload) details. 
+	![Remplir les champs obligatoires](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage3.png)
 
-    ![provide mandatory fields](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage3.png)
+## Le codage AS2 effectue les opérations suivantes :
 
-## <a name="the-as2-encode-does-the-following"></a>The AS2 Encode does the following
+* Applique les en-têtes AS2/HTTP
+* Signe les messages sortants (si configuré)
+* Chiffre les messages sortants (si configuré)
+* Compresse le message (si configuré)
 
-* Applies AS2/HTTP headers
-* Signs outgoing messages (if configured)
-* Encrypts outgoing messages (if configured)
-* Compresses the message (if configured)
+##Essayez par vous-même
 
-##<a name="try-it-for-yourself"></a>Try it for yourself
+Prêt à vous lancer ? Cliquez [ici](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) pour déployer votre propre application logique entièrement fonctionnelle à l’aide des fonctionnalités AS2 de Logic Apps
 
-Why not give it a try. Click [here](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) to deploy a fully operational logic app of your own using the Logic Apps AS2 features
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+[En savoir plus sur Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 
-[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

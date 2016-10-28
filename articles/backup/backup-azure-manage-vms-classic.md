@@ -1,250 +1,245 @@
 
 <properties
-    pageTitle="Manage and monitor Azure virtual machine backups | Microsoft Azure"
-    description="Learn how to manage and monitor an Azure virtual machine backups"
-    services="backup"
-    documentationCenter=""
-    authors="trinadhk"
-    manager="shreeshd"
-    editor=""/>
+	pageTitle="Gestion et surveillance des sauvegardes de machines virtuelles Azure | Microsoft Azure"
+	description="Découvrez comment gérer et surveiller les sauvegardes d'une machine virtuelle Azure"
+	services="backup"
+	documentationCenter=""
+	authors="trinadhk"
+	manager="shreeshd"
+	editor=""/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="trinadhk; jimpark; markgal;"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
-
-# <a name="manage-and-monitor-azure-virtual-machine-backups"></a>Manage and monitor Azure virtual machine backups
+# Gestion et surveillance des sauvegardes de machines virtuelles Azure
 
 > [AZURE.SELECTOR]
-- [Manage Azure VM backups](backup-azure-manage-vms.md)
-- [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
+- [Gestion des sauvegardes de machines virtuelles Azure](backup-azure-manage-vms.md)
+- [Gestion des sauvegardes de machines virtuelles classiques](backup-azure-manage-vms-classic.md)
 
-This article provides information about common management and monitoring tasks for Classic-model virtual machines protected in Azure.  
+Cet article fournit des informations sur les tâches de gestion et de surveillance courantes des machines virtuelles déployées avec le modèle Classic protégées dans Azure.
 
->[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
+>[AZURE.NOTE] Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Consultez la page [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-vms-prepare.md) pour plus d’informations sur l’utilisation des machines virtuelles avec le modèle de déploiement Classic.
 
-## <a name="manage-protected-virtual-machines"></a>Manage protected virtual machines
+## Gérer des machines virtuelles protégées
 
-To manage protected virtual machines:
+Pour gérer des machines virtuelles protégées :
 
-1. To view and manage backup settings for a virtual machine click the **Protected Items** tab.
+1. Pour afficher et gérer les paramètres de sauvegarde pour une machine virtuelle, cliquez sur l’onglet **Éléments protégés**.
 
-2. Click on the name of a protected item to see the **Backup Details** tab, which shows you information about the last backup.
+2. Cliquez sur le nom d’un élément protégé pour afficher l’onglet **Détails de la sauvegarde** qui vous présente des informations sur la dernière sauvegarde.
 
-    ![Virtual machine backup](./media/backup-azure-manage-vms/backup-vmdetails.png)
+    ![Sauvegarde de machine virtuelle](./media/backup-azure-manage-vms/backup-vmdetails.png)
 
-3. To view and manage backup policy settings for a virtual machine click the **Policies** tab.
+3. Pour afficher et gérer les paramètres de stratégie de sauvegarde pour une machine virtuelle, cliquez sur l’onglet **Stratégies**.
 
-    ![Virtual machine policy](./media/backup-azure-manage-vms/manage-policy-settings.png)
+    ![Stratégie de machine virtuelle](./media/backup-azure-manage-vms/manage-policy-settings.png)
 
-    The **Backup Policies** tab shows you the existing policy. You can modify as needed. If you need to create a new policy click **Create** on the **Policies** page. Note that if you want to remove a policy it shouldn't have any virtual machines associated with it.
+    L’onglet **Stratégies de sauvegarde** affiche la stratégie existante. Vous pouvez la modifier en fonction de vos besoins. Si vous devez créer une stratégie, cliquez sur **Créer** dans la page **Stratégies**. Notez que si vous voulez supprimer une stratégie, aucune machine virtuelle ne doit lui être associée.
 
-    ![Virtual machine policy](./media/backup-azure-manage-vms/backup-vmpolicy.png)
+    ![Stratégie de machine virtuelle](./media/backup-azure-manage-vms/backup-vmpolicy.png)
 
-4. You can get more information about actions or status for a virtual machine on the **Jobs** page. Click a job in the list to get more details, or filter jobs for a specific virtual machine.
+4. Vous pouvez obtenir plus d’informations sur l’état ou les actions d’une machine virtuelle dans la page **Tâches**. Cliquez sur une tâche dans la liste pour obtenir plus de détails, ou filtrez les tâches pour une machine virtuelle spécifique.
 
-    ![Jobs](./media/backup-azure-manage-vms/backup-job.png)
+    ![Travaux](./media/backup-azure-manage-vms/backup-job.png)
 
-## <a name="on-demand-backup-of-a-virtual-machine"></a>On-demand backup of a virtual machine
-You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault. If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault i.e. it is always incremental.
+## Sauvegarde à la demande d’une machine virtuelle
+Vous pouvez effectuer une sauvegarde à la demande d’une machine virtuelle une fois que celle-ci est configurée pour la protection. Si la sauvegarde initiale est en attente pour la machine virtuelle, la sauvegarde à la demande crée une copie complète de la machine virtuelle dans l’archivage de sauvegarde Azure. Si la première sauvegarde est terminée, la sauvegarde à la demande envoie seulement les modifications apportées lors de la sauvegarde précédente à l’archivage de sauvegarde Azure de manière toujours incrémentielle.
 
->[AZURE.NOTE] Retention range of an on-demand backup is set to retention value specified for Daily retention in backup policy corresponding to the VM.  
+>[AZURE.NOTE] La durée de rétention d’une sauvegarde à la demande est définie sur la valeur de rétention spécifiée pour la rétention quotidienne dans la stratégie de sauvegarde correspondant à la machine virtuelle.
 
-To take an on-demand backup of a virtual machine:
+Pour créer une sauvegarde à la demande d’une machine virtuelle :
 
-1. Navigate to the **Protected Items** page and select **Azure Virtual Machine** as **Type** (if not already selected) and click on **Select** button.
+1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** comme **Type** (si elle n’est pas déjà sélectionnée), puis cliquez sur le bouton **Sélectionner**.
 
-    ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
+    ![Type de machine virtuelle](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Select the virtual machine on which you want to take an on-demand backup and click on **Backup Now** button at the bottom of the page.
+2. Sélectionnez la machine virtuelle sur laquelle vous souhaitez effectuer la sauvegarde à la demande, puis cliquez sur le bouton **Sauvegarder maintenant** au bas de la page.
 
-    ![Back up now](./media/backup-azure-manage-vms/backup-now.png)
+    ![Sauvegarder maintenant](./media/backup-azure-manage-vms/backup-now.png)
 
-    This will create a backup job on the selected virtual machine. Retention range of recovery point created through this job will be same as that specified in the policy associated with the virtual machine.
+    Cette opération permet de créer un travail de sauvegarde sur la machine virtuelle sélectionnée. La plage de rétention de point de récupération créée via ce travail est identique à celle spécifiée dans la stratégie associée à la machine virtuelle.
 
-    ![Creating backup job](./media/backup-azure-manage-vms/creating-job.png)
+    ![Création du travail de sauvegarde](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE] To view the policy associated with a virtual machine, drill down into virtual machine in the **Protected Items** page and go to backup policy tab.
+    >[AZURE.NOTE] Pour afficher la stratégie associée à une machine virtuelle, accédez à cette dernière dans la page **Éléments protégés**, puis à l’onglet Stratégie de sauvegarde.
 
-3. Once the job is created, you can click on **View job** button in the toast bar to see the corresponding job in the jobs page.
+3. Une fois que le travail est créé, vous pouvez cliquer sur le bouton **Afficher le travail** dans la barre de notification pour voir le travail correspondant dans la page Travaux.
 
-    ![Backup job created](./media/backup-azure-manage-vms/created-job.png)
+    ![Travail de sauvegarde créé](./media/backup-azure-manage-vms/created-job.png)
 
-4. After successful completion of the job, a recovery point will be created which you can use to restore the virtual machine. This will also increment the recovery point column value by 1 in **Protected Items** page.
+4. Après l’achèvement réussi du travail, le point de récupération créé vous permet de restaurer la machine virtuelle. Cela permet également d’incrémenter la valeur de colonne de point de récupération de 1 dans la page **Éléments protégés**.
 
-## <a name="stop-protecting-virtual-machines"></a>Stop protecting virtual machines
-You can choose to stop the future backups of a virtual machine with the following options:
+## Arrêt de la protection des machines virtuelles
+Vous pouvez choisir d’arrêter les sauvegardes futures d’une machine virtuelle avec les options suivantes :
 
-- Retain backup data associated with virtual machine in Azure Backup vault
-- Delete backup data associated with virtual machine
+- Conserver les données de sauvegarde associées à la machine virtuelle dans l’archivage de sauvegarde Azure
+- Supprimer les données de sauvegarde associées à la machine virtuelle
 
-If you have selected to retain backup data associated with virtual machine, you can use the backup data to restore the virtual machine. For pricing details for such virtual machines, click [here](https://azure.microsoft.com/pricing/details/backup/).
+Si vous avez choisi de conserver des données de sauvegarde associées à la machine virtuelle, vous pouvez utiliser les données de sauvegarde pour restaurer la machine virtuelle. Pour connaître les détails de la tarification de ces machines virtuelles, cliquez [ici](https://azure.microsoft.com/pricing/details/backup/).
 
-To Stop protection for a virtual machine:
+Pour arrêter la protection d’une machine virtuelle :
 
-1. Navigate to **Protected Items** page and select **Azure virtual machine** as the filter type (if not already selected) and click on **Select** button.
+1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** comme type de filtre (si ce n’est pas déjà fait), puis cliquez sur le bouton **Sélectionner**.
 
-    ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
+    ![Type de machine virtuelle](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Select the virtual machine and click on **Stop Protection** at the bottom of the page.
+2. Sélectionnez la machine virtuelle et cliquez sur **Arrêter la protection** en bas de la page.
 
-    ![Stop protection](./media/backup-azure-manage-vms/stop-protection.png)
+    ![Arrêter la protection](./media/backup-azure-manage-vms/stop-protection.png)
 
-3. By default, Azure Backup doesn’t delete the backup data associated with the virtual machine.
+3. Par défaut, Azure Backup ne supprime pas les données de sauvegarde associées à la machine virtuelle.
 
-    ![Confirm stop protection](./media/backup-azure-manage-vms/confirm-stop-protection.png)
+    ![Confirmation l’arrêt de la protection](./media/backup-azure-manage-vms/confirm-stop-protection.png)
 
-    If you want to delete backup data, select the check box.
+    Si vous souhaitez supprimer les données de sauvegarde, sélectionnez la case à cocher.
 
-    ![Checkbox](./media/backup-azure-manage-vms/checkbox.png)
+    ![Case à cocher](./media/backup-azure-manage-vms/checkbox.png)
 
-    Please select a reason for stopping the backup. While this is optional, providing a reason will help Azure Backup to work on the feedback and prioritize the customer scenarios.
+    Sélectionnez le motif de l’arrêt de la sauvegarde. Bien que cela soit facultatif, le fait d’indiquer un motif permet à Azure Backup de l’utiliser pour hiérarchiser les scénarios clients.
 
-4. Click on **Submit** button to submit the **Stop protection** job. Click on **View Job** to see the corresponding the job in **Jobs** page.
+4. Cliquez sur le bouton **Envoyer** pour envoyer le travail **Arrêter la protection**. Cliquez sur **Afficher le travail** pour voir le travail correspondant dans la page **Travaux**.
 
-    ![Stop protection](./media/backup-azure-manage-vms/stop-protect-success.png)
+    ![Arrêter la protection](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    If you have not selected **Delete associated backup data** option during **Stop Protection** wizard, then post job completion, protection status changes to **Protection Stopped**. The data remains with Azure Backup until it is explicitly deleted. You can always delete the data by selecting the virtual machine in the **Protected Items** page and clicking **Delete**.
+    Si vous n’avez pas sélectionné l’option **Supprimer les données de sauvegarde associées** dans l’Assistant **Arrêter la protection**, à la fin du travail, l’état de la protection devient **Protection arrêtée**. Les données restent dans Azure Backup jusqu'à ce qu'elles soient explicitement supprimées. Vous pouvez toujours supprimer les données en sélectionnant la machine virtuelle sur la page **Éléments protégés** et en cliquant sur **Supprimer**.
 
-    ![Stopped protection](./media/backup-azure-manage-vms/protection-stopped-status.png)
+    ![Protection arrêtée](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
-    If you have selected the **Delete associated backup data** option, the virtual machine won’t be part of the **Protected Items** page.
+    Si vous avez sélectionné l’option **Supprimer les données de sauvegarde associées**, la machine virtuelle ne figure pas dans la page **Éléments protégés**.
 
-## <a name="re-protect-virtual-machine"></a>Re-protect Virtual machine
-If you have not selected the **Delete associate backup data** option in **Stop Protection**, you can re-protect the virtual machine by following the steps similar to backing up registered virtual machines. Once protected, this virtual machine will have backup data retained prior to stop protection and recovery points created after re-protect.
+## Application d’une nouvelle protection à la machine virtuelle
+Si vous n’avez pas sélectionné l’option **Supprimer les données de sauvegarde associées** dans l’Assistant **Arrêter la protection**, vous pouvez à nouveau protéger la machine virtuelle en suivant les étapes similaires à celles de la sauvegarde de machines virtuelles inscrites. Une fois la protection effectuée, les données de cette machine virtuelle sont conservées avant l’arrêt de la protection et des points de récupération sont créés après l’application de la nouvelle protection.
 
-After re-protect, the virtual machine’s protection status will be changed to **Protected** if there are recovery points prior to **Stop Protection**.
+Après l’application d’une nouvelle protection, l’état de protection de la machine virtuelle devient **Protégé** s’il existe des points de récupération antérieurs à l’opération **Arrêter la protection**.
 
-  ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![Machine virtuelle à nouveau protégée](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
+>[AZURE.NOTE] Lors de l’application d’une nouvelle protection à la machine virtuelle, vous pouvez choisir une autre stratégie que la stratégie avec laquelle la machine virtuelle a été initialement protégée.
 
-## <a name="unregister-virtual-machines"></a>Unregister virtual machines
+## Annulation de l’inscription des machines virtuelles
 
-If you want to remove the virtual machine from the backup vault:
+Si vous voulez supprimer la machine virtuelle de l’archivage de sauvegarde :
 
-1. Click on the **UNREGISTER** button at the bottom of the page.
+1. Cliquez sur le bouton **ANNULER L’INSCRIPTION** en bas de la page.
 
-    ![Disable protection](./media/backup-azure-manage-vms/unregister-button.png)
+    ![Désactiver la protection](./media/backup-azure-manage-vms/unregister-button.png)
 
-    A toast notification will appear at the bottom of the screen requesting confirmation. Click **YES** to continue.
+    Une notification toast s’affiche en bas de l’écran pour demander confirmation. Cliquez sur **OUI** pour continuer.
 
-    ![Disable protection](./media/backup-azure-manage-vms/confirm-unregister.png)
+    ![Désactiver la protection](./media/backup-azure-manage-vms/confirm-unregister.png)
 
-## <a name="delete-backup-data"></a>Delete Backup data
-You can delete the backup data associated with a virtual machine, either:
+## Suppression des données de sauvegarde
+Vous pouvez supprimer les données de sauvegarde associées à une machine virtuelle, soit :
 
-- During Stop Protection Job
-- After a stop protection job is completed on a virtual machine
+- Au cours du travail Arrêter la protection
+- Après la fin du travail d’arrêt de la protection sur une machine virtuelle
 
-To delete backup data on a virtual machine, which is in the *Protection Stopped* state post successful completion of a **Stop Backup** job:
+Pour supprimer les données de sauvegarde sur une machine virtuelle à l’état *Protection arrêtée* à l’issue d’une tâche **Arrêter la sauvegarde** :
 
-1. Navigate to the **Protected Items** page and select **Azure Virtual Machine** as *type* and click the **Select** button.
+1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** comme *type*, puis cliquez sur le bouton **Sélectionner**.
 
-    ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
+    ![Type de machine virtuelle](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Select the virtual machine. The virtual machine will be in **Protection Stopped** state.
+2. Sélectionnez la machine virtuelle. La machine virtuelle apparaît avec l’état **Protection arrêtée**.
 
-    ![Protection stopped](./media/backup-azure-manage-vms/protection-stopped-b.png)
+    ![Protection arrêtée](./media/backup-azure-manage-vms/protection-stopped-b.png)
 
-3. Click the **DELETE** button at the bottom of the page.
+3. Cliquez sur le bouton **SUPPRIMER** au bas de la page.
 
-    ![Delete backup](./media/backup-azure-manage-vms/delete-backup.png)
+    ![Supprimer la sauvegarde](./media/backup-azure-manage-vms/delete-backup.png)
 
-4. In the **Delete backup data** wizard, select a reason for deleting backup data (highly recommended) and click **Submit**.
+4. Dans l’Assistant **Supprimer les données de sauvegarde**, sélectionnez un motif de suppression des données de sauvegarde (hautement recommandé), puis cliquez sur **Soumettre**.
 
-    ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data.png)
+    ![Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data.png)
 
-5. This will create a job to delete backup data of selected virtual machine. Click **View job** to see corresponding job in Jobs page.
+5. Cette opération crée un travail pour supprimer les données de sauvegarde de la machine virtuelle sélectionnée. Cliquez sur **Afficher le travail** pour afficher le travail correspondant dans la page Travaux.
 
-    ![Data deletion successful](./media/backup-azure-manage-vms/delete-data-success.png)
+    ![Suppression de données réussie](./media/backup-azure-manage-vms/delete-data-success.png)
 
-    Once the job is completed, the entry corresponding to the virtual machine will be removed from **Protected items** page.
+    Une fois le travail terminé, l’entrée correspondant à la machine virtuelle est supprimée de la page **Éléments protégés**.
 
-## <a name="dashboard"></a>Dashboard
-On the **Dashboard** page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors.
+## Tableau de bord
+Dans la page **Tableau de bord**, vous pouvez consulter les informations des machines virtuelles Azure, leur stockage et leurs tâches associées au cours des dernières 24 heures. Vous pouvez afficher l’état de la sauvegarde et les éventuelles erreurs de sauvegarde associées.
 
-![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+![Tableau de bord](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE] Values in the dashboard are refreshed once every 24 hours.
+>[AZURE.NOTE] Les valeurs du tableau de bord sont actualisées toutes les 24 heures.
 
-## <a name="auditing-operations"></a>Auditing Operations
-Azure backup provides review of the "operation logs" of backup operations triggered by the customer making it easy to see exactly what management operations were performed on the backup vault. Operations logs enable great post-mortem and audit support for the backup operations.
+## Audit des opérations
+La sauvegarde Azure fournit l’analyse des « journaux d’opérations » pour les opérations de sauvegarde déclenchées par le client, ce qui vous permet de savoir exactement quelles sont les opérations de gestion exécutées sur le coffre de sauvegarde. Les journaux d’opérations activent l’assistance post mortem et d’audit des opérations de sauvegarde.
 
-The following operations are logged in Operation logs:
+Les opérations suivantes sont enregistrées dans les journaux des opérations :
 
-- Register
-- Unregister
-- Configure protection
-- Backup ( Both scheduled as well as on-demand backup through BackupNow)
-- Restore
-- Stop protection
-- Delete backup data
+- S’inscrire
+- Annuler l’inscription
+- Configurer la protection
+- Sauvegarde (planifiée et à la demande via BackupNow)
+- Restauration
+- Arrêter la protection
+- Supprimer les données de sauvegarde
 - Add policy
-- Delete policy
-- Update policy
-- Cancel job
+- Supprimer la stratégie
+- Mettre à jour la stratégie
+- Annuler le travail
 
-To view operation logs corresponding to a backup vault:
+Pour afficher les journaux des opérations correspondant à un coffre de sauvegarde :
 
-1. Navigate to **Management services** in Azure portal, and then click the **Operation Logs** tab.
+1. Accédez aux **Services de gestion** sur le portail Azure, puis cliquez sur l’onglet **Journaux des opérations**.
 
-    ![Operation Logs](./media/backup-azure-manage-vms/ops-logs.png)
+    ![Journaux des opérations](./media/backup-azure-manage-vms/ops-logs.png)
 
-2. In the filters, select **Backup** as *Type* and specify the backup vault name in *service name* and click on **Submit**.
+2. Dans les filtres, sélectionnez **Sauvegarde** comme *Type* et spécifiez le nom du coffre de sauvegarde dans *nom de service*, puis cliquez sur **Soumettre**.
 
-    ![Operation Logs Filter](./media/backup-azure-manage-vms/ops-logs-filter.png)
+    ![Filtre des journaux des opérations](./media/backup-azure-manage-vms/ops-logs-filter.png)
 
-3. In the operations logs, select any operation and click  **Details** to see details corresponding to an operation.
+3. Dans les journaux des opérations, sélectionnez une opération, puis cliquez sur **Détails** pour afficher les détails correspondant à une opération.
 
-    ![Operation Logs-Fetching details](./media/backup-azure-manage-vms/ops-logs-details.png)
+    ![Détails de l’extraction des journaux d’opérations](./media/backup-azure-manage-vms/ops-logs-details.png)
 
-    The **Details wizard** contains information about the operation triggered, job Id, resource on which this operation is triggered, and start time of the operation.
+    L’**Assistant Détails** contient des informations sur l’opération déclenchée, l’ID de tâche, la ressource sur laquelle cette opération est déclenchée et l’heure de début de l’opération.
 
-    ![Operation Details](./media/backup-azure-manage-vms/ops-logs-details-window.png)
+    ![Détails de l'opération](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
-## <a name="alert-notifications"></a>Alert notifications
-You can get custom alert notifications for the jobs in portal. This is achieved by defining PowerShell-based alert rules on operational logs events. We recommend using *PowerShell version 1.3.0 or above*.
+## Notifications d’alerte
+Vous pouvez obtenir des notifications d’alerte personnalisées pour les travaux du portail. Pour cela, vous devez définir des règles d’alerte basées sur PowerShell sur les événements de journaux des opérations. Nous vous recommandons d’utiliser *PowerShell version 1.3.0 ou version ultérieure*.
 
-To define a custom notification to alert for backup failures, a sample command will look like:
+Pour définir une notification personnalisée et signaler les échecs de sauvegarde, un exemple de commande doit présenter :
 
 ```
 PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId**: You can get this from Operations Logs popup as described in above section. ResourceUri in details popup window of an operation is the ResourceId to be supplied for this cmdlet.
+**ResourceId** : vous pouvez obtenir cela à partir de la fenêtre contextuelle Journaux des opérations, comme indiqué dans la section ci-dessus. L’élément ResourceUri de la fenêtre contextuelle de détails d’une opération est l’ID de ressource à fournir à cet applet de commande.
 
-**OperationName**: This will be of the format "Microsoft.Backup/backupvault/<EventName>" where EventName is one of Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+**OperationName** : cette valeur a le format « Microsoft.Backup/backupvault/<EventName> » où EventName peut être Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Status**: Supported values are- Started, Succeeded and Failed.
+**État** : les valeurs prises en charge sont Démarré, Réussi et Échec.
 
-**ResourceGroup**:ResourceGroup of the resource on which operation is triggered. You can obtain this from ResourceId value. Value between fields */resourceGroups/* and */providers/* in ResourceId value is the value for ResourceGroup.
+**ResourceGroup** : groupe de ressources auquel appartient la ressource sur laquelle l’opération est déclenchée. Vous pouvez l’obtenir à partir de la valeur ResourceId. La valeur entre les champs */resourceGroups/* et */providers/* dans la valeur ResourceId valeur correspond à la valeur de GroupeResource.
 
-**Name**: Name of the Alert Rule.
+**Nom** : nom de la règle d’alerte.
 
-**CustomEmail**: Specify the custom email address to which you want to send alert notification
+**CustomEmail** : spécifiez l’adresse e-mail personnalisée à laquelle vous voulez envoyer des notifications d’alerte
 
-**SendToServiceOwners**: This option sends alert notification to all administrators and co-administrators of the subscription. It can be used in **New-AzureRmAlertRuleEmail** cmdlet
+**SendToServiceOwners** : cette option envoie des notifications d’alerte à tous les administrateurs et coadministrateurs de l’abonnement. Elle peut être utilisée dans l’applet de commande **New-AzureRmAlertRuleEmail**.
 
-### <a name="limitations-on-alerts"></a>Limitations on Alerts
-Event-based alerts are subjected to the following limitations:
+### Limitations sur les alertes
+Les alertes basées sur des événements sont soumises aux limitations suivantes :
 
-1. Alerts are triggered on all virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
-2. This feature is in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
-3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
+1. Des alertes sont déclenchées sur toutes les machines virtuelles dans le coffre de sauvegarde. Vous ne pouvez pas le personnaliser pour obtenir des alertes pour un ensemble spécifique de machines virtuelles à l’intérieur d’un coffre de sauvegarde.
+2. Cette fonctionnalité est en version préliminaire. [En savoir plus](../azure-portal/insights-powershell-samples.md#create-alert-rules)
+3. Vous recevrez des alertes à partir de l’adresse « alerts-noreply@mail.windowsazure.com ». Actuellement, vous ne pouvez pas modifier l’expéditeur de courrier électronique.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- [Restore Azure VMs](backup-azure-restore-vms.md)
+- [Restauration de machines virtuelles Azure](backup-azure-restore-vms.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

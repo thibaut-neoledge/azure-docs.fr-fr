@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Fix SQL Server database compatibility issues before migration to SQL Database | Microsoft Azure"
-   description="Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard"
+   pageTitle="Résoudre les problèmes de compatibilité de base de données SQL Server avant la migration vers une base de données SQL | Microsoft Azure"
+   description="Base de données SQL Microsoft Azure, migration de base de données, compatibilité, assistant de migration SQL Azure"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,38 +16,33 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-
-# <a name="use-sql-azure-migration-wizard-to-fix-sql-server-database-compatibility-issues-before-migration-to-azure-sql-database"></a>Use SQL Azure Migration Wizard to Fix SQL Server database compatibility issues before migration to Azure SQL Database
+# Utilisation de l’Assistant Migration SQL Azure pour résoudre les problèmes de compatibilité de base de données SQL Server avant la migration vers une base de données SQL Azure
 
 > [AZURE.SELECTOR]
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+- Utilisez l’[Assistant Migration SQL Azure](sql-database-cloud-migrate-fix-compatibility-issues.md)
+- Utilisez [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- Utilisez [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
 
-In this article, you learn to detect and fix SQL Server database compatibility issues using the SQL Azure Migration Wizard before migration to Azure SQL Database.
+Dans cet article, vous apprendrez à détecter et résoudre les problèmes de compatibilité de base de données SQL Server à l’aide de l’Assistant Migration SQL Azure avant la migration vers une base de données SQL Azure.
 
-## <a name="using-sql-azure-migration-wizard"></a>Using SQL Azure Migration wizard
+## Utilisez l’assistant de migration SQL Azure
 
-Use the [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/) CodePlex tool to generate a T-SQL script from an incompatible source database. This script is then transformed by the wizard to make it compatible with the SQL Database. You then connect to Azure SQL Database to execute the script. This tool also analyzes trace files to determine compatibility issues. The script can be generated with schema only or can include data in BCP format. Additional documentation, including step-by-step guidance is available on CodePlex at [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/).  
+Utilisez l’outil CodePlex de l’[Assistant Migration de base de données SQL Microsoft Azure](http://sqlazuremw.codeplex.com/) pour générer un script T-SQL à partir d’une base de données source incompatible. Ce script est ensuite transformé par l’Assistant pour le rendre compatible avec Base de données SQL. Enfin, vous vous connectez à Base de données SQL Azure pour exécuter le script. Cet outil analyse également les fichiers de trace afin de déterminer les problèmes de compatibilité. Ce script peut être généré avec un schéma uniquement, ou peut inclure des données au format BCP. Pour obtenir une documentation supplémentaire, y compris des instructions pas à pas, consultez la rubrique [Assistant de migration SQL Azure](http://sqlazuremw.codeplex.com/) sur le site Codeplex.
 
- ![SAMW migration diagram](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
+ ![Schéma de migration SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
 
-  > [AZURE.NOTE] Not all incompatible schema that are detected by the wizard can be fixed by its built-in transformations. Incompatible script that cannot be addressed are reported as errors, with comments injected into the generated script. If many errors are detected, use either Visual Studio or SQL Server Management Studio to step through and fix each error that could not be fixed using the SQL Server Migration Wizard.
+  > [AZURE.NOTE] Certains schémas non compatibles détectés par l’Assistant ne peuvent pas être corrigés par ses transformations intégrées. Un script non compatible qui ne peut pas être traité est signalé comme une erreur, et des commentaires sont insérés dans le script généré. Si de nombreuses erreurs sont détectées, utilisez Visual Studio ou SQL Server Management Studio pour examiner et résoudre chaque erreur que l’Assistant Migration SQL Server ne permet pas de corriger.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
+- [Version la plus récente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Migrez une base de données SQL Server compatible vers une base de données SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## <a name="additional-resources"></a>Additional resources
+## Ressources supplémentaires
 
-- [SQL Database V12](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+- [Base de données SQL V12](sql-database-v12-whats-new.md)
+- [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
+- [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

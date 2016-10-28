@@ -1,15 +1,11 @@
-It is important to realize that there are two ways to configure an Availability Group listener in Azure. These methods differ in the type of Azure load balancer you use when you create the listener. The following table describes the differences:
+Il est important de savoir qu'il existe deux manières de configurer un écouteur de groupe de disponibilité dans Azure. Ces méthodes diffèrent dans le type d'équilibrage de charge Azure que vous utilisez lorsque vous créez l'écouteur. Le tableau suivant décrit ces différences :
 
-| Load Balancer | Implementation | Use When: |
+| Équilibrage de charge | Implémentation | Contexte d'utilisation : |
 | ------------- | -------------- | ----------- |
-| **External** | Uses the **public Virtual IP address** of the cloud service that hosts the Virtual Machines. | You need to access the listener from outside the virtual network, including from the internet. |
-| **Internal** | Uses **Internal Load Balancing (ILB)** with a private address for the listener. | You only access the listener from within the same virtual network. This includes site-to-site VPN in hybrid scenarios. |
+| **Externe** | Utilise l'**adresse IP virtuelle publique** du service cloud qui héberge des machines virtuelles. | Vous devez accéder à l'écouteur en dehors du réseau virtuel, notamment depuis Internet. |
+| **Interne** | Utilise l'**équilibrage de charge interne (ILB)** avec une adresse privée pour l'écouteur. | Vous accéder à l'écouteur uniquement dans le même réseau virtuel. Ceci inclut un réseau privé virtuel de site à site dans des scénarios hybrides. |
 
->[AZURE.IMPORTANT] For a listener using the cloud service's public VIP (external load balancer), as long as the client, listener, and databases are in the same Azure region you will not incur egress charges. Otherwise, any data returned through the listener is considered egress and charged at normal data transfer rates. 
+>[AZURE.IMPORTANT] Pour un écouteur utilisant l’adresse IP virtuelle publique du service cloud (équilibrage de charge externe), tant que le client, l’écouteur et les bases de données se trouvent dans la même région Azure, aucuns frais de sortie ne vous seront facturés. Sinon, les données retournées par l’écouteur sont considérées comme une sortie et facturées au taux de transfert de données normal.
 
-ILB can only be configured on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use ILB. For more information, see [Internal Load Balancer](../articles/load-balancer/load-balancer-internal-overview.md).
-
-
-<!--HONumber=Oct16_HO2-->
-
+L'équilibrage de charge peut être configuré uniquement dans des réseaux virtuels à portée régionale. Les réseaux virtuels existants qui ont été configurés pour un groupe d'affinités ne peuvent pas utiliser l'ILB. Pour plus d'informations, consultez la rubrique [Équilibreur de charge interne](../articles/load-balancer/load-balancer-internal-overview.md).
 

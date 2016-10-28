@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for key vault | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying key vaults through a template."
+   pageTitle="Modèle Resource Manager pour le coffre de clés | Microsoft Azure"
+   description="Affiche le schéma Resource Manager pour le déploiement de coffres de clés par le biais d'un modèle."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,14 +16,13 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
+# Schéma d’un modèle de coffre de clés
 
-# <a name="key-vault-template-schema"></a>Key vault template schema
+Crée un coffre de clés.
 
-Creates a key vault.
+## Format de schéma
 
-## <a name="schema-format"></a>Schema format
-
-To create a key vault, add the following schema to the resources section of your template.
+Pour créer un coffre de clés, ajoutez le schéma suivant à la section des ressources de votre modèle.
 
     {
         "type": "Microsoft.KeyVault/vaults",
@@ -55,60 +54,60 @@ To create a key vault, add the following schema to the resources section of your
         ]
     }
 
-## <a name="values"></a>Values
+## Valeurs
 
-The following tables describe the values you need to set in the schema.
+Les tableaux suivants décrivent les valeurs que vous devez définir dans le schéma.
 
-| Name | Value |
+| Nom | Valeur |
 | ---- | ---- | 
-| type | Enum<br />Required<br />**Microsoft.KeyVault/vaults**<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />A name that is unique across Azure.<br /><br />The name of the key vault to create. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention to create a unique name, as shown in the example below. |
-| location | String<br />Required<br />A valid region for key vaults. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).<br /><br />The region to host the key vault. |
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the type of key vault to create. |
-| resources | Array<br />Optional<br />Permitted values: [Key vault secret resources](resource-manager-template-keyvault-secret.md)<br /><br />Child resources for the key vault. |
+| type | Enum<br />Requis<br />**Microsoft.KeyVault/vaults**<br /><br />Type de ressource à créer. |
+| version\_api | Enum<br />Requis<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />Version de l’API à utiliser pour créer la ressource. | 
+| name | String<br />Requis<br />Nom unique dans Azure.<br /><br />Nom du coffre de clés à créer. Vous pouvez utiliser la fonction [uniqueString](resource-group-template-functions.md#uniquestring) avec votre convention d’affectation de noms afin de créer un nom unique, comme illustré dans l’exemple ci-dessous. |
+| location | String<br />Requis<br />Région valide pour les coffres de clés. Pour déterminer les régions valides, consultez [Régions prises en charge](resource-manager-supported-services.md#supported-regions).<br /><br />Région dans laquelle héberger le coffre de clés. |
+| properties | Object<br />Requis<br />[Objet properties](#properties)<br /><br />Objet qui spécifie le type de coffre de clés à créer. |
+| les ressources | Array<br />Facultatif<br />Valeurs autorisées : [Key vault secret resources](resource-manager-template-keyvault-secret.md)<br /><br />Ressources enfants pour le coffre de clés. |
 
 <a id="properties" />
-### <a name="properties-object"></a>properties object
+### objet propriétés
 
-| Name | Value |
+| Nom | Valeur |
 | ---- | ---- | 
-| enabledForDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
-| enabledForTemplateDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for volume encryption. |
-| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier for the subscription. You can retrieve it with the [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) PowerShell cmdlet or the **azure account show** Azure CLI command. |
-| accessPolicies | Array<br />Required<br />[accessPolicies object](#accesspolicies)<br /><br />An array of up to 16 objects that specify the permissions for the user or service principal. |
-| sku | Object<br />Required<br />[sku object](#sku)<br /><br />The SKU for the key vault. |
+| enabledForDeployment | Boolean<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour le déploiement d’une machine virtuelle ou Service Fabric. |
+| enabledForTemplateDeployment | Boolean<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour une utilisation dans les déploiements de modèle Resource Manager. Pour plus d'informations, consultez [Passage de valeurs sécurisés pendant le déploiement](resource-manager-keyvault-parameter.md) |
+| enabledForVolumeEncryption | Boolean<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour le chiffrement de volume. |
+| tenantId | String<br />Requis<br />**Identificateur global unique (GUID)**<br /><br />Identificateur de client pour l’abonnement. Vous pouvez le récupérer à l’aide de l’applet de commande [PowerShell Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) ou de la commande d’interface de ligne de commande (CLI) Azure **azure account show**. |
+| accessPolicies | Array<br />Requis<br />[Objet accessPolicies](#accesspolicies)<br /><br />Tableau contenant jusqu’à 16 objets qui spécifient les autorisations de l’utilisateur ou du principal du service. |
+| sku | Object<br />Requis<br />[Objet sku](#sku)<br /><br />Référence (SKU) du coffre de clés. |
 
 <a id="accesspolicies" />
-### <a name="properties.accesspolicies-object"></a>properties.accessPolicies object
+### Objet properties.accessPolicies
 
-| Name | Value |
+| Nom | Valeur |
 | ---- | ---- | 
-| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier of the Azure Active Directory tenant containing the **objectId** in this access policy |
-| objectId | String<br />Required<br />**Globally-unique identifier**<br /><br />The object identifier of the Azure Active Directory user or service principal that will have access to the vault. You can retrieve the value from either the [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) or the [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) PowerShell cmdlets, or the **azure ad user** or **azure ad sp** Azure CLI commands. |
-| permissions | Object<br />Required<br />[permissions object](#permissions)<br /><br />The permissions granted on this vault to the Active Directory object. |
+| tenantId | String<br />Requis<br />**Identificateur global unique (GUID)**<br /><br />Identificateur du client Azure Active Directory contenant le paramètre **objectId** de cette stratégie d’accès. |
+| objectId | String<br />Requis<br />**Identificateur global unique (GUID)**<br /><br />Identificateur d’objet de l’utilisateur ou du principal de service Azure Active Directory qui aura accès au coffre. Vous pouvez récupérer la valeur à l’aide de l’applet de commande PowerShell [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) ou [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx), ou de la commande d’interface de ligne de commande (CLI) Azure **azure ad user** ou **azure ad sp**. |
+| Autorisations | Object<br />Requis<br />[Objet permissions](#permissions)<br /><br />Autorisations accordées pour ce coffre à l’objet Active Directory. |
 
 <a id="permissions" />
-### <a name="properties.accesspolicies.permissions-object"></a>properties.accessPolicies.permissions object
+### Objet properties.accessPolicies.permissions
 
-| Name | Value |
+| Nom | Valeur |
 | ---- | ---- | 
-| keys | Array<br />Required<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
-| secrets | Array<br />Required<br />**all**, **delete**, **get**, **list**, **set**<br /><br />The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
+| clés | Array<br />Requis<br />**tout**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />Autorisations accordées à cet objet Active Directory pour les clés de ce coffre. Cette valeur doit être spécifiée comme un tableau d'une ou plusieurs valeurs autorisées. |
+| secrets | Array<br />Requis<br />**all**, **delete**, **get**, **list**, **set**<br /><br />Autorisations accordées à cet objet Active Directory pour les clés secrètes de ce coffre. Cette valeur doit être spécifiée comme un tableau d'une ou plusieurs valeurs autorisées. |
 
 <a id="sku" />
-### <a name="properties.sku-object"></a>properties.sku object
+### Objet properties.sku
 
-| Name | Value |
+| Nom | Valeur |
 | ---- | ---- | 
-| name | Enum<br />Required<br />**standard**, or **premium** <br /><br />The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
-| family | Enum<br />Required<br />**A** <br /><br />The sku family to use. |
+| name | Enum<br />Requis<br />**standard** ou **premium** <br /><br />Niveau de service du coffre de clés à utiliser. Supports standard des clés secrètes et clés protégées par un logiciel Le niveau Premium ajoute la prise en charge pour les clés protégées par HSM. |
+| famille | Enum<br />Requis<br />**A** <br /><br />Famille de référence (SKU) à utiliser. |
  
-    
-## <a name="examples"></a>Examples
+	
+## Exemples
 
-The following example deploys a key vault and secret.
+L'exemple suivant déploie un coffre de clés et la clé secrète.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -234,21 +233,16 @@ The following example deploys a key vault and secret.
         }]
     }
 
-## <a name="quickstart-templates"></a>Quickstart templates
+## Modèles de démarrage rapide
 
-The following quickstart template deploys a key vault.
+Le modèle de démarrage rapide suivant déploie un coffre de clés.
 
-- [Create Key Vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
-
-
-## <a name="next-steps"></a>Next steps
-
-- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+- [Création d'un coffre de clés](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
 
 
+## Étapes suivantes
 
+- Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
+- Pour obtenir un exemple de référencement d'une clé secrète de coffre de clés lors du déploiement, consultez [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

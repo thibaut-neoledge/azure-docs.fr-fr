@@ -1,6 +1,6 @@
 <properties
- pageTitle="IoT Hub operations monitoring"
- description="An overview of Azure IoT Hub operations monitoring, enabling you to monitor the status of operations on your IoT hub in real time"
+ pageTitle="Surveillance des opérations IoT Hub"
+ description="Vue d’ensemble de la surveillance des opérations Azure IoT Hub, qui vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel"
  services="iot-hub"
  documentationCenter=""
  authors="nberdy"
@@ -16,38 +16,37 @@
  ms.date="08/11/2016"
  ms.author="nberdy"/>
 
+# Introduction à la surveillance des opérations
 
-# <a name="introduction-to-operations-monitoring"></a>Introduction to operations monitoring
+La surveillance des opérations IoT Hub vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel. IoT Hub effectue le suivi des événements entre les différentes catégories d’opérations, et vous pouvez opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de votre hub IoT en vue de leur traitement. Vous pouvez surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
-IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations, and you can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
+IoT Hub surveille cinq catégories d’événements :
 
-IoT Hub monitors five categories of events:
+- Opérations d’identité des appareils
+- Télémétrie d’appareil
+- Commandes cloud-à-appareil
+- Connexions
+- Chargements de fichiers
 
-- Device identity operations
-- Device telemetry
-- Cloud-to-device commands
-- Connections
-- File uploads
+## Comment activer la surveillance des opérations
 
-## <a name="how-to-enable-operations-monitoring"></a>How to enable operations monitoring
+1. Créez un hub IoT. Pour savoir comment créer un hub IoT, consultez le guide [Prise en main][lnk-get-started].
 
-1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
-
-2. Open the blade of your IoT hub. From there, click **Operations monitoring**.
+2. Ouvrez le panneau de votre hub IoT. De là, cliquez sur **Surveillance des opérations**.
 
     ![][1]
 
-3. Select the monitoring categories you wish you monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**. The IoT Hub endpoint is called `messages/operationsmonitoringevents`.
+3. Sélectionnez les catégories de surveillance qui vous intéressent, puis cliquez sur **Enregistrer**. Les événements sont disponibles en lecture depuis le point de terminaison compatible avec le hub d’événements répertorié dans **Paramètres de surveillance**. Le point de terminaison IoT Hub s’appelle `messages/operationsmonitoringevents`.
 
     ![][2]
 
-## <a name="event-categories-and-how-to-use-them"></a>Event categories and how to use them
+## Catégories d’événements et utilisation respective
 
-Each operations monitoring category tracks a different type of interaction with IoT Hub, and each monitoring category has a schema that defines how events in that category are structured.
+Chaque catégorie de surveillance d’opérations assure le suivi d’un type spécifique d’interaction avec IoT Hub et a un schéma qui définit la façon dont sont structurés les événements qu’elle comporte.
 
-### <a name="device-identity-operations"></a>Device identity operations
+### Opérations d’identité des appareils
 
-The device identity operations category tracks errors that occur when you attempt to create, update, or delete an entry in your IoT hub's identity registry. Tracking this category is useful for provisioning scenarios.
+La catégorie d’opérations d’identité des appareils effectue le suivi des erreurs qui se produisent quand vous tentez de créer, mettre à jour ou supprimer une entrée dans le registre d’identité de votre hub IoT. Le suivi de cette catégorie est utile pour les scénarios d’approvisionnement.
 
     {
         "time": "UTC timestamp",
@@ -62,15 +61,15 @@ The device identity operations category tracks errors that occur when you attemp
          "sharedAccessPolicy": "accessPolicy"
     }
 
-### <a name="device-telemetry"></a>Device telemetry
+### Télémétrie d’appareil
 
-The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). Note that this category cannot catch errors caused by code running on the device itself.
+La catégorie de télémétrie d’appareil effectue le suivi des erreurs qui se produisent au niveau du hub IoT et qui sont liées au pipeline de télémétrie. Cette catégorie inclut notamment les erreurs concernant l’envoi d’événements de télémétrie (par exemple, une limitation) et la réception des événements de télémétrie (par exemple, un lecteur non autorisé). Notez que cette catégorie ne peut pas intercepter les erreurs provoquées par le code en cours d’exécution sur l’appareil lui-même.
 
     {
          "messageSizeInBytes": 1234,
          "batching": 0,
          "protocol": "Amqp",
-         "authType": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+         "authType": "{"scope":"device","type":"sas","issuer":"iothub"}",
          "time": "UTC timestamp",
          "operationName": "ingress",
          "category": "DeviceTelemetry",
@@ -84,13 +83,13 @@ The device telemetry category tracks errors that occur at the IoT hub and are re
          "EventEnqueuedUtcTime": "UTC timestamp"
     }
 
-### <a name="cloud-to-device-commands"></a>Cloud-to-device commands
+### Commandes cloud-à-appareil
 
-The cloud-to-device commands category tracks errors that occur at the IoT hub and are related to the device command pipeline. This category includes errors that occur when sending commands (such as unauthorized sender), receiving commands (such as delivery count exceeded), and receiving command feedback (such as feedback expired). This category does not catch errors from a device that improperly handles a command if the command was delivered successfully.
+La catégorie de commandes cloud-à-appareil effectue le suivi des erreurs qui se produisent au niveau du hub IoT et qui sont liées au pipeline de commandes de l’appareil. Cette catégorie inclut notamment les erreurs concernant l’envoi de commandes (telles qu’un expéditeur non autorisé), la réception des commandes (telles que le dépassement du nombre de remises) et la réception des commentaires de commande (telles que des commentaires arrivés à expiration). Cette catégorie n’intercepte pas d’erreurs dans le cas d’un appareil qui gère mal une commande correctement remise.
 
     {
          "messageSizeInBytes": 1234,
-         "authType": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+         "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
          "deliveryAcknowledgement": 0,
          "protocol": "Amqp",
          "time": " UTC timestamp",
@@ -106,13 +105,13 @@ The cloud-to-device commands category tracks errors that occur at the IoT hub an
          "EventEnqueuedUtcTime": “UTC timestamp"
     }
 
-### <a name="connections"></a>Connections
+### Connexions
 
-The connections category tracks errors that occur when devices connect or disconnect from an IoT hub. Tracking this category is useful for identifying unauthorized connection attempts and for tracking when a connection is lost for devices in areas of poor connectivity.
+La catégorie de connexions effectue le suivi des erreurs provoquées par la connexion des appareils à un hub IoT ou leur déconnexion de celui-ci. Le suivi de cette catégorie est utile pour identifier les tentatives de connexion non autorisées et pour repérer les moments auxquels une connexion est perdue pour les appareils qui se trouvent dans des zones bénéficiant d’une connectivité médiocre.
 
     {
          "durationMs": 1234,
-         "authType": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+         "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
          "protocol": "Amqp",
          "time": " UTC timestamp",
          "operationName": "deviceConnect",
@@ -124,12 +123,12 @@ The connections category tracks errors that occur when devices connect or discon
          "deviceId": "device-ID"
     }
 
-### <a name="file-uploads"></a>File uploads
+### Chargements de fichiers
 
-The file upload category tracks errors that occur at the IoT hub and are related to file upload functionality. This category includes errors that occur with the SAS URI (such as when it expires before a device notifies the hub of a completed upload), failed uploads reported by the device, and when a file is not found in storage during IoT Hub notification message creation. Note that this category cannot catch errors that directly occur while the device is uploading a file to storage.
+La catégorie de chargement de fichiers effectue le suivi des erreurs qui se produisent au niveau de l’IoT hub et qui sont liées à la fonctionnalité de chargement. Cette catégorie inclut les erreurs qui se produisent avec l’URI SAS (par exemple, lorsqu’il expire avant qu’un appareil ne notifie le concentrateur d’un chargement terminé), avec les chargements ayant échoué signalés par l’appareil et si un fichier est introuvable dans le stockage lors de la création de messages de notification IoT Hub. Notez que cette catégorie ne peut pas détecter les erreurs qui surviennent directement pendant que le périphérique charge un fichier de stockage.
 
     {
-         "authType": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+         "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
          "protocol": "HTTP",
          "time": " UTC timestamp",
          "operationName": "ingress",
@@ -143,12 +142,16 @@ The file upload category tracks errors that occur at the IoT hub and are related
          "durationMs": 1234
     }
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-To further explore the capabilities of IoT Hub, see:
+Maintenant que vous disposez d’une vue d’ensemble de la surveillance des opérations, consultez [Gérer l’accès à IoT Hub][lnk-itpro] pour plus d’informations sur la gestion de IoT Hub.
 
-- [Developer guide][lnk-devguide]
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+Pour explorer davantage les capacités de IoT Hub, consultez :
+
+- [Conception de votre solution][lnk-design]
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -159,10 +162,11 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

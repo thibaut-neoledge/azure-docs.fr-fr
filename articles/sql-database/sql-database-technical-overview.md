@@ -1,12 +1,12 @@
 <properties
-    pageTitle="What is SQL Database? Intro to SQL Database | Microsoft Azure"
-    description="Get an introduction to SQL Database: technical details and capabilities of Microsoft's relational database management system (RDBMS) in the cloud."
-    keywords="introduction to sql,intro to sql,what is sql database"
-    services="sql-database"
-    documentationCenter=""
-    authors="shontnew"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Définition de la base de données SQL Présentation de la base de données SQL | Microsoft Azure"
+	description="Introduction à la base de données SQL : détails techniques et fonctionnalités du système de gestion des bases de données relationnelles Microsoft dans le cloud."
+	keywords="introduction à sql, intro à sql, qu’est-ce qu’une base de données sql"
+	services="sql-database"
+	documentationCenter=""
+	authors="shontnew"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -17,51 +17,46 @@
    ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
+# Définition de la base de données SQL Présentation de SQL Database
 
-# <a name="what-is-sql-database?-introduction-to-sql-database"></a>What is SQL Database? Introduction to SQL Database
+La base de données SQL est un service de base de données relationnelle dans le cloud, qui repose sur le moteur Microsoft SQL Server numéro un du marché et propose des fonctionnalités stratégiques intégrées. SQL Database offre des performances prévisibles et une extensibilité sans interruption de service, et assure une continuité des activités et une protection des données, le tout sans presque aucune administration. Vous pouvez vous concentrer sur le développement rapide de vos applications et accélérer leur mise sur le marché, plutôt que de passer du temps à gérer des machines virtuelles et leur infrastructure. Parce qu’elle est basée sur le moteur [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), la base de données SQL prend en charge les outils, bibliothèques et API SQL Server existants, ce qui permet une migration et une extension vers le cloud plus faciles.
 
-SQL Database is a relational database service in the cloud based on the market-leading Microsoft SQL Server engine, with mission-critical capabilities. SQL Database delivers predictable performance, scalability with no downtime, business continuity and data protection—all with near-zero administration. You can focus on rapid app development and accelerating your time to market, rather than managing virtual machines and infrastructure. Because it’s based on the [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) engine, SQL Database supports existing SQL Server tools, libraries and APIs, which makes it easier for you to move and extend to the cloud.
-
-This article is an introduction to SQL Database core concepts and features related to performance, scalability, and manageability, with links to explore details. If you’re ready to jump in, you can [Create your first SQL database](sql-database-get-started.md) or [Create an elastic database pool](sql-database-elastic-pool-create-portal.md) in minutes. If you want a deeper dive, watch this 30 minute video.
+Cet article présente les principaux concepts et fonctionnalités de la base de données SQL qui ont trait aux performances, à l’extensibilité et à la facilité de gestion. Il contient également des liens pour en explorer les détails. Si vous êtes prêt à sauter le pas, vous pouvez [créer votre première base de données SQL](sql-database-get-started.md) ou [créer un pool de bases de données élastiques](sql-database-elastic-pool-create-portal.md) en quelques minutes. Si vous souhaitez poursuivre, regardez cette vidéo de 30 minutes.
 
 > [AZURE.VIDEO azurecon-2015-get-started-with-azure-sql-database]
 
-## <a name="adjust-performance-and-scale-without-downtime"></a>Adjust performance and scale without downtime
+## Ajustez les performances et la mise à l'échelle sans interruption de service
 
-SQL databases is available in Basic, Standard, and Premium *service tiers*. Each service tier offers [different levels of performance and capabilities](sql-database-service-tiers.md) to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few bucks a month, then [change the service tier](sql-database-scale-up.md) manually or programmatically at any time as your app goes viral worldwide, without downtime to your app or your customers.
+Les bases de données SQL sont disponibles en différents *niveaux de service* : de base, standard et premium. Chaque niveau de service offre [différents niveaux de performances et de fonctionnalités](sql-database-service-tiers.md) pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur une petite base de données pour quelques euros par mois, puis [modifier le niveau de service](sql-database-scale-up.md) manuellement ou automatiquement à tout moment quand votre application devient connue à travers le monde entier, sans temps mort pour votre application ou vos clients.
 
-For many businesses and apps, being able to create databases and dial single database performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model.
+Pour de nombreuses entreprises et applications, être en mesure de créer des bases de données et d'augmenter ou ralentir les performances d'une base de données unique à la demande est suffisant, surtout si les modèles d'utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial.
 
-[Elastic pools](sql-database-elastic-pool.md) in SQL Database solve this problem. The concept is simple. You allocate performance to a pool, and pay for the collective performance of the pool rather than single database performance. You don’t need to dial database performance up or down. The databases in the pool, called *elastic databases*, automatically scale up and down to meet demand. Elastic databases consume but don’t exceed the limits of the pool, so your cost remains predictable even if database usage doesn’t. What’s more, you can [add and remove databases to the pool](sql-database-elastic-pool-manage-portal.md), scaling your app from a handful of databases to thousands, all within a budget that you control. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Les [pools de base de données élastique](sql-database-elastic-pool.md) dans SQL Database sont une solution à ce problème. Le concept est simple. Vous allouez des performances à un pool et financez les performances collectives du pool plutôt que les performances de la base de données unique. Vous n'avez pas besoin de ralentir ou d'augmenter les performances de la base de données. Les bases de données du pool, appelées *bases de données élastiques*, évoluent automatiquement à la hausse ou à la baisse pour répondre à la demande. Les bases de données élastiques consomment mais ne dépassent pas les limites du pool. Votre coût reste prévisible, même si l'utilisation de la base de données ne l'est pas. Qui plus est, vous pouvez [ajouter et supprimer les bases de données du pool](sql-database-elastic-pool-manage-portal.md), mettre à l’échelle votre application en passant de quelques bases de données à des milliers, le tout au sein d’un budget que vous contrôlez. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Modèles de conception pour les applications SaaS mutualisées avec la base de données SQL Azure).
 
-Either way you go—single or elastic—you’re not locked in. You can blend single databases with elastic database pools, and change the service tiers of single databases and pools to create innovative designs. Moreover, with the power and reach of Azure, you can mix-and-match Azure services with SQL Database to meet your unique modern app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
+Dans les deux cas (base de données unique ou élastique), vous maîtrisez votre évolution. Vous pouvez fusionner des bases de données uniques avec des pools de bases de données élastiques et modifier les niveaux de service de bases de données uniques et de pools pour créer des conceptions innovantes. En outre, grâce à la puissance et à la portée d’Azure, vous pouvez mélanger les différents services Azure avec SQL Database, afin de pouvoir répondre aux besoins uniques de vos nouvelles applications en matière de conception, réduire les coûts, optimiser l’efficacité et créer de nouvelles opportunités professionnelles.
 
-But how can you compare the relative performance of databases and database pools? How do you know the right click-stop when you dial up and down? The answer is the Database Transaction Unit (DTU) for single databases and the elastic DTU (eDTU) for elastic databases and database pools. See [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md) for details.
+Mais comment comparer les performances relatives des bases de données et des pools de bases de données ? Comment faire la part des choses entre les différents niveaux de service selon une mise à l'échelle verticale ? La réponse se situe dans l’unité de transaction de base de données (DTU) pour les bases de données uniques et la DTU élastique (eDTU) pour les bases de données élastiques et les pools de bases de données. Voir [Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service](sql-database-service-tiers.md) pour plus d’informations.
 
-## <a name="keep-your-app-and-business-running"></a>Keep your app and business running
+## Votre application et votre activité ne s’arrêtent jamais
 
-Azure's industry leading 99.99% availability service level agreement [(SLA)](http://azure.microsoft.com/support/legal/sla/), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. With every SQL database, you take advantage of built-in data protection, fault tolerance, and data protection that you would otherwise have to design, buy, build, and manage. Even so, depending on the demands of your business, you may demand additional layers of protection to ensure your app and your business can recover quickly in the event of a disaster, an error, or something else. With SQL Database, each service tier offers a different menu of features you can use to get up and running and stay that way. You can use point-in-time restore to return a database to an earlier state, as far back as 35 days. In addition, if the datacenter hosting your databases experiences an outage, you can failover to database replicas in a different region. Or you can use replicas for upgrades or relocation to different regions.
+Avec un temps de disponibilité de 99,99 %, l’excellent contrat de niveau de service [(SLA)](http://azure.microsoft.com/support/legal/sla/) d’Azure, soutenu par un réseau mondial de centres de données gérés par Microsoft, permet d’exécuter votre application 24 heures sur 24, 7 jours sur 7. Avec chaque base de données SQL, vous tirez parti de la protection des données intégrée, d'une tolérance en cas de panne et de la protection des données que vous seriez de toute manière contraint de concevoir, acheter, créer et gérer. Même dans ce cas, en fonction des besoins de votre entreprise, vous pouvez exiger des couches supplémentaires de protection afin que votre application et votre entreprise puissent revenir à la normale rapidement en cas de sinistre, d'une erreur ou autre événement. Avec SQL Database, chaque niveau de service offre un ensemble spécifique de fonctionnalités que vous pouvez utiliser pour être opérationnel et le rester. Vous pouvez utiliser la limite de restauration dans le temps pour renvoyer une base de données à un état antérieur, jusqu'à 35 jours. En outre, si le centre de données hébergeant vos bases de données connaît une panne, vous pouvez basculer vers des réplicas de base de données dans une autre région. Sinon, vous pouvez utiliser des réplicas pour des mises à niveau ou un déplacement dans différentes régions.
 
-![SQL Database Geo-Replication](./media/sql-database-technical-overview/azure_sqldb_map.png)
-
-
-See [Business Continuity](sql-database-business-continuity.md) for details about the different business continuity features available for different service tiers.
-
-## <a name="secure-your-data"></a>Secure your data
-SQL Server has a tradition of solid  data security that SQL Database upholds with features that limit access, protect data, and help you monitor activity. See [Securing your SQL database](sql-database-security.md) for a quick rundown of security options you have in SQL Database. See the [Security Center for SQL Server Database Engine and SQL Database](https://msdn.microsoft.com/library/bb510589) for a more comprehensive view of security features. And visit the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
-
-## <a name="next-steps"></a>Next steps
-Now that you've read an introduction to SQL Database and answered the question "What is SQL Database?", you're ready to:
-
-- See the [pricing page](https://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic database cost comparisons and calculators.
-- Learn about [elastic pools](sql-database-elastic-pool.md).
-- Get started by [creating your first database](sql-database-get-started.md).
-- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- Build your first app in C#, Java, Node.js, PHP, Python, or Ruby: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
-- See an index of the titles and descriptions of [All topics for Azure sql-database service](sql-database-index-all-articles.md).
+![Géo-réplication de base de données SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 
+Consultez [Continuité de l’activité](sql-database-business-continuity.md) pour plus d’informations sur les différentes fonctionnalités de continuité d’activité disponibles pour les différents niveaux de service.
 
-<!--HONumber=Oct16_HO2-->
+## Sécurisez vos données
+SQL Server est largement reconnu pour son expertise en matière de sécurité des données que la base de données SQL confirme avec des fonctionnalités qui limitent l'accès, protègent les données et vous aident à surveiller l'activité. Pour un récapitulatif rapide des options de sécurité dont vous disposez dans la base de données SQL, voir [Sécurisation de votre base de données SQL](sql-database-security.md) Pour obtenir une vue plus complète des fonctionnalités de sécurité, voir [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL](https://msdn.microsoft.com/library/bb510589). Enfin, rendez-vous dans le [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/security/) pour plus d’informations sur la sécurité de la plateforme Azure.
 
+## Étapes suivantes
+Maintenant que vous avez lu l’introduction à la base de données SQL et répondu à la question « Qu’est ce qu’une base de données SQL ? », vous êtes prêt à effectuer les opérations suivantes :
 
+- Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/sql-database/) pour obtenir un comparatif des coûts entre une base de données unique et une base de données élastique et accéder à des calculateurs.
+- En savoir plus sur les [pools élastiques](sql-database-elastic-pool.md).
+- Commencez par [créer votre première base de données](sql-database-get-started.md).
+- [Se connecter et lancer des requêtes avec SSMS](sql-database-connect-query-ssms.md)
+- Créez votre première application en C#, Java, Node.js, PHP, Python ou Ruby : [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
+- Voir l’index des titres et descriptions de l’article [Toutes les rubriques pour le service de base de données SQL Azure](sql-database-index-all-articles.md).
+
+<!---HONumber=AcomDC_0817_2016-->

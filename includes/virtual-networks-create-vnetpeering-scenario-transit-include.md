@@ -1,15 +1,11 @@
-## <a name="service-chaining---transit-through-peered-vnet"></a>Service Chaining - Transit through peered VNet
+## Chaînage de services : Transit via des réseaux virtuels homologués
 
-Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance.
-In this scenario, there are two VNets in a subscription, HubVNet and VNet1 as described in the diagram below. You deploy Network Virtual Appliance(NVA) in VNet HubVNet. After establishing VNet peering between HubVNet and VNet1, you can set up User Defined Routes and specify the next hop to NVA in the HubVNet.
+Les itinéraires système permettent la circulation automatique du trafic lié au déploiement, mais il existe des cas où il peut s’avérer utile d’acheminer les paquets au moyen d’une appliance virtuelle. Dans ce scénario, un abonnement comprend les deux réseaux virtuels, HubVNet et VNet1, comme illustré dans le schéma ci-dessous. Vous déployez Network Virtual Appliance (NVA) dans VNet HubVNet. Après avoir établi une homologation de réseaux virtuels entre HubVNet et VNet1, vous pouvez configurer des itinéraires définis par l’utilisateur et spécifier le prochain saut vers NVA dans HubVNet.
 
-![NVA Transit](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
+![Transit NVA](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-> [AZURE.NOTE] For the simplicity, assume all VNets here are in the same subscription. But it also works for cross-subscription scenario.
+> [AZURE.NOTE] Pour une question de simplicité, nous supposons que tous les réseaux virtuels se trouvent dans le même abonnement, mais cela fonctionne également dans les cas impliquant plusieurs abonnements.
 
-The key property to enable Transit routing is the "Allow Forwarded Traffic" parameter. This allows accepting and sending traffic from/to the NVA in the peered VNet.  
+La propriété clé pour activer le routage de transit est le paramètre Autoriser le trafic transféré. Ce paramètre permet d’accepter et d’envoyer le trafic depuis/vers NVA dans les réseaux virtuels homologués.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

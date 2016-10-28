@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Connect remotely to your StorSimple device | Microsoft Azure"
-   description="Explains how to configure your device for remote management and how to connect to Windows PowerShell for StorSimple via HTTP or HTTPS."
+   pageTitle="Se connecter à distance à votre appareil StorSimple | Microsoft Azure"
+   description="Explique comment configurer votre appareil pour la gestion à distance et comment se connecter à Windows PowerShell for StorSimple par HTTP ou HTTPS."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,268 +15,263 @@
    ms.date="06/21/2016"
    ms.author="alkohli" />
 
+# Connexion à distance à votre appareil StorSimple
 
-# <a name="connect-remotely-to-your-storsimple-device"></a>Connect remotely to your StorSimple device
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Vous pouvez utiliser l’accès distant Windows PowerShell pour vous connecter à votre appareil StorSimple. Quand vous vous connectez de cette façon, vous ne voyez pas de menu. (Vous voyez un menu seulement si vous utilisez la console série sur l’appareil pour vous connecter). Avec l’accès distant Windows PowerShell, vous vous connectez à une instance d’exécution spécifique. Vous pouvez également spécifier la langue d’affichage.
 
-You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language. 
+Pour plus d’informations sur l’utilisation de l’accès distant Windows PowerShell pour gérer votre appareil, consultez la rubrique [Administrer votre appareil StorSimple à l’aide de Windows PowerShell pour StorSimple](storsimple-windows-powershell-administration.md).
 
-For more information about using Windows PowerShell remoting to manage your device, go to [Use Windows PowerShell for StorSimple to administer your StorSimple device](storsimple-windows-powershell-administration.md).
+Ce didacticiel explique comment configurer votre appareil pour la gestion à distance, puis comment se connecter à Windows PowerShell pour StorSimple. Vous pouvez utiliser HTTP ou HTTPS pour vous connecter via l’accès distant Windows PowerShell. Cependant, quand vous décidez comment vous connecter à Windows PowerShell pour StorSimple, prenez en compte les points suivants :
 
-This tutorial explains how to configure your device for remote management and then how to connect to Windows PowerShell for StorSimple. You can use HTTP or HTTPS to connect via Windows PowerShell remoting. However, when you are deciding how to connect to Windows PowerShell for StorSimple, consider the following: 
+- Une connexion directe à la console série de l’appareil est sécurisée, mais une connexion à la console via des commutateurs réseau ne l’est pas. Méfiez-vous des risques de sécurité lors de la connexion à la console série d’un appareil via des commutateurs réseau. 
 
-- Connecting directly to the device serial console is secure, but connecting to the serial console over network switches is not. Be cautious of the security risk when connecting to the device serial console over network switches. 
+- Une connexion via une session HTTP peut offrir davantage de sécurité que la connexion via la console série sur le réseau. Bien que cela ne soit pas la méthode la plus sécurisée, elle est acceptable sur des réseaux approuvés.
 
-- Connecting through an HTTP session might offer more security than connecting through the serial console over the network. Although this is not the most secure method, it is acceptable on trusted networks. 
+- La connexion via une session HTTPS avec un certificat auto-signé est l’option la plus sécurisée et c’est celle qui est recommandée.
 
-- Connecting through an HTTPS session with a self-signed certificate is the most secure and the recommended option.
+Vous pouvez vous connecter à distance à l’interface Windows PowerShell. Cependant, l’accès à distance à votre appareil StorSimple via l’interface Windows PowerShell n’est pas activé par défaut. Vous devez d’abord activer la gestion à distance sur l’appareil, puis sur le client qui est utilisé pour accéder à votre appareil.
 
-You can connect remotely to the Windows PowerShell interface. However, remote access to your StorSimple device via the Windows PowerShell interface is not enabled by default. You need to enable remote management on the device first, and then on the client that is used to access your device.
+Les étapes décrites dans cet article ont été exécutées sur un système hôte exécutant Windows Server 2012 R2.
 
-The steps described in this article were performed on a host system running Windows Server 2012 R2.
+## Se connecter via HTTP
 
-## <a name="connect-through-http"></a>Connect through HTTP
+La connexion à Windows PowerShell pour StorSimple via une session HTTP offre davantage de sécurité que la connexion via la console série de votre appareil StorSimple. Bien que cela ne soit pas la méthode la plus sécurisée, elle est acceptable sur des réseaux approuvés.
 
-Connecting to Windows PowerShell for StorSimple through an HTTP session offers more security than connecting through the serial console of your StorSimple device. Although this is not the most secure method, it is acceptable on trusted networks.
+Vous pouvez utiliser le portail Azure Classic ou la console série pour configurer la gestion à distance. Choisissez parmi les procédures suivantes :
 
-You can use either the Azure classic portal or the serial console to configure remote management. Select from the following procedures:
+- [Utiliser le portail Azure Classic pour activer la gestion à distance via HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
 
-- [Use the Azure classic portal to enable remote management over HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
+- [Utiliser la console série pour activer la gestion à distance via HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
-- [Use the serial console to enable remote management over HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
+Après avoir activé la gestion à distance, procédez comme suit pour préparer le client pour une connexion à distance.
 
-After you enable remote management, use the following procedure to prepare the client for a remote connection.
+- [Préparer le client pour une connexion à distance](#prepare-the-client-for-remote-connection)
 
-- [Prepare the client for remote connection](#prepare-the-client-for-remote-connection)
+### Utiliser le portail Azure Classic pour activer la gestion à distance via HTTP 
 
-### <a name="use-the-azure-classic-portal-to-enable-remote-management-over-http"></a>Use the Azure classic portal to enable remote management over HTTP 
+Procédez comme suit dans le portail Azure Classic pour activer la gestion à distance via HTTP.
 
-Perform the following steps in the Azure classic portal to enable remote management over HTTP.
+#### Pour activer la gestion à distance via le portail Azure Classic
 
-#### <a name="to-enable-remote-management-through-the-azure-classic-portal"></a>To enable remote management through the Azure classic portal
+1. Accédez à **Appareils** > **Configurer** pour votre appareil.
 
-1. Access **Devices** > **Configure** for your device.
+2. Accédez à la section **Gestion à distance**.
 
-2. Scroll down to the **Remote Management** section.
+3. Définissez **Activer la gestion à distance** sur **Oui**.
 
-3. Set **Enable Remote Management** to **Yes**.
+4. Vous pouvez maintenant choisir de vous connecter à l’aide de HTTP. (Le choix par défaut est de se connecter via HTTPS.) Assurez-vous que HTTP est sélectionné.
 
-4. You can now choose to connect using HTTP. (The default is to connect over HTTPS.) Make sure that HTTP is selected.
+    >[AZURE.NOTE] Une connexion via HTTP est acceptable uniquement sur des réseaux approuvés.
 
-    >[AZURE.NOTE] Connecting over HTTP is acceptable only on trusted networks.
+6. Cliquez sur **Enregistrer** au bas de la page.
 
-6. Click **Save** at the bottom of the page.
+### Utiliser la console série pour activer la gestion à distance via HTTP
 
-### <a name="use-the-serial-console-to-enable-remote-management-over-http"></a>Use the serial console to enable remote management over HTTP
+Procédez comme suit sur la console série de l’appareil pour activer la gestion à distance.
 
-Perform the following steps on the device serial console to enable remote management.
+#### Pour activer la gestion à distance via la console série de l’appareil
 
-#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>To enable remote management through the device serial console
+1. Dans le menu de la console série, sélectionnez l’option 1. Pour plus d’informations sur l’utilisation de la console série sur l’appareil, consultez [Se connecter à Windows PowerShell pour StorSimple via la console série de l’appareil](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console).
 
-1. On the serial console menu, select option 1. For more information about using the serial console on the device, go to [Connect to Windows PowerShell for StorSimple via device serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console).
+2. À l’invite, tapez : `Enable-HcsRemoteManagement –AllowHttp`
 
-2. At the prompt, type: `Enable-HcsRemoteManagement –AllowHttp`
+3. Vous serez averti des vulnérabilités de sécurité résultant de l’utilisation de HTTP pour se connecter à l’appareil. Quand vous y êtes invité, confirmez en tapant **O**.
 
-3. You will be notified about the security vulnerabilities of using HTTP to connect to the device. When prompted, confirm by typing **Y**.
+4. Vérifiez que HTTP est activé en tapant : `Get-HcsSystem`
 
-4. Verify that HTTP is enabled by typing: `Get-HcsSystem`
+5. Vérifiez que le champ **RemoteManagementMode** affiche **HttpsAndHttpEnabled**. L’illustration suivante montre ces paramètres dans PuTTY.
 
-5. Verify that the **RemoteManagementMode** field shows **HttpsAndHttpEnabled**.The following illustration shows these settings in PuTTY.
+     ![HTTPS et HTTP en série activés](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
-     ![Serial HTTPS and HTTP enabled](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
+### Préparer le client pour une connexion à distance
 
-### <a name="prepare-the-client-for-remote-connection"></a>Prepare the client for remote connection
+Procédez comme suit sur le client pour activer la gestion à distance.
 
-Perform the following steps on the client to enable remote management.
+#### Pour préparer le client pour une connexion à distance
 
-#### <a name="to-prepare-the-client-for-remote-connection"></a>To prepare the client for remote connection
+1. Démarrez une session Windows PowerShell en tant qu’administrateur.
 
-1. Start a Windows PowerShell session as an administrator.
-
-2. Type the following command to add the IP address of the StorSimple device to the client’s trusted hosts list: 
+2. Tapez la commande suivante pour ajouter l’adresse IP de l’appareil StorSimple à la liste des hôtes approuvés du client :
 
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
 
-     Replace <*device_ip*> with the IP address of your device; for example: 
+     Remplacez <*device\_ip*> par l’adresse IP de votre appareil, par exemple :
 
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 
-3. Type the following command to save the device credentials in a variable: 
+3. Tapez la commande suivante pour enregistrer les informations d’identification de l’appareil dans une variable :
 
      *$cred = Get-Credential*
 
-4. In the dialog box that appears:
+4. Dans la boîte de dialogue qui s’affiche :
 
-    1. Type the user name in this format: *device_ip\SSAdmin*.
-    2. Type the device administrator password that was set when the device was configured with the setup wizard. The default password is *Password1*.
+    1. Entrez le nom d’utilisateur au format : *adresse\_IP\_appareil\\AdministrateurSS*.
+    2. Tapez le mot de passe de l’administrateur de l’appareil qui a été défini quand l’appareil a été configuré avec l’Assistant Installation. Le mot de passe par défaut est *Password1*.
 
-7. Start a Windows PowerShell session on the device by typing this command:
+7. Démarrez une session Windows PowerShell sur l’appareil en tapant cette commande :
 
      `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE] To create a Windows PowerShell session for use with the StorSimple virtual device, append the `–Port` parameter and specify the public port that you configured in Remoting for StorSimple Virtual Appliance.
+     >[AZURE.NOTE] Pour créer une session Windows PowerShell pour une utilisation avec l’appareil virtuel StorSimple, ajoutez le paramètre `–Port` et spécifiez le port public que vous avez configuré dans l’accès distant pour l’appliance virtuelle StorSimple.
 
-     At this point, you should have an active remote Windows PowerShell session to the device.
+     À ce stade, vous devez normalement disposer d’une session Windows PowerShell à distance active sur l’appareil.
 
-    ![PowerShell remoting using HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
+    ![Accès distant PowerShell en utilisant HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
-## <a name="connect-through-https"></a>Connect through HTTPS
+## Se connecter via HTTPS
 
-Connecting to Windows PowerShell for StorSimple through an HTTPS session is the most secure and recommended method of remotely connecting to your Microsoft Azure StorSimple device. The following procedures explain how to set up the serial console and client computers so that you can use HTTPS to connect to Windows PowerShell for StorSimple.
+La connexion à Windows PowerShell pour StorSimple via une session HTTPS est la méthode la plus sécurisée et elle est recommandée pour la connexion à distance à votre appareil Microsoft Azure StorSimple. Les procédures suivantes expliquent comment configurer la console série et les ordinateurs clients pour pouvoir utiliser HTTPS pour se connecter à Windows PowerShell pour StorSimple.
 
-You can use either the Azure classic portal or the serial console to configure remote management. Select from the following procedures:
+Vous pouvez utiliser le portail Azure Classic ou la console série pour configurer la gestion à distance. Choisissez parmi les procédures suivantes :
 
-- [Use the Azure classic portal to enable remote management over HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
+- [Utiliser le portail Azure Classic pour activer la gestion à distance via HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
 
-- [Use the serial console to enable remote management over HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
+- [Utiliser la console série pour activer la gestion à distance via HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
-After you enable remote management, use the following procedures to prepare the host for a remote management and connect to the device from the remote host.
+Après avoir activé la gestion à distance, utilisez les procédures suivantes pour préparer l’hôte pour la gestion à distance et pour se connecter à l’appareil à partir de l’hôte distant.
 
-- [Prepare the host for remote management](#prepare-the-host-for-remote-management)
+- [Préparer l’hôte pour la gestion à distance](#prepare-the-host-for-remote-management)
 
-- [Connect to the device from the remote host](#connect-to-the-device-from-the-remote-host)
+- [Se connecter à l’appareil à partir de l’hôte distant](#connect-to-the-device-from-the-remote-host)
 
-### <a name="use-the-azure-classic-portal-to-enable-remote-management-over-https"></a>Use the Azure classic portal to enable remote management over HTTPS
+### Utiliser le portail Azure Classic pour activer la gestion à distance via HTTPS
 
-Perform the following steps in the Azure classic portal to enable remote management over HTTPS.
+Procédez comme suit dans le portail Azure Classic pour activer la gestion à distance via HTTPS.
 
-#### <a name="to-enable-remote-management-over-https-from-the-azure-classic-portal"></a>To enable remote management over HTTPS from the Azure classic portal
+#### Pour activer la gestion à distance via HTTPS à partir du portail Azure Classic
 
-1. Access **Devices** > **Configure** for your device.
+1. Accédez à **Appareils** > **Configurer** pour votre appareil.
 
-2. Scroll down to the **Remote Management** section.
+2. Accédez à la section **Gestion à distance**.
 
-3. Set **Enable Remote Management** to **Yes**.
+3. Définissez **Activer la gestion à distance** sur **Oui**.
 
-4. You can now choose to connect using HTTPS. (The default is to connect over HTTPS.) Make sure that HTTPS is selected. 
+4. Vous pouvez maintenant choisir de vous connecter via HTTPS. (Le choix par défaut est de se connecter via HTTPS.) Assurez-vous que HTTPS est sélectionné.
 
-5. Click **Download Remote Management Certificate**. Specify a location to save this file. You will need to install this certificate on the client or host computer that you will use to connect to the device.
+5. Cliquez sur **Télécharger le certificat de gestion à distance**. Spécifiez un emplacement pour enregistrer ce fichier. Vous devez installer ce certificat sur l’ordinateur client ou sur l’ordinateur hôte que vous utiliserez pour vous connecter à l’appareil.
 
-6. Click **Save** at the bottom of the page.
+6. Cliquez sur **Enregistrer** au bas de la page.
 
-### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>Use the serial console to enable remote management over HTTPS
+### Utiliser la console série pour activer la gestion à distance via HTTPS
 
-Perform the following steps on the device serial console to enable remote management.
+Procédez comme suit sur la console série de l’appareil pour activer la gestion à distance.
 
-#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>To enable remote management through the device serial console
+#### Pour activer la gestion à distance via la console série de l’appareil
 
-1. On the serial console menu, select option 1. For more information about using the serial console on the device, go to [Connect to Windows PowerShell for StorSimple via device serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console).
+1. Dans le menu de la console série, sélectionnez l’option 1. Pour plus d’informations sur l’utilisation de la console série sur l’appareil, consultez [Se connecter à Windows PowerShell pour StorSimple via la console série de l’appareil](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console).
 
-2. At the prompt, type: 
+2. À l’invite, tapez :
 
      `Enable-HcsRemoteManagement`
 
-    This should enable HTTPS on your device.
+    Ceci doit normalement activer HTTPS sur votre appareil.
 
-3. Verify that HTTPS has been enabled by typing: 
+3. Vérifiez que HTTPS a été activé en tapant :
 
      `Get-HcsSystem`
 
-    Make sure that the **RemoteManagementMode** field shows **HttpsEnabled**.The following illustration shows these settings in PuTTY.
+    Vérifiez que le champ **RemoteManagementMode** affiche **HttpsEnabled**. L’illustration suivante montre ces paramètres dans PuTTY.
 
-     ![Serial HTTPS enabled](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
+     ![HTTPS en série activé](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
 
-4. From the output of `Get-HcsSystem`, copy the serial number of the device and save it for later use.
+4. Depuis la sortie de `Get-HcsSystem`, copiez le numéro de série de l’appareil et enregistrez-le pour une utilisation ultérieure.
 
-    >[AZURE.NOTE] The serial number maps to the CN name in the certificate.
+    >[AZURE.NOTE] Le numéro de série correspond au nom CN du certificat.
 
-5. Obtain a remote management certificate by typing: 
+5. Obtenez un certificat de gestion à distance en tapant :
  
      `Get-HcsRemoteManagementCert`
 
-    A certificate similar to the following will appear.
+    Un certificat similaire à celui-ci apparaît.
 
-    ![Get remote management certificate](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
+    ![Obtenir un certificat de gestion à distance](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
 
-5. Copy the information in the certificate from **-----BEGIN CERTIFICATE-----** to **-----END CERTIFICATE-----** into a text editor such as Notepad, and save it as a .cer file. (You will copy this file to your remote host when you prepare the host.)
+5. Copiez les informations du certificat de **-----BEGIN CERTIFICATE-----** à **-----END CERTIFICATE-----** dans un éditeur de texte comme le Bloc-notes et enregistrez-les dans un fichier .cer. (Vous allez copier ce fichier sur votre hôte distant lors de la préparation de l’hôte).
 
-    >[AZURE.NOTE] To generate a new certificate, use the `Set-HcsRemoteManagementCert` cmdlet.
+    >[AZURE.NOTE] Pour générer un nouveau certificat, utilisez l’applet de commande `Set-HcsRemoteManagementCert`.
 
-### <a name="prepare-the-host-for-remote-management"></a>Prepare the host for remote management
+### Préparer l’hôte pour la gestion à distance
 
-To prepare the host computer for a remote connection that uses an HTTPS session, perform the following procedures:
+Pour préparer l’ordinateur hôte pour une connexion à distance qui utilise une session HTTPS, effectuez les procédures suivantes :
 
-- [Import the .cer file into the root store of the client or remote host](#to-import-the-certificate-on-the-remote-host).
+- [Importez le fichier .cer dans le magasin racine du client ou de l’hôte distant](#to-import-the-certificate-on-the-remote-host).
 
-- [Add the device serial numbers to the hosts file on your remote host](#to-add-device-serial-numbers-to-the-remote-host).
+- [Ajoutez les numéros de série des appareils au fichier hosts sur l’hôte distant](#to-add-device-serial-numbers-to-the-remote-host).
 
-Each of these procedures is described below.
+Chacune de ces procédures est décrite ci-dessous.
 
-#### <a name="to-import-the-certificate-on-the-remote-host"></a>To import the certificate on the remote host
+#### Pour importer le certificat sur l’hôte distant
 
-1. Right-click the .cer file and select **Install certificate**. This will start the Certificate Import Wizard.
+1. Cliquez avec le bouton droit sur le fichier .cer et sélectionnez **Installer le certificat**. Ceci démarre l’Assistant Importation de certificat.
 
-    ![Certificate Import Wizard 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
+    ![Assistant Importation de certificat 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
 
-2. For **Store location**, select **Local Machine**, and then click **Next**.
+2. Pour **Emplacement du magasin**, sélectionnez **Ordinateur local**, puis cliquez sur **Suivant**.
 
-3. Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
+3. Sélectionnez **Placer tous les certificats dans le magasin suivant**, puis cliquez sur **Parcourir**. Accédez au magasin racine de l’hôte distant, puis cliquez sur **Suivant**.
 
-    ![Certificate Import Wizard 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
+    ![Assistant Importation de certificat 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 
-4. Click **Finish**. A message that tells you that the import was successful appears.
+4. Cliquez sur **Terminer**. Un message indiquant que l’importation a réussi s’affiche.
 
-    ![Certificate Import Wizard 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
+    ![Assistant Importation de certificat 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
-#### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>To add device serial numbers to the remote host
+#### Pour ajouter des numéros de série d’appareils à l’hôte distant
 
-1. Start Notepad as an administrator, and then open the hosts file located at \Windows\System32\Drivers\etc.
+1. Démarrez le Bloc-notes en tant qu’administrateur, puis ouvrez le fichier hosts qui se trouve dans \\Windows\\System32\\Drivers\\etc.
 
-2. Add the following three entries to your hosts file: **DATA 0 IP address**, **Controller 0 Fixed IP address**, and **Controller 1 Fixed IP address**.
+2. Ajoutez les trois entrées suivantes à votre fichier hosts : **Adresse IP de DATA 0**, **Adresse IP fixe du contrôleur 0** et **Adresse IP fixe du contrôleur 1**.
 
-3. Enter the device serial number that you saved earlier. Map this to the IP address as shown in the following image. For Controller 0 and Controller 1, append **Controller0** and **Controller1** at the end of the serial number (CN name).
+3. Entrez le numéro de série de l’appareil que vous avez enregistré précédemment. Mappez ceci à l’adresse IP, comme le montre l’image suivante. Pour Contrôleur 0 et Contrôleur 1, ajoutez **Controller0** et **Controller1** à la fin du numéro de série (nom CN).
 
-    ![Adding CN Name to hosts file](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+    ![Ajout du nom CN au fichier Hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 
-4. Save the hosts file.
+4. Enregistrez le fichier hosts.
 
-### <a name="connect-to-the-device-from-the-remote-host"></a>Connect to the device from the remote host
+### Se connecter à l’appareil à partir de l’hôte distant
 
-Use Windows PowerShell and SSL to enter an SSAdmin session on your device from a remote host or client. The SSAdmin session maps to option 1 in the [serial console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console) menu of your device.
+Utilisez Windows PowerShell et SSL pour entrer dans une session SSAdmin sur votre appareil à partir d’un hôte ou d’un client distant. La session SSAdmin est mappée à l’option 1 dans le menu de la [console série](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-device-serial-console) de votre appareil.
 
-Perform the following procedure on the computer from which you want to make the remote Windows PowerShell connection.
+Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez établir la connexion Windows PowerShell à distance.
 
-#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>To enter an SSAdmin session on the device by using Windows PowerShell and SSL
+#### Pour entrer dans une session SSAdmin sur l’appareil en utilisant Windows PowerShell et SSL
 
-1. Start a Windows PowerShell session as an administrator.
+1. Démarrez une session Windows PowerShell en tant qu’administrateur.
 
-2. Add the device IP address to the client’s trusted hosts by typing:
+2. Ajoutez l’adresse IP de l’appareil aux hôtes approuvés du client en tapant :
 
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
 
-    Where <*device_ip*> is the IP address of your device; for example: 
+    où <*device\_ip*> par l’adresse IP de votre appareil, par exemple :
 
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 
-3. Create a new credential by typing: 
+3. Créez des informations d’identification en tapant :
 
      `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
 
-    Where <*IP of target device*> is the IP address of DATA 0 for your device; for example, **10.126.173.90** as shown in the preceding image of the hosts file. Also, supply the administrator password for your device.
+    Où <*IP of target device*> est l’adresse IP de DATA 0 pour votre appareil, par exemple **10.126.173.90** comme dans l’image précédente du fichier hosts. Spécifiez également le mot de passe administrateur pour votre appareil.
 
-4. Create a session by typing:
+4. Créer une session en tapant :
 
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
 
-    For the -ComputerName parameter in the cmdlet, provide the <*serial number of target device*>. This serial number was mapped to the IP address of DATA 0 in the hosts file on your remote host; for example, **SHX0991003G44MT** as shown in the following image.
+    Pour le paramètre -ComputerName de l’applet de commande, vous devez fournir le <*numéro de série de l’appareil cible*>. Ce numéro de série a été mappé à l’adresse IP de DATA 0 dans le fichier hosts sur l’hôte distant, par exemple, **SHX0991003G44MT** dans l’image suivante.
 
-5. Type: 
+5. Entrez :
 
      `Enter-PSSession $session`
 
-6. You will need to wait a few minutes, and then you will be connected to your device via HTTPS over SSL. You will see a message that indicates you are connected to your device.
+6. Patientez quelques minutes, puis vous serez connecté à votre appareil via HTTPS sur SSL. Vous verrez un message indiquant que vous êtes connecté à votre appareil.
 
-    ![PowerShell remoting using HTTPS and SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![Accès distant PowerShell en utilisant HTTPS et SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- Learn more about [using Windows PowerShell to administer your StorSimple device](storsimple-windows-powershell-administration.md).
+- En savoir plus sur [l’utilisation de Windows PowerShell pour gérer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

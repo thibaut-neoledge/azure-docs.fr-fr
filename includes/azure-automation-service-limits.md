@@ -1,13 +1,11 @@
-Resource|Maximum Limit
+Ressource|Limite maximale
 ---|---
-Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs)|100
-Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs)|200
-Max number of modules that can be imported every 30 seconds per Automation Account|5
-Max size of a Module|100 MB
-Job Run Time - Free tier|500 minutes per subscription per calendar month
-Max amount of memory given to a job |400 MB
-Max number of network sockets allowed per job|1000
+Nombre maximum de nouveaux travaux pouvant être envoyés toutes les 30 secondes par compte Automation (travaux non planifiés)|100
+Nombre maximum de travaux simultanés pendant la même instance de temps par compte Automation (travaux non planifiés)|200
+Nombre maximum de modules pouvant être importés toutes les 30 secondes par compte Automation|5
+Taille maximum d’un module|100 Mo
+Durée d’exécution de la tâche - Niveau Gratuit|500 minutes par abonnement et par mois
+Quantité maximale de mémoire affectée à une tâche |400 Mo
+Nombre maximal de sockets réseau affectés à une tâche|1 000
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

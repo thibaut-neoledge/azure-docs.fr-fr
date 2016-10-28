@@ -1,61 +1,56 @@
-## <a name="what-are-service-bus-topics-and-subscriptions?"></a>What are Service Bus topics and subscriptions?
+## Présentation des rubriques et des abonnements Service Bus
 
-Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with each other; instead they exchange messages via a topic, which acts as an intermediary.
+Les rubriques et les abonnements Service Bus prennent en charge un modèle de *communication de messagerie de publication et d’abonnement*. Lors de l’utilisation de rubriques et d’abonnements, les composants d’une application distribuée ne communiquent pas directement entre eux. Ils échangent plutôt des messages par le biais d’une rubrique, qui fait office d’intermédiaire.
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
 
-In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a "one-to-many" form of communication, using a publish/subscribe pattern. It is possible to register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently.
+Contrairement aux files d’attente Service Bus, où chaque message est traité par un seul consommateur, les rubriques et les abonnements fournissent une forme de communication « un-à-plusieurs », à l'aide d'un modèle de publication et d'abonnement. Il est possible d’inscrire plusieurs abonnements à une rubrique. Lorsqu’un message est envoyé à une rubrique, il est alors mis à disposition de chaque abonnement pour être géré ou traité indépendamment.
 
-A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which enables you to filter or restrict which messages to a topic are received by which topic subscriptions.
+Un abonnement à une rubrique ressemble à une file d’attente virtuelle qui reçoit des copies des messages envoyés à la rubrique. Vous pouvez éventuellement inscrire des règles de filtre pour une rubrique par abonnement, ce qui vous permet de filtrer ou de restreindre les messages d’une rubrique reçus en fonction des abonnements à une rubrique.
 
-Service Bus topics and subscriptions enable you to scale and process a very large number of messages across many users and applications.
+Les rubriques et les abonnements Service Bus vous permettent de mettre votre infrastructure à l’échelle et de traiter de très nombreux messages parmi un grand nombre d’utilisateurs et d’applications.
 
-## <a name="create-a-namespace"></a>Create a namespace
+## Créer un espace de noms
 
-To begin using Service Bus topics and subscriptions in Azure, you must first create a *service namespace*. A namespace provides a scoping container for addressing Service Bus resources within your application.
+Pour commencer à utiliser les rubriques et les abonnements Service Bus dans Azure, vous devez d’abord créer un *espace de noms de service*. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
-To create a namespace:
+Pour créer un espace de noms :
 
-1. Log on to the [Azure portal][].
+1. Connectez-vous au [portail Azure][].
 
-2. In the left navigation pane of the portal, click **New**, then click **Enterprise Integration**, and then click **Service Bus**.
+2. Dans le volet de navigation gauche du portail, cliquez sur **Nouveau**, puis sur **Enterprise Integration** et sur **Service Bus**.
 
-4. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
+4. Dans la boîte de dialogue **Créer un espace de noms**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
 
-5. After making sure the namespace name is available, choose the pricing tier (Basic, Standard, or Premium).
+5. Lorsque vous avez vérifié la disponibilité de l’espace de noms, sélectionnez le niveau tarifaire (Basique, Standard ou Premium).
 
-7. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
+7. Dans le champ **Abonnement**, sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
 
-9. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
+9. Dans le champ **Groupe de ressources**, choisissez un groupe de ressources existant dans lequel l’espace de noms sera utilisé, ou créez-en un nouveau.
 
-8. In **Location**, choose the country or region in which your namespace should be hosted.
+8. Dans **Emplacement**, sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
 
-    ![Create namespace][create-namespace]
+	![Créer un espace de noms][create-namespace]
 
-6. Click the **Create** button. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6. Cliquez sur le bouton **Créer**. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
  
-### <a name="obtain-the-credentials"></a>Obtain the credentials
+### Obtenir les informations d’identification
 
-1. In the list of namespaces, click the newly created namespace name.
+1. Dans la liste des espaces de noms, cliquez sur le nom de l’espace de noms que vous venez de créer.
  
-3. In the **Service Bus namespace** blade, click **Shared access policies**.
+3. Dans le panneau **Espace de noms Service Bus**, cliquez sur **Stratégies d’accès partagé**.
 
-4. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
+4. Dans le panneau **Stratégies d’accès partagé**, cliquez sur **RootManageSharedAccessKey**.
 
-    ![connection-info][connection-info]
+	![informations de connexion][connection-info]
 
-5. In the **Policy: RootManageSharedAccessKey** blade, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use.
+5. Dans le panneau **Policy: RootManageSharedAccessKey (Stratégie : RootManageSharedAccessKey)**, cliquez sur le bouton de copie situé en regard de **Clé primaire de la chaîne de connexion**, pour copier la chaîne de connexion dans le presse-papiers pour une utilisation ultérieure.
 
-    ![connection-string][connection-string]
+	![connection-string][connection-string]
 
-[Azure portal]: https://portal.azure.com
+[portail Azure]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

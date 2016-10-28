@@ -1,18 +1,15 @@
 <!--author=SharS last changed: 03/17/2016-->
 
-#### <a name="to-install-update-1.2-from-the-azure-classic-portal"></a>To install Update 1.2 from the Azure classic portal
+#### Pour installer Update 1.2 à partir du portail Azure Classic
 
-1. In the Azure classic portal, go to the **Devices** page and select your device.
+1. Dans le portail Azure Classic, accédez à la page **Appareils** et sélectionnez votre appareil.
 
-2. Navigate to **Devices** > **Configure**.
+2. Accédez à **Appareils** > **Configurer**.
 
-3. Under **Network Interfaces**, first verify that you have at least one network interface that is iSCSI-enabled. Then locate the network interface (other than DATA 0) that has a gateway assigned.
+3. Sous **Interfaces réseau**, vérifiez d’abord que vous disposez d’au moins une interface réseau compatible iSCSI. Ensuite, recherchez l’interface réseau (autre que DATA 0) à laquelle est affectée une passerelle.
 
-4. Disable the network interface that has an assigned gateway and save the modified configuration. Note the network interface settings are retained and so when you re-enable this network interface later, the portal will revert to the original settings.
+4. Désactivez l’interface réseau à laquelle est affectée une passerelle et enregistrez la nouvelle configuration. Les paramètres d’interface réseau étant conservés, le portail retrouve les paramètres d’origine quand vous réactivez cette interface réseau ultérieurement.
 
-7. You can now [use the Azure classic portal to install Update 1.2](#install-update-12-via-the-azure-classic-portal). Follow the instructions starting from step 3 of this procedure. After you have installed all the updates, you can re-enable the network interface that you disabled.
+7. Vous pouvez maintenant [utiliser le portail Azure Classic pour installer Update 1.2](#install-update-12-via-the-azure-classic-portal). Suivez les instructions à partir de l’étape 3 de cette procédure. Après avoir installé toutes les mises à jour, vous pouvez réactiver l’interface réseau que vous avez désactivée.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

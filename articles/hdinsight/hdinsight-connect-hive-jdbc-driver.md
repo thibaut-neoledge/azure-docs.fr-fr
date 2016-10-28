@@ -1,12 +1,12 @@
 <properties
- pageTitle="Use JDBC to query Hive on Azure HDInsight"
- description="Learn how to use JDBC to connect to Hive on Azure HDInsight and remotely run queries on data stored in the cloud."
+ pageTitle="Utiliser JDBC pour interroger Hive sur Azure HDInsight"
+ description="Découvrez comment utiliser JDBC pour vous connecter à Hive sur Azure HDInsight et exécuter des requêtes à distance sur les données stockées dans le cloud."
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
  manager="jhubbard"
  editor="cgronlun"
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -17,174 +17,169 @@
  ms.date="08/23/2016"
  ms.author="larryfr"/>
 
+#Se connecter à Hive sur Azure HDInsight à l’aide du pilote JDBC Hive
 
-#<a name="connect-to-hive-on-azure-hdinsight-using-the-hive-jdbc-driver"></a>Connect to Hive on Azure HDInsight using the Hive JDBC driver
+[AZURE.INCLUDE [sélecteur-JDBC-ODBC](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-[AZURE.INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
+Dans ce document, vous allez apprendre à utiliser JDBC dans une application Java pour soumettre à distance des requêtes Hive à un cluster HDInsight. Vous allez apprendre à vous connecter à partir du client SQuirreL SQL et à vous connecter par programme à partir de Java.
 
-In this document, you will learn how to use JDBC from a Java application to remotely submit Hive queries to an HDInsight cluster. You will learn how to connect from the SQuirreL SQL client, and how to connect programmatically from Java.
+Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
+##Conditions préalables
 
-##<a name="prerequisites"></a>Prerequisites
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-To complete the steps in this article, you will need the following:
+* Un cluster Hadoop sur HDInsight. Les clusters basés sur Linux ou Windows fonctionnent.
 
-* A Hadoop on HDInsight cluster. Either Linux-based or Windows-based clusters will work.
+* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL est une application cliente JDBC.
 
-* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is a JDBC client application.
+Pour générer et exécuter l’exemple d’application Java lié à cet article, vous devez disposer des éléments suivants.
 
-To build and run the example Java application linked from this article, you will need the following.
+* Le [Kit de développeur Java (JDK) version 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou supérieure.
 
-* The [Java Developer Kit (JDK) version 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or higher.
+* [Apache Maven](https://maven.apache.org). Maven est un système de conception de projets Java qui est utilisé par le projet associé à cet article.
 
-* [Apache Maven](https://maven.apache.org). Maven is a project build system for Java projects that is used by the project associated with this article.
+##Chaîne de connexion
 
-##<a name="connection-string"></a>Connection string
-
-JDBC connections to an HDInsight cluster on Azure are made over 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. So a typical connection string would like the following:
+Les connexions JDBC à un cluster HDInsight sur Azure sont établies sur le port 443, et le trafic est sécurisé à l’aide de SSL. La passerelle publique derrière laquelle se trouvent les clusters redirige le trafic vers le port d’écoute réel d’HiveServer2. Ainsi, une chaîne de connexion classique ressemble à ce qui suit :
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
 
-Replace __CLUSTERNAME__ with the name of your HDInsight cluster.
+Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight.
 
-##<a name="authentication"></a>Authentication
+##Authentification
 
-When establishing the connection, you must use the HDInsight cluster admin name and password to authenticate to the cluster gateway. When connecting from JDBC clients such as SQuirreL SQL, you must enter the admin name and password in client settings.
+Lors de l’établissement de la connexion, vous devez utiliser les nom et mot de passe d’administrateur du cluster HDInsight pour vous authentifier auprès de la passerelle du cluster. Lors d’une connexion à partir de clients JDBC, tels que SQuirreL SQL, vous devez entrer les nom et mot de passe d’administrateur dans les paramètres du client.
 
-From a Java application, you must use the name and password when establishing a connection. For example, the following Java code opens a new connection using the connection string, admin name, and password:
+À partir d’une application Java, vous devez utiliser les nom et mot de passe lors de l’établissement d’une connexion. Par exemple, le code Java suivant ouvre une nouvelle connexion à l’aide de la chaîne de connexion, du nom d’administrateur et du mot de passe :
 
     DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
-##<a name="connect-with-squirrel-sql-client"></a>Connect with SQuirreL SQL client
+##Connexion avec un client SQuirreL SQL
 
-SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with your HDInsight cluster. The following steps assume that you have already installed SQuirreL SQL, and will walk you through downloading and configuring the drivers for Hive.
+SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêtes Hive avec votre cluster HDInsight. Les étapes suivantes supposent que vous avez déjà installé SQuirreL SQL. Elles expliquent comment télécharger et configurer les pilotes pour Hive.
 
-1. Copy the Hive JDBC drivers from your HDInsight cluster.
+1. Copiez les pilotes JDBC pour Hive à partir de votre cluster HDInsight.
 
-    * For __Linux-based HDInsight__, use the following steps to download the required jar files.
+    * Pour __HDInsight sous Linux__, procédez comme suit pour télécharger les fichiers jar requis.
 
-        1. Create a new directory that will contain the files. For example, `mkdir hivedriver`.
+        1. Créez un répertoire destiné à contenir les fichiers. Par exemple, `mkdir hivedriver`.
 
-        2. From a command prompt, Bash, PowerShell or other command-line prompt, change directories to the new directory and use the following commands to copy the files from the HDInsight cluster.
+        2. À partir d’une invite de commandes, de Bash, de PowerShell ou d’une autre invite de ligne de commande, passez des répertoires au nouveau répertoire, puis utilisez les commandes suivantes pour copier les fichiers du cluster HDInsight.
 
                 scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
                 scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
                 scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
 
-            Replace __USERNAME__ with the SSH user account name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
+            Remplacez __USERNAME__ par le nom de compte d’utilisateur SSH pour le cluster. Remplacez __CLUSTERNAME__ par le nom du cluster HDInsight.
 
-            > [AZURE.NOTE] On Windows environments, you will need to use the PSCP utility instead of scp. You can download it from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+            > [AZURE.NOTE] Dans les environnements Windows, vous devez utiliser l’utilitaire PSCP au lieu de scp. Vous pouvez le télécharger à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-    * For __Windows-based HDInsight__, use the following steps to download the jar files.
+    * Pour __HDInsight sous Windows__, procédez comme suit pour télécharger les fichiers jar.
 
-        1. From the Azure portal, select your HDInsight cluster, and then select the __Remote Desktop__ icon.
+        1. Dans le portail Azure, sélectionnez votre cluster HDInsight, puis l’icône __Bureau à distance__.
 
-            ![Remote Desktop icon](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
+            ![Icône Bureau à distance](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. On the Remote Desktop blade, use the __Connect__ button to connect to the cluster. If the Remote Desktop is not enabled, use the form to provide a user name and password, then select __Enable__ to enable Remote Desktop for the cluster.
+        2. Dans le panneau Bureau à distance, utilisez le bouton __Connexion__ pour vous connecter au cluster. Si le Bureau à distance n’est pas activé, entrez un nom d’utilisateur et un mot de passe dans le formulaire, puis sélectionnez __Activer__ pour activer le Bureau à distance pour le cluster.
 
-            ![Remote desktop blade](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
+            ![Panneau Bureau à distance](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 
-            After selecting __Connect__, a .rdp file will be downloaded. Use this file to launch the Remote Desktop client. When prompted, use the user name and password you entered for Remote Desktop access.
+            Après sélection du bouton __Connexion__, un fichier .rdp est téléchargé. Utilisez ce fichier pour lancer le client Bureau à distance. Lorsque vous y êtes invité, utilisez les nom d’utilisateur et mot de passe que vous avez entrés pour accéder au Bureau à distance.
 
-        3. Once connected, copy the following files from the Remote Desktop session to your local machine. Put them in a local directory named `hivedriver`.
+        3. Une fois connecté, copiez les fichiers suivants à partir de la session Bureau à distance sur votre ordinateur local. Placez-les dans un répertoire local nommé `hivedriver`.
 
-            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
+            * C:\\apps\\dist\\hive-0.14.0.2.2.9.1-7\\lib\\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
+            * C:\\apps\\dist\\hadoop-2.6.0.2.2.9.1-7\\share\\hadoop\\common\\hadoop-common-2.6.0.2.2.9.1-7.jar
+            * C:\\apps\\dist\\hadoop-2.6.0.2.2.9.1-7\\share\\hadoop\\common\\lib\\hadoop-auth-2.6.0.2.2.9.1-7.jar
 
-            > [AZURE.NOTE] The version numbers included in the paths and file names may be different for your cluster.
+            > [AZURE.NOTE] Les numéros de version inclus dans les chemins d’accès et noms de fichier peuvent différer pour votre cluster.
 
-        4. Disconnect the Remote Desktop session once you have finished copying the files.
+        4. Une fois les fichiers copiés, fermez la session Bureau à distance.
 
-3. Start the SQuirreL SQL application. From the left of the window, select __Drivers__.
+3. Démarrez l’application SQuirreL SQL. Dans la partie gauche de la fenêtre, sélectionnez __Pilotes__.
 
-    ![Drivers tab on the left of the window](./media/hdinsight-connect-hive-jdbc-driver/squirreldrivers.png)
+    ![Onglet Pilotes dans la partie gauche de la fenêtre](./media/hdinsight-connect-hive-jdbc-driver/squirreldrivers.png)
 
-4. From the icons at the top of the __Drivers__ dialog, select the __+__ icon to create a new driver.
+4. Parmi les icônes en haut de la boîte de dialogue __pilotes__, sélectionnez l’icône __+__ pour créer un pilote.
 
-    ![Drivers icons](./media/hdinsight-connect-hive-jdbc-driver/driversicons.png)
+    ![Icônes des pilotes](./media/hdinsight-connect-hive-jdbc-driver/driversicons.png)
 
-5. In the Add Driver dialog, add the following information.
+5. Dans la boîte de dialogue Ajouter un pilote, ajoutez les informations suivantes.
 
-    * __Name__: Hive
-    * __Example URL__: jdbc:hive2://localhost:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
-    * __Extra Class Path__: Use the Add button to add the jar files downloaded earlier
-    * __Class Name__: org.apache.hive.jdbc.HiveDriver
+    * __Nom__ : Hive
+    * __URL de l’exemple__ : jdbc:hive2://localhost:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
+    * __Chemin d’accès à la classe supplémentaire__ : utilisez le bouton Ajouter pour ajouter les fichiers jar téléchargé précédemment
+    * __Nom de la classe__ : org.apache.hive.jdbc.HiveDriver
 
-    ![add driver dialog](./media/hdinsight-connect-hive-jdbc-driver/adddriver.png)
+    ![boîte de dialogue ajouter un pilote](./media/hdinsight-connect-hive-jdbc-driver/adddriver.png)
 
-    Click __OK__ to save these settings.
+    Cliquez sur __OK__ pour enregistrer ces paramètres.
 
-6. On the left of the SQuirreL SQL window, select __Aliases__. Then click the __+__ icon to create a new connection alias.
+6. Dans la partie gauche de la fenêtre SQL SQuirreL, sélectionnez __Alias__. Cliquez sur l’icône __+__ pour créer un alias de connexion.
 
-    ![add new alias](./media/hdinsight-connect-hive-jdbc-driver/aliases.png)
+    ![ajouter un nouvel alias](./media/hdinsight-connect-hive-jdbc-driver/aliases.png)
 
-7. Use the following values for the __Add Alias__ dialog.
+7. Dans la boîte de dialogue __Ajouter un Alias__, utilisez les valeurs suivantes.
 
-    * __Name__: Hive on HDInsight
-    * __Driver__: Use the dropdown to select the __Hive__ driver
-    * __URL__: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
+    * __Nom__ : Hive sur HDInsight
+    * __Pilote__ : sélectionnez le pilote __Hive__ dans la liste déroulante
+    * __URL__ : jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
 
-        Replace __CLUSTERNAME__ with the name of your HDInsight cluster.
+        Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight.
 
-    * __User Name__: The cluster login account name for your HDInsight cluster. The default is `admin`.
-    * __Password__: The password for the cluster login account. This is a password you provided when creating the HDInsight cluster.
+    * __Nom d’utilisateur__ : nom de compte de connexion de votre cluster HDInsight. Par défaut, il s’agit de `admin`.
+    * __Mot de passe__ : mot de passe du compte de connexion du cluster. Il s’agit du mot de passe que vous avez fourni lors de la création du cluster HDInsight.
 
-    ![add alias dialog](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
+    ![boîte de dialogue ajouter un alias](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
-    Use the __Test__ button to verify that the connection works. When __Connect to: Hive on HDInsight__ dialog appears, select __Connect__ to perform the test. If the test succeeds, you will see a __Connection successful__ dialog.
+    Utilisez le bouton __Test__ pour vérifier que la connexion fonctionne. Quand la boîte de dialogue __Se connecter à : Hive sur HDInsight__ s’affiche, sélectionnez __Connexion__ pour effectuer le test. Si le test réussit, la boîte de dialogue __Connexion réussie__ s’affiche.
 
-    Use the __Ok__ button at the bottom of the __Add Alias__ dialog to save the connection alias.
+    Cliquez sur le bouton __OK__ au bas de la boîte de dialogue __Ajouter un alias__ pour enregistrer l’alias de connexion.
 
-8. From the __Connect to__ dropdown at the top of SQuirreL SQL, select __Hive on HDInsight__. When prompted, select __Connect__.
+8. Dans la liste déroulante __Se connecter à__ en haut de SQuirreL SQL, sélectionnez __Hive sur HDInsight__. Lorsque vous y êtes invité, sélectionnez __Connexion__.
 
-    ![connection dialog](./media/hdinsight-connect-hive-jdbc-driver/connect.png)
+    ![boîte de dialogue connexion](./media/hdinsight-connect-hive-jdbc-driver/connect.png)
 
-9. Once connected, enter the following query into the SQL query dialog, and then select the __Run__ icon. The results area should show the results of the query.
+9. Une fois connecté, entrez la requête suivante dans la boîte de dialogue Requête SQL, puis sélectionnez l’icône __Exécuter__. La zone de résultats doit afficher les résultats de la requête.
 
         select * from hivesampletable limit 10;
 
-    ![sql query dialog, including results](./media/hdinsight-connect-hive-jdbc-driver/sqlquery.png)
+    ![boîte de dialogue requête sql, incluant les résultats](./media/hdinsight-connect-hive-jdbc-driver/sqlquery.png)
 
-##<a name="connect-from-an-example-java-application"></a>Connect from an example Java application
+##Connexion à partir d’un exemple d’application Java
 
-An example of using a Java client to query Hive on HDInsight is available at [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Follow the instructions in the repository to build and run the sample.
+Vous trouverez un exemple d’utilisation d’un client Java pour interroger Hive sur HDInsight à l’adresse suivante : [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Suivez les instructions indiquées dans le référentiel pour générer et exécuter l’exemple.
 
-##<a name="troubleshooting"></a>Troubleshooting
+##Résolution de problèmes
 
-### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection."></a>Unexpected Error occurred attempting to open an SQL connection.
+### Une erreur inattendue s'est produite lors de l'ouverture d'une connexion SQL.
 
-__Symptoms__: When connecting to an HDInsight cluster that is version 3.3 or 3.4, you may receive an error that an unexpected error occurred. The stack trace for this error will begin with the following lines:
+__Symptômes__ : lors de la connexion à un cluster HDInsight version 3.3 ou 3.4, vous pouvez recevoir un message indiquant qu'une erreur inattendue s'est produite. L'arborescence des appels de procédure pour cette erreur commence par les lignes suivantes :
 
     java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
     at java.util.concurrent.FutureTas...(FutureTask.java:122)
     at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
-__Cause__: This error is caused by a mismatch in the version of the commons-codec.jar file used by SQuirreL and the one required by the Hive JDBC components downloaded from the HDInsight cluster.
+__Cause__ : cette erreur est due à une incohérence entre la version du fichier commons-codec.jar utilisé par SQuirreL et celle du fichier exigés par les composants JDBC Hive téléchargés à partir du cluster HDInsight.
 
-__Resolution__: To fix this error, use the following steps.
+__Résolution__ : pour corriger cette erreur, procédez comme suit.
 
-1. Download the commons-codec jar file from your HDInsight cluster.
+1. Téléchargez le fichier jar common-codec à partir de votre cluster HDInsight.
 
         scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
 
-2. Exit SQuirreL, and then go to the directory where SQuirreL is installed on your system. In the SquirreL directory, under the `lib` directory, replace the existing commons-codec.jar with the one downloaded from the HDInsight cluster.
+2. Quittez SQuirreL et accédez au répertoire où SQuirreL est installé sur votre système. Dans le répertoire SquirreL, sous le dossier `lib`, remplacez le fichier commons-codec.jar existant par le fichier téléchargé à partir du cluster HDInsight.
 
-3. Restart SQuirreL. The error should no longer occur when connecting to Hive on HDInsight.
+3. Redémarrez SQuirreL. L'erreur ne devrait plus apparaître lors de la connexion à Hive sur HDInsight.
 
-##<a name="next-steps"></a>Next steps
+##Étapes suivantes
 
-Now that you have learned how to use JDBC to work with Hive, use the following links to explore other ways to work with Azure HDInsight.
+Maintenant que vous avez vu comment utiliser JDBC avec Hive, utilisez les liens suivants pour découvrir d’autres façons d’utiliser Azure HDInsight.
 
-* [Upload data to HDInsight](hdinsight-upload-data.md)
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
+* [Téléchargement de données vers HDInsight](hdinsight-upload-data.md)
+* [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
+* [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
+* [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

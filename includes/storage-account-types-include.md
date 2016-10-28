@@ -1,32 +1,27 @@
-There are two types of storage accounts:
+Il existe deux types de comptes de stockage :
 
-### <a name="general-purpose-storage-accounts"></a>General-purpose Storage Accounts
+### Comptes de stockage à usage général
 
-A general-purpose storage account gives you access to Azure Storage services such as Tables, Queues, Files, Blobs and Azure virtual machine disks under a single account. This type of storage account has two performance tiers:
+Un compte de stockage à usage général vous donne accès aux services Azure Storage telles que les tables, files d’attente, fichiers, objets blob et disques de machine virtuelle Azure au sein d’un compte unique. Ce type de compte de stockage offre deux niveaux de performances :
 
-- A standard storage performance tier which allows you to store Tables, Queues, Files, Blobs and Azure virtual machine disks.
-- A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/storage-premium-storage.md) for an in-depth overview of Premium storage.
+- Un niveau de performances de stockage standard qui vous permet de stocker des tables, files d’attente, fichiers, objets blob et disques de machine virtuelle Azure.
+- Un niveau de performances de stockage premium qui prend actuellement en charge les disques de machine virtuelle Azure uniquement. Pour une présentation détaillée de Premium Storage, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
-### <a name="blob-storage-accounts"></a>Blob Storage Accounts
+### Comptes de stockage d’objets blob
 
-A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
+Un compte de stockage d’objets blob est un compte de stockage spécialisé pour le stockage des données non structurées en tant qu’objets blob dans Azure Storage. Les comptes de stockage d’objets blob sont similaires à vos comptes de stockage à usage général existants et offrent les excellents niveaux de durabilité, disponibilité, évolutivité et performances dont vous bénéficiez aujourd’hui. Ils assurent notamment la cohérence d’API à 100 % pour les objets blob de blocs et d’ajout. Pour les applications qui requièrent uniquement le stockage d’objets blob de blocs ou d’objets blob d’ajout, nous recommandons d’utiliser des comptes de stockage d’objets blob.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+> [AZURE.NOTE] Les comptes de stockage d’objets blob prennent en charge uniquement les objets blob de blocs et d’ajout, mais pas les objets blob de pages.
 
-Blob storage accounts expose the **Access Tier** attribute which can be specified during account creation and modified later as needed. There are two types of access tiers that can be specified based on your data access pattern:
+Les comptes de stockage d’objets blob exposent l’attribut **Access Tier**, qui peut être spécifié lors de la création du compte et modifié ultérieurement si nécessaire. Il existe deux types de niveaux d’accès qui peuvent être spécifiés en fonction de votre modèle d’accès aux données :
 
-- A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
-- A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
+- Un niveau d’accès **chaud** qui indique que les objets du compte de stockage seront sollicités plus fréquemment. Il permet de stocker des données moyennant un coût d’accès inférieur.
+- Un niveau d’accès **froid** qui indique que les objets du compte de stockage seront sollicités moins fréquemment. Il permet de stocker des données moyennant un coût de stockage inférieur.
 
-If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+Si le modèle d’utilisation de vos données est modifié, vous pouvez également basculer entre ces niveaux d’accès à tout moment. La modification du niveau d’accès peut entraîner des frais supplémentaires. Consultez [Comptes de stockage d’objets blob - Tarification et facturation](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) pour plus de détails.
 
-For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/storage-blob-storage-tiers.md).
+Pour plus d’informations sur les comptes de stockage d’objets blob, voir [Stockage d’objets blob Azure : niveaux froid et chaud](../articles/storage/storage-blob-storage-tiers.md)
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+Pour pouvoir créer un compte de stockage, vous devez posséder un abonnement Azure, c’est-à-dire un plan qui vous donne accès à divers services Azure. Pour la prise en main d’Azure, vous pouvez bénéficier d’un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/). Quand vous décidez d’acheter un plan d’abonnement, vous avez le choix entre plusieurs [options d’achat](https://azure.microsoft.com/pricing/purchase-options/). Si vous êtes [abonné à MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), vous bénéficiez de crédits mensuels gratuits que vous pouvez utiliser avec les services Azure, y compris Azure Storage. Pour plus d’informations sur la tarification des licences en volume, consultez la page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-To learn how to create a storage account, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more details. You can create up to 100 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account limits.
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+Pour apprendre à créer un compte de stockage, consultez [Créer un compte de stockage](../articles/storage/storage-create-storage-account.md#create-a-storage-account). Un seul abonnement vous permet de créer jusqu'à 100 comptes de stockage uniques. Pour plus d’informations sur les limites du compte de stockage, consultez la page [Objectifs de performance et évolutivité d’Azure Storage](../articles/storage/storage-scalability-targets.md).

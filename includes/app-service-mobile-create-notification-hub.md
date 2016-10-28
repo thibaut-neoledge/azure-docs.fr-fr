@@ -1,17 +1,15 @@
-Follow these steps to create a new notification hub to use for push notifications. If you already have a notification hub, you can also connect it to your Mobile App backend. 
+Procédez comme suit pour créer un concentrateur de notification pour gérer les notifications Push. Si vous disposez déjà d’un concentrateur de notification, vous pouvez également le connecter au serveur principal de votre application mobile.
 
-1. In the [Azure Portal], click **Browse** > **App Services**, then click your Mobile App backend > **All settings**, then under **Mobile** click **Push** > **Notification Hub**.
+1. Dans le [portail Azure], cliquez sur **Parcourir** > **App Services**, puis cliquez sur le serveur principal de votre application mobile > **Tous les paramètres**, puis, sous **Mobile**, cliquez sur **Push** > **Concentrateur de notification**.
 
-2. Click **+Notification Hub**, type a new **Notification Hub** name, which can be the same as your Mobile App backend, type a new namespace name or use an existing one, then click **OK** and finally **Create**.
+2. Cliquez sur **+Concentrateur de notification**, tapez un nouveau nom de **Concentrateur de notification**, qui peut être celui du serveur principal de votre application mobile, tapez un nouveau nom d’espace de noms ou utilisez-en un existant, puis cliquez sur **OK** et sur **Créer**.
 
-    ![](./media/app-service-mobile-create-notification-hub/create-new-hub-flow.png)
+	![](./media/app-service-mobile-create-notification-hub/create-new-hub-flow.png)
 
-    This creates a new notification hub and connects it to your mobile app. If you have an existing notification hub, you can choose to connect it to your Mobile App backend instead of creating a new one.
+	Cela crée un concentrateur de notification et connecte celui-ci à votre application mobile. Si vous disposez déjà d’un concentrateur de notification, vous pouvez choisir de le connecter au serveur principal de votre application mobile au lieu d’en créer un.
 
-Now you have connected a notification hub to your Mobile App backend. Later you will configure this notification hub to connect to a platform notification service (PNS) that sends push notifications to the native device.
+Vous avez désormais connecté un concentrateur de notification au serveur principal de votre application mobile. Plus tard, vous allez configurer ce concentrateur de notification de façon à ce qu’il se connecte à un service de notification de plateforme (PNS) qui envoie des notifications Push à l’appareil natif.
 
-[Azure Portal]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,16 +1,14 @@
-* [Setting Up a Geo-Distributed App Footprint](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
-* [Implementing a Layered Security Architecture](../articles/app-service-web/app-service-app-service-environment-layered-security.md) 
-* [Configuring a Web Application Firewall with an App Service Environment](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
+* [Configuration d'une empreinte d'application géo-distribuée](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
+* [Implémentation d'une architecture de sécurité en couche](../articles/app-service-web/app-service-app-service-environment-layered-security.md)
+* [Configuration d'un pare-feu d'applications Web avec un environnement App Service](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
 
 
-* [Creating an ILB Enabled App Service Environment using Resource Manager Templates](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
-* [Using Auto-Scale with an App Service Environment](../articles/app-service/app-service-environment-auto-scale.md)
-* [Securing Inbound Traffic](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
-* [Connecting to Backend Resources](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
-* [ExpressRoute and App Service Environments](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
-* [Custom Configuration Settings for App Service Environments Including PCI Compliance Settings](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
-* [High Density App Hosting with App Service Environments](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
+* [Création d’un environnement de service d’application compatible ILB avec des modèles Resource Manager](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
+* [Utilisation de la mise à l'échelle automatique avec un environnement App Service](../articles/app-service/app-service-environment-auto-scale.md)
+* [Sécurisation du trafic entrant](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
+* [Connexion à des ressources principales](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
+* [ExpressRoute et environnements App Service](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
+* [Paramètres de configuration personnalisés pour les environnements App Service, y compris les paramètres de compatibilité PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
+* [Hébergement haute densité d’applications avec les environnements App Service](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

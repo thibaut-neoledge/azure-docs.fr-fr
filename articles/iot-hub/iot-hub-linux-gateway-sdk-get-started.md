@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Get started with the IoT Hub Gateway SDK | Microsoft Azure"
-    description="This Azure IoT Hub Gateway SDK walkthrough uses Linux to illustrate key concepts you should understand when you use the Azure IoT Hub Gateway SDK."
-    services="iot-hub"
-    documentationCenter=""
-    authors="chipalost"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Prendre en main le Kit de développement logiciel (SDK) de passerelle IoT Hub | Microsoft Azure"
+	description="Ce guide sur le Kit de développement logiciel (SDK) de passerelle Azure IoT Hub fait appel à Linux pour illustrer les concepts clés que vous devez comprendre lorsque vous utilisez le Kit de développement logiciel (SDK) de passerelle Azure IoT Hub."
+	services="iot-hub"
+	documentationCenter=""
+	authors="chipalost"
+	manager="timlt"
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -17,32 +17,31 @@
      ms.author="andbuc"/>
 
 
-
-# <a name="iot-gateway-sdk-(beta)---get-started-using-linux"></a>IoT Gateway SDK (beta) - Get started using Linux
+# Kit de développement logiciel de passerelle IoT (bêta) - Prise en main de Linux
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
-## <a name="how-to-build-the-sample"></a>How to build the sample
+## Comment créer l'exemple
 
-Before you get started, you must [set up your development environment][lnk-setupdevbox] for working with the SDK on Linux.
+Avant de commencer, vous devez [configurer votre environnement de développement][lnk-setupdevbox] pour utiliser le Kit de développement logiciel (SDK) sous Linux.
 
-1. Open a shell.
-2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-3. Run the **tools/build.sh** script. This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **azure-iot-gateway-sdk** repository and generate a makefile. The script then builds the solution and runs the tests.
+1. Ouvrez un interpréteur de commandes.
+2. Accédez au dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk**.
+3. Exécutez le script **tools/build.sh**. Ce script utilise l’utilitaire **cmake** pour créer un dossier appelé **build** dans le dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** et pour générer un makefile. Le script crée ensuite la solution puis exécute les tests.
 
-> [AZURE.NOTE]  Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
+> [AZURE.NOTE]  Chaque fois que vous exécutez le script **build.sh**, celui-ci supprime et recrée le dossier **build** dans le dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk**.
 
-## <a name="how-to-run-the-sample"></a>How to run the sample
+## Comment exécuter l’exemple
 
-1. The **build.sh** script generates its output in the **build** folder in your local copy of the **azure-iot-gateway-sdk** repository. This includes the two modules used in this sample.
+1. Le script **build.sh** génère sa sortie dans le dossier **build** de votre copie locale du référentiel **azure-iot-gateway-sdk**. Cela inclut les deux modules utilisés dans cet exemple.
 
-    The build script places **liblogger_hl.so** in the **build/modules/logger/** folder and **libhello_world_hl.so** in  the **build/modules/hello_world/** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
+    Le script build place **liblogger\_hl.so** dans le dossier **build/modules/logger/** et **libhello\_world\_hl.so** dans le dossier **build/modules/hello\_world/**. Utilisez ces chemins d'accès pour la valeur **module path** comme indiqué dans le fichier de paramètres JSON ci-dessous.
 
-2. The file **hello_world_lin.json** in the **samples/hello_world/src** folder is an example JSON settings file for Linux that you can use to run the sample. The example JSON settings shown below assumes that you will run the sample from the root of your local copy of the **azure-iot-gateway-sdk** repository.
+2. Le fichier **hello\_world\_lin.json** dans le dossier **Bonjour\_monde/samples/src** est un exemple de fichier de paramètres JSON pour Linux que vous pouvez utiliser pour exécuter l'exemple. Les paramètres JSON ci-dessous supposent que vous exécuterez l'exemple à partir de la racine de votre copie locale du référentiel **azure-iot-gateway-sdk**.
 
-3. For the **logger_hl** module, in the **args** section, set the **filename** value to the name and path of the file that will contain the log data.
+3. Pour le module **logger\_hl**, dans la section **args**, définissez la valeur **filename** sur le nom et le chemin d'accès du fichier qui contiendra les données de journalisation.
 
-    This is an example of a JSON settings file for Linux that will write to the **log.txt** to the folder where you run the sample.
+    Il s'agit d'un exemple de fichier de paramètres JSON pour Linux qui écrira les données dans le fichier **log.txt**, dans le dossier où vous exécutez l'exemple.
 
     ```
     {
@@ -72,8 +71,8 @@ Before you get started, you must [set up your development environment][lnk-setup
     }
     ```
 
-3. In your shell, navigate to **azure-iot-gateway-sdk** folder.
-4. Run the following command:
+3. Dans votre interpréteur de commandes, accédez au dossier **azure-iot-gateway-sdk**.
+4. Exécutez la commande suivante :
   
   ```
   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
@@ -84,8 +83,4 @@ Before you get started, you must [set up your development environment][lnk-setup
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

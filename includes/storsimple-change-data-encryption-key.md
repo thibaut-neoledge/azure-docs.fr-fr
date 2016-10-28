@@ -1,84 +1,78 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### <a name="step-1:-authorize-a-device-to-change-the-service-data-encryption-key-in-the-azure-classic-portal"></a>Step 1: Authorize a device to change the service data encryption key in the Azure classic portal
+### Étape 1 : autoriser un appareil à modifier la clé de chiffrement des données du service dans le portail Azure Classic
 
-Typically, the device administrator will request that the service administrator authorize a device to change service data encryption keys. The service administrator will then authorize the device to change the key.
+En règle générale, l’administrateur de l’appareil demande que l’administrateur du service autorise un appareil à modifier les clés de chiffrement des données du service. Ensuite, l’administrateur du service autorise l’appareil à modifier la clé.
 
-This step is performed in the Azure classic portal. The service administrator can select a device from a displayed list of the devices that are eligible to be authorized. The device is then authorized to start the service data encryption key change process.
+Cette étape s’effectue dans le portail Azure Classic. L’administrateur du service peut sélectionner un appareil à partir d’une liste des appareils pouvant être autorisés. Après cela, l’appareil est autorisé à démarrer le processus de modification de la clé de chiffrement des données du service.
 
-#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys?"></a>Which devices can be authorized to change service data encryption keys?
+#### Quels appareils peuvent être autorisés à modifier les clés de chiffrement des données du service ?
 
-A device must meet the following criteria before it can be authorized to initiate service data encryption key changes:
+Un appareil doit respecter les critères suivants avant d’être autorisé à démarrer des modifications de clé de chiffrement des données du service :
 
-- The device must be online to be eligible for service data encryption key change authorization.
+- L’appareil doit être en ligne pour bénéficier de l’autorisation de modification de clé de chiffrement des données du service.
 
-- You can authorize the same device again after 30 minutes if the key change has not been initiated.
+- Si le changement de clé n’a pas été démarré, vous devez attendre 30 minutes avant d’autoriser à nouveau le même appareil.
 
-- You can authorize a different device, provided that the key change has not been initiated by the previously authorized device. After the new device has been authorized, the old device cannot initiate the change.
+- Vous pouvez autoriser un autre appareil, sous réserve que la modification de la clé n’a pas été démarrée par l’appareil précédemment autorisé. Une fois le nouvel appareil autorisé, l’ancien appareil ne peut plus démarrer la modification.
 
-- You cannot authorize a device while the rollover of the service data encryption key is in progress.
+- Vous ne pouvez pas autoriser un appareil alors que la substitution de la clé de chiffrement des données du service est en cours.
 
-- You can authorize a device when some of the devices registered with the service have rolled over the encryption while others have not. In such cases, the eligible devices are the ones that have completed the service data encryption key change.
+- Vous pouvez autoriser un appareil lorsque certains appareils inscrits auprès du service ont substitué le chiffrement tandis que d’autres ne l’ont pas fait. Dans ce cas, les appareils pouvant être autorisés sont ceux qui ont terminé la modification de la clé de chiffrement des données du service.
 
 > [AZURE.NOTE]
-> In the Azure classic portal, StorSimple virtual devices are not shown in the list of devices that can be authorized to start the key change.
+Dans le portail Azure Classic, les appareils virtuels StorSimple ne sont pas affichés dans la liste des appareils pouvant être autorisés à démarrer la modification de clé.
 
-Perform the following steps to select and authorize a device to initiate the service data encryption key change.
+Procédez comme suit pour sélectionner et autoriser un appareil à démarrer la modification de clé de chiffrement des données du service.
 
-#### <a name="to-authorize-a-device-to-change-the-key"></a>To authorize a device to change the key
+#### Pour autoriser un appareil à modifier la clé
 
-1. On the service dashboard page, click **Change service data encryption key**.
+1. Dans la page Tableau de bord du service, cliquez sur **Modifier la clé de chiffrement de données du service**.
 
-    ![Change service encryption key](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
+    ![Modification de la clé de chiffrement du service](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
 
-2. In the **Change service data encryption key** dialog box, select and authorize a device to initiate the service data encryption key change. The drop-down list has all the eligible devices that can be authorized.
+2. Dans la boîte de dialogue **Modifier la clé de chiffrement de données du service**, sélectionnez et autorisez un appareil à démarrer la modification de clé de chiffrement des données du service. La liste déroulante contient tous les appareils pouvant être autorisés.
 
-3. Click the check icon ![check icon](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+3. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
-### <a name="step-2:-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change
+### Étape 2 : utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service
 
-This step is performed in the Windows PowerShell for StorSimple interface on the authorized StorSimple device.
+Cette étape s’effectue dans l’interface Windows PowerShell pour StorSimple, sur l’appareil StorSimple autorisé.
 
-> [AZURE.NOTE] No operations can be performed in the Azure classic portal of your StorSimple Manager service until the key rollover is completed.
+> [AZURE.NOTE] Aucune opération ne peut être effectuée dans le portail Azure Classic de votre service StorSimple Manager avant la fin de la substitution de la clé.
 
-If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.
+Si vous utilisez la console série de l’appareil pour vous connecter à l’interface Windows PowerShell, procédez comme suit.
 
-#### <a name="to-initiate-the-service-data-encryption-key-change"></a>To initiate the service data encryption key change
+#### Pour démarrer la modification de la clé de chiffrement des données du service
 
-1. Select option 1 to log on with full access.
+1. Sélectionnez Option 1 pour vous connecter avec un accès complet.
 
-2. At the command prompt, type:
+2.  À l’invite de commandes, tapez :
 
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 
-3. After the cmdlet has successfully completed, you will get a new service data encryption key. Copy and save this key for use in step 3 of this process. This key will be used to update all the remaining devices registered with the StorSimple Manager service.
+3. Une fois l’applet de commande terminée, vous obtenez une nouvelle clé de chiffrement des données du service. Copiez et enregistrez cette clé pour l’utiliser lors de l’étape 3 de cette procédure. Cette clé permet de mettre à jour tous les appareils restants inscrits auprès du service StorSimple Manager.
 
-    > [AZURE.NOTE] This process must be initiated within four hours of authorizing a StorSimple device.
+    > [AZURE.NOTE] Ce processus doit être démarré dans les quatre heures suivant l’autorisation d’un appareil StorSimple.
 
-   This new key is then sent to the service to be pushed to all the devices that are registered with the service. An alert will then appear on the service dashboard. The service will disable all the operations on the registered devices, and the device administrator will then need to update the service data encryption key on the other devices. However, the I/Os (hosts sending data to the cloud) will not be disrupted.
+   Cette nouvelle clé est ensuite envoyée au service pour être transmise à tous les appareils inscrits auprès du service. Une alerte s’affiche alors sur le tableau de bord du service. Le service désactive toutes les opérations sur les appareils inscrits et l’administrateur de l’appareil doit alors mettre à jour la clé de chiffrement des données du service sur les autres appareils. Toutefois, les E/S (hôtes envoyant des données vers le cloud) ne sont pas interrompues.
 
-   If you have a single device registered to your service, the rollover process is now complete and you can skip the next step. If you have multiple devices registered to your service, proceed to step 3.
+   Si vous avez un seul appareil inscrit auprès de votre service, le processus de substitution est maintenant terminé et vous pouvez ignorer l’étape suivante. Si vous avez plusieurs appareils inscrits auprès de votre service, passez à l’étape 3.
 
-### <a name="step-3:-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Step 3: Update the service data encryption key on other StorSimple devices
+### Étape 3 : mettre à jour la clé de chiffrement sur les autres appareils StorSimple
 
-These steps must be performed in the Windows PowerShell interface of your StorSimple device if you have multiple devices registered to your StorSimple Manager service. The key that you obtained in Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change must be used to update all the remaining StorSimple device registered with the StorSimple Manager service.
+Si vous avez plusieurs appareils inscrits auprès du service StorSimple Manager, cette procédure s’effectue dans l’interface Windows PowerShell de votre appareil StorSimple. Utilisez la clé obtenue à l’étape 2 avec Windows PowerShell pour StorSimple afin de démarrer la modification de la clé de chiffrement des données du service pour mettre à jour tous les appareils StorSimple restant inscrits auprès du service StorSimple Manager.
 
-Perform the following steps to update the service data encryption on your device.
+Procédez comme suit pour mettre à jour le chiffrement des données du service sur votre appareil.
 
-#### <a name="to-update-the-service-data-encryption-key"></a>To update the service data encryption key
+#### Pour mettre à jour la clé de chiffrement des données du service
 
-1. Use Windows PowerShell for StorSimple to connect to the console. Select option 1 to log on with full access.
+1. Utilisez Windows PowerShell pour StorSimple pour vous connecter à la console. Sélectionnez Option 1 pour vous connecter avec un accès complet.
 
-2. At the command prompt, type:
+2.  À l’invite de commandes, tapez :
 
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 
-3. Provide the service data encryption key that you obtained in [Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change](#to-initiate-the-service-data-encryption-key-change).
+3. Entrez la clé de chiffrement des données du service obtenue lors de l’[Étape 2 : utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service](#to-initiate-the-service-data-encryption-key-change).
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0128_2016-->

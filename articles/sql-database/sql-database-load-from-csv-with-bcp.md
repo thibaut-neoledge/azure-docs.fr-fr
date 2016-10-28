@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Load data from CSV file into Azure SQL Databaase (bcp) | Microsoft Azure"
-   description="For a small data size, uses bcp to import data into Azure SQL Database."
+   pageTitle="Charger des données à partir d’un fichier CSV dans la base de données SQL Azure (BCP) | Microsoft Azure"
+   description="Pour les données de taille réduite, utilise l’utilitaire de ligne de commande BCP pour importer les données dans la base de données SQL Azure."
    services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
@@ -17,32 +17,31 @@
    ms.author="carlrab"/>
 
 
+# Charger des données à partir d’un fichier CSV dans Azure SQL Data Warehouse (fichiers plats)
 
-# <a name="load-data-from-csv-into-azure-sql-data-warehouse-(flat-files)"></a>Load data from CSV into Azure SQL Data Warehouse (flat files)
+Vous pouvez utiliser l’utilitaire de ligne de commande BCP pour importer des données à partir d’un fichier CSV dans la base de données SQL Azure.
 
-You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database.
+## Avant de commencer
 
-## <a name="before-you-begin"></a>Before you begin
+### Composants requis
 
-### <a name="prerequisites"></a>Prerequisites
+Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
-To step through this tutorial, you need:
+- Serveur logique et base de données SQL Azure
+- Utilitaire de ligne de commande bcp installé
+- Utilitaire de ligne de commande sqlcmd installé
 
-- An Azure SQL Database logical server and database
-- The bcp command-line utility installed
-- The sqlcmd command-line utility installed
+Pour télécharger les utilitaires bcp et sqlcmd, accédez au [Centre de téléchargement Microsoft][].
 
-You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
+### Données au format ASCII ou UTF-16
 
-### <a name="data-in-ascii-or-utf-16-format"></a>Data in ASCII or UTF-16 format
+Si vous suivez ce didacticiel avec vos propres données, l’encodage de ces dernières doit être au format ASCII ou UTF-16, étant donné que bcp ne prend pas en charge UTF-8.
 
-If you are trying this tutorial with your own data, your data needs to use the ASCII or UTF-16 encoding since bcp does not support UTF-8. 
+## 1\. Créer une table de destination
 
-## <a name="1.-create-a-destination-table"></a>1. Create a destination table
+Dans la base de données SQL, définissez une table en tant que table de destination. Les colonnes de la table doivent correspondre aux données dans chaque ligne du fichier de données.
 
-Define a table in SQL Database as the destination table. The columns in the table must correspond to the data in each row of your data file.
-
-To create a table, open a command prompt and use sqlcmd.exe to run the following command:
+Pour créer une table, ouvrez une invite de commandes et utilisez sqlcmd.exe pour exécuter la commande suivante :
 
 
 ```sql
@@ -58,9 +57,9 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2.-create-a-source-data-file"></a>2. Create a source data file
+## 2\. Créer un fichier de données source
 
-Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt. This data is in ASCII format.
+Ouvrez le Bloc-notes, copiez les lignes de données suivantes dans un nouveau fichier texte, puis enregistrez ce fichier dans votre répertoire temporaire local C:\\Temp\\DimDate2.txt. Ces données sont au format ASCII.
 
 ```
 20150301,1,3
@@ -77,26 +76,26 @@ Open Notepad and copy the following lines of data into a new text file and then 
 20150101,1,3
 ```
 
-(Optional) To export your own data from a SQL Server database, open a command prompt and run the following command. Replace TableName, ServerName, DatabaseName, Username, and Password with your own information.
+(Facultatif) Pour exporter vos données à partir d’une base de données SQL Server, ouvrez une invite de commandes et exécutez la commande suivante. Remplacez TableName, ServerName, DatabaseName, Username et Password par vos propres informations.
 
 ```sql
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
 ```
 
-## <a name="3.-load-the-data"></a>3. Load the data
-To load the data, open a command prompt and run the following command, replacing the values for Server Name, Database name, Username, and Password with your own information.
+## 3\. Chargement des données
+Pour charger les données, ouvrez une invite de commandes et exécutez la commande suivante, en remplaçant les valeurs de ServerName, DatabaseName, Username, et Password par vos propres informations.
 
 ```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
 ```
 
-Use this command to verify the data was loaded properly
+Cette commande permet de vérifier que les données ont été correctement chargées.
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-The results should look like this:
+Le résultat doit avoir l’aspect suivant :
 
 DateId |CalendarQuarter |FiscalQuarter
 ----------- |--------------- |-------------
@@ -114,19 +113,15 @@ DateId |CalendarQuarter |FiscalQuarter
 20151201 |4 |2
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-To migrate a SQL Server database, see [SQL Server database migration](sql-database-cloud-migrate.md).
+Pour migrer une base de données SQL Server, consultez [Migration de base de données SQL Server](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 [CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
+[Centre de téléchargement Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

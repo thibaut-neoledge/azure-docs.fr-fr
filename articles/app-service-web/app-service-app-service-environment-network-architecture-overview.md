@@ -1,92 +1,91 @@
 <properties 
-    pageTitle="Network Architecture Overview of App Service Environments" 
-    description="Architectural overview of network topology ofApp Service Environments." 
-    services="app-service" 
-    documentationCenter="" 
-    authors="stefsch" 
-    manager="wpickett" 
-    editor=""/>
+	pageTitle="Présentation de l'architecture réseau des environnements App Service" 
+	description="Présentation de l'architecture de la topologie de réseau des environnements App Service." 
+	services="app-service" 
+	documentationCenter="" 
+	authors="stefsch" 
+	manager="wpickett" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/04/2016" 
-    ms.author="stefsch"/>   
+	ms.service="app-service" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/13/2016" 
+	ms.author="stefsch"/>
 
+# Présentation de l'architecture réseau des environnements App Service
 
-# <a name="network-architecture-overview-of-app-service-environments"></a>Network Architecture Overview of App Service Environments
+## Introduction ##
+Les environnements App Service sont toujours créés dans un sous-réseau d'un [réseau virtuel][virtualnetwork]. Les applications exécutées dans un environnement App Service peuvent communiquer avec des points de terminaison privés au sein de la même topologie de réseau virtuel. Dans la mesure où les clients peuvent verrouiller des parties de leur infrastructure de réseau virtuel, il est important de comprendre les types de flux de communication réseau qui se produisent avec un environnement App Service.
 
-## <a name="introduction"></a>Introduction ##
-App Service Environments are always created within a subnet of a [virtual network][virtualnetwork] - apps running in an App Service Environment can communicate with private endpoints located within the same virtual network topology.  Since customers may lock down parts of their virtual network infrastructure, it is important to understand the types of network communication flows that occur with an App Service Environment.
-
-## <a name="general-network-flow"></a>General Network Flow ##
+## Flux réseau général ##
  
-When an App Service Environment (ASE) uses a public virtual IP address (VIP) for apps, all inbound traffic arrives on that public VIP.  This includes HTTP and HTTPS traffic for apps, as well as other traffic for FTP, remote debugging functionality, and Azure management operations.  For a full list of the specific ports (both required and optional) that are available on the public VIP see the article on [controlling inbound traffic][controllinginboundtraffic] to an App Service Environment. 
+Lorsqu’un environnement App Service (ASE) utilise une adresse IP virtuelle publique (VIP) pour les applications, tout le trafic entrant arrive sur cette adresse IP virtuelle publique. Cela inclut le trafic HTTP et HTTPS pour les applications, ainsi que le reste du trafic pour les opérations de gestion Azure, les fonctionnalités de débogage à distance et FTP. Pour obtenir une liste complète des ports spécifiques (obligatoires et facultatifs) disponibles sur l'adresse VIP publique, consultez l'article sur le [contrôle du trafic entrant][controllinginboundtraffic] dans un environnement App Service.
 
-App Service Environments also support running apps that are bound only to a virtual network internal address, also referred to as an ILB (internal load balancer) address.  On an ILB enabled ASE, HTTP and HTTPS traffic for apps as well as remote debugging calls, arrive on the ILB address.  For most common ILB-ASE configurations, FTP/FTPS traffic will also arrive on the ILB address.  However Azure management operations will still flow to ports 454/455 on the public VIP of an ILB enabled ASE.
+Les environnements App Service prennent également en charge les applications en cours d’exécution et uniquement liées à une adresse interne de réseau virtuel, également appelée adresse ILB (équilibrage de charge interne). Sur un ASE avec équilibrage de charge interne, le trafic HTTP et HTTPS des applications et des appels de débogage à distance arrive sur l’adresse d’équilibrage de charge interne. Dans la plupart des configurations d’équilibrage de charge interne ASE, le trafic FTP/FTPS arrive également sur l’adresse d’équilibrage de charge interne. Toutefois les opérations de gestion Azure continuent de transiter par les ports 454/455 sur l’adresse IP virtuelle publique d’un ASE avec équilibrage de charge interne.
 
-The diagram below shows an overview of the various inbound and outbound network flows for an App Service Environment where the apps are bound to a public virtual IP address:
+Le diagramme suivant montre une vue d’ensemble des différents flux réseau entrants et sortants d’un environnement App Service où les applications sont liées à une adresse IP virtuelle publique :
 
-![General Network Flows][GeneralNetworkFlows]
+![Flux de réseau généraux][GeneralNetworkFlows]
 
-An App Service Environment can communicate with a variety of private customer endpoints.  For example, apps running in the App Service Environment can connect to database server(s) running on IaaS virtual machines in the same virtual network topology.
+Un environnement App Service peut communiquer avec plusieurs points de terminaison client privés. Par exemple, les applications exécutées dans l'environnement App Service peuvent se connecter au(x) serveur(s) de base de données en cours d'exécution sur des machines virtuelles IaaS dans la même topologie de réseau virtuel.
 
->[AZURE.IMPORTANT] Looking at the network diagram, the "Other Compute Resources" are deployed in a different Subnet from the App Service Environment. Deploying resources in the same Subnet with the ASE will block connectivity from ASE to those resources (except for specific intra-ASE routing). Deploy to a different Subnet instead (in the same VNET). The App Service Environment will then be able to connect. No additional configuration is necessary.
+>[AZURE.IMPORTANT] D’après le schéma du réseau, les « Other Computer Resources » (« Autres ressources de l’ordinateur ») sont déployées dans un sous-réseau différent de l’environnement App Service. Déployer des ressources dans le même sous-réseau avec l’ASE bloque la connectivité depuis l’ASE à ces ressources (à l’exception de certains routages intra-ASE). Il est préférable de les déployer dans un autre sous-réseau (dans le même réseau virtuel). L’environnement App Service est alors en mesure de se connecter. Aucune configuration supplémentaire n’est nécessaire.
 
-App Service Environments also communicate with Sql DB and Azure Storage resources necessary for managing and operating an App Service Environment.  Some of the Sql and Storage resources that an App Service Environment communicates with are located in the same region as the App Service Environment, while others are located in remote Azure regions.  As a result, outbound connectivity to the Internet is always required for an App Service Environment to function properly. 
+Les environnements App Service communiquent également avec les ressources BD SQL et stockage Azure nécessaires pour la gestion et l'exploitation d'un environnement App Service. Certaines des ressources de stockage et Sql avec lesquelles un environnement App Service communique se trouvent dans la même région que l'environnement App Service, tandis que d'autres sont situées dans des régions Azure distantes. Par conséquent, une connectivité sortante à Internet est toujours requise pour qu'un environnement App Service fonctionne correctement.
 
-Since an App Service Environment is deployed in a subnet, network security groups can be used to control inbound traffic to the subnet.  For details on how to control inbound traffic to an App Service Environment, see the following [article][controllinginboundtraffic].
+Étant donné qu'un environnement App Service est déployé dans un sous-réseau, vous pouvez utiliser des groupes de sécurité réseau pour contrôler le trafic entrant vers le sous-réseau. Pour plus d'informations sur la façon de contrôler le trafic entrant vers un environnement App Service, consultez l'[article][controllinginboundtraffic] suivant.
 
-For details on how to allow outbound Internet connectivity from an App Service Environment, see the following article about working with [Express Route][ExpressRoute].  The same approach described in the article applies when working with Site-to-Site connectivity and using forced tunneling.
+Pour plus d'informations sur la façon d'autoriser la connectivité Internet sortante à partir d'un environnement App Service, consultez l'article suivant sur l'utilisation d'[ExpressRoute][ExpressRoute]. La même approche que celle décrite dans cet article s'applique avec une connectivité de site à site et l'utilisation du tunneling forcé.
 
-## <a name="outbound-network-addresses"></a>Outbound Network Addresses ##
-When an App Service Environment makes outbound calls, an IP Address is always associated with the outbound calls.  The specific IP address that is used depends on whether the endpoint being called is located within the virtual network topology, or outside of the virtual network topology.
+## Adresses réseau sortantes ##
+Lorsqu'un environnement App Service effectue des appels sortants, une adresse IP est toujours associée aux appels sortants. L'adresse IP spécifique utilisée varie suivant si le point de terminaison appelé se trouve dans la topologie de réseau virtuel ou en dehors de la topologie de réseau virtuel.
 
-If the endpoint being called is **outside** of the virtual network topology, then the outbound address (aka the outbound NAT address) that is used is the public VIP of the App Service Environment.  This address can be found in the portal user interface for the App Service Environment in Properties blade.
+Si le point de terminaison appelé est **en dehors** de la topologie de réseau virtuel, alors l'adresse sortante (également appelé adresse NAT sortante) utilisée est l'adresse VIP publique de l'environnement App Service. Cette adresse se trouve dans l'interface utilisateur du portail de l'environnement App Service, dans le panneau Propriétés.
  
-![Outbound IP Address][OutboundIPAddress]
+![Adresse IP sortante][OutboundIPAddress]
 
-This address can also be determined for ASEs that only have a public VIP by creating an app in the App Service Environment, and then performing an *nslookup* on the app's address. The resultant IP address is both the public VIP, as well as the App Service Environment's outbound NAT address.
+Il est également possible de déterminer cette adresse pour les ASE disposant uniquement d’une adresse VIP publique en créant une application dans l'environnement App Service, puis en effectuant une opération *nslookup* sur l'adresse de l'application. L'adresse IP obtenue est à la fois l'adresse IP virtuelle publique et l'adresse NAT sortante de l'environnement App Service.
 
-If the endpoint being called is **inside** of the virtual network topology, the outbound address of the calling app will be the internal IP address of the individual compute resource running the app.  However there is not a persistent mapping of virtual network internal IP addresses to apps.  Apps can move around across different compute resources, and the pool of available compute resources in an App Service Environment can change due to scaling operations.
+Si le point de terminaison appelé est **dans** la topologie de réseau virtuel, l'adresse sortante de l'application appelante sera l'adresse IP interne de la ressource de calcul individuelle exécutant l'application. Toutefois, il n'existe pas de mappage persistant des adresses IP internes du réseau virtuel aux applications. Les applications peuvent se déplacer entre différentes ressources de calcul et le pool de ressources de calcul disponibles dans un environnement App Service peut changer en raison d'opérations de mise à l'échelle.
 
-However, since an App Service Environment is always located within a subnet, you are guaranteed that the internal IP address of a compute resource running an app will always lie within the CIDR range of the subnet.  As a result, when fine-grained ACLs or network security groups are used to secure access to other endpoints within the virtual network, the subnet range containing the App Service Environment needs to be granted access.
+Toutefois, dans la mesure où un environnement App Service est toujours situé dans un sous-réseau, vous pouvez être sûr que l'adresse IP interne d'une ressource de calcul exécutant une application sera toujours comprise dans la plage CIDR du sous-réseau. Par conséquent, si des listes de contrôle d'accès précises ou des groupes de sécurité réseau sont utilisés pour sécuriser l'accès à d'autres points de terminaison dans le réseau virtuel, l'accès doit être accordé à la plage du sous-réseau contenant l'environnement App Service.
 
-The following diagram shows these concepts in more detail:
+Le diagramme suivant illustre ces concepts plus en détail :
 
-![Outbound Network Addresses][OutboundNetworkAddresses]
+![Adresses réseau sortantes][OutboundNetworkAddresses]
 
-In the above diagram:
+Dans le diagramme ci-dessus :
 
-- Since the public VIP of the App Service Environment is 192.23.1.2, that is the outbound IP address used when making calls to "Internet" endpoints.
-- The CIDR range of the containing subnet for the App Service Environment is 10.0.1.0/26.  Other endpoints within the same virtual network infrastructure will see calls from apps as originating from somewhere within this address range.
+- Étant donné que l'adresse VIP publique de l'environnement App Service est 192.23.1.2, cela correspond à l'adresse IP sortante utilisée lors des appels aux points de terminaison « Internet ».
+- La plage CIDR du sous-réseau conteneur pour l'environnement App Service est 10.0.1.0/26. Les autres points de terminaison dans la même infrastructure de réseau virtuel verront les appels provenant d'applications comme émanant de quelque part dans cette plage d'adresses.
 
-## <a name="calls-between-app-service-environments"></a>Calls Between App Service Environments ##
-A more complex scenario can occur if you deploy multiple App Service Environments in the same virtual network, and make outbound calls from one App Service Environment to another App Service Environment.  These types of cross App Service Environment calls will also be treated as "Internet" calls.
+## Appels entre les environnements App Service ##
+Un scénario plus complexe peut se produire si vous déployez plusieurs environnements App Service dans le même réseau virtuel et effectuez des appels sortants à partir d’un environnement App Service vers un autre environnement App Service. Ces types d’appels entre les environnements App Service seront également traités comme des appels « Internet ».
 
-The following diagram shows an example of a layered architecture with apps on one App Service Environment (e.g. "Front door" web apps) calling apps on a second App Service Environment (e.g. internal back-end API apps not intended to be accessible from the Internet). 
+Le diagramme suivant illustre un exemple d’architecture en couches avec des applications dans un environnement App Service (par exemple, des applications web de « porte d’entrée ») appelant des applications dans un environnement App Service (par exemple, des applications d'API internes principales qui ne sont pas destinées à être accessibles via Internet).
 
-![Calls Between App Service Environments][CallsBetweenAppServiceEnvironments] 
+![Appels entre les environnements App Service][CallsBetweenAppServiceEnvironments]
 
-In the example above the App Service Environment "ASE One" has an outbound IP address of 192.23.1.2.  If an app running on this App Service Environment makes an outbound call to an app running on a second App Service Environment ("ASE Two") located in the same virtual network, the outbound call will be treated as an "Internet" call.  As a result the network traffic arriving on the second App Service Environment will show as originating from 192.23.1.2 (i.e. not the subnet address range of the first App Service Environment).
+Dans l'exemple ci-dessus, l'environnement App Service « ASE One » possède l’adresse IP sortante 192.23.1.2. Si une application en cours d'exécution sur cet environnement App Service effectue un appel sortant vers une application s'exécutant sur un second environnement App Service (« ASE Two ») situé sur le même réseau virtuel, l'appel sortant sera traité comme un appel « Internet ». Par conséquent, le trafic réseau arrivant sur le deuxième environnement App Service s’affichera comme un appel provenant de l’adresse 192.23.1.2 (et non pas la plage d'adresses de sous-réseau du premier environnement App Service).
 
-Even though calls between different App Service Environments are treated as "Internet" calls, when both App Service Environments are located in the same Azure region the network traffic will remain on the regional Azure network and will not physically flow over the public Internet.  As a result you can use a network security group on the subnet of the second App Service Environment to only allow inbound calls from the first App Service Environment (whose outbound IP address is 192.23.1.2), thus ensuring secure communication between the App Service Environments.
+Même si les appels entre les différents environnements App Service sont traités comme des appels « Internet », lorsque les deux environnements App Service se trouvent dans la même région Azure, le trafic réseau reste sur le réseau Azure régional et ne circule pas physiquement sur le réseau Internet public. Par conséquent, vous pouvez utiliser un groupe de sécurité réseau sur le sous-réseau du deuxième environnement App Service pour autoriser uniquement les appels entrants à partir du premier environnement App Service (dont l’adresse IP sortante est 192.23.1.2), afin de garantir une communication sécurisée entre les environnements App Service.
 
-## <a name="additional-links-and-information"></a>Additional Links and Information ##
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
+## Informations et liens supplémentaires ##
+Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
 
-Details on inbound ports used by App Service Environments and using network security groups to control inbound traffic is available [here][controllinginboundtraffic].
+Vous trouverez plus d’informations sur les ports entrants utilisés par les environnements App Service et l’utilisation de groupes de sécurité réseau pour contrôler le trafic entrant [ici][controllinginboundtraffic].
 
-Details on using user defined routes to grant outbound Internet access to App Service Environments is available in this [article][ExpressRoute]. 
+Cet [article][ExpressRoute] contient des informations sur l’utilisation d’itinéraires définis par l’utilisateur pour accorder un accès Internet sortant à des environnements App Service.
 
 
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
-[controllinginboundtraffic]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[ExpressRoute]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
+[controllinginboundtraffic]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
+[ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
 <!-- IMAGES -->
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
@@ -94,9 +93,4 @@ Details on using user defined routes to grant outbound Internet access to App Se
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

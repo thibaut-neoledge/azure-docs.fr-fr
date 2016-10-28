@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the Informix connector in Microsoft Azure App Service | Microsoft Azure"
-   description="How to use the Informix connector with Logic app triggers and actions"
+   pageTitle="Utilisation du connecteur Informix dans Microsoft Azure App Service | Microsoft Azure"
+   description="Comment utiliser le connecteur Informix avec les déclencheurs et actions d’application logique"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
@@ -16,70 +16,68 @@
    ms.date="05/31/2016"
    ms.author="plarsen"/>
 
+# Connecteur Informix
+>[AZURE.NOTE] Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
 
-# <a name="informix-connector"></a>Informix connector
->[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version.
+Microsoft Connector for Informix est une application d’API qui permet de connecter des applications via Azure App Service aux ressources stockées dans une base de données IBM Informix. L’application Connector utilise un client Microsoft pour se connecter aux ordinateurs du serveur Informix distant via une connexion réseau TCP/IP, y compris des connexions hybrides Azure sur les serveurs Informix locaux à l’aide d’Azure Service Bus Relay. Connector prend en charge les opérations de base de données suivantes :
 
-Microsoft connector for Informix is an API app for connecting applications through Azure App Service to resources stored in an IBM Informix database. Connector includes a Microsoft Client to connect to remote Informix server computers across a TCP/IP network connection, including Azure hybrid connections to on-premises Informix servers using the Azure Service Bus Relay. Connector supports the following database operations:
+- Lecture des lignes à l’aide de l’instruction SELECT
+- Interrogation pour la lecture de lignes à l’aide de l’instruction SELECT COUNT suivie de l’instruction SELECT
+- Ajout d’une ou plusieurs lignes (en bloc) à l’aide de l’instruction INSERT
+- Modification d’une ou plusieurs lignes (en bloc) à l’aide de l’instruction UPDATE
+- Suppression d’une ou plusieurs lignes (en bloc) à l’aide de l’instruction DELETE
+- Lecture pour la modification de lignes à l’aide de l’instruction SELECT CURSOR, suivie de l’instruction UPDATE WHERE CURRENT OF CURSOR
+- Lecture pour la suppression de lignes à l’aide de l’instruction SELECT CURSOR, suivie de l’instruction DELETE WHERE CURRENT OF CURSOR
+- Exécution de la procédure avec des paramètres d’entrée et de sortie, une valeur de retour et un jeu de résultats à l’aide de l’instruction CALL
+- Personnalisation des commandes et des opérations composites à l’aide des instructions SELECT, INSERT, UPDATE, DELETE
 
-- Read rows using SELECT
-- Poll to read rows using SELECT COUNT followed by SELECT
-- Add one row or multiple (bulk) rows using INSERT
-- Alter one row or multiple (bulk) rows using UPDATE
-- Remove one row or multiple (bulk) rows using DELETE
-- Read to alter rows using SELECT CURSOR followed by UPDATE WHERE CURRENT OF CURSOR
-- Read to remove rows using SELECT CURSOR followed by UPDATE WHERE CURRENT OF CURSOR
-- Run procedure with input and output parameters, return value, resultset, using CALL
-- Custom commands and composite operations using SELECT, INSERT, UPDATE, DELETE
+## Déclencheurs et actions
+Connector prend en charge les déclencheurs et actions d’application logique suivants :
 
-## <a name="triggers-and-actions"></a>Triggers and actions
-Connector supports the following Logic app triggers and actions:
-
-Triggers | Actions
+Déclencheurs | Actions
 --- | ---
-<ul><li>Poll Data</li></ul> | <ul><li>Bulk Insert</li><li>Insert</li><li>Bulk Update</li><li>Update</li><li>Call</li><li>Bulk Delete</li><li>Delete</li><li>Select</li><li>Conditional update</li><li>Post to EntitySet</li><li>Conditional delete</li><li>Select single entity</li><li>Delete</li><li>Upsert to EntitySet</li><li>Custom commands</li><li>Composite operations</li></ul>
+<ul><li>Interrogation des données</li></ul> | <ul><li>Bulk Insert</li><li>Insert</li><li>Bulk Update</li><li>Update</li><li>Call</li><li>Bulk Delete</li><li>Delete</li><li>Select</li><li>Conditional update</li><li>Post to EntitySet</li><li>Conditional delete</li><li>Select single entity</li><li>Delete</li><li>Upsert to EntitySet</li><li>Commandes personnalisées</li><li>Opérations composites</li></ul>
 
 
-## <a name="create-the-informix-connector"></a>Create the Informix connector
-You can define a connector within a Logic app or from the Azure Marketplace, like in the following example:  
+## Création du connecteur Informix
+Vous pouvez définir un connecteur dans une application logique ou à partir d’Azure Marketplace, comme dans l’exemple suivant :
 
-1. In the Azure startboard, select **Marketplace**.
-2. In the **Everything** blade, type **informix** in the **Search Everything** box, and then click the enter key.
-3. In the search everything results pane, select **Informix connector**.
-4. In the Informix connector description blade, select **Create**.
-5. In the Informix connector package blade, enter the Name (e.g. "InformixConnectorNewOrders"), App Service Plan, and other properties.
-6. Select **Package settings**, and enter the following package settings.
+1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
+2. Dans le panneau **Tout**, entrez **informix** dans la zone **Tout rechercher**, puis appuyez sur la touche Entrée.
+3. Dans les résultats de la recherche, sélectionnez **Connecteur Informix**.
+4. Dans le panneau de description du connecteur Informix, sélectionnez **Créer**.
+5. Dans le panneau de package du connecteur Informix, entrez le nom (par exemple, « InformixConnectorNewOrders »), le plan App Service ainsi que les autres propriétés.
+6. Sélectionnez **Paramètres de package**, puis entrez les paramètres suivants du package.
 
-    Name | Required |  Description
+	Nom | Requis | Description
 --- | --- | ---
-ConnectionString | Yes | Informix Client connection string (e.g., "Network Address=servername;Network Port=9089;User ID=username;Password=password;Initial Catalog=nwind;Default Schema=informix").
-Tables | Yes | Comma separated list of table, view and alias names required for OData operations and to generate swagger documentation with examples (e.g. "NEWORDERS").
-Procedures | Yes | Comma separated list of procedure and function names (e.g. "SPORDERID").
-OnPremise | No | Deploy on-premises using Azure Service Bus Relay.
-ServiceBusConnectionString | No | Azure Service Bus Relay connection string.
-PollToCheckData | No | SELECT COUNT statement to use with a Logic app trigger (e.g. "SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL").
-PollToReadData | No | SELECT statement to use with a Logic app trigger (e.g. "SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE").
-PollToAlterData | No | UPDATE or DELETE statement to use with a Logic app trigger (e.g. "UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;").
+ConnectionString | Oui | Chaîne de connexion du client Informix (par exemple, « Network Address=nomserveur;Network Port=9089;User ID=nomd’utilisateur;Password=motdepasse;Initial Catalog=nwind;Default Schema=informix »).
+Tables | Oui | Liste de noms de table, de vue et d’alias séparés par des virgules nécessaires pour les opérations OData et pour la génération de la documentation swagger avec des exemples (par exemple, « NEWORDERS »).
+Procédures | Oui | Liste de noms de procédure et de fonction séparés par des virgules (par exemple, « SPORDERID »).
+OnPremise | Non | Déployer en local à l’aide d’Azure Service Bus Relay.
+ServiceBusConnectionString | Non | Chaîne de connexion d’Azure Service Bus Relay.
+PollToCheckData | Non | Instruction SELECT COUNT à utiliser avec un déclencheur d’application logique (par exemple, « SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL »).
+PollToReadData | Non | Instruction SELECT à utiliser avec un déclencheur d’application logique (par exemple, « SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE »).
+PollToAlterData | Non | Instruction UPDATE ou SELECT à utiliser avec un déclencheur d’application logique (par exemple, « UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt; »).
 
-7. Select **OK**, and then Select **Create**.
-8. When complete, the Package Settings look similar to the following:  
-![][1]
+7. Sélectionnez **OK**, puis cliquez sur **Créer**.
+8. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][1]
 
 
-## <a name="logic-app-with-informix-connector-action-to-add-data"></a>Logic app with Informix connector action to add data ##
-You can define a Logic app action to add data to an Informix table using an API Insert or Post to Entity OData operation. For example, you can insert a new customer order record, by processing a SQL INSERT statement against a table defined with an identity column, returning the identity value or the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+## Action d’ajout de données d’une application logique avec le connecteur Informix ##
+Vous pouvez définir une action d’application logique pour ajouter des données à une table Informix à l’aide d’une opération OData Insert ou Post to Entity. Par exemple, vous pouvez insérer un nouvel enregistrement de commande client en exécutant une instruction SQL INSERT sur une table définie avec une colonne d’identité, qui renvoie la valeur d’identité ou les lignes affectées à l’application logique (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP] Informix Connection "*Post to EntitySet*" returns the identity column value and "*API Insert*" returns rows affected
+> [AZURE.TIP] L’instruction « *Post to EntitySet* » d’Informix Connection renvoie la valeur de la colonne d’identité et l’instruction « *API Insert* » renvoie les lignes affectées
 
-1. In the Azure startboard, select **+** (plus sign), **Web + Mobile**, and then **Logic app**.
-2. Enter the Name (e.g. "NewOrdersInformix"), App Service Plan, other properties, and then select **Create**.
-3. In the Azure startboard, select the Logic app you just created, **Settings**, and then **Triggers and actions**.
-4. In the Triggers and actions blade, select **Create from Scratch** within the Logic app Templates.
-5. In the API Apps panel, select **Recurrence**, set a frequency and interval, and then **checkmark**.
-6. In the API Apps panel, select **Informix connector**, expand the operations list to select **Insert into NEWORDER**.
-7. Expand the parameters list to enter the following values:  
+1. Dans le tableau d’accueil Azure, sélectionnez **+** (signe plus), **Web + Mobile**, puis **Application logique**.
+2. Entrez le nom (par exemple, « NewOrdersInformix »), le plan App Service ainsi que d’autres propriétés, puis sélectionnez **Créer**.
+3. Dans le tableau d’accueil Azure, sélectionnez l’application logique que vous venez de créer, puis cliquez sur **Paramètres** et **Déclencheurs et actions**.
+4. Dans le panneau Déclencheurs et actions, sélectionnez **Créer intégralement** dans les modèles d’application logique.
+5. Dans le panneau Applications d’API, sélectionnez **Périodicité**, définissez une fréquence et un intervalle, puis **Coche**.
+6. Dans le panneau Applications d’API, sélectionnez **Connecteur Informix** et développez la liste des opérations pour sélectionner **Insert into NEWORDER**.
+7. Développez la liste de paramètres pour entrer les valeurs suivantes :
 
-    Name | Value
+	Nom | Valeur
 --- | --- 
 CUSTID | 10042
 SHIPID | 10000
@@ -89,185 +87,175 @@ SHIPCITY | Walla Walla
 SHIPREG | WA
 SHIPZIP | 99362 
 
-8. Select the **checkmark** to save the action settings, and then **Save**.
-9. The settings should look as follows:  
-![][3]  
-10. In the **All runs** list under **Operations**, select the first-listed item (most recent run). 
-11. In the **Logic app run** blade, select the **ACTION** item **informixconnectorneworders**.
-12. In the **Logic app action** blade, select the **INPUTS LINK**. Informix connector uses the inputs to process a parameterized INSERT statement.
-13. In the **Logic app action** blade, select the **OUTPUTS LINK**. The inputs should look as follows:  
-![][4]
+8. Sélectionnez la **coche** pour enregistrer les paramètres d’action, puis cliquez sur **Enregistrer**.
+9. Les paramètres doivent se présenter comme suit : ![][3]
+10. Dans la liste **Toutes les exécutions** sous **Opérations**, sélectionnez le premier élément répertorié (la dernière exécution).
+11. Dans le panneau **Exécution d’application logique**, sélectionnez l’élément **ACTION** **informixconnectorneworders**.
+12. Dans le panneau **Action d’application logique**, sélectionnez l’élément **INPUTS LINK**. Le connecteur Informix utilise ces entrées pour traiter une instruction INSERT paramétrable.
+13. Dans le panneau **Action d’application logique**, sélectionnez l’élément **OUTPUTS LINK**. Les entrées doivent se présenter comme suit : ![][4]
 
-#### <a name="what-you-need-to-know"></a>What you need to know
+#### Bon à savoir
 
-- Connector truncates Informix table names when forming Logic app action names. For example, the operation **Insert into NEWORDERS** is truncated to **Insert into NEWORDER**.
-- After saving the Logic app **Triggers and actions**, Logic app processes the operation. There may be a delay of a number of seconds (e.g. 3-5 seconds) before Logic app processes the operation. Optionally, you can click **Run Now** to process the operation.
-- Informix connector defines EntitySet members with attributes, including whether the member corresponds to an Informix column with a default or generated columns (e.g. identity). Logic app displays a red asterisk next to the EntitySet member ID name, to denote Informix columns that require values. You should not enter a value for the ORDID member, which corresponds to Informix identity column. You may enter values for other optional members (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), which correspond to Informix columns with default values. 
-- Informix connector returns to Logic app the response on the Post to EntitySet that includes the values for identity columns, which is derived from the DRDA SQLDARD (SQL Data Area Reply Data) on the prepared SQL INSERT statement. Informix server does not return the inserted values for columns with default values.  
+- Le connecteur tronque les noms de table Informix lors de la constitution des noms d’action d’application logique. Par exemple, l’opération **Insert into NEWORDERS** est tronquée en **Insert into NEWORDER**.
+- Après avoir enregistré les **déclencheurs et actions** d’application logique, l’application logique traite l’opération. Il peut y avoir un délai d’attente de quelques secondes (par exemple, 3 à 5 secondes) avant que l’application logique ne traite l’opération. Si vous le souhaitez, vous pouvez cliquer sur **Exécuter maintenant** pour traiter l’opération.
+- Le connecteur Informix définit les membres EntitySet avec des attributs, notamment pour indiquer si le membre correspond à une colonne Informix avec une valeur par défaut ou bien à des colonnes générées (par exemple, colonne d’identité). L’application logique affiche un astérisque rouge en regard du nom de code du membre EntitySet, pour indiquer les colonnes Informix qui requièrent des valeurs. Vous ne devez pas saisir de valeur pour le membre ORDID, qui correspond à la colonne d’identité Informix. Vous pouvez entrer des valeurs pour d’autres membres facultatifs (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY) qui correspondent aux colonnes Informix avec des valeurs par défaut.
+- Le connecteur Informix renvoie à l’application logique la réponse sur l’élément Post to EntitySet qui inclut les valeurs des colonnes d’identité, laquelle est dérivée de l’élément SQLDARD DRDA (données de la réponse de la zone de données SQL) sur l’instruction SQL INSERT préparée. Le serveur Informix ne renvoie pas les valeurs insérées pour les colonnes avec les valeurs par défaut.
 
 
-## <a name="logic-app-with-informix-connector-action-to-add-bulk-data"></a>Logic app with Informix connector action to add bulk data ##
-You can define a Logic app action to add data to an Informix table using an API Bulk Insert operation. For example, you can insert two new customer order records, by processing a SQL INSERT statement using an array of row values against a table defined with an identity column, returning the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+## Action d’ajout de données en bloc d’une application logique avec le connecteur Informix ##
+Vous pouvez définir une action d’application logique pour ajouter des données à une table Informix à l’aide d’une opération Bulk Insert d’API. Par exemple, vous pouvez insérer deux nouveaux enregistrements de commande client en exécutant une instruction SQL INSERT à l’aide d’un tableau de valeurs de ligne sur une table définie avec une colonne d’identité, qui renvoie les lignes affectées à l’application logique (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-1. In the Azure startboard, select **+** (plus sign), **Web + Mobile**, and then **Logic app**.
-2. Enter the Name (e.g. "NewOrdersBulkInformix"), App Service Plan, other properties, and then select **Create**.
-3. In the Azure startboard, select the Logic app you just created, **Settings**, and then **Triggers and actions**.
-4. In the Triggers and actions blade, select **Create from Scratch** within the Logic app Templates.
-5. In the API Apps panel, select **Recurrence**, set a frequency and interval, and then **checkmark**.
-6. In the API Apps panel, select **Informix connector**, expand the operations list to select **Bulk Insert into NEW**.
-7. Enter the **rows** value as an array. For example, copy and paste the following:  
+1. Dans le tableau d’accueil Azure, sélectionnez **+** (signe plus), **Web + Mobile**, puis **Application logique**.
+2. Entrez le nom (par exemple, « NewOrdersBulkInformix »), le plan App Service ainsi que d’autres propriétés, puis sélectionnez **Créer**.
+3. Dans le tableau d’accueil Azure, sélectionnez l’application logique que vous venez de créer, puis cliquez sur **Paramètres** et **Déclencheurs et actions**.
+4. Dans le panneau Déclencheurs et actions, sélectionnez **Créer intégralement** dans les modèles d’application logique.
+5. Dans le panneau Applications d’API, sélectionnez **Périodicité**, définissez une fréquence et un intervalle, puis **Coche**.
+6. Dans le panneau Applications d’API, sélectionnez **Connecteur Informix** et développez la liste des opérations pour sélectionner **Bulk Insert into NEW**.
+7. Entrez la valeur de **lignes** sous forme de tableau. Par exemple, copiez et collez le code suivant :
 
-    ```
+	```
     [{"custid":10081,"shipid":10000,"shipname":"Trail's Head Gourmet Provisioners","shipaddr":"722 DaVinci Blvd.","shipcity":"Kirkland","shipreg":"WA","shipzip":"98034"},{"custid":10088,"shipid":10000,"shipname":"White Clover Markets","shipaddr":"305 14th Ave. S. Suite 3B","shipcity":"Seattle","shipreg":"WA","shipzip":"98128","shipctry":"USA"}]
-    ```
+	```
         
-8. Select the **checkmark** to save the action settings, and then **Save**. The settings should look as follows:  
-![][6]
+8. Sélectionnez la **coche** pour enregistrer les paramètres d’action, puis cliquez sur **Enregistrer**. Les paramètres doivent se présenter comme suit : ![][6]
 
-9. In the **All runs** list under **Operations**, click the first-listed item (most recent run).
-10. In the **Logic app run** blade, click the **ACTION** item.
-11. In the **Logic app action** blade, click the **INPUTS LINK**. The outputs should look as follows:  
-[][7]
-12. In the **Logic app action** blade, click the **OUTPUTS LINK**. The outputs should look as follows:  
-![][8]
+9. Dans la liste **Toutes les exécutions** sous **Opérations**, cliquez sur le premier élément répertorié (la dernière exécution).
+10. Dans le panneau **Exécution d’application logique**, cliquez sur l’élément **ACTION**.
+11. Dans le panneau **Action d’application logique**, cliquez sur l’élément **INPUTS LINK**. Les sorties doivent se présenter comme suit : [][7]
+12. Dans le panneau **Action d’application logique**, cliquez sur l’élément **OUTPUTS LINK**. Les sorties doivent se présenter comme suit : ![][8]
 
-#### <a name="what-you-need-to-know"></a>What you need to know
+#### Bon à savoir
 
-- Connector truncates Informix table names when forming Logic app action names. For example, the operation **Bulk Insert into NEWORDERS** is truncated to **Bulk Insert into NEW**.
-- Informix database may be case sensitive to table and column names. For example, the Bulk Insert operation array column names may need to be specified in lower case ("custid") instead of upper case ("CUSTID").
-- By omitting identity columns (e.g. ORDID), nullable columns (e.g. SHIPDATE), and columns with default values (e.g. ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), Informix database generates values.
-- By specifying "today" and "tomorrow", Informix connector generates "CURRENT DATE" and "CURRENT DATE + 1 DAY" functions (e.g. REQDATE). 
+- Le connecteur tronque les noms de table Informix lors de la constitution des noms d’action d’application logique. Par exemple, l’opération **Bulk Insert into NEWORDERS** est tronquée en **Bulk Insert into NEW**.
+- La base de données Informix peut être sensible à la casse pour les noms de table et de colonne. Par exemple, les noms de colonnes de tableau de l’opération Bulk Insert peuvent devoir être spécifiés en minuscules (« custid ») et non en majuscules (« CUSTID »).
+- En omettant les colonnes d’identité (par exemple, ORDID), les colonnes de type nullable (par exemple, SHIPDATE) et les colonnes avec des valeurs par défaut (par exemple, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), la base de données Informix génère des valeurs.
+- En spécifiant « today » et « tomorrow », le connecteur Informix génère les fonctions « CURRENT DATE » et « CURRENT DATE + 1 DAY » (par exemple, REQDATE).
 
 
-## <a name="logic-app-with-informix-connector-trigger-to-read,-alter-or-delete-data"></a>Logic app with Informix connector trigger to read, alter or delete data ##
-You can define a Logic app trigger to poll and read data from an Informix table using an API Poll Data composite operation. For example, you can read one or more new customer order records, returning the records to the Logic app. The Informix Connection package/app settings should look as follows:
+## Déclencheur d’application logique avec connecteur Informix pour la lecture, la modification ou la suppression de données ##
+Vous pouvez définir un déclencheur d’application logique pour interroger et lire des données à partir d’une table Informix en utilisant une opération composite Poll Data d’API. Par exemple, vous pouvez lire un ou plusieurs nouveaux enregistrements de commande client pour renvoyer les enregistrements à l’application logique. Les paramètres de package/application d’Informix Connection doivent se présenter comme suit :
 
-    App Setting | Value
+	App Setting | Value
 --- | --- | ---
-PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
-PollToAlterData | <no value specified>
+PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToAlterData | <aucune valeur spécifiée>
 
 
-Also, you can define a Logic app trigger to poll, read and alter data in an Informix table using an API Poll Data composite operation. For example, you can read one or more new customer order records, update the row values, returning the selected (before update) records to the Logic app. The Informix Connection package/app settings should look as follows:
+Vous pouvez également définir un déclencheur d’application logique pour interroger, lire et modifier des données dans une table Informix en utilisant une opération composite Poll Data d’API. Par exemple, vous pouvez lire un ou plusieurs nouveaux enregistrements de commande client et mettre à jour les valeurs de ligne pour renvoyer les enregistrements sélectionnés (avant la mise à jour) à l’application logique. Les paramètres de package/application d’Informix Connection doivent se présenter comme suit :
 
-    App Setting | Value
+	App Setting | Value
 --- | --- | ---
-PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
 PollToAlterData | UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF &lt;CURSOR&gt;
 
 
-Further, you can define a Logic app trigger to poll, read and remove data from an Informix table using an API Poll Data composite operation. For example, you can read one or more new customer order records, delete the rows, returning the selected (before delete) records to the Logic app. The Informix Connection package/app settings should look as follows:
+Vous pouvez aussi définir un déclencheur d’application logique pour interroger, lire et supprimer des données d’une table Informix en utilisant une opération composite Poll Data d’API. Par exemple, vous pouvez lire un ou plusieurs nouveaux enregistrements de commande client et supprimer les lignes pour renvoyer les enregistrements sélectionnés (avant la suppression) à l’application logique. Les paramètres de package/application d’Informix Connection doivent se présenter comme suit :
 
-    App Setting | Value
+	App Setting | Value
 --- | --- | ---
-PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
-PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
+PollToCheckData | SELECT COUNT(*) FROM NEWORDERS WHERE SHIPDATE IS NULL
+PollToReadData | SELECT * FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
 PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 
-In this example, Logic app will poll, read, update, and then re-read data in the Informix table.
+Dans cet exemple, l’application logique va interroger, lire, mettre à jour, puis relire les données de la table Informix.
 
-1. In the Azure startboard, select **+** (plus sign), **Web + Mobile**, and then **Logic app**.
-2. Enter the Name (e.g. "ShipOrdersInformix"), App Service Plan, other properties, and then select **Create**.
-3. In the Azure startboard, select the Logic app you just created, **Settings**, and then **Triggers and actions**.
-4. In the Triggers and actions blade, select **Create from Scratch** within the Logic app Templates.
-5. In the API Apps panel, select **Informix connector**, set a frequency and interval, and then **checkmark**.
-6. In the API Apps panel, select **Informix connector**, expand the operations list to select **Select from NEWORDERS**.
-7. Select the **checkmark** to save the action settings, and then **Save**. The settings should look as follows:  
-![][10]
-8. Click to close the **Triggers and actions** blade, and then click to close the **Settings** blade.
-9. In the **All runs** list under **Operations**, click the first-listed item (most recent run).
-10. In the **Logic app run** blade, click the **ACTION** item.
-11. In the **Logic app action** blade, click the **OUTPUTS LINK**. The outputs should look as follows:  
-![][11]
+1. Dans le tableau d’accueil Azure, sélectionnez **+** (signe plus), **Web + Mobile**, puis **Application logique**.
+2. Entrez le nom (par exemple, « ShipOrdersInformix »), le plan App Service ainsi que d’autres propriétés, puis sélectionnez **Créer**.
+3. Dans le tableau d’accueil Azure, sélectionnez l’application logique que vous venez de créer, puis cliquez sur **Paramètres** et **Déclencheurs et actions**.
+4. Dans le panneau Déclencheurs et actions, sélectionnez **Créer intégralement** dans les modèles d’application logique.
+5. Dans le panneau Applications d’API, sélectionnez **Connecteur Informix**, définissez une fréquence et un intervalle, puis **Coche**.
+6. Dans le panneau Applications d’API, sélectionnez **Connecteur Informix** et développez la liste des opérations pour sélectionner **Select from NEWORDERS**.
+7. Sélectionnez la **coche** pour enregistrer les paramètres d’action, puis cliquez sur **Enregistrer**. Les paramètres doivent se présenter comme suit : ![][10]
+8. Cliquez pour fermer le panneau **Déclencheurs et actions**, puis cliquez pour fermer le panneau **Paramètres**.
+9. Dans la liste **Toutes les exécutions** sous **Opérations**, cliquez sur le premier élément répertorié (la dernière exécution).
+10. Dans le panneau **Exécution d’application logique**, cliquez sur l’élément **ACTION**.
+11. Dans le panneau **Action d’application logique**, cliquez sur l’élément **OUTPUTS LINK**. Les sorties doivent se présenter comme suit : ![][11]
 
 
-## <a name="logic-app-with-informix-connector-action-to-remove-data"></a>Logic app with Informix connector action to remove data ##
-You can define a Logic app action to remove data from an Informix table using an API Delete or Post to Entity OData operation. For example, you can insert a new customer order record, by processing a SQL INSERT statement against a table defined with an identity column, returning the identity value or the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
+## Action de suppression de données d’une application logique avec le connecteur Informix ##
+Vous pouvez définir une action d’application logique pour supprimer des données d’une table Informix à l’aide d’une opération OData Delete ou Post to Entity. Par exemple, vous pouvez insérer un nouvel enregistrement de commande client en exécutant une instruction SQL INSERT sur une table définie avec une colonne d’identité, qui renvoie la valeur d’identité ou les lignes affectées à l’application logique (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-## <a name="create-logic-app-using-informix-connector-to-remove-data"></a>Create Logic app using Informix connector to remove data ##
-You can create a new Logic app from within the Azure Marketplace, and then use the Informix connector as an action to remove customer orders. For example, you can use the Informix connector conditional Delete operation to process a SQL DELETE statement (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
+## Création d’une application logique utilisant le connecteur Informix pour supprimer des données ##
+Vous pouvez créer une application logique dans Azure Marketplace et utiliser ensuite le connecteur Informix en tant qu’action pour supprimer des commandes client. Par exemple, vous pouvez utiliser l’opération Conditional Delete du connecteur Informix pour traiter une instruction SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
 
-1. In the hub menu of the Azure **Start** board, click **+** (plus sign), click **Web + Mobile**, and then click **Logic app**. 
-2. In the **Create Logic app** blade, type a **Name**, for example **RemoveOrdersInformix**.
-3. Select or define values for the other settings (e.g. service plan, resource group).
-4. The settings should look as follows. Click **Create**:  
-![][12]
-5. In the **Settings** blade, click **Triggers and actions**.
-6. In the **Triggers and actions** blade, in the **Logic app Templates** list, click **Create from Scratch**.
-7. In the **Triggers and actions** blade, in the **API Apps** panel, within the resource group, click **Recurrence**.
-8. On the Logic app design surface, click the **Recurrence** item, set a **Frequency** and **Interval**, for example **Days** and **1**, and then click the **checkmark** to save the recurrence item settings.
-9. In the **Triggers and actions** blade, in the **API Apps** panel, within the resource group, click **Informix connector**.
-10. On the Logic app design surface, click the **Informix connector** action item, click the ellipses (**...**) to expand the operations list, and then click **Conditional delete from N**.
-11. On the Informix connector action item, type **ordid ge 10000** for an **expression that identifies a subset of entries**.
-12. Click the **checkmark** to save the action settings, and then click **Save**. The settings should look as follows:  
-![][13]
-13. Click to close the **Triggers and actions** blade, and then click to close the **Settings** blade.
-14. In the **All runs** list under **Operations**, click the first-listed item (most recent run).
-15. In the **Logic app run** blade, click the **ACTION** item.
-16. In the **Logic app action** blade, click the **OUTPUTS LINK**. The outputs should look as follows:  
-![][14]
+1. Dans le menu hub du panneau **Démarrer** d’Azure, cliquez sur **+** (signe plus) et cliquez sur **Web + Mobile**, puis sur **Application logique**.
+2. Dans le panneau **Créer une application logique**, entrez un **nom**, par exemple **RemoveOrdersInformix**.
+3. Sélectionnez ou définissez des valeurs pour les autres paramètres (par exemple, le plan de service et le groupe de ressources).
+4. Les paramètres doivent se présenter comme suit. Cliquez sur **Créer** : ![][12]
+5. Dans le panneau **Paramètres**, cliquez sur **Déclencheurs et actions**.
+6. Dans la liste **Modèles d’application logique** du panneau **Déclencheurs et actions**, sélectionnez **Créer intégralement**.
+7. Dans le panneau **Déclencheurs et actions**, sous **Applications d’API**, cliquez sur **Périodicité** au niveau du groupe de ressources.
+8. Sur la surface de conception de l’application logique, cliquez sur l’élément **Périodicité**, définissez une **Fréquence** et un **Intervalle**, par exemple **Jours** et **1**, puis cliquez sur la **coche** pour enregistrer les paramètres de l’élément de périodicité.
+9. Dans le panneau **Déclencheurs et actions**, sous **Applications d’API**, cliquez sur **Connecteur Informix** au niveau du groupe de ressources.
+10. Sur la surface de conception de l’application logique, cliquez sur l’élément d’action **Connecteur Informix**, cliquez sur les points de suspension (**...**) pour développer la liste des opérations, puis cliquez sur **Conditional delete from N**.
+11. Sur l’élément d’action du connecteur Informix, tapez **ordid ge 10000** pour une **expression qui identifie un sous-ensemble d’entrées**.
+12. Sélectionnez la **coche** pour enregistrer les paramètres d’action, puis cliquez sur **Enregistrer**. Les paramètres doivent se présenter comme suit : ![][13]
+13. Cliquez pour fermer le panneau **Déclencheurs et actions**, puis cliquez pour fermer le panneau **Paramètres**.
+14. Dans la liste **Toutes les exécutions** sous **Opérations**, cliquez sur le premier élément répertorié (la dernière exécution).
+15. Dans le panneau **Exécution d’application logique**, cliquez sur l’élément **ACTION**.
+16. Dans le panneau **Action d’application logique**, cliquez sur l’élément **OUTPUTS LINK**. Les sorties doivent se présenter comme suit : ![][14]
 
-**Note:** Logic app designer truncates table names. For example the operation **Conditional delete from NEWORDERS** is truncated to **Conditional delete from N**.
+**Remarque :** le concepteur d’application logique tronque les noms de table. Par exemple, l’opération **Conditional Delete from NEWORDERS** est tronqué en **Conditional delete from N**.
 
 
-> [AZURE.TIP] Use the following SQL statements to create the sample table and stored procedures. 
+> [AZURE.TIP] Utilisez les instructions SQL suivantes pour créer les exemples de tables et de procédures stockées.
 
-You can create the sample NEWORDERS table using the following Informix SQL DDL statements:
+Vous pouvez créer l’exemple de table NEWORDERS à l’aide des instructions DDL SQL Informix suivantes :
  
     create table neworders (  
-        ordid serial(10000) unique ,  
-        custid int not null ,  
-        empid int not null default 10000 ,  
-        orddate date not null default today ,  
-        reqdate date default today ,  
-        shipdate date ,  
-        shipid int not null default 10000 ,  
-        freight decimal (9,2) not null default 0.00 ,  
-        shipname char (40) not null ,  
-        shipaddr char (60) not null ,  
-        shipcity char (20) not null ,  
-        shipreg char (15) not null ,  
-        shipzip char (10) not null ,  
-        shipctry char (15) not null default ''USA'' 
-        )
+ 		ordid serial(10000) unique ,  
+ 		custid int not null ,  
+ 		empid int not null default 10000 ,  
+ 		orddate date not null default today ,  
+ 		reqdate date default today ,  
+ 		shipdate date ,  
+ 		shipid int not null default 10000 ,  
+ 		freight decimal (9,2) not null default 0.00 ,  
+ 		shipname char (40) not null ,  
+ 		shipaddr char (60) not null ,  
+ 		shipcity char (20) not null ,  
+ 		shipreg char (15) not null ,  
+ 		shipzip char (10) not null ,  
+ 		shipctry char (15) not null default ''USA'' 
+ 		)
 
 
-You can create the sample SPORDERID stored procedure using the following Informix DDL statement:
+Vous pouvez créer l’exemple de procédure stockée SPORDERID à l’aide de l’instruction DDL Informix suivante :
  
     create procedure sporderid ( ord_id int)  
-        returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)  
-        define xordid, xcustid, xempid, xshipid int;  
-        define xorddate, xreqdate, xshipdate date;  
-        define xfreight decimal (9,2);  
-        define xshipname char (40);  
-        define xshipaddr char (60);  
-        define xshipcity char (20);  
-        define xshipreg, xshipctry char (15);  
-        define xshipzip char (10);  
-        select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry  
-            into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry  
-            from neworders where ordid = ord_id;  
-        return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;  
+ 		returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)  
+ 		define xordid, xcustid, xempid, xshipid int;  
+ 		define xorddate, xreqdate, xshipdate date;  
+ 		define xfreight decimal (9,2);  
+ 		define xshipname char (40);  
+ 		define xshipaddr char (60);  
+ 		define xshipcity char (20);  
+ 		define xshipreg, xshipctry char (15);  
+ 		define xshipzip char (10);  
+ 		select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry  
+ 			into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry  
+ 			from neworders where ordid = ord_id;  
+ 		return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;  
     end procedure; 
 
 
-## <a name="hybrid-configuration-(optional)"></a>Hybrid configuration (Optional)
+## Configuration hybride (facultatif)
 
-> [AZURE.NOTE] This step is required only if you are using DB2 connector on-premises behind your firewall.
+> [AZURE.NOTE] Cette étape n’est requise que si vous utilisez le connecteur DB2 en local derrière votre pare-feu.
 
-App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If connector uses an on-premises IBM DB2 Server for Windows, the Hybrid Connection Manager is required.
+App Service utilise le Gestionnaire de configuration hybride pour se connecter en toute sécurité à votre système local. Si le connecteur utilise un serveur SQL IBM DB2 local pour Windows, le Gestionnaire de connexion hybride est requis.
 
-See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
+Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md).
 
 
-## <a name="do-more-with-your-connector"></a>Do more with your connector
-Now that the connector is created, you can add it to a business workflow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
 
-Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Créez les applications API à l’aide des API REST. Pour plus d'informations, consultez [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and connectors](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
@@ -286,10 +274,4 @@ You can also review performance statistics and control security to the connector
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

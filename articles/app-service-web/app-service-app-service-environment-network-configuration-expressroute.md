@@ -1,127 +1,126 @@
 <properties 
-    pageTitle="Network Configuration Details for Working with Express Route" 
-    description="Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit." 
-    services="app-service" 
-    documentationCenter="" 
-    authors="stefsch" 
-    manager="nirma" 
-    editor=""/>
+	pageTitle="Détails de la configuration réseau pour travailler avec ExpressRoute" 
+	description="Détails de la configuration réseau pour exécuter des environnements App Service sur des réseaux virtuels connectés à un circuit ExpressRoute." 
+	services="app-service" 
+	documentationCenter="" 
+	authors="stefsch" 
+	manager="nirma" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/14/2016" 
-    ms.author="stefsch"/>   
+	ms.service="app-service" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/11/2016" 
+	ms.author="stefsch"/>
+
+# Détails de la configuration réseau pour les environnements App Service avec ExpressRoute 
+
+## Vue d'ensemble ##
+Les clients peuvent connecter un circuit [Azure ExpressRoute][ExpressRoute] à leur infrastructure de réseau virtuel pour étendre leur réseau local à Azure. Vous pouvez créer un environnement App Service dans un sous-réseau de cette infrastructure de [réseau virtuel][virtualnetwork]. Les applications exécutées dans l'environnement App Service peuvent alors établir des connexions sécurisées à des ressources principales accessibles uniquement par le biais de la connexion ExpressRoute.
+
+Un environnement App Service peut être créé **soit** dans un réseau virtuel Azure Resource Manager, **ou** dans un réseau virtuel de modèle de déploiement classique. Grâce à une modification récente effectuée en juin 2016, les ASE peuvent désormais être également déployés dans les réseaux virtuels qui utilisent soit des plages d’adresses publiques soit des espaces d’adressage RFC1918 (par exemple, des adresses privées).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+## Connectivité réseau requise ##
+Il existe des exigences de connectivité réseau pour les environnements App Service qui peuvent ne pas être initialement satisfaites dans un réseau virtuel connecté à ExpressRoute. Les environnements App Service requièrent tous les éléments suivants pour fonctionner correctement :
 
 
-# <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Network Configuration Details for App Service Environments with ExpressRoute 
+-  Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier sur les ports 80 et 443. Cela inclut les points de terminaison situés dans la même région que l’environnement App Service, ainsi que les points de terminaison de stockage situés dans d’**autres** régions Azure. Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.
+-  Connectivité réseau sortante au service de fichiers Azure sur le port 445.
+-  Connectivité réseau sortante à des points de terminaison BD SQL situés dans la même région que l'environnement App Service. Les points de terminaison de base de données SQL se résolvent dans le domaine suivant : *database.windows.net*. Cela suppose d’ouvrir l’accès aux ports 1433, 11000-11999 et 14000-14999. Pour plus d’informations, consultez [cet article portant sur l’utilisation du port V12 de la base de données SQL](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+-  Connectivité réseau sortante vers des points de terminaison du plan gestion Azure (points de terminaison ASM et ARM). Cela inclut la connexion sortante à *management.core.windows.net* et *management.azure.com*.
+-  Connectivité réseau sortante à *ocsp.msocsp.com*, *mscrl.microsoft.com* et *crl.microsoft.com*. Cela est nécessaire pour prendre en charge la fonctionnalité SSL.
+-  La configuration DNS pour le réseau virtuel doit être capable de résoudre tous les points de terminaison et les domaines mentionnés dans les points précédents. Si ces points de terminaison ne peuvent pas être résolus, les tentatives de création d'environnement App Service échoueront et les environnements App Service existants seront marqués comme non intègres.
+-  L’accès sortant sur le port 53 est nécessaire pour la communication avec des serveurs DNS.
+-  S'il existe un serveur DNS personnalisé à l'autre extrémité d'une passerelle VPN, le serveur DNS doit être accessible depuis le sous-réseau contenant l'environnement App Service.
+-  Le chemin d'accès réseau sortant ne peut pas traverser des proxys d'entreprise internes et il ne peut pas non plus être tunnelé de force en local. Ceci modifie l'adresse NAT réelle du trafic réseau sortant à partir de l'environnement App Service. La modification de l'adresse NAT du trafic réseau sortant d'un environnement App Service entraînera des échecs de connectivité vers plusieurs des points de terminaison répertoriés ci-dessus. Cela entraîne des échecs de création d'environnement App Service, ainsi que la désignation comme non intègres des environnements App Service précédemment considérés comme intègres.
+-  L'accès réseau entrant vers les ports requis pour les environnements App Service doit être autorisé, comme décrit dans cet [article][requiredports].
 
-## <a name="overview"></a>Overview ##
-Customers can connect an [Azure ExpressRoute][ExpressRoute] circuit to their virtual network infrastructure, thus extending their on-premises network to Azure.  An App Service Environment can  be created in a subnet of this [virtual network][virtualnetwork] infrastructure.  Apps running on the App Service Environment can then establish secure connections to back-end resources accessible only over the ExpressRoute connection.  
+La configuration DNS requise peut être satisfaite en garantissant qu'une infrastructure DNS valide est configurée et gérée pour le réseau virtuel. Si, pour une raison quelconque, la configuration DNS est modifiée après la création d'un environnement App Service, les développeurs peuvent forcer un environnement App Service à récupérer la nouvelle configuration DNS. Le déclenchement d'un redémarrage d'un environnement propagé à l'aide de l'icône « Redémarrer » située en haut du panneau de gestion de l'environnement App Service du [portail Azure][NewPortal] force l'environnement à récupérer la nouvelle configuration DNS.
 
-An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model virtual network.  With a recent change made in June 2016, ASEs can also now be deployed into virtual networks that use either public address ranges, or RFC1918 address spaces (i.e. private addresses). 
+Les exigences d'accès au réseau entrant peuvent être satisfaites en configurant un [groupe de sécurité réseau][NetworkSecurityGroups] sur le sous-réseau de l'environnement App Service, afin d'autoriser l'accès requis, comme décrit dans cet [article][requiredports].
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+## Activation de la connectivité réseau sortante pour un environnement App Service##
+Par défaut, un circuit ExpressRoute nouvellement créé publie un itinéraire par défaut qui autorise la connectivité Internet sortante. Avec cette configuration, un environnement App Service sera en mesure de se connecter à d'autres points de terminaison Azure.
 
-## <a name="required-network-connectivity"></a>Required Network Connectivity ##
-There are network connectivity requirements for App Service Environments that may not be initially met in a virtual network connected to an ExpressRoute.  App Service Environments require all of the following in order to function properly:
+Toutefois, une configuration client courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force le trafic Internet sortant à évoluer sur site. Ce flux de trafic décompose invariablement les environnements App Service, car le trafic sortant est soit bloqué sur site, soit fait l'objet d'une opération NAT sur un jeu d'adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure.
 
+La solution consiste à définir un (ou plusieurs) itinéraires définis par l'utilisateur (UDR) sur le sous-réseau qui contient l'environnement App Service. Un itinéraire défini par l'utilisateur définit des itinéraires spécifiques au sous-réseau qui seront respectés au lieu de l'itinéraire par défaut.
 
--  Outbound network connectivity to Azure Storage endpoints worldwide on both ports 80 and 443.  This includes endpoints located in the same region as the App Service Environment, as well as storage endpoints located in **other** Azure regions.  Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* and *file.core.windows.net*.  
--  Outbound network connectivity to the Azure Files service on port 445.
--  Outbound network connectivity to Sql DB endpoints located in the same region as the App Service Environment.  Sql DB endpoints resolve under the following domain:  *database.windows.net*.  This requires opening access to ports 1433, 11000-11999 and 14000-14999.  For more details see [this article on Sql Database V12 port usage](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
--  Outbound network connectivity to the Azure management plane endpoints (both ASM and ARM endpoints).  This includes outbound connectivity to both *management.core.windows.net* and *management.azure.com*. 
--  Outbound network connectivity to *ocsp.msocsp.com*, *mscrl.microsoft.com* and *crl.microsoft.com*.  This is needed to support SSL functionality.
--  The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points.  If these endpoints cannot be resolved, App Service Environment creation attempts will fail, and existing App Service Environments will be marked as unhealthy.
--  Outbound access on port 53 is required for communication with DNS servers.
--  If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet containing the App Service Environment. 
--  The outbound network path cannot travel through internal corporate proxies, nor can it be force tunneled to on-premises.  Doing so changes the effective NAT address of outbound network traffic from the App Service Environment.  Changing the NAT address of an App Service Environment's outbound network traffic will cause connectivity failures to many of the endpoints listed above.  This results in failed App Service Environment creation attempts, as well as previously healthy App Service Environments being marked as unhealthy.  
--  Inbound network access to required ports for App Service Environments must be allowed as described in this [article][requiredports].
+Si possible, il est recommandé d'utiliser la configuration suivante :
 
-The DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.  If for any reason the DNS configuration is changed after an App Service Environment has been created, developers can force an App Service Environment to pick up the new DNS configuration.  Triggering a rolling environment reboot using the "Restart" icon located at the top of the App Service Environment management blade in the [Azure portal][NewPortal] will cause the environment to pick up the new DNS configuration.
+- La configuration ExpressRoute annonce 0.0.0.0/0 et par défaut, tunnelise de force tout le trafic sortant sur site.
+- L'UDR (itinéraire défini par l'utilisateur) appliqué au sous-réseau contenant l'environnement App Service définit 0.0.0.0/0 avec Internet de type saut suivant (un exemple de ceci est présenté plus bas dans cet article).
 
-The inbound network access requirements can be met by configuring a [network security group][NetworkSecurityGroups] on the App Service Environment's subnet to allow the required access as described in this [article][requiredports].
+L'effet combiné de ces étapes est que l'UDR de niveau sous-réseau a la priorité sur le tunneling forcé ExpressRoute, garantissant ainsi un accès Internet sortant à partir de l'environnement App Service.
 
-## <a name="enabling-outbound-network-connectivity-for-an-app-service-environment##"></a>Enabling Outbound Network Connectivity for an App Service Environment##
-By default, a newly created ExpressRoute circuit advertises a default route that allows outbound Internet connectivity.  With this configuration an App Service Environment will be able to connect to other Azure endpoints.
-
-However a common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises.  This traffic flow invariably breaks App Service Environments because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints.
-
-The solution is to define one (or more) user defined routes (UDRs) on the subnet that contains the App Service Environment.  A UDR defines subnet-specific routes that will be honored instead of the default route.
-
-If possible, it is recommended to use the following configuration:
-
-- The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
-- The UDR applied to the subnet containing the App Service Environment defines 0.0.0.0/0 with a next hop type of Internet (an example of this is farther down in this article).
-
-The combined effect of these steps is that the subnet level UDR will take precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the App Service Environment.
-
-> [AZURE.IMPORTANT] The routes defined in a UDR **must** be specific enough to  take precedence over any routes advertised by the ExpressRoute configuration.  The example below uses the broad 0.0.0.0/0 address range, and as such can potentially be accidentally overridden by route advertisements using more specific address ranges.
+> [AZURE.IMPORTANT] Les itinéraires définis dans un UDR **doivent** être suffisamment spécifiques pour avoir la priorité sur les itinéraires annoncés par la configuration ExpressRoute. L'exemple ci-dessous utilise la plage d'adresses 0.0.0.0/0 étendue qui peut potentiellement être remplacée accidentellement par les annonces de routage à l'aide de plages d'adresses plus spécifiques.
 >
->App Service Environments are not supported with ExpressRoute configurations that **cross-advertise routes from the public peering path to the private peering path**.  ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges.  If these address ranges are cross-advertised on the private peering path, the end result is that all outbound network packets from the App Service Environment's subnet will be force-tunneled to a customer's on-premises network infrastructure.  This network flow is currently not supported with App Service Environments.  One solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.
+>Les environnements App Service ne sont pas pris en charge avec les configurations ExpressRoute qui **publient incorrectement de façon croisée des itinéraires à partir du chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée**. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les annonces de routage depuis Microsoft pour un grand ensemble de plages d'adresses IP Microsoft Azure. Si ces plages d'adresses sont incorrectement publiées de façon croisée sur le chemin d'accès d'homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l'environnement App Service seront incorrectement acheminés de force vers l'infrastructure réseau sur site d'un client. Ce flux réseau interrompt les environnements App Service. La solution à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée.
 
-Background information on user defined routes is available in this [overview][UDROverview].  
+Vous trouverez des informations générales sur les itinéraires définis par l'utilisateur dans cette [présentation][UDROverview].
 
-Details on creating and configuring user defined routes is available in this [How To Guide][UDRHowTo].
+Pour plus d'informations sur la création et la configuration d'itinéraires définis par l'utilisateur, consultez ce [guide][UDRHowTo].
 
-## <a name="example-udr-configuration-for-an-app-service-environment"></a>Example UDR Configuration for an App Service Environment ##
+## Exemple de configuration d'itinéraire défini par l'utilisateur pour un environnement App Service ##
 
-**Pre-requisites**
+**Conditions préalables**
 
-1. Install Azure Powershell from the [Azure Downloads page][AzureDownloads] (dated June 2015 or later).  Under "Command-line tools" there is an "Install" link under "Windows Powershell" that will install the latest Powershell cmdlets.
+1. Installez la toute dernière version d'Azure Powershell à partir de la [page Téléchargements Azure][AzureDownloads] \(datant de juin 2015 ou version ultérieure). Sous « Outils de ligne de commande », un lien « Installer » sous « Windows Powershell » permet d'installer les dernières applets de commande Powershell.
 
-2. It is recommended that a unique subnet is created for exclusive use by an App Service Environment.  This ensures that the UDRs applied to the subnet will only open outbound traffic for the App Service Environment.
-3. **Important**:  do not deploy the App Service Environment until **after** the following configuration steps are followed.  This ensures that outbound network connectivity is available before attempting to deploy an App Service Environment.
+2. Nous vous recommandons de créer un sous-réseau unique pour un usage exclusif par un environnement App Service. Ceci garantit que les itinéraires définis par l'utilisateur appliqués au sous-réseau ouvriront uniquement le trafic sortant pour l'environnement App Service.
+3. **Important** : ne déployez pas l'environnement App Service **avant** d'avoir exécuté les étapes de configuration suivantes. Ceci garantit que la connectivité réseau sortante est disponible avant la tentative de déploiement d'un environnement App Service.
 
-**Step 1:  Create a named route table**
+**Étape 1 : Créer une table d'itinéraires nommée**
 
-The following snippet creates a route table called "DirectInternetRouteTable" in the West US Azure region:
+L'extrait de code suivant crée une table d'itinéraires appelée « DirectInternetRouteTable » dans la région Azure Ouest des États-Unis :
 
     New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest
 
-**Step 2:  Create one or more routes in the route table**
+**Étape 2 : Créer un ou plusieurs itinéraires dans la table**
 
-You will need to add one or more routes to the route table in order to enable outbound Internet access.  
+Vous devrez ajouter un ou plusieurs itinéraires à la table afin d'activer l'accès Internet sortant.
 
-The recommended approach for configuring outbound access to the Internet is to define a route for 0.0.0.0/0 as shown below.
+L'approche recommandée pour la configuration d'un accès sortant à Internet consiste à définir un itinéraire pour 0.0.0.0/0 comme indiqué ci-dessous.
   
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
 
-Remember that 0.0.0.0/0 is a broad address range, and as such will be overridden by more specific address ranges advertised by the ExpressRoute.  To re-iterate the earlier recommendation, a UDR with a 0.0.0.0/0 route should be used in conjunction with an ExressRoute configuration that only advertises 0.0.0.0/0 as well. 
+N'oubliez pas que 0.0.0.0/0 est une plage d'adresses étendue et, par conséquent, elle sera remplacée par les plages d'adresses plus spécifiques publiées par ExpressRoute. Pour réitérer la recommandation antérieure, un UDR avec un itinéraire 0.0.0.0/0 doit être utilisé conjointement avec une configuration ExressRoute qui publie uniquement 0.0.0.0/0 également.
 
-As an alternative, you can download a comprehensive and updated list of CIDR ranges in use by Azure.  The Xml file containing all of the Azure IP address ranges is available from the [Microsoft Download Center][DownloadCenterAddressRanges].  
+Comme alternative, vous pouvez télécharger une liste complète et mise à jour des plages CIDR utilisées par Azure. Le fichier XML qui contient toutes les plages d'adresses IP Azure est disponible dans le [Centre de téléchargement Microsoft][DownloadCenterAddressRanges].
 
-Note though that these ranges change over time, thus necessitating periodic manual updates to the user defined routes to keep in sync.  Also, since there is a default upper limit of 100 routes in a single UDR, you will need to "summarize" the Azure IP address ranges to fit within the 100 route limit, keeping in mind that UDR defined routes need to be more specific than the routes advertised by your ExpressRoute.  
+Notez toutefois que ces plages changent au fil du temps, d'où la nécessité d'effectuer des mises à jour manuelles périodiques pour maintenir la synchronisation d'un UDR. En outre, étant donné la limite maximale de 100 itinéraires dans un seul UDR, vous devrez « résumer » les plages d'adresses IP Azure pour respecter la limite de 100 itinéraires. N'oubliez pas que les itinéraires définis par UDR doivent être plus spécifiques que les itinéraires publiés par votre ExpressRoute.
 
 
-**Step 3:  Associate the route table to the subnet containing the App Service Environment**
+**Étape 3 : Associer la table d'itinéraires au sous-réseau contenant l'environnement App Service**
 
-The last  configuration step is to associate the route table to the subnet where the App Service Environment will be deployed.  The following command associates the "DirectInternetRouteTable" to the "ASESubnet" that will eventually contain an App Service Environment.
+La dernière étape de configuration consiste à associer la table d'itinéraires au sous-réseau où l'environnement App Service sera déployé. La commande suivante associe « DirectInternetRouteTable » à « ASESubnet » qui contiendra un environnement App Service.
 
     Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'
 
 
-**Step 4:  Final Steps**
+**Étape 4 : Étapes finales**
 
-Once the route table is bound to the subnet, it is recommended to first test and confirm the intended effect.  For example, deploy a virtual machine into the subnet and confirm that:
+Une fois que la table d'itinéraires est liée au sous-réseau, nous vous recommandons de tester et confirmer le résultat souhaité. Par exemple, déployez une machine virtuelle sur le sous-réseau et vérifiez que :
 
 
-- Outbound traffic to both Azure and non-Azure endpoints mentioned earlier in this article is **not** flowing down the ExpressRoute circuit.  It is very important to verify this behavior, since if outbound traffic from the subnet is still being forced tunneled on-premises, App Service Environment creation will always fail. 
-- DNS lookups for the endpoints mentioned earlier are all resolving properly. 
+- Le trafic sortant vers des points de terminaison Azure et non Azure mentionné précédemment dans cet article n'est **pas** transmis vers le circuit ExpressRoute. Il est très important de vérifier ce comportement, car si le trafic sortant à partir du sous-réseau est toujours tunnelisé de force sur site, la création d'un environnement App Service échouera toujours.
+- Les recherches DNS de points de terminaison mentionnées plus haut se résolvent toutes correctement.
 
-Once the above steps are confirmed, you will need to delete the virtual machine because the subnet needs to be "empty" at the time the App Service Environment is created.
+Une fois les étapes ci-dessus confirmées, vous devrez supprimer la machine virtuelle car le sous-réseau doit être « vide » au moment de la création de l'environnement App Service.
  
-Then proceed with creating an App Service Environment!
+Puis, passez à la création d'un environnement App Service !
 
-## <a name="getting-started"></a>Getting started
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
+## Prise en main
+Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
 
-To get started with App Service Environments, see [Introduction to App Service Environment][IntroToAppServiceEnvironment]
+Pour prendre en main les environnements App Service, consultez [Présentation de l'environnement App Service][IntroToAppServiceEnvironment].
 
-For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
+Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service][AzureAppService].
 
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
@@ -131,18 +130,14 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [UDROverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
-[AzureDownloads]: http://azure.microsoft.com/en-us/downloads/ 
-[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653  
+[AzureDownloads]: http://azure.microsoft.com/downloads/
+[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
-[IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
-[NewPortal]:  https://portal.azure.com
+[IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
+[NewPortal]: https://portal.azure.com
  
 
 <!-- IMAGES -->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

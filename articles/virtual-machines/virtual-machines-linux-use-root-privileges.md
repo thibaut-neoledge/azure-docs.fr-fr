@@ -1,63 +1,58 @@
 <properties 
-    pageTitle="Use root privileges on Linux virtual machines | Microsoft Azure" 
-    description="Learn how to use root privileges on a Linux virtual machine in Azure." 
-    services="virtual-machines-linux" 
-    documentationCenter="" 
-    authors="szarkos" 
-    manager="timlt" 
-    editor=""
-    tags="azure-service-management,azure-resource-manager" />
+	pageTitle="Utilisation des privilèges racines sur les machines virtuelles Linux Microsoft Azure" 
+	description="Apprenez à utiliser les privilèges root sur une machine virtuelle Linux dans Azure." 
+	services="virtual-machines-linux" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-    ms.service="virtual-machines-linux" 
-    ms.workload="infrastructure-services" 
-    ms.tgt_pltfrm="vm-linux" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/17/2016" 
-    ms.author="szark"/>
+	ms.service="virtual-machines-linux" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/13/2016" 
+	ms.author="szark"/>
 
 
-
-# <a name="using-root-privileges-on-linux-virtual-machines-in-azure"></a>Using root privileges on Linux virtual machines in Azure
+# Utilisation des privilèges root sur les machines virtuelles Linux dans Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-By default, the `root` user is disabled on Linux virtual machines in Azure. Users can run commands with elevated privileges by using the `sudo` command. However, the experience may vary depending on how the system was provisioned.
+Par défaut, l’utilisateur `root` est désactivé sur les machines virtuelles Linux dans Microsoft Azure. Les utilisateurs peuvent exécuter des commandes avec des privilèges élevés à l’aide de la commande `sudo`. Toutefois, l'expérience peut varier en fonction du mode de déploiement du système.
 
-1. **SSH key and password OR password only** - the virtual machine was provisioned with either a certificate (`.CER` file) or SSH key as well as a password, or just a user name and password. In this case `sudo` will prompt for the user's password before executing the command.
+1. **Clé SSH et mot de passe OU mot de passe uniquement :** la machine virtuelle a été déployée soit avec un certificat (fichier `.CER`) ou une clé SSH et un mot de passe, soit avec seulement un nom d’utilisateur et un mot de passe. Dans ce cas, `sudo` demande le mot de passe de l’utilisateur avant d’exécuter la commande.
 
-2. **SSH key only** - the virtual machine was provisioned with a certificate (`.cer`, `.pem`, or `.pub` file) or SSH key, but no password.  In this case `sudo` **will not** prompt for the user's password before executing the command.
+2. **Clé SSH uniquement** : la machine virtuelle a été configurée avec un certificat (fichier `.cer`, `.pem` ou `.pub`) ou une clé SSH, mais sans mot de passe. Dans ce cas, `sudo` **ne demande pas** le mot de passe de l’utilisateur avant d’exécuter la commande.
 
 
-## <a name="ssh-key-and-password,-or-password-only"></a>SSH Key and Password, or Password Only
+## Clé SSH et mot de passe ou mot de passe uniquement
 
-Log into the Linux virtual machine using SSH key or password authentication, then run commands using `sudo`, for example:
+Connectez-vous à la machine virtuelle Linux à l’aide de l’authentification par clé SSH ou par mot de passe, puis exécutez les commandes à l’aide de `sudo`, par exemple :
 
-    # sudo <command>
-    [sudo] password for azureuser:
+	# sudo <command>
+	[sudo] password for azureuser:
 
-In this case the user will be prompted for a password. After entering the password `sudo` will run the command with `root` privileges.
+Dans ce cas, l'utilisateur est invité à fournir un mot de passe. Une fois le mot de passe entré, `sudo` exécute la commande avec les privilèges `root`.
 
-You can also enable passwordless sudo by editing the `/etc/sudoers.d/waagent` file, for example:
+Vous pouvez également activer la méthode sudo sans mot de passe en modifiant le fichier `/etc/sudoers.d/waagent`, par exemple :
 
-    #/etc/sudoers.d/waagent
-    azureuser ALL = (ALL) NOPASSWD: ALL
+	#/etc/sudoers.d/waagent
+	azureuser ALL = (ALL) NOPASSWD: ALL
 
-This change will allow for passwordless sudo by the user "azureuser".
+Cette modification permet à l’utilisateur « azureuser » de poursuivre sans entrer de mot de passe.
 
-## <a name="ssh-key-only"></a>SSH Key Only
+## Clé SSH uniquement
 
-Log into the Linux virtual machine using SSH key authentication, then run commands using `sudo`, for example:
+Connectez-vous à la machine virtuelle Linux à l’aide de l’authentification par clé SSH, puis exécutez les commandes à l’aide de `sudo`, par exemple :
 
-    # sudo <command>
+	# sudo <command>
 
-In this case the user will **not** be prompted for a password. After pressing `<enter>`, `sudo` will run the command with `root` privileges.
+Dans ce cas, l'utilisateur **n'est pas** invité à fournir un mot de passe. Une fois la touche `<enter>` activée, `sudo` exécute la commande avec les privilèges `root`.
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,79 +1,78 @@
 <properties
-    pageTitle="Azure Active Directory B2C | Microsoft Azure"
-    description="How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C."
-    services="active-directory-b2c"
-    documentationCenter=".net"
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Azure Active Directory B2C | Microsoft Azure"
+	description="Comment créer une application de bureau Windows comprenant connexion, inscription et gestion de profil à l’aide d’Azure Active Directory B2C."
+	services="active-directory-b2c"
+	documentationCenter=".net"
+	authors="dstrockis"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="07/22/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/22/2016"
+	ms.author="dastrock"/>
 
+# Azure AD B2C : création d’une application de bureau Windows
 
-# <a name="azure-ad-b2c:-build-a-windows-desktop-app"></a>Azure AD B2C: Build a Windows desktop app
+Avec Azure Active Directory (Azure AD) B2C, vous pouvez ajouter de puissantes fonctionnalités de gestion des identités en libre-service à vos applications de bureau, en seulement quelques étapes. Cet article explique comment créer une application WPF (Windows Presentation Foundation) .NET de type « liste des tâches », qui inclut l’inscription d’utilisateur, la connexion et la gestion de profil. L’application prendra en charge l’inscription et la connexion à l’aide d’un nom d’utilisateur ou d’une adresse e-mail. Elle prendra également en charge l’inscription et la connexion à l’aide d’un compte de réseau social comme Facebook et Google.
 
-By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your desktop app in a few short steps. This article will show you how to create a .NET Windows Presentation Foundation (WPF) "to-do list" app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email. It will also include support for sign-up and sign-in by using social accounts such as Facebook and Google.
+## Obtention d'un répertoire Azure AD B2C
 
-## <a name="get-an-azure-ad-b2c-directory"></a>Get an Azure AD B2C directory
+Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes, etc. Si vous n’en possédez pas déjà un, [créez un répertoire B2C](active-directory-b2c-get-started.md) avant d’aller plus loin dans ce guide.
 
-Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
+## Création d'une application
 
-## <a name="create-an-application"></a>Create an application
+Vous devez maintenant créer dans votre répertoire B2C une application fournissant à Azure AD certaines informations nécessaires pour communiquer de manière sécurisée avec votre application. Pour créer une application, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
-Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to:
-
-- Include a **native client** in the application.
-- Copy the **Redirect URI** `urn:ietf:wg:oauth:2.0:oob`. It is the default URL for this code sample.
-- Copy the **Application ID** that is assigned to your app. You will need it later.
+- Incluez un **client natif** dans l’application.
+- Copiez **l’URI de redirection** `urn:ietf:wg:oauth:2.0:oob`. Il s’agit de l’URL par défaut pour cet exemple de code.
+- Copiez **l’ID d’application** affecté à votre application. Vous en aurez besoin ultérieurement.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## <a name="create-your-policies"></a>Create your policies
+## Création de vos stratégies
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create the three policies, be sure to:
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cet exemple de code contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie pour chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création des trois stratégies, assurez-vous de :
 
-- Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
-- Choose **Display name** and other sign-up attributes in your sign-up policy.
-- Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
-- Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need these policy names later.
+- Choisir **Inscription par le biais d’un ID utilisateur** ou **Inscription par le biais d’une adresse e-mail** dans le panneau des fournisseurs d’identité.
+- Choisir **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
+- Choisir les revendications **Nom d’affichage** et **ID d’objet** comme revendications d’application pour chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
+- Copiez le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies ultérieurement.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-After you have successfully created the three policies, you're ready to build your app.
+Une fois vos trois stratégies créées, vous pouvez générer votre application.
 
-## <a name="download-the-code"></a>Download the code
+## Téléchargement du code
 
-The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). You can also clone the skeleton:
+Le code associé à ce didacticiel [est stocké sur GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous la forme d’un fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). Vous pouvez également cloner la structure :
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-The completed app is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) or on the `complete` branch of the same repository.
+L’application terminée est également [disponible en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) ou sur la branche `complete` du même référentiel.
 
-After you download the sample code, open the Visual Studio .sln file to get started. The `TaskClient` project is the WPF desktop application that the user interacts with. For the purposes of this tutorial, it calls a back-end task web API, hosted in Azure, that stores each user's to-do list.  You do not need to build the web API, we already have it running for you.
+Une fois l’exemple de code téléchargé, ouvrez le fichier .sln Visual Studio pour commencer. Le projet `TaskClient` est l’application de bureau WPF avec laquelle l’utilisateur interagit. Dans le cadre de ce didacticiel, il appelle une API web de tâche principale, hébergée dans Azure, qui stocke la liste des actions de chaque utilisateur. Vous n’avez pas besoin de créer l’API web, nous l’avons déjà exécutée pour vous.
 
-To learn how a web API securely authenticates requests by using Azure AD B2C, check out the [web API getting started article](active-directory-b2c-devquickstarts-api-dotnet.md).
+Pour apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, consultez [l’article sur la prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="execute-policies"></a>Execute policies
-Your app communicates with Azure AD B2C by sending authentication messages that specify the policy they want to execute as part of the HTTP request. For .NET desktop applications, you can use the preview Microsoft Authentication Library (MSAL) to send OAuth 2.0 authentication messages, execute policies, and get tokens that call web APIs.
+## Exécuter des stratégies
+Votre application communique avec Azure AD B2C en envoyant des messages d’authentification HTTP qui indiquent la stratégie à exécuter dans le cadre de la demande HTTP. Pour les applications de bureau .NET, vous pouvez utiliser la version préliminaire de la bibliothèque d’authentification Microsoft (MSAL) pour envoyer des messages d’authentification OAuth 2.0, exécuter des stratégies et obtenir des jetons qui appellent des API web.
 
-### <a name="install-msal"></a>Install MSAL
-Add MSAL to the `TaskClient` project by using the Visual Studio Package Manager Console.
+### Installation de la bibliothèque MSAL
+Ajoutez la bibliothèque MSAL au projet `TaskClient` à l’aide de la console du gestionnaire de package Visual Studio.
 
 ```
 PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
-### <a name="enter-your-b2c-details"></a>Enter your B2C details
-Open the file `Globals.cs` and replace each of the property values with your own. This class is used throughout `TaskClient` to reference commonly used values.
+### saisissez les informations B2C
+Ouvrez le fichier `Globals.cs`, puis remplacez chacune des valeurs de propriété par vos propres valeurs. Cette classe est utilisée dans `TaskClient` pour référencer des valeurs couramment utilisées.
 
 ```C#
 public static class Globals
@@ -94,8 +93,8 @@ public static class Globals
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-### <a name="create-the-publicclientapplication"></a>Create the PublicClientApplication
-The primary class of MSAL is `PublicClientApplication`. This class represents your application in the Azure AD B2C system. When the app initalizes, create an instance of `PublicClientApplication` in `MainWindow.xaml.cs`. This can be used throughout the window.
+### Création de la PublicClientApplication
+La classe principale de la bibliothèque MSAL est `PublicClientApplication`. Cette classe représente votre application dans le système Azure AD B2C. Quand l’application démarre, créez une instance `PublicClientApplication` dans `MainWindow.xaml.cs`. Celle-ci peut être utilisée dans l’ensemble de la fenêtre.
 
 ```C#
 protected async override void OnInitialized(EventArgs e)
@@ -112,8 +111,8 @@ protected async override void OnInitialized(EventArgs e)
     ...
 ```
 
-### <a name="initiate-a-sign-up-flow"></a>Initiate a sign-up flow
-When a user opts to signs up, you want to initiate a sign-up flow that uses the sign-up policy you created. By using MSAL, you just call `pca.AcquireTokenAsync(...)`. The parameters you pass to `AcquireTokenAsync(...)` determine which token you receive, the policy used in the authentication request, and more.
+### Lancement d’un flux d'inscription
+Quand un utilisateur choisit de s’inscrire, vous devez lancer un flux d’inscription qui utilise la stratégie d’inscription que vous avez créée. À l’aide de la bibliothèque MSAL, il vous suffit d’appeler `pca.AcquireTokenAsync(...)`. Les paramètres que vous transmettez à `AcquireTokenAsync(...)` déterminent, entre autres, le jeton que vous recevez et la stratégie utilisée dans la demande d’authentification.
 
 ```C#
 private async void SignUp(object sender, RoutedEventArgs e)
@@ -163,40 +162,40 @@ private async void SignUp(object sender, RoutedEventArgs e)
 }
 ```
 
-### <a name="initiate-a-sign-in-flow"></a>Initiate a sign-in flow
-You can initiate a sign-in flow in the same way that you initiate a sign-up flow. When a user signs in, make the same call to MSAL, this time by using your sign-in policy:
+### Lancement d’un flux de connexion
+Vous pouvez lancer un flux de connexion de la même façon que vous lancez un flux d’inscription. Quand un utilisateur se connecte, effectuez le même appel à la bibliothèque MSAL, en utilisant cette fois votre stratégie de connexion :
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-    AuthenticationResult result = null;
-    try
-    {
-        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+	AuthenticationResult result = null;
+	try
+	{
+		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.signInPolicy);
-        ...
+		...
 ```
 
-### <a name="initiate-an-edit-profile-flow"></a>Initiate an edit-profile flow
-Again, you can execute an edit-profile policy in the same fashion:
+### Lancement d’un flux de modification de profil
+Là encore, vous pouvez exécuter une stratégie de modification de profil de la même manière :
 
 ```C#
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
-    AuthenticationResult result = null;
-    try
-    {
-        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+	AuthenticationResult result = null;
+	try
+	{
+		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.editProfilePolicy);
 ```
 
-In all of these cases, MSAL either returns a token in `AuthenticationResult` or throws an exception. Each time you get a token from MSAL, you can use the `AuthenticationResult.User` object to update the user data in the app, such as the UI. ADAL also caches the token for use in other parts of the application.
+Dans tous ces cas, la bibliothèque MSAL retourne un jeton dans `AuthenticationResult` ou lève une exception. Chaque fois que vous obtenez un jeton de la bibliothèque MSAL, vous pouvez utiliser l’objet `AuthenticationResult.User` pour mettre à jour les données utilisateur dans l’application, telles que l’interface utilisateur. La bibliothèque ADAL met également en cache le jeton, pour une utilisation dans d’autres parties de l’application.
 
 
-### <a name="check-for-tokens-on-app-start"></a>Check for tokens on app start
-You can also use MSAL to keep track of the user's sign-in state.  In this app, we want the user to remain signed in even after they close the app & re-open it.  Back inside the `OnInitialized` override, use MSAL's `AcquireTokenSilent` method to check for cached tokens:
+### Vérification des jetons sur le démarrage de l’application
+Vous pouvez également utiliser la bibliothèque MSAL pour effectuer le suivi de l’état de connexion de l’utilisateur. Dans cette application, nous voulons que l’utilisateur reste connecté même après la fermeture et la réouverture de l’application. Pour le remplacement de `OnInitialized`, utilisez la méthode `AcquireTokenSilent` de la bibliothèque MSAL pour rechercher les jetons mis en cache :
 
 ```C#
 AuthenticationResult result = null;
@@ -234,8 +233,8 @@ catch (MsalException ex)
 }
 ```
 
-## <a name="call-the-task-api"></a>Call the task API
-You have now used MSAL to execute policies and get tokens.  When you want to use one these tokens to call the task API, you can again use MSAL's `AcquireTokenSilent` method to check for cached tokens:
+## Appel de l’API de tâche
+Vous avez maintenant utilisé la bibliothèque MSAL pour exécuter des stratégies et obtenir des jetons. Si vous souhaitez utiliser un de ces jetons pour appeler l’API de tâche, vous pouvez utiliser à nouveau la méthode `AcquireTokenSilent` de la bibliothèque MSAL pour rechercher les jetons mis en cache :
 
 ```C#
 private async void GetTodoList()
@@ -277,23 +276,23 @@ private async void GetTodoList()
 
         return;
     }
-    ...
+	...
 ```
 
-When the call to `AcquireTokenSilentAsync(...)` succeeds and a token is found in the cache, you can add the token to the `Authorization` header of the HTTP request. The task web API will use this header to authenticate the request to read the user's to-do list:
+Quand l’appel à `AcquireTokenSilentAsync(...)` réussit et qu’un jeton est trouvé dans le cache, vous pouvez ajouter le jeton à l’en-tête `Authorization` de la demande HTTP. L’API web de tâche utilisera cet en-tête pour authentifier la demande afin de lire la liste des tâches de l’utilisateur :
 
 ```C#
-    ...
-    // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+	...
+	// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
     // Call the To Do list service.
     HttpResponseMessage response = await httpClient.GetAsync(Globals.taskServiceUrl + "/api/tasks");
-    ...
+	...
 ```
 
-## <a name="sign-the-user-out"></a>Sign the user out
-Finally, you can use MSAL to end a user's session with the app when the user selects **Sign out**.  When using MSAL, this is accomplished by clearing all of the tokens from the token cache:
+## Déconnexion de l'utilisateur
+Enfin, vous pouvez utiliser la bibliothèque MSAL pour mettre fin à la session d’un utilisateur dans l’application quand l’utilisateur sélectionne **Se déconnecter**. À l’aide de la bibliothèque MSAL, vous pouvez effectuer cette opération en effaçant tous les jetons du cache de jetons :
 
 ```C#
 private void SignOut(object sender, RoutedEventArgs e)
@@ -314,31 +313,27 @@ private void SignOut(object sender, RoutedEventArgs e)
 }
 ```
 
-## <a name="run-the-sample-app"></a>Run the sample app
+## Exécution de l'exemple d'application
 
-Finally, build and run the sample.  Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up by using a different user.
+Enfin, créez et exécutez l’exemple. Inscrivez-vous à l’application à l’aide d’une adresse de messagerie ou d’un nom d’utilisateur. Déconnectez-vous, puis reconnectez-vous en tant que même utilisateur. Modifiez le profil de cet utilisateur. Déconnectez-vous et connectez-vous en utilisant un utilisateur différent.
 
-## <a name="add-social-idps"></a>Add social IDPs
+## Ajout d’IDP sociaux
 
-Currently, the app supports only user sign-up and sign-in that use **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other identity providers (IDPs) without changing any of your code.
+Actuellement, l’application prend uniquement en charge l’inscription et la connexion d’utilisateurs qui utilisent des **comptes locaux**. Il s’agit de comptes stockés dans votre répertoire B2C qui utilisent un nom d’utilisateur et un mot de passe. Avec Azure AD B2C, vous pouvez ajouter la prise en charge d’autres fournisseurs d’identité sans modifier votre code.
 
-To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
+Pour ajouter des fournisseurs d’identité sociaux à votre application, commencez par suivre les instructions détaillées figurant dans ces articles. Pour chaque fournisseur d’identité que vous souhaitez prendre en charge, vous devez inscrire une application dans ce système et obtenir un ID client.
 
-- [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
-- [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
-- [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
-- [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
+- [Définir Facebook en tant qu’IDP](active-directory-b2c-setup-fb-app.md)
+- [Définir Google en tant qu’IDP](active-directory-b2c-setup-goog-app.md)
+- [Définir Amazon en tant qu’IDP](active-directory-b2c-setup-amzn-app.md)
+- [Définir LinkedIn en tant qu’IDP](active-directory-b2c-setup-li-app.md)
 
-After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again. You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
+Après avoir ajouté les fournisseurs d’identité à votre répertoire B2C, vous devez modifier chacune de vos trois stratégies pour inclure ces nouveaux fournisseurs, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md). Après avoir enregistré vos stratégies, exécutez à nouveau l’application. Les nouveaux fournisseurs d’identité doivent être ajoutés comme options d’inscription et de connexion dans chacune de vos expériences relatives à l’identité.
 
-You can experiment with your policies and observe the effects on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and MSAL tie together.
+Vous pouvez tester vos stratégies et observer les résultats sur votre exemple d’application. Ajoutez ou supprimez des fournisseurs d’identité, manipulez des revendications d’application ou modifiez des attributs d’inscription. Faites des essais jusqu’à ce que vous compreniez la façon dont les stratégies, les demandes d’authentification et la bibliothèque MSAL sont liées.
 
-For reference, the completed sample [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). You can also clone it from GitHub:
+Pour référence, l’exemple terminé [est fourni en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

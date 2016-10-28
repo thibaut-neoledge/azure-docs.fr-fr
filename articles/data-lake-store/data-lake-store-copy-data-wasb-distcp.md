@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Copy data to and from WASB into Data Lake Store using Distcp| Microsoft Azure"
-   description="Use Distcp tool to copy data to and from Azure Storage Blobs to Data Lake Store"
+   pageTitle="Copier des données vers et depuis WASB dans Data Lake Store à l’aide de Distcp| Microsoft Azure"
+   description="Utilisez l’outil Distcp pour copier des données entre des objets blob Azure Storage et Data Lake Store"
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
@@ -16,69 +16,64 @@
    ms.date="08/02/2016"
    ms.author="nitinme"/>
 
-
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Use Distcp to copy data between Azure Storage Blobs and Data Lake Store
+# Utilisation de l’utilitaire Distcp pour copier des données entre des objets blob Azure Storage et le Data Lake Store
 
 > [AZURE.SELECTOR]
-- [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
-- [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+- [Utilisation de DistCp](data-lake-store-copy-data-wasb-distcp.md)
+- [Utilisation d’AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 
 
-Once you have created an HDInsight cluster that has access to a Data Lake Store account, you can use Hadoop ecosystem tools like Distcp to copy data **to and from** an HDInsight cluster storage (WASB) into a Data Lake Store account. This article provides instructions on how to achieve this.
+Une fois que vous avez créé un cluster HDInsight ayant accès à un compte Data Lake Store, vous pouvez utiliser des outils de l’écosystème Hadoop, comme Distcp, pour copier des données **vers et depuis** un stockage de cluster HDInsight (WASB) dans un compte Data Lake Store. Cet article fournit des instructions sur la procédure à suivre.
 
-##<a name="prerequisites"></a>Prerequisites
+##Composants requis
 
-Before you begin this article, you must have the following:
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-- **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Activez votre abonnement Azure** pour la version d’évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
+- **Cluster Azure HDInsight** ayant accès à un compte Data Lake Store. Voir [Créer un cluster HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à activer le Bureau à distance pour le cluster.
 
-## <a name="do-you-learn-fast-with-videos?"></a>Do you learn fast with videos?
+## Les vidéos vous permettent-elles d’apprendre rapidement ?
 
-[Watch this video](https://mix.office.com/watch/1liuojvdx6sie) on how to copy data between Azure Storage Blobs and Data Lake Store using DistCp.
+[Regardez cette vidéo](https://mix.office.com/watch/1liuojvdx6sie) pour savoir comment copier des données entre des objets blob Azure Storage et Data Lake Store à l’aide de DistCp.
 
-## <a name="use-distcp-from-remote-desktop-(windows-cluster)-or-ssh-(linux-cluster)"></a>Use Distcp from Remote Desktop (Windows cluster) or SSH (Linux cluster)
+## Utilisez Distcp à partir d’un bureau à distance (cluster Windows) ou d’un serveur SSH (cluster Linux)
 
-An HDInsight cluster comes with the Distcp utility, which can be used to copy data from different sources into an HDInsight cluster. If you have configured the HDInsight cluster to use Data Lake Store as an additional storage, the Distcp utility can be used out-of-the-box to copy data to and from a Data Lake Store account as well. In this section we look at how to use the Distcp utility.
+Un cluster HDInsight est fourni avec l’utilitaire Distcp, que vous pouvez utiliser pour copier dans un cluster des données provenant de différentes sources. Si vous avez configuré le cluster HDInsight pour utiliser Data Lake Store comme espace de stockage supplémentaire, l’utilitaire Distcp peut également être utilisé tel quel pour copier des données vers et depuis un compte Data Lake Store. Dans cette section, nous allons voir comment utiliser l’utilitaire Distcp.
 
-1. If you have a Windows cluster, remote into an HDInsight cluster that has access to a Data Lake Store account. For instructions, see [Connect to clusters using RDP](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp). From the cluster Desktop, open the Hadoop command line.
+1. Si vous possédez un cluster Windows, connectez-vous à distance à un cluster ayant accès à un compte Data Lake Store. Pour la marche à suivre, consultez [Connexion à des clusters à l’aide du bureau à distance](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp). À partir du Bureau du cluster, ouvrez la ligne de commande Hadoop.
 
-    If you have a Linux cluster, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster). Run the commands from the SSH prompt.
+	Si vous disposez d’un cluster Linux, utilisez SSH pour vous connecter au cluster. Consultez [Connexion à un cluster HDInsight sous Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster). Exécutez les commandes de l’invite SSH.
 
-3. Verify whether you can access the Azure Storage Blobs (WASB). Run the following command:
+3. Vérifiez si vous pouvez accéder aux objets blob d’Azure Storage (WASB). Exécutez la commande suivante :
 
-        hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
+		hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
-    This should provide a list of contents in the storage blob.
+	Vous devriez obtenir la liste du contenu de l’objet blob de stockage.
 
-4. Similarly, verify whether you can access the Data Lake Store account from the cluster. Run the following command:
+4. Là encore, vérifiez si vous pouvez accéder au compte Data Lake Store à partir du cluster. Exécutez la commande suivante :
 
-        hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net:443/
+		hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net:443/
 
-    This should provide a list of files/folders in the Data Lake Store account.
+	Vous devriez accéder à une liste des fichiers/dossiers contenus dans le compte Data Lake Store.
 
-5. Use Distcp to copy data from WASB to a Data Lake Store account.
+5. Utilisez Distcp pour copier des données de WASB vers un compte Data Lake Store.
 
-        hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
+		hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
 
-    This will copy the contents of the **/example/data/gutenberg/** folder in WASB to **/myfolder** in the Data Lake Store account.
+	Cette commande copie le contenu du dossier **/example/data/gutenberg/** de WASB vers le répertoire **/myfolder** du compte Data Lake Store.
 
-6. Similarly, use Distcp to copy data from Data Lake Store account to WASB.
+6. De la même manière, utilisez Distcp pour copier des données d’un compte Data Lake Store vers WASB.
 
-        hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
+		hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
 
-    This will copy the contents of **/myfolder** in the Data Lake Store account to **/example/data/gutenberg/** folder in WASB.
+	Cette commande copie le contenu du répertoire **/myfolder** du compte Data Lake Store vers le dossier **/example/data/gutenberg/** de WASB.
 
-## <a name="see-also"></a>See also
+## Voir aussi
 
-- [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
-- [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Copier des données d’objets blob Azure Storage vers Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
+- [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
+- [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

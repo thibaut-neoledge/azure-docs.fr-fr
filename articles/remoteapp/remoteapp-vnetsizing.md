@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Sizing information for a VNET in Azure RemoteApp | Microsoft Azure"
-    description="Learn about the IP address requirements for Azure RemoteApp running with a VNET"
+    pageTitle="Informations sur la taille des réseaux virtuels dans Azure RemoteApp | Microsoft Azure"
+    description="Découvrez le nombre d’adresses IP requises pour l’exécution d'Azure RemoteApp avec un réseau virtuel"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,23 +18,18 @@
 
 
 
-
-# <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Sizing information for a VNET in Azure RemoteApp
+# Informations sur la taille des réseaux virtuels dans Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
-When you use Azure RemoteApp with a virtual network (VNET), RemoteApp uses IP addresses within the subnet. Based on the scale of your RemoteApp service, you need to ensure that your subnet has enough IP addresses available for RemoteApp virtual machines. While this sizing guidance isn’t perfect given how RemoteApp dynamically spins up and spins down virtual machines within a collection, it will help you estimate your subnet range. This is especially important as, once a RemoteApp service is placed in a VNET, you cannot increase the subnet size without removing RemoteApp.
+Lorsque vous utilisez Azure RemoteApp avec un réseau virtuel (VNET), RemoteApp utilise des adresses IP au sein du sous-réseau. En fonction de l’échelle de votre service RemoteApp, vous devez vous assurer que votre sous-réseau comprend suffisamment d’adresses IP pour les machines virtuelles RemoteApp. Bien que ces indications sur la taille ne soient pas parfaites, compte tenu de la manière dont RemoteApp monte ou descend dynamiquement les machines virtuelles au sein d’une collection, celles-ci vous aideront à évaluer votre plage de sous-réseau. Ceci est particulièrement important car, une fois qu’un service RemoteApp est placé dans un réseau virtuel, vous ne pouvez plus augmenter la taille du sous-réseau sans supprimer RemoteApp.
 
-For each RemoteApp collection that you want to run at maximum capacity, you should have 100 IP addresses available. For example, if you have one RemoteApp collection in the Standard plan and you want to have the maximum 500 users, you should have 100 IP addresses for that collection. Similarly, you need 100 IP addresses for a RemoteApp collection in the Basic plan that has 800 users. If you plan to have fewer users (less than the maximum), you can reduce the IP addresses needed per collection. The minimum subnet size requirement is 30 IP addresses (/27).
+Pour chaque collection RemoteApp que vous souhaitez exécuter à capacité maximale, vous devez disposer de 100 adresses IP disponibles. Par exemple, si vous possédez une collection RemoteApp dans le plan Standard et que vous souhaitez atteindre le nombre maximal de 500 utilisateurs, vous devez disposer de 100 adresses IP pour cette collection. De même, vous devez disposer de 100 adresses IP pour une collection RemoteApp dans le plan de base, qui comprend 800 utilisateurs. Si vous pensez que le nombre d’utilisateurs sera inférieur au nombre maximal, vous pouvez réduire le nombre d’adresses IP requises par collection. La taille minimale requise du sous-réseau est de 30 adresses IP (/ 27).
 
-Check out the following information to make sure your VNET is configured and working propertly:
+Consultez les informations suivantes pour vérifier que votre réseau virtuel est configuré et fonctionne correctement :
 
-- [Migrate from a personal VNET to an Azure VNET](remoteapp-migratevnet.md)
-- [Validate the Azure VNET to use with Azure RemoteApp](remoteapp-vnet.md)
+- [Migration à partir d'un réseau virtuel personnel vers un réseau virtuel Azure](remoteapp-migratevnet.md)
+- [Validation du réseau virtuel Azure à utiliser avec Azure RemoteApp](remoteapp-vnet.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,53 +1,50 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### <a name="to-add-a-storage-account-in-storsimple-8000-series-update-1.0"></a>To add a storage account in StorSimple 8000 Series Update 1.0
+#### Pour ajouter un compte de stockage dans StorSimple 8000 Series Update 1.0
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. Sur la page d’accueil du service StorSimple Manager, sélectionnez votre service et double-cliquez dessus. La page **Démarrage rapide** s’affiche. Sélectionnez la page **Configurer**.
 
-2. Click **Add/edit storage account**.
+2. Cliquez sur **Ajouter/modifier un compte de stockage**.
 
-3. In the **Add/Edit Storage Account** dialog box, click **Add new**.
+3. Dans la boîte de dialogue **Ajouter/modifier un compte de stockage**, cliquez sur **Ajouter**.
 
-4. In the **Provider** field, select the appropriate cloud service provider. The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack. Specify the credentials and the location associated with the storage account of your cloud service providers. The fields presented for credentials will be different depending upon the cloud service provider you have specified. 
-  - If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account. For an Azure account, the location will be automatically populated.
+4. Dans le champ **Fournisseur**, sélectionnez le fournisseur de services cloud approprié. Les fournisseurs pris en charge sont Azure, Amazon S3, Amazon S3 avec RRS, HP et OpenStack. Indiquez les informations d’identification et l’emplacement associés au compte de stockage de vos fournisseurs de services cloud. Les champs proposés pour les informations d’identification peuvent différer en fonction du fournisseur de services cloud indiqué.
+  - Si vous avez sélectionné Azure comme fournisseur de services cloud, indiquez le **Nom** et la **Clé d’accès** principale pour votre compte de stockage Microsoft Azure. Pour un compte Azure, l’emplacement est automatiquement renseigné.
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
- - If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**. For Amazon S3 and Amazon S3 with RRS, the following locations are supported:
+ - Si vous avez sélectionné Amazon S3 ou Amazon S3 avec RRS, indiquez un **Nom de compte de stockage** convivial, une **Clé d’accès** et une **Clé secrète**. Pour Amazon S3 et Amazon S3 avec RRS, les emplacements suivants sont pris en charge :
 
-        - US Standard
-        - US West (Oregon)
-        - US West (Northern California)
-        - EU (Ireland)
-        - Asia Pacific (Singapore)
-        - Asia Pacific (Sydney)
-        - Asia Pacific (Tokyo)
-        - South America (Sao Paulo)
+		- US Standard
+		- US West (Oregon)
+		- US West (Northern California)
+		- EU (Ireland)
+		- Asia Pacific (Singapore)
+		- Asia Pacific (Sydney)
+		- Asia Pacific (Tokyo)
+		- South America (Sao Paulo)
 
         ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
-            
- - If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**. For HP, the following locations are supported:
+	  		
+ - Si vous avez sélectionné HP comme fournisseur de services cloud, indiquez un **Nom de compte de stockage** convivial, un **ID de locataire**, un **Nom d’utilisateur** et un **Mot de passe**. Pour HP, les emplacement suivants sont pris en charge :
 
-        - US East
-        - US West
-      
+		- US East
+		- US West
+	  
         ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
-            
- - If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.
+	  		
+ - Si vous avez sélectionné **Openstack** comme fournisseur de services cloud, indiquez un **Nom d’hôte**, une **Clé d’accès** et une **Clé secrète**.
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] Un nom convivial est autorisé pour tous les fournisseurs de service cloud, à l'exception d'Azure. Vous pouvez utiliser des noms conviviaux et créer plus d'un compte de stockage avec le même ensemble d'informations d'identification.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
-5. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+5. Sélectionnez **Activer le mode SSL** afin de créer un canal sécurisé pour la communication réseau entre votre appareil et le cloud. Décochez la case **Activer le mode SSL** uniquement si vous utilisez l’appareil dans un cloud privé.
 
-      > [AZURE.NOTE] If you are using HP as your provider, SSL will always be enabled.
-        
-6. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+      >[AZURE.NOTE]Si vous utilisez HP comme fournisseur, SSL est toujours activé.
+  		
+6. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Un message vous informe que le compte de stockage a été créé.
 
-7. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the new storage account. Click **OK** when prompted for confirmation.
+7. Le compte de stockage qui vient d’être créé est affiché dans la page **Configurer**, sous **Comptes de stockage**. Cliquez sur **Enregistrer** pour enregistrer le nouveau compte de stockage. Cliquez sur **OK** lorsque vous êtes invité à confirmer l’opération.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---------HONumber=Oct15_HO3-->

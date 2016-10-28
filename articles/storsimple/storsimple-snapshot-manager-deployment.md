@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Deploy StorSimple Snapshot Manager | Microsoft Azure"
-   description="Learn how to download and install the StorSimple Snapshot Manager, an MMC snap-in for managing StorSimple data protection and backup features."
+   pageTitle="Déploiement du Gestionnaire d’instantanés StorSimple | Microsoft Azure"
+   description="Découvrez comment télécharger et installer le Gestionnaire d'instantanés StorSimple, un composant logiciel enfichable MMC pour la gestion des fonctionnalités de sauvegarde et de protection de données StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,254 +15,248 @@
    ms.date="05/24/2016"
    ms.author="v-sharos" />
 
+# Déployer le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple
 
-# <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Deploy the StorSimple Snapshot Manager MMC snap-in
+## Vue d’ensemble
 
-## <a name="overview"></a>Overview
+Le Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable MMC (Microsoft Management Console) qui simplifie la protection des données et la gestion des sauvegardes dans un environnement Microsoft Azure StorSimple. Avec le Gestionnaire d’instantanés StorSimple, vous pouvez gérer le stockage Microsoft Azure StorSimple local et dans le cloud comme s’il s’agissait d’un système de stockage entièrement intégré, ce qui simplifie les processus de sauvegarde et de restauration et contribue à réduire les coûts.
 
-The StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that simplifies data protection and backup management in a Microsoft Azure StorSimple environment. With StorSimple Snapshot Manager, you can manage Microsoft Azure StorSimple on-premises and cloud storage as if it were a fully integrated storage system, thus simplifying backup and restore processes and reducing costs. 
-
-This tutorial describes configuration requirements, as well as procedures for installing, removing, and upgrading StorSimple Snapshot Manager.
+Ce didacticiel décrit la configuration requise, ainsi que les procédures d’installation, de suppression et de mise à niveau du Gestionnaire d’instantanés StorSimple.
 
 >[AZURE.NOTE] 
 >
->- You cannot use StorSimple Snapshot Manager to manage Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices).
+>- Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
 >
->- If you plan to install StorSimple Update 2 on your StorSimple device, be sure to download the latest version of StorSimple Snapshot Manager and install it **before you install StorSimple Update 2**. The latest version of StorSimple Snapshot Manager is backward compatible and works with all released versions of Microsoft Azure StorSimple. If you are using the previous version of StorSimple Snapshot Manager, you will need to update it (you do not need to uninstall the previous version before you install the new version).
+>- Si vous prévoyez d’installer StorSimple Update 2 sur votre appareil StorSimple, veillez à télécharger la dernière version de StorSimple Snapshot Manager et à l’installer **avant d’installer StorSimple Update 2**. La dernière version de StorSimple Snapshot Manager est à compatibilité descendante et fonctionne avec toutes les versions publiées de Microsoft Azure StorSimple. Si vous utilisez la version précédente de StorSimple Snapshot Manager, vous devez effectuer une mise à jour (il est inutile de désinstaller la version précédente avant d’installer la nouvelle).
 
-## <a name="storsimple-snapshot-manager-installation"></a>StorSimple Snapshot Manager installation
+## Installation du Gestionnaire d’instantanés StorSimple
 
-StorSimple Snapshot Manager can be installed on computers that are running the Windows Server 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 operating system. On servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0. 
+StorSimple Snapshot Manager peut être installé sur les ordinateurs exécutant le système d’exploitation Windows Server 2008 R2 SP1, Windows Server 2012 ou Windows Server 2012 R2. Sur les serveurs exécutant Windows 2008 R2, vous devez aussi installer Windows Server 2008 SP1 et Windows Management Framework 3.0.
 
-Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Microsoft Management Console (MMC), make sure that the Microsoft Azure StorSimple device and host server are configured correctly. 
+Avant d’installer ou de mettre à niveau le composant logiciel enfichable Gestionnaire d’instantanés StorSimple pour la console MMC (Microsoft Management Console), assurez-vous que le serveur hôte et l’appareil Microsoft Azure StorSimple sont configurés correctement.
 
-## <a name="configure-prerequisites"></a>Configure prerequisites
+## Configuration préalable requise
 
-The following steps provide a high-level overview of configuration tasks that you must complete before you install the StorSimple Snapshot Manager. For complete Microsoft Azure StorSimple configuration and setup information, including system requirements and step-by-step instructions, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+Les étapes suivantes fournissent une vue d’ensemble des tâches de configuration requises avant d’installer le Gestionnaire d’instantanés StorSimple. Pour obtenir des informations complètes sur la configuration et l’installation de Microsoft Azure StorSimple, y compris la configuration système requise et des instructions pas à pas, consultez la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT] Before you begin, review the [Deployment configuration checklist](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) and and [Deployment prerequisites](storsimple-deployment-walkthrough.md#deployment-prerequisites) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
-> <br>
+>[AZURE.IMPORTANT] Avant de commencer, lisez la [liste de contrôle de déploiement](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) et les [conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites) dans l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).<br>
  
-### <a name="before-you-install-storsimple-snapshot-manager"></a>Before you install StorSimple Snapshot Manager
+### Avant d’installer le Gestionnaire d’instantanés StorSimple
 
-1. Unpack, mount, and connect the Microsoft Azure StorSimple device as described in [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
+1. Déballez, montez et connectez l’appareil Microsoft Azure StorSimple en suivant les instructions de l’article [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-2. Make sure that your host computer is running one of the following operating systems:
+2. Assurez-vous que votre ordinateur hôte exécute l’un des systèmes d’exploitation suivants :
 
-    - Windows Server 2008 R2 (on servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0)
-    - Windows Server 2012
-    - Windows Server 2012 R2
+    - Windows Server 2008 R2 (sur les serveurs exécutant Windows 2008 R2, vous devez aussi installer Windows Server 2008 SP1 et Windows Management Framework 3.0)
+    - Windows Server 2012
+    - Windows Server 2012 R2
  
-    For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine. 
+    Pour un appareil virtuel StorSimple, l’hôte doit être une machine virtuelle Microsoft Azure.
 
-3. Make sure that you meet all the Microsoft Azure StorSimple configuration requirements. For details, go to [Deployment prerequisites](storsimple-deployment-walkthrough.md#deployment-prerequisites).
+3. Assurez-vous que la configuration requise de Microsoft Azure StorSimple est entièrement respectée. Pour plus d’informations, consultez la page [Conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
-4. Connect the device to the host and perform the initial configuration. For details, go to [Deployment steps](storsimple-deployment-walkthrough.md#deployment-steps).
+4. Connectez l’appareil à l’hôte et procédez à la configuration initiale. Pour plus d’informations, consultez la page [Étapes du déploiement](storsimple-deployment-walkthrough.md#deployment-steps).
 
-5. Create volumes on the device, assign them to the host, and verify that the host can mount and use them. StorSimple Snapshot Manager supports the following types of volumes: 
+5. Créez des volumes sur l’appareil, affectez-les à l’hôte et vérifiez que l’hôte peut les monter et les utiliser. Le Gestionnaire d’instantanés StorSimple prend en charge les types de volumes suivants :
 
-    - Basic volumes
-    - Simple volumes
-    - Dynamic volumes
-    - Mirrored dynamic volumes (RAID 1)
-    - Cluster-shared volumes
+    - Volumes de base
+    - Volumes simples
+    - Volumes dynamiques
+    - Volumes dynamiques en miroir (RAID 1)
+    - Volumes partagés de cluster
  
-    For information about creating volumes on the StorSimple device or StorSimple virtual device, go to [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume), in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+    Pour plus d’informations sur la création de volumes sur l’appareil StorSimple ou l’appareil virtuel StorSimple, consultez la section [« Étape 6 : création d’un volume »](storsimple-deployment-walkthrough.md#step-6-create-a-volume) de l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
-## <a name="install-a-new-storsimple-snapshot-manager"></a>Install a new StorSimple Snapshot Manager
+## Installation d’un nouveau Gestionnaire d’instantanés StorSimple
 
-Before installing StorSimple Snapshot Manager, make sure that the volumes you created on the StorSimple device or StorSimple virtual device are mounted, initialized, and formatted as described in [Configure prerequisites](#configure-prerequisites).
+Avant d’installer le Gestionnaire d’instantanés StorSimple, assurez-vous que les volumes que vous avez créés sur l’appareil StorSimple ou l’appareil virtuel StorSimple sont montés, initialisés et formatés comme indiqué dans la section [Configuration préalable requise](#configure-prerequisites).
 
 >[AZURE.IMPORTANT]
 >
->- For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine. 
+>- Pour un appareil virtuel StorSimple, l’hôte doit être une machine virtuelle Microsoft Azure. 
 >
->- The host must be running Windows 2008 R2, Windows Server 2012, or Windows Server 2012 R2. If your server is running Windows Server 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0.
+>- L’hôte doit exécuter Windows 2008 R2, Windows Server 2012 ou Windows Server 2012 R2. Si votre serveur exécute Windows Server 2008 R2, vous devez aussi installer Windows Server 2008 SP1 et Windows Management Framework 3.0.
 >
->- You must configure an iSCSI connection from the host to the StorSimple device before you can connect the device to StorSimple Snapshot Manager.
+>- Vous devez configurer une connexion iSCSI de l’hôte vers l’appareil StorSimple avant de pouvoir connecter l’appareil au Gestionnaire d’instantanés StorSimple.
 
-Follow these steps to complete a fresh installation of StorSimple Snapshot Manager. If you are installing an upgrade, go to [Upgrade or reinstall StorSimple Snapshot Manager](#upgrade-or-reinstall-storsimple-snapshot-manager).
+Pour effectuer une nouvelle installation du Gestionnaire d’instantanés StorSimple, suivez les étapes ci-dessous. Si vous installez une mise à niveau, accédez à la section [Mise à niveau ou réinstallation du Gestionnaire d’instantanés StorSimple](#upgrade-or-reinstall-storsimple-snapshot-manager).
 
-- Step 1: Install StorSimple Snapshot Manager 
-- Step 2: Connect StorSimple Snapshot Manager to a device 
-- Step 3: Verify the connection to the device 
+- Étape 1 : installation du Gestionnaire d’instantanés StorSimple 
+- Étape 2 : connexion du Gestionnaire d’instantanés StorSimple à un appareil 
+- Étape 3 : vérification de la connexion à l’appareil 
 
-###<a name="step-1:-install-storsimple-snapshot-manager"></a>Step 1: Install StorSimple Snapshot Manager
+###Étape 1 : installation du Gestionnaire d’instantanés StorSimple
 
-Use the following steps to install StorSimple Snapshot Manager.
+Pour installer le Gestionnaire d’instantanés StorSimple, procédez comme suit.
 
-#### <a name="to-install-storsimple-snapshot-manager"></a>To install StorSimple Snapshot Manager
+#### Pour installer le Gestionnaire d’instantanés StorSimple
 
-1. Download the StorSimple Snapshot Manager software (go to [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220) in the Microsoft Download Center) and save it locally on the host.
+1. Téléchargez le logiciel Gestionnaire d’instantanés StorSimple (accédez à [Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220) dans le Centre de téléchargement Microsoft) et enregistrez-le localement sur l’hôte.
 
-2. In File Explorer, right-click the compressed folder, and then click **Extract all**.
+2. Dans l’Explorateur de fichiers, cliquez avec le bouton droit sur le dossier compressé, puis cliquez sur **Extraire tout**.
 
-3. In the **Extract Compressed (Zipped) Folders** window, in the **Select a destination and extract files** box, type or browse to the path where you would like to file to be extracted. 
+3. Dans la fenêtre **Extraire les dossiers compressés**, dans la zone **Sélectionner une destination et extraire les fichiers**, tapez ou recherchez le chemin d’accès où extraire le fichier.
 
-       >[AZURE.IMPORTANT] You must install StorSimple Snapshot Manager on the C: drive.
+       >[AZURE.IMPORTANT] Vous devez installer le Gestionnaire d’instantanés StorSimple sur le lecteur C:.
  
-4. Select the **Show extracted files when complete** check box, and then click **Extract**.
+4. Cochez la case **Afficher les dossiers extraits une fois l’opération terminée**, puis cliquez sur **Extraire**.
 
-    ![Extract files dialog box](./media/storsimple-snapshot-manager-deployment/HCS_SSM_extract_files.png) 
+    ![Boîte de dialogue Extraire les fichiers](./media/storsimple-snapshot-manager-deployment/HCS_SSM_extract_files.png)
 
-4. When the extraction is finished, the destination folder opens. Double-click the application setup icon that appears in the destination folder.
+4. Une fois l’extraction terminée, le dossier de destination s’ouvre. Double-cliquez sur l’icône d’installation de l’application présente dans le dossier de destination.
 
-5. When the **Setup Successful** message appears, click **Close**. You should see the StorSimple Snapshot Manager icon on your desktop.
+5. Quand le message **Installation/désinstallation réussie** s’affiche, cliquez sur **Fermer**. L’icône du Gestionnaire d’instantanés StorSimple doit être affichée sur votre bureau.
 
-    ![desktop icon](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png) 
+    ![Icône du Bureau](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png)
 
-### <a name="step-2:-connect-storsimple-snapshot-manager-to-a-device"></a>Step 2: Connect StorSimple Snapshot Manager to a device
+### Étape 2 : connexion du Gestionnaire d’instantanés StorSimple à un appareil
 
-Use the following steps to connect StorSimple Snapshot Manager to a StorSimple device.
+Pour connecter le Gestionnaire d’instantanés StorSimple à un appareil StorSimple, procédez comme suit.
 
-#### <a name="to-connect-storsimple-snapshot-manager-to-a-device"></a>To connect StorSimple Snapshot Manager to a device
+#### Pour connecter le Gestionnaire d’instantanés StorSimple à un appareil
 
-1. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager window appears. The window contains a **Scope** pane, a **Results** pane, and an **Actions** pane. 
+1. Cliquez sur l’icône du Gestionnaire d’instantanés StorSimple sur votre bureau. La fenêtre du Gestionnaire d’instantanés StorSimple s’affiche. Cette fenêtre contient un volet **Étendue**, un volet **Résultats** et un volet **Actions**. 
 
-    ![StorSimple Snapshot Manager user interface](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png) 
+    ![Interface utilisateur du Gestionnaire d’instantanés StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
 
-    - The **Scope** pane (the left pane) contains a list of nodes organized in a tree structure. You can expand some nodes to select a view or specific data related to that node. Click the arrow icon to expand or collapse a node. Right-click an item in the **Scope** pane to see a list of available actions for that item. 
+    - Le volet **Étendue** (volet gauche) contient une liste de nœuds organisée en arborescence. Vous pouvez développer certains nœuds pour sélectionner une vue ou des données spécifiques relatives à ce nœud. Cliquez sur l’icône en forme de flèche en regard d’un nœud pour le développer ou le réduire. Cliquez avec le bouton droit sur un élément du volet **Étendue** pour afficher la liste des actions disponibles pour cet élément. 
 
-    - The **Results** pane (the center pane) contains detailed status information about the node, view, or data that you selected in the **Scope** pane.
+    - Le volet **Résultats** (volet central) contient des informations d’état détaillées sur le nœud, la vue ou les données que vous avez sélectionnés dans le volet **Étendue**.
 
-    - The **Actions** pane lists the operations that you can perform on the node, view, or data that you selected in the **Scope** pane.
+    - Le volet **Actions** répertorie les opérations que vous pouvez effectuer sur le nœud, la vue ou les données que vous avez sélectionnés dans le volet **Étendue**.
 
-    For a complete description of the StorSimple Snapshot Manager user interface, see [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
+    Pour une description complète de l’interface utilisateur du Gestionnaire d’instantanés StorSimple, consultez l’article [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 
-2. In the **Scope** pane, right-click the **Devices** node, and then click **Configure a device**. The **Configure a Device** dialog box appears.
+2. Dans le volet **Étendue**, cliquez avec le bouton droit sur le nœud **Appareils**, puis cliquez sur **Configurer un appareil**. La boîte de dialogue **Configurer un appareil** apparaît.
 
-    ![Configure a device](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png) 
+    ![Configurer un appareil](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
-3. In the **Device** list box, select the IP address of the Microsoft Azure StorSimple device or virtual device. In the **Password** text box, type the StorSimple Snapshot Manager password that you created for the device in the Azure classic portal. Click **OK**.
+3. Dans la zone de liste **Appareil**, sélectionnez l’adresse IP de l’appareil ou de l’appareil virtuel Microsoft Azure StorSimple. Dans la zone de texte **Mot de passe**, entrez le mot de passe du Gestionnaire d’instantanés StorSimple que vous avez créé pour l’appareil dans le portail Azure Classic. Cliquez sur **OK**.
 
-4. StorSimple Snapshot Manager searches for the device that you identified. If the device is available, StorSimple Snapshot Manager adds a connection. You can [verify the connection to the device](#to-verify-the-connection) to confirm that the connection was added successfully.
+4. Le Gestionnaire d’instantanés StorSimple recherche l’appareil que vous avez identifié. Si l’appareil est disponible, le Gestionnaire d’instantanés StorSimple ajoute une connexion. Vous pouvez [vérifier la connexion à l’appareil](#to-verify-the-connection) pour confirmer que la connexion a bien été ajoutée.
 
-    If the device is unavailable for any reason, StorSimple Snapshot Manager returns an error message. Click **OK** to close the error message, and then click **Cancel** to close the **Configure a Device** dialog box.
+    Si, pour une raison quelconque, l’appareil est indisponible, le Gestionnaire d’instantanés StorSimple retourne un message d’erreur. Cliquez sur **OK** pour fermer le message d’erreur, puis cliquez sur **Annuler** pour fermer la boîte de dialogue **Configurer un appareil**.
 
-5. When it connects to a device, StorSimple Snapshot Manager imports each volume group configured for that device, provided that the volume group has associated backups. Volume groups that do not have associated backups are not imported. Additionally, backup policies that were created for a volume group are not imported. To see the imported groups, right-click the top-most **Volume Groups** node in the **Scope** pane, and click **Toggle imported groups**.
+5. Au moment de se connecter à un appareil, le Gestionnaire d’instantanés StorSimple importe chaque groupe de volumes configuré pour cet appareil, à condition que le groupe de volumes soit associé à des sauvegardes. Les groupes de volumes qui ne sont associés à aucune sauvegarde ne sont pas importés. De plus, les stratégies de sauvegarde créées pour un groupe de volumes ne sont pas importées. Pour afficher les groupes importés, cliquez avec le bouton droit sur le nœud **Groupes de volumes** situé le plus haut dans le volet **Étendue**, puis cliquez sur **Activer/Désactiver les groupes importés**.
 
-### <a name="step-3:-verify-the-connection-to-the-device"></a>Step 3: Verify the connection to the device
+### Étape 3 : vérification de la connexion à l’appareil
 
-Use the following steps to verify that StorSimple Snapshot Manager is connected to the StorSimple device.
+Pour vérifier que le Gestionnaire d’instantanés StorSimple est connecté à l’appareil StorSimple, procédez comme suit.
 
-#### <a name="to-verify-the-connection"></a>To verify the connection
+#### Pour vérifier la connexion
 
-1. In the **Scope** pane, click the **Devices** node.
+1. Dans le volet **Étendue**, cliquez sur le nœud **Appareils**.
 
-    ![StorSimple Snapshot Manager device status](./media/storsimple-snapshot-manager-deployment/HCS_SSM_Device_status.png) 
+    ![État de l’appareil dans le Gestionnaire d’instantanés StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_Device_status.png)
 
-2. Check the **Results** pane: 
+2. Vérifiez le volet **Résultats** :
 
-   - If a green indicator appears on the device icon and **Available** appears in the **Status** column, then the device is connected. 
+   - Si un indicateur vert est affiché sur l’icône de l’appareil et **Disponible** est indiqué dans la colonne **État**, cela signifie que l’appareil est connecté. 
 
-   - If a red indicator appears on the device icon and Unavailable appears in the **Status** column, then the device is not connected. 
+   - Si un indicateur rouge est affiché sur l’icône de l’appareil et Non disponible est indiqué dans la colonne **État**, cela signifie que l’appareil n’est pas connecté.
 
-   - If **Refreshing** appears in the **Status** column, then StorSimple Snapshot Manager is retrieving volume groups and associated backups for a connected device.
+   - Si **Actualisation** s’affiche dans la colonne **État**, cela signifie que le Gestionnaire d’instantanés StorSimple récupère les groupes de volumes et les sauvegardes associées pour un appareil connecté.
 
-## <a name="upgrade-or-reinstall-storsimple-snapshot-manager"></a>Upgrade or reinstall StorSimple Snapshot Manager
+## Mise à niveau ou réinstallation du Gestionnaire d’instantanés StorSimple
 
-You should uninstall StorSimple Snapshot Manager completely before you upgrade or reinstall the software. 
+Vous devez désinstaller complètement le Gestionnaire d’instantanés StorSimple avant de mettre à niveau ou de réinstaller le logiciel.
 
-Before reinstalling StorSimple Snapshot Manager, back up the existing StorSimple Snapshot Manager database on the host computer. This saves the backup policies and configuration information so that you can easily restore this data from backup.
+Avant de réinstaller le Gestionnaire d’instantanés StorSimple, sauvegardez la base de données existante du Gestionnaire d’instantanés StorSimple sur l’ordinateur hôte. Les informations de configuration et les stratégies de sauvegarde sont ainsi enregistrées pour faciliter la restauration de ces données à partir de la sauvegarde.
 
-Follow these steps if you are upgrading or reinstalling StorSimple Snapshot Manager:
+Pour mettre à niveau ou réinstaller le Gestionnaire d’instantanés StorSimple, suivez ces étapes :
 
-- Step 1: Uninstall StorSimple Snapshot Manager 
-- Step 2: Back up the StorSimple Snapshot Manager database 
-- Step 3: Reinstall StorSimple Snapshot Manager and restore the database 
+- Étape 1 : désinstallation du Gestionnaire d’instantanés StorSimple 
+- Étape 2 : sauvegarde de la base de données du Gestionnaire d’instantanés StorSimple 
+- Étape 3 : réinstallation du Gestionnaire d’instantanés StorSimple et restauration de la base de données 
 
-### <a name="step-1:-uninstall-storsimple-snapshot-manager"></a>Step 1: Uninstall StorSimple Snapshot Manager
+### Étape 1 : désinstallation du Gestionnaire d’instantanés StorSimple
 
-Use the following steps to uninstall StorSimple Snapshot Manager.
+Pour désinstaller le Gestionnaire d’instantanés StorSimple, procédez comme suit.
 
-#### <a name="to-uninstall-storsimple-snapshot-manager"></a>To uninstall StorSimple Snapshot Manager
+#### Pour désinstaller le Gestionnaire d’instantanés StorSimple
 
-1. On the host computer, open the **Control Panel**, click **Programs**, and then click **Programs and Features**.
+1. Sur l’ordinateur hôte, ouvrez le **Panneau de configuration**, cliquez sur **Programmes**, puis sur **Programmes et fonctionnalités**.
 
-2. In the left pane, click **Uninstall or change a program**.
+2. Dans le volet gauche, cliquez sur **Désinstaller ou modifier un programme**.
 
-3. Right-click **StorSimple Snapshot Manager**, and then click **Uninstall**.
+3. Cliquez avec le bouton droit sur **Gestionnaire d’instantanés StorSimple**, puis cliquez sur**Désinstaller**.
 
-4. This starts the StorSimple Snapshot Manager Setup program. Click **Modify Setup**, and then click **Uninstall**.
+4. Le programme d’installation du Gestionnaire d’instantanés StorSimple démarre. Cliquez sur **Modifier l’installation**, puis sur **Désinstaller**.
 
-    >[AZURE.NOTE] If there are any MMC processes running in the background, such as StorSimple Snapshot Manager or Disk Management, the uninstall will fail and you will receive a message to close all instances of MMC before you attempt to uninstall the program. Select **Automatically close applications and attempt to restart them after setup is complete**, and then click **OK**.
+    >[AZURE.NOTE] Si des processus de la console MMC sont exécutés en arrière-plan, tels que le Gestionnaire d’instantanés StorSimple ou l’outil Gestion des disques, la désinstallation échoue et vous recevez un message vous invitant à fermer toutes les instances de la console MMC avant de désinstaller le programme. Sélectionnez **Fermer automatiquement les applications et tenter de les redémarrer une fois l’installation terminée**, puis cliquez sur **OK**.
  
-5. When the uninstall process is finished, a **Setup Successful** message appears. Click **Close**.
+5. Une fois le processus de désinstallation terminé, le message **Installation/désinstallation réussie** s’affiche. Cliquez sur **Fermer**.
 
-### <a name="step-2:-back-up-the-storsimple-snapshot-manager-database"></a>Step 2: Back up the StorSimple Snapshot Manager database
+### Étape 2 : sauvegarde de la base de données du Gestionnaire d’instantanés StorSimple
 
-Use the following steps to create and save a copy of the StorSimple Snapshot Manager database.
+Pour créer et enregistrer une copie de la base de données du Gestionnaire d’instantanés StorSimple, procédez comme suit.
 
-#### <a name="to-back-up-the-database"></a>To back up the database
+#### Pour sauvegarder la base de données
 
-1. Stop the Microsoft StorSimple Management Service:
+1. Arrêtez le service de gestion Microsoft StorSimple :
 
-   1. Start Server Manager.
+   1. Démarrez le Gestionnaire de serveur.
 
-   2. On the Server Manager Dashboard, on the **Tools** menu, select **Services**.
+   2. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
 
-   3. On the **Services** page, select **Microsoft StorSimple Management Service**.
+   3. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
 
-   4. In the right pane, under **Microsoft StorSimple Management Service**, click **Stop the service**.
+   4. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Arrêter le service**.
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. Browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
+2. Accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
-    >[AZURE.NOTE] ProgramData is a hidden folder.
+    >[AZURE.NOTE] ProgramData est un dossier masqué.
 
-3. Find the catalog XML file, copy the file, and store the copy in a safe location or in the cloud.
+3. Recherchez le fichier XML de catalogue, copiez-le et stockez sa copie dans un emplacement sûr ou dans le cloud.
 
-    ![StorSimple backup catalog file](./media/storsimple-snapshot-manager-deployment/HCS_SSM_bacatalog.png)
+    ![Fichier de catalogue de sauvegarde StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_bacatalog.png)
 
-4. Restart the Microsoft StorSimple Management Service: 
+4. Redémarrez le service de gestion Microsoft StorSimple :
 
-    1. On the Server Manager Dashboard, on the **Tools** menu, select **Services**.
+    1. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
 
-    2. On the **Services** page, select the **Microsoft StorSimple Management Servic**e.
+    2. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
 
-    3. In the right pane, under **Microsoft StorSimple Management Service**, click **Restart the service**. 
+    3. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Redémarrer le service**.
 
-### <a name="step-3:-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Step 3: Reinstall StorSimple Snapshot Manager and restore the database
+### Étape 3 : réinstallation du Gestionnaire d’instantanés StorSimple et restauration de la base de données
 
-To reinstall StorSimple Snapshot Manager, follow the steps in [Install a new StorSimple Snapshot Manager](#install-a-new-storsimple-snapshot-manager). Then, use the following procedure to restore the StorSimple Snapshot Manager database.
+Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étapes de la section [Installer un nouveau Gestionnaire d’instantanés StorSimple](#install-a-new-storsimple-snapshot-manager). Appliquez ensuite la procédure suivante pour restaurer la base de données du Gestionnaire d’instantanés StorSimple.
 
-#### <a name="to-restore-the-database"></a>To restore the database
+#### Pour restaurer la base de données
 
-1. Stop the Microsoft StorSimple Management Service:
+1. Arrêtez le service de gestion Microsoft StorSimple :
 
-    1. Start Server Manager.
+    1. Démarrez le Gestionnaire de serveur.
 
-    2. On the Server Manager Dashboard, on the **Tools** menu, select **Services**.
+    2. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
 
-    3. On the **Services** page, select **Microsoft StorSimple Management Service**.
+    3. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
 
-    4. In the right pane, under **Microsoft StorSimple Management Service**, click **Stop the service**.
+    4. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Arrêter le service**.
 
-2. Browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
+2. Accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
-     >[AZURE.NOTE] ProgramData is a hidden folder.
+     >[AZURE.NOTE] ProgramData est un dossier masqué.
 
-3. Delete the catalog XML file, and replace it with the version that you saved earlier.
+3. Supprimez le fichier XML de catalogue et remplacez-le par la version que vous avez enregistrée précédemment.
 
-4. Restart the Microsoft StorSimple Management Service: 
+4. Redémarrez le service de gestion Microsoft StorSimple :
 
-    1. On the Server Manager Dashboard, on the **Tools** menu, select **Services**.
+    1. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
 
-    2. On the **Services** page, select **Microsoft StorSimple Management Service**.
+    2. Dans la page **Services**, sélectionnez **Service de gestion Microsoft StorSimple**.
 
-    3. In the right pane, under **Microsoft StorSimple Management Service**, click **Restart the service**.
+    3. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Redémarrer le service**.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- To learn more about StorSimple Snapshot Manager, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).
+- Pour en savoir plus sur le Gestionnaire d’instantanés StorSimple, consultez [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 
-- To learn more about the StorSimple Snapshot Manager user interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
+- Pour en savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple, consultez [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 
-- To learn more about using StorSimple Snapshot Manager, go to [Use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Pour en savoir plus sur l’utilisation du Gestionnaire d’instantanés StorSimple, consultez [Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0525_2016-->

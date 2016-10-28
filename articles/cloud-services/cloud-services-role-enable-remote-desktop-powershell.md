@@ -1,6 +1,6 @@
 <properties
-pageTitle="Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell"
-description="How to configure your azure cloud service application using PowerShell to allow remote desktop connections"
+pageTitle="Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell"
+description="Configuration de l’application de service cloud Azure à l’aide de PowerShell pour autoriser les connexions Bureau à distance"
 services="cloud-services"
 documentationCenter=""
 authors="thraka"
@@ -15,47 +15,46 @@ ms.topic="article"
 ms.date="08/05/2016"
 ms.author="adegeo"/>
 
-
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell
+# Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell
 
 >[AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
+- [Portail Azure Classic](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
-Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.
+Le Bureau à distance vous permet d'accéder au bureau d'un rôle en cours d'exécution dans Azure. Vous pouvez utiliser une connexion Bureau à distance pour dépanner et diagnostiquer les problèmes rencontrés par votre application lorsqu'elle est en cours d'exécution.
 
-This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the prerequisites needed for this article. PowerShell utilizes the Remote Desktop Extension so you can enable Remote Desktop after the application is deployed.
+Cet article décrit comment activer Bureau à distance sur vos rôles Service Cloud à l’aide de PowerShell. Voir [Installer et configurer Azure PowerShell](../powershell-install-configure.md) pour connaître les conditions requises pour cet article. PowerShell utilise l’extension Bureau à distance, ce qui vous permet d’activer le Bureau à distance après avoir déployé l’application.
 
 
-## <a name="configure-remote-desktop-from-powershell"></a>Configure Remote Desktop from PowerShell
+## Configurer le Bureau à distance à partir de PowerShell
 
-The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet allows you to enable Remote Desktop on specified roles or all roles of your cloud service deployment. The cmdlet lets you specify the Username and Password for the remote desktop user through the *Credential* parameter that accepts a PSCredential object.
+L’applet de commande [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) permet d’activer le Bureau à distance sur des rôles spécifiés ou sur tous les rôles de déploiement de votre service cloud. L’applet de commande vous permet de spécifier le nom d’utilisateur et le mot de passe de l’utilisateur de bureau à distance par le biais du paramètre *informations d’identification* qui accepte un objet PSCredential.
 
-If you are using PowerShell interactively, you can easily set the PSCredential object by calling the [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+Si vous utilisez PowerShell de manière interactive, vous pouvez facilement définir l’objet PSCredential en appelant l’applet de commande [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx).
 
 ```
 $remoteusercredentials = Get-Credential
 ```
 
-This command displays a dialog box allowing you to enter the username and password for the remote user in a secure manner.
+Cette commande affiche une boîte de dialogue vous permettant de saisir le nom d’utilisateur et un mot de passe utilisateur distant de manière sécurisée.
 
-Since PowerShell helps in automation scenarios, you can also set up the **PSCredential** object in a way that doesn't require user interaction. First, you need to set up a secure password. You begin with specifying a plain text password convert it to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Next you need to convert this secure string into an encrypted standard string using [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Now you can save this encrypted standard string to a file using [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
+Dans la mesure où PowerShell sera utilisé dans les scénarios d’automatisation, vous pouvez également configurer l’objet **PSCredential** d’une façon qui ne nécessite pas l’interaction utilisateur. Vous devez d'abord configurer un mot de passe sécurisé. Commencez par spécifier un mot de passe en texte brut et convertissez-le en chaîne sécurisée à l’aide [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Vous devez ensuite convertir cette chaîne sécurisée en chaîne standard chiffrée avec [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Vous pouvez maintenant enregistrer cette chaîne chiffrée standard dans un fichier [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
 
-You can also create a secure password file so that you don't have to type in the password every time. Also, a secure password file is better than a plain text file. Use the following PowerShell to create a secure password file:
+Vous pouvez également créer un fichier de mot de passe sécurisé pour ne pas avoir à retaper le mot de passe à chaque fois. En outre, un fichier de mot de passe sécurisé est préférable à un fichier texte brut. Utilisez l’opération PowerShell suivante pour créer un fichier de mot de passe sécurisé :
 
 ```
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
->[AZURE.IMPORTANT] When setting the password, make sure that you meet the [complexity requirements](https://technet.microsoft.com/library/cc786468.aspx).
+>[AZURE.IMPORTANT] Lors de la définition du mot de passe, assurez-vous que vous remplissez les [exigences de complexité](https://technet.microsoft.com/library/cc786468.aspx).
 
-To create the credential object from the secure password file, you must read the file contents and convert them back to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+Pour créer l’objet d’informations d’identification à partir du fichier de mot de passe sécurisé, vous devez lire le contenu du fichier et le reconvertir en chaîne sécurisée à l’aide [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
-The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet also accepts an *Expiration* parameter, which specifies a **DateTime** at which the user account expires. For example, you could set the account to expire a few days from the current date and time.
+L’applet de commande [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) accepte également un paramètre *Expiration* qui spécifie une valeur **DateTime** à laquelle le compte d’utilisateur expire. Par exemple, vous pouvez configurer le compte pour qu'il expire quelques jours après la date et l'heure actuelles.
 
-This PowerShell example shows you how to set the Remote Desktop Extension on a cloud service:
+Cet exemple PowerShell vous montre comment définir l’extension Bureau à distance sur un service cloud :
 
 ```
 $servicename = "cloudservice"
@@ -65,47 +64,43 @@ $expiry = $(Get-Date).AddDays(1)
 $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
 Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry
 ```
-You can also optionally specify the deployment slot and roles that you want to enable remote desktop on. If these parameters are not specified, the cmdlet enables remote desktop on all roles in the **Production** deployment slot.
+Vous pouvez également spécifier l’emplacement de déploiement et les rôles desquels vous souhaitez supprimer l’extension de bureau distant. Si ces paramètres ne sont pas spécifiés, l’applet de commande active le bureau distant sur tous les rôles dans l’emplacement de déploiement de l'environnement de **production**.
 
-The Remote Desktop extension is associated with a deployment. If you create a new deployment for the service, you have to enable remote desktop on that deployment. If you always want to have remote desktop enabled, then you should consider integrating the PowerShell scripts into your deployment workflow.
+L’extension Bureau à distance est associée au déploiement. Si vous créez un nouveau déploiement du service, vous devrez activer le Bureau à distance sur ce déploiement. Si vous souhaitez toujours que le Bureau à distance soit activé, vous devez envisager d’intégrer les scripts PowerShell dans votre flux de travail de déploiement.
 
 
-## <a name="remote-desktop-into-a-role-instance"></a>Remote Desktop into a role instance
-The [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet is used to remote desktop into a specific role instance of your cloud service. You can use the *LocalPath* parameter to download the RDP file locally. Or you can use the *Launch* parameter to directly launch the Remote Desktop Connection dialog to access the cloud service role instance.
+## Bureau à distance dans une instance de rôle
+L’applet de commande [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) est utilisée pour les services bureau à distance dans une instance de rôle spécifique de votre service cloud. Vous pouvez utiliser le paramètre *LocalPath* pour télécharger le fichier RDP localement. Ou vous pouvez utiliser le paramètre *Lauch* pour lancer directement la boîte de dialogue Connexion Bureau à distance pour accéder à l’instance du rôle de service cloud.
 
 ```
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
 
-## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Check if Remote Desktop extension is enabled on a service
-The [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet displays that remote desktop is enabled or disabled on a service deployment. The cmdlet returns the username for the remote desktop user and the roles that the remote desktop extension is enabled for. By default, this happens on the deployment slot and you can choose to use the staging slot instead.
+## Vérifiez si l’extension des services de Bureau à distance est activée sur un service
+L’applet de commande [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) montre si le Bureau à distance est activé ou désactivé sur un déploiement de service. L’applet de commande renvoie le nom d’utilisateur de l’utilisateur de bureau à distance et les rôles sur lesquels l’extension de bureau distant est activée. Par défaut, cela se produit sur l’emplacement de déploiement, et vous pouvez choisir d’utiliser l’emplacement intermédiaire à la place.
 
 ```
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
-## <a name="remove-remote-desktop-extension-from-a-service"></a>Remove Remote Desktop extension from a service
-If you have already enabled the remote desktop extension on a deployment, and need to update the remote desktop settings, first remove the extension. And enable it again with the new settings. For example, if you want to set a new password for the remote user account, or the account expired. Doing this is required on existing deployments that have the remote desktop extension enabled. For new deployments, you can simply apply the extension directly.
+## Supprimer l’extension de bureau distant d’un service
+Si vous avez déjà activé l’extension du bureau à distance sur un déploiement et si vous devez mettre à jour les paramètres du bureau distant, vous devez d’abord supprimer l’extension, puis la réactiver avec les nouveaux paramètres. Par exemple, si vous souhaitez définir un nouveau mot de passe pour le compte d’utilisateur distant, ou si le compte a expiré. Cette opération est obligatoire uniquement sur les déploiements existants dont l’extension de bureau à distance est activée. Pour les nouveaux déploiements, vous pouvez simplement appliquer directement l’extension.
 
-To remove the remote desktop extension from the deployment, you can use the [Remove-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495280.aspx) cmdlet. You can also optionally specify the deployment slot and role from which you want to remove the remote desktop extension.
+Pour supprimer l’extension de bureau à distance à partir du déploiement, vous pouvez utiliser l’applet de commande [Remove-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495280.aspx). Vous pouvez également spécifier l’emplacement de déploiement et le rôle duquel vous souhaitez supprimer l’extension de bureau distant.
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
->[AZURE.NOTE] To completely remove the extension configuration, you should call the *remove* cmdlet with the **UninstallConfiguration** parameter.
+>[AZURE.NOTE] Pour supprimer complètement la configuration d’extension, vous devez appeler l’applet de commande *remove* avec le paramètre **UninstallConfiguration**.
 >
->The **UninstallConfiguration** parameter uninstalls any extension configuration that is applied to the service. Every extension configuration is associated with the service configuration. Calling the *remove* cmdlet without **UninstallConfiguration** disassociates the <mark>deployment</mark> from the extension configuration, thus effectively removing the extension. However, the extension configuration remains associated with the service.
+>Le paramètre **UninstallConfiguration** désinstalle toute configuration d’extension appliquée au service. Chaque configuration de l’extension est associée à la configuration du service. L’appel de l’applet de commande *remove* sans **UninstallConfiguration** dissocie le <mark>déploiement</mark> de la configuration d’extension, supprimant ainsi de manière efficace l’extension. Cependant, la configuration d’extension reste associée au service.
 
 
 
-## <a name="additional-resources"></a>Additional Resources
+## Ressources supplémentaires
 
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)
+[Configuration des services cloud](cloud-services-how-to-configure.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

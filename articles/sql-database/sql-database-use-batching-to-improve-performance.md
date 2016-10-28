@@ -1,612 +1,607 @@
  <properties
-    pageTitle="How to use batching to improve Azure SQL Database application performance"
-    description="The topic provides evidence that batching database operations greatly imroves the speed and scalability of your Azure SQL Database applications. Although these batching techniques work for any SQL Server database, the focus of the article is on Azure."
-    services="sql-database"
-    documentationCenter="na"
-    authors="annemill"
-    manager="jhubbard"
-    editor="" />
+	pageTitle="Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL Azure"
+	description="Cette rubrique explique comment le traitement par lots des opérations de base de données contribue à améliorer considérablement la rapidité et l’évolutivité de vos applications de base de données SQL Azure. Bien que ces techniques de traitement par lot fonctionnent pour les bases de données SQL Server, cet article porte exclusivement sur Azure."
+	services="sql-database"
+	documentationCenter="na"
+	authors="annemill"
+	manager="jhubbard"
+	editor="" />
 
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="07/12/2016"
-    ms.author="annemill" />
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="07/12/2016"
+	ms.author="annemill" />
 
+# Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 
-# <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>How to use batching to improve SQL Database application performance
+Les opérations de traitement par lots sur la base de données SQL Azure améliorent considérablement les performances et l’évolutivité de vos applications. Pour en comprendre les avantages, la première partie de cet article présente des résultats de test qui comparent des demandes séquentielles à des demandes par lots exécutées sur une base de données SQL. Le reste de cet article décrit des techniques, des scénarios et des remarques à prendre en compte pour vous aider à utiliser efficacement le traitement par lots dans vos applications Azure.
 
-Batching operations to Azure SQL Database significantly improves the performance and scalability of your applications. In order to understand the benefits, the first part of this article covers some sample test results that compare sequential and batched requests to a SQL Database. The remainder of the article shows the techniques, scenarios, and considerations to help you to use batching successfully in your Azure applications.
+**Auteurs** : Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
 
-**Authors**: Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
+**Réviseurs** : Conor Cunningham, Michael Thomassy
 
-**Reviewers**: Conor Cunningham, Michael Thomassy
+## Pourquoi le traitement par lots est-il important pour une base de données SQL ?
+L’envoi d’appels de traitement par lots sur un service distant constitue une stratégie réputée pour améliorer les performances et l’évolutivité. Toute interaction avec un service distant, notamment la sérialisation, le transfert réseau et la désérialisation, entraîne des coûts de traitement fixes. L’empaquetage de plusieurs transactions distinctes dans un seul lot contribue à réduire ces coûts.
 
-## <a name="why-is-batching-important-for-sql-database?"></a>Why is batching important for SQL Database?
-Batching calls to a remote service is a well-known strategy for increasing performance and scalability. There are fixed processing costs to any interactions with a remote service, such as serialization, network transfer, and deserialization. Packaging many separate transactions into a single batch minimizes these costs.
+Dans ce document, nous allons examiner divers scénarios et stratégies de traitement par lots associés à la base de données SQL. Bien que ces stratégies soient également importantes pour les applications locales qui utilisent SQL Server, il convient d’insister sur le caractère essentiel de l’utilisation du traitement par lots pour la base de données SQL, et ce pour plusieurs raisons :
 
-In this paper, we want to examine various SQL Database batching strategies and scenarios. Although these strategies are also important for on-premises applications that use SQL Server, there are several reasons for highlighting the use of batching for SQL Database:
+- L’accès à la base de données SQL présente un plus grand risque de latence du réseau, en particulier si vous accédez à la base de données SQL depuis l’extérieur du centre de données Microsoft Azure.
+- Les caractéristiques mutualisées de la base de données SQL signifient que l’efficacité de la couche données est corrélée à l’évolutivité globale de la base de données. La base de données SQL doit empêcher tout locataire/utilisateur de monopoliser les ressources de la base de données au détriment des autres clients. En réponse à une utilisation dépassant les quotas prédéfinis, la base de données SQL peut réduire le débit ou répondre par des exceptions de limitation. Certaines fonctionnalités efficaces, telles que le traitement par lots, permettent d’effectuer plus de tâches sur la base de données SQL avant que ces limites ne soient atteintes.
+- Le traitement par lots est également efficace pour les architectures qui utilisent plusieurs bases de données (partitionnement). L’efficacité de votre interaction avec chaque unité de base de données demeure un facteur clé pour votre évolutivité globale.
 
-- There is potentially greater network latency in accessing SQL Database, especially if you are accessing SQL Database from outside the same Microsoft Azure datacenter.
-- The multitenant characteristics of SQL Database means that the efficiency of the data access layer correlates to the overall scalability of the database. SQL Database must prevent any single tenant/user from monopolizing database resources to the detriment of other tenants. In response to usage in excess of predefined quotas, SQL Database can reduce throughput or respond with throttling exceptions. Efficiencies, such as batching, enable you to do more work on SQL Database before reaching these limits. 
-- Batching is also effective for architectures that use multiple databases (sharding). The efficiency of your interaction with each database unit is still a key factor in your overall scalability. 
+L’un des avantages associés à l’utilisation de la base de données SQL est que vous n’avez pas à gérer les serveurs qui hébergent la base de données. Toutefois, cette infrastructure gérée signifie également que vous devez adopter une approche différente pour l’optimisation de la base de données. Vous ne pouvez plus chercher à améliorer l’infrastructure matérielle ou réseau de la base de données. Ces environnements sont directement contrôlés par Microsoft Azure. Votre rayon de contrôle couvre essentiellement la manière dont votre application interagit avec la base de données SQL. Le traitement par lots constitue l’une de ces optimisations.
 
-One of the benefits of using SQL Database is that you don’t have to manage the servers that host the database. However, this managed infrastructure also means that you have to think differently about database optimizations. You can no longer look to improve the database hardware or network infrastructure. Microsoft Azure controls those environments. The main area that you can control is how your application interacts with SQL Database. Batching is one of these optimizations. 
+La première partie de ce document examine différentes techniques de traitement par lots pour les applications .NET qui utilisent la base de données SQL. Les deux dernières sections décrivent des recommandations et des scénarios de traitement par lots.
 
-The first part of the paper examines various batching techniques for .NET applications that use SQL Database. The last two sections cover batching guidelines and scenarios.
+## Stratégies de traitement par lots
 
-## <a name="batching-strategies"></a>Batching strategies
+### Remarque relative aux résultats de minutage fournis dans cette rubrique
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant le nouveau [niveau de service](sql-database-service-tiers.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
 
-### <a name="note-about-timing-results-in-this-topic"></a>Note about timing results in this topic
->[AZURE.NOTE] Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+### Transactions
+Il peut sembler étrange d’aborder la question du traitement par lots par la notion de transactions. Mais l’utilisation de transactions côté client a un effet subtil côté serveur subtil qui améliore les performances. Les transactions peuvent être ajoutées avec seulement quelques lignes de code, afin de fournir un moyen rapide d’améliorer les performances des opérations séquentielles.
 
-### <a name="transactions"></a>Transactions
-It seems strange to begin a review of batching by discussing transactions. But the use of client-side transactions has a subtle server-side batching effect that improves performance. And transactions can be added with only a few lines of code, so they provide a fast way to improve performance of sequential operations.
+Examinez le code C# suivant qui contient une séquence d’opérations d’insertion et de mise à jour sur une table simple.
 
-Consider the following C# code that contains a sequence of insert and update operations on a simple table.
+	List<string> dbOperations = new List<string>();
+	dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
+	dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
+	dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
+	dbOperations.Add("insert MyTable values ('new value',1)");
+	dbOperations.Add("insert MyTable values ('new value',2)");
+	dbOperations.Add("insert MyTable values ('new value',3)");
 
-    List<string> dbOperations = new List<string>();
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
-    dbOperations.Add("insert MyTable values ('new value',1)");
-    dbOperations.Add("insert MyTable values ('new value',2)");
-    dbOperations.Add("insert MyTable values ('new value',3)");
+Le code ADO.NET suivant exécute ces opérations de manière séquentielle.
 
-The following ADO.NET code sequentially performs these operations.
+	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+	{
+	    conn.Open();
+	
+	    foreach(string commandString in dbOperations)
+	    {
+	        SqlCommand cmd = new SqlCommand(commandString, conn);
+	        cmd.ExecuteNonQuery();                   
+	    }
+	}
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        conn.Open();
-    
-        foreach(string commandString in dbOperations)
-        {
-            SqlCommand cmd = new SqlCommand(commandString, conn);
-            cmd.ExecuteNonQuery();                   
-        }
-    }
+La meilleure façon d’optimiser ce code consiste à implémenter une forme de traitement par lots de ces appels côté client. Mais il existe un moyen simple d’augmenter les performances de ce code en encapsulant simplement la séquence d’appels dans une transaction. Voici le même code qui utilise une transaction.
 
-The best way to optimize this code is to implement some form of client-side batching of these calls. But there is a simple way to increase the performance of this code by simply wrapping the sequence of calls in a transaction. Here is the same code that uses a transaction.
+	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+	{
+	    conn.Open();
+	    SqlTransaction transaction = conn.BeginTransaction();
+	
+	    foreach (string commandString in dbOperations)
+	    {
+	        SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
+	        cmd.ExecuteNonQuery();
+	    }
+	
+	    transaction.Commit();
+	}
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        conn.Open();
-        SqlTransaction transaction = conn.BeginTransaction();
-    
-        foreach (string commandString in dbOperations)
-        {
-            SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
-            cmd.ExecuteNonQuery();
-        }
-    
-        transaction.Commit();
-    }
+Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](https://msdn.microsoft.com/library/ms186259.aspx), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lots pour les écritures effectuées dans le journal des transactions du serveur.
 
-Transactions are actually being used in both of these examples. In the first example, each individual call is an implicit transaction. In the second example, an explicit transaction wraps all of the calls. Per the documentation for the [write-ahead transaction log](https://msdn.microsoft.com/library/ms186259.aspx), log records are flushed to the disk when the transaction commits. So by including more calls in a transaction, the write to the transaction log can delay until the transaction is committed. In effect, you are enabling batching for the writes to the server’s transaction log.
+Le tableau suivant présente quelques résultats des tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (à l’ouest des États-Unis). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
 
-The following table shows some ad-hoc testing results. The tests performed the same sequential inserts with and without transactions. For more perspective, the first set of tests ran remotely from a laptop to the database in Microsoft Azure. The second set of tests ran from a cloud service and database that both resided within the same Microsoft Azure datacenter (West US). The following table shows the duration in milliseconds of sequential inserts with and without transactions.
+**Local vers Azure** :
 
-**On-Premises to Azure**:
-
-| Operations | No Transaction (ms) | Transaction (ms) |
+| Opérations | Sans transaction (ms) | Avec transaction (ms) |
 |---|---|---|
 | 1 | 130 | 402 |
-| 10 | 1208 | 1226 |
-| 100 | 12662 | 10395 |
-| 1000 | 128852 | 102917 |
+| 10 | 1 208 | 1 226 |
+| 100 | 12 662 | 10 395 |
+| 1 000 | 128 852 | 102 917 |
 
 
-**Azure to Azure (same datacenter)**:
+**Azure vers Azure (même centre de données)** :
 
-| Operations | No Transaction (ms) | Transaction (ms) |
+| Opérations | Sans transaction (ms) | Avec transaction (ms) |
 |---|---|---|
 | 1 | 21 | 26 |
 | 10 | 220 | 56 |
-| 100 | 2145 | 341 |
-| 1000 | 21479 | 2756 |
+| 100 | 2 145 | 341 |
+| 1 000 | 21 479 | 2 756 |
 
->[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
-Based on the previous test results, wrapping a single operation in a transaction actually decreases performance. But as you increase the number of operations within a single transaction, the performance improvement becomes more marked. The performance difference is also more noticeable when all operations occur within the Microsoft Azure datacenter. The increased latency of using SQL Database from outside the Microsoft Azure datacenter overshadows the performance gain of using transactions.
+Compte tenu des résultats des tests précédents, l’encapsulation d’une seule opération dans une transaction a réellement pour effet de réduire les performances. Mais lorsque vous augmentez le nombre d’opérations dans une même transaction, vous obtenez une amélioration de performances plus marquée. La différence de performances est également plus manifeste lorsque toutes les opérations interviennent au sein du centre de données Microsoft Azure. L’augmentation du phénomène de latence associée à l’utilisation de la base de données SQL à l’extérieur du centre de données Microsoft Azure masque en partie le gain de performances lié à l’utilisation de transactions.
 
-Although the use of transactions can increase performance, continue to [observe best practices for transactions and connections](https://msdn.microsoft.com/library/ms187484.aspx). Keep the transaction as short as possible, and close the database connection after the work completes. The using statement in the previous example assures that the connection is closed when the subsequent code block completes.
+Bien que l’utilisation de transactions puisse augmenter les performances, nous vous invitons à [respecter les meilleures pratiques en matière de connexions et de transactions](https://msdn.microsoft.com/library/ms187484.aspx). Utilisez la transaction la plus courte possible et fermez la connexion à la base de données une fois la tâche terminée. L’instruction using dans l’exemple précédent garantit la fermeture de la connexion à la fin de l’exécution du bloc de code suivant.
 
-The previous example demonstrates that you can add a local transaction to any ADO.NET code with two lines. Transactions offer a quick way to improve the performance of code that makes sequential insert, update, and delete operations. However, for the fastest performance, consider changing the code further to take advantage of client-side batching, such as table-valued parameters.
+L’exemple précédent montre que vous pouvez ajouter une transaction locale au code ADO.NET avec deux lignes. Les transactions offrent un moyen rapide d’améliorer les performances du code qui génère les opérations d’insertion, de mise à jour et de suppression séquentielles. Toutefois, pour de meilleures performances, vous devriez apporter d’autres modifications au code afin de tirer parti des avantages du traitement par lots côté client, tels que les paramètres table.
 
-For more information about transactions in ADO.NET, see [Local Transactions in ADO.NET](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx).
+Pour plus d’informations sur les transactions dans ADO.NET, consultez [Transactions locales dans ADO.NET](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx).
 
-### <a name="table-valued-parameters"></a>Table-valued parameters
-Table-valued parameters support user-defined table types as parameters in Transact-SQL statements, stored procedures, and functions. This client-side batching technique allows you to send multiple rows of data within the table-valued parameter. To use table-valued parameters, first define a table type. The following Transact-SQL statement creates a table type named **MyTableType**.
+### Paramètres table
+Les paramètres table prennent en charge les types de tables définis par l’utilisateur en tant que paramètres dans les instructions Transact-SQL, en tant que procédures stockées et en tant que fonctions. Cette technique de traitement par lots côté client vous permet d’envoyer plusieurs lignes de données dans le paramètre table. Pour utiliser les paramètres table, commencez par définir un type de table. L’instruction Transact-SQL suivante crée un type de table nommé **MyTableType**.
 
-    CREATE TYPE MyTableType AS TABLE 
-    ( mytext TEXT,
-      num INT );
+	CREATE TYPE MyTableType AS TABLE 
+	( mytext TEXT,
+	  num INT );
  
 
-In code, you create a **DataTable** with the exact same names and types of the table type. Pass this **DataTable** in a parameter in a text query or stored procedure call. The following example shows this technique:
+Dans le code, vous créez un **DataTable** comportant exactement les mêmes noms et types que le type de table. Transférez ce **DataTable** dans un paramètre via une requête texte ou un appel de procédure stockée. L’exemple ci-après illustre cette technique :
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        connection.Open();
-    
-        DataTable table = new DataTable();
-        // Add columns and rows. The following is a simple example.
-        table.Columns.Add("mytext", typeof(string));
-        table.Columns.Add("num", typeof(int));    
-        for (var i = 0; i < 10; i++)
-        {
-            table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
-        }
-    
-        SqlCommand cmd = new SqlCommand(
-            "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
-            connection);
-                    
-        cmd.Parameters.Add(
-            new SqlParameter()
-            {
-                ParameterName = "@TestTvp",
-                SqlDbType = SqlDbType.Structured,
-                TypeName = "MyTableType",
-                Value = table,
-            });
-    
-        cmd.ExecuteNonQuery();
-    }
+	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+	{
+	    connection.Open();
+	
+	    DataTable table = new DataTable();
+	    // Add columns and rows. The following is a simple example.
+	    table.Columns.Add("mytext", typeof(string));
+	    table.Columns.Add("num", typeof(int));    
+	    for (var i = 0; i < 10; i++)
+	    {
+	        table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
+	    }
+	
+	    SqlCommand cmd = new SqlCommand(
+	        "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
+	        connection);
+	                
+	    cmd.Parameters.Add(
+	        new SqlParameter()
+	        {
+	            ParameterName = "@TestTvp",
+	            SqlDbType = SqlDbType.Structured,
+	            TypeName = "MyTableType",
+	            Value = table,
+	        });
+	
+	    cmd.ExecuteNonQuery();
+	}
 
-In the previous example, the **SqlCommand** object inserts rows from a table-valued parameter, **@TestTvp**. The previously created **DataTable** object is assigned to this parameter with the **SqlCommand.Parameters.Add** method. Batching the inserts in one call significantly increases the performance over sequential inserts.
+Dans l’exemple précédent, l’objet **SqlCommand** insère des lignes à partir d’un paramètre table, **@TestTvp**. L’objet **DataTable** créé précédemment est assigné à ce paramètre à l’aide de la méthode **SqlCommand.Parameters.Add**. Le traitement par lots des insertions dans un seul appel augmente considérablement les performances sur les insertions séquentielles.
 
-To improve the previous example further, use a stored procedure instead of a text-based command. The following Transact-SQL command creates a stored procedure that takes the **SimpleTestTableType** table-valued parameter.
+Pour améliorer l’exemple précédent, utilisez une procédure stockée au lieu d’une commande de texte. La commande Transact-SQL suivante crée une procédure stockée qui utilise le paramètre table **SimpleTestTableType**.
 
-    CREATE PROCEDURE [dbo].[sp_InsertRows] 
-    @TestTvp as MyTableType READONLY
-    AS
-    BEGIN
-    INSERT INTO MyTable(mytext, num) 
-    SELECT mytext, num FROM @TestTvp
-    END
-    GO
+	CREATE PROCEDURE [dbo].[sp_InsertRows] 
+	@TestTvp as MyTableType READONLY
+	AS
+	BEGIN
+	INSERT INTO MyTable(mytext, num) 
+	SELECT mytext, num FROM @TestTvp
+	END
+	GO
 
-Then change the **SqlCommand** object declaration in the previous code example to the following.
+Modifiez comme suit la déclaration d’objet **SqlCommand** dans l’exemple de code précédent.
 
-    SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
-    cmd.CommandType = CommandType.StoredProcedure;
+	SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
+	cmd.CommandType = CommandType.StoredProcedure;
 
-In most cases, table-valued parameters have equivalent or better performance than other batching techniques. Table-valued parameters are often preferable, because they are more flexible than other options. For example, other techniques, such as SQL bulk copy, only permit the insertion of new rows. But with table-valued parameters, you can use logic in the stored procedure to determine which rows are updates and which are inserts. The table type can also be modified to contain an “Operation” column that indicates whether the specified row should be inserted, updated, or deleted.
+Dans la plupart des cas, les paramètres table présentent des performances équivalentes ou supérieures à celles des autres techniques de traitement par lots. Les paramètres table sont souvent préférables car ils apportent davantage de flexibilité que les autres options. Par exemple, les autres techniques, telles que la copie en bloc SQL, autorisent uniquement l’insertion de nouvelles lignes. Mais avec les paramètres table, vous pouvez utiliser une logique dans la procédure stockée pour déterminer quelles lignes sont des mises à jour et quelles lignes sont des insertions. Le type de table peut aussi être modifié pour contenir une colonne « Opération » qui indique si la ligne spécifiée doit être insérée, mise à jour ou supprimée.
 
-The following table shows ad-hoc test results for the use of table-valued parameters in milliseconds.
+Le tableau suivant présente les résultats des tests ad hoc pour l’utilisation des paramètres table en millisecondes.
 
-| Operations | On-Premises to Azure (ms)  | Azure same datacenter (ms) |
+| Opérations | Local vers Azure (ms) | Azure (même centre de données) |
 |---|---|---|
 | 1 | 124 | 32 |
 | 10 | 131 | 25 |
 | 100 | 338 | 51 |
-| 1000 | 2615 | 382 |
-| 10000 | 23830 | 3586 |
+| 1 000 | 2 615 | 382 |
+| 10000 | 23 830 | 3 586 |
 
->[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
-The performance gain from batching is immediately apparent. In the previous sequential test, 1000 operations took 129 seconds outside the datacenter and 21 seconds from within the datacenter. But with table-valued parameters, 1000 operations take only 2.6 seconds outside the datacenter and 0.4 seconds within the datacenter.
+Le gain de performances associé au traitement par lots est immédiatement évident. Dans le test séquentiel précédent, 1 000 opérations prenaient 129 secondes à l’extérieur du centre de données et 21 secondes à l’intérieur du centre de données. Mais avec des paramètres table, ces 1 000 opérations ne prennent que 2,6 secondes à l’extérieur du centre de données et 0,4 seconde à l’intérieur du centre de données.
 
-For more information on table-valued parameters, see [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
+Pour plus d’informations sur les paramètres table, consultez [Paramètres table](https://msdn.microsoft.com/library/bb510489.aspx).
 
-### <a name="sql-bulk-copy"></a>SQL bulk copy
-SQL bulk copy is another way to insert large amounts of data into a target database. .NET applications can use the **SqlBulkCopy** class to perform bulk insert operations. **SqlBulkCopy** is similar in function to the command-line tool, **Bcp.exe**, or the Transact-SQL statement, **BULK INSERT**. The following code example shows how to bulk copy the rows in the source **DataTable**, table, to the destination table in SQL Server, MyTable.
+### Copie en bloc SQL
+La copie en bloc SQL est une autre façon d’insérer de grandes quantités de données dans une base de données cible. Les applications .NET peuvent utiliser la classe **SqlBulkCopy** pour effectuer des opérations d’insertion en bloc. Le fonctionnement de la classe **SqlBulkCopy** est similaire à celui de l’outil de ligne de commande **Bcp.exe** ou de l’instruction Transact-SQL, **BULK INSERT**. L’exemple de code suivant montre comment copier en bloc les lignes de la table source **DataTable** dans la table de destination SQL Server, MyTable.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        connection.Open();
-    
-        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
-        {
-            bulkCopy.DestinationTableName = "MyTable";
-            bulkCopy.ColumnMappings.Add("mytext", "mytext");
-            bulkCopy.ColumnMappings.Add("num", "num");
-            bulkCopy.WriteToServer(table);
-        }
-    }
+	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+	{
+	    connection.Open();
+	
+	    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+	    {
+	        bulkCopy.DestinationTableName = "MyTable";
+	        bulkCopy.ColumnMappings.Add("mytext", "mytext");
+	        bulkCopy.ColumnMappings.Add("num", "num");
+	        bulkCopy.WriteToServer(table);
+	    }
+	}
 
-There are some cases where bulk copy is preferred over table-valued parameters. See the comparison table of Table-Valued parameters versus BULK INSERT operations in the topic [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
+Il existe quelques cas où la copie en bloc est préférable à l’utilisation des paramètres table. Consultez le tableau de comparaison des paramètres table aux opérations BULK INSERT dans la rubrique [Paramètres table](https://msdn.microsoft.com/library/bb510489.aspx).
 
-The following ad-hoc test results show the performance of batching with **SqlBulkCopy** in milliseconds.
+Les résultats des tests ad hoc suivants montrent les performances du traitement par lots avec **SqlBulkCopy** en millisecondes.
 
-| Operations | On-Premises to Azure (ms)  | Azure same datacenter (ms) |
+| Opérations | Local vers Azure (ms) | Azure (même centre de données) |
 |---|---|---|
 | 1 | 433 | 57 |
 | 10 | 441 | 32 |
 | 100 | 636 | 53 |
-| 1000 | 2535 | 341 |
-| 10000 | 21605 | 2737 |
+| 1 000 | 2 535 | 341 |
+| 10000 | 21 605 | 2 737 |
 
->[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
-In smaller batch sizes, the use table-valued parameters outperformed the **SqlBulkCopy** class. However, **SqlBulkCopy** performed 12–31% faster than table-valued parameters for the tests of 1,000 and 10,000 rows. Like table-valued parameters, **SqlBulkCopy** is a good option for batched inserts, especially when compared to the performance of non-batched operations.
+Dans les lots plus petits, l’utilisation des paramètres table a permis d’obtenir de meilleures performances que la classe **SqlBulkCopy**. Pour les tests sur 1 000 et 10 000 lignes en revanche, l’utilisation de **SqlBulkCopy** a affiché des performances 12 à 31 % plus rapides que les paramètres table. Comme les paramètres table, **SqlBulkCopy** est une bonne option pour les insertions par lots, en particulier comparativement aux performances des opérations non traitées par lots.
 
-For more information on bulk copy in ADO.NET, see [Bulk Copy Operations in SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
+Pour plus d’informations sur la copie en bloc dans ADO.NET, consultez [Opérations de copie en bloc dans SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
-### <a name="multiple-row-parameterized-insert-statements"></a>Multiple-row Parameterized INSERT statements
-One alternative for small batches is to construct a large parameterized INSERT statement that inserts multiple rows. The following code example demonstrates this technique.
+### Instructions INSERT paramétrables sur plusieurs lignes
+Une solution pour les petits lots consiste à construire une grande instruction INSERT paramétrable permettant d’insérer plusieurs lignes. L’exemple de code suivant illustre cette technique.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        connection.Open();
-    
-        string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
-            "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
-    
-        SqlCommand cmd = new SqlCommand(insertCommand, connection);
-    
-        for (int i = 1; i <= 10; i += 2)
-        {
-            cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
-            cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
-        }
-    
-        cmd.ExecuteNonQuery();
-    }
+	using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+	{
+	    connection.Open();
+	
+	    string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
+	        "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
+	
+	    SqlCommand cmd = new SqlCommand(insertCommand, connection);
+	
+	    for (int i = 1; i <= 10; i += 2)
+	    {
+	        cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
+	        cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
+	    }
+	
+	    cmd.ExecuteNonQuery();
+	}
  
 
-This example is meant to show the basic concept. A more realistic scenario would loop through the required entities to construct the query string and the command parameters simultaneously. You are limited to a total of 2100 query parameters, so this limits the total number of rows that can be processed in this manner.
+Cet exemple vise à illustrer le concept de base. Un scénario plus réaliste effectuerait une boucle via les entités nécessaires à la construction simultanée de la chaîne de requête et des paramètres de commande. Vous êtes limité à un total de paramètres de 2 100 paramètres de requête, ce qui limite le nombre total de lignes pouvant être traitées de cette manière.
 
-The following ad-hoc test results show the performance of this type of insert statement in milliseconds.
+Les résultats des tests ad hoc suivants montrent les performances de ce type d’instruction d’insertion en millisecondes.
 
-| Operations | Table-valued parameters (ms) | Single-statement INSERT (ms) |
+| Opérations | Paramètres table (ms) | Instruction INSERT unique (ms) |
 |---|---|---|
 | 1 | 32 | 20 |
 | 10 | 30 | 25 |
 | 100 | 33 | 51 |
 
->[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
-This approach can be slightly faster for batches that are less than 100 rows. Although the improvement is small, this technique is another option that might work well in your specific application scenario.
+Cette approche peut être légèrement plus rapide pour les lots comportant moins de 100 lignes. Bien que l’amélioration soit négligeable, cette technique constitue une autre solution potentiellement efficace dans votre scénario d’application spécifique.
 
-### <a name="dataadapter"></a>DataAdapter
-The **DataAdapter** class allows you to modify a **DataSet** object and then submit the changes as INSERT, UPDATE, and DELETE operations. If you are using the **DataAdapter** in this manner, it is important to note that separate calls are made for each distinct operation. To improve performance, use the **UpdateBatchSize** property to the number of operations that should be batched at a time. For more information, see [Performing Batch Operations Using DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
+### DataAdapter
+La classe **DataAdapter** vous permet de modifier un objet **DataSet** puis de soumettre les modifications en tant qu’opérations INSERT, UPDATE et DELETE. Si vous utilisez la classe **DataAdapter** de cette manière, il est important de noter que les appels distincts sont effectués pour chaque opération distincte. Pour améliorer les performances, utilisez la propriété **UpdateBatchSize** sur le nombre d’opérations devant être traitées par lot simultanément. Pour plus d’informations, consultez [Exécution de traitements par lots à l’aide de DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
-### <a name="entity-framework"></a>Entity framework
-Entity Framework does not currently support batching. Different developers in the community have attempted to demonstrate workarounds, such as override the **SaveChanges** method. But the solutions are typically complex and customized to the application and data model. The Entity Framework codeplex project currently has a discussion page on this feature request. To view this discussion, see [Design Meeting Notes – August 2, 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+### Entity Framework
+Entity Framework ne prend pas actuellement en charge le traitement par lots. Différents développeurs de la communauté ont tenté de démontrer des solutions de contournement, telles que la substitution de la méthode **SaveChanges**. Mais les solutions sont généralement complexes et adaptées à l’application et au modèle de données. Le projet codeplex Entity Framework possède actuellement une page de discussion sur cette demande de fonctionnalité. Pour afficher cette discussion, consultez les [Notes de réunion de conception du 2 août 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
-### <a name="xml"></a>XML
-For completeness, we feel that it is important to talk about XML as a batching strategy. However, the use of XML has no advantages over other methods and several disadvantages. The approach is similar to table-valued parameters, but an XML file or string is passed to a stored procedure instead of a user-defined table. The stored procedure parses the commands in the stored procedure.
+### XML
+Par souci d’exhaustivité, nous estimons qu’il est important de considérer XML comme une stratégie de traitement par lots. Toutefois, l’utilisation du langage XML n’apporte aucun avantage par rapport aux autres méthodes et présente même plusieurs inconvénients. L’approche est similaire aux paramètres table, à ceci près qu’un fichier ou une chaîne XML, et non une table définie par l’utilisateur, est transféré vers une procédure stockée. La procédure stockée analyse les commandes dans la procédure stockée.
 
-There are several disadvantages to this approach:
+Cette approche présente plusieurs inconvénients :
 
-- Working with XML can be cumbersome and error prone.
-- Parsing the XML on the database can be CPU-intensive.
-- In most cases, this method is slower than table-valued parameters.
+- L’utilisation de XML peut s’avérer fastidieuse et sujette aux erreurs.
+- L’analyse du fichier ou de la chaîne XML sur la base de données peut être gourmande en ressources processeur.
+- Dans la plupart des cas, cette méthode est plus lente que celle des paramètres table.
 
-For these reasons, the use of XML for batch queries is not recommended.
+Pour ces raisons, l’utilisation de XML pour les requêtes par lots n’est pas recommandée.
 
-## <a name="batching-considerations"></a>Batching considerations
-The following sections provide more guidance for the use of batching in SQL Database applications.
+## Remarques relatives au traitement par lots
+Les sections suivantes fournissent davantage de conseils sur l’utilisation du traitement par lots dans les applications de base de données SQL.
 
-### <a name="tradeoffs"></a>Tradeoffs
-Depending on your architecture, batching can involve a tradeoff between performance and resiliency. For example, consider the scenario where your role unexpectedly goes down. If you lose one row of data, the impact is smaller than the impact of losing a large batch of unsubmitted rows. There is a greater risk when you buffer rows before sending them to the database in a specified time window.
+### Compromis
+En fonction de votre architecture, le traitement par lots peut vous obliger à faire un compromis entre performances et résilience. Par exemple, pensez à une situation où votre rôle rencontre une défaillance inattendue. Si vous perdez une ligne de données, l’impact sera moins important que celui associé à la perte d’un grand lot de lignes qui n’ont pas été envoyées. Le risque est d’autant plus élevé lorsque vous placez les lignes dans la mémoire tampon avant de les envoyer à la base de données dans un laps de temps spécifié.
 
-Because of this tradeoff, evaluate the type of operations that you batch. Batch more aggressively (larger batches and longer time windows) with data that is less critical.
+Ce compromis doit vous amener à évaluer le type d’opérations que vous souhaitez traiter par lots. Optez pour une approche plus agressive (lots plus volumineux et intervalles plus longs) pour les données moins critiques.
 
-### <a name="batch-size"></a>Batch size
-In our tests, there was typically no advantage to breaking large batches into smaller chunks. In fact, this subdivision often resulted in slower performance than submitting a single large batch. For example, consider a scenario where you want to insert 1000 rows. The following table shows how long it takes to use table-valued parameters to insert 1000 rows when divided into smaller batches.
+### Taille du lot
+Dans nos tests, il n’y avait généralement aucun avantage à fractionner les lots volumineux en plusieurs petits segments. En fait, cette sous-division s’est souvent traduite par des performances plus lentes que celles obtenues avec l’envoi d’un seul lot plus volumineux. Imaginez par exemple un scénario où vous souhaitez insérer 1 000 lignes. Le tableau suivant indique la durée nécessaire aux paramètres table pour insérer 1 000 lignes divisées en lots plus petits.
 
-| Batch size | Iterations | Table-valued parameters (ms) |
+| Taille du lot | Itérations | Paramètres table (ms) |
 | -------- | --- | --- |
-| 1000 | 1 | 347 |
+| 1 000 | 1 | 347 |
 | 500 | 2 | 355 |
 | 100 | 10 | 465 |
 | 50 | 20 | 630 |
 
->[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
-You can see that the best performance for 1000 rows is to submit them all at once. In other tests (not shown here) there was a small performance gain to break a 10000 row batch into two batches of 5000. But the table schema for these tests is relatively simple, so you should perform tests on your specific data and batch sizes to verify these findings.
+Vous pouvez voir que, pour 1 000 lignes, on obtient les meilleures performances en les soumettant toutes en même temps. D’autres tests (qui ne sont pas présentés ici) ont révélé un faible gain de performances en divisant un lot de 10 000 lignes en deux lots de 5 000. Mais le schéma de table pour ces tests étant relativement simple, vous devriez effectuer les tests sur vos données et tailles de lot spécifiques afin de vérifier ces résultats.
 
-Another factor to consider is that if the total batch becomes too large, SQL Database might throttle and refuse to commit the batch. For the best results, test your specific scenario to determine if there is an ideal batch size. Make the batch size configurable at runtime to enable quick adjustments based on performance or errors.
+Autre facteur à prendre en compte : si le lot total devient trop volumineux, la base de données SQL risque de subir des limitations et de refuser de valider le lot. Pour de meilleurs résultats, testez votre scénario spécifique afin de déterminer s’il comporte une taille de lot idéale. Faites en sorte que la taille de lot puisse être configurée pendant l’exécution afin de permettre des modifications rapides compte tenu des performances ou des erreurs obtenues.
 
-Finally, balance the size of the batch with the risks associated with batching. If there are transient errors or the role fails, consider the consequences of retrying the operation or of losing the data in the batch.
+Enfin, équilibrez la taille du lot en fonction des risques liés au traitement par lots. Si vous obtenez des erreurs temporaires ou si le rôle échoue, tenez compte des conséquences associées à une nouvelle tentative de l’opération ou à la perte de données dans le lot.
 
-### <a name="parallel-processing"></a>Parallel processing
-What if you took the approach of reducing the batch size but used multiple threads to execute the work? Again, our tests showed that several smaller multithreaded batches typically performed worse than a single larger batch. The following test attempts to insert 1000 rows in one or more parallel batches. This test shows how more simultaneous batches actually decreased performance.
+### Traitement en parallèle
+Que se passe-t-il si vous avez adopté l’approche consistant à réduire la taille de lot mais que vous avez utilisé plusieurs threads pour exécuter la tâche ? Là encore, nos tests ont montré que plusieurs petits lots multithreads produisaient de moins bonnes performances que celles obtenues avec un seul lot plus volumineux. Le test suivant tente d’insérer 1 000 lignes dans un ou plusieurs lots parallèles. Il montre comment un plus grand nombre de lots simultanés affecte les performances.
 
-| Batch size [Iterations] | Two threads (ms) | Four threads (ms) | Six threads (ms) |
+| Taille de lot [itérations] | Deux threads (ms) | Quatre threads (ms) | Six threads (ms) |
 | -------- | --- | --- | --- |
-| 1000 [1] | 277 | 315 | 266 |
+| 1 000 [1] | 277 | 315 | 266 |
 | 500 [2] | 548 | 278 | 256 |
 | 250 [4] | 405 | 329 | 265 |
 | 100 [10] | 488 | 439 | 391 |
 
->[AZURE.NOTE] Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
 
-There are several potential reasons for the degradation in performance due to parallelism:
+Plusieurs raisons peuvent potentiellement expliquer une dégradation des performances liées au parallélisme :
 
-- There are multiple simultaneous network calls instead of one.
-- Multiple operations against a single table can result in contention and blocking.
-- There are overheads associated with multithreading.
-- The expense of opening multiple connections outweighs the benefit of parallel processing.
+- Exécution de plusieurs appels réseau simultanés au lieu d’un seul.
+- Plusieurs opérations sur une seule table peuvent entraîner une contention et un blocage.
+- Surcharges associées multithreading.
+- Avantage du traitement parallèle atténué par le coût associé à l’ouverture de plusieurs connexions.
 
-If you target different tables or databases, it is possible to see some performance gain with this strategy. Database sharding or federations would be a scenario for this approach. Sharding uses multiple databases and routes different data to each database. If each small batch is going to a different database, then performing the operations in parallel can be more efficient. However, the performance gain is not significant enough to use as the basis for a decision to use database sharding in your solution.
+Si vous ciblez différentes tables ou bases de données, vous pouvez constater un gain de performances grâce à cette stratégie. Le partitionnement ou les fédérations de bases de données constitue un scénario possible pour une telle approche. Le partitionnement utilise plusieurs bases de données et achemine des données différentes à chaque base de données. Si chaque petit lot est transmis à une base de données différente, l’exécution d’opérations en parallèle peut gagner en efficacité. Mais le gain de performances n’est pas assez important pour influer sur la décision d’utiliser ou non le partitionnement de base de données dans votre solution.
 
-In some designs, parallel execution of smaller batches can result in improved throughput of requests in a system under load. In this case, even though it is quicker to process a single larger batch, processing multiple batches in parallel might be more efficient.
+Dans certains modèles, l’exécution parallèle de lots plus petits peut entraîner une amélioration du débit des demandes dans un système sous charge. Dans ce cas, même s’il est plus rapide de traiter un seul lot plus volumineux, le traitement de plusieurs lots en parallèle peut se révéler plus efficace.
 
-If you do use parallel execution, consider controlling the maximum number of worker threads. A smaller number might result in less contention and a faster execution time. Also, consider the additional load that this places on the target database both in connections and transactions.
+Si vous utilisez une exécution parallèle, veillez à contrôler le maximum de threads de travail. Un plus petit nombre peut réduire la contention et accélérer la durée d’exécution. Tenez également compte de la charge supplémentaire qui pèsera sur la base de données cible tant au niveau des connexions que des transactions.
 
-### <a name="related-performance-factors"></a>Related performance factors
-Typical guidance on database performance also affects batching. For example, insert performance is reduced for tables that have a large primary key or many nonclustered indexes.
+### Facteurs de performances associés
+Les conseils classiques sur les performances de base de données s’appliquent également au traitement par lots. Par exemple, les performances d’insertion sont réduites pour les tables qui ont une grande clé primaire ou de nombreux index non ordonnés en clusters.
 
-If table-valued parameters use a stored procedure, you can use the command **SET NOCOUNT ON** at the beginning of the procedure. This statement suppresses the return of the count of the affected rows in the procedure. However, in our tests, the use of **SET NOCOUNT ON** either had no effect or decreased performance. The test stored procedure was simple with a single **INSERT** command from the table-valued parameter. It is possible that more complex stored procedures would benefit from this statement. But don’t assume that adding **SET NOCOUNT ON** to your stored procedure automatically improves performance. To understand the effect, test your stored procedure with and without the **SET NOCOUNT ON** statement.
+Si les paramètres table utilisent une procédure stockée, vous pouvez utiliser la commande **SET NOCOUNT ON** au début de la procédure. Cette instruction supprime le retour du nombre de lignes affectées dans la procédure. Toutefois, dans nos tests, l’utilisation de **SET NOCOUNT ON** n’avait aucun effet sur les performances, voire les dégradait. La procédure stockée de test reposait simplement sur l’exécution d’une seule commande **INSERT** à partir du paramètre table. Il est possible que les procédures stockées plus complexes puissent bénéficier de cette instruction. Mais ne partez pas du principe que l’ajout de la commande **SET NOCOUNT ON** à votre procédure stockée améliorera systématiquement les performances. Pour en comprendre l’impact, testez votre procédure stockée avec et sans l’instruction **SET NOCOUNT ON**.
 
-## <a name="batching-scenarios"></a>Batching scenarios
-The following sections describe how to use table-valued parameters in three application scenarios. The first scenario shows how buffering and batching can work together. The second scenario improves performance by performing master-detail operations in a single stored procedure call. The final scenario shows how to use table-valued parameters in an “UPSERT” operation.
+## Scénarios de traitement par lots
+Les sections suivantes expliquent comment utiliser les paramètres table dans trois scénarios d’application. Le premier scénario montre comment utiliser une mise en mémoire tampon parallèlement à un traitement par lots. Le deuxième scénario améliore les performances en exécutant des opérations maître/détail dans un appel de procédure stockée unique. Le dernier scénario montre comment utiliser des paramètres table dans une opération « UPSERT ».
 
-### <a name="buffering"></a>Buffering
-Although there are some scenarios that are obvious candidate for batching, there are many scenarios that could take advantage of batching by delayed processing. However, delayed processing also carries a greater risk that the data is lost in the event of an unexpected failure. It is important to understand this risk and consider the consequences.
+### Mise en mémoire tampon
+Bien que certains scénarios apparaissent comme des candidats évidents pour le traitement par lots, il existe de nombreux scénarios qui peuvent tirer parti des avantages d’un traitement par lots différé. Ce type de traitement induit toutefois un risque plus élevé de perte des données en cas de défaillance inattendue. Il est important de comprendre ce risque et de prendre en compte ses conséquences.
 
-For example, consider a web application that tracks the navigation history of each user. On each page request, the application could make a database call to record the user’s page view. But higher performance and scalability can be achieved by buffering the users’ navigation activities and then sending this data to the database in batches. You can trigger the database update by elapsed time and/or buffer size. For example, a rule could specify that the batch should be processed after 20 seconds or when the buffer reaches 1000 items.
+Par exemple, considérez une application web qui assure le suivi de l’historique de navigation de chaque utilisateur. À chaque demande de page, l’application peut lancer un appel sur la base de données pour enregistrer la page consultée par l’utilisateur. Mais il est possible d’améliorer les performances et l’évolutivité en plaçant dans la mémoire tampon les activités de navigation des utilisateurs puis en envoyant ces données par lots à la base de données. Vous pouvez déclencher la mise à jour de la base de données par temps écoulé et/ou taille de mémoire tampon. Par exemple, une règle peut spécifier que le lot doit être traité après 20 secondes ou lorsque la mémoire tampon atteint 1 000 éléments.
 
-The following code example uses [Reactive Extensions - Rx](https://msdn.microsoft.com/data/gg577609) to process buffered events raised by a monitoring class. When the buffer fills or a timeout is reached, the batch of user data is sent to the database with a table-valued parameter.
+L’exemple de code suivant utilise les [Extensions réactives - Rx](https://msdn.microsoft.com/data/gg577609) pour traiter les événements mis en mémoire tampon déclenchés par une classe de surveillance. Lorsque la mémoire tampon est saturée ou qu’un délai d’attente est atteint, le lot de données utilisateur est envoyé à la base de données avec un paramètre table.
 
-The following NavHistoryData class models the user navigation details. It contains basic information such as the user identifier, the URL accessed, and the access time.
+La classe NavHistoryData suivante modélise les détails de la navigation utilisateur. Elle contient des informations de base, telles que l’identifiant utilisateur, l’URL consultée et l’heure d’accès.
 
-    public class NavHistoryData
-    {
-        public NavHistoryData(int userId, string url, DateTime accessTime)
-        { UserId = userId; URL = url; AccessTime = accessTime; }
-        public int UserId { get; set; }
-        public string URL { get; set; }
-        public DateTime AccessTime { get; set; }
-    }
+	public class NavHistoryData
+	{
+	    public NavHistoryData(int userId, string url, DateTime accessTime)
+	    { UserId = userId; URL = url; AccessTime = accessTime; }
+	    public int UserId { get; set; }
+	    public string URL { get; set; }
+	    public DateTime AccessTime { get; set; }
+	}
 
-The NavHistoryDataMonitor class is responsible for buffering the user navigation data to the database. It contains a method, RecordUserNavigationEntry, which responds by raising an **OnAdded** event. The following code shows the constructor logic that uses Rx to create an observable collection based on the event. It then subscribes to this observable collection with the Buffer method. The overload specifies that the buffer should be sent every 20 seconds or 1000 entries.
+La classe NavHistoryDataMonitor est responsable de la mise en mémoire tampon des données de navigation utilisateur sur la base de données. Elle contient une méthode appelée RecordUserNavigationEntry qui répond en déclenchant un événement **OnAdded**. Le code suivant illustre la logique de constructeur qui utilise Rx pour créer une collection observable selon l’événement. Il souscrit ensuite à cette collection observable avec la méthode de la mémoire tampon. La surcharge spécifie que la mémoire tampon doit être envoyée toutes les 20 secondes ou toutes les 1 000 entrées.
 
-    public NavHistoryDataMonitor()
-    {
-        var observableData =
-            Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
-    
-        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
-    }
+	public NavHistoryDataMonitor()
+	{
+	    var observableData =
+	        Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
+	
+	    observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+	}
 
-The handler converts all of the buffered items into a table-valued type and then passes this type to a stored procedure that processes the batch. The following code shows the complete definition for both the NavHistoryDataEventArgs and the NavHistoryDataMonitor classes.
+Le gestionnaire convertit tous les éléments mis en mémoire tampon en type de paramètre table et transfère ensuite ce type à une procédure stockée chargée de traiter le lot. Le code suivant illustre la définition complète des classes NavHistoryDataEventArgs et NavHistoryDataMonitor.
 
-    public class NavHistoryDataEventArgs : System.EventArgs
-    {
-        public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
-        public NavHistoryData Data { get; set; }
-    }
-    
-    public class NavHistoryDataMonitor
-    {
-        public event EventHandler<NavHistoryDataEventArgs> OnAdded;
-    
-        public NavHistoryDataMonitor()
-        {
-            var observableData =
-                Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
-    
-            observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
-        }
-    
-        public void RecordUserNavigationEntry(NavHistoryData data)
-        {    
-            if (OnAdded != null)
-                OnAdded(this, new NavHistoryDataEventArgs(data));
-        }
-    
-        protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
-        {
-            DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
-            navHistoryBatch.Columns.Add("UserId", typeof(int));
-            navHistoryBatch.Columns.Add("URL", typeof(string));
-            navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
-            foreach (EventPattern<NavHistoryDataEventArgs> item in items)
-            {
-                NavHistoryData data = item.EventArgs.Data;
-                navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
-            }
-    
-            using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-            {
-                connection.Open();
-    
-                SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-    
-                cmd.Parameters.Add(
-                    new SqlParameter()
-                    {
-                        ParameterName = "@NavHistoryBatch",
-                        SqlDbType = SqlDbType.Structured,
-                        TypeName = "NavigationHistoryTableType",
-                        Value = navHistoryBatch,
-                    });
-    
-                cmd.ExecuteNonQuery();
-            }
-        }
-    }
+	public class NavHistoryDataEventArgs : System.EventArgs
+	{
+	    public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
+	    public NavHistoryData Data { get; set; }
+	}
+	
+	public class NavHistoryDataMonitor
+	{
+	    public event EventHandler<NavHistoryDataEventArgs> OnAdded;
+	
+	    public NavHistoryDataMonitor()
+	    {
+	        var observableData =
+	            Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
+	
+	        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+	    }
+	
+	    public void RecordUserNavigationEntry(NavHistoryData data)
+	    {    
+	        if (OnAdded != null)
+	            OnAdded(this, new NavHistoryDataEventArgs(data));
+	    }
+	
+	    protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
+	    {
+	        DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
+	        navHistoryBatch.Columns.Add("UserId", typeof(int));
+	        navHistoryBatch.Columns.Add("URL", typeof(string));
+	        navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
+	        foreach (EventPattern<NavHistoryDataEventArgs> item in items)
+	        {
+	            NavHistoryData data = item.EventArgs.Data;
+	            navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
+	        }
+	
+	        using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+	        {
+	            connection.Open();
+	
+	            SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
+	            cmd.CommandType = CommandType.StoredProcedure;
+	
+	            cmd.Parameters.Add(
+	                new SqlParameter()
+	                {
+	                    ParameterName = "@NavHistoryBatch",
+	                    SqlDbType = SqlDbType.Structured,
+	                    TypeName = "NavigationHistoryTableType",
+	                    Value = navHistoryBatch,
+	                });
+	
+	            cmd.ExecuteNonQuery();
+	        }
+	    }
+	}
 
-To use this buffering class, the application creates a static NavHistoryDataMonitor object. Each time a user accesses a page, the application calls the NavHistoryDataMonitor.RecordUserNavigationEntry method. The buffering logic proceeds to take care of sending these entries to the database in batches.
+Pour utiliser cette classe de mise en mémoire tampon, l’application crée un objet NavHistoryDataMonitor statique. À chaque fois qu’un utilisateur accède à une page, l’application appelle la méthode NavHistoryDataMonitor.RecordUserNavigationEntry. La logique de mise en mémoire tampon se poursuit pour envoyer ces entrées à la base de données sous forme de lots.
 
-### <a name="master-detail"></a>Master detail
-Table-valued parameters are useful for simple INSERT scenarios. However, it can be more challenging to batch inserts that involve more than one table. The “master/detail” scenario is a good example. The master table identifies the primary entity. One or more detail tables store more data about the entity. In this scenario, foreign key relationships enforce the relationship of details to a unique master entity. Consider a simplified version of a PurchaseOrder table and its associated OrderDetail table. The following Transact-SQL creates the PurchaseOrder table with four columns: OrderID, OrderDate, CustomerID, and Status.
+### Maître/détail
+Les paramètres table sont utiles pour les scénarios INSERT simples. Il peut toutefois être plus difficile de traiter par lots des insertions qui impliquent plusieurs tables. Le scénario « maître/détail » en est un bon exemple. La table maître identifie l’entité principale. Une ou plusieurs tables détail stockent des données sur l’entité. Dans ce scénario, les relations de clés étrangères imposent la relation de détails à une seule entité maître. Imaginez une version simplifiée d’une table PurchaseOrder et de sa table OrderDetail associée. L’instruction Transact-SQL suivante crée la table PurchaseOrder avec quatre colonnes : OrderID, OrderDate, CustomerID et Status.
 
-    CREATE TABLE [dbo].[PurchaseOrder](
-    [OrderID] [int] IDENTITY(1,1) NOT NULL,
-    [OrderDate] [datetime] NOT NULL,
-    [CustomerID] [int] NOT NULL,
-    [Status] [nvarchar](50) NOT NULL,
-     CONSTRAINT [PrimaryKey_PurchaseOrder] 
-    PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
+	CREATE TABLE [dbo].[PurchaseOrder](
+	[OrderID] [int] IDENTITY(1,1) NOT NULL,
+	[OrderDate] [datetime] NOT NULL,
+	[CustomerID] [int] NOT NULL,
+	[Status] [nvarchar](50) NOT NULL,
+	 CONSTRAINT [PrimaryKey_PurchaseOrder] 
+	PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 
-Each order contains one or more product purchases. This information is captured in the PurchaseOrderDetail table. The following Transact-SQL creates the PurchaseOrderDetail table with five columns: OrderID, OrderDetailID, ProductID, UnitPrice, and OrderQty.
+Chaque commande contient un ou plusieurs achats de produits. Ces informations sont recueillies dans la table PurchaseOrderDetail. L’instruction Transact-SQL suivante crée la table PurchaseOrderDetail avec cinq colonnes : OrderID, OrderDetailID, ProductID, UnitPrice et OrderQty.
 
-    CREATE TABLE [dbo].[PurchaseOrderDetail](
-    [OrderID] [int] NOT NULL,
-    [OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
-    [ProductID] [int] NOT NULL,
-    [UnitPrice] [money] NULL,
-    [OrderQty] [smallint] NULL,
-     CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
-    ( [OrderID] ASC, [OrderDetailID] ASC ))
+	CREATE TABLE [dbo].[PurchaseOrderDetail](
+	[OrderID] [int] NOT NULL,
+	[OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductID] [int] NOT NULL,
+	[UnitPrice] [money] NULL,
+	[OrderQty] [smallint] NULL,
+	 CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
+	( [OrderID] ASC, [OrderDetailID] ASC ))
 
-The OrderID column in the PurchaseOrderDetail table must reference an order from the PurchaseOrder table. The following definition of a foreign key enforces this constraint.
+La colonne OrderID de la table PurchaseOrderDetail doit faire référence à une commande de la table PurchaseOrder. La définition suivante d’une clé étrangère applique cette contrainte.
 
-    ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
-    CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
-    REFERENCES [dbo].[PurchaseOrder] ([OrderID])
+	ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
+	CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
+	REFERENCES [dbo].[PurchaseOrder] ([OrderID])
 
-In order to use table-valued parameters, you must have one user-defined table type for each target table.
+Pour utiliser des paramètres table, vous devez disposer d’un type de table défini par l’utilisateur pour chaque table cible.
 
-    CREATE TYPE PurchaseOrderTableType AS TABLE 
-    ( OrderID INT,
-      OrderDate DATETIME,
-      CustomerID INT,
-      Status NVARCHAR(50) );
-    GO
-    
-    CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
-    ( OrderID INT,
-      ProductID INT,
-      UnitPrice MONEY,
-      OrderQty SMALLINT );
-    GO
+	CREATE TYPE PurchaseOrderTableType AS TABLE 
+	( OrderID INT,
+	  OrderDate DATETIME,
+	  CustomerID INT,
+	  Status NVARCHAR(50) );
+	GO
+	
+	CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
+	( OrderID INT,
+	  ProductID INT,
+	  UnitPrice MONEY,
+	  OrderQty SMALLINT );
+	GO
 
-Then define a stored procedure that accepts tables of these types. This procedure allows an application to locally batch a set of orders and order details in a single call. The following Transact-SQL provides the complete stored procedure declaration for this purchase order example.
+Vous devez ensuite définir ensuite une procédure stockée qui accepte les tables de ces types. Cette procédure permet à une application d’effectuer localement un traitement par lots sur un ensemble de commandes et de détails de commandes en un seul appel. L’instruction Transact-SQL suivante fournit la déclaration de procédure stockée complète pour cet exemple de bon de commande.
 
-    CREATE PROCEDURE sp_InsertOrdersBatch (
-    @orders as PurchaseOrderTableType READONLY,
-    @details as PurchaseOrderDetailTableType READONLY )
-    AS
-    SET NOCOUNT ON;
-    
-    -- Table that connects the order identifiers in the @orders
-    -- table with the actual order identifiers in the PurchaseOrder table
-    DECLARE @IdentityLink AS TABLE ( 
-    SubmittedKey int, 
-    ActualKey int, 
-    RowNumber int identity(1,1)
-    );
-     
-          -- Add new orders to the PurchaseOrder table, storing the actual
-    -- order identifiers in the @IdentityLink table   
-    INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
-    OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
-    SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
-    
-    -- Match the passed-in order identifiers with the actual identifiers
-    -- and complete the @IdentityLink table for use with inserting the details
-    WITH OrderedRows As (
-    SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
-    FROM @orders
-    )
-    UPDATE @IdentityLink SET SubmittedKey = M.OrderID
-    FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
-    
-    -- Insert the order details into the PurchaseOrderDetail table, 
-          -- using the actual order identifiers of the master table, PurchaseOrder
-    INSERT INTO PurchaseOrderDetail (
-    [OrderID],
-    [ProductID],
-    [UnitPrice],
-    [OrderQty] )
-    SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
-    FROM @details D
-    JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
-    GO
+	CREATE PROCEDURE sp_InsertOrdersBatch (
+	@orders as PurchaseOrderTableType READONLY,
+	@details as PurchaseOrderDetailTableType READONLY )
+	AS
+	SET NOCOUNT ON;
+	
+	-- Table that connects the order identifiers in the @orders
+	-- table with the actual order identifiers in the PurchaseOrder table
+	DECLARE @IdentityLink AS TABLE ( 
+	SubmittedKey int, 
+	ActualKey int, 
+	RowNumber int identity(1,1)
+	);
+	 
+	      -- Add new orders to the PurchaseOrder table, storing the actual
+	-- order identifiers in the @IdentityLink table   
+	INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
+	OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
+	SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
+	
+	-- Match the passed-in order identifiers with the actual identifiers
+	-- and complete the @IdentityLink table for use with inserting the details
+	WITH OrderedRows As (
+	SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
+	FROM @orders
+	)
+	UPDATE @IdentityLink SET SubmittedKey = M.OrderID
+	FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
+	
+	-- Insert the order details into the PurchaseOrderDetail table, 
+	      -- using the actual order identifiers of the master table, PurchaseOrder
+	INSERT INTO PurchaseOrderDetail (
+	[OrderID],
+	[ProductID],
+	[UnitPrice],
+	[OrderQty] )
+	SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
+	FROM @details D
+	JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
+	GO
 
-In this example, the locally defined @IdentityLink table stores the actual OrderID values from the newly inserted rows. These order identifiers are different from the temporary OrderID values in the @orders and @details table-valued parameters. For this reason, the @IdentityLink table then connects the OrderID values from the @orders parameter to the real OrderID values for the new rows in the PurchaseOrder table. After this step, the @IdentityLink table can facilitate inserting the order details with the actual OrderID that satisfies the foreign key constraint.
+Dans cet exemple, la table @IdentityLink définie localement stocke les valeurs OrderID réelles provenant des lignes nouvellement insérées. Ces identificateurs de commande sont différents des valeurs OrderID temporaires contenues dans les paramètres table @orders et @details. Pour cette raison, la table @IdentityLink relie ensuite les valeurs OrderID du paramètre @orders aux valeurs OrderID réelles pour les nouvelles lignes de la table PurchaseOrder. Après cette étape, la table @IdentityLink peut faciliter l’insertion des détails de la commande avec la valeur OrderID réelle qui satisfait à la contrainte de clé étrangère.
 
-This stored procedure can be used from code or from other Transact-SQL calls. See the table-valued parameters section of this paper for a code example. The following Transact-SQL shows how to call the sp_InsertOrdersBatch.
+Cette procédure stockée peut être utilisée à partir d’un code ou d’autres appels Transact-SQL. Consultez la section relative aux paramètres table de ce document pour obtenir un exemple de code. L’instruction Transact-SQL suivante explique comment appeler sp\_InsertOrdersBatch.
 
-    declare @orders as PurchaseOrderTableType
-    declare @details as PurchaseOrderDetailTableType
-    
-    INSERT @orders 
-    ([OrderID], [OrderDate], [CustomerID], [Status])
-    VALUES(1, '1/1/2013', 1125, 'Complete'),
-    (2, '1/13/2013', 348, 'Processing'),
-    (3, '1/12/2013', 2504, 'Shipped')
-    
-    INSERT @details
-    ([OrderID], [ProductID], [UnitPrice], [OrderQty])
-    VALUES(1, 10, $11.50, 1),
-    (1, 12, $1.58, 1),
-    (2, 23, $2.57, 2),
-    (3, 4, $10.00, 1)
-    
-    exec sp_InsertOrdersBatch @orders, @details
+	declare @orders as PurchaseOrderTableType
+	declare @details as PurchaseOrderDetailTableType
+	
+	INSERT @orders 
+	([OrderID], [OrderDate], [CustomerID], [Status])
+	VALUES(1, '1/1/2013', 1125, 'Complete'),
+	(2, '1/13/2013', 348, 'Processing'),
+	(3, '1/12/2013', 2504, 'Shipped')
+	
+	INSERT @details
+	([OrderID], [ProductID], [UnitPrice], [OrderQty])
+	VALUES(1, 10, $11.50, 1),
+	(1, 12, $1.58, 1),
+	(2, 23, $2.57, 2),
+	(3, 4, $10.00, 1)
+	
+	exec sp_InsertOrdersBatch @orders, @details
 
-This solution allows each batch to use a set of OrderID values that begin at 1. These temporary OrderID values describe the relationships in the batch, but the actual OrderID values are determined at the time of the insert operation. You can run the same statements in the previous example repeatedly and generate unique orders in the database. For this reason, consider adding more code or database logic that prevents duplicate orders when using this batching technique.
+Cette solution permet à chaque lot d’utiliser un ensemble de valeurs OrderID qui commencent à 1. Ces valeurs OrderID temporaires décrivent les relations dans le lot, mais les valeurs OrderID réelles sont déterminées au moment de l’opération d’insertion. Vous pouvez exécuter à plusieurs reprises les mêmes instructions de l’exemple précédent et générer des commandes uniques dans la base de données. Vous devez donc penser à ajouter plus de code ou de logique de base de données pour éviter les doublons lorsque vous utilisez cette technique de traitement par lots.
 
-This example demonstrates that even more complex database operations, such as master-detail operations, can be batched using table-valued parameters.
+Cet exemple montre que les opérations de base de données encore plus complexes, telles que les opérations maître/détail, peuvent être traitées par lots à l’aide des paramètres table.
 
-### <a name="upsert"></a>UPSERT
-Another batching scenario involves simultaneously updating existing rows and inserting new rows. This operation is sometimes referred to as an “UPSERT” (update + insert) operation. Rather than making separate calls to INSERT and UPDATE, the MERGE statement is best suited to this task. The MERGE statement can perform both insert and update operations in a single call.
+### Opération UPSERT
+Un autre scénario de traitement par lots implique la mise à jour simultanée de lignes existantes et l’insertion de nouvelles lignes. Cette opération est parfois appelée « UPSERT » (mise à jour + insertion). Plutôt que d’effectuer des appels distincts pour les opérations INSERT et UPDATE, l’instruction MERGE convient le mieux à cette tâche. L’instruction MERGE peut exécuter les deux opérations d’insertion et de mise à jour en un seul appel.
 
-Table-valued parameters can be used with the MERGE statement to perform updates and inserts. For example, consider a simplified Employee table that contains the following columns: EmployeeID, FirstName, LastName, SocialSecurityNumber:
+Les paramètres table peuvent être utilisés avec l’instruction MERGE pour effectuer des mises à jour et des insertions. Par exemple, considérez une table Employee simplifiée contenant les colonnes suivantes : EmployeeID, FirstName, LastName et SocialSecurityNumber :
 
-    CREATE TABLE [dbo].[Employee](
-    [EmployeeID] [int] IDENTITY(1,1) NOT NULL,
-    [FirstName] [nvarchar](50) NOT NULL,
-    [LastName] [nvarchar](50) NOT NULL,
-    [SocialSecurityNumber] [nvarchar](50) NOT NULL,
-     CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
-    ([EmployeeID] ASC ))
+	CREATE TABLE [dbo].[Employee](
+	[EmployeeID] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nvarchar](50) NOT NULL,
+	[LastName] [nvarchar](50) NOT NULL,
+	[SocialSecurityNumber] [nvarchar](50) NOT NULL,
+	 CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
+	([EmployeeID] ASC ))
  
-In this example, you can use the fact that the SocialSecurityNumber is unique to perform a MERGE of multiple employees. First, create the user-defined table type:
+Dans cet exemple, vous pouvez utiliser le fait que les valeurs SocialSecurityNumber sont uniques pour fusionner plusieurs employés. Commencez par créer le type de table défini par l’utilisateur :
 
-    CREATE TYPE EmployeeTableType AS TABLE 
-    ( Employee_ID INT,
-      FirstName NVARCHAR(50),
-      LastName NVARCHAR(50),
-      SocialSecurityNumber NVARCHAR(50) );
-    GO
+	CREATE TYPE EmployeeTableType AS TABLE 
+	( Employee_ID INT,
+	  FirstName NVARCHAR(50),
+	  LastName NVARCHAR(50),
+	  SocialSecurityNumber NVARCHAR(50) );
+	GO
 
-Next, create a stored procedure or write code that uses the MERGE statement to perform the update and insert. The following example uses the MERGE statement on a table-valued parameter, @employees, of type EmployeeTableType. The contents of the @employees table are not shown here.
+Ensuite, créez une procédure stockée ou écrivez du code qui utilise l’instruction MERGE pour effectuer la mise à jour et l’insertion. L’exemple suivant utilise l’instruction MERGE sur un paramètre table, @employees, de type EmployeeTableType. Le contenu de la table @employees n’est pas indiqué ici.
 
-    MERGE Employee AS target
-    USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
-    AS source ([FirstName], [LastName], [SocialSecurityNumber])
-    ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
-    WHEN MATCHED THEN 
-    UPDATE SET
-    target.FirstName = source.FirstName, 
-    target.LastName = source.LastName
-    WHEN NOT MATCHED THEN
-       INSERT ([FirstName], [LastName], [SocialSecurityNumber])
-       VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
+	MERGE Employee AS target
+	USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
+	AS source ([FirstName], [LastName], [SocialSecurityNumber])
+	ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
+	WHEN MATCHED THEN 
+	UPDATE SET
+	target.FirstName = source.FirstName, 
+	target.LastName = source.LastName
+	WHEN NOT MATCHED THEN
+	   INSERT ([FirstName], [LastName], [SocialSecurityNumber])
+	   VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
 
-For more information, see the documentation and examples for the MERGE statement. Although the same work could be performed in a multiple-step stored procedure call with separate INSERT and UPDATE operations, the MERGE statement is more efficient. Database code can also construct Transact-SQL calls that use the MERGE statement directly without requiring two database calls for INSERT and UPDATE.
+Pour plus d’informations, consultez la documentation et les exemples fournis pour l’instruction MERGE. Bien que la même tâche puisse être effectuée dans un appel de procédure stockée en plusieurs étapes avec des opérations INSERT et UPDATE distinctes, l’instruction MERGE est plus efficace. Le code de base de données peut également construire des appels Transact-SQL qui utilisent directement l’instruction MERGE sans nécessiter deux appels de base de données pour les opérations INSERT et UPDATE.
 
-## <a name="recommendation-summary"></a>Recommendation summary
+## Résumé des recommandations
 
-The following list provides a summary of the batching recommendations discussed in this topic:
+La liste suivante fournit un résumé des recommandations relatives au traitement par lots présentées dans cette rubrique :
 
-- Use buffering and batching to increase the performance and scalability of SQL Database applications.
-- Understand the tradeoffs between batching/buffering and resiliency. During a role failure, the risk of losing an unprocessed batch of business-critical data might outweigh the performance benefit of batching.
-- Attempt to keep all calls to the database within a single datacenter to reduce latency.
-- If you choose a single batching technique, table-valued parameters offer the best performance and flexibility.
-- For the fastest insert performance, follow these general guidelines but test your scenario:
-    - For < 100 rows, use a single parameterized INSERT command.
-    - For < 1000 rows, use table-valued parameters.
-    - For >= 1000 rows, use SqlBulkCopy.
-- For update and delete operations, use table-valued parameters with stored procedure logic that determines the correct operation on each row in the table parameter.
-- Batch size guidelines:
-    - Use the largest batch sizes that make sense for your application and business requirements.
-    - Balance the performance gain of large batches with the risks of temporary or catastrophic failures. What is the consequence of retries or loss of the data in the batch? 
-    - Test the largest batch size to verify that SQL Database does not reject it.
-    - Create configuration settings that control batching, such as the batch size or the buffering time window. These settings provide flexibility. You can change the batching behavior in production without redeploying the cloud service.
-- Avoid parallel execution of batches that operate on a single table in one database. If you do choose to divide a single batch across multiple worker threads, run tests to determine the ideal number of threads. After an unspecified threshold, more threads will decrease performance rather than increase it.
-- Consider buffering on size and time as a way of implementing batching for more scenarios.
+- Utilisez la mise en mémoire tampon et le traitement par lots pour améliorer les performances et l’évolutivité des applications de base de données SQL.
+- Tenez compte des compromis entre mise en mémoire tampon/traitement par lots et résilience. Lors de la défaillance d’un rôle, le risque de perte d’un lot non traité de données critiques peut contrebalancer le gain de performances du traitement par lots.
+- Essayez de conserver tous les appels à la base de données dans un seul centre de données afin de réduire la latence.
+- Si vous choisissez une technique de traitement par lots unique, les paramètres table offrent les meilleurs avantages en termes de performances et de flexibilité.
+- Pour de meilleures performances d’insertion, suivez ces recommandations générales tout en prenant soin de tester votre scénario :
+	- Pour moins de 100 lignes, utilisez une seule commande INSERT paramétrable.
+	- Pour moins de 1 000 lignes, utilisez des paramètres table.
+	- Au-delà de 1 000 lignes, utilisez SqlBulkCopy.
+- Pour les opérations de mise à jour et de suppression, utilisez des paramètres table avec une logique de procédure stockée qui affecte l’opération correcte à chaque ligne du paramètre table.
+- Conseils relatifs à la taille de lot :
+	- Utilisez les plus grandes tailles de lot possibles en fonction de votre application et de vos besoins métiers.
+	- Contrebalancez le gain de performances des lots volumineux avec les risques de défaillances temporaires ou catastrophiques. Quelle est la conséquence de nouvelles tentatives ou d’une perte de données dans le lot ?
+	- Testez la plus grande taille de lot pour vérifier qu’elle est acceptée par la base de données SQL.
+	- Créez des paramètres de configuration qui contrôle le traitement par lots, telles que la taille du lot ou la fenêtre de temps de la mise en mémoire tampon. Ces paramètres garantissent la flexibilité. Vous pouvez modifier le comportement du traitement par lots en production sans avoir à redéployer le service cloud.
+- Évitez l’exécution parallèle de lots qui s’exécutent sur une seule table dans une base de données unique. Si vous choisissez de diviser un seul lot sur plusieurs threads de travail, exécutez des tests pour déterminer le nombre idéal de threads. Après un seuil non spécifié, un plus grand nombre de threads aura pour effet de diminuer les performances au lieu de les augmenter.
+- Envisagez la mise en mémoire tampon sur la taille et l’heure comme un moyen d’implémenter le traitement par lot pour d’autres scénarios.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
+Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de l’évolutivité, consultez [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

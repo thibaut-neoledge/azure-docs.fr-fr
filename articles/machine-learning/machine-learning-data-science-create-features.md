@@ -1,105 +1,100 @@
 <properties
-    pageTitle="Feature engineering in the Cortana Analytics Process | Microsoft Azure" 
-    description="Explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning."
-    services="machine-learning"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Conception de fonctionnalités dans le processus Cortana Analytics | Microsoft Azure" 
+	description="Explique les finalités de la conception de fonctionnalités et fournit des exemples de son rôle dans le processus d'amélioration des données de l'apprentissage automatique."
+	services="machine-learning"
+	documentationCenter=""
+	authors="bradsev"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016"
-    ms.author="zhangya;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/19/2016"
+	ms.author="zhangya;bradsev" />
 
 
+# Conception de fonctionnalités dans le processus Cortana Analytics 
 
-# <a name="feature-engineering-in-the-cortana-analytics-process"></a>Feature engineering in the Cortana Analytics Process 
-
-This topic explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning. The examples used to illustrate this process are drawn from Azure Machine Learning Studio. 
+Cette rubrique explique les finalités de la conception de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Les exemples utilisés pour illustrer ce processus sont tirés d’Azure Machine Learning Studio.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
-This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Feature engineering attempts to increase the predictive power of learning algorithms by creating features from raw data that help facilitate the learning process. The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md) Feature engineering and selection are parts of the **Develop features** step of the TDSP. 
+La conception de fonctionnalités tente d'augmenter la puissance prédictive des algorithmes d'apprentissage en créant des fonctionnalités à partir de données brutes qui facilitent le processus d'apprentissage. La conception et la sélection de fonctionnalités constituent une partie du processus TDSP présenté dans [Qu'est ce que le processus TDSP (Team Data Science Process) ?](data-science-process-overview.md) La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus TDSP.
 
-* **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase the predictive power of the learning algorithm.
+* La **conception de fonctionnalités** : ce processus tente de créer des fonctionnalités supplémentaires pertinentes à partir de fonctionnalités brutes existantes dans les données et d’augmenter la performance de prédiction de l’algorithme d’apprentissage.
 
-* **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
+* La **sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d'origine afin de réduire la dimensionnalité du problème d'apprentissage.
 
-Normally **feature engineering** is applied first to generate additional features, and then the **feature selection** step is performed to eliminate irrelevant, redundant, or highly correlated features.
+En général, la **conception de fonctionnalités** s’applique d’abord à la génération de fonctionnalités supplémentaires. L’étape de **sélection de fonctionnalités** est alors effectuée pour éliminer les fonctionnalités inutiles, redondantes ou fortement corrélées.
 
-The training data used in machine learning can often be enhanced by extraction of features from the raw data collected. An example of an engineered feature in the context of learning how to classify the images of handwritten characters is creation of a bit density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than simply using the raw distribution directly.
+Les données d'apprentissage utilisées dans l'apprentissage automatique peuvent souvent être améliorées par l'extraction de fonctionnalités à partir des données brutes collectées. Un exemple de conception de fonctionnalité dans le cadre de l'apprentissage de la classification des images de caractères écrits à la main est la création d'une carte de densité de bits construite à partir des données brutes de distribution de bits. Cette carte peut aider à localiser les bords des caractères plus efficacement que l'utilisation de la distribution brute directement.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-## <a name="creating-features-from-your-data---feature-engineering"></a>Creating Features from Your Data - Feature Engineering
+## Création de caractéristiques à partir de vos données - Conception de caractéristiques
 
-The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, it is often the case that additional (engineered) features need to be constructed from the features in the raw data to generate an enhanced training dataset.
+Les données d'apprentissage se constituent d'une matrice composée d'exemples (enregistrements ou observations stockées dans les lignes), chaque exemple disposant d'un ensemble de caractéristiques (variables ou champs stockés dans des colonnes). Les caractéristiques spécifiées dans la conception expérimentale sont supposées caractériser les modèles dans les données. Bien que plusieurs champs de données brutes puissent être directement inclus dans l'ensemble des caractéristiques sélectionnées utilisées pour l'apprentissage d'un modèle, il est fréquent que des caractéristiques supplémentaires (conçues) doivent être construites à partir des caractéristiques dans les données brutes pour générer un jeu de données de formation amélioré.
 
-What kind of features should be created to enhance the dataset when training a model? Engineered features that enhance the training provide information that better differentiates the patterns in the data. We expect the new features to provide additional information that is not clearly captured or easily apparent in the original or existing feature set. But this process is something of an art. Sound and productive decisions often require some domain expertise.
+Quelles sont les caractéristiques qui doivent être créées pour améliorer le jeu de données lors de l'apprentissage d'un modèle ? Les caractéristiques conçues améliorant l'apprentissage offrent des informations qui permettent de mieux différencier les modèles dans les données. Les nouvelles caractéristiques devraient fournir des informations supplémentaires qui ne sont pas clairement capturées ou facilement visibles dans l'ensemble des caractéristiques existantes ou d'origine. Mais ce processus est tout un art. Des décisions réfléchies et productives nécessitent souvent une spécialisation dans le domaine.
 
-When starting with Azure Machine Learning, it is easiest to grasp this process concretely using samples provided in the Studio. Two examples are presented here:
+En débutant avec Azure Machine Learning, il est plus facile de comprendre correctement le processus avec des exemples fournis dans le Studio. Deux exemples sont présentés ici :
 
-* A regression example [Prediction of the number of bike rentals](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in a supervised experiment where the target values are known
-* A text mining classification example using [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
+* un exemple de régression [Prédiction du nombre de locations de vélo](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) dans une expérience supervisée, où les valeurs cibles sont connues
+* un exemple de classification d'exploration de texte utilisant le [hachage de caractéristiques](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
-### <a name="example-1:-adding-temporal-features-for-regression-model"></a>Example 1: Adding Temporal Features for Regression Model ###
+### Exemple 1 : ajout de caractéristiques temporelles pour le modèle de régression ###
 
-Let's use the experiment "Demand forecasting of bikes" in Azure Machine Learning Studio to demonstrate how to engineer features for a regression task. The objective of this experiment is to predict the demand for the bikes, that is, the number of bike rentals within a specific month/day/hour. The dataset "Bike Rental UCI dataset" is used as the raw input data. This dataset is based on real data from the Capital Bikeshare company that maintains a bike rental network in Washington DC in the United States. The dataset represents the number of bike rentals within a specific hour of a day in the years 2011 and year 2012 and contains 17379 rows and 17 columns. The raw feature set contains weather conditions (temperature/humidity/wind speed) and the type of the day (holiday/weekday). The field to predict is "cnt", a count which represents the bike rentals within a specific hour and which ranges ranges from 1 to 977.
+Nous allons utiliser l'exemple de « prévision de la demande de vélos » dans Azure Machine Learning Studio afin de démontrer comment concevoir des caractéristiques pour une tâche de régression. L'objectif de cette expérience est de prédire la demande de vélos, autrement dit le nombre de locations de vélo pour un mois/un jour/une heure spécifique. Le « jeu de données de location de vélo UCI »est utilisé en tant que données brutes d'entrée. Le jeu de données se base sur des données réelles de la société Capital Bikeshare qui gère un réseau de location de vélos à Washington DC aux États-Unis. Ce jeu de données représente le nombre de locations de vélo pour une heure spécifique d'un jour en 2011 et en 2012 et contient 17 379 lignes et 17 colonnes. L'ensemble des caractéristiques brutes contient des conditions météorologiques (température/humidité/vitesse du vent) et le type de jour (vacances/jour de semaine). Le champ à prédire est « cnt », un nombre qui représente les locations de vélo pour une heure spécifique et qui est compris entre 1 et 977.
 
-With the goal of constructing effective features in the training data, four regression models are built using the same algorithm but with four different training datasets. The four datasets represent the same raw input data, but with an increasing number of features set. These features are grouped into four categories:
+Afin de construire des caractéristiques efficaces dans les données d'apprentissage, quatre modèles de régression sont générés à l'aide du même algorithme, mais avec quatre jeux de données d'apprentissage différents. Les quatre jeux de données représentent les mêmes données d'entrée brutes, mais avec un nombre croissant de jeux de caractéristiques. Ces caractéristiques sont regroupées en quatre catégories :
 
-1. A = weather + holiday + weekday + weekend features for the predicted day
-2. B = number of bikes that were rented in each of the previous 12 hours
-3. C = number of bikes that were rented in each of the previous 12 days at the same hour
-4. D = number of bikes that were rented in each of the previous 12 weeks at the same hour and the same day
+1. A = caractéristiques météo + vacances + jour de semaine + week-end pour le jour prévu
+2. B = nombre de vélos loués au cours de chacune des 12 dernières heures
+3. C = nombre de vélos loués au cours de chacun des 12 derniers jours à la même heure
+4. D = nombre de vélos loués au cours de chacune des 12 dernières semaines le même jour à la même heure
 
-Besides feature set A, which already exist in the original raw data, the other three sets of features are created through the feature engineering process. Feature set B captures very recent demand for the bikes. Feature set C captures the demand for bikes at a particular hour. Feature set D captures demand for bikes at particular hour and particular day of the week. The four training datasets each includes feature set A, A+B, A+B+C, and A+B+C+D, respectively.
+Excepté l'ensemble de caractéristiques A, qui existe déjà dans les données brutes d'origine, les trois autres ensembles de caractéristiques sont créés via le processus de conception des caractéristiques. L'ensemble de caractéristiques B capture les toutes dernières demandes de vélos. L'ensemble de caractéristiques C capture la demande de vélos pour une heure en particulier. L'ensemble de caractéristiques D capture la demande de vélos pour une heure particulière et un jour de la semaine particulier. Chacun des quatre jeux de données d'apprentissage inclut respectivement un ensemble de caractéristiques A, A + B, A + B + C et A + B + C + D.
 
-In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an [Execute R Script](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second left branch.
+Dans l'expérience d'Azure Machine Learning, ces quatre jeux de données d'apprentissage sont constitués via quatre branches à partir du jeu de données d'entrée traité au préalable. À l'exception de la branche la plus à gauche, chacune de ces branches contient un module [Exécuter le Script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), dans lequel un ensemble de caractéristiques dérivées (ensemble de caractéristiques B, C et D) sont respectivement construites et ajoutées au jeu de données importé. La figure suivante montre le script R utilisé pour créer un ensemble de caractéristiques B dans la deuxième branche de gauche.
 
-![create features](./media/machine-learning-data-science-create-features/addFeature-Rscripts.png)
+![création de caractéristiques](./media/machine-learning-data-science-create-features/addFeature-Rscripts.png)
 
-The comparison of the performance results of the four models are summarized in the following table. The best results are shown by features A+B+C. Note that the error rate decreases when additional feature set are included in the training data. It verifies our presumption that the feature set B, C provide additional relevant information for the regression task. But adding the D feature does not seem to provide any additional reduction in the error rate.
+La comparaison des résultats de performance des quatre modèles est résumée dans la table suivante. Les caractéristiques A + B + C affichent les meilleurs résultats. Notez que le taux d'erreur diminue lorsqu'un ensemble de caractéristiques supplémentaires est inclus dans les données d'apprentissage. Cela confirme l'idée présupposée que les ensembles de caractéristiques B et C fournissent des informations supplémentaires pertinentes pour la tâche de régression. Mais l'ajout de la caractéristique D semble ne pas fournir une réduction du taux d'erreur supplémentaire.
 
-![result comparison](./media/machine-learning-data-science-create-features/result1.png)
+![comparaison des résultats](./media/machine-learning-data-science-create-features/result1.png)
 
-### <a name="<a-name="example2"></a>-example-2:-creating-features-in-text-mining"></a><a name="example2"></a> Example 2: Creating Features in Text Mining  
+### <a name="example2"></a> Exemple 2 : création de caractéristiques dans l'exploration de texte  
 
-Feature engineering is widely applied in tasks related to text mining, such as document classification and sentiment analysis. For example, when we want to classify documents into several categories, a typical assumption is that the word/phrases included in one doc category are less likely to occur in another doc category. In another words, the frequency of the words/phrases distribution is able to characterize different document categories. In text mining applications, because individual pieces of text-contents usually serve as the input data, the feature engineering process is needed to create the features involving word/phrase frequencies.
+L'ingénierie de caractéristiques s'applique largement aux tâches liées à l'exploration de texte, telles que la classification de document et l'analyse de sentiments. Par exemple, lorsque vous souhaitez classer des documents en plusieurs catégories, l'hypothèse typique est que les mots ou expressions inclus dans une catégorie de document sont moins susceptibles de se produire dans une autre catégorie de document. Autrement dit, la fréquence de la distribution de mots ou d'expressions est capable d'identifier les différentes catégories de document. Dans les applications d'exploration de texte, étant donné que chaque élément des contenus de textes est généralement utilisé en tant que données d'entrée, le processus de conception de caractéristiques est nécessaire pour créer les caractéristiques impliquant des fréquences de mot ou d'expression.
 
-To achieve this task, a technique called **feature hashing** is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words/phrases) to a particular index, this method functions by applying a hash function to the features and using their hash values as indices directly.
+Pour effectuer cette tâche, une technique appelée **hachage de caractéristiques** est appliquée pour transformer efficacement les caractéristiques de texte arbitraires en index. Au lieu d'associer chaque caractéristique de texte (mots ou d'expressions) à un index particulier, cette méthode fonctionne en appliquant une caractéristique de hachage aux caractéristiques et en utilisant directement leurs valeurs de hachage en tant qu'index.
 
-In Azure Machine Learning, there is a [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) module that creates these word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actual review content. The goal of this [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, we need to complete the following steps:
+Dans Azure Machine Learning, il existe un module de [hachage de caractéristiques](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) qui crée en toute facilité ces caractéristiques de mot ou expression. La figure suivante montre un exemple d'utilisation de ce module. Le jeu de données d'entrée contient deux colonnes : l'évaluation du livre allant de 1 à 5 et le contenu même de la critique. L'objectif de ce module de [hachage de caractéristiques](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) est de récupérer un ensemble de nouvelles caractéristiques qui montrent la fréquence d'occurrence des mots ou expressions correspondants dans cette critique de livre en particulier. Pour utiliser ce module, il est nécessaire d'effectuer les étapes suivantes :
 
-* First, select the column that contains the input text ("Col2" in this example).
-* Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number.
-* Third, set the parameter "N-grams" to 2. This gets the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter "N-grams" ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
+* Tout d'abord, sélectionnez la colonne qui contient le texte d'entrée (« Col2 » pour cet exemple).
+* Ensuite, définissez le « nombre de bits de hachage » sur 8, ce qui signifie que 2 ^ 8 = 256 caractéristiques seront créées. Le mot ou l'expression sera haché en 256 index dans tout le texte. Le paramètre « hachage du nombre de bits » est compris entre 1 et 31. Les mots ou les phrases sont moins susceptibles d'être hachés dans le même index s'ils sont définis sur un nombre plus grand.
+* Enfin, définissez le paramètre « N-grammes » sur 2. Celui-ci permet d'obtenir la fréquence d'occurrence d'unigrammes (une caractéristique pour chaque mot) et de bigrammes (une caractéristique pour chaque paire de mots juxtaposés) à partir du texte d'entrée. Le paramètre « N-grammes » est compris entre 0 et 10, ce qui indique le nombre maximum de mots séquentiels à inclure dans une caractéristique.
 
-!["Feature Hashing" module](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
+![Module « hachage de caractéristiques »](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
 
-The following figure shows what the these new feature look like.
+La figure suivante montre à quoi ressemblent ces nouvelles caractéristiques.
 
-!["Feature Hashing" example](./media/machine-learning-data-science-create-features/feature-Hashing2.png)
+![Exemple « hachage de caractéristiques »](./media/machine-learning-data-science-create-features/feature-Hashing2.png)
 
 
-## <a name="conclusion"></a>Conclusion
+## Conclusion
 
-Engineered and selected features increase the efficiency of the training process which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.
+L'ingénierie et la sélection de caractéristiques augmentent l'efficacité du processus d'apprentissage qui tend à extraire les informations essentielles contenues dans les données. Ces processus améliorent également les performances de ces modèles pour classifier les données d'entrée avec précision et prédire les résultats pertinents de façon plus consistante. L'ingénierie et la sélection de caractéristiques peuvent également être combinées afin de rendre l'apprentissage plus souple d'un point de vue informatique. Cela se fait grâce à l'amélioration puis à la réduction du nombre de caractéristiques nécessaires à l'étalonnage ou l'apprentissage d'un modèle. D'un point de vue mathématique, les caractéristiques sélectionnées pour effectuer l'apprentissage du modèle sont un ensemble minimum de variables indépendantes qui expliquent les modèles des données puis prédisent correctement les résultats.
 
-Note that it is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data we have or collect, the algorithm we pick, and the objective of the experiment.
+Notez qu'il n'est pas toujours nécessaire d'effectuer l'ingénierie de caractéristiques ou la sélection des caractéristiques. Que cela soit nécessaire ou non dépend des données que l'on a à disposition ou qui sont collectées, de l'algorithme choisi et des objectifs de l'expérience.
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

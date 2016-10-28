@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Use Hadoop Hive and Remote Desktop in HDInsight | Microsoft Azure"
-   description="Learn how to connect to Hadoop cluster in HDInsight by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface."
+   pageTitle="Utilisation de Hadoop Hive et du Bureau à distance dans HDInsight | Microsoft Azure"
+   description="Découvrez comment vous connecter à un cluster Hadoop à l'aide du Bureau à distance, et exécuter ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -17,40 +17,39 @@
    ms.date="09/06/2016"
    ms.author="larryfr"/>
 
-
-# <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Use Hive with Hadoop on HDInsight with Remote Desktop
+# Utilisation de Hive avec Hadoop sur HDInsight via le Bureau à distance
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-In this article, you will learn how to connect to an HDInsight cluster by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface (CLI).
+Dans cet article, vous découvrirez comment vous connecter à un cluster HDInsight à l'aide du Bureau à distance, et exécuter ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive.
 
-> [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information about the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
+> [AZURE.NOTE] Ce document ne fournit pas de description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez la rubrique [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md).
 
-##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Prerequisites
+##<a id="prereq"></a>Configuration requise
 
-To complete the steps in this article, you will need the following:
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* A Windows-based HDInsight (Hadoop on HDInsight) cluster
+* un cluster HDInsight basé sur Windows (Hadoop sur HDInsight)
 
-* A client computer running Windows 10, Window 8, or Windows 7
+* Un ordinateur client avec Windows 10, Windows 8 ou Windows 7
 
-##<a name="<a-id="connect"></a>connect-with-remote-desktop"></a><a id="connect"></a>Connect with Remote Desktop
+##<a id="connect"></a>Connexion avec le Bureau à distance
 
-Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
+Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-##<a name="<a-id="hive"></a>use-the-hive-command"></a><a id="hive"></a>Use the Hive command
+##<a id="hive"></a>Utilisation de la commande Hive
 
-When you have connected to the desktop for the HDInsight cluster, use the following steps to work with Hive:
+Une fois connecté au bureau pour le cluster HDInsight, effectuez les étapes suivantes pour utiliser Hive.
 
-1. From the HDInsight desktop, start the **Hadoop Command Line**.
+1. À partir du bureau HDInsight, démarrez la **ligne de commande Hadoop**.
 
-2. Enter the following command to start the Hive CLI:
+2. Exécutez la commande suivante pour démarrer l'interface de ligne de commande (CLI) Hive :
 
         %hive_home%\bin\hive
 
-    When the CLI has started, you will see the Hive CLI prompt: `hive>`.
+    Une fois l'interface de ligne de commande lancée, vous verrez apparaître l'invite CLI : `hive>`.
 
-3. Using the CLI, enter the following statements to create a new table named **log4jLogs** using sample data:
+3. En utilisant l'interface de ligne de commande, saisissez les instructions suivantes pour créer une table nommée **log4jLogs** à l'aide d'exemples de données :
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -59,67 +58,67 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    These statements perform the following actions:
+    Ces instructions effectuent les opérations suivantes :
 
-    * **DROP TABLE**: Deletes the table and the data file if the table already exists.
+    * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
 
-    * **CREATE EXTERNAL TABLE**: Creates a new 'external' table in Hive. External tables store only the table definition in Hive (the data is left in the original location).
+    * **CREATE EXTERNAL TABLE** : crée une table externe dans Hive. Les tables externes stockent uniquement la définition de table dans Hive (les données restent à leur emplacement d’origine).
 
-        > [AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
-        >
-        > Dropping an external table does **not** delete the data, only the table definition.
+		> [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe (comme un processus de téléchargement de données automatisé) ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
+    	>
+    	> La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
 
-    * **ROW FORMAT**: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
+	* **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
 
-    * **STORED AS TEXTFILE LOCATION**: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.
+    * **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (le répertoire exemple/données) et précise qu'elles sont stockées sous la forme de texte.
 
-    * **SELECT**: Selects a count of all rows where column **t4** contains the value **[ERROR]**. This should return a value of **3** because there are three rows that contain this value.
+    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
-    * **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
+    * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** : indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log. Cela limite la recherche au fichier sample.log qui contient les données et l'empêche de renvoyer des données provenant d'autres fichiers d'exemple qui ne correspondent pas au schéma que nous avons défini.
 
 
-4. Use the following statements to create a new 'internal' table named **errorLogs**:
+4. Utilisez les instructions suivantes pour créer une table « interne » nommée **errorLogs** :
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    These statements perform the following actions:
+    Ces instructions effectuent les opérations suivantes :
 
-    * **CREATE TABLE IF NOT EXISTS**: Creates a table if it does not already exist. Because the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
+    * **CREATE TABLE IF NOT EXISTS** : crée une table, le cas échéant. Le mot-clé **EXTERNAL** n’étant pas utilisé, il s’agit d’une table interne, stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
 
-        > [AZURE.NOTE] Unlike **EXTERNAL** tables, dropping an internal table also deletes the underlying data.
+		> [AZURE.NOTE] Contrairement aux tables **EXTERNES**, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
-    * **STORED AS ORC**: Stores the data in optimized row columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
+    * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
 
-    * **INSERT OVERWRITE ... SELECT**: Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
+    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
 
-    To verify that only rows that contain **[ERROR]** in column t4 were stored to the **errorLogs** table, use the following statement to return all the rows from **errorLogs**:
+    Pour vérifier que seules les lignes contenant **ERROR** dans la colonne t4 ont été stockées dans la table **errorLogs**, utilisez l'instruction suivante afin de renvoyer toutes les lignes à partir de **errorLogs** :
 
         SELECT * from errorLogs;
 
-    Three rows of data should be returned, all containing **[ERROR]** in column t4.
+    Trois lignes de données doivent normalement être renvoyées. Elles contiennent toutes **[ERROR]** dans la colonne t4.
 
-##<a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Summary
+##<a id="summary"></a>Résumé
 
-As you can see, the the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
+Comme vous pouvez le constater, la commande Hive permet d'exécuter facilement, et de façon interactive, des requêtes Hive sur un cluster HDInsight, de surveiller l'état de la tâche et de récupérer le résultat.
 
-##<a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Next steps
+##<a id="nextsteps"></a>Étapes suivantes
 
-For general information about Hive in HDInsight:
+Pour obtenir des informations générales sur Hive dans HDInsight :
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
-For information about other ways you can work with Hadoop on HDInsight:
+Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-If you are using Tez with Hive, see the following documents for debugging information:
+Si vous utilisez Tez avec Hive, consultez les documents suivants pour les informations de débogage :
 
-* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
+* [Utiliser l'interface utilisateur Tez sur HDInsight Windows](hdinsight-debug-tez-ui.md)
 
-* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
+* [Utilisez la vue Tez Ambari sur HDInsight Linux](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -151,9 +150,4 @@ If you are using Tez with Hive, see the following documents for debugging inform
 [Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

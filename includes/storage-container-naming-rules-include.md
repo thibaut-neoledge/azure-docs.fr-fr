@@ -1,17 +1,15 @@
-Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+Chaque objet blob du stockage Azure doit résider dans un conteneur. Le conteneur fait partie du nom d'objet blob. Par exemple, `mycontainer` est le nom du conteneur dans ces exemples d’URI d’objet blob :
 
-    https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
-    https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
 
-A container name must be a valid DNS name, conforming to the following naming rules:
+Un conteneur doit posséder un nom DNS valide, conforme aux règles de nommage suivantes :
 
-1. Container names must start with a letter or number, and can contain only letters, numbers, and the dash (-) character.
-1. Every dash (-) character must be immediately preceded and followed by a letter or number; consecutive dashes are not permitted in container names.
-1. All letters in a container name must be lowercase.
-1. Container names must be from 3 through 63 characters long.
+1. Les noms de conteneur doivent commencer par une lettre ou un chiffre, et peuvent comporter uniquement des lettres, des chiffres et des tirets (-).
+1. Chaque tiret (-) doit être immédiatement précédé et suivi d’une lettre ou d’un chiffre ; les tirets consécutifs sont interdits.
+1. Toutes les lettres du conteneur doivent être minuscules.
+1. Les noms de conteneurs doivent comporter entre 3 et 63 caractères.
 
-> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. If you include an upper-case letter in a container name, or otherwise violate the container naming rules, you may receive a 400 error (Bad Request). 
+> [AZURE.IMPORTANT]Notez que le nom d'un conteneur doit toujours être en minuscules. Si vous incluez une majuscule dans un nom de conteneur ou si vous ne respectez pas les règles d'affectation de noms, vous pouvez recevoir une erreur 400 (demande incorrecte).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

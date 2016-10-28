@@ -1,38 +1,36 @@
-1. Sign in to the [classic portal](http://manage.windowsazure.com). 
+1. Connectez-vous au [portail Classic](http://manage.windowsazure.com). 
 
-2. On the command bar at the bottom of the window, click **New**.
+2. Dans la barre de commandes en bas de la fenêtre, cliquez sur **Nouveau**.
 
-3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
+3. Sous **Calculer**, cliquez sur **Machine virtuelle**, puis sur **À partir de la galerie**.
 
-    ![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
+	![Accéder à À partir de la galerie dans la barre de commandes](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 
-4. The first screen after this lets you **Choose an Image** for your virtual machine from the list of available images. You can choose an image from the gallery or select from images and disks that you have uploaded. The available images may differ depending on the subscription you're using.
+4. Le premier écran vous propose de **Choisir une image** pour votre machine virtuelle dans la liste d’images disponibles. Vous pouvez choisir une image dans la galerie ou effectuer votre choix parmi les images et les disques que vous avez chargés. Les images disponibles dépendent de l’abonnement que vous utilisez.
 
-5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some tips:
+5. Le deuxième écran vous permet de choisir un nom d’ordinateur, la taille, un nom d’utilisateur et un mot de passe d’administration. Utilisez le niveau et la taille requis pour exécuter votre application ou charge de travail. Voici quelques conseils :
 
-    - **Virtual Machine Name** can only contain letters, numbers and hypens. It also must start with a letter and end with a letter or a number.
-    - **New User Name** refers to the administrative account that you use to manage the server. The password must be 8-123 characters long and have at least three of the following: lower case character, upper case character, number, and a special character. **You'll need the user name and password to connect and log on to the virtual machine**.
-    - A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md).
+	- Le **nom de la machine virtuelle** peut contenir uniquement des lettres, des chiffres et des traits d'union. Il doit commencer par une lettre et se terminer par une lettre ou un chiffre.
+	- **Nouveau nom d’utilisateur** fait référence au compte administratif que vous utilisez pour gérer le serveur. Le mot de passe doit compter 8 à 123 caractères et au moins trois des types de caractère suivants : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter et vous identifier sur la machine virtuelle**.
 
-6. The third screen lets you configure resources for networking, storage, and availability. Here are some tips:
+	- La taille d'une machine virtuelle affecte son coût d'utilisation, ainsi que les options de configuration comme le nombre de disques de données que vous pouvez joindre. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-windows-sizes.md).
 
-    - The **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that's used to contact the virtual machine. You'll need to come up with your own cloud service name because it must be unique in Azure. Cloud services are important for scenarios using [multiple virtual machines](virtual-machines-windows-classic-connect-vms.md).
+6. Le troisième écran vous permet de configurer les ressources pour la mise en réseau, le stockage et la disponibilité. Voici quelques conseils :
 
-    - For **Region/Affinity Group/Virtual Network**, use a region that's appropriate to your location. You can also choose to specify a virtual network instead.
+	- Le **Nom du cloud Service DNS** est le nom DNS global qui devient un élément de l'URI utilisé pour contacter la machine virtuelle. Vous devrez créer votre propre nom de service cloud, car il doit être unique dans Azure. Les services cloud sont importants pour les scénarios utilisant [plusieurs machines virtuelles](virtual-machines-windows-classic-connect-vms.md).
 
-    - If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview](virtual-networks-overview.md).
-    
-    - For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
+	- Pour **Région/Groupe d'affinités/Réseau virtuel**, utilisez une région qui correspond au lieu où vous êtes. Vous pouvez également choisir de spécifier un réseau virtuel à la place.
 
-7. The fourth configuration screen lets you install the VM Agent and configure some of the available extensions.
+	- Si vous voulez qu’une machine virtuelle utilise un réseau virtuel, lorsque vous la créez, vous **devez** indiquer le réseau virtuel. Vous ne pouvez pas joindre la machine virtuelle à un réseau virtuel après avoir créé celle-ci. Pour plus d'informations, consultez la page [Vue d'ensemble d'Azure Virtual Network](virtual-networks-overview.md)
+	
+	- Pour obtenir des détails sur la configuration de points de terminaison, consultez la page [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-windows-classic-setup-endpoints.md).
 
-    >[AZURE.NOTE] The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine. For details, see [About the VM agent and extensions](virtual-machines-windows-classic-agents-and-extensions.md).  
+7. Le quatrième écran de configuration vous permet d’installer l’agent de machine virtuelle et de configurer certaines des extensions disponibles.
 
-8. After the virtual machine is created, the classic portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account also are created and are listed in those sections. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
+	>[AZURE.NOTE] L’agent de machine virtuelle fournit l’environnement dans lequel vous installez les extensions qui permettent d’interagir avec la machine virtuelle ou de la gérer. Pour en savoir plus, consultez la page [À propos de l'agent et des extensions de machine virtuelle](virtual-machines-windows-classic-agents-and-extensions.md).
 
-    ![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
+8. Une fois que vous avez créé la machine virtuelle, la version classique du portail la répertorie sous **Machines virtuelles**. Le service cloud et le compte de stockage correspondants sont également créés et répertoriés dans ces sections. La machine virtuelle et le service cloud sont démarrés automatiquement et leur statut est répertorié comme **En cours d'exécution**.
 
+	![Configurer l’agent de machine virtuelle et les points de terminaison de la machine virtuelle](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0608_2016-->

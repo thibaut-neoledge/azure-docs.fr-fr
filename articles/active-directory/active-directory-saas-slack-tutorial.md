@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Slack | Microsoft Azure" 
-    description="Learn how to use Slack with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Slack | Microsoft Azure" 
+    description="Découvrez comment utiliser Slack avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,138 +14,130 @@
     ms.date="09/19/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-slack"></a>Tutorial: Azure Active Directory integration with Slack
+#Didacticiel : Intégration d’Azure AD avec Slack
   
-The objective of this tutorial is to show the integration of Azure and Slack.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Slack. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
--   A valid Azure subscription
--   A Slack single sign-on enabled subscription
+-   Un abonnement Azure valide
+-   Un abonnement Slack pour lequel l’authentification unique est activée
   
-After completing this tutorial, the Azure AD users you have assigned to Slack will be able to single sign into the application at your Slack company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Slack pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Slack (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1.  Enabling the application integration for Slack
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Activation de l’intégration d’applications pour Slack
+2.  Configuration de l'authentification unique
+3.  Configuration de l'approvisionnement des utilisateurs
+4.  Affectation d’utilisateurs
 
-![Scenario](./media/active-directory-saas-slack-tutorial/IC794980.png "Scenario")
+![Scénario](./media/active-directory-saas-slack-tutorial/IC794980.png "Scénario")
 
-##<a name="enabling-the-application-integration-for-slack"></a>Enabling the application integration for Slack
+##Activation de l’intégration d’applications pour Slack
   
-The objective of this section is to outline how to enable the application integration for Slack.
+Cette section décrit l’activation de l’intégration d’applications pour Slack.
 
-###<a name="to-enable-the-application-integration-for-slack,-perform-the-following-steps:"></a>To enable the application integration for Slack, perform the following steps:
+###Pour activer l’intégration d’applications pour Slack, procédez comme suit :
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-slack-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-slack-tutorial/IC700994.png "Applications")
 
-4.  Click **Add** at the bottom of the page.
+4.  Cliquez sur **Ajouter** en bas de la page.
 
-    ![Add application](./media/active-directory-saas-slack-tutorial/IC749321.png "Add application")
+    ![Ajouter l’application](./media/active-directory-saas-slack-tutorial/IC749321.png "Ajouter l’application")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-slack-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-slack-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  In the **search box**, type **Slack**.
+6.  Dans la **zone de recherche**, entrez **Slack**.
 
-    ![Application Gallery](./media/active-directory-saas-slack-tutorial/IC794981.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-slack-tutorial/IC794981.png "Galerie d’applications")
 
-7.  In the results pane, select **Slack**, and then click **Complete** to add the application.
+7.  Dans le volet des résultats, sélectionnez **Slack**, puis cliquez sur **Terminer** pour ajouter l’application.
 
-    ![Scenario](./media/active-directory-saas-slack-tutorial/IC796925.png "Scenario")
+    ![Scénario](./media/active-directory-saas-slack-tutorial/IC796925.png "Scénario")
 
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuration de l'authentification unique
   
-The objective of this section is to outline how to enable users to authenticate to Slack with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Slack avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  In the Azure classic portal, on the **Slack** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Dans la page d’intégration d’applications **Slack** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794982.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-slack-tutorial/IC794982.png "Configurer l’authentification unique")
 
-2.  On the **How would you like users to sign on to Slack** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Slack**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794983.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-slack-tutorial/IC794983.png "Configurer l’authentification unique")
 
-3.  On the **Configure App URL** page, in the **Slack Sign In URL** textbox, type the URL of your Slack tenant (e.g.: "*https://azuread.slack.com*"), and then click **Next**.
+3.  Dans la zone de texte **URL de connexion à Slack** de la page **Configurer l’URL de l’application**, tapez l’URL de votre client Slack (par exemple, " *https://azuread.slack.com* "), puis cliquez sur **Suivant**.
 
-    ![Configure App URL](./media/active-directory-saas-slack-tutorial/IC794984.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-slack-tutorial/IC794984.png "Configurer l’URL de l’application")
 
-4.  On the **Configure single sign-on at Slack** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  Dans la page **Configurer l’authentification unique sur Slack**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794985.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-slack-tutorial/IC794985.png "Configurer l’authentification unique")
 
-5.  In a different web browser window, log into your Slack company site as an administrator.
+5.  Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Slack en tant qu’administrateur.
 
-6.  Go to **to Microsoft Azure AD \> Team Settings**.
+6.  Accédez à **Microsoft Azure AD > Team Settings**.
 
     ![Team Settings](./media/active-directory-saas-slack-tutorial/IC794986.png "Team Settings")
 
-7.  In the **Team Settings** section, click the **Authentication** tab, and then click **Change Settings**.
+7.  Dans la section **Team Settings**, cliquez sur l’onglet **Authentication** puis sur **Change Settings**.
 
     ![Team Settings](./media/active-directory-saas-slack-tutorial/IC794987.png "Team Settings")
 
-8.  On the **SAML Authentication Settings** dialog, perform the following steps:
+8.  Dans la boîte de dialogue **SAML Authentication Settings**, procédez comme suit :
 
     ![SAML Settings](./media/active-directory-saas-slack-tutorial/IC794988.png "SAML Settings")
 
-    1.  In the Azure classic portal, on the **Configure single sign-on at Slack** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SAML 2.0 Endpoint (HTTP)** textbox.
-    2.  In the Azure classic portal, on the **Configure single sign-on at Slack** dialog page, copy the **Issuer URL** value, and then paste it into the **Identity Provider Issuer** textbox.
-    3.  Create a **base-64 encoded** file from your downloaded certificate.
+    1.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur Slack** du portail Azure Classic, copiez la valeur **URL SSO SAML** et collez-la dans la zone de texte **Point de terminaison SAML 2.0 (HTTP)**.
+    2.  Dans la page de boîte de dialogue **Configurer l’authentification unique sur Slack** du portail Azure Classic, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Émetteur du fournisseur d’identité**.
+    3.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
     
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    4.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
-    5.  Deselect **Allow users to change their email address**.
-    6.  Select **Allow users to choose their own username**.
-    7.  As **Authentication for your team must be used by**, select **It’s optional**.
-    8.  Click **Save Configuration**.
+    4.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat public**.
+    5.  Décochez la case **Autoriser les utilisateurs à modifier leur adresse de messagerie**.
+    6.  Cochez la case **Autoriser les utilisateurs à choisir leur propre nom d’utilisateur**.
+    7.  Dans **L’authentification de votre équipe doit être utilisée par**, sélectionnez **C’est facultatif**.
+    8.  Cliquez sur **Enregistrer la configuration**.
 
-9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794989.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-slack-tutorial/IC794989.png "Configurer l’authentification unique")
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##Configuration de l'approvisionnement des utilisateurs
   
-In order to enable Azure AD users to log into Slack, they must be provisioned into Slack.
+Pour se connecter à Slack, les utilisateurs d’Azure AD doivent être approvisionnés dans Slack.
   
-There is no action item for you to configure user provisioning to Slack.  
-When an assigned user tries to log into Slack, a Slack account is automatically created if necessary.
+Vous n’avez rien à faire pour configurer l’approvisionnement des utilisateurs dans Slack. Lorsqu’un utilisateur tente de se connecter à Slack, un compte Slack est, au besoin, automatiquement créé.
 
-##<a name="assigning-users"></a>Assigning users
+##Affectation d’utilisateurs
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###<a name="to-assign-users-to-slack,-perform-the-following-steps:"></a>To assign users to Slack, perform the following steps:
+###Pour affecter des utilisateurs à Slack, procédez comme suit :
 
-1.  In the Azure classic portal, create a test account.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  On the **Slack **application integration page, click **Assign users**.
+2.  Dans la page d’intégration d’applications **Slack**, cliquez sur **Affecter des utilisateurs**.
 
-    ![Assign Users](./media/active-directory-saas-slack-tutorial/IC794990.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-slack-tutorial/IC794990.png "Affecter des utilisateurs")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
-    ![Yes](./media/active-directory-saas-slack-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-slack-tutorial/IC767830.png "Oui")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

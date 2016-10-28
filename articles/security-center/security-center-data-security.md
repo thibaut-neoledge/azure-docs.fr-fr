@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Security Center Data Security | Microsoft Azure"
-   description="This document explains how data is managed and safeguarded in Azure Security Center."
+   pageTitle="Sécurité des données du Centre de sécurité Azure | Microsoft Azure"
+   description="Ce document explique comment les données sont gérées et protégées dans le Centre de sécurité Azure."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,55 +16,50 @@
    ms.date="08/08/2016"
    ms.author="yurid"/>
 
+# Sécurité des données du Centre de sécurité Azure
+Pour aider les clients à empêcher, détecter et répondre aux menaces, le Centre de sécurité Azure collecte et traite des données sur vos ressources Azure, notamment des informations de configuration, des métadonnées, des journaux des événements, des fichiers de vidage sur incident et plus encore. Nous prenons des engagements fermes pour protéger la confidentialité et la sécurité de ces données. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
 
-# <a name="azure-security-center-data-security"></a>Azure Security Center Data Security
-To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes data about your Azure resources, including configuration information, metadata, event logs, crash dump files, and more. We make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. 
+Cet article explique comment les données sont gérées et protégées dans le Centre de sécurité Azure.
 
-This article explains how data is managed and safeguarded in Azure Security Center.
+## Sources de données
+Le Centre de sécurité Azure analyse les données provenant des sources suivantes :
 
-## <a name="data-sources"></a>Data Sources
-Azure Security Center analyzes data from the following sources:
+- Services Azure : lit les informations relatives à la configuration des services Azure que vous avez déployés en communiquant avec le fournisseur de ressources de ce service.
+- Trafic réseau : lit les métadonnées de trafic réseau échantillonnées provenant de l’infrastructure de Microsoft, telles que l’IP/le port source/de destination, la taille de paquet et le protocole réseau.
+- Solutions de partenaires : collecte les alertes de sécurité des solutions de partenaires intégrées, telles que les solutions de pare-feu et anti-programme malveillant. Ces données sont stockées dans le stockage du Centre de sécurité Azure, qui se trouve actuellement aux États-Unis.
+- Vos machines virtuelles : le Centre de sécurité Azure peut collecter des informations de configuration et des informations sur des événements de sécurité, telles que des événements Windows et des audits de journaux, des journaux IIS, des messages syslog et des fichiers de vidage sur incident de vos machines virtuelles à l’aide d’agents de collecte de données. Consultez la section « Gestion des données de collecte » ci-dessous pour plus de détails.
 
-- Azure Services: Reads information about the configuration of Azure services you have deployed by communicating with that service’s resource provider.
-- Network Traffic: Reads sampled network traffic metadata from Microsoft’s infrastructure, such as source/destination IP/port, packet size, and network protocol.
-- Partner Solutions: Collects security alerts from integrated partner solutions, such as firewalls and antimalware solutions. This data is stored in Azure Security Center storage, currently located in the United States.
-- Your Virtual Machines: Azure Security Center can collect configuration information and information about security events, such as Windows event and audit logs, IIS logs, syslog messages, and crash dump files from your virtual machines using data collection agents. See the “Managing Data Collection” section below for additional details.  
+En outre, les informations relatives aux alertes de sécurité, aux recommandations et à l’intégrité de la sécurité sont stockées dans le stockage du Centre de sécurité Azure, qui se trouve actuellement aux États-Unis. Ces informations peuvent inclure des informations de configuration associées et des événements de sécurité collectés à partir de vos machines virtuelles, le cas échéant, pour vous fournir l’alerte de sécurité, la recommandation ou l’état d’intégrité de la sécurité.
 
-In addition, information about security alerts, recommendations, and security health status is stored in Azure Security Center storage, currently located in the United States. This information may include related configuration information and security events collected from your virtual machines as needed to provide you with the security alert, recommendation, or security health status.
+## Protection des données
+**Ségrégation des données :** les données client sont maintenues séparées logiquement sur chaque composant, dans l’ensemble du service. Toutes les données sont balisées en fonction de l'organisation. Ce balisage est conservé tout au long du cycle de vie des données, et il est appliqué dans chaque couche du service. En outre, les données collectées à partir de vos machines virtuelles sont stockées dans vos comptes de stockage.
 
-## <a name="data-protection"></a>Data Protection
-**Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. In addition, data collected from your virtual machines is stored in your storage account(s).
+**Accès aux données** : afin de fournir des recommandations de sécurité et d’examiner les menaces de sécurité potentielles, le personnel de Microsoft peut accéder aux informations collectées ou analysées par des services Azure, y compris aux fichiers de vidage sur incident. Les fichiers de vidage sur incident et les événements de création de processus peuvent inclure involontairement des données client ou des données personnelles de vos machines virtuelles. Nous respectons les [conditions des services en ligne Microsoft](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) et la [Déclaration de confidentialité](https://www.microsoft.com/privacystatement/fr-FR/OnlineServices/Default.aspx), qui indiquent que Microsoft n’utilisera pas les données client ou ne tirera pas d’informations de ces dernières à des fins commerciales, publicitaires ou similaires. Nous utilisons uniquement les données client en fonction des besoins pour vous proposer des services Azure, notamment des utilisations compatibles avec la fourniture de ces services. Vous conservez tous les droits sur les données client.
 
-**Data access**: In order to provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including crash dump files. Crash dump files and process creation events may unintentionally include Customer Data or personal data from your virtual machines. We adhere to the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to Customer Data.
+**Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer nos fonctionnalités de prévention et de détection. Cette utilisation s’effectue en accord avec les engagements de confidentialité décrits dans notre [Déclaration de confidentialité](https://www.microsoft.com/privacystatement/fr-FR/OnlineServices/Default.aspx).
 
-**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Emplacement des données** : un compte de stockage est spécifié pour chaque région où des machines virtuelles sont en cours d’exécution. Cela vous permet de stocker des données dans la même région que la machine virtuelle à partir de laquelle les données sont collectées. Ces données, y compris les fichiers de vidage sur incident, seront stockés de manière permanente dans votre compte de stockage. Le service stocke également les informations relatives aux alertes de sécurité, notamment les alertes de solutions partenaires intégrées, les recommandations et l’intégrité de la sécurité dans le stockage du Centre de sécurité Azure, qui se trouve actuellement aux États-Unis.
 
-**Data location**: A storage account is specified for each region where virtual machines are running. This enables you to store data in the same region as the virtual machine from which the data is collected. This data, including crash dump files, will be persistently stored in your storage account. The service also stores information about security alerts, including alerts from integrated partner solutions, recommendations, and security health status in Azure Security Center storage, currently located in the United States.
+## Gestion de la collecte de données à partir de machines virtuelles
 
-## <a name="managing-data-collection-from-virtual-machines"></a>Managing Data Collection from Virtual Machines
+Lorsque vous choisissez d’activer le Centre de sécurité Azure, la collecte de données est activée pour chacun de vos abonnements. Vous pouvez désactiver la collecte de données dans la section « Stratégie de sécurité » de votre tableau de bord du Centre de sécurité Azure. Lorsque la collecte de données est activée, le Centre de sécurité Azure approvisionne l’agent de surveillance Azure sur toutes les machines virtuelles prises en charge existantes et celles nouvellement créées. L’extension Surveillance de la sécurité Azure analyse diverses configurations de sécurité et crée des événements sous la forme de traces de [suivi d’événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). En outre, le système d’exploitation déclenche des événements du Journal des événements au cours de l’exécution de la machine. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté et ID de locataire. L’agent de surveillance Azure lit les entrées du journal des événements et les traces ETW, puis les copie dans votre compte de stockage pour les analyser.
 
-When you choose to enable Azure Security Center, data collection is turned on for each of your subscriptions. You can turn off data collection in the “Security Policy” section of your Azure Security Center Dashboard. When Data collection is turned on, Azure Security Center provisions the Azure Monitoring Agent on all existing supported virtual machines and any new ones that are created. The Azure Security Monitoring extension scans for various security related configurations and events it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system will raise event log events during the course of running the machine. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis. 
+Un compte de stockage est spécifié pour chaque région où s’exécutent des machines virtuelles, où les données collectées à partir des machines virtuelles de cette même région sont stockées. Ainsi, vous pouvez stocker les données dans une même région pour garantir la confidentialité et la souveraineté des données. Vous pouvez configurer des comptes de stockage pour chaque région dans la section « Stratégie de sécurité » de votre tableau de bord du Centre de sécurité Azure.
 
-A storage account is specified for each region in which you have virtual machines running, where data collected from virtual machines in that same region is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You can configure storage accounts for each region in the “Security Policy” section of your Azure Security Center Dashboard.
+L’agent de surveillance Azure copie également les fichiers de vidage sur incident sur votre compte de stockage. Le Centre de sécurité Azure collecte des copies éphémères de vos fichiers de vidage sur incident et les analyse pour obtenir des preuves de tentatives d’attaque par le biais de code malveillant exploitant une faille de sécurité et de compromis ayant abouti. Le Centre de sécurité Azure effectue cette analyse dans la même région géographique que le compte de stockage, puis supprime les copies éphémères une fois l’analyse terminée.
 
-The Azure Monitoring Agent also copies crash dump files to your storage account.  Azure Security Center collects ephemeral copies of your crash dump files and analyzes them for evidence of exploit attempts and successful compromises.  Azure Security Center performs this analysis within the same geographic region as the storage account, and deletes the ephemeral copies when analysis is complete.
-
-You can disable data collection from virtual machines at any time, which will remove any Monitoring Agents previously installed by Azure Security Center.
-
-
-## <a name="next-steps"></a>Next steps
-
-In this document, you learned how data is managed and safeguarded in Azure Security Center. To learn more about Azure Security Center, see:
-
-- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
+Vous pouvez désactiver la collecte des données à partir des machines virtuelles à tout moment, ce qui entraîne la suppression des agents de surveillance précédemment installés par le Centre de sécurité Azure.
 
 
+## Étapes suivantes
 
-<!--HONumber=Oct16_HO2-->
+Ce document explique comment les données sont gérées et protégées dans le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
+- [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) : découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception.
+- [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+- [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
+- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
+- [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
+- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
+<!---HONumber=AcomDC_0817_2016-->

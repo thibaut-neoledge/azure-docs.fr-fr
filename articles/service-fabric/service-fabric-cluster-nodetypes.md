@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric node types and VM Scale Sets | Microsoft Azure"
-   description="Describes how Service Fabric node types relate to VM Scale Sets and how to remote connect to a VM Scale Set instance or a cluster node."
+   pageTitle="Types de nœuds Service Fabric et groupes de machines virtuelles identiques | Microsoft Azure"
+   description="Décrit la relation entre les types de nœuds Service Fabric et les groupes de machines virtuelles identiques et la connexion à distance à une instance de groupe de machines virtuelles identiques ou à un nœud de cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -17,113 +17,112 @@
    ms.author="chackdan"/>
 
 
+# Relation entre les types de nœuds Service Fabric et les groupes de machines virtuelles identiques
 
-# <a name="the-relationship-between-service-fabric-node-types-and-virtual-machine-scale-sets"></a>The relationship between Service Fabric node types and Virtual Machine Scale Sets
+Les groupes de machines virtuelles identiques sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que jeu de mise à l’échelle de machine virtuelle distinct. Chaque type de nœud peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité.
 
-Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate VM Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
+La capture d’écran suivante montre un cluster qui a deux types de nœuds : frontaux et principaux. Chaque type de nœud comporte cinq nœuds.
 
-The following screen shot shows a cluster that has two node types: FrontEnd and BackEnd.  Each node type has five nodes each.
+![Capture d’écran d’un cluster qui a deux types de nœuds][NodeTypes]
 
-![Screen shot of a cluster that has two Node Types][NodeTypes]
+## Mappage des instances du groupe de machines virtuelles identiques sur les nœuds
 
-## <a name="mapping-vm-scale-set-instances-to-nodes"></a>Mapping VM Scale Set instances to nodes
+Comme vous pouvez le constater ci-dessus, les instances du groupe de machines virtuelles identiques démarrent à l’instance 0. Les noms reflètent la numérotation. Par exemple, BackEnd_0 représente l’instance 0 du jeu de mise à l’échelle de machine virtuelle principal. Ce jeu a cinq instances, nommées BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 et BackEnd_4.
 
-As you can see above, the VM Scale Set instances start from instance 0 and then goes up. The numbering is reflected in the names. For example, BackEnd_0 is instance 0 of the BackEnd VM Scale Set. This particular VM Scale Set has five instances, named BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 and BackEnd_4.
-
-When you scale up a VM Scale Set a new instance is created. The new VM Scale Set instance name will typically be the VM Scale Set name + the next instance number. In our example, it is BackEnd_5.
-
-
-## <a name="mapping-vm-scale-set-load-balancers-to-each-node-type/vm-scale-set"></a>Mapping VM scale set load balancers to each node type/VM Scale Set
-
-If you have deployed your cluster from the portal or have used the sample Resource Manager template that we provided, then when you get a list of all resources under a Resource Group then you will see the load balancers for each VM Scale Set or node type.
-
-The name would something like: **LB-&lt;NodeType name&gt;**. For example, LB-sfcluster4doc-0, as shown in this screenshot:
+Quand vous effectuez une montée en puissance sur un groupe de machines virtuelles identiques, une instance est créée. En règle générale, le nom de la nouvelle instance du groupe de machines virtuelles identiques est le nom du groupe de machines virtuelles identiques suivi du numéro d’instance suivant. Dans notre exemple, il s’agit de BackEnd\_5.
 
 
-![Resources][Resources]
+## Mappage des équilibreurs de charge de groupe de machines virtuelles identiques sur chaque type de nœud/groupe de machines virtuelles identiques
+
+Si vous avez déployé votre cluster à partir du portail ou que vous avez utilisé l’exemple de modèle Resource Manager fourni, les équilibreurs de charge pour chaque type de nœud ou jeu de mise à l’échelle de machine virtuelle apparaissent quand vous obtenez la liste de toutes les ressources sous un groupe de ressources.
+
+Le nom ressemble à ceci : **LB-&lt;nom du type de nœud&gt;**. Par exemple, LB-sfcluster4doc-0, comme indiqué dans cette capture d’écran :
 
 
-## <a name="remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node"></a>Remote connect to a VM Scale Set instance or a cluster node
-Every Node type that is defined in a cluster is set up as a separate VM Scale Set.  That means the node types can be scaled up or down independently and can be made of different VM SKUs. Unlike single instance VMs, the VM Scale Set instances do not get a virtual IP address of their own. So it can be a bit challenging when you are looking for an IP address and port that you can use to remote connect to a specific instance.
-
-Here are the steps you can follow to discover them.
-
-### <a name="step-1:-find-out-the-virtual-ip-address-for-the-node-type-and-then-inbound-nat-rules-for-rdp"></a>Step 1: Find out the virtual IP address for the node type and then Inbound NAT rules for RDP
-
-In order to get that, you need to get the inbound NAT rules values that were defined as a part of the resource definition for **Microsoft.Network/loadBalancers**.
-
-In the portal, navigate to the Load balancer blade and then **Settings**.
-
-![LBBlade][LBBlade]
+![Ressources][Resources]
 
 
-In **Settings**, click on **Inbound NAT rules**. This now gives you the IP address and port that you can use to remote connect to the first VM Scale Set instance. In the screenshot below, it is **104.42.106.156** and **3389**
+## Se connecter à distance à une instance du groupe de machines virtuelles identiques ou à un nœud de cluster
+Chaque type de nœud qui est défini dans un cluster est configuré comme un jeu de mise à l’échelle de machine virtuelle distinct. Cela signifie que les types de nœuds peuvent subir une montée ou descente en puissance de manière indépendante et comprendre différentes références (SKU) de machine virtuelle. Contrairement aux machines virtuelles à instance unique, les instances du groupe de machines virtuelles identiques n’obtiennent pas une adresse IP virtuelle qui leur est propre. C’est pourquoi rechercher une adresse IP et un port pour se connecter à distance à une instance spécifique peut s’avérer un peu difficile.
 
-![NATRules][NATRules]
+Voici la procédure à suivre pour les trouver.
 
-### <a name="step-2:-find-out-the-port-that-you-can-use-to-remote-connect-to-the-specific-vm-scale-set-instance/node"></a>Step 2: Find out the port that you can use to remote connect to the specific VM Scale Set instance/node
+### Étape 1 : Rechercher l’adresse IP virtuelle du type de nœud, puis les règles NAT de trafic entrant pour RDP
 
-Earlier in this document, I talked about how the VM Scale Set instances map to the nodes. We will use that to figure out the exact port.
+Pour ce faire, vous devez obtenir les valeurs des règles NAT de trafic entrant qui ont été établies dans le cadre de la définition des ressources pour **Microsoft.Network/loadBalancers**.
 
-The ports are allocated in ascending order of the VM Scale Set instance. so in my example for the FrontEnd node type, the ports for each of the five instances are the following. you now need to do the same mapping for your VM Scale Set instance.
+Dans le portail, accédez au panneau Équilibrage de charge, puis à **Paramètres**.
 
-|**VM Scale Set Instance**|**Port**|
+![Panneau Équilibrage de charge][LBBlade]
+
+
+Dans **Paramètres**, cliquez sur **Règles NAT de trafic entrant**. Vous disposez à présent de l’adresse IP et du port nécessaires pour vous connecter à distance à la première instance du groupe de machines virtuelles identiques. Dans la capture d’écran ci-dessous, il s’agit de **104.42.106.156** et **3389**
+
+![Règles NAT][NATRules]
+
+### Étape 2 : Déterminer le port à utiliser pour se connecter à distance à un nœud ou à une instance du groupe de machines virtuelles identiques spécifique
+
+Plus haut dans ce document, j’ai abordé le mappage des instances du groupe de machines virtuelles identiques sur les nœuds. Nous allons l’utiliser pour déterminer le port exact.
+
+Les ports sont alloués dans l’ordre croissant des instances du jeu de mise à l’échelle de machine virtuelle. Ainsi, dans mon exemple, pour le type de nœud frontal, les ports pour chacune des cinq instances sont les suivants. Vous devez maintenant effectuer le même mappage pour votre instance de jeu de mise à l’échelle de machine virtuelle.
+
+|**Instance de jeu de mise à l’échelle de machine virtuelle**|**Port**|
 |-----------------------|--------------------------|
-|FrontEnd_0|3389|
-|FrontEnd_1|3390|
-|FrontEnd_2|3391|
-|FrontEnd_3|3392|
-|FrontEnd_4|3393|
-|FrontEnd_5|3394|
+|FrontEnd\_0|3389|
+|FrontEnd\_1|3390|
+|FrontEnd\_2|3391|
+|FrontEnd\_3|3392|
+|FrontEnd\_4|3393|
+|FrontEnd\_5|3394|
 
 
-### <a name="step-3:-remote-connect-to-the-specific-vm-scale-set-instance"></a>Step 3: Remote connect to the specific VM Scale Set instance
+### Étape 3 : Se connecter à distance à une instance spécifique du groupe de machines virtuelles identiques
 
-In the screenshot below I use Remote Desktop Connection to connect to the FrontEnd_1:
+Dans la capture d’écran ci-dessous, j’utilise Connexion Bureau à distance pour me connecter à l’instance FrontEnd\_1 :
 
 ![RDP][RDP]
 
-## <a name="how-to-change-the-rdp-port-range-values"></a>How to change the RDP port range values
+## Comment modifier les valeurs des plages de ports RDP
 
-### <a name="before-cluster-deployment"></a>Before cluster deployment
+### Avant le déploiement du cluster
 
-When you are setting up the cluster using an Resource Manager template, you can specify the range in the **inboundNatPools**.
+Quand vous configurez le cluster à l’aide d’un modèle Resource Manager, vous pouvez spécifier la plage dans **inboundNatPools**.
 
-Go to the resource definition for **Microsoft.Network/loadBalancers**. Under that you find the description for **inboundNatPools**.  Replace the *frontendPortRangeStart* and *frontendPortRangeEnd* values.
+Accédez à la définition de ressource pour **Microsoft.Network/loadBalancers**. Sous celle-ci se trouve la description de **inboundNatPools**. Remplacez les valeurs *frontendPortRangeStart* et *frontendPortRangeEnd*.
 
 ![InboundNatPools][InboundNatPools]
 
 
-### <a name="after-cluster-deployment"></a>After cluster deployment
-This is a bit more involved and may result in the VMs getting recycled. You will now have to set new values using Azure PowerShell. Make sure that Azure PowerShell 1.0 or later is installed on your machine. If you have not done this before, I strongly suggest that you follow the steps outlined in [How to install and configure Azure PowerShell.](../powershell-install-configure.md)
+### Après le déploiement du cluster
+Cette procédure est un peu plus complexe et peut aboutir au recyclage des machines virtuelles. Vous devez maintenant définir de nouvelles valeurs à l’aide d’Azure PowerShell. Vérifiez qu’Azure PowerShell 1.0 ou version ultérieure est installé sur votre ordinateur. Si ce n’est déjà fait, je vous recommande vivement de suivre les étapes décrites dans [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-Sign in to your Azure account. If this PowerShell command fails for some reason, you should check whether you have Azure PowerShell installed correctly.
+Connectez-vous à votre compte Azure. Si cette commande PowerShell échoue pour une raison quelconque, vous devez vérifier si Azure PowerShell est correctement installé.
 
 ```
 Login-AzureRmAccount
 ```
 
-Run the following to get details on your load balancer and you see the values for the description for **inboundNatPools**:
+Exécutez la commande suivante pour obtenir les détails de votre équilibrage de charge et découvrir les valeurs qui décrivent **inboundNatPools** :
 
 ```
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
 ```
 
-Now set *frontendPortRangeEnd* and *frontendPortRangeStart* to the values you want.
+À présent, définissez *frontendPortRangeEnd* et *frontendPortRangeStart* sur les valeurs souhaitées.
 
 ```
 $PropertiesObject = @{
-    #Property = value;
+	#Property = value;
 }
 Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load Balancer name> -ApiVersion <use the API version that get returned> -Force
 ```
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- [Overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md)
-- [Cluster security](service-fabric-cluster-security.md)
-- [ Service Fabric SDK and getting started](service-fabric-get-started.md)
+- [Vue d’ensemble de la fonction « Déployer n’importe où » et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md)
+- [Sécurité des clusters](service-fabric-cluster-security.md)
+- [Kit de développement logiciel (SDK) de Service Fabric et prise en main](service-fabric-get-started.md)
 
 
 <!--Image references-->
@@ -134,8 +133,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

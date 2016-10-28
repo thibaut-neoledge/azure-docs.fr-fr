@@ -1,93 +1,90 @@
 <properties 
-    pageTitle="How to use the SendGrid email service (.NET) | Microsoft Azure" 
-    description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." 
-    services="app-service\web" 
-    documentationCenter=".net" 
-    authors="thinkingserious" 
-    manager="dwrede" 
-    editor=""/>
+	pageTitle="Utilisation du service de messagerie électronique SendGrid (.NET) | Microsoft Azure" 
+	description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Code samples written in C# and use the .NET API." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="thinkingserious" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service-web" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="01/14/2016" 
-    ms.author="team-pi@sendgrid.com"/>
+	ms.service="app-service-web" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/14/2016" 
+	ms.author="team-pi@sendgrid.com"/>
 
 
 
 
 
+# Envoi de courriers électroniques à l'aide de SendGrid avec Azure
 
-# <a name="how-to-send-email-using-sendgrid-with-azure"></a>How to Send Email Using SendGrid with Azure
 
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios traités incluent le **développement d'une messagerie électronique**, l'**envoi de courriers électroniques**, l'**ajout de pièces jointes** et l'**utilisation de filtres**. Pour plus d'informations sur SendGrid et l'envoi de courriers électroniques, consultez la section [Étapes suivantes][].
 
-This guide demonstrates how to perform common programming tasks with the SendGrid email service on Azure. The samples are written in C\#
-and use the .NET API. The scenarios covered include **constructing email**, **sending email**, **adding attachments**, and **using filters**. For more information on SendGrid and sending email, see the [Next steps][] section.
+## Présentation du service de messagerie SendGrid
 
-## <a name="what-is-the-sendgrid-email-service?"></a>What is the SendGrid email service?
+SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Voici quelques scénarios courants en termes d'utilisation de SendGrid :
 
-SendGrid is a [cloud-based email service] that provides reliable [transactional email delivery], scalability, and real-time analytics along with flexible APIs that make custom integration easy. Common SendGrid usage scenarios include:
+-   envoi automatique d'accusés de réception aux clients ;
+-   gestion des listes de distribution pour l'envoi mensuel de brochures et d'offres spéciales aux clients ;
+-   collecte de mesures en temps réel en ce qui concerne les messages bloqués et la réactivité des clients, par exemple ;
+-   génération de rapports d'identification des tendances ;
+-   transfert des demandes de renseignements des clients.
+-   traitement des messages électroniques entrants.
 
--   Automatically sending receipts to customers.
--   Administering distribution lists for sending customers monthly e-fliers and special offers.
--   Collecting real-time metrics for things like blocked email, and customer responsiveness.
--   Generating reports to help identify trends.
--   Forwarding customer inquiries.
--   Processing incoming emails.
+Pour plus d'informations, consultez la page [https://sendgrid.com](https://sendgrid.com) ou notre [bibliothèque C#][sendgrid-csharp]
 
-For more information, see [https://sendgrid.com](https://sendgrid.com) or our [C# library][sendgrid-csharp]
-
-## <a name="create-a-sendgrid-account"></a>Create a SendGrid account
+## Création d'un compte SendGrid
 
 [AZURE.INCLUDE [sendgrid-sign-up](../../includes/sendgrid-sign-up.md)]
 
-## <a name="reference-the-sendgrid-.net-class-library"></a>Reference the SendGrid .NET class library
+## Référencement de la bibliothèque de classes .NET de SendGrid
 
-The [SendGrid NuGet package](https://www.nuget.org/packages/Sendgrid) is the easiest way to get the SendGrid API and to configure your application with all dependencies. NuGet is a Visual Studio extension included with Microsoft Visual Studio 2015 that makes it easy to install and update libraries and tools. 
+Le [package NuGet SendGrid](https://www.nuget.org/packages/Sendgrid) permet facilement d'obtenir l'API SendGrid et de configurer votre application avec toutes les dépendances associées. NuGet est une extension Visual Studio incluse dans Microsoft Visual Studio 2015 qui facilite l'installation et la mise à jour des bibliothèques et outils.
 
-> [AZURE.NOTE] To install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2015, visit [http://www.nuget.org](http://www.nuget.org), and click the **Install NuGet** button.
+> [AZURE.NOTE] Pour installer NuGet si vous exécutez une version de Visual Studio antérieure à Visual Studio 2015, consultez la page [http://www.nuget.org](http://www.nuget.org), puis cliquez sur le bouton **Install NuGet**.
 
-To install the SendGrid NuGet package in your application, do the following:
+Pour installer le package NuGet SendGrid dans votre application, procédez comme suit :
 
-1.  Created a new project.
+1.  Créez un projet.
 
-    ![Create a new project][create-new-project]
+    ![Création d'un projet][create-new-project]
 
-2.  Select a template.
+2.  Sélectionnez un modèle.
 
-    ![Select a template][select-a-template]
+    ![Sélectionner un modèle][select-a-template]
 
-3.  In **Solution Explorer**, right-click **References**, then click **Manage NuGet Packages**.
+3.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **References**, puis cliquez sur **Manage NuGet Packages**.
 
-4.  Search for **SendGrid** and select the **SendGrid** item in the results list.
+4.  Recherchez **SendGrid**, puis sélectionnez l'élément **SendGrid** dans la liste de résultats.
 
-    ![SendGrid NuGet package][SendGrid-NuGet-package]
+    ![Package NuGet SendGrid][SendGrid-NuGet-package]
 
-5.  Click **Install** to complete the installation, and then close this dialog.
+5.  Cliquez sur **Install** pour terminer l'installation, puis fermez cette boîte de dialogue.
 
-SendGrid's .NET class library is called **SendGridMail**. It contains the following namespaces:
+La bibliothèque de classes .NET de SendGrid est appelée **SendGridMail**. Elle contient les espaces de noms suivants :
 
--   **SendGridMail** for creating and working with email items.
--   **SendGridMail.Transport** for sending email using either the **SMTP** protocol, or the HTTP 1.1 protocol with **Web/REST**.
+-   **SendGridMail** pour la création et l'utilisation d'éléments de messagerie.
+-   **SendGridMail.Transport** pour l'envoi de courriers électroniques à l'aide du protocole **SMTP** ou du protocole HTTP 1.1 avec **Web/REST**.
 
-Add the following code namespace declarations to the top of any C\# file in which you want to programmatically access the SendGrid email service.
-**System.Net** and **System.Net.Mail** are .NET Framework namespaces that are included because they include types you will commonly use with the SendGrid APIs.
+Ajoutez les déclarations d'espace de noms de code suivantes en haut de chaque fichier C# dans lequel vous souhaitez accéder au service de messagerie SendGrid par programme. **System.Net** et **System.Net.Mail** sont des espaces de noms .NET Framework qui sont inclus, car ils comprennent les types que vous utilisez généralement avec les API SendGrid.
 
     using System;
     using System.Net;
     using System.Net.Mail;
     using SendGrid;
 
-## <a name="how-to:-create-an-email"></a>How to: Create an email
+## Création d'un message électronique
 
-Use the **SendGridMessage** object to create an email message. Once the message object is created, you can set properties and methods, including the email sender, the email recipient, and the subject and body of the email.
+Pour créer un message électronique, utilisez l'objet **SendGridMessage**. Une fois que l'objet du message est créé, vous pouvez définir les propriétés et les méthodes, notamment l'expéditeur, le destinataire, l'objet et le corps du message électronique.
 
-The following example demonstrates how to create a fully populated email object:
+L'exemple suivant montre comment créer un objet de message entièrement renseigné :
 
     // Create the email object first, then add the properties.
     var myMessage = new SendGridMessage();
@@ -111,25 +108,25 @@ The following example demonstrates how to create a fully populated email object:
     myMessage.Html = "<p>Hello World!</p>";
     myMessage.Text = "Hello World plain text!";
 
-For more information on all properties and methods supported by the **SendGrid** type, see [sendgrid-csharp][] on GitHub.
+Pour plus d'informations sur les propriétés et méthodes prises en charge par le type **SendGrid**, consultez la page [sendgrid-csharp][] sur GitHub.
 
-## <a name="how-to:-send-an-email"></a>How to: Send an email
+## Envoi d'un message électronique
 
-After creating an email message, you can send it using the Web API provided by SendGrid. Alternatively, you may [use .NET's built in library](https://sendgrid.com/docs/Code_Examples/csharp.html).
+Une fois le message électronique créé, vous pouvez l'envoyer à l'aide de l'API Web fournie par SendGrid. Vous pouvez également [utiliser la bibliothèque intégrée de .NET](https://sendgrid.com/docs/Code_Examples/csharp.html).
 
-Sending email requires that you supply your SendGrid account credentials (username and password) or SendGrid API Key. API Key is the preferred method. If you need details about how to configure API keys, please visit our [documentation](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
+Pour envoyer des messages électroniques, vous devez fournir les informations d'identification de votre compte SendGrid (nom d'utilisateur et mot de passe) ou votre clé d’API SendGrid. La clé d’API est la méthode privilégiée. Pour plus de détails sur la configuration des clés d’API, consultez notre [documentation](https://sendgrid.com/docs/Classroom/Send/api_keys.html).
 
-You may store these credentials via your Azure Portal by clicking CONFIGURE and adding the key/value pairs under "app settings".
+Vous pouvez stocker ces informations d’identification via votre portail Azure en cliquant sur CONFIGURER et en ajoutant les paires clé / valeur dans Paramètres de l’application.
 
- ![Azure app settings][azure_app_settings]
+ ![Paramètres de l’application Azure][azure_app_settings]
 
- Then, you may access them as follows: 
+ Vous pouvez ensuite y accéder comme suit :
     
-    var username = System.Environment.GetEnvironmentVariable("SENDGRID_USERNAME"); 
-    var pswd = System.Environment.GetEnvironmentVariable("SENDGRID_PASSWORD");
+    var username = System.Environment.GetEnvironmentVariable("SENDGRID_USER"); 
+    var pswd = System.Environment.GetEnvironmentVariable("SENDGRID_PASS");
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
 
-Using Credentials:
+Utilisation des informations d’identification
     
     // Create network credentials to access your SendGrid account
     var username = "your_sendgrid_username";
@@ -139,14 +136,14 @@ Using Credentials:
     // Create an Web transport for sending email.
     var transportWeb = new Web(credentials);
 
-Using API Key:
+Utilisation de la clé d’API :
 
     var apiKey = "your_sendgrid_api_key";  
     // create a Web transport, using API Key
     var transportWeb = new Web(apiKey);
 
 
-The following examples show how to send a message using the Web API.
+Les exemples suivants montrent comment envoyer un message à l'aide de l'API Web.
 
     // Create the email object first, then add the properties.
     SendGridMessage myMessage = new SendGridMessage();
@@ -167,10 +164,9 @@ The following examples show how to send a message using the Web API.
     // If developing a Console Application, use the following
     // transportWeb.DeliverAsync(mail).Wait();
 
-## <a name="how-to:-add-an-attachment"></a>How to: Add an attachment
+## Ajout d'une pièce jointe
 
-Attachments can be added to a message by calling the **AddAttachment** method and specifying the name and path of the file you want to attach.
-You can include multiple attachments by calling this method once for each file you wish to attach. The following example demonstrates adding an attachment to a message:
+Vous pouvez ajouter des pièces jointes à un message en appelant la méthode **AddAttachment** et en spécifiant le nom et le chemin d'accès du fichier que vous souhaitez joindre. Vous pouvez inclure plusieurs pièces jointes en appelant cette méthode une fois pour chaque fichier que vous souhaitez joindre. L'exemple suivant montre comment ajouter une pièce jointe à un message :
 
     SendGridMessage myMessage = new SendGridMessage();
     myMessage.AddTo("anna@example.com");
@@ -180,7 +176,7 @@ You can include multiple attachments by calling this method once for each file y
 
     myMessage.AddAttachment(@"C:\file1.txt");
     
-You can also add attachments from the data's **Stream**. It can be done by calling the same method as above, **AddAttachment**, but by passing in the Stream of the data, and the filename you want it to show as in the message. In this case you will need to add the System.IO library.
+Vous pouvez également ajouter des pièces jointes depuis le **Flux** de données. Pour ce faire, appelez la méthode décrite ci-dessus, **AddAttachment**, mais en transmettant le flux de données, et le nom de fichier que vous souhaitez afficher dans le message. Dans ce cas, vous devez ajouter la bibliothèque System.IO.
 
     SendGridMessage myMessage = new SendGridMessage();
     myMessage.AddTo("anna@example.com");
@@ -194,15 +190,15 @@ You can also add attachments from the data's **Stream**. It can be done by calli
     }
 
 
-## <a name="how-to:-use-apps-to-enable-footers,-tracking,-and-analytics"></a>How to: Use apps to enable footers, tracking, and analytics
+## Procédure : Utilisation d'applications pour activer les pieds de page, le suivi et l'analyse
 
-SendGrid provides additional email functionality through the use of apps. These are settings that can be added to an email message to enable specific functionality such as click tracking, Google analytics, subscription tracking, and so on. For a full list of apps, see [App Settings][].
+SendGrid offre d'autres fonctionnalités de messagerie grâce à l'utilisation d'applications. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques, telles que le suivi des clics, Google Analytics, le suivi des abonnements, et ainsi de suite. Pour obtenir la liste complète des applications, consultez [Paramètres de l'application][].
 
-Apps can be applied to **SendGrid** email messages using methods implemented as part of the **SendGrid** class.
+Les applications peuvent être appliquées aux messages électroniques **SendGrid** à l'aide des méthodes implémentées dans le cadre de la classe **SendGrid**.
 
-The following examples demonstrate the footer and click tracking filters:
+Les exemples suivants montrent les filtres de pied de page et de suivi des clics :
 
-### <a name="footer"></a>Footer
+### Pied de page
 
     // Create the email object first, then add the properties.
     SendGridMessage myMessage = new SendGridMessage();
@@ -214,33 +210,33 @@ The following examples demonstrate the footer and click tracking filters:
     // Add a footer to the message.
     myMessage.EnableFooter("PLAIN TEXT FOOTER", "<p><em>HTML FOOTER</em></p>");
 
-### <a name="click-tracking"></a>Click tracking
+### Suivi des clics
 
     // Create the email object first, then add the properties.
     SendGridMessage myMessage = new SendGridMessage();
     myMessage.AddTo("anna@example.com");
     myMessage.From = new MailAddress("john@example.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";
-    myMessage.Html = "<p><a href=\"http://www.example.com\">Hello World Link!</a></p>";
+    myMessage.Html = "<p><a href="http://www.example.com">Hello World Link!</a></p>";
     myMessage.Text = "Hello World!";
     
     // true indicates that links in plain text portions of the email 
     // should also be overwritten for link tracking purposes. 
     myMessage.EnableClickTracking(true);
 
-## <a name="how-to:-use-additional-sendgrid-services"></a>How to: Use additional SendGrid services
+## Utilisation de services SendGrid supplémentaires
 
-SendGrid offers web-based APIs and webhooks that you can use to leverage additional SendGrid functionality from your Azure application. For full details, see the [SendGrid API documentation][].
+SendGrid propose des API web et des « webhooks » que vous pouvez utiliser pour tirer parti d'autres fonctionnalités SendGrid à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API SendGrid][].
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-Now that you've learned the basics of the SendGrid Email service, follow these links to learn more.
+Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
-*   SendGrid C\# library repo: [sendgrid-csharp][]
-*   SendGrid API documentation: <https://sendgrid.com/docs>
-*   SendGrid special offer for Azure customers: [https://sendgrid.com](https://sendgrid.com)
+*   Référentiel de la bibliothèque C# de SendGrid : [sendgrid-csharp][]
+*   Documentation de l'API SendGrid : <https://sendgrid.com/docs>
+*   Offre spéciale SendGrid pour les clients Azure : [https://sendgrid.com](https://sendgrid.com)
 
-  [Next steps]: #next-steps
+  [Étapes suivantes]: #next-steps
   [What is the SendGrid Email Service?]: #whatis
   [Create a SendGrid Account]: #createaccount
   [Reference the SendGrid .NET Class Library]: #reference
@@ -258,15 +254,11 @@ Now that you've learned the basics of the SendGrid Email service, follow these l
   [azure_app_settings]: ./media/sendgrid-dotnet-how-to-send-email/app_settings.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
   [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
-  [App Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [SendGrid API documentation]: https://sendgrid.com/docs
+  [Paramètres de l'application]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [documentation de l'API SendGrid]: https://sendgrid.com/docs
   
-  [cloud-based email service]: https://sendgrid.com/email-solutions
-  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
+  [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0128_2016-->

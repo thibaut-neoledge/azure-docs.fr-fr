@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory Integration with Zscaler Beta | Microsoft Azure" 
-    description="Learn how to use Zscaler Beta with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler Beta | Microsoft Azure" 
+    description="Découvrez comment utiliser Zscaler Beta avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,199 +14,191 @@
     ms.date="08/16/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Azure Active Directory Integration with Zscaler Beta
+#Didacticiel : Intégration d’Azure AD à Zscaler Beta
   
-The objective of this tutorial is to show the integration of Azure and ZScaler Beta.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Zscaler Beta. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
--   A valid Azure subscription
--   A ZScaler Beta single sign-on enabled subscription
+-   Un abonnement Azure valide
+-   Un abonnement Zscaler Beta pour lequel l’authentification unique est activée
   
-After completing this tutorial, the Azure AD users you have assigned to ZScaler Beta will be able to single sign into the application at your ZScaler Beta company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Zscaler Beta pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Zscaler Beta (connexion initiée par le fournisseur de services) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1.  Enabling the application integration for ZScaler Beta
-2.  Configuring single sign-on
-3.  Configuring proxy settings
-4.  Configuring user provisioning
-5.  Assigning users
+1.  Activation de l’intégration d’applications pour Zscaler Beta
+2.  Configuration de l’authentification unique
+3.  Configuration des paramètres de proxy
+4.  Configuration de l'approvisionnement des utilisateurs
+5.  Affectation d’utilisateurs
 
-![Scenario](./media/active-directory-saas-zscaler-beta-tutorial/IC800223.png "Scenario")
+![Scénario](./media/active-directory-saas-zscaler-beta-tutorial/IC800223.png "Scénario")
 
-##<a name="enabling-the-application-integration-for-zscaler-beta"></a>Enabling the application integration for ZScaler Beta
+##Activation de l’intégration d’applications pour Zscaler Beta
   
-The objective of this section is to outline how to enable the application integration for ZScaler Beta.
+Cette section décrit l’activation de l’intégration d’applications pour Zscaler Beta.
 
-###<a name="to-enable-the-application-integration-for-zscaler-beta,-perform-the-following-steps:"></a>To enable the application integration for ZScaler Beta, perform the following steps:
+###Pour activer l’intégration d’applications pour Zscaler Beta, procédez comme suit :
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zscaler-beta-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-zscaler-beta-tutorial/IC700994.png "Applications")
 
-4.  Click **Add** at the bottom of the page.
+4.  Cliquez sur **Ajouter** en bas de la page.
 
-    ![Add application](./media/active-directory-saas-zscaler-beta-tutorial/IC749321.png "Add application")
+    ![Ajouter l’application](./media/active-directory-saas-zscaler-beta-tutorial/IC749321.png "Ajouter l’application")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-zscaler-beta-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-zscaler-beta-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  In the **search box**, type **ZScaler Beta**.
+6.  Dans la **zone de recherche**, tapez **Zscaler Beta**.
 
-    ![Application Gallery](./media/active-directory-saas-zscaler-beta-tutorial/IC800224.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-zscaler-beta-tutorial/IC800224.png "Galerie d’applications")
 
-7.  In the results pane, select **ZScaler Beta**, and then click **Complete** to add the application.
+7.  Dans le volet de résultats, sélectionnez **Zscaler Beta**, puis cliquez sur **Terminer** pour ajouter l’application.
 
-    ![ZScaler One](./media/active-directory-saas-zscaler-beta-tutorial/IC800216.png "ZScaler One")
+    ![Zscaler One](./media/active-directory-saas-zscaler-beta-tutorial/IC800216.png "Zscaler One")
 
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuration de l'authentification unique
   
-The objective of this section is to outline how to enable users to authenticate to ZScaler Beta with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to upload a base-64 encoded certificate to your ZScaler Beta tenant.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Zscaler Beta avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez charger un certificat codé en base 64 vers votre locataire Zscaler Beta. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  In the Azure classic portal, on the **ZScaler Beta** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Sur la page d’intégration d’applications **Zscaler Beta** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-zscaler-beta-tutorial/IC800225.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-beta-tutorial/IC800225.png "Configurer l’authentification unique")
 
-2.  On the **How would you like users to sign on to ZScaler Beta** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler Beta**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-zscaler-beta-tutorial/IC800226.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-beta-tutorial/IC800226.png "Configurer l’authentification unique")
 
-3.  On the **Configure App URL** page, in the **ZScaler Beta Sign On URL** textbox, type the URL used by your users to sign-on to your ZScaler Beta application, and then click **Next**.
+3.  Dans la zone de texte **URL de connexion à Zscaler Beta** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Zscaler Beta, puis cliquez sur **Suivant**.
 
-    ![Configure App URL](./media/active-directory-saas-zscaler-beta-tutorial/IC800227.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-zscaler-beta-tutorial/IC800227.png "Configurer l’URL de l’application")
 
-    >[AZURE.NOTE] You can get the actual value for your environment from your ZScaler Beta support team if you need it.
+    >[AZURE.NOTE] Vous pouvez obtenir la valeur réelle de votre environnement auprès de l’équipe du support technique Zscaler Beta.
 
-4.  On the **Configure single sign-on at ZScaler Beta** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+4.  Dans la page **Configurer l’authentification unique sur Zscaler Beta**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-zscaler-beta-tutorial/IC800228.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-beta-tutorial/IC800228.png "Configurer l’authentification unique")
 
-5.  In a different web browser window, log into your ZScaler Beta company site as an administrator.
+5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Beta en tant qu’administrateur.
 
-6.  In the menu on the top, click **Administration**.
+6.  Dans le menu situé dans la partie supérieure, cliquez sur **Administration**.
 
     ![Administration](./media/active-directory-saas-zscaler-beta-tutorial/IC800206.png "Administration")
 
-7.  Under **Manage Administrators & Roles**, click **Manage Users & Authentication**.
+7.  Sous **Manage Administrators & Roles**, cliquez sur **Manage Users & Authentication**.
 
-    ![Manage Users & Authentication](./media/active-directory-saas-zscaler-beta-tutorial/IC800207.png "Manage Users & Authentication")
+    ![Gérer les utilisateurs et l’authentification](./media/active-directory-saas-zscaler-beta-tutorial/IC800207.png "Gérer les utilisateurs et l’authentification")
 
-8.  In the **Choose Authentication Options for your Organization** section, perform the following steps:
+8.  Dans la section **Choose Authentication Options for your Organization**, procédez comme suit :
 
-    ![Authentication](./media/active-directory-saas-zscaler-beta-tutorial/IC800208.png "Authentication")
+    ![Authentification](./media/active-directory-saas-zscaler-beta-tutorial/IC800208.png "Authentification")
 
-    1.  Select **Authenticate using SAML Single Sign-On**.
-    2.  Click **Configure SAML Single Sign-On Parameters**.
+    1.  Sélectionnez **Authenticate using SAML Single Sign-On**.
+    2.  Cliquez sur **Configure SAML Single Sign-On Parameters**.
 
-9.  On the **Configure SAML Single Sign-On Parameters** dialog page, perform the following steps, and then click **Done**:
+9.  Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters**, procédez comme suit, puis cliquez sur **Done** :
 
-    ![Single Sign-On](./media/active-directory-saas-zscaler-beta-tutorial/IC800209.png "Single Sign-On")
+    ![Authentification unique](./media/active-directory-saas-zscaler-beta-tutorial/IC800209.png "Authentification unique")
 
-    1.  In the Azure classic portal, on the **Configure single sign-on at ZScaler Beta** dialog page, copy the **Authentication Request URL** value, and then paste it into the **URL of the SAML Portal to which users are sent for authentication** textbox.
-    2.  In the **Attribute containing Login Name** textbox, type **NameID**.
-    3.  To upload your downloaded certificate, click **Zscaler pem**.
-    4.  Select **Enable SAML Auto-Provisioning**.
+    1.  Sur la page **Configurer l’authentification unique sur ZScaler Beta** du portail Azure Classic, copiez la valeur **URL de demande d’authentification**, puis collez-la dans la zone de texte **URL of the SAML Portal to which users are sent for authentication** (URL du portail SAML vers lequel les utilisateurs sont renvoyés pour l’authentification).
+    2.  Dans la zone de texte **Attribute containing Login Name**, tapez **NameID**.
+    3.  Pour charger le certificat téléchargé, cliquez sur **Zscaler pem**.
+    4.  Sélectionnez **Enable SAML Auto-Provisioning**.
 
-10. On the **Configure User Authentication** dialog page, perform the following steps:
+10. Dans la page **Configure User Authentication**, procédez comme suit :
 
     ![Administration](./media/active-directory-saas-zscaler-beta-tutorial/IC800210.png "Administration")
 
-    1.  Click **Save**.
-    2.  Click **Activate Now**.
+    1.  Cliquez sur **Enregistrer**.
+    2.  Cliquez sur **Activate Now**.
 
-11. In the Azure classic portal, on the **Configure single sign-on at ZScaler Beta** dialog page, select the single sign-on configuration confirmation, and then click **Complete**.
+11. Sur la page **Configurer l’authentification unique sur Zscaler Beta** du portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-zscaler-beta-tutorial/IC800229.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-beta-tutorial/IC800229.png "Configurer l’authentification unique")
 
-##<a name="configuring-proxy-settings"></a>Configuring proxy settings
+##Configuration des paramètres de proxy
 
-###<a name="to-configure-the-proxy-settings-in-internet-explorer"></a>To configure the proxy settings in Internet Explorer
+###Pour configurer les paramètres de proxy dans Internet Explorer
 
-1.  Start **Internet Explorer**.
+1.  Démarrez **Internet Explorer**.
 
-2.  Select **Internet options** from the **Tools** menu to open the **Internet Options** dialog.
+2.  Dans le menu **Outils**, sélectionnez **Options Internet** pour ouvrir la boîte de dialogue **Options Internet**.
 
-    ![Internet Options](./media/active-directory-saas-zscaler-beta-tutorial/IC769492.png "Internet Options")
+    ![Options Internet](./media/active-directory-saas-zscaler-beta-tutorial/IC769492.png "Options Internet")
 
-3.  Click the **Connections** tab.
+3.  Cliquez sur l’onglet **Connexions**.
 
-    ![Connections](./media/active-directory-saas-zscaler-beta-tutorial/IC769493.png "Connections")
+    ![Connexions](./media/active-directory-saas-zscaler-beta-tutorial/IC769493.png "Connexions")
 
-4.  Click **LAN settings** to open the **LAN Settings** dialog.
+4.  Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 
-5.  In the Proxy server section, perform the following steps:
+5.  Dans la section Serveur proxy, procédez comme suit :
 
-    ![Proxy server](./media/active-directory-saas-zscaler-beta-tutorial/IC769494.png "Proxy server")
+    ![Serveur proxy](./media/active-directory-saas-zscaler-beta-tutorial/IC769494.png "Serveur proxy")
 
-    1.  Select Use a proxy server for your LAN.
-    2.  In the Address textbox, type **gateway.zscalerBeta.net**.
-    3.  In the Port textbox, type **80**.
-    4.  Select **Bypass proxy server for local addresses**.
-    5.  Click **OK** to close the **Local Area Network (LAN) Settings** dialog.
+    1.  Sélectionnez Utiliser un serveur proxy pour votre réseau local.
+    2.  Dans la zone de texte Adresse, tapez **gateway.zscalerBeta.net**.
+    3.  Dans la zone de texte Port, tapez **80**.
+    4.  Sélectionnez **Ne pas utiliser de serveur proxy pour les adresses locales**.
+    5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres du réseau local**.
 
-6.  Click **OK** to close the **Internet Options** dialog.
+6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##Configuration de l'approvisionnement des utilisateurs
   
-In order to enable Azure AD users to log into ZScaler Beta, they must be provisioned to ZScaler Beta.  
-In the case of ZScaler Beta, provisioning is a manual task.
+Pour pouvoir se connecter à Zscaler Beta, les utilisateurs d’Azure AD doivent être approvisionnés dans Zscaler Beta. Dans le cas de Zscaler Beta, l’approvisionnement est une tâche manuelle.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1.  Log in to your **Zscaler** tenant.
+1.  Connectez-vous au locataire **Zscaler**.
 
-2.  Click **Administration**.
+2.  Cliquez sur **Administration**.
 
     ![Administration](./media/active-directory-saas-zscaler-beta-tutorial/IC781035.png "Administration")
 
-3.  Click **User Management**.
+3.  Cliquez sur **User Management**.
 
-    ![Add](./media/active-directory-saas-zscaler-beta-tutorial/IC781037.png "Add")
+    ![Ajouter](./media/active-directory-saas-zscaler-beta-tutorial/IC781037.png "Ajouter")
 
-4.  In the **Users** tab, click **Add**.
+4.  Sous l’onglet **Users**, cliquez sur **Add**.
 
-    ![Add](./media/active-directory-saas-zscaler-beta-tutorial/IC781037.png "Add")
+    ![Ajouter](./media/active-directory-saas-zscaler-beta-tutorial/IC781037.png "Ajouter")
 
-5.  In the Add User section, perform the following steps:
+5.  Dans la section Add User, procédez comme suit :
 
-    ![Add User](./media/active-directory-saas-zscaler-beta-tutorial/IC781038.png "Add User")
+    ![Ajouter un utilisateur](./media/active-directory-saas-zscaler-beta-tutorial/IC781038.png "Ajouter un utilisateur")
 
-    1.  Type the **UserID**, **User Display Name**, **Password**, **Confirm Password**, and then select **Groups** and the **Department** of a valid AAD account you want to provision.
-    2.  Click **Save**.
+    1.  Renseignez les zones de texte **UserID**, **User Display Name**, **Password** et **Confirm Password**, puis sélectionnez **Groups** ainsi que l’attribut **Department** du compte AAD valide que vous souhaitez approvisionner.
+    2.  Cliquez sur **Save**.
 
->[AZURE.NOTE] You can use any other ZScaler Beta user account creation tools or APIs provided by ZScaler Beta to provision AAD user accounts.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zscaler Beta pour approvisionner des comptes d’utilisateurs Azure AD.
 
-##<a name="assigning-users"></a>Assigning users
+##Affectation d’utilisateurs
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###<a name="to-assign-users-to-zscaler-beta,-perform-the-following-steps:"></a>To assign users to ZScaler Beta, perform the following steps:
+###Pour affecter des utilisateurs à Zscaler Beta, procédez comme suit :
 
-1.  In the Azure classic portal, create a test account.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  On the **ZScaler Beta** application integration page, click **Assign users**.
+2.  Dans la page d’intégration d’applications **Zscaler Beta**, cliquez sur **Affecter des utilisateurs**.
 
-    ![Assign Users](./media/active-directory-saas-zscaler-beta-tutorial/IC800230.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-zscaler-beta-tutorial/IC800230.png "Affecter des utilisateurs")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
-    ![Yes](./media/active-directory-saas-zscaler-beta-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-zscaler-beta-tutorial/IC767830.png "Oui")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,330 +1,322 @@
 <properties 
-    pageTitle="Monitor and manage Azure Data Factory pipelines" 
-    description="Learn how to use Monitoring and Management App to monitor and manage Azure data factories and pipelines." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
-    editor="monicar"/>
+	pageTitle="Surveillance et gestion des pipelines d’Azure Data Factory" 
+	description="Découvrez comment utiliser la nouvelle application de surveillance et gestion pour surveiller et gérer les fabriques de données et les pipelines Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/06/2016" 
-    ms.author="spelluru"/>
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/06/2016" 
+	ms.author="spelluru"/>
 
-
-# <a name="monitor-and-manage-azure-data-factory-pipelines-using-new-monitoring-and-management-app"></a>Monitor and manage Azure Data Factory pipelines using new Monitoring and Management App
+# Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Utilisation du portail Azure/d’Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Utilisation de l’application de surveillance et gestion](data-factory-monitor-manage-app.md)
 
-This article describes how to monitor, manage and debug your pipelines, and create alerts to get notified on failures using the **Monitoring and Management App**. You can also watch the following video to learn about using the Monitoring and Management App.
+Cet article décrit comment surveiller, gérer et déboguer vos pipelines et comment créer des alertes pour être averti des échecs à l’aide de l’**application de surveillance et gestion**. Vous pouvez également regarder la vidéo suivante pour en savoir plus sur l’utilisation de l’application de surveillance et de gestion.
    
 
 > [AZURE.VIDEO azure-data-factory-monitoring-and-managing-big-data-piplines]
       
-## <a name="launching-the-monitoring-and-management-app-a"></a>Launching the Monitoring and Management App a
-To launch the Monitor and Management App, click **Monitoring & Manage** tile on the **DATA FACTORY** blade for your data factory.
+## Lancer l’application de surveillance et gestion a
+Pour lancer l’application de surveillance et gestion, cliquez sur la mosaïque **Surveiller et gérer** dans le panneau **DATA FACTORY** de votre fabrique de données.
 
-![Monitoring tile on Data Factory home page](./media/data-factory-monitor-manage-app/MonitoringAppTile.png) 
+![Mosaïque Surveillance sur la page d’accueil de Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
-You should see the Monitoring and Management App launched in a separate tab/window.  
+L’application de surveillance et gestion devrait s’ouvrir dans un nouvel onglet ou une nouvelle fenêtre.
 
-![Monitoring and Management App](./media/data-factory-monitor-manage-app/AppLaunched.png)
+![Application de surveillance et gestion](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
-> [AZURE.NOTE] If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third-party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the app again.
-
-
-If you do not see activity windows in the list at the bottom, click the **Refresh** button on the toolbar to refresh the list. In addition, set the right values for the **Start time** and **End time** filters.  
+> [AZURE.NOTE] Si vous voyez que le navigateur web est bloqué au niveau « Autorisation... », désactivez/décochez l’option **Bloquer les cookies et les données de site tiers** (ou) laissez cette option activée et créez une exception pour **login.microsoftonline.com**, puis réessayez de lancer l’application.
 
 
-## <a name="understanding-the-monitoring-and-management-app"></a>Understanding the Monitoring and Management App
-There are three tabs (**Resource Explorer**, **Monitoring Views**, and **Alerts**) on the left and the first tab (Resource Explorer) is selected by default. 
+Si vous ne voyez pas les fenêtres d’activité dans la liste en bas, cliquez sur le bouton **Actualiser** dans la barre d’outils pour actualiser la liste. En outre, définissez les valeurs appropriées pour les filtres **Heure de début** et **Heure de fin**.
 
-### <a name="resource-explorer"></a>Resource Explorer
-You see the following: 
 
-- Resource Explorer **tree view** in the left pane.
-- **Diagram View** at the top.
-- **Activity Windows** list at the bottom in the middle pane.
-- **Properties**/**Activity Window Explorer** tabs in the right pane. 
+## Présentation de l’application de surveillance et gestion
+Trois onglets (**Explorateur de ressources**, **Vues de surveillance** et **Alertes**) apparaissent à gauche. Le premier onglet (Explorateur de ressources) est sélectionné par défaut.
 
-In Resource Explorer, you see all resources (pipelines, datasets, linked services) in the data factory in a tree view. When you select an object in Resource Explorer, you notice the following: 
+### Explorateur de ressources
+Vous voyez l'affichage suivant :
 
-- associated Data Factory entity is highlighted in the Diagram View.
-- associated activity windows (click [here](data-factory-scheduling-and-execution.md) to learn about activity windows) are highlighted in the Activity Windows list at the bottom.  
-- properties of the selected object in the Properties window in the right pane. 
-- JSON definition of the selected object if applicable. For example: a linked service or a dataset or a pipeline. 
+- **Arborescence** de l’explorateur de ressources dans le volet gauche.
+- **Vue schématique** en haut.
+- Liste **d’activités Windows** en bas du volet central.
+- Onglets **Propriétés**/**Explorateur de fenêtres d’activité** dans le volet droit.
 
-![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+Dans l’explorateur de ressources, vous pouvez voir toutes les ressources (pipelines, groupes de données, services liés) organisées en arborescence dans la fabrique de données. Lorsque vous sélectionnez un objet dans l’Explorateur de ressources, vous remarquez les points suivants :
 
-See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for detailed conceptual information about activity window. 
+- L’entité Data Factory associée est mise en surbrillance dans la vue schématique.
+- Les fenêtres d’activité associées (cliquez [ici](data-factory-scheduling-and-execution.md) pour en savoir plus sur les fenêtres d’activité) sont mises en surbrillance dans la liste des fenêtres d’activité en bas de la page.
+- Les propriétés de l’objet sélectionné s’affichent dans la fenêtre Propriétés dans le volet droit.
+- La définition JSON de l’objet sélectionné, le cas échéant. Par exemple, un service lié, un jeu de données ou un pipeline.
 
-### <a name="diagram-view"></a>Diagram View
-The Diagram View of a data factory provides a single pane of glass to monitor and manage the data factory and its assets. When you select a Data Factory entity (dataset/pipeline) in the diagram view, you notice the following:
+![Explorateur de ressources](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+
+Consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md) pour obtenir des informations conceptuelles détaillées sur les fenêtres d’activité.
+
+### Vue de diagramme
+La vue schématique d'une fabrique de données est un point unique de surveillance et de gestion de la fabrique de données et de ses ressources. Lorsque vous sélectionnez une entité Data Factory (jeu de données/pipeline) dans la vue schématique, vous remarquez les points suivants :
  
-- the data factory entity is selected in the tree view
-- associated activity windows are highlighted in the Activity Windows list.
-- properties of the selected object in the Properties window
+- L’entité Data Factory est sélectionnée dans l’arborescence.
+- Les fenêtres d’activité associées sont mises en surbrillance dans la liste des fenêtres d’activité.
+- Les propriétés de l’objet sélectionné s’affichent dans la fenêtre Propriétés.
 
-When the pipeline is enabled (not in paused state), it is shown with a green line. 
+Lorsque le pipeline est activé (lorsqu’il n’est pas en pause), la barre de sa mosaïque est verte.
 
-![Pipeline Running](./media/data-factory-monitor-manage-app/PipelineRunning.png)
+![Pipeline en cours d’exécution](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-You notice that there are three command buttons for the pipeline in the diagram view. You can use the second button to pause the pipeline. Pausing does not terminate the currently running activities and let them proceed to completion. Third button pauses the pipeline and terminates its existing executing activities. First button resumes the pipeline. When your pipeline is paused, you notice the color change for the pipeline tile as follows.
+Remarquez qu’il existe trois boutons de commande pour le pipeline dans la vue schématique. Vous pouvez utiliser le deuxième bouton pour mettre en pause le pipeline. La mise en pause n’interrompt pas les activités en cours et les laisse se terminer. Le troisième bouton permet de mettre en pause le pipeline et d’interrompre ses activités en cours. Le premier bouton permet de relancer le pipeline. Lorsque votre pipeline est en pause, vous remarquez que sa mosaïque change de couleur comme suit.
 
-![Pause/Resume on Tile](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
+![Mettre en pause/relancer depuis la mosaïque](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
 
-You can multi-select two or more pipelines (using CTRL) and use command bar buttons to pause/resume multiple pipelines at a time.
+Vous pouvez sélectionner deux ou plusieurs pipelines (en appuyant sur la touche CTRL) et utiliser les boutons de la barre de commandes pour mettre en pause/relancer plusieurs pipelines à la fois.
 
-![Pause/Resume on Command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Mettre en pause/relancer depuis la barre de commandes](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
-You can see all the activities in the pipeline, by right-clicking the pipeline tile, and clicking **Open pipeline**.
+Pour consulter toutes les activités du pipeline, cliquez sur sa mosaïque avec le bouton droit, puis cliquez sur **Ouvrir un pipeline**.
 
-![Open Pipeline menu](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
+![Menu Ouvrir un pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-In the opened pipeline view, you see all activities in the pipeline. In this example, there is only one activity: Copy Activity. To go back to the previous view, click data factory name in the breadcrumb menu at the top.
+Dans la vue du pipeline ouvert, vous voyez toutes les activités dans le pipeline. Dans cet exemple, le pipeline ne contient qu’une seule activité : une activité de copie. Pour revenir à la vue précédente, cliquez sur le nom de la fabrique de données dans le menu de navigation en haut de la page.
 
-![Opened Pipeline](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
+![Pipeline ouvert](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-In the pipeline view, when you click an output dataset or when you move your mouse over the output dataset, you see the Activity Windows pop-up for that dataset.
+Dans la vue du pipeline, lorsque vous cliquez sur un jeu de données de sortie ou que vous le survolez avec la souris, la fenêtre d’activité correspondante s’affiche.
 
-![Activity Windows popup](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
+![Fenêtre contextuelle des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
-You can click an activity window to see details for it in the **Property** window in the right pane. 
+Vous pouvez cliquer sur une fenêtre d’activité pour afficher ses détails dans la fenêtre **Propriété** du volet droit.
 
-![Activity Window Properties](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
+![Propriétés des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-In the right pane, switch to **Activity Window Explorer** tab to see more details.
+Dans le volet droit, affichez l’onglet **Explorateur de fenêtres d’activité** pour afficher plus de détails.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png) 
+![Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
-You also see **resolved variables** for each activity run attempt in the **Attempts** section. 
+Vous voyez également les **variables résolues** pour chaque tentative d’exécution d’une activité dans la section **Tentatives**.
 
-![Resolved variables](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
+![Variables résolues](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Switch to the **Script** tab to see the JSON script definition for the selected object.   
+Affichez l’onglet **Script** pour afficher la définition du script JSON pour l’objet sélectionné.
 
-![Script tab](./media/data-factory-monitor-manage-app/ScriptTab.png)
+![Onglet Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
-You can see activity windows in three places:
+Les fenêtres d’activité s’affichent à trois emplacements différents :
 
-- Activity Windows pop-up in the diagram view (middle pane).
-- Activity Window Explorer in the right pane.
-- Activity Windows list in the bottom pane.
+- la fenêtre contextuelle des fenêtres d’activité dans la vue schématique (volet central).
+- l’Explorateur de fenêtres d’activité dans le volet droit ;
+- la liste des fenêtres d’activité dans le volet inférieur.
 
-In the Activity Windows pop-up and Activity Window Explorer, you can scroll to previous week and next week using left and right arrows.
+Dans la fenêtre contextuelle et l’Explorateur de fenêtres d’activité, vous pouvez passer à la semaine précédente ou suivante à l’aide des flèches gauche et droite.
 
-![Activity Window Explorer Left/Right Arrows](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
+![Flèches gauche/droite de l’Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-At the bottom of the Diagram View, you see buttons to Zoom In, Zoom Out, Zoom to Fit, Zoom 100%, Lock layout. The Lock layout button prevents you from accidentally moving tables and pipelines in the diagram view and is ON by default. You can turn it off and move entities around in the diagram. When you turn it OFF, you can use the last button to automatically position tables and pipelines. You can also Zoom in/Zoom Out using mouse wheel.
+En bas de la vue schématique, vous trouverez des boutons pour effectuer un zoom avant ou arrière, zoomer pour ajuster, effectuer un Zoom à 100 % et verrouiller la disposition. Le bouton verrouillage de disposition vous empêche de déplacer accidentellement des tables et des pipelines dans la vue schématique et est activé par défaut. Vous pouvez la désactiver et déplacer des entités dans la vue schématique. Lorsque vous la désactivez, vous pouvez utiliser le dernier bouton pour positionner automatiquement les tables et les pipelines. Vous pouvez également effectuer un zoom avant ou arrière à l’aide de la roulette de la souris.
 
-![Diagram View Zoom commands](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
-
-
-### <a name="activity-windows-list"></a>Activity Windows List
-The Activity windows list in the bottom of the middle pane displays all activity windows for the dataset you selected in the resource explorer or diagram view. By default, the list is in the descending order, which means that you see the latest activity window at the top. 
-
-![Activity Windows List](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
-
-This list does not refresh automatically, so use the refresh button on the toolbar to manually refresh it.  
+![Commandes de zoom de la vue schématique](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
 
-The activity windows can be in one of the following statuses:
+### Liste des fenêtres d’activité
+La liste des fenêtres d’activité dans la partie inférieure du volet central affiche toutes les fenêtres d’activité du jeu de données que vous avez sélectionné dans l’Explorateur de ressources ou la vue schématique. Par défaut, la liste est en ordre décroissant, ce qui signifie que la fenêtre d’activité la plus récente s’affiche en premier.
+
+![Liste des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+
+Cette liste ne s’actualise pas automatiquement. Pour l’actualiser manuellement, utilisez le bouton d’actualisation de la barre d’outils.
+
+
+Les fenêtres d’activité peuvent avoir l’un des statuts suivants :
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Description</th>
+	<th align="left">État</th><th align="left">État secondaire</th><th align="left">Description</th>
 </tr>
 <tr>
-    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>The time has not come for the activity window to run.</td>
+	<td rowspan="8">En attente</td><td>ScheduleTime</td><td>L’heure d’exécution de la fenêtre d’activité n’est pas encore venue.</td>
 </tr>
 <tr>
-<td>DatasetDependencies</td><td>The upstream dependencies are not ready.</td>
+<td>DatasetDependencies</td><td>Les dépendances en amont ne sont pas prêtes.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>The compute resources are not available.</td>
+<td>ComputeResources</td><td>Les ressources de calcul ne sont pas disponibles.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>All the activity instances are busy running other activity windows.</td>
+<td>ConcurrencyLimit</td> <td>Toutes les instances d’activité sont occupées par l’exécution d’autres fenêtres d’activité.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>Activity is paused and cannot run the activity windows until it is resumed.</td>
+<td>ActivityResume</td><td>L’activité est mise en pause et ne peut pas exécuter les fenêtres d’activité jusqu’à sa reprise.</td>
 </tr>
 <tr>
-<td>Retry</td><td>Activity execution is retried.</td>
+<td>Retry</td><td>L’exécution de l’activité est retentée.</td>
 </tr>
 <tr>
-<td>Validation</td><td>Validation has not started yet.</td>
+<td>Validation</td><td>La validation n’a pas encore démarré.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Waiting for the validation to be retried.</td>
+<td>ValidationRetry</td><td>Attente d’une nouvelle tentative de validation.</td>
 </tr>
 <tr>
-<tr
-<td rowspan="2">InProgress</td><td>Validating</td><td>Validation in progress.</td>
+&lt;tr
+<td rowspan="2">InProgress</td><td>Validation</td><td>Validation en cours.</td>
 </tr>
 <td></td>
-<td>The activity window is being processed.</td>
+<td>La fenêtre d’activité est en cours de traitement.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>Execution took longer than that is allowed by the activity.</td>
+<td rowspan="4">Échec</td><td>TimedOut</td><td>L'exécution a pris plus de temps que l’activité ne l’autorise.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>Canceled by user action.</td>
+<td>Canceled</td><td>Annulé par l’action de l’utilisateur.</td>
 </tr>
 <tr>
-<td>Validation</td><td>Validation has failed.</td>
+<td>Validation</td><td>La validation a échoué.</td>
 </tr>
 <tr>
-<td></td><td>Failed to generate and/or validate the activity window.</td>
+<td></td><td>Impossible de générer ou de valider la fenêtre d’activité.</td>
 </tr>
-<td>Ready</td><td></td><td>The activity window is ready for consumption.</td>
-</tr>
-<tr>
-<td>Skipped</td><td></td><td>The activity window is not processed.</td>
+<td>Ready</td><td></td><td>La fenêtre d’activité est prête à être consommée.</td>
 </tr>
 <tr>
-<td>None</td><td></td><td>An activity window that used to exist with a different status, but has been reset.</td>
+<td>Ignoré</td><td></td><td>La fenêtre d’activité n’est pas traitée.</td>
+</tr>
+<tr>
+<td>Aucun</td><td></td><td>Fenêtre d’activité qui a été réinitialisée alors qu’elle existait avec un statut différent.</td>
 </tr>
 </table>
 
 
-When you click an activity window in the list, you see details about it in **Activity Windows Explorer** or **Properties** window on the right.
+Quand vous cliquez sur une fenêtre d’activité dans la liste, les détails la concernant s’affichent dans **l’Explorateur de fenêtres d’activité** ou dans la fenêtre **Propriétés** sur la droite.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
-### <a name="refresh-activity-windows"></a>Refresh activity windows  
-The details are not automatically refreshed, so you use the **refresh** button (second button) on the command bar to manually refresh the activity windows list.  
+### Actualiser les fenêtres d’activité  
+Les détails ne sont pas automatiquement actualisés. Pour actualiser manuellement la liste des fenêtres d’activité, utilisez le bouton **Actualiser** (le deuxième) dans la barre de commandes.
  
 
-### <a name="properties-window"></a>Properties window
-The Properties window is in the right-most pane of the Monitoring and Management app. 
+### Fenêtre Propriétés
+La fenêtre Propriétés se trouve dans le volet situé tout à droite de l’application de surveillance et gestion.
 
-![Properties window](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
+![Fenêtre Propriétés](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
-It displays properties for the item you selected in the resource explorer (tree view) (or) diagram view (or) activity windows list. 
+Elle affiche les propriétés de l’élément que vous avez sélectionné dans l’Explorateur de ressources (arborescence), la vue schématique ou la liste des fenêtres d’activité.
 
-### <a name="activity-window-explorer"></a>Activity Window Explorer
+### Explorateur de fenêtres d’activité
 
-The **Activity Window Explorer** window is in the right-most pane of the Monitoring and Management App. It displays details about the activity window you selected in the Activity Windows pop-up or Activity Windows list. 
+**L’Explorateur de fenêtres d’activité** se trouve dans le volet situé tout à droite de l’application de surveillance et gestion. Il affiche des détails sur la fenêtre d’activité que vous avez sélectionnée dans la fenêtre contextuelle ou la liste des fenêtres d’activité.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
+![Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-You can switch to another activity window by clicking it in the calendar view at the top. You can also use the **left arrow**/**right arrow** buttons at the top to see activity windows from the previous/next week.
+Vous pouvez passer à une autre fenêtre d’activité en cliquant dessus dans la vue calendaire en haut de l’écran. Vous pouvez également utiliser les boutons **flèche gauche**/**flèche droite** en haut de l’écran pour afficher les fenêtres d’activité de la semaine précédente ou suivante.
 
-You can use the toolbar buttons in the bottom pane to **rerun** the activity window or **refresh** the details in the pane. 
+Vous pouvez utiliser les boutons de la barre d’outils dans le volet inférieur pour **réexécuter** la fenêtre d’activité ou **actualiser** les détails affichés dans le volet.
 
-### <a name="script"></a>Script 
-You can use the **Script** tab to view the JSON definition of the selected Data Factory entity (linked service, dataset, and pipeline). 
+### Script 
+Vous pouvez utiliser l’onglet **Script** pour afficher la définition JSON de l’entité Data Factory sélectionnée (service lié, jeu de données et pipeline).
 
-![Script tab](./media/data-factory-monitor-manage-app/ScriptTab.png)
+![Onglet Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
-## <a name="using-system-views"></a>Using system views
-The Monitoring and Management App includes pre-built system views (**Recent activity windows**, **Failed activity windows**, **In-Progress activity windows**) that allows you to view recent/failed/in-progress activity windows for your data factory. 
+## Utiliser les vues système
+L’application de surveillance et gestion inclut des vues système intégrées (**Fenêtres d’activités récente**, **Fenêtres d’activité ayant échoué**, **Fenêtres d’activité en cours**), qui vous permettent d’afficher les fenêtres d’activité (récentes, ayant échoué et en cours) de votre fabrique de données.
 
-Switch to the **Monitoring Views** tab on the left by clicking it. 
+Affichez l’onglet **Vues de surveillance** sur la gauche en cliquant dessus.
 
-![Monitoring Views tab](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
+![Onglet Vues de surveillance](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Currently, there are three system views supported. Select an option to see recent activity windows (or) failed activity windows (or) in-progress activity windows in the Activity Windows list (at the bottom of the middle pane). 
+Pour l’instant, l’application prend en charge trois vues système. Sélectionnez une option pour afficher les fenêtres d’activité récentes, ayant échoué, ou en cours dans la liste des fenêtres d’activité (en bas du volet central).
 
-When you select **Recent activity windows** option, you see all recent activity windows in the descending order of **last attempt time**. 
+Quand vous sélectionnez l’option **Fenêtres d’activité récentes**, toutes les fenêtres d’activité récentes s’affichent dans l’ordre décroissant en fonction de **l’heure de la dernière tentative**.
 
-You can use the **Failed activity windows** view to see all failed activity windows in the list. Select a failed activity window in the list to see details about it in the **Properties** window (or) **Activity Window Explorer**. You can also download any logs for a failed activity window. 
-
-
-## <a name="sorting-and-filtering-activity-windows"></a>Sorting and filtering activity windows
-Change the **start time** and **end time** settings in the command bar to filter activity windows. After you change Start time and End time, click the button next to end-time to refresh the Activity Windows list.
-
-![Start and End Times](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
-
-> [AZURE.NOTE] Currently, all times are in UTC format in the Monitoring and Management App. 
-
-In the **Activity Windows list**, click the name of a column (for example: Status). 
-
-![Activity Windows List column menu](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
-
-You can do the following:
-
-- Sort in the ascending order.
-- Sort in the descending order.
-- Filter by one or more values (Ready, Waiting, etc.)
-
-When you specify a filter on a column, you see the filter button enabled for that column to indicate that the values in the column are filtered values. 
-
-![Filter in column of Activity Windows list](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
-
-You can use the same pop-up window to clear filters. To clear all filters for the activity windows list, click the clear filter button on the command bar. 
-
-![Clear all filters in Activity Windows list](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
+Vous pouvez utiliser la vue **Fenêtres d’activité ayant échoué** pour afficher toutes les fenêtres d’activité de la liste qui ont échoué. Dans la liste, sélectionnez une fenêtre d’activité ayant échoué pour afficher les détails la concernant dans la fenêtre **Propriétés** ou dans **l’Explorateur de fenêtres d’activité**. Vous pouvez également télécharger tous les journaux d’une fenêtre d’activité ayant échoué.
 
 
-## <a name="performing-batch-actions"></a>Performing batch actions
+## Trier et filtrer les fenêtres d’activité
+Pour filtrer les fenêtres d’activité, modifiez les paramètres **d’heure de début** et **d’heure de fin** dans la barre de commandes. Après avoir modifié les heures de début et de fin, cliquez sur le bouton en regard de l’heure de fin pour actualiser la liste des fenêtres d’activité.
 
-### <a name="rerun-selected-activity-windows"></a>Rerun selected activity windows
-Select an activity window, click the down arrow for the first command bar button and select **Rerun** / **Rerun with upstream in pipeline**. When you select **Rerun with upstream in pipeline** option, it reruns all upstream activity windows as well. 
-    ![Rerun an activity window](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+![Heures de début et de fin](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
-You can also select multiple activity windows in the list and rerun them at the same time. You may want to filter activity windows based on the status (for example: **Failed**) and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list.  
+> [AZURE.NOTE] Pour l’instant, toutes les heures de l’application de surveillance et gestion sont au format UTC.
 
-### <a name="pause/resume-multiple-pipelines"></a>Pause/resume multiple pipelines
-You can multi-select two or more pipelines (using CTRL) and use command bar buttons (highlighted in red rectangle in the following image) to pause/resume them at a time.
+Dans la **liste des fenêtres d’activité**, cliquez sur le nom d’une colonne (par exemple, Statut).
 
-![Suspend/Resume on Command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Menu déroulant de la liste des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-## <a name="creating-alerts"></a>Creating alerts 
-The Alerts page lets you create an alert, view/edit/delete existing alerts. You can also disable/enable an alert. To see the ALerts page, click the Alerts tab.
+Vous pouvez effectuer les opérations suivantes :
 
-![Alerts tab](./media/data-factory-monitor-manage-app/AlertsTab.png)
+- Trier dans l’ordre croissant.
+- Trier dans l’ordre décroissant.
+- Filtrer selon une ou plusieurs valeurs (Prêt, En attente, etc.)
 
-### <a name="to-create-an-alert"></a>To create an alert
+Lorsque vous spécifiez un filtre sur une colonne, vous voyez que le bouton de filtrage est activé pour cette colonne afin d’indiquer que les valeurs filtrées sont celles de cette colonne.
 
-1. Click **Add Alert** to add an alert. You see the Details page. 
+![Filtre de colonne de la liste des fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
 
-    ![Create Alerts - Details page](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-1. Specify the **name** and **description** for the alert, and click **Next**. You should see the **Filters** page.
+Vous pouvez utiliser la même fenêtre contextuelle pour effacer les filtres. Pour effacer tous les filtres de la liste des fenêtres d’activité, cliquez sur le bouton Effacer le filtre dans la barre de commandes.
 
-    ![Create Alerts - Filters page](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
+![Effacer tous les filtres de la liste des fenêtres d’activité](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
-2. Select the **event**, **status**, and **substatus** (optional) on which you want the Data Factory service to alert you, and click **Next**. You should see the **Recipients** page.
 
-    ![Create Alerts - Recipients page](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
-3. Select **Email subscription admins** option and/or enter **additional administrator email**, and click **Finish**. You should see the alert in the list. 
-    
-    ![Alerts list](./media/data-factory-monitor-manage-app/AlertsList.png)
+## Exécuter des actions batch
 
-In the Alerts list, use the buttons associated with the alert to edit/delete/disable/enable an alert. 
+### Réexécuter les fenêtres d’activité sélectionnées
+Sélectionnez une fenêtre d’activité, cliquez sur la flèche vers le bas du premier bouton de la barre de commandes et sélectionnez **Réexécuter** ou **Réexécuter avec les fenêtres en amont dans le pipeline**. L’option **Réexécuter avec les fenêtres en amont dans le pipeline** permet de réexécuter également toutes les fenêtres d’activité en amont. ![Réexécuter une fenêtre d’activité](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-### <a name="event/status/substatus"></a>Event/status/substatus
-The following table provides the list of available events and statuses (and substatuses).
+Vous pouvez également sélectionner plusieurs fenêtres d’activité dans la liste et les réexécuter simultanément. Vous pouvez filtrer les fenêtres d’activité en fonction de leur statut (par exemple, **Ayant échoué**), puis réexécuter celles qui ont échoué après avoir corrigé le problème à l’origine de cet échec. Pour en savoir plus sur le filtrage des fenêtres d’activité dans la liste, consultez la section suivante.
 
-Event name | Status | Sub status
+### Mettre en pause/relancer plusieurs pipelines
+Vous pouvez sélectionner deux ou plusieurs pipelines (en appuyant sur la touche CTRL) et utiliser les boutons de la barre de commandes (entourés d’un rectangle rouge sur l’image suivante) pour les mettre en pause/relancer simultanément.
+
+![Suspendre/relancer depuis la barre de commandes](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+
+## Créer des alertes 
+La page Alertes vous permet de créer une alerte et d’afficher, de modifier ou de supprimer des alertes existantes. Vous pouvez également désactiver ou activer une alerte. Cliquez sur l’onglet Alertes pour afficher la page du même nom.
+
+![Onglet Alertes](./media/data-factory-monitor-manage-app/AlertsTab.png)
+
+### Pour créer une alerte
+
+1. Pour ajouter une alerte, cliquez sur **Ajouter une alerte**. La page Détails s’affiche.
+
+	![Créer des alertes - page Détails](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
+1. Spécifiez le **nom** et la **description** de l’alerte, puis cliquez sur **Suivant**. La page **Filtres** doit s’afficher.
+
+	![Créer des alertes - page Filtres](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
+
+2. Sélectionnez **l’événement**, le **statut** et **l’état secondaire** (facultatif) dont vous souhaitez que le service Data Factory vous informe, puis cliquez sur **Suivant**. La page **Destinataires** doit s’afficher.
+
+	![Créer des alertes - page Destinataires](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
+3. Sélectionnez l’option **Administrateurs d’abonnement par courrier électronique** et/ou entrez une **adresse de messagerie électronique d’administrateur supplémentaire**, puis cliquez sur **Terminer**. L’alerte doit apparaître dans la liste.
+	
+	![Liste des alertes](./media/data-factory-monitor-manage-app/AlertsList.png)
+
+Dans la liste des alertes, utilisez les boutons associés à l’alerte pour modifier, supprimer, désactiver ou activer une alerte.
+
+### Événement/statut/état secondaire
+Le tableau suivant dresse la liste des événements et des statuts (et états secondaires) disponibles.
+
+Nom de l'événement | État | État secondaire
 -------------- | ------ | ----------
-Activity Run Started | Started | Starting
-Activity Run Finished | Succeeded | Succeeded 
-Activity Run Finished | Failed| Failed Resource Allocation<br/><br/>Failed Execution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned
-On-Demand HDI Cluster Create Started | Started | &nbsp; |
-On-Demand HDI Cluster Created Successfully | Succeeded | &nbsp; |
-On-Demand HDI Cluster Deleted | Succeeded | &nbsp; |
-### <a name="to-edit/delete/disable-an-alert"></a>To edit/delete/disable an alert
+Exécution de l’activité démarrée | Démarré | Démarrage en cours
+Exécution de l’activité terminée | Réussi | Réussi 
+Exécution de l’activité terminée | Échec| Échec de l’allocation des ressources<br/><br/>Échec de l’exécution<br/><br/>Expiré<br/><br/>Échec de la validation<br/><br/>Abandonné
+Création d’un cluster HDI à la demande démarrée | Démarré | &nbsp; |
+Cluster HDI à la demande créé correctement | Réussi | &nbsp; |
+Cluster HDI à la demande supprimé | Réussi | &nbsp; |
+### Pour modifier, supprimer ou désactiver une alerte
 
 
-![Alerts buttons](./media/data-factory-monitor-manage-app/AlertButtons.png)
+![Boutons d’alertes](./media/data-factory-monitor-manage-app/AlertButtons.png)
 
 
 
     
  
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

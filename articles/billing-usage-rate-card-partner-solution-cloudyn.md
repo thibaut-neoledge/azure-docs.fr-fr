@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers | Microsoft Azure"
-   description="Provides a unique perspective from Microsoft Azure Billing partner Cloudyn, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloudyn customers that are interested in using/trying Cloudyn for Azure Services."
+   pageTitle="Cloudyn assure des tâches de gestion financière informatique pour ses clients grâce aux API Microsoft Azure Usage et RateCard | Microsoft Azure"
+   description="Décrit la façon dont Cloudyn, un partenaire de facturation de Microsoft Azure, a intégré les API Azure Billing à son produit. Ces informations sont particulièrement utiles pour les clients Azure et Cloudyn qui souhaitent utiliser ou essayer les services Cloudyn pour Azure."
    services=""
    documentationCenter=""
    authors="BryanLa"
@@ -17,71 +17,70 @@
    ms.date="08/16/2016"
    ms.author="mobandyo;bryanla"/>
 
+# Cloudyn assure des tâches de gestion financière informatique pour ses clients grâce aux API Microsoft Azure Usage et RateCard
 
-# <a name="microsoft-azure-usage-and-ratecard-apis-enable-cloudyn-to-provide-itfm-for-customers"></a>Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers
+Cloudyn, un partenaire de développement de Microsoft et un fournisseur de premier plan de fonctionnalités de gestion de cloud, a été choisi pour une évaluation privée des nouvelles API Microsoft Azure Resource Usage et RateCard. L’API Usage permet d’accéder aux données d’estimation de la consommation Azure pour un abonnement. L’API RateCard fournit des informations de tarification complètes concernant tous les services Azure pour les clients autres que Contrat Entreprise (EA). Lorsqu’elles sont intégrées conjointement, ces API offrent une base d’informations complète pouvant servir de données d’entrée pour les outils de gestion financière informatique (ITFM), tels que ceux fournis par Cloudyn.
 
-Cloudyn, a Microsoft development partner and a leading provider of cloud management capabilities, was chosen for a private preview of the new Microsoft Azure Resource Usage and RateCard APIs.  The Usage API provides access to estimated Azure consumption data for a subscription. The RateCard API provides complete pricing information of all Azure services, for non-Enterprise Agreement (EA) customers. Integrated together, these APIs provide a complete information basis for input into IT Financial Management (ITFM) tools such as those provided by Cloudyn.
+## Introduction
 
-## <a name="introduction"></a>Introduction
+La prétendue « multiplication » des données découlant de l’utilisation combinée de l’API Usage et de l’API RateCard (usage [units] price[$unit] = utilisation et coûts détaillés) produit la source d’informations de facturation la plus granulaire, précise et fiable disponible à ce jour concernant Azure.
 
-The so-called “multiplication” of data from the Usage API with data from the RateCard API (usage [units] price[$unit] = Detailed Usage and Cost) creates the most granular, accurate and reliable billing information available for Azure today.
+![Vue d’ensemble de la gestion financière informatique][1]
 
-![ITFM Overview][1]
+L’exploitation de ces API fournit des informations clés sur l’utilisation et les coûts des clients, permettant ainsi à Cloudyn d’analyser facilement les comptes clients par programme et d’accomplir différentes tâches ITFM pour ses clients.
 
-Consuming these APIs provides key information on customers’ usage and costs, allowing Cloudyn to analyze customer accounts in a simple, programmatic manner, and to perform various ITFM tasks for its customers.
+## Intégration des API RateCard et Usage par Cloudyn
+L’API RateCard requiert plusieurs paramètres d’entrée, comme les informations de région, la devise et les paramètres régionaux, dont le plus important est OfferDurableID, qui spécifie le type d’offre Azure utilisée par le client (paiement à l’utilisation, plans d’engagement hérités de 6 et 12 mois, offres MSDN, offres MPN, offres promotionnelles et autres). Le paramètre OfferDurableID figure dans le [portail d’utilisation et de facturation Azure](https://account.windowsazure.com/Subscriptions), sous l’intitulé « ID de l’offre » de l’abonnement concerné.
 
-## <a name="integrating-cloudyn-with-the-ratecard-and-usage-apis"></a>Integrating Cloudyn with the RateCard and Usage APIs
-The RateCard API requires several input parameters -- like region info, currency and locale -- but the most important one is OfferDurableID, which specifies the type of Azure offering the customer is using (Pay-as-you-Go, legacy 6 and 12-month commitment plans, MSDN offers, MPN offers, promotional offers and others). The OfferDurableID can be found in the [Azure Usage and Billing portal](https://account.windowsazure.com/Subscriptions), under the "Offer ID" for the given subscription.
+Lors de l’inscription aux services [Cloudyn pour Azure](https://www.cloudyn.com/microsoft-azure/), les clients peuvent ajouter leur code OfferDurableID, qui permet à Cloudyn d’extraire les informations de tarification appropriées par le biais de l’API RateCard. Les informations sur les différents types d’offre sont disponibles dans la page [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
 
-Upon registration for [Cloudyn for Azure](https://www.cloudyn.com/microsoft-azure/) services, customers can add their OfferDurableID code, which allows Cloudyn to pull their relevant pricing information through the RateCard API.  Information on the different types of offers can be found one the [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/) page.
+![Vue d’ensemble du moteur de gestion financière informatique Cloudyn][2]
 
-![Cloudyn ITFM Engine Overview][2]
+Cloudyn utilise les API Usage et RateCard, ainsi que l’API Azure Performance, pour créer des couches supplémentaires de visualisation, d’analyse, d’alerte, de création de rapports, de gestion des coûts et de recommandations exploitables, offrant ainsi aux clients Azure un outil ITFM de cloud d’entreprise fiable.
 
-Cloudyn uses both the Usage and RateCard APIs, in addition to the Azure Performance API, to create additional layers of visualization, analytics, alerting, reporting, cost management and actionable recommendations, providing Azure customers a reliable enterprise cloud ITFM tool.
+## Cas d’utilisation ITFM Cloudyn autorisés par l’intégration des API Usage et RateCard
+Les cas d’utilisation ITFM Cloudyn courants qui sont autorisés par l’intégration des API Usage et RateCard sont les suivants :
 
-## <a name="cloudyn-itfm-use-cases-enabled-by-usage-and-ratecard-api-integration"></a>Cloudyn ITFM use cases enabled by Usage and RateCard API integration
-Common Cloudyn ITFM use cases enabled by usage and RateCard APIs include:
++ **Analyse des coûts** : permet de ventiler les coûts cloud selon n’importe quelle dimension d’identification native (fournisseur, service, compte, région, etc.). Les API Azure Usage et RateCard facilitent cette opération en assurant la répartition la plus granulaire des données d’utilisation et de coût par compte, qui est ensuite regroupée et filtrée par Cloudyn et présentée à l’utilisateur sous la forme d’un graphique ou d’un tableau.
 
-+ **Cost Analysis** - Allows cloud costs to be broken down to any native identifying dimension (provider, service, account, region etc.). The Azure Usage and RateCard APIs make this an easy task, by providing the most granular breakdown of usage and cost data per account, which is then grouped and filtered by Cloudyn and presented to the user, in a graphic or tabular form.
+![Graphique en secteurs de l’analyse des coûts][3]
 
-![Cost Analysis Pie Chart][3]
++ **Vision à 360° de l’affectation des coûts** : permet aux responsables financiers et informatiques de découvrir la répartition réelle des coûts, les facteurs déterminants et les tendances de leur déploiement cloud. Grâce à cette fonctionnalité, les responsables sont également en mesure d’associer facilement les dépenses de déploiement aux divisions, départements, régions, etc., ce qui fournit des vues d’ensemble sans précédent des coûts cloud et facilite les récupérations des données de facturation et les rétrofacturations d’entreprise. Les API Azure Usage et RateCard font office de données d’entrée pour le moteur d’affectation des coûts Cloudyn, qui complète les API en définissant des méthodes et une logique métier pour l’affectation de ressources non balisées ou non balisables.
 
-+ **Cost Allocation 360** - Enables finance and IT managers to uncover the actual cost breakdown, drivers and trends of their cloud deployment. It further allows managers to easily associate deployment expenses with business units, departments, regions, and more, providing unprecedented insights into cloud costs, and facilitating enterprise chargebacks and showbacks. The Azure Usage and RateCard APIs serve as input to Cloudyn’s cost allocation engine, which complements the APIs by defining methods and business logic for allocating untagged or untaggable resources.
+![Graphique à 360° de l’affectation des coûts][4]
 
-![Cost Allocation 360 Chart][4]
++ **Redimensionnement rentable** : fournit des recommandations de redimensionnement adapté pour les machines virtuelles sous-utilisées, réduisant ainsi les dépenses des clients sur des machines surdimensionnées ou surapprovisionnées. Pour ce faire, Cloudyn examine les métriques d’unité centrale et de RAM des machines virtuelles (par le biais de l’API Performance), les heures d’exécution (à l’aide de l’API Usage) et les coûts (au moyen de l’API RateCard). Cloudyn fournit ensuite des recommandations de redimensionnement adapté en fonction des ressources d’unité centrale ou de RAM sous-utilisées (Performance), puis estime les économies potentielles en multipliant la différence de prix (RateCard) entre les machines virtuelles par l’utilisation réelle (Usage) de la machine sous-utilisée.
 
-+ **Cost-Effective Sizing** - Provides right-sizing recommendations for underutilized virtual machines, thus reducing the customer’s expenses on oversized or over-provisioned machines. It does so by examining virtual machine CPU and RAM metrics (via Performance API), hours of run-time (via Usage API) and cost (via RateCard API). Cloudyn then provides right-sizing recommendations based on underutilized CPU or RAM resources (Performance), and calculates estimated savings by multiplying the price delta (RateCard) between the VMs by the actual time-utilization (Usage) of the underutilized machine.
+![Redimensionnement rentable][5]
 
-![Cost Effective Sizing][5]
++ **Recommandations en matière de portage de cloud** : fournit des conseils d’ordre financier sur le portage de cloud. Cloudyn examine les coûts actuels d’un utilisateur liés aux ressources de cloud qui sont déployées sur les principaux fournisseurs de cloud, et les compare avec le coût d’un déploiement équivalent sur Azure. Cloudyn fournit ensuite des recommandations granulaires d’ordre financier par ressource concernant le portage vers Azure. Après avoir évalué le déploiement équivalent requis sur Azure (en fonction des métriques de performances et des préférences utilisateur), Cloudyn utilise l’API RateCard pour évaluer le coût du déploiement équivalent sur Azure.
 
-+ **Cloud Porting Recommendations** - Provides financial advice on cloud porting. It examines a user's current costs of cloud resources which are deployed on major cloud vendors, and compares it to the cost of an equivalent deployment on Azure. It then provides granular, per-resource, financially-based porting recommendations to Azure. After assessing the equivalent deployment required on Azure (based on performance metrics and user preferences), Cloudyn uses the RateCard API to evaluate the cost of the equivalent deployment on Azure.
++ **Rapports de performances** : reposant sur l’API Azure Performance, ces rapports fournissent un ensemble de fonctionnalités, depuis la présentation de l’utilisation de l’unité centrale et de la mémoire RAM jusqu’à la fourniture de recommandations d’optimisation. Voici un exemple de rapport sur l’utilisation des instances, qui présente une répartition des instances par utilisation moyenne de l’unité centrale.
 
-+ **Performance Reports** - Enabled by Azure’s performance API, these reports provide an array of features from CPU and RAM utilization to optimization recommendations. Below is an instance utilization report example, presenting instance breakdown by average CPU utilization.
+![Rapports de performances][6]
 
-![Performance Reports][6]
++ **Gestionnaire de catégories** : puissante fonctionnalité de Cloudyn permettant de classer des ressources de cloud désorganisées. Elle offre aux utilisateurs la possibilité de créer leurs propres catégories uniques (balises) à des fins de mesure et de création de rapports efficaces conformes aux pratiques commerciales. En outre, les utilisateurs peuvent facilement réguler et catégoriser le balisage incohérent (fautes de frappe et autres anomalies) et détecter automatiquement les ressources non balisées afin de garantir la précision de l’affectation des coûts.
 
-+ **Category manager** - A powerful feature in Cloudyn that brings order to unorganized cloud resources. It provides users the freedom to create their own unique categories (tags) for effective measuring and reporting that is in line with business practices. Further, users can easily regulate and categorize inconsistent tagging (i.e. typos and other discrepancies) and automatically detect untagged resources for accurate cost attribution.
+![Gestionnaire de catégories][7]
 
-![Category Manager][7]
+## Vidéo
 
-## <a name="video"></a>Video
-
-Here's a short video which shows how an Azure customer can use Cloudyn for Azure and the Azure Billing APIs, to gain insights from their Azure consumption data.
+Voici une courte vidéo expliquant la façon dont un client Azure peut utiliser Cloudyn et les API Azure Billing pour obtenir une vue d’ensemble de ses données de consommation Azure.
 
 > [AZURE.VIDEO cloudyn-provides-cloud-itfm-tools-via-microsoft-azure-apis]
 
 
-## <a name="next-steps"></a>Next Steps
+## Étapes suivantes
 
-+ Start a free [Cloudyn for Azure](https://www.cloudyn.com/microsoft-azure/) trial to see how you can obtain cost transparency with customized reporting and analytics for your Microsoft Azure cloud deployment.
-+ See [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md) for an overview of the Azure Resource Usage and RateCard APIs.
-+ Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
-+ If you would like to dive right into the sample code, check out our Microsoft Azure Billing API Code Samples on [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?term=billing).
++ Essayez gratuitement [Cloudyn pour Azure](https://www.cloudyn.com/microsoft-azure/) pour découvrir comment vous pouvez bénéficier d’une transparence des coûts avec des fonctions de reporting et d’analyse personnalisées pour votre déploiement cloud Microsoft Azure.
++ Pour découvrir une présentation des API Azure Resource Usage et RateCard, voir [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](billing-usage-rate-card-overview.md).
++ Pour plus d’informations sur ces deux API, qui font partie intégrante de l’ensemble d’API fourni par Azure Resource Manager, consultez la [Référence des API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
++ Si vous souhaitez vous plonger directement dans l'exemple de code, consultez nos exemples de code d'API de facturation Microsoft Azure sur [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
-## <a name="learn-more"></a>Learn More
-+ To learn more about Microsoft Azure Enterprise Agreement (EA) offers, please visit [Licensing Azure for the Enterprise] (https://azure.microsoft.com/pricing/enterprise-agreement/)
-+ See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
-+ For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+## En savoir plus
++ Pour plus d’informations sur les offres Contrat d’entreprise (EA) Microsoft Azure, voir [Licences Azure pour l’entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
++ Pour plus d’informations sur Azure Resource Manager, voir l’article [Présentation d’Azure Resource Manager](resource-group-overview.md).
++ Pour plus d’informations sur la suite d’outils nécessaire pour acquérir une bonne compréhension de la dépense cloud, voir l’article du cabinet Gartner [Guide de marché relatif aux outils de gestion financière informatique (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb) (en anglais).
 
 <!--Image references-->
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Overview.png
@@ -92,8 +91,4 @@ Here's a short video which shows how an Azure customer can use Cloudyn for Azure
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

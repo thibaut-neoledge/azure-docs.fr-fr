@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshooting application upgrades | Microsoft Azure"
-   description="This article covers some common issues around upgrading a Service Fabric application and how to resolve them."
+   pageTitle="Résolution des problèmes des mises à niveau d'applications | Microsoft Azure"
+   description="Cet article aborde certains problèmes courants relatifs à la mise à niveau d'une application Service Fabric et la manière de les résoudre."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -16,34 +16,33 @@
    ms.date="09/14/2016"
    ms.author="subramar"/>
 
+# Résoudre les problèmes de mise à niveau d'application
 
-# <a name="troubleshoot-application-upgrades"></a>Troubleshoot application upgrades
+Cet article aborde certains des problèmes courants relatifs à la mise à niveau d’une application Azure Service Fabric et la manière de les résoudre.
 
-This article covers some of the common issues around upgrading an Azure Service Fabric application and how to resolve them.
+## Résoudre les problèmes liés à l'échec de la mise à niveau d'une application
 
-## <a name="troubleshoot-a-failed-application-upgrade"></a>Troubleshoot a failed application upgrade
+Quand une mise à niveau échoue, la sortie de la commande **Get-ServiceFabricApplicationUpgrade** contient des informations supplémentaires pour résoudre les problèmes à l’origine de l’échec. La liste suivante indique comment les informations supplémentaires peuvent être utilisées :
 
-When an upgrade fails, the output of the **Get-ServiceFabricApplicationUpgrade** command contains additional information for debugging the failure.  The following list specifies how the additional information can be used:
+1. Identifier le type d’échec.
+2. Identifier la raison de l’échec.
+3. Isoler le ou les composants défectueux en vue d’un examen approfondi.
 
-1. Identify the failure type.
-2. Identify the failure reason.
-3. Isolate one or more failing components for further investigation.
+Ces informations sont disponibles lorsque Service Fabric détecte l’échec, que la propriété **FailureAction** indique de restaurer ou de suspendre la mise à niveau.
 
-This information is available when Service Fabric detects the failure regardless of whether the **FailureAction** is to roll back or suspend the upgrade.
+### Identifier le type d'échec
 
-### <a name="identify-the-failure-type"></a>Identify the failure type
+Dans la sortie de **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifie l’horodateur (au format UTC) correspondant à la détection de l’échec de la mise à niveau par Service Fabric et au déclenchement de l’opération **FailureAction**. **FailureReason** identifie l’une des trois raisons potentielles principales de l’échec :
 
-In the output of **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifies the timestamp (in UTC) at which an upgrade failure was detected by Service Fabric and **FailureAction** was triggered. **FailureReason** identifies one of three potential high-level causes of the failure:
+1. UpgradeDomainTimeout : indique qu'un domaine de mise à niveau particulier a pris trop de temps et qu'**UpgradeDomainTimeout** a expiré.
+2. OverallUpgradeTimeout : indique que la mise à niveau globale a pris trop de temps et qu'**UpgradeTimeout** a expiré.
+3. HealthCheck : indique qu’après la mise à niveau d’un domaine de mise à jour, l’application est restée défectueuse selon les stratégies de contrôle d’intégrité spécifiées et que **HealthCheckRetryTimeout** a expiré.
 
-1. UpgradeDomainTimeout - Indicates that a particular upgrade domain took too long to complete and **UpgradeDomainTimeout** expired.
-2. OverallUpgradeTimeout - Indicates that the overall upgrade took too long to complete and **UpgradeTimeout** expired.
-3. HealthCheck - Indicates that after upgrading an update domain, the application remained unhealthy according to the specified health policies and **HealthCheckRetryTimeout** expired.
+Ces entrées apparaissent dans la sortie uniquement quand la mise à niveau échoue et que la restauration commence. Des informations supplémentaires s’affichent en fonction du type d’échec.
 
-These entries only show up in the output when the upgrade fails and starts rolling back. Further information is displayed depending on the type of the failure.
+### Examiner les dépassements de délai d'attente de mise à niveau
 
-### <a name="investigate-upgrade-timeouts"></a>Investigate upgrade timeouts
-
-Upgrade timeout failures are most commonly caused by service availability issues. The output following this paragraph is typical of upgrades where service replicas or instances fail to start in the new code version. The **UpgradeDomainProgressAtFailure** field captures a snapshot of any pending upgrade work at the time of failure.
+Les échecs de délai d'attente de mise à niveau sont généralement dus à des problèmes de disponibilité de service. La sortie suivant ce paragraphe est typique des mises à niveau où des instances ou des réplicas de service ne peuvent pas démarrer dans la nouvelle version du code. Le champ **UpgradeDomainProgressAtFailure** capture un instantané de tout travail de mise à niveau en attente au moment de l'échec.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -79,17 +78,17 @@ ForceRestart                   : False
 UpgradeReplicaSetCheckTimeout  : 00:00:00
 ~~~
 
-In this example, the upgrade failed at upgrade domain *MYUD1* and two partitions (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* and *4b43f4d8-b26b-424e-9307-7a7a62e79750*) were stuck. The partitions were stuck because the runtime was unable to place primary replicas (*WaitForPrimaryPlacement*) on target nodes *Node1* and *Node4*.
+Dans cet exemple, la mise à niveau a échoué sur le domaine de mise à niveau *MYUD1* et deux partitions (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* et *4b43f4d8-b26b-424e-9307-7a7a62e79750*) ont été bloquées. Les partitions ont été bloquées car le runtime n’a pas pu placer les réplicas principaux (*WaitForPrimaryPlacement*) sur les nœuds cibles *Node1* et *Node4*.
 
-The **Get-ServiceFabricNode** command can be used to verify that these two nodes are in upgrade domain *MYUD1*. The *UpgradePhase* says *PostUpgradeSafetyCheck*, which means that these safety checks are occurring after all nodes in the upgrade domain have finished upgrading. All this information points to a potential issue with the new version of the application code. The most common issues are service errors in the open or promotion to primary code paths.
+La commande **Get-ServiceFabricNode** peut être utilisée pour vérifier que ces deux nœuds se trouvent dans le domaine de mise à niveau *MYUD1*. *UpgradePhase* indique *PostUpgradeSafetyCheck*, ce qui signifie que ces contrôles de sécurité interviennent une fois que tous les nœuds du domaine de mise à niveau ont terminé leur mise à niveau. Toutes ces informations pointent vers un problème potentiel avec la nouvelle version du code d’application. Les problèmes les plus courants sont des erreurs de service à l'ouverture ou une promotion vers les chemins de code principaux.
 
-An *UpgradePhase* of *PreUpgradeSafetyCheck* means there were issues preparing the upgrade domain before it was performed. The most common issues in this case are service errors in the close or demotion from primary code paths.
+Un paramètre *UpgradePhase* ayant pour valeur *PreUpgradeSafetyCheck* indique des problèmes pendant la préparation du domaine de mise à niveau avant son exécution proprement dite. Dans ce cas, les problèmes les plus courants sont des erreurs de service dans le cadre de la fermeture ou de la rétrogradation à partir des chemins de code principaux.
 
-The current **UpgradeState** is *RollingBackCompleted*, so the original upgrade must have been performed with a rollback **FailureAction**, which automatically rolled back the upgrade upon failure. If the original upgrade was performed with a manual **FailureAction**, then the upgrade would instead be in a suspended state to allow live debugging of the application.
+Le paramètre **UpgradeState** a actuellement la valeur*RollingBackCompleted*, de sorte que la mise à niveau initiale doit avoir été effectuée à l'aide d'une opération **FailureAction** de restauration, laquelle a automatiquement annulé la mise à niveau lors de l'échec. Si la mise à niveau initiale a été effectuée à l’aide d’une opération **FailureAction** manuelle, la mise à niveau serait maintenant dans un état suspendu afin d’autoriser le débogage en direct de l’application.
 
-### <a name="investigate-health-check-failures"></a>Investigate health check failures
+### Examiner les échecs des contrôles d'intégrité
 
-Health check failures can be triggered by various issues that can happen after all nodes in an upgrade domain finish upgrading and passing all safety checks. The output following this paragraph is typical of an upgrade failure due to failed health checks. The **UnhealthyEvaluations** field captures a snapshot of health checks that failed at the time of the upgrade according to the specified [health policy](service-fabric-health-introduction.md).
+Des échecs de contrôle d’intégrité peuvent être déclenchés par divers problèmes qui peuvent se produire après la mise à niveau de tous les nœuds dans un domaine de mise à niveau et la réussite de tous les contrôles de sécurité. La sortie suivant ce paragraphe est typique d’un échec de mise à niveau dû à l’échec des contrôles d’intégrité. Le champ **UnhealthyEvaluations** capture un instantané des contrôles d’intégrité ayant échoué au moment de la mise à niveau en fonction de la [stratégie de contrôle d’intégrité](service-fabric-health-introduction.md) spécifiée.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -143,23 +142,23 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 ~~~
 
-Investigating health check failures first requires an understanding of the Service Fabric health model. But even without such an in-depth understanding, we can see that two services are unhealthy: *fabric:/DemoApp/Svc3* and *fabric:/DemoApp/Svc2*, along with the error health reports ("InjectedFault" in this case). In this example, two out of four services are unhealthy, which is below the default target of 0% unhealthy (*MaxPercentUnhealthyServices*).
+L’examen des échecs des contrôles d’intégrité nécessite tout d’abord de comprendre le modèle d’intégrité de Service Fabric. Mais même sans ces connaissances approfondies, nous pouvons voir que deux services sont défectueux : *fabric:/DemoApp/Svc3* et *fabric:/DemoApp/Svc2*, ainsi que les rapports d’erreurs d’intégrité (« InjectedFault » dans le cas présent). Dans cet exemple, deux services sur quatre sont défectueux, soit au-dessous de l’objectif par défaut de 0 % défectueux (*MaxPercentUnhealthyServices*).
 
-The upgrade was suspended upon failing by specifying a **FailureAction** of manual when starting the upgrade. This mode allows us to investigate the live system in the failed state before taking any further action.
+La mise à niveau a été suspendue suite à son échec, avec la spécification de **FailureAction** sur Manual lors du démarrage de la mise à niveau. Ce mode nous permet d’étudier le système en direct en état d’échec avant d’effectuer toute autre action.
 
-### <a name="recover-from-a-suspended-upgrade"></a>Recover from a suspended upgrade
+### Récupérer à partir d'une mise à niveau suspendue
 
-With a rollback **FailureAction**, there is no recovery needed since the upgrade automatically rolls back upon failing. With a manual **FailureAction**, there are several recovery options:
+Avec une opération **FailureAction** de restauration, aucune récupération n’est nécessaire étant donné que la mise à niveau est automatiquement restaurée en cas d’échec. Si une opération **FailureAction** manuelle est définie, plusieurs options de récupération existent :
 
-1. Manually trigger a rollback
-2. Proceed through the remainder of the upgrade manually
-3. Resume the monitored upgrade
+1. Déclencher manuellement une restauration
+2. Exécuter manuellement le reste de la mise à niveau
+3. Reprendre la mise à niveau surveillée
 
-The **Start-ServiceFabricApplicationRollback** command can be used at any time to start rolling back the application. Once the command returns successfully, the rollback request has been registered in the system and starts shortly thereafter.
+La commande **Start-ServiceFabricApplicationRollback** peut être utilisée à tout moment pour lancer la restauration de l'application. Une fois que la commande a été retournée avec succès, la demande de restauration est enregistrée dans le système et commence peu après.
 
-The **Resume-ServiceFabricApplicationUpgrade** command can be used to proceed through the remainder of the upgrade manually, one upgrade domain at a time. In this mode, only safety checks are performed by the system. No more health checks are performed. This command can only be used when the *UpgradeState* shows *RollingForwardPending*, which means that the current upgrade domain has finished upgrading but the next one has not started (pending).
+La commande **Resume-ServiceFabricApplicationUpgrade** peut être utilisée pour exécuter manuellement le reste de la mise à niveau, un domaine de mise à niveau après l'autre. Dans ce mode, seuls des contrôles de sécurité sont effectués par le système. Aucun contrôle d’intégrité supplémentaire n’est effectué. Cette commande peut être utilisée seulement quand *UpgradeState* indique *RollingForwardPending*, ce qui signifie que le domaine de mise à niveau en cours a terminé la mise à niveau mais que le suivant ne l’a pas encore commencée (en attente).
 
-The **Update-ServiceFabricApplicationUpgrade** command can be used to resume the monitored upgrade with both safety and health checks being performed.
+La commande **Update-ServiceFabricApplicationUpgrade** peut être utilisée pour reprendre la mise à niveau surveillée en exécutant des contrôles d'intégrité et de sécurité.
 
 ~~~
 PS D:\temp> Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
@@ -183,59 +182,55 @@ ServiceTypeHealthPolicyMap              :
 PS D:\temp>
 ~~~
 
-The upgrade continues from the upgrade domain where it was last suspended and use the same upgrade parameters and health policies as before. If needed, any of the upgrade parameters and health policies shown in the preceding output can be changed in the same command when the upgrade resumes. In this example, the upgrade was resumed in Monitored mode, with the parameters and the health policies unchanged.
+La mise à niveau continue à partir du domaine de mise à niveau dans lequel elle a été suspendue en dernier, et elle utilise les mêmes paramètres de mise à niveau et les mêmes stratégies de contrôle d’intégrité qu’auparavant. Si nécessaire, les paramètres de mise à niveau et les stratégies de contrôle d’intégrité figurant dans la sortie ci-dessus peuvent être modifiés dans la même commande au moment de la reprise de la mise à niveau. Dans cet exemple, la mise à niveau a repris en mode Surveillé, avec les paramètres et les stratégies d’intégrité inchangés.
 
-## <a name="further-troubleshooting"></a>Further troubleshooting
+## Suite de la résolution des problèmes
 
-### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>Service Fabric is not following the specified health policies
+### Service Fabric ne suit pas les stratégies de contrôle d’intégrité spécifiées
 
-Possible Cause 1:
+Cause possible 1 :
 
-Service Fabric translates all percentages into actual numbers of entities (for example, replicas, partitions, and services) for health evaluation and always rounds up to whole entities. For example, if the maximum _MaxPercentUnhealthyReplicasPerPartition_ is 21% and there are five replicas, then Service Fabric allows up to two unhealthy replicas (that is,`Math.Ceiling (5\*0.21)). Thus, health policies should be set accordingly.
+Service Fabric convertit tous les pourcentages en nombres réels d’entités (par exemple, réplicas, partitions et services) pour l’évaluation de l’intégrité et arrondit toujours au nombre d’entités entières. Par exemple, si la valeur maximale _MaxPercentUnhealthyReplicasPerPartition_ est 21 % et qu’il existe cinq réplicas, Service Fabric autorise jusqu’à deux réplicas défectueux (c’est-à-dire, Math.Ceiling (5*0,21)). Par conséquent, les stratégies de contrôle d’intégrité doivent être définies pour tenir compte de cela.
 
-Possible Cause 2:
+Cause possible 2 :
 
-Health policies are specified in terms of percentages of total services and not specific service instances. For example, before an upgrade, if an application has four service instances A, B, C, and D, where service D is unhealthy but with little impact to the application. We want to ignore the known unhealthy service D during upgrade and set the parameter *MaxPercentUnhealthyServices* to be 25%, assuming only A, B, and C need to be healthy.
+Les stratégies d'intégrité sont spécifiées en pourcentages du nombre total de services et non en instances de service spécifiques. Par exemple, avant une mise à niveau, si une application présente quatre instances de service A, B, C et D, où le service D est défectueux mais sans impact significatif sur l’application. Nous souhaitons ignorer le service défectueux connu D pendant la mise à niveau et définir le paramètre *MaxPercentUnhealthyServices* sur 25 %, en supposant que seuls A, B et C doivent être sains.
 
-However, during the upgrade, D may become healthy while C becomes unhealthy. The upgrade would still succeed because only 25% of the services are unhealthy. However, it might result in unanticipated errors due to C being unexpectedly unhealthy instead of D. In this situation, D should be modeled as a different service type from A, B, and C. Since health policies are specified per service type, different unhealthy percentage thresholds can be applied to different services. 
+Toutefois, pendant la mise à niveau, D peut devenir sain et C devenir défectueux. La mise à niveau aboutirait quand même car seuls 25 % des services ne sont pas sains. Toutefois, des erreurs imprévues pourraient se produire en raison de l’état défectueux inattendu de C au lieu de D. Dans ce cas, D doit être modélisé sous la forme d’un autre type de service que A, B et C. Comme les stratégies de contrôle d’intégrité sont spécifiées par type de service, cela permet d’appliquer des seuils de pourcentage de services défectueux différents à des services différents.
 
-### <a name="i-did-not-specify-a-health-policy-for-application-upgrade,-but-the-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>I did not specify a health policy for application upgrade, but the upgrade still fails for some time-outs that I never specified
+### Je n’ai pas spécifié une stratégie de contrôle d’intégrité pour la mise à niveau de l’application, mais la mise à niveau continue d’échouer en raison de certains délais d’attente que je n’ai jamais spécifiés
 
-When health policies aren't provided to the upgrade request, they are taken from the *ApplicationManifest.xml* of the current application version. For example, if you're upgrading Application X from version 1.0 to version 2.0, application health policies specified for in version 1.0 are used. If a different health policy should be used for the upgrade, then the policy needs to be specified as part of the application upgrade API call. The policies specified as part of the API call only apply during the upgrade. Once the upgrade is complete, the policies specified in the *ApplicationManifest.xml* are used.
+Quand les stratégies de contrôle d’intégrité ne sont pas fournies à la demande de mise à niveau, elles sont extraites du fichier *ApplicationManifest.xml* de la version de l’application actuelle. Par exemple, si vous mettez à niveau Application X de la version 1.0 à la version 2.0, les stratégies de contrôle d’intégrité de l’application spécifiées pour la version 1.0 sont utilisées. Si une autre stratégie de contrôle d'intégrité doit être utilisée pour la mise à niveau, la stratégie doit être spécifiée dans le cadre de l'appel d'API de mise à niveau de l'application. Les stratégies spécifiées dans le cadre de l’appel d’API s’appliquent uniquement pendant la mise à niveau. Une fois la mise à niveau terminée, les stratégies spécifiées dans *ApplicationManifest.xml* sont utilisées.
 
-### <a name="incorrect-time-outs-are-specified"></a>Incorrect time-outs are specified
+### Délais d’attente incorrects spécifiés
 
-You may have wondered about what happens when time-outs are set inconsistently. For example, you may have an *UpgradeTimeout* that's less than the *UpgradeDomainTimeout*. The answer is that an error is returned. Errors are returned if the *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckRetryTimeout*, or if *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckStableDuration*.
+Vous vous demandez peut-être ce qui se passe lorsque les délais d’expiration sont définis de façon incohérente. Par exemple, vous pouvez avoir un délai *UpgradeTimeout* inférieur au délai *UpgradeDomainTimeout*. La réponse est qu'une erreur est renvoyée. Des erreurs sont renvoyées si *UpgradeDomainTimeout* est inférieur à la somme de *HealthCheckWaitDuration* et de *HealthCheckRetryTimeout*, ou si *UpgradeDomainTimeout* est inférieur à la somme de *HealthCheckWaitDuration* et de *HealthCheckStableDuration*.
 
-### <a name="my-upgrades-are-taking-too-long"></a>My upgrades are taking too long
+### Mes mises à niveau prennent trop de temps
 
-The time for an upgrade to complete depends on the health checks and time-outs specified. Health checks and time-outs depend on how long it takes to copy, deploy, and stabilize the application. Being too aggressive with time-outs might mean more failed upgrades, so we recommend starting conservatively with longer time-outs.
+Le délai pour qu’une mise à niveau se termine varie en fonction des contrôles d’intégrité et des délais d’expiration spécifiés. Les contrôles d’intégrité et les délais d’expiration dépendent de la durée nécessaire pour copier, déployer et stabiliser l’application. Se montrer trop sévère avec les délais d’attente peut induire plus d’échecs de mises à niveau ; nous vous recommandons donc de démarrer prudemment avec des délais d’attente plus longs.
 
-Here's a quick refresher on how the time-outs interact with the upgrade times:
+Voici un rappel rapide sur la manière dont les délais d’attente interagissent avec les durées de mise à niveau :
 
-Upgrades for an upgrade domain cannot complete faster than *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
+Les mises à niveau pour un domaine de mise à niveau ne peuvent pas prendre moins de temps que *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
-Upgrade failure cannot occur faster than *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
+Un échec de mise à niveau ne peut pas se produire avant *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
-The upgrade time for an upgrade domain is limited by *UpgradeDomainTimeout*.  If *HealthCheckRetryTimeout* and *HealthCheckStableDuration* are both non-zero and the health of the application keeps switching back and forth, then the upgrade eventually times out on *UpgradeDomainTimeout*. *UpgradeDomainTimeout* starts counting down once the upgrade for the current upgrade domain begins.
+La durée de mise à niveau d’un domaine de mise à niveau est limitée par *UpgradeDomainTimeout*. Si les paramètres *HealthCheckRetryTimeout* et *HealthCheckStableDuration* sont tous les deux non nuls et que l’intégrité de l’application ne cesse d’alterner, la mise à niveau finit par expirer sur *UpgradeDomainTimeout*. *UpgradeDomainTimeout* commence le compte à rebours au démarrage de la mise à niveau pour le domaine de mise à niveau actuel.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-[Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
+La [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+La [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.
 
-Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
+Contrôlez les mises à niveau de votre application à l'aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
 
-Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
+Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 
-Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
+Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
 
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
+Résolvez les problèmes courants de mise à niveau de l’application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

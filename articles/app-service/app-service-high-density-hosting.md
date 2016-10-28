@@ -1,44 +1,43 @@
 <properties
-    pageTitle="High-density hosting on Azure App Service | Microsoft Azure"
-    description="High-density hosting on Azure App Service"
-    authors="btardif"
-    manager="wpickett"
-    editor=""
-    services="app-service\web"
-    documentationCenter=""/>
+	pageTitle="Hébergement haute densité sur Azure App Service | Microsoft Azure"
+	description="Hébergement haute densité sur Azure App Service"
+	authors="btardif"
+	manager="wpickett"
+	editor=""
+	services="app-service\web"
+	documentationCenter=""/>
 
 <tags
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="08/07/2016"
-    ms.author="byvinyal"/>
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/07/2016"
+	ms.author="byvinyal"/>
 
+# Hébergement haute densité sur Azure App Service#
 
-# <a name="high-density-hosting-on-azure-app-service#"></a>High-density hosting on Azure App Service#
+Lorsque vous utilisez App Service, votre application sera découplée à partir de la capacité allouée par 2 concepts :
 
-When using App Service, your application will be decoupled from the capacity allocated to it by 2 concepts:
+- **L’Application :** représente l’application et sa configuration lors de l’exécution. Par exemple, elle inclut la version de .NET que le runtime doit charger, les paramètres de l’application, etc.
 
-- **The Application:** Represents the app and its runtime configuration. For example, it includes the version of .NET that the runtime should load, the app settings, etc.
+- **Le plan App Service :** définit les caractéristiques de capacité, l’ensemble des fonctionnalités disponibles et la localité de l’application. Par exemple, les caractéristiques peuvent être : machines puissantes (quatre cœurs), quatre instances, fonctionnalités Premium pour les États-Unis de l’Est.
 
-- **The App Service Plan:** Defines the characteristics of the capacity, available feature set, and locality of the application. For example, characteristics might be large (four cores) machine, four instances, Premium features in East US.
+Une application est toujours liée à un plan App Service, mais un Plan App Service peut fournir de la capacité à une ou plusieurs applications.
 
-An app is always linked to an App Service plan, but an App Service plan can provide capacity to one or more apps.
+Cela signifie que la plateforme fournit la flexibilité nécessaire pour isoler une application unique, ou partager les ressources entre plusieurs applications avec un plan App Service commun.
 
-This means that the platform provides the flexibility to isolate a single app or have multiple apps share resources by sharing an App Service plan.
+Toutefois, lorsque plusieurs applications partagent un plan App Service, une instance de cette application sera exécutée sur chaque instance de ce plan App Service.
 
-However, when multiple apps share an App Service plan, an instance of that app runs on every instance of that App Service plan.
+## Mise à l’échelle par application##
+*La mise à l’échelle par application* est une fonction qui peut être activée au niveau du plan App Service et activée par chaque application.
 
-## <a name="per-app-scaling##"></a>Per app scaling##
-*Per app scaling* is a feature that can be enabled at the App Service plan level and then used per application.
+La mise à l’échelle par application permet de mettre à l’échelle une application indépendamment du plan App Service qui l’héberge. De cette façon, un plan App Service peut être configuré pour fournir 10 instances, mais une application peut être définie pour être mise l’échelle pour seulement 5 d’entre elles.
 
-Per app scaling scales an app independently from the App Service plan that hosts it. This way, an App Service plan can be configured to provide 10 instances, but an app can be set to scale to only 5 of them.
+Le modèle Azure Resource Manager suivant crée un plan App Service mis à l’échelle sur 10 instances et une application configurée pour utiliser la mise à l’échelle par application uniquement sur 5 instances.
 
-The following Azure Resource Manager template will create an App Service plan that's scaled out to 10 instances and an app that's configured to use per app scaling and scale to only 5 instances.
-
-To do this, the App Service plan is setting the **per-site scaling** property to true ( `"perSiteScaling": true`), and the app is setting the **number of workers** to use to 1 (`"properties": { "numberOfWorkers": "1" }`).
+Pour ce faire, le plan App Service définit la propriété de **mise à l’échelle de site** sur true (`"perSiteScaling": true`) et l’application définit le **nombre de threads de Workers** à utiliser sur 1 (`"properties": { "numberOfWorkers": "1" }`).
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -86,24 +85,20 @@ To do this, the App Service plan is setting the **per-site scaling** property to
     }
 
 
-## <a name="recommended-configuration-for-high-density-hosting"></a>Recommended configuration for high-density hosting
+## Configuration recommandée pour l’hébergement haute densité
 
-Per app scaling is a feature that is enabled in both public Azure regions and App Service Environments. However, the recommended strategy is to use App Service Environments to take advantage of their advanced features and the larger pools of capacity.  
+La fonctionnalité de mise à l’échelle par application est activée dans les régions Azure et les environnements App Service publics. Toutefois, la stratégie recommandée consiste à utiliser des environnements App Service pour tirer parti de leurs fonctionnalités avancées et des pools de capacité supérieure.
 
-Follow these steps to configure high-density hosting for your apps:
+Suivez ces étapes pour configurer un hébergement haute densité pour vos applications :
 
-1. Configure the App Service Environment and choose a worker pool that will be dedicated to the high-density hosting scenario.
+1. Configurez l’environnement App Service et choisissez un pool de Workers qui sera consacré au scénario d’hébergement haute densité.
 
-1. Create a single App Service plan, and scale it to use all the available capacity on the worker pool.
+1. Créez un seul plan App Service et mettez-le à l’échelle pour utiliser toute la capacité disponible sur le pool de Workers.
 
-1. Set the per-site scaling flag to true on the App Service plan.
+1. Définissez l’indicateur de mise à l’échelle de site sur true dans le plan App Service.
 
-1. New sites are created and assigned to that App Service plan with the **numberOfWorkers** property set to **1**. This will yield the highest density possible on this worker pool.
+1. De nouveaux sites sont créés et affectés à ce plan App Service avec la propriété **numberOfWorkers** définie sur **1**. Cela donne la densité la plus élevée possible sur ce pool de Workers.
 
-1. The number of workers can be configured independently per site to grant additional resources as needed. For example, a high-use site might set **numberOfWorkers** to **3** to have more processing capacity for that app, while low-use sites would set **numberOfWorkers** to **1**.
+1. Le nombre de Workers peut être configuré indépendamment par site, pour accorder des ressources supplémentaires en fonction des besoins. Par exemple, un site à utilisation élevée peut définir **numberOfWorkers** sur **3** afin d’avoir plus de capacité de traitement pour cette application, tandis que les sites à faible utilisation peuvent définir **numberOfWorkers** sur **1**.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

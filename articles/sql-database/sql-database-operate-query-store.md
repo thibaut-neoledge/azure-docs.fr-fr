@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Operating Query Store in Azure SQL Database"
-   description="Learn how to operate the Query Store in Azure SQL Database"
+   pageTitle="Utilisation du magasin de requêtes dans la base de données SQL Azure"
+   description="Découvrez comment utiliser le magasin de requêtes dans la base de données SQL Azure"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,51 +17,46 @@
    ms.date="08/16/2016"
    ms.author="carlrab"/>
 
+# Utilisation du magasin de requêtes dans la base de données SQL Azure 
 
-# <a name="operating-the-query-store-in-azure-sql-database"></a>Operating the Query Store in Azure SQL Database 
+Le magasin de requêtes dans Azure est une fonctionnalité de base de données entièrement gérée qui recueille et présente des informations historiques détaillées sur toutes les requêtes. Le magasin de requêtes peut être comparé à l’enregistreur de données de vol d’un avion, qui simplifie considérablement le dépannage des problèmes de performances des requêtes à la fois pour les clients cloud et pour les clients locaux. Cet article présente certains aspects de l’utilisation du magasin de requêtes dans Azure. À l’aide des données de requête collectées au préalable, vous pouvez diagnostiquer et résoudre rapidement les problèmes de performances, ce qui vous permet de consacrer davantage de temps à vos activités.
 
-Query Store in Azure is a fully managed database feature that continuously collects and presents detailed historic information about all queries. You can think about Query Store as similar to an airplane's flight data recorder that significantly simplifies query performance troubleshooting both for cloud and on-premises customers. This article explains specific aspects of operating Query Store in Azure. Using this pre-collected query data, you can quickly diagnose and resolve performance problems and thus spend more time focusing on their business. 
+Le magasin de requêtes est [disponible dans le monde entier](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) via la base de données SQL Azure depuis novembre 2015. Le magasin de requêtes constitue la base de l’analyse des performances et de l’ajustement des fonctionnalités, comme [SQL Database Advisor et le tableau de bord des performances](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Au moment de la publication de cet article, le magasin de requêtes est en cours d’exécution sur plus de 200 000 bases de données utilisateur dans Azure, et recueille les informations liées aux requêtes depuis plusieurs mois sans interruption.
 
-Query Store has been [globally available](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) in Azure SQL Database since November, 2015. Query Store is the foundation for performance analysis and tuning features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). At the moment of publishing this article, Query Store is running in more than 200,000 user databases in Azure, collecting query-related information for several months, without interruption.
+> [AZURE.IMPORTANT] Microsoft met actuellement en place le magasin de requêtes pour toutes les bases de données SQL Azure (existantes et nouvelles).
 
-> [AZURE.IMPORTANT] Microsoft is in the process of activating Query Store for all Azure SQL databases (existing and new). 
+## Configuration optimale du magasin de requêtes
 
-## <a name="optimal-query-store-configuration"></a>Optimal Query Store Configuration
+Cette section décrit les paramètres optimaux de configuration par défaut, conçus pour garantir un fonctionnement fiable du magasin de requêtes et des fonctionnalités liées, comme [SQL Database Advisor et le tableau de bord des performances](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). La configuration par défaut est optimisée pour la collecte des données en continu, c’est-à-dire pour passer le moins de temps possible aux états OFF/READ\_ONLY.
 
-This section describes optimal configuration defaults that are designed to ensure reliable operation of the Query Store and dependent features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Default configuration is optimized for continuous data collection, that is minimal time spent in OFF/READ_ONLY states.
-
-| Configuration | Description | Default | Comment |
+| Configuration | Description | Default | Commentaire |
 | ------------- | ----------- | ------- | ------- |
-| MAX_STORAGE_SIZE_MB | Specifies the limit for the data space that Query Store can take inside z customer database | 100 | Enforced for new databases |
-| INTERVAL_LENGTH_MINUTES | Defines size of time window during which collected runtime statistics for query plans are aggregated and persisted. Every active query plan has at most one row for a period of time defined with this configuration | 60   | Enforced for new databases |
-| STALE_QUERY_THRESHOLD_DAYS | Time-based cleanup policy that controls the retention period of persisted runtime statistics and inactive queries | 30 | Enforced for new databases and databases with previous default (367) |
-| SIZE_BASED_CLEANUP_MODE | Specifies whether automatic data cleanup takes place when Query Store data size approaches the limit | AUTO | Enforced for all databases |
-| QUERY_CAPTURE_MODE | Specifies whether all queries or only a subset of queries are tracked | AUTO | Enforced for all databases |
-| FLUSH_INTERVAL_SECONDS | Specifies maximum period during which captured runtime statistics are kept in memory, before flushing to disk | 900 | Enforced for new databases |
+| MAX\_STORAGE\_SIZE\_MB | Spécifie la limite d’espace de données que le magasin de requêtes peut inclure dans une base de données client | 100 | Appliqué aux nouvelles bases de données |
+| INTERVAL\_LENGTH\_MINUTES | Définit la durée pendant laquelle les statistiques d’exécution collectées pour les plans de requête sont agrégées et rendues persistantes. Chaque plan de requête actif dispose au maximum d’une ligne pour une période définie avec cette configuration | 60 | Appliqué aux nouvelles bases de données |
+| STALE\_QUERY\_THRESHOLD\_DAYS | Stratégie de nettoyage basée sur la durée, et qui contrôle la période de rétention des statistiques d’exécution persistantes et des requêtes inactives | 30 | Appliqué aux nouvelles bases de données et aux bases de données ayant la valeur par défaut précédente (367) |
+| SIZE\_BASED\_CLEANUP\_MODE | Indique si un nettoyage automatique des données a lieu lorsque la taille des données du magasin de requêtes approche de la limite | AUTO | Appliqué à toutes les bases de données |
+| QUERY\_CAPTURE\_MODE | Indique si toutes les requêtes sont suivies, ou seulement un sous-ensemble de requêtes | AUTO | Appliqué à toutes les bases de données |
+| FLUSH\_INTERVAL\_SECONDS | Indique la durée maximale pendant laquelle les statistiques d’exécution capturées sont conservées dans la mémoire, avant le vidage sur disque | 900 | Appliqué aux nouvelles bases de données |
 ||||||
 
-> [AZURE.IMPORTANT] These defaults are automatically applied in the final stage of Query Store activation in all Azure SQL databases (see preceding important note). After this light up, Azure SQL Database won’t be changing configuration values set by customers, unless they negatively impact primary workload or reliable operations of the Query Store.
+> [AZURE.IMPORTANT] Ces paramètres par défaut sont automatiquement appliqués à l’étape finale de l’activation du magasin de requêtes dans toutes les bases de données SQL Azure (voir la remarque importante précédente). Après cela, la base de données SQL Azure ne modifiera pas les valeurs de configuration définies par les clients, à moins qu’elles aient un impact négatif sur les charges de travail principales ou sur la fiabilité des opérations du magasin de requêtes.
 
-If you want to stay with your custom settings, use [ALTER DATABASE with Query Store options](https://msdn.microsoft.com/library/bb522682.aspx) to revert configuration to the previous state. Check out [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) in order to learn how top chose optimal configuration parameters.
+Si vous souhaitez conserver vos paramètres personnalisés, utilisez [ALTER DATABASE avec les options du magasin de requêtes](https://msdn.microsoft.com/library/bb522682.aspx) pour rétablir la configuration à l’état précédent. Découvrez les [meilleures pratiques liées au magasin de requêtes](https://msdn.microsoft.com/library/mt604821.aspx) pour savoir comment choisir des paramètres de configuration optimaux.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-[SQL Database Performance Insight](sql-database-performance.md)
+[Informations sur les performances des bases de données SQL](sql-database-performance.md)
 
-## <a name="additional-resources"></a>Additional resources
+## Ressources supplémentaires
 
-For more information check out the following articles:
+Pour plus d’informations, consultez les articles suivants :
 
-- [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+- [Un enregistreur de données pour votre base de données](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
 
-- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 
-- [Query Store Usage Scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
+- [Scénarios d’utilisation du magasin de requêtes](https://msdn.microsoft.com/library/mt614796.aspx)
 
-- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx) 
+- [Analyse des performances à l’aide du magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

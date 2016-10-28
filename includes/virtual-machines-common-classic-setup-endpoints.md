@@ -1,71 +1,63 @@
 
-Each endpoint has a *public port* and a *private port*:
+Chaque point de terminaison possède un *port public* et un *port privé* :
 
-- The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
-- The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
+- Le port public est utilisé par l'équilibreur de charge Azure pour écouter le trafic entrant dans la machine virtuelle à partir d'Internet.
+- Le port privé est utilisé par la machine virtuelle pour écouter le trafic entrant, généralement destiné à une application ou à un service en cours d'exécution sur la machine virtuelle.
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure classic portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
+Les valeurs par défaut pour le protocole IP et les ports TCP ou UDP pour des protocoles réseau bien connus sont fournies lorsque vous créez des points de terminaison avec le portail Azure Classic. Pour les points de terminaison personnalisés, vous devrez spécifier le protocole IP correct (TCP ou UDP) et les ports publics et privés. Pour distribuer le trafic entrant au hasard entre plusieurs machines virtuelles, vous devrez créer un jeu d'équilibrage de la charge composé de plusieurs points de terminaison.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+Après avoir créé un point de terminaison, vous pouvez utiliser une liste de contrôle d’accès (ACL) pour définir des règles permettant d’autoriser ou de refuser le trafic entrant vers le port public du point de terminaison en fonction de son adresse IP source. Toutefois, si la machine virtuelle se trouve dans un réseau virtuel Azure, vous devez utiliser à la place les groupes de sécurité réseau. Pour plus d'informations, consultez [À propos des groupes de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
 
-> [AZURE.NOTE]Firewall configuration for Azure virtual machines is done automatically for ports associated with remote connectivity endpoints that Azure sets up automatically. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration. To configure the firewall, see the documentation or on-line help for the operating system running on the virtual machine.
+> [AZURE.NOTE]La configuration du pare-feu pour les machines virtuelles Azure s’effectue automatiquement pour les ports associés aux points de terminaison de connectivité à distance qu’Azure configure automatiquement. Pour les ports spécifiés pour tous les autres points de terminaison, aucune configuration n'est effectuée automatiquement pour le pare-feu de la machine virtuelle. Lorsque vous créez un point de terminaison pour la machine virtuelle, vous devez vous assurer que le pare-feu de la machine autorise également le trafic du protocole et le port privé correspondant à la configuration du point de terminaison. Pour configurer le pare-feu, consultez la documentation ou l’aide en ligne du système d’exploitation utilisé sur la machine virtuelle.
 
-## <a name="create-an-endpoint"></a>Create an endpoint
+## Création d’un point de terminaison
 
-1.  If you haven't already done so, sign in to the [Azure classic portal](http://manage.windowsazure.com).
-2.  Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.  Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
+1.	Si ce n’est pas déjà fait, connectez-vous au [portail Azure Classic](http://manage.windowsazure.com).
+2.	Cliquez sur **Machines virtuelles**, puis sur le nom de la machine virtuelle à configurer.
+3.	Cliquez sur **Endpoints**. La page **Points de terminaison** répertorie tous les points de terminaison actuels de la machine virtuelle. (Cet exemple est une machine virtuelle Windows. Par défaut, une machine virtuelle Linux affiche un point de terminaison pour SSH.)
 
-    ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
+	![Points de terminaison](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 
-4.  In the taskbar, click **Add**.
-5.  On the **Add an endpoint to a virtual machine** page, choose the type of endpoint.
+4.	Dans la barre des tâches, cliquez sur **Ajouter**.
+5.	Sur la page **Ajouter un point de terminaison** à la machine virtuelle, choisissez le type de point de terminaison.
 
-    - If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose **Add a stand-alone endpoint**, then click the left arrow.
-    - Otherwise, choose **Add an endpoint to an existing load-balanced set**, select the name of the load-balanced set, then click the left arrow. On the **Specify the details of the endpoint** page, type a name for the endpoint, then click the check mark to create the endpoint.
+	- Si vous créez un point de terminaison qui ne fait pas partie d’un jeu d’équilibrage de la charge, ou qui est le premier point de terminaison d’un nouveau jeu d’équilibrage de la charge, choisissez **Ajouter un point de terminaison autonome**, puis cliquez sur la flèche gauche.
+	- Sinon, choisissez **Ajouter un point de terminaison à un jeu d'équilibrage de la charge existant**, sélectionnez le nom du jeu d'équilibrage de la charge, puis cliquez sur la flèche gauche. Dans la page **Spécifier les détails du point de terminaison**, tapez un nom pour le point de terminaison, puis cochez la case pour créer le point de terminaison.
 
-6.  On the **Specify the details of the endpoint** page, type a name for the endpoint in **Name**. You can also choose a network protocol name from the list, which will fill in initial values for the **Protocol**, **Public Port**, and **Private Port**.
-7.  For a customized endpoint, in **Protocol**, choose either **TCP** or **UDP**.
-8.  For customized ports, in **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 7) and private port.
-9.  If this endpoint will be the first one in a load-balanced set, click **Create a load-balanced set**, and then click the right arrow. On the **Configure the load-balanced set** page, specify a load-balanced set name, a probe protocol and port, and the probe interval and number of probes sent. The Azure load balancer sends probes to the virtual machines in a load-balanced set to monitor their availability. The Azure load balancer does not forward traffic to virtual machines that do not respond to the probe. Click the right arrow.
-10. Click the check mark to create the endpoint.
+6.	Sur la page **Spécifier les détails du point de terminaison**, tapez un nom pour le point de terminaison dans **Nom**. Vous pouvez également choisir un nom de protocole réseau dans la liste, ce qui permet de renseigner les valeurs initiales pour les **Protocole**, **Port public** et **Port privé**.
+7.	Pour un point de terminaison personnalisé dans **Protocole**, choisissez **TCP** ou **UDP**.
+8.	Pour les ports personnalisés, dans **Port public**, tapez le numéro de port pour le trafic entrant depuis Internet. Dans **Port privé**, tapez le numéro de port que la machine virtuelle écoute. Ces derniers peuvent être différents. Assurez-vous que le pare-feu sur la machine virtuelle a été configuré pour autoriser le trafic correspondant au protocole (à l'étape 7) et au port privé.
+9.	Si ce point de terminaison est le premier dans un jeu d’équilibrage de la charge, cliquez sur **Créer un jeu d’équilibrage de la charge**, puis sur la flèche droite. Sur la page **Configurer le jeu d’équilibrage de la charge**, spécifiez un nom de jeu d’équilibrage de la charge, un protocole et un port de sonde ainsi que l’intervalle de sondage et le nombre de sondes envoyé. L'équilibreur de charge Azure envoie les sondes aux machines virtuelles dans un jeu d'équilibrage de la charge pour surveiller leur disponibilité. L'équilibreur de charge Azure ne transmet pas le trafic vers des machines virtuelles qui ne répondent pas à la sonde. Cliquez sur la flèche droite.
+10.	Cliquez sur la coche pour créer le point de terminaison.
 
-The new endpoint will be listed on the **Endpoints** page.
+Le nouveau point de terminaison est répertorié dans la page **Points de terminaison**.
 
-![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
+![Création du point de terminaison réussie](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
  
 
-## <a name="manage-the-acl-on-an-endpoint"></a>Manage the ACL on an endpoint
+## Gestion de l’ACL sur un point de terminaison
 
-To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
+Pour définir l'ensemble des ordinateurs qui peuvent envoyer du trafic, l'ACL sur un point de terminaison peut restreindre le trafic basé sur l'adresse IP source. Suivez cette procédure pour ajouter, modifier ou supprimer l’ACL sur un point de terminaison.
 
-> [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+> [AZURE.NOTE] si le point de terminaison fait partie d’un jeu d’équilibrage de charge, chaque modification faite sur l’ACL pour un point de terminaison est appliquée à tous les points de terminaison du jeu.
 
-If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+Si la machine virtuelle se trouve dans un réseau virtuel Azure, nous vous recommandons d’utiliser les groupes de sécurité réseau à la place des ACL. Pour plus d’informations, consultez [À propos des groupes de sécurité réseau](../articles/virtual-network/virtual-networks-nsg.md).
 
-1.  If you haven't already done so, sign in to the Azure classic portal.
-2.  Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.  Click **Endpoints**. From the list, select the appropriate endpoint.
+1.	Si ce n’est pas déjà fait, connectez-vous au portail Azure Classic.
+2.	Cliquez sur **Machines virtuelles**, puis sur le nom de la machine virtuelle à configurer.
+3.	Cliquez sur **Endpoints**. Sélectionnez le point de terminaison approprié dans la liste.
 
-    ![ACL list](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+    ![Liste ACL](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
 
-5.  In the taskbar, click **Manage ACL** to open the **Specify ACL details** dialog box.
+5.	Dans la barre des tâches, cliquez sur **Gérer l’ACL** pour ouvrir la boîte de dialogue **Spécifier les détails de l’ACL**.
 
-    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
+    ![Spécifier les détails de l’ACL](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
 
-6.  Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is 131.107.0.0/16.
+6.	Utilisez les lignes de la liste pour ajouter, supprimer ou modifier les règles d'une ACL et modifier leur ordre. La valeur du **Sous-réseau distant** est une plage d’adresses IP pour le trafic entrant depuis Internet que l’équilibreur de charge Azure utilise pour autoriser ou refuser le trafic en fonction de son adresse IP source. Veillez à spécifier la plage d'adresses IP au format CIDR, également connu sous le nom de format de préfixe adresse. 131.107.0.0/16 est un exemple.
 
-You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
+Vous pouvez utiliser des règles pour autoriser uniquement le trafic provenant de certains ordinateurs correspondant à vos ordinateurs sur Internet ou refuser le trafic provenant de plages d'adresses spécifiques et connues.
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List?](../articles/virtual-network/virtual-networks-acl.md).
+Les règles sont évaluées dans l’ordre, en commençant par la première règle et en terminant par la dernière. Cela signifie que les règles doivent être répertoriées de la moins restrictive à la plus restrictive. Pour plus d’informations et obtenir des exemples, consultez [Qu’est-ce qu’une liste de contrôle d’accès réseau ?](../articles/virtual-network/virtual-networks-acl.md).
 
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

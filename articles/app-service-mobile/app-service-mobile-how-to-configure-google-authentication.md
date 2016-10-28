@@ -1,70 +1,69 @@
 <properties
-    pageTitle="How to configure Google authentication for your App Services application"
-    description="Learn how to configure Google authentication for your App Services application."
+	pageTitle="Comment configurer l'authentification Google pour votre application App Services"
+	description="Découvrez comment configurer l'authentification Google pour votre application App Services."
     services="app-service"
-    documentationCenter=""
-    authors="mattchenderson"
-    manager="erikre"
-    editor=""/>
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="mahender"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="mahender"/>
 
-
-# <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>How to configure your App Service application to use Google login
+# Comment configurer votre application App Service de manière à utiliser la connexion via Google
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This topic shows you how to configure Azure App Service to use Google as an authentication provider.
+Cette rubrique montre comment configurer Azure App Service pour utiliser Google comme fournisseur d’authentification.
 
-To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d'un compte Google avec une adresse électronique vérifiée. Pour créer un compte Google, accédez à [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-## <a name="<a-name="register">-</a>register-your-application-with-google"></a><a name="register"> </a>Register your application with Google
+## <a name="register"> </a>Inscription de votre application avec Google
 
-1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**, which you use later to configure your Google app.
+1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**, que vous utiliserez plus tard pour configurer votre application de Google.
 
-2. Navigate to the [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, sign in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
+2. Rendez-vous sur le site Web [API Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), connectez-vous avec votre compte Google, cliquez sur **Créer un projet**, saisissez un **Nom de projet**, puis cliquez sur **Créer**.
 
-3. Under **Social APIs** click **Google+ API** and then **Enable**.
+3. Sous **API sociales**, cliquez sur **API Google +** puis **Activer**.
 
-4. In the left navigation, **Credentials** > **OAuth consent screen**, then select your **Email address**,  enter a **Product Name**, and click **Save**.
+4. Dans la barre de navigation à gauche, cliquez sur **Informations d’identification** > **Écran de consentement OAuth**, puis sélectionnez votre **Adresse de messagerie**, entrez un **Nom de produit** et cliquez sur **Enregistrer**.
 
-5. In the **Credentials** tab, click **Create credentials** > **OAuth client ID**, then select **Web application**.
+5. Dans l’onglet **Informations d’identification**, cliquez sur **Créer vos informations d’identification** > **ID client OAuth**, puis sélectionnez **Application Web**.
 
-6. Paste the App Service **URL** you copied earlier into **Authorized JavaScript Origins**, then paste your redirect URI into **Authorized Redirect URI**. The redirect URI is the URL of your application appended with the path, _/.auth/login/google/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/google/callback`. Make sure that you are using the HTTPS scheme. Then click **Create**.
+6. Collez l’**URL** App Service que vous avez copiée précédemment dans **Origines JavaScript autorisées**, puis collez l’URI de redirection dans **URI de redirection autorisée**. L’URI de redirection correspond à l’URL de votre application suivie du chemin d’accès, _/.auth/login/google/callback_. Par exemple : `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assurez-vous d'utiliser le schéma HTTPS. Cliquez ensuite sur **Créer**.
 
-7. On the next screen, make a note of the values of the client ID and client secret.
+7. Sur l'écran suivant, notez les valeurs de l'ID du client et de la clé secrète client.
 
 
     > [AZURE.IMPORTANT]
-    The client secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+	La clé secrète client est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
 
-## <a name="<a-name="secrets">-</a>add-google-information-to-your-application"></a><a name="secrets"> </a>Add Google information to your application
+## <a name="secrets"> </a>Ajout des informations Google à votre application
 
-8. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
+8. Revenez au [portail Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
 
-9. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
+9. Si la fonctionnalité Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **On**.
 
-10. Click **Google**. Paste in the App ID and App Secret values which you obtained previously, and optionally enable any scopes your application requires. Then click **OK**.
+10. Cliquez sur **Google**. Collez les valeurs d’ID de l’application et App Secret que vous avez obtenues précédemment et activez éventuellement les étendues que votre application requiert. Cliquez ensuite sur **OK**.
 
     ![][1]
 
-    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
+	Par défaut, App Service fournit une authentification, mais ne restreint pas l'accès autorisé à votre contenu et aux API de votre site. Vous devez autoriser les utilisateurs dans votre code d'application.
 
-17. (Optional) To restrict access to your site to only users authenticated by Google, set **Action to take when request is not authenticated** to **Google**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Google for authentication.
+17. (Facultatif) Pour restreindre l'accès à votre site aux seuls utilisateurs authentifiés par Google, définissez **Action à exécuter lorsque la demande n'est pas authentifiée** sur **Google**. Cela implique que toutes les demandes soient authentifiées. Toutes les demandes non authentifiées sont redirigées vers Google pour être authentifiées.
 
-12. Click **Save**.
+12. Cliquez sur **Save**.
 
-You are now ready to use Google for authentication in your app.
+Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votre application.
 
-## <a name="<a-name="related-content">-</a>related-content"></a><a name="related-content"> </a>Related Content
+## <a name="related-content"> </a>Contenu connexe
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
@@ -80,11 +79,6 @@ You are now ready to use Google for authentication in your app.
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Azure portal]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

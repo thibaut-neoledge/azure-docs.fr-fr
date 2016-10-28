@@ -1,48 +1,47 @@
 <properties
-    pageTitle="Azure Functions Service Bus triggers and bindings | Microsoft Azure"
-    description="Understand how to use Azure Service Bus triggers and bindings in Azure Functions."
-    services="functions"
-    documentationCenter="na"
-    authors="christopheranderson"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
+	pageTitle="Déclencheurs et liaisons Service Bus Azure Functions | Microsoft Azure"
+	description="Découvrez comment utiliser des déclencheurs et des liaisons Azure Service Bus dans Azure Functions."
+	services="functions"
+	documentationCenter="na"
+	authors="christopheranderson"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="multiple"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="08/22/2016"
-    ms.author="chrande; glenga"/>
+	ms.service="functions"
+	ms.devlang="multiple"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
+# Déclencheurs et liaisons Service Bus Azure Functions pour les files d’attente et les rubriques
 
-# <a name="azure-functions-service-bus-triggers-and-bindings-for-queues-and-topics"></a>Azure Functions Service Bus triggers and bindings for queues and topics
+[AZURE.INCLUDE [functions-selector-bindings (liaisons de sélecteur de fonctions)](../../includes/functions-selector-bindings.md)]
 
-[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+Cet article explique comment configurer et coder des déclencheurs et des liaisons Azure Service Bus dans Azure Functions.
 
-This article explains how to configure and code Azure Service Bus triggers and bindings in Azure Functions. 
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
+## <a id="sbtrigger"></a> Déclencheur de file d’attente ou de rubrique Service Bus
 
-## <a name="<a-id="sbtrigger"></a>-service-bus-queue-or-topic-trigger"></a><a id="sbtrigger"></a> Service Bus queue or topic trigger
+#### function.json
 
-#### <a name="function.json"></a>function.json
+Le fichier *function.json* spécifie les propriétés suivantes :
 
-The *function.json* file specifies the following properties.
+- `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou la rubrique, ou pour le message de file d’attente ou de rubrique.
+- `queueName` : pour le déclencheur de file d’attente uniquement, le nom de la file d’attente à interroger.
+- `topicName` : pour le déclencheur de rubrique uniquement, le nom de la rubrique à interroger.
+- `subscriptionName` : pour le déclencheur de rubrique uniquement, le nom de l’abonnement.
+- `connection` : le nom d’un paramètre d’application contenant une chaîne de connexion Service Bus. La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. Si la chaîne de connexion n’a pas de droits de gestion, définissez la propriété `accessRights`. Si vous laissez `connection` vide, le déclencheur ou la liaison fonctionnera avec la chaîne de connexion de Service Bus par défaut pour le conteneur de fonctions, qui est spécifiée par le paramètre d’application AzureWebJobsServiceBus.
+- `accessRights` : spécifie les droits d’accès disponibles pour la chaîne de connexion. La valeur par défaut est `manage`. Définissez la valeur sur `listen` si vous utilisez une chaîne de connexion qui ne fournit pas d’autorisations de gestion. Sinon, le runtime Functions pourrait essayer et faire échouer les opérations qui nécessitent des droits de gestion.
+- `type` : doit être défini sur *serviceBusTrigger*.
+- `direction` : doit être défini sur *in*.
 
-- `name` : The variable name used in function code for the queue or topic, or the queue or topic message. 
-- `queueName` : For queue trigger only, the name of the queue to poll.
-- `topicName` : For topic trigger only, the name of the topic to poll.
-- `subscriptionName` : For topic trigger only, the subscription name.
-- `connection` : The name of an app setting that contains a Service Bus connection string. The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. If the connection string doesn't have manage rights, set the `accessRights` property. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is specified by the AzureWebJobsServiceBus app setting.
-- `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `listen` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights.
-- `type` : Must be set to *serviceBusTrigger*.
-- `direction` : Must be set to *in*. 
-
-Example *function.json* for a Service Bus queue trigger:
+Exemple *function.json* pour un déclencheur de file d’attente Service Bus :
 
 ```json
 {
@@ -59,7 +58,7 @@ Example *function.json* for a Service Bus queue trigger:
 }
 ```
 
-#### <a name="c#-code-example-that-processes-a-service-bus-queue-message"></a>C# code example that processes a Service Bus queue message
+#### Exemple de code C# qui traite un message de file d’attente Service Bus
 
 ```csharp
 public static void Run(string myQueueItem, TraceWriter log)
@@ -68,14 +67,14 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
-#### <a name="f#-code-example-that-processes-a-service-bus-queue-message"></a>F# code example that processes a Service Bus queue message
+#### Exemple de code F# qui traite un message de file d’attente Service Bus
 
 ```fsharp
 let Run(myQueueItem: string, log: TraceWriter) =
     log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
-#### <a name="node.js-code-example-that-processes-a-service-bus-queue-message"></a>Node.js code example that processes a Service Bus queue message
+#### Exemple de code Node.js qui traite un message de file d’attente Service Bus
 
 ```javascript
 module.exports = function(context, myQueueItem) {
@@ -84,43 +83,43 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-#### <a name="supported-types"></a>Supported types
+#### Types pris en charge
 
-The Service Bus queue message can be deserialized to any of the following types:
+Le message de file d’attente Service Bus peut être désérialisé vers l’un des types suivants :
 
-* Object (from JSON)
+* Objet (de JSON)
 * string
-* byte array 
-* `BrokeredMessage` (C#) 
+* tableau d’octets
+* `BrokeredMessage` (C#)
 
-#### <a name="<a-id="sbpeeklock"></a>-peeklock-behavior"></a><a id="sbpeeklock"></a> PeekLock behavior
+#### <a id="sbpeeklock"></a> Comportement de PeekLock
 
-The Functions runtime receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+Le runtime Functions reçoit un message en mode `PeekLock` et appelle `Complete` sur le message si la fonction se termine correctement. Si la fonction échoue, il appelle `Abandon`. Si la fonction s’exécute au-delà du délai imparti à `PeekLock`, le verrou est automatiquement renouvelé.
 
-#### <a name="<a-id="sbpoison"></a>-poison-message-handling"></a><a id="sbpoison"></a> Poison message handling
+#### <a id="sbpoison"></a> Gestion des messages incohérents
 
-Service Bus does its own poison message handling which can't be controlled or configured in Azure Functions configuration or code. 
+Service Bus assure sa propre gestion des messages incohérents. Il est impossible de la contrôler ou de la configurer dans la configuration ou le code d’Azure Functions.
 
-#### <a name="<a-id="sbsinglethread"></a>-single-threading"></a><a id="sbsinglethread"></a> Single-threading
+#### <a id="sbsinglethread"></a> Monothread
 
-By default the Functions runtime processes multiple queue messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `serviceBus.maxConcurrrentCalls` to 1 in the *host.json* file. For information about the *host.json* file, see [Folder Structure](functions-reference.md#folder-structure) in the Developer reference article, and [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
+Par défaut, le runtime Functions traite plusieurs messages de file d’attente simultanément. Pour que le runtime ne traite qu’un message de file d’attente ou de rubrique à la fois, définissez `serviceBus.maxConcurrrentCalls` sur 1 dans le fichier *host.json*. Pour plus d’informations sur le fichier *host.json*, consultez [Structure de dossiers](functions-reference.md#folder-structure) dans l’article de référence pour développeurs, et [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) dans le Wiki du référentiel de WebJobs.Script.
 
-## <a name="<a-id="sboutput"></a>-service-bus-queue-or-topic-output-binding"></a><a id="sboutput"></a> Service Bus queue or topic output binding
+## <a id="sboutput"></a> Liaison de sortie de file d’attente ou de rubrique Service Bus
 
-#### <a name="function.json"></a>function.json
+#### function.json
 
-The *function.json* file specifies the following properties.
+Le fichier *function.json* spécifie les propriétés suivantes :
 
-- `name` : The variable name used in function code for the queue or queue message. 
-- `queueName` : For queue trigger only, the name of the queue to poll.
-- `topicName` : For topic trigger only, the name of the topic to poll.
-- `subscriptionName` : For topic trigger only, the subscription name.
-- `connection` : Same as for Service Bus trigger.
-- `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `send` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights, such as creating queues.
-- `type` : Must be set to *serviceBus*.
-- `direction` : Must be set to *out*. 
+- `name` : nom de variable utilisé dans le code de fonction pour la file d’attente ou le message de file d’attente.
+- `queueName` : pour le déclencheur de file d’attente uniquement, le nom de la file d’attente à interroger.
+- `topicName` : pour le déclencheur de rubrique uniquement, le nom de la rubrique à interroger.
+- `subscriptionName` : pour le déclencheur de rubrique uniquement, le nom de l’abonnement.
+- `connection` : identique au déclencheur Service Bus.
+- `accessRights` : spécifie les droits d’accès disponibles pour la chaîne de connexion. La valeur par défaut est `manage`. Définissez la valeur sur `send` si vous utilisez une chaîne de connexion qui ne fournit pas d’autorisations de gestion. Sinon, le runtime Functions pourrait essayer et faire échouer les opérations qui nécessitent des droits de gestion, comme la création de files d’attente.
+- `type` : doit être défini sur *serviceBus*.
+- `direction` : doit être défini sur *out*.
 
-Example *function.json* for using a timer trigger to write Service Bus queue messages:
+Exemple *function.json* pour l’utilisation d’un déclencheur de minuteur afin d’écrire des messages de file d’attente Service Bus :
 
 ```JSON
 {
@@ -144,23 +143,23 @@ Example *function.json* for using a timer trigger to write Service Bus queue mes
 }
 ``` 
 
-#### <a name="supported-types"></a>Supported types
+#### Types pris en charge
 
-Azure Functions can create a Service Bus queue message from any of the following types.
+Azure Functions peut créer un message de file d’attente Service Bus à partir d’un des types suivants.
 
-* Object (always creates a JSON message, creates the message with a null object if the value is null when the function ends)
-* string (creates a message if the value is non-null when the function ends)
-* byte array (works like string) 
-* `BrokeredMessage` (C#, works like string)
+* Objet (crée toujours un message JSON, crée le message avec un objet null si la valeur est null lorsque la fonction se termine)
+* chaîne (crée un message si la valeur du paramètre n’est pas null lorsque la fonction se termine)
+* tableau d’octets (fonctionne comme le type string)
+* `BrokeredMessage` (C#, fonctionne comme le type string)
 
-For creating multiple messages in a C# function, you can use `ICollector<T>` or `IAsyncCollector<T>`. A message is created when you call the `Add` method.
+Pour créer plusieurs messages dans une fonction C#, vous pouvez utiliser `ICollector<T>` ou `IAsyncCollector<T>`. Un message est créé quand vous appelez la méthode `Add`.
 
-#### <a name="c#-code-examples-that-create-service-bus-queue-messages"></a>C# code examples that create Service Bus queue messages
+#### Exemples de code C# créant des messages de file d’attente Service Bus
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
 {
-    string message = $"Service Bus queue message created at: {DateTime.Now}";
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
     log.Info(message); 
     outputSbQueue = message;
 }
@@ -169,14 +168,14 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
 {
-    string message = $"Service Bus queue message created at: {DateTime.Now}";
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
     log.Info(message); 
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
 ```
 
-#### <a name="f#-code-example-that-creates-a-service-bus-queue-message"></a>F# code example that creates a Service Bus queue message
+#### Exemple de code F# qui crée un message de file d’attente Service Bus
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
@@ -185,7 +184,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
-#### <a name="node.js-code-example-that-creates-a-service-bus-queue-message"></a>Node.js code example that creates a Service Bus queue message
+#### Exemple de code Node.js qui crée un message de file d’attente Service Bus
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -202,12 +201,8 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
+[AZURE.INCLUDE [Étapes suivantes](../../includes/functions-bindings-next-steps.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

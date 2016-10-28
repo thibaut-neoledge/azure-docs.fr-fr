@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure IoT protocol gateway | Microsoft Azure"
-   description="Describes how to use Azure IoT protocol gateway to extend the capabilities and protocol support of Azure IoT Hub."
+   pageTitle="Passerelle de protocole IoT Azure | Microsoft Azure"
+   description="Explique comment utiliser la passerelle de protocole Azure IoT pour étendre les capacités et la prise en charge du protocole Azure IoT Hub."
    services="iot-hub"
    documentationCenter=""
    authors="kdotchkoff"
@@ -16,47 +16,46 @@
    ms.date="08/23/2016"
    ms.author="kdotchko"/>
 
+# Prise en charge de protocoles supplémentaires pour IoT Hub
 
-# <a name="supporting-additional-protocols-for-iot-hub"></a>Supporting additional protocols for IoT Hub
+Azure IoT Hub en mode natif prend en charge la communication par le biais des protocoles AMQP, MQTT et HTTP/1. Dans certains cas, il est possible que des appareils ou des passerelles ne soient pas en mesure d’utiliser l’un des protocoles standard et nécessitent une adaptation de protocole. Dans ce cas, vous pouvez utiliser une passerelle personnalisée. Une passerelle personnalisée peut activer l’adaptation de protocole pour les points de terminaison IoT Hub en effectuant le pontage du trafic vers et depuis IoT Hub. Vous pouvez utiliser la [passerelle de protocole Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) comme passerelle personnalisée pour permettre l’adaptation de protocole pour IoT Hub.
 
-Azure IoT Hub natively supports communication over the AMQP, MQTT, and HTTP/1 protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and will require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway can enable protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. You can use the [Azure IoT protocol gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) as a custom gateway to enable protocol adaptation for IoT Hub.
+## Passerelle de protocole Azure IoT
 
-## <a name="azure-iot-protocol-gateway"></a>Azure IoT protocol gateway
+La passerelle de protocole Azure IoT est une infrastructure pour l’adaptation du protocole, conçue pour la communication bidirectionnelle à grande échelle entre les appareils, avec IoT Hub. La passerelle de protocole est un composant direct qui accepte les connexions des appareils via un protocole spécifique. Elle réduit le trafic vers IoT Hub via AMQP 1.0. La passerelle de protocole IoT est disponible en tant que projet de logiciel open source pour apporter de la flexibilité et une aide supplémentaire pour un grand nombre de protocoles et de versions de protocoles.
 
-The Azure IoT protocol gateway is a framework for protocol adaptation that is designed for high-scale, bidirectional device communication with IoT Hub. The protocol gateway is a pass-through component that accepts device connections over a specific protocol. It bridges the traffic to IoT Hub over AMQP 1.0. The IoT protocol gateway is available as an open-source software project to provide flexibility for adding support for a variety of protocols and protocol versions.
+Vous pouvez déployer la passerelle de protocole dans Azure de manière très évolutive grâce aux rôles de travail d’Azure Cloud Services. En outre, la passerelle de protocole peut être déployée dans les environnements locaux comme des passerelles de champ.
 
-You can deploy the protocol gateway in Azure in a highly scalable way by using Azure Cloud Services worker roles. In addition, the protocol gateway can be deployed in on-premises environments, such as field gateways.
+La passerelle de protocole Azure IoT inclut un adaptateur de protocole MQTT grâce auquel vous pouvez personnaliser le comportement du protocole MQTT, si nécessaire. Étant donné qu’IoT Hub prend naturellement en charge le protocole MQTT v3.1.1, vous ne devez envisager l’utilisation de l’adaptateur de protocole MQTT que si vous avez besoin de personnalisations de protocole ou de fonctionnalités supplémentaires.
 
-The Azure IoT protocol gateway includes an MQTT protocol adapter that enables you to customize the MQTT protocol behavior if required. Since IoT Hub provides built-in support for the MQTT v3.1.1 protocol, you should only consider using the MQTT protocol adapter if you have a need for protocol customizations or specific requirements for additonal functionality.
+L’adaptateur MQTT illustre également le modèle de programmation pour la création d’adaptateurs de protocole pour d’autres protocoles. En outre, le modèle de programmation de passerelle de protocole IoT vous permet de connecter des composants personnalisés pour les traitements spécialisés, comme l’authentification personnalisée, les transformations de messages, la compression / décompression ou le chiffrement / déchiffrement du trafic entre les appareils et IoT Hub.
 
-The MQTT adapter also demonstrates the programming model for building protocol adapters for other protocols. In addition, the IoT protocol gateway programming model allows you to plug in custom components for specialized processing--such as custom authentication, message transformations, compression/decompression, or encryption/decryption of traffic between the devices and IoT Hub.
+Pour plus de flexibilité, la passerelle de protocole et l’implémentation de MQTT sont fournies dans un projet logiciel open source. Cela vous permet de personnaliser l’implémentation en fonction des besoins.
 
-For flexibility, the protocol gateway and MQTT implementation are provided in an open-source software project. This allows you to customize the implementation as needed.
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+Pour en savoir plus sur la passerelle de protocole Azure IoT, son utilisation et son déploiement dans le cadre de votre solution IoT, consultez :
 
-To learn more about the Azure IoT protocol gateway and how to use and deploy it as part of your IoT solution, see:
+* [Référentiel sur la passerelle de protocole Azure IoT sur GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+* [Guide du développeur de passerelle de protocole Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-* [Azure IoT protocol gateway repository on GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
-* [Azure IoT protocol gateway developer guide](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
+Pour en savoir plus sur la planification de votre déploiement IoT Hub, consultez :
 
-To learn more about planning your IoT Hub deployment, see:
+- [Comparer à Event Hubs][lnk-compare]
+- [Mise à l’échelle, HA et DR][lnk-scaling]
 
-- [Compare with Event Hubs][lnk-compare]
-- [Scaling, HA and DR][lnk-scaling]
+Pour explorer davantage les capacités de IoT Hub, consultez :
 
-To further explore the capabilities of IoT Hub, see:
-
-- [Developer guide][lnk-devguide]
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Guide du développeur][lnk-devguide]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

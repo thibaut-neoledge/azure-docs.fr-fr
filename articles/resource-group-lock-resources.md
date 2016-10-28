@@ -1,48 +1,47 @@
 <properties 
-    pageTitle="Lock Resources with Resource Manager | Microsoft Azure" 
-    description="Prevent users from updating or deleting certain resources by applying a restriction to all users and roles." 
-    services="azure-resource-manager" 
-    documentationCenter="" 
-    authors="tfitzmac" 
-    manager="timlt" 
-    editor="tysonn"/>
+	pageTitle="Verrouillage de ressources avec Resource Manager | Microsoft Azure" 
+	description="Empêchez les utilisateurs de mettre à jour ou de supprimer certaines ressources en appliquant une restriction à tous les utilisateurs et rôles." 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
-    ms.service="azure-resource-manager" 
-    ms.workload="multiple" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016" 
+	ms.author="tomfitz"/>
 
+# Verrouiller des ressources avec Azure Resource Manager
 
-# <a name="lock-resources-with-azure-resource-manager"></a>Lock resources with Azure Resource Manager
+En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer ou modifier de manière accidentelle des ressources critiques. Vous pouvez définir le niveau de verrouillage sur **CanNotDelete** ou **ReadOnly**.
 
-As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to **CanNotDelete** or **ReadOnly**. 
+- **CanNotDelete** signifie que les utilisateurs autorisés peuvent toujours lire et modifier une ressource, mais qu’ils ne peuvent pas la supprimer.
+- **ReadOnly** signifie que les utilisateurs autorisés peuvent lire une ressource, mais qu’ils ne peuvent ni la supprimer ni y effectuer des actions. L’autorisation sur la ressource est limitée au rôle **Lecteur**.
 
-- **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete it. 
-- **ReadOnly** means authorized users can read from a resource, but they can't delete it or perform any actions on it. The permission on the resource is restricted to the **Reader** role. 
+L’application de **ReadOnly** peut produire des résultats inattendus, car certaines opérations qui ressemblent à des opérations de lecture nécessitent en fait des actions supplémentaires. Par exemple, le placement d’un verrou **ReadOnly** sur un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture. Autre exemple : le placement d’un verrou **ReadOnly** sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
 
-Applying **ReadOnly** can lead to unexpected results because some operations that seem like read operations actually require additional actions. For example, placing a **ReadOnly** lock on a storage account prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations. For another example, placing a **ReadOnly** lock on an App Service resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
+Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès basé sur un rôle Azure](./active-directory/role-based-access-control-configure.md).
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
+Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources enfants héritent du même verrou. Même les ressources que vous ajoutez par la suite héritent du verrou du parent. Le verrou le plus restrictif de l’héritage est prioritaire.
 
-When you apply a lock at a parent scope, all child resources inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
+## Personnes autorisées à créer ou supprimer des verrous dans votre organisation
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Who can create or delete locks in your organization
+Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions.
 
-To create or delete management locks, you must have access to **Microsoft.Authorization/\*** or **Microsoft.Authorization/locks/\*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions.
-
-## <a name="creating-a-lock-through-the-portal"></a>Creating a lock through the portal
+## Création d’un verrou via le portail
 
 [AZURE.INCLUDE [resource-manager-lock-resources](../includes/resource-manager-lock-resources.md)]
 
-## <a name="creating-a-lock-in-a-template"></a>Creating a lock in a template
+## Création d’un verrou dans un modèle
 
-The following example shows a template that creates a lock on a storage account. The storage account on which to apply the lock is provided as a parameter. The name of the lock is created by concatenating the resource name with **/Microsoft.Authorization/** and the name of the lock, in this case **myLock**.
+L’exemple suivant représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage auquel est appliqué le verrou est fourni en tant que paramètre. Le nom du verrou résulte de la concaténation du nom de la ressource, de **/Microsoft.Authorization/** et du nom du verrou, en l’occurrence **myLock**.
 
-The type provided is specific to the resource type. For storage, set the type to "Microsoft.Storage/storageaccounts/providers/locks".
+Le type fourni est spécifique au type de ressource. Pour le stockage, définissez le type suivant : « Microsoft.Storage/storageaccounts/providers/locks ».
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -64,17 +63,17 @@ The type provided is specific to the resource type. For storage, set the type to
       ]
     }
 
-## <a name="creating-a-lock-with-rest-api"></a>Creating a lock with REST API
+## Création d’un verrou avec l’API REST
 
-You can lock deployed resources with the [REST API for management locks](https://msdn.microsoft.com/library/azure/mt204563.aspx). The REST API enables you to create and delete locks, and retrieve information about existing locks.
+Vous pouvez verrouiller des ressources déployées à l’aide de l’[API REST pour les verrous de gestion](https://msdn.microsoft.com/library/azure/mt204563.aspx). L’API REST vous permet de créer et de supprimer des verrous, et de récupérer des informations relatives aux verrous existants.
 
-To create a lock, run:
+Pour créer un verrou, exécutez :
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-The scope could be a subscription, resource group, or resource. The lock-name is whatever you want to call the lock. For api-version, use **2015-01-01**.
+Le verrou peut être appliqué à un abonnement, à un groupe de ressources ou à une ressource. Le nom du verrou est personnalisable. Pour la version de l’API, utilisez **2015-01-01**.
 
-In the request, include a JSON object that specifies the properties for the lock.
+Dans la demande, incluez un objet JSON spécifiant les propriétés du verrou.
 
     {
       "properties": {
@@ -83,25 +82,21 @@ In the request, include a JSON object that specifies the properties for the lock
       }
     } 
 
-For examples, see [REST API for management locks](https://msdn.microsoft.com/library/azure/mt204563.aspx).
+Pour obtenir des exemples, consultez [API REST pour les verrous de gestion](https://msdn.microsoft.com/library/azure/mt204563.aspx).
 
-## <a name="creating-a-lock-with-azure-powershell"></a>Creating a lock with Azure PowerShell
+## Création d’un verrou à l’aide d’Azure PowerShell
 
-You can lock deployed resources with Azure PowerShell by using the **New-AzureRmResourceLock** as shown in the following example.
+Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en utilisant **New-AzureRmResourceLock**, comme indiqué ci-dessous.
 
     New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 
-Azure PowerShell provides other commands for working locks, such as **Set-AzureRmResourceLock** to update a lock and **Remove-AzureRmResourceLock** to delete a lock.
+Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **Set-AzureRmResourceLock** pour mettre à jour un verrou et **Remove-AzureRmResourceLock** pour supprimer un verrou.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- For more information about working with resource locks, see [Lock Down Your Azure Resources](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
-- To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
-- To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
-- You can apply restrictions and conventions across your subscription with customized policies. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+- Pour plus d’informations sur l’utilisation de verrous sur des ressources, consultez [Lock Down Your Azure Resources](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
+- Pour en savoir plus sur l’organisation logique de vos ressources, consultez [Organisation des ressources à l’aide de balises](resource-group-using-tags.md)
+- Pour changer le groupe de ressources où se trouve une ressource, consultez [Déplacer des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
+- Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

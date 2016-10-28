@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Publish-WebApplicationWebSite (Windows PowerShell script) | Microsoft Azure"
-   description="Learn how to publish a web project to an Azure website. This script creates the required resources in your Azure subscription if they don't exist."
+   pageTitle="Publish-WebApplicationWebSite (script Windows PowerShell) | Microsoft Azure"
+   description="Découvrez comment publier un projet web sur un site web Azure. Ce script crée les ressources requises dans votre abonnement Azure si elles n’existent pas."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,123 +15,118 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Publish-WebApplicationWebSite (script Windows PowerShell)
 
-# <a name="publish-webapplicationwebsite-(windows-powershell-script)"></a>Publish-WebApplicationWebSite (Windows PowerShell script)
+##Syntaxe
 
-##<a name="syntax"></a>Syntax
+Publie un projet web sur un site web Azure. Le script crée les ressources requises dans votre abonnement Azure si elles n’existent pas.
 
-Publishes a web project to an Azure website. The script creates the required resources in your Azure subscription if they don't exist.
-
-    Publish-WebApplicationWebSite
-    –Configuration <configuration>
-    -SubscriptionName <subscriptionName>
-    -WebDeployPackage <packageName>
-    -DatabaseServerPassword @{Name = "name"; Password = "password"}
-    -SendHostMessagesToOutput
-    -Verbose
+	Publish-WebApplicationWebSite
+	–Configuration <configuration>
+	-SubscriptionName <subscriptionName>
+	-WebDeployPackage <packageName>
+	-DatabaseServerPassword @{Name = "name"; Password = "password"}
+	-SendHostMessagesToOutput
+	-Verbose
 
 
-## <a name="configuration"></a>Configuration
+## Configuration
 
-The path to the JSON configuration file that describes the details of the deployment.
+Le chemin d'accès au fichier de configuration JSON qui décrit les détails du déploiement.
 
-|Parameter|Default value|
+|Paramètre|Valeur par défaut|
 |---|---|
-|Aliases|none|
-|Required?|true|
+|Alias|(aucun)|
+|Requis ?|true|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|(aucun)|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-## <a name="subscriptionname"></a>SubscriptionName
+## SubscriptionName
 
-The name of the Azure subscription that you want to create the website in.
+Nom de l’abonnement Azure dans lequel vous souhaitez créer le site web.
 
-|Parameter|Default value|
+|Paramètre|Valeur par défaut|
 |---|---|
-|Aliases|none|
-|Required?|false|
+|Alias|(aucun)|
+|Requis ?|false|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|(aucun)|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-## <a name="webdeploypackage"></a>WebDeployPackage
+## WebDeployPackage
 
-The path to the web deployment package to publish to the website. You can create this package by using the Publish Web wizard in Visual Studio. For more information, see [Get started with Azure Cloud Services and ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
+Le chemin d'accès au package de déploiement web à publier sur le site web. Vous pouvez créer ce package à l'aide de l'Assistant Publier le site web dans Visual Studio. Pour plus d’informations, consultez [Prise en main des services cloud Azure et d'ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
-|Parameter|Default value|
+|Paramètre|Valeur par défaut|
 |---|---|
-|Aliases|none|
-|Required?|false|
+|Alias|(aucun)|
+|Requis ?|false|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|(aucun)|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-## <a name="databaseserverpassword"></a>DatabaseServerPassword
+## DatabaseServerPassword
 
-The username and password for the SQL database in Azure.
+Le nom d’utilisateur et le mot de passe pour la base de données SQL dans Azure.
 
-|Parameter|Default value|
+|Paramètre|Valeur par défaut|
 |---|---|
-|Aliases|none|
-|Required?|false|
+|Alias|(aucun)|
+|Requis ?|false|
 |Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|(aucun)|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
+## SendHostMessagesToOutput
 
-If true, print messages from the script to the output stream.
+Si true, imprime des messages à partir du script dans le flux de sortie.
 
-|Parameter|Default value|
+|Paramètre|Valeur par défaut|
 |---|---|
-|Aliases|none|
-|Required?|false|
+|Alias|(aucun)|
+|Requis ?|false|
 |Position|named|
-|Default value|false|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Valeur par défaut|false|
+|Accepter l'entrée de pipeline ?|false|
+|Accepter les caractères génériques ?|false|
 
-## <a name="remarks"></a>Remarks
+## Remarques
 
-For a complete explanation of how to use the script to create Dev and Test environments, see [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](vs-azure-tools-publishing-using-powershell-scripts.md).
+Pour obtenir une explication complète de la façon d'utiliser le script pour créer des environnements de développement et de test, consultez [Utilisation des scripts Windows PowerShell pour la publication dans des environnements de développement et de test](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-The JSON configuration file specifies the details of what is to be deployed. It includes the information that you specified when you created the project, such as the name and username for the website. It also includes the database to provision, if any. The following code shows an example JSON configuration file:
+Le fichier de configuration JSON spécifie les détails de ce qui doit être déployé. Il inclut les informations que vous avez spécifiées lorsque vous avez créé le projet, comme le nom et le nom d'utilisateur pour le site web. Il inclut également la base de données à configurer, le cas échéant. Le code suivant montre un exemple de fichier de configuration JSON :
 
-    {
-        "environmentSettings": {
-            "webSite": {
-                "name": "WebApplication10554",
-                "location": "West US"
-            },
-            "databases": [
-                {
-                    "connectionStringName": "DefaultConnection",
-                    "databaseName": "WebApplication10554_db",
-                    "serverName": "iss00brc88",
-                    "user": "sqluser2",
-                    "password": "",
-                    "edition": "",
-                    "size": "",
-                    "collation": "",
-                    "location": "West US"
-                }
-            ]
-        }
-    }
+	{
+	    "environmentSettings": {
+	        "webSite": {
+	            "name": "WebApplication10554",
+	            "location": "West US"
+	        },
+	        "databases": [
+	            {
+	                "connectionStringName": "DefaultConnection",
+	                "databaseName": "WebApplication10554_db",
+	                "serverName": "iss00brc88",
+	                "user": "sqluser2",
+	                "password": "",
+	                "edition": "",
+	                "size": "",
+	                "collation": "",
+	                "location": "West US"
+	            }
+	        ]
+	    }
+	}
 
-You can edit the JSON configuration file to change what is deployed. A webSite section is required, but the database section is optional.
+Vous pouvez modifier le fichier de configuration JSON pour modifier ce qui est déployé. Une section de site web est requise, mais la section de la base de données est facultative.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-For more information, see [Publish-WebApplicationVM (Windows PowerShell script)](vs-azure-tools-publish-webapplicationvm.md)
+Pour plus d’informations, consultez [Publish-WebApplicationVM (script Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,106 +1,101 @@
 <properties
-    pageTitle="Role based access control troubleshooting | Microsoft Azure"
-    description="Get help with issues or questions about Role Based Access Control resources."
-    services="azure-portal"
-    documentationCenter="na"
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Résolution des problèmes de contrôle d'accès en fonction du rôle | Microsoft Azure"
+	description="Obtenez de l’aide en cas de problèmes ou de questions concernant les ressources de contrôle d’accès en fonction du rôle."
+	services="azure-portal"
+	documentationCenter="na"
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="kgremban"/>
 
+# Résolution des problèmes de contrôle d’accès en fonction du rôle
 
-# <a name="role-based-access-control-troubleshooting"></a>Role-Based Access Control troubleshooting
+## Introduction
 
-## <a name="introduction"></a>Introduction
+Le [contrôle d’accès en fonction du rôle](role-based-access-control-configure.md) est une fonctionnalité puissante qui vous permet de déléguer l’accès affiné aux ressources dans Azure. Cela signifie que vous pouvez en toute sécurité accorder à la personne de votre choix le droit de faire ce qu’elle a besoin de faire, sans plus. Toutefois, le modèle de ressources pour les ressources Azure peut parfois être complexe, et il peut s'avérer difficile de comprendre avec précision pourquoi accorder certaines autorisations.
 
-[Role-Based Access Control](role-based-access-control-configure.md) is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to use exactly what they need, and no more. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
+Ce document vous permet de savoir ce à quoi vous pouvez vous attendre quand vous utilisez les rôles sur le portail Azure. Ces trois rôles couvrent tous les types de ressources :
 
-This document will let you know what to expect when using some of the roles in the Azure portal. These three roles cover all resource types:
+- Propriétaire
+- Collaborateur
+- Lecteur
 
-- Owner  
-- Contributor  
-- Reader  
+Les propriétaires et collaborateurs disposent tous les deux d’un accès complet à toutes les opérations de gestion, mais un collaborateur ne peut pas accorder d’accès à d’autres utilisateurs ou groupes. La situation du rôle de lecteur est un peu plus intéressante, et nous allons nous y attarder. Consultez l’[article Prise en main du contrôle d’accès en fonction du rôle](role-based-access-control-configure.md) pour plus d’informations sur la façon d’octroyer l’accès.
 
-Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we’ll spend some time. See the [Role-Based Access Control get-started article](role-based-access-control-configure.md) for details on how to grant access.
+## Charges de travail App Service
 
-## <a name="app-service-workloads"></a>App service workloads
+### Fonctionnalités d’accès en écriture
 
-### <a name="write-access-capabilities"></a>Write access capabilities
+Si vous accordez un accès utilisateur en lecture seule à une seule application web, certaines fonctionnalités sont désactivées, ce que vous n’avez peut-être pas prévu. Les fonctionnalités de gestion suivantes exigent un accès en **écriture** à une application web (Collaborateur ou Propriétaire) et ne sont pas disponibles en lecture seule.
 
-If you grant a user read-only access to a single web app, some features are disabled that you might not expect. The following management capabilities require **write** access to a web app (either Contributor or Owner), and won’t be available in any read-only scenario.
+- Commandes (par ex., start, stop, etc.)
+- Modification de paramètres tels que la configuration générale, les paramètres de mise à l’échelle, les paramètres de sauvegarde et les paramètres d’analyse
+- Accès aux informations d’identification de publication et autres informations secrètes, telles que les paramètres d’application et les chaînes de connexion
+- Diffusion de journaux
+- Configuration des journaux de diagnostic
+- Console (invite de commandes)
+- Déploiements actifs et récents (pour le déploiement continu Git local)
+- Estimation de dépense
+- Tests web
+- Réseau virtuel (accessible à un lecteur uniquement si un réseau virtuel a été précédemment configuré par un utilisateur avec accès en écriture).
 
-- Commands (e.g. start, stop, etc.)
-- Changing settings like general configuration, scale settings, backup settings, and monitoring settings
-- Accessing publishing credentials and other secrets like app settings and connection strings
-- Streaming logs
-- Diagnostic logs configuration
-- Console (command prompt)
-- Active and recent deployments (for local git continuous deployment)
-- Estimated spend
-- Web tests
-- Virtual network (only visible to a reader if a virtual network has previously been configured by a user with write access).
+Si vous n’accédez à aucune de ces vignettes, vous devez obtenir l’accès Collaborateur à l’application web auprès de votre administrateur.
 
-If you can't access any of these tiles, you'll need to ask your administrator for Contributor access to the web app.
+### Gestion des ressources connexes
 
-### <a name="dealing-with-related-resources"></a>Dealing with related resources
+Les applications web sont compliqués par la présence de quelques ressources différentes qui interagissent. Voici un groupe de ressources classique avec deux sites web :
 
-Web apps are complicated by the presence of a few different resources that interplay. Here is a typical resource group with a couple websites:
+![Groupe de ressources d'application web](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
-![Web app resource group](./media/role-based-access-control-troubleshooting/website-resource-model.png)
+En conséquence, si vous accordez à un utilisateur le seul accès à l'application web, la plupart des fonctionnalités du volet Site web dans le portail Azure seront désactivées.
 
-As a result, if you grant someone access to just the web app, much of the functionality on the website blade in the Azure portal will be disabled.
+Les éléments suivants requièrent l'accès **en écriture** au **plan App Service** qui correspond à votre site web :
 
-These items require **write** access to the **App Service plan** that corresponds to your website:  
+- Affichage du niveau de tarification de l'application web (Gratuit ou Standard)
+- Configuration de mise à l'échelle (le nombre d'instances, la taille de la machine virtuelle, les paramètres de mise à l'échelle automatique)
+- Quotas (stockage, bande passante, UC)
 
-- Viewing the web app’s pricing tier (Free or Standard)  
-- Scale configuration (number of instances, virtual machine size, autoscale settings)  
-- Quotas (storage, bandwidth, CPU)  
+Les éléments suivants requièrent l'accès **en écriture** à l'ensemble du **Groupe de ressources** qui contient le site web :
 
-These items require **write** access to the whole **Resource group** that contains your website:  
+- Certificats et liaisons SSL (car les certificats SSL peuvent être partagés entre différents sites dans le même groupe de ressources et emplacement)
+- Règles d'alerte
+- Paramètres de mise à l'échelle automatique
+- Composants Application Insights
+- Tests web
 
-- SSL Certificates and bindings (This is because SSL certificates can be shared between sites in the same resource group and geo-location)  
-- Alert rules  
-- Autoscale settings  
-- Application insights components  
-- Web tests  
+## Charges de travail des machines virtuelles
 
-## <a name="virtual-machine-workloads"></a>Virtual machine workloads
+Comme pour les applications web, certaines fonctionnalités du volet de la machine virtuelle exigent un accès en écriture à la machine virtuelle ou à d'autres ressources du groupe de ressources.
 
-Much like with web apps, some features on the virtual machine blade require write access to the virtual machine, or to other resources in the resource group.
+Les machines virtuelles sont associées aux noms de domaine, réseaux virtuels, comptes de stockage et règles d'alerte.
 
-Virtual machines are related to Domain names, virtual networks, storage accounts, and alert rules.
+Les éléments suivants requièrent l'accès **en écriture** à la **machine virtuelle** :
 
-These items require **write** access to the **Virtual machine**:
+- Points de terminaison
+- Adresses IP
+- Disques
+- Extensions
 
-- Endpoints  
-- IP addresses  
-- Disks  
-- Extensions  
+Les éléments suivants requièrent l’accès **en écriture** à la **machine virtuelle**, ainsi qu’au **Groupe de ressources** (avec le nom de domaine) auxquels ils appartiennent :
 
-These require **write** access to both the **Virtual machine**, and the **Resource group** (along with the Domain name) that it is in:  
+- Groupe à haute disponibilité
+- Jeu d'équilibrage de la charge
+- Règles d'alerte
 
-- Availability set  
-- Load balanced set  
-- Alert rules  
+Si vous n'accédez à aucune de ces vignettes, vous devez obtenir auprès de votre administrateur l'accès Collaborateur au groupe de ressources.
 
-If you can't access any of these tiles, you'll need to ask your administrator for Contributor access to the Resource group.
+## En savoir plus
+- [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md) : découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
+- [Rôles intégrés](role-based-access-built-in-roles.md) : obtenez des informations sur les rôles qui livrés en standard dans RBAC.
+- [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md) : découvrez comment créer des rôles personnalisés selon vos besoins d'accès.
+- [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md) : effectuez le suivi des changements d'affection de rôle dans RBAC.
 
-## <a name="see-more"></a>See more
-- [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
-- [Built-in roles](role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
-- [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
-- [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

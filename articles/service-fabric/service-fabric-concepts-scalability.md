@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Scalability of Service Fabric services | Microsoft Azure"
-   description="Describes how to scale Service Fabric services"
+   pageTitle="Extensibilité des services Service Fabric | Microsoft Azure"
+   description="Décrit comment mettre à l'échelle les services Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="appi101"
@@ -16,53 +16,48 @@
    ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
+# Mise à l'échelle des applications Service Fabric
+Azure Service Fabric facilite la création d'applications évolutives en équilibrant la charge des services, des partitions et des réplicas entre tous les nœuds d'un cluster. Cela permet d'optimiser l'utilisation des ressources.
 
-# <a name="scaling-service-fabric-applications"></a>Scaling Service Fabric applications
-Azure Service Fabric makes it easy to build scalable applications by load-balancing services, partitions, and replicas on all the nodes in a cluster. This enables maximum resource utilization.
+Il est possible d'obtenir des applications Service Fabric à grande échelle de deux manières :
 
-High scale for Service Fabric applications can be achieved in two ways:
+1. Mise à l'échelle au niveau de la partition
 
-1. Scaling at the partition level
+2. Mise à l'échelle au niveau du nom du service
 
-2. Scaling at the service name level
+## Mise à l'échelle au niveau de la partition
+Service Fabric prend en charge le partitionnement d'un service individuel en plusieurs partitions plus petites. L'article [Vue d'ensemble du partitionnement](service-fabric-concepts-partitioning.md) fournit des informations sur les types de schémas de partitionnement pris en charge. Les réplicas de chaque partition sont répartis entre les nœuds d’un cluster. Imaginez un service qui utilise le schéma de partitionnement par plage avec une clé basse de 0, une clé haute de 99 et quatre partitions. Dans un cluster à trois nœuds, le service peut être disposé avec quatre réplicas partageant les ressources sur chaque nœud, comme illustré ici :
 
-## <a name="scaling-at-the-partition-level"></a>Scaling at the partition level
-Service Fabric supports partitioning an individual service into multiple smaller partitions. The [partitioning overview](service-fabric-concepts-partitioning.md) provides information on the types of partitioning schemes that are supported. The replicas of each partition are spread across the nodes in a cluster. Consider a service that uses a ranged partitioning scheme with a low key of 0, a high key of 99, and four partitions. In a three-node cluster, the service might be laid out with four replicas that share the resources on each node as shown here:
+![Disposition de partition avec trois nœuds](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 
-![Partition layout with three nodes](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+L'augmentation du nombre de nœuds permet à Fabric Service d'exploiter les ressources sur les nouveaux nœuds en déplaçant certains réplicas vers des nœuds vides. Grâce à l'augmentation du nombre de nœuds à quatre, le service possède maintenant trois réplicas en cours d'exécution sur chaque nœud (de différentes partitions), favorisant ainsi une meilleure utilisation des ressources et de meilleures performances.
 
-Increasing the number of nodes allows Service Fabric to utilize the resources on the new nodes by moving some of the replicas to empty nodes. By increasing the number of nodes to four, the service now has three replicas running on each node (of different partitions), allowing for better resource utilization and performance.
+![Disposition de partition avec quatre nœuds](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 
-![Partition layout with four nodes](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+## Mise à l'échelle au niveau du nom du service
+Une instance de service est une instance spécifique d'un nom d'application et d'un nom de type de service (consultez [Cycle de vie d'une application Service Fabric](service-fabric-application-lifecycle.md)). Pendant la création d’un service, vous spécifiez le schéma de partition ([Partitionnement des services Service Fabric](service-fabric-concepts-partitioning.md)) à utiliser.
 
-## <a name="scaling-at-the-service-name-level"></a>Scaling at the service name level
-A service instance is a specific instance of an application name and a service type name (see [Service Fabric application life cycle](service-fabric-application-lifecycle.md)). During the creation of a service, you specify the partition scheme (see [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)) to be used.
+Le premier niveau de mise à l'échelle s'effectue par nom de service. Vous pouvez créer de nouvelles instances d'un service, avec différents niveaux de partitionnement, à mesure que vos instances de service plus anciennes deviennent occupées. Cela permet aux nouveaux consommateurs de service d'utiliser des instances de service moins occupées plutôt que des instances plus occupées.
 
-The first level of scaling is by service name. You can create new instances of a service, with different levels of partitioning, as your older service instances become busy. This allows new service consumers to use less-busy service instances, rather than busier ones.
+Une option pour augmenter la capacité, ou pour augmenter ou réduire le nombre de partitions, consiste à créer une nouvelle instance de service avec un nouveau schéma de partition. Mais cela augmente la complexité car tous les clients de consommation ont besoin de savoir quand et comment utiliser un service nommé différemment.
 
-One option for increasing capacity, as well as increasing or decreasing partition counts, is to create a new service instance with a new partition scheme. This adds complexity, though, as any consuming clients need to know when and how to use the differently named service.
+### Exemple de scénario : dates incorporées
+Un scénario possible serait d'utiliser les informations de date comme composante du nom du service. Par exemple, vous pourriez utiliser une instance de service avec un nom spécifique pour tous les clients ralliés en 2013 et un autre nom pour les clients ralliés en 2014. Ce schéma d'affectation de noms permet une augmentation programmée des noms en fonction de la date (à l'approche de 2014, l'instance de service pour 2014 peut être créée sur demande).
 
-### <a name="example-scenario:-embedded-dates"></a>Example scenario: Embedded dates
-One possible scenario would be to use date information as part of the service name. For example, you could use a service instance with a specific name for all customers who joined in 2013 and another name for customers who joined in 2014. This naming scheme allows for programmatically increasing the names depending on the date (as 2014 approaches, the service instance for 2014 can be created on demand).
+Toutefois, cette approche est basée sur les clients utilisant des informations d'affectation de noms spécifiques à l'application qui se trouvent hors de l'étendue des connaissances de Service Fabric.
 
-However, this approach is based on the clients using application-specific naming information that is outside the scope of Service Fabric knowledge.
+- *Utilisation d'une convention d'affectation de noms* : en 2013, quand votre application est mise en service, vous créez un service appelé fabric:/app/service2013. Vers le deuxième trimestre de l'année 2013, vous créez un autre service appelé fabric:/app/service2014. Ces deux services sont du même type de service. Dans cette approche, votre client devra faire preuve de logique pour construire le nom de service approprié en fonction de l'année.
 
-- *Using a naming convention*: In 2013, when your application goes live, you create a service called fabric:/app/service2013. Near the second quarter of 2013, you create another service, called fabric:/app/service2014. Both of these services are of the same service type. In this approach, your client will need to employ logic to construct the appropriate service name based on the year.
+- *Utilisation d'un service de recherche* : un autre modèle consiste à fournir un service de recherche secondaire qui peut fournir le nom du service pour une clé de votre choix. De nouvelles instances de service peuvent ensuite être créées par le service de recherche. Le service de recherche lui-même ne conserve pas les données d'application, mais uniquement les données sur les noms de service qu'il crée. Ainsi, dans l'exemple ci-dessus basé sur l'année, le client contacterait tout d'abord le service de recherche pour trouver le nom du service traitant les données pour une année donnée, puis utiliserait ce nom de service pour effectuer l'opération réelle. Le résultat de la première recherche peut être mis en cache.
 
-- *Using a lookup service*: Another pattern is to provide a secondary lookup service, which can provide the name of the service for a desired key. New service instances can then be created by the lookup service. The lookup service itself doesn't retain any application data, only data about the service names that it creates. Thus, for the year-based example above, the client would first contact the lookup service to find out the name of the service handling data for a given year, and then use that service name for performing the actual operation. The result of the first lookup can be cached.
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+Pour plus d’informations sur les concepts propres à Service Fabric, consultez les articles suivants :
 
-For more information on Service Fabric concepts, see the following:
+- [Disponibilité des services Service Fabric](service-fabric-availability-services.md)
 
-- [Availability of Service Fabric services](service-fabric-availability-services.md)
+- [Partitionnement des services Service Fabric](service-fabric-concepts-partitioning.md)
 
-- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
+- [Définition et gestion de l'état](service-fabric-concepts-state.md)
 
-- [Defining and managing state](service-fabric-concepts-state.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

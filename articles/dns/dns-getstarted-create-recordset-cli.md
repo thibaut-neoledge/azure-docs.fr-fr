@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a record set and records for a DNS Zone using CLI| Microsoft Azure"
-   description="How to create host records for Azure DNS.Setting up record sets and records using CLI"
+   pageTitle="Création d’un jeu d’enregistrements et d’enregistrements pour une zone DNS à l’aide de l’interface de ligne de commande | Microsoft Azure"
+   description="Création d’enregistrements hôtes pour Azure DNS. Configuration d’enregistrements et de jeux d’enregistrements à l’aide de l’interface de ligne de commande"
    services="dns"
    documentationCenter="na"
    authors="sdwheeler"
@@ -16,59 +16,54 @@
    ms.date="08/16/2016"
    ms.author="sewhee"/>
 
-
-# <a name="create-dns-record-sets-and-records-by-using-cli"></a>Create DNS record sets and records by using CLI
+# Création de jeux d’enregistrements et d’enregistrements DNS à l’aide de l’interface de ligne de commande
 
 > [AZURE.SELECTOR]
-- [Azure Portal](dns-getstarted-create-recordset-portal.md)
+- [Portail Azure](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
-- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Interface de ligne de commande Azure](dns-getstarted-create-recordset-cli.md)
 
 
-This article walks you through the process of creating records and records sets by using CLI. After creating your DNS zone, you need to add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
+Cet article vous guide dans le processus de création de jeux d’enregistrements et d’enregistrements à l’aide de la CLI. Après avoir créé votre zone DNS, vous devez ajouter les enregistrements DNS de votre domaine. Pour ce faire, vous devez d’abord comprendre les enregistrements DNS et les jeux d’enregistrements.
 
 [AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-## <a name="create-a-record-set-and-record"></a>Create a record set and record
+## Création d’un jeu d’enregistrements et d’un enregistrement
 
-In this section, we'll show you how to create a record set and records. In this example, you'll create a record set that has the relative name "www" in the DNS zone "contoso.com". The fully-qualified name of the records is "www.contoso.com". The record type is "A", and the time to live (TTL) is 60 seconds. After completing this step, you will have created an empty record set.
+Dans cette section, nous allons vous montrer comment créer un jeu d’enregistrements et des enregistrements. Dans cet exemple, vous allez créer un jeu d’enregistrements avec le nom relatif « www » dans la zone DNS « contoso.com ». Le nom complet des enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie est de 60 secondes. À la fin de cette étape, vous aurez créé un jeu d’enregistrements vide.
 
-To create a record set in the apex of the zone (in this case, "contoso.com"), use the record name "@", including the quotation marks. This is a common DNS convention.
+Pour créer un jeu d’enregistrements à l’apex de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "@" (guillemets compris). Il s'agit d'une convention DNS courante.
 
-### <a name="1.-create-a-record-set"></a>1. Create a record set
+### 1\. Création d’un jeu d'enregistrements
 
-To create record set, use `azure network dns record-set create`. Specify the resource group, zone name, record set relative name, the record type, and the TTL. If the `--ttl` parameter is not defined, the value defaults to four (in seconds). After completing this step, you will have an empty "www" record set.
+Pour créer un jeu d’enregistrements, utilisez `azure network dns record-set create`. Spécifiez le groupe de la ressource, le nom de la zone, le nom relatif du jeu d’enregistrements, le type d’enregistrement et la durée de vie. Si le paramètre `--ttl` n’est pas défini, la valeur par défaut est quatre (en secondes). À la fin de cette étape, vous obtiendrez un jeu d’enregistrements « www » vide.
 
-*Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
+*Syntaxe : network dns record-set create <groupe\_ressources> <nom\_zone\_dns> <nom> <type> <ttl>*
 
-    azure network dns record-set create myresourcegroup  contoso.com  www A  60
+	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
-### <a name="2.-add-records"></a>2. Add records
+### 2\. Ajout d’enregistrements
 
-To use the newly created "www" record set, you need to add records to it. You add records to record sets by using `azure network dns record-set add-record`.
+Pour utiliser le jeu d’enregistrements « www » que vous venez de créer, vous devez y ajouter des enregistrements. Pour ajouter des enregistrements aux jeux d’enregistrements, utilisez `azure network dns record-set add-record`.
 
-The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type "A", you will only be able to specify records with the parameter `-a <IPv4 address>`.
+Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, lors de l’utilisation d’un jeu d’enregistrements de type « A », vous ne pouvez spécifier que les enregistrements avec le paramètre `-a <IPv4 address>`.
 
-You can add IPv4 *A* records to the "www" record set by using the following command:
+Ajoutez des enregistrements *A* IPv4 au jeu d’enregistrements « www » à l’aide de la commande suivante :
 
-*Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
+*Syntaxe : network dns record-set add-record <groupe\_ressources> <nom\_zone\_dns> <nom\_jeu\_enregistrements> <type>*
 
-    azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
+	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 
-## <a name="additional-record-type-examples"></a>Additional record type examples
+## Autres exemples de types d’enregistrements
 
-The following examples show how to create a record set of each record type. Each record set contains a single record.
+Les exemples suivants montrent comment créer un jeu d’enregistrements de chaque type d’enregistrement. Chaque jeu d’enregistrements contient un seul enregistrement.
 
 [AZURE.INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-To manage your record set and records, see [Manage DNS records and record sets by using CLI](dns-operations-recordsets-portal.md).
+Pour gérer votre jeu d’enregistrements et vos enregistrements, consultez [Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure](dns-operations-recordsets-portal.md).
 
-For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md).
+Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

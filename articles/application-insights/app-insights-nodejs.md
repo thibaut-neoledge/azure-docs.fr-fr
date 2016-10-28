@@ -1,66 +1,65 @@
 <properties
-    pageTitle="Add Application Insights SDK to monitor your Node.js app | Microsoft Azure"
-    description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights."
-    services="application-insights"
+	pageTitle="Ajout du Kit de développement logiciel (SDK) Application Insights à votre application Node.js | Microsoft Azure"
+	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
+	services="application-insights"
     documentationCenter=""
-    authors="alancameronwills"
-    manager="douge"/>
+	authors="alancameronwills"
+	manager="douge"/>
 
 <tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/30/2016"
-    ms.author="awills"/>
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/30/2016"
+	ms.author="awills"/>
+
+
+# Ajout du Kit de développement logiciel (SDK) Application Insights à votre application Node.js
+
+*Application Insights est à l'état de version préliminaire.*
+
+[Visual Studio Application Insights](app-insights-overview.md) surveille vos applications en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions](app-insights-detect-triage-diagnose.md), mais aussi [découvrir comment votre application est utilisée](app-insights-overview-usage.md). Il fonctionne pour les applications hébergées sur vos propres serveurs locaux IIS ou sur les machines virtuelles Azure, ainsi que les applications Web Azure.
 
 
 
-# <a name="add-application-insights-sdk-to-monitor-your-node.js-app"></a>Add Application Insights SDK to monitor your Node.js app
+Le SDK collecte automatiquement les taux de demandes HTTP entrantes et les réponses, les compteurs de performances (processeur, mémoire, RPS) et les exceptions non prises en charge. Vous pouvez également ajouter des appels personnalisés pour effectuer le suivi des dépendances, mesures ou autres événements.
 
-*Application Insights is in preview.*
-
-[Visual Studio Application Insights](app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [discover how your app is used](app-insights-overview-usage.md). It works for apps that are hosted on your own on-premises IIS servers or on Azure VMs, as well as Azure web apps.
+![Exemples de graphiques d’analyse des performances](./media/app-insights-windows-services/10-perf.png)
 
 
+#### Avant de commencer
 
-The SDK provides automatic collection of incoming HTTP request rates and responses, performance counters (CPU, memory, RPS), and unhandled exceptions. In addition, you can add custom calls to track dependencies, metrics, or other events.
+Ce dont vous avez besoin :
 
-![Example performance monitoring charts](./media/app-insights-nodejs/10-perf.png)
+* Visual Studio 2013 ou une version ultérieure. Il est préférable d’utiliser une version ultérieure.
+* Un abonnement à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](http://live.com).
 
+## <a name="add"></a>Créer une ressource Application Insights
 
-#### <a name="before-you-start"></a>Before you start
+Connectez-vous au [portail Azure][portal] et créez une ressource Application Insights. Dans Azure, une [ressource][roles] correspond à l’instance d'un service. Cette ressource correspond à l’emplacement où les données de télémétrie de votre application sont analysées avant de vous être présentées.
 
-You need:
+![Cliquez sur Nouveau > Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
-* Visual Studio 2013 or later. Later is better.
-* A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
+Comme type d’application, choisissez Autre. Le choix du type d’application définit le contenu par défaut des panneaux de ressource et les propriétés visibles dans [Metrics Explorer][metrics].
 
-## <a name="<a-name="add"></a>create-an-application-insights-resource"></a><a name="add"></a>Create an Application Insights resource
+#### Copie de la clé d'instrumentation
 
-Sign in to the [Azure portal][portal], and create a new Application Insights resource. A [resource][roles] in Azure is an instance of a service. This resource is where telemetry from your app will be analyzed and presented to you.
+La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de développement logiciel (SDK) pour diriger les données vers la ressource.
 
-![Click New, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
-
-Choose Other as the application type. The choice of application type sets the default content of the resource blades and the properties visible in [Metrics Explorer][metrics].
-
-#### <a name="copy-the-instrumentation-key"></a>Copy the Instrumentation Key
-
-The key identifies the resource, and you'll install it soon in the SDK to direct data to the resource.
-
-![Click Properties, select the key, and press ctrl+C](./media/app-insights-nodejs/02-props-asp.png)
+![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur ctrl + C](./media/app-insights-windows-services/02-props-asp.png)
 
 
-## <a name="<a-name="sdk"></a>-install-the-sdk-in-your-application"></a><a name="sdk"></a> Install the SDK in your application
+## <a name="sdk"></a> Installer le Kit de développement logiciel (SDK) dans votre application
 
 ```
 npm install applicationinsights --save
 ```
 
-## <a name="usage"></a>Usage
+## Utilisation
 
-This will enable request monitoring, unhandled exception tracking, and system performance monitoring (CPU/Memory/RPS).
+Ceci permet de prendre en charge la surveillance des demandes, le suivi des exceptions non prises en charge et l’analyse des performances du système (processeur, mémoire/RPS).
 
 ```javascript
 
@@ -68,56 +67,56 @@ var appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>").start();
 ```
 
-The instrumentation key can also be set in the environment variable APPINSIGHTS_INSTRUMENTATIONKEY. If this is done, no argument is required when calling `appInsights.setup()` or `appInsights.getClient()`.
+La clé d’instrumentation peut également être définie dans la variable d’environnement APPINSIGHTS\_INSTRUMENTATIONKEY. Dans ce cas, aucun argument n’est requis lors de l’appel de `appInsights.setup()` ou `appInsights.getClient()`.
 
-You can try the SDK without sending telemetry: set the instrumentation key to a non-empty string.
-
-
-## <a name="<a-name="run"></a>-run-your-project"></a><a name="run"></a> Run your project
-
-Run your application and try it out: open different pages to generate some telemetry.
+Vous pouvez tester le SDK sans envoyer de données de télémétrie, en définissant la clé d’instrumentation sur une chaîne non vide.
 
 
-## <a name="<a-name="monitor"></a>-view-your-telemetry"></a><a name="monitor"></a> View your telemetry
+## <a name="run"></a> Exécution de votre projet
 
-Return to the [Azure portal](https://portal.azure.com) and browse to your Application Insights resource.
-
-
-Look for data in the Overview page. At first, you'll just see one or two points. For example:
-
-![Click through to more data](./media/app-insights-nodejs/12-first-perf.png)
-
-Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
-
-#### <a name="no-data?"></a>No data?
-
-* Use the application, opening different pages so that it generates some telemetry.
-* Open the [Search](app-insights-diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
-* Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
-* See [Troubleshooting][qna].
-
-## <a name="publish-your-app"></a>Publish your app
-
-Now deploy your application to IIS or to Azure and watch the data accumulate.
+Exécutez votre application et essayez-la : ouvrez différentes pages pour générer des données de télémétrie.
 
 
-#### <a name="no-data-after-you-publish-to-your-server?"></a>No data after you publish to your server?
+## <a name="monitor"></a> Affichage de vos données de télémétrie
 
-Open these ports for outgoing traffic in your server's firewall:
+Revenez au [portail Azure](https://portal.azure.com) et accédez à votre ressource Application Insights.
+
+
+Recherchez des données dans la page de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
+
+![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-windows-services/12-first-perf.png)
+
+Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.][perf]
+
+#### Pas de données ?
+
+* Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.
+* Ouvrez la vignette [Rechercher](app-insights-diagnostic-search.md) pour afficher les événements individuels. Parfois, les événements mettent un peu plus de temps pour parcourir le pipeline de métriques.
+* Attendez quelques secondes, puis cliquez sur **Actualiser**. Les graphiques s’actualisent à intervalles réguliers, mais vous pouvez les actualiser manuellement si vous attendez que certaines données s’affichent.
+* Consultez la rubrique [Résolution des problèmes][qna].
+
+## Publier votre application
+
+À présent, déployez votre application sur IIS ou Azure et regardez les données s’accumuler.
+
+
+#### Les données n’apparaissent pas après leur publication sur votre serveur ?
+
+Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
 
 + `dc.services.visualstudio.com:443`
 + `f5.services.visualstudio.com:443`
 
 
-#### <a name="trouble-on-your-build-server?"></a>Trouble on your build server?
+#### Vous rencontrez des problèmes sur votre serveur de builds ?
 
-Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
+Consultez cet article de [résolution des problèmes](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 
 
-## <a name="customized-usage"></a>Customized Usage 
+## Utilisation personnalisée 
 
-### <a name="disabling-auto-collection"></a>Disabling auto-collection
+### Désactivation de la collecte automatique
 
 ```javascript
 import appInsights = require("applicationinsights");
@@ -129,7 +128,7 @@ appInsights.setup("<instrumentation_key>")
     .start();
 ```
 
-### <a name="custom-monitoring"></a>Custom monitoring
+### Surveillance personnalisée
 
 ```javascript
 import appInsights = require("applicationinsights");
@@ -141,9 +140,9 @@ client.trackMetric("custom metric", 3);
 client.trackTrace("trace message");
 ```
 
-[Learn more about the telemetry API](app-insights-api-custom-events-metrics.md).
+[En savoir plus sur l’API de télémesure](app-insights-api-custom-events-metrics.md).
 
-### <a name="using-multiple-instrumentation-keys"></a>Using multiple instrumentation keys
+### Utilisation de plusieurs clés d’instrumentation
 
 ```javascript
 import appInsights = require("applicationinsights");
@@ -156,9 +155,9 @@ var otherClient = appInsights.getClient("<other_instrumentation_key>");
 otherClient.trackEvent("custom event");
 ```
 
-## <a name="examples"></a>Examples
+## Exemples
 
-### <a name="tracking-dependency"></a>Tracking dependency
+### Suivi des dépendances
 
 ```javascript
 import appInsights = require("applicationinsights");
@@ -175,7 +174,7 @@ client.trackDependency("dependency name", "command name", elapsedTime, success);
 
 
 
-### <a name="manual-request-tracking-of-all-"get"-requests"></a>Manual request tracking of all "GET" requests
+### Suivi manuel de toutes les demandes « GET »
 
 ```javascript
 var http = require("http");
@@ -213,10 +212,10 @@ server.on("listening", () => {
 });
 ```
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-* [Monitor your telemetry in the portal](app-insights-dashboards.md)
-* [Write Analytics queries over your telemetry](app-insights-analytics-tour.md)
+* [Navigation et tableaux de bord dans le portail Application Insights](app-insights-dashboards.md)
+* [Écrire des requêtes Analytics via vos données de télémétrie](app-insights-analytics-tour.md)
 
 
 
@@ -229,8 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

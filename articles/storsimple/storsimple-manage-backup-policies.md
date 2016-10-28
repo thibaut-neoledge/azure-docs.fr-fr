@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage your StorSimple backup policies | Microsoft Azure"
-   description="Explains how you can use the StorSimple Manager service to create and manage manual backups, backup schedules, and backup retention."
+   pageTitle="Gestion de vos stratégies de sauvegarde StorSimple | Microsoft Azure"
+   description="Explique comment utiliser le service StorSimple Manager pour créer et gérer des sauvegardes manuelles, des planifications de sauvegarde et une rétention de sauvegarde."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,84 +15,79 @@
    ms.date="05/10/2016"
    ms.author="v-sharos"/>
 
-
-# <a name="use-the-storsimple-manager-service-to-manage-backup-policies"></a>Use the StorSimple Manager service to manage backup policies
+# Utiliser le service StorSimple Manager pour gérer les stratégies de sauvegarde
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
-## <a name="overview"></a>Overview
+## Vue d’ensemble
 
-This tutorial explains how to use the StorSimple Manager service **Backup Policies** page to control backup processes and backup retention for your StorSimple volumes. It also describes how to complete a manual backup.
+Ce didacticiel vous explique comment utiliser la page **Stratégies de sauvegarde** du service StorSimple Manager pour contrôler les processus de sauvegarde et la rétention de sauvegarde pour vos volumes StorSimple. Il décrit également comment effectuer une sauvegarde manuelle.
 
-The **Backup Policies** page allows you to manage backup policies and schedule local and cloud snapshots. (Backup policies are used to configure backup schedules and backup retention for a collection of volumes.) Backup policies enable you to take a snapshot of multiple volumes simultaneously. This means that the backups created by a backup policy will be crash-consistent copies. This page lists the backup policies, their types, the associated volumes, the number of backups retained, and the option to enable these policies.
+La page **Stratégies de sauvegarde** vous permet de gérer les stratégies de sauvegarde et de planifier les instantanés locaux et cloud. (Les stratégies de sauvegarde sont utilisées pour configurer les planifications de sauvegarde et la rétention de sauvegarde pour un ensemble de volumes). Les stratégies de sauvegarde permettent de prendre un instantané de plusieurs volumes simultanément. Ce qui signifie que les sauvegardes créées par une stratégie de sauvegarde sont des copies cohérentes de l’incident. Cette page répertorie les stratégies de sauvegarde, leurs types, les volumes associés, le nombre de sauvegarde retenues et l’option d’activation de ces stratégies.
 
-The **Backup Policies** page also allows you to filter the existing backup policies by one or more of the following fields:
+Sur la page **Stratégies de sauvegarde**, vous pouvez filtrer les stratégies existantes de sauvegarde à l’aide de l’un ou de plusieurs des champs suivants :
 
-- **Policy name** – The name associated with the policy. The different types of policies include:
+- **Nom de la stratégie** : nom associé à la stratégie. Les différents types de stratégies sont les suivants :
 
-   - Scheduled policies, which are explicitly created by the user.
-   - Automatic policies, which are created when the default backup for this volume option was enabled at the time of volume creation. These policies are named as VolumeName_Default where Volume name refers to the name of the StorSimple volume configured by the user in the Azure classic portal. The automatic policies result in daily cloud snapshots beginning at 22:30 device time.
-   - Imported policies, which were originally created in the StorSimple Snapshot Manager. These have a tag that describes the StorSimple Snapshot Manager host that the policies were imported from.
+   - stratégies planifiées, qui sont explicitement créées par l’utilisateur ;
+   - stratégies automatiques, qui sont créées lorsque la sauvegarde par défaut associée à cette option de volume a été activée lors de la création du volume. Ces stratégies portent le nom NomVolume\_Default, où « NomVolume » désigne le nom du volume StorSimple configuré par l’utilisateur dans le portail Azure Classic. Ces stratégies automatiques entraînent la génération quotidienne d’instantanés cloud, commençant à 22 h 30 (heure de l’appareil) ;
+   - stratégies importées, qui ont été créées dans le gestionnaire d’instantanés StorSimple. Ces éléments présentent une balise décrivant l’hôte du gestionnaire d’instantanés StorSimple depuis lequel les stratégies ont été importées.
 
-- **Volumes** – The volumes associated with the policy. All the volumes associated with a backup policy are grouped together when backups are created.
+- **Volumes** : les volumes associés à la stratégie. Tous les volumes associés à une stratégie de sauvegarde sont regroupés lors de la création des sauvegardes.
 
-- **Last successful backup** – The date and time of the last successful backup that was taken with this policy.
+- **Dernière sauvegarde réussie** : la date et l’heure de la dernière sauvegarde réussie associée à cette stratégie.
 
-- **Next backup** – The date and time of the next scheduled backup that will be initiated by this policy.
+- **Prochaine sauvegarde** : la date et l’heure de la prochaine sauvegarde planifiée qui sera lancée par cette stratégie.
 
-- **Schedules** – The number of schedules associated with the backup policy.
+- **Planifications** : le nombre de planifications associées à la stratégie de sauvegarde.
 
-The frequently used operations that you can perform from this page are:
+Les opérations fréquentes pouvant être effectuées à partir de cette page sont les suivantes :
 
-- Add a backup policy 
-- Add or modify a schedule 
-- Delete a backup policy 
-- Take a manual backup 
-- Create a custom backup policy with multiple volumes and schedules 
+- Ajouter une stratégie de sauvegarde 
+- Ajouter ou modifier une planification 
+- Supprimer une stratégie de sauvegarde 
+- Exécuter une sauvegarde manuelle 
+- Créer une stratégie de sauvegarde personnalisée comportant plusieurs volumes et planifications 
 
-## <a name="add-a-backup-policy"></a>Add a backup policy
+## Ajouter une stratégie de sauvegarde
 
-Add a backup policy to automatically schedule your backups. Perform the following steps in the Azure classic portal to add a backup policy for your StorSimple device. After you add the policy, you can define a schedule (see [Add or modify a schedule](#add-or-modify-a-schedule)).
+Ajoutez une stratégie de sauvegarde pour planifier automatiquement vos sauvegardes. Pour ajouter une stratégie de sauvegarde dédiée à votre appareil StorSimple, procédez comme suit dans le portail Azure Classic. Après avoir ajouté la stratégie, vous pouvez définir une planification (voir [Ajouter ou modifier une planification](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
-![Video available](./media/storsimple-manage-backup-policies/Video_icon.png) **Video available**
+![Vidéo disponible](./media/storsimple-manage-backup-policies/Video_icon.png) **Vidéo disponible**
 
-To watch a video that demonstrates how to create a local or cloud backup policy, click [here](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+Pour visionner une vidéo expliquant comment créer une stratégie de sauvegarde locale ou dans le cloud, cliquez [ici](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
-## <a name="add-or-modify-a-schedule"></a>Add or modify a schedule
+## Ajouter ou modifier une planification
 
-You can add or modify a schedule that is attached to an existing backup policy on your StorSimple device. Perform the following steps in the Azure classic portal to add or modify a schedule.
+Vous pouvez ajouter ou modifier une planification associée à une stratégie de sauvegarde existante sur votre appareil StorSimple. Pour ajouter ou modifier une planification, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-add-modify-backup-schedule](../../includes/storsimple-add-modify-backup-schedule.md)]
 
-## <a name="delete-a-backup-policy"></a>Delete a backup policy
+## Supprimer une stratégie de sauvegarde
 
-Perform the following steps in the Azure classic portal to delete a backup policy on your StorSimple device.
+Pour supprimer une stratégie de sauvegarde sur votre appareil StorSimple, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-delete-backup-policy](../../includes/storsimple-delete-backup-policy.md)]
 
 
-## <a name="take-a-manual-backup"></a>Take a manual backup
+## Exécuter une sauvegarde manuelle
 
-Perform the following steps in the Azure classic portal to create an on-demand (manual) backup for a single volume.
+Pour créer une sauvegarde à la demande (manuelle) pour un volume unique, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-create-manual-backup](../../includes/storsimple-create-manual-backup.md)]
 
-## <a name="create-a-custom-backup-policy-with-multiple-volumes-and-schedules"></a>Create a custom backup policy with multiple volumes and schedules
+## Créer une stratégie de sauvegarde personnalisée comportant plusieurs volumes et planifications
 
-Perform the following steps in the Azure classic portal to create a custom backup policy that has multiple volumes and schedules.
+Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs volumes et planifications, procédez comme suit dans le portail Azure Classic.
 
 [AZURE.INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy.md)]
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0511_2016-->

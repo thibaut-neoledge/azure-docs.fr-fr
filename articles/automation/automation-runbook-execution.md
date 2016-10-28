@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Runbook execution in Azure Automation"
-   description="Describes the details of how a runbook in Azure Automation is processed."
+   pageTitle="Exécution d'un Runbook dans Azure Automation"
+   description="Décrit les détails du traitement d'un Runbook dans Azure Automation."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -15,105 +15,100 @@
    ms.date="03/21/2016"
    ms.author="bwren" />
 
-
-# <a name="runbook-execution-in-azure-automation"></a>Runbook execution in Azure Automation
-
-
-When you start a runbook in Azure Automation, a job is created. A job is a single execution instance of a runbook. An Azure Automation worker is assigned to run each job. While workers are shared by multiple Azure accounts, jobs from different Automation accounts are isolated from one another. You do not have control over which worker will service the request for your job.  A single runbook can have multiple jobs running at one time. When you view the list of runbooks in the Azure portal, it will list the status of the last job that was started for each runbook. You can view the list of jobs for each runbook in order to track the status of each. For a description of the different job statuses, see [Job Statuses](#job-statuses).
-
-The following diagram shows the lifecycle of a runbook job for [Graphical runbooks](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
-
-![Job Statuses - PowerShell Workflow](./media/automation-runbook-execution/job-statuses.png)
-
-The following diagram shows the lifecycle of a runbook job for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks).
-
-![Job Statuses - PowerShell Script](./media/automation-runbook-execution/job-statuses-script.png)
+# Exécution d'un Runbook dans Azure Automation
 
 
-Your jobs will have access to your Azure resources by making a connection to your Azure subscription. They will only have access to resources in your data center if those resources are accessible from the public cloud.
+Lorsque vous démarrez un Runbook dans Azure Automation, une tâche est créée. Une tâche est une instance d'exécution unique d'un Runbook. Un travail Azure Automation est assigné pour exécuter chaque tâche. Même si les travaux sont partagés par plusieurs comptes Azure, les tâches des différents comptes Automation sont isolées les unes des autres. Vous n'avez pas le contrôle du travail qui traitera la demande de votre tâche. Un même Runbook peut avoir plusieurs tâches s'exécutant à la fois. Lorsque vous affichez la liste des Runbooks du portail Azure, vous voyez l'état de la dernière tâche démarrée pour chaque Runbook. Vous pouvez afficher la liste des tâches de chaque Runbook pour en assurer le suivi de l'état. Pour obtenir une description des différents états des tâches, consultez [États des tâches](#job-statuses).
 
-## <a name="job-statuses"></a>Job statuses
+Le diagramme suivant illustre le cycle de vie d'une tâche de Runbook pour des [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) et des [Runbooks de workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
 
-The following table describes the different statuses that are possible for a job.
+![États des tâches - Workflow PowerShell](./media/automation-runbook-execution/job-statuses.png)
 
-| Status| Description|
+Le diagramme suivant illustre le cycle de vie d'une tâche de Runbook pour des [Runbooks PowerShell](automation-runbook-types.md#powershell-runbooks).
+
+![États des tâches - Script PowerShell](./media/automation-runbook-execution/job-statuses-script.png)
+
+
+Vos tâches auront accès à vos ressources Azure en créant une connexion à votre abonnement Azure. Ils auront uniquement accès aux ressources de votre centre de données si ces ressources sont accessibles depuis le cloud public.
+
+## États des tâches
+
+Le tableau suivant décrit les différents statuts possibles pour une tâche.
+
+| Statut| Description|
 |:---|:---|
-|Completed|The job completed successfully.|
-|Failed| For [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md), the runbook failed to compile.  For [PowerShell Script runbooks](automation-runbook-types.md), the runbook failed to start or the job encountered an exception. |
-|Failed, waiting for resources|The job failed because it reached the [fair share](#fairshare) limit three times and started from the same checkpoint or from the start of the runbook each time.|
-|Queued|The job is waiting for resources on an Automation worker to come available so that it can be started.|
-|Starting|The job has been assigned to a worker, and the system is in the process of starting it.|
-|Resuming|The system is in the process of resuming the job after it was suspended.|
-|Running|The job is running.|
-|Running, waiting for resources|The job has been unloaded because it reached the [fair share](#fairshare) limit. It will resume shortly from its last checkpoint.|
-|Stopped|The job was stopped by the user before it was completed.|
-|Stopping|The system is in the process of stopping the job.|
-|Suspended|The job was suspended by the user, by the system, or by a command in the runbook. A job that is suspended can be started again and will resume from its last checkpoint or from the beginning of the runbook if it has no checkpoints. The runbook will only be suspended by the system in the case of an exception. By default, ErrorActionPreference is set to **Continue** meaning that the job will keep running on an error. If this preference variable is set to **Stop** then the job will suspend on an error.  Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only.|
-|Suspending|The system is attempting to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it has already passed its last checkpoint, then it will complete before it can be suspended.  Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only.|
+|Completed|La tâche s'est terminée avec succès.|
+|Échec| Pour des [Runbooks graphiques et de workflow PowerShell](automation-runbook-types.md), le Runbook n’a pas pu être compilé. Pour des [Runbooks de script PowerShell](automation-runbook-types.md), le Runbook n'a pas pu démarrer ou la tâche a rencontré une exception. |
+|Échec, en attente de ressources|La tâche a échoué, car elle a atteint la limite de [répartition de charge équilibrée](#fairshare) trois fois et a démarré à partir du même point de contrôle ou à partir du début du Runbook à chaque fois.|
+|Mis en file d'attente.|La tâche attend que les ressources d'un travail Automation deviennent disponibles afin de pouvoir être démarrée.|
+|Starting|La tâche a été attribuée à un travail et le système est en train de le démarrer.|
+|Reprise|Le système est en cours de reprise de la tâche après qu'elle a été suspendue.|
+|Exécution|La tâche est en cours d'exécution.|
+|En cours d'exécution, en attente de ressources|La tâche a été déchargée, car elle a atteint la limite de [répartition de charge équilibrée](#fairshare). Elle va bientôt reprendre depuis son dernier point de contrôle.|
+|Arrêté|La tâche a été arrêtée par l'utilisateur avant qu'elle n'ait été terminée.|
+|En cours d’arrêt|Le système est en cours d'arrêt de la tâche.|
+|Interrompu|La tâche a été suspendue par l'utilisateur, le système ou une commande du Runbook. Une tâche qui est interrompue peut être démarrée à nouveau et reprend à partir de son dernier point de contrôle ou à partir du début du Runbook s'il n'a aucun point de contrôle. Le Runbook est uniquement interrompu par le système en cas d'exception. Par défaut, ErrorActionPreference est définie sur **Continuer**, ce qui signifie que la tâche se poursuivra en cas d'erreur. Si cette préférence est définie sur **Arrêter**,la tâche s'interrompt en cas d'erreur. S'applique aux [Runbooks graphiques et de workflow PowerShell](automation-runbook-types.md) uniquement.|
+|Suspension|Le système tente de suspendre la tâche à la demande de l'utilisateur. Le Runbook doit atteindre son prochain point de contrôle avant de pouvoir être suspendu. S'il a déjà passé le dernier point de contrôle, il se termine avant d'être suspendu. S'applique aux [Runbooks graphiques et de workflow PowerShell](automation-runbook-types.md) uniquement.|
 
-## <a name="viewing-job-status-using-the-azure-management-portal"></a>Viewing job status using the Azure Management Portal
+## Affichage de l'état des tâches à l'aide du portail de gestion Azure
 
-### <a name="automation-dashboard"></a>Automation Dashboard
+### Tableau de bord Automation
 
-The Automation Dashboard shows a summary of all of the runbooks for a particular automation account. It also includes a Usage Overview for the account. The summary graph shows the number of total jobs for all runbooks that entered each status over a given number of days or hours. You can select the time range on the top right corner of the graph. The time axis of the chart will change according to the type of time range that you select. You can choose whether to display the line for a particular status by clicking on it at the top of screen.
+Le tableau de bord Automation affiche un résumé de tous les Runbooks d'un compte Automation particulier. Il inclut également une présentation de l'utilisation du compte. Le graphique récapitulatif affiche le nombre total de tâches de tous les Runbooks qui sont passées par chaque état sur un nombre donné de jours ou d'heures. Vous pouvez sélectionner la période dans le coin supérieur droit du graphique. L'axe temporel du graphique change en fonction du type de période que vous sélectionnez. Vous pouvez choisir d'afficher la ligne d'un état particulier en cliquant dessus, en haut de l'écran.
 
-You can use the following steps to display the Automation Dashboard.
+Vous pouvez utiliser les étapes suivantes pour afficher le tableau de bord Automation.
 
-1. In the Azure Management Portal, select **Automation** and then then click the name of an automation account.
-1. Select the **Dashboard** tab.
+1. Dans le portail de gestion Azure, sélectionnez **Automation**, puis cliquez sur le nom d'un compte Automation.
+1. Sélectionnez l'onglet **Tableau de bord**.
 
-### <a name="runbook-dashboard"></a>Runbook Dashboard
+### Tableau de bord du Runbook
 
-The Runbook Dashboard shows a summary for a single runbook. The summary graph shows the number of total jobs for the runbook that entered each status over a given number of days or hours. You can select the time range on the top right corner of the graph. The time axis of the chart will change according to the type of time range that you select. You can choose whether to display the line for a particular status by clicking on it at the top of screen.
+Le tableau de bord du Runbook affiche le résumé d'un seul Runbook. Le graphique récapitulatif affiche le nombre total de tâches du Runbook qui sont passées par chaque état sur un nombre donné de jours ou d'heures. Vous pouvez sélectionner la période dans le coin supérieur droit du graphique. L'axe temporel du graphique change en fonction du type de période que vous sélectionnez. Vous pouvez choisir d'afficher la ligne d'un état particulier en cliquant dessus, en haut de l'écran.
 
-You can use the following steps to display the Runbook Dashboard.
+Vous pouvez utiliser les étapes suivantes pour afficher le tableau de bord du Runbook.
 
-1. In the Azure Management Portal, select **Automation** and then then click the name of an automation account.
-1. Click the name of a runbook.
-1. Select the **Dashboard** tab.
+1. Dans le portail de gestion Azure, sélectionnez **Automation**, puis cliquez sur le nom d'un compte Automation.
+1. Cliquez sur le nom d'un Runbook.
+1. Sélectionnez l'onglet **Tableau de bord**.
 
-### <a name="job-summary"></a>Job Summary
+### Résumé des tâches
 
-You can view a list of all of the jobs that have been created for a particular runbook and their most recent status. You can filter this list by job status and the range of dates for the last change to the job. Click on the name of a job to view its detailed information and its output. The detailed view of the job includes the values for the runbook parameters that were provided to that job.
+Vous pouvez afficher la liste de toutes les tâches qui ont été créées pour un Runbook donné et leur état le plus récent. Vous pouvez filtrer cette liste par état de la tâche et par plage de dates de la dernière modification de la tâche. Cliquez sur le nom d'une tâche pour afficher des informations détaillées et sa sortie. La vue détaillée de la tâche inclut les valeurs des paramètres du Runbook qui ont été fournies à cette tâche.
 
-You can use the following steps to view the jobs for a runbook.
+Vous pouvez utiliser les étapes suivantes pour afficher les tâches d'un Runbook.
 
-1. In the Azure Management Portal, select **Automation** and then then click the name of an automation account.
-1. Click the name of a runbook.
-1. Select the **Jobs** tab.
-1. Click on the **Job Created** column for a job to view its detail and output.
+1. Dans le portail de gestion Azure, sélectionnez **Automation**, puis cliquez sur le nom d'un compte Automation.
+1. Cliquez sur le nom d'un Runbook.
+1. Sélectionnez l'onglet **Tâches**.
+1. Cliquez sur la colonne **Tâche créée** d'une tâche pour afficher ses détails et sa sortie.
 
-## <a name="retrieving-job-status-using-windows-powershell"></a>Retrieving job status using Windows PowerShell
+## Récupération de l'état d'une tâche à l'aide de Windows PowerShell
 
-You can use the [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with Windows PowerShell using [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx), then it will return the resulting job. Use [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx)Output to get a job’s output.
+Vous pouvez utiliser [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx) pour récupérer les tâches créées pour un Runbook et les détails d'une tâche particulière. Si vous démarrez un Runbook avec Windows PowerShell à l'aide de [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx), il retourne la tâche résultante. Utilisez [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx) pour obtenir la sortie d'une tâche.
 
-The following sample commands retrieves the last job for a sample runbook and displays it’s status, the values provide for the runbook parameters, and the output from the job.
+Les exemples de commandes suivants récupèrent la dernière tâche d'un exemple de Runbook et affichent son état, les valeurs fournies aux paramètres du Runbook et la sortie de la tâche.
 
-    $job = (Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" | sort LastModifiedDate –desc)[0]
-    $job.Status
-    $job.JobParameters
-    Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+	$job = (Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" | sort LastModifiedDate –desc)[0]
+	$job.Status
+	$job.JobParameters
+	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
 
-## <a name="fair-share"></a>Fair share
+## Répartition de charge équilibrée
 
-In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for 3 hours.    [Graphical](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) runbooks will be resumed from their last [checkpoint](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). During this time, the job will show a status of Running, Waiting for Resources. If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it will restart from the beginning.  [PowerShell](automation-runbook-types.md#powershell-runbooks) runbooks are always restarted from the beginning since they don't support checkpoints.
+Afin de partager les ressources entre tous les Runbooks du cloud, Azure Automation décharge temporairement toute tâche après qu'elle a été exécutée pendant 3 heures. Les Runbooks [graphiques](automation-runbook-types.md#graphical-runbooks) et de [workflow PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) seront repris à partir de leur dernier [point de contrôle](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). Pendant ce temps, la tâche affiche l'état En cours d'exécution, en attente de ressources. Si le Runbook n'a aucun point de contrôle ou que la tâche n'a pas atteint le premier point de contrôle avant d'être déchargée, il redémarre à partir du début. Les Runbooks [PowerShell](automation-runbook-types.md#powershell-runbooks) sont toujours redémarrés depuis le début puisqu’ils ne prennent pas en charge les points de contrôle.
 
->[AZURE.NOTE] The fair share limit is not applicable to runbook jobs executing on Hybrid Runbook Workers.
+>[AZURE.NOTE] La limite de répartition de charge n’est pas applicable à l’exécution de Runbook Workers hybrides.
 
-If the runbook restarts from the same checkpoint or from the beginning of the runbook three consecutive times, it will be terminated with a status of Failed, waiting for resources. This is to protect from runbooks running indefinitely without completing, as they are not able to make it to the next checkpoint without being unloaded again. In this case, you will receive the following exception with the failure.
+Si le Runbook redémarre à partir du même point de contrôle ou du début du Runbook trois fois de suite, il se termine avec l'état Échec, en attente de ressources. L'objectif est d'empêcher que les Runbooks ne s'exécutent indéfiniment sans s'achever, car ils ne sont pas en mesure d'accéder au point de contrôle suivant sans être à nouveau déchargés. Dans ce cas, vous recevez l'exception suivante avec l'échec.
 
-*The job cannot continue running because it was repeatedly evicted from the same checkpoint. Please make sure your Runbook does not perform lengthy operations without persisting its state.*
+*La tâche ne peut pas continuer, car elle a été exclue à plusieurs reprises du même point de contrôle. Assurez-vous que votre Runbook n'effectue pas des opérations de longue durée sans conserver son état.*
 
-When you create a runbook, you should ensure that the time to run any activities between two checkpoints will not exceed 3 hours. You may need to add checkpoints to your runbook to ensure that it does not reach this 3 hour limit or break up long running operations. For example, your runbook might perform a reindex on a large SQL database. If this single operation does not complete within the fair share limit, then the job will be unloaded and restarted from the beginning. In this case, you should break up the reindex operation into multiple steps, such as reindexing one table at a time, and then insert a checkpoint after each operation so that the job could resume after the last operation to complete.
-
-
-
-## <a name="next-steps"></a>Next Steps
-
-- [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
+Lorsque vous créez un Runbook, vous devez vous assurer que la durée d'exécution de toute activité entre deux points de contrôle ne dépasse pas 3 heures. Vous devrez peut-être ajouter des points de contrôle à votre Runbook pour vous assurer qu'il n'excède pas cette limite de 3 heures ou n’interrompt pas les opérations de longue durée. Par exemple, votre Runbook peut effectuer une réindexation sur une base de données SQL volumineuse. Si cette opération unique ne se termine pas dans la limite de la répartition de charge équilibrée, la tâche est déchargée et redémarrée depuis le début. Dans ce cas, vous devez décomposer l'opération de réindexation en plusieurs étapes, comme la réindexation d'une table à la fois, puis insérer un point de contrôle après chaque opération, afin que la tâche puisse reprendre après que la dernière opération s'est terminée.
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Étapes suivantes
 
+- [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 
+<!---HONumber=AcomDC_0323_2016-->

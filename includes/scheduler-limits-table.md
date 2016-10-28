@@ -1,22 +1,19 @@
-The following table describes each of the major quotas, limits, defaults, and throttles in Azure Scheduler.
+Le tableau suivant décrit chaque quota, limite, valeur par défaut et limitation principaux dans Azure Scheduler.
 
-|Resource|Limit Description|
+|Ressource|Description de la limite|
 |---|---|
-|**Job size**|The maximum job size is 16K. If a PUT or a PATCH results in a job larger than these limits, a 400 Bad Request status code is returned.|
-|**Request URL size**|Maximum size of the request URL is 2048 chars.|
-|**Aggregate header size**|Maximum aggregate header size is 4096 chars.|
-|**Header count**|Maximum header count is 50 headers.|
-|**Body size**|Maximum body size is 8192 chars.|
-|**Recurrence span**|Maximum recurrence span is 18 months.|
-|**Time to start time**|Maximum “time to start time” is 18 months.|
-|**Job history**|Maximum response body stored in job history is 2048 bytes.|
-|**Frequency**|The default max frequency quota is 1 hour in a free job collection and 1 minute in a standard job collection. The max frequency is configurable on a job collection to be lower than the maximum. All jobs in the job collection are limited the value set on the job collection. If you attempt to create a job with a higher frequency than the maximum frequency on the job collection then request will fail with a 409 Conflict status code.|
-|**Jobs**|The default max jobs quota is 5 jobs in a free job collection and 50 jobs in a standard job collection. The maximum number of jobs is configurable on a job collection. All jobs in the job collection are limited the value set on the job collection. If you attempt to create more jobs than the maximum jobs quota, then the request fails with a 409 Conflict status code.|
-|**Job history retention**|Job history is retained for up to 2 months or up to the last 1000 executions.|
-|**Completed and faulted job retention**|Completed and faulted jobs are retained for 60 days.|
-|**Timeout**|There’s a static (not configurable) request timeout of 60 seconds for HTTP actions. For longer running operations, follow HTTP asynchronous protocols; for example, return a 202 immediately but continue working in the background.|
+|**Taille du travail**|La taille maximale du travail est de 16 Ko. Si une commande PUT ou PATCH génère un travail qui dépasse ces limites, un code d'état 400 demande incorrecte est retourné.|
+|**Taille d'URL de la requête**|La taille maximale de l'URL de la requête est de 2 048 caractères.|
+|**Taille de l'en-tête d'agrégat**|La taille maximale de l'en-tête d'agrégat est de 4 096 caractères.|
+|**Nombre d'en-têtes**|Le nombre maximal d'en-têtes est 50.|
+|**Taille du corps**|La taille maximale du corps est 8 192 caractères.|
+|**Période de récurrence**|La période de récurrence maximale est 18 mois.|
+|**Délai jusqu'à l'heure de début**|Le « délai jusqu'à l'heure de début » maximal est 18 mois.|
+|**Historique des travaux**|Le corps de réponse maximal stocké dans l'historique des travaux est 2 048 octets.|
+|**Fréquence**|Le quota de fréquence maximale par défaut est 1 heure dans une collection de travaux gratuite et 1 minute dans une collection de travaux standard. La fréquence maximale est configurable dans une collection de travaux pour être inférieure à la valeur maximale. Tous les travaux dans la collection de travaux sont limités la valeur définie dans la collection de travaux. Si vous essayez de créer un travail avec une fréquence supérieure à la fréquence maximale de la collection de travaux, la requête échoue avec un code d'état 409 conflit.|
+|**Travaux**|Le quota de travaux maximum par défaut est 5 travaux dans une collection de travaux gratuite et 50 travaux dans une collection de travaux standard. Le nombre maximal de travaux est configurable dans une collection de travaux. Tous les travaux dans la collection de travaux sont limités la valeur définie dans la collection de travaux. Si vous essayez de créer plus de travaux que le quota maximal, la requête échoue avec un code d'état 409 conflit.|
+|**Conservation de l'historique des travaux**|L’historique des travaux est conservé pendant 2 mois maximum ou jusqu’à ce qu’il atteigne 1 000 exécutions.|
+|**Conservation des travaux terminés et ayant généré une erreur**|Les travaux terminés et ayant généré une erreur sont conservés pendant 60 jours.|
+|**Délai d'expiration**|Il existe un délai d'expiration de requête (non modifiable) statique de 30 secondes pour les actions HTTP. Pour les opérations en cours d'exécution plus longues, suivez les protocoles HTTP asynchrones ; par exemple, retourner un 202 immédiatement, mais continuer de travailler en arrière-plan.|
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0316_2016-->

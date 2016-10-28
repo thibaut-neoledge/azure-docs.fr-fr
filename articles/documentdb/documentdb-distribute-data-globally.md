@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Distribute data globally with DocumentDB | Microsoft Azure"
-   description="Learn about planet-scale geo-replication, failover, and data recovery using global databases from Azure DocumentDB, a fully managed NoSQL database service."
+   pageTitle="Distribution mondiale des données avec DocumentDB | Microsoft Azure"
+   description="Apprenez-en plus sur la géoréplication à l’échelle de la planète, le basculement et la récupération des données à l’aide de bases de données mondiales à partir d’Azure DocumentDB, un service de base de données NoSQL entièrement géré."
    services="documentdb"
    documentationCenter=""
    authors="kiratp"
@@ -17,55 +17,54 @@
    ms.author="kipandya"/>
    
    
+# Distribution mondiale des données avec DocumentDB
 
-# <a name="distribute-data-globally-with-documentdb"></a>Distribute data globally with DocumentDB
+> [AZURE.NOTE] La distribution mondiale des bases de données DocumentDB est généralement disponible et activée automatiquement pour tous les comptes DocumentDB nouvellement créés. Nous travaillons à l’activation de la distribution mondiale sur tous les comptes existants, mais en attendant, si vous souhaitez que la distribution mondiale soit activée sur votre compte, veuillez [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et nous l’activerons pour vous.
 
-> [AZURE.NOTE] Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now.
-
-Azure DocumentDB is designed to meet the needs of IoT applications consisting of millions of globally distributed devices and internet scale applications that deliver highly responsive experiences to users across the world. These database systems face the challenge of achieving low latency access to application data from multiple geographic regions with well-defined data consistency and availability guarantees. As a globally distributed database system, DocumentDB simplifies the global distribution of data by offering fully managed, multi-region database accounts that provide clear tradeoffs between consistency, availability and performance, all with corresponding guarantees. DocumentDB database accounts are offered with high availability, single digit ms latencies, multiple [well-defined consistency levels] [consistency], transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
+Azure DocumentDB est conçu pour satisfaire les exigences des applications IoT, notamment les millions d’appareils et applications Internet distribués mondialement qui permettent aux utilisateurs de vivre des expériences hautement réactives dans le monde entier. Ces systèmes de base de données doivent relever le défi d’un accès à faible latence aux données d’application à partir de plusieurs zones géographiques avec des garanties de cohérence et de disponibilité des données bien définies. DocumentDB est un système de base de données distribué mondialement qui simplifie la distribution globale de données en gérant complètement les comptes de bases de données dans plusieurs régions qui fournissent des compromis clairs entre cohérence, disponibilité et performance, avec les garanties correspondantes. Les comptes de bases de données DocumentDB sont fournis avec des capacités de haute disponibilité, des latences en millisecondes à un seul chiffre, plusieurs [niveaux de cohérence bien définis][consistency], un basculement régional transparent avec des API d’hébergement multiple et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible.
 
   
-## <a name="configuring-multi-region-accounts"></a>Configuring multi-region accounts
+## Configuration de comptes dans plusieurs régions
 
-Configuring your DocumentDB account to scale across the globe can be done in less than a minute through the [Azure portal](documentdb-portal-global-replication.md). All you need to do is select the right consistency level among several supported well-defined consistency levels, and associate any number of Azure regions with your database account. DocumentDB consistency levels provide clear tradeoffs between specific consistency guarantee and performance. 
+La configuration de votre compte DocumentDB pour une mise à l’échelle mondiale peut être effectuée en moins d’une minute via le [portail Azure](documentdb-portal-global-replication.md). Il vous suffit de sélectionner le niveau de cohérence adéquat parmi plusieurs niveaux de cohérence bien définis pris en charge et d’associer le nombre de régions Azure de votre choix à votre compte de base de données. Les niveaux de cohérence de DocumentDB fournissent des compromis clairs entre les performances et la garantie de cohérence spécifique.
 
-![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
+![DocumentDB offre le choix entre plusieurs modèles de cohérence bien définis (souples)][1]
 
-DocumentDB offers multiple, well defined (relaxed) consistency models to choose from.
+DocumentDB offre plusieurs modèles de cohérence (souples) bien définis parmi lesquels choisir.
 
-Selecting the right consistency level depends on data consistency guarantee your application needs. DocumentDB automatically replicates your data across all specified regions and guarantees the consistency that you have selected for your database account. 
-
-
-## <a name="using-multi-region-failover"></a>Using multi-region failover 
-
-Azure DocumentDB is able to transparently failover database accounts across multiple Azure regions – the new [multi-homing APIs][developingwithmultipleregions] guarantee that your app can continue to use a logical endpoint and is uninterrupted by the failover. Failover is controlled by you, providing the flexibility to rehome your database account in the event any of range of possible failure conditions occur, including application, infrastructure, service or regional failures (real or simulated). In the event of a DocumentDB regional failure, the service will transparently fail over your database account and your application continues to access data without losing availability. While DocumentDB offers [99.99% availability SLAs][sla], you can test your application’s end to end availability properties by simulating a regional failure both, [programmatically][arm] as well as through the Azure Portal.
+La sélection du niveau de cohérence adéquat dépend de la garantie de cohérence des données dont votre application a besoin. DocumentDB réplique vos données dans toutes les régions spécifiées automatiquement et garantit la cohérence que vous avez sélectionnée pour votre compte de base de données.
 
 
-## <a name="scaling-across-the-planet"></a>Scaling across the planet
-DocumentDB allows you to independently provision throughput and consume storage for each DocumentDB collection at any scale, globally across all the regions associated with your database account. A DocumentDB collection is automatically distributed globally and managed across all of the regions associated with your database account. Collections within your database account can be distributed across any of the Azure regions in which the [DocumentDB service is available][serviceregions]. 
+## Utilisation du basculement entre plusieurs régions 
 
-The throughput purchased and storage consumed for each DocumentDB collection is automatically provisioned across all regions equally. This allows your application to seamlessly scale across the globe [paying only for the throughput and storage you are using within each hour][pricing]. For instance, if you have provisioned 2 million RUs for a DocumentDB collection, then each of the regions associated with your database account gets 2 million RUs for that collection. This is illustrated below.
-
-![Scaling throughput for a DocumentDB collection across four regions][2]
-
-DocumentDB guarantees < 10 ms read and < 15 ms write latencies at P99. The read requests never span datacenter boundary to guarantee the [consistency requirements you have selected][consistency]. The writes are always quorum committed locally before they are acknowledged to the clients. Each database account is configured with write region priority. The region designated with highest priority will act as the current write region for the account. All SDKs will transparently route database account writes to the current write region. 
-
-Finally, since DocumentDB is completely [schema-agnostic][vldb] - you never have to worry about managing/updating schemas or secondary indexes across multiple datacenters. Your [SQL queries][sqlqueries] continue to work while your application and data models continue to evolve. 
+Azure DocumentDB est en mesure de basculer en toute transparence d’un compte de base de données à l’autre entre plusieurs régions Azure. Les nouvelles [API multihébergement][developingwithmultipleregions] garantissent que votre application peut continuer à utiliser un point de terminaison logique et n’est pas interrompue par le basculement. Vous contrôlez le basculement, ce qui vous laisse la possibilité de modifier l’hébergement de votre compte de base de base de données dans l’éventualité où des conditions de défaillance potentielle se produiraient, notamment la défaillance (réelle ou simulée) d’une application, d’une infrastructure, d’un service ou d’une région. En cas de défaillance d’une région DocumentDB, le service bascule en toute transparence votre compte de base de données et votre application continue à accéder aux données sans aucune perte de disponibilité. Alors que DocumentDB offre un [SLA de disponibilité à 99,99 %][sla], vous pouvez tester les propriétés de disponibilité de l’application de bout en bout en simulant une défaillance de région [par programme][arm] et via le portail Azure.
 
 
-## <a name="enabling-global-distribution"></a>Enabling global distribution 
+## Mise à l’échelle mondiale
+DocumentDB vous permet d’approvisionner le débit indépendamment et d’utiliser du stockage pour chaque collection DocumentDB à n’importe quelle échelle, dans toutes les régions associées à votre compte de base de données à l’échelle mondiale. Une collection DocumentDB est automatiquement distribuée mondialement et gérée dans toutes les régions associées à votre compte de base de données. Au sein de votre compte de base de données, vous pouvez distribuer les collections dans n’importe quelle région Azure où le [service DocumentDB est disponible][serviceregions].
 
-You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can add or remove regions to your database account at any time. To enable global distribution by using the portal, see [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md). To enable global distribution programatically, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+Le débit acheté et le stockage utilisé pour chaque collection DocumentDB sont automatiquement approvisionnés à parts égales dans toutes les régions. Vous pouvez ainsi mettre votre application à l’échelle en toute transparence dans le monde entier [en ne payant que le débit et le stockage utilisés par heure][pricing]. Par exemple, si vous avez configuré 2 millions de requêtes d’unités pour une collection DocumentDB, chacune des régions associées à votre compte de base de données obtient 2 millions d’unités de requêtes pour cette collection. En voici une illustration :
 
-## <a name="next-steps"></a>Next steps
+![Mise à l’échelle du débit pour une collection DocumentDB dans quatre régions][2]
 
-Learn more about the distributing data globally with DocumentDB in the following articles:
+DocumentDB garantit des latences de lecture < 10 ms et d’écriture < 15 ms avec une disponibilité à 99,99 %. Les demandes de lecture ne franchissent jamais la limite du centre de données afin de garantir les [exigences de cohérence que vous avez sélectionnées][consistency]. Les écritures sont toujours validées localement dans le quorum avant d’être acceptées par les clients. Chaque compte de base de données est configuré avec la priorité de région d’écriture. La région désignée avec la priorité la plus élevée agira comme la région d’écriture en cours du compte. Tous les SDK achemineront en toute transparence les écritures de compte de base de données vers la région d’écriture en cours.
 
-* [Provisioning throughput and storage for a collection] [throughputandstorage]
-* [Multi-homing APIs via REST. .NET, Java, Python, and Node SDKs] [developingwithmultipleregions]
-* [Consistency Levels in DocumentDB] [consistency]
-* [Availability SLAs] [sla]
-* [Managing database account] [manageaccount]
+Enfin, dans la mesure où DocumentDB est complètement [indépendant du schéma][vldb], vous n’avez jamais à vous soucier de la gestion/mise à jour des schémas ou des index secondaires entre plusieurs centres de données. Vos [requêtes SQL][sqlqueries] continuent à travailler pendant que vos modèles d’application et de données poursuivent leur évolution.
+
+
+## Activation de la distribution mondiale 
+
+Vous pouvez décider de distribuer vos données localement ou mondialement en associant une ou plusieurs régions Azure à un compte de base de données DocumentDB. Vous pouvez ajouter ou supprimer des régions dans votre compte de base de données à tout moment. Pour activer la distribution mondiale à l’aide du portail, consultez la section [Comment effectuer la réplication de base de données mondiale DocumentDB à l’aide du portail Azure](documentdb-portal-global-replication.md). Pour activer la distribution mondiale par programme, consultez la section [Développement avec des comptes DocumentDB à plusieurs régions](documentdb-developing-with-multiple-regions.md).
+
+## Étapes suivantes
+
+Apprenez-en plus sur la distribution mondiale de données avec DocumentDB dans les articles suivants :
+
+* [Approvisionnement du débit et du stockage pour une collection][throughputandstorage]
+* [API multihébergement via les SDK REST, .NET, Java, Python et Node][developingwithmultipleregions]
+* [Niveaux de cohérence dans DocumentDB][consistency]
+* [SLA de disponibilité][sla]
+* [Gestion du compte de base de données][manageaccount]
 
 [1]: ./media/documentdb-distribute-data-globally/consistency-tradeoffs.png
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
@@ -81,15 +80,10 @@ Learn more about the distributing data globally with DocumentDB in the following
 [throughputandstorage]: documentdb-manage.md
 [arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/en-us/regions/#services 
+[serviceregions]: https://azure.microsoft.com/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
-[sla]: https://azure.microsoft.com/support/legal/sla/documentdb/ 
+[sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: documentdb-sql-query.md
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

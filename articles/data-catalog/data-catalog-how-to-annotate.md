@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to annotate data sources | Microsoft Azure"
-   description="How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts."
+   pageTitle="Annotation de sources de données | Microsoft Azure"
+   description="Article de procédure relatif à l’annotation de ressources de données dans Azure Data Catalog et abordant notamment les noms conviviaux, les balises, les descriptions et les experts."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -17,56 +17,50 @@
    ms.author="maroche"/>
 
 
+# Annotation de sources de données
 
-# <a name="how-to-annotate-data-sources"></a>How to annotate data sources
+## Introduction
+**Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d’autres termes, Data Catalog vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données, et à permettre aux organisations de mieux exploiter leurs données existantes. Lorsqu’une source de données est inscrite dans Data Catalog, ses métadonnées sont copiées et indexées par le service. Mais ce n’est pas tout. Data Catalog permet aux utilisateurs de fournir leurs propres métadonnées descriptives (descriptions et balises, par exemple) pour compléter les métadonnées extraites de la source de données et favoriser la compréhension de la source de données pour un plus grand nombre de personnes.
 
-## <a name="introduction"></a>Introduction
-**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, Data Catalog is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data. When a data source is registered with Data Catalog, its metadata is copied and indexed by the service, but the story doesn’t end there. Data Catalog allows users to provide their own descriptive metadata – such as descriptions and tags – to supplement the metadata extracted from the data source, and to make the data source more understandable to more people.
+## Annotation et crowdsourcing
+Tout le monde possède un avis. Et c’est une bonne chose. Avec Data Catalog, les perspectives de chaque utilisateur à l’égard des sources de données d’entreprise sont prises en compte et valorisées. Examinez le scénario suivant :
 
-## <a name="annotation-and-crowdsourcing"></a>Annotation and crowdsourcing
-Everyone has an opinion. And this is a good thing.
-Data Catalog recognizes that different users have different perspectives on enterprise data sources, and that each of these perspectives can be valuable. Consider the following scenario:
+* L’administrateur système connaît le contrat de niveau de service associé aux serveurs ou services qui hébergent la source de données.
+* L’administrateur de base de données connaît la planification de sauvegarde pour chaque base de données et les fenêtres de traitement ETL autorisées.
+* Le propriétaire du système connaît le processus permettant aux utilisateurs de demander l'accès à la source de données.
+* Le gestionnaire de données sait de quelle façon les ressources et attributs de la source de données sont mappés au modèle de données d’entreprise.
+* L’analyste sait comment les données sont utilisées dans le cadre des processus d’entreprise qu’il prend en charge.
 
-* The system administrator knows the service level agreement for the servers or services that host the data source.
-* The database administrator knows the backup schedule for each database, and the allowed ETL processing windows.
-* The system owner knows the process for users to request access to the data source.
-* The data steward knows how the assets and attributes in the data source map to the enterprise data model.
-* The analyst knows how the data is used in the context of the business processes he supports.
+Chacune de ces perspectives est précieuse, et Data Catalog utilise une approche de crowdsourcing à l’égard des métadonnées, qui permet de capturer et d’utiliser chacune d’elles en vue d’établir une image complète des sources de données inscrites. À l’aide du portail Data Catalog, chaque utilisateur peut ajouter et modifier ses propres annotations, tout en ayant la possibilité de consulter les annotations apportées par les autres utilisateurs.
 
-Each of these perspectives is valuable, and Data Catalog uses a crowdsourcing approach to metadata that allows each one to be captured and used to provide a complete picture of registered data sources. Using the Data Catalog portal, each user can add and edit his own annotations, while being able to view annotations provided by other users.
+## Différents types d’annotations
+Data Catalog prend en charge les types d’annotations suivants :
 
-## <a name="different-types-of-annotations"></a>Different types of annotations
-Data Catalog supports the following types of annotations:
-
-| Annotation     | Notes                                                                                                                                                                                                                                                                                                                                                           |
+| Annotation | Remarques |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Friendly name  | Friendly names can be supplied at the data asset level, to make the data assets more easily understood. Friendly names are most useful when the underlying object name is cryptic, abbreviated or otherwise not meaningful to users.                                                                                                                            |
-| Description    | Descriptions can be supplied at the data asset and attribute / column levels. Descriptions are free-form short text annotations that describe the user’s perspective on the data asset or its use.                                                                                                                                                              |
-| Tags (user tags)          | Tags can be supplied at the data asset and attribute / column levels. User tags are user-defined labels that can be used to categorize data assets or attributes.                                                                                                                                                                                                    |
-| Tags (glossary tags)          | Tags can be supplied at the data asset and attribute / column levels. Glossary tags are centrally-defined glossary terms that can be used to categorize data assets or attributes using a common business taxonomy. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)                                                                                                                                                                                                    |
-| Experts        | Experts can be supplied at the data asset level. Experts identify users or groups with expert perspectives on the data and can serve as points of contact for users who discover the registered data sources and have questions that are not answered by the existing annotations.  |
-| Request access | Request access information can be supplied at the data asset level. This information is for users who discover a data source that they do not yet have permissions to access. Users can enter the email address of the user or group who grants access, the URL of the process or tool that users need to gain access, or can enter the process itself as text. |
-| Documentation | Documentation can be supplied at the data asset level. Asset documentation is rich text information that can include links and images, and which can provide any information not conveyed through descriptions and tags. |
+| Nom convivial | Les noms conviviaux peuvent être fournis au niveau des ressources de données pour en favoriser la compréhension. Les noms conviviaux sont particulièrement utiles lorsque le nom d’objet sous-jacent est peu clair, abrégé ou peu explicite auprès des utilisateurs. |
+| Description | Des descriptions peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les descriptions sont de courtes annotations de texte libre décrivant la perspective de l’utilisateur sur la ressource de données ou son utilisation. |
+| Balises (balises utilisateur) | Des balises peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les balises utilisateur sont des étiquettes définies par l’utilisateur qui permettent de classer les ressources de données ou les attributs. |
+| Balises (balises glossaire) | Des balises peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les balises de glossaire sont des termes de glossaire définis de façon centralisée qui permettent de classer les ressources de données ou les attributs à l’aide d’une taxonomie métier commune. Pour plus d’informations, consultez l’article [Comment configurer le glossaire métier pour un balisage géré](data-catalog-how-to-business-glossary.md). |
+| Experts | Des experts peuvent être fournis au niveau des ressources de données. Les experts identifient les utilisateurs ou groupes avec des perspectives d’expert sur les données et peuvent servir de points de contact pour les utilisateurs qui détectent les sources de données inscrites et se posent des questions auxquelles les annotations existantes n’apportent pas de réponse. |
+| Demander l'accès | Des informations d’accès de requête peuvent être fournies au niveau des ressources de données. Ces informations sont destinées aux utilisateurs qui détectent une source de données à laquelle ils ne sont pas encore autorisés à accéder. Les utilisateurs peuvent saisir l’adresse de messagerie de l’utilisateur ou du groupe qui accorde l’accès ou l’URL du processus ou de l’outil dont les utilisateurs ont besoin pour obtenir l’accès. Ils peuvent également indiquer le processus lui-même sous forme de texte. |
+| Documentation | Une documentation peut être fournie au niveau des ressources de données. La documentation des ressources présente des informations complètes pouvant inclure des liens et des images et pouvant fournir des données non véhiculées par les descriptions et les balises. |
 
 
-## <a name="annotating-multiple-assets"></a>Annotating multiple assets
-When selecting multiple data assets in the Data Catalog portal, users can annotate all selected assets in a single operation. Annotations will apply to all selected assets, making it easy to select and provide a consistent description and sets of tags and experts for related data assets.
+## Annotation de plusieurs ressources
+Lorsque vous sélectionnez plusieurs ressources de données dans le portail Data Catalog, les utilisateurs peuvent annoter toutes les ressources sélectionnées en une seule opération. Les annotations s’appliqueront à toutes les ressources sélectionnées, favorisant ainsi la sélection et la fourniture d’une description cohérente et de jeux de balises et d’experts pour les ressources de données associées.
 
-> [AZURE.NOTE] Tags and experts can also be provided when registering data assets using the Data Catalog data source registration tool.
+> [AZURE.NOTE] Les balises et les experts peuvent également être fournis lors de l’inscription des ressources de données à l’aide de l’outil d’inscription des sources de données de Data Catalog.
 
-When selecting multiple tables and views, only columns that all selected data assets have in common will be displayed in the Data Catalog portal. This allows users to provide tags and descriptions for all columns with the same name for all selected assets.
+Si vous sélectionnez plusieurs tables et vues, seules les colonnes communes à toutes les ressources de données sélectionnées seront affichées dans le portail Data Catalog. Cela permet aux utilisateurs de fournir des balises et des descriptions pour toutes les colonnes portant le même nom pour l’ensemble des ressources sélectionnées.
 
-## <a name="annotations-and-discovery"></a>Annotations and discovery
-Just as the metadata extracted from the data source during registration is added to the Data Catalog search index, user-supplied metadata is also indexed. This means that not only do annotations make it easier for users to understand the data they discover, annotations also make it easier for users to discover the annotated data assets by searching using the terms that make sense to them.
+## Annotations et détection
+Les métadonnées extraites à partir de la source de données lors de l’inscription sont ajoutées à l’index de recherche de Data Catalog. De la même façon, les métadonnées fournies par l’utilisateur sont également indexées. Ainsi, les annotations favorisent non seulement la compréhension des données détectées par les utilisateurs, mais également la détection des ressources de données annotées, grâce à la possibilité d’effectuer des recherches de termes explicites pour les utilisateurs.
 
-## <a name="summary"></a>Summary
-Registering a data source with Data Catalog makes that data discoverable by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, users can provide annotations to make easier to discover and understand from within the Data Catalog portal.
+## Résumé
+L’inscription d’une source de données avec Data Catalog favorise la détection des données en copiant les métadonnées descriptives et structurelles à partir de la source de données dans le service Catalog. Une fois qu’une source de données a été inscrite, les utilisateurs peuvent fournir des annotations pour faciliter la détection et la compréhension des données par le biais du portail Data Catalog.
 
-## <a name="see-also"></a>See also
-- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to annotate data sources.
+## Voir aussi
+- Didacticiel [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) décrivant la procédure pas à pas d’annotation des sources de données.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

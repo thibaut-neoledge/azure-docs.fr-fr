@@ -1,15 +1,13 @@
-## <a name="vpn-gateway"></a>VPN Gateway 
-A VPN gateway resource enables you to create a secure connection between their on-premises data center and Azure. A VPN gateway resource can be configured in three different ways:
+## Passerelle VPN 
+Une ressource de passerelle VPN vous permet de créer une connexion sécurisée entre le centre de données local et Azure. Une ressource de passerelle VPN peut être configurée de trois manières différentes :
  
-- **Point to Site** – you can securely access your Azure resources hosted in a VNET by using a VPN client from any computer. 
-- **Multi-site connection** – you can securely connect from your on-premises data centers to resources running in a VNET. 
-- **VNET to VNET** – you can securely connect across Azure VNETS within the same region, or across regions to build workloads with geo-redundancy.
+- **De pointe à site** : vous pouvez accéder en toute sécurité vos ressources Azure hébergées sur un réseau virtuel à l'aide d'un client VPN à partir de n'importe quel ordinateur. 
+- **Connexion multisite** : vous pouvez vous connecter en toute sécurité à partir de vos centres de données locaux à des ressources en cours d'exécution sur un réseau virtuel. 
+- **De réseau virtuel à réseau virtuel** – vous pouvez vous connecter en toute sécurité entre des réseaux virtuels Azure de la même région, ou entre régions pour générer des charges de travail à redondance géographique.
 
-Key properties of a VPN gateway include:
+Les propriétés clés d'une passerelle VPN sont les suivantes :
  
-- **Gateway type** - dynamically routed or a static routed gateway. 
-- **VPN Client Address Pool Prefix** – IP addresses to be assigned to clients connecting in a point to site configuration.
+- **Type de passerelle** : passerelle acheminée de manière dynamique ou de manière statique. 
+- **Préfixe du pool d'adresses du client VPN** : adresses IP à affecter aux clients qui se connectent dans une configuration de point à site.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

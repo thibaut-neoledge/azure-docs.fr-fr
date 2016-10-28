@@ -1,43 +1,38 @@
 <properties
-    pageTitle="Sign ins from multiple geographies"
-    description="A report that indicates users where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions."
-    services="active-directory"
-    documentationCenter=""
-    authors="SSalahAhmed"
-    manager="gchander"
-    editor=""/>
+	pageTitle="Connexions depuis plusieurs zones géographiques"
+	description="Un rapport qui indique les utilisateurs lorsque deux connexions semblent être issues de régions différentes, alors que le laps de temps constaté entre ces connexions ne permet pas à l'utilisateur de se rendre d'une région à une autre."
+	services="active-directory"
+	documentationCenter=""
+	authors="SSalahAhmed"
+	manager="gchander"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/04/2016"
-    ms.author="saah;kenhoff"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/04/2016"
+	ms.author="saah;kenhoff"/>
+
+# Connexions depuis plusieurs zones géographiques
+
+Ce rapport inclut les connexions réussies d’un utilisateur durant lesquelles deux connexions semblent être issues de régions différentes, mais dont le laps de temps constaté entre ces connexions ne permet pas à l’utilisateur de se rendre d’une région à une autre. Les causes possibles sont :
+
+- L’utilisateur partage son mot de passe avec d’autres utilisateurs
+
+- L’utilisateur utilise un bureau à distance pour lancer un navigateur web pour la connexion
+
+- Un pirate s’est connecté au compte d’un utilisateur à partir d’un autre pays
+
+- L’utilisateur utilise une connexion VPN ou proxy
+
+- L’utilisateur est connecté à partir de plusieurs appareils en même temps, par exemple un ordinateur de bureau et un téléphone mobile, et l’adresse IP du téléphone mobile est inhabituelle.
+
+Les résultats de ce rapport vous indiqueront les événements de connexion réussie, ainsi que le laps de temps entre les connexions, les régions d’où les connexions semblent être issues et le temps de trajet estimé entre ces régions. Le temps de trajet indiqué n’est qu’une estimation et peut être différent de la durée de voyage réelle entre les emplacements.
 
 
-# <a name="sign-ins-from-multiple-geographies"></a>Sign-ins from multiple geographies
+![Connexions depuis plusieurs zones géographiques](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-This report includes successful sign-ins from a user where two sign-ins appeared to originate from different regions and the time between the sign-ins makes it impossible for the user to have traveled between those regions. Possible causes include:
-
-- User is sharing their password with other users
-
-- User is using a remote desktop to launch a web browser for sign-in
-
-- A hacker has signed in to the account of a user from a different country
-
-- User is using a VPN or proxy
-
-- User is signed in from multiple devices at the same time, such as a desktop and a mobile phone, and the IP address of the mobile phone is unusual.
-
-Results from this report will show you the successful sign-in events, together with the time between the sign-ins, the regions where the sign-ins appeared to originate from, and the estimated travel time between those regions. The travel time shown is only an estimate and may be different from the actual travel time between the locations.
-
-
-![Sign ins from multiple geographies](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---------HONumber=AcomDC_0309_2016-->

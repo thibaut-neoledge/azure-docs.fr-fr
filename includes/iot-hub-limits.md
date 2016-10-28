@@ -1,43 +1,40 @@
-The following table lists the limits associated with the different service tiers (S1, S2, S3, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+Le tableau suivant répertorie les limites associées aux différents niveaux de service (S1, S2, S3 et F1). Pour plus d'informations sur le coût de chaque *unité* dans chaque couche, consultez [la tarification du IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
+| Ressource | S1 Standard | S2 Standard | S3 Standard | F1 Gratuit |
 | -------- | ----------- | ----------- | ----------- | ------- |
-| Messages/day | 400,000 | 6,000,000   | 300,000,000 | 8,000   |
-| Maximum units | 200    | 200         | 200         | 1       |
+| Messages par jour | 400 000 | 6 000 000 | 300 000 000 | 8 000 |
+| Nombre maximum d'unités | 200 | 200 | 200 | 1 |
 
-> [AZURE.NOTE] If you anticipate using more than 200 units with an S1 or S2 or S3 tier hub, please contact Microsoft support.
+> [AZURE.NOTE] Si vous prévoyez d’utiliser plus de 200 unités avec un hub de niveau S1, S2 ou S3, veuillez contacter le support Microsoft.
 
-The following table lists the limits that apply to IoT Hub resources:
+Le tableau suivant répertorie les limites qui s'appliquent aux ressources IoT Hub :
 
-| Resource | Limit |
+| Ressource | Limite |
 | -------- | ----- |
-| Maximum paid IoT hubs per Azure subscription | 10 |
-| Maximum free IoT hubs per Azure subscription | 1 |
-| Maximum number of device identities<br/>  returned in a single call | 1000 |
-| IoT Hub message maximum retention for device-to-cloud messages | 7 days |
-| Maximum size of device-to-cloud message | 256 KB |
-| Maximum size of device-to-cloud batch | 256 KB |
-| Maximum messages in device-to-cloud batch | 500 |
-| Maximum size of cloud-to-device message | 64 KB |
-| Maximum TTL for cloud-to-device messages | 2 days |
-| Maximum delivery count for cloud-to-device <br/> messages | 100 |
-| Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message | 100 |
-| Maximum TTL for feedback messages in <br/> response to a cloud-to-device message | 2 days |
+| Nombre maximal d’IoT Hubs payants par abonnement Azure | 10 |
+| Nombre maximal d’IoT Hubs gratuits par abonnement Azure | 1 |
+| Nombre maximal d’identités de périphériques<br/> renvoyées dans un seul appel | 1 000 |
+| Conservation maximale des messages IoT Hub pour les messages de l’appareil vers le cloud | 7 jours |
+| Taille maximale du message appareil-à-cloud | 256 KB |
+| Taille maximale du lot appareil-à-cloud | 256 KB |
+| Nombre maximal de messages dans le lot appareil-à-cloud | 500 |
+| Taille maximale du message cloud-à-appareil | 64 Ko |
+| Durée de vie maximale des messages cloud-à-appareil | 2 jours |
+| Nombre de remises maximal pour les messages <br/> Cloud vers appareil | 100 |
+| Nombre de remises maximal pour les messages de commentaire <br/> en réponse à un message Cloud vers appareil | 100 |
+| Durée de vie maximale des messages de commentaire <br/> en réponse à un message Cloud vers appareil | 2 jours |
 
-> [AZURE.NOTE] If you need more than 10 paid IoT hubs in an Azure subscription, please contact Microsoft support.
+> [AZURE.NOTE] Si vous avez besoin de plus de 10 IoT Hubs payants dans un abonnement Azure, contacter le support technique Microsoft.
 
-The IoT Hub service throttles requests when the following quotas are exceeded:
+Le service IoT Hub limite les demandes cas de dépassement des quotas suivants :
 
-| Throttle | Per-hub value |
+| Limitation | Valeur par hub |
 | -------- | ------------- |
-| Identity registry operations <br/> (create, retrieve, list, update, delete), <br/> individual or bulk import/export | 5000/min/unit (for S3) <br/> 100/min/unit (for S1 and S2). |
-| Device connections | 6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
-| Device-to-cloud sends | 6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
-| Cloud-to-device sends | 5000/min/unit (for S3), 100/min/unit (for S1 and S2). |
-| Cloud-to-device receives | 50000/min/unit (for S3), 1000/min/unit (for S1 and S2). |
-| File upload operations | 5000 file upload notifications/min/unit (for S3), 100 file upload notifications/min/unit (for S1 and S2). <br/> 10000 SAS URIs can be out for a storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
+| Opérations de registre d’identité <br/> (création, récupération, création de listes, mise à jour, suppression), <br/> importation / exportation en bloc ou individuelle | 5000/min/unité (pour S3) <br/> 100/min/unité (pour S1 et S2). |
+| Connexions d’appareils | 6 000/s/unité (pour S3), 120/s/unité (pour S2), 12/s/unité (pour S1). <br/>Minimum de 100/s. |
+| Envois appareil-à-cloud | 6 000/s/unité (pour S3), 120/s/unité (pour S2), 12/s/unité (pour S1). <br/>Minimum de 100/s. |
+| Envois cloud-à-appareil | 5 000/min/unité (pour S3), 100/min/unité (pour S1 et S2). |
+| Réceptions cloud-à-appareil | 50 000/min/unité (pour S3), 1000/min/unité (pour S1 et S2). |
+| Opérations de téléchargement de fichier | 5 000 notifications de téléchargement de fichier/min/unité (pour S3), 100 notifications de téléchargement de fichier/min/unité (pourS1 et S2). <br/> 10 000 URI de signature d’accès partagé peuvent être générés à la fois pour un compte de stockage.<br/> 10 URI de signature d’accès partagé/appareil peuvent être générés à la fois. |
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

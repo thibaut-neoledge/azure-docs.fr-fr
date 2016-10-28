@@ -1,356 +1,351 @@
  <properties
-    pageTitle="Use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug applications running on HDInsight Spark clusters| Microsoft Azure"
-    description="Learn how use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug applications running on HDInsight Spark clusters."
-    services="hdinsight"
-    documentationCenter=""
-    authors="nitinme"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal"/>
+	pageTitle="Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour déboguer à distance des applications exécutées sur des clusters Spark HDInsight | Microsoft Azure"
+	description="Découvrez comment utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour déboguer à distance des applications exécutées sur des clusters Spark HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="jhubbard"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/09/2016"
-    ms.author="nitinme"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/09/2016"
+	ms.author="nitinme"/>
 
 
+# Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour déboguer des applications Spark à distance sur un cluster Linux Spark HDInsight
 
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-on-hdinsight-spark-linux-cluster"></a>Use HDInsight Tools in Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Spark Linux cluster
+Cet article fournit des instructions pas à pas sur l’utilisation d’HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin de soumettre un travail Spark sur un cluster Spark HDInsight et effectuer un débogage à distance à partir de votre ordinateur de bureau. Pour ce faire, vous devez effectuer les étapes suivantes :
 
-This article provides step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to submit a Spark job on HDInsight Spark cluster and then debug it remotely from your desktop computer. To do so, you must perform the following high-level steps:
+1. Créer un réseau virtuel Azure de site à site ou de point à site. Les étapes décrites dans ce document supposent d’utiliser un réseau de site à site.
 
-1. Create a site-to-site or point-to-site Azure Virtual Network. The steps in this document assume that you use a site-to-site network.
+2. Créer dans Azure HDInsight un cluster Spark faisant partie du réseau virtuel Azure de site à site.
 
-2. Create a Spark cluster in Azure HDInsight that is part of the site-to-site Azure Virtual Network.
+3. Vérifier la connectivité entre votre ordinateur de bureau et le nœud principal du cluster.
 
-3. Verify the connectivity between the cluster headnode and your desktop.
+4. Créer une application Scala dans IntelliJ IDEA et la configurer pour le débogage à distance.
 
-4. Create a Scala application in IntelliJ IDEA and configure it for remote debugging.
+5. Exécuter et déboguer l’application.
 
-5. Run and debug the application.
+##Composants requis
 
-##<a name="prerequisites"></a>Prerequisites
+* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
  
-* Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer [ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
  
-* IntelliJ IDEA. This article uses version 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
+* IntelliJ IDEA. Cet article utilise la version 15.0.1. Vous pouvez l’installer [ici](https://www.jetbrains.com/idea/download/).
  
-* HDInsight Tools in Azure Toolkit for IntelliJ. HDInsight tools for IntelliJ are available as part of the Azure Toolkit for IntelliJ. For instructions on how to install the Azure Toolkit, see [Installing the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
+* HDInsight Tools dans le kit de ressources Azure pour IntelliJ. HDInsight Tools pour IntelliJ est disponible dans le cadre du kit de ressources Azure pour IntelliJ. Pour obtenir des instructions sur l’installation du kit de ressources Azure, voir [Installation du kit de ressources Azure pour IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
-* Log into your Azure Subscription from IntelliJ IDEA. Follow the instructions [here](hdinsight-apache-spark-intellij-tool-plugin.md#log-into-your-azure-subscription).
+* Connectez-vous à votre abonnement Azure à partir d’IntelliJ IDEA. Suivez les instructions disponibles [ici](hdinsight-apache-spark-intellij-tool-plugin.md#log-into-your-azure-subscription).
  
-* While running Spark Scala application for remote debugging on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) that occurs due to a missing WinUtils.exe on Windows. To work around this error, you must [download the executable from here](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**. You must then add an environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
+* Lorsque vous exécutez l’application Spark Scala sur un ordinateur Windows pour un débogage à distance, vous pouvez obtenir une exception liée à l’absence d’un fichier WinUtils.exe sur Windows, comme expliqué dans le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Pour résoudre cette erreur, vous devez [télécharger le fichier exécutable à partir d’ici](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\\WinUtils\\bin**. Vous devez ensuite ajouter une variable d’environnement **HADOOP\_HOME** et définir la valeur de la variable sur **C\\WinUtils**.
 
-## <a name="step-1:-create-an-azure-virtual-network"></a>Step 1: Create an Azure Virtual Network
+## Étape 1 : créer un réseau virtuel Azure
 
-Follow the instructions from the below links to create an Azure Virtual Network and then verify the connectivity between the desktop and Azure Virtual Network.
+Suivez les instructions contenues dans les liens ci-dessous pour créer un réseau virtuel Azure, puis vérifiez la connectivité entre votre ordinateur de bureau et le réseau virtuel Azure.
 
-* [Create a VNet with a site-to-site VPN connection using Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Create a VNet with a site-to-site VPN connection using PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* [Configure a point-to-site connection to a virtual network using PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Créer un réseau virtuel avec une connexion VPN de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Configurer une connexion point à site à un réseau virtuel à l’aide de PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-## <a name="step-2:-create-an-hdinsight-spark-cluster"></a>Step 2: Create an HDInsight Spark cluster
+## Étape 2 : créer un cluster Spark HDInsight
 
-You should also create an Apache Spark cluster on Azure HDInsight that is part of the Azure Virtual Network that you created. Use the information available at [Create Linux-based clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). As part of optional configuration, select the Azure Virtual Network that you created in the previous step.
+Vous devez également créer dans Azure HDInsight un cluster Apache Spark faisant partie du réseau virtuel Azure que vous avez créé. Utilisez les informations contenues dans l’article [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Dans le cadre de la configuration facultative, sélectionnez le réseau virtuel Azure que vous avez créé à l’étape précédente.
 
-## <a name="step-3:-verify-the-connectivity-between-the-cluster-headnode-and-your-desktop"></a>Step 3: Verify the connectivity between the cluster headnode and your desktop
+## Étape 3 : vérifier la connectivité entre votre ordinateur de bureau et le nœud principal du cluster
 
-1. Get the IP address of the headnode. Open Ambari UI for the cluster. From the cluster blade, click **Dashboard**.
+1. Récupérez l’adresse IP du nœud principal. Ouvrez l’interface utilisateur Ambari du cluster. Dans le panneau du cluster, cliquez sur **Tableau de bord**.
 
-    ![Find headnode IP](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-ambari-ui.png)
+	![Rechercher l’adresse IP du nœud principal](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-ambari-ui.png)
 
-2. From the Ambari UI, from the top-right corner, click **Hosts**.
+2. À partir de l’interface utilisateur Ambari, cliquez sur **Hôtes** en haut à droite.
 
-    ![Find headnode IP](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
+	![Rechercher l’adresse IP du nœud principal](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
 
-3. You should see a list of headnodes, worker nodes, and zookeeper nodes. The headnodes have the **hn*** prefix. Click the first headnode.
+3. Vous devez obtenir une liste de nœuds principaux, de nœuds worker et de nœuds zookeeper. Les nœuds principaux sont repérés à l’aide du préfixe **hn***. Cliquez sur le premier nœud principal.
 
-    ![Find headnode IP](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
+	![Rechercher l’adresse IP du nœud principal](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 
-4. At the bottom of the page that opens, from the **Summary** box, copy the IP address of the headnode and the host name.
+4. En bas de la page qui s’ouvre, dans la zone **Résumé**, copiez l’adresse IP du nœud principal et le nom d’hôte.
 
-    ![Find headnode IP](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address.png)
+	![Rechercher l’adresse IP du nœud principal](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address.png)
 
-5. Include the IP address and the host name of the headnode to the **hosts** file on the computer from where you want to run and remotely debug the Spark jobs. This will enable you to communicate with the headnode using the IP address as well as the hostname.
+5. Ajoutez l’adresse IP et le nom d’hôte du nœud principal au fichier **hosts** de l’ordinateur sur lequel vous souhaitez exécuter et déboguer à distance les travaux Spark. Cela vous permettra de communiquer avec le nœud principal à l’aide de l’adresse IP et du nom d’hôte.
 
-    1. Open a notepad with elevated permissions. From the file menu, click **Open** and then navigate to the location of the hosts file. On a Windows computer, it is `C:\Windows\System32\Drivers\etc\hosts`.
+	1. Ouvrez un bloc-notes avec des autorisations élevées. Dans le menu Fichier, cliquez sur **Ouvrir** et accédez à l’emplacement du fichier hosts. Sur un ordinateur Windows, ce fichier se trouve dans le répertoire `C:\Windows\System32\Drivers\etc\hosts`.
 
-    2. Add the following to the **hosts** file.
+	2. Ajoutez le code suivant au fichier **hosts**.
 
-            # For headnode0
-            192.xxx.xx.xx hn0-nitinp
-            192.xxx.xx.xx hn0-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
+			# For headnode0
+			192.xxx.xx.xx hn0-nitinp
+			192.xxx.xx.xx hn0-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
 
-            # For headnode1
-            192.xxx.xx.xx hn1-nitinp
-            192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
+			# For headnode1
+			192.xxx.xx.xx hn1-nitinp
+			192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
 
 
-5. From the computer that you connected to the Azure Virtual Network that is used by the HDInsight cluster, verify that you can ping both the headnodes using the IP address as well as the hostname.
+5. À partir de l’ordinateur que vous avez connecté au réseau virtuel Azure utilisé par le cluster HDInsight, vérifiez que vous pouvez exécuter une commande ping sur les nœuds principaux aussi bien avec l’adresse IP qu’avec le nom d’hôte.
 
-6. SSH into the cluster headnode using the instructions at [Connect to an HDInsight cluster using SSH](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster). From the cluster headnode, ping the IP address of the desktop computer. You should test connectivity to both the IP addresses assigned to the computer, one for the network connection and the other for the Azure Virtual Network that the computer is connected to.
+6. Exécutez une commande SSH dans le nœud principal du cluster en suivant les instructions fournies dans la section [Connexion à un cluster HDInsight sous Linux](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster). À partir du nœud principal du cluster, exécutez une commande ping sur l’adresse IP de l’ordinateur de bureau. Vous devez tester la connectivité aux deux adresses IP affectées à l’ordinateur, une pour la connexion réseau et l’autre pour le réseau virtuel Azure auquel l’ordinateur est connecté.
 
-7. Repeat the steps for the other headnode as well. 
+7. Répétez également ces étapes pour l’autre nœud principal.
 
-## <a name="step-4:-create-a-spark-scala-application-using-the-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Step 4: Create a Spark Scala application using the HDInsight Tools in Azure Toolkit for IntelliJ and configure it for remote debugging
+## Étape 4 : créer une application Spark Scala à l’aide d’HDInsight Tools dans le kit de ressources Azure pour IntelliJ et la configurer pour le débogage à distance
 
-1. Launch IntelliJ IDEA and create a new project. In the new project dialog box, make the following choices, and then click **Next**.
+1. Lancez IntelliJ IDEA et créez un nouveau projet. Dans la boîte de dialogue Nouveau projet, choisissez les options suivantes, puis cliquez sur **Suivant**.
 
-    ![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+	![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-    * From the left pane, select **HDInsight**.
-    * From the right pane, select **Spark on HDInsight (Scala)**.
-    * Click **Next**.
+	* Dans le volet gauche, sélectionnez **HDInsight**.
+	* Dans le volet droit, sélectionnez **Spark on HDInsight (Scala)** (Spark on HDInsight (Scala)).
+	* Cliquez sur **Next**.
 
-2. In the next window, provide the project details.
+2. Dans la fenêtre suivante, fournissez les informations de projet.
 
-    * Provide a project name and project location.
-    * For **Project SDK**, make sure you provide a Java version greater than 7.
-    * For **Scala SDK**, click **Create**, click **Download**, and then select the version of Scala to use. **Make sure you do not use version 2.11.x**. This sample uses version **2.10.6**.
+	* Fournissez un nom de projet et un emplacement de projet.
+	* Pour **Project SDK** (Kit de développement logiciel (SDK) de projet), prenez soin d’indiquer une version de Java supérieure à la version 7.
+	* Pour **Scala SDK** (Kit de développement logiciel de Scala (SDK)), cliquez sur **Create** (Créer), cliquez sur **Download** (Télécharger), puis sélectionnez la version de Scala à utiliser. **Assurez-vous que vous n’utilisez pas la version 2.11.x**. Cet exemple utilise la version **2.10.6**.
 
-        ![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-version.png)
+		![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-version.png)
 
-    * For **Spark SDK**, download and use the SDK from [here](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). You can also ignore this and use the [Spark Maven repository](http://mvnrepository.com/search?q=spark) instead, however please make sure you have the right maven repository installed to develop your Spark applications. (For example, you need to make sure you have the Spark Streaming part installed if you are using Spark Streaming; Also please make sure you are using the repository marked as Scala 2.10 - do not use the repository marked as Scala 2.11.)
+	* Pour le **Kit de développement logiciel (SDK) Spark**, téléchargez et utilisez le Kit de développement logiciel (SDK) disponible [ici](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Vous pouvez également ignorer ce dernier et utiliser le [référentiel Spark Maven](http://mvnrepository.com/search?q=spark) à la place. Toutefois, vérifiez que vous disposez du référentiel Maven approprié pour développer vos applications Spark. (Par exemple, vous devez vous assurer que le module Spark Streaming est installé si vous utilisez la fonctionnalité de diffusion en continu de Spark. En outre, vérifiez que vous utilisez le référentiel libellé Scala 2.10 ; n’utilisez pas le référentiel Scala 2.11.)
 
-        ![Create Spark Scala application](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
+		![Créer une application Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
 
-    * Click **Finish**.
+	* Cliquez sur **Terminer**.
 
-3. The Spark project will automatically create an artifact for you. To see the artifact, follow these steps.
+3. Le projet Spark crée automatiquement un artefact à votre intention. Pour voir l’artefact, procédez comme suit.
 
-    1. From the **File** menu, click **Project Structure**.
-    2. In the **Project Structure** dialog box, click **Artifacts** to see the default artifact that is created.
+	1. Dans le menu **Fichier**, cliquez sur **Structure de projet**.
+	2. Dans la boîte de dialogue **Project Structure** (Structure de projet), cliquez sur **Artifacts** (Artefacts) pour afficher l’artefact créé par défaut.
 
-        ![Create JAR](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
+		![Créer un fichier jar](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
-    You can also create your own artifact bly clicking on the **+** icon, highlighted in the image above.
+	Vous pouvez également créer votre propre artefact en cliquant sur l’icône **+** mis en surbrillance dans la capture d’écran ci-dessus.
 
-4. In the **Project Structure** dialog box, click **Project**. If the **Project SDK** is set to 1.8, make sure the **Project language level** is set to **7 - Diamonds, ARM, multi-catch, etc**.
+4. Dans la boîte de dialogue **Project Structure** (Structure de projet), cliquez sur **Project** (Projet). Si le **Project SDK** (SDK du projet) est défini sur 1.8, assurez-vous que le **Project language level** (Niveau de langage du projet) est défini sur **7 - Diamonds, ARM, multi-catch, etc**.
 
-    ![Set project language level](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/set-project-language-level.png)
+	![Définir le niveau de langage du projet](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/set-project-language-level.png)
 
-4. Add libraries to your project. To add a library, right-click the project name in the project tree, and then click **Open Module Settings**. In the **Project Structure** dialog box, from the left pane, click **Libraries**, click the (+) symbol, and then click **From Maven**. 
+4. Ajoutez des bibliothèques à votre projet. Pour ajouter une bibliothèque, cliquez avec le bouton droit sur le nom du projet dans l’arborescence du projet, puis cliquez sur **Open Module Settings** (Ouvrir les paramètres du module). Dans la boîte de dialogue **Structure de projet**, dans le volet gauche, cliquez sur **Bibliothèques**, cliquez sur le signe plus (+), puis cliquez sur **From Maven** (À partir de Maven).
 
-    ![Add library](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png) 
+	![Ajouter une bibliothèque](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
 
-    In the **Download Library from Maven Repository** dialog box, search and add the following libraries.
+	Dans la boîte de dialogue **Download Library from Maven Repository** (Télécharger la bibliothèque à partir du référentiel Maven), recherchez et ajoutez les bibliothèques suivantes.
 
-    * `org.scalatest:scalatest_2.10:2.2.1`
-    * `org.apache.hadoop:hadoop-azure:2.7.1`
+	* `org.scalatest:scalatest_2.10:2.2.1`
+	* `org.apache.hadoop:hadoop-azure:2.7.1`
 
-5. Copy `yarn-site.xml` and `core-site.xml` from the cluster headnode and add it to the project. Use the following commands to copy the files. You can use [Cygwin](https://cygwin.com/install.html) to run the following `scp` commands to copy the files from the cluster headnodes.
+5. Copiez `yarn-site.xml` et `core-site.xml` à partir du nœud principal du cluster et ajoutez-les au projet. Exécutez les commandes suivantes pour copier les fichiers. Vous pouvez utiliser [Cygwin](https://cygwin.com/install.html) pour exécuter les commandes `scp` suivantes afin de copier les fichiers à partir des nœuds principaux du cluster.
 
-        scp <ssh user name>@<headnode IP address or host name>://etc/hadoop/conf/core-site.xml .
-
-    Because we already added the cluster headnode IP address and hostnames fo the hosts file on the desktop, we can use the **scp** commands in the following manner.
-
-        scp sshuser@hn0-nitinp:/etc/hadoop/conf/core-site.xml .
-        scp sshuser@hn0-nitinp:/etc/hadoop/conf/yarn-site.xml .
-
-    Add these files to your project by copying them under the **/src** folder in your project tree, for example `<your project directory>\src`.
-
-6. Update the `core-site.xml` to make the following changes.
-
-    1. `core-site.xml` includes the encrypted key to the storage account associated with the cluster. In the `core-site.xml` that you added to the project, replace the encrypted key with the actual storage key associated with the default storage account. See [Manage your storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account).
-
-            <property>
-                <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>
-                <value>access-key-associated-with-the-account</value>
-            </property>
+		scp <ssh user name>@<headnode IP address or host name>://etc/hadoop/conf/core-site.xml .
+
+	Étant donné que nous avons déjà ajouté l’adresse IP et les noms d’hôtes des nœuds principaux du cluster au fichier hosts de notre ordinateur de bureau, nous pouvons utiliser les commandes **scp** de la manière suivante.
+
+		scp sshuser@hn0-nitinp:/etc/hadoop/conf/core-site.xml .
+		scp sshuser@hn0-nitinp:/etc/hadoop/conf/yarn-site.xml .
+
+	Ajoutez ces fichiers à votre projet en les copiant dans le dossier **/src** dans l’arborescence de votre projet, par exemple `<your project directory>\src`.
+
+6. Mettez à jour le fichier `core-site.xml` pour effectuer les modifications suivantes.
+
+	1. Le fichier `core-site.xml` inclut la clé chiffrée du compte de stockage associé au cluster. Dans le fichier `core-site.xml` que vous avez ajouté au projet, remplacez la clé chiffrée par la clé de stockage réelle associée au compte de stockage par défaut. Voir [Gérer vos clés d’accès de stockage](../storage/storage-create-storage-account.md#manage-your-storage-account).
+
+			<property>
+	      		<name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>
+	      		<value>access-key-associated-with-the-account</value>
+	    	</property>
 
-    2. Remove the following entries from the `core-site.xml`.
+	2. Supprimez les entrées suivantes du fichier `core-site.xml`.
 
-            <property>
-                <name>fs.azure.account.keyprovider.hdistoragecentral.blob.core.windows.net</name>
-                <value>org.apache.hadoop.fs.azure.ShellDecryptionKeyProvider</value>
-            </property>
+			<property>
+      			<name>fs.azure.account.keyprovider.hdistoragecentral.blob.core.windows.net</name>
+      			<value>org.apache.hadoop.fs.azure.ShellDecryptionKeyProvider</value>
+			</property>
 
-            <property>
-                <name>fs.azure.shellkeyprovider.script</name>
-                <value>/usr/lib/python2.7/dist-packages/hdinsight_common/decrypt.sh</value>
-            </property>
+			<property>
+		      	<name>fs.azure.shellkeyprovider.script</name>
+		      	<value>/usr/lib/python2.7/dist-packages/hdinsight_common/decrypt.sh</value>
+		    </property>
 
-            <property>
-                <name>net.topology.script.file.name</name>
-                <value>/etc/hadoop/conf/topology_script.py</value>
-            </property>
+			<property>
+      			<name>net.topology.script.file.name</name>
+      			<value>/etc/hadoop/conf/topology_script.py</value>
+    		</property>
 
-    3. Save the file.
+	3. Enregistrez le fichier .
 
-7. Add the Main class for your application. From the **Project Explorer**, right-click **src**, point to **New**, and then click **Scala class**.
+7. Ajoutez la classe principale pour votre application. Dans **Project Explorer** (Explorateur de projets), cliquez avec le bouton droit sur **src**, pointez sur **New** (Nouveau), puis cliquez sur **Scala class** (Classe Scala).
 
-    ![Add source code](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
+	![Ajouter le code source](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 
-8. In the **Create New Scala Class** dialog box, provide a name, for **Kind** select **Object**, and then click **OK**.
+8. Dans la boîte de dialogue **Create New Scala Class** (Créer une classe Scala), indiquez un nom, dans la zone **Kind** (Genre), sélectionnez **Object** (Objet), puis cliquez sur **OK**.
 
-    ![Add source code](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
+	![Ajouter le code source](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
-9. In the `MyClusterAppMain.scala` file, paste the following code. This code creates the Spark context and launches an `executeJob` method from the `SparkSample` object.
+9. Collez le code suivant dans le fichier `MyClusterAppMain.scala`. Ce code crée le contexte Spark et lance une méthode `executeJob` à partir de l’objet `SparkSample`.
 
 
-        import org.apache.spark.{SparkConf, SparkContext}
+		import org.apache.spark.{SparkConf, SparkContext}
 
-        object SparkSampleMain {
-          def main (arg: Array[String]): Unit = {
-            val conf = new SparkConf().setAppName("SparkSample")
-                                      .set("spark.hadoop.validateOutputSpecs", "false")
-            val sc = new SparkContext(conf)
-        
-            SparkSample.executeJob(sc,
-                                   "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
-                                   "wasbs:///HVACOut")
-          }
-        }
+		object SparkSampleMain {
+		  def main (arg: Array[String]): Unit = {
+		    val conf = new SparkConf().setAppName("SparkSample")
+		                              .set("spark.hadoop.validateOutputSpecs", "false")
+		    val sc = new SparkContext(conf)
+		
+		    SparkSample.executeJob(sc,
+		                           "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
+		                           "wasbs:///HVACOut")
+		  }
+		}
 
-10. Repeat steps 8 and 9 above to add a new Scala object called `SparkSample`. To this class add the following code. This code reads the data from the HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that only have one digit in the seventh column in the CSV, and writes the output to **/HVACOut** under the default storage container for the cluster.
+10. Répétez les étapes 8 et 9 ci-dessus pour ajouter un nouvel objet Scala appelé `SparkSample`. Ajoutez le code suivant à cette classe. Ce code lit les données du fichier HVAC.csv (disponible sur tous les clusters HDInsight Spark), récupère les lignes qui contiennent uniquement un chiffre dans la septième colonne du fichier CSV et écrit la sortie dans **/HVACOut** sous le conteneur de stockage par défaut du cluster.
 
-        import org.apache.spark.SparkContext
-    
-        object SparkSample {
-          def executeJob (sc: SparkContext, input: String, output: String): Unit = {
-            val rdd = sc.textFile(input)
-        
-            //find the rows which have only one digit in the 7th column in the CSV
-            val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
-        
-            val s = sc.parallelize(rdd.take(5)).cartesian(rdd).count()
-            println(s)
-        
-            rdd1.saveAsTextFile(output)
-            //rdd1.collect().foreach(println)
-          }
-        
-        }
+		import org.apache.spark.SparkContext
+	
+		object SparkSample {
+		  def executeJob (sc: SparkContext, input: String, output: String): Unit = {
+		    val rdd = sc.textFile(input)
+		
+		    //find the rows which have only one digit in the 7th column in the CSV
+		    val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
+		
+		    val s = sc.parallelize(rdd.take(5)).cartesian(rdd).count()
+		    println(s)
+		
+		    rdd1.saveAsTextFile(output)
+		    //rdd1.collect().foreach(println)
+		  }
+		
+		}
 
-11. Repeat steps 8 and 9 above to add a new class called `RemoteClusterDebugging`. This class implements the Spark test framework that is used for debugging applications. Add the following code to the `RemoteClusterDebugging` class.
+11. Répétez les étapes 8 et 9 ci-dessus pour ajouter une nouvelle classe appelée `RemoteClusterDebugging`. Cette classe implémente l’infrastructure de test Spark utilisée pour le débogage des applications. Ajoutez le code suivant à la classe `RemoteClusterDebugging`.
 
-        import org.apache.spark.{SparkConf, SparkContext}
-        import org.scalatest.FunSuite
-        
-        class RemoteClusterDebugging extends FunSuite {
-        
-          test("Remote run") {
-            val conf = new SparkConf().setAppName("SparkSample")
-                                      .setMaster("yarn-client")
-                                      .set("spark.yarn.am.extraJavaOptions", "-Dhdp.version=2.4")
-                                      .set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
-                                      .setJars(Seq("""C:\WORK\IntelliJApps\MyClusterApp\out\artifacts\MyClusterApp_DefaultArtifact\default_artifact.jar"""))
-                                      .set("spark.hadoop.validateOutputSpecs", "false")
-            val sc = new SparkContext(conf)
-        
-            SparkSample.executeJob(sc,
-              "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
-              "wasbs:///HVACOut")
-          }
-        }
+		import org.apache.spark.{SparkConf, SparkContext}
+		import org.scalatest.FunSuite
+		
+		class RemoteClusterDebugging extends FunSuite {
+		
+		  test("Remote run") {
+		    val conf = new SparkConf().setAppName("SparkSample")
+		                              .setMaster("yarn-client")
+		                              .set("spark.yarn.am.extraJavaOptions", "-Dhdp.version=2.4")
+		                              .set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
+		                              .setJars(Seq("""C:\WORK\IntelliJApps\MyClusterApp\out\artifacts\MyClusterApp_DefaultArtifact\default_artifact.jar"""))
+		                              .set("spark.hadoop.validateOutputSpecs", "false")
+		    val sc = new SparkContext(conf)
+		
+		    SparkSample.executeJob(sc,
+		      "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv",
+		      "wasbs:///HVACOut")
+		  }
+		}
 
-    Couple of important things to note here:
-    
-    * For `.set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`, make sure the Spark assembly JAR is available on the cluster storage at the specified path.
-    * For `setJars`, specify the location where the artifact jar will be created. Typically it is `<Your IntelliJ project directory>\out\<project name>_DefaultArtifact\default_artifact.jar`. 
+	Deux points importants sont ici à prendre en considération :
+	
+	* Pour `.set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`, assurez-vous que le fichier JAR de l’assembly Spark est disponible sur le stockage de cluster dans le chemin d’accès spécifié.
+	* Pour `setJars`, spécifiez l’emplacement où le fichier jar de l’artefact sera créé. En général, il s’agit du répertoire `<Your IntelliJ project directory>\out<project name>_DefaultArtifact\default_artifact.jar`.
 
 
-11. In the `RemoteClusterDebugging` class, right-click the `test` keyword and select **Create RemoteClusterDebugging Configuration**.
+11. Dans la classe `RemoteClusterDebugging`, cliquez avec le bouton droit sur le mot-clé `test` et sélectionnez **Create RemoteClusterDebugging Configuration** (Créer une configuration RemoteClusterDebugging).
 
-    ![Create remote configuration](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
+	![Créer une configuration distante](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
-12. In the dialog box, provide a name for the configuration, and select the **Test kind** as **Test name**. Leave all other values as default, click **Apply**, and then click **OK**.
+12. Dans la boîte de dialogue, entrez un nom pour la configuration, puis sélectionnez **Test kind** (Type de test) comme **Test name** (Nom de test). Laissez toutes les autres valeurs par défaut, cliquez sur **Appliquer**, puis cliquez sur **OK**.
 
-    ![Create remote configuration](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
+	![Créer une configuration distante](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
 
 
 
-13. You should now see a **Remote Run** configuration drop-down in the menu bar. 
+13. Une liste déroulante **Remote Run** (Exécution à distance) s’affiche maintenant dans la barre de menus.
 
-    ![Create remote configuration](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/config-run.png)
+	![Créer une configuration distante](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/config-run.png)
 
-## <a name="step-5:-run-the-application-in-debug-mode"></a>Step 5: Run the application in debug mode
+## Étape 5 : exécuter l’application en mode débogage
 
-1. In your IntelliJ IDEA project, open `SparkSample.scala` and create a breakpoint next to `val rdd1'. In the pop-up menu for creating a breakpoint, select **line in function executeJob**.
+1. Dans votre projet IntelliJ IDEA, ouvrez `SparkSample.scala` et créez un point d’arrêt en regard de « val rdd1 ». Dans le menu contextuel permettant de créer un point d’arrêt, sélectionnez **line in function executeJob** (ligne dans la fonction executeJob).
 
-    ![Add a breakpoint](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-breakpoint.png)
+	![Ajouter un point d’arrêt](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-breakpoint.png)
 
-2. Click the **Debug Run** button next to the **Remote Run** configuration drop-down to start running the application.
+2. Cliquez sur le bouton **Debug Run** (Exécuter le débogage) situé en regard de la liste déroulante de configuration **Remote Run** (Exécution à distance) pour commencer à exécuter l’application.
 
-    ![Run the program in debug mode](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode.png)
+	![Exécuter le programme en mode débogage](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode.png)
 
-3. When the program execution reaches the breakpoint, you should see a **Debugger** tab in the bottom pane.
+3. Lorsque l’exécution du programme atteint le point d’arrêt, un onglet **Debugger** (Débogueur) doit apparaître dans le volet inférieur.
 
-    ![Run the program in debug mode](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch.png)
+	![Exécuter le programme en mode débogage](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch.png)
 
-4. Click the (**+**) icon to add a watch as shown in the image below. 
+4. Cliquez sur l’icône (**+**) pour ajouter une surveillance, comme l’illustre l’image ci-dessous.
 
-    ![Run the program in debug mode](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
+	![Exécuter le programme en mode débogage](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
-    Here, because the application broke before the variable `rdd1` was created, using this watch we can see what are the first 5 rows in the variable `rdd`. Press **ENTER**.
+	Dans ce cas, étant donné que l’application s’est arrêtée avant la création de la variable `rdd1`, cette surveillance nous permet de voir les cinq premières lignes de la variable `rdd`. Appuyez sur **ENTRÉE**.
 
-    ![Run the program in debug mode](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
+	![Exécuter le programme en mode débogage](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
 
-    What you see in the image above is that at runtime, you could query terrabytes of data and debug how your application progresses. For example, in the output shown in the image above, you can see that the first row of the output is a header. Based on this, you can modify your application code to skip the header row if required.
+	Dans l’image ci-dessus, on constate que, au moment de l’exécution, il est possible d’interroger des téraoctets de données et de corriger la progression de votre application. Par exemple, dans la sortie illustrée ci-dessus, vous pouvez voir que la première ligne de la sortie est un en-tête. Sur cette base, vous pouvez modifier votre code d’application pour ignorer la ligne d’en-tête si nécessaire.
 
-5. You can now click the **Resume Program** icon to proceed with your application run.
+5. Vous pouvez maintenant cliquer sur l’icône **Resume Program** (Reprendre le programme) pour poursuivre l’exécution de votre application.
 
-    ![Run the program in debug mode](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-run.png)
+	![Exécuter le programme en mode débogage](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-run.png)
 
-6. If the application completes successfully, you should see an output like the following.
+6. Si l’application s’exécute correctement, vous devez obtenir une sortie similaire à ce qui suit.
 
-    ![Run the program in debug mode](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
+	![Exécuter le programme en mode débogage](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
  
 
-## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
+## <a name="seealso"></a>Voir aussi
 
 
-* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### <a name="scenarios"></a>Scenarios
+### Scénarios
 
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>Create and run applications
+### Créer et exécuter des applications
 
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-### <a name="tools-and-extensions"></a>Tools and extensions
+### Outils et extensions
 
-* [Use HDInsight Tools in Azure Toolkit for IntelliJ to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Utiliser HDInsight Tools dans le kit de ressources Azure pour Eclipse pour créer des applications Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Manage resources
+### Gestion des ressources
 
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

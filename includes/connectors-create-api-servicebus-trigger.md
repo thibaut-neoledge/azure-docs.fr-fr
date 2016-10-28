@@ -1,17 +1,14 @@
-Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.  
+Nous allons ici utiliser le déclencheur **Service Bus - Réception d’un message dans une file d’attente** pour initier un flux de travail logique application lorsqu’un nouvel élément est ajouté à une file d’attente Service Bus.
 
->[AZURE.NOTE]You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.  
+>[AZURE.NOTE]Vous serez invité à vous connecter avec votre chaîne de connexion Service Bus si vous n’avez pas encore créé une connexion à Service Bus.
 
-1. In the search box on the logic apps designer, enter **service bus**. Then select the **Service Bus - When a message is received in a queue** trigger.  
-![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-- The **When a message is received in a queue** dialog box is displayed.  
-![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-- Enter the name of the Service Bus queue you would like the trigger to monitor.   
-![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. Saisissez *service bus* dans la zone de recherche sur le concepteur d’applications logiques, puis sélectionnez le déclencheur **Service Bus - Réception d’un message dans une file d’attente**.  
+![Image de déclencheur Service Bus 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+- Le contrôle **Réception d’un message dans une file d’attente** s’affiche.  
+![Image de déclencheur Service Bus 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+- Saisissez le nom de la file d’attente Service Bus que vous souhaitez que le déclencheur surveille.  
+![Image de déclencheur Service Bus 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-At this point, your logic app has been configured with a trigger. When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.    
+À ce stade, votre application logique a été configurée avec un déclencheur. Lorsqu’un nouvel élément est reçu dans la file d’attente que vous avez sélectionnée, le déclencheur lance une série d'autres déclencheurs et actions dans le flux de travail.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

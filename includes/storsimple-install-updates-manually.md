@@ -1,17 +1,15 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-regular-updates-via-the-azure-classic-portal"></a>To install regular updates via the Azure classic portal
+#### Pour installer des mises à jour périodiques par le biais du portail Azure Classic
 
-1. On the **Devices** page, select the device on which you want to install updates.
+1. À la page **Appareils**, sélectionnez l’appareil sur lequel vous souhaitez installer les mises à jour.
 
-2. Navigate to **Devices** > **Maintenance** and scroll down to **Software Updates**.
+2. Accédez à **Appareils** > **Maintenance** et faites défiler l’écran jusqu’à l’option **Mises à jour logicielles**.
 
-3. To check for updates, click **Check Updates** at the bottom of the page.
+3. Pour vérifier si des mises à jour sont disponibles, cliquez sur **Vérifier les mises à jour** en bas de la page.
 
-4. You will see a message if software updates are available. Click **Install Updates** to begin updating the device.
+4. Un message s’affiche si des mises à jour logicielles sont disponibles. Cliquez sur **Installer les mises à jour** pour lancer la mise à jour de l’appareil.
 
-    You will be notified when the update is successfully installed.
+    Un message s’affiche lorsque la mise à jour est correctement installée.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0128_2016-->

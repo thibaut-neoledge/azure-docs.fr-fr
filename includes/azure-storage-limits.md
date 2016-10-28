@@ -1,46 +1,42 @@
-Resource|Default Limit
+Ressource|Limite par défaut
 ---|---
-Number of storage accounts per subscription|200<sup>1</sup>
-TB per storage account|500 TB
-Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
-Max size of a single blob container, table, or queue|500 TB
-Max number of blocks in a block blob or append blob|50,000
-Max size of a block in a block blob or append blob|4 MB
-Max size of a block blob or append blob|50,000 X 4 MB (approx. 195 GB) 
-Max size of a page blob |1 TB
-Max size of a table entity|1 MB
-Max number of properties in a table entity|252
-Max size of a message in a queue|64 KB
-Max size of a file share|5 TB
-Max size of a file in a file share|1 TB
-Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
-Max 8 KB IOPS per share|1000
-Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
-Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
-Max number of stored access policies per container, file share, table, or queue|5
-Total Request Rate (assuming 1KB object size) per storage account|Up to 20,000 IOPS, entities per second, or messages per second
-Target throughput for single blob|Up to 60 MB per second, or up to 500 requests per second
-Target throughput for single queue (1 KB messages)|Up to 2000 messages per second
-Target throughput for single table partition (1 KB entities)|Up to 2000 entities per second
-Target throughput for single file share|Up to 60 MB per second
-Max ingress<sup>2</sup> per storage account (US Regions)|10 Gbps if GRS/ZRS<sup>3</sup> enabled, 20 Gbps for LRS
-Max egress<sup>2</sup> per storage account (US Regions)|20 Gbps if RA-GRS/GRS/ZRS<sup>3</sup> enabled, 30 Gbps for LRS
-Max ingress<sup>2</sup> per storage account (European and Asian Regions)|5 Gbps if GRS/ZRS<sup>3</sup> enabled, 10 Gbps for LRS
-Max egress<sup>2</sup> per storage account (European and Asian Regions)|10 Gbps if RA-GRS/GRS/ZRS<sup>3</sup> enabled, 15 Gbps for LRS
+Nombre de comptes de stockage par abonnement|200<sup>1</sup>
+To par compte de stockage|500 To
+Nombre maximal de conteneurs d'objets blob, de partages de fichiers, de tables, de files d'attente, d'entités ou de messages par compte de stockage|La seule limite est celle de 500 To de la capacité du compte de stockage
+Taille maximale d'un conteneur d'objets blob, d'une table ou d'une file d'attente|500 To
+Nombre maximal de blocs dans un objet blob de blocs ou ajouter des objets blob|50 000
+Taille maximale d'un bloc dans un objet blob de blocs ou ajouter des objets blob|4 Mo
+Taille maximale d'un objet blob de blocs ou ajouter des objets blob|50 000 X 4 Mo (195 Go environ) 
+Taille maximale d'un objet blob de pages |1 To
+Taille maximale d'une entité de table|1 Mo
+Nombre maximal de propriétés dans une entité de table|252
+Taille maximale d'un message dans une file d'attente|64 Ko
+Taille maximale d'un partage de fichiers|5 To
+Taille maximale d'un fichier dans un partage de fichiers|1 To
+Nombre maximal de fichiers dans un partage de fichiers|La seule limite est celle de 5 To de la capacité totale du partage de fichiers
+Max 8 Ko IOPS par partage|1 000
+Nombre maximal de fichiers dans un partage de fichiers|La seule limite est celle de 5 To de la capacité totale du partage de fichiers
+Nombre maximal de conteneurs d'objets blob, de partages de fichiers, de tables, de files d'attente, d'entités ou de messages par compte de stockage|La seule limite est celle de 500 To de la capacité du compte de stockage
+Nombre maximal de stratégies d'accès stockées par conteneur, partage de fichiers, table ou file d'attente|5
+Taux de demandes total (objets de 1 Ko) par compte de stockage|Jusqu’à 20 000 opérations E/S, entités par seconde ou messages par seconde
+Débit cible pour un objet blob unique|Jusqu'à 60 Mo par seconde ou jusqu'à 500 demandes par seconde
+Débit cible pour une file d'attente unique (messages de 1 Ko)|Jusqu'à 2 000 messages par seconde
+Débit cible pour une partition de table unique (entités de 1 Ko)|Jusqu'à 2 000 entités par seconde
+Débit cible pour un partage de fichier unique|Jusqu’à 60 Mo par seconde
+Entrée max.<sup>2</sup> par compte de stockage (régions des États-Unis)|10 Gbit/s si GRS/ZRS<sup>3</sup> est activé, 20 Gbit/s pour LRS
+Sortie max.<sup>2</sup> par compte de stockage (régions des États-Unis)|20 Gbit/s si RA-GRS/GRS/ZRS<sup>3</sup> est activé, 30 Gbit/s pour LRS
+Entrée max.<sup>2</sup> par compte de stockage (régions d'Europe et d'Asie)|5 Gbit/s si GRS/ZRS<sup>3</sup> est activé, 10 Gbit/s pour LRS
+Sortie max.<sup>2</sup> par compte de stockage (régions d'Europe et d'Asie)|10 Gbit/s si RA-GRS/GRS/ZRS<sup>3</sup> est activé, 15 Gbit/s pour LRS
 
-<sup>1</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
+<sup>1</sup>Cela inclut à la fois les comptes de stockage standard et Premium. Si vous avez besoin de plus de 200 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/) pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise et pourra approuver jusqu’à 250 comptes de stockage.
 
-<sup>2</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
+<sup>2</sup>*Entrée* désigne toutes les données (requêtes) envoyées à un compte de stockage. *Sortie* désigne toutes les données (réponses) reçues d'un compte de stockage.
 
-<sup>3</sup>Azure Storage replication options include:
+<sup>3</sup>Les options de réplication Azure Storage sont les suivantes :
 
-- **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
-- **GRS**:  Geo-redundant storage. 
-- **ZRS**: Zone-redundant storage. Available only for block blobs. 
-- **LRS**: Locally redundant storage. 
+- **RA-GRS** : stockage géo-redondant avec accès en lecture. Si RA-GRS est activé, les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement principal.
+- **GRS** : stockage géo-redondant.
+- **ZRS** : stockage redondant dans une zone. Uniquement disponible pour les objets blob de blocs.
+- **LRS** : stockage localement redondant.
 
-
-
-<!--HONumber=Oct16_HO3-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,19 +1,13 @@
-### <a name="prerequisites"></a>Prerequisites
+### Composants requis
 
-- An [RSS](https://wikipedia.org/wiki/RSS) account  
-
-
-Before you can use your RSS account in a Logic app, you must authorize the Logic app to connect to your RSS account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
-
-Here are the steps to authorize your Logic app to connect to your RSS account:  
-1. To create a connection to RSS, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *RSS* in the search box. Select the trigger or action you'll like to use:  
-![RSS connection creation step](./media/connectors-create-api-rss/rss-1.png)  
-2. Select **Create connection** :  
-![RSS connection creation step](./media/connectors-create-api-rss/rss-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
- ![RSS connection creation step](./media/connectors-create-api-rss/rss-3.png)  
+- Un compte [RSS](https://wikipedia.org/wiki/RSS)  
 
 
-<!--HONumber=Oct16_HO2-->
+Avant de pouvoir utiliser votre compte RSS dans une application logique, vous devez autoriser l’application logique à se connecter à votre compte RSS. Heureusement, vous pouvez faire cela facilement à partir de votre application logique sur le portail Azure.
 
+Pour autoriser votre application logique à se connecter à votre compte RSS, procédez comme suit :
+1. Pour créer une connexion à RSS, dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez *RSS* dans la zone de recherche. Sélectionnez le déclencheur ou l’action que vous allez utiliser : ![étape de création de la connexion à RSS](./media/connectors-create-api-rss/rss-1.png)  
+2. Sélectionnez **Créer une connexion** : ![étape de création de la connexion à RSS](./media/connectors-create-api-rss/rss-2.png)  
+3. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique : ![étape de création de la connexion à RSS](./media/connectors-create-api-rss/rss-3.png)  
 
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,120 +1,115 @@
 <properties
-    pageTitle="Authentication and authorization for API Apps in Azure App Service | Microsoft Azure"
-    description="Learn about the authentication and authorization services that Azure App Service provides for API Apps."
-    services="app-service\api"
-    documentationCenter=".net"
-    authors="tdykstra"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Authentification et autorisation pour API Apps dans Azure App Service | Microsoft Azure"
+	description="En savoir plus sur les services d’authentification et d’autorisation qu’Azure App Service fournit pour API Apps."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="app-service-api"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/23/2016"
-    ms.author="rachelap"/>
+	ms.service="app-service-api"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/23/2016"
+	ms.author="rachelap"/>
 
+# Authentification et autorisation pour API Apps dans Azure App Service
 
-# <a name="authentication-and-authorization-for-api-apps-in-azure-app-service"></a>Authentication and authorization for API Apps in Azure App Service
+## Vue d'ensemble 
 
-## <a name="overview"></a>Overview 
+> [AZURE.NOTE] Cette rubrique sera migrée vers une rubrique d’[authentification/autorisation App Service](../app-service/app-service-authentication-overview.md) consolidée, qui couvre les applications web, mobile et les API Apps.
 
-> [AZURE.NOTE] This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
+Azure App Service offre des services d’authentification et d’autorisation intégrés qui implémentent [OAuth 2.0](#oauth) et [OpenID Connect](#oauth). Cet article décrit les services et options disponibles pour API Apps dans Azure App Service.
 
-Azure App Service offers built-in authentication and authorization services that implement [OAuth 2.0](#oauth) and [OpenID Connect](#oauth). This article describes the services and options that are available for API Apps in Azure App Service.
+Le diagramme suivant illustre certaines caractéristiques clés de l’authentification du Service d’application :
 
-The following diagram illustrates some key characteristics of App Service authentication:
-
-* It preprocesses incoming API requests, which means it works with any language or framework supported by App Service.
-* It gives you several options for how much authentication work you want to do in your own code.
-* It works for both end user and service account authentication. 
-* It supports five identity providers: Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
-* It works the same for API Apps, Web Apps, and Mobile Apps.
+* Il prétraite les demandes entrantes de l’API, ce qui signifie qu’il est compatible avec n’importe quel langage ou framework pris en charge par App Service.
+* Il vous offre plusieurs options en fonction de la tâche d’authentification que vous souhaitez exécuter dans votre propre code.
+* Il fonctionne aussi bien pour l’authentification de l’utilisateur final que pour celle du compte de service.
+* Il prend en charge cinq fournisseurs d’identité : Azure Active Directory, Facebook, Google, Twitter et Compte Microsoft.
+* Il fonctionne de la même façon pour les applications API, les applications Web et les applications mobiles.
 
 ![](./media/app-service-api-authentication/api-apps-overview.png)
 
-## <a name="language-agnostic"></a>Language agnostic
+## Langage non spécifié
 
-App Service authentication processing happens before requests reach your API app, which means that the authentication features work for API apps written in any language or framework.  Your API can be based on ASP.NET, Java, Node.js, or any framework that App Service supports.
+Le traitement de l’authentification App Service se produit avant que les demandes atteignent votre application API, ce qui signifie que les fonctionnalités d’authentification fonctionnent pour les applications API, quels que soient le langage ou l’infrastructure dans lesquels elles sont rédigées. Votre API peut être basée sur ASP.NET, Java, Node.js ou une infrastructure prise en charge par App Service.
 
-App Service passes on the JSON web token (JWT) in the Authorization header of an HTTP request, and code written in any language or framework can get the information it needs from the token. In addition, App Service gives you easier access to the most commonly used claims by setting some special headers, such as the following:
+App Service transmet le jeton web JSON (JWT) dans l’en-tête d’autorisation d’une requête HTTP et le code peut obtenir les informations dont il a besoin à partir du jeton rédigé et ce, quel que soit son langage ou son infrastructure. En outre, App Service offre un accès plus facile aux revendications utilisées le plus fréquemment en définissant des en-têtes spéciaux, tels que les éléments suivants :
 
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 * X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN
 * X-MS-TOKEN-FACEBOOK-EXPIRES-ON
  
-In a .NET API, you can use the `Authorize` attribute, and for fine-grained authorization you can easily write code based on claims because claims information is populated for you in .NET classes.
+Dans une API .NET, vous pouvez utiliser l’attribut `Authorize` et, pour une autorisation affinée, vous pouvez facilement écrire du code basé sur des revendications, car les données de cette dernière sont renseignées pour vous dans les classes .NET.
 
-## <a name="multiple-protection-options"></a>Multiple protection options
+## Plusieurs options de protection
 
-App Service can prevent anonymous HTTP requests from reaching your API app, it can pass on all requests and validate tokens for requests that include them, or it can let through all requests without taking any action on them:
+App Service peut empêcher les requêtes HTTP anonymes d’atteindre votre application API ; il peut également transmettre toutes les demandes et valider les jetons pour les demandes dans lesquelles ils sont inclus, ou bien acheminer toutes les demandes sans aucune action :
 
-1. Allow only authenticated requests to reach your API app.
+1. Autoriser uniquement les demandes authentifiées à accéder à votre application API.
 
-    If an anonymous request is received from a browser, App Service will redirect to a logon page for the authentication provider (Azure AD, Google, Twitter, etc.) that you choose. 
+	Si une demande anonyme est reçue depuis un navigateur, App Service la redirige vers la page de connexion vers le fournisseur d’authentification (Azure AD, Google, Twitter, etc.) de votre choix.
 
-    With this option, you don't need to write any authentication code at all in your app, and authorization code is simplified because the most important claims are provided in the HTTP headers.
+	Avec cette option, vous n’avez pas besoin d’écrire de code d’authentification dans votre application, et le code d’autorisation est simplifié parce que les revendications les plus importantes sont fournies dans les en-têtes HTTP.
 
-2. Allow all requests to reach your API app, but validate authenticated requests and pass along authentication information in the HTTP headers.
+2. Autorise toutes les demandes à atteindre votre application API, mais valide les demandes authentifiées et transmet les informations d’authentification dans les en-têtes HTTP.
 
-    This option gives you more flexibility in handling anonymous requests, but you have to write code if you want to prevent anonymous users from using your API. Since the most popular claims are passed in the headers of HTTP requests, authorization code is relatively simple.
-    
-3. Allow all requests to reach your API, take no action on authentication information in the requests.
+	Cette option offre plus de souplesse pour le traitement des demandes anonymes, mais vous devez écrire du code si vous souhaitez empêcher que des utilisateurs anonymes se servent de votre API. Étant donné que les revendications les plus populaires sont transmises dans les en-têtes des demandes HTTP, le code d’autorisation est relativement simple.
+	
+3. Autoriser toutes les demandes à atteindre votre API, sans recours aux informations d’authentification dans les requêtes.
 
-    This option leaves the tasks of authentication and authorization entirely up to your application code.
+	Cette option laisse la gestion des tâches d’authentification et d’autorisation au code d’application.
 
-In the [Azure portal](https://portal.azure.com/), you select the option you want on the **Authentication / Authorization** blade.
+Dans le [portail Azure](https://portal.azure.com/), vous sélectionnez l’option souhaitée dans le panneau **l’authentification/autorisation**.
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-For options 1 and 2, turn on **App Service Authentication**, and in the **Action to take when request is not authenticated** drop-down list choose **Log in** or **Allow request (no action)**.  If you choose **Log in**, you have to choose an authentication provider and configure that provider.
+Pour les options 1 et 2, activez l’**authentification App Service** puis, dans la liste déroulante **Action à entreprendre lorsque la demande n’est pas authentifiée**, choisissez **Connecter** ou **Autoriser la requête (aucune action)**. Si vous choisissez **Se connecter**, vous devez sélectionner un fournisseur d’authentification et le configurer.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
-For detailed information about how to configure authentication, see [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). The article applies to API apps as well as mobile apps, and it links to other articles for the other authentication providers.
+Pour plus d’informations sur la procédure de configuration de l’authentification, consultez l’article [Configurer votre application App Service pour utiliser la connexion Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). Cet article s’applique aux applications API et aux applications mobiles, et fait référence à des articles relatifs à d’autres fournisseurs d’authentification.
  
-## <a name="<a-id="internal"></a>-service-account-authentication"></a><a id="internal"></a> Service account authentication
+## <a id="internal"></a> Authentification du compte de service
 
-App Service authentication works for internal scenarios such as for calling from one API app to another API app. In this scenario you get a token by using credentials for a service account instead of end user credentials. A service account is also known as a *service principal* in Azure Active Directory, and authentication using such an account is also known as a service-to-service scenario. 
+L’authentification App Service est utile pour les scénarios internes, notamment pour l’appel d’une application API à une autre application API. Dans ce scénario, vous pouvez obtenir un jeton en utilisant les informations d’identification correspondant à un compte de service au lieu des informations d’identification de l’utilisateur final. Un compte de service est également appelé *principal de service* dans Azure Active Directory, et l’authentification pratiquée avec ce type de compte est également appelée « scénario de service à service ».
 
-For service-to-service scenarios, protect the called API app by using Azure Active Directory, and provide an AAD service principal authorization token when you call the API app. You get a token by providing the client ID and client secret from the AAD application. No special Azure-only code is required, such as used to be true for handling the Mobile Services Zumo token. An example of this scenario using ASP.NET API apps is covered by the tutorial [Service principal authentication for API Apps](app-service-api-dotnet-service-principal-auth.md).
+Pour les scénarios service à service, protégez l’application API en utilisant Azure Active Directory et fournir un jeton d’autorisation du principal de service AAD lorsque vous appelez l’application API. Pour obtenir le jeton, renseignez l’ID client et la clé secrète du client à partir de l’application AAD. Aucun code spécial propre à Azure n’est nécessaire, comme c’était le cas pour la gestion du jeton Zumo Mobile Services. Vous trouverez un exemple de ce scénario utilisant ASP.NET API apps dans le didacticiel [Authentification par principal du service pour les applications API](app-service-api-dotnet-service-principal-auth.md).
 
-If you want to handle a service-to-service scenario without using App Service authentication, you can use client certificates or basic authentication. For information about client certificates in Azure, see [How To Configure TLS Mutual Authentication for Web Apps](../app-service-web/app-service-web-configure-tls-mutual-auth.md). For information about basic authentication in ASP.NET, see [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
+Si vous souhaitez gérer un scénario de service à service sans utiliser l’authentification App Service, vous pouvez utiliser les certificats clients ou l’authentification de base. Pour plus d’informations sur les certificats clients dans Azure, consultez [Configuration de l’authentification mutuelle TLS pour une application Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Pour plus d’informations sur l’authentification de base dans ASP.NET, consultez [Filtres d’authentification dans ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
 
-Service account authentication from an App Service logic app to an API app is a special case that is explained in [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
+L’authentification du compte de service à partir d’une application logique du Service d’application pour une application API est un cas particulier qui est expliqué dans [Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
-## <a name="mobile-client-authentication"></a>Mobile client authentication
+## Authentification du client mobile
 
-For information about how to handle authentication from mobile clients, see the [documentation on authentication for mobile apps](../app-service-mobile/app-service-mobile-ios-get-started-users.md). App Service authentication works the same way for mobile apps and API apps.
+Pour plus d’informations sur la gestion de l’authentification des clients mobiles, consultez la [documentation relative à l’authentification pour les applications mobiles](../app-service-mobile/app-service-mobile-ios-get-started-users.md). L’authentification App Service fonctionne de la même façon pour les applications mobiles et les applications API.
   
-## <a name="more-information"></a>More information
+## Plus d’informations
 
-For more information about authentication and authorization in Azure App Service, see the following resources:
+Pour en savoir plus sur l’authentification et l’autorisation dans Azure App Service, consultez les ressources suivantes :
 
-* [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/)
-* [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Includes links for other authentication providers at the top of the page.) 
+* [Extension de l’authentification/autorisation App Service](/blog/announcing-app-service-authentication-authorization/)
+* [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (inclut des liens vers d’autres fournisseurs d’authentification en haut de la page).
 
-For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT), see the following resources.
+Pour plus d’informations sur OAuth 2.0, OpenID Connect et les jetons web JSON (JWT), consultez les ressources suivantes :
 
-* [Getting started with OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Getting Started with OAuth 2.0") 
-* [Introduction to OAuth2, OpenID Connect and JSON Web Tokens (JWT) - PluralSight Course](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
-* [Building and Securing a RESTful API for Multiple Clients in ASP.NET - PluralSight course](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
+* [Prise en main d’OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Prise en main d’OAuth 2.0")
+* [Présentation d’OAuth2, OpenID Connect et JSON Web Tokens (JWT) - Cours PluralSight](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction)
+* [Création et sécurisation d'une API RESTful pour plusieurs clients dans ASP.NET - cours PluralSight](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
-For more information about Azure Active Directory, see the following resources.
+Pour plus d’informations sur Azure Active Directory, consultez les ressources suivantes :
 
-* [Azure AD scenarios](http://aka.ms/aadscenarios)
-* [Azure AD developers' guide](http://aka.ms/aaddev)
-* [Azure AD samples](http://aka.ms/aadsamples)
+* [Scénarios Azure AD](http://aka.ms/aadscenarios)
+* [Guide du développeur Azure AD](http://aka.ms/aaddev)
+* [Exemples Azure AD](http://aka.ms/aadsamples)
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-This article has explained authentication and authorization features of App Service that you can use for API apps. The next tutorial in the getting started series shows how to implement [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).
+Cet article a décrit les fonctionnalités d’authentification et d’autorisation d’App Service que vous pouvez utiliser pour API Apps. Dans le prochain didacticiel de la série « Prise en main », vous allez apprendre à implémenter [l’authentification utilisateur dans App Service API Apps](app-service-api-dotnet-user-principal-auth.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

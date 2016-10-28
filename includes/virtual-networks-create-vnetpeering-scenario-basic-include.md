@@ -1,11 +1,9 @@
-## <a name="peering-vnets-in-the-same-subscription"></a>Peering VNets in the same subscription
+## Homologation des réseaux virtuels situés dans le même abonnement
 
-In this scenario you will create a peering between two VNets named **VNet1** and **VNet2** belonging to the same subscription. 
+Dans ce scénario, vous allez créer une homologation entre les deux réseaux virtuels **VNet1** et **VNet2** appartenant au même abonnement.
 
-![Basic scenario](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
+![Scénario de base](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
 
-VNet peering will allow full connectivity between the entire address space of peered virtual networks.    
+VNet Peering permet d’établir une connectivité complète entre tout l’espace d’adressage des réseaux virtuels homologués.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,276 +1,273 @@
-## <a name="virtual-network-basics"></a>Virtual Network Basics
+## Concepts de base du réseau virtuel
 
-### <a name="what-is-an-azure-virtual-network-(vnet)?"></a>What is an Azure Virtual network (VNet)?
+### Qu’est un réseau virtuel Azure (VNet) ?
 
-You can use VNets to provision and manage virtual private networks (VPNs) in Azure and, optionally, link the VNets with other VNets in Azure, or with your on-premises IT infrastructure to create hybrid or cross-premises solutions. Each VNet you create has its own CIDR block, and can be linked to other VNets and on-premises networks as long as the CIDR blocks do not collide. You also have controls of DNS server settings for VNets, and segmentation of the VNet into subnets.
+Vous pouvez utiliser des réseaux virtuels pour configurer et gérer des réseaux privés virtuels (VPN) dans Azure et, éventuellement, lier les réseaux virtuels avec les autres réseaux virtuels dans Azure ou avec votre infrastructure informatique locale pour créer des solutions hybrides ou intersite. Chaque réseau virtuel que vous créez dispose de son propre bloc CIDR et peut être lié à d’autres réseaux virtuels et locaux, du moment que les blocs CIDR ne sont pas en conflit. Vous pouvez également contrôler les paramètres de serveur DNS pour les réseaux virtuels et la segmentation du réseau virtuel en sous-réseaux.
 
-Use VNets to:
+Utilisez les réseaux virtuels pour effectuer les actions suivantes :
 
-- Create a dedicated private cloud-only virtual network
+- Créer un réseau virtuel dédié uniquement au cloud privé.
+									
+	Vous n’avez pas toujours besoin d’une configuration intersite pour votre solution. Lorsque vous créez un réseau virtuel, vos services et les machines virtuelles au sein de votre réseau virtuel peuvent communiquer directement et en toute sécurité dans le cloud. Cela maintient le trafic de façon sécurisée dans le réseau virtuel, tout en vous permettant de configurer des connexions au point de terminaison pour les machines virtuelles et les services qui requièrent une communication Internet dans le cadre de votre solution.
 
-    Sometimes you don't require a cross-premises configuration for your solution. When you create a VNet, your services and VMs within your VNet can communicate directly and securely with each other in the cloud. This keeps traffic securely within the VNet, but still allows you to configure endpoint connections for the VMs and services that require Internet communication as part of your solution.
+- Étendre en toute sécurité votre centre de données.
+									
+	Avec les réseaux virtuels, vous pouvez créer des VPN site à site (S2S) traditionnels pour faire évoluer en toute sécurité la capacité de votre centre de données. Les VPN S2S utilisent le protocole IPSEC pour fournir une connexion sécurisée entre votre passerelle VPN d’entreprise et Azure.
 
-- Securely extend your data center
+- Activer les scénarios de cloud hybride.
+									
+	Les réseaux virtuels vous donnent la possibilité de prendre en charge une variété de scénarios de nuage hybride. Vous pouvez connecter en toute sécurité des applications informatiques à n’importe quel type de système local, comme les ordinateurs centraux et les systèmes Unix.
 
-    With VNets, you can build traditional site-to-site (S2S) VPNs to securely scale your datacenter capacity. S2S VPNs use IPSEC to provide a secure connection between your corporate VPN gateway and Azure.
+### Comment savoir si j’ai besoin d’un réseau virtuel ?
 
-- Enable hybrid cloud scenarios
+Consultez la page [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md) pour afficher une table des décisions qui vous aidera à déterminer la meilleure option de conception de réseau pour vous.
 
-    VNets give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.
+### Comment faire pour démarrer ?
 
-### <a name="how-do-i-know-if-i-need-a-virtual-network?"></a>How do I know if I need a virtual network?
+Voir [Documentation du réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/)pour commencer. Cette page comporte des liens vers les étapes de configuration courantes, ainsi que des informations qui vous aideront à comprendre les éléments à prendre en considération lors de la conception du réseau virtuel.
 
-Visit the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md) to see a decision table that will help you decide the best network design option for you.
+### Quels services puis-je utiliser avec les réseaux virtuels ?
 
-### <a name="how-do-i-get-started?"></a>How do I get started?
+Les réseaux virtuels peuvent être utilisés avec un large éventail de services Azure, tels que les services cloud (PaaS), les machines virtuelles et les applications web. Toutefois, il existe quelques services qui ne sont pas pris en charge sur un réseau virtuel. Vérifiez que le service spécifique que vous souhaitez utiliser est compatible.
 
-Visit [the Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/) to get started. This page has links to common configuration steps as well as information that will help you understand the things that you'll need to take into consideration when designing your virtual network.
+### Puis-je utiliser des réseaux virtuels sans connectivité intersite ?
 
-### <a name="what-services-can-i-use-with-vnets?"></a>What services can I use with VNets?
+Oui. Vous pouvez utiliser un réseau virtuel sans connectivité de site à site. Cela est particulièrement utile si vous souhaitez exécuter des contrôleurs de domaine et les batteries de serveurs SharePoint dans Azure.
 
-VNets can be used with a variety of different Azure services, such as Cloud Services (PaaS), Virtual Machines, and Web Apps. However, there are a few services that are not supported on a VNet. Please check the specific service you want to use and verify that it is compatible.
+## Configuration du réseau virtuel
 
-### <a name="can-i-use-vnets-without-cross-premises-connectivity?"></a>Can I use VNets without cross-premises connectivity?
+### Quels outils utiliser pour créer un réseau virtuel ?
 
-Yes. You can use a VNet without using site-to-site connectivity. This is particularly useful if you want to run domain controllers and SharePoint farms in Azure.
+Vous pouvez utiliser les outils suivants pour créer ou configurer un réseau virtuel :
 
-## <a name="virtual-network-configuration"></a>Virtual Network Configuration
+- Portail Azure (pour les réseaux virtuels classiques et Resource Manager).
 
-### <a name="what-tools-do-i-use-to-create-a-vnet?"></a>What tools do I use to create a VNet?
+- Fichier de configuration réseau (netcfg - pour les réseaux virtuels classiques uniquement). Voir [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](../articles/virtual-network/virtual-networks-using-network-configuration-file.md).
 
-You can use the following tools to create or configure a virtual network:
+- PowerShell (pour les réseaux virtuels classiques et Resource Manager).
 
-- Azure Portal (for classic and Resource Manager VNets).
+- Interface de ligne de commande Azure (pour les réseaux virtuels classiques et Resource Manager).
 
-- A network configuration file (netcfg - for classic VNets only). See [Configure a virtual network using a network configuration file](../articles/virtual-network/virtual-networks-using-network-configuration-file.md).
+### Quelles plages d’adresses puis-je utiliser dans mes réseaux virtuels ?
 
-- PowerShell (for classic and Resource Manager VNets).
+Vous pouvez utiliser des plages d’adresses IP publiques et toute plage d’adresses IP définies dans[RFC 1918](http://tools.ietf.org/html/rfc1918).
 
-- Azure CLI (for classic and Resource Manager VNets).
+### Puis-je avoir des adresses IP publiques dans mes réseaux virtuels ?
 
-### <a name="what-address-ranges-can-i-use-in-my-vnets?"></a>What address ranges can I use in my VNets?
+Oui. Pour plus d’informations sur les plages d’adresses IP publiques, voir [Espace d’adressage IP Public dans un réseau virtuel (VNet)](../articles/virtual-network/virtual-networks-public-ip-within-vnet.md). N’oubliez pas que vos adresses IP publiques ne seront pas directement accessibles à partir d’Internet.
 
-You can use public IP address ranges and any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918).
+### Y a-t-il une limite au nombre de sous-réseaux dans mon réseau virtuel ?
 
-### <a name="can-i-have-public-ip-addresses-in-my-vnets?"></a>Can I have public IP addresses in my VNets?
+Il n’existe aucune limite sur le nombre de sous-réseaux que vous utilisez dans un réseau virtuel. Tous les sous-réseaux doivent être entièrement contenus dans l’espace d’adressage de réseau virtuel et ne doivent pas se chevaucher.
 
-Yes. For more information about public IP address ranges, see [Public IP address space in a Virtual Network (VNet)](../articles/virtual-network/virtual-networks-public-ip-within-vnet.md). Keep in mind that your public IPs will not be directly accessible from the Internet.
+### Existe-t-il des restrictions sur l’utilisation des adresses IP au sein de ces sous-réseaux ?
 
-### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-virtual-network?"></a>Is there a limit to the number of subnets in my virtual network?
+Azure réserve des adresses IP dans chaque sous-réseau. La première et la dernière adresse IP des sous-réseaux sont réservées à la conformité du protocole, ainsi que 3 adresses supplémentaires utilisées pour les services Azure.
 
-There is no limit on the number of subnets you use within a VNet. All the subnets must be fully contained in the virtual network address space and should not overlap with one another.
+### Quelle taille peuvent avoir les réseaux virtuels et les sous-réseaux ?
 
-### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets?"></a>Are there any restrictions on using IP addresses within these subnets?
+Le plus petit sous-réseau pris en charge est /29 et le plus grand est /8 (à l’aide de définitions de sous-réseau CIDR).
 
-Azure reserves some IP addresses within each subnet. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services.
+### Puis-je ajouter mes VLAN à Azure à l’aide de réseaux virtuels ?
 
-### <a name="how-small-and-how-large-can-vnets-and-subnets-be?"></a>How small and how large can VNets and subnets be?
+Non. Les réseaux virtuels sont des superpositions de couche 3. Azure ne prend en charge aucune sémantique de couche 2.
 
-The smallest subnet we support is a /29 and the largest is a /8 (using CIDR subnet definitions).
+### Puis-je spécifier des stratégies de routage personnalisées sur des réseaux virtuels et des sous-réseaux ?
 
-### <a name="can-i-bring-my-vlans-to-azure-using-vnets?"></a>Can I bring my VLANs to Azure using VNets?
+Oui. Vous pouvez utiliser le routage défini par utilisateur (UDR, User Defined Routing). Pour plus d’informations sur l’UDR, voir [Itinéraires définis d’utilisateur et transfert IP](../articles/virtual-network/virtual-networks-udr-overview.md).
 
-No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
+### Les réseaux virtuels prennent-ils en charge la multidiffusion ou la diffusion ?
 
-### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets?"></a>Can I specify custom routing policies on my VNets and subnets?
+Non. Nous ne prenons pas en charge la multidiffusion ou la diffusion.
 
-Yes. You can use User Defined Routing (UDR). For more information about UDR, visit [User Defined Routes and IP Forwarding](../articles/virtual-network/virtual-networks-udr-overview.md).
+### Quels protocoles puis-je utiliser au sein de réseaux virtuels ?
 
-### <a name="do-vnets-support-multicast-or-broadcast?"></a>Do VNets support multicast or broadcast?
-
-No. We do not support multicast or broadcast.
-
-### <a name="what-protocols-can-i-use-within-vnets?"></a>What protocols can I use within VNets?
-
-You can use standard IP-based protocols within VNets. However, multicast, broadcast, IP-in-IP encapsulated packets and Generic Routing Encapsulation (GRE) packets are blocked within VNets. Standard protocols that work include:
+Vous pouvez utiliser des protocoles IP standard au sein des réseaux virtuels. Cependant, la multidiffusion, la diffusion, les paquets encapsulés IP dans IP et les paquets Encapsulation générique de routage (GRE, Generic Routing Encapsulation) sont bloqués dans les réseaux virtuels. Les protocoles standard compatibles sont les suivants :
 
 - TCP
 - UDP
 - ICMP
 
-### <a name="can-i-ping-my-default-routers-within-a-vnet?"></a>Can I ping my default routers within a VNet?
+### Puis-je effectuer un test Ping sur mes routeurs par défaut au sein d’un réseau virtuel ?
 
-No.
+Non.
 
-### <a name="can-i-use-tracert-to-diagnose-connectivity?"></a>Can I use tracert to diagnose connectivity?
+### Puis-je utiliser l’application tracert pour diagnostiquer la connectivité ?
 
-No.
+Non.
 
-### <a name="can-i-add-subnets-after-the-vnet-is-created?"></a>Can I add subnets after the VNet is created?
+### Puis-je ajouter des sous-réseaux après avoir créé le réseau virtuel ?
 
-Yes. Subnets can be added to VNets at any time as long as the subnet address is not part of another subnet in the VNet.
+Oui. Des sous-réseaux peuvent être ajoutés aux réseaux virtuels à tout moment, du moment que l’adresse de sous-réseau ne fait pas partie d’un autre sous-réseau dans le réseau virtuel.
 
-### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it?"></a>Can I modify the size of my subnet after I create it?
+### Puis-je modifier la taille de mon sous-réseau après sa création ?
 
-You can add, remove, expand or shrink a subnet if there are no VMs or services deployed within it by using PowerShell cmdlets or the NETCFG file. You can also add, remove, expand or shrink any prefixes as long as the subnets that contain VMs or services are not affected by the change.
+Vous pouvez ajouter, supprimer, développer ou réduire un sous-réseau si aucune machine virtuelle ou aucun service n’est déployé à l’aide des applets de commande PowerShell ou du fichier NETCFG. Vous pouvez également ajouter, supprimer, développer ou réduire des préfixes tant que les sous-réseaux contenant des machines virtuelles ou des services ne sont pas affectés par la modification.
 
-### <a name="can-i-modify-subnets-after-i-created-them?"></a>Can I modify subnets after I created them?
+### Puis-je modifier des sous-réseaux après leur création ?
 
-Yes. You can add, remove, and modify the CIDR blocks used by a VNet.
+Oui. Vous pouvez ajouter, supprimer et modifier les blocs CIDR utilisés par un réseau virtuel.
 
-### <a name="can-i-connect-to-the-internet-if-i-am-running-my-services-in-a-vnet?"></a>Can I connect to the internet if I am running my services in a VNet?
+### Puis-je me connecter à Internet si j’exécute mes services dans un réseau virtuel ?
 
-Yes. All services deployed within a VNet can connect to the internet. Every cloud service deployed in Azure has a publicly addressable VIP assigned to it. You will have to define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.
+Oui. Tous les services déployés au sein d’un réseau virtuel peuvent être connectés à Internet. Chaque service cloud déployé dans Azure dispose d’une adresse IP virtuelle publiquement adressable qui lui est assignée. Vous devez définir des points de terminaison d’entrée pour les rôles PaaS et pour les machines virtuelles afin de permettre à ces services d’accepter les connexions à partir d’Internet.
 
-### <a name="do-vnets-support-ipv6?"></a>Do VNets support IPv6?
+### Les réseaux virtuels prennent-ils en charge IPv6 ?
 
-No. You cannot use IPv6 with VNets at this time.
+Non. Vous ne pouvez pas utiliser IPv6 avec les réseaux virtuels pour l’instant.
 
-### <a name="can-a-vnet-span-regions?"></a>Can a VNet span regions?
+### Un réseau virtuel peut-il couvrir plusieurs régions ?
 
-No. A VNet is limited to a single region.
+Non. Un réseau virtuel est limité à une seule région.
 
-### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure?"></a>Can I connect a VNet to another VNet in Azure?
+### Puis-je connecter un réseau virtuel à un autre réseau virtuel dans Azure ?
 
-Yes. You can create VNet to VNet communication by using REST APIs or Windows PowerShell. You can also connect VNets via VNet Peering. See more details about peering [here.](../articles/virtual-network/virtual-network-peering-overview.md)
+Oui. Vous pouvez créer une communication de réseau virtuel à réseau virtuel à l’aide des API REST ou de Windows PowerShell.
 
-## <a name="name-resolution-(dns)"></a>Name Resolution (DNS)
+## Résolution de noms pour les machines virtuelles et les instances de rôle
 
-### <a name="what-are-my-dns-options-for-vnets?"></a>What are my DNS options for VNets?
+### Quelles sont les options DNS pour les réseaux virtuels ?
 
-Use the decision table on the [Name Resolution for VMs and Role Instances](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) page to guide you through all the DNS options available.
+Utilisez la table des décisions sur la page [Résolution de noms pour les machines virtuelles et les instances de rôle](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) pour plus informations sur les options DNS disponibles.
 
-### <a name="can-i-specify-dns-servers-for-a-vnet?"></a>Can I specify DNS servers for a VNet?
+### Puis-je spécifier des serveurs DNS pour un réseau virtuel ?
 
-Yes. You can specify DNS server IP addresses in the VNet settings. This will be applied as the default DNS server(s) for all VMs in the VNet.
+Oui. Vous pouvez spécifier des adresses IP de serveur DNS dans les paramètres de réseau virtuel. Elles seront appliquées en tant que serveurs DNS par défaut pour toutes les machines virtuelles du réseau virtuel.
 
-### <a name="how-many-dns-servers-can-i-specify?"></a>How many DNS servers can I specify?
+### Combien de serveurs DNS puis-je spécifier ?
 
-You can specify up to 12 DNS servers.
+Vous pouvez spécifier jusqu’à 12 serveurs DNS.
 
-### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network?"></a>Can I modify my DNS servers after I have created the network?
+### Puis-je modifier mes serveurs DNS une fois que le réseau créé ?
 
-Yes. You can change the DNS server list for your VNet at any time. If you change your DNS server list, you will need to restart each of the VMs in your VNet in order for them to pick up the new DNS server.
+Oui. Vous pouvez modifier la liste des serveurs DNS de votre réseau virtuel à tout moment. Si vous modifiez la liste des serveurs DNS, vous devez redémarrer chacune des machines virtuelles dans votre réseau virtuel de façon à sélectionner le nouveau serveur DNS.
 
 
-### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets?"></a>What is Azure-provided DNS and does it work with VNets?
+### Qu’est ce qu’un serveur DNS fourni par Azure et fonctionne-t-il avec les réseaux virtuels ?
 
-Azure-provided DNS is a multi-tenant DNS service offered by Microsoft. Azure registers all of your VMs and role instances in this service. This service provides name resolution by hostname for VMs and role instances contained within the same cloud service, and by FQDN for VMs and role instances in the same VNet.
+Le serveur DNS fourni par Azure est un serveur DNS mutualisé proposé par Microsoft. Azure enregistre toutes vos machines virtuelles et instances de rôle dans ce service. Ce service fournit la résolution de noms par nom d’hôte pour les machines virtuelles et les instances de rôles contenues dans le même service cloud et par nom de domaine complet pour les machines virtuelles et les instances de rôle du même réseau virtuel.
 
-> [AZURE.NOTE] There is a limitation at this time to the first 100 cloud services in the virtual network for cross-tenant name resolution using Azure-provided DNS. If you are using your own DNS server, this limitation does not apply.
+> [AZURE.NOTE] Il existe pour l’instant une limitation aux 100 premiers services cloud du réseau virtuel pour la résolution de nom inter-clients à l’aide du serveur DNS fourni par Azure. Si vous utilisez votre propre serveur DNS, cette restriction ne s’applique pas.
 
-### <a name="can-i-override-my-dns-settings-on-a-per-vm-/-service-basis?"></a>Can I override my DNS settings on a per-VM / service basis?
+### Puis-je remplacer mes paramètres DNS sur la base machine virtuelle/service ?
 
-Yes. You can set DNS servers on a per-cloud service basis to override the default network settings. However, we recommend that you use network-wide DNS as much as possible.
+Oui. Vous pouvez configurer des serveurs DNS sur une base de service cloud pour remplacer les paramètres de réseau par défaut. Toutefois, nous vous recommandons d’utiliser autant que possible le DNS à l’échelle du réseau.
 
-### <a name="can-i-bring-my-own-dns-suffix?"></a>Can I bring my own DNS suffix?
+### Puis-je afficher mon propre suffixe DNS ?
 
-No. You cannot specify a custom DNS suffix for your VNets.
+Non. Vous ne pouvez pas spécifier un suffixe DNS personnalisé pour vos réseaux virtuels.
 
-## <a name="vnets-and-vms"></a>VNets and VMs
+## Réseaux virtuels et machines virtuelles
 
-### <a name="can-i-deploy-vms-to-a-vnet?"></a>Can I deploy VMs to a VNet?
+### Puis-je déployer des machines virtuelles sur un réseau virtuel ?
 
-Yes.
+Oui.
 
-### <a name="can-i-deploy-linux-vms-to-a-vnet?"></a>Can I deploy Linux VMs to a VNet?
+### Puis-je déployer des machines virtuelles Linux sur un réseau virtuel ?
 
-Yes. You can deploy any distro of Linux supported by Azure.
+Oui. Vous pouvez déployer n’importe quel distributeur Linux pris en charge par Azure.
 
-### <a name="what-is-the-difference-between-a-public-vip-and-an-internal-ip-address?"></a>What is the difference between a public VIP and an internal IP address?
+### Quelle est la différence entre une adresse IP virtuelle publique et une adresse IP interne ?
 
-- An internal IP address is an IP address that is assigned to each VM within a VNet by DHCP. It's not public facing. If you have created a VNet, the internal IP address is assigned from the range that you specified in the subnet settings of your VNet. If you do not have a VNet, an internal IP address will still be assigned. The internal IP address will remain with the VM for its lifetime, unless that VM is deallocated.
+- Une adresse IP interne est l’adresse IP affectée à chaque machine virtuelle d’un réseau virtuel par DHCP. Elle n’est pas publique. Si vous avez créé un réseau virtuel, l’adresse IP interne est affectée à partir de la plage que vous avez spécifiée dans les paramètres de sous-réseau de votre réseau virtuel. Si vous n’avez pas de réseau virtuel, une adresse IP interne sera toujours attribuée. L’adresse IP interne restera avec la machine virtuelle pendant toute sa durée de vie, sauf si la machine virtuelle est désallouée.
 
-- A public VIP is the public IP address that is assigned to your cloud service or load balancer. It is not assigned directly to your VM NIC. The VIP stays with the cloud service it is assigned to until all the VMs in that cloud service are deallocated or deleted. At that point, it is released.
+- Une adresse IP virtuelle publique est l’adresse IP publique affectée à votre équilibreur de charge ou à votre service cloud. Elle n’est pas affectée directement à la carte-réseau de votre machine virtuelle. L’adresse IP virtuelle reste avec le service cloud auquel elle est affectée à jusqu’à ce que toutes les machines virtuelles de ce service cloud soient désallouées ou supprimées. Elle est ensuite libérée.
 
-### <a name="what-ip-address-will-my-vm-receive?"></a>What IP address will my VM receive?
+### Quelle adresse IP ma machine virtuelle recevra-t-elle ?
 
-- **Internal IP address -** If you deploy a VM to a VNet, the VM receives an internal IP address from a pool of internal IP addresses that you specify. VMs communicate within the VNets by using internal IP addresses. Although Azure assigns a dynamic internal IP address, you can request a static address for your VM. To learn more about static internal IP addresses, visit [How to Set a Static Internal IP](../articles/virtual-network/virtual-networks-reserved-private-ip.md).
+- **Adresse IP interne** : si vous déployez une machine virtuelle sur un réseau virtuel, celle-ci reçoit une adresse IP interne issue d’un pool d’adresses IP internes que vous avez spécifiées. Les machines virtuelles communiquent au sein des réseaux virtuels à l’aide des adresses IP internes. Bien qu’Azure affecte une adresse IP interne dynamique, vous pouvez demander une adresse statique pour votre machine virtuelle. Pour en savoir plus sur les adresses IP internes statiques, voir [Comment définir une adresse IP interne statique](../articles/virtual-network/virtual-networks-reserved-private-ip.md).
 
-- **VIP -** Your VM is also associated with a VIP, although a VIP is never assigned to the VM directly. A VIP is a public IP address that can be assigned to your cloud service. You can, optionally, reserve a VIP for your cloud service.
+- **Adresse IP virtuelle** : votre machine virtuelle est également associée à une adresse IP virtuelle, même si une adresse IP virtuelle n’est jamais directement affectée à la machine virtuelle. Une adresse IP virtuelle est une adresse IP publique qui peut être affectée à votre service cloud. Vous pouvez, si vous le souhaitez, réserver une adresse IP virtuelle pour votre service cloud.
 
-- **ILPIP -** You can also configure an instance-level public IP address (ILPIP). ILPIPs are directly associated with the VM, rather than the cloud service. To learn more about ILPIPs, visit [Instance-Level Public IP Overview](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
+- **Adresse IP publique de niveau d’instance** : vous pouvez également configurer une adresse IP publique de niveau d’instance (ILPIP). Les ILPIPs sont directement associées à la machine virtuelle, plutôt qu’au service cloud. Pour en savoir plus sur les ILPIPs, voir [Vue d’ensemble des adresses IP publiques de niveau d’instance](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 
-### <a name="can-i-reserve-an-internal-ip-address-for-a-vm-that-i-will-create-at-a-later-time?"></a>Can I reserve an internal IP address for a VM that I will create at a later time?
+### Puis-je réserver une adresse IP interne pour une machine virtuelle que je créerai ultérieurement ?
 
-No. You cannot reserve an internal IP address. If an internal IP address is available it will be assigned to a VM or role instance by the DHCP server. That VM may or may not be the one that you want the internal IP address to be assigned to. You can, however, change the internal IP address of an already created VM to any available internal IP address.
+Non. Vous ne pouvez pas réserver d’adresse IP interne. Si une adresse IP interne est disponible, elle sera affectée à une machine virtuelle ou à une instance de rôle par le serveur DHCP. Cette machine virtuelle peut être celle à laquelle vous souhaitez assigner l’adresse IP interne. Vous pouvez toutefois modifier l’adresse IP interne d’une machine virtuelle déjà créée et utiliser n’importe quelle adresse IP interne disponible.
 
-### <a name="do-internal-ip-addresses-change-for-vms-in-a-vnet?"></a>Do internal IP addresses change for VMs in a VNet?
+### Les adresses IP internes peuvent-elles changer pour les machines virtuelles d’un réseau virtuel ?
 
-Yes. Internal IP addresses remain with the VM for its lifetime unless the VM is deallocated. When a VM is deallocated, the internal IP address is released unless you defined a static internal IP address for your VM. If the VM is simply stopped (and not put in the status **Stopped (Deallocated)**) the IP address will remain assigned to the VM.
+Oui. Les adresses IP internes restent avec la machine virtuelle pour sa durée de vie, sauf si la machine virtuelle est désallouée. Lorsqu’une machine virtuelle est désallouée, l’adresse IP interne est publiée, sauf si vous avez défini une adresse IP interne statique pour votre machine virtuelle. Si la machine virtuelle est simplement arrêtée (et non placée dans l’état **Arrêté (désalloué)**), l’adresse IP reste affectée à la machine virtuelle.
 
-### <a name="can-i-manually-assign-ip-addresses-to-nics-in-vms?"></a>Can I manually assign IP addresses to NICs in VMs?
+### Puis-je attribuer manuellement des adresses IP aux cartes réseau des machines virtuelles ?
 
-No. You must not change any interface properties of VMs. Any changes may lead to potentially losing connectivity to the VM.
+Non. Vous ne devez pas modifier les propriétés d’interface des machines virtuelles. Toute modification peut entraîner la perte de connectivité à la machine virtuelle.
 
-### <a name="what-happens-to-my-ip-addresses-if-i-shut-down-a-vm?"></a>What happens to my IP addresses if I shut down a VM?
+### Qu’advient-il des adresses IP lorsqu’une machine virtuelle est arrêtée ?
 
-Nothing. The IP addresses (both public VIP and internal IP address) will stay with your cloud service or VM.
+Rien. Les adresses IP (adresse virtuelle publique et adresse IP interne) sont conservées avec votre service cloud ou votre machine virtuelle.
 
-> [AZURE.NOTE] If you want to simply shut down the VM, don't use the Management Portal to do so. Currently, the shutdown button will deallocate the virtual machine.
+> [AZURE.NOTE] Si vous voulez simplement arrêter la machine virtuelle, n’utilisez pas le portail de gestion pour ce faire. Actuellement, le bouton d’arrêt désalloue la machine virtuelle.
 
-### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-re-deploying?"></a>Can I move VMs from one subnet to another subnet in a VNet without re-deploying?
+### Puis-je déplacer des machines virtuelles d’un sous-réseau vers un autre sous-réseau dans un réseau virtuel sans redéploiement ?
 
-Yes. You can find more information [here](../articles/virtual-network/virtual-networks-move-vm-role-to-subnet.md).
+Oui. Pour plus d’informations, consultez la [page suivante](../articles/virtual-network/virtual-networks-move-vm-role-to-subnet.md) :
 
-### <a name="can-i-configure-a-static-mac-address-for-my-vm?"></a>Can I configure a static MAC address for my VM?
+### Puis-je configurer une adresse MAC statique pour ma machine virtuelle ?
 
-No. A MAC address cannot be statically configured.
+Non. Une adresse MAC ne peut pas être configurée de manière statique.
 
-### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-it-has-been-created?"></a>Will the MAC address remain the same for my VM once it has been created?
+### Une fois créée, l’adresse MAC reste-t-elle la même pour ma machine virtuelle ?
 
-Yes, the MAC address will remain the same for a VM even though the VM has been stopped (deallocated) and relaunched.
+Non, mais elle change uniquement si la machine virtuelle est placée dans l'état Arrêté (désalloué). Si vous modifiez la taille de la machine virtuelle, redémarrez, ou en cas de réparation de service ou de maintenance planifiée du serveur hôte, l'adresse MAC est conservée.
 
-### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet?"></a>Can I connect to the internet from a VM in a VNet?
+### Puis-je me connecter à Internet à partir d’une machine virtuelle dans un réseau virtuel ?
 
-Yes. All services deployed within a VNet can connect to the Internet. Additionally, every cloud service deployed in Azure has a publicly addressable VIP assigned to it. You have to define input endpoints for PaaS roles and endpoints for VMs to enable these services to accept connections from the Internet.
+Oui. Tous les services déployés au sein d’un réseau virtuel peuvent se connecter à Internet. En outre, chaque service cloud déployé dans Azure dispose d’une adresse IP virtuelle publiquement adressable qui lui est assignée. Vous devez définir des points de terminaison d’entrée pour les rôles PaaS et pour les points de terminaison pour les machines virtuelles afin de permettre à ces services d’accepter les connexions à partir d’Internet.
 
-## <a name="vnets-and-services"></a>VNets and Services
+## Réseaux virtuels et services
 
-### <a name="what-services-can-i-use-with-vnets?"></a>What services can I use with VNets?
+### Quels services puis-je utiliser avec les réseaux virtuels ?
 
-You can only use compute services within VNets. Compute services are limited to Cloud Services (web and worker roles) and VMs.
+Vous pouvez uniquement utiliser les services de calcul au sein des réseaux virtuels. Les services de calcul sont limités aux services cloud (rôles web et de travail) et aux machines virtuelles.
 
-### <a name="can-i-use-web-apps-with-virtual-network?"></a>Can I use Web Apps with Virtual Network?
+### Puis-je utiliser des applications web avec un réseau virtuel ?
 
-Yes. You can deploy Web Apps inside a VNet using ASE (App Service Environment). Adding to that, Web Apps can securely connect and access resources in your Azure VNet if you have point-to-site configured for your VNet. For more information, see the following:
+Oui. Vous pouvez déployer des applications Web à l'intérieur d'un réseau virtuel à l'aide d'ASE (App Service Environment). De plus, des applications web peuvent se connecter en toute sécurité et accéder aux ressources de votre réseau virtuel Azure si vous avez configuré une connectivité de point à site pour votre réseau virtuel. Pour plus d’informations, consultez les liens suivants :
 
 
-- [Creating Web Apps in an App Service Environment](../articles/app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+- [Création d'applications web dans un environnement App Service](../articles/app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
-- [Web Apps Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Intégration au réseau virtuel d’applications web](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
-- [Using VNet Integration and Hybrid Connections with Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
+- [Utilisation de l’intégration au réseau virtuel et des connexions hybrides avec les applications web](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
-- [Integrate a web app with an Azure Virtual Network](../articles/app-service-web/web-sites-integrate-with-vnet.md)
+- [Intégrer une application web à un réseau virtuel Azure](../articles/app-service-web/web-sites-integrate-with-vnet.md)
 
-### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-(paas)-in-a-vnet?"></a>Can I deploy cloud services with web and worker roles (PaaS) in a VNet?
+### Puis-je déployer des services cloud avec les rôles web et de travail (PaaS) dans un réseau virtuel ?
 
-Yes. You can deploy PaaS services within VNets.
+Oui. Vous pouvez déployer les services PaaS dans les réseaux virtuels.
 
-### <a name="how-do-i-deploy-paas-roles-to-a-vnet?"></a>How do I deploy PaaS roles to a VNet?
+### Comment déployer des rôles PaaS sur un réseau virtuel ?
 
-You can accomplish this by specifying the VNet name and the role /subnet mappings in the network configuration section of your service configuration. You do not need to update any of your binaries.
+Pour cela, vous devez spécifier le nom de réseau virtuel et les mappages rôle/sous-réseau dans la section de configuration réseau de votre configuration de service. Il est inutile de mettre à jour vos fichiers binaires.
 
-### <a name="can-i-move-my-services-in-and-out-of-vnets?"></a>Can I move my services in and out of VNets?
+### Puis-je faire entrer ou sortir mes services dans les réseaux virtuels ?
 
-No. You cannot move services in and out of VNets. You will have to delete and re-deploy the service to move it to another VNet.
+Non. Impossible de faire entrer ou de faire sortir des services dans les réseaux virtuels. Vous devez supprimer et redéployer le service pour le déplacer vers un autre réseau virtuel.
 
-## <a name="vnets-and-security"></a>VNets and Security
+## Réseaux virtuels et sécurité
 
-### <a name="what-is-the-security-model-for-vnets?"></a>What is the security model for VNets?
+### Quel est le modèle de sécurité pour les réseaux virtuels ?
 
-VNets are completely isolated from one another, and other services hosted in the Azure infrastructure. A VNet is a trust boundary.
+Les réseaux virtuels sont complètement isolés les uns des autres, ainsi que des autres services hébergés dans l’infrastructure Azure. Un réseau virtuel est une délimitation d’approbation.
 
-### <a name="can-i-define-acls-or-nsgs-on-my-vnets?"></a>Can I define ACLs or NSGs on my VNets?
+### Puis-je définir des listes ACL ou des groupes NSG sur mes réseaux virtuels ?
 
-No. You cannot associate ACLs or NSGs to VNets. However, ACLs can be defined on input endpoints for VMs that have been deployed to a VNets, and NSGs can be associated to subnets or NICs.
+Non. Vous ne pouvez pas associer des listes ACL ou des groupes NSG à des réseaux virtuels. Toutefois, des listes ACL peuvent être définies sur les points de terminaison d’entrée pour les machines virtuelles qui ont été déployées sur des réseaux virtuels, et des groupes NSG peuvent être associés à des sous-réseaux ou des cartes réseau.
 
-### <a name="is-there-a-vnet-security-whitepaper?"></a>Is there a VNet security whitepaper?
+### Existe-t-il un livre blanc sécurité des réseaux virtuels ?
 
-Yes. You can download it [here](http://go.microsoft.com/fwlink/?LinkId=386611).
+Oui. Vous pouvez le télécharger [ici](http://go.microsoft.com/fwlink/?LinkId=386611).
 
-## <a name="apis,-schemas,-and-tools"></a>APIs, Schemas, and Tools
+## API, schémas et outils
 
-### <a name="can-i-manage-vnets-from-code?"></a>Can I manage VNets from code?
+### Puis-je gérer les réseaux virtuels à partir du code ?
 
-Yes. You can use REST APIs to manage VNets and cross-premises connectivity. More information can be found [here](http://go.microsoft.com/fwlink/?LinkId=296833).
+Oui. Vous pouvez utiliser l’API REST pour gérer la connectivité des réseaux virtuels et intersite. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=296833).
 
-### <a name="is-there-tooling-support-for-vnets?"></a>Is there tooling support for VNets?
+### Existe-t-il une prise en charge des outils pour les réseaux virtuels ?
 
-Yes. You can use PowerShell and command line tools for a variety of platforms. More information can be found [here](http://go.microsoft.com/fwlink/?LinkId=317721).
+Oui. Vous pouvez utiliser les outils PowerShell et de ligne de commande pour une variété de plateformes. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

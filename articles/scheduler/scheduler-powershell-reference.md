@@ -1,10 +1,10 @@
 <properties
- pageTitle="Scheduler PowerShell Cmdlets Reference"
- description="Scheduler PowerShell Cmdlets Reference"
+ pageTitle="Informations de référence sur les applets de commande PowerShell de Scheduler"
+ description="Informations de référence sur les applets de commande PowerShell de Scheduler"
  services="scheduler"
  documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,38 +13,37 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="deli"/>
+ ms.author="krisragh"/>
 
+# Informations de référence sur les applets de commande PowerShell de Scheduler
 
-# <a name="scheduler-powershell-cmdlets-reference"></a>Scheduler PowerShell Cmdlets Reference
+Le tableau suivant décrit chacune des principales applets de commande disponibles dans Azure Scheduler et établit un lien vers la page de référence correspondante.
 
-The following table describes and links to the reference page of each of the major cmdlets in Azure Scheduler.
+Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
+Pour plus d’informations sur les [applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356(v=azure.200).aspx), consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-For more information about [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-
-|Cmdlet|Cmdlet Description|
+|Applet de commande|Description de l'applet de commande|
 |---|---|
-[Disable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490133\(v=azure.200\).aspx) |Disables a job collection. 
-[Enable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490135\(v=azure.200\).aspx) |Enables a job collection.
-[Get-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490125\(v=azure.200\).aspx) |Gets Scheduler jobs.
-[Get-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490132\(v=azure.200\).aspx) |Gets job collections.
-[Get-AzureRmSchedulerJobHistory](https://msdn.microsoft.com/library/mt490126\(v=azure.200\).aspx) |Gets job history.
-[New-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490136\(v=azure.200\).aspx) |Creates an HTTP job.
-[New-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490141\(v=azure.200\).aspx) |Creates a job collection.
-[New-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490134\(v=azure.200\).aspx) |Creates a service bus queue job.
-[New-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490142\(v=azure.200\).aspx) |Creates a service bus topic job.
-[New-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490127\(v=azure.200\).aspx) |Creates a storage queue job. 
-[Remove-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490140\(v=azure.200\).aspx) |Removes a Scheduler job.  
-[Remove-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490131\(v=azure.200\).aspx) |Removes a job collection. 
-[Set-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490130\(v=azure.200\).aspx) |Modifies a Scheduler HTTP job.
-[Set-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490129\(v=azure.200\).aspx) |Modifies a job collection. 
-[Set-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490143\(v=azure.200\).aspx) |Modifies a service bus queue job.  
-[Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137\(v=azure.200\).aspx) |Modifies a service bus topic job. 
-[Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128\(v=azure.200\).aspx) |Modifies a storage queue job.   
+[Disable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490133(v=azure.200).aspx) |Désactive une collection de travaux. 
+[Enable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490135(v=azure.200).aspx) |Active une collection de travaux.
+[Get-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490125(v=azure.200).aspx) |Récupère les travaux du Planificateur.
+[Get-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490132(v=azure.200).aspx) |Récupère les collections de travaux.
+[Get-AzureRmSchedulerJobHistory](https://msdn.microsoft.com/library/mt490126(v=azure.200).aspx) |Affiche l’historique des travaux.
+[New-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490136(v=azure.200).aspx) |Crée un travail HTTP.
+[New-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490141(v=azure.200).aspx) |Crée une collection de travaux.
+[New-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490134(v=azure.200).aspx) |Crée un travail de file d’attente Service Bus.
+[New-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490142(v=azure.200).aspx) |Crée un travail de rubrique Service Bus.
+[New-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490127(v=azure.200).aspx) |Crée un travail de file d’attente de stockage. 
+[Remove-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490140(v=azure.200).aspx) |Supprime un travail du Planificateur.  
+[Remove-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490131(v=azure.200).aspx) |Supprime une collection de travaux. 
+[Set-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490130(v=azure.200).aspx) |Modifie un travail HTTP du Planificateur.
+[Set-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490129(v=azure.200).aspx) |Modifie une collection de travaux. 
+[Set-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490143(v=azure.200).aspx) |Modifie un travail de file d’attente Service Bus.  
+[Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137(v=azure.200).aspx) |Modifie un travail de rubrique Service Bus. 
+[Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128(v=azure.200).aspx) |Modifie un travail de file d’attente de stockage.   
 
-For more detailed information, you can run any of the following cmdlets: 
+Pour plus d’informations, vous pouvez exécuter les applets de commande suivantes :
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -56,27 +55,23 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## <a name="see-also"></a>See Also
+## Voir aussi
 
 
- [What is Scheduler?](scheduler-intro.md)
+ [Présentation d'Azure Scheduler](scheduler-intro.md)
 
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+ [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
 
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+ [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
 
- [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+ [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
 
- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
 
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+ [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

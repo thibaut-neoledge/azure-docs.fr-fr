@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure a Docker Host with VirtualBox | Microsoft Azure"
-   description="Step-by-step instructions to configure a default Docker instance using Docker Machine and VirtualBox"
+   pageTitle="Configurer un hôte Docker avec VirtualBox | Microsoft Azure"
+   description="Instructions pas à pas pour configurer une instance Docker par défaut à l'aide de Docker Machine et de VirtualBox."
    services="azure-container-service"
    documentationCenter="na"
    authors="mlearned"
@@ -15,57 +15,51 @@
    ms.date="06/08/2016"
    ms.author="mlearned" />
 
+# Configurer un hôte Docker avec VirtualBox
 
-# <a name="configure-a-docker-host-with-virtualbox"></a>Configure a Docker Host with VirtualBox
+## Vue d'ensemble
+Cet article vous guide tout au long de la configuration d'une instance Docker par défaut à l'aide de Docker Machine et de VirtualBox. Si vous utilisez la [version bêta de Docker pour Windows](http://beta.docker.com/), cette configuration n'est pas nécessaire.
 
-## <a name="overview"></a>Overview
-This article guides you through configuring a default Docker instance using Docker Machine and VirtualBox. If you’re using the [Docker for Windows beta](http://beta.docker.com/), this configuration is not necessary.
+## Composants requis
+Les outils suivants doivent être installés.
 
-## <a name="prerequisites"></a>Prerequisites
-The following tools need to be installed.
+- [Boîte à outils Docker](https://www.docker.com/products/overview#/docker_toolbox)
 
-- [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
+## Configuration du client Docker avec Windows PowerShell
 
-## <a name="configuring-the-docker-client-with-windows-powershell"></a>Configuring the Docker client with Windows PowerShell
+Pour configurer un client Docker, ouvrez Windows PowerShell et procédez comme suit :
 
-To configure a Docker client, simply open Windows PowerShell, and perform the following steps:
-
-1. Create a default docker host instance.
+1. Créez une instance hôte docker par défaut.
 
     ```PowerShell
     docker-machine create --driver virtualbox default
     ```
  
-1. Verify the default instance is configured and running. (You should see an instance named `default' running.
+1. Vérifiez que l'instance par défaut est configurée et en cours d'exécution. Vous devriez voir une instance nommée « par défaut » en cours d’exécution.
 
     ```PowerShell
-    docker-machine ls 
+	docker-machine ls 
     ```
-        
-    ![docker-machine ls output][0]
+		
+	![Sortie docker-machine ls][0]
  
-1. Set default as the current host, and configure your shell.
+1. Choisissez par défaut l'hôte actuel et configurez votre interpréteur de commandes.
 
     ```PowerShell
     docker-machine env default | Invoke-Expression
     ```
 
-1. Display the active Docker containers. The list should be empty.
+1. Affichez les conteneurs Docker actifs. La liste doit être vide.
 
     ```PowerShell
-    docker ps
+	docker ps
     ```
 
-    ![docker ps output][1]
+	![Sortie docker ps][1]
  
-> [AZURE.NOTE] Each time you reboot your development machine, you’ll need to restart your local docker host.
-> To do this, issue the following command at a command prompt: `docker-machine start default`.
+> [AZURE.NOTE] Chaque fois que vous redémarrez votre machine de développement, vous devrez également redémarrer votre hôte Docker local. Pour ce faire, exécutez la commande suivante à l’invite de commandes : `docker-machine start default`
 
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

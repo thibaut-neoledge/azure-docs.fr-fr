@@ -1,22 +1,19 @@
-## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
+## Déploiements incrémentiels et complets
 
-By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+Par défaut, Resource Manager gère les déploiements sous la forme de mises à jour incrémentielles du groupe de ressources. Dans le cadre d’un déploiement incrémentiel, Resource Manager :
 
-- **leaves unchanged** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
-- **re-provisions** existing resources that have updated settings in the template
+- **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
+- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ;
+- **ne réapprovisionne pas** les ressources qui existent dans le groupe de ressources à l’état défini dans le modèle.
+- **réapprovisionne** les ressources existantes pour lesquelles il y a des paramètres mis à jour dans le modèle.
 
-With complete deployment, Resource Manager:
+Dans le cadre d’un déploiement complet, Resource Manager :
 
-- **deletes** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
-- **re-provisions** existing resources that have updated settings in the template
+- **supprime** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle ;
+- **ajoute** les ressources qui sont spécifiées dans le modèle, mais qui n’existent pas dans le groupe de ressources ;
+- **ne réapprovisionne pas** les ressources qui existent dans le groupe de ressources à l’état défini dans le modèle.
+- **réapprovisionne** les ressources existantes pour lesquelles il y a des paramètres mis à jour dans le modèle.
  
-You specify the type of deployment through the **Mode** property.
+Vous spécifiez le type de déploiement par le biais de la propriété **Mode**.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

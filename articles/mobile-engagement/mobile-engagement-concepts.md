@@ -1,93 +1,88 @@
 <properties
-    pageTitle="Mobile Engagement concepts | Microsoft Azure"
-    description="Azure Mobile Engagement concepts"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="dwrede"
-    editor="" />
+	pageTitle="Concepts de Mobile Engagement | Microsoft Azure"
+	description="Concepts d’Azure Mobile Engagement"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />
 
+# Concepts d’Azure Mobile Engagement
 
-# <a name="azure-mobile-engagement-concepts"></a>Azure Mobile Engagement concepts
+Mobile Engagement définit quelques concepts communs à toutes les plateformes prises en charge. Cet article décrit brièvement ces concepts.
 
-Mobile Engagement defines a few concepts common to all supported platforms. This article briefly describes those concepts.
+Cet article est également un bon point de départ si vous débutez avec Mobile Engagement. Assurez-vous de lire la documentation propre à la plateforme que vous utilisez, car elle définira plus en détail les concepts décrits ici, avec plus d’exemples et en indiquant les éventuelles limitations.
 
-This article is a good start if you are new to Mobile Engagement. Also make sure to read the documentation specific to the platform you are using, as it will refine the concepts described in this article with more details and examples as well as possible limitations.
+## Appareils et utilisateurs
+Mobile Engagement identifie les utilisateurs en générant un identificateur unique pour chaque appareil. Cet identificateur est appelé identificateur de l'appareil (ou `deviceid`). Il est généré de sorte que toutes les applications en cours d'exécution sur le même appareil partagent le même identificateur d'appareil.
 
-## <a name="devices-and-users"></a>Devices and users
-Mobile Engagement identifies users by generating a unique identifier for each device. This identifier is called the device identifier (or `deviceid`). It is generated in such a way that all applications running of the same device share the same device identifier.
+Implicitement, cela signifie que Mobile Engagement considère qu'un appareil appartient à un seul utilisateur et que, par conséquent, les utilisateurs et les appareils sont des concepts équivalents.
 
-Implicitly, it means that Mobile Engagement considers one device to belong to exactly one user, and thus, users and devices are equivalent concepts.
+## Sessions et activités
+Une session désigne une utilisation de l’application effectuée par un utilisateur, à partir du moment où il commence à l’utiliser jusqu’à ce qu’il arrête.
 
-## <a name="sessions-and-activities"></a>Sessions and activities
-A session is one use of the application performed by a user, from the time the user starts using it, until the user stops.
+Une activité désigne une utilisation d'une sous-partie de l'application effectuée par un utilisateur (il s'agit généralement d'un écran, mais il peut s'agir de tout autre élément de l'application).
 
-An activity is one use of a given sub-part of the application performed by one user (it is usually a screen, but it can be anything suitable to the application).
+Un utilisateur peut effectuer seulement une activité à la fois.
 
-A user can only perform one activity at a time.
+Une activité est identifiée par un nom (limité à 64 caractères) et peut éventuellement incorporer des données supplémentaires (dans la limite de 1 024 octets).
 
-An activity is identified by a name (limited to 64 characters) and can optionally embed some extra data (in the limit of 1024 bytes).
+Les sessions sont calculées automatiquement à partir de la séquence d’activités effectuées par les utilisateurs. Une session démarre quand l’utilisateur démarre sa première activité et s’arrête lorsqu’il a terminé sa dernière activité. Cela signifie qu’il n’est pas nécessaire de démarrer ou d’arrêter une session de manière explicite. En revanche, les activités sont démarrées ou arrêtées de manière explicite. Si aucune activité n’est signalée, aucune session n’est signalée.
 
-Sessions are automatically computed from the sequence of activities performed by users. A session starts when the user starts his first activity and stops when he finishes his last activity. This means that a session does not need to be explicitly started or stopped. Instead, activities are explicitly started or stopped. If no activity is reported, no session is reported.
+## Événements
+Les événements sont utilisés pour signaler des actions instantanées (comme un appui sur un bouton ou des articles lus par les utilisateurs).
 
-## <a name="events"></a>Events
-Events are used to report instant actions (like button pressed or articles read by users).
+Un événement peut être associé à la session active ou à une tâche en cours, ou être autonome.
 
-An event can be related to the current session, to a running job, or it can be a standalone event.
+Un événement est identifié par un nom (limité à 64 caractères) et peut éventuellement incorporer des données supplémentaires (dans la limite de 1 024 octets).
 
-An event is identified by a name (limited to 64 characters) and can optionally embed some extra data (in the limit of 1024 bytes).
+## Error
+Les erreurs sont utilisés pour signaler des problèmes correctement détectés par l'application (tels que des actions incorrectes de l'utilisateur ou des échecs d'appel d'API).
 
-## <a name="error"></a>Error
-Errors are used to report issues correctly detected by the application (like incorrect user actions, or API call failures).
+Une erreur peut être associée à la session active ou à une tâche en cours, ou être autonome.
 
-An error can be related to the current session, to a running job, or it can be a standalone error.
+Une erreur est identifiée par un nom (limité à 64 caractères) et peut éventuellement incorporer des données supplémentaires (dans la limite de 1 024 octets).
 
-An error is identified by a name (limited to 64 characters) and can optionally embed some extra data (in the limit of 1024 bytes).
+## Travail
+Les tâches sont utilisées pour signaler des actions ayant une durée (comme la durée des appels d'API, la durée d'affichage des publicités, la durée des tâches d'arrière-plan ou la durée des actions de l'utilisateur).
 
-## <a name="job"></a>Job
-Jobs are used to report actions having a duration (like duration of API calls, display time of ads, duration of background tasks or duration of user actions).
+Une tâche n’est pas liée à une session, car elle peut être effectuée en arrière-plan, sans aucune interaction de l’utilisateur.
 
-A job is not related to a session, because a task can be performed in the background, without any user interaction.
+Une tâche est identifiée par un nom (limité à 64 caractères) et peut éventuellement incorporer des données supplémentaires (dans la limite de 1 024 octets).
 
-A job is identified by a name (limited to 64 characters) and can optionally embed some extra data (in the limit of 1024 bytes).
+## Blocage
+Les blocages sont émis automatiquement par le SDK Mobile Engagement pour signaler les échecs de l’application (problèmes non détectés par l’application qui entraînent son blocage).
 
-## <a name="crash"></a>Crash
-Crashes are issued automatically by the Mobile Engagement SDK to report application failures where issues not detected by the application make it crash.
+## Informations de l'application
+Les informations de l’application sont utilisées pour baliser les utilisateurs, c’est-à-dire pour associer des données aux utilisateurs d’une application (elles sont assimilables aux cookies web, sauf qu’elles sont stockées côté serveur sur la plateforme Azure Mobile Engagement).
 
-## <a name="application-information"></a>Application information
-Application information (or app info) is used to tag users, that is, to associate some data to the users of an application (this is similar to web cookies, except that app info is stored on the server side on the Azure Mobile Engagement platform).
+Une information de l’application peut être enregistrée à l’aide de l’API du SDK Mobile Engagement ou de l’API d’appareil de la plateforme Mobile Engagement.
 
-App info can be registered by using the Mobile Engagement SDK API or by using the Mobile Engagement platform Device API.
+Une information de l’application est une paire clé/valeur associée à un appareil. La clé est le nom de l'information de l'application (limité à 64 lettres ASCII [a-zA-Z], chiffres [0-9] et traits de soulignement [\_]). La valeur (limitée à 1 024 caractères) peut être une chaîne, un entier, une date (aaaa-MM-jj) ou une valeur booléenne (true ou false).
 
-App info is a key/value pair associated to a device. The key is the name of the app info (limited to 64 ASCII letters [a-zA-Z], numbers [0-9] and underscores [_]). The value (limited to 1024 characters) can be any string, integer, date (yyyy-MM-dd) or Boolean (true or false).
+N'importe quelle quantité d'informations de l'application peut être associée à un appareil, dans les limites définies par les conditions de tarification de Mobile Engagement. Pour une clé donnée, Mobile Engagement effectue le suivi uniquement de la dernière valeur définie (aucun historique). La définition ou la modification de la valeur d'une information de l'application oblige Mobile Engagement à réévaluer les critères d'audience définis sur cette information de l'application (le cas échéant), ce qui signifie que les informations de l'application peuvent être utilisées pour déclencher des opérations push en temps réel.
 
-Any number of app info can be associated to a device, within the limits defined by the Mobile Engagement pricing terms. For one given key, Mobile Engagement only keeps track of the latest value set (no history). Setting or changing the value of an app info forces Mobile Engagement to re-evaluate audience criteria set on this app info (if any) meaning that app info can be used to trigger realtime pushes.
+## Données supplémentaires
+Les données supplémentaires (ou extras) sont des données arbitraires qui peuvent être associées à des événements, des erreurs, des activités et des tâches.
 
-## <a name="extra-data"></a>Extra data
-Extra data (or extras) is some arbitrary data that can be attached to events, errors, activities and jobs.
+Les extras sont structurés de la même façon que les objets JSON : ils sont constitués d'une arborescence de paires clé/valeur. Les clés sont limitées à 64 lettres ASCII [a-zA-Z], chiffres [0-9] et traits de soulignement [\_]) et la taille totale des extras est limitée à 1 024 caractères (une fois encodés au format JSON par le SDK Mobile Engagement).
 
-Extras are structured similarly to JSON objects: they are made of a tree of key/value pairs. Keys are limited to 64 ASCII letters [a-zA-Z], numbers [0-9] and underscores [_]) and the total size of extras is limited to 1024 characters (once encoded in JSON by the Mobile Engagement SDK).
+L'intégralité de l'arborescence de paires clé/valeur est stockée en tant qu'objet JSON. Toutefois, seul le premier niveau de clés/valeurs est décomposé pour être directement accessible à certaines fonctions avancées, telles que les segments (par exemple, vous pouvez facilement définir un segment appelé « Fans SciFi » constitué de tous les utilisateurs ayant envoyé au moins 10 fois l’événement « content\_viewed » avec la clé extra « content\_type » défini sur la valeur « scifi » le mois dernier). Il est donc fortement recommandé de n’envoyer que des extras constitués de listes simples de paires clé/valeur utilisant des valeurs scalaires (par exemple, chaînes, dates, entiers ou valeurs booléennes).
 
-The whole tree of key/value pairs is stored as a JSON object. Nevertheless, only the first level of keys/values is decomposed to be directly accessible to some advanced functions like Segments (for example, you can easily define a segment called “SciFi fans” that is made of all users having sent at least 10 times the event named “content_viewed” with the extra key “content_type” set to the value “scifi” in the last month). It is thus highly recommended to send only extras made of simple lists of key/value pairs using scalar values (for example, strings, dates, integers or Boolean).
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+- [Vue d’ensemble du Kit de développement logiciel (SDK) de Windows Universal pour Azure Engagement Mobile](mobile-engagement-windows-store-sdk-overview.md)
+- [Vue d’ensemble du Kit de développement logiciel (SDK) Silverlight de Windows Phone pour Azure Engagement Mobile](mobile-engagement-windows-phone-sdk-overview.md)
+- [Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
+- [SDK Android pour Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
-- [Windows Universal SDK overview for Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
-- [Windows Phone Silverlight SDK overview for Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
-- [iOS SDK for Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
-- [Android SDK for Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

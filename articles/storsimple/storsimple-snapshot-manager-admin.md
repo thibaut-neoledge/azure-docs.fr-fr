@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager administration | Microsoft Azure"
-   description="Provides an overview and links to more information about StorSimple Snapshot Manager solution administration tasks and workflows."
+   pageTitle="Administration du Gestionnaire d’instantanés StorSimple | Microsoft Azure"
+   description="Fournit une vue d’ensemble et des liens vers d’autres informations sur les tâches et les flux de travail d’administration du Gestionnaire d’instantanés StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,56 +15,51 @@
    ms.date="05/18/2016"
    ms.author="v-sharos" />
 
+# Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple
 
-# <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Use StorSimple Snapshot Manager to administer your StorSimple solution
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable Microsoft Management Console (MMC) qui simplifie la protection des données et la gestion des sauvegardes dans l’environnement Microsoft Azure StorSimple. Avec le Gestionnaire d’instantanés StorSimple, vous pouvez gérer les données Microsoft Azure StorSimple hébergées dans le centre de données et dans le cloud sous forme de solution de stockage intégrée unique et réduire ainsi la complexité des processus de sauvegarde et les coûts.
 
-StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that simplifies data protection and backup management in a Microsoft Azure StorSimple environment. With StorSimple Snapshot Manager, you can manage Microsoft Azure StorSimple data in the data center and in the cloud as a single integrated storage solution, thus simplifying backup processes and reducing costs.
+La console de gestion centralisée du Gestionnaire d’instantanés StorSimple vous permet de créer des copies instantanées cohérentes des données locales et du cloud. Par exemple, vous pouvez utiliser la console pour :
 
-The StorSimple Snapshot Manager central management console enables you to create consistent, point-in-time backup copies of local and cloud data. For example, you can use the console to:
+- Configurer, sauvegarder et supprimer des volumes.
 
-- Configure, back up, and delete volumes.
+- Configurer des groupes de volumes pour garantir que les données sauvegardées sont cohérentes pour l’application.
 
-- Configure volume groups to ensure that backed up data is application-consistent.
+- Gérer les stratégies de sauvegarde afin que les données soient sauvegardées selon un calendrier prédéterminé.
 
-- Manage backup policies so that data is backed up on a predetermined schedule.
+- Créer des copies indépendantes des données, qui peuvent être stockées dans le cloud et utilisées pour la récupération d’urgence.
 
-- Create independent copies of data, which can be stored in the cloud and used for disaster recovery.
+Cet article fournit des liens vers des didacticiels qui décrivent le Gestionnaire d’instantanés StorSimple et comment l’utiliser pour exécuter des tâches et des flux de travail d’administration système complets.
 
-This article provides links to tutorials that describe StorSimple Snapshot Manager and how to use it to complete system administration tasks and workflows.
+- Pour plus d’informations sur l’architecture et les composants du Gestionnaire d’instantanés StorSimple, consultez l’article [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md) 
 
-- For more information about StorSimple Snapshot Manager components and architecture, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) 
+- Pour télécharger le Gestionnaire d’instantanés StorSimple, accédez à [la page de téléchargement du Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-- To download StorSimple Snapshot Manager, go to [the StorSimple Snapshot Manager download page](https://www.microsoft.com/download/details.aspx?id=44220).
+- Pour connaître les procédures de déploiement du Gestionnaire d’instantanés StorSimple, consultez l’article [Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md).
 
-- For StorSimple Snapshot Manager deployment procedures, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+>[AZURE.NOTE] Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
 
->[AZURE.NOTE] You cannot use StorSimple Snapshot Manager to manage Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices).
+## Tâches et flux de travail du Gestionnaire d’instantanés StorSimple
 
-## <a name="storsimple-snapshot-manager-tasks-and-workflows"></a>StorSimple Snapshot Manager tasks and workflows
+Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour surveiller et gérer les tâches de sauvegarde en cours, planifiées et terminées. De plus, le Gestionnaire d’instantanés StorSimple offre un catalogue pouvant comporter jusqu’à 64 sauvegardes terminées. Vous pouvez utiliser ce catalogue pour rechercher et restaurer des volumes ou des fichiers individuels.
 
-You can use the StorSimple Snapshot Manager to monitor and manage current, scheduled, and completed backup jobs. Additionally, StorSimple Snapshot Manager provides a catalog of up to 64 completed backups. You can use the catalog to find and restore volumes or individual files. 
-
-| IF YOU WANT TO DO THIS...  | USE THIS TUTORIAL... |
+| SI VOUS VOULEZ FAIRE CECI... | SUIVEZ CE DIDACTICIEL... |
 |:---------------------------|:----------------------|
-|Learn more about StorSimple Snapshot Manager | [What is StorSimple Snapshot Manager? ](storsimple-what-is-snapshot-manager.md)|
-| Install StorSimple Snapshot Manager<br>Reinstall StorSimple Snapshot Manager<br>Remove StorSimple Snapshot Manager| [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md) |
-| Use StorSimple Snapshot Manager menus and features:<ul><li>Menu bar</li><li>Tool bar</li><li>Scope pane</li><li>Results pane</li><li>Actions pane</li><li>Keyboard navigation and shortcuts</li></ul>| [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md) |
-| Use the common MMC features included in StorSimple Snapshot Manager:<ul><li>View</li><li>New Window from Here</li><li>Refresh</li><li>Export List</li><li>Help</li></ul>| [Use the MMC menu actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
-| Add or replace a device<br>Connect a device<br>Verify imported volume groups<br>Refresh connected devices<br>Authenticate a device<br>View device details<br>Delete a device configuration<br>Change a device password<br>Replace a failed device<br>| [Use StorSimple Snapshot Manager to connect and manage StorSimple devices](storsimple-snapshot-manager-manage-devices.md) |
-| Mount volumes<br>View information about volumes<br>Delete a volume<br>Rescan volumes<br>Configure and back up a basic volume<br>Configure and backup a dynamic mirrored volume| [Use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md) |
-| View volume groups<br>Create a volume group<br>Back up a volume group<br>Edit a volume group<br>Delete a volume group | [Use StorSimple Snapshot Manager to create and manage volume groups](storsimple-snapshot-manager-manage-volume-groups.md) |
-| Create a backup policy <br>Edit a backup policy<br>Delete a backup policy | [Use StorSimple Snapshot Manager to create and manage backup policies](storsimple-snapshot-manager-manage-backup-policies.md) |
-| View and manage scheduled backup jobs<br>View and manage recent backup jobs<br>View and manage currently running backup jobs | [Use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md) |
-| Restore a volume<br>Clone a volume or volume group<br>Delete a backup<br>Recover a file<br>Restore the StorSimple Snapshot Manager database| [Use StorSimple Snapshot Manager to manage the backup catalog](storsimple-snapshot-manager-manage-backup-catalog.md) |
+|En savoir plus sur le Gestionnaire d’instantanés StorSimple | [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ? ](storsimple-what-is-snapshot-manager.md)|
+| Installer le Gestionnaire d’instantanés StorSimple<br>Réinstaller le Gestionnaire d’instantanés StorSimple<br>Supprimer le Gestionnaire d’instantanés StorSimple| [Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md) |
+| Utiliser les menus et les fonctionnalités du Gestionnaire d’instantanés StorSimple :<ul><li>Barre de menus</li><li>Barre d’outils</li><li>Volet Étendue</li><li>Volet Résultats</li><li>Volet Actions</li><li>Navigation au clavier et touches de raccourci</li></ul>| [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md) |
+| Utiliser les fonctionnalités de console MMC courantes incluses dans le Gestionnaire d’instantanés StorSimple :<ul><li>Afficher</li><li>Nouvelle fenêtre</li><li>Actualiser</li><li>Exporter la liste</li><li>Aide</li></ul>| [Utiliser les actions de menu de la console MMC dans le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-mmc-menu.md)
+| Ajouter ou remplacer un appareil<br>Connecter un appareil<br>Vérifier les groupes de volumes importés<br>Actualiser les appareils connectés<br>Authentifier un appareil<br>Afficher les détails d’un appareil<br>Supprimer une configuration d’appareil<br>Modifier le mot de passe d’un appareil<br>Remplacer un appareil défaillant<br>| [Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple](storsimple-snapshot-manager-manage-devices.md) |
+| Monter des volumes<br>Afficher des informations sur les volumes<br>Supprimer un volume<br>Relancer l’analyse des volumes<br>Configurer et sauvegarder un volume de base<br>Configurer et sauvegarder un volume dynamique en miroir| [Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md) |
+| Afficher les groupes de volumes<br>Créer un groupe de volumes<br>Sauvegarder un groupe de volumes<br>Modifier un groupe de volumes<br>Supprimer un groupe de volumes | [Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes](storsimple-snapshot-manager-manage-volume-groups.md) |
+| Créer une stratégie de sauvegarde<br>Modifier une stratégie de sauvegarde<br>Supprimer une stratégie de sauvegarde | [Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md) |
+| Afficher et gérer les tâches de sauvegarde planifiés<br>Afficher et gérer les tâches de sauvegarde récentes<br>Afficher et gérer les tâches de sauvegarde en cours d’exécution | [Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde](storsimple-snapshot-manager-manage-backup-jobs.md) |
+| Restaurer un volume<br>Cloner un volume ou un groupe de volumes<br>Supprimer une sauvegarde<br>Récupérer un fichier<br>Restaurer la base de données du Gestionnaire d’instantanés StorSimple| [Utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde](storsimple-snapshot-manager-manage-backup-catalog.md) |
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-[Download StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+[Télécharger le Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

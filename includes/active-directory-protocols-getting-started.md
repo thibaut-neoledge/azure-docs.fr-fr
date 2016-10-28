@@ -1,46 +1,41 @@
 <properties
-    pageTitle="Azure AD .NET Protocol Overview | Microsoft Azure"
-    description="How to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure AD."
-    services="active-directory"
-    documentationCenter=".net"
-    authors="priyamohanram"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Vue d’ensemble du protocole Azure AD .NET | Microsoft Azure"
+	description="Comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure AD."
+	services="active-directory"
+	documentationCenter=".net"
+	authors="priyamohanram"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="01/21/2016"
-    ms.author="priyamo"/>
-
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/21/2016"
+	ms.author="priyamo"/>
 
 <!--TODO: Introduction -->
 
-## <a name="register-your-application-with-your-ad-tenant"></a>Register your application with your AD tenant
+## Inscrire votre application avec votre client AD
 
-First, you will need to register your application with your Active Directory tenant. This will give you a client ID for your application, as well as enable it to receive tokens.
+Tout d’abord, vous devez inscrire votre application avec votre client Active Directory. Ceci vous fournira un ID client pour votre application et lui permettra de recevoir des jetons.
 
-- Sign into the Azure Management Portal.
+- Connectez-vous au portail de gestion Azure.
 
-- In the left hand navigation pane, click on **Active Directory**.
+- Dans le volet de navigation gauche, cliquez sur **Active Directory**.
 
-- Select a tenant in which to register the application.
+- Sélectionnez un client dans lequel inscrire l’application.
 
-- Click on the **Applications** tab, and click **Add** in the bottom drawer.
+- Cliquez sur l’onglet **Applications**, puis sur **Ajouter** dans le menu déroulant inférieur.
 
-- Follow the prompts and create a new application. It doesn't matter if it is a web application or a native application for this tutorial, but if you'd like specific examples for web applications or native applications, check out our quickstarts [here](../articles/active-directory/active-directory-developers-guide.md).
+- Suivez les invites et créez une application. Pour ce didacticiel, il peut s’agir d’une application web ou d’une application native. Cependant, si vous souhaitez obtenir des exemples spécifiques pour les applications web ou les applications natives, consultez nos rubriques de démarrage rapide [ici](../articles/active-directory/active-directory-developers-guide.md).
 
-- For Web Applications, provide the **Sign-On URL** which is the base URL of your app, where users can sign in e.g `http://localhost:12345`. The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
+- Pour les applications web, indiquez **l’URL de connexion**, qui est l’URL de base de votre application, à laquelle les utilisateurs peuvent se connecter, par exemple `http://localhost:12345`. Un **URI ID d’application** est un identificateur unique pour votre application. L’usage est d’utiliser `https://<tenant-domain>/<app-name>`, par exemple `https://contoso.onmicrosoft.com/my-first-aad-app`.
 
-- For Native Applications, provide a **Redirect URI**, which Azure AD will use to return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
+- Pour les applications natives, indiquez un **URI de redirection**, qui sera utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique à votre application, par exemple, `http://MyFirstAADApp`.
 
-- Once you've completed registration, AAD will assign your application a unique client identifier. You will need this value in the next sections, so copy it in the **Configure** tab of your application.
+- Une fois l’inscription terminée, AAD affecte un identificateur client unique à votre application. Copiez cette valeur à partir de l’onglet **Configurer** de votre application, car vous en aurez besoin dans les sections suivantes.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

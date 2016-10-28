@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure multiple NICs on a Linux VM | Microsoft Azure"
-   description="Learn how to create a VM with multiple NICs attached to it using the Azure CLI or Resource Manager templates."
+   pageTitle="Configuration de plusieurs cartes réseau sur une machine virtuelle Linux | Microsoft Azure"
+   description="Découvrez comment créer une machine virtuelle dotée de plusieurs cartes réseau à l’aide de l’interface de ligne de commande Azure ou de modèles Resource Manager."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,36 +16,35 @@
    ms.date="08/02/2016"
    ms.author="iainfou"/>
 
+# Création d’une machine virtuelle avec plusieurs cartes d’interface réseau (NIC)
+Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consisterait à avoir des sous-réseaux différents pour les connectivité frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article fournit des commandes rapides pour créer une machine virtuelle avec plusieurs cartes d’interface réseau. Pour plus d’informations, notamment sur la création de plusieurs cartes réseau dans vos propres scripts Bash, consultez la page consacrée au [déploiement de machines virtuelles avec plusieurs cartes d’interface réseau](../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](virtual-machines-linux-sizes.md), pensez à dimensionner la vôtre en conséquence.
 
-# <a name="creating-a-vm-with-multiple-nics"></a>Creating a VM with multiple NICs
-You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own Bash scripts, read more about [deploying multi-NIC VMs](../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Different [VM sizes](virtual-machines-linux-sizes.md) support a varying number of NICs, so size your VM accordingly.
+>[AZURE.WARNING] Vous devez attacher plusieurs cartes réseau quand vous créez une machine virtuelle. Vous ne pouvez pas ajouter de cartes réseau à une machine virtuelle existante. Vous pouvez [créer une machine virtuelle basée sur les disques virtuels d’origine](virtual-machines-linux-copy-vm.md) et créer plusieurs cartes réseau quand vous déployez la machine virtuelle.
 
->[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM. You can [create a new VM based on the original virtual disk(s)](virtual-machines-linux-copy-vm.md) and create multiple NICs as you deploy the VM.
+## Commandes rapides
+Veillez à ce que [la CLI Azure](../xplat-cli-install.md) soit connectée et utilise le mode Resource Manager (`azure config mode arm`).
 
-## <a name="quick-commands"></a>Quick commands
-Make sure that you have the [Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode (`azure config mode arm`).
-
-First, create a resource group:
+Créez d’abord un groupe de ressources :
 
 ```bash
 azure group create TestRG --location WestUS
 ```
 
-Create a storage account to hold your VMs:
+Créez un compte de stockage qui contiendra vos machines virtuelles :
 
 ```bash
 azure storage account create teststorage --resource-group TestRG \
     --location WestUS --kind Storage --sku-name PLRS
 ```
 
-Create a virtual network to connect your VMs to:
+Créez un réseau virtuel auquel connecter vos machines virtuelles :
 
 ```bash
 azure network vnet create --resource-group TestRG --location WestUS \
     --name TestVNet --address-prefixes 192.168.0.0/16 
 ```
 
-Create two virtual network subnets - one for front-end traffic and one for back-end traffic:
+Créez deux sous-réseaux de réseau virtuel : l’un pour le trafic front-end, l’autre pour le trafic back-end.
 
 ```bash
 azure network vnet subnet create --resource-group TestRG --vnet-name TestVNet \
@@ -54,7 +53,7 @@ azure network vnet subnet create --resource-group TestRG --vnet-name TestVNet \
     --name BackEnd --address-prefix 192.168.2.0/24
 ```
 
-Create two NICs, attaching one NIC to the front-end subnet and one NIC to the back-end subnet:
+Créez deux cartes réseau, en attachant l’une au sous-réseau front-end et l’autre au sous-réseau back-end :
 
 ```bash
 azure network nic create --resource-group TestRG --location WestUS \
@@ -63,7 +62,7 @@ azure network nic create --resource-group TestRG --location WestUS \
     -n NIC2 --subnet-vnet-name TestVNet --subnet-name BackEnd
 ```
 
-Finally create your VM, attaching the two NICs you previously created:
+Enfin, créez votre machine virtuelle en attachant les deux cartes réseau que vous avez créées précédemment :
 
 ```bash
 azure vm create \            
@@ -79,10 +78,10 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
-## <a name="creating-multiple-nics-using-azure-cli"></a>Creating multiple NICs using Azure CLI
-If you have previously created a VM using the Azure CLI, the quick commands should be familiar. The process is the same to create one NIC or multiple NICs. You can read more details about [deploying multiple NICs using the Azure CLI](../virtual-network/virtual-network-deploy-multinic-arm-cli.md), including scripting the process of looping through to create all the NICs.
+## Création de plusieurs cartes réseau à l’aide de l’interface de ligne de commande Azure
+Si vous avez déjà créé une machine virtuelle à l’aide de l’interface de ligne de commande Azure, les commandes rapides doivent vous être familières. Le processus est le même pour créer une carte réseau ou plusieurs cartes réseau. Vous trouverez plus d’informations sur le [déploiement de plusieurs cartes réseau à l’aide de l’interface de ligne de commande Azure](../virtual-network/virtual-network-deploy-multinic-arm-cli.md), notamment les scripts pour le processus de bouclage pour créer toutes les cartes réseau.
 
-The following example creates two NICs, with one NIC connecting to each subnet:
+L’exemple suivant crée deux cartes réseau, avec une carte réseau se connectant à chaque sous-réseau :
 
 ```bash
 azure network nic create --resource-group TestRG --location WestUS \
@@ -91,14 +90,14 @@ azure network nic create --resource-group TestRG --location WestUS \
     -n NIC2 --subnet-vnet-name TestVNet --subnet-name BackEnd
 ```
 
-Typically you would also create a [network security group](../virtual-network/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Again, the commands are the same when working with multiple NICs. The NICs you create get bound to a network security group or load balancer using `azure network nic set`, such as in the following example:
+En général, vous devez également créer un [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) ou un [équilibreur de charge](../load-balancer/load-balancer-overview.md) pour faciliter la gestion et la répartition du trafic entre vos machines virtuelles. Là encore, les commandes sont les mêmes lorsque vous travaillez avec plusieurs cartes réseau. Les cartes réseau que vous créez sont attachées à un groupe de sécurité réseau ou à l’équilibreur de charge `azure network nic set`, comme dans l’exemple suivant :
 
 ```bash
 azure network nic set --resource-group TestRG --name NIC1 \
     --network-security-group-name TestNSG
 ```
 
-When creating the VM, you now specify multiple NICs. Rather using `--nic-name` to provide a single NIC, instead you use `--nic-names` and provide a comma-separated list of NICs. You also need to take care when you select the VM size. There are limits for the total number of NICs that you can add to a VM. Read more about [Linux VM sizes](virtual-machines-linux-sizes.md). The following example shows how to specify multiple NICs and then a VM size that supports using multiple NICs (`Standard_DS2_v2`):
+Lorsque vous créez la machine virtuelle, vous spécifiez maintenant plusieurs cartes réseau. Au lieu d’utiliser `--nic-name` pour fournir une seule carte réseau, vous utilisez `--nic-names` et spécifiez une liste de cartes réseau séparée par des virgules. Vous devez également faire attention en définissant la taille de la machine virtuelle. Il existe des limites pour le nombre maximal de cartes réseau que vous pouvez ajouter à une machine virtuelle. En savoir plus sur les [tailles des machines virtuelles Linux](virtual-machines-linux-sizes.md). L’exemple suivant montre comment spécifier plusieurs cartes réseau, puis sur une taille de machine virtuelle permettant l’utilisation de plusieurs cartes réseau (`Standard_DS2_v2`) :
 
 ```bash
 azure vm create \            
@@ -114,8 +113,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
-## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Creating multiple NICs using Resource Manager templates
-Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
+## Création de plusieurs cartes réseau à l’aide de modèles Resource Manager
+Les modèles Azure Resource Manager utilisent des fichiers JSON déclaratifs pour définir votre environnement. Vous pouvez consulter une [vue d’ensemble d’Azure Resource Manager](../resource-group-overview.md). Les modèles Resource Manager fournissent un moyen de créer plusieurs instances d’une ressource pendant le déploiement, à l’image de la création de plusieurs cartes réseau. Vous utilisez *copy* pour spécifier le nombre d’instances à créer :
 
 ```bash
 "copy": {
@@ -124,22 +123,19 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 }
 ```
 
-Read more about [creating multiple instances using *copy*](../resource-group-create-multiple.md). 
+En savoir plus sur la [création de plusieurs instances à l’aide de *copy*](../resource-group-create-multiple.md).
 
-You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `NIC1`, `NIC2`, etc. The following shows an example of appending the index value:
+Vous pouvez également utiliser `copyIndex()` pour ajouter ensuite un numéro à un nom de ressource afin de créer `NIC1`, `NIC2`, etc. Voici un exemple d’ajout de la valeur d’index :
 
 ```bash
 "name": "[concat('NIC-', copyIndex())]", 
 ```
 
-You can read a complete example of [creating multiple NICs using Resource Manager templates](../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Vous pouvez consulter un exemple complet de [création de plusieurs cartes réseau à l’aide de modèles Resource Manager](../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
-## <a name="next-steps"></a>Next steps
-Make sure to review [Linux VM sizes](virtual-machines-linux-sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 
+## Étapes suivantes
+Veillez à consulter les [tailles des machines virtuelles Linux](virtual-machines-linux-sizes.md) si vous créez une machine virtuelle avec plusieurs cartes réseau. Faites attention au nombre maximal de cartes réseau pris en charge par chaque taille de machine virtuelle.
 
-Remember that you cannot add additional NICs to an existing VM, you must create all the NICs when you deploy the VM. Take care when planning your deployments to make sure that you have all the required network connectivity from the outset.
+N’oubliez pas que vous ne pouvez pas ajouter de carte réseau à une machine virtuelle existante. Vous devez créer toutes les cartes réseau quand vous déployez la machine virtuelle. Quand vous planifiez vos déploiements, vérifiez que vous disposez de toute la connectivité réseau nécessaire dès le départ.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

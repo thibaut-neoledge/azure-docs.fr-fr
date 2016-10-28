@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Replace a StorSimple EBOD controller | Microsoft Azure"
-   description="Explains how to remove and replace one or both EBOD controllers on a StorSimple 8600 device."
+   pageTitle="Remplacer un contrôleur EBOD StorSimple | Microsoft Azure"
+   description="Explique comment retirer et remplacer un contrôleur ou les deux contrôleurs EBOD sur votre appareil StorSimple 8600."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,101 +15,96 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+# Remplacer un contrôleur EBOD sur votre appareil StorSimple
 
-# <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Replace an EBOD controller on your StorSimple device
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Ce didacticiel explique comment remplacer un module de contrôleur EBOD défectueux sur votre appareil Microsoft Azure StorSimple. Pour remplacer un module de contrôleur EBOD, vous devez :
 
-This tutorial explains how to replace a faulty EBOD controller module on your Microsoft Azure StorSimple device. To replace an EBOD controller module, you need to:
+- Retirer le contrôleur EBOD défectueux
+- Installer un nouveau contrôleur EBOD
 
-- Remove the faulty EBOD controller
-- Install a new EBOD controller
+Avant de commencer, tenez compte des informations suivantes :
 
-Consider the following information before you begin:
+- Des modules EBOD vides doivent être insérés dans tous les emplacements non utilisés. Le boîtier ne se refroidit pas correctement si un emplacement est laissé ouvert.
 
-- Blank EBOD modules must be inserted into all unused slots. The enclosure will not cool properly if a slot is left open.
+- Le contrôleur EBOD est échangeable à chaud, et il peut être retiré ou remplacé. Ne retirez pas un module défectueux tant que vous ne disposez pas d’un remplacement. Quand vous commencez le processus de remplacement, vous devez le terminer dans les 10 minutes.
 
-- The EBOD controller is hot-swappable and can be removed or replaced. Do not remove a failed module until you have a replacement. When you initiate the replacement process, you must finish it within 10 minutes.
+>[AZURE.IMPORTANT] Avant de tenter de retirer ou remplacer un composant StorSimple, passez en revue les [conventions des icônes de sécurité](storsimple-safety.md#safety-icon-conventions) et les autres [précautions de sécurité](storsimple-safety.md).
 
->[AZURE.IMPORTANT] Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](storsimple-safety.md#safety-icon-conventions) and other [safety precautions](storsimple-safety.md).
+## Retirer un contrôleur EBOD
 
-## <a name="remove-an-ebod-controller"></a>Remove an EBOD controller
+Avant de retirer le module de contrôleur EBOD défectueux de votre appareil StorSimple, assurez-vous que l’autre module de contrôleur EBOD est actif et en fonctionnement. La procédure et le tableau suivants expliquent comment retirer le module de contrôleur EBOD.
 
-Before replacing the failed EBOD controller module in your StorSimple device, make sure that the other EBOD controller module is active and running. The following procedure and table explain how to remove the EBOD controller module.
+#### Pour retirer un module EBOD
 
-#### <a name="to-remove-an-ebod-module"></a>To remove an EBOD module
+1. Ouvrez le portail Azure Classic.
 
-1. Open the Azure classic portal.
+2. Accédez à **Appareils** > **Maintenance** > **Statut du matériel**, et vérifiez que l’état de la LED du module de contrôleur EBOD actif est en vert et que la LED pour le module de contrôleur EBOD défaillant est en rouge.
 
-2. Navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that the status of the LED for the active EBOD controller module is green and the LED for the failed EBOD controller module is red.
+3. Localisez le module de contrôleur EBOD défectueux à l’arrière de l’appareil.
 
-3. Locate the failed EBOD controller module at the back of the device.
+4. Débranchez les câbles qui connectent le module de contrôleur EBOD au contrôleur avant d’enlever le module EBOD du système.
 
-4. Remove the cables that connect the EBOD controller module to the controller before taking the EBOD module out of the system.
+5. Notez le port SAS du module de contrôleur EBOD qui était connecté au contrôleur. Vous devrez restaurer le système dans cette configuration après le remplacement du module EBOD.
 
-5. Make a note of the exact SAS port of the EBOD controller module that was connected to the controller. You will be required to restore the system to this configuration after you replace the EBOD module. 
+    >[AZURE.NOTE] En règle générale, il s’agit du Port A, qui est libellé **Entrée hôte** dans le diagramme suivant.
 
-    >[AZURE.NOTE] Typically, this will be Port A, which is labeled as **Host in** in the following diagram.
+    ![Fond de panier du contrôleur EBOD](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
-    ![Backplane of EBOD controller](./media/storsimple-ebod-controller-replacement/IC741049.png)
+     **Figure 1** : Arrière du module EBOD
 
-     **Figure 1** Back of EBOD module
+    |Étiquette|Description|
+    |:----|:----------|
+    |1|LED indiquant une panne|
+    |2|LED d’alimentation|
+    |3|Connecteurs SaaS|
+    |4|LED SAS|
+    |5|Ports série (utilisation en usine uniquement)|
+    |6|Port A (Entrée hôte)|
+    |7|Port B (Sortie hôte)|
+    |8|Port C (utilisation en usine uniquement)|
 
-  	|Label|Description|
-  	|:----|:----------|
-  	|1|Fault LED|
-  	|2|Power LED|
-  	|3|SAS connectors|
-  	|4|SAS LEDs|
-  	|5|Serial ports for factory use only|
-  	|6|Port A (Host in)|
-  	|7|Port B (Host out)|
-  	|8|Port C (Factory use only)|
+## Installer un nouveau contrôleur EBOD
 
-## <a name="install-a-new-ebod-controller"></a>Install a new EBOD controller
+La procédure et le tableau suivants expliquent comment installer un module de contrôleur EBOD dans votre appareil StorSimple.
 
-The following procedure and table explain how to install an EBOD controller module in your StorSimple device.
+#### Pour installer un contrôleur EBOD
 
-#### <a name="to-install-an-ebod-controller"></a>To install an EBOD controller
+1. Vérifiez que l’appareil EBOD n’est pas endommagé, en particulier le connecteur d’interface. N’installez pas le nouveau contrôleur EBOD si des broches sont tordues.
 
-1. Check the EBOD device for damage, especially to the interface connector. Do not install the new EBOD controller if any pins are bent.
+2. Avec les verrous en position ouverte, faites glisser le module dans le boîtier jusqu’à ce que les verrous s’engagent.
 
-2. With the latches in the open position, slide the module into the enclosure until the latches engage.
+    ![Installation du contrôleur EBOD](./media/storsimple-ebod-controller-replacement/IC741050.png)
 
-    ![Installing EBOD controller](./media/storsimple-ebod-controller-replacement/IC741050.png)
+    **Figure 2** : Installation du module de contrôleur EBOD
 
-    **Figure 2**  Installing the EBOD controller module
+3. Fermez le verrou. Vous devez entendre un clic quand le verrou s’engage.
 
-3. Close the latch. You should hear a click as the latch engages.
+    ![Libération du verrou EBOD](./media/storsimple-ebod-controller-replacement/IC741047.png)
 
-    ![Releasing EBOD latch](./media/storsimple-ebod-controller-replacement/IC741047.png)
+    **Figure 3** : Fermeture du verrou du module EBOD
 
-    **Figure 3**  Closing the EBOD module latch
+4. Rebranchez les câbles. Utilisez la configuration exacte qui existait avant le remplacement. Consultez le diagramme et le tableau suivants pour des informations sur la façon de connecter les câbles.
 
-4. Reconnect the cables. Use the exact configuration that was present before the replacement. See the following diagram and table for details about how to connect the cables.
+    ![Raccorder votre appareil à l’alimentation électrique](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    ![Cable your 4U device for power](./media/storsimple-ebod-controller-replacement/IC770723.png)
+    **Figure 4**. Reconnexion des câbles
 
-    **Figure 4**. Reconnecting cables
+    |Étiquette|Description|
+    |:----|:----------|
+    |1|Boîtier principal|
+    |2|PCM 0|
+    |3|PCM 1|
+    |4|Contrôleur 0|
+    |5|Contrôleur 1|
+    |6|Contrôleur 0 du boîtier EBOD|
+    |7|Contrôleur 1 du boîtier EBOD|
+    |8|Boîtier EBOD|
+    |9|Unités de distribution de l’alimentation|
 
-  	|Label|Description|
-  	|:----|:----------|
-  	|1|Primary enclosure|
-  	|2|PCM 0|
-  	|3|PCM 1|
-  	|4|Controller 0|
-  	|5|Controller 1|
-  	|6|EBOD controller 0|
-  	|7|EBOD controller 1|
-  	|8|EBOD enclosure|
-  	|9|Power Distribution Units|
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+En savoir plus sur le [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,37 +1,32 @@
 <!--author=SharS last changed: 11/04/15-->
 
 
-#### <a name="to-create-a-custom-backup-policy"></a>To create a custom backup policy
+#### Pour créer une stratégie de sauvegarde personnalisée
 
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
+1. Dans la page **Appareils**, cliquez sur **Stratégies de sauvegarde**, puis sur **Ajouter**.
 
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+2. Dans la boîte de dialogue **Ajouter une stratégie de sauvegarde**, sous **Définir votre stratégie de sauvegarde** :
 
-    1. Specify a backup policy name.
+    1. Indiquez le nom de la stratégie de sauvegarde.
 
-    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting multiple check boxes.
+    2. Sélectionnez les volumes à ajouter à cette stratégie. Vous pouvez ajouter plusieurs volumes en cochant plusieurs cases.
 
-    3. Click the arrow icon ![check icon](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
+    3. Cliquez sur l’icône en forme de flèche ![icône en forme de coche](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
 
-6. Under **Define a Schedule**:
+6. Dans **Définir une planification** :
 
-    1. Select the **Type of backup** (**Local Snapshot** or **Cloud Snapshot**).
+    1. Sélectionnez le **type de sauvegarde** (instantané **local** ou **cloud**).
 
-    3. Specify the backup frequency in minutes, hours, days, or weeks.
+    3. Spécifiez la fréquence de sauvegarde en minutes, heures, jours ou semaines.
 
-    4. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. 
+    4. Dans la liste déroulante, sélectionnez une planification de rétention. La durée de conservation dépend de la fréquence de sauvegarde.
  
-    5. Select the starting time and date for the policy.
+    5. Sélectionnez la date et l’heure de début de la stratégie.
 
-    6. Select the check box to enable the policy.
+    6. Cochez la case pour activer la stratégie.
 
-7. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to finish.
+7. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) pour terminer.
 
-8. You will return to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the custom policy.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
+8. Vous êtes redirigé vers la page **Stratégies de sauvegarde**. La liste tabulaire qui répertorie les stratégies de sauvegarde sera mise à jour de manière à afficher la stratégie personnalisée.
 
 

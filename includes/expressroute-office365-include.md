@@ -1,10 +1,8 @@
-ExpressRoute provides private network connectivity to Microsoft cloud services. Infrastructure and platform services running in Azure often benefit by addressing network architecture and performance considerations. Therefore we recommend enterprises use ExpressRoute for Azure.
+ExpressRoute fournit une connectivité de réseau privé pour les services Cloud de Microsoft. Pour les services de plate-forme et d’infrastructure qui s’exécutent dans Azure, il est bien souvent utile de tenir compte de l’architecture et des performances réseau. C’est pourquoi nous recommandons aux entreprises d’utiliser ExpressRoute pour Azure.
 
-Software as a Service offerings, like Office 365 and Dynamics 365, were created to be accessed securely and reliably via the Internet.  Therefore, we only recommend ExpressRoute for these applications in specific scenarios.
+Les offres SaaS, comme Office 365 et Dynamics 365, ont été créées pour être accessibles de manière fiable et sécurisée via Internet. Par conséquent, nous ne recommandons l’utilisation d’ExpressRoute pour ces applications que dans des scénarios bien spécifiques.
 
 > [AZURE.IMPORTANT]
-> Using ExpressRoute to access Azure is **recommended** for all enterprises. For guidance on using ExpressRoute to access Office 365 visit [http://aka.ms/ExpressRouteOffice365](http://aka.ms/ExpressRouteOffice365).
+L’utilisation d’ExpressRoute pour accéder à Azure est **recommandée** pour toutes les entreprises. Pour obtenir de l’aide sur l’utilisation d’ExpressRoute afin d’accéder à Office 365, voir [http://aka.ms/ExpressRouteOffice365](http://aka.ms/ExpressRouteOffice365).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

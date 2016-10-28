@@ -1,35 +1,29 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-modify-a-volume-container"></a>To modify a volume container
+#### Pour modifier un conteneur de volumes
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+1. Dans la page **Appareils**, sélectionnez l’appareil, double-cliquez dessus, puis cliquez sur l’onglet **Conteneurs de volumes**.
 
-2. In the tabular listing of the volume containers, select the setting that you want to modify, and click **Modify**.
+2. Dans le tableau des conteneurs de volumes, sélectionnez le paramètre que vous souhaitez modifier, puis cliquez sur **Modifier**.
 
-3. In the **Modify Volume container** dialog box, do the following:
+3. Dans la boîte de dialogue **Modifier le conteneur de volumes**, procédez comme suit :
 
-    1. Change the name of the volume container and modify the associated bandwidth setting. 
+    1. Modifiez le nom du conteneur de volumes, ainsi que le paramètre de bande passante associé. 
 
-        ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+        ![Modifier le conteneur de volumes avec le modèle de bande passante 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
-    2. The encryption key and storage account cannot be changed after they are specified. If you specified **Select a bandwidth template**, click the arrow to proceed to the next page.
+    2. Une fois spécifiés, la clé de chiffrement et le compte de stockage ne sont plus modifiables. Si vous avez spécifié **Sélectionner un modèle de bande passante**, cliquez sur la flèche pour passer à la page suivante.
 
-4. In the next page of the **Modify Volume Container** dialog box:
+4. Dans la page suivante de la boîte de dialogue **Modifier le conteneur de volumes**, procédez comme suit :
 
-    1. From the drop-down list, choose an existing bandwidth template.
+    1. Dans la liste déroulante, sélectionnez un modèle de bande passante.
 
-    2. Review the schedule settings for the specified bandwidth template.
+    2. Examinez les paramètres de planification du modèle de bande passante spécifié.
 
-        ![Modify Volume Container with Bandwidth Template 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
+        ![Modifier le conteneur de volumes avec le modèle de bande passante 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
 
-    3. Click the check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) to save the updated settings. The **Volume containers** page will be updated to reflect the changes.
+    3. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) pour enregistrer les paramètres mis à jour. La page **Conteneurs de volumes** affiche les modifications.
 
  
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0114_2016-->

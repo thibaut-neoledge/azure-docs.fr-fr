@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Split-merge security configuration | Microsoft Azure" 
-    description="Set up x409 certificates for encryption" 
+    pageTitle="Configuration de la sécurité du fractionnement et de la fusion | Microsoft Azure" 
+    description="Définissez les certificats x 409 pour le chiffrement" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" 
     documentationCenter="" 
@@ -17,128 +17,125 @@
     ms.author="torsteng" />
 
 
+# Configuration de la sécurité du fractionnement et de la fusion  
 
-# <a name="split-merge-security-configuration"></a>Split-merge security configuration  
+Pour utiliser le service de fusion et de fractionnement, vous devez configurer correctement la sécurité. Ce service fait partie de la fonctionnalité d’infrastructure élastique de la base de données SQL Microsoft Azure. Pour plus d’informations, consultez le [didacticiel sur le service de fusion et de fractionnement de l’infrastructure élastique](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+## Configuration des certificats
 
-## <a name="configuring-certificates"></a>Configuring certificates
+Les certificats sont configurés de deux manières.
 
-Certificates are configured in two ways. 
+1. [Pour configurer le certificat SSL](#To-Configure-the-SSL#Certificate)
+2. [Pour configurer des certificats clients](#To-Configure-Client-Certificates) 
 
-1. [To Configure the SSL Certificate](#To-Configure-the-SSL#Certificate)
-2. [To Configure Client Certificates](#To-Configure-Client-Certificates) 
+## Pour obtenir des certificats
 
-## <a name="to-obtain-certificates"></a>To obtain certificates
+Les certificats peuvent être obtenus à partir d’autorités de certification publiques ou du [Service de certificats Windows](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Il s’agit des méthodes préférées pour obtenir des certificats.
 
-Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
-
-If those options are not available, you can generate **self-signed certificates**.
+Si ces options ne sont pas disponibles, vous pouvez générer des **certificats auto-signés**.
  
-## <a name="tools-to-generate-certificates"></a>Tools to generate certificates
+## Outils de génération de certificats
 
 * [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
-### <a name="to-run-the-tools"></a>To run the tools
+### Pour exécuter les outils
 
-* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/library/ms229859.aspx) 
+* Depuis une invite de commandes développeur pour Visual Studio, consultez la rubrique [Invite de commandes Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) 
 
-    If installed, go to:
+    Si installée, accédez à :
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Obtenez le kit WDK de [Windows 8.1 : téléchargement des kits et outils](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
-## <a name="to-configure-the-ssl-certificate"></a>To configure the SSL certificate
-A SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
+## Pour configurer le certificat SSL
+Un certificat SSL est nécessaire pour chiffrer les communications et authentifier le serveur. Choisissez le plus approprié des trois scénarios ci-dessous et exécutez toutes les étapes associées :
 
-### <a name="create-a-new-self-signed-certificate"></a>Create a new self-signed certificate
+### Création d’un certificat auto-signé
 
-1.    [Create a Self-Signed Certificate](#Create-a-Self-Signed-Certificate)
-2.    [Create PFX file for Self-Signed SSL Certificate](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
-3.    [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
-4.    [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
-5.    [Import SSL Certification Authority](#Import-SSL-Certification-Authority)
+1.    [Création d’un certificat auto-signé](#Create-a-Self-Signed-Certificate)
+2.    [Création d’un fichier PFX pour un certificat SSL auto-signé](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
+3.    [Téléchargement du certificat SSL vers le service cloud](#Upload-SSL-Certificate-to-Cloud-Service)
+4.    [Mise à jour du certificat SSL dans le fichier de configuration de service](#Update-SSL-Certificate-in-Service-Configuration-File)
+5.    [Importation de l’autorité de certification SSL](#Import-SSL-Certification-Authority)
 
-### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>To use an existing certificate from the certificate store
-1. [Export SSL Certificate From Certificate Store](#Export-SSL-Certificate-From-Certificate-Store)
-2. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
-3. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
+### Pour utiliser un certificat existant du magasin de certificats
+1. [Exportation d’un certificat SSL à partir du magasin de certificats](#Export-SSL-Certificate-From-Certificate-Store)
+2. [Téléchargement du certificat SSL vers le service cloud](#Upload-SSL-Certificate-to-Cloud-Service)
+3. [Mise à jour du certificat SSL dans le fichier de configuration de service](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>To use an existing certificate in a PFX file
+### Pour utiliser un certificat existant dans un fichier PFX
 
-1. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
-2. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
+1. [Téléchargement du certificat SSL vers le service cloud](#Upload-SSL-Certificate-to-Cloud-Service)
+2. [Mise à jour du certificat SSL dans le fichier de configuration de service](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-## <a name="to-configure-client-certificates"></a>To configure client certificates
-Client certificates are required in order to authenticate requests to the service. Choose the most applicable of the three scenarios below, and execute all its steps:
+## Pour configurer des certificats clients
+Les certificats clients sont requis pour authentifier les demandes au service. Choisissez le plus approprié des trois scénarios ci-dessous et exécutez toutes les étapes associées :
 
-### <a name="turn-off-client-certificates"></a>Turn off client certificates
-1.    [Turn Off Client Certificate-Based Authentication](#Turn-Off-Client-Certificate-Based-Authentication)
+### Désactivation des certificats clients
+1.    [Désactivation de l’authentification par certificat client](#Turn-Off-Client-Certificate-Based-Authentication)
 
-### <a name="issue-new-self-signed-client-certificates"></a>Issue new self-signed client certificates
-1.    [Create a Self-Signed Certification Authority](#Create-a-Self-Signed-Certification-Authority)
-2.    [Upload CA Certificate to Cloud Service](#Upload-CA-Certificate-to-Cloud-Service)
-3.    [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
-4.    [Issue Client Certificates](#Issue-Client-Certificates)
-5.    [Create PFX files for Client Certificates](#Create-PFX-files-for-Client-Certificates)
-6.    [Import Client Certificate](#Import-Client-Certificate)
-7.    [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
-8.    [Configure Allowed Clients in the Service Configuration File](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
+### Émission de nouveaux certificats clients auto-signés
+1.    [Création d’une autorité de certification auto-signée](#Create-a-Self-Signed-Certification-Authority)
+2.    [Téléchargement du certificat CA vers le service cloud](#Upload-CA-Certificate-to-Cloud-Service)
+3.    [Mise à jour du certificat CA dans le fichier de configuration de service](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Émission de certificats clients](#Issue-Client-Certificates)
+5.    [Création de fichiers PFX pour les certificats clients](#Create-PFX-files-for-Client-Certificates)
+6.    [Importation d’un certificat client](#Import-Client-Certificate)
+7.    [Copie des empreintes numériques des certificats clients](#Copy-Client-Certificate-Thumbprints)
+8.    [Configuration des clients autorisés dans le fichier de configuration de service](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
 
-### <a name="use-existing-client-certificates"></a>Use existing client certificates
-1.    [Find CA Public Key](#Find-CA-Public Key)
-2.    [Upload CA Certificate to Cloud Service](#Upload-CA-certificate-to-cloud-service)
-3.    [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
-4.    [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
-5.    [Configure Allowed Clients in the Service Configuration File](#Configure-Allowed-Clients-in-the-Service-Configuration File)
-6.    [Configure Client Certificate Revocation Check](#Configure-Client-Certificate-Revocation-Check)
+### Utilisation de certificats clients existants
+1.    [Recherche de la clé publique de l’autorité de certification](#Find-CA-Public Key)
+2.    [Téléchargement du certificat CA vers le service cloud](#Upload-CA-certificate-to-cloud-service)
+3.    [Mise à jour du certificat CA dans le fichier de configuration de service](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Copie des empreintes numériques des certificats clients](#Copy-Client-Certificate-Thumbprints)
+5.    [Configuration des clients autorisés dans le fichier de configuration de service](#Configure-Allowed-Clients-in-the-Service-Configuration File)
+6.    [Configuration de la vérification de révocation des certificats clients](#Configure-Client-Certificate-Revocation-Check)
 
-## <a name="allowed-ip-addresses"></a>Allowed IP addresses
+## Adresses IP autorisées
 
-Access to the service endpoints can be restricted to specific ranges of IP addresses.
+L’accès aux points de terminaison de service peut être limité à des plages d’adresses IP spécifiques.
 
-## <a name="to-configure-encryption-for-the-store"></a>To configure encryption for the store
+## Pour configurer le cryptage pour le magasin
 
-A certificate is required to encrypt the credentials that are stored in the metadata store. Choose the most applicable of the three scenarios below, and execute all its steps:
+Un certificat est nécessaire pour chiffrer les informations d’identification stockées dans le magasin de métadonnées. Choisissez le plus approprié des trois scénarios ci-dessous et exécutez toutes les étapes associées :
 
-### <a name="use-a-new-self-signed-certificate"></a>Use a new self-signed certificate
+### Utilisation d’un nouveau certificat auto-signé
 
-1.     [Create a Self-Signed Certificate](#Create-a-Self-Signed-Certificate)
-2.     [Create PFX file for Self-Signed Encryption Certificate](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
-3.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
-4.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1.     [Création d’un certificat auto-signé](#Create-a-Self-Signed-Certificate)
+2.     [Création d’un fichier PFX pour un certificat de chiffrement auto-signé](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
+3.     [Téléchargement du certificat de chiffrement vers le service cloud](#Upload-Encryption-Certificate-to-Cloud-Service)
+4.     [Mise à jour du certificat de chiffrement dans le fichier de configuration de service](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
-### <a name="use-an-existing-certificate-from-the-certificate-store"></a>Use an existing certificate from the certificate store
+### Utilisation d’un certificat existant du magasin de certificats
 
-1.     [Export Encryption Certificate From Certificate Store](#Export-Encryption-Certificate-From-Certificate-Store)
-2.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
-3.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1.     [Exportation d’un certificat de chiffrement à partir du magasin de certificats](#Export-Encryption-Certificate-From-Certificate-Store)
+2.     [Téléchargement du certificat de chiffrement vers le service cloud](#Upload-Encryption-Certificate-to-Cloud-Service)
+3.     [Mise à jour du certificat de chiffrement dans le fichier de configuration de service](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
-### <a name="use-an-existing-certificate-in-a-pfx-file"></a>Use an existing certificate in a PFX file
+### Utilisation d’un certificat existant dans un fichier PFX
 
-1.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
-2.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1.     [Téléchargement du certificat de chiffrement vers le service cloud](#Upload-Encryption-Certificate-to-Cloud-Service)
+2.     [Mise à jour du certificat de chiffrement dans le fichier de configuration de service](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
-## <a name="the-default-configuration"></a>The default configuration
+## Configuration par défaut
 
-The default configuration denies all access to the HTTP endpoint. This is the recommended setting, since the requests to these endpoints may carry sensitive information like database credentials.
-The default configuration allows all access to the HTTPS endpoint. This setting may be restricted further.
+La configuration par défaut refuse tout accès au point de terminaison HTTP. Il s’agit du paramètre recommandé, puisque les demandes pour ces points de terminaison peuvent comporter des informations sensibles comme les informations d’identification de la base de données. La configuration par défaut accepte tout accès au point de terminaison HTTPS. Ce paramètre peut être restreint davantage.
 
-### <a name="changing-the-configuration"></a>Changing the Configuration
+### Modification de la configuration
 
-The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
+Le groupe de règles de contrôle d’accès qui s’appliquent à un point de terminaison est configuré dans la section **<EndpointAcls>** du **fichier de configuration de service**.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
     </EndpointAcls>
 
-The rules in an access control group are configured in a <AccessControl name=""> section of the service configuration file. 
+Les règles dans un groupe de contrôle d’accès sont configurées dans une section <AccessControl name=""> du fichier de configuration du service.
 
-The format is explained in Network Access Control Lists documentation.
-For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to access the HTTPS endpoint, the rules would look like this:
+Le format est expliqué dans la documentation de listes de contrôle d’accès réseau. Par exemple, pour autoriser uniquement les adresses IP de la plage 100.100.0.0 à 100.100.255.255 à accéder au point de terminaison HTTPS, les règles ressembleraient à ceci :
 
     <AccessControl name="Retricted">
       <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
@@ -147,50 +144,50 @@ For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to ac
     <EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
 
-## <a name="denial-of-service-prevention"></a>Denial of service prevention
+## Prévention du déni de service
 
-There are two different mechanisms supported to detect and prevent Denial of Service attacks:
+Il existe deux mécanismes différents pris en charge pour détecter et prévenir les attaques par déni de service :
 
-*    Restrict number of concurrent requests per remote host (off by default)
-*    Restrict rate of access per remote host (on by default)
+*    Limiter le nombre de demandes simultanées par hôte distant (désactivé par défaut)
+*    Limiter le taux d’accès par hôte distant (activé par défaut)
 
-These are based on the features further documented in Dynamic IP Security in IIS. When changing this configuration beware of the following factors:
+Ces mécanismes sont basés sur les fonctionnalités plus longuement documentées dans la rubrique Sécurité IP dynamique dans IIS. Lors de la modification de cette configuration, soyez attentif aux facteurs suivants :
 
-* The behavior of proxies and Network Address Translation devices over the remote host information
-* Each request to any resource in the web role is considered (e.g. loading scripts, images, etc)
+* Le comportement des proxys et des appareils de traduction d’adresses réseau sur les informations de l’hôte distant
+* Chaque demande à une ressource du rôle web est prise en compte (par exemple, le chargement de scripts, les images, etc.)
 
-## <a name="restricting-number-of-concurrent-accesses"></a>Restricting number of concurrent accesses
+## Limitation du nombre d'accès simultanés
 
-The settings that configure this behavior are:
+Les paramètres qui configurent ce comportement sont les suivants :
 
     <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
     <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
-Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
+Modifiez DynamicIpRestrictionDenyByConcurrentRequests sur true pour activer cette protection.
 
-## <a name="restricting-rate-of-access"></a>Restricting rate of access
+## Restriction du taux d’accès
 
-The settings that configure this behavior are:
+Les paramètres qui configurent ce comportement sont les suivants :
 
     <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
     <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
     <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
 
-## <a name="configuring-the-response-to-a-denied-request"></a>Configuring the response to a denied request
+## Configuration de la réponse à une demande refusée
 
-The following setting configures the response to a denied request:
+Le paramètre suivant configure la réponse à une demande refusée :
 
     <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
-Refer to the documentation for Dynamic IP Security in IIS for other supported values.
+Reportez-vous à la documentation relative à la sécurité IP dynamique dans IIS pour les autres valeurs prises en charge.
 
-## <a name="operations-for-configuring-service-certificates"></a>Operations for configuring service certificates
-This topic is for reference only. Please follow the configuration steps outlined in:
+## Opérations de configuration des certificats de service
+Cette rubrique sert de référence uniquement. Suivez les étapes de configuration décrites dans :
 
-* Configure the SSL certificate
-* Configure client certificates
+* Configuration du certificat SSL
+* Configuration des certificats clients
 
-## <a name="create-a-self-signed-certificate"></a>Create a self-signed certificate
-Execute:
+## Créer un certificat auto-signé
+Exécutez :
 
     makecert ^
       -n "CN=myservice.cloudapp.net" ^
@@ -199,64 +196,64 @@ Execute:
       -a sha1 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
-To customize:
+Pour personnaliser :
 
-*    -n with the service URL. Wildcards ("CN=*.cloudapp.net") and alternative names ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net") are supported.
-*    -e with the certificate expiration date Create a strong password and specify it when prompted.
+*    -n avec l’URL du service. Les caractères génériques (CN=*.cloudapp.net) et d’autres noms (CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net) sont pris en charge.
+*    -e avec la date d'expiration du certificat Créez un mot de passe fort et spécifiez-le lorsque vous y êtes invité.
 
-## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>Create PFX file for self-signed SSL certificate
+## Création d’un fichier PFX pour un certificat SSL auto-signé
 
-Execute:
+Exécutez :
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-Enter password and then export certificate with these options:
-* Yes, export the private key
-* Export all extended properties
+Entrez le mot de passe et exportez le certificat avec les options suivantes :
+* Oui, exporter la clé privée
+* Exporter toutes les propriétés étendues
 
-## <a name="export-ssl-certificate-from-certificate-store"></a>Export SSL certificate from certificate store
+## Exportation d’un certificat SSL à partir du magasin de certificats
 
-* Find certificate
-* Click Actions -> All tasks -> Export…
-* Export certificate into a .PFX file with these options:
-    * Yes, export the private key
-    * Include all certificates in the certification path if possible *Export all extended properties
+* Recherchez le certificat
+* Cliquez sur Actions -> Toutes les tâches -> Exporter...
+* Exportez le certificat dans un fichier .PFX avec les options suivantes :
+    * Oui, exporter la clé privée
+    * Inclure tous les certificats dans le chemin d’accès de certification si possible *Exporter toutes les propriétés étendues
 
-## <a name="upload-ssl-certificate-to-cloud-service"></a>Upload SSL certificate to cloud service
+## Téléchargement du certificat SSL vers le service cloud
 
-Upload certificate with the existing or generated .PFX file with the SSL key pair:
+Téléchargez le certificat avec le fichier .PFX existant ou généré avec la paire de clés SSL :
 
-* Enter the password protecting the private key information
+* Entrez le mot de passe protégeant les informations de clés privées
 
-## <a name="update-ssl-certificate-in-service-configuration-file"></a>Update SSL certificate in service configuration file
+## Mise à jour du certificat SSL dans le fichier de configuration de service
 
-Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
+Mettez à jour la valeur de l’empreinte numérique du paramètre suivant du fichier de configuration de service avec l’empreinte numérique du certificat téléchargé vers le service cloud :
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## <a name="import-ssl-certification-authority"></a>Import SSL certification authority
+## Importation de l’autorité de certification SSL
 
-Follow these steps in all account/machine that will communicate with the service:
+Suivez les étapes suivantes pour tous les comptes/ordinateurs qui communiquent avec le service :
 
-* Double-click the .CER file in Windows Explorer
-* In the Certificate dialog, click Install Certificate…
-* Import certificate into the Trusted Root Certification Authorities store
+* Double-cliquez sur le fichier .CER dans l'Explorateur Windows
+* Dans la boîte de dialogue Certificat, cliquez sur Installer le certificat...
+* Importez le certificat dans le magasin racine des autorités de certification approuvées
 
-## <a name="turn-off-client-certificate-based-authentication"></a>Turn off client certificate-based authentication
+## Désactivation de l’authentification par certificat client
 
-Only client certificate-based authentication is supported and disabling it will allow for public access to the service endpoints, unless other mechanisms are in place (e.g. Microsoft Azure Virtual Network).
+Seule l’authentification par certificat client est prise en charge et sa désactivation permet l’accès public aux points de terminaison de service, à moins que d’autres mécanismes soient en place (par exemple, Microsoft Azure Virtual Network).
 
-Change these settings to false in the service configuration file to turn the feature off:
+Définissez les paramètres suivants sur false dans le fichier de configuration de service pour désactiver la fonctionnalité :
 
     <Setting name="SetupWebAppForClientCertificates" value="false" />
     <Setting name="SetupWebserverForClientCertificates" value="false" />
 
-Then, copy the same thumbprint as the SSL certificate in the CA certificate setting:
+Ensuite, copiez la même empreinte numérique que celle du certificat SSL dans le paramètre du certificat de l’autorité de certification :
 
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## <a name="create-a-self-signed-certification-authority"></a>Create a self-signed certification authority
-Execute the following steps to create a self-signed certificate to act as a Certification Authority:
+## Création d’une autorité de certification auto-signée
+Exécutez les étapes suivantes pour créer un certificat auto-signé qui agit comme une autorité de certification :
 
     makecert ^
     -n "CN=MyCA" ^
@@ -266,51 +263,51 @@ Execute the following steps to create a self-signed certificate to act as a Cert
       -sr localmachine -ss my ^
       MyCA.cer
 
-To customize it
+Pour le personnaliser
 
-*    -e with the certification expiration date
+*    -e avec la date d’expiration du certificat
 
 
-## <a name="find-ca-public-key"></a>Find CA public key
+## Recherche de la clé publique de l’autorité de certification
 
-All client certificates must have been issued by a Certification Authority trusted by the service. Find the public key to the Certification Authority that issued the client certificates that are going to be used for authentication in order to upload it to the cloud service.
+Tous les certificats clients doivent avoir été émis par une autorité de certification approuvée par le service. Recherchez la clé publique d’accès à l’autorité de certification qui a émis les certificats clients qui seront utilisés pour l’authentification afin de la télécharger vers le service cloud.
 
-If the file with the public key is not available, export it from the certificate store:
+Si le fichier comportant la clé publique n’est pas disponible, exportez-le à partir du magasin de certificats :
 
-* Find certificate
-    * Search for a client certificate issued by the same Certification Authority
-* Double-click the certificate.
-* Select the Certification Path tab in the Certificate dialog.
-* Double-click the CA entry in the path.
-* Take notes of the certificate properties.
-* Close the **Certificate** dialog.
-* Find certificate
-    * Search for the CA noted above.
-* Click Actions -> All tasks -> Export…
-* Export certificate into a .CER with these options:
-    * **No, do not export the private key**
-    * Include all certificates in the certification path if possible.
-    * Export all extended properties.
+* Recherchez le certificat
+    * Recherchez un certificat client émis par la même autorité de certification
+* Double-cliquez sur le certificat.
+* Sélectionnez l’onglet Chemin d’accès de certification dans la boîte de dialogue Certificat.
+* Double-cliquez sur l’entrée de l’autorité de certification dans le chemin d’accès.
+* Prenez note des propriétés du certificat.
+* Fermez la boîte de dialogue **Certificat**.
+* Recherchez le certificat
+    * Recherchez l’autorité de certification indiquée ci-dessus.
+* Cliquez sur Actions -> Toutes les tâches -> Exporter...
+* Exportez le certificat dans un fichier .CER avec les options suivantes :
+    * **Non, ne pas exporter la clé privée**
+    * Inclure tous les certificats dans le chemin d’accès de certification si possible.
+    * *Exporter toutes les propriétés étendues.
 
-## <a name="upload-ca-certificate-to-cloud-service"></a>Upload CA certificate to cloud service
+## Téléchargement du certificat CA vers le service cloud
 
-Upload certificate with the existing or generated .CER file with the CA public key.
+Téléchargez le certificat avec le fichier .CER existant ou généré avec la clé publique de l’autorité de certification.
 
-## <a name="update-ca-certificate-in-service-configuration-file"></a>Update CA certificate in service configuration file
+## Mise à jour du certificat CA dans le fichier de configuration de service
 
-Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
+Mettez à jour la valeur de l’empreinte numérique du paramètre suivant du fichier de configuration de service avec l’empreinte numérique du certificat téléchargé vers le service cloud :
 
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Update the value of the following setting with the same thumbprint:
+Mettez à jour la valeur du paramètre suivant avec la même empreinte numérique :
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
-## <a name="issue-client-certificates"></a>Issue client certificates
+## Émission de certificats clients
 
-Each individual authorized to access the service should have a client certificate issued for his/hers exclusive use and should choose his/hers own strong password to protect its private key. 
+Chaque personne autorisée à accéder au service doit être dotée d’un certificat client émis pour son utilisation exclusive et doit choisir un mot de passe fort pour protéger sa clé privée.
 
-The following steps must be executed in the same machine where the self-signed CA certificate was generated and stored:
+Les étapes suivantes doivent être exécutées sur l’ordinateur sur lequel le certificat auto-signé de l’autorité de certification a été généré et stocké :
 
     makecert ^
       -n "CN=My ID" ^
@@ -320,178 +317,176 @@ The following steps must be executed in the same machine where the self-signed C
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
-Customizing:
+Personnalisation :
 
-* -n with an ID for to the client that will be authenticated with this certificate
-* -e with the certificate expiration date
-* MyID.pvk and MyID.cer with unique filenames for this client certificate
+* -n avec un identifiant client qui sera authentifié avec ce certificat
+* -e avec la date d'expiration du certificat
+* MyID.pvk et MyID.cer avec des noms de fichier uniques pour ce certificat client
 
-This command will prompt for a password to be created and then used once. Use a strong password.
+Cette commande vous demande de créer un mot de passe et de l’utiliser une seule fois. Utilisez un mot de passe fort.
 
-## <a name="create-pfx-files-for-client-certificates"></a>Create PFX files for client certificates
+## Création de fichiers PFX pour les certificats clients
 
-For each generated client certificate, execute:
+Pour chaque certificat client généré, exécutez :
 
     pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
-Customizing:
+Personnalisation :
 
     MyID.pvk and MyID.cer with the filename for the client certificate
 
-Enter password and then export certificate with these options:
+Entrez le mot de passe et exportez le certificat avec les options suivantes :
 
-* Yes, export the private key
-* Export all extended properties
-* The individual to whom this certificate is being issued should choose the export password
+* Oui, exporter la clé privée
+* Exporter toutes les propriétés étendues
+* La personne pour laquelle ce certificat a été émis doit choisir le mot de passe d’exportation
 
-## <a name="import-client-certificate"></a>Import client certificate
+## Importation d’un certificat client
 
-Each individual for whom a client certificate has been issued should import the key pair in the machines he/she will use to communicate with the service:
+Chaque personne pour laquelle un certificat client a été émis doit importer la paire de clés dans les ordinateurs qu’elle utilise pour communiquer avec le service :
 
-* Double-click the .PFX file in Windows Explorer
-* Import certificate into the Personal store with at least this option:
-    * Include all extended properties checked
+* Double-cliquez sur le fichier .PFX dans l'Explorateur Windows
+* Importez un certificat dans le magasin Personnel avec au moins l'option suivante :
+    * Inclure toutes les propriétés étendues activées
 
-## <a name="copy-client-certificate-thumbprints"></a>Copy client certificate thumbprints
-Each individual for whom a client certificate has been issued must follow these steps in order to obtain the thumbprint of his/hers certificate which will be added to the service configuration file:
-* Run certmgr.exe
-* Select the Personal tab
-* Double-click the client certificate to be used for authentication
-* In the Certificate dialog that opens, select the Details tab
-* Make sure Show is displaying All
-* Select the field named Thumbprint in the list
-* Copy the value of the thumbprint ** Delete non-visible Unicode characters in front of the first digit ** Delete all spaces
+## Copie des empreintes numériques des certificats clients
+Chaque personne pour laquelle un certificat client a été émis doit suivre les étapes ci-dessous afin d'obtenir l'empreinte numérique de son certificat qui sera ajoutée au fichier de configuration de service :
+* Exécutez certmgr.exe
+* Sélectionnez l'onglet Personnel
+* Double-cliquez sur le certificat client à utiliser pour l'authentification
+* Dans la boîte de dialogue Certificat qui s'ouvre, sélectionnez l'onglet Détails
+* Veillez à ce que l'option Afficher indique Tous
+* Sélectionnez le champ nommé Empreinte numérique dans la liste
+* Copiez la valeur de l’empreinte numérique 
+** Supprimez les caractères Unicode non visibles devant le premier chiffre
+** Supprimez tous les espaces
 
-## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configure Allowed clients in the service configuration file
+## Configuration des clients autorisés dans le fichier de configuration de service
 
-Update the value of the following setting in the service configuration file with a comma-separated list of the thumbprints of the client certificates allowed access to the service:
+Mettez à jour la valeur du paramètre suivant dans le fichier de configuration de service avec une liste séparée par des virgules des empreintes numériques des certificats clients autorisés à accéder au service :
 
     <Setting name="AllowedClientCertificateThumbprints" value="" />
 
-## <a name="configure-client-certificate-revocation-check"></a>Configure client certificate revocation check
+## Configuration de la vérification de révocation des certificats clients
 
-The default setting does not check with the Certification Authority for client certificate revocation status. To turn on the checks, if the Certification Authority which issued the client certificates supports such checks, change the following setting with one of the values defined in the X509RevocationMode Enumeration:
+Le paramètre par défaut ne vérifie pas l’état de révocation du certificat client auprès de l’autorité de certification. Pour activer les vérifications, si l’autorité de certification qui a émis les certificats clients prend en charge ces vérifications, définissez le paramètre suivant avec l’une des valeurs définies dans l’énumération X509RevocationMode :
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 
-## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Create PFX file for self-signed encryption certificates
+## Création d’un fichier PFX pour un certificat de chiffrement auto-signé
 
-For an encryption certificate, execute:
+Pour un certificat de chiffrement, exécutez :
 
     pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
-Customizing:
+Personnalisation :
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-Enter password and then export certificate with these options:
-*    Yes, export the private key
-*    Export all extended properties
-*    You will need the password when uploading the certificate to the cloud service.
+Entrez le mot de passe et exportez le certificat avec les options suivantes :
+*    Oui, exporter la clé privée
+*    Exporter toutes les propriétés étendues
+*    Vous aurez besoin du mot de passe lors du téléchargement du certificat vers le service cloud.
 
-## <a name="export-encryption-certificate-from-certificate-store"></a>Export encryption certificate from certificate store
+## Exportation d’un certificat de chiffrement à partir du magasin de certificats
 
-*    Find certificate
-*    Click Actions -> All tasks -> Export…
-*    Export certificate into a .PFX file with these options: 
-  *    Yes, export the private key
-  *    Include all certificates in the certification path if possible 
-*    Export all extended properties
+*    Recherchez le certificat
+*    Cliquez sur Actions -> Toutes les tâches -> Exporter...
+*    Exportez le certificat dans un fichier .PFX avec les options suivantes : 
+  *    Oui, exporter la clé privée
+  *    Inclure tous les certificats dans le chemin d’accès de certification si possible 
+*    Exporter toutes les propriétés étendues
 
-## <a name="upload-encryption-certificate-to-cloud-service"></a>Upload encryption certificate to cloud service
+## Téléchargement du certificat de chiffrement vers le service cloud
 
-Upload certificate with the existing or generated .PFX file with the encryption key pair:
+Téléchargez le certificat avec le fichier .PFX existant ou généré avec la paire de clés de chiffrement :
 
-* Enter the password protecting the private key information
+* Entrez le mot de passe protégeant les informations de clés privées
 
-## <a name="update-encryption-certificate-in-service-configuration-file"></a>Update encryption certificate in service configuration file
+## Mise à jour du certificat de chiffrement dans le fichier de configuration de service
 
-Update the thumbprint value of the following settings in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
+Mettez à jour la valeur de l’empreinte numérique des paramètres suivants du fichier de configuration de service avec l’empreinte numérique du certificat téléchargé vers le service cloud :
 
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## <a name="common-certificate-operations"></a>Common certificate operations
+## Opérations courantes de certificat
 
-* Configure the SSL certificate
-* Configure client certificates
+* Configuration du certificat SSL
+* Configuration des certificats clients
 
-## <a name="find-certificate"></a>Find certificate
+## Recherchez le certificat
 
-Follow these steps:
+Procédez comme suit :
 
-1. Run mmc.exe.
-2. File -> Add/Remove Snap-in…
-3. Select **Certificates**.
-4. Click **Add**.
-5. Choose the certificate store location.
-6. Click **Finish**.
-7. Click **OK**.
-8. Expand **Certificates**.
-9. Expand the certificate store node.
-10. Expand the Certificate child node.
-11. Select a certificate in the list.
+1. Exécutez mmc.exe.
+2. Fichier -> Ajouter/supprimer un composant logiciel enfichable...
+3. Sélectionnez **Certificats**.
+4. Cliquez sur **Add**.
+5. Choisissez l’emplacement du magasin de certificats.
+6. Cliquez sur **Terminer**.
+7. Cliquez sur **OK**.
+8. Développez les **certificats**.
+9. Développez le nœud du magasin du certificat.
+10. Développez le nœud enfant du certificat.
+11. Sélectionnez un certificat dans la liste.
 
-## <a name="export-certificate"></a>Export certificate
-In the **Certificate Export Wizard**:
+## Exportation du certificat
+Dans l’**Assistant Exportation de certificat** :
 
-1. Click **Next**.
-2. Select **Yes**, then **Export the private key**.
-3. Click **Next**.
-4. Select the desired output file format.
-5. Check the desired options.
-6. Check **Password**.
-7. Enter a strong password and confirm it.
-8. Click **Next**.
-9. Type or browse a filename where to store the certificate (use a .PFX extension).
-10. Click **Next**.
-11. Click **Finish**.
-12. Click **OK**.
+1. Cliquez sur **Next**.
+2. Sélectionnez l’option **Oui**, puis **Exporter la clé privée**.
+3. Cliquez sur **Next**.
+4. Sélectionnez le format de fichier de sortie souhaité.
+5. Vérifiez les options de votre choix.
+6. Vérifiez le **mot de passe**.
+7. Entrez un mot de passe fort et confirmez-le.
+8. Cliquez sur **Next**.
+9. Tapez ou sélectionnez un nom de fichier dans lequel stocker le certificat (utilisez une extension .PFX).
+10. Cliquez sur **Next**.
+11. Cliquez sur **Terminer**.
+12. Cliquez sur **OK**.
 
-## <a name="import-certificate"></a>Import certificate
+## Importation d’un certificat
 
-In the Certificate Import Wizard:
+Dans l'Assistant Importation de certificat :
 
-1. Select the store location.
+1. Sélectionnez l’emplacement du magasin.
 
-    * Select **Current User** if only processes running under current user will access the service
-    * Select **Local Machine** if other processes in this computer will access the service
-2. Click **Next**.
-3. If importing from a file, confirm the file path.
-4. If importing a .PFX file:
-    1.     Enter the password protecting the private key
-    2.     Select import options
-5.     Select "Place" certificates in the following store
-6.     Click **Browse**.
-7.     Select the desired store.
-8.     Click **Finish**.
+    * Sélectionnez **Utilisateur actuel** si seuls les processus s’exécutant sous l’utilisateur actuel accèdent au service.
+    * Sélectionnez **Ordinateur local** si d’autres processus de cet ordinateur accèdent au service
+2. Cliquez sur **Next**.
+3. Si vous importez depuis un fichier, vérifiez le chemin d’accès.
+4. Si vous importez depuis un fichier .PFX :
+    1.     Entrez le mot de passe protégeant la clé privée
+    2.     Sélectionnez les options d’importation
+5.     Sélectionnez « Placer » les certificats dans le magasin suivant
+6.     Cliquez sur **Parcourir**.
+7.     Sélectionnez le magasin de votre choix.
+8.     Cliquez sur **Terminer**.
        
-    * If the Trusted Root Certification Authority store was chosen, click **Yes**.
-9.     Click **OK** on all dialog windows.
+    * Si le magasin racine des autorités de certification approuvées a été choisi, cliquez sur **Oui**.
+9.     Cliquez sur **OK** dans toutes les fenêtres des boîtes de dialogue.
 
-## <a name="upload-certificate"></a>Upload certificate
+## Téléchargement d’un certificat
 
-In the [Azure Portal](https://portal.azure.com/)
+Dans le [portail Azure](https://portal.azure.com/)
 
-1. Select **Cloud Services**.
-2. Select the cloud service.
-3. On the top menu, click **Certificates**.
-4. On the bottom bar, click **Upload**.
-5. Select the certificate file.
-6. If it is a .PFX file, enter the password for the private key.
-7. Once completed, copy the certificate thumbprint from the new entry in the list.
+1. Sélectionnez **Services Cloud**.
+2. Sélectionnez le service cloud.
+3. Dans le menu supérieur, cliquez sur **Certificats**.
+4. Dans la barre inférieure, cliquez sur **Télécharger**.
+5. Sélectionnez le fichier de certificat.
+6. S’il s’agit d’un fichier .PFX, entrez le mot de passe de la clé privée.
+7. Lorsque vous avez terminé, copiez l’empreinte de certificat à partir de la nouvelle entrée dans la liste.
 
-## <a name="other-security-considerations"></a>Other security considerations
+## Autres considérations liées à la sécurité
  
-The SSL settings described in this document encrypt communication between the service and its clients when the HTTPS endpoint is used. This is important since credentials for database access and potentially other sensitive information are contained in the communication. Note, however, that the service persists internal status, including credentials, in its internal tables in the Microsoft Azure SQL database that you have provided for metadata storage in your Microsoft Azure subscription. That database was defined as part of the following setting in your service configuration file (.CSCFG file): 
+Les paramètres SSL décrits dans ce document chiffrent les communications entre le service et ses clients lorsque le point de terminaison HTTPS est utilisé. Ceci est important car les informations d’identification pour l’accès à la base de données, et éventuellement à d’autres informations sensibles, sont contenues dans les communications. Notez, néanmoins, que le service conserve l'état interne, y compris les informations d'identification, dans ses tables internes de la base de données SQL Azure de Microsoft que vous avez fournies pour le stockage des métadonnées dans votre abonnement Microsoft Azure. Cette base de données a été définie dans le paramètre suivant dans votre fichier de configuration de service (fichier .CSCFG) :
 
     <Setting name="ElasticScaleMetadata" value="Server=…" />
 
-Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
+Les informations d’identification stockées dans cette base de données sont chiffrées. Toutefois, il est recommandé de s’assurer que les rôles Web et de travail de vos déploiements de service sont mis à jour et sécurisés, car les deux types de rôle ont accès à la base de données de métadonnées et au certificat utilisé pour le chiffrement et le déchiffrement des informations d’identification stockées.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

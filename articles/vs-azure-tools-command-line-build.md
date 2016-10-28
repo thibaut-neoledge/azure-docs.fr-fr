@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Command-line build for Azure | Microsoft Azure"
-   description="Command-line build for Azure"
+   pageTitle="Génération en ligne de commande pour Azure | Microsoft Azure"
+   description="Génération en ligne de commande pour Azure"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,56 +15,51 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Génération en ligne de commande pour Azure
 
-# <a name="command-line-build-for-azure"></a>Command-Line Build for Azure
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
-
-You can create a package for Azure deployment by running MSBuild at a command prompt. You can configure and define builds for debugging, staging, and production, in addition to automating some of the build process.
+Vous pouvez créer un package de déploiement Azure en exécutant MSBuild à partir de l'invite de commandes. Vous pouvez configurer et définir des builds pour le débogage, la gestion intermédiaire et la production, en plus de l'automatisation d’une partie du processus de génération.
 
 
-## <a name="microsoft-build-engine-(msbuild)"></a>Microsoft Build Engine (MSBuild)
+## Microsoft Build Engine (MSBuild)
 
-By using the Microsoft Build Engine (MSBuild), you can build products in build lab environments where Visual Studio isn't installed. MSBuild uses an XML format for project files that's extensible and fully supported by Microsoft. In this file format, you can describe what items must be built for one or more platforms and configurations.
+À l'aide de Microsoft Build Engine (MSBuild), vous pouvez générer des produits dans des environnements de build lab où Visual Studio n'est pas installé. MSBuild utilise pour les fichiers projet un format XML extensible et entièrement pris en charge par Microsoft. Dans ce format de fichier, vous pouvez décrire quels éléments doivent être générés pour une ou plusieurs plateformes et configurations.
 
-You can also run MSBuild at a command prompt, and this topic describes that approach. By setting properties at a command prompt, you can build specific configurations of a project. Similarly, you can also define the targets that the MSBuild command will build. For more information about command-line parameters and MSBuild, see [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311.aspx).
+Vous pouvez également exécuter MSBuild à l’invite de commande : c’est cette approche que décrit cette rubrique. En définissant des propriétés à l’invite de commandes, vous pouvez créer des configurations propres à un projet. De même, vous pouvez également définir les cibles que la commande MSBuild va générer. Pour plus d’informations sur les paramètres de ligne de commande et MSBuild, consultez la page [Référence de la ligne de commande MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
-## <a name="installation"></a>Installation
+## Installation
 
-As the following procedure describes, you must install software and tools on the build server before you can create an Azure package by using MSBuild:
+Comme le décrit la procédure suivante, vous devez installer les logiciels et les outils sur le serveur de builds pour pouvoir créer un package Azure à l’aide de MSBuild :
 
-1. Install the .NET Framework 4 or later, which includes MSBuild.
+1. Installez .NET Framework 4 ou version ultérieure, qui inclut MSBuild.
 
-1. Install the [Azure Authoring Tools](http://go.microsoft.com/fwlink/?LinkId=394615) (look for MicrosoftAzureAuthoringTools-x64.msi or MicrosoftAzureAuthoringTools-x86.msi.
+1. Installez les [outils de création Azure](http://go.microsoft.com/fwlink/?LinkId=394615) (recherchez MicrosoftAzureAuthoringTools-x64.msi ou MicrosoftAzureAuthoringTools-x86.msi).
 
-1. Install the [Azure Libraries for .NET](http://go.microsoft.com/fwlink/?LinkId=394616) (look for MicrosoftAzureLibsForNet-x64.msi or MicrosoftAzureLibs-x86.msi.
+1. Installez les [bibliothèques Azure pour .NET](http://go.microsoft.com/fwlink/?LinkId=394616) (recherchez MicrosoftAzureLibsForNet-x64.msi ou MicrosoftAzureLibs-x86.msi).
 
-1. Copy the Microsoft.WebApplication.targets file from a Visual Studio installation on another computer.
+1. Copiez le fichier Microsoft.WebApplication.targets à partir d'une installation Visual Studio vers un autre ordinateur.
 
-    The file is located in the directory C:\Program Files (x86)\MSBuild\Microsoft\Visual Studio\v12.0\WebApplications (v11.0 for Visual Studio 2012), and you should copy it to the same directory on the build server.
+    Le fichier se trouve dans le répertoire C:\\Program Files (x86)\\MSBuild\\Microsoft\\Visual Studio\\v12.0\\WebApplications (v11.0 pour Visual Studio 2012). Vous devez le copier dans le même répertoire sur le serveur de builds.
 
-1. Install the [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616).
+1. Installez les outils [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616).
 
-    Look for WindowsAzureTools.vs120.exe to build Visual Studio 2013 projects.
+    Recherchez WindowsAzureTools.vs120.exe pour générer des projets Visual Studio 2013.
 
-## <a name="msbuild-parameters"></a>MSBuild Parameters
+## Paramètres MSBuild
 
-The simplest way to create a package is to run MSBuild with the `/t:Publish` option. By default, this command creates a directory in relation to the root folder for the project, such as ProjectDir\bin\Configuration\app.publish\. When you build an Azure project, you generate two files, the package file itself and the accompanying configuration file:
+La façon la plus simple de créer un package consiste à exécuter MSBuild avec l’option `/t:Publish`. Par défaut, cette commande crée un répertoire en relation avec le dossier racine du projet, par exemple ProjectDir\\bin\\Configuration\\app.publish. Lorsque vous générez un projet Azure, vous générez deux fichiers, le fichier de package et le fichier de configuration qui l'accompagne :
 
 - Project.cspkg
 
 - ServiceConfiguration.TargetProfile.cscfg
 
-By default, each Azure project includes one service-configuration file for local (debugging) builds and another for cloud (staging or production) builds, but you can add or remove service-configuration files as needed. When you build a package within Visual Studio, you will be asked which service-configuration file to include alongside the package. When you build a package by using MSBuild, the local service-configuration file is included by default. To include a different service-configuration file, set the `TargetProfile` property of the MSBuild command (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
+Par défaut, tous les projets Azure comprennent un fichier de configuration de service pour les versions locales (débogage) et un autre pour les versions cloud (gestion intermédiaire ou production), mais vous pouvez ajouter ou supprimer des fichiers de configuration de service selon vos besoins. Lorsque vous générez un package dans Visual Studio, il vous est demandé quels fichiers de configuration de service vous voulez inclure avec le package. Lorsque vous générez un package avec MSBuild, le fichier de configuration de service local est inclus par défaut. Pour inclure un autre fichier de configuration de service, définissez la propriété `TargetProfile` de la commande MSBuild (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
 
-If you want to use an alternate directory for the stored package and configuration files, set the path by using the `/p:PublishDir=Directory\` option, including the trailing backslash separator.
+Si vous souhaitez utiliser un autre répertoire pour les fichiers de configuration et de package stockés, définissez le chemin d'accès à l'aide de l’option `/p:PublishDir=Directory`, en incluant la barre oblique inverse de fin comme séparateur.
 
-## <a name="deployment"></a>Deployment
+## Déploiement
 
-After the package is built, you can deploy it to Azure. For a tutorial that demonstrates that process, see the Azure website. For information about how to automate that process, see [Continuous Delivery for Cloud Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
+Une fois le package créé, vous pouvez le déployer sur Azure. Pour voir un didacticiel qui illustre ce processus, consultez le site web Azure. Pour plus d'informations sur la façon d'automatiser ce processus, consultez [Remise continue pour Cloud Services dans Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

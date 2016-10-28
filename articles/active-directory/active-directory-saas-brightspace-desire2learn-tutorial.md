@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Brightspace by Desire2Learn | Microsoft Azure" 
-    description="Learn how to use Brightspace by Desire2Learn with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Brightspace by Desire2Learn | Microsoft Azure" 
+    description="Apprenez à utiliser Brightspace by Desire2Learn avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,119 +11,114 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
+#Didacticiel : Intégration d’Azure Active Directory à Brightspace by Desire2Learn
 
-#<a name="tutorial:-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Azure Active Directory integration with Brightspace by Desire2Learn
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Brightspace by Desire2Learn.
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-The objective of this tutorial is to show the integration of Azure and Brightspace by Desire2Learn.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+-   Un abonnement Azure valide
+-   Un abonnement Brightspace by Desire2Learn pour lequel l’authentification unique est activée
 
--   A valid Azure subscription
--   A Brightspace by Desire2Learn single sign-on enabled subscription
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Brightspace by Desire2Learn pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Brightspace by Desire2Learn (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-After completing this tutorial, the Azure AD users you have assigned to Brightspace by Desire2Learn will be able to single sign into the application at your Brightspace by Desire2Learn company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-The scenario outlined in this tutorial consists of the following building blocks:
+1.  Activation de l’intégration d’applications pour Brightspace by Desire2Learn
+2.  Configuration de l'authentification unique
+3.  Configuration de l'approvisionnement des utilisateurs
+4.  Affectation d’utilisateurs
 
-1.  Enabling the application integration for Brightspace by Desire2Learn
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+![Scénario](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798957.png "Scénario")
+##Activation de l’intégration d’applications pour Brightspace by Desire2Learn
 
-![Scenario](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798957.png "Scenario")
-##<a name="enabling-the-application-integration-for-brightspace-by-desire2learn"></a>Enabling the application integration for Brightspace by Desire2Learn
+Cette section décrit l’activation de l’intégration d’applications pour Brightspace by Desire2Learn.
 
-The objective of this section is to outline how to enable the application integration for Brightspace by Desire2Learn.
+###Pour activer l’intégration d’applications pour Brightspace by Desire2Learn, procédez comme suit :
 
-###<a name="to-enable-the-application-integration-for-brightspace-by-desire2learn,-perform-the-following-steps:"></a>To enable the application integration for Brightspace by Desire2Learn, perform the following steps:
-
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC700994.png "Applications")
 
-4.  Click **Add** at the bottom of the page.
+4.  Cliquez sur **Ajouter** en bas de la page.
 
-    ![Add application](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC749321.png "Add application")
+    ![Ajouter l’application](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC749321.png "Ajouter l’application")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  In the **search box**, type **Brightspace by Desire2Learn**.
+6.  Dans la **zone de recherche**, tapez **Brightspace by Desire2Learn**.
 
-    ![Apllication Gallery](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798958.png "Apllication Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798958.png "Galerie d’applications")
 
-7.  In the results pane, select **Brightspace by Desire2Learn**, and then click **Complete** to add the application.
+7.  Dans le volet de résultats, sélectionnez **Brightspace by Desire2Learn**, puis cliquez sur **Terminer** pour ajouter l’application.
 
     ![Brightspace by Desire2Learn](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC799321.png "Brightspace by Desire2Learn")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuration de l'authentification unique
 
-The objective of this section is to outline how to enable users to authenticate to Brightspace by Desire2Learn with their account in Azure AD using federation based on the SAML protocol.
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Brightspace by Desire2Learn avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  In the Azure classic portal, on the **Brightspace by Desire2Learn** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Dans le portail Azure Classic, puis dans la page d’intégration d’applications **Brightspace by Desire2Learn**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798959.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798959.png "Configurer l’authentification unique")
 
-2.  On the **How would you like users to sign on to Brightspace by Desire2Learn** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Brightspace by Desire2Learn**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798960.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798960.png "Configurer l’authentification unique")
 
-3.  On the **Configure App URL** page, perform the following steps:
+3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit :
 
-    ![Configure App URL](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798961.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798961.png "Configurer l’URL de l’application")
 
-    1.  In the **Sign On URL** textbox, type the URL used by your users to sign into your **Brightspace by Desire2Learn** (e.g.: *https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*).
-    2.  Click **Next**
+    1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à **Brightspace by Desire2Learn** (par exemple, *https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*).
+    2.  Cliquez sur **Suivant**
 
-4.  On the **Configure single sign-on at Brightspace by Desire2Learn** page, to download your metadata, click **Download metadata**, and then save the metadata on your computer.
+4.  Dans la page **Configurer l’authentification unique sur Brightspace by Desire2Learn**, pour télécharger vos métadonnées, cliquez sur **Télécharger les métadonnées**, puis enregistrez les métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798962.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798962.png "Configurer l’authentification unique")
 
-5.  Send the downloaded metadata file to your Brightspace by Desire2Learn support team.
+5.  Envoyez le fichier de métadonnées téléchargé à l’équipe de support technique Brightspace by Desire2Learn.
 
-    >[AZURE.NOTE] Your Brightspace by Desire2Learn support team has to do the actual SSO configuration.
-You will get a notification when SSO has been enabled for your subscription.
+    >[AZURE.NOTE] L’équipe de support technique Brightspace by Desire2Learn doit se charger de la configuration de l’authentification unique.
+    Vous recevrez une notification lorsque l’authentification unique aura été activée pour votre abonnement.
 
-6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configurer l’authentification unique](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "Configurer l’authentification unique")
+##Configuration de l'approvisionnement des utilisateurs
 
-In order to enable Azure AD users to log into Brightspace by Desire2Learn, they must be provisioned into Brightspace by Desire2Learn.  
-In the case of Brightspace by Desire2Learn, the user accounts need to be created by your Brightspace by Desire2Learn support team.
+Pour permettre aux utilisateurs Azure AD de se connecter à Brightspace by Desire2Learn, vous devez les approvisionner dans Brightspace by Desire2Learn.  
+En l’occurrence, les comptes d’utilisateur doivent être créés par l’équipe de support technique Brightspace by Desire2Learn.
 
->[AZURE.NOTE] You can use any other Brightspace by Desire2Learn user account creation tools or APIs provided by Brightspace by Desire2Learn to provision Azure Active Directory user accounts.
+>[AZURE.NOTE] Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Brightspace by Desire2Learn pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
-##<a name="assigning-users"></a>Assigning users
+##Affectation d’utilisateurs
 
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###<a name="to-assign-users-to-brightspace-by-desire2learn,-perform-the-following-steps:"></a>To assign users to Brightspace by Desire2Learn, perform the following steps:
+###Pour affecter des utilisateurs à Brightspace by Desire2Learn, procédez comme suit :
 
-1.  In the Azure classic portal, create a test account.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  On the **Brightspace by Desire2Learn **application integration page, click **Assign users**.
+2.  Dans la page d’intégration d’applications **Brightspace by Desire2Learn**, cliquez sur **Affecter des utilisateurs**.
 
-    ![Assign Users](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798964.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798964.png "Affecter des utilisateurs")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
-    ![Yes](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC767830.png "Oui")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

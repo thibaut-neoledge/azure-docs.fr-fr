@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager backup policies | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage the backup policies that control scheduled backups."
+   pageTitle="Stratégies de sauvegarde du Gestionnaire d’instantanés StorSimple | Microsoft Azure"
+   description="Explique comment utiliser le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple pour créer et gérer les stratégies de sauvegarde qui contrôlent les sauvegardes planifiées."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,114 +15,109 @@
    ms.date="05/12/2016"
    ms.author="v-sharos" />
 
+# Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde
 
-# <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use StorSimple Snapshot Manager to create and manage backup policies
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Une stratégie de sauvegarde permet de créer une planification de sauvegarde des données de volume localement ou dans le cloud. Lorsque vous créez une stratégie de sauvegarde, vous pouvez également spécifier une stratégie de rétention. (Vous pouvez conserver un maximum de 64 instantanés). Pour plus d'informations sur les stratégies de sauvegarde, consultez la page [Types de sauvegarde](storsimple-what-is-snapshot-manager.md#backup-type) dans [Gamme StorSimple 8000 : une solution de cloud hybride](storsimple-overview.md).
 
-A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types](storsimple-what-is-snapshot-manager.md#backup-type) in [StorSimple 8000 series: a hybrid cloud solution](storsimple-overview.md).
+Ce didacticiel explique comment :
 
-This tutorial explains how to:
+- Créer une stratégie de sauvegarde 
+- Modifier une stratégie de sauvegarde 
+- Supprimer une stratégie de sauvegarde 
 
-- Create a backup policy 
-- Edit a backup policy 
-- Delete a backup policy 
+## Créer une stratégie de sauvegarde
 
-## <a name="create-a-backup-policy"></a>Create a backup policy
+Pour créer une stratégie de sauvegarde, procédez comme suit.
 
-Use the following procedure to create a new backup policy.
+#### Pour créer une stratégie de sauvegarde
 
-#### <a name="to-create-a-backup-policy"></a>To create a backup policy
+1. Cliquez sur l’icône du Bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+2. Dans le volet **Étendue**, cliquez avec le bouton droit sur **Stratégies de sauvegarde**, puis cliquez sur **Créer une stratégie de sauvegarde**.
 
-2. In the **Scope** pane, right-click **Backup Policies**, and click **Create Backup Policy**.
+    ![Créer une stratégie de sauvegarde](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    ![Create a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
+    La boîte de dialogue **Créer une stratégie** s’affiche.
 
-    The **Create a Policy** dialog box appears. 
+    ![Créer une stratégie - onglet Général](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
 
-    ![Create a Policy - General tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
+3. Dans l’onglet **Général**, renseignez les informations suivantes :
 
-3. On the **General** tab, complete the following information:
+   1. Dans la zone de texte **Nom**, tapez un nom pour la stratégie.
 
-   1. In the **Name** text box, type a name for the policy.
+   2. Dans la zone de texte **Groupe de volumes**, tapez le nom du groupe de volumes associé à la stratégie.
 
-   2. In the **Volume group** text box, type the name of the volume group associated with the policy.
+   3. Sélectionnez **Instantané local** ou **Instantané cloud**.
 
-   3. Select either **Local Snapshot** or **Cloud Snapshot**.
+   4. Sélectionnez le nombre d’instantanés à conserver. Si vous sélectionnez **Tous**, 64 instantanés seront conservés (il s’agit du maximum).
 
-   4. Select the number of snapshots to retain. If you select **All**, 64 snapshots will be retained (the maximum). 
+4. Cliquez sur l'onglet **Planification**.
 
-4. Click the **Schedule** tab.
+    ![Créer une stratégie - onglet Planification](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
 
-    ![Create a Policy - Schedule tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
+5. Sous l’onglet **Planification**, renseignez les informations suivantes :
 
-5. On the **Schedule** tab, complete the following information: 
+   1. Cochez la case **Activer** pour planifier la prochaine sauvegarde.
 
-   1. Click the **Enable** check box to schedule the next backup.
+   2. Sous **Paramètres**, sélectionnez **Une fois**, **Quotidienne**, **Hebdomadaire** ou **Mensuelle**.
 
-   2. Under **Settings**, select **One time**, **Daily**, **Weekly**, or **Monthly**. 
+   3. Dans la zone de texte **Début**, cliquez sur l’icône de calendrier et sélectionnez une date de début.
 
-   3. In the **Start** text box, click the calendar icon and select a start date.
+   4. Sous **Paramètres avancés**, vous pouvez définir des planifications répétées facultatives et une date de fin.
 
-   4. Under **Advanced Settings**, you can set optional repeat schedules and an end date.
+   5. Cliquez sur **OK**.
 
-   5. Click **OK**.
+Une fois la stratégie de sauvegarde créée, les informations suivantes apparaissent dans le volet **Résultats** :
 
-After you create a backup policy, the following information appears in the **Results** pane:
+- **Nom** : nom de la stratégie de sauvegarde.
 
-- **Name** – the name of backup policy.
+- **Type** : instantané local ou instantané cloud.
 
-- **Type** – local snapshot or cloud snapshot.
+- **Groupe de volumes** : groupe de volumes associé à la stratégie.
 
-- **Volume Group** – the volume group associated with the policy.
+- **Rétention** : nombre d’instantanés conservés ; le maximum est 64.
 
-- **Retention** – the number of snapshots retained; the maximum is 64.
+- **Créé** : date à laquelle cette stratégie a été créée.
 
-- **Created** – the date that this policy was created.
+- **Activée** : indique si la stratégie est en vigueur. La valeur **True** indique qu’elle est en vigueur, la valeur **False** qu’elle ne l’est pas.
 
-- **Enabled** – whether the policy is currently in effect: **True** indicates that it is in effect; **False** indicates that it is not in effect. 
+## Modifier une stratégie de sauvegarde
 
-## <a name="edit-a-backup-policy"></a>Edit a backup policy
+Pour modifier une stratégie de sauvegarde existante, procédez comme suit.
 
-Use the following procedure to edit an existing backup policy.
+#### Pour modifier une stratégie de sauvegarde
 
-#### <a name="to-edit-a-backup-policy"></a>To edit a backup policy
+1. Cliquez sur l’icône du Bureau pour démarrer le Gestionnaire d’instantanés StorSimple. 
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+2. Dans le volet **Étendue**, cliquez sur le nœud **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde apparaissent dans le volet **Résultats**.
 
-2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
+3. Cliquez avec le bouton droit sur la stratégie à modifier, puis cliquez sur **Modifier**.
 
-3. Right-click the policy that you want to edit, and then click **Edit**. 
+    ![Modifier une stratégie de sauvegarde](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
 
-    ![Edit a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png) 
+4. Quand la fenêtre **Créer une stratégie** s’affiche, entrez vos modifications, puis cliquez sur **OK**.
 
-4. When the **Create a Policy** window appears, enter your changes, and then click **OK**. 
+## Supprimer une stratégie de sauvegarde
 
-## <a name="delete-a-backup-policy"></a>Delete a backup policy
+Pour supprimer une stratégie de sauvegarde, procédez comme suit.
 
-Use the following procedure to delete a backup policy.
+#### Pour supprimer une stratégie de sauvegarde
 
-#### <a name="to-delete-a-backup-policy"></a>To delete a backup policy
+1. Cliquez sur l’icône du Bureau pour démarrer StorSimple Snapshot Manager. 
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+2. Dans le volet **Étendue**, cliquez sur le nœud **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde apparaissent dans le volet **Résultats**.
 
-2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
+3. Cliquez avec le bouton droit sur la stratégie de sauvegarde à supprimer, puis cliquez sur **Supprimer**.
 
-3. Right-click the backup policy that you want to delete, and then click **Delete**.
+4. Quand le message de confirmation s’affiche, cliquez sur **Oui**.
 
-4. When the confirmation message appears, click **Yes**.
+    ![Confirmation de la suppression de la stratégie de sauvegarde](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
-    ![Delete backup policy confirmation](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+- Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
+- Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
-- Learn how to [use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

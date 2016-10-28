@@ -1,82 +1,81 @@
 <properties
-    pageTitle="Cache ASP.NET Session State Provider | Microsoft Azure"
-    description="Learn how to store ASP.NET Session State using Azure Redis Cache"
-    services="redis-cache"
-    documentationCenter="na"
-    authors="steved0x"
-    manager="douge"
-    editor="tysonn" />
+	pageTitle="Fournisseur d’état de session ASP.NET du cache | Microsoft Azure"
+	description="Apprenez à stocker l’état de session ASP.NET à l’aide du Cache Redis Azure"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="douge"
+	editor="tysonn" />
 <tags
-    ms.service="cache"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="cache-redis"
-    ms.workload="tbd"
-    ms.date="09/01/2016"
-    ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="09/01/2016"
+	ms.author="sdanie" />
 
+# Fournisseur d’état de session ASP.NET pour Cache Redis Azure
 
-# <a name="asp.net-session-state-provider-for-azure-redis-cache"></a>ASP.NET Session State Provider for Azure Redis Cache
+Cache Redis Azure intègre un fournisseur d'état de session, qui vous permet de stocker l'état de votre session dans un cache plutôt qu'en mémoire ou dans une base de données SQL Server. Pour utiliser le fournisseur d’état de session de la mise en cache, configurez d’abord votre cache, puis configurez votre application ASP.NET pour la mise en cache à l’aide du package NuGet de l’état de session Cache Redis.
 
-Azure Redis Cache provides a session state provider that you can use to store your session state in a cache rather than in-memory or in a SQL Server database. To use the caching session state provider, first configure your cache, and then configure your ASP.NET application for cache using the Redis Cache Session State NuGet package.
+Dans une application cloud réelle, il n’est souvent pas pratique d’éviter de stocker une forme d’état de session utilisateur, mais certaines approches ont davantage d’incidence que d’autres sur les performances et l'extensibilité. Si vous devez stocker un état, la meilleure solution consiste à veiller à ce qu’il reste de petite taille et à le stocker dans des cookies. Si cette approche est impossible, le mieux est d’utiliser l’état de session ASP.NET avec un fournisseur de cache distribué en mémoire. La pire solution du point de vue des performances et de l’extensibilité consiste à utiliser un fournisseur d’état de session s'appuyant sur une base de données. Cette rubrique fournit des conseils sur l’utilisation du fournisseur d’état de session ASP.NET pour le Cache Redis Azure. Pour plus d’informations sur les autres options d’état de session, consultez [Options d’état de session ASP.NET](#aspnet-session-state-options).
 
-It's often not practical in a real-world cloud app to avoid storing some form of state for a user session, but some approaches impact performance and scalability more than others. If you have to store state, the best solution is to keep the amount of state small and store it in cookies. If that isn't feasible, the next best solution is to use ASP.NET session state with a provider for distributed, in-memory cache. The worst solution from a performance and scalability standpoint is to use a database backed session state provider. This topic provides guidance on using the ASP.NET Session State Provider for Azure Redis Cache. For information on other session state options, see [ASP.NET Session State options](#aspnet-session-state-options).
+## Stockage de l'état de session ASP.NET dans le cache
 
-## <a name="store-asp.net-session-state-in-the-cache"></a>Store ASP.NET session state in the cache
+Pour configurer une application cliente dans Visual Studio avec le package NuGet de l'état de session Cache Redis, cliquez avec le bouton droit sur l'**Explorateur de solutions** et choisissez **Gérer les packages NuGet**.
 
-To configure a client application in Visual Studio using the Redis Cache Session State NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**.
+![Cache Redis Azure - Gérer les packages NuGet](./media/cache-aspnet-session-state-provider/redis-cache-manage-nuget-menu.png)
 
-![Azure Redis Cache Manage NuGet Packages](./media/cache-aspnet-session-state-provider/redis-cache-manage-nuget-menu.png)
+Entrez **RedisSessionStateProvider** dans la zone de texte, choisissez-le parmi les résultats et cliquez sur **Installer**.
 
-Type **RedisSessionStateProvider** into the search text box, select it from the results, and click **Install**.
+>[AZURE.IMPORTANT] Si vous utilisez la fonction de clustering du niveau Premium, vous devez utiliser [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) version 2.0.1 ou ultérieure, sans quoi une exception est levée. Il s’agit d’une modification avec rupture. Pour plus d’informations, consultez [Détails de la modification avec rupture pour la version 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
->[AZURE.IMPORTANT] If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+![Fournisseur d’état de session du Cache Redis Azure](./media/cache-aspnet-session-state-provider/redis-cache-session-state-provider.png)
 
-![Azure Redis Cache Session State Provider](./media/cache-aspnet-session-state-provider/redis-cache-session-state-provider.png)
+Le package NuGet du fournisseur d’état de session Redis a une dépendance sur le package StackExchange.Redis.StrongName. Le package StackExchange.Redis.StrongName sera automatiquement installé s’il ne figure pas déjà dans votre projet. Notez qu’il existe, en plus du package StackExchange.Redis.StrongName avec nom fort, une version de StackExchange.Redis sans nom fort. Si votre projet utilise la version de StackExchange.Redis sans nom fort, vous devez la désinstaller avant ou après avoir installé le package NuGet du fournisseur d’état de session Redis. À défaut, vous risquez de rencontrer des conflits de noms dans votre projet. Pour plus d’informations sur ces packages, consultez la section [Configuration des clients de cache .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
-The Redis Session State Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project it will be installed. Note that in addition to the strong-named StackExchange.Redis.StrongName package there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, either before or after installing the Redis Session State Provider NuGet package, otherwise you will get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
-
-The NuGet package downloads and adds the required assembly references and adds the following adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.
+Le package NuGet télécharge et ajoute les références d'assembly nécessaires et ajoute la section suivante dans le fichier web.config qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session Cache Redis.
 
     <sessionState mode="Custom" customProvider="MySessionStateStore">
         <providers>
         <!--
-        <add name="MySessionStateStore"
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-        />
+		<add name="MySessionStateStore"
+     	  	host = "127.0.0.1" [String]
+    		port = "" [number]
+    		accessKey = "" [String]
+    		ssl = "false" [true|false]
+    		throwOnError = "true" [true|false]
+    		retryTimeoutInMilliseconds = "0" [number]
+    		databaseId = "0" [number]
+    		applicationName = "" [String]
+    		connectionTimeoutInMilliseconds = "5000" [number]
+    		operationTimeoutInMilliseconds = "5000" [number]
+		/>
         -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+		<add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
         </providers>
     </sessionState>
 
-The commented section provides an example of the attributes and sample settings for each attribute.
+La section commentée fournit un exemple d’attributs et de paramétrage pour chacun de ces attributs.
 
-Configure the attributes with the values from your cache blade in the Microsoft Azure Portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+Configurez les attributs avec les valeurs du panneau de votre cache sur le portail Microsoft Azure et configurez les autres valeurs selon votre choix. Pour obtenir des instructions sur l’accès aux propriétés de votre cache, consultez la section [Configuration des paramètres de cache Redis](cache-configure.md#configure-redis-cache-settings).
 
--   **host** – specify your cache endpoint.
--   **port** – use either your non-SSL port or your SSL port, depending on the ssl settings.
--   **accessKey** – use either the primary or secondary key for your cache.
--   **ssl** – true if you want to secure cache/client communications with ssl; otherwise false. Be sure to specify the correct port.
-    -   The non-SSL port is disabled by default for new caches. Specify true for this setting to use the SSL port. For more information about enabling the non-SSL port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic.
--   **throwOnError** – true if you want an exception to be thrown in the event of a failure, or false if you want the operation to fail silently. You can check for a failure by checking the static Microsoft.Web.Redis.RedisSessionStateProvider.LastException property. The default is true.
--   **retryTimeoutInMilliseconds** – Operations that fail are retried during this interval, specified in milliseconds. The first retry occurs after 20 milliseconds, and then retries occur every second until the retryTimeoutInMilliseconds interval expires. Immediately after this interval, the operation is retried one final time. If the operation still fails, the exception is thrown back to the caller, depending on the throwOnError setting. The default value is 0 which means no retries.
--   **databaseId** – Specifies which database to use for cache output data. If not specified, the default value of 0 is used.
--   **applicationName** – Keys are stored in redis as `{<Application Name>_<Session ID>}_Data`. This enables multiple applications to share the same key. This parameter is optional and if you do not provide it a default value is used.
--   **connectionTimeoutInMilliseconds** – This setting allows you to override the connectTimeout setting in the StackExchange.Redis client. If not specified, the default connectTimeout setting of 5000 is used. For more information, see [StackExchange.Redis configuration model](http://go.microsoft.com/fwlink/?LinkId=398705).
--   **operationTimeoutInMilliseconds** – This setting allows you to override the syncTimeout setting in the StackExchange.Redis client. If not specified, the default syncTimeout setting of 1000 is used. For more information, see [StackExchange.Redis configuration model](http://go.microsoft.com/fwlink/?LinkId=398705).
+-	**host** : spécifiez le point de terminaison de votre cache.
+-	**port** : utilisez votre port non SSL ou votre port SSL, selon les paramètres ssl.
+-	**accessKey** : utilisez la clé primaire ou secondaire pour votre cache.
+-	**ssl** : choisissez « true » si vous souhaitez sécuriser les communications cache/client avec ssl ; sinon, choisissez « false ». Veillez à spécifier le port approprié.
+	-	Le port non SSL est désactivé par défaut pour les nouveaux caches. Spécifiez true pour utiliser le port SSL pour ce paramètre. Pour plus d’informations sur l’activation du port non SSL, consultez la section relative aux [ports d’accès](cache-configure.md#access-ports) dans la rubrique [Configuration d’un cache](cache-configure.md).
+-	**throwOnError** : true si vous voulez lever une exception en cas d’échec, ou false si vous souhaitez que l’opération échoue en silence. Pour contrôler un échec, vous pouvez vérifier la propriété statique Microsoft.Web.Redis.RedisSessionStateProvider.LastException. La valeur par défaut est true.
+-	**retryTimeoutInMilliseconds** : intervalle, en millisecondes, au cours duquel interviennent les nouvelles tentatives d’exécution des opérations ayant échoué. La première nouvelle tentative intervient après 20 millisecondes. Les tentatives suivantes se produisent à chaque seconde jusqu’à l’expiration de l’intervalle retryTimeoutInMilliseconds. Une dernière tentative d’exécution est effectuée immédiatement après cet intervalle. Si le problème persiste, l’exception est renvoyée à l’appelant, en fonction du paramètre throwOnError. La valeur 0 par défaut signifie qu’aucune nouvelle tentative n’est effectuée.
+-	**databaseId** : spécifie la base de données à utiliser pour les données de sortie du cache. Si ce champ n’est pas spécifié, la valeur 0 sera utilisée par défaut.
+-	**applicationName** : les clés sont stockées dans redis sous `{<Application Name>_<Session ID>}_Data`. Cela permet à plusieurs applications de partager la même clé. Ce paramètre est facultatif. Si vous n’indiquez aucune valeur, une valeur par défaut sera utilisée.
+-	**connectionTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre connectTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut connectTimeout 5000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+-	**operationTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre syncTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut syncTimeout 1000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 
-For more information about these properties, see the original blog post announcement at [Announcing ASP.NET Session State Provider for Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Pour plus d’informations sur ces propriétés, consultez la publication du blog d’origine [Announcing ASP.NET Session State Provider for Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (en anglais).
 
-Don’t forget to comment out the standard InProc session state provider section in your web.config.
+N’oubliez pas de commenter la section relative au fournisseur d’état de session standard InProc dans votre fichier web.config.
 
     <!-- <sessionState mode="InProc"
          customProvider="DefaultSessionProvider">
@@ -89,26 +88,22 @@ Don’t forget to comment out the standard InProc session state provider section
           </providers>
     </sessionState> -->
 
-Once these steps are performed, your application is configured to use the Redis Cache Session State Provider. When you use session state in your application, it will be stored in an Azure Redis Cache instance.
+Une fois ces étapes effectuées, votre application est configurée pour utiliser le fournisseur d’état de session du Cache Redis. Lorsque vous utilisez l’état de session dans votre application, il sera stocké dans une instance de Cache Redis Azure.
 
->[AZURE.NOTE] Note that data stored in the cache must be serializable, unlike the data that can be stored in the default in-memory ASP.NET Session State Provider. When the Session State Provider for Redis is used, be sure that the data types that are being stored in session state are serializable.
+>[AZURE.NOTE] Notez que les données stockées dans le cache doivent être sérialisables, contrairement aux données qui peuvent être stockées dans le fournisseur d’état de session en mémoire ASP.NET par défaut. Lorsque vous utilisez le fournisseur d’état de session pour Redis, assurez-vous que les types de données qui sont stockés dans l’état de session sont sérialisables.
 
-## <a name="asp.net-session-state-options"></a>ASP.NET Session State options
+## Options d’état de session ASP.NET
 
-- In Memory Session State Provider - This provider stores the Session State in memory. The benefit of using this provider is it is simple and fast. However you cannot scale your Web Apps if you are using in memory provider since it is not distributed.
+- Fournisseur d’état de session en mémoire : ce fournisseur stocke l’état de session dans la mémoire. Ce fournisseur présente l’avantage d’être à la fois simple et rapide. Vous ne pourrez cependant pas faire évoluer vos applications Web si vous utilisez le fournisseur en mémoire dans la mesure où il n’est pas distribué.
 
-- Sql Server Session State Provider - This provider stores the Session State in Sql Server. You should use this provider if you want to persist the Session state in a persistent storage. You can scale your Web App but using Sql Server for Session will have a performance impact on your Web App.
+- Fournisseur d’état de session dans le serveur SQL : ce fournisseur stocke l’état de session dans le serveur SQL. Vous devez utiliser ce fournisseur si vous souhaitez placer l’état de session dans un stockage permanent. Vous pouvez faire évoluer votre application Web, mais l’utilisation du serveur SQL pour la session aura un impact sur les performances de votre application Web.
 
-- Distributed In Memory Session State Provider such as Redis Cache Session State Provider - This provider gives you the best of both worlds. Your Web App can have a simple, fast and scalable Session State Provider. However you have to keep in consideration that this provider stores the Session state in a Cache and your app has to take in consideration all the characteristics associated when talking to a Distributed In Memory Cache such as transient network failures. For best practices on using Cache, see [Caching guidance](../best-practices-caching.md) from Microsoft Patterns & Practices [Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance).
+- Fournisseur d’état de session distribué en mémoire (par exemple, fournisseur d’état de session du Cache Redis) : ce fournisseur associe tous les avantages. Votre application Web peut bénéficier d’un fournisseur d’état de session à la fois simple, rapide et évolutif. Vous devez toutefois tenir compte du fait que ce fournisseur stocke l’état de session dans un cache et que votre application doit prendre en considération toutes les caractéristiques associées lorsqu’elle communique avec un cache distribué en mémoire (par exemple, les défaillances réseau temporaires). Pour obtenir des recommandations sur l’utilisation du Cache, consultez la page [Caching Guidance](../best-practices-caching.md) dans le [Guide de conception et d’implémentation des applications Azure Cloud](https://github.com/mspnp/azure-guidance) de Microsoft Patterns & Practices.
 
-For more information about session state and other best practices, see [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+Pour plus d'informations sur l’état de session et obtenir d’autres meilleures pratiques, consultez la page [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-Check out the [ASP.NET Output Cache Provider for Azure Redis Cache](cache-aspnet-output-cache-provider.md).
+Consultez l’article [Fournisseur de caches de sortie ASP.NET pour le Cache Redis Azure](cache-aspnet-output-cache-provider.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

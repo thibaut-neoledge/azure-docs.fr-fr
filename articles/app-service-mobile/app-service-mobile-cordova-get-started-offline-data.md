@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Enable offline sync for your Azure Mobile App (Cordova) | Microsoft Azure"
-    description="Learn how to use App Service Mobile App to cache and sync offline data in your Cordova application"
+    pageTitle="Activation de la synchronisation hors connexion pour votre application Azure Mobile App (Cordova) | Microsoft Azure"
+    description="Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Cordova"
     documentationCenter="cordova"
-    authors="adrianhall"
+    authors="mikejo5000"
     manager="erikre"
     editor=""
     services="app-service\mobile"/>
@@ -13,39 +13,38 @@
     ms.tgt_pltfrm="mobile-cordova-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+	ms.date="08/14/2016"
+    ms.author="mikejo"/>
 
-
-# <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Enable offline sync for your Cordova mobile app
+# Activation de la synchronisation hors connexion pour votre application mobile Cordova
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-This tutorial introduces the offline sync feature of Azure Mobile Apps for Cordova. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.
+Ce didacticiel présente la fonctionnalité de synchronisation hors connexion d’Azure Mobile Apps pour Cordova. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l’appareil de nouveau en ligne, ces modifications sont synchronisées avec le service distant.
 
-This tutorial is based on the Cordova quickstart solution for Mobile Apps that you create when you complete the tutorial [Apache Cordova quick start]. In this tutorial, you will update the quickstart solution to add offline features of Azure Mobile Apps. We will also highlight the offline-specific code in the app.
+Ce didacticiel est basé sur la solution de démarrage rapide de Cordova pour les applications mobiles créées en suivant le didacticiel [Démarrage rapide Apache Cordova]. Dans ce didacticiel, vous allez mettre à jour la solution de démarrage rapide pour ajouter les fonctionnalités hors connexion d’Azure Mobile Apps. Vous allez également en savoir plus sur le code hors connexion spécifique dans l’application.
 
-To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps]. For details of API usage, see the [README] file in the plugin.
+Pour plus d’informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps]. Pour plus d’informations sur l’utilisation de l’API, consultez le fichier [LISEZ-MOI] dans le plug-in.
 
-## <a name="add-offline-sync-to-the-quickstart-solution"></a>Add offline sync to the quickstart solution
+## Ajouter la synchronisation hors connexion à la solution de démarrage rapide
 
-The offline sync code must be added to the app. Offline sync requires the cordova-sqlite-storage plugin, which automatically gets added to your app when the Azure Mobile Apps plugin is included in the project. The Quickstart project includes both of these plugins.
+Le code de synchronisation hors connexion doit être ajouté à l’application. La synchronisation hors connexion requiert le plug-in cordova-sqlite-storage, qui est automatiquement ajouté à votre application lorsque le plug-in Azure Mobile Apps est inclus dans le projet. Le projet de démarrage rapide inclut ces deux plug-ins.
 
-1. In Visual Studio's Solution Explorer, open index.js and replace the following code
+1. Dans l’Explorateur de solutions de Visual Studio, ouvrez le fichier index.js et remplacez le code suivant
 
         var client,            // Connection to the Azure Mobile App backend
           todoItemTable;      // Reference to a table endpoint on backend
 
-    with this code:
+    par ce code :
 
         var client,             // Connection to the Azure Mobile App backend
           todoItemTable, syncContext; // Reference to table and sync context
 
-2. Next, replace the following code:
+2. Ensuite, remplacez le code suivant :
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net');
 
-    with this code:
+	par ce code :
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net');
 
@@ -65,17 +64,17 @@ The offline sync code must be added to the app. Offline sync requires the cordov
         // Get the sync context from the client
         syncContext = client.getSyncContext();
 
-    The preceding code additions initialize the local store and define a local table that matches the column values used in your Azure back end. (You don't need to include all column values in this code.)
+    Les ajouts de code précédents initialisent le magasin local et définissent une table locale correspondant aux valeurs de colonne utilisées dans votre serveur principal Azure. (Vous n’avez pas besoin d’inclure toutes les valeurs de colonne dans ce code.)
 
-    You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when **push** is called.
+    Vous obtenez une référence au contexte de synchronisation en appelant **getSyncContext**. Le contexte de synchronisation permet de conserver les relations entre les tables grâce au suivi et à l’envoi des modifications dans toutes les tables qu’une application cliente modifie quand **push** est appelé.
 
-3. Update the application URL to your Mobile App application URL.
+3. Mettez à jour l’URL de l’application pour l’URL de votre application Mobile App.
 
-4. Next, replace this code:
+4. Ensuite, remplacez ce code :
 
         todoItemTable = client.getTable('todoitem'); // todoitem is the table name
 
-    with this code:
+    par ce code :
 
         // todoItemTable = client.getTable('todoitem');
 
@@ -109,13 +108,13 @@ The offline sync code must be added to the app. Offline sync requires the cordov
         $('#add-item').submit(addItemHandler);
         $('#refresh').on('click', refreshDisplay);
 
-    The preceding code initializes the sync context and then calls getSyncTable (instead of getTable) to get a reference to the local table.
+    Le code précédent initialise le contexte de synchronisation, puis appelle getSyncTable (au lieu de getTable) pour obtenir une référence à la table locale.
 
-    This code uses the local database for all create, read, update, and delete (CRUD) table operations.
+    Ce code utilise la base de données locale pour toutes les opérations de table CRUD (Create, Read, Update et Delete - Créer, Lire, Mettre à jour et Supprimer).
 
-    This sample performs simple error handling on sync conflicts. A real application would handle the various errors like network conditions, server conflicts, and others. For code examples, see the [offline sync sample].
+    Cet exemple effectue une simple gestion des erreurs sur les conflits de synchronisation. Une application réelle gèrerait les différentes erreurs telles que les conditions du réseau, les conflits de serveur et autres. Pour plus d’exemples de code, consultez l’[exemple de synchronisation hors connexion].
 
-5. Next, add this function to perform the actual sync.
+5. Ensuite, ajoutez cette fonction pour effectuer la synchronisation réelle.
 
         function syncBackend() {
 
@@ -129,21 +128,21 @@ The offline sync code must be added to the app. Offline sync requires the cordov
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    You decide when to push changes to the Mobile App backend by calling **push** on the **syncContext** object used by the client. For example, you could add a call to **syncBackend** to a button event handler in the app such as a new Sync button, or you could add the call to the **addItemHandler** function to sync whenever a new item is added.
+    Vous décidez du moment auquel envoyer les modifications au backend Mobile App en appelant **push** sur l’objet **syncContext** utilisé par le client. Par exemple, vous pouvez ajouter un appel à **syncBackend** à un gestionnaire d’événement de bouton dans l’application comme un nouveau bouton de synchronisation, ou ajouter l’appel à la fonction **addItemHandler** pour synchroniser chaque fois qu’un nouvel élément est ajouté.
 
-##<a name="offline-sync-considerations"></a>Offline sync considerations
+##Considérations relatives à la synchronisation hors connexion
 
-In the sample, the **push** method of **syncContext** is only called on app startup in the callback function for login.  In a real-world application, you could also make this sync functionality triggered manually or when the network state changes.
+Dans l’exemple, la méthode **push** de **syncContext** n’est appelée qu’au démarrage de l’application dans la fonction de rappel pour la connexion. Dans une application réelle, vous pourriez également provoquer manuellement le déclenchement de la fonctionnalité de synchronisation lorsque l’état du réseau change.
 
-When a pull is executed against a table that has pending local updates tracked by the context, that pull operation will automatically trigger a preceding context push. When refreshing, adding and completing items in this sample, you can omit the explicit **push** call, since it may be redundant (first check the [README] for current feature status).
+Si une extraction est exécutée sur une table qui comporte des mises à jour locales en attente faisant l’objet d’un suivi en fonction du contexte, cette opération déclenche automatiquement un envoi préalable sur le contexte. Lors de l’actualisation, de l’ajout et de l’achèvement des éléments dans cet exemple, vous pouvez omettre l’appel explicite de **push**, puisqu’il peut être redondant (consultez d’abord le fichier [LISEZ-MOI] pour connaître le statut actuel de la fonctionnalité).
 
-In the provided code, all records in the remote todoItem table are queried, but it is also possible to filter records by passing a query id and query to **push**. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
+Dans le code fourni, tous les enregistrements de la table TodoItem distante sont interrogés, mais il est également possible de filtrer les enregistrements en transmettant un ID de requête et une requête à **push**. Pour plus d’informations, consultez la section *Synchronisation incrémentielle* dans [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
-## <a name="(optional)-disable-authentication"></a>(Optional) Disable authentication
+## (Facultatif) Désactiver l’authentification
 
-If you did not already set up authentication and don't want to set up authentication before testing offline sync, comment out the callback function for login, but leave the code inside the callback function uncommented.
+Si vous n’avez pas déjà configuré l’authentification et que vous ne souhaitez pas le faire avant de tester la synchronisation hors connexion, commentez la fonction de rappel pour la connexion, mais pas le code à l’intérieur de la fonction de rappel.
 
-The code should look like this after commenting out the login lines.
+Une fois que vous avez commenté les lignes de connexion, voici ce à quoi le code doit ressembler.
 
       // Login to the service.
       // client.login('twitter')
@@ -154,81 +153,77 @@ The code should look like this after commenting out the login lines.
         });
       // }, handleError);
 
-Now, the app will sync with the Azure backend when you run the app instead of when you login.
+À présent, l’application se synchronise avec le backend Azure lorsque vous exécutez l’application, et non lorsque vous vous connectez.
 
-## <a name="run-the-client-app"></a>Run the client app
+## Exécuter l’application cliente
 
-With offline sync now enabled, you can now run the client application at least once on each platform to populate the local store database. Later, you will simulate an offline scenario and modify the data in the local store while the app is offline.
+Maintenant que la synchronisation hors connexion est activée, vous pouvez exécuter l’application cliente au moins une fois sur chaque plateforme pour remplir la base de données du magasin local. Ensuite, vous allez simuler un scénario hors connexion et modifier les données du magasin local pendant que l’application est hors connexion.
 
-## <a name="(optional)-test-the-sync-behavior"></a>(Optional) Test the sync behavior
+## (Facultatif) Tester le comportement de synchronisation
 
-In this section, you will modify the client project to simulate an offline scenario by using an invalid application URL for your backend. When you add or change data items, these changes will be held in the local store, but not synced to the backend data store until the connection is re-established.
+Dans cette section, vous allez modifier le projet client pour simuler un scénario hors connexion à l’aide d’une URL d’application non valide pour votre backend. Quand vous ajoutez ou modifiez des éléments de données, ces modifications sont conservées dans le magasin local, mais ne sont synchronisées avec le magasin de données principal qu’une fois la connexion rétablie.
 
-1. In the Solution Explorer, open the index.js project file and change the application URL to point to an invalid URL, like the following:
+1. Dans l’Explorateur de solutions, ouvrez le fichier de projet index.js et changez l’URL de l’application pour pointer vers une URL non valide, comme suit :
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
 
-2. In index.html, update the CSP `<meta>` element with the same invalid URL.
+2. Dans index.html, mettez à jour l’élément CSP `<meta>` avec la même URL non valide.
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
 
-3. Build and run the client app and notice that an exception is logged in the console when the app attempts to sync with the backend after login. Any new items you add will exist only in the local store until they can be pushed to the mobile backend. The client app behaves as if is connected to the backend, supporting all create, read, update, delete (CRUD) operations.
+3. Créez et exécutez l’application cliente et notez qu’une exception est consignée dans la console lorsque l’application tente de se synchroniser avec le backend après la connexion. Tous les nouveaux éléments que vous ajoutez se trouvent uniquement dans le magasin local jusqu’à ce qu’ils puissent être transmis par push vers le backend mobile. L’application cliente se comporte comme si elle est connectée au backend et prend en charge toutes les opérations de création, lecture, mise à jour et suppression.
 
-4. Close the app and restart it to verify that the new items you created are persisted to the local store.
+4. Fermez l’application et redémarrez-la pour vérifier que les nouveaux élément que vous avez créés sont conservés dans le magasin local.
 
-5. (Optional) Use Visual Studio to view your Azure SQL Database table to see that the data in the backend database has not changed.
+5. (Facultatif) À l’aide de Visual Studio, affichez votre table Azure SQL Database pour constater que les données dans la base de données principale n’ont pas changé.
 
-    In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents.
+	Dans Visual Studio, ouvrez l'**Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu.
 
 
-## <a name="(optional)-test-the-reconnection-to-your-mobile-backend"></a>(Optional) Test the reconnection to your mobile backend
+## (Facultatif) Tester la reconnexion à votre backend
 
-In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state. When you login, data will be synced to your mobile backend.
+Dans cette section, vous allez reconnecter l'application au backend mobile, ce qui simule le retour de l'application à un état en ligne. Lorsque vous vous connectez, les données sont synchronisées avec votre backend mobile.
 
-1. Reopen index.js and correct the application URL to point to the correct URL.
+1. Rouvrez le fichier index.js et corrigez l’URL de l’application pour pointer vers la bonne URL.
 
-2. Reopen index.html and correct the application URL in the CSP `<meta>` element.
+2. Rouvrez le fichier index.html et corrigez l’URL de l’application dans l’élément CSP `<meta>`.
 
-3. Rebuild and run the client app. The app attempts to sync with the mobile app backend after login. Verify that no exceptions are logged in the debug console.
+3. Régénérez et exécutez l’application cliente. Après la connexion, l’application tente de se synchroniser avec le backend Mobile App. Vérifiez qu’aucune exception n’est consignée dans la console de débogage.
 
-4. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler. Notice the data has been synchronized between the backend database and the local store.
+4. (Facultatif) Affichez les données mises à jour à l’aide de l’Explorateur d’objets SQL Server ou d’un outil REST tel que Fiddler. Notez que les données n’ont pas été synchronisées entre la base de données du serveur principal et le magasin local.
 
-    Notice the data has been synchronized between the database and the local store and contains the items you added while your app was disconnected.
+    Notez que les données ont été synchronisées entre la base de données et le magasin local et qu’elles contiennent les éléments que vous avez ajoutés pendant que votre application était déconnectée.
 
-## <a name="additional-resources"></a>Additional resources
+## Ressources supplémentaires
 
-* [Offline Data Sync in Azure Mobile Apps]
+* [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover: Offline Sync in Azure Mobile Services] \(note: the video is on Mobile Services, but offline sync works in a similar way in Azure Mobile Apps\)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] \(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
-* [Visual Studio Tools for Apache Cordova]
+* [Visual Studio Tools pour Apache Cordova]
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-* Look at more advanced offline sync features such as conflict resolution in the [offline sync sample]
-* Look at the offline sync API reference in the [README]
+* L’[exemple de synchronisation hors connexion] présente des fonctionnalités de synchronisation hors connexion plus avancées telles que la résolution de conflit
+* Le fichier [LISEZ-MOI] présente la référence d’API de synchronisation hors connexion
 
 <!-- ##Summary -->
 
 <!-- Images -->
 
 <!-- URLs. -->
-[Apache Cordova quick start]: app-service-mobile-cordova-get-started.md
-[README]: https://github.com/Azure/azure-mobile-apps-js-client#offline-data-sync-preview
-[offline sync sample]: https://github.com/shrishrirang/azure-mobile-apps-quickstarts/tree/samples/client/cordova/ZUMOAPPNAME
-[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Démarrage rapide Apache Cordova]: app-service-mobile-cordova-get-started.md
+[LISEZ-MOI]: https://github.com/Azure/azure-mobile-apps-js-client#offline-data-sync-preview
+[exemple de synchronisation hors connexion]: https://github.com/shrishrirang/azure-mobile-apps-quickstarts/tree/samples/client/cordova/ZUMOAPPNAME
+[Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [authentication]: app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Visual Studio Community 2015]: http://www.visualstudio.com/
-[Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[Visual Studio Tools pour Apache Cordova]: https://www.visualstudio.com/fr-FR/features/cordova-vs.aspx
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

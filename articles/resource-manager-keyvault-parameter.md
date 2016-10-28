@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Key Vault secret with Resource Manager template | Microsoft Azure"
-   description="Shows how to pass a secret from a key vault as a parameter during deployment."
+   pageTitle="Clé secrète de coffre de clés avec un modèle Resource Manager | Microsoft Azure"
+   description="Montre comment passer une clé secrète à partir d’un coffre de clés en tant que paramètre lors du déploiement."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,20 +16,19 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
+# Passage de valeurs sécurisées lors du déploiement
 
-# <a name="pass-secure-values-during-deployment"></a>Pass secure values during deployment
+Lorsque vous devez passer une valeur sécurisée (par exemple, un mot de passe) en tant que paramètre au cours du déploiement, vous pouvez stocker cette valeur en tant que clé secrète dans un [coffre de clés Azure](./key-vault/key-vault-whatis.md) et faire référence à la valeur dans d'autres modèles Resource Manager. Vous incluez uniquement une référence à la clé secrète dans votre modèle afin de ne jamais l’exposer, et vous n'avez pas besoin d'entrer manuellement la valeur de la clé secrète chaque fois que vous déployez les ressources. Vous spécifiez quels utilisateurs ou principaux du service peuvent accéder à la clé secrète.
 
-When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an [Azure Key Vault](./key-vault/key-vault-whatis.md) and reference the value in other Resource Manager templates. You include only a reference to the secret in your template so the secret is never exposed, and you do not need to manually enter the value for the secret each time you deploy the resources. You specify which users or service principals can access the secret.  
+## Déploiement d'un coffre de clés et d’une clé secrète
 
-## <a name="deploy-a-key-vault-and-secret"></a>Deploy a key vault and secret
+Pour créer un coffre de clés qui peut être référencé à partir d'autres modèles Resource Manager, vous devez définir la propriété **enabledForTemplateDeployment** sur **true**, et vous devez accorder l'accès à l'utilisateur ou au principal du service qui exécutera le déploiement faisant référence à la clé secrète.
 
-To create key vault that can be referenced from other Resource Manager templates, you must set the **enabledForTemplateDeployment** property to **true**, and you must grant access to the user or service principal that will execute the deployment which references the secret.
+Pour en savoir plus sur le déploiement d'un coffre de clés et la clé secrète, consultez [Schéma d’un coffre de clés](resource-manager-template-keyvault.md) et [Schéma d’une clé secrète de coffre de clés](resource-manager-template-keyvault-secret.md).
 
-To learn about deploying a key vault and secret, see [Key vault schema](resource-manager-template-keyvault.md) and [Key vault secret schema](resource-manager-template-keyvault-secret.md).
+## Référencement d’une clé secrète avec un ID statique
 
-## <a name="reference-a-secret-with-static-id"></a>Reference a secret with static id
-
-You reference the secret from within a parameters file which passes values to your template. You reference the secret by passing the resource identifier of the key vault and the name of the secret. In this example, the key vault secret must already exist, and you are using a static value for it resource id.
+Vous référencez la clé secrète à partir d'un fichier de paramètres qui transmet les valeurs à votre modèle. Vous référencez la clé secrète en passant l'identificateur de ressource du coffre de clés et le nom de la clé secrète. Dans cet exemple, la clé secrète du coffre de clés doit déjà exister, et vous utilisez une valeur statique pour l’ID de ressource de ce dernier.
 
     "parameters": {
       "adminPassword": {
@@ -42,7 +41,7 @@ You reference the secret from within a parameters file which passes values to yo
       }
     }
 
-An entire parameter file might look like:
+Un fichier de paramètres complet peut ressembler à ceci :
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -62,7 +61,7 @@ An entire parameter file might look like:
       }
     }
 
-The parameter that accepts the secret should be a **securestring**. The following example shows the relevant sections of a template that deploys a SQL server that requires an administrator password.
+Le paramètre qui accepte la clé secrète doit être de type**securestring**. L'exemple suivant montre les sections correspondantes d'un modèle qui déploie un serveur SQL nécessitant un mot de passe administrateur.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -95,11 +94,11 @@ The parameter that accepts the secret should be a **securestring**. The followin
         "outputs": { }
     }
 
-## <a name="reference-a-secret-with-dynamic-id"></a>Reference a secret with dynamic id
+## Référencement d’une clé secrète avec un ID dynamique
 
-The previous section showed how to pass a static resource id for the key vault secret. However, in some scenarios, you need to reference a key vault secret that varies based on the current deployment. In that case, you cannot hard-code the resource id in the parameters file. Unfortunately, you cannot dynamically generate the resource id in the parameters file because template expressions are not permitted in the parameters file.
+La section précédente expliquait comment passer un ID de ressource statique pour la clé secrète du coffre de clés. Toutefois, dans certains scénarios, vous devez référencer une clé secrète de coffre de clés qui varie selon le déploiement actuel. Dans ce cas, vous ne pouvez pas coder en dur l’ID de ressource dans le fichier de paramètres. Malheureusement, vous ne pouvez pas générer dynamiquement l’ID de ressource dans le fichier de paramètres, car les expressions de modèle ne sont pas autorisées dans ce dernier.
 
-To dynamically generate the resource id for a key vault secret, you must move the resource that needs the secret into a nested template. In your master template, you add the nested template and pass in a parameter that contains the dynamically generated resource id.
+Pour générer dynamiquement l’ID de ressource pour une clé secrète de coffre de clés, vous devez déplacer la ressource qui a besoin de la clé secrète dans un modèle imbriqué. Dans votre modèle principal, vous ajoutez le modèle imbriqué et passez un paramètre qui contient l’ID de ressource généré dynamiquement.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -140,15 +139,10 @@ To dynamically generate the resource id for a key vault secret, you must move th
     }
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For information about using a key vault with a Virtual Machine, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
-- For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
+- Pour plus d’informations sur l’utilisation d’un coffre de clés avec une machine virtuelle, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
+- Pour obtenir des exemples complets de référencement de clés secrètes, consultez [Exemples de coffres de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

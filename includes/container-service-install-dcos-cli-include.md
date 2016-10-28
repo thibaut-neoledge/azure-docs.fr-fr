@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Install the DC/OS CLI | Microsoft Azure"
-   description="Install the DC/OS CLI."
+   pageTitle="Installer l’interface de ligne de commande DC/OS | Microsoft Azure"
+   description="Installer l’interface de ligne de commande DC/OS."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Containers, Micro-services, DC/OS, Azure"/>
+   keywords="Conteneurs, micro-services, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -18,10 +18,9 @@
    ms.date="05/10/2016"
    ms.author="rogardle"/>
 
+>[AZURE.NOTE] Cela concerne l’utilisation des clusters ACS basés sur DC/OS. Cette opération est inutile pour les clusters ACS à base de Swarm.
 
->[AZURE.NOTE] This is for working with DC/OS-based ACS clusters. There is no need to do this for Swarm-based ACS clusters.
-
-First, [connect to your DC/OS-based ACS cluster](../articles/container-service/container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
+Commencez par [vous connecter à votre cluster ACS basé sur DC/OS](../articles/container-service/container-service-connect.md). Une fois cette opération terminée, installez l’interface de ligne de commande DC/OS sur votre ordinateur client à l’aide des commandes ci-dessous :
 
 ```bash
 sudo pip install virtualenv
@@ -31,23 +30,18 @@ chmod +x install-optout-dcos-cli.sh
 ./install-optout-dcos-cli.sh . http://localhost --add-path yes
 ```
 
-If you are using an old version of Python, you may notice some "InsecurePlatformWarnings". You can safely ignore these.
+Si vous utilisez une ancienne version de Python, vous remarquerez peut-être des messages « InsecurePlatformWarning ». Vous pouvez ignorer ces erreurs.
 
-In order to get started without restarting your shell, run:
+Pour démarrer sans avoir à relancer votre interpréteur de commandes, exécutez la commande suivante :
 
 ```bash
 source ~/.bashrc
 ```
 
-This step will not be necessary when you start new shells.
+Cette étape n’est pas nécessaire lorsque vous lancez de nouveaux interpréteurs de commandes.
 
-Now you can confirm that the CLI is installed:
+À présent, vous pouvez confirmer l’installation de l’interface de ligne de commande :
 
 ```bash
 dcos --help
 ```
-
-
-<!--HONumber=Oct16_HO2-->
-
-

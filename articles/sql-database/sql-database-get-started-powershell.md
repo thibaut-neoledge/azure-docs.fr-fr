@@ -1,8 +1,8 @@
 <properties
-    pageTitle="New SQL Database setup with PowerShell | Microsoft Azure"
-    description="Learn now to create a SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets."
-    keywords="create new sql database,database setup"
-    services="sql-database"
+    pageTitle="Nouvelle configuration de base de données SQL avec PowerShell | Microsoft Azure"
+    description="Apprenez dès maintenant à créer une base de données SQL avec PowerShell. Les tâches courantes d’installation de base de données peuvent être gérées via les applets de commande PowerShell."
+    keywords="créer une base de données sql, configuration de base de données"
+	services="sql-database"
     documentationCenter=""
     authors="stevestein"
     manager="jhubbard"
@@ -17,69 +17,68 @@
     ms.date="08/19/2016"
     ms.author="sstein"/>
 
-
-# <a name="create-a-sql-database-and-perform-common-database-setup-tasks-with-powershell-cmdlets"></a>Create a SQL database and perform common database setup tasks with PowerShell cmdlets
+# Créer une base de données SQL et effectuer des tâches courantes d’installation de base de données avec les applets de commande PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Portail Azure](sql-database-get-started.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 - [C#](sql-database-get-started-csharp.md)
 
 
 
-Learn how to create a SQL database by using PowerShell cmdlets. (For creating elastic databases, see [Create a new elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md).)
+Découvrez comment créer une base de données SQL avec des applets de commande PowerShell. (Pour la création de bases de données élastiques, consultez [Créer un pool de base de données élastique avec PowerShell](sql-database-elastic-pool-create-powershell.md).)
 
 
-[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
+[AZURE.INCLUDE [Démarrer votre session PowerShell](../../includes/sql-database-powershell.md)]
 
-## <a name="database-setup:-create-a-resource-group,-server,-and-firewall-rule"></a>Database setup: Create a resource group, server, and firewall rule
+## Configuration de la base de données : Créer un groupe de ressources, un serveur et une règle de pare-feu
 
-Once you have access to run cmdlets against your selected Azure subscription, the next step is establishing the resource group that contains the server where the database will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** to get a list of valid locations.
+Une fois que vous disposez d’un accès pour exécuter des applets de commande pour votre abonnement Azure, l’étape suivante consiste à établir le groupe de ressources qui contient le serveur où la base de données sera créée. Vous pouvez modifier la commande suivante pour utiliser l'emplacement valide de votre choix. Exécutez **(Get-AzureRmLocation | Where-Object { $\_.Providers -eq "Microsoft.Sql" }).Location** pour obtenir la liste des emplacements autorisés.
 
-Run the following command to create a resource group:
+Utilisez la commande suivante pour créer un groupe de ressources :
 
-    New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
-
-
-### <a name="create-a-server"></a>Create a server
-
-SQL databases are created inside Azure SQL Database servers. Run **New-AzureRmSqlServer** to create a server. The name for your server must be unique to all Azure SQL Database servers. If the server name is already taken, you get an error. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose, but you should use the same location you used for the resource group created in the previous step.
-
-    New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
-
-When you run this command, you are prompted for your user name and password. Don't enter your Azure credentials. Instead, enter the user name and password to create as the server administrator. The script at the bottom of this article shows how to set the server credentials in code.
-
-The server details appear after the server is successfully created.
-
-### <a name="configure-a-server-firewall-rule-to-allow-access-to-the-server"></a>Configure a server firewall rule to allow access to the server
-
-To access the server, you need to establish a firewall rule. Run the following command, replacing the start and end IP addresses with valid values for your computer.
-
-    New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
-
-The firewall rule details appear after the rule is successfully created.
-
-To allow other Azure services to access the server, add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. This rule allows Azure traffic from any Azure subscription to access the server.
-
-For more information, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
+	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
 
 
-## <a name="create-a-sql-database"></a>Create a SQL database
+### Créer un serveur
 
-Now you have a resource group, a server, and a firewall rule configured so you can access the server.
+Les bases de données SQL sont créées dans les serveurs du service Base de données SQL Azure. Exécutez **New-AzureRMSqlServer** pour créer un serveur. Le nom du serveur doit être unique pour tous les serveurs du service Base de données SQL Azure. Vous obtiendrez une erreur si le nom est déjà utilisé pour un autre serveur. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Vous pouvez modifier la commande à utiliser n’importe quel emplacement valide de votre choix, mais vous devez utiliser le même emplacement que celui utilisé pour le groupe de ressources créé à l’étape précédente.
 
-The following command creates a (blank) SQL database at the Standard service tier, with an S1 performance level:
+	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
+
+Lorsque vous exécutez cette commande, vous êtes invité à fournir votre nom d’utilisateur et votre mot de passe. N’entrez pas vos informations d’identification Azure. Au lieu de cela, entrez le nom d’utilisateur et le mot de passe à créer en tant qu’administrateur du serveur. Le script en bas de cet article montre comment définir les informations d’identification du serveur à l’aide d’un code.
+
+Les détails du serveur apparaissent une fois le serveur créé.
+
+### Configurer une règle de pare-feu de serveur pour autoriser l'accès au serveur
+
+Vous devez établir une règle de pare-feu pour accéder au serveur. Exécutez la commande suivante, en remplaçant les adresses IP de début et de fin par des valeurs autorisées pour votre ordinateur.
+
+	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
+
+Les détails de la règle de pare-feu apparaissent une fois la règle créée.
+
+Pour autoriser d’autres services Azure à accéder à un serveur, ajoutez une règle de pare-feu, et définissez StartIpAddress et EndIpAddress sur 0.0.0.0. Cette configuration autorise le trafic Azure à accéder au serveur depuis n’importe quel abonnement Azure.
+
+Pour en savoir plus, consultez [Pare-feu de la base de données SQL Azure](sql-database-firewall-configure.md).
 
 
-    New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
+## Créer une base de données SQL
+
+Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle de pare-feu configurés pour vous permettre un accès au serveur.
+
+La commande suivante permet de créer une base de données SQL (vide) au niveau de service Standard avec un niveau de performances S1 :
 
 
-The database details appear after the database is successfully created.
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
 
-## <a name="create-a-sql-database-powershell-script"></a>Create a SQL database PowerShell script
 
-The following PowerShell script creates a SQL database and all its dependent resources. Replace all `{variables}` with values specific to your subscription and resources (remove the **{}** when you set your values).
+Les détails de la base de données apparaissent une fois la base de données créée.
+
+## Créer un script PowerShell de base de données SQL
+
+Le script PowerShell suivant crée une base de données SQL et toutes ses ressources dépendantes. Remplacez tout `{variables}` par des valeurs spécifiques à votre abonnement et ressources (supprimez les **{}** lorsque vous définissez les valeurs).
 
     # Sign in to Azure and set the subscription to work with
     $SubscriptionId = "{subscription-id}"
@@ -130,19 +129,15 @@ The following PowerShell script creates a SQL database and all its dependent res
 
 
 
-## <a name="next-steps"></a>Next steps
-After you create a SQL database and perform basic database setup tasks, you're ready for the following:
+## Étapes suivantes
+Une fois que vous avez créé une base de données SQL et effectué les tâches courantes d’installation de base de données, vous êtes prêt pour les opérations suivantes :
 
-- [Manage SQL Database with PowerShell](sql-database-manage-powershell.md)
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
-
-
-## <a name="additional-resources"></a>Additional Resources
-
-- [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Gérer la base de données SQL avec PowerShell](sql-database-manage-powershell.md)
+- [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 
 
+## Ressources supplémentaires
 
-<!--HONumber=Oct16_HO2-->
+- [Base de données SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-
+<!---HONumber=AcomDC_1005_2016-->

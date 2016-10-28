@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Stream Analytics limits table"
-   description="Describes system limits and recommended sizes for Stream Analytics components and connections."
+   pageTitle="Tableau des limites Stream Analytics"
+   description="Décrit les limites du système et les tailles recommandées pour les connexions et les composants Stream Analytics."
    services="stream-analytics"
    documentationCenter="NA"
    authors="jeffstokes72"
@@ -15,17 +15,13 @@
    ms.date="07/25/2016"
    ms.author="jeffstok" />
 
-
-| Limit identifier | Limit       | Comments |
+| Identificateur de la limite | Limite | Commentaires |
 |----------------- | ------------|--------- |
-| Maximum number of Streaming Units per subscription per region | 50 | A request to increase streaming units for your subscription beyond 50 can be made by contacting [Microsoft Support](https://support.microsoft.com/en-us). |
-| Maximum throughput of a Streaming Unit | 1MB/s* | Maximum throughput per SU depends on the scenario. Actual throughput may be lower and depends upon query complexity and partitioning. Further details can be found in the [Scale Azure Stream Analytics jobs to increase throughput](../articles/stream-analytics/stream-analytics-scale-jobs.md) article. |
-| Maximum number of inputs per job | 60 | There is a hard limit of 60 inputs per Stream Analytics job. |
-| Maximum number of outputs per job | 60 | There is a hard limit of 60 outputs per Stream Analytics job. |
-| Maximum number of functions per job | 60 | There is a hard limit of 60 functions per Stream Analytics job. |
-| Maximum number of jobs per region | 1500 | Each subscription may have up to 1500 jobs per geographical region. |
+| Nombre maximal d’unités de diffusion en continu par abonnement par région | 50 | Une demande d’augmentation des unités de diffusion en continu pour votre abonnement au-delà de 50 peut s’effectuer en contactant le [Support technique Microsoft](https://support.microsoft.com/fr-FR). |
+| Débit maximal d’une unité de diffusion en continu | 1 Mo/s* | Le débit maximal par unité de diffusion dépend du scénario. Le débit réel peut être inférieur et dépend du partitionnement et de la complexité de la requête. Pour plus d’informations, vois l’article [Mise à l’échelle des travaux Azure Stream Analytics pour augmenter le débit](../articles/stream-analytics/stream-analytics-scale-jobs.md). |
+| Nombre maximal d’entrées par travail | 60 | Il existe une limite inconditionnelle de 60 entrées par travail Stream Analytics. |
+| Nombre maximal de sorties par travail | 60 | Il existe une limite inconditionnelle de 60 sorties par travail Stream Analytics. |
+| Nombre maximal de fonctions par travail | 60 | Il existe une limite inconditionnelle de 60 fonction par travail Stream Analytics. |
+| Nombre maximal de travaux par région | 1 500 | Chaque abonnement peut avoir jusqu'à 1 500 travaux par région géographique. |
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

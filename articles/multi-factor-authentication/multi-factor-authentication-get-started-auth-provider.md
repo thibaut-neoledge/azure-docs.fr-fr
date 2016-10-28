@@ -1,63 +1,52 @@
 <properties
-    pageTitle="Getting started with Microsoft Azure Multi-Factor Auth Provider"
-    description="Learn how to create an Azure Multi-Factor Auth Provider."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Prise en main du fournisseur Microsoft Azure Multi-Factor Auth"
+	description="Découvrez comment créer un fournisseur Azure Multi-Factor Auth."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 
 
+# Prise en main du fournisseur Azure Multi-Factor Auth
+L’authentification multifacteur est disponible par défaut pour les administrateurs généraux disposant d’Azure Active Directory et les utilisateurs Office 365. Toutefois, si vous souhaitez tirer parti des [fonctionnalités avancées](multi-factor-authentication-whats-next.md), vous devez acheter la version complète de l’authentification multifacteur Azure.
 
-# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Getting started with an Azure Multi-Factor Auth Provider
-Multi-factor authentication is available by default for global administrators who have Azure Active Directory and Office 365 users. However, if you wish to take advantage of [advanced features](multi-factor-authentication-whats-next.md) then you must purchase the full version of Azure MFA.
+> [AZURE.NOTE]  Un fournisseur d’authentification multifacteur Azure permet de tirer parti des fonctionnalités fournies par la version complète de l’authentification multifacteur Azure. Il s’adresse aux utilisateurs **qui ne possèdent pas de licences via l’authentification multifacteur Azure (MFA), Azure AD Premium ou EMS**. L’authentification multifacteur Azure, Azure AD Premium et EMS incluent la version complète de l’authentification Multifacteur Azure par défaut. Vous n’avez pas besoin d’un fournisseur d’authentification multifacteur Azure si vous possédez des licences.
 
-> [AZURE.NOTE]  An Azure Multi-Factor Auth Provider is used to take advantage of features provided by the full version of Azure MFA. It is for users who **do not have licenses through Azure MFA, Azure AD Premium, or EMS**.  Azure MFA, Azure AD Premium, and EMS include the full version of Azure MFA by default.  If you have licenses then you do not need an Azure Multi-Factor Auth Provider.
+Il sera en revanche nécessaire si vous souhaitez télécharger le Kit de développement logiciel (SDK).
 
-An Azure Multi-Factor Auth provider is required if you wish to download the SDK.
+> [AZURE.IMPORTANT]  Si vous souhaitez télécharger le Kit de développement logiciel (SDK), vous devrez créer un fournisseur d’authentification multifacteur Azure, même si vous disposez de licences EMS, AAD Premium ou Azure MFA. Si vous créez un fournisseur d’authentification multifacteur Azure à cet effet et que vous possédez déjà des licences, vous devez créer le fournisseur à l’aide du modèle **Par utilisateur activé** et lier le fournisseur au répertoire qui contient les licences EMS, Azure AD Premium ou Azure MFA. Cela garantit que vous ne serez pas facturé à moins d’avoir plus d’utilisateurs uniques utilisant le Kit de développement logiciel (SDK) que de licences possédées.
 
-> [AZURE.IMPORTANT]  If you wish to download the SDK, you will need to create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, it is required to create the Provider with the **Per Enabled User** model and link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses.  This will ensure that you are not billed unless you have more unique users using the SDK than the number of licenses you own.
+Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Auth.
 
-Use the following steps to create an Azure Multi-Factor Auth Provider.
-
-## <a name="to-create-a-multi-factor-auth-provider"></a>To create a Multi-Factor Auth Provider
+## Pour créer un fournisseur Multi-Factor Auth
 --------------------------------------------------------------------------------
 
-1. Log on to the **Azure classic portal** as an Administrator.
-2. On the left, select **Active Directory**.
-3. On the Active Directory page, at the top, select **Multi-Factor Authentication Providers**.
-![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider1.png)
-4. At the bottom, click **New**.
-![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider2.png)
-5. Under **App Services**, select **Multi-Factor Auth Provider**
-![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider3.png)
-6. Select **Quick Create**.
-![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
-5. Fill in the following fields and select **Create**.
-    1. **Name** – The name of the Multi-Factor Auth Provider.
-    2. **Usage Model** – The usage model of the Multi-Factor Authentication Provider.
-        - Per Authentication – purchasing model that charges per authentication. Typically used for scenarios that use Azure Multi-Factor Authentication in a consumer-facing application.
-        - Per Enabled User – purchasing model that charges per enabled user. Typically used for employee access to applications such as Office 365.
-    2. **Directory** – The Azure Active Directory tenant that the Multi-Factor Authentication Provider is associated with. Please be aware of the following:
-        - You do not need an Azure AD directory to create a Multi-Factor Auth Provider.  Simply leave the box blank if you are only planning to use the Azure Multi-Factor Authentication Server or SDK.
-        - The Multi-Factor Auth Provider must be associated with an Azure AD directory to take advantage of the advanced features.
-        - Azure AD Connect, AAD Sync, or DirSync are only a requirement if you are synchronizing your on-premises Active Directory environment with an Azure AD directory.  If you only use an Azure AD directory that is not synchronized, then this is not required.
-![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
-5. Once you click create, the Multi-Factor Authentication Provider is created and you should see a message stating: **Successfully created Multi-Factor Authentication Provider**. Click **Ok**.
-![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
+1. Ouvrez une session en tant qu’administrateur sur le **portail Azure Classic**.
+2. Sélectionnez **Active Directory** à gauche.
+3. En haut de la page Active Directory, sélectionnez **Multi-Factor Authentication Providers** (Fournisseurs Multi-Factor Authentication). ![Création d’un fournisseur d’authentification Multifacteur](./media/multi-factor-authentication-get-started-auth-provider/authprovider1.png)
+4. Cliquez sur **Nouveau** au bas de la page. ![Création d’un fournisseur d’authentification Multifacteur](./media/multi-factor-authentication-get-started-auth-provider/authprovider2.png)
+5. Sous **App Services**, sélectionnez **Fournisseur Multi-Factor Authentication**. ![Création d’un fournisseur d’authentification Multifacteur](./media/multi-factor-authentication-get-started-auth-provider/authprovider3.png)
+6. Sélectionnez **Création rapide**. ![Création d’un fournisseur d’authentification Multifacteur](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
+5. Renseignez les champs suivants et sélectionnez **Créer**.
+	1. **Nom** : nom du fournisseur Multi-Factor Authentication.
+	2. **Modèle d’utilisation** : modèle d’utilisation du fournisseur Multi-Factor Authentication.
+		- Par authentification – modèle d'achat facturé par authentification. Généralement utilisé pour les scénarios qui utilisent Azure Multi-Factor Authentication dans une application orientée client.
+		- Par utilisateur activé – modèle d'achat facturé par utilisateur activé. Généralement utilisé pour l’accès des employés aux applications telles qu’Office 365.
+	2. **Répertoire** : locataire Azure Active Directory auquel le fournisseur Multi-Factor Authentication est associé. Soyez conscient des éléments suivants :
+		- Vous n'avez pas besoin d’un répertoire Azure AD pour créer un fournisseur Multi-Factor Auth. Laissez ce champ vide si vous prévoyez uniquement d’utiliser le serveur Azure Multi-Factor Authentication ou le kit de développement logiciel (SDK).
+		- Le fournisseur Multi-Factor Auth doit être associé avec un répertoire Azure AD pour tirer parti des fonctionnalités avancées.
+		- Azure AD Connect, AAD Sync ou DirSync ne sont nécessaires que si vous synchronisez votre environnement Active Directory local avec un annuaire Azure AD. Si vous utilisez uniquement un annuaire Azure AD non synchronisé, la synchronisation n’est pas requise. ![Création d’un fournisseur d’authentification Multifacteur](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
+5. Une fois que vous cliquez sur Créer, le fournisseur Multi-Factor Authentication est créé et vous devriez voir un message indiquant : **Le fournisseur Multi-Factor Authentication a été créé correctement**. Cliquez sur **OK**. ![Création d’un fournisseur d’authentification Multifacteur](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

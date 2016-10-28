@@ -1,8 +1,5 @@
-You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multi NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multi NIC also provides more network traffic management functionality, including isolation of traffic between a front end NIC and back end NIC(s), or separation of data plane traffic from management plane traffic.
+Vous pouvez créer des machines virtuelles (VM) dans Azure et joindre plusieurs cartes d’interface réseau (NIC) à chacune d’elles. Il s’agit d’une exigence pour de nombreuses appliances virtuelles réseau, telles que les solutions de distribution d’applications et d’optimisation de réseau étendu (WAN). La fonctionnalité Multi-NIC contribue également à renforcer la gestion du trafic réseau en permettant notamment d’isoler le trafic entre une NIC frontale et une ou plusieurs NIC principales, ou de séparer le trafic du plan de données de celui du plan de gestion.
 
-Before you can implement multi NICs in VMs, it is necessary to understand when you can use multi NICs, and how they are used. Read the [multi NIC overview](../articles/virtual-network/virtual-networks-multiple-nics.md) to learn more about VMs with multiple NICs.
+Avant de pouvoir implémenter plusieurs cartes d’interface réseau dans des machines virtuelles, il est nécessaire de comprendre à quel moment vous pouvez utiliser plusieurs cartes d’interface réseau, et de quelle façon elles sont utilisées. Lisez la [vue d'ensemble concernant les cartes d’interface réseau multiples](../articles/virtual-network/virtual-networks-multiple-nics.md) pour en savoir plus sur les machines virtuelles qui utilisent plusieurs cartes d’interface réseau.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

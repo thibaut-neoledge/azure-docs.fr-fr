@@ -1,6 +1,6 @@
 <properties
- pageTitle="Remote Monitoring preconfigured solution walkthrough | Microsoft Azure"
- description="A description of the Azure IoT preconfigured solution remote monitoring and its architecture."
+ pageTitle="Présentation de la solution préconfigurée de surveillance à distance | Microsoft Azure"
+ description="Description de la solution préconfigurée de surveillance à distance Azure IoT et de son architecture"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,90 +17,89 @@
  ms.date="08/17/2016"
  ms.author="dobett"/>
 
+# Présentation de la solution préconfigurée de surveillance à distance
 
-# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Remote monitoring preconfigured solution walkthrough
+## Introduction
 
-## <a name="introduction"></a>Introduction
+La [solution préconfigurée][lnk-preconfigured-solutions] de surveillance à distance IoT Suite est une implémentation d’une solution de surveillance de bout en bout destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise, cette solution peut être utilisée comme point de départ pour votre propre implémentation. Vous pouvez [personnaliser][lnk-customize] la solution pour l’adapter à vos propres besoins professionnels.
 
-The IoT Suite remote monitoring [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario and you can use it as a starting point for your own implementation. You can [customize][lnk-customize] the solution to meet your own specific business requirements.
+Cet article vous familiarise avec les éléments clés de la solution de surveillance à distance pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
 
-This article walks you through some of the key elements of the remote monitoring solution to enable you to understand how it works. This knowledge helps you to:
+- Résoudre les problèmes dans la solution.
+- Adapter la solution à vos besoins professionnels.
+- Concevoir votre propre solution IoT utilisant des services Azure.
 
-- Troubleshoot issues in the solution.
-- Plan how to customize to the solution to meet your own specific requirements. 
-- Design your own IoT solution that uses Azure services.
+## Architecture logique
 
-## <a name="logical-architecture"></a>Logical architecture
+Le schéma suivant décrit les composants logiques de la solution préconfigurée :
 
-The following diagram outlines the logical components of the preconfigured solution:
-
-![Logical architecture](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Architecture logique](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 
-## <a name="simulated-devices"></a>Simulated devices
+## Simulations d’appareils
 
-In the preconfigured solution, the simulated device represents a cooling device (such as a building air conditioner or facility air handling unit). When you deploy the preconfigured solution, you also automatically provision four simulated devices that run in an [Azure WebJob][lnk-webjobs]. The simulated devices make it easy for you to explore the behavior of the solution without the need to deploy any physical devices. To deploy a real physical device, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
+Dans la solution préconfigurée, l’appareil simulé représente un système de refroidissement (un climatiseur dans un bâtiment ou une unité de traitement d’air dans une usine, par exemple). Lorsque vous déployez la solution préconfigurée, vous configurez automatiquement quatre appareils simulés qui s’exécutent dans une [tâche web Azure][lnk-webjobs]. Les appareils simulés vous permettent d’explorer plus facilement le comportement de la solution sans avoir à déployer des appareils physiques. Pour déployer un appareil physique réel, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
 
-Each simulated device can send the following message types to IoT Hub:
+Chaque appareil simulé peut envoyer les types de messages suivants à IoT Hub :
 
-| Message  | Description |
+| Message | Description |
 |----------|-------------|
-| Startup  | When the device starts, it sends a **device-info** message containing information about itself to the back end. This data includes the device id, the device metadata, a list of the commands the device supports, and the current configuration of the device. |
-| Presence | A device periodically sends a **presence** message to report whether the device can sense the presence of a sensor. |
-| Telemetry | A device periodically sends a **telemetry** message that reports simulated values for the temperature and humidity collected from the device's simulated sensors. |
+| Démarrage | Lorsque l’appareil démarre, il envoie un message **device-info** contenant des informations sur lui-même au serveur principal. Ce message inclut l’ID de l’appareil, ses métadonnées, une liste des commandes qu’il prend en charge et sa configuration actuelle. |
+| Présence | Un appareil envoie régulièrement un message de **présence** afin de signaler s’il détecte la présence d’un capteur. |
+| Télémétrie | Un appareil envoie régulièrement un message de **télémétrie** qui indique les valeurs simulées de température et d’humidité, collectées par les capteurs simulés de l’appareil. |
 
 
-The simulated devices send the following device properties in a **device-info** message:
+Les appareils simulés envoient les propriétés d’appareil suivantes dans un message **device-info** :
 
-| Property               |  Purpose |
+| Propriété | Objectif |
 |------------------------|--------- |
-| Device ID              | Id that is either provided or assigned when a device is created in the solution. |
-| Manufacturer           | Device manufacturer |
-| Model Number           | Model number of the device |
-| Serial Number          | Serial number of the device |
-| Firmware               | Current version of firmware on the device |
-| Platform               | Platform architecture of the device |
-| Processor              | Processor running the device |
-| Installed RAM          | Amount of RAM installed on the device |
-| Hub Enabled State      | IoT Hub state property of the device |
-| Created Time           | Time the device was created in the solution |
-| Updated Time           | Last time properties were updated for the device |
-| Latitude               | Latitude location of the device |
-| Longitude              | Longitude location of the device |
+| ID de périphérique | Identifiant fourni ou attribué au moment lorsqu’un appareil est créé dans la solution. |
+| Fabricant | Fabricant de l'appareil |
+| Numéro de modèle | Numéro de modèle de l’appareil |
+| Numéro de série | Numéro de série de l’appareil |
+| Microprogramme | Version actuelle du microprogramme installé sur l’appareil |
+| Plateforme | Architecture de la plate-forme de l’appareil |
+| Processeur | Processeur sur lequel est exécuté l’appareil |
+| RAM installée | Quantité de RAM installée sur l’appareil |
+| État activé du Hub | Propriété d’état IoT Hub de l’appareil |
+| Heure de création | Heure à laquelle l’appareil a été créé dans la solution |
+| Heure de mise à jour | Heure de dernière mise à jour des propriétés de l’appareil |
+| Latitude | Emplacement en latitude de l’appareil |
+| Longitude | Emplacement en longitude de l’appareil |
 
-The simulator seeds these properties in simulated devices with sample values.  Each time the simulator initializes a simulated device, the device posts the pre-defined metadata to IoT Hub. Note how this overwrites any metadata updates made in the device portal.
+Le simulateur amorce ces propriétés dans les appareils simulés avec des exemples de valeurs. À chaque fois que le simulateur initialise un appareil simulé, l’appareil publie les métadonnées prédéfinies dans IoT Hub. Notez que cette opération remplace les mises à jour de métadonnées sur le portail des appareils.
 
 
-The simulated devices can handle the following commands sent from the solution dashboard through the IoT hub:
+Les appareils simulés peuvent prendre en charge les commandes suivantes, envoyées à partir du tableau de bord de la solution via IoT Hub :
 
-| Command                | Description                                         |
+| Commande | Description |
 |------------------------|-----------------------------------------------------|
-| PingDevice             | Sends a _ping_ to the device to check it is alive   |
-| StartTelemetry         | Starts the device sending telemetry                 |
-| StopTelemetry          | Stops the device from sending telemetry             |
-| ChangeSetPointTemp     | Changes the set point value around which the random data is generated |
-| DiagnosticTelemetry    | Triggers the device simulator to send an additional telemetry value (externalTemp) |
-| ChangeDeviceState      | Changes an extended state property for the device and sends the device info message from the device |
+| PingDevice | Envoie une commande _ping_ à l’appareil pour vérifier s’il est actif |
+| StartTelemetry | Commande à l’appareil d’envoyer des données de télémétrie |
+| StopTelemetry | Commande à l’appareil de cesser l’envoi de données de télémétrie |
+| ChangeSetPointTemp | Modifie la valeur nominale autour de laquelle sont générées les données aléatoires |
+| DiagnosticTelemetry | Déclenche le simulateur d’appareil pour envoyer une valeur de télémétrie supplémentaire (externalTemp) |
+| ChangeDeviceState | Modifie une propriété de l’état étendu de l’appareil et envoie le message d’informations sur l’appareil à partir de l’appareil |
 
-The device command acknowledgment to the solution back end is provided through the IoT hub.
+L’accusé de réception de la commande de l’appareil au serveur principal de la solution est fourni via IoT Hub.
 
-## <a name="iot-hub"></a>IoT Hub
+## IoT Hub
 
-The [IoT hub][lnk-iothub] ingests data sent from the devices into the cloud and makes it available to the Azure Stream Analytics (ASA) jobs. IoT hub also sends commands to your devices on behalf of the device portal. Each stream ASA job uses a separate IoT Hub consumer group to read the stream of messages from your devices.
+[IoT Hub][lnk-iothub] ingère les données envoyées par les appareils au cloud et les rend disponibles pour les tâches Azure Stream Analytics (ASA). IoT Hub envoie également des commandes à vos appareils pour le compte du portail de l’appareil. Chaque tâche ASA utilise un groupe de consommateurs IoT Hub distinct pour lire le flux de messages émanant de vos appareils.
 
-## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+## Azure Stream Analytics
 
-In the remote monitoring solution, [Azure Stream Analytics][lnk-asa] (ASA) dispatches device messages received by the IoT hub to other back-end components for processing or storage. Different ASA jobs perform specific functions based on the content of the messages.
+Dans la solution de surveillance à distance, [Azure Stream Analytics][lnk-asa] \(ASA) distribue les messages reçus par IoT Hub à d’autres composants du serveur principal, en vue de leur traitement ou de leur stockage. Différentes tâches ASA exécutent des fonctions spécifiques en fonction du contenu des messages.
 
-**Job 1: Device Info** filters device information messages from the incoming message stream and sends them to an Event Hub endpoint. A device sends device information messages at startup and in response to a **SendDeviceInfo** command. This job uses the following query definition to identify **device-info** messages:
+La **tâche 1 : informations de l’appareil** filtre les messages d’information de l’appareil provenant du flux de messages entrants et les envoie à un point de terminaison du hub d’événements. Un appareil envoie des messages d’information au démarrage et en réponse à une commande **SendDeviceInfo**. Cette tâche utilise la définition de requête suivante pour identifier les messages **device-info** :
 
 ```
-SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+SELECT* FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
 ```
 
-This job sends its output to an Event Hub for further processing.
+Cette tâche envoie ses résultats à un Event Hub pour un traitement ultérieur.
 
-**Job 2: Rules** evaluates incoming temperature and humidity telemetry values against per-device thresholds. Threshold values are set in the rules editor available in the solution dashboard. Each device/value pair is stored by timestamp in a blob which Stream Analytics reads in as **Reference Data**. The job compares any non-empty value against the set threshold for the device. If it exceeds the '>' condition, the job outputs an **alarm** event that indicates that the threshold is exceeded and provides the device, value, and timestamp values. This job uses the following query definition to identify telemetry messages that should trigger an alarm:
+La **tâche 2 : règles** compare les valeurs de télémétrie entrantes (température et humidité) aux seuils définis pour chaque appareil. Les valeurs de seuil sont définies dans l’éditeur de règles disponible dans le tableau de bord de la solution. Chaque paire appareil/valeur est stockée par horodatage dans un objet blob que Stream Analytics lit comme des **Données de référence**. La tâche compare toutes les valeurs non vides au seuil défini pour l’appareil. En cas de dépassement de la condition « > », elle génère un événement d’**alarme** indiquant que le seuil a été dépassé et précise l’appareil, la valeur ainsi que l’horodatage. Cette tâche utilise la définition de requête suivante pour identifier les messages de télémétrie qui doivent déclencher une alarme :
 
 ```
 WITH AlarmsData AS 
@@ -141,9 +140,9 @@ INTO DeviceRulesHub
 FROM AlarmsData
 ```
 
-The job sends its output to an Event Hub for further processing and saves details of each alert to blob storage from where the solution dashboard can read the alert information.
+La tâche envoie ses résultats à un Event Hub pour un traitement ultérieur et enregistre les détails de chaque alerte dans le stockage d’objets blob à partir duquel le tableau de bord de la solution peut lire les informations d’alerte.
 
-**Job 3: Telemetry** operates on the incoming device telemetry stream in two ways. The first sends all telemetry messages from the devices to persistent blob storage for long-term storage. The second computes average, minimum, and maximum humidity values over a five-minute sliding window and sends this data to blob storage. The solution dashboard reads the telemetry data from blob storage to populate the charts. This job uses the following query definition:
+La **tâche 3 : télémétrie** agit sur le flux de télémétrie entrant de l’appareil, de deux manières différentes. La première consiste à transférer tous les messages de télémétrie des appareils vers le stockage persistant d’objets blob pour un stockage à long terme. La deuxième calcule les valeurs d’humidité moyenne, minimale et maximale sur une fenêtre glissante de cinq minutes, et envoie ces données au stockage d’objets blob. Le tableau de bord de la solution lit les données de télémétrie à partir du stockage d’objets blob pour remplir les graphiques. Cette tâche utilise la définition de requête suivante :
 
 ```
 WITH 
@@ -164,7 +163,7 @@ SELECT
     EventProcessedUtcTime,
     PartitionId,
     EventEnqueuedUtcTime,
-    * 
+   * 
 INTO
     [Telemetry]
 FROM
@@ -186,52 +185,52 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## <a name="event-hubs"></a>Event Hubs
+## Event Hubs
 
-The **device info** and **rules** ASA jobs output their data to Event Hubs to reliably forward on to the **Event Processor** running in the WebJob.
+Les tâches ASA **device-info** et **rules** envoient leurs données à des hubs d’événements qui transfèrent les résultats au **processeur d’événements** exécuté dans la tâche web.
 
-## <a name="azure-storage"></a>Azure storage
+## Stockage Azure
 
-The solution uses Azure blob storage to persist all the raw and summarized telemetry data from the devices in the solution. The dashboard reads the telemetry data from blob storage to populate the charts. To display alerts, the dashboard reads the data from blob storage that records when telemetry values exceeded the configured threshold values. The solution also uses blob storage to record the threshold values you set in the dashboard.
+La solution utilise le stockage d’objets blob Azure pour conserver toutes les données de télémétrie brutes et résumées provenant des appareils dans la solution. Le tableau de bord lit les données de télémétrie à partir du stockage d’objets blob pour remplir les graphiques. Pour afficher les alertes, le tableau de bord lit les données du stockage d’objets blob qui enregistre tout dépassement des valeurs de télémétrie par rapport aux valeurs de seuil configurées. La solution utilise également le stockage d’objets blob pour enregistrer les valeurs de seuil définies par un utilisateur dans le tableau de bord.
 
-## <a name="webjobs"></a>WebJobs
+## WebJobs
 
-In addition to hosting the device simulators, the WebJobs in the solution also host the **Event Processor** running in an Azure WebJob that handles device information messages and command responses. It uses:
+Outre les simulateurs d’appareil, les tâches web de la solution hébergent des **processeurs d’événements** exécutés dans une tâche web Azure, qui gère les messages d’information d’appareil et les réponses aux commandes. Il utilise :
 
-- Device information messages to update the device registry (stored in the DocumentDB database) with the current device information.
-- Command response messages to update the device command history (stored in the DocumentDB database).
+- les messages d’informations de l’appareil pour mettre à jour le registre de périphériques (stocké dans la base de données DocumentDB) avec les dernières informations relatives à l’appareil ;
+- les messages de réponse aux commandes pour mettre à jour l’historique des commandes de l’appareil (stocké dans la base de données DocumentDB).
 
-## <a name="documentdb"></a>DocumentDB
+## Base de données de documents
 
-The solution uses a DocumentDB database to store information about the devices connected to the solution. This information includes device metadata and the history of commands sent to devices from the dashboard.
+La solution utilise une base de données DocumentDB pour stocker des informations sur les appareils connectés à la solution. Ces informations comprennent des métadonnées d’appareil et l’historique des commandes envoyées aux appareils à partir du tableau de bord.
 
-## <a name="web-apps"></a>Web apps
+## les applications web
 
-### <a name="remote-monitoring-dashboard"></a>Remote monitoring dashboard
-This page in the web application uses PowerBI javascript controls (See [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) to visualize the telemetry data from the devices. The solution uses the ASA telemetry job to write the telemetry data to blob storage.
+### Tableau de bord de surveillance à distance
+Cette page de l’application web utilise les contrôles Javascript PowerBI (consultez le [référentiel d’éléments visuels PowerBI](https://www.github.com/Microsoft/PowerBI-visuals)) pour visualiser les données de télémétrie provenant des appareils. La solution utilise la tâche de télémétrie ASA pour écrire les données de télémétrie dans le stockage d’objets blob.
 
 
-### <a name="device-administration-portal"></a>Device administration portal
+### Portail d’administration des appareils
 
-This web app enables you to:
+Cette application Web vous permet de :
 
-- Provision a new device. This action sets the unique device id and generates the authentication key. It writes information about the device to both the IoT Hub identity registry and the solution-specific DocumentDB database.
-- Manage device properties. This action includes viewing existing properties and updating with new properties.
-- Send commands to a device.
-- View the command history for a device.
-- Enable and disable devices.
+- Configurer un nouvel appareil. Cela vous permet de définir l’identifiant unique de l’appareil et de générer la clé d’authentification. Les informations relatives à l’appareil sont inscrites à la fois dans le registre d’identités IoT Hub et dans la base de données DocumentDB de la solution.
+- Gérer les propriétés de l’appareil. Cela comprend l’affichage des propriétés existantes et l’intégration des nouvelles propriétés.
+- envoyer des commandes à un appareil ;
+- afficher l’historique de commande d’un appareil.
+- Désactiver et activer les appareils.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-The following TechNet blog posts provide more detail about the remote monitoring preconfigured solution:
+Les billets de blog TechNet suivants fournissent des détails supplémentaires sur la solution préconfigurée de surveillance à distance :
 
-- [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+- [IoT Suite - Under The Hood - Remote Monitoring (en anglais)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (en anglais)](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
-You can continue getting started with IoT Suite by reading the following articles:
+Vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
 
-- [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
-- [Permissions on the azureiotsuite.com site][lnk-permissions]
+- [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm]
+- [Autorisations sur le site azureiotsuite.com][lnk-permissions]
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
@@ -241,7 +240,4 @@ You can continue getting started with IoT Suite by reading the following article
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

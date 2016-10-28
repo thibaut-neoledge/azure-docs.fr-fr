@@ -1,10 +1,7 @@
 > [AZURE.SELECTOR]
-- [Portal](load-balancer-get-started-internet-portal.md)
+- [Portail](load-balancer-get-started-internet-portal.md)
 - [PowerShell](load-balancer-get-started-internet-arm-ps.md)
-- [Azure CLI](load-balancer-get-started-internet-arm-cli.md)
-- [Template](load-balancer-get-started-internet-arm-template.md)
+- [Interface de ligne de commande Azure](load-balancer-get-started-internet-arm-cli.md)
+- [Modèle](load-balancer-get-started-internet-arm-template.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

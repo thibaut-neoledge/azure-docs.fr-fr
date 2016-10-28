@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Supportability and retirement policy guide for Azure Guest OS | Microsoft Azure" 
-   description="Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services." 
+   pageTitle="Guide de prise en charge et de stratégie de suppression pour le SE invité d'Azure | Microsoft Azure" 
+   description="Fournit des informations sur les éléments pris en charge par Microsoft en ce qui concerne le SE invité d'Azure utilisé par les services cloud." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="raiye" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,86 +13,82 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/24/2016"
-   ms.author="raiye"/>
+   ms.date="04/19/2016"
+   ms.author="yuemlu"/>
+
+# Prise en charge et stratégie de suppression du SE invité d’Azure
+Les informations de cette page concernent le système d'exploitation invité Azure ([SE invité](cloud-services-guestos-update-matrix.md)) pour les rôles Web et de travail Cloud Services (PaaS). Elles ne s'appliquent pas aux machines virtuelles (IaaS).
+
+Microsoft a publié sa [politique de support pour le SE invité](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). La page que vous êtes en train de lire décrit l'implémentation de cette politique.
+
+Cette politique développe les points suivants :
+
+1. Microsoft prendra en charge **au moins les deux dernières familles de systèmes d'exploitation invités**. Lorsqu'une famille est supprimée, les clients bénéficient d'un délai de 12 mois à compter de la date officielle de suppression pour passer à une famille de systèmes d'exploitation invités plus récente prise en charge.
+2. Microsoft prendra en charge **au moins les deux dernières versions des familles des systèmes d'exploitation invités prises en charge**. 
+3. Microsoft prendra en charge **au moins les deux dernières versions d'Azure SDK**. Lorsqu'une version du SDK est supprimée, les clients bénéficient d'un délai de 12 mois à compter de la date officielle de suppression pour passer à une version plus récente. 
+
+Plus de deux familles ou versions peuvent parfois être prises en charge. Les informations officielles de prise en charge du SE invité seront affichées sur les [versions de système d’exploitation invité d'Azure et la matrice de compatibilité du Kit de développement logiciel (SDK)](cloud-services-guestos-update-matrix.md).
 
 
-# <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Guest OS supportability and retirement policy
-The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS). 
-
-Microsoft has a published [support policy for the Guest OS](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). The page you are reading now describes how the policy is implemented.
-
-The policy is 
-
-1. Microsoft will support **at least the latest two families of the Guest OS**. When a family is retired, customers have 12 months from the official retirement date to update to a newer supported Guest OS family.
-2. Microsoft will support the **at least the latest two versions of the supported Guest OS families**. 
-3. Microsoft will support the at **least the latest two versions of the Azure SDK**. When a version of the SDK is retired, customers will have 12 months from the official retirement date to update to a newer version. 
-
-At times more than two families or releases may be supported. Official Guest OS support information will appear on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+## Lorsqu'une version ou une famille de systèmes d'exploitation invités est supprimée 
 
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>When a Guest OS family or version is retired 
+Une nouvelle **famille** de systèmes d'exploitation invités est présentée après la publication d'une nouvelle version officielle du système d'exploitation Windows Server. Chaque fois qu'une nouvelle famille de systèmes d'exploitation invités est présentée, Microsoft retirera la famille des systèmes d'exploitation invités la plus ancienne.
+
+Les nouvelles **versions** de SE invité sont présentées tous les mois environ afin d'intégrer les dernières mises à jour MSRC. En raison des mises à jour mensuelles régulières, une version de SE invité est généralement désactivée 60 jours après sa publication. Cela permet de conserver au moins deux versions de système d'exploitation invité pour chaque famille à disposition.
+
+### Processus de suppression d'une famille de SE invités 
 
 
-A new Guest OS **family** is introduced sometime after the release of a new official version of the Windows Server operating system. Whenever a new Guest OS family is introduced, Microsoft will retire the oldest Guest OS family. 
+Une fois la suppression annoncée, les clients bénéficient d'une période de « transition » de 12 mois avant que la famille la plus ancienne soit officiellement supprimée du service. Ce délai de transition peut être étendu à la discrétion de Microsoft. Les mises à jour seront publiées sur les [versions de système d'exploitation invité d'Azure et la matrice de compatibilité du Kit de développement logiciel (SDK)](cloud-services-guestos-update-matrix.md).
 
-New Guest OS **versions** are introduced about every month to incorporate the latest MSRC updates. Because of the regular monthly updates, a Guest OS version is normally disabled 60 days after its release. This keeps at least two Guest OS versions for each family available for use. 
+Un processus de suppression progressive commencera 6 mois après le début de la période de transition. Pendant cette période :
 
-### <a name="process-during-a-guest-os-family-retirement"></a>Process during a Guest OS family retirement 
+1. Microsoft informe les clients de la suppression. 
+2. La version la plus récente d'Azure SDK ne prend en charge la famille de SE invités supprimée.
+3. De nouveaux déploiements et redéploiements de services cloud ne seront pas autorisés pour la famille supprimée.
 
-
-Once the retirement is announced, customers have a 12 month "transition" period before the older family is officially removed from service. This transition time may be extended at the discretion of Microsoft. Updates will be posted on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
-
-A gradual retirement process will begin 6 months into the transition period. During this time:
-
-1. Microsoft will notify customers of the retirement. 
-2. The newer version of the Azure SDK won’t support the retired Guest OS family.
-3. New deployments and redeployments of Cloud Services will not be allowed on the retired family
-
-Microsoft will continue to introduce new Guest OS version incorporating the latest MSRC updates until the last day of the transition period, known as the "expiration date". At that time, the any Cloud Services still running will be unsupported under the Azure SLA. Microsoft has the discretion to force upgrade, delete or stop those services after that date.
-
-
-
-### <a name="process-during-a-guest-os-version-retirement"></a>Process during a Guest OS Version retirement 
-If customers set their Guest OS to automatically update, they never have to worry about dealing with Guest OS versions. They will always be using the latest Guest OS version.
-
-Guest OS Versions are released every month. Because of the rate of regular releases, each version has a fixed lifespan.
-
-At 60 days into the lifespan a version is "*disabled*". "Disabled" means that the version is removed from the Azure classic portal. It also can no longer be set from the CSCFG configuration file. Existing deployments are left running, but new deployments and code and configuration updates to existing deployments will not be allowed. 
-
-At a later time, the Guest OS version "*expires*" and any installations still running that version are force upgraded and set to automatically update the Guest OS in the future. Expiration is done in batches so the period of time from disablement to expiration can vary. 
-
-These periods may be made longer at Microsoft's discretion to ease customer transitions. Any changes will be communicated on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+Microsoft continuera à présenter la nouvelle version de système d'exploitation invité incorporant les dernières mises à jour MSRC jusqu'au dernier jour de la période de transition, appelé « expiration date » (date d'expiration). À ce stade, les services cloud en cours d'exécution sont pris en charge sous le contrat SLA Azure. Microsoft décide librement de forcer la mise à niveau, la suppression ou l'arrêt de ces services après cette date.
 
 
 
-### <a name="notifications-during-retirement"></a>Notifications during retirement 
+### Processus de suppression d'une version de SE invité 
+Si les clients définissent la mise à jour automatique pour leur système d'exploitation invité, ils n'ont pas à se soucier de la gestion des versions de système d'exploitation invité. Ils utiliseront toujours la dernière version du SE invité.
 
-* **Family retirement** <br>Microsoft will use blog posts and Azure classic portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page. 
+Les versions de SE invité sont publiées chaque mois. En raison de la fréquence des publications régulières, chaque version est associée à un cycle de vie défini.
+
+Après 60 jours de vie, une version obtient le statut « *désactivé* ». Cela signifie que la version est supprimée du portail Azure Classic. De plus, elle ne peut plus être définie à partir du fichier de configuration CSCFG. Les déploiements existants continuent d'être exécutés, mais les nouveaux déploiements et les mises à jour de code et de configuration pour les déploiements existants ne seront pas autorisés.
+Après 60 jours de vie, une version obtient le statut « *désactivé* ». Cela signifie que la version est supprimée du portail Azure Classic. De plus, elle ne peut plus être définie à partir du fichier de configuration CSCFG. Les déploiements existants continuent d'être exécutés, mais les nouveaux déploiements et les mises à jour de code et de configuration pour les déploiements existants ne seront pas autorisés.
+
+Ultérieurement, la version du SE invité obtient le statut « *expiré* » et toutes les installations qui exécutent encore cette version sont obligatoirement mises à niveau et paramétrées pour mettre à jour automatiquement le SE invité dans le futur. L'expiration se fait par lots. Ainsi, la période de temps entre la désactivation et l'expiration peut varier.
+
+Ces périodes peuvent être allongées à la discrétion de Microsoft pour faciliter les transitions des clients. Toutes les modifications seront communiquées sur les [versions de système d'exploitation invité d'Azure et la matrice de compatibilité du Kit de développement logiciel (SDK)](cloud-services-guestos-update-matrix.md).
 
 
-* **Version Retirement** <br>All changes will be posted to this page and the RSS feed listed at the beginning of this page, including the release, disabled and expiration dates. Services admins will receive emails if they have deployments running on a disabled Guest OS version or family. The timing of these emails can vary. Generally they are at least a month before disablement, though this timing is not an official SLA. 
+
+### Notifications pendant la suppression 
+
+* **Suppression de famille** <br>Microsoft utilise les billets de blog et la notification du portail Azure Classic. Les clients qui utilisent encore une famille de systèmes d'exploitation invités supprimée sont informés par une communication directe (e-mail, messages sur le portail, appel téléphonique) aux administrateurs de service nommés. Toutes les modifications seront publiées sur cette page et les flux RSS seront mentionnés au début de cette page. 
 
 
-## <a name="frequently-asked-questions"></a>Frequently asked questions
+* **Suppression de version** <br>Toutes les modifications seront publiées sur cette page et les flux RSS seront mentionnés au début de cette page, y compris les dates de publication, de désactivation et d'expiration. Les administrateurs de services recevront des e-mails s'ils ont des déploiements en cours d'exécution sur une version ou une famille de systèmes d'exploitation invités désactivée. La date d'envoi de ces e-mails peut varier. En général, ils sont envoyés au moins un mois avant la désactivation, bien que ce délai ne soit pas officiellement fixé.
 
-**How can I mitigate the impacts of migration?**
 
-You should use latest Guest OS family for designing your Cloud Services. 
+## Forum Aux Questions
 
-1. Start planning your migration to a newer family early. 
-2. Set up temporary test deployments to test your Cloud Service running on the new family. 
-3. Set your Guest OS version to **Automatic** (osVersion=* in the [.cscfg](cloud-services-model-and-package.md#cscfg) file) so the migration to new Guest OS versions occurs automatically.
+**Atténuation des impacts de la migration**
 
-**What if my web application requires deeper integration with the OS?**
+Vous devez utiliser la famille la plus récente de SE invités pour concevoir vos services cloud.
 
-If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as [startup tasks](cloud-services-startup-tasks.md) or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
+1. Commencez à planifier votre migration vers une famille plus récente au plus tôt. 
+2. Configurez des déploiements de test temporaires pour tester votre service cloud en cours d'exécution sur la nouvelle famille. 
+3. Définissez **Automatique** pour la version de votre système d’exploitation invité (osVersion=* dans le fichier [.cscfg](cloud-services-model-and-package.md#cscfg)) pour que la migration vers de nouvelles versions de système d’exploitation invité s’effectue automatiquement.
+
+**Que se passe-t-il si mon application Web nécessite une intégration plus avancée au système d'exploitation ?**
+
+Si l’architecture de votre application web nécessite une intégration plus avancée au système d’exploitation sous-jacent, utilisez les fonctionnalités de plateforme prises en charge telles que les « [tâches de démarrage](cloud-services-startup-tasks.md) » ou d’autres mécanismes d’extensibilité qui peuvent exister par la suite. Sinon, vous pouvez également utiliser les [machines virtuelles Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure en tant que Service), qui vous permettent d'être responsable de la maintenance du système d'exploitation sous-jacent.
  
-## <a name="next-steps"></a>Next steps
-Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).
+## Étapes suivantes
+Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

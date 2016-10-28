@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple hardware components and status | Microsoft Azure"
-   description="Learn how to monitor the hardware components of your StorSimple device through the StorSimple Manager service."
+   pageTitle="Composants matériels de StorSimple et leur état | Microsoft Azure"
+   description="Découvrez comment surveiller les composants matériels de votre appareil StorSimple via le service StorSimple Manager."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,130 +15,125 @@
    ms.date="08/18/2016"
    ms.author="alkohli" />
 
+# Utiliser le service StorSimple Manager pour surveiller les composants et l’état du matériel
 
-# <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Use the StorSimple Manager service to monitor hardware components and status
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Cet article décrit les différents composants physiques et logiques de votre appareil StorSimple local. Il explique également comment surveiller l'état des composants de l’appareil à l'aide de la page **Maintenance** du service StorSimple Manager.
 
-This article describes the various physical and logical components in your on-premises StorSimple device. It also explains how to monitor the device component status by using the **Maintenance** page in the StorSimple Manager service. 
+La page **Maintenance** affiche l'état du matériel de tous les composants de l’appareil StorSimple.
 
-The **Maintenance** page shows the hardware status of all the StorSimple device components. 
+La liste des composants pour 8100 présente trois sections :
 
-Under the list of components for 8100, there are three sections that describe:
+- **Composants partagés** – Ceux-ci ne font pas partie des contrôleurs, tels que les disques, le boîtier, les composants PCM et la température PCM, la tension de ligne et les capteurs de courant de ligne.
 
-- **Shared Components** – These are not part of the controllers, such as disk drives, enclosure, PCM components and PCM temperature, line voltage, and line current sensors.
+- **Composants du contrôleur 0** – Il s’agit des composants qui résident sur le contrôleur 0, tels que le contrôleur, le connecteur et l’expander SAS, les capteurs de température de contrôleur et les différentes interfaces réseau.
 
-- **Controller 0 Components** – The components that reside on Controller 0, such as controller, SAS expander and connector, controller temperature sensors, and the various network interfaces.
+- **Composants du contrôleur 1**– Il s’agit des composants qui constituent le contrôleur 1, similaires à ceux détaillés pour le contrôleur 0.
 
-- **Controller 1 Components** – The components that constitute Controller 1, similar to those detailed for Controller 0.
+Un appareil 8600 présente des composants supplémentaires qui correspondent au boîtier EBOD (Extended Bunch of Disks). La liste des composants se divise en cinq sections. Trois de ces sections contiennent les composants du boîtier principal et sont identiques à celles décrites pour le modèle 8100. Il y a deux sections supplémentaires relatives au boîtier EBOD :
 
-An 8600 device has additional components that correspond to the Extended Bunch of Disks (EBOD) enclosure. Under the list of components, there are five sections. Of these, there are three sections that contain the components in the primary enclosure and are identical to the ones described for 8100. There are two additional sections for the EBOD enclosure that describe:
+- **Composants partagés du boîtier EBOD** – Composants présents dans les boîtiers EBOD et PCM qui ne font pas partie du contrôleur EBOD.
 
-- **EBOD enclosure Shared Components** – The components present in the EBOD enclosure and PCM that are not part of the EBOD controller.
+- **Composants du contrôleur 0 du boîtier EBOD** – Il s’agit des composants qui résident dans le boîtier EBOD 0, tels que le contrôleur EBOD, le connecteur et l’expander SAS, et les capteurs de température de contrôleur.
 
-- **EBOD Controller 0 Components** – The components that reside on EBOD enclosure 0, such as the EBOD controller, SAS expander and connector, and controller temperature sensors.
+- **Composants du contrôleur 1 du boîtier EBOD** – Il s’agit des composants qui constituent le boîtier EBOD 1, similaires à ceux détaillés pour le boîtier EBOD 0.
 
-- **EBOD Controller 1 Components** – The components that constitute EBOD enclosure 1, similar to those detailed for EBOD enclosure 0.
-
->[AZURE.NOTE] **The hardware status section is not present in the Maintenance page for a StorSimple virtual device (1100).**
-
-
-## <a name="monitor-the-hardware-status"></a>Monitor the hardware status
-
-Perform the following steps to view the hardware status of a device component:
-
-1. Navigate to **Devices**, select a specific StorSimple device. Click to go into the device-level menu and then click **Maintenance**. 
-2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for the primary enclosure](#component-list-for-primary-enclosure-of-storsimple-device) and the [detailed component list for the EBOD enclosure](#component-list-for-ebod-enclosure-of-storsimple-device).
-
-2. Use the following color coding scheme to interpret the  component status:
-    -  **Green check** – Denotes a **Healthy** or **OK** component.
-    -  **Yellow** – Denotes a component in **Warning** state.
-    -  **Red exclamation** – Denotes a component that has a **Failure** or **Needs Attention** status.
-    -  **White with black text** – Denotes a component that is not present.
-
-3. If you encounter a component that is not in a **Healthy** state, contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+>[AZURE.NOTE] **La section relative à l’état du matériel n'est pas présente dans la page de maintenance des appareils StorSimpe virtuels (1100).**
 
 
-## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Component list for primary enclosure of StorSimple device
+## Surveillance de l'état du matériel
 
-The following table outlines the physical and logical components contained in the primary enclosure of your on-premises StorSimple device.
+Procédez comme suit pour afficher l'état du matériel d'un composant d’appareil :
 
-|Component|Module|Type|Location|Field replaceable unit (FRU)?|Description|
+1. Accédez à**Appareils** et sélectionnez un appareil StorSimple. Accédez au menu de niveau appareil, puis cliquez sur **Maintenance**.
+2. Recherchez la section **État du matériel** et faites un choix parmi les composants disponibles (comme décrit ci-dessus). Cliquez simplement sur la flèche en regard de l'étiquette du composant pour développer la liste et afficher l'état des différents composants de l’appareil. Consultez la [liste détaillée des composants du boîtier principal](#component-list-for-primary-enclosure-of-storsimple-device) et la [liste détaillée des composants détaillées du boîtier EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
+
+2. Utilisez le codage couleur suivant pour interpréter l'état du composant :
+	-  **Coche verte** – Composant **Sain** ou **OK**.
+	-  **Jaune** – Composant en état d’**avertissement**.
+	-  **Point d'exclamation rouge** – Composant présentant un **échec** ou **nécessitant une attention**.
+	-  **Blanc avec texte noir** – Composant absent.
+
+3. Si vous rencontrez un composant dont l'état n'est pas **sain**, contactez le Support technique de Microsoft. Si les alertes sont activées sur votre appareil, vous recevrez un message d'alerte. Si vous devez remplacer un composant matériel défaillant, consultez la rubrique [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
+
+
+## Liste des composants du boîtier principal de l'appareil StorSimple
+
+Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier principal de votre appareil StorSimple local.
+
+|Composant|Module|Type|Lieu|Unité remplaçable sur site (FRU) ?|Description|
 |---|---|---|---|---|---|
-|Drive in slot [0-11]|Disk Drives|Physical|Shared|Yes|One line is presented for each of the SSD or the HDD drives in the primary enclosure.|
-|Ambient temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature within the chassis.|
-|Mid-plane temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature of the mid-plane.|
-|Audible alarm|Enclosure|Physical|Shared|No|Indicates whether the audible alarm subsystem within the chassis is functional.|
-|Enclosure|Enclosure|Physical|Shared|Yes|Indicates the presence of a chassis.|
-|Enclosure settings|Enclosure|Physical|Shared|No|Refers to the front panel of the chassis.|
-|Line voltage sensors|PCM|Physical|Shared|No|Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.|
-|Line current sensors|PCM|Physical|Shared|No|Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.|
-|Temperature sensors in PCM|PCM|Physical|Shared|No|Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, indicating whether the measured temperature is within tolerance.|
-|Power supply [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
-|Cooling [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
-|Battery [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the backup battery modules that are seated in the PCM.|
-|Metis|N/A|Logical|Shared|N/A|Displays the state of the batteries: whether they need charging and are approaching end-of-life.|
-|Cluster|N/A|Logical|Shared|N/A|Displays the state of the cluster that is created between the two integrated controller modules.|
-|Cluster node|N/A|Logical|Shared|N/A|Indicates the state of the controller as part of the cluster.|
-|Cluster quorum|N/A|Logical||N/A|Indicates the presence of the majority disk membership in the HDD storage pool.|
-|HDD data space|N/A|Logical|Shared|N/A|The storage space that is used for data in the hard disk drive (HDD) storage pool.|
-|HDD management space|N/A|Logical|Shared|N/A|The space reserved in the HDD storage pool for management tasks.|
-|HDD quorum space|N/A|Logical|Shared|N/A|The space reserved in the HDD storage pool for cluster quorum.|
-|HDD replacement space|N/A|Logical|Shared|N/A|The space reserved in the HDD storage pool for controller replacement.|
-|SSD data space|N/A|Logical|Shared|N/A|The storage space used for data in the solid state drive (SSD) storage pool.|
-|SSD NVRAM space|N/A|Logical|Shared|N/A|The storage space in the SSD storage pool that is dedicated for NVRAM logic.|
-|HDD storage pool|N/A|Logical|Shared|N/A|Displays the state of the logical storage pool that is created from device HDDs.|
-|SSD storage pool|N/A|Logical|Shared|N/A|Displays the state of the logical storage pool that is created from device SSDs.|
-|Controller [0-1] [state]|I/O|Physical|Controller|Yes|Displays the state of the controller, and whether it is in active or standby mode within the chassis.|
-|Temperature sensors in controller|I/O|Physical|Controller|No|Numerous temperature sensors such as I/O module, CPU temperature, DIMM and PCIe sensors have their state displayed, which indicates whether or not the temperature encountered is within tolerance.|
-|﻿SAS expander|I/O|Physical|Controller|No|Indicates the state of the serial attached SCSI (SAS) expander, which is used to connect the integrated storage to the controller.|
-|SAS connector [0-1]|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
-|SBB mid-plane interconnect|I/O|Physical|Controller|No|Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.|
-|Processor core|I/O|Physical|Controller|No|Indicates the state of the processor cores within each controller.|
-|Enclosure electronics power|I/O|Physical|Controller|No|Indicates the state of the power system used by the enclosure.|
-|Enclosure electronics diagnostics|I/O|Physical|Controller|No|Indicates the state of the diagnostics subsystems provided by the controller.|
-|Baseboard Management Controller (BMC)|I/O|Physical|Controller|No|Indicates the state of the baseboard management controller (BMC), which is a specialized service processor that monitors the hardware device through sensors and communicates with the system administrator via an independent connection.|
-|Ethernet|I/O|Physical|Controller|No|Indicates the state of each of the network interfaces, that is, the management and data ports provided on the controller.|
-|NVRAM|I/O|Physical|Controller|No|Indicates the state of NVRAM, a non-volatile random access memory backed up by the battery that serves to retain application-critical information in the event of power failure.|
+|Lecteur à l’emplacement [0-11]|Lecteurs de disque|Physique|Partagé|Oui|Les disques SSD et HDD sont représentés par une ligne dans le boîtier principal.|
+|Capteur de température ambiante|Boîtier|Physique|Partagé|Non|Mesure de la température à l’intérieur du châssis.|
+|Capteur de température du plan médian|Boîtier|Physique|Partagé|Non|Mesure la température du plan médian.|
+|Alarme sonore|Boîtier|Physique|Partagé|Non|Indique si le sous-système d'alarme sonore du châssis est fonctionnel.|
+|Boîtier|Boîtier|Physique|Partagé|Oui|Indique la présence d'un châssis.|
+|Paramètres du boîtier|Boîtier|Physique|Partagé|Non|Fait référence à la façade avant du châssis.|
+|Capteurs de tension de ligne|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de tension de ligne s’affiche et indique si la tension mesurée se trouve dans la plage de tolérance.|
+|Capteurs de courant de ligne|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de courant de ligne s’affiche et indique si l’intensité mesurée se trouve dans la plage de tolérance.|
+|Capteurs de température dans PCM|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de température tels que les capteurs Inlet et Hotspot s’affiche et indique si la température mesurée se trouve dans la plage de tolérance.|
+|Alimentation électrique [0-1]|PCM|Physique|Partagé|Oui|Une ligne représente chacun des blocs d'alimentation dans les deux PCM situés à l'arrière de l’appareil.|
+|Refroidissement [0-1]|PCM|Physique|Partagé|Oui|Une ligne représente chacun des quatre ventilateurs résidant dans les deux PCM.|
+|Batterie [0-1]|PCM|Physique|Partagé|Oui|Une ligne représente chaque module de batterie de secours inséré dans le PCM.|
+|Metis|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état de la batterie : si elles doivent être rechargées ou arrivent en fin de vie.|
+|Cluster|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état du cluster créé entre les deux modules de contrôleur intégrés.|
+|Nœud de cluster|N/A|Opérateurs logiques|Partagé|N/A|Indique l'état du contrôleur en tant que partie du cluster.|
+|Quorum du cluster|N/A|Opérateurs logiques||N/A|Indique la présence de l'appartenance de disque majoritaire dans le pool de stockage du disque dur.|
+|Espace de données du disque dur|N/A|Opérateurs logiques|Partagé|N/A|Espace de stockage utilisé pour les données dans le pool de stockage de disque dur (HDD).|
+|Espace de gestion du disque dur|N/A|Opérateurs logiques|Partagé|N/A|Espace réservé dans le pool de stockage du disque dur pour les tâches de gestion.|
+|Espace du quorum du disque dur|N/A|Opérateurs logiques|Partagé|N/A|Espace réservé dans le pool de stockage du disque dur pour le quorum du cluster.|
+|Espace de remplacement du disque dur|N/A|Opérateurs logiques|Partagé|N/A|Espace réservé dans le pool de stockage du disque dur pour le remplacement du contrôleur.|
+|Espace de données SSD|N/A|Opérateurs logiques|Partagé|N/A|Espace de stockage utilisé pour les données dans le pool de stockage SSD.|
+|Espace NVRAM SSD|N/A|Opérateurs logiques|Partagé|N/A|Espace de stockage dans le pool de stockage SSD dédié à la logique de la mémoire NVRAM.|
+|Pool de stockage du disque dur|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état du pool de stockage logique créé à partir de disques durs de périphérique.|
+|Pool de stockage SSD|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état du pool de stockage logique créé à partir de SSD de périphérique.|
+|Contrôleur [0-1] [état]|E/S|Physique|Controller|Oui|Affiche l'état du contrôleur, et s'il est en mode actif ou attente au sein du châssis.|
+|Capteurs de température du contrôleur|E/S|Physique|Controller|Non|L’état de plusieurs capteurs de température, tels que les capteurs du module E/S, de température du processeur, ainsi que les capteurs DIMM et PCIe, est affiché et indique si la température se situe dans la plage de tolérance.|
+|Expander SAS|E/S|Physique|Controller|Non|Indique l'état de l'expandeur SAS (serial attached SCSI), qui est utilisé pour connecter le stockage intégré au contrôleur.|
+|Connecteur SAS [0-1]|E/S|Physique|Controller|Non|Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS.|
+|Interconnexion de plan médian SBB|E/S|Physique|Controller|Non|Indique l'état du connecteur de plan médian, qui est utilisé pour connecter chaque contrôleur au plan médian.|
+|Cœur de processeur|E/S|Physique|Controller|Non|Indique l'état des cœurs de processeurs dans chaque contrôleur.|
+|Puissance électronique du boîtier|E/S|Physique|Controller|Non|Indique l'état du système d'alimentation utilisé par le boîtier.|
+|Diagnostic électronique du boîtier|E/S|Physique|Controller|Non|Indique l'état des sous-systèmes de diagnostic fournis par le contrôleur.|
+|Baseboard Management Controller (BMC)|E/S|Physique|Controller|Non|Indique l'état du BMC (baseboard management controller). Il s’agit d’un processeur de service spécialisé qui surveille le périphérique matériel via des capteurs et communique avec l'administrateur système via une connexion indépendante.|
+|Ethernet|E/S|Physique|Controller|Non|Indique l'état de chacune des interfaces réseau, autrement dit, des ports de gestion et de données fournis sur le contrôleur.|
+|NVRAM|E/S|Physique|Controller|Non|Indique l'état de la mémoire NVRAM, une mémoire vive non volatile avec batterie de secours qui sert à conserver des informations d’application critiques en cas de panne d'alimentation.|
 
-## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Component list for EBOD enclosure of StorSimple device
+## Liste des composants du boîtier EBOD de l'appareil StorSimple
 
-The following table outlines the physical and logical components contained in the EBOD enclosure of your on-premises StorSimple device.
+Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier EBOD de votre appareil StorSimple local.
 
-|Component|Module|Type|Location|FRU?|Description|
+|Composant|Module|Type|Lieu|FRU ?|Description|
 |---|---|---|---|---|---|
-|Drive in slot [0-11]|Disk Drives|Physical|Shared|Yes|One line is presented for each of the HDD drives in the front of the EBOD enclosure.|
-|Ambient temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature within the chassis.|
-|Mid-plane temperature sensor|Enclosure|Physical|Shared|No|Measures the temperature of the mid-plane.|
-|Audible alarm|Enclosure|Physical|Shared|No|Indicates whether the audible alarm subsystem within the chassis is functional.|
-|Enclosure|Enclosure|Physical|Shared|Yes|Indicates the presence of a chassis.|
-|Enclosure settings|Enclosure|Physical|Shared|No|Refers to the OPS or the front panel of the chassis.|
-|Line voltage sensors|PCM|Physical|Shared|No|Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.|
-|Line current sensors|PCM|Physical|Shared|No|Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.|
-|Temperature sensors in PCM|PCM|Physical|Shared|No|Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, which indicates whether the measured temperature is within tolerance.|
-|Power supply [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the power supplies in the two PCMs located in the back of the device.|
-|Cooling [0-1]|PCM|Physical|Shared|Yes|One line is presented for each of the four cooling fans residing in the two PCMs.|
-|Local storage [HDD]|N/A|Logical|Shared|N/A|Displays the state of the logical storage pool that is created from device HDDs.|
-|Controller [0-1] [state]|I/O|Physical|Controller|Yes|Displays the state of the controllers in the EBOD module.|
-|Temperature sensors in EBOD|I/O|Physical|Controller|No|Numerous temperature sensors from each controller have their state displayed, which indicates whether the temperature encountered is within tolerance.|
-|﻿SAS expander|I/O|Physical|Controller|No|Indicates the state of the SAS expander, which is used to connect the integrated storage to the controller.|
-|SAS connector [0-2]|I/O|Physical|Controller|No|Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.|
-|SBB mid-plane interconnect|I/O|Physical|Controller|No|Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.|
-|Enclosure electronics power|I/O|Physical|Controller|No|Indicates the state of the power system used by the enclosure.|
-|Enclosure electronics diagnostics|I/O|Physical|Controller|No|Indicates the state of the diagnostics subsystems provided by the controller.|
-|Connection to device controller|I/O|Physical|Controller|No|Indicates the state of the connection between the EBOD I/O module and the device controller.|
+|Lecteur à l’emplacement [0-11]|Lecteurs de disque|Physique|Partagé|Oui|Une ligne représente chacun des disques HDD à l’avant du boîtier EBOD.|
+|Capteur de température ambiante|Boîtier|Physique|Partagé|Non|Mesure de la température à l’intérieur du châssis.|
+|Capteur de température du plan médian|Boîtier|Physique|Partagé|Non|Mesure la température du plan médian.|
+|Alarme sonore|Boîtier|Physique|Partagé|Non|Indique si le sous-système d'alarme sonore du châssis est fonctionnel.|
+|Boîtier|Boîtier|Physique|Partagé|Oui|Indique la présence d'un châssis.|
+|Paramètres du boîtier|Boîtier|Physique|Partagé|Non|Fait référence à l’OPS ou à la façade avant du châssis.|
+|Capteurs de tension de ligne|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de tension de ligne s’affiche et indique si la tension mesurée se trouve dans la plage de tolérance.|
+|Capteurs de courant de ligne|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de courant de ligne s’affiche et indique si l’intensité mesurée se trouve dans la plage de tolérance.|
+|Capteurs de température dans PCM|PCM|Physique|Partagé|Non|L’état de plusieurs capteurs de température tels que les capteurs Inlet et Hotspot s’affiche et indique si la température mesurée se trouve dans la plage de tolérance.|
+|Alimentation électrique [0-1]|PCM|Physique|Partagé|Oui|Une ligne représente chacun des blocs d'alimentation dans les deux PCM situés à l'arrière de l’appareil.|
+|Refroidissement [0-1]|PCM|Physique|Partagé|Oui|Une ligne représente chacun des quatre ventilateurs résidant dans les deux PCM.|
+|Stockage local [HDD]|N/A|Opérateurs logiques|Partagé|N/A|Affiche l'état du pool de stockage logique créé à partir de disques durs de périphérique.|
+|Contrôleur [0-1] [état]|E/S|Physique|Controller|Oui|Affiche l'état des contrôleurs du module EBOD.|
+|Capteurs de température dans EBOD|E/S|Physique|Controller|Non|L’état de plusieurs capteurs de température de chaque contrôleur s’affiche et indique si la température mesurée se trouve dans la plage de tolérance.|
+|Expander SAS|E/S|Physique|Controller|Non|Indique l'état de l'expandeur SAS, qui est utilisé pour connecter le stockage intégré au contrôleur.|
+|Connecteur SAS [0-2]|E/S|Physique|Controller|Non|Indique l'état de chaque connecteur SAS utilisé pour connecter le stockage intégré à l’expander SAS.|
+|Interconnexion de plan médian SBB|E/S|Physique|Controller|Non|Indique l'état du connecteur de plan médian, qui est utilisé pour connecter chaque contrôleur au plan médian.|
+|Puissance électronique du boîtier|E/S|Physique|Controller|Non|Indique l'état du système d'alimentation utilisé par le boîtier.|
+|Diagnostic électronique du boîtier|E/S|Physique|Controller|Non|Indique l'état des sous-systèmes de diagnostic fournis par le contrôleur.|
+|Connexion au contrôleur de périphérique|E/S|Physique|Controller|Non|Indique l'état de la connexion entre le module E/S du module EBOD et le contrôleur de périphérique.|
 
-## <a name="next-steps"></a>Next steps
-- To use the StorSimple Manager service to administer your device, go to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+## Étapes suivantes
+- Pour utiliser le service StorSimple Manager pour gérer votre appareil, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
-- If you need to troubleshoot a device component that has a degraded or failed status, refer to [StorSimple monitoring indicators](storsimple-monitoring-indicators.md). 
+- Si vous devez résoudre les problèmes d’un composant de l’appareil dont l’état est détérioré ou en échec, consultez [Indicateurs de surveillance StorSimple](storsimple-monitoring-indicators.md).
 
-- To replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+- Pour remplacer un composant matériel défectueux, consultez [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-- If you continue to experience device issues, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+- Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

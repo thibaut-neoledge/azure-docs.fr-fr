@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="SQL Database disaster recovery | Microsoft Azure" 
-   description="Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database Active Geo-Replication, and Geo-Restore capabilities." 
+   pageTitle="Récupération d’urgence de la base de données SQL | Microsoft Azure" 
+   description="Découvrez comment récupérer une base de données en cas de panne d’un centre de données régional grâce aux fonctionnalités de géo-réplication active et de restauration géographique du service Base de données SQL Azure." 
    services="sql-database" 
    documentationCenter="" 
    authors="CarlRabeler" 
@@ -13,108 +13,103 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="10/13/2016"
+   ms.date="07/20/2016"
    ms.author="carlrab"/>
 
+# Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
 
-# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restore an Azure SQL Database or failover to a secondary
+Le service Base de données SQL Azure offre les fonctionnalités suivantes pour la récupération après une panne :
 
-Azure SQL Database offers the following capabilities for recovering from an outage:
+- [Géo-réplication active](sql-database-geo-replication-overview.md)
+- [Restauration géographique](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- [Geo-Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+Pour en savoir plus sur les scénarios de continuité d’activité et les fonctionnalités prenant en charge ces scénarios, consultez [Continuité des activités](sql-database-business-continuity.md).
 
-To learn about business continuity scenarios and the features supporting these scenarios, see [Business continuity](sql-database-business-continuity.md). 
+### Préparation à une panne
 
-### <a name="prepare-for-the-event-of-an-outage"></a>Prepare for the event of an outage
+Pour réussir la récupération vers une autre région de données à l’aide de la géo-réplication active ou de sauvegardes géo-redondantes, vous devez préparer un serveur d’un autre centre de données qui deviendra le nouveau serveur principal en cas de besoin. Vous devez également suivre des étapes précises, documentées et éprouvées pour garantir une récupération optimale. Les étapes de préparation sont les suivantes :
 
-For success with recovery to another data region using either Active Geo-Replication or geo-redundant backups, you need to prepare a server in another data center outage to become the new primary server should the need arise as well as have well defined steps documented and tested to ensure a smooth recovery. These preparation steps include:
+- Identifiez le serveur logique d’une autre région qui deviendra le nouveau serveur principal. La géo-réplication active permet d’utiliser au moins un serveur voire tous les serveurs secondaires. Pour la géo-restauration, il s’agit généralement d’un serveur dans la [région jumelée](../best-practices-availability-paired-regions.md) de la région dans laquelle se trouve votre base de données.
+- Identifiez, et éventuellement définissez, les règles de pare-feu nécessaires au niveau du serveur pour permettre aux utilisateurs d’accéder à la nouvelle base de données primaire.
+- Déterminez la façon dont vous souhaitez rediriger les utilisateurs vers le nouveau serveur principal, par exemple en modifiant des chaînes de connexion ou des entrées DNS.
+- Identifiez, et éventuellement créez, les connexions d’accès qui doivent être présentes dans la base de données master sur le nouveau serveur principal, puis vérifiez que ces connexions disposent des autorisations appropriées dans la base de données master, le cas échéant. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL après la récupération d’urgence](sql-database-geo-replication-security-config.md)
+- Identifiez les règles d’alerte qui devront être mises à jour pour le mappage à la nouvelle base de données primaire.
+- Documentation de la configuration de l’audit sur la base de données primaire actuelle
+- Effectuez une [simulation d’une récupération d'urgence](sql-database-disaster-recovery-drills.md). Pour simuler une panne de restauration géographique, vous pouvez supprimer ou renommer la base de données source pour empêcher l’application de se connecter. Pour simuler une panne de géo-réplication active, vous pouvez désactiver l’application web ou une machine virtuelle connecté à la base de données ou basculer la base de données pour empêcher l’application de se connecter.
 
-- Identify the logical server in another region to become the new primary server. With Active Geo-Replication, this will be at least one and perhaps each of the secondary servers. For Geo-Restore, this will generally be a server in the [paired region](../best-practices-availability-paired-regions.md) for the region in which your database is located.
-- Identify, and optionally define, the server-level firewall rules needed on for users to access the new primary database.
-- Determine how you are going to redirect users to the new primary server, such as by changing connection strings or by changing DNS entries.
-- Identify, and optionally create, the logins that must be present in the master database on the new primary server, and ensure these logins have appropriate permissions in the master database, if any. For more information, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)
-- Identify alert rules that will need to be updated to map to the new primary database.
-- Document the auditing configuration on the current primary database 
-- Perform a [disaster recovery drill](sql-database-disaster-recovery-drills.md). To simulate an outage for Geo-Restore, you can delete or rename the source database to cause application connectivity failure. To simulate an outage for Active Geo-Replication, you can disable the web application or virtual machine connected to the database or failover the database to cause application connectity failures. 
+## Quand initier la récupération ?
 
-## <a name="when-to-initiate-recovery"></a>When to initiate recovery
+L'opération de récupération a un impact sur l'application. Elle requiert la modification de la chaîne de connexion SQL et la redirection avec DNS, et peut entraîner une perte de données définitive. Par conséquent, elle doit être effectuée uniquement quand la défaillance est susceptible de durer plus longtemps que l’objectif de délai de récupération de votre application. Lorsque l'application est déployée en production, vous devez effectuer une surveillance régulière de l'intégrité de l'application et vous assurer des points suivants pour déclarer que la récupération est garantie :
 
-The recovery operation impacts the application. It requires changing the SQL connection string or redirection using DNS and could result in permanent data loss. Therefore, it should be done only when the outage is likely to last longer than your application's recovery time objective. When the application is deployed to production you should perform regular monitoring of the application health and use the following data points to assert that the recovery is warranted:
+1.	Échec permanent de la connectivité de la couche d'application à la base de données.
+2.	Le portail Azure affiche une alerte concernant un incident ayant un impact important dans la région.
+3.	Le serveur de base de données SQL Azure est marqué comme étant détérioré.
 
-1.  Permanent connectivity failure from the application tier to the database.
-2.  The Azure portal shows an alert about an incident in the region with broad impact.
-3.  The Azure SQL Database server is marked as degraded. 
+Selon la tolérance de votre application aux temps d’arrêt et la mise en cause potentielle de la responsabilité de votre entreprise, vous pouvez envisager les options de récupération suivantes.
 
-Depending on your application tolerance to downtime and possible business liability you can consider the following recovery options.
+Utilisez [Obtenir une base de données récupérable](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) pour obtenir le dernier point de restauration avec réplication géographique.
 
-Use the [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) to get the latest Geo-replicated restore point.
+## Attendre le rétablissement du service
 
-## <a name="wait-for-service-recovery"></a>Wait for service recovery
+Les équipes Azure mettent tous les efforts en œuvre pour restaurer le service aussi rapidement que possible, mais cela peut prendre plusieurs heures ou plusieurs jours selon la cause principale du problème. Si votre application peut tolérer des temps d’arrêt importants, vous pouvez simplement attendre que le service soit rétabli. Dans ce cas, aucune action n’est requise de votre part. Vous pouvez consulter l’état actuel du service dans notre [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/). Une fois le service rétabli dans la région, la disponibilité de votre application sera restaurée.
 
-The Azure teams work diligently to restore service availability as quickly as possible but depending on the root cause it can take hours or days.  If your application can tolerate significant downtime you can simply wait for the recovery to complete. In this case, no action on your part is required. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/). After the recovery of the region your application’s availability will be restored.
+## Basculement vers la base de données secondaire géo-répliquée
 
-## <a name="failover-to-geo-replicated-secondary-database"></a>Failover to geo-replicated secondary database
+Si les temps d’arrêt peuvent mettre en cause la responsabilité de votre entreprise, vous devez utiliser des bases de données géo-répliquées dans votre application. Cela permet de restaurer rapidement la disponibilité de l’application dans une autre région en cas de panne. Découvrez comment [configurer la géo-réplication](sql-database-geo-replication-portal.md).
 
-If your application’s downtime can result in business liability you should be using geo-replicated database(s) in your application. It will enable the application to quickly restore availability in a different region in case of an outage. Learn how to [configure Geo-Replication](sql-database-geo-replication-portal.md).
+Pour restaurer la disponibilité des bases de données, vous devez lancer le basculement vers la base de données secondaire géo-répliquée à l’aide d’une des méthodes prises en charge.
 
-To restore availability of the database(s) you need to initiate the failover to the geo-replicated secondary using one of the supported methods. 
+Utilisez l’un des guides suivants pour effectuer le basculement vers une base de données secondaire géo-répliquée :
 
-Use one of the following guides to failover to a geo-replicated secondary database:
+- [Basculement vers une base de données secondaire géo-répliquée à l’aide du portail Azure](sql-database-geo-replication-portal.md)
+- [Basculement vers une base de données secondaire géo-répliquée à l’aide de PowerShell](sql-database-geo-replication-powershell.md)
+- [Basculement vers une base de données secondaire géo-répliquée à l’aide de T-SQL](sql-database-geo-replication-transact-sql.md)
 
-- [Failover to a geo-replicated secondary using Azure Portal](sql-database-geo-replication-portal.md)
-- [Failover to a geo-replicated secondary using PowerShell](sql-database-geo-replication-powershell.md)
-- [Failover to a geo-replicated secondary using T-SQL](sql-database-geo-replication-transact-sql.md) 
+## Récupération à l’aide de la géo-restauration
 
-## <a name="recover-using-geo-restore"></a>Recover using Geo-Restore
+Si les temps d’arrêt ne mettent pas en cause la responsabilité de votre entreprise, vous pouvez utiliser la géo-restauration pour récupérer les bases de données de votre application. Cela permet de créer une copie de la base de données à partir de la dernière sauvegarde géo-redondante.
 
-If your application’s downtime does not result in business liability you can use Geo-Restore as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup. 
+Utilisez l’un des guides suivants pour géo-restaurer une base de données dans une nouvelle région :
 
-Use one of the following guides to geo-restore a database into a new region:
+- [Géo-restaurer une base de données dans une nouvelle région à l’aide du portail Azure](sql-database-geo-restore-portal.md)
+- [Géo-restaurer une base de données dans une nouvelle région à l’aide de PowerShell](sql-database-geo-restore-powershell.md)
 
-- [Geo-Restore a database to a new region using Azure Portal](sql-database-geo-restore-portal.md)
-- [Geo-Restore a database to a new region using PowerShell](sql-database-geo-restore-powershell.md) 
+## Configurer votre base de données après récupération
 
-## <a name="configure-your-database-after-recovery"></a>Configure your database after recovery
+Si vous utilisez le basculement par géo-réplication ou la géo-restauration à des fins de restauration après une panne, vous devez vous assurer que la connectivité aux nouvelles bases de données est correctement configurée pour garantir la reprise du fonctionnement normal de l’application. Voici une liste de contrôle de tâches pour vous aider à remettre votre base de données restaurée en service.
 
-If you are using either geo-replication failover or geo-restore to recover from an outage, you must make sure that the connectivity to the new databases is properly configured so that the normal application function can be resumed. This is a checklist of tasks to get your recovered database production ready.
+### Mettre à jour les chaînes de connexion
 
-### <a name="update-connection-strings"></a>Update Connection Strings
+Comme votre base de données restaurée se trouve sur un autre serveur, vous devez mettre à jour la chaîne de connexion de votre application de sorte qu’elle pointe vers celui-ci.
 
-Because your recovered database will reside in a different server, you need to update your application’s connection string to point to that server.
+Pour plus d’informations sur la modification des chaînes de connexion, consultez le langage de développement approprié pour votre [bibliothèque de connectivité](sql-database-libraries.md).
 
-For more information about changing connection strings, see the appropriate development language for your [connection library](sql-database-libraries.md).
+### Configurer les règles de pare-feu
 
-### <a name="configure-firewall-rules"></a>Configure Firewall Rules
-
-You need to make sure that the firewall rules configured on server and on the database match those that were configured on the primary server and primary database. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
-
-
-### <a name="configure-logins-and-database-users"></a>Configure Logins and Database Users
-
-You need to make sure that all the logins used by your application exist on the server which is hosting your recovered database. For more information, see [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md).
-
->[AZURE.NOTE] You should configure and test your server firewall rules and logins (and their permissions) during a disaster recovery drill. These server-level objects and their configuration may not be available during the outage. 
-
-### <a name="setup-telemetry-alerts"></a>Setup Telemetry Alerts
-
-You need to make sure your existing alert rule settings are updated to map to the recovered database and the different server. 
-
-For more information about database alert rules, see [Receive Alert Notifications](../azure-portal/insights-receive-alert-notifications.md) and [Track Service Health](../azure-portal/insights-service-health.md).
-
-### <a name="enable-auditing"></a>Enable Auditing
-
-If auditing is required to access your database, you need to enable Auditing after the database recovery. A good indicator that auditing is required is that client applications use secure connection strings in a pattern of *.database.secure.windows.net. For more information, see [Get started with SQL database auditing](sql-database-auditing-get-started.md). 
+Vous devez vous assurer que les règles de pare-feu configurées sur le serveur et sur la base de données correspondent à celles du serveur principal et de la base de données primaire. Pour plus d’informations, voir [Procédure : configuration des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md).
 
 
-## <a name="next-steps"></a>Next steps
+### Configurer les identifiants de connexion et les utilisateurs de la base de données
 
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity.md)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+Vous devez vous assurer que tous les identifiants de connexion utilisés par votre application existent sur le serveur qui héberge votre base de données restaurée. Pour plus d’informations, voir [Configuration de la sécurité de la géo-réplication](sql-database-geo-replication-security-config.md).
+
+>[AZURE.NOTE] Vous devez configurer et tester les règles et les connexions (et leurs autorisations) du pare-feu de votre serveur pendant un exercice de récupération d’urgence. Ces objets au niveau du serveur et leur configuration peuvent ne pas être disponibles pendant la panne.
+
+### Configurer les alertes de télémétrie
+
+Vous devez vous assurer que vos paramètres de règles d’alerte existants sont mis à jour de manière à mapper à la base de données restaurée et à l’autre serveur.
+
+Pour en savoir plus, voir [Réception de notifications d'alerte](../azure-portal/insights-receive-alert-notifications.md) et [Suivi de l’intégrité du service](../azure-portal/insights-service-health.md).
+
+### Activer la fonction d’audit
+
+Si la fonction d’audit doit accéder à votre base de données, vous devez l’activer après la restauration de la base de données. Un bon indicateur de la nécessité d’activer l’audit est l’utilisation, par les applicatives clientes, de chaînes de connexion sécurisées dans un modèle *.database.secure.windows.net. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL](sql-database-auditing-get-started.md).
 
 
+## Étapes suivantes
 
-<!--HONumber=Oct16_HO2-->
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
 
-
+<!---HONumber=AcomDC_0803_2016-->

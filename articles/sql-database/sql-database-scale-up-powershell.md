@@ -1,115 +1,112 @@
 <properties 
-    pageTitle="Change the service tier and performance level of an Azure SQL database using PowerShell | Microsoft Azure" 
-    description="Change the service tier and performance level of an Azure SQL database shows how to scale your SQL database up or down with PowerShell. Changing the pricing tier of an Azure SQL database with PowerShell." 
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+    pageTitle="Modification des niveaux de service et de performances d’une base de données SQL Azure à l’aide de PowerShell" 
+    description="Cet article explique comment faire monter ou descendre en puissance une base de données SQL avec PowerShell. Modification du niveau de tarification d’une base de données SQL Azure avec PowerShell." 
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="10/12/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="07/19/2016"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"/>
 
 
-
-# <a name="change-the-service-tier-and-performance-level-(pricing-tier)-of-a-sql-database-with-powershell"></a>Change the service tier and performance level (pricing tier) of a SQL database with PowerShell
+# Modification des niveaux de service et de performances (niveau de tarification) d’une base de données SQL avec PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-scale-up.md)
-- [**PowerShell**](sql-database-scale-up-powershell.md)
+- [Portail Azure](sql-database-scale-up.md)
+- [PowerShell](sql-database-scale-up-powershell.md)
 
 
-Service tiers and performance levels describe the features and resources available for your SQL database and can be updated as the needs of your application change. For details, see [Service Tiers](sql-database-service-tiers.md).
+Les niveaux de service et de performances décrivent les fonctionnalités et ressources disponibles pour votre base de données SQL, et peuvent être mis à jour à mesure que les besoins de votre application évoluent. Pour plus d’informations, voir [Niveaux de service](sql-database-service-tiers.md).
 
-Note that changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process but during the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. Very infrequently, especially if there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.  
+Notez que la modification du niveau de service et/ou de performances d’une base de données crée un réplica de la base de données d’origine au nouveau niveau de performances, puis bascule les connexions vers ce réplica. Aucune donnée n’est perdue lors de ce processus, mais pendant le bref instant où nous basculons vers le réplica, les connexions à la base de données sont désactivées, de sorte que certaines transactions en cours sont susceptibles d’être restaurées. Cette fenêtre de désactivation varie, mais dure moins de 4 secondes en moyenne, et ne dépasse pas 30 secondes dans plus de 99 % des cas. En de très rare occasions, cette durée peut se révéler supérieure, en particulier s’il existe un très grand nombre de transactions en cours au moment où les connexions sont désactivées.
 
-The duration of the entire scale-up process depends on both the size and service tier of the database before and after the change. For example, a 250 GB database that is changing to, from, or within a Standard service tier, should complete within 6 hours. For a database of the same size that is changing performance levels within the Premium service tier, it should complete within 3 hours.
-
-
-- To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
-- When upgrading a database with [Geo-Replication](sql-database-geo-replication-portal.md) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
-- When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships. You can follow the steps described in the [Recover from an outage](sql-database-disaster-recovery.md) topic to stop the replication process between the primary and the active secondary databases.
-- The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](sql-database-business-continuity.md).
-- The new properties for the database are not applied until the changes are complete.
+La durée de la totalité du processus de montée en puissance dépend de la taille et du niveau de service de la base de données avant et après la modification. Par exemple, le basculement d’une base de données de 250 Go vers, depuis ou dans un niveau de service Standard ne demande pas plus de 6 heures. Le changement des niveaux de performances d’une base de données de la même taille dans le niveau de service Premium doit s’effectuer en moins de 3 heures.
 
 
+- Pour qu’une base de données puisse passer à une version antérieure, sa taille doit être inférieure à la taille maximale autorisée par le niveau de service voulu.
+- Lors de la mise à niveau d’une base de données avec la [géo-réplication](sql-database-geo-replication-portal.md) activée, vous devez commencer par mettre à niveau les bases de données secondaires associées vers le niveau de performances souhaité avant de procéder à la mise à niveau de la base de données primaire.
+- Avant d’effectuer le passage à une version antérieure depuis un niveau de service Premium, vous devez arrêter toutes les relations de géo-réplication. Vous pouvez suivre la procédure décrite à la section [Récupération suite à une indisponibilité de service](sql-database-disaster-recovery.md) pour arrêter le processus de réplication entre la base de données principale et les bases de données secondaires actives.
+- Les offres de service de restauration sont différentes selon les niveaux de service. Si vous passez à une version antérieure, vous risquez de ne plus pouvoir effectuer de restauration à un moment donné, ou de bénéficier d’une période de rétention des sauvegardes moins étendue. Pour en savoir plus, voir [Sauvegarde et restauration de base de données SQL Azure](sql-database-business-continuity.md).
+- Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
 
-**To complete this article you need the following:**
 
-- An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
-- An Azure SQL database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
+
+**Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :**
+
+- Un abonnement Azure. Si vous avez besoin d’un abonnement Azure, cliquez simplement sur **COMPTE GRATUIT** en haut de cette page, puis continuez la lecture de cet article.
+- base de données SQL Azure. Si vous n’avez pas de base de données SQL, créez-en une en procédant de la manière décrite dans [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 - Azure PowerShell.
 
 
-[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
+[AZURE.INCLUDE [Démarrer votre session PowerShell](../../includes/sql-database-powershell.md)]
 
 
 
-## <a name="change-the-service-tier-and-performance-level-of-your-sql-database"></a>Change the service tier and performance level of your SQL database
+## Modification des niveaux de service et de performances de votre base de données SQL
 
-Run the **Set-AzureRmSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
+Exécutez l’applet de commande **Set-AzureRmSqlDatabase** et affectez à **-RequestedServiceObjectiveName** le niveau de performances correspondant au niveau tarifaire souhaité. Par exemple *S0*, *S1*, *S2*, *S3*, *P1*, *P2* et ainsi de suite.
 
-```
-$ResourceGroupName = "resourceGroupName"
+    $ResourceGroupName = "resourceGroupName"
     
-$ServerName = "serverName"
-$DatabaseName = "databaseName"
+    $ServerName = "serverName"
+    $DatabaseName = "databaseName"
 
-$NewEdition = "Standard"
-$NewPricingTier = "S2"
+    $NewEdition = "Standard"
+    $NewPricingTier = "S2"
 
-Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
-```
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+
 
   
 
    
 
 
-## <a name="sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database"></a>Sample PowerShell script to change the service tier and performance level of your SQL database
+## Exemple de script PowerShell pour modifier les niveaux de service et de performances de votre base de données SQL
 
-Replace ```{variables}``` with your values (do not include the curly braces).
+    
 
-```
-$SubscriptionId = "{4cac86b0-1e56-bbbb-aaaa-000000000000}"
     
-$ResourceGroupName = "{resourceGroup}"
-$Location = "{AzureRegion}"
+    $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     
-$ServerName = "{server}"
-$DatabaseName = "{database}"
+    $ResourceGroupName = "resourceGroupName"
+    $Location = "Japan West"
     
-$NewEdition = "{Standard}"
-$NewPricingTier = "{S2}"
+    $ServerName = "serverName"
+    $DatabaseName = "databaseName"
     
-Add-AzureRmAccount
-Set-AzureRmContext -SubscriptionId $SubscriptionId
+    $NewEdition = "Standard"
+    $NewPricingTier = "S2"
     
-Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
-```
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+    
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    
+    $ScaleRequest
+    
         
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- [Scale out and in](sql-database-elastic-scale-get-started.md)
-- [Connect and query a SQL database with SSMS](sql-database-connect-query-ssms.md)
-- [Export an Azure SQL database](sql-database-export-powershell.md)
+- [Faire monter ou descendre en puissance](sql-database-elastic-scale-get-started.md)
+- [Se connecter à une base de données SQL et l’interroger avec SSMS](sql-database-connect-query-ssms.md)
+- [Exporter une base de données SQL Azure](sql-database-export-powershell.md)
 
-## <a name="additional-resources"></a>Additional resources
+## Ressources supplémentaires
 
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](http://azure.microsoft.com/documentation/services/sql-database/)
-- [Azure SQL Database Cmdlets](http://msdn.microsoft.com/library/mt574084.aspx)
+- [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
+- [Documentation sur la base de données SQL](http://azure.microsoft.com/documentation/services/sql-database/)
+- [Applets de commande de la base de données SQL Azure.](http://msdn.microsoft.com/library/mt574084.aspx)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

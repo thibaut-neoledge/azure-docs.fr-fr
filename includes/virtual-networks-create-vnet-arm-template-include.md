@@ -1,63 +1,61 @@
-## <a name="download-and-understand-the-arm-template"></a>Download and understand the ARM template
+## Télécharger et comprendre le modèle ARM
 
-You can download the existing ARM template for creating a VNet and two subnets from github, make any changes you might want, and reuse it. To do so, follow the steps below.
+Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel et deux sous-réseaux sur GitHub, apporter les modifications souhaitées, puis le réutiliser. Pour ce faire, procédez comme suit :
 
-1. Navigate to [the sample template page](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
-2. Click **azuredeploy.json**, and then click **RAW**.
-3. Save the file to a a local folder on your computer.
-4. If you are familiar with ARM templates, skip to step 7.
-5. Open the file you just saved and look at the contents under **parameters** in line 5. ARM template parameters provide a placeholder for values that can be filled out during deployment.
+1. Accédez à la [page d’exemples de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
+2. Cliquez sur **azuredeploy.json**, puis sur **RAW**.
+3. Enregistrez le fichier dans un dossier local sur votre ordinateur.
+4. Si vous connaissez déjà les modèles ARM, passez à l’étape 7.
+5. Ouvrez le fichier que vous venez d’enregistrer et consultez le contenu sous **parameters** à la ligne 5. Les paramètres de modèle ARM fournissent un espace réservé pour les valeurs à remplir lors du déploiement.
 
-    | Parameter | Description |
-    |---|---|
-    | **location** | Azure region where the VNet will be created |
-    | **vnetName** | Name for the new VNet |
-    | **addressPrefix** | Address space for the VNet, in CIDR format |
-    | **subnet1Name** | Name for the first VNet |
-    | **subnet1Prefix** | CIDR block for the first subnet |
-    | **subnet2Name** | Name for the second VNet |
-    | **subnet2Prefix** | CIDR block for the second subnet |
+	| Paramètre | Description |
+	|---|---|
+	| **emplacement** | Région Azure où le réseau virtuel doit être créé. |
+	| **vnetName** | Nom du nouveau réseau virtuel |
+	| **addressPrefix** | Espace d’adressage du réseau virtuel, au format CIDR |
+	| **subnet1Name** | Nom du premier réseau virtuel |
+	| **subnet1Prefix** | Bloc CIDR du premier sous-réseau |
+	| **subnet2Name** | Nom du deuxième réseau virtuel |
+	| **subnet2Prefix** | Bloc CIDR du deuxième sous-réseau |
 
-    >[AZURE.IMPORTANT] ARM templates maintained in github can change over time. Make sure you check the template before using it.
-    
-6. Check the content under **resources** and notice the following:
+	>[AZURE.IMPORTANT] Les modèles ARM de GitHub sont susceptibles d’évoluer. Vérifiez le modèle avant de l’utiliser.
+	
+6. Vérifiez le contenu sous **resources** et notez les éléments suivants :
 
-    - **type**. Type of resource being created by the template. In this case, **Microsoft.Network/virtualNetworks**, which represent a VNet.
-    - **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name will provided as input by the user or a parameter file during deployment.
-    - **properties**. List of properties for the resource. This template uses the address space and subnet properties during VNet creation.
+	- **type**. Type de ressource créée par le modèle. Dans ce cas, **Microsoft.Network/virtualNetworks**, qui représente un réseau virtuel.
+	- **name**. Nom de la ressource. Remarquez l’utilisation de **[parameters('vnetName')]**, ce qui signifie que le nom sera fourni par l’utilisateur ou un fichier de paramètres au cours du déploiement.
+	- **properties**. Liste des propriétés de la ressource. Ce modèle utilise les propriétés d’espace d’adressage et de sous-réseau lors de la création du réseau virtuel.
 
-7. Navigate back to [the sample template page](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
-8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
-9. Save the file to a a local folder on your computer.
-10. Open the file you just saved and edit the values for the parameters. Use the values below to deploy the VNet described in our scenario.
+7. Retournez à la [page d’exemples de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
+8. Cliquez sur **azuredeploy-paremeters.json**, puis cliquez sur **RAW**.
+9. Enregistrez le fichier dans un dossier local sur votre ordinateur.
+10. Ouvrez le fichier que vous venez d’enregistrer et modifiez les valeurs des paramètres. Utilisez les valeurs ci-dessous pour déployer le réseau virtuel décrit dans notre scénario.
 
-        {
-          "location": {
-            "value": "Central US"
-          },
-          "vnetName": {
-              "value": "TestVNet"
-          },
-          "addressPrefix": {
-              "value": "192.168.0.0/16"
-          },
-          "subnet1Name": {
-              "value": "FrontEnd"
-          },
-          "subnet1Prefix": {
-            "value": "192.168.1.0/24"
-          },
-          "subnet2Name": {
-              "value": "BackEnd"
-          },
-          "subnet2Prefix": {
-              "value": "192.168.2.0/24"
-          }
-        }
+		{
+		  "location": {
+		    "value": "Central US"
+		  },
+		  "vnetName": {
+		      "value": "TestVNet"
+		  },
+		  "addressPrefix": {
+		      "value": "192.168.0.0/16"
+		  },
+		  "subnet1Name": {
+		      "value": "FrontEnd"
+		  },
+		  "subnet1Prefix": {
+		    "value": "192.168.1.0/24"
+		  },
+		  "subnet2Name": {
+		      "value": "BackEnd"
+		  },
+		  "subnet2Prefix": {
+		      "value": "192.168.2.0/24"
+		  }
+		}
 
-11. Save the file.
+11. Enregistrez le fichier.
   
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0211_2016-->

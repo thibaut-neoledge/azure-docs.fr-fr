@@ -1,15 +1,12 @@
-If you use an Azure subscription where you are not the administrator/owner, such as a company owned subscription, you must verify the following before using the steps in this document:
+Si vous utilisez un abonnement Azure alors que vous n’êtes pas administrateur/propriétaire, par exemple un abonnement détenu par l’entreprise, vous devez vérifier ce qui suit avant de procéder comme indiqué dans ce document :
 
-* Your Azure login must have at least __Contributor__ access to the Azure resource group that you use when creating HDInsight (and other Azure resources.)
+* Votre connexion Azure doit avoir au moins un accès __Collaborateur__ au groupe de ressources Azure que vous utilisez lors de la création de HDInsight (et d’autres ressources Azure.)
 
-* Someone with at least __Contributor__ access to the Azure subscription must have previously registered the provider for the resource you are using. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be accomplished without creating a resource by [registering a provider using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+* Une personne disposant d’au moins un accès __Collaborateur__ à l’abonnement Azure doit avoir auparavant enregistré le fournisseur pour la ressource que vous utilisez. L’enregistrement du fournisseur se produit lorsqu’un utilisateur disposant d’un accès Contributeur à l’abonnement crée une ressource pour la première fois sur l’abonnement. Vous pouvez également faire cela sans créer une ressource en [enregistrant un fournisseur à l’aide de REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
-For more information on working with access management, see the following documents:
+Pour plus d’informations sur le fonctionnement de la gestion des accès, consultez les documents suivants :
 
-* [Get started with access management in the Azure portal](../articles/active-directory/role-based-access-control-what-is.md)
-* [Use role assignments to manage access to your Azure subscription resources](../articles/active-directory/role-based-access-control-configure.md)
+* [Prise en main de la gestion des accès dans le portail Azure](../articles/active-directory/role-based-access-control-what-is.md)
+* [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../articles/active-directory/role-based-access-control-configure.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

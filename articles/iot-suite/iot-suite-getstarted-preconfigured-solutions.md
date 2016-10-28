@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Get started with preconfigured solutions | Microsoft Azure"
-    description="Follow this tutorial to learn how to deploy an Azure IoT Suite preconfigured solution."
-    services=""
+	pageTitle="Prise en main des solutions préconfigurées | Microsoft Azure"
+	description="Suivez ce didacticiel pour apprendre à déployer une solution préconfigurée Azure IoT Suite."
+	services=""
     suite="iot-suite"
-    documentationCenter=""
-    authors="dominicbetts"
-    manager="timlt"
-    editor=""/>
+	documentationCenter=""
+	authors="dominicbetts"
+	manager="timlt"
+	editor=""/>
 
 <tags
      ms.service="iot-suite"
@@ -17,202 +17,201 @@
      ms.date="08/16/2016"
      ms.author="dobett"/>
 
+# Didacticiel : prise en main des solutions préconfigurées
 
-# <a name="tutorial:-get-started-with-the-preconfigured-solutions"></a>Tutorial: Get started with the preconfigured solutions
+## Introduction
 
-## <a name="introduction"></a>Introduction
+Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suite regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise. La solution préconfigurée de *surveillance à distance* se connecte et surveille vos appareils. Cela vous permet d’analyser le flux de données de vos appareils et d’améliorer les résultats de l’entreprise grâce à des processus qui répondent automatiquement à ce flux de données.
 
-Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *remote monitoring* preconfigured solution connects to and monitors your devices. You can use the solution to analyze the stream of data from your devices and to improve business outcomes by making processes respond automatically to that stream of data.
+Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Il présente également les fonctionnalités de base de la solution de surveillance à distance. Vous pouvez accéder à la plupart de ces fonctionnalités via le tableau de bord de solution déployé avec la solution préconfigurée :
 
-This tutorial shows you how to provision the remote monitoring preconfigured solution. It also walks you through the basic features of the remote monitoring solution. You can access many of these features through the solution dashboard that deploys along with the preconfigured solution:
+![Tableau de bord de solution préconfigurée de surveillance à distance][img-dashboard]
 
-![Remote monitoring preconfigured solution dashboard][img-dashboard]
+Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
-To complete this tutorial, you need an active Azure subscription.
-
-> [AZURE.NOTE]  If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk_free_trial].
+> [AZURE.NOTE]  Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][lnk_free_trial].
 
 [AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## <a name="view-the-solution-dashboard"></a>View the solution dashboard
+## Afficher le tableau de bord de solution
 
-The solution dashboard enables you to manage the deployed solution. For example, you can view telemetry, add devices, and configure rules.
+Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée. Par exemple, vous pouvez afficher les données de télémétrie, ajouter des appareils et configurer des règles.
 
-1.  When the provisioning is complete and the tile for your preconfigured solution indicates **Ready**, click **Launch** to open your remote monitoring solution portal in a new tab.
+1.  Une fois que l’approvisionnement est terminé et que la vignette de votre solution préconfigurée indique **Prêt**, cliquez sur **Lancer** pour ouvrir le portail de votre solution de surveillance à distance dans un nouvel onglet.
 
-    ![Launch the preconfigured solution][img-launch-solution]
+    ![Lancer la solution préconfigurée][img-launch-solution]
 
-2.  By default, the solution portal shows the *solution dashboard*. You can select other views using the left-hand menu.
+2.  Par défaut, le portail de solution affiche le *tableau de bord de solution*. Vous pouvez sélectionner d’autres vues à partir du menu de gauche.
 
-    ![Remote monitoring preconfigured solution dashboard][img-dashboard]
+    ![Tableau de bord de solution préconfigurée de surveillance à distance][img-dashboard]
 
-The dashboard displays the following information:
+Le tableau de bord affiche les informations suivantes :
 
-- The map displays the location of each device connected to the solution. When you first run the solution, there are four simulated devices. The simulated devices are implemented as Azure WebJobs, and the solution uses the Bing Maps API to plot information on the map.
-- The **Telemetry History** panel plots humidity and temperature telemetry from a selected device in near real time and displays aggregate data such as maximum, minimum, and average humidity.
-- The **Alarm History** panel shows recent alarm events when a telemetry value has exceeded a threshold. You can define your own alarms in addition to the examples created by the preconfigured solution.
+- La carte affiche l'emplacement de chaque appareil connecté à la solution. Lors de la première exécution de la solution, quatre appareils sont simulés. Les appareils simulés sont implémentés en tant qu’Azure WebJobs, et la solution utilise l'API Bing Maps pour tracer les informations sur la carte.
+- Le panneau **Historique de télémétrie** trace la télémétrie de l’humidité et de la température d’un appareil sélectionné en temps quasi-réel et affiche les données d’agrégation telles que l’humidité maximale, minimale et moyenne.
+- Le panneau **Historique des alertes** affiche les alarmes récentes lorsqu’une valeur de télémétrie a dépassé un seuil défini. Vous pouvez définir vos propres alarmes en plus des exemples créés par la solution préconfigurée.
 
-## <a name="view-the-device-list"></a>View the device list
+## Afficher la liste des appareils
 
-The device list shows all the registered devices in the solution. You view and edit device metadata, add or remove devices, and send commands to devices.
+La liste des appareils montre tous les appareils inscrits dans la solution. Vous affichez et modifiez les métadonnées des appareils, ajoutez ou supprimez des appareils et envoyez des commandes aux appareils.
 
-1.  Click **Devices** in the left-hand menu to show the *device list* for this solution.
+1.  Cliquez sur **Appareils** dans le menu de gauche pour accéder à la *liste des appareils* de cette solution.
 
-    ![Device list in dashboard][img-devicelist]
+    ![Liste des appareils dans le tableau de bord][img-devicelist]
 
-2.  The device list shows that there are four simulated devices created by the provisioning process.
+2.  La liste des appareils montre que quatre appareils simulés ont été créés par le processus de déploiement.
 
-3.  Click a device in the device list to view the device details.
+3.  Cliquez sur un appareil de la liste pour en afficher les détails.
 
-    ![Device details in dashboard][img-devicedetails]
+    ![Détails de l’appareil dans le tableau de bord][img-devicedetails]
 
-The **Device Details** panel contains three sections:
+Le panneau **Détails de l’appareil** comprend trois sections :
 
-- The **Actions** section lists the actions you can perform on the device. If you disable the device, it is no longer allowed to send telemetry or receive commands. If you disable a device, you can then enable it again. You can add a rule associated with the device that triggers an alarm when a telemetry value exceeds a threshold. You can also send a command to a device. When a device first connects, it tells the solution the commands it can respond to.
-- The **Device Properties** section lists the device metadata. Some of this metadata comes from the device itself (such as the manufacturer) and some is generated by the solution (such as the created time). You can edit the device metadata from here.
-- The **Authentication Keys** section lists the keys the device can use to authenticate with the solution.
+- La section **Actions** répertorie les actions que vous pouvez exécuter sur l’appareil. Si vous désactivez l’appareil, il ne sera plus autorisé à envoyer des données de télémétrie ou à recevoir des commandes. Si vous désactivez un appareil, vous pourrez le réactiver ensuite. Vous pouvez ajouter une règle associée à l'appareil qui déclenche une alerte lorsqu'une valeur de télémétrie dépasse un seuil défini. Vous pouvez également envoyer une commande à un appareil. Lorsqu’un appareil se connecte pour la première fois, il indique à la solution les commandes auxquelles il peut répondre.
+- La section **Propriétés d’un appareil** répertorie les métadonnées de l’appareil. Certaines de ces métadonnées proviennent de l'appareil proprement dit (par exemple, le fabricant) et certaines sont générées par la solution (par exemple, l'heure de création). Vous pouvez modifier les métadonnées de l'appareil à partir d'ici.
+- La section **Clés d’authentification** répertorie les clés que l’appareil peut utiliser pour s’authentifier avec la solution.
 
-## <a name="send-a-command-to-a-device"></a>Send a command to a device
+## Envoyer une commande à un appareil
 
-The device details pane shows all the commands that a specific device supports and enables you to send commands to a device. When a device first starts, it sends information about the commands it supports to the solution.
+Le volet des détails de l’appareil affiche toutes les commandes prises en charge par un appareil spécifique et vous permet d’envoyer des commandes à un appareil. Lors du premier démarrage d'un appareil, ce dernier envoie des informations sur les commandes qu'il prend en charge à la solution.
 
-1.  Click **Commands** in the device details pane for the selected device.
+1.  Cliquez sur **Commandes** dans le volet d’informations de l’appareil sélectionné.
 
-    ![Device commands in dashboard][img-devicecommands]
+    ![Commandes de l’appareil dans le tableau de bord][img-devicecommands]
 
-2.  Select **PingDevice** from the command list.
+2.  Sélectionnez **PingDevice** dans la liste de commandes.
 
-3.  Click **Send Command**.
+3.  Cliquez sur **Envoyer la commande**.
 
-4.  You can see the status of the command in the command history.
+4.  Vous pouvez visualiser l’état de la commande dans l’historique des commandes.
 
-    ![Command status in dashboard][img-pingcommand]
+    ![État de la commande dans le tableau de bord][img-pingcommand]
 
-The solution tracks the status of each command it sends. Initially the result is **Pending**. When the device reports that it has executed the command, the result is set to **Success**.
+La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Initialement, le résultat est **En attente**. Lorsque l’appareil signale qu’il a correctement exécuté la commande, le résultat prend la valeur **Réussite**.
 
-## <a name="add-a-new-simulated-device"></a>Add a new simulated device
+## Ajouter un nouvel appareil simulé
 
-When you deploy the preconfigured solution, you automatically provision the four sample devices you can see in the device list. These devices are *simulated devices* running in an Azure WebJob. Simulated devices make it easy for you to experiment with the preconfigured solution without the need to deploy real, physical devices. If you do want to connect a real device to the solution, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
+Lorsque vous déployez la solution préconfigurée, vous approvisionnez automatiquement les quatre exemples d’appareils que vous pouvez voir dans la liste des appareils. Ces appareils sont des *simulations d’appareils* en cours d’exécution dans un Azure WebJob. Les appareils simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des appareils physiques réels. Si vous ne souhaitez pas connecter un appareil physique à la solution, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
 
-The following steps show you how to add a simulated device to the solution:
+Les étapes suivantes vous montrent comment ajouter un appareil simulé à la solution :
 
-1.  Navigate back to the device list.
+1.  Retournez à la liste des appareils.
 
-2.  Click **+ Add A Device** in the bottom left corner to add a device.
+2.  Cliquez sur **+ Ajouter un appareil** dans le coin inférieur gauche pour ajouter un appareil.
 
-    ![Add a device to the preconfigured solution][img-adddevice]
+    ![Ajouter un appareil à la solution préconfigurée][img-adddevice]
 
-3.  Click **Add New** on the **Simulated Device** tile.
+3.  Cliquez sur **Ajouter un nouveau** sur la vignette **Appareil simulé**.
 
-    ![Set new device details in dashboard][img-addnew]
+    ![Définir les détails du nouvel appareil dans le tableau de bord][img-addnew]
     
-    In addition to creating a new simulated device, you can also add a physical device if you choose to create a **Custom Device**. To learn more about connecting physical devices to the solution, see [Connect your device to the IoT Suite remote monitoring preconfigured solution][lnk-connect-rm].
+    Outre la création d’un appareil simulé, vous pouvez également ajouter un appareil physique si vous choisissez de créer un **appareil personnalisé**. Pour plus d’informations sur la connexion d’appareils physiques à la solution, consultez [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
 
-4.  Select **Let me define my own Device ID**, and enter a unique device ID name such as **mydevice_01**.
+4.  Sélectionnez **Me laisser définir mon propre ID d’appareil** et ajoutez un nom unique d’ID d’appareil, par exemple **monappareil\_01**.
 
-5.  Click **Create**.
+5.  Cliquez sur **Create**.
 
-    ![Save a new device][img-definedevice]
+    ![Enregistrer un nouvel appareil][img-definedevice]
 
-6. In step 3 of **Add a simulated device**, click **Done** to return to the device list.
+6. À l’étape 3 de la procédure **Ajouter un appareil simulé**, cliquez sur **Terminé** pour revenir à la liste des appareils.
 
-7. You can view your device **Running** in the device list.
+7. Vous pouvez vérifier que votre appareil est **En cours d’exécution** dans la liste des appareils.
 
-    ![View new device in device list][img-runningnew]
+    ![Afficher le nouvel appareil dans la liste des appareils][img-runningnew]
 
-8. You can also view the simulated telemetry from your new device on the dashboard:
+8. Vous pouvez également afficher les données de télémétrie provenant de votre nouvel appareil sur le tableau de bord :
 
-    ![View telemetry from new device][img-runningnew-2]
+    ![Afficher la télémétrie du nouvel appareil][img-runningnew-2]
 
-## <a name="edit-the-device-metadata"></a>Edit the device metadata
+## Modifier les métadonnées de l’appareil
 
-When a device first connects to the solution, it sends its metadata to the solution. When you edit the device metadata through the solution dashboard, it sends the new metadata values to the device and stores the new values in the solution DocumentDB database. For more information, see [Device identity registry and DocumentDB][lnk-devicemetadata].
+Lors de sa première connexion à la solution, un appareil envoie ses métadonnées à la solution. Lorsque vous modifiez les métadonnées de l’appareil via le tableau de bord de solution, cette dernière envoie les nouvelles valeurs de métadonnées à l’appareil et stocke les nouvelles valeurs dans la base de données DocumentDB de la solution. Pour plus d’informations, consultez [Registre d’identité des appareils et DocumentDB][lnk-devicemetadata].
 
-1.  Navigate back to the device list.
+1.  Retournez à la liste des appareils.
 
-2.  Select your new device in the **Devices List**, and then click **Edit** to edit the **Device Properties**:
+2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Modifier** pour modifier les **Propriétés d’un appareil** :
 
-    ![Edit device metadata][img-editdevice]
+    ![Modifier les métadonnées de l’appareil][img-editdevice]
 
-3. Scroll down and make a change to the latitude and longitude vales. Then click **Save changes to device registry**.
+3. Faites défiler vers le bas et modifiez les valeurs de latitude et de longitude. Puis cliquez sur **Enregistrer les modifications dans le registre de l’appareil**.
 
-    ![Edit device metadata][img-editdevice2]
+    ![Modifier les métadonnées de l’appareil][img-editdevice2]
 
-4. Navigate back to the dashboard, the location of device has changed on the map:
+4. Retournez au tableau de bord, l'emplacement de l’appareil a changé sur la carte :
 
-    ![Edit device metadata][img-editdevice3]
+    ![Modifier les métadonnées de l’appareil][img-editdevice3]
 
-## <a name="add-a-rule-for-the-new-device"></a>Add a rule for the new device
+## Ajouter une règle pour le nouvel appareil
 
-There are no rules for the new device you just added. In this section, you add a rule that triggers an alarm when the temperature reported by the new device exceeds 47 degrees. Before you start, notice that the telemetry history for the new device on the dashboard shows the device temperature never exceeds 45 degrees.
+Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans cette section, vous allez ajouter une règle qui déclenche une alarme lorsque la température signalée par le nouvel appareil dépasse 47 degrés. Avant de commencer, notez que l'historique de télémétrie pour le nouvel appareil sur le tableau de bord affiche que la température de l’appareil ne dépasse jamais 45 degrés.
 
-1.  Navigate back to the device list.
+1.  Retournez à la liste des appareils.
 
-2.  Select your new device in the **Devices List**, and then click **Add rule** to add a rule for the device.
+2.  Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Ajouter une règle** pour ajouter une règle le concernant.
 
-3. Create a rule that uses **Temperature** as the data field and uses **AlarmTemp** as the output when the temperature exceeds 47 degrees:
+3. Créez une règle qui utilise **Température** comme champ de données et **AlarmTemp** en tant que sortie lorsque la température dépasse 47 degrés :
 
-    ![Add a device rule][img-adddevicerule]
+    ![Ajouter une règle d’appareil][img-adddevicerule]
 
-4. Click **Save and View Rules** to save your changes.
+4. Cliquez sur **Enregistrer et afficher les règles** pour enregistrer vos modifications.
 
-5.  Click **Commands** in the device details pane for the new device.
+5.  Cliquez sur **Commandes** dans le volet Détails du nouvel appareil.
 
-    ![Add a device rule][img-adddevicerule2]
+    ![Ajouter une règle d’appareil][img-adddevicerule2]
 
-6.  Select **ChangeSetPointTemp** from the command list and set **SetPointTemp** to 45. Then click **Send Command**:
+6.  Sélectionnez **ChangeSetPointTemp** dans la liste de commandes et définissez **SetPointTemp** sur 45. Cliquez ensuite sur **Envoyer la commande** :
 
-    ![Add a device rule][img-adddevicerule3]
+    ![Ajouter une règle d’appareil][img-adddevicerule3]
 
-7.  Navigate back to the solution dashboard. After a short time, you will see a new entry in the **Alarm History** pane when the temperature reported by your new device exceeds the 47-degree threshold:
+7.  Retournez au tableau de bord de la solution. Rapidement s’affiche une nouvelle entrée dans le volet **Historique des alarmes**, lorsque la température signalée par votre nouvel appareil dépasse le seuil de 47 degrés :
 
-    ![Add a device rule][img-adddevicerule4]
+    ![Ajouter une règle d’appareil][img-adddevicerule4]
 
-8. You can review and edit all your rules on the **Rules** page of the dashboard:
+8. Vous pouvez consulter et modifier toutes les règles dans le tableau de bord **Règles** :
 
-    ![List device rules][img-rules]
+    ![Répertorier les règles d’appareil][img-rules]
 
-9. You can review and edit all the actions that can be taken in response to a rule on the **Actions** page of the dashboard:
+9. Vous pouvez consulter et modifier toutes les mesures qui peuvent être prises en réponse à une règle sur le tableau de bord **Actions** :
 
-    ![List device actions][img-actions]
+    ![Répertorier les actions d’appareil][img-actions]
 
-> [AZURE.NOTE] It is possible to define actions that can send an email message or SMS in response to a rule or integrate with a line-of-business system through a [Logic App][lnk-logic-apps]. For more information, see the [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapptutorial].
+> [AZURE.NOTE] Il est possible de définir des actions pouvant envoyer un message électronique ou un SMS en réponse à une règle ou s’intégrer à un système métier par le biais d’une [application logique][lnk-logic-apps]. Pour plus d’informations consultez [Connecter Logic App à la solution préconfigurée de surveillance à distance IoT Suite][lnk-logicapptutorial].
 
-## <a name="other-features"></a>Other features
+## Autres fonctionnalités
 
-Using the solution portal you can search for devices with specific characteristics such as a model number:
+Vous pouvez utiliser le portail de solutions pour rechercher des appareils ayant des caractéristiques spécifiques (par exemple, un numéro de modèle) :
 
-![Search for a device][img-search]
+![Rechercher un appareil][img-search]
 
-You can disable a device, and after it is disabled you can remove it:
+Vous pouvez désactiver un appareil puis le supprimer :
 
-![Disable and remove a device][img-disable]
+![Désactiver et supprimer un appareil][img-disable]
 
-## <a name="behind-the-scenes"></a>Behind the scenes
+## Dans les coulisses
 
-When you deploy a preconfigured solution, the deployment process creates multiple resources in the Azure subscription you selected. You can view these resources in the Azure [portal][lnk-portal]. The deployment process creates a **resource group** with a name based on the name you choose for your preconfigured solution:
+Lorsque vous déployez une solution préconfigurée, le processus de déploiement crée plusieurs ressources dans l’abonnement Azure sélectionné. Vous pouvez afficher ces ressources dans le [portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur celui que vous avez choisi pour votre solution préconfigurée :
 
-![Preconfigured solution in the Azure portal][img-portal]
+![Solution préconfigurée dans le portail Azure][img-portal]
 
-You can view the settings of each resource by selecting it in the list of resources in the resource group.
+Vous pouvez afficher les paramètres de chaque ressource en la sélectionnant dans la liste des ressources dans le groupe de ressources.
 
-You can also view the source code for the preconfigured solution. The remote monitoring preconfigured solution source code is in the [azure-iot-remote-monitoring][lnk-rmgithub] GitHub repository:
+Vous pouvez également afficher le code source pour la solution préconfigurée. Le code source de la solution préconfigurée de surveillance à distance se trouve dans le référentiel GitHub [azure-iot-remote-monitoring][lnk-rmgithub] \:
 
-- The **DeviceAdministration** folder contains the source code for the dashboard.
-- The **Simulator** folder contains the source code for the simulated device.
-- The **EventProcessor** folder contains the source code for the back-end process that handles the incoming telemetry.
+- Le dossier **DeviceAdministration** contient le code source pour le tableau de bord.
+- Le dossier **Simulator** contient le code source pour l’appareil simulé.
+- Le dossier **EventProcessor** contient le code source pour le processus principal qui gère les données de télémétrie entrantes.
 
-When you are done, you can delete the preconfigured solution from your Azure subscription on the [azureiotsuite.com][lnk-azureiotsuite] site. This site enables you to easily delete all the resources that were provisioned when you created the preconfigured solution.
+Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à partir de votre abonnement Azure sur le site [azureiotsuite.com][lnk-azureiotsuite]. Ce site vous permet de supprimer facilement toutes les ressources qui ont été configurées lors de la création de la solution préconfigurée.
 
-> [AZURE.NOTE] To ensure that you delete everything related to the preconfigured solution, delete it on the [azureiotsuite.com][lnk-azureiotsuite] site and do not simply delete the resource group in the portal.
+> [AZURE.NOTE] Pour vous assurer que vous supprimez tout ce qui concerne la solution préconfigurée, supprimez cette dernière sur le site [azureiotsuite.com][lnk-azureiotsuite] ; ne vous contentez pas de supprimer le groupe de ressources dans le portail.
 
-## <a name="next-steps"></a>Next Steps
+## Étapes suivantes
 
-Now that you’ve deployed a working preconfigured solution, you can continue getting started with IoT Suite by reading the following articles:
+À présent que vous avez déployé une solution préconfigurée opérationnelle, vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
 
-- [Remote monitoring preconfigured solution walkthrough][lnk-rm-walkthrough]
-- [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
-- [Permissions on the azureiotsuite.com site][lnk-permissions]
+- [Présentation de la solution préconfigurée de surveillance à distance][lnk-rm-walkthrough]
+- [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm]
+- [Autorisations sur le site azureiotsuite.com][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -250,8 +249,4 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

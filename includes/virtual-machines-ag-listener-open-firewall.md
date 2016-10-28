@@ -1,21 +1,19 @@
-In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (59999 as specified earlier), and another rule to open the availability group listener port. Since you created the load-balanced endpoint on the Azure VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective Azure VMs.
+Au cours de cette étape, vous allez créer une règle de pare-feu pour ouvrir le port de la sonde du point de terminaison à charge équilibrée (59999, tel que cela est indiqué précédemment), et une autre règle pour ouvrir le port de l'écouteur du groupe de disponibilité. Étant donné que vous avez créé le point de terminaison à charge équilibrée sur chacune des machines virtuelles Azure qui contiennent des réplicas du groupe de disponibilité, vous devez ouvrir le port de la sonde et le port de l'écouteur sur les machines virtuelles Azure respectives.
 
-1. On VMs hosting replicas, launch **Windows Firewall with Advanced Security**.
+1. Sur les machines virtuelles hébergeant les réplicas, démarrez le **Pare-feu Windows avec fonctions de sécurité avancées**.
 
-1. Right-click **Inbound Rules** and click **New Rule**.
+1. Cliquez avec le bouton droit sur **Règles de trafic entrant**, puis sur **Nouvelle règle**.
 
-1. In the **Rule Type** page, select **Port**, then click **Next**.
+1. Dans la page **Type de règle**, sélectionnez **Port**, puis cliquez sur **Suivant**.
 
-1. In the **Protocol and Ports** page, select **TCP** and type **59999** in the **Specific local ports** box. Then, click **Next**.
+1. Dans la page **Protocole et ports**, sélectionnez **TCP** et tapez **59999** dans la zone **Ports locaux spécifiques**. Cliquez ensuite sur **Suivant**.
 
-1. In the **Action** page, keep **Allow the connection** selected and click **Next**.
+1. Dans la page **Action**, sélectionnez **Autoriser la connexion** et cliquez sur **Suivant**.
 
-1. In the **Profile** page, accept the default settings and click **Next**.
+1. Dans la page **Profil**, acceptez les paramètres par défaut et cliquez sur **Suivant**.
 
-1. In the **Name** page, specify a rule name, such as **AlwaysOn Listener Probe Port** in the **Name** text box, and click **Finish**.
+1. Dans la page **Nom**, spécifiez un nom pour la règle, comme **Port de la sonde d'écouteur AlwaysOn** dans la zone de texte **Name**, puis cliquez sur **Terminer**.
 
-1. Repeat the above steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script) and specify an appropriate rule name, such as **AlwaysOn Listener Port**.
+1. Répétez les étapes ci-dessus pour le port de l'écouteur du groupe de disponibilité (comme spécifié précédemment à l'aide du paramètre $EndpointPort du script), puis spécifiez un nom de règle approprié, tel que **Port de l'écouteur AlwaysOn**.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

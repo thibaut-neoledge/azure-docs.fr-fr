@@ -1,162 +1,161 @@
 <properties
-    pageTitle="Sign-in experiences with Azure AD Identity Protection| Microsoft Azure"
-    description="Provides an overview of the user experience when Identity Protection has mitigated or remediated a user or when multi-factor authentication is required by a policy."
-    services="active-directory"
-    keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
-    documentationCenter=""
-    authors="markusvi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Expériences de connexion avec Azure AD Identity Protection | Microsoft Azure"
+	description="Fournit une vue d’ensemble de l’expérience utilisateur lorsque Identity Protection a atténué ou corrigé la connexion d’un utilisateur ou lorsque l’authentification multifacteur est requise par une stratégie."
+	services="active-directory"
+	keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/16/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/16/2016"
+	ms.author="markvi"/>
+
+# Expériences de connexion avec Azure AD Identity Protection
+
+Avec Azure Active Directory Identity Protection, vous pouvez :
+
+- exiger que les utilisateurs s’inscrivent à l’authentification multifacteur
+
+- gérer les connexions risquées et les utilisateurs compromis
+
+La réponse du système à ces problèmes a un impact sur l’expérience de connexion d’un utilisateur, car la connexion à l’aide d’un nom d’utilisateur et d’un mot de passe seulement ne sera plus possible. Des étapes supplémentaires sont nécessaires pour rétablir l’accès d’un utilisateur en toute sécurité.
+
+Cette rubrique donne une vue d’ensemble de l’expérience de connexion d’un utilisateur pour tous les cas qui peuvent se produire.
+
+**Authentification multifacteur**
+
+- Inscription à l’authentification multifacteur
 
 
-# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Sign-in experiences with Azure AD Identity Protection
 
-With Azure Active Directory Identity Protection, you can:
+**Connexion risquée**
 
-- require users to register for multi-factor authentication
+- Récupération de connexion à risque
 
-- handle risky sign-ins and compromised users
+- Connexion à risque bloquée
 
-The response of the system to these issues has an impact on a user's sign-in experience because just directly signing-in by providing a user name and a password won't be possible anymore. Additional steps are required to get a user safely back into business.
-
-This topic gives you an overview of a user's sign-in experience for all cases that can occur.
-
-**Multi-factor authentication**
-
-- Multi-factor authentication registration
-
-
-
-**Sign-in at risk**
-
-- Risky sign-in recovery
-
-- Risky sign-in blocked
-
-- Multi-factor authentication registration during a risky sign-in
+- Inscription à l’authentification multifacteur au cours d’une connexion à risque
  
 
-**User at risk**
+**Utilisateur à risque**
 
-- Compromised account recovery
+- Récupération de compte compromis
 
-- Compromised account blocked
-
-
+- Compte compromis bloqué
 
 
-## <a name="multi-factor-authentication-registration"></a>Multi-factor authentication registration
-
-The best user experience for both, the compromised account recovery flow and the risky sign-in flow, is when the user can self-recover. If users are registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
-
-Administrators can:
-
-- set a policy that requires users to set up their accounts for additional security verification. 
-- allow skipping multi-factor authentication registration for up to 30 days, in case they want to give users a grace period before registering.
-
-**The multi-factor authentication registration has three steps:**
-
-1. In the first step, the user gets a notification about the requirement to set the account up for multi-factor authentication. 
-
-    ![Remediation](./media/active-directory-identityprotection-flows/140.png "Remediation")
 
 
-2. To set multi-factor authentication up, you need to let the system know how you want to be contacted.
+## Inscription à l’authentification multifacteur
 
-    ![Remediation](./media/active-directory-identityprotection-flows/141.png "Remediation")
+L’utilisateur bénéficie d’une expérience optimale pour le flux de récupération de compte compromis et de connexion à risque lorsqu’il peut effectuer lui-même l’opération de récupération. Si des utilisateurs sont inscrits à l’authentification multifacteur, ils ont déjà un numéro de téléphone associé à leur compte qu’ils peuvent utiliser pour répondre aux questions de sécurité. La récupération d’un compte suite à sa compromission ne nécessite pas l’intervention du support technique ou d’un administrateur. Par conséquent, nous vous recommandons vivement de demander à vos utilisateurs de s’inscrire à l’authentification multifacteur.
+
+Les administrateurs peuvent :
+
+- définir une stratégie qui impose aux utilisateurs d’ajouter une vérification de sécurité supplémentaire à leur compte ;
+- autoriser les utilisateurs à ignorer l’inscription à l’authentification multifacteur pendant 30 jours maximum, s’ils souhaitent leur accorder un délai de grâce avant l’inscription.
+
+**L’inscription à l’authentification multifacteur comporte trois étapes :**
+
+1. Dans la première étape, l’utilisateur reçoit une notification concernant la nécessité d’inscrire le compte à l’authentification multifacteur. <br><br> ![Correction](./media/active-directory-identityprotection-flows/140.png "Correction") <br>
+
+
+2. Pour configurer l’authentification multifacteur, vous devez indiquer au système comment vous souhaitez être contacté. <br><br> ![Correction](./media/active-directory-identityprotection-flows/141.png "Correction") <br>
  
-3. The system submits a challenge to you and you need to respond.
-
-    ![Remediation](./media/active-directory-identityprotection-flows/142.png "Remediation")
+3. Le système vous envoie un défi et vous devez y répondre. <br><br> ![Correction](./media/active-directory-identityprotection-flows/142.png "Correction") <br>
 
  
 
 
 
-## <a name="risky-sign-in-recovery"></a>Risky sign-in recovery
+## Récupération de connexion à risque
 
-When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign-in. 
+Lorsqu’un administrateur a configuré une stratégie pour les risques à la connexion, les utilisateurs affectés sont avertis quand ils tentent de se connecter.
 
-**The risky sign-in flow has two steps:** 
+**Le flux de connexion à risque comporte deux étapes :**
 
-1. The user is informed that something unusual was detected about their sign-in, such as signing in from a new location, device, or app. 
+1. L’utilisateur est informé que quelque chose d’inhabituel a été détecté concernant sa connexion, par exemple en cas de connexion depuis un nouvel emplacement, un nouvel appareil ou une nouvelle application. <br> <br> ![Correction](./media/active-directory-identityprotection-flows/120.png "Correction") <br>
 
-    ![Remediation](./media/active-directory-identityprotection-flows/120.png "Remediation")
-
-2. The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they need to round-trip a security code to their phone number. Since this is a just a risky sign in and not a compromised account, the user won’t have to change the password in this flow. 
-
-    ![Remediation](./media/active-directory-identityprotection-flows/121.png "Remediation")
+2. L’utilisateur doit prouver son identité en répondant à une question de sécurité. Si l’utilisateur est inscrit à l’authentification multifacteur, il doit saisir un code de sécurité envoyé sur son téléphone. Comme il s’agit simplement d’une connexion à risque et non pas d’un compte compromis, l’utilisateur ne doit pas changer le mot de passe dans ce flux. <br> <br> ![Correction](./media/active-directory-identityprotection-flows/121.png "Correction") <br>
 
 
 
  
-## <a name="risky-sign-in-blocked"></a>Risky sign-in blocked
-Administrators can also choose to set a Sign-In Risk policy to block users upon sign-in depending on the risk level. To get unblocked, end users must contact an administrator or help desk, or they can try signing in from a familiar location or device. Self-recovering by solving multi-factor authentication is not an option in this case.
-
-![Remediation](./media/active-directory-identityprotection-flows/200.png "Remediation")
+## Connexion à risque bloquée
+Les administrateurs peuvent également choisir de définir une stratégie en matière de risque à la connexion pour bloquer les utilisateurs lors de la connexion selon le niveau de risque. Pour débloquer leur accès, les utilisateurs finaux doivent contacter un administrateur ou leur support technique, ou ils peuvent essayer de se connecter depuis un emplacement ou un appareil connu. Il n’a pas la possibilité de récupérer lui-même son compte en résolvant l’authentification multifacteur dans ce cas précis. <br><br> ![Correction](./media/active-directory-identityprotection-flows/200.png "Correction") <br>
 
 
 
+## Inscription à l’authentification multifacteur au cours d’une connexion à risque
 
-## <a name="compromised-account-recovery"></a>Compromised account recovery
+Il est important que les utilisateurs s’inscrivent à l’authentification multifacteur afin qu’ils soient prêts à répondre aux demandes de sécurité et en mesure de le faire. Si un utilisateur n’est pas inscrit à l’authentification multifacteur, mais que la stratégie exige qu’il le soit, il se peut qu’il soit invité à s’inscrire pendant une connexion à risque. Cela signifie qu’un cybercriminel peut se retrouver à devoir ajouter un numéro de téléphone à la place de l’utilisateur correct.
 
-When a user risk security policy has been configured, users who meet the user risk level specified in the policy (and are therefore assumed compromised) must go through the user compromise recovery flow before they can sign-in. 
+Pour éviter cette situation, exigez des utilisateurs qu’ils s’inscrivent à l’authentification multifacteur dès que possible, afin qu’un numéro de téléphone soit déjà associé à leur compte en cas de compromission de ce dernier. Les administrateurs peuvent également bloquer complètement les utilisateurs compromis qui ne sont pas inscrits à l’authentification multifacteur.
 
-**The user compromise recovery flow has three steps:**
+**L’inscription à l’authentification multifacteur au cours d’une connexion à risque comporte deux étapes :**
 
-1. The user is informed that their account security is at risk because of suspicious activity or leaked credentials.
+1. L’utilisateur est averti que le compte est à risque. <br><br> ![Correction](./media/active-directory-identityprotection-flows/150.png "Correction") <br>
 
-    ![Remediation](./media/active-directory-identityprotection-flows/101.png "Remediation")
+2. Le processus d’inscription à l’authentification multifacteur est initié. <br><br> ![Correction](./media/active-directory-identityprotection-flows/151.png "Correction") <br>
 
-2.  The user is required to prove their identity by solving a security challenge. If the user is registered for multi-factor authentication they can self-recover from being compromised. They will need to round-trip a security code to their phone number. 
-
-    ![Remediation](./media/active-directory-identityprotection-flows/110.png "Remediation")
+Pour les étapes suivantes, consultez [Inscription à l’authentification multifacteur](#multi-factor-authentication-registration)
 
 
-3.  Finally, the user is forced to change their password since someone else may have had access to their account. Screenshots of this experience are below.
+
+
+## Récupération de compte compromis
+
+Lorsqu’une stratégie de sécurité en matière de risque des utilisateurs a été configurée, les utilisateurs dont le niveau de risque correspond à celui spécifié dans la stratégie (et qui sont donc considérés comme compromis) doivent passer par le flux de récupération de compte compromis avant de pouvoir se connecter.
+
+**Le flux de récupération de compte compromis comporte trois étapes :**
+
+1. L’utilisateur est informé que la sécurité de son compte est menacée en raison d’activités suspectes ou de la divulgation de ses informations d’identification.
+
+<br> ![Correction](./media/active-directory-identityprotection-flows/101.png "Correction") <br>
+
+2.	L’utilisateur doit prouver son identité en répondant à une question de sécurité. Si l’utilisateur est inscrit à l’authentification multifacteur, il peut récupérer lui-même son compte compromis. Il devra saisir un code de sécurité envoyé sur son téléphone.
+
+<br> ![Correction](./media/active-directory-identityprotection-flows/110.png "Correction") <br>
+
+
+3.	Enfin, l’utilisateur est obligé de changer son mot de passe, car il se peut que quelqu’un d’autre ait eu accès à son compte. Vous trouverez ci-dessous des captures d’écran de cette expérience.
  
-    ![Remediation](./media/active-directory-identityprotection-flows/111.png "Remediation")
+<br> ![Correction](./media/active-directory-identityprotection-flows/111.png "Correction") <br>
 
 
 
-## <a name="compromised-account-blocked"></a>Compromised account blocked 
+## Compte compromis bloqué 
 
-To get a user that was blocked by a user risk security policy unblocked, the user must contact an administrator or help desk. Self-recovering by solving multi-factor authentication is not an option in this case.
+Pour débloquer un compte bloqué par une stratégie de sécurité en matière de risque des utilisateurs, l’utilisateur doit contacter un administrateur ou son support technique. Il n’a pas la possibilité de récupérer lui-même son compte en résolvant l’authentification multifacteur dans ce cas précis.
 
-
-![Remediation](./media/active-directory-identityprotection-flows/104.png "Remediation")
-
-
-
- 
-## <a name="reset-password"></a>Reset password
-
-If compromised users are blocked from signing in, an administrator can generate a temporary password for them. The users will have to change their password during a next sign-in.
-
-![Remediation](./media/active-directory-identityprotection-flows/160.png "Remediation")
-
-
- 
-
+<br> ![Correction](./media/active-directory-identityprotection-flows/104.png "Correction") <br>
 
 
 
  
+## Réinitialiser le mot de passe
 
-## <a name="see-also"></a>See also
+Si des utilisateurs compromis voient leur connexion bloquée, un administrateur peut générer un mot de passe temporaire pour eux. Les utilisateurs devront changer leur mot de passe la prochaine fois qu’ils se connecteront.
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
-
-
-<!--HONumber=Oct16_HO2-->
+<br> ![Correction](./media/active-directory-identityprotection-flows/160.png "Correction") <br>
 
 
+ 
+
+
+
+
+ 
+
+## Voir aussi
+
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,157 +1,152 @@
 <properties
-    pageTitle="Configure an ILB Listener for Always On Availability Groups | Microsoft Azure"
-    description="This tutorial uses resources created with  the classic deployment model, and creates an Always On Availability Group Listener in Azure using an Internal Load Balancer (ILB)."
-    services="virtual-machines-windows"
-    documentationCenter="na"
-    authors="MikeRayMSFT"
-    manager="jhubbard"
-    editor=""
-    tags="azure-service-management"/>
+	pageTitle="Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On | Microsoft Azure"
+	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic, et crée un écouteur de groupe de disponibilité Always On dans Azure utilisant un équilibreur de charge interne (ILB)."
+	services="virtual-machines-windows"
+	documentationCenter="na"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
+	tags="azure-service-management"/>
 <tags
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows-sql-server"
-    ms.workload="infrastructure-services"
-    ms.date="08/19/2016"
-    ms.author="MikeRayMSFT" />
+	ms.service="virtual-machines-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/19/2016"
+	ms.author="MikeRayMSFT" />
 
-
-# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configure an ILB listener for Always On Availability Groups in Azure
+# Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure
 
 > [AZURE.SELECTOR]
-- [Internal Listener](virtual-machines-windows-classic-ps-sql-int-listener.md)
-- [External Listener](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+- [Écouteur interne](virtual-machines-windows-classic-ps-sql-int-listener.md)
+- [Écouteur externe](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-## <a name="overview"></a>Overview
+## Vue d'ensemble
 
-This topic shows you how to configure a listener for an Always On Availability Group by using an **Internal Load Balancer (ILB)**.
+Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité Always On à l’aide d’un **équilibreur de charge interne (ILB)**.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] To configure an ILB listener for an Always On availability group in Resource Manager model, see [Configure an internal load balancer for an Always On availability group in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Pour configurer un écouteur ILB pour un groupe de disponibilité Always On dans un modèle Resource Manager, voir [Configurer un équilibreur de charge interne pour un groupe de disponibilité Always On dans Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 
-Your Availability Group can contain replicas that are on-premises only, Azure only, or span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks (VNets). The steps below assume you have already [configured an availability group](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) but have not configured a listener.
+Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), mais pas un écouteur.
 
-## <a name="guidelines-and-limitations-for-internal-listeners"></a>Guidelines and limitations for internal listeners
-Note the following guidelines on the availability group listener in Azure using ILB:
+## Instructions et limitations pour les écouteurs internes
+Notez les instructions suivantes concernant l'écouteur du groupe de disponibilité dans Azure à l'aide de l'équilibrage de charge interne :
 
-- The availability group listener is supported on Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.
+- L'écouteur du groupe de disponibilité est pris en charge sur Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2.
 
-- Only one internal availability group listener is supported per cloud service, because the listener is configured to the ILB, and there is only one ILB per cloud service. However, it is possible to create multiple external listeners. For more information, see [Configure an external listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+- Un seul écouteur du groupe de disponibilité interne est pris en charge par service cloud, car l'écouteur est configuré sur l'équilibreur de charge interne, et il n’y a qu’un seul équilibreur de charge interne par service cloud. Toutefois, il est possible de créer plusieurs écouteurs externes. Pour plus d’informations, voir [Configurer un écouteur externe pour les groupes de disponibilité Always On dans Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
-- It is not supported to create an internal listener in the same cloud service where you also have an external listener using the cloud service's public VIP.
+- La création d’un écouteur interne dans un service cloud dans lequel vous avez également un écouteur externe n'est pas prise en charge avec l'adresse IP virtuelle publique du service de cloud.
 
-## <a name="determine-the-accessibility-of-the-listener"></a>Determine the accessibility of the listener
+## Déterminer l'accessibilité de l'écouteur
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-This article focuses on creating a listener that uses an **Internal Load Balancer (ILB)**. If you need an public/external listener, see the version of this article that provides steps for setting up an [external listener](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+Cet article se concentre sur la création d’un écouteur qui utilise un **équilibreur de charge interne**. Si vous avez besoin d’un écouteur public/externe, voir la version de cet article qui explique comment configurer un [écouteur externe](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Create load-balanced VM endpoints with direct server return
+## Créer des points de terminaison de machine virtuelle à charge équilibrée avec retour direct du serveur
 
-For ILB, you must first create the internal load balancer. This is done in the script below.
+Pour l'équilibrage de charge interne, vous devez commencer par créer le système d'équilibrage de charge interne. Pour ce faire, utilisez le script ci-dessous.
 
 [AZURE.INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
 
-1. For **ILB**, you should assign a static IP address. First, examine the current VNet configuration by running the following command:
+1. Vous devez affecter une adresse IP statique pour l’**équilibrage de charge interne**. Commencez par examiner la configuration du réseau virtuel actuel en exécutant la commande suivante :
 
-        (Get-AzureVNetConfig).XMLConfiguration
+		(Get-AzureVNetConfig).XMLConfiguration
 
-1. Note the **Subnet** name for the subnet that contains the VMs that host the replicas. This will be used in the **$SubnetName** parameter in the script.
+1. Notez le nom **Subnet** du sous-réseau qui contient les machines virtuelles qui hébergent les réplicas. Celui-ci sera utilisé dans le paramètre **$SubnetName** du script.
 
-1. Then note the **VirtualNetworkSite** name and the starting **AddressPrefix** for the subnet that contains the VMs that host the replicas. Look for an available IP Address by passing both values to the **Test-AzureStaticVNetIP** command and examining the **AvailableAddresses**. For example, if the VNet was named *MyVNet* and had a subnet address range that started at *172.16.0.128*, the following command would list available addresses:
+1. Notez ensuite le nom **VirtualNetworkSite** et la valeur **AddressPrefix** de début pour le sous-réseau qui contient les machines virtuelles qui hébergent les réplicas. Recherchez ensuite une adresse IP disponible en transférant les deux valeurs à la commande **Test-AzureStaticVNetIP** et en examinant la valeur **AvailableAddresses**. Par exemple, si le réseau virtuel est nommé *MyVNet* et a une plage d’adresses de sous-réseau démarrant avec *172.16.0.128*, la commande suivante répertorie les adresses disponibles :
 
-        (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
+		(Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 
-1. Choose one of the available addresses and use it in the **$ILBStaticIP** parameter of the following script.
+1. Choisissez l’une des adresses disponibles et utilisez-la dans le paramètre **$ILBStaticIP** du script suivant.
 
-3. Copy the PowerShell script below into a text editor and set the variable values to suit your environment (note that defaults have been provided for some parameters). Note that existing deployments that use affinity groups cannot add ILB. For more information on ILB requirements, see [Internal Load Balancer](../load-balancer/load-balancer-internal-overview.md). Also, if your availability group spans Azure regions, you must run the script once in each datacenter for the cloud service and nodes that reside in that datacenter.
+3. Copiez le script PowerShell ci-dessous dans un éditeur de texte et définissez des valeurs de variables adaptées à votre environnement (notez que des valeurs par défaut ont été affectées à certains paramètres). Notez que des déploiements existants qui utilisent des groupes d'affinités ne peuvent pas ajouter un équilibrage de charge interne. Pour plus d’informations sur les exigences liées à l’équilibreur de charge interne, consultez la rubrique [Équilibreur de charge interne](../load-balancer/load-balancer-internal-overview.md). Notez que, si votre groupe de disponibilité s'étend sur plusieurs régions Azure, vous devez exécuter le script une fois dans chaque centre de données pour le service cloud et les nœuds qui se trouvent dans ce centre de données.
 
-        # Define variables
-        $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
-        $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-        $SubnetName = "<MySubnetName>" # subnet name that the replicas use in the VNet
-        $ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
-        $ILBName = "AGListenerLB" # customize the ILB name or use this default value
+		# Define variables
+		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
+		$AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
+		$SubnetName = "<MySubnetName>" # subnet name that the replicas use in the VNet
+		$ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
+		$ILBName = "AGListenerLB" # customize the ILB name or use this default value
 
-        # Create the ILB
-        Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
+		# Create the ILB
+		Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
 
-        # Configure a load balanced endpoint for each node in $AGNodes using ILB
-        ForEach ($node in $AGNodes)
-        {
-            Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
-        }
+		# Configure a load balanced endpoint for each node in $AGNodes using ILB
+		ForEach ($node in $AGNodes)
+		{
+			Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
+		}
 
-1. Once you have set the variables, copy the script from the text editor into your Azure PowerShell session to run it. If the prompt still shows >>, type ENTER again to make sure the script starts running.Note
+1. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche >>, appuyez sur Entrée pour vous assurer que le script s'exécute. Remarque
 
->[AZURE.NOTE] The Azure classic portal does not support the Internal Load Balancer at this time, so you will not see either the ILB or the endpoints in the Azure classic portal. However, **Get-AzureEndpoint** returns an internal IP address if the Load Balancer is running on it. Otherwise, it returns null.
+>[AZURE.NOTE] Le portail Azure Classic ne prend pas en charge l’équilibreur de charge interne actuellement. Vous ne verrez donc pas l’équilibreur de charge interne ou les points de terminaison dans le portail Azure Classic. En revanche, **Get-AzureEndpoint** retourne une adresse IP interne si l’équilibrage de charge s’y exécute. Sinon, la valeur renvoyée est null.
 
-## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Verify that KB2854082 is installed if necessary
+## Vérifiez que KB2854082 est installé le cas échéant
 
 [AZURE.INCLUDE [kb2854082](../../includes/virtual-machines-ag-listener-kb2854082.md)]
 
-## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>Open the firewall ports in availability group nodes
+## Ouvrez les ports de pare-feu dans des nœuds de groupe de disponibilité
 
-[AZURE.INCLUDE [firewall](../../includes/virtual-machines-ag-listener-open-firewall.md)]
+[AZURE.INCLUDE [pare-feu](../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
-## <a name="create-the-availability-group-listener"></a>Create the availability group listener
+## Créer l'écouteur de groupe de disponibilité
 
-[AZURE.INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
+[AZURE.INCLUDE [pare-feu](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. For ILB, you must use the IP address of the Internal Load Balancer (ILB) created earlier. Use the following script to obtain this IP Address in PowerShell.
+1. Pour l'équilibrage de charge, vous devez utiliser l'adresse IP de l'équilibrage de charge interne créé précédemment. Utilisez le script suivant pour obtenir cette adresse IP dans PowerShell.
 
-        # Define variables
-        $ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
-        (Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
+		# Define variables
+		$ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
+		(Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
 
-1. On one of the VMs, copy the PowerShell script for your operating system into a text editor and set the variables to the values you noted earlier.
+1. Sur l’une des machines virtuelles, copiez le script PowerShell pour votre système d’exploitation dans un éditeur de texte, et définissez les variables sur les valeurs notées précédemment.
 
-    For Windows Server 2012 or higher use the following script:
+    Pour Windows Server 2012 ou version ultérieure, utilisez le script suivant :
 
-        # Define variables
-        $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP Address resource name
-        $ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
+		# Define variables
+		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
+		$ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
 
-        Import-Module FailoverClusters
+		Import-Module FailoverClusters
 
-        Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-        
-    For Windows Server 2008 R2 use the following script:
+	    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+		
+    Pour Windows Server 2008 R2, utilisez le script suivant :
 
-        # Define variables
-        $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP Address resource name
-        $ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
+		# Define variables
+		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
+		$ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
 
-        Import-Module FailoverClusters
+		Import-Module FailoverClusters
 
-        cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
-    
+		cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+	
 
-1. Once you have set the variables, open an elevated Windows PowerShell window, then copy the script from the text editor and paste into your Azure PowerShell session to run it. If the prompt still shows >>, type ENTER again to make sure the script starts running.
+1. Une fois les variables définies, ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, puis copiez le script de l'éditeur de texte et collez-le dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche >>, appuyez sur Entrée pour vous assurer que le script s'exécute.
 
-2. Repeat this on each VM. This script configures the IP Address resource with the IP address of the cloud service and sets other parameters like the probe port. When the IP Address resource is brought online, it can then respond to the polling on the probe port from the load-balanced endpoint created earlier in this tutorial.
+2. Répétez cette procédure sur chaque machine virtuelle. Ce script configure la ressource Adresse IP avec l'adresse IP du service cloud et définit d'autres paramètres, tels que le port de la sonde. Lorsque la ressource d'adresse IP est mise en ligne, elle peut ensuite répondre à l'interrogation sur le port de la sonde du point de terminaison à équilibrage de charge créé précédemment dans ce didacticiel.
 
-## <a name="bring-the-listener-online"></a>Bring the listener online
+## Mettre l'écouteur en ligne
 
 [AZURE.INCLUDE [Bring-Listener-Online](../../includes/virtual-machines-ag-listener-bring-online.md)]
 
-## <a name="follow-up-items"></a>Follow-up items
+## Éléments de suivi
 
 [AZURE.INCLUDE [Follow-up](../../includes/virtual-machines-ag-listener-follow-up.md)]
 
-## <a name="test-the-availability-group-listener-(within-the-same-vnet)"></a>Test the availability group listener (within the same VNet)
+## Tester l'écouteur du groupe de disponibilité (au sein du même réseau virtuel)
 
 [AZURE.INCLUDE [Test-Listener-Within-VNET](../../includes/virtual-machines-ag-listener-test.md)]
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

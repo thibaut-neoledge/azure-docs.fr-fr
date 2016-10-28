@@ -1,198 +1,193 @@
 <properties 
-    pageTitle="Kernels available with Jupyter notebooks on HDInsight Spark clusters on Linux| Microsoft Azure" 
-    description="Learn about the additional Jupyter notebook kernels available with Spark cluster on HDInsight Linux." 
-    services="hdinsight" 
-    documentationCenter="" 
-    authors="nitinme" 
-    manager="jhubbard" 
-    editor="cgronlun"
-    tags="azure-portal"/>
+	pageTitle="Noyaux disponibles avec les blocs-notes Jupyter sur des clusters HDInsight Spark sur Linux | Microsoft Azure" 
+	description="En savoir plus sur les noyaux de bloc-notes Jupyter supplémentaires disponibles avec le cluster Spark sur HDInsight Linux." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="jhubbard" 
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-    ms.service="hdinsight" 
-    ms.workload="big-data" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/05/2016" 
-    ms.author="nitinme"/>
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2016" 
+	ms.author="nitinme"/>
 
 
+# Noyaux disponibles pour les blocs-notes Jupyter avec les clusters Apache Spark sur HDInsight Linux
 
-# <a name="kernels-available-for-jupyter-notebooks-with-apache-spark-clusters-on-hdinsight-linux"></a>Kernels available for Jupyter notebooks with Apache Spark clusters on HDInsight Linux
+Le cluster Apache Spark sur HDInsight (Linux) comprend des blocs-notes Jupyter qui vous permettent de tester vos applications. Un noyau est un programme qui exécute et interprète votre code. Les clusters HDInsight Spark fournissent deux noyaux que vous pouvez utiliser avec le bloc-notes Jupyter. Ces étapes sont les suivantes :
 
-Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. A kernel is a program that runs and interprets your code. HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook. These are:
+1. **PySpark** (pour les applications écrites en Python)
+2. **Spark** (pour les applications écrites en Scala)
 
-1. **PySpark** (for applications written in Python)
-2. **Spark** (for applications written in Scala)
+Dans cet article, vous allez découvrir comment utiliser ces noyaux ainsi que leurs avantages.
 
-In this article, you will learn about how to use these kernels and what are the benefits you get from using them.
+**Configuration requise :**
 
-**Prerequisites:**
+Vous devez disposer des éléments suivants :
 
-You must have the following:
+- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+## Utilisation des noyaux 
 
-## <a name="how-do-i-use-the-kernels?"></a>How do I use the kernels? 
+1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
 
-1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
-2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
+	> [AZURE.NOTE] Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-    > [AZURE.NOTE] You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace __CLUSTERNAME__ with the name of your cluster:
-    >
-    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+2. Créez un nouveau bloc-notes avec les nouveaux noyaux. Cliquez sur **Nouveau**, puis sur **PySpark** ou **Spark**. Utilisez le noyau Spark pour les applications Scala et le noyau PySpark pour les applications Python.
 
-2. Create a new notebook with the new kernels. Click **New**, and then click **Pyspark** or **Spark**. You should use the Spark kernel for Scala applications and PySpark kernel for Python applications.
+	![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Créer un bloc-notes Jupyter")
 
-    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a new Jupyter notebook") 
+3. Un nouveau bloc-notes s’ouvre avec le noyau que vous avez sélectionné.
 
-3. This should open a new notebook with the kernel you selected.
+## Pourquoi utiliser les noyaux PySpark ou Spark ?
 
-## <a name="why-should-i-use-the-pyspark-or-spark-kernels?"></a>Why should I use the PySpark or Spark kernels?
+Voici quelques avantages de l’utilisation des nouveaux noyaux.
 
-Here are a few benefits of using the new kernels.
+1. **Contextes prédéfinis**. Avec les noyaux **PySpark** ou **Spark** fournis avec les blocs-notes Jupyter, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser l’application que vous développez ; ils sont disponibles par défaut. Ces contextes sont les suivants :
 
-1. **Preset contexts**. With the **PySpark** or **Spark** kernels that are provided with Jupyter notebooks, you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
-
-    * **sc** - for Spark context
-    * **sqlContext** - for Hive context
+	* **sc** : pour le contexte Spark
+	* **sqlContext** : pour le contexte Hive
 
 
-    So, you don't have to run statements like the following to set the contexts:
+	Par conséquent, vous n’avez pas à exécuter d’instructions telles que les suivantes pour définir les contextes :
 
-        ###################################################
-        # YOU DO NOT NEED TO RUN THIS WITH THE NEW KERNELS
-        ###################################################
-        sc = SparkContext('yarn-client')
-        sqlContext = HiveContext(sc)
+		###################################################
+		# YOU DO NOT NEED TO RUN THIS WITH THE NEW KERNELS
+		###################################################
+		sc = SparkContext('yarn-client')
+		sqlContext = HiveContext(sc)
 
-    Instead, you can directly use the preset contexts in your application.
-    
-2. **Cell magics**. The PySpark kernel provides some predefined “magics”, which are special commands that you can call with `%%` (e.g. `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, will cause an error.   For more information on magics, see [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+	En revanche, vous pouvez utiliser directement les contextes prédéfinis dans votre application.
+	
+2. **Commandes magiques de cellule**. Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec `%%` (par exemple, `%%MAGIC` <args>). La commande magique doit se trouver au tout début d’une cellule de code et autoriser plusieurs lignes de contenu. Le mot magic doit être le premier mot de la cellule. Ajouter quoi que ce soit avant la commande magique, même des commentaires, provoque une erreur. Pour plus d’informations sur les commandes magiques, cliquez [ici](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
 
-    The table below lists the different magics available through the kernels.
+	Le tableau ci-dessous répertorie les différentes commandes magiques disponibles par le biais des noyaux.
 
-  	| Magic     | Example                         | Description  |
-  	|-----------|---------------------------------|--------------|
-  	| help      | `%%help`                            | Generates a table of all the available magics with example and description |
-  	| info      | `%%info`                          | Outputs session information for the current Livy endpoint |
-  	| configure | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created and the session will be dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. |
-  	| sql       |  `%%sql -o <variable name>`<br> `SHOW TABLES`    | Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe.   |
-  	| local     |     `%%local`<br>`a=1`              | All the code in subsequent lines will be executed locally. Code must be valid Python code. |
-  	| logs      | `%%logs`                        | Outputs the logs for the current Livy session.  |
-  	| delete    | `%%delete -f -s <session number>` | Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
-  	| cleanup   | `%%cleanup -f`                    | Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory.  |
+	| Commande magique | Exemple | Description |
+	|-----------|---------------------------------|--------------|
+	| help | `%%help` | Génère une table de toutes les commandes magiques disponibles, accompagnées d’un exemple et d’une description |
+	| info | `%%info` | Génère des informations de session pour le point de terminaison Livy actuel |
+	| configurer | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configure les paramètres de création d’une session. L’indicateur de forçage (-f) est obligatoire si une session déjà créée doit être supprimée et recréée. Consultez la section [POST /sessions Request Body de Livy](https://github.com/cloudera/livy#request-body) pour obtenir la liste des paramètres valides. Les paramètres doivent être passés en tant que chaîne JSON et être spécifiés sur la ligne suivant la commande magique, comme indiqué dans l’exemple de colonne. |
+	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Exécute une requête Hive sur sqlContext. Si le paramètre `-o` est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que trame de données [Pandas](http://pandas.pydata.org/). |
+	| local | `%%local`<br>`a=1` | Tout le code dans les lignes suivantes est exécuté localement. Le code doit être du code Python valide. |
+	| journaux | `%%logs` | Génère les journaux de la session Livy en cours. |
+	| delete | `%%delete -f -s <session number>` | Supprime une session spécifique du point de terminaison Livy actuel. Notez que vous ne pouvez pas supprimer la session qui est lancée pour le noyau lui-même. |
+	| cleanup | `%%cleanup -f` | Supprime toutes les sessions pour le point de terminaison Livy actuel, y compris la session de ce bloc-notes. L’indicateur de forçage -f est obligatoire. |
 
-    >[AZURE.NOTE] In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode. 
+	>[AZURE.NOTE] Outre les commandes magiques ajoutées par le noyau PySpark, vous pouvez également utiliser les [commandes magiques IPython intégrées](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), notamment `%%sh`. Vous pouvez utiliser la commande magique `%%sh` pour exécuter des scripts et des blocs de code sur le nœud principal du cluster.
 
-3. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You have the option to choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
+3. **Visualisation automatique**. Le noyau **Pyspark** visualise automatiquement la sortie des requêtes Hive et SQL. Vous pouvez choisir entre plusieurs types de visualisations, notamment tableau, secteurs, courbes, aires et barres.
 
-## <a name="parameters-supported-with-the-%%sql-magic"></a>Parameters supported with the %%sql magic
+## Paramètres pris en charge avec la commande magique %%sql
 
-The %%sql magic supports different parameters that you can use to control the kind of output that you receive when you run queries. The following table lists the output.
+La commande magique %%sql prend en charge différents paramètres qui vous permettent de contrôler le type de sortie que vous recevez quand vous exécutez des requêtes. Le tableau suivant répertorie les paramètres de sortie.
 
-| Parameter     | Example                         | Description  |
+| Paramètre | Exemple | Description |
 |-----------|---------------------------------|--------------|
-| -o      | `-o <VARIABLE NAME>`                          | Use this parameter to persist the result of the query, in the %%local Python context, as a [Pandas](http://pandas.pydata.org/) dataframe. The name of the dataframe variable is the variable name you specify. |
-| -q      | `-q`                          | Use this to turn off visualizations for the cell. If you don't want to auto-visualize the content of a cell and just want to capture it as a dataframe, then use `-q -o <VARIABLE>`. If you want to turn off visualizations without capturing the results (e.g. for running a SQL query with side effects, like a `CREATE TABLE` statement), just use `-q` without specifying a `-o` argument. |
-| -m       |  `-m <METHOD>`    | Where **METHOD** is either **take** or **sample** (default is **take**). If the method is **take**, the kernel picks elements from the top of the result data set specified by MAXROWS (described later in this table). If the method is **sample**, the kernel will randomly sample elements of the data set according to `-r` parameter, described next in this table.   |
-| -r     |     `-r <FRACTION>`            | Here **FRACTION** is a floating-point number between 0.0 and 1.0. If the sample method for the SQL query is `sample`, then the kernel randomly samples the specified fraction of the elements of the result set for you; e.g. if you run a SQL query with the arguments `-m sample -r 0.01`, then 1% of the result rows will be randomly sampled. |
-| -n      | `-n <MAXROWS>`                        | **MAXROWS** is an integer value. The kernel will limit the number of output rows to **MAXROWS**. If **MAXROWS** is a negative number such as **-1**, then the number of rows in the result set will not be limited. |
+| -o | `-o <VARIABLE NAME>` | Utilisez ce paramètre pour conserver le résultat de la requête dans le contexte Python %%local en tant que trame de données [Pandas](http://pandas.pydata.org/). Le nom de la variable dataframe est le nom de variable que vous spécifiez. |
+| -q | `-q` | Utilisez ce paramètre pour désactiver les visualisations pour la cellule. Si vous ne voulez pas visualiser automatiquement le contenu d’une cellule et préférez simplement capturer le contenu comme une trame de données, utilisez `-q -o <VARIABLE>`. Si vous souhaitez désactiver les visualisations sans capturer les résultats (par exemple, pour exécuter une requête SQL avec effets secondaires, comme une instruction `CREATE TABLE`), utilisez `-q` sans spécifier d’argument `-o`. |
+| -m | `-m <METHOD>` | **METHOD** prend la valeur **take** ou **sample** (**take** est la valeur par défaut). Si la méthode est **take**, le noyau sélectionne des éléments à partir du haut du jeu de données de résultats spécifié par la valeur MAXROWS (décrite plus bas dans ce tableau). Si la méthode est **sample**, le noyau échantillonne de façon aléatoire les éléments du jeu de données en fonction du paramètre `-r` (décrit ci-après dans ce tableau). |
+| -r | `-r <FRACTION>` | Ici, **FRACTION** est un nombre à virgule flottante compris entre 0,0 et 1,0. Si l’exemple de méthode de la requête SQL est `sample`, le noyau échantillonne automatiquement, de façon aléatoire, la fraction spécifiée des éléments du jeu de résultats. Par exemple, si vous exécutez une requête SQL avec les arguments `-m sample -r 0.01`, 1 % des lignes de résultat sont échantillonnées aléatoirement. |
+| -n | `-n <MAXROWS>` | **MAXROWS** est une valeur entière. Le noyau limite le nombre de lignes de la sortie au nombre défini par **MAXROWS**. Si **MAXROWS** est un nombre négatif comme **-1**, le nombre de lignes dans le jeu de résultats n’est pas limité. |
 
-**Example:**
+**Exemple :**
 
-    %%sql -q -m sample -r 0.1 -n 500 -o query2 
-    SELECT * FROM hivesampletable
+	%%sql -q -m sample -r 0.1 -n 500 -o query2 
+	SELECT * FROM hivesampletable
 
-The statement above does the following:
+L’instruction ci-dessus effectue les actions suivantes :
 
-* Selects all records from **hivesampletable**.
-* Because we use -q, it turns off auto-visualization.
-* Because we use `-m sample -r 0.1 -n 500` it randomly samples 10% of the rows in the hivesampletable and limits the size of the result set to 500 rows.
-* Finally, because we used `-o query2` it also saves the output into a dataframe called **query2**.
-    
+* Elle sélectionne tous les enregistrements présents dans **hivesampletable**.
+* Comme nous utilisons le paramètre - q, elle désactive la visualisation automatique.
+* Comme nous utilisons `-m sample -r 0.1 -n 500`, elle échantillonne de façon aléatoire 10 % des lignes présentes dans hivesampletable et limite la taille du jeu de résultats à 500 lignes.
+* Enfin, comme nous avons utilisé `-o query2`, elle enregistre également la sortie dans une trame de données appelée **query2**.
+	
 
-## <a name="considerations-while-using-the-new-kernels"></a>Considerations while using the new kernels
+## Points à prendre en compte lors de l'utilisation des nouveaux noyaux
 
-Whichever kernel you use (PySpark or Spark), leaving the notebooks running will consume your cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the the cluster resources will continue to be in use. A good practice with the PySpark and Spark kernels would be to use the **Close and Halt** option from the notebook's **File** menu. This kills the context and then exits the notebook.    
-
-
-## <a name="show-me-some-examples"></a>Show me some examples
-
-When you open a Jupyter notebook, you will see two folders available at the root level.
-
-* The **PySpark** folder has sample notebooks that use the new **Python** kernel.
-* The **Scala** folder has sample notebooks that use the new **Spark** kernel.
-
-You can open the **00 - [READ ME FIRST] Spark Magic Kernel Features** notebook from the **PySpark** or **Spark** folder to learn about the different magics available. You can also use the other sample notebooks available under the two folders to learn how to achieve different scenarios using Jupyter notebooks with HDInsight Spark clusters.
-
-## <a name="where-are-the-notebooks-stored?"></a>Where are the notebooks stored?
-
-Jupyter notebooks are saved to the storage account associated with the cluster under the **/HdiNotebooks** folder.  Notebooks, text files, and folders that you create from within Jupyter will be accessible from WASB.  For example, if you use Jupyter to create a folder **myfolder** and a notebook **myfolder/mynotebook.ipynb**, you can access that notebook at `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`.  The reverse is also true, that is, if you upload a notebook directly to your storage account at `/HdiNotebooks/mynotebook1.ipynb`, the notebook will be visible from Jupyter as well.  Notebooks will remain in the storage account even after the cluster is deleted.
-
-The way notebooks are saved to the storage account is compatible with HDFS. So, if you SSH into the cluster you can use file management commands like the following:
-
-    hdfs dfs -ls /HdiNotebooks                            # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
-    hdfs dfs –copyToLocal /HdiNotebooks                 # Download the contents of the HdiNotebooks folder
-    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
+Quel que soit le noyau que vous utilisez (PySpark ou Spark), laisser les blocs-notes s’exécuter consomme vos ressources de cluster. Avec ces noyaux, les contextes étant prédéfinis, le simple fait de quitter les blocs-notes n’arrête pas le contexte. Par conséquent, les ressources du cluster restent en cours d'utilisation. Une bonne pratique avec les noyaux PySpark et Spark consiste à utiliser l’option **Fermer et arrêter** à partir du menu **Fichier** du bloc-notes. Cela supprime le contexte puis ferme le bloc-notes.
 
 
-In case there are issues accessing the storage account for the cluster, the notebooks are also saved on the headnode `/var/lib/jupyter`.
+## Voici quelques exemples :
 
-## <a name="supported-browser"></a>Supported browser
-Jupyter notebooks running against HDInsight Spark clusters are supported only on Google Chrome.
+Lorsque vous ouvrez un bloc-notes Jupyter, deux dossiers sont disponibles au niveau racine.
 
-## <a name="feedback"></a>Feedback
+* Le dossier **PySpark** contient des exemples de Notebooks qui utilisent le nouveau noyau **Python**.
+* Le dossier **Scala** comprend des exemples de blocs-notes qui utilisent le nouveau noyau **Spark**.
 
-The new kernels are in evolving stage and will mature over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This will be very useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Comments** section at the bottom of this article.
+Vous pouvez ouvrir le Notebook **00 - [READ ME FIRST] Spark Magic Kernel Features** à partir du dossier **PySpark** ou **Spark** pour en savoir plus sur les différentes commandes magiques disponibles. Vous pouvez également recourir aux autres exemples de blocs-notes disponibles sous les deux dossiers pour savoir comment utiliser concrètement des blocs-notes Jupyter avec des clusters HDInsight Spark.
 
+## Où sont stockés les blocs-notes ?
 
-## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
+Les Notebooks Jupyter sont enregistrés dans le compte de stockage associé au cluster, dans le dossier **/HdiNotebooks**. Les blocs-notes, les fichiers texte et les dossiers que vous créez dans Jupyter sont accessibles à partir de WASB. Par exemple, si vous utilisez Jupyter pour créer un dossier **myfolder** et un Notebook **myfolder/mynotebook.ipynb**, vous pouvez accéder à ce Notebook dans `wasbs:///HdiNotebooks/myfolder/mynotebook.ipynb`. L’inverse est également vrai : si vous chargez un Notebook directement dans votre compte de stockage dans `/HdiNotebooks/mynotebook1.ipynb`, le Notebook est également accessible à partir de Jupyter. Les blocs-notes sont conservés dans le compte de stockage même après la suppression du cluster.
 
+Les blocs-notes sont enregistrés dans le compte de stockage dans un mode compatible avec HDFS. Si vous utilisez SSH dans le cluster, vous pouvez donc exécuter des commandes de gestion des fichiers telles que celles qui suivent :
 
-* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
-
-### <a name="scenarios"></a>Scenarios
-
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
-
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
-
-* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>Create and run applications
-
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
-
-* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Tools and extensions
-
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
-
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
-
-* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>Manage resources
-
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
-
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
+	hdfs dfs -ls /HdiNotebooks             				  # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
+	hdfs dfs –copyToLocal /HdiNotebooks    				# Download the contents of the HdiNotebooks folder
+	hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
 
+En cas de problèmes d’accès au compte de stockage pour le cluster, les Notebooks sont également enregistrés sur le nœud principal `/var/lib/jupyter`.
 
-<!--HONumber=Oct16_HO2-->
+## Navigateur pris en charge
+Les blocs-notes Jupyter s’exécutant sur des clusters HDInsight Spark sont pris en charge uniquement sur Google Chrome.
+
+## Commentaires
+
+Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec le temps. Les API pourront également être amenés à évoluer au fur et à mesure des évolutions des noyaux. Nous aimerions recevoir vos commentaires concernant l'utilisation de ces nouveaux noyaux. Cela nous sera très utile pour préparer la version finale de ces noyaux. Vous pouvez laisser vos commentaires/remarques sous la section **Commentaires** en dessous de cet article.
 
 
+## <a name="seealso"></a>Voir aussi
+
+
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
+
+### Scénarios
+
+* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](hdinsight-apache-spark-use-bi-tools.md)
+
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+
+* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+
+* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-eventhub-streaming.md)
+
+* [Analyse des journaux de site web à l’aide de Spark dans HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+
+### Créer et exécuter des applications
+
+* [Créer une application autonome avec Scala](hdinsight-apache-spark-create-standalone-application.md)
+
+* [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
+
+### Outils et extensions
+
+* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
+* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+
+* [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
+### Gestion des ressources
+
+* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
+
+<!---HONumber=AcomDC_0914_2016-->

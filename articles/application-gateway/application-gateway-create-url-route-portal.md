@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a Path-based rule for an application gateway by using the portal | Microsoft Azure"
-   description="Learn how to create a Path-based rule for an application gateway by using the portal"
+   pageTitle="Créer une règle basée sur un chemin pour une passerelle Application Gateway à l’aide du portail | Microsoft Azure"
+   description="Découvrir comment créer une règle basée sur le chemin pour une passerelle Application Gateway à l’aide du portail"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -17,76 +17,71 @@
    ms.date="08/18/2016"
    ms.author="gwallace" />
 
-
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>Create a Path-based rule for an application gateway by using the portal
+# Créer une règle basée sur le chemin pour une passerelle Application Gateway à l’aide du portail
 
 > [AZURE.SELECTOR]
-- [Azure portal](application-gateway-create-url-route-portal.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
+- [Portail Azure](application-gateway-create-url-route-portal.md)
+- [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
 
-URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
+Le routage basé sur le chemin d’URL vous permet d’associer des itinéraires basés sur le chemin d’URL de la requête Http. Il vérifie s’il existe un itinéraire vers un pool principal configuré pour les listes d’URL dans la passerelle Application Gateway et envoie le trafic réseau vers le pool principal défini. Une utilisation courante du routage basé sur l’URL consiste à équilibrer la charge des demandes pour différents types de contenu entre différents pools de serveurs principaux.
 
-URL-based routing introduces a new rule type to application gateway. Application gateway has two rule types: basic and Path-Based rules. Basic rule type provides round-robin service for the back-end pools while Path-Based rules in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the backend pool.
+Le routage basé sur l’URL introduit un nouveau type de règle pour la passerelle Application Gateway. La passerelle Application Gateway comporte deux types de règle : une règle de base et des règles basées sur le chemin. Le type de règle de base fournit le service de tourniquet (round robin) pour les pools principaux alors que les règles basées sur le chemin, en plus de la distribution de tourniquet, prennent également en compte le modèle de chemin de l’URL de demande lors du choix du pool principal.
 
 
 
-## <a name="scenario"></a>Scenario
+## Scénario
 
-The following scenario goes through creating a Path-based rule in an existing application gateway.
-The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
+Le scénario suivant passe par la création d’une règle basée sur le chemin sur une passerelle Application Gateway existante. Le scénario suppose que vous avez déjà suivi la procédure de [Création d’une passerelle Application Gateway](application-gateway-create-gateway-portal.md).
 
-![url route][scenario]
+![itinéraire d’URL][scenario]
 
-## <a name="<a-name="createrule"></a>create-the-path-based-rule"></a><a name="createrule"></a>Create the Path-based rule
+## <a name="createrule"></a>Créer la règle basée sur le chemin
 
-A Path-based rule requires its own listener, before creating the rule be sure to verify you have an available listener to use.
+Une règle basée sur le chemin requiert son propre écouteur. Avant de créer la règle, vérifiez que vous disposez d’un écouteur.
 
-### <a name="step-1"></a>Step 1
+### Étape 1
 
-Navigate to http://portal.azure.com and select an existing application gateway. Click **Rules**
+Accédez au http://portal.azure.com et sélectionnez une passerelle d’application existante. Cliquer sur **Règles**
 
-![Application Gateway overview][1]
+![Vue d’ensemble d’Application Gateway][1]
 
-### <a name="step-2"></a>Step 2
+### Étape 2
 
-Click **Path-based** button to add a new Path-based rule.
+Cliquez sur le bouton **Basé sur le chemin** pour ajouter une nouvelle règle basée sur le chemin.
 
-### <a name="step-3"></a>Step 3
+### Étape 3 :
 
-The **Add path-based rule** blade has two sections. The first section is where you defined the listener, the name of the rule and the default path settings. The default path settings are for routes that do not fall under the custom path-based route. The second section of the **Add path-based rule** blade is where you define the path-based rules themselves.
+Le panneau **Add path-based rule (Ajouter une règle basée sur le chemin)** comporte deux sections. La première section est celle où vous avez défini l’écouteur, le nom de la règle et les paramètres de chemin par défaut. Les paramètres de chemin par défaut sont des itinéraires qui ne relèvent pas de l’itinéraire personnalisé basé sur le chemin. La deuxième section du panneau **Add path-based rule (Ajouter une règle basée sur le chemin)** est celle où vous définissez les règles basées sur le chemin elles-mêmes.
 
-**Basic Settings**
+**Paramètres de base**
 
-- **Name** - This is a friendly name to the rule that is accessible in the portal.
-- **Listener** - This is the listener that is used for the rule.
-- **Default backend pool** - This setting is the setting that defines the back-end to be used for the default rule
-- **Default HTTP settings** - This setting is the setting that defines the HTTP settings to be used for the default rule.
+- **Nom** - nom convivial de la règle accessible via le portail.
+- **Écouteur** - écouteur utilisé pour la règle.
+- **Default backend pool (Pool principal par défaut)** - pool principal à utiliser pour la règle par défaut.
+- **Default HTTP settings (Paramètres HTTP par défaut)** - paramètres HTTP à utiliser pour la règle par défaut.
 
-**Path-based rules**
+**Path-based rules (Règles basées sur le chemin)**
 
-- **Name** - This is a friendly name to path-based rule.
-- **Paths** - This setting defines the path the rule will look for when forwarding traffic
-- **Backend Pool** - This setting is the setting that defines the back-end to be used for the rule
-- **HTTP setting** - This setting is the setting that defines the HTTP settings to be used for the rule.
+- **Nom** - nom convivial de la règle basée sur le chemin.
+- **Chemins d’accès** - chemin d’accès que la règle va rechercher pour transférer le trafic.
+- **Pool principal** - pool principal à utiliser pour la règle.
+- **Paramètre HTTP** - paramètres HTTP à utiliser pour la règle.
 
->[AZURE.IMPORTANT] Paths: The list of path patterns to match. Each must start with / and the only place a "\*" is allowed is at the end. Valid examples are /xyz, /xyz* or /xyz/*.  
+>[AZURE.IMPORTANT] Chemins d’accès : liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par le signe / et le seul endroit où un astérisque "\*" est autorisé est à la fin. /xyz, /xyz* ou /xyz/* sont des exemples valides.
 
-![Add path-based rule blade with information filled out][2]
+![Ajouter un panneau Règle basée sur le chemin contenant toutes les informations][2]
 
-Adding a path-based rule to an existing application gateway is an easy process through the portal. Once a path-based rule has been created, it can be edited to add additional rules easily. 
+L’ajout d’une règle basée sur le chemin à une passerelle Application Gateway existante est un processus simple via le portail. Une fois qu’une règle basée sur le chemin a été créée, elle peut être modifiée pour ajouter facilement des règles supplémentaires.
 
-![adding additional path-based rules][3]
+![ajouter des règles supplémentaires basés sur le chemin][3]
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](application-gateway-ssl-portal.md)
+Pour découvrir comment configurer le déchargement SSL avec la passerelle Azure Application Gateway, consultez [Configuration du déchargement SSL](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-url-route-portal/figure1.png
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png
 [3]: ./media/application-gateway-create-url-route-portal/figure3.png
 [scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0824_2016-->

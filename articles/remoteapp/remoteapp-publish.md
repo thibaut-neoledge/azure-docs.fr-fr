@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Publish an app in Azure RemoteApp | Microsoft Azure"
-    description="Learn how to publish applications and resources in Azure RemoteApp."
+    pageTitle="Publier une application dans Azure RemoteApp | Microsoft Azure"
+    description="Découvrez comment publier des applications et des ressources dans Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -16,28 +16,24 @@
     ms.author="elizapo" />
 
 
-
-# <a name="how-to-publish-an-app-in-remoteapp"></a>How to publish an app in RemoteApp
+# Publication d'une application dans RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
-After you create your RemoteApp collection, you need to publish the apps or resources that you want to make available for your users. The template images provided with your subscription only have a few apps published by default - to share the other apps, you need to publish them.
+Après avoir créé votre collection RemoteApp, vous devez publier les applications ou les ressources que vous souhaitez rendre disponibles pour vos utilisateurs. Les images de modèle fournies avec votre abonnement ne contiennent que certaines applications publiées par défaut. Pour partager d’autres applications, vous devez les publier.
 
-> [AZURE.NOTE] Do you need to update an app? You'll need to [update the image](remoteapp-update.md) first.
+> [AZURE.NOTE] Vous devez mettre à jour une application ? Il vous faut d’abord [mettre à jour l’image](remoteapp-update.md).
 
-On the **Publishing** tab in the portal, click **Publish**. You can either add an app from your template image's **Start** menu or provide the path to where the app is installed on the template image. If you choose to add from the **Start** menu, choose the app to publish from the list. If you choose to provide the path to the app, enter a name for the app and the path to the app. Use variables in the path - for example, "%systemdrive%" instead of "c:\".
+Sous l'onglet **Publication** du portail, cliquez sur **Publier**. Vous pouvez ajouter une application à partir du menu **Démarrer** de votre image de modèle ou indiquer le chemin d'accès de son répertoire d'installation dans l'image de modèle. Si vous choisissez d’ajouter une application à partir du menu **Démarrer**, sélectionnez l’application à publier dans la liste. Si vous choisissez d'indiquer le chemin d'accès à l'application, entrez un nom pour l'application et son chemin d'accès. Utilisez des variables dans le chemin d'accès, par exemple, « %lecteur\_système% » au lieu de « c: ».
 
-> [AZURE.NOTE] If you want to add your app from the **Start** menu, you need to have *added that app to the **Start** menu on your template image.* Otherwise, RemoteApp will only see what *is* on the **Start** menu, and you will be confused. 
+> [AZURE.NOTE] Si vous voulez ajouter votre application à partir du menu **Démarrer**, vous devez avoir *ajouté cette application au menu **Démarrer** sur votre image de modèle.* Sinon, RemoteApp ne voit que ce qui *figure* dans le menu **Démarrer** et cela peut prêter à confusion.
 
->To make sure your app is in the **Start** menu, place a shortcut file - **.lnk** - inside the %systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs folder.
+>Pour vous assurer que votre application figure dans le menu **Démarrer**, placez un fichier de raccourci **.lnk** dans le dossier %systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs.
 
-> If you forgot to add the app to the **Start** menu when you created the template, choose to add the path to the app. (Or recreate your template image, but that's quite a bit more work.)
+> Si vous avez oublié d'ajouter l'application au menu **Démarrer** au moment de la création du modèle, choisissez d'ajouter le chemin d'accès à l'application. (Ou recréez votre image de modèle, mais c'est un peu plus de travail.)
 
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

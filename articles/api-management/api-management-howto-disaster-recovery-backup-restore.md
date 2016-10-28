@@ -1,185 +1,184 @@
 <properties 
-    pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management | Microsoft Azure" 
-    description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." 
-    services="api-management" 
-    documentationCenter="" 
-    authors="steved0x" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Comment implémenter une récupération d’urgence à l’aide d’une sauvegarde de service et la récupérer dans Gestion des API Azure | Microsoft Azure" 
+	description="Apprenez à utiliser la sauvegarde et la restauration pour effectuer une récupération d'urgence dans Gestion des API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="api-management" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/25/2016" 
-    ms.author="sdanie"/>
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>
 
+# Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
-# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>How to implement disaster recovery using service backup and restore in Azure API Management
+En choisissant de publier et de gérer vos API via la Gestion des API Azure, vous bénéficiez de nombreuses fonctionnalités de tolérance de panne et d'infrastructure que vous auriez à concevoir, implémenter et gérer sans ce service. La plateforme Azure permet de limiter une grande partie des risques de défaillance à moindres frais.
 
-By choosing to publish and manage your APIs via Azure API Management you are taking advantage of many fault tolerance and infrastructure capabilities that you would otherwise have to design, implement, and manage. The Azure platform mitigates a large fraction of potential failures at a fraction of the cost.
+Pour récupérer à la suite de problèmes de disponibilité affectant la région où votre service Gestion des API est hébergé, vous devez être prêt à reconstituer votre service dans une autre région à tout moment. En fonction de vos objectifs de disponibilité et de temps de récupération, vous pouvez réserver un service de sauvegarde dans une ou plusieurs régions et tenter de maintenir la synchronisation de leur configuration et de leur contenu avec le service actif. La fonctionnalité de sauvegarde et de récupération de service fournit le bloc de construction nécessaire pour implémenter votre stratégie de récupération d'urgence.
 
-To recover from availability problems affecting the region where your API Management service is hosted you should be ready to reconstitute your service in a different region at any time. Depending on your availability goals and recovery time objective  you might want to reserve a backup service in one or more regions and try to maintain their configuration and content in sync with the active service. The service backup and restore feature provides the necessary building block for implementing your disaster recovery strategy.
+Ce guide montre comment authentifier des demandes Azure Resource Manager et comment sauvegarder et restaurer vos instances de service de gestion des API.
 
-This guide shows how to authenticate Azure Resource Manager requests, and how to backup and restore your API Management service instances.
-
->[AZURE.NOTE] The process for backing up and restoring an API Management service instance for disaster recovery can also be used for replicating API Management service instances for scenarios such as staging.
+>[AZURE.NOTE] Le processus de sauvegarde et de restauration d'une instance de service de gestion des API pour la récupération d'urgence permet également de répliquer les instances de service de gestion des API dans les scénarios intermédiaires.
 >
->Note that each backup expires after 7 days. If you attempt to restore a backup after the 7 day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
+>À noter que chaque sauvegarde expire au bout de 7 jours. Si vous essayez de restaurer une sauvegarde après l'expiration de la période de 7 jours, la restauration échoue avec un message `Cannot restore: backup expired`.
 
-## <a name="authenticating-azure-resource-manager-requests"></a>Authenticating Azure Resource Manager requests
+## Demandes d'authentification Azure Resource Manager
 
->[AZURE.IMPORTANT] The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+>[AZURE.IMPORTANT] L'API REST pour la sauvegarde et la restauration utilise Azure Resource Manager et dispose d'un autre mécanisme d'authentification que pour les API REST pour la gestion de vos entités de gestion des API. Les étapes de cette section décrivent comment authentifier les requêtes Azure Resource Manager. Pour plus d’informations, consultez [Demandes d'authentification Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
-All of the tasks that you do on resources using the Azure Resource Manager must be authenticated with Azure Active Directory using the following steps.
+Toutes les tâches que vous effectuez sur les ressources à l'aide d’Azure Resource Manager doivent être authentifiées avec Azure Active Directory en procédant comme suit.
 
--   Add an application to the Azure Active Directory tenant.
--   Set permissions for the application that you added.
--   Get the token for authenticating requests to Azure Resource Manager.
+-	Ajoutez une application au locataire Azure Active Directory.
+-	Définissez les autorisations pour l'application que vous avez ajoutée.
+-	Obtenez le jeton d'authentification des demandes pour Azure Resource Manager.
 
-The first step is to create an Azure Active Directory application. Log into the [Azure Classic Portal](http://manage.windowsazure.com/) using the subscription that contains your API Management service instance and navigate to the **Applications** tab for your default Azure Active Directory.
+La première étape consiste à créer une application Azure Active Directory. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) à l’aide de l’abonnement qui contient votre instance de service Gestion des API et accédez à l’onglet **Applications** pour votre annuaire Azure Active Directory par défaut.
 
->[AZURE.NOTE] If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see [Locate your default directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE] Si le répertoire par défaut de Azure Active Directory n'est pas visible sur votre compte, contactez l'administrateur de l'abonnement Azure pour accorder les autorisations requises de votre compte. Pour plus d’informations sur l’emplacement de votre annuaire par défaut, consultez [Localiser votre annuaire par défaut](../virtual-machines/resource-group-create-work-id-from-persona.md#locate-your-default-directory-in-the-azure-portal).
 
-![Create Azure Active Directory application][api-management-add-aad-application]
+![Création d’une application Azure Active Directory][api-management-add-aad-application]
 
-Click **Add**, **Add an application my organization is developing**, and choose **Native client application**. Enter a descriptive name, and click the next arrow. Enter a placeholder URL such as `http://resources` for the **Redirect URI**, as it is a required field, but the value is not used later. Click the check box to save the application.
+Cliquez sur **Ajouter**, **Ajouter une application développée par mon organisation**, puis choisissez **Application cliente native**. Saisissez un nom descriptif puis cliquez sur la flèche Suivant. Entrez une URL d'espace réservé telle que `http://resources` pour l’**URI de redirection**, étant donné qu’il s’agit d’un champ obligatoire, mais la valeur ne sera pas utilisée par la suite. Cliquez sur la case à cocher pour enregistrer l'application.
 
-Once the application is saved, click **Configure**, scroll down to the **permissions to other applications** section, and click **Add application**.
+Une fois l’application enregistrée, cliquez sur **Configurer**, faites défiler la page vers le bas jusqu’à la section **Autorisations à d’autres applications** et cliquez sur **Ajouter une application**.
 
-![Add permissions][api-management-aad-permissions-add]
+![Ajout d’autorisations][api-management-aad-permissions-add]
 
-Select **Windows** **Azure Service Management API** and click the checkbox to add the application.
+Sélectionnez **Windows** **API de gestion des services Azure** et cliquez sur la case à cocher pour ajouter l'application.
 
-![Add permissions][api-management-aad-permissions]
+![Ajout d’autorisations][api-management-aad-permissions]
 
-Click **Delegated Permissions** beside the newly added **Windows** **Azure Service Management API** application, check the box for **Access Azure Service Management (preview)**, and click **Save**.
+Cliquez sur **Autorisations déléguées** à côté de la nouvelle application **Windows**, **API de gestion des services Azure**, cochez la case **Accès à la gestion des services Azure (aperçu)**, puis cliquez sur **Enregistrer**.
 
-![Add permissions][api-management-aad-delegated-permissions]
+![Ajout d’autorisations][api-management-aad-delegated-permissions]
 
-Prior to invoking the APIs that generate the backup and restore it, it is necessary to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) nuget package to retrieve the token.
+Avant d'appeler les API qui génèrent la sauvegarde et permettent la restauration, il est nécessaire obtenir un jeton. L'exemple suivant utilise le package nuget [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) pour récupérer le jeton.
 
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
+	using Microsoft.IdentityModel.Clients.ActiveDirectory;
+	using System;
 
-    namespace GetTokenResourceManagerRequests
-    {
+	namespace GetTokenResourceManagerRequests
+	{
         class Program
-        {
-            static void Main(string[] args)
-            {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+	    {
+	        static void Main(string[] args)
+	        {
+	            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+	            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-                if (result == null) {
-                    throw new InvalidOperationException("Failed to obtain the JWT token");
-                }
+	            if (result == null) {
+	                throw new InvalidOperationException("Failed to obtain the JWT token");
+	            }
 
-                Console.WriteLine(result.AccessToken);
+	            Console.WriteLine(result.AccessToken);
 
-                Console.ReadLine();
-            }
-        }
-    }
+	            Console.ReadLine();
+	        }
+    	}
+	}
 
-Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the following instructions.
+Remplacez `{tentand id}`, `{application id}`, et `{redirect uri}` en suivant les instructions suivantes.
 
-Replace `{tenant id}` with the tenant id of the Azure Active Directory application you just created. You can access the id by clicking **View endpoints**.
+Remplacez `{tenant id}` avec l'ID client de l'application Azure Active Directory que vous venez de créer. Vous pouvez accéder à l'ID en cliquant sur **Afficher les points de terminaison**.
 
-![Endpoints][api-management-aad-default-directory]
+![Points de terminaison][api-management-aad-default-directory]
 
-![Endpoints][api-management-endpoint]
+![Points de terminaison][api-management-endpoint]
 
-Replace `{application id}` and `{redirect uri}` using the **Client Id** and  the URL from the **Redirect Uris** section from your Azure Active Directory application's **Configure** tab. 
+Remplacez `{application id}` et `{redirect uri}` à l'aide de l’**ID Client** et l'URL de la section des **URI de redirection** à partir de l’onglet **Configurer** de votre application Azure Active Directory.
 
-![Resources][api-management-aad-resources]
+![Ressources][api-management-aad-resources]
 
-Once the values are specified, the code example should return a token similar to the following example.
+Une fois que les valeurs sont spécifiées, l'exemple de code doit renvoyer un jeton similaire à l'exemple suivant.
 
-![Token][api-management-arm-token]
+![Jeton][api-management-arm-token]
 
-Before calling the backup and restore operations described in the following sections, set the authorization request header for your REST call.
+Avant d'appeler les opérations de sauvegarde et de restauration décrites dans les sections suivantes, définissez l'en-tête de demande d'autorisation de votre appel REST.
 
-    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+	request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 
-## <a name="<a-name="step1">-</a>backup-an-api-management-service"></a><a name="step1"> </a>Backup an API Management service
-To backup an API Management service issue the following HTTP request:
+## <a name="step1"> </a>Sauvegarde d’un service Gestion des API
+Pour sauvegarder un service Gestion des API, envoyez la demande HTTP suivante :
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
 
-where:
+où :
 
-* `subscriptionId` - id of the subscription containing the API Management service you are attempting to backup
-* `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are trying to backup is hosted, e.g. `North-Central-US`
-* `serviceName` - the name of the API Management service you are making a backup of specified at the time of its creation
-* `api-version` - replace  with `2014-02-14`
+* `subscriptionId` : ID de l’abonnement qui inclut le service Gestion des API que vous tentez de sauvegarder
+* `resourceGroupName` : chaîne au format « Api-Default-{service-region} », où `service-region` identifie la région Azure où est hébergé le service Gestion des API que vous tentez de sauvegarder ; par exemple `North-Central-US`
+* `serviceName` : nom du service Gestion des API que vous tentez de sauvegarder, spécifié au moment de sa création
+* `api-version` : remplacez par `2014-02-14`
 
-In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
+Dans le corps de la demande, spécifiez le nom du compte de stockage Azure cible, la clé d’accès, le nom du conteneur d’objets blob et le nom de la sauvegarde :
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+	'{  
+	    storageAccount : {storage account name for the backup},  
+	    accessKey : {access key for the account},  
+	    containerName : {backup container name},  
+	    backupName : {backup blob name}  
+	}'
 
-Set the value of the `Content-Type` request header to `application/json`.
+Définissez la valeur de l’en-tête de la demande `Content-Type` sur `application/json`.
 
-Backup is a long running operation that may take multiple minutes to complete.  If the request was successful and the backup process was initiated you’ll receive a `202 Accepted` response status code with a `Location` header.  Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress you will continue to receive a '202 Accepted' status code. A Response code of `200 OK` will indicate successful completion of the backup operation.
+La sauvegarde est une opération de longue durée qui peut prendre plusieurs minutes. Si la demande a réussi et que le processus de sauvegarde a été lancé, vous recevez un code d’état de réponse `202 Accepted` avec un en-tête `Location`. Envoyez des demandes « GET » à l’URL dans l’en-tête `Location` pour connaître l’état de l’opération. Lorsque la sauvegarde est en cours, vous continuez à recevoir le code d'état « 202 Accepted ». Un code de réponse `200 OK` indique que l’opération de sauvegarde a réussi.
 
-**Note**:
+**Remarque** :
 
-- **Container** specified in the request body **must exist**.
-* While backup is in progress you **should not attempt any service management operations** such as SKU upgrade or downgrade, domain name change, etc. 
-* Restore of a **backup is guaranteed only for 7 days** since the moment of its creation. 
-* **Usage data** used for creating analytics reports **is not included** in the backup. Use [Azure API Management REST API][] to periodically retrieve analytics reports for safekeeping.
-* The frequency with which you perform service backups will affect your recovery point objective. To minimize it we advise implementing regular backups as well as performing on-demand backups after making important changes to your API Management service.
-* **Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while backup operation is in process **might not be included in the backup and therefore will be lost**.
+- Le **conteneur** spécifié dans le corps de la demande **doit exister**.
+* Lorsque la sauvegarde est en cours, **vous ne devez tenter aucune opération de gestion des services** telle que la mise à niveau vers une version supérieure/antérieure, la modification d'un nom de domaine, etc.
+* La récupération d'une **sauvegarde n'est garantie que pendant 7 jours** à partir du moment de sa création.
+* Les **données d'utilisation** utilisées pour la création des rapports d'analyse **ne sont pas incluses** dans la sauvegarde. Utilisez l'[API REST de Gestion des API Azure][] pour récupérer régulièrement les rapports d'analyse et les conserver en toute sécurité.
+* La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Afin de le réduire au maximum, nous vous conseillons d'implémenter des sauvegardes régulières, ainsi que des sauvegardes à la demande lorsque vous apportez des modifications importantes à votre service Gestion des API.
+* Les **modifications** de la configuration du service (par ex., API, stratégies, apparence du portail des développeurs) pendant qu'une opération de sauvegarde est en cours **peuvent ne pas être incluses dans la sauvegarde et donc être perdues**.
 
-## <a name="<a-name="step2">-</a>restore-an-api-management-service"></a><a name="step2"> </a>Restore an API Management service
-To restore an API Management service from a previously created backup make the following HTTP request:
+## <a name="step2"> </a>Récupération d’un service Gestion des API
+Pour récupérer un service Gestion des API à partir d'une sauvegarde précédemment créée, envoyez la demande HTTP suivante :
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
 
-where:
+où :
 
-* `subscriptionId` - id of the subscription containing the API Management service you are restoring a backup into
-* `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are restoring a backup into is hosted, e.g. `North-Central-US`
-* `serviceName` - the name of the API Management service being restored into specified at the time of its creation
-* `api-version` - replace  with `2014-02-14`
+* `subscriptionId` : ID de l’abonnement qui inclut le service Gestion des API que vous tentez de récupérer à partir d’une sauvegarde
+* `resourceGroupName` : chaîne au format « Api-Default-{service-region} », où `service-region` identifie la région Azure où est hébergé le service Gestion des API que vous tentez de récupérer à partir d’une sauvegarde ; par exemple `North-Central-US`
+* `serviceName` : nom du service Gestion des API à récupérer, spécifié au moment de sa création
+* `api-version` : remplacez par `2014-02-14`
 
-In the body of the request, specify the backup file location, i.e. Azure storage account name, access key, blob container name, and backup name:
+Dans le corps de la demande, spécifiez l’emplacement du fichier de sauvegarde (c’est-à-dire le nom du compte de stockage Azure), la clé d’accès, le nom du conteneur d’objets blob et le nom de la sauvegarde :
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+	'{  
+	    storageAccount : {storage account name for the backup},  
+	    accessKey : {access key for the account},  
+	    containerName : {backup container name},  
+	    backupName : {backup blob name}  
+	}'
 
-Set the value of the `Content-Type` request header to `application/json`.
+Définissez la valeur de l’en-tête de la demande `Content-Type` sur `application/json`.
 
-Restore is a long running operation that may take up to 30 or more minutes to complete.  If the request was successful and the restore process was initiated you’ll receive a `202 Accepted` response status code with a `Location` header.  Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress you will continue to receive '202 Accepted' status code. A response code of `200 OK` will indicate successful completion of the restore operation.
+La récupération est une opération de longue durée qui peut prendre jusqu'à 30 minutes, voire plus. Si la demande a réussi et que le processus de récupération a été lancé, vous recevez un code d’état de réponse `202 Accepted` avec un en-tête `Location`. Envoyez des demandes « GET » à l’URL dans l’en-tête `Location` pour connaître l’état de l’opération. Lorsque la récupération est en cours, vous continuez à recevoir le code d'état « 202 Accepted ». Un code de réponse `200 OK` indique que l’opération de récupération a réussi.
 
->[AZURE.IMPORTANT] **The SKU** of the service being restored into **must match** the SKU of the backed up service being restored.
+>[AZURE.IMPORTANT] Le **SKU** du service à restaurer **doit correspondre** à celui du service sauvegardé utilisé pour la restauration.
 >
->**Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
+>Les **modifications** de configuration du service (par ex., API, stratégies, apparence du portail des développeurs) pendant qu'une opération de sauvegarde est en cours **peuvent être écrasées**.
 
-## <a name="next-steps"></a>Next steps
-Check out the following Microsoft blogs for two different walkthroughs of the backup/restore process.
+## Étapes suivantes
+Consultez les blogs Microsoft suivants pour les deux procédures pas à pas différent du processus de sauvegarde et de restauration.
 
--   [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
-    -   Thank you to Gisela for her contribution to this article.
--   [Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-    -   The approach detailed by Stuart does not match the official guidance but it is very interesting.
+-	[Répliquer des comptes de gestion des API Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
+	-	Merci à Gisela pour sa contribution à cet article.
+-	[Gestion des API Azure : sauvegarde et restauration de la configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+	-	L'approche détaillée par Stuart ne correspond pas à l'aide officielle mais est très intéressante.
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
 
-[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[API REST de Gestion des API Azure]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 
@@ -192,8 +191,4 @@ Check out the following Microsoft blogs for two different walkthroughs of the ba
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

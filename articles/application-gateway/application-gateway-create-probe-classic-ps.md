@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a custom probe for Application Gateway by using PowerShell in the classic deployment model | Microsoft Azure"
-   description="Learn how to create a custom probe for Application Gateway by using PowerShell in the classic deployment model"
+   pageTitle="Créer une sonde personnalisée pour Application Gateway en utilisant PowerShell dans le modèle de déploiement classique | Microsoft Azure"
+   description="Apprendre à créer une sonde personnalisée pour Application Gateway en utilisant PowerShell dans le modèle de déploiement classique"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -17,67 +17,66 @@
    ms.date="08/09/2016"
    ms.author="gwallace" />
 
-
-# <a name="create-a-custom-probe-for-azure-application-gateway-(classic)-by-using-powershell"></a>Create a custom probe for Azure Application Gateway (classic) by using PowerShell
+# Créer une sonde personnalisée pour Azure Application Gateway (classique) en utilisant PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](application-gateway-create-probe-portal.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+- [Portail Azure](application-gateway-create-probe-portal.md)
+- [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
 - [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 <BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](application-gateway-create-probe-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](application-gateway-create-probe-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-## <a name="create-a-application-gateway"></a>Create a application gateway
+## Créer une passerelle Application Gateway
 
-To create an application gateway:
+Pour créer une passerelle d’application :
 
-1. Create an application gateway resource.
-2. Create a configuration XML file or a configuration object.
-3. Commit the configuration to the newly created application gateway resource.
+1. Créez une ressource de passerelle d’application.
+2. Créez un fichier XML de configuration ou un objet de configuration.
+3. Validez la configuration dans la ressource de passerelle d’application nouvellement créée.
 
-### <a name="create-an-application-gateway-resource"></a>Create an application gateway resource
+### Créer une ressource de passerelle d’application
 
-To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+Pour créer la passerelle, utilisez l’applet de commande **New-AzureApplicationGateway** en remplaçant les valeurs par les vôtres. La facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
-The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
+L’exemple suivant illustre la création d’une nouvelle passerelle d’application avec un réseau virtuel appelé « testvnet1 » et un sous-réseau appelé « subnet-1 ».
 
-    New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
+Pour vérifier que la passerelle a bien été créée, vous pouvez utiliser l’applet de commande **Get-AzureApplicationGateway**.
 
-    Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
->[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium, and Large.
+>[AZURE.NOTE]  La valeur par défaut du paramètre *InstanceCount* est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous avez le choix entre Small, Medium et Large.
 
- *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
+ Les paramètres *VirtualIPs* et *DnsName* sont sans valeur, car la passerelle n’a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
 
-## <a name="configure-an-application-gateway"></a>Configure an application gateway
+## Configurer une passerelle d’application
 
-You can configure the application gateway by using XML or a configuration object.
+Vous pouvez configurer la passerelle d’application à l’aide d’un objet de configuration ou de XML.
 
-## <a name="configure-an-application-gateway-by-using-xml"></a>Configure an application gateway by using XML
+## Configurer une passerelle d’application à l’aide de XML
 
-In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
+Dans l’exemple ci-dessous, vous allez utiliser un fichier XML pour configurer tous les paramètres de la passerelle d’application et les valider dans la ressource de passerelle d’application.
 
-### <a name="step-1"></a>Step 1
+### Étape 1 :
 
-Copy the following text to Notepad.
+Copiez le texte suivant dans le Bloc-notes.
 
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
         <FrontendIPConfiguration>
             <Name>fip1</Name>
             <Type>Private</Type>
         </FrontendIPConfiguration>
     </FrontendIPConfigurations>    
-    <FrontendPorts>
+	<FrontendPorts>
         <FrontendPort>
             <Name>port1</Name>
             <Port>80</Port>
@@ -99,7 +98,7 @@ Copy the following text to Notepad.
             <Name>pool1</Name>
             <IPAddresses>
                 <IPAddress>1.1.1.1</IPAddress>
-                <IPAddress>2.2.2.2</IPAddress>
+				<IPAddress>2.2.2.2</IPAddress>
             </IPAddresses>
         </BackendAddressPool>
     </BackendAddressPools>
@@ -117,7 +116,7 @@ Copy the following text to Notepad.
         <HttpListener>
             <Name>listener1</Name>
             <FrontendIP>fip1</FrontendIP>
-        <FrontendPort>port1</FrontendPort>
+	    <FrontendPort>port1</FrontendPort>
             <Protocol>Http</Protocol>
         </HttpListener>
     </HttpListeners>
@@ -130,44 +129,44 @@ Copy the following text to Notepad.
             <BackendAddressPool>pool1</BackendAddressPool>
         </HttpLoadBalancingRule>
     </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
+	</ApplicationGatewayConfiguration>
 
 
-Edit the values between the parentheses for the configuration items. Save the file with extension .xml.
+Modifiez les valeurs entre parenthèses pour les éléments de configuration. Enregistrez le fichier avec l’extension .xml.
 
-The following example shows how to use a configuration file to set up the application gateway, to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses by using a custom probe.
+L’exemple suivant montre comment utiliser un fichier de configuration pour configurer la passerelle d’application en vue d’équilibrer la charge du trafic HTTP sur le port public 80 et d’orienter le trafic réseau vers le port 80 principal entre deux adresses IP en utilisant une sonde personnalisée.
 
->[AZURE.IMPORTANT] The protocol item Http or Https is case-sensitive.
+>[AZURE.IMPORTANT] L’élément de protocole Http ou Https est sensible à la casse.
 
-A new configuration item <Probe> is added to configure custom probes.
+Un nouvel élément de configuration <Probe> est ajouté pour configurer les sondes personnalisées.
 
-The configuration parameters are:
+Les paramètres de configuration sont :
 
-- **Name** - Reference name for custom probe.
-- **Protocol** - Protocol used (possible values are HTTP or HTTPS).
-- **Host** and **Path** - Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.
-- **Interval** - Configures the probe interval checks in seconds.
-- **Timeout** - Defines the probe time-out for an HTTP response check.
-- **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
+- **Nom** : nom de référence de la sonde personnalisée.
+- **Protocole** : protocole utilisé (les valeurs possibles sont HTTP ou HTTPS).
+- **Hôte** et **Chemin** : chemin complet de l’URL qui est appelé par la passerelle d’application pour déterminer l’intégrité de l’instance. Par exemple : avec un site web http://contoso.com/, la sonde personnalisée peut être configurée pour « http://contoso.com/path/custompath.htm » afin que les contrôles de sonde renvoient une réponse HTTP réussie.
+- **Intervalle** : configure les vérifications d’intervalle de sonde en secondes.
+- **Délai d’expiration** : définit le délai d’expiration d’un contrôle de réponse HTTP.
+- **Seuil de défaillance sur le plan de l’intégrité** : le nombre d’échecs de réponses HTTP nécessaires pour marquer l’instance de serveur principal comme *défectueuse*.
 
-The probe name is referenced in the <BackendHttpSettings> configuration to assign which back-end pool uses custom probe settings.
+Le nom de la sonde est référencé dans la configuration <BackendHttpSettings> pour affecter le pool principal qui va utiliser les paramètres de sonde personnalisée.
 
-## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Add a custom probe configuration to an existing application gateway
+## Ajouter une configuration de sonde personnalisée à une passerelle d’application existante
 
-Changing the current configuration of an application gateway requires three steps: Get the current XML configuration file, modify to have a custom probe, and configure the application gateway with the new XML settings.
+La modification de la configuration actuelle d’une passerelle d’application se fait en trois étapes : obtenez le fichier de configuration XML actuel, modifiez-le de façon à avoir une sonde personnalisée et configurez la passerelle d’application avec les nouveaux paramètres XML.
 
-### <a name="step-1"></a>Step 1
+### Étape 1 :
 
-Get the XML file by using get-AzureApplicationGatewayConfig. This exports the configuration XML to be modified to add a probe setting.
+Accédez au fichier XML à l’aide de get-AzureApplicationGatewayConfig. Le fichier XML de configuration est alors exporté pour être modifié de façon à y ajouter un paramètre de sonde.
 
-    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
-### <a name="step-2"></a>Step 2
+### Étape 2 :
 
-Open the XML file in a text editor. Add a `<probe>` section after `<frontendport>`.
+Ouvrez le fichier XML dans un éditeur de texte. Ajoutez une section `<probe>` après `<frontendport>`.
 
-    <Probes>
+	<Probes>
         <Probe>
             <Name>Probe01</Name>
             <Protocol>Http</Protocol>
@@ -179,7 +178,7 @@ Open the XML file in a text editor. Add a `<probe>` section after `<frontendport
         </Probe>
     </Probes>
 
-In the backendHttpSettings section of the XML, add the probe name as shown in the following example:
+Dans la section backendHttpSettings du fichier XML, ajoutez le nom de la sonde comme dans l’exemple suivant :
 
         <BackendHttpSettings>
             <Name>setting1</Name>
@@ -190,23 +189,19 @@ In the backendHttpSettings section of the XML, add the probe name as shown in th
             <Probe>Probe01</Probe>
         </BackendHttpSettings>
 
-Save the XML file.
+Enregistrez le fichier XML.
 
-### <a name="step-3"></a>Step 3
+### Étape 3
 
-Update the application gateway configuration with the new XML file by using **Set-AzureApplicationGatewayConfig**. This updates your application gateway with the new configuration.
+Mettez à jour la configuration de la passerelle d’application à partir du nouveau fichier XML en utilisant **Set-AzureApplicationGatewayConfig**. Cette opération permettra de mettre à jour votre passerelle d’application avec cette nouvelle configuration.
 
-    Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
-
-
-## <a name="next-steps"></a>Next steps
-
-If you want to configure Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
-
-If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
+## Étapes suivantes
 
-<!--HONumber=Oct16_HO2-->
+Si vous voulez configurer le déchargement SSL (Secure Sockets Layer), consultez [Configuration d’une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
 
+Si vous voulez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
 
+<!---HONumber=AcomDC_0907_2016-->

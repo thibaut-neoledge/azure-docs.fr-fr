@@ -1,74 +1,69 @@
 <properties
-    pageTitle="Overriding default HTTP behavior in Azure CDN using the rules engine | Microsoft Azure"
-    description="The rules engine allows you to customize how HTTP requests are handled by Azure CDN, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Remplacement du comportement HTTP par défaut dans Azure CDN à l’aide du moteur de règles | Microsoft Azure"
+	description="Le moteur de règles vous permet de personnaliser la manière dont Azure CDN gère les requêtes HTTP, telles que le blocage de la remise de certains types de contenu, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
 
-
-# <a name="override-default-http-behavior-using-the-rules-engine"></a>Override default HTTP behavior using the rules engine
+# Remplacement du comportement HTTP par défaut à l'aide du moteur de règles
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Overview
+## Vue d'ensemble
 
-The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers.  This tutorial will demonstrate creating a rule that will change the caching behavior of CDN assets.  There's also video content available in the "[See also](#see-also)" section.
+Le moteur de règles vous permet de personnaliser comment sont gérées les requêtes HTTP, telles que le blocage de la remise de certains types de contenu, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP. Ce didacticiel présente la création d’une règle qui modifie le comportement de mise en cache des ressources CDN. Du contenu vidéo est aussi disponible dans la section « [Voir aussi](#see-also) ».
 
-## <a name="tutorial"></a>Tutorial
+## Didacticiel
 
-1. From the CDN profile blade, click the **Manage** button.
+1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer**.
 
-    ![CDN profile blade manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
+	![Bouton de gestion du panneau de profil CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
 
-    The CDN management portal opens.
+	Le portail de gestion CDN s'ouvre.
 
-2. Click on the **HTTP Large** tab, followed by **Rules Engine**.
+2. Cliquez sur l'onglet **HTTP volumineux**, puis **Moteur de règles**.
 
-    Options for a new rule are displayed.
+	Les options d'une nouvelle règle s'affichent.
 
-    ![CDN new rule options](./media/cdn-rules-engine/cdn-new-rule.png)
+	![Options de nouvelle règle CDN](./media/cdn-rules-engine/cdn-new-rule.png)
 
-    >[AZURE.IMPORTANT] The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
-    
-3. Enter a name in the **Name / Description** textbox.
+	>[AZURE.IMPORTANT] L'ordre dans lequel plusieurs règles sont répertoriées affecte la façon dont elles sont gérées. Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure.
+	
+3. Entrez un nom dans la zone de texte **Nom / Description**.
 
-4. Identify the type of requests the rule will apply to.  By default, the **Always** match condition is selected.  You'll use **Always** for this tutorial, so leave that selected.
+4. Identifiez le type de requêtes auxquelles la règle s'applique. Par défaut, la condition de correspondance **Toujours** est sélectionnée. Pour ce didacticiel, vous allez utiliser **Toujours**, donc conservez cette option.
 
-    ![CDN match condition](./media/cdn-rules-engine/cdn-request-type.png)
+	![Condition de correspondance CDN](./media/cdn-rules-engine/cdn-request-type.png)
 
-    >[AZURE.TIP] There are many types of match conditions available in the dropdown.  Clicking on the blue informational icon to the left of the match condition will explain the currently selected condition in detail.
-    >
-    >For the full list of match conditions in detail, see [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0).
+	>[AZURE.TIP] Il existe de nombreux types de condition de correspondance disponibles dans la liste déroulante. Cliquez sur l'icône d'information bleue à gauche de la condition de correspondance pour obtenir une explication détaillée de la condition sélectionnée.
+	>
+	>Pour obtenir la liste complète des conditions de correspondance, consultez [Informations sur les fonctionnalités et conditions de correspondance du moteur de règles](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0).
 
-5.  Click the **+** button next to **Features** to add a new feature.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**.  Leave the remaining default values.
+5.  Cliquez sur le bouton **+** en regard de **Fonctionnalités** pour ajouter une fonctionnalité. Dans la liste déroulante située à gauche, sélectionnez **Forcer l'âge maximal interne**. Dans la zone de texte qui s'affiche, entrez **300**. Conservez les valeurs par défaut restantes.
 
-    ![CDN feature](./media/cdn-rules-engine/cdn-new-feature.png)
+	![Fonctionnalité CDN](./media/cdn-rules-engine/cdn-new-feature.png)
 
-    >[AZURE.NOTE] As with match conditions, clicking the blue informational icon to the left of the new feature will display details about this feature.  In the case of **Force Internal Max-Age**, we are overriding the asset's **Cache-Control** and **Expires** headers to control when the CDN edge node will refresh the asset from the origin.  Our example of 300 seconds means the CDN edge node will cache the asset for 5 minutes before refreshing the asset from its origin.
-    >
-    >For the full list of features in detail, see [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1).
+	>[AZURE.NOTE] Comme avec les conditions de correspondance, en cliquez sur l'icône d'information bleue à gauche de la nouvelle fonctionnalité pour obtenir plus d'informations sur cette fonctionnalité. Dans le cas de **Forcer l'âge maximal interne**, nous remplaçons les en-têtes **Cache-Control** et **Expires** de la ressource, afin de contrôler quand le nœud de périmètre CDN actualise la ressource à partir de l'origine. Notre exemple de 300 secondes signifie que le nœud de périmètre CDN met la ressource en cache pendant 5 minutes avant l'actualisation de la ressource à partir de son origine.
+	>
+	>Pour obtenir la liste complète des fonctionnalités, consultez [Informations sur les fonctionnalités et conditions de correspondance du moteur de règles](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1).
 
-6.  Click the **Add** button to save the new rule.  The new rule is now awaiting approval. Once it has been approved, the status will change from **Pending XML** to **Active XML**.
+6.  Cliquez sur le bouton **Ajouter** pour enregistrer la nouvelle règle. La nouvelle règle est en attente d'approbation. Une fois qu'elle a été approuvée, l'état passe de **XML en attente** à **XML actif**.
 
-    >[AZURE.IMPORTANT] Rules changes may take up to 90 minutes to propagate through the CDN.
+	>[AZURE.IMPORTANT] Les modifications de règles peuvent prendre jusqu’à 90 minutes avant d’être propagées à travers le CDN.
 
-## <a name="see-also"></a>See also
-* [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
-* [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx)
+## Voir aussi
+* [Azure Friday : les nouvelles fonctionnalités Premium puissantes du CDN Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vidéo)
+* [Informations sur les fonctionnalités et conditions de correspondance du moteur de règles](https://msdn.microsoft.com/library/mt757336.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

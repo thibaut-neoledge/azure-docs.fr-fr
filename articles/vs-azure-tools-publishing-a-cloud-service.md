@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Publishing a Cloud Service using the Azure Tools | Microsoft Azure"
-   description="Learn about how to publish Azure cloud service projects by using Visual Studio."
+   pageTitle="Publication d’un service cloud à l’aide des outils Azure | Microsoft Azure"
+   description="Découvrez comment publier des projets de service cloud Azure à l'aide de Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,167 +15,162 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Publication d’un service cloud à l’aide des outils Azure
 
-# <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Publishing a Cloud Service using the Azure Tools
+Grâce aux outils Azure pour Microsoft Visual Studio, vous pouvez publier votre application Microsoft Azure directement depuis Visual Studio. Visual Studio prend en charge la publication intégrée dans l'environnement intermédiaire ou l'environnement de production d'un service cloud.
 
-By using the Azure Tools for Microsoft Visual Studio, you can publish your Azure application directly from Visual Studio. Visual Studio supports integrated publishing to either the Staging or the Production environment of a cloud service.
+Avant de pouvoir publier une application Azure, vous devez disposer d’un abonnement Azure. Vous devez également configurer un service cloud et un compte de stockage utilisable par votre application. Vous pouvez les définir dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-Before you can publish an Azure application, you must have an Azure subscription. You must also set up a cloud service and storage account to be used by your application. You can set these up at the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+>[AZURE.IMPORTANT] Lorsque vous publiez, vous pouvez sélectionner l'environnement de déploiement pour votre service cloud. Vous devez également sélectionner un compte de stockage permettant de stocker le package de l'application pour le déploiement. Après le déploiement, le package de l’application est supprimé du compte de stockage.
 
->[AZURE.IMPORTANT] When you publish, you can select the deployment environment for your cloud service. You must also select a storage account that is used to store the application package for deployment. After deployment, the application package is removed from the storage account.
+Lorsque vous développez et testez une application Azure, vous pouvez utiliser Web Deploy pour publier des modifications de façon incrémentielle pour vos rôles web. Une fois que vous publiez votre application dans un environnement de déploiement, Web Deploy vous permet de déployer des modifications directement sur la machine virtuelle qui exécute le rôle web. Il est inutile de créer un package et de publier votre application Azure complète chaque fois que vous souhaitez mettre à jour votre rôle web pour tester les modifications. Avec cette approche, vos modifications de rôle web sont disponibles dans le cloud et vous pouvez donc les tester sans attendre que votre application soit publiée dans un environnement de déploiement.
 
-When you are developing and testing an Azure application, you can use Web Deploy to publish changes incrementally for your web roles. After you publish your application to a deployment environment, Web Deploy lets you deploy changes directly to the virtual machine that is running the web role. You do not have to package and publish your entire Azure application each time you want to update your web role to test out the changes. With this approach you can have your web role changes available in the cloud for testing without waiting to have your application published to a deployment environment.
+Utilisez les procédures suivantes pour publier votre application Azure et mettre à jour un rôle web à l'aide de Web Deploy :
 
-Use the following procedures to publish your Azure application and to update a web role by using Web Deploy:
+- Publier ou créer un package d'une application Azure à partir de Visual Studio
 
-- Publish or Package an Azure application from Visual Studio
+- Mettre à jour un rôle web dans le cadre du cycle de test et de développement
 
-- Update a web role as part of the development and testing cycle
+## Publier ou créer un package d'une application Azure à partir de Visual Studio
 
-## <a name="publish-or-package-an-azure-application-from-visual-studio"></a>Publish or Package an Azure Application from Visual Studio
+Lorsque vous publiez votre application Azure, vous pouvez effectuer l'une des tâches suivantes :
 
-When you publish your Azure application, you can do one of the following tasks:
+- Créer un package de services : vous pouvez utiliser ce package et le fichier de configuration de service pour publier votre application dans un environnement de déploiement à partir du [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-- Create a service package: You can use this package and the service configuration file to publish your application to a deployment environment from the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+- Publier votre projet Azure à partir de Visual Studio : pour publier votre application directement dans Azure, vous utilisez l'Assistant Publication. Pour plus d’informations, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-- Publish your Azure project from Visual Studio: To publish your application directly to Azure, you use the Publish Wizard. For information, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
+### Pour créer un package de services à partir de Visual Studio
 
-### <a name="to-create-a-service-package-from-visual-studio"></a>To create a service package from Visual Studio
+1. Lorsque vous êtes prêt à publier votre application, ouvrez l'Explorateur de solutions, ouvrez le menu contextuel du projet Azure qui contient vos rôles, puis choisissez Publier.
 
-1. When you are ready to publish your application, open Solution Explorer, open the shortcut menu for the Azure project that contains your roles, and choose Publish.
+1. Pour créer un package de services uniquement, procédez comme suit :
 
-1. To create a service package only, follow these steps:  
+  1. Dans le menu contextuel du projet Azure, choisissez **Package**.
 
-  1. On the shortcut menu for the Azure project, choose **Package**.
+  1. Dans la boîte de dialogue **Package Azure Application**, choisissez la configuration du service pour lequel vous souhaitez créer un package, puis la configuration de la version.
 
-  1. In the **Package Azure Application** dialog box, choose the service configuration for which you want to create a package, and then choose the build configuration.
+  1. (facultatif) Pour activer Bureau à distance pour le service cloud après sa publication, activez la case à cocher **Activer le Bureau à distance pour tous les rôles**, puis sélectionnez **Paramètres** pour configurer Bureau à distance. Si vous souhaitez déboguer votre service cloud après sa publication, activez le débogage à distance en sélectionnant **Activer le débogueur distant pour tous les rôles**.
 
-  1. (optional) To turn on Remote Desktop for the cloud service after you publish it, select the **Enable Remote Desktop for all Roles** check box, and then select **Settings** to configure Remote Desktop. If you want to debug your cloud service after you publish it, turn on remote debugging by selecting **Enable Remote Debugger for all Roles**.
+      Pour plus d’informations, consultez [Utilisation du Bureau à distance avec des rôles Azure](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
 
-      For more information, see [Using Remote Desktop with Azure Roles](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
+  1. Pour créer le package, choisissez le lien **Package**.
 
-  1. To create the package, choose the **Package** link.
+      L’Explorateur de fichiers indique l'emplacement du package nouvellement créé. Vous pouvez copier cet emplacement afin de l’utiliser à partir du [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-      File Explorer shows the file location of the newly created package. You can copy this location so that you can use it from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+  1. Pour publier ce package dans un environnement de déploiement, vous devez utiliser cet emplacement comme emplacement du package lorsque vous créez un service cloud et déployez ce package dans un environnement avec le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-  1. To publish this package to a deployment environment, you must use this location as the Package location when you create a cloud service and deploy this package to an environment with the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. (Facultatif) Pour annuler le processus de déploiement, dans le menu contextuel de cette ligne dans le journal d'activité, choisissez **Annuler et supprimer**. Cela arrête le processus de déploiement et supprime l'environnement de déploiement d'Azure.
 
-1. (Optional) To cancel the deployment process, on the shortcut menu for the line item in the activity log, choose **Cancel and remove**. This stops the deployment process and deletes the deployment environment from Azure.
+    >[AZURE.NOTE] Pour supprimer cet environnement de déploiement après son déploiement, vous devez utiliser le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-    >[AZURE.NOTE] To remove this deployment environment after it has been deployed, you must use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. (Facultatif) Une fois vos instances de rôle démarrées, Visual Studio affiche automatiquement l'environnement de déploiement dans le nœud **Services cloud** de l'Explorateur de serveurs. À partir de là, vous pouvez voir l'état de chaque instance de rôle. Consultez [Gestion des ressources Azure avec Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). L'illustration suivante montre les instances de rôle toujours à l'état d'initialisation :
 
-1. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Cloud Services** node in Server Explorer. From here you can see the status of the individual role instances. See [Managing Azure resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md).The following illustration shows the role instances while they are still in the Initializing state:
+    ![VST\_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
 
-    ![VST_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
+## Mettre à jour un rôle web dans le cadre du cycle de test et de développement
 
-## <a name="update-a-web-role-as-part-of-the-development-and-testing-cycle"></a>Update a Web Role as Part of the Development and Testing Cycle
+Si l'infrastructure principale de votre application est stable, mais que les rôles web ont besoin d’une mise à jour plus fréquente, vous pouvez utiliser Web Deploy pour mettre à jour un seul rôle web dans votre projet. Cette méthode est pratique lorsque vous ne souhaitez pas recréer et redéployer les rôles de travail principaux, ou si vous avez plusieurs rôles web et souhaitez mettre à jour uniquement un des rôles web.
 
-If your app’s backend infrastructure is stable, but the web roles need more frequent updating, you can use Web Deploy to update only a web role in your project. This is handy when you don’t want to rebuild and redeploy the backend worker roles, or if you have multiple web roles and you want to update only one of the web roles.
+### Configuration requise
 
-### <a name="requirements"></a>Requirements
+Voici la configuration requise pour utiliser Web Deploy afin de mettre à jour votre rôle web :
 
-Here are the requirements to use Web Deploy to update your web role:
+- **À des fins de développement et de test uniquement :** les modifications sont apportées directement à la machine virtuelle sur laquelle le rôle web est en cours d'exécution. Si cette machine virtuelle doit être recyclée, les modifications sont perdues car le package d'origine que vous avez publié sert à recréer la machine virtuelle pour le rôle. Vous devez republier votre application afin d’obtenir les dernières modifications pour le rôle web.
 
-- **For development and testing purposes only:** The changes are made directly to the virtual machine where the web role is running. If this virtual machine has to be recycled, the changes are lost because the original package that you published is used to recreate the virtual machine for the role. You must republish your application to get the latest changes for the web role.
+- **Seuls les rôles web peuvent être mis à jour :** les rôles de travail ne peuvent pas être mis à jour. En outre, vous ne pouvez pas mettre à jour RoleEntryPoint dans web role.cs.
 
-- **Only web roles can be updated:** Worker roles can’t be updated. In addition, you can’t update the RoleEntryPoint in web role.cs.
+- **Peut prendre en charge une seule instance d'un rôle web :** vous ne pouvez pas avoir plusieurs instances d'un rôle web dans votre environnement de déploiement. Toutefois, plusieurs rôles web, chacun avec une seule instance, sont pris en charge.
 
-- **Can only support a single instance of a web role:** You can’t have multiple instances of any web role in your deployment environment. However, multiple web roles each with only one instance are supported.
+- **Vous devez activer les connexions Bureau à distance :** cela est nécessaire afin que le Web Deploy puisse utiliser le nom d'utilisateur et le mot de passe pour se connecter à la machine virtuelle pour déployer les modifications sur le serveur qui exécute Internet Information Services (IIS). En outre, vous devrez peut-être vous connecter à la machine virtuelle pour ajouter un certificat approuvé à IIS sur cette machine virtuelle. (La connexion à distance pour IIS utilisée par Web Deploy est ainsi sécurisée).
 
-- **You must enable remote desktop connections:** This is required so that Web Deploy can use the user and password to connect to the virtual machine to deploy the changes to the server that’s running Internet Information Services (IIS). In addition, you might need to connect to the virtual machine to add a trusted certificate to IIS on this virtual machine. (This ensures that the remote connection for IIS that is used by Web Deploy is secure.)
+La procédure suivante suppose que vous utilisez l’Assistant **Publication d’application Azure**.
 
-The following procedure assumes that you are using the **Publish Azure Application** wizard.
+### Pour activer Web Deploy lorsque vous publiez votre application
 
-### <a name="to-enable-web-deploy-when-you-publish-your-application"></a>To Enable Web Deploy When You Publish Your Application
+1. Afin d’activer la case à cocher **Activer Web Deploy** pour tous les rôles web, vous devez d'abord configurer les connexions Bureau à distance. Sélectionnez **Activer le Bureau à distance** pour tous les rôles, puis fournissez les informations d'identification qui seront utilisées pour se connecter à distance dans le champ **Configuration Bureau à distance** qui apparaît. Consultez [Utilisation du Bureau à distance avec des rôles Azure](vs-azure-tools-remote-desktop-roles.md) pour plus d’informations.
 
-1. To enable the **Enable Web Deploy** for all web roles check box, you must first configure remote desktop connections. Select **Enable Remote Desktop** for all roles and then supply the credentials that will be used to connect remotely in the **Remote Desktop Configuration** box that appears. See [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md) for more information.
+1. Afin d’activer Web Deploy pour tous les rôles web dans votre application web, sélectionnez **Activer Web Deploy pour tous les rôles web**.
 
-1. To enable Web Deploy for all the web roles in your application, select **Enable Web Deploy for all web roles**.
+    Un triangle d'avertissement jaune s'affiche. Web Deploy utilise par défaut un certificat non fiable et auto-signé, ce qui n'est pas recommandé pour télécharger des données sensibles. Si vous devez sécuriser ce processus pour des données sensibles, vous pouvez ajouter un certificat SSL à utiliser pour les connexions Web Deploy. Ce certificat doit être un certificat approuvé. Pour savoir comment procéder, consultez la section **Pour sécuriser Web Deploy** plus loin dans cette rubrique.
 
-    A yellow warning triangle appears. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add a SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate. For information about how to do this, see the section **To Make Web Deploy Secure** later in this topic.
+1. Choisissez **Suivant** pour afficher l’écran **Résumé**, puis **Publier** pour déployer le service cloud.
 
-1. Choose **Next** to show the **Summary** screen, and then choose **Publish** to deploy the cloud service.
+    Le service cloud est publié. La machine virtuelle créée comporte des connexions à distance activées pour IIS, de sorte que Web Deploy peut être utilisé pour mettre à jour vos rôles web sans les republier.
 
-    The cloud service is published. The virtual machine that is created has remote connections enabled for IIS so that Web Deploy can be used to update your web roles without republishing them.
+    >[AZURE.NOTE] Si vous avez plusieurs instances configurées pour un rôle web, un message d'avertissement s'affiche, indiquant que chaque rôle web sera limité à une seule instance dans le package créé pour publier votre application. Sélectionnez **OK** pour continuer. Comme indiqué dans la section Configuration requise, vous pouvez avoir plusieurs rôles web, mais une seule instance de chaque rôle.
 
-    >[AZURE.NOTE] If you have more than one instance configured for a web role, a warning message appears, stating that each web role will be limited to one instance only in the package that’s created to publish your application. Select **OK** to continue. As stated in the Requirements section, you can have more than one web role but only one instance of each role.
+### Pour mettre à jour votre rôle web à l'aide de Web Deploy
 
-### <a name="to-update-your-web-role-by-using-web-deploy"></a>To Update Your Web Role by Using Web Deploy
+1. Pour utiliser Web Deploy, apportez des modifications au code du projet pour un des rôles web de Visual Studio que vous souhaitez publier, puis cliquez sur ce nœud de projet dans votre solution et pointez sur **Publier**. La boîte de dialogue **Publier le site Web** s’affiche.
 
-1. To use Web Deploy, make code changes to the project for any of your web roles in Visual Studio that you want to publish, and then right-click this project node in your solution and point to **Publish**. The **Publish Web** dialog box appears.
+1. (Facultatif) Si vous avez ajouté un certificat SSL approuvé à utiliser pour les connexions à distance pour IIS, vous pouvez désactiver la case à cocher **Autoriser les certificats non approuvés**. Pour plus d’informations sur l’ajout d’un certificat afin de sécuriser Web Deploy, consultez la section **Pour sécuriser Web Deploy** plus loin dans cette rubrique.
 
-1. (Optional) If you added a trusted SSL certificate to use for remote connections for IIS, you can clear the **Allow untrusted certificate** check box. For information about how to add a certificate to make Web Deploy secure, see the section **To Make Web Deploy Secure** later in this topic.
+1. Pour utiliser Web Deploy, le mécanisme de publication a besoin du nom d'utilisateur et du mot de passe que vous définissez pour votre connexion Bureau à distance lors de la publication initiale du package.
 
-1. To use Web Deploy, the publish mechanism needs the user name and password that you set up for your remote desktop connection when you first published the package.
+  1. Dans **Nom d’utilisateur**, entrez le nom d’utilisateur.
 
-  1. In **User name**, enter the user name.
+  1. Dans **Mot de passe**, entrez le mot de passe.
 
-  1. In **Password**, enter the password.
+  1. (Facultatif) Si vous souhaitez enregistrer ce mot de passe de ce profil, choisissez **Enregistrer le mot de passe**.
 
-  1. (Optional) If you want to save this password in this profile, choose **Save password**.
+1. Pour publier les modifications apportées à votre rôle web, choisissez **Publier**.
 
-1. To publish the changes to your web role, choose **Publish**.
+    La ligne d'état indique que la **publication a démarré**. Une fois la publication terminée, un message indique que la **publication a réussi**. Les modifications ont maintenant été déployées sur le rôle web de votre machine virtuelle. Vous pouvez désormais démarrer votre application Azure dans l'environnement Azure pour tester vos modifications.
 
-    The status line displays **Publish started**. When the publishing has completed, **Publish succeeded** appears. The changes have now been deployed to the web role on your virtual machine. Now you can start your Azure application in the Azure environment to test your changes.
+### Pour sécuriser Web Deploy
 
-### <a name="to-make-web-deploy-secure"></a>To Make Web Deploy Secure
+1. Web Deploy utilise par défaut un certificat non fiable et auto-signé, ce qui n'est pas recommandé pour télécharger des données sensibles. Si vous devez sécuriser ce processus pour des données sensibles, vous pouvez ajouter un certificat SSL à utiliser pour les connexions Web Deploy. Ce certificat doit être un certificat approuvé, que vous obtenez auprès d'une autorité de certification (CA).
 
-1. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add a SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate, which you obtain from a certificate authority (CA).
+    Afin de sécuriser Web Deploy pour chaque machine virtuelle et chacun de vos rôles web, vous devez télécharger le certificat de confiance que vous souhaitez utiliser pour le déploiement web vers le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Cela permet de s'assurer que le certificat est ajouté à la machine virtuelle créée pour le rôle web lorsque vous publiez votre application.
 
-    To make Web Deploy secure for each virtual machine for each of your web roles, you must upload the trusted certificate that you want to use for web deploy to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). This makes sure that the certificate is added to the virtual machine that is created for the web role when you publish your application.
+1. Pour ajouter un certificat SSL approuvé à IIS afin d'utiliser des connexions à distance, procédez comme suit :
 
-1. To add a trusted SSL certificate to IIS to use for remote connections, follow these steps:
+  1. Pour vous connecter à la machine virtuelle qui exécute le rôle web, sélectionnez l’instance du rôle web dans **Cloud Explorer** ou **Explorateur de serveurs**, puis choisissez la commande **Connexion à l’aide du Bureau à distance**. Pour obtenir la procédure détaillée de connexion à la machine virtuelle, consultez [Utilisation du Bureau à distance avec des rôles Azure](vs-azure-tools-remote-desktop-roles.md).
 
-  1. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
+      Votre navigateur vous invitera à télécharger un fichier RDP.
 
-      Your browser will prompt you to download an .RDP file.
+  1. Pour ajouter un certificat SSL, ouvrez le service de gestion dans le Gestionnaire des services IIS. Dans le Gestionnaire des services IIS, activez SSL en ouvrant le lien **Liaisons** dans le volet **Action**. La boîte de dialogue **Ajouter la liaison de Site** s'affiche. Choisissez **Ajouter**, puis sélectionnez HTTPS dans la liste déroulante **Type**. Dans la liste **Certificat SSL**, sélectionnez le certificat SSL signé par une autorité de certification et que vous avez téléchargé sur le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885). Pour plus d'informations, consultez [Configurer des paramètres de connexion pour le service de gestion](http://go.microsoft.com/fwlink/?LinkId=215824).
 
-  1. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** dropdown list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
+      >[AZURE.NOTE] Si vous ajoutez un certificat SSL approuvé, le triangle d'avertissement jaune n'apparaît plus dans l’**Assistant Publication**.
 
-      >[AZURE.NOTE] If you add a trusted SSL certificate, the yellow warning triangle no longer appears in the **Publish Wizard**.
+## Inclure des fichiers dans le package de services
 
-## <a name="include-files-in-the-service-package"></a>Include Files in the Service Package
+Vous devrez peut-être inclure des fichiers spécifiques dans votre package de services afin qu'ils soient disponibles sur la machine virtuelle créée pour un rôle. Par exemple, vous pouvez ajouter à votre package de services un fichier .exe ou .msi utilisé par un script de démarrage. Ou vous devrez peut-être ajouter un assembly nécessaire à un projet de rôle web ou de travail. Pour inclure des fichiers, vous devez les ajouter à la solution pour votre application Azure.
 
-You might need to include specific files in your service package so that they are available on the virtual machine that is created for a role. For example, you might want to add an .exe or an .msi file that is used by a startup script to your service package. Or you might need to add an assembly that a web role or worker role project requires. To include files they must be added to the solution for your Azure application.
+### Pour inclure des fichiers dans le package de services
 
-### <a name="to-include-files-in-the-service-package"></a>To include files in the service package
+1. Pour ajouter un assembly à un package de services, procédez comme suit :
 
-1. To add an assembly to a service package, use the following steps:
+  1. Dans **l'Explorateur de solutions**, ouvrez le nœud de projet pour le projet auquel il manque l'assembly référencé.
 
-  1. In **Solution Explorer** open the project node for the project that is missing the referenced assembly.
+  1. Pour ajouter l'assembly au projet, ouvrez le menu contextuel du dossier **Références**, puis choisissez **Ajouter une référence**. La boîte de dialogue Ajouter une référence s'affiche.
 
-  1. To add the assembly to the project, open the shortcut menu for the **References** folder and then choose **Add Reference**. The Add Reference dialog appears.
+  1. Choisissez la référence que vous souhaitez ajouter, puis cliquez sur le bouton **OK**.
 
-  1. Choose the reference that you want to add and then choose the **OK** button.
+      La référence est ajoutée à la liste sous le dossier **Références**.
 
-      The reference is added to the list under the **References** folder.
+  1. Ouvrez le menu contextuel pour l'assembly que vous avez ajouté, puis choisissez **Propriétés**. La fenêtre **Propriétés** s'affiche.
 
-  1. Open the shortcut menu for the assembly that you added and choose **Properties**. The **Properties** window appears.
+      Pour inclure cet assembly dans le package de services, dans la **liste de copie locale**, choisissez **True**.
 
-      To include this assembly in the service package, in the **Copy Local list** choose **True**.
+1. Dans **l'Explorateur de solutions**, ouvrez le nœud de projet pour le projet auquel il manque l'assembly référencé.
 
-1. In **Solution Explorer** open the project node for the project that is missing the referenced assembly.
+1. Pour ajouter l'assembly au projet, ouvrez le menu contextuel du dossier **Références**, puis choisissez **Ajouter une référence**. La boîte de dialogue **Ajouter une référence** s'affiche.
 
-1. To add the assembly to the project, open the shortcut menu for the **References** folder and then choose **Add Reference**. The **Add Reference** dialog appears.
+1. Choisissez la référence que vous souhaitez ajouter, puis cliquez sur le bouton **OK**.
 
-1. Choose the reference that you want to add and then choose the **OK** button.
+    La référence est ajoutée à la liste sous le dossier **Références**.
 
-    The reference is added to the list under the **References** folder.
+1. Ouvrez le menu contextuel pour l'assembly que vous avez ajouté, puis choisissez **Propriétés**. La fenêtre Propriétés apparaît.
 
-1. Open the shortcut menu for the assembly that you added and choose **Properties**. The Properties window appears.
+1. Pour inclure cet assembly dans le package de services, dans la **liste de copie locale**, choisissez **True**.
 
-1. To include this assembly in the service package, in the **Copy Local** list, choose **True**.
+1. Pour inclure dans le package de services des fichiers qui ont été ajoutés à votre projet de rôle web, ouvrez le menu contextuel du fichier, puis choisissez **Propriétés**. Dans la fenêtre **Propriétés**, choisissez **Contenu** dans la liste déroulante **Action de génération**.
 
-1. To include files in the service package that have been added to your web role project, open the shortcut menu for the file, and then choose **Properties**. From the **Properties** window, choose **Content** from the **Build Action** list box.
+1. Pour inclure dans le package de services des fichiers qui ont été ajoutés à votre projet de rôle web, ouvrez le menu contextuel du fichier, puis choisissez **Propriétés**. Dans la fenêtre **Propriétés**, choisissez **Copier si plus récent** dans la liste déroulante **Copier dans le répertoire de sortie**.
 
-1. To include files in the service package that have been added to your worker role project, open the shortcut menu for the file, and then choose **Properties**. From the **Properties** window, choose **Copy if newer** from the **Copy to output directory** list box.
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+Pour en savoir plus sur la publication sur Azure depuis Visual Studio, consultez [Assistant Publication d’application Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-To learn more about publishing to Azure from Visual Studio, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,67 +1,66 @@
 <properties
-    pageTitle="The Azure AD v2.0 endpoint | Microsoft Azure"
-    description="An comparison between the original Azure AD and the v2.0 endpoints."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Le point de terminaison v2.0 Azure AD | Microsoft Azure"
+	description="Une comparaison entre la version Azure AD d’origine et les points de terminaison v2.0."
+	services="active-directory"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>
 
+# Quelles sont les particularités du point de terminaison v2.0 ?
 
-# <a name="what's-different-about-the-v2.0-endpoint?"></a>What's different about the v2.0 endpoint?
-
-If you're familiar with Azure Active Directory or have integrated apps with Azure AD in the past, there may be some differences in the v2.0 endpoint that you would not expect.  This document calls out those differences for your understanding.
+Si vous connaissez bien le service Azure Active Directory ou si vous avez déjà intégré des applications à Azure AD dans le passé, il peut exister des différences dans le point de terminaison v2.0 auxquelles vous ne vous attendiez pas. Pour votre bonne compréhension, ce document énumère ces différences.
 
 > [AZURE.NOTE]
-    Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
 
 
-## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Microsoft accounts and Azure AD accounts
-the v2.0 endpoint allow developers to write apps that accept sign-in from both Microsoft Accounts and Azure AD accounts, using a single auth endpoint.  This gives you the ability to write your app completely account-agnostic; it can be ignorant of the type of account that the user signs in with.  Of course, you *can* make your app aware of the type of account being used in a particular session, but you don't have to.
+## Comptes Microsoft et comptes Azure AD
+Le point de terminaison v2.0 permet aux développeurs d’écrire des applications qui prennent en charge la connexion à partir de comptes Microsoft et de comptes Azure AD, à l’aide d’un seul point de terminaison d’authentification. Vous pouvez donc écrire votre application en ignorant complètement le type de compte avec lequel l’utilisateur se connecte. Bien entendu, vous *pouvez* faire en sorte que votre application reconnaisse le type de compte utilisé dans une session particulière, mais vous n’y êtes pas tenu.
 
-For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data.  But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the code can be written exactly the same for both Microsoft Accounts and Azure AD accounts.  
+Par exemple, si votre application appelle [Microsoft Graph](https://graph.microsoft.io), certaines fonctionnalités et données supplémentaires seront disponibles pour les utilisateurs de l’entreprise, telles que leurs sites SharePoint ou les données Directory. Néanmoins, pour de nombreuses actions, telles que la [lecture du courrier d’un utilisateur](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), le code peut être exactement le même pour les comptes Microsoft et Azure AD.
 
-Integrating your app with Microsoft Accounts and Azure AD accounts is now one simple process.  You can use a single set of endpoints, a single library, and a single app registration to gain access to both the consumer and enterprise worlds.  To learn more about the v2.0 endpoint, check out [the overview](active-directory-appmodel-v2-overview.md).
-
-
-## <a name="new-app-registration-portal"></a>New app registration portal
-the v2.0 endpoint can only be registered in a new location: [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is the portal where you can obtain an Application Id, customize the appearance of your app's sign-in page, and more.  All you need to access the portal is a Microsoft powered account - either personal or work/school account.  
-
-We will continue to add more and more functionality to this App Registration Portal over time.  The intent is that this portal will be the new location where you can go to manage anything and everything having to do with your Microsoft apps.
+L’intégration de votre application aux comptes Microsoft et Azure AD est désormais un simple processus. Vous pouvez utiliser un seul et même ensemble de points de terminaison, une seule et même bibliothèque et une seule et même inscription d’application pour accéder aux mondes des consommateurs et de l’entreprise. Pour en savoir plus sur le point de terminaison v2.0, consultez [la vue d’ensemble](active-directory-appmodel-v2-overview.md).
 
 
-## <a name="one-app-id-for-all-platforms"></a>One app Id for all platforms
-In the original Azure Active Directory service, you may have registered several different apps for a single project.  You were forced to use separate app registrations for your native clients and web apps:
+## Nouveau portail d’inscription des applications
+Le point de terminaison v2.0 ne peut être inscrit que dans un nouvel emplacement : [apps.dev.microsoft.com](https://apps.dev.microsoft.com). Il s’agit du portail où vous pouvez obtenir un ID d’application, personnaliser l’apparence de la page de connexion de votre application, et bien plus encore. Pour accéder au portail, vous devez avoir un compte Microsoft alimenté : compte personnel ou professionnel/scolaire.
 
-![Old Application Registration UI](../media/active-directory-v2-flows/old_app_registration.PNG)
+Nous allons continuer à ajouter des fonctionnalités à ce portail d’inscription des applications. Notre souhait est que ce portail soit le nouvel emplacement où vous pouvez gérer absolument tout ayant un rapport avec vos applications Microsoft.
 
-For example, if you built both a website and an iOS app, you had to register them separately, using two different Application Ids.  If you had a website and a backend web api, you might have registered each as a separate app in Azure AD.  If you had an iOS app and an Android app, you also might have registered two different apps.  
+
+## Un ID d’application pour toutes les plateformes
+Dans le service Azure Active Directory d’origine, vous pouvez avoir inscrit plusieurs applications différentes pour un seul et même projet. Vous avez été contraint d’utiliser des inscriptions d’application distinctes pour vos applications clientes et web natives :
+
+![Ancienne interface utilisateur de l’inscription des applications](../media/active-directory-v2-flows/old_app_registration.PNG)
+
+Par exemple, si vous avez créé un site web et une application iOS, vous avez dû les inscrire séparément, en utilisant deux ID d’application différents. Si vous aviez un site web et une API web principale, vous avez pu les inscrire chacun en tant qu’application distincte dans Azure AD. Si vous aviez une application iOS et une application Android, vous pouvez également avoir inscrit deux applications différentes.
 
 <!-- You may have even registered different apps for each of your build environments - one for dev, one for test, and one for production. -->
 
-Now, all you need is a single app registration and a single Application Id for each of your projects.  You can add several "platforms" to a each project, and provide the appropriate data for each platform you add.  Of course, you can create as many apps as you like depending on your requirements, but for the majority of cases only one Application Id should be necessary.
+Désormais, une seule et même inscription d’application et un seul ID d’application vous suffisent pour chacun de vos projets. Vous pouvez ajouter plusieurs « plateformes » pour chaque projet, et fournir les données appropriées pour chaque plateforme ajoutée. Bien entendu, vous pouvez créer autant d’applications que vous le souhaitez selon vos besoins, mais pour la plupart des cas, un seul ID d’application est nécessaire.
 
 <!-- You can also label a particular platform as "production-ready" when it is ready to be published to the outside world, and use that same Application Id safely in your development environments. -->
 
-Our aim is that this will lead to a more simplified app management and development experience, and create a more consolidated view of a single project that you might be working on.
+Notre objectif est de simplifier encore davantage la gestion des applications et l’expérience de développement, et de créer une vue plus consolidée d’un seul et même projet sur lequel vous travaillez peut-être.
 
 
-## <a name="scopes,-not-resources"></a>Scopes, not resources
-In the original Azure AD service, an app can behave as a **resource**, or a recipient of tokens.  A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client apps to request tokens to that resource for a certain set of scopes.  Consider the Azure AD Graph API as an example of a resource:
+## Des étendues, pas des ressources
+Dans le service Azure AD d’origine, une application peut se comporter comme une **ressource**, ou un destinataire de jetons. Une ressource peut définir plusieurs **étendues** ou **oAuth2Permissions** qu’elle comprend, permettant ainsi aux applications clientes de demander des jetons pour cette ressource pour un ensemble d’étendues donné. Prenez comme exemple de ressource l’API Graph d’Azure AD :
 
-- Resource Identifier, or `AppID URI`: `https://graph.windows.net/`
-- Scopes, or `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
+- Identificateur de ressource, ou `AppID URI` : `https://graph.windows.net/`
+- Étendues, ou `OAuth2Permissions` : `Directory.Read`, `Directory.Write`, etc.
 
-All of this holds true for the the v2.0 endpoint.  An app can still behave as resource, define scopes, and be identified by a URI.  Client apps can still request access to those scopes.  However, the way in which a client requests those permissions has changed.  In the past, an OAuth 2.0 authorize request to Azure AD might have looked like:
+Tout ceci vaut pour le point de terminaison v2.0. Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI. Les applications clientes peuvent toujours demander l’accès à ces étendues. Toutefois, la façon dont un client demande ces autorisations a changé. Dans le passé, une demande d’autorisation OAuth 2.0 à Azure AD pouvait ressembler à ceci :
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?
@@ -70,7 +69,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-where the **resource** parameter indicated which resource the client app is requesting authorization for.  Azure AD computed the permissions required by the app based on static configuration in the Azure Portal, and issued tokens accordingly.  Now, the same OAuth 2.0 authorize request looks like:
+où le paramètre de **ressource** indiquait la ressource pour laquelle l’application cliente demandait une autorisation. Azure AD calculait les autorisations requises par l’application en fonction de la configuration statique définie dans le portail Azure, puis émettait les jetons en conséquence. Désormais, la même demande d’autorisation OAuth 2.0 ressemble à ceci :
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -79,20 +78,20 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-where the **scope** parameter indicates which resource and permissions the app is requesting authorization for. The desired resource is still very present in the request - it is simply encompassed in each of the values of the scope parameter.  Using the scope parameter in this manner allows the v2.0 endpoint to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices.  It also enables apps to perform [incremental consent](#incremental-and-dynamic-consent), which is described in the next section.
+où le paramètre d’**étendue** indique la ressource et les autorisations pour lesquelles l’application demande une autorisation. La ressource souhaitée est toujours très présente dans la demande ; elle est simplement incluse dans chacune des valeurs du paramètre d’étendue. L’utilisation du paramètre d’étendue de cette manière permet au point de terminaison v2.0 d’être plus conforme à la spécification OAuth 2.0, et elle est en harmonie plus étroite avec les pratiques courantes du secteur. Elle permet également aux applications d’effectuer un [consentement incrémentiel](#incremental-and-dynamic-consent), qui est décrit dans la section suivante.
 
-## <a name="incremental-and-dynamic-consent"></a>Incremental and dynamic consent
-Apps registered in the generally available Azure AD service needed to specify their required OAuth 2.0 permissions in the Azure Portal, at app creation time:
+## Consentement incrémentiel et dynamique
+Les applications inscrites dans le service Azure AD mis à la disposition générale devaient spécifier leurs autorisations OAuth 2.0 requises dans le portail Azure, au moment de leur création :
 
-![Permissions Registration UI](../media/active-directory-v2-flows/app_reg_permissions.PNG)
+![Interface utilisateur de l’inscription des autorisations](../media/active-directory-v2-flows/app_reg_permissions.PNG)
 
-The permissions an app required were configured **statically**.  While this allowed configuration of the app to exist in the Azure Portal and kept the code nice and simple, it presents a few issues for developers:
+Les autorisations requises par une application étaient configurées **statiquement**. Si cela permettait à la configuration de l’application d’exister dans le portail Azure et de maintenir la simplicité du code, cela présentait quelques problèmes pour les développeurs :
 
-- An app had to know all of the permissions it would ever need at app creation time.  Adding permissions over time was a difficult process.
-- An app had to know all of the resources it would ever access ahead of time.  It was difficult to create apps that could access an arbitrary number of resources.
-- An app had to request all the permissions it would ever need upon the user's first sign-in.  In some cases this led to a very long list of permissions, which discouraged end-users from approving the app's access on initial sign-in.
+- L’application devait connaître toutes les autorisations dont elle aurait besoin lors de sa création. L’ajout d’autorisations au fil du temps était un processus difficile.
+- Une application devait connaître au préalable l’ensemble des ressources auxquelles elle aurait accès. Il était difficile de créer des applications pouvant accéder à un nombre arbitraire de ressources.
+- Une application devait demander toutes les autorisations dont elle aurait besoin dès la première connexion de l’utilisateur. Dans certains cas, cela engendrait une très longue liste d’autorisations, qui dissuadait les utilisateurs finaux d’approuver l’accès de l’application à la connexion initiale.
 
-With the v2.0 endpoint, you can specify the permissions your app needs **dynamically**, at runtime, during regular usage of your app.  To do so, you can specify the scopes your app needs at any given point in time by including them in the `scope` parameter of an authorization request:
+Avec le point de terminaison v2.0, vous pouvez spécifier les autorisations dont votre application a besoin **dynamiquement**, lors de l’exécution, pendant l’utilisation régulière de votre application. Pour ce faire, vous pouvez spécifier les étendues nécessaires à votre application, à un moment donné, en les incluant dans le paramètre `scope` d’une demande d’autorisation :
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -101,40 +100,36 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-The above requests permission for the app to read an Azure AD user's directory data, as well as write data to their directory.  If the user has consented to those permissions in the past for this particular app, they will simply enter their credentials and be signed into the app.  If the user has not consented to any of these permissions, the v2.0 endpoint will ask the user for consent to those permissions.  To learn more, you can read up on [permissions, consent, and scopes](active-directory-v2-scopes.md).
+Le paramètre ci-dessus demande l’autorisation pour l’application de lire les données d’annuaire d’un utilisateur d’Azure AD et d’écrire des données dans son annuaire. Si l’utilisateur a accepté ces autorisations dans le passé pour cette application particulière, il doit simplement entrer ses informations d’identification et se connecter à l’application. Si l’utilisateur n’a accepté aucune de ces autorisations, le point de terminaison v2.0 lui demande de corriger ce manquement. Pour en savoir plus, consultez les [autorisations, consentements et étendues](active-directory-v2-scopes.md).
 
-Allowing an app to request permissions dynamically via the `scope` parameter gives you full control over your user's experience.  If you wish, you can choose to frontload your consent experience and ask for all permissions in one initial authorization request.  Or if your app requires a large number of permissions, you can choose to gather those permissions from the user incrementally, as they attempt to use certain features of your app over time.
+Autoriser une application à demander des autorisations dynamiquement via le paramètre `scope` vous permet de contrôler totalement l’expérience de vos utilisateurs. Si vous le souhaitez, vous pouvez choisir d’anticiper votre expérience de consentement et demander toutes les autorisations dans une demande d’autorisation initiale. Si votre application nécessite un grand nombre d’autorisations, vous pouvez choisir de rassembler celles de l’utilisateur de façon incrémentielle lorsqu’il essaie d’utiliser certaines fonctionnalités de votre application au fil du temps.
 
-## <a name="well-known-scopes"></a>Well-known scopes
+## Étendues connues
 
-#### <a name="offline-access"></a>Offline access
-the v2.0 endpoint may require the use of a new well-known permission for apps - the `offline_access` scope.  All apps will need to request this permission if they need to access resources on the behalf of a user for a prolonged period of time, even when the user may not be actively using the app.  The `offline_access` scope will appear to the user in consent dialogs as "Access your data offline", which the user must agree to.  Requesting the `offline_access` permission will enable your web app to receive OAuth 2.0 refresh_tokens from the v2.0 endpoint.  Refresh_tokens are long-lived, and can be exchanged for new OAuth 2.0 access_tokens for extended periods of access.  
+#### Accès hors connexion
+Le point de terminaison v2.0 peut nécessiter l’utilisation d’une nouvelle autorisation bien connue pour les applications : l’étendue `offline_access`. Toutes les applications doivent demander cette autorisation si elles doivent accéder aux ressources au nom d’un utilisateur pendant une période prolongée, même si l’utilisateur n’utilise peut-être pas activement l’application donnée. L’étendue `offline_access` apparaît à l’utilisateur dans la boîte de dialogue de consentement « Accéder aux données hors connexion », que l’utilisateur doit accepter. Demander l’autorisation `offline_access` permet à votre application web de recevoir les jetons d’actualisation OAuth 2.0 du point de terminaison v2.0. Les jetons d’actualisation sont de longue durée, et peuvent être échangés contre les nouveaux jetons d’accès OAuth 2.0 pour des périodes d’accès prolongées.
 
-If your app does not request the `offline_access` scope, it will not receive refresh_tokens.  This means that when you redeem an authorization_code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow), you will only receive back an access_token from the `/token` endpoint.  That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.  At that point in time, your app will need to redirect the user back to the `/authorize` endpoint to retrieve a new authorization_code.  During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the the type of app.
+Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas les jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans le [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), vous recevez uniquement un jeton d’accès du point de terminaison `/token`. Ce jeton d’accès demeure valide pendant une courte période (généralement une heure), avant d’arriver à expiration. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, il peut être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou d’accepter une nouvelle fois les autorisations, en fonction du type d’application.
 
-To learn more about OAuth 2.0, refresh_tokens, and access_tokens, check out the [v2.0 protocol reference](active-directory-v2-protocols.md).
+Pour en savoir plus sur OAuth 2.0, les jetons d’actualisation et les jetons d’accès, consultez [Informations de référence sur les protocoles du point de terminaison v2.0](active-directory-v2-protocols.md).
 
-#### <a name="openid,-profile,-&-email"></a>OpenID, profile, & email
+#### OpenID, profile et email
 
-In the original Azure Active Directory service, the most basic OpenID Connect sign-in flow would provide a wealth of information about the user in the resulting id_token.  The claims in an id_token can include the user's name, preferred username, email address, object ID, and more.
+Dans le service Azure Active Directory d’origine, le flux de connexion OpenID Connect le plus simple fournit une somme d’informations sur l’utilisateur dans le paramètre id\_token résultant. Les revendications contenues dans un paramètre id\_token peuvent inclure différentes informations utilisateur : son nom, son nom d’utilisateur par défaut, son adresse de messagerie, son ID objet, etc.
 
-We are now restricting the information that the `openid` scope affords your app access to.  The ‘openid’ scope will only allow your app to sign the user in, and receive an app-specific identifier for the user.  If you want to obtain personally identifiable information (PII) about the user in your app, your app will need to request additional permissions from the user.  We are introducing two new scopes – the `email` and `profile` scopes – which allow you to do so.
+À présent, nous allons limiter les informations auxquelles l’étendue `openid` permet à votre application d’accéder. L’étendue « openid » permettra uniquement à votre application de connecter l’utilisateur et de recevoir un identificateur propre à l’application pour l’utilisateur. Si vous souhaitez obtenir des informations d’identification personnelle (PII) sur l’utilisateur dans votre application, votre application devra lui demander des autorisations supplémentaires. Nous introduisons deux nouvelles étendues, les étendues `email` et `profile`, qui vous permettent d’effectuer cette opération.
 
-The `email` scope is very straightforward – it allows your app access to the user’s primary email address via the `email` claim in the id_token.  The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
+L’étendue `email` est très directe : elle permet à votre application d’accéder à l’adresse de messagerie principale de l’utilisateur via la revendication `email` contenue dans le paramètre id\_token. L’étendue `profile` permet à votre application d’accéder à toutes les autres informations de base sur l’utilisateur (nom, nom d’utilisateur par défaut, ID objet, etc.).
 
-This allows you to code your app in a minimal-disclosure  fashion – you can only ask the user for the set of information that your app requires to do its job.  For more information on these scopes, refer to [the v2.0 scope reference](active-directory-v2-scopes.md). 
+Vous pouvez ainsi coder votre application en en divulguant le moins possible : vous pouvez vous contenter de demander à l’utilisateur les informations nécessaires à l’exécution de votre application. Pour plus d’informations sur ces étendues, consultez [les informations de référence sur les étendues v2.0](active-directory-v2-scopes.md).
 
-## <a name="token-claims"></a>Token Claims
+## Demandes de jetons
 
-The claims in tokens issued by the v2.0 endpoint will not be identical to tokens issued by the generally available Azure AD endpoints - apps migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens.   Tokens issued by the v2.0 endpoint are compliant with the OAuth 2.0 and OpenID Connect specifications, but may follow different semantics than the generally available Azure AD service.
+Les demandes des jetons émis par le point de terminaison v2.0 ne sont pas identiques à celles des jetons émis par les points de terminaison du service Azure AD mis à la disposition générale. Les applications migrant vers le nouveau service ne doivent pas supposer qu’une demande particulière existe dans les jetons d’ID ou les jetons d’accès. Les jetons émis par le point de terminaison v2.0 sont conformes aux spécifications OAuth 2.0 et OpenID Connect, mais peuvent suivre une sémantique différente de celle du service Azure AD mis à la disposition générale.
 
-To learn about the specific claims emitted in v2.0 tokens, see the [v2.0 token reference](active-directory-v2-tokens.md).
+Pour en savoir plus sur les demandes spécifiques émises dans les jetons v2.0, consultez [Informations de référence sur les jetons v2.0](active-directory-v2-tokens.md).
 
-## <a name="limitations"></a>Limitations
-There are a few restrictions to be aware of when using the v2.0 point.  Please refer to the [v2.0 limitations doc](active-directory-v2-limitations.md) to see if any of these restrictions apply to your particular scenario.
+## Limites
+Il existe quelques restrictions à connaître lors de l’utilisation du point v2.0. Consultez le [document relatif aux limites v2.0](active-directory-v2-limitations.md) pour voir si ces restrictions s’appliquent à votre scénario particulier.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

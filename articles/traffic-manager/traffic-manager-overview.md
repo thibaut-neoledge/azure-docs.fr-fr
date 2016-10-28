@@ -1,68 +1,51 @@
-<properties
-    pageTitle="What is Traffic Manager | Microsoft Azure"
-    description="This article will help you understand what Traffic Manager is, and whether it is the right traffic routing choice for your application"
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
-<tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+<properties 
+   pageTitle="Présentation de Traffic Manager | Microsoft Azure"
+   description="Cet article vous aidera à comprendre le fonctionnement de Traffic Manager, et de déterminer s’il est le choix de routage du trafic adapté à votre application"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="tysonn" />
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="06/09/2016"
+   ms.author="sewhee" />
 
+# Qu’est-ce que Traffic Manager ?
 
-# <a name="overview-of-traffic-manager"></a>Overview of Traffic Manager
+Microsoft Azure Traffic Manager vous permet de contrôler la répartition du trafic utilisateur vers vos points de terminaison de service exécutés dans différents centres de données dans le monde entier.
 
-Microsoft Azure Traffic Manager allows you to control the distribution of user traffic for service endpoints in different datacenters. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and cloud services. You can also use Traffic Manager with external, non-Azure endpoints.
+Les points de terminaison de service pris en charge par le Traffic Manager incluent des machines virtuelles Azure, des applications web et des services cloud. Vous pouvez également utiliser Traffic Manager avec des points de terminaison externes non-Azure.
 
-Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a [traffic-routing method](traffic-manager-routing-methods.md) and the health of the endpoints. Traffic Manager provides a range of traffic-routing methods to suit different application needs, endpoint health [monitoring](traffic-manager-monitoring.md), and automatic failover. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
+Traffic Manager fonctionne en utilisant le DNS (Domain Name System) pour diriger les requêtes de l’utilisateur final vers le point de terminaison approprié en fonction de la méthode de routage du trafic configurée et de la vue actuelle de l’intégrité du point de terminaison. Les clients se connectent ensuite directement au point de terminaison de service approprié.
 
-## <a name="traffic-manager-benefits"></a>Traffic Manager benefits
+Traffic Manager prend en charge un [large éventail de méthodes de routage du trafic](traffic-manager-routing-methods.md) pour répondre à différents besoins d’application. Traffic Manager fournit des [contrôles d’intégrité de point de terminaison et un basculement de point de terminaison automatique](traffic-manager-monitoring.md), ce qui vous permet de créer des applications à haute disponibilité et résistantes aux défaillances, notamment en cas de défaillance d’une région Azure entière.
 
-Traffic Manager can help you:
+## Avantages de Traffic Manager
 
-- **Improve availability of critical applications**
+Traffic Manager peut vous aider à atteindre les objectifs suivants :
 
-    Traffic Manager delivers high availability for your applications by monitoring your endpoints and providing automatic failover when an endpoint goes down.
-
-- **Improve responsiveness for high-performance applications**
-
-    Azure allows you to run cloud services or websites in datacenters located around the world. Traffic Manager improves application responsiveness by directing traffic to the endpoint with the lowest network latency for the client.
-
-- **Perform service maintenance without downtime**
-
-    You can perform planned maintenance operations on your applications without downtime. Traffic Manager directs traffic to alternative endpoints while the maintenance is in progress.
-
-- **Combine on-premises and Cloud-based applications**
-
-    Traffic Manager supports external, non-Azure endpoints enabling it to be used with hybrid cloud and on-premises deployments, including the "burst-to-cloud," "migrate-to-cloud," and "failover-to-cloud" scenarios.
-
-- **Distribute traffic for large, complex deployments**
-
-    Using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md), traffic-routing methods can be combined to create sophisticated and flexible rules to support the needs of larger, more complex deployments.
+- **Améliorer la disponibilité des applications critiques** : Traffic Manager vous permet de garantir une haute disponibilité de vos applications critiques en surveillant vos points de terminaison dans Azure et en fournissant un basculement automatique en cas de panne d’un point de terminaison.
+- **Améliorer la réactivité des applications hautes performances** : Azure vous permet d’exécuter des services cloud ou des sites web dans différents centres de données à travers le monde. Traffic Manager peut améliorer la réactivité de vos applications en dirigeant les utilisateurs finaux vers le point de terminaison affichant la latence réseau la plus faible par rapport au client.
+- **Mettre à niveau et exécuter la maintenance du service sans temps d’arrêt** : vous pouvez effectuer la mise à niveau en toute transparence et exécuter d’autres opérations de maintenance planifiées sur vos applications sans temps d’arrêt pour les utilisateurs finaux en utilisant Traffic Manager pour diriger le trafic vers d’autres points de terminaison lorsque la maintenance est en cours d’exécution.
+- **Combiner des applications locales et basées sur le cloud** : Traffic Manager prend en charge des points de terminaison externes non Azure, ce qui permet de l’utiliser dans des déploiements de cloud hybride et locaux, notamment des scénarios tels que le « burst-to-cloud » la « migration vers le cloud » et le « basculement vers le cloud ».
+- **Répartir le trafic pour les déploiements à grande échelle et complexes** : les méthodes de routage de trafic peuvent être combinées à l’aide de [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md) pour créer des configurations de routage du trafic sophistiquées et flexibles permettant de répondre aux besoins de déploiements plus vastes et plus complexes.
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
-## <a name="next-steps"></a>Next Steps
+## Étapes suivantes
 
-- Learn more about [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
+- En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md).
 
-- Learn how to develop high-availability applications using [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md).
+- Découvrez comment développer des applications à haute disponibilité à l’aide de la [surveillance de points de terminaison Traffic Manager](traffic-manager-monitoring.md).
 
-- Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager.
+- En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) prises en charge par Traffic Manager.
 
-- [Create a Traffic Manager profile](traffic-manager-manage-profiles.md).
+- [Créer un profil Traffic Manager](traffic-manager-manage-profiles.md).
+ 
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

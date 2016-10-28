@@ -1,506 +1,494 @@
 <properties
-    pageTitle="Azure Active Directory Identity Protection | Microsoft Azure"
-    description="Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised."
-    services="active-directory"
-    keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
-    documentationCenter=""
-    authors="markusvi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Azure Active Directory Identity Protection | Microsoft Azure"
+	description="Découvrez comment Azure AD Identity Protection vous permet de limiter la capacité d’un cybercriminel à exploiter une identité ou un appareil compromis et de sécuriser une identité ou un appareil déjà identifié comme potentiellement ou effectivement compromis."
+	services="active-directory"
+	keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/12/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/20/2016"
+	ms.author="markvi"/>
+
+#Azure Active Directory Identity Protection 
+
+Azure Active Directory Identity Protection est une fonctionnalité de l’édition Azure AD Premium P2 offrant une vue consolidée des événements à risque et des vulnérabilités potentielles qui affectent les identités de votre organisation. Microsoft sécurise les identités dans le cloud depuis plus de dix ans. Avec Azure AD Identity Protection, Microsoft propose met ces mêmes systèmes de protection à disposition des clients d’entreprise. Identity Protection tire parti des fonctionnalités existantes de détection des anomalies d’Azure AD (disponibles via les rapports d’activités anormales d’Azure AD) et introduit de nouveaux types d’événements à risque capables de détecter les anomalies en temps réel.
 
 
-#<a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 
 
-Azure Active Directory Identity Protection is a feature of the Azure AD Premium P2 edition that provides you with a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
+##Mise en route
 
+La grande majorité des violations de sécurité ont lieu lorsque des cybercriminels parviennent à accéder à un environnement en volant l’identité d’un utilisateur. Les cybercriminels arrivent de plus en plus à exploiter les failles de fournisseurs tiers et utilisent des attaques par hameçonnage (ou « phishing ») sophistiquées toujours plus efficaces. Une fois qu’un cybercriminel accède à un compte d’utilisateur, même si les privilèges de celui-ci sont faibles, il est relativement simple pour lui d’accéder à des ressources d’entreprise importantes de manière latérale. Il est donc essentiel de protéger toutes les identités et, lorsqu’une identité est compromise, d’empêcher que celle-ci soit utilisée à des fins malveillantes.
 
-
-##<a name="getting-started"></a>Getting Started
-
-The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Attackers have become increasingly effective at leveraging third party breaches, and using sophisticated phishing attacks. Once an attacker gains access to even a low privileged user account, it is relatively straightforward for them to gain access to important company resources through lateral movement. It is therefore essential to protect all identities and, when an identity is compromised, proactively prevent the compromised identity from being abused. 
-
-Discovering compromised identities is no easy task. Fortunately, Identity Protection can help: Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised.
+Détecter les identités compromises n’est pas chose aisée. Fort heureusement, le service Identity Protection peut vous y aider : s’appuyant sur des algorithmes d’apprentissage automatique adaptatif et des règles heuristiques, il assure la détection d’anomalies et d’événements à risque susceptibles d’indiquer qu’une identité a été compromise.
  
-Using this data, Identity Protection generates reports and alerts that enables you to investigate these risk events and take appropriate remediation or mitigation action.
+À l’aide de ces données, Identity Protection génère des rapports et des alertes qui vous permettent d’analyser ces événements à risque et de prendre les mesures de correction ou d’atténuation qui s’imposent.
  
-But Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk events, Identity Protection calculates a user risk level for each user, enabling you to configure risk-based policies to automatically protect the identities of your organization.  These risk-based policies, in addition to other conditional access controls provided by Azure Active Directory and EMS, can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.  
+Mais Azure Active Directory Identity Protection est plus qu’un outil de surveillance et de création de rapports. En fonction des événements à risque, Identity Protection calcule le niveau de risque des utilisateurs pour chaque utilisateur, ce qui vous permet de configurer des stratégies basées sur les risques pour protéger automatiquement les identités de votre organisation. Ces stratégies basées sur les risques, en plus des autres contrôles d’accès conditionnel fournis par Azure Active Directory et EMS, peuvent automatiquement bloquer l’accès ou appliquer des mesures de correction adaptatives qui incluent la réinitialisation de mot de passe et la mise en œuvre l’authentification multifacteur.
 
-####<a name="explore-identity-protection's-capabilities"></a>Explore Identity Protection's capabilities 
+####Exploration du service Identity Protection 
 
-**Detecting risk events and risky accounts:**  
+**Détection des événements et des comptes à risque :**
 
-- Detecting 6 risk event types using machine learning and heuristic rules 
+- Détection de 6 types d’événements à risque à l’aide de l’apprentissage automatique et des règles heuristiques
 
-- Calculating user risk levels
+- Calcul du niveau de risque des utilisateurs
 
-- Providing custom recommendations to improve overall security posture by highlighting vulnerabilities
-
-
-
-**Investigating risk events:**
-
-- Sending notifications for risk events
-
-- Investigating risk events using relevant and contextual information
-
-- Providing basic workflows to track investigations
-
-- Providing easy access to remediation actions such as password reset
+- Recommandations personnalisées visant à améliorer la posture de sécurité globale en mettant en évidence les vulnérabilités
 
 
 
-**Risk-based conditional access policies:**
+**Examen des événements à risque :**
 
-- Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
+- Envoi de notifications pour les événements à risque
 
-- Policy to block or secure risky user accounts
+- Examen des événements à risque à l’aide d’informations contextuelles et pertinentes
 
-- Policy to require users to register for multi-factor authentication
+- Workflows de base pour le suivi des investigations
 
-
-## <a name="detection-and-risk"></a>Detection and Risk
-
-### <a name="risk-events"></a>Risk events
-
-Risk events are events that were flagged as suspicious by Identity Protection, and indicate that an identity may have been compromised. For a complete list of risk events, see [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md). 
-
-Some of these risk events have been available through the Azure AD Anomalous Activity reports in the Azure portal. The table below lists the various risk event types and the corresponding **Azure AD Anomalous Activity** report. Microsoft is continuing to invest in this space, and plans to continuously improve the detection accuracy of existing risk events and add new risk event types on an ongoing basis. 
+- Accès rapide à des mesures de correction telles que la réinitialisation de mot de passe
 
 
 
-| Identity Protection Risk Event Type | Corresponding Azure AD Anomalous Activity Report |
+**Stratégies d’accès conditionnel en fonction des risques :**
+
+- Stratégie pour atténuer les connexions à risque en bloquant les connexions ou en imposant des demandes d’authentification multifacteur.
+
+- Stratégie pour bloquer ou sécuriser les comptes d’utilisateurs à risque
+
+- Stratégie pour exiger que les utilisateurs s’inscrivent à l’authentification multifacteur
+
+
+## Détection et risque
+
+### Événements à risque
+
+Les événements à risque sont des événements qui ont été signalés comme suspects par Identity Protection et indiquent qu’une identité a peut-être été compromise. Pour obtenir la liste complète des événements à risque, consultez [Types d’événements à risque détectés par Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md).
+
+Certains de ces événements à risque sont disponibles via les rapports d’activités anormales d’Azure AD dans le portail Azure. Le tableau ci-dessous répertorie les différents types d’événements à risque et le rapport d’**activités anormales d’Azure AD** correspondant. Microsoft poursuit ses investissements dans ce domaine et prévoit d’améliorer la précision de détection des événements à risque existants et d’ajouter de nouveaux types d’événements à risque de façon continue.
+
+
+
+| Type d’événement à risque signalé par Identity Protection | Rapport d’activités anormales d’Azure AD correspondant |
 | :-- | :-- |
-| Leaked credentials    | Users with leaked credentials |
-| Impossible travel to atypical locations | Irregular sign-in activity |
-| Sign-ins from infected devices    | Sign-ins from possibly infected devices |
-| Sign-ins from anonymous IP addresses  | Sign-ins from unknown sources |
-| Sign-ins from IP addresses with suspicious activity | Sign-ins from IP addresses with suspicious activity |
-| Signs in from unfamiliar locations    | - |
-| Lockout events    | - |
+| Informations d’identification divulguées | Utilisateurs avec des informations d’identification volées |
+| Voyage impossible vers des emplacements inhabituels |	Activité de connexion anormale |
+| Connexions depuis des appareils infectés | Connexions à partir d’appareils potentiellement infectés |
+| Connexions depuis des adresses IP anonymes | Connexions à partir de sources inconnues |
+| Connexions depuis des adresses IP avec des activités suspectes |	Connexions depuis des adresses IP avec des activités suspectes |
+| Connexions depuis des emplacements non connus | - |
+| Événements de verrouillage (non disponible dans la version préliminaire publique) | - |
 
-The following Azure AD Anomalous Activity reports are not included as risk events in Azure AD Identity Protection, and will therefore not be available through Identity Protection. These reports are still available in the Azure portal however they will be deprecated at some time in the future as they are being superseded by risk events in Identity Protection.
+Les rapports d’activités anormales d’Azure AD suivants ne sont pas inclus en tant qu’événements à risque dans Azure AD Identity Protection et ne sont donc pas disponibles via Identity Protection. Ces rapports sont toujours disponibles dans le portail Azure, mais ils seront rendus obsolètes ultérieurement du fait de leur remplacement par des événements à risque dans Identity Protection.
 
-- Sign-ins after multiple failures
-- Sign-ins from multiple geographies
+- Connexions après plusieurs échecs
+- Connexions depuis plusieurs zones géographiques
 
-### <a name="risk-level"></a>Risk level
+### Niveau de risque
 
-The Risk level for a risk event is an indication (High, Medium, or Low) of the severity of the risk event. The risk level helps Identity Protection users prioritize the actions they must take to reduce the risk to their organization. The severity of the risk event represents the strength of the signal as a predictor of identity compromise, combined with the amount of noise that it typically introduces. 
+Le niveau de risque d’un événement à risque est une indication (Élevé, Moyen ou Faible) de la gravité de l’événement à risque. Le niveau de risque permet aux utilisateurs du service Identity Protection de hiérarchiser les mesures qu’ils doivent prendre afin de réduire le risque pour leur organisation. Le niveau de gravité de l’événement à risque signalé représente la probabilité qu’une identité soit compromise, avec la quantité de bruit que cela implique généralement.
 
-- **High**: High confidence and high severity risk event. These events are strong indicators that the user’s identity has been compromised, and any user accounts impacted should be remediated immediately.
+- **Élevé** : probabilité élevée et gravité élevée de l’événement à risque. Ces événements donnent une indication forte que l’identité de l’utilisateur a été compromise et les comptes d’utilisateurs concernés doivent immédiatement faire l’objet de mesures de correction.
 
-- **Medium**: High severity, but lower confidence risk event, or vice versa. These events are potentially risky, and any user accounts impacted should be remediated.
+- **Moyen** : sévérité élevée, mais probabilité moindre de l’événement à risque, ou inversement. Ces événements présentent des risques potentiels et les comptes d’utilisateurs concernés doivent faire l’objet de mesures de correction.
 
-- **Low**: Low confidence and low severity risk event. This event may not require an immediate action, but when combined with other risk events, may provide a strong indication that the identity is compromised. 
+- **Faible** : probabilité faible et gravité limitée de l’événement à risque. Cet événement peut ne pas nécessiter une action immédiate, mais l’association à d’autres événements à risque peut donner une indication forte que l’identité a été compromise.
 
 
-![Risk Level](./media/active-directory-identityprotection/01.png "Risk Level")
+![Niveau de risque](./media/active-directory-identityprotection/01.png "Niveau de risque")
 
  
 
-Risk events are either identified in **real-time**, or in post-processing after the risk event has already taken place (offline). Currently most risk events in Identity Protection are computed offline, and show up in Identity Protection within 2-4 hours. While evaluated in real-time, the real-time risk events will show up in the Identity Protection Console within 5-10 minutes.
+Les événements à risque sont soit identifiés en **temps réel**, soit en post-traitement après la survenue de l’événement à risque (hors connexion). À l’heure actuelle, la plupart des événements à risque sont calculés hors connexion et s’affichent dans Identity Protection dans un délai de 2 à 4 heures. Bien qu’évalués au moment où ils surviennent, les événements à risque en temps réel s’affichent dans la console d’Identity Protection dans un délai de 5 à 10 minutes.
 
-Several legacy clients do not currently support real-time risk event detection and prevention. As a result, sign-ins from these clients cannot be detected or prevented in real-time.
+Plusieurs clients hérités ne prennent pas en charge la détection et la prévention des événements en temps réel pour le moment. Par conséquent, les connexions depuis ces clients ne peuvent pas être détectées ou bloquées en temps réel.
 
 
-## <a name="investigation"></a>Investigation
-Your journey through Identity Protection typically starts with the Identity Protection dashboard. 
+## Investigation
+Votre parcours dans Identity Protection commence généralement par le tableau de bord d’Identity Protection.
 
-![Remediation](./media/active-directory-identityprotection/1000.png "Remediation")
+![Correction](./media/active-directory-identityprotection/1000.png "Correction")
 
-The dashboard gives you access to:
+Le tableau de bord vous donne accès à :
  
-- Reports such as **Users flagged for risk**, **Risk events** and **Vulnerabilities**
-- Settings such as the configuration of your **Security Policies**, **Notifications** and **multi-factor authentication registration**
+- des rapports comme **Utilisateurs associés à un indicateur de risque**, **Événements à risque** et **Vulnérabilités** ;
+- des paramètres vous permettant notamment de configurer vos **stratégies de sécurité**, vos **notifications** et l’**inscription à l’authentification multifacteur**.
  
 
-It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
+Il s’agit généralement de votre point de départ pour l’investigation, processus consistant à vérifier les activités, les journaux et les autres informations pertinentes concernant un événement à risque, afin de déterminer s’il est nécessaire d’appliquer des mesures de correction ou d’atténuation, de comprendre comment l’identité a été compromise et d’identifier la manière dont l’identité compromise a été exploitée.
 
-You can tie your investigation activities to the [notifications](active-directory-identityprotection-notifications.md) Azure Active Directory Protection sends per email.
+Vous pouvez lier vos activités d’investigation aux [notifications](active-directory-identityprotection-notifications.md) d’Azure Active Directory Protection envoyées par courrier électronique.
 
-The following sections provide you with more details and the steps that are related to an investigation.  
-
-
-
-## <a name="what-is-a-user-risk-level?"></a>What is a user risk level?
-
-A user risk level is an indication (High, Medium, or Low) of the likelihood that the user’s identity has been compromised. It is calculated based on the user risk events that are associated with the user's identity. 
-
-The status of a risk event is either **Active** or **Closed**. Only risk events that are **Active** contribute to the user risk calculation. 
-
-The user risk level is calculated using the following inputs:
-
-- Active risk events impacting the user
-- Risk level of these events 
-- Whether any remediation actions have been taken 
-
-![User risks](./media/active-directory-identityprotection/1001.png "User risks")
+Les sections suivantes fournissent plus de détails, ainsi que les étapes liées à une investigation.
 
 
 
-You can use the user risk levels to create conditional access policies to block risky users from signing in, or force them to securely change their password. 
+## Qu’est-ce que le niveau de risque d’un utilisateur ?
+
+Le niveau de risque d’un utilisateur est une indication (Élevé, Moyen ou Faible) de la probabilité que l’identité de l’utilisateur ait été compromise. Il est calculé en fonction des événements à risque associés à l’identité de l’utilisateur.
+
+L’état d’un événement à risque est soit **Actif**, soit **Fermé**. Seuls les événements à risque dont l’état est défini sur **Actif** entrent dans le calcul du risque d’un utilisateur.
+
+Le niveau de risque d’un utilisateur est calculé à l’aide des données suivantes :
+
+- Événements à risque actifs ayant un impact sur l’utilisateur
+- Niveau de risque de ces événements
+- Application ou non de mesures de correction
+
+![Risque des utilisateurs](./media/active-directory-identityprotection/1001.png "Risque des utilisateurs")
 
 
-## <a name="closing-risk-events-manually"></a>Closing risk events manually
 
-In most cases, you will take remediation actions such as a secure password reset to automatically close risk events. However, this might not always be possible.  
-This is, for example, the case, when:
+Vous pouvez utiliser le niveau de risque des utilisateurs pour créer des stratégies d’accès conditionnel empêchant les utilisateurs à risque de se connecter ou les forçant à modifier leur mot de passe de façon sécurisée.
 
-- A user with Active risk events has been deleted
-- An investigation reveals that a reported risk event has been perform by the legitimate user
 
-Because risk events that are **Active** contribute to the user risk calculation, you may have to manually lower a risk level by closing risk events manually.  
-During the course of investigation, you can choose to take any of these actions to change the status of a risk event:
+## Fermeture manuelle des événements à risque
+
+Dans la plupart des cas, vous pouvez prendre des mesures de correction telles qu’une réinitialisation de mot de passe sécurisée pour fermer automatiquement les événements à risque. Toutefois, il se peut que cela ne soit pas toujours possible. C’est par exemple le cas quand :
+
+- un utilisateur avec des événements à risque actifs a été supprimé ;
+- une enquête révèle qu’un événement à risque signalé a été effectué par l’utilisateur légitime.
+
+Comme les événements à risque dont l’état est défini sur **Actif** entrent dans le calcul du risque des utilisateurs, vous pouvez avoir besoin de réduire manuellement un niveau de risque en fermant manuellement les événements à risque. Au cours de l’investigation, vous pouvez choisir d’effectuer n’importe laquelle des actions suivantes pour modifier l’état d’un événement à risque :
 
 ![Actions](./media/active-directory-identityprotection/34.png "Actions")
 
-- **Resolve** - If after investigating a risk event, you took an appropriate remediation action outside Identity Protection, and you believe that the risk event should be considered closed, mark the event as Resolved. Resolved events will set the risk event’s status to Closed and the risk event will no longer contribute to user risk.
+- **Résoudre** : si après avoir examiné un événement à risque, vous avez pris une mesure de correction appropriée en dehors d’Identity Protection et pensez que l’événement à risque doit être considéré comme fermé, marquez l’événement comme résolu. L’état des événements à risque résolus est défini sur Fermé et ces événements n’entrent plus dans le calcul du risque d’un utilisateur.
 
-- **Mark as false-positive** - In some cases, you may investigate a risk event and discover that it was incorrectly flagged as a risky. You can help reduce the number of such occurrences by marking the risk event as False-positive. This will help the machine learning algorithms to improve the classification of similar events in the future. The status of false-positive events is to **Closed** and they will no longer contribute to user risk.
+- **Marquer comme faux positif** : dans certains cas, il se peut qu’un événement à risque soit signalé à tort en tant que tel. Vous pouvez réduire le nombre de ces événements en les marquant comme faux positifs. Vous aiderez ainsi les algorithmes d’apprentissage automatique à améliorer la classification des événements similaires par la suite. L’état des événements marqués comme faux positifs est défini sur **Fermé** et ces événements n’entrent plus dans le calcul du risque de l’utilisateur.
 
-- **Ignore** - If you have not taken any remediation action, but want the risk event to be removed from the active list, you can mark a risk event Ignore and the event status will be Closed. Ignored events do not contribute to user risk. This option should only be used under unusual circumstances. 
+- **Ignorer** : si vous n’avez pris aucune mesure de correction, mais que vous souhaitez que l’événement à risque soit supprimé de la liste active, vous pouvez choisir de l’ignorer. Son état sera alors défini sur Fermé. Les événements ignorés n’entrent plus dans le calcul du risque d’un utilisateur. Cette option doit uniquement être utilisée dans des circonstances inhabituelles.
 
-- **Reactivate** - Risk events that were manually closed (by choosing **Resolve**, **False positive**, or **Ignore**) can be reactivated, setting the event status back to **Active**. Reactivated risk events contribute to the user risk level calculation. Risk events closed through remediation (such as a secure password reset) cannot be reactivated. 
-
-
-
-
-**To open the related configuration dialog**:
-
-1. On the **Azure AD Identity Protection** blade, under **Investigate**, click **Risk events**.
-
-    ![Manual password reset](./media/active-directory-identityprotection/1002.png "Manual password reset")
-
-2. In the **Risk events** list, click a risk.
-
-    ![Manual password reset](./media/active-directory-identityprotection/1003.png "Manual password reset")
-
-2. On the risk blade, right-click a user.
-
-    ![Manual password reset](./media/active-directory-identityprotection/1004.png "Manual password reset")
+- **Réactiver** : les événements à risque qui ont été fermés manuellement (en choisissant **Résoudre**, **Marquer comme faux positif** ou **Ignorer**) peuvent être réactivés. Leur statut est alors défini à nouveau sur **Actif**. Les événements à risque réactivés contribuent au calcul du niveau de risque d’un utilisateur. Les événements à risque fermés à l’aide d’une mesure de correction (telle qu’une réinitialisation de mot de passe sécurisée) ne peuvent pas être réactivés.
 
 
 
-### <a name="closing-all-risk-events-for-a-user-manually"></a>Closing all risk events for a user manually
 
-Instead of manually closing risk events for a user individually, Azure Active Directory Identity Protection also provides you with a method to close all events for a user with one click.
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
+
+1. Dans le panneau **Azure AD Identity Protection**, sous **Examiner**, cliquez sur **Événements à risque**.
+
+	![Réinitialisation manuelle du mot de passe](./media/active-directory-identityprotection/1002.png "Réinitialisation manuelle du mot de passe")
+
+2. Dans la liste **Événements à risque**, cliquez sur un risque.
+
+	![Réinitialisation manuelle du mot de passe](./media/active-directory-identityprotection/1003.png "Réinitialisation manuelle du mot de passe")
+
+2. Dans le panneau Risque, cliquez avec le bouton droit sur un utilisateur.
+
+	![Réinitialisation manuelle du mot de passe](./media/active-directory-identityprotection/1004.png "Réinitialisation manuelle du mot de passe")
+
+
+
+### Fermeture manuelle de tous les événements à risque pour un utilisateur
+
+Au lieu de fermer manuellement les événements à risque pour chaque utilisateur, Azure Active Directory Identity Protection propose une méthode permettant de fermer tous les événements pour un utilisateur en un seul clic.
 
 
 ![Actions](./media/active-directory-identityprotection/2222.png "Actions")
 
-When you click **Dismiss all events**, all events are closed and the affected user is no longer at risk.
+Lorsque vous cliquez sur **Ignorer tous les événements**, tous les événements sont fermés et l’utilisateur concerné n’est plus exposé.
 
 
 
-## <a name="remediating-user-risk-events"></a>Remediating user risk events
+## Correction des événements à risque d’un utilisateur
 
-A remediation is an action to secure an identity or a device that was previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk events associated with the identity or device.
+Une correction est une mesure visant à sécuriser une identité ou un appareil déjà identifié comme potentiellement ou effectivement compromis. Une mesure de correction permet de rétablir la sécurité de l’identité ou de l’appareil et de résoudre les anciens événements à risque associés à l’identité ou à l’appareil.
 
-To remediate user risk events, you can:
+Pour corriger les événements à risque d’un utilisateur, vous pouvez procéder comme suit :
 
-- Perform a secure password reset to remediate user risk events manually 
+- Effectuez une réinitialisation de mot de passe sécurisée pour corriger manuellement les événements à risque de l’utilisateur.
 
-- Configure a user risk security policy to mitigate or remediate user risk events automatically
+- Configurez une stratégie de sécurité en matière de risque des utilisateurs pour atténuer ou corriger automatiquement les événements à risque de l’utilisateur.
 
-- Re-image the infected device  
+- Réimager l’appareil infecté.
 
 
-### <a name="manual-secure-password-reset"></a>Manual secure password reset
+### Réinitialisation manuelle et sécurisée du mot de passe
 
-A secure password reset is an effective remediation for many risk events, and when performed, automatically closes these risk events and recalculates the user risk level. You can use the Identity Protection dashboard to initiate a password reset for a risky user. 
+Une réinitialisation de mot de passe sécurisée est une mesure de correction efficace pour de nombreux événements à risque. Lorsqu’elle est effectuée, ces événements à risque sont fermés et le niveau de risque de l’utilisateur correspondant recalculé automatiquement. Vous pouvez utiliser le tableau de bord d’Identity Protection afin de lancer une réinitialisation de mot de passe pour un utilisateur à risque.
 
-The related dialog provides two different methods to reset a password:
+La boîte de dialogue connexe fournit deux méthodes différentes pour réinitialiser le mot de passe :
 
-**Reset password** - Select **Require user to reset password** to allow the user to self-recover if the user has registered for multi-factor authentication. During the user's next sign-in, the user will be required to solve a multi-factor authentication challenge successfully and then, forced to change the password. This option isn't available if the user account is not already registered multi-factor authentication.
+**Réinitialiser le mot de passe** : sélectionnez **Demander à l’utilisateur de réinitialiser le mot de passe** pour permettre à l’utilisateur de récupérer lui-même son compte s’il s’est inscrit à l’authentification multifacteur. La prochaine fois que l’utilisateur se connectera, il devra résoudre une demande d’authentification multifacteur, puis sera obligé de changer le mot de passe. Cette option n’est pas disponible si le compte d’utilisateur n’est pas déjà inscrit à l’authentification multifacteur.
 
-**Temporary password** - Select **Generate a temporary password** to immediately invalidate the existing password, and create a new temporary password for the user. Send the new temporary password to an alternate email address for the user or to the user's manager. Because the password is temporary, the user will be prompted to change the password upon sign-in.
+**Mot de passe temporaire** : sélectionnez **Générer un mot de passe temporaire** pour invalider immédiatement le mot de passe existant et créer un nouveau mot de passe temporaire pour l’utilisateur. Envoyez le nouveau mot de passe temporaire à une autre adresse de messagerie de l’utilisateur ou au responsable de l’utilisateur. Étant donné que le mot de passe est temporaire, l’utilisateur sera invité à changer le mot de passe lors de la connexion.
 
 
-![Policy](./media/active-directory-identityprotection/1005.png "Policy")
+![Stratégie](./media/active-directory-identityprotection/1005.png "Stratégie")
 
 
-**To open the related configuration dialog**:
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
-1. On the **Azure AD Identity Protection** blade, click **Users flagged for risk**.
+1. Dans le panneau d’**Azure AD Identity Protection**, cliquez sur **Utilisateurs associés à un indicateur de risque**.
 
-    ![Manual password reset](./media/active-directory-identityprotection/1006.png "Manual password reset")
+	![Réinitialisation manuelle du mot de passe](./media/active-directory-identityprotection/1006.png "Réinitialisation manuelle du mot de passe")
 
 
-2. From the list of users, select a user with at least one risk events.
+2. Dans la liste des utilisateurs, sélectionnez un utilisateur comportant au moins un risque.
 
-    ![Manual password reset](./media/active-directory-identityprotection/1007.png "Manual password reset")
+	![Réinitialisation manuelle du mot de passe](./media/active-directory-identityprotection/1007.png "Réinitialisation manuelle du mot de passe")
 
 
-2. On the user blade, click **Reset password**.
+2. Dans le panneau Utilisateur, cliquez sur **Réinitialiser le mot de passe**.
 
-    ![Manual password reset](./media/active-directory-identityprotection/1008.png "Manual password reset")
+	![Réinitialisation manuelle du mot de passe](./media/active-directory-identityprotection/1008.png "Réinitialisation manuelle du mot de passe")
 
 
 
 
 
-## <a name="user-risk-security-policy"></a>User risk security policy
+## Stratégie de sécurité en matière de risque des utilisateurs
 
-A user risk security policy is a conditional access policy that evaluates the risk level to a specific user and applies remediation and mitigation actions based on predefined conditions and rules.
+Une stratégie de sécurité en matière de risque des utilisateurs est une stratégie d’accès conditionnel qui évalue le niveau de risque d’un utilisateur spécifique et applique des mesures de correction et d’atténuation en fonction de conditions et de règles prédéfinies.
 
 
-![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
+![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1009.png "Stratégie en matière de risque des utilisateurs")
 
 
-Azure AD Identity Protection helps you manage the mitigation and remediation of users flagged for risk by enabling you to:
+Azure AD Identity Protection vous aide à gérer les mesures de correction et d’atténuation pour les utilisateurs associés à un indicateur de risque, en vous permettant d’effectuer les opérations suivantes :
 
-- Set the users and groups the policy applies to: 
+- Définir les utilisateurs et les groupes auxquels la stratégie s’applique :
 
-    ![User ridk policy](./media/active-directory-identityprotection/1010.png "User ridk policy")
+	![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1010.png "Stratégie en matière de risque des utilisateurs")
 
 
-- Set the user risk level threshold (low, medium, or high) that triggers the policy: 
+- Définir le niveau de risque d’un utilisateur (Faible, Moyen ou Élevé) qui déclenche la stratégie :
 
-    ![User ridk policy](./media/active-directory-identityprotection/1011.png "User ridk policy")
+	![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1011.png "Stratégie en matière de risque des utilisateurs")
 
 
-- Set the controls to be enforced when the policy triggers:
+- Définir les contrôles à appliquer lorsque la stratégie est déclenchée :
 
-    ![User ridk policy](./media/active-directory-identityprotection/1012.png "User ridk policy")
+	![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1012.png "Stratégie en matière de risque des utilisateurs")
 
 
-- Switch the state of your policy:
+- Basculer l’état de votre stratégie :
 
-    ![User ridk policy](./media/active-directory-identityprotection/403.png "MFA Registration")
+	![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/403.png "Inscription à MFA")
 
 
-- Review and evaluate the impact of a change before activating it:
+- Examiner et évaluer l’impact d’un changement avant de l’appliquer :
 
-    ![User ridk policy](./media/active-directory-identityprotection/1013.png "User ridk policy")
+	![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1013.png "Stratégie en matière de risque des utilisateurs")
 
 
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.
-However, it excludes **Low** and **Medium** users flagged for risk from the policy, which may not secure identities or devices that were previously suspected or known to be compromised.
+La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs. Cependant, cela a pour effet d’exclure les utilisateurs associés à un indicateur de risque **Faible** et **Moyen**. Par conséquent, il se peut que des identités ou des appareils déjà identifiés comme potentiellement ou effectivement compromis ne soient pas sécurisés.
 
-When setting the policy,
+Pour définir la stratégie
 
-- Exclude users who are likely to generate a lot of false-positives (developers, security analysts)
+- Excluez les utilisateurs susceptibles de générer un grand nombre de faux positifs (développeurs, analystes de sécurité).
 
-- Exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
+- Excluez les utilisateurs situés dans des régions où l’activation de la stratégie n’est pas adaptée (par exemple, aucun accès au support technique).
 
-- Use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
+- Utilisez un niveau de risque **Élevé** pendant le déploiement initial de la stratégie ou si vous devez minimiser la complexité pour les utilisateurs finaux.
 
-- Use a **Low** threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
+- Utilisez un niveau de risque **Faible** si votre organisation nécessite une sécurité accrue. La sélection d’un niveau de risque **Faible** complique la connexion pour les utilisateurs, mais renforce la sécurité.
 
-The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
+Pour la plupart des organisations, nous recommandons de configurer un niveau de risque **Moyen** afin d’établir un juste équilibre entre facilité d’utilisation et sécurité.
 
-For an overview of the related user experience, see:
+Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez :
 
-- [Compromised account recovery flow](active-directory-identityprotection-flows.md#compromised-account-recovery).  
+- [Flux de récupération de compte compromis](active-directory-identityprotection-flows.md#compromised-account-recovery).
 
-- [Compromised account blocked flow](active-directory-identityprotection-flows.md#compromised-account-blocked).  
+- [Flux de compte compromis bloqué](active-directory-identityprotection-flows.md#compromised-account-blocked).
 
 
-**To open the related configuration dialog**:
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
-1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **User risk policy**.
+1. Dans le panneau **Azure AD Identity Protection**, à la section**Configurer**, cliquez sur **Stratégie de risque d’utilisateur**.
 
-    ![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
+	![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1009.png "Stratégie en matière de risque des utilisateurs")
 
 
 
 
 
 
-## <a name="mitigating-user-risk-events"></a>Mitigating user risk events
-Administrators can set a user risk security policy to block users upon sign-in depending on the risk level. 
+## Atténuation des événements à risque d’un utilisateur
+Les administrateurs peuvent définir une stratégie de sécurité en matière de risque des utilisateurs pour bloquer les utilisateurs lors de la connexion selon le niveau de risque.
 
-Blocking a sign-in:
+Le blocage d’une connexion :
  
-- Prevents the generation of new user risk events for the affected user
+- empêche la génération de nouveaux événements à risque pour l’utilisateur concerné ;
 
-- Enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
-
-
-
-## <a name="what-is-a-sign-in-risk-level?"></a>What is a sign-in risk level?
-
-A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to authenticate with the user’s identity. The sign-in risk level is evaluated at the time of a sign-in and considers risk events and indicators detected in real-time for that specific sign-in. 
-
-## <a name="mitigating-sign-in-risk-events"></a>Mitigating sign-in risk events 
-A mitigation is an action to limit the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous sign-in risk events associated with the identity or device.
-
-You can use conditional access in Azure AD Identity Protection to automatically mitigate sign-in risk events. Using these policies, you consider the risk level of the user or the sign-in to block risky sign-ins or require the user to perform multi-factor authentication. These actions may prevent an attacker from exploiting a stolen identity to cause damage, and may give you some time to secure the identity. 
+- permet aux administrateurs de corriger manuellement les événements à risques affectant l’identité de l’utilisateur pour sécuriser à nouveau cette dernière.
 
 
-## <a name="sign-in-risk-security-policy"></a>Sign-in risk security policy
 
-A sign-in risk policy is a conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
+## Qu’est-ce que le niveau de risque à la connexion ?
 
-![Sign-in risk policy](./media/active-directory-identityprotection/1014.png "Sign-in risk policy")
+Le niveau de risque à la connexion est une indication (élevée, moyenne ou faible) indiquant la probabilité qu’un tiers tente de s’authentifier à l’aide de l’identité de l’utilisateur dans le cadre d’une connexion spécifique. Le niveau de risque à la connexion est évalué au moment de la connexion, en prenant en compte les risques et les indicateurs détectés en temps réel pour cette connexion.
 
+## Atténuation des événements à risque à la connexion 
+Une atténuation est une mesure visant à limiter la probabilité qu’un pirate exploite une identité ou un appareil compromis, mais qui ne permet pas de rétablir la sécurité de l’identité ou de l’appareil en question. Une atténuation ne résout pas les précédents événements de connexion à risque associés à l’identité ou à l’appareil.
 
-Azure AD Identity Protection helps you manage the mitigation of risky sign-ins by enabling you to:
-
-- Set the users and groups the policy applies to: 
-
-    ![Sign-in risk policy](./media/active-directory-identityprotection/1015.png "Sign-in risk policy")
+Vous pouvez utiliser l’accès conditionnel dans Azure AD Identity Protection pour atténuer automatiquement les événements à risque à la connexion. Avec ce type de stratégie, vous prenez en compte le niveau de risque de l’utilisateur ou de la connexion pour bloquer les connexions à risque ou exiger une authentification multifacteur de la part de l’utilisateur. Ces mesures peuvent empêcher un cybercriminel d’exploiter une identité volée pour causer des dommages et vous donner le temps de sécuriser l’identité.
 
 
-- Set the sign-in risk level threshold (low, medium, or high) that triggers the policy: 
+## Stratégie de sécurité en matière de risque à la connexion
 
-    ![Sign-in risk policy](./media/active-directory-identityprotection/1016.png "Sign-in risk policy")
+Une stratégie en matière de risque à la connexion est une stratégie d’accès conditionnel consistant à évaluer le risque associé à une connexion spécifique et qui applique des mesures d’atténuation à partir de règles et de conditions prédéfinies.
+
+![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/1014.png "Stratégie en matière de risque à la connexion")
 
 
-- Set the controls to be enforced when the policy triggers:  
+Azure AD Identity Protection vous aide à gérer l’atténuation des connexions à risque, en vous permettant d’effectuer les opérations suivantes :
 
-    ![Sign-in risk policy](./media/active-directory-identityprotection/1017.png "Sign-in risk policy")
-    
-    Multi-factor authentication can only be required for users that haven already been registered for multi-factor authentication. If the condition to require multi-factor authentication is satisfied for a user who is not yet registered for multi-factor authentication, the user is blocked. 
+- Définir les utilisateurs et les groupes auxquels la stratégie s’applique :
 
-- Switch the state of your policy:
+	![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/1015.png "Stratégie en matière de risque à la connexion")
 
-    ![MFA Registration](./media/active-directory-identityprotection/403.png "MFA Registration")
 
-- Review and evaluate the impact of a change before activating it: 
+- Définir le niveau de risque à la connexion (Faible, Moyen ou Élevé) qui déclenche la stratégie :
 
-    ![Sign-in risk policy](./media/active-directory-identityprotection/1018.png "Sign-in risk policy")
+	![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/1016.png "Stratégie en matière de risque à la connexion")
+
+
+- Définir les contrôles à appliquer lorsque la stratégie est déclenchée :
+
+	![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/1017.png "Stratégie en matière de risque à la connexion")
+
+
+- Basculer l’état de votre stratégie :
+
+	![Inscription à MFA](./media/active-directory-identityprotection/403.png "Inscription à MFA")
+
+- Examiner et évaluer l’impact d’un changement avant de l’appliquer :
+
+	![Stratégie en matière de risque à la connexion](./media/active-directory-identityprotection/1018.png "Stratégie en matière de risque à la connexion")
 
  
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.  
+La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs.
  
-However, it excludes **Low** and **Medium** sign-ins flagged for risk from the policy, which may not block an attacker from exploiting a compromised identity. 
+Cependant, cela a pour effet d’exclure les connexions associées à un indicateur de risque **Faible** et **Moyen**. Par conséquent, il se peut qu’un cybercriminel soit en mesure d’exploiter une identité compromise.
 
-When setting the policy, 
+Pour définir la stratégie
 
-- Exclude users who do not/cannot have multi-factor authentication
+- Excluez les utilisateurs qui ne sont pas inscrits/ne peuvent pas s’inscrire à l’authentification multifacteur.
 
-- Exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
+- Excluez les utilisateurs situés dans des régions où l’activation de la stratégie n’est pas adaptée (par exemple, aucun accès au support technique).
 
-- Exclude users who are likely to generate a lot of false-positives (developers, security analysts)
+- Excluez les utilisateurs susceptibles de générer un grand nombre de faux positifs (développeurs, analystes de sécurité).
 
-- Use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
+- Utilisez un niveau de risque **Élevé** pendant le déploiement initial de la stratégie ou si vous devez minimiser la complexité pour les utilisateurs finaux.
 
-- Use a **Low**  threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
+- Utilisez un niveau de risque **Faible** si votre organisation nécessite une sécurité accrue. La sélection d’un niveau de risque **Faible** complique la connexion pour les utilisateurs, mais renforce la sécurité.
 
-The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
+Pour la plupart des organisations, nous recommandons de configurer un niveau de risque **Moyen** afin d’établir un juste équilibre entre facilité d’utilisation et sécurité.
 
  
-The sign-in risk policy is:
+La stratégie en matière de risque à la connexion :
 
-- Applied to all browser traffic and sign-ins using modern authentication.
-- Not applied to applications using older security protocols by disabling the WS-Trust endpoint at the federated IDP, such as ADFS.
+- est appliquée à l’ensemble du trafic de navigateur et des connexions utilisant une authentification moderne ;
+- n’est pas appliquée aux applications utilisant des protocoles de sécurité plus anciens en désactivant le point de terminaison WS-Trust sur le fournisseur d’identité fédérée, tels qu’ADFS.
 
-The **Risk Events** page in the Identity Protection console lists all events:
+La page **Événements à risque** de la console Identity Protection répertorie tous les événements :
 
-- This policy was applied to
-- You can review the activity and determine whether the action was appropriate or not 
+- auxquels cette stratégie a été appliquée ;
+- pour lesquels vous pouvez consulter l’activité afin de déterminer si la mesure était appropriée ou non.
 
-For an overview of the related user experience, see:
+Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez :
 
-- [Risky sign-in recovery](active-directory-identityprotection-flows.md#risky-sign-in-recovery) 
+- [Récupération de connexion à risque](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
-- [Risky sign-in blocked](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
+- [Connexion à risque bloquée](active-directory-identityprotection-flows.md#risky-sign-in-blocked)
 
-- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)  
+- [Inscription à l’authentification multifacteur au cours d’une connexion à risque](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)
 
 
 
 
 
-**To open the related configuration dialog**:
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
-1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Sign-in risk policy**.
+1. Dans le panneau **Azure AD Identity Protection**, à la section**Configurer**, cliquez sur **Stratégie en matière de risque à la connexion**.
 
-    ![User ridk policy](./media/active-directory-identityprotection/1014.png "User ridk policy")
+	![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1014.png "Stratégie en matière de risque des utilisateurs")
 
 
 
 
 
-## <a name="multi-factor-authentication-registration-policy"></a>Multi-factor authentication registration policy
+## Stratégie d’inscription à l’authentification multifacteur
 
-Azure multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions.  
-We recommend that you require Azure multi-factor authentication for user sign-ins because it:
+Azure Multi-Factor Authentication est une méthode permettant de vérifier votre identité qui requiert l’utilisation d’autres méthodes que le nom d’utilisateur et le mot de passe. Ce service fournit une deuxième couche de sécurité pour les connexions et les transactions de l'utilisateur. Nous vous recommandons d’exiger l’authentification multifacteur d’Azure des connexions des utilisateurs pour les raisons suivantes :
 
-- Delivers strong authentication with a range of easy verification options
+- Elle fournit une authentification renforcée avec un éventail d’options de vérification simples.
 
-- Plays a key role in preparing your organization to protect and recover from account compromises
+- Elle joue un rôle clé dans la préparation de votre organisation pour protéger et récupérer les comptes compromis.
 
-![User ridk policy](./media/active-directory-identityprotection/1019.png "User ridk policy")
+![Stratégie en matière de risque des utilisateurs](./media/active-directory-identityprotection/1019.png "Stratégie en matière de risque des utilisateurs")
 
 
 
-For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Pour plus d’informations, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by configuring a policy that enables you to: 
+Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription à l’authentification multifacteur en configurant une stratégie qui vous permet d’effectuer les opérations suivantes :
 
 
 
-- Set the users and groups the policy applies to: 
+- Définir les utilisateurs et les groupes auxquels la stratégie s’applique :
 
-    ![MFA policy](./media/active-directory-identityprotection/1020.png "MFA policy")
+	![Stratégie MFA](./media/active-directory-identityprotection/1020.png "Stratégie MFA")
 
 
 
-- Set the controls to be enforced when the policy triggers::  
+- Définir les contrôles à appliquer lorsque la stratégie est déclenchée :
 
-    ![MFA policy](./media/active-directory-identityprotection/1021.png "MFA policy")
+	![Stratégie MFA](./media/active-directory-identityprotection/1021.png "Stratégie MFA")
 
 
-- Switch the state of your policy:
+- Basculer l’état de votre stratégie :
 
-    ![MFA policy](./media/active-directory-identityprotection/403.png "MFA policy")
+	![Stratégie MFA](./media/active-directory-identityprotection/403.png "Stratégie MFA")
 
-- View the current registration status: 
+- Afficher l’état d’inscription actuel :
 
-    ![MFA policy](./media/active-directory-identityprotection/1022.png "MFA policy")
+	![Stratégie MFA](./media/active-directory-identityprotection/1022.png "Stratégie MFA")
 
 
-For an overview of the related user experience, see:
+Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez :
 
-- [Multi-factor authentication registration flow](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
+- [Processus d’inscription à l’authentification multifacteur](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).
 
-- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).  
+- [Inscription à l’authentification multifacteur au cours d’une connexion à risque](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).
 
 
 
 
 
-**To open the related configuration dialog**:
+**Pour ouvrir la boîte de dialogue de configuration connexe** :
 
-1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Multi-factor authentication registration**.
+1. Dans le panneau **Azure AD Identity Protection**, à la section**Configurer**, cliquez sur **Inscription à l’authentification multifacteur**.
 
-    ![MFA policy](./media/active-directory-identityprotection/1019.png "MFA policy")
+	![Stratégie MFA](./media/active-directory-identityprotection/1019.png "Stratégie MFA")
 
 
 
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
- - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
- - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
- - [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
- - [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
- - [Azure Active Directory Identity Protection flows](active-directory-identityprotection-flows.md)
- - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
- - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
+ - [Channel 9 : Azure AD and Identity Show: Identity Protection Preview (Émission sur Azure AD et l’identité : présentation d’Identity Protection)](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+ - [Types d’événements à risque détectés par Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
+ - [Vulnérabilités détectées par Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
+ - [Notifications d’Azure Active Directory Identity Protection](active-directory-identityprotection-notifications.md)
+ - [Flux Azure Active Directory Identity Protection](active-directory-identityprotection-flows.md)
+ - [Manuel d’Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
+ - [Glossaire d’Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
 
- - [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
- - [Azure Active Directory Identity Protection - How to unblock users](active-directory-identityprotection-unblock-howto.md)
+ - [Activer Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
+ - [Azure Active Directory Identity Protection - Déblocage des utilisateurs](active-directory-identityprotection-unblock-howto.md)
 
- - [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+ - [Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

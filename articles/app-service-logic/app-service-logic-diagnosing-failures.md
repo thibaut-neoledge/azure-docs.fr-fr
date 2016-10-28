@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Diagnosing logic apps failures | Microsoft Azure"
-   description="Common approaches to understanding where logic apps are failing"
+   pageTitle="Diagnostic des échecs d’applications logiques | Microsoft Azure"
+   description="Approches courantes pour comprendre les points de défaillance des applications logiques"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -13,68 +13,67 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/18/2016"
+   ms.date="05/18/2016"
    ms.author="jehollan"/>
 
+# Diagnostic des échecs d’applications logiques
 
-# <a name="diagnosing-logic-app-failures"></a>Diagnosing logic app failures
+Si vous rencontrez des problèmes ou des échecs avec la fonctionnalité Logic Apps d’Azure App Service, quelques approches peuvent vous aider à mieux comprendre l’origine des défaillances.
 
-If you experience issues or failures with the Logic Apps feature of Azure App Service, a few approaches can help you better understand where the failures are coming from.  
+## Outils du Portail Azure
 
-## <a name="azure-portal-tools"></a>Azure portal tools
+Le Portail Azure fournit plusieurs outils permettant de diagnostiquer chaque application logique à différentes étapes.
 
-The Azure portal provides many tools to diagnose each logic app at each step.
+### Historique du déclencheur
 
-### <a name="trigger-history"></a>Trigger history
+Chaque application logique comporte au moins un déclencheur. Si vous remarquez que les applications ne se déclenchent pas, vous devez en premier lieu rechercher des informations dans l’historique du déclencheur. Vous pouvez accéder à l’historique du déclencheur dans le panneau principal de l’application logique.
 
-Each logic app has at least one trigger. If you notice that apps aren't firing, the first place to look for additional information is the trigger history. You can access the trigger history on the logic app main blade.
+![Emplacement de l’historique du déclencheur][1]
 
-![Locating the trigger history][1]
+Il répertorie tous les tentatives du déclencheur de votre application logique. Vous pouvez cliquer sur chaque tentative du déclencheur pour accéder au niveau suivant de détail (en particulier, les entrées ou sorties générées par la tentative du déclencheur). En cas de défaillance d’un déclencheur, cliquez sur la tentative de ce déclencheur et explorez le lien **Sorties** pour comprendre les messages d’erreur potentiellement générés (par exemple, des informations d’identification FTP incorrectes).
 
-This lists all of the trigger attempts that your logic app has made. You can click each trigger attempt to get the next level of detail (specifically, any inputs or outputs that the trigger attempt generated). If you see any failed triggers, click the trigger attempt and drill into the **Outputs** link to see any error messages that might have been generated (for example, for invalid FTP credentials).
+Voici les différents états que vous pouvez voir :
 
-The different statuses you might see are:
+* **Ignoré**. Il a interrogé le point de terminaison pour vérifier les données et a reçu une réponse indiquant qu’aucune donnée n’était disponible.
+* **Réussi**. Le déclencheur a reçu une réponse indiquant que les données étaient disponibles. Cela peut provenir d’un déclencheur manuel, d’un déclencheur de périodicité ou d’un déclencheur d’interrogation. Cet état est probablement accompagné d’un état **Déclenché**, sauf si vous avez une condition ou une commande splitOn en mode Code qui n’a pas été satisfaite.
+* **Échec**. Une erreur a été générée.
 
-* **Skipped**. It polled the endpoint to check for data and received a response that no data was available.
-* **Succeeded**. The trigger received a response that data was available. This could be from a manual trigger, a recurrence trigger, or a polling trigger. This likely will be accompanied with a status of **Fired**, but it might not if you have a condition or SplitOn command in code view that wasn't satisfied.
-* **Failed**. An error was generated.
+#### Démarrage manuel d’un déclencheur
 
-#### <a name="starting-a-trigger-manually"></a>Starting a trigger manually
+Si vous souhaitez que l’application logique recherche immédiatement un déclencheur disponible (sans attendre la prochaine récurrence), vous pouvez cliquer sur **Sélectionner le déclencheur** dans le panneau principal pour forcer une vérification. Par exemple, si vous cliquez sur ce lien avec un déclencheur Dropbox, le workflow interrogera immédiatement Dropbox pour rechercher les nouveaux fichiers.
 
-If you want the logic app to check for an available trigger immediately (without waiting for the next recurrence), you can click **Select Trigger** on the main blade to force a check. For example, clicking this link with a Dropbox trigger will cause the workflow to immediately poll Dropbox for new files.
+### Historique d’exécution
 
-### <a name="run-history"></a>Run history
+Chaque déclencheur déclenché donne lieu à une exécution. Vous pouvez accéder aux informations d’exécution dans le panneau principal, qui contient un grand nombre d’informations pouvant être utiles pour comprendre le déroulement du flux de travail.
 
-Every trigger that is fired results in a run. You can access run information from the main blade, which contains a lot of information that can be helpful in understanding what happened during the workflow.
+![Emplacement de l’historique d’exécution][2]
 
-![Locating the run history][2]
+Une exécution affiche l’un des états suivants :
 
-A run displays one of the following statuses:
+* **Réussi**. Toutes les actions ont réussi, ou, en cas de problème, cela a été corrigé par une action exécutée ultérieurement dans le workflow. Autrement dit, le problème a été corrigé par une action configurée pour s’exécuter après l’échec d’une autre action.
+* **Échec**. Au moins une action a rencontré un échec qui n’a pas été traité par une action ultérieure dans le workflow.
+* **Annulé**. Le workflow était en cours d’exécution mais a reçu une demande d’annulation.
+* **Exécution en cours**. Si un workflow est en cours d’exécution. Cela peut se produire pour les workflows qui sont limités ou en raison du plan App Service actuel. Pour en savoir plus, consultez les limites d’action sur la [page de tarification](https://azure.microsoft.com/pricing/details/app-service/plans/). La configuration des diagnostics (les graphiques apparaissant en-dessous de l’historique des exécutions) peut également fournir des informations sur les événements de limitation qui se produisent.
 
-* **Succeeded**. All actions succeeded, or, if there was a failure, it was handled by an action that occurred later in the workflow. That is, it was handled by an action that was set to run after a failed action.
-* **Failed**. At least one action had a failure that was not handled by an action later in the workflow.
-* **Cancelled**. The workflow was running but received a cancel request.
-* **Running**. The workflow is currently running. This may occur for workflows that are being throttled, or because of the current App Service plan. Please see action limits on the [pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/) for details. Configuring diagnostics (the charts listed below the run history) also can provide information about any throttle events that are occurring.
+Lorsque vous examinez un historique d’exécution, vous pouvez rechercher des détails supplémentaires.
 
-When you are looking at a run history, you can drill in for more details.  
+#### Sorties du déclencheur
 
-#### <a name="trigger-outputs"></a>Trigger outputs
+Les sorties du déclencheur affichent les données reçues du déclencheur. Cela peut vous aider à déterminer si toutes les propriétés ont renvoyé les valeurs attendues.
 
-Trigger outputs show the data that was received from the trigger. This can help you determine whether all properties returned as expected.
+>[AZURE.NOTE] Il peut être utile de comprendre la manière dont la fonctionnalité Logic Apps [gère les différents types de contenu](app-service-logic-content-type.md) si vous voyez du contenu que vous ne comprenez pas.
 
->[AZURE.NOTE] It might be helpful to understand how the Logic Apps feature [handles different content types](app-service-logic-content-type.md) if you see any content that you don't understand.
+![Exemples de sorties du déclencheur][3]
 
-![Trigger output examples][3]
+#### Entrées et sorties d’actions
 
-#### <a name="action-inputs-and-outputs"></a>Action inputs and outputs
+Vous pouvez explorer les entrées et sorties associées à une action. Ces informations sont utiles non seulement pour comprendre la taille et la forme des sorties, mais aussi pour afficher tous les messages d’erreur qui ont été générés.
 
-You can drill into the inputs and outputs that an action received. This is useful for understanding the size and shape of the outputs, as well as to see any error messages that may have been generated.
+![Entrées et sorties d’actions][4]
 
-![Action inputs and outputs][4]
+## Débogage du runtime du workflow
 
-## <a name="debugging-workflow-runtime"></a>Debugging workflow runtime
-
-In addition to monitoring the inputs, outputs, and triggers of a run, it could be useful to add some steps within a workflow to help with debugging. [RequestBin](http://requestb.in) is a powerful tool that you can add as a step in a workflow. By using RequestBin, you can set up an HTTP request inspector to determine the exact size, shape, and format of an HTTP request. You can create a new RequestBin and paste the URL in a logic app HTTP POST action along with body content you want to test (for example, an expression or another step output). After you run the logic app, you can refresh your RequestBin to see how the request was formed as it was generated from the Logic Apps engine.
+Au-delà du contrôle des entrées, des sorties et des déclencheurs d’une exécution, il peut être utile d’ajouter des étapes à un workflow pour faciliter le débogage. [RequestBin](http://requestb.in) est un outil puissant que vous pouvez ajouter en tant qu’étape d’un workflow. À l’aide de RequestBin, vous configurez un inspecteur de requête HTTP qui détermine précisément la taille, la forme et le format d’une requête HTTP. Vous pouvez créer un nouvel élément RequestBin et coller l’URL dans une action HTTP POST de l’application logique, en utilisant le contenu du corps que vous voulez tester (par exemple, une expression ou une autre sortie de l’étape). Après avoir exécuté l’application logique, vous actualisez votre élément RequestBin pour voir comment la requête a été formée dans la mesure où elle a été générée à partir du moteur Logic Apps.
 
 
 
@@ -85,8 +84,4 @@ In addition to monitoring the inputs, outputs, and triggers of a run, it could b
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

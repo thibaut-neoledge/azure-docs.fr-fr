@@ -1,6 +1,6 @@
 <properties
-   pageTitle="StorSimple Virtual Array system requirements"
-   description="Learn about the software and networking requirements for your StorSimple Virtual Array"
+   pageTitle="Configuration système requise pour StorSimple Virtual Array"
+   description="En savoir plus sur la configuration logicielle et du réseau requise pour votre StorSimple Virtual Array"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,124 +16,119 @@
    ms.date="07/14/2016"
    ms.author="alkohli"/>
 
+# Configuration système requise pour StorSimple Virtual Array
 
-# <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Virtual Array system requirements
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Cet article décrit la configuration système requise importante pour Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel local StorSimple ou appareil virtuel StorSimple) et pour les clients de stockage accédant au tableau. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
-This article describes important system requirements for your Microsoft Azure StorSimple Virtual Array (also known as StorSimple on-premises virtual device or StorSimple virtual device) and for the storage clients accessing the array. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
+Les conditions requises sont les suivantes :
 
-The system requirements include:
+-   **Configuration logicielle requise pour les clients de stockage** : décrit les plateformes de virtualisation, les navigateurs web, les initiateurs iSCSI, les clients SMB pris en charge, la configuration minimale requise pour les appareils virtuels et toutes les exigences requises pour ces systèmes d'exploitation.
 
--   **Software requirements for storage clients** - describes the supported virtualization platforms, web browsers, iSCSI initiators, SMB clients, minimum virtual device requirements, and any additional requirements for those operating systems.
+-   **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
 
--   **Networking requirements for the StorSimple device** - provides information about the ports that need to be open in your firewall to allow for iSCSI, cloud, or management traffic.
+Les informations de configuration système requise StorSimple publiées dans cet article s'appliquent uniquement aux tableaux virtuels StorSimple.
 
-The StorSimple system requirements information published in this article applies to StorSimple Virtual Arrays only.
-
-- For 8000 series devices, go to [System requirements for your StorSimple 8000 series device](storsimple-system-requirements.md).
+- Pour les appareils de la gamme 8000, accédez à [Configuration système requise pour votre appareil de la gamme StorSimple 8000](storsimple-system-requirements.md).
  
-- For 7000 series devices, go to [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
+- Pour les appareils de la gamme 7000, accédez à [Configuration système requise pour votre appareil de la gamme StorSimple 5000-7000](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 
-## <a name="software-requirements"></a>Software requirements
+## Configuration logicielle requise
 
-The software requirements include the information on the supported web browsers, SMB versions, virtualization platforms and the minimum virtual device requirements.
+La configuration logicielle requise inclut les informations sur les navigateurs web pris en charge, les versions SMB, les plateformes de virtualisation et la configuration minimale requise pour l'appareil virtuel.
 
-### <a name="supported-virtualization-platforms"></a>Supported virtualization platforms
+### Plateformes de virtualisation prises en charge
 
 
-| **Hypervisor** | **Version**                          |
+| **Hyperviseur** | **Version** |
 |----------------|--------------------------------------|
-| Hyper-V        | Windows Server 2008 R2 SP1 and later |
-| VMware ESXi    | 5.5 and later                        |
+| Hyper-V | Windows Server 2008 R2 SP1 et versions ultérieures |
+| VMware ESXi | 5\.5 et versions ultérieures |
 
-### <a name="virtual-device-requirements"></a>Virtual device requirements
+### Configuration requise de l'appareil virtuel
 
-| **Component**                                | **Requirement**            |
+| **Composant** | **Prérequis** |
 |----------------------------------------------|----------------------------|
-| Minimum number of virtual processors (cores) | 4                          |
-| Minimum memory (RAM)                         | 8 GB                       |
-| Disk space<sup>1</sup>                       | OS disk - 80 GB <br></br>Data disk - 500 GB to 8 TB|
-| Minimum number of network interface(s)       | 1                          |
-| Minimum Internet bandwidth<sup>2</sup>       | 5 Mbps                     |
+| Nombre minimal de processeurs virtuels (cœurs) | 4 |
+| Quantité minimale de mémoire (RAM) | 8 Go |
+| Espace disque<sup>1</sup> | Disque de système d'exploitation - 80 Go <br></br>Disque de données - 500 Go à 8 To|
+| Nombre minimal d'interfaces réseau | 1 |
+| Bande passante Internet minimale<sup>2</sup> | 5 Mbits/s |
 
-<sup>1</sup> - Thin provisioned
+<sup>1</sup> - Allocation dynamique
 
-<sup>2</sup> - Network requirements may vary depending on the daily data change rate. For example, if a device needs to back up 10 GB or more changes during a day, then the daily backup over a 5 Mbps connection could take up to 4.25 hours (if the data could not be compressed or deduplicated).
+<sup>2</sup> - La configuration requise du réseau peut varier selon le taux de modification quotidien des données. Par exemple, si un appareil doit sauvegarder 10 Go de modifications ou plus pendant une journée, alors la sauvegarde quotidienne via une connexion 5 Mbits/s peut prendre jusqu'à 4,25 heures (si les données ne sont pas compressées ou dédupliquées).
 
-### <a name="supported-web-browsers"></a>Supported web browsers
+### Navigateurs web pris en charge
 
-| **Component**     | **Version** | **Additional requirements/notes** |
+| **Composant** | **Version** | **Conditions/remarques supplémentaires** |
 |-------------------|-----------------|-----------------------------------|
-| Microsoft Edge    | Latest version  |                                   |
-| Internet Explorer | Latest version  | Tested with Internet Explorer 11  |
-| Google Chrome     | Latest version  | Tested with Chrome 46             |
+| Microsoft Edge | Version la plus récente | |
+| Internet Explorer | Version la plus récente | Testé avec Internet Explorer 11 |
+| Google Chrome | Version la plus récente | Testé avec Chrome 46 |
 
-### <a name="supported-storage-clients"></a>Supported storage clients 
+### Clients de stockage pris en charge 
 
-The following software requirements are for the iSCSI initiators that access your StorSimple Virtual Array (configured as an iSCSI server).
+La configuration logicielle requise suivante concerne les initiateurs iSCSI qui accèdent à votre StorSimple Virtual Array (configuré comme un serveur iSCSI).
 
-| **Supported operating systems** | **Version required** | **Additional requirements/notes** |
+| **Systèmes d’exploitation pris en charge** | **Version requise** | **Conditions/remarques supplémentaires** |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes. StorSimple iSCSI volumes are supported for only: <ul><li>Simple volumes on Windows basic disks.</li><li>Windows NTFS for formatting a volume.</li>|
+| Windows Server | 2008 R2 SP1, 2012, 2012 R2 |StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne peut pas créer des volumes alloués partiellement. Les volumes iSCSI StorSimple sont pris en charge uniquement pour : <ul><li>Volumes simples sur des disques de base Windows.</li><li>Windows NTFS pour formater un volume.</li>|
 
-The following software requirements are for the SMB clients that access your StorSimple Virtual Array (configured as a file server).
+La configuration logicielle requise suivante concerne les clients SMB qui accèdent à votre StorSimple Virtual Array (configuré comme un serveur de fichiers).
 
-| **SMB Version** |
+| **Version SMB** |
 |-------------|
-| SMB 2.x     |
-| SMB 3.0     |
-| SMB 3.02    |
+| SMB 2.x |
+| SMB 3.0 |
+| SMB 3.02 |
  
-## <a name="networking-requirements"></a>Networking requirements 
+## Configuration requise du réseau 
 
-The following table lists the ports that need to be opened in your firewall to allow for iSCSI, SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
+Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic iSCSI, SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les demandes client entrantes accèdent à votre appareil. *Sortant* ou *Sortie* représente la direction vers laquelle votre appareil StorSimple envoie des données de façon externe, au delà du déploiement : par exemple, sortant vers Internet.
 
-| **Port No.<sup>1</sup>** | **In or out** | **Port scope** | **Required**              | **Notes**                                                                                                            |
+| **Numéro de port<sup>1</sup>** | **Entrant ou sortant** | **Étendue de ports** | **Obligatoire** | **Remarques** |
 |--------------------------|---------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------------------|
-| TCP 80 (HTTP)            | Out           | WAN            | No                        | Outbound port is used for Internet access to retrieve updates. <br></br>The outbound web proxy is user configurable. |
-| TCP 443 (HTTPS)          | Out           | WAN            | Yes                       | Outbound port is used for accessing data in the cloud. <br></br>The outbound web proxy is user configurable. |
-| UDP 53 (DNS)             | Out           | WAN            | In some cases; see notes. | This port is required only if you are using an Internet-based DNS server. <br></br> **Note**: If deploying a file server, we recommend using local DNS server.|
-| UDP 123 (NTP)            | Out           | WAN            | In some cases; see notes. | This port is required only if you are using an Internet-based NTP server.<br></br> **Note:** If deploying a file server, we recommend synchronizing time with your Active Directory domain controllers.  |
-| TCP 80 (HTTP)           | In            | LAN            | Yes                       | This is the inbound port for local UI on the StorSimple device for local management. <br></br> **Note**: Accessing the local UI over HTTP will automatically redirect to HTTPS.|
-| TCP 443 (HTTPS)          | In            | LAN            | Yes                       | This is the inbound port for local UI on the StorSimple device for local management.|
-| TCP 3260 (iSCSI)         | In            | LAN            | No                        | This port is used to access data over iSCSI.|
+| TCP 80 (HTTP) | Sortie | WAN | Non | Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
+| TCP 443 (HTTPS) | Sortie | WAN | Oui | Le port de sortie est utilisé pour accéder aux données dans le cloud. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
+| UDP 53 (DNS) | Sortie | WAN | Dans certains cas, consultez les notes. | Ce port est requis seulement si vous utilisez un serveur DNS Internet. <br></br> **Remarque** : si vous déployez un serveur de fichiers, nous recommandons l’utilisation d’un serveur DNS local.|
+| UDP 123 (NTP) | Sortie | WAN | Dans certains cas, consultez les notes. | Ce port est requis seulement si vous utilisez un serveur NTP Internet.<br></br> **Remarque :** si vous déployez un serveur de fichiers, nous vous recommandons de synchroniser l’heure avec vos contrôleurs de domaine Active Directory. |
+| TCP 80 (HTTP) | Dans | LAN | Oui | Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> **Remarque** : l’accès à l’interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS.|
+| TCP 443 (HTTPS) | Dans | LAN | Oui | Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale.|
+| TCP 3260 (iSCSI) | Dans | LAN | Non | Ce port est utilisé pour accéder aux données via iSCSI.|
 
-<sup>1</sup> No inbound ports need to be opened on the public Internet.
+<sup>1</sup> Aucun port entrant ne doit être ouvert sur l’Internet public.
 
-> [AZURE.IMPORTANT] Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> [AZURE.IMPORTANT] Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
 
 
-### <a name="url-patterns-for-firewall-rules"></a>URL patterns for firewall rules 
+### Modèles d’URL pour règles de pare-feu 
 
-Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your virtual array and the StorSimple Manager service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. This in turn will require the network administrator to monitor and update firewall rules for your StorSimple as and when needed. 
+Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre tableau virtuel et le service StorSimple Manager dépendent d’autres applications Microsoft telles qu’Azure Service Bus, Azure Active Directory Access Control, ou que des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. L’administrateur réseau doit alors surveiller et mettre à jour les règles de pare-feu pour votre appareil StorSimple si nécessaire.
 
-We recommend that you set your firewall rules for outbound traffic, based on StorSimple fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
+Dans la plupart des cas, nous vous recommandons de définir librement les règles de pare-feu pour le trafic sortant en fonction des ADresses IP fixes StorSimple. Toutefois, vous pouvez utiliser les informations ci-dessous pour définir les règles de pare-feu avancées qui sont nécessaires à la création d’environnements sécurisés.
 
 > [AZURE.NOTE] 
 > 
-> - The device (source) IPs should always be set to all the cloud-enabled network interfaces. 
-> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> - Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées pour le cloud.
+> - Les adresses IP de destination doivent être définies sur les [plages d’adresses IP Azure Datacenter](https://www.microsoft.com/fr-FR/download/confirmation.aspx?id=41653).
 
 
-| URL pattern                                                      | Component/Functionality                                           |
+| Modèle d’URL | Composant/Fonctionnalité |
 |------------------------------------------------------------------|---------------------------------------------------------------|
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`   | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus|
-|`http://*.backup.windowsazure.com`|Device registration|
-|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Certificate revocation |
-| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure storage accounts and monitoring |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update servers<br>                        |
-| `http://*.deploy.akamaitechnologies.com`                         |Akamai CDN |
-| `https://*.partners.extranet.microsoft.com/*`                    | Support package                                                  |
-| `http://*.data.microsoft.com `                   | Telemetry service in Windows, see the [update for customer experience and diagnostic telemetry](https://support.microsoft.com/en-us/kb/3068708)                                                  |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Service StorSimple Manager<br>Access Control Service<br>Azure Service Bus|
+|`http://*.backup.windowsazure.com`|Enregistrement de l’appareil|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Révocation de certificat |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Comptes de stockage Azure et surveillance |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Serveurs Microsoft Update<br> |
+| `http://*.deploy.akamaitechnologies.com` |CDN Akamai |
+| `https://*.partners.extranet.microsoft.com/*` | Package de prise en charge |
+| `http://*.data.microsoft.com ` | Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et du diagnostic de la télémétrie](https://support.microsoft.com/fr-FR/kb/3068708) |
 
-## <a name="next-step"></a>Next step
+## Étape suivante
 
--   [Prepare the portal to deploy your StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
+-   [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,42 +1,41 @@
 <properties
-    pageTitle="Azure Functions developer reference | Microsoft Azure"
-    description="Understand how to develop Azure Functions using C#."
-    services="functions"
-    documentationCenter="na"
-    authors="christopheranderson"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+	pageTitle="Information de référence pour les développeurs sur Azure Functions | Microsoft Azure"
+	description="Découvrez comment développer sur Azure Functions à l’aide de C#."
+	services="functions"
+	documentationCenter="na"
+	authors="christopheranderson"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="dotnet"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="05/13/2016"
-    ms.author="chrande"/>
+	ms.service="functions"
+	ms.devlang="dotnet"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="05/13/2016"
+	ms.author="chrande"/>
 
-
-# <a name="azure-functions-c#-developer-reference"></a>Azure Functions C# developer reference
+# Informations de référence pour les développeurs C# sur Azure Functions
 
 > [AZURE.SELECTOR]
-- [C# script](../articles/azure-functions/functions-reference-csharp.md)
-- [F# script](../articles/azure-functions/functions-reference-fsharp.md)
-- [Node.js](../articles/azure-functions/functions-reference-node.md)
+- [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Script F#](../articles/azure-functions/functions-reference-fsharp.md)
+- [Node.JS](../articles/azure-functions/functions-reference-node.md)
  
-The C# experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
+L’expérience c# pour Azure Functions repose sur le Kit de développement logiciel (SDK) Azure WebJobs. Les données circulent dans votre fonction C# via des arguments de méthode. Les noms d’argument sont spécifiés dans `function.json`, et il existe des noms prédéfinis pour accéder à des éléments tels que l’enregistreur de fonctions et les jetons d’annulation.
 
-This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
+Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md).
 
-## <a name="how-.csx-works"></a>How .csx works
+## Fonctionnement de .csx
 
-The `.csx` format allows to write less "boilerplate" and focus on writing just a C# function. For Azure Functions, you just include any assembly references and namespaces you need up top, as usual, and instead of wrapping everything in a namespace and class, you can just define your `Run` method. If you need to include any classes, for instance to define POCO objects, you can include a class inside the same file.
+Le format `.csx` permet d’écrire de façon moins « réutilisable » et de se concentrer uniquement sur l’écriture d’une fonction C#. Pour Azure Functions, il suffit d’inclure les références d’assembly et les espaces de noms en haut, comme d’habitude. Par ailleurs, au lieu d’encapsuler tous les éléments dans un espace de noms et une classe, vous pouvez simplement définir votre méthode `Run`. Si vous devez inclure toutes les classes, par exemple pour définir des objets POCO, vous pouvez inclure une classe dans le même fichier.
 
-## <a name="binding-to-arguments"></a>Binding to arguments
+## Liaison aux arguments
 
-The various bindings are bound to a C# function via the `name` property in the *function.json* configuration. Each binding has its own supported types which is documented per binding; for instance, a blob trigger can support a string, a POCO, or several other types. You can use the type which best suits your need. 
+Les diverses liaisons sont liées à une fonction C# par le biais de la propriété `name` de la configuration *function.json*. Chaque liaison possède ses propres types pris en charge documentés par liaison. Par exemple, un déclencheur d’objets blob peut prendre en charge une chaîne, un objet POCO ou plusieurs autres types. Vous pouvez utiliser le type qui répond le mieux à vos besoins.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -51,9 +50,9 @@ public class MyClass
 }
 ```
 
-## <a name="logging"></a>Logging
+## Journalisation
 
-To log output to your streaming logs in C#, you can include a `TraceWriter` typed argument. We recommend that you name it `log`. We recommend you avoid `Console.Write` in Azure Functions.
+Pour consigner les résultats dans vos journaux de diffusion en continu en C#, vous pouvez inclure un argument typé `TraceWriter`. Nous vous recommandons de le nommer `log`. Nous vous recommandons d’éviter d’utiliser `Console.Write` dans Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -62,9 +61,9 @@ public static void Run(string myBlob, TraceWriter log)
 }
 ```
 
-## <a name="async"></a>Async
+## Async
 
-To make a function asynchronous, use the `async` keyword and return a `Task` object.
+Pour rendre une fonction asynchrone, utilisez le mot clé `async` et retournez un objet `Task`.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -76,9 +75,9 @@ public async static Task ProcessQueueMessageAsync(
     }
 ```
 
-## <a name="cancellation-token"></a>Cancellation Token
+## Jeton d’annulation
 
-In certain cases, you may have operations which are sensitive to being shut down. While it's always best to write code which can handle crashing,  in cases where you want to handle graceful shutdown requests, you define a [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typed argument.  A `CancellationToken` will be provided if a host shutdown is triggered. 
+Dans certains cas, certaines opérations peuvent être délicates à arrêter. Alors qu’il est toujours préférable d’écrire du code permettant de faire face à un blocage, pour traiter des demandes d’arrêt progressif, vous définissez un argument typé [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Un `CancellationToken` sera fourni si un arrêt de l’hôte est déclenché.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -91,9 +90,9 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
     }
 ```
 
-## <a name="importing-namespaces"></a>Importing namespaces
+## Importation des espaces de noms
 
-If you need to import namespaces, you can do so as usual, with the `using` clause.
+Si vous avez besoin d’importer des espaces de noms, vous pouvez le faire comme vous en avez l’habitude à l’aide de la clause `using`.
 
 ```csharp
 using System.Net;
@@ -102,7 +101,7 @@ using System.Threading.Tasks;
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 ```
 
-The following namespaces are automatically imported and are therefore optional:
+Les espaces de noms suivants sont automatiquement importés et sont donc facultatifs :
 
 * `System`
 * `System.Collections.Generic`
@@ -113,9 +112,9 @@ The following namespaces are automatically imported and are therefore optional:
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
-## <a name="referencing-external-assemblies"></a>Referencing External Assemblies
+## Référencement des assemblys externes
 
-For framework assemblies, add references by using the `#r "AssemblyName"` directive.
+Pour les assemblys de framework, ajoutez des références à l’aide de la directive `#r "AssemblyName"`.
 
 ```csharp
 #r "System.Web.Http"
@@ -127,7 +126,7 @@ using System.Threading.Tasks;
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 ```
 
-The following assemblies are automatically added by the Azure Functions hosting environment:
+Les assemblys suivants sont ajoutés automatiquement par l’environnement hébergeant Azure Functions :
 
 * `mscorlib`,
 * `System`
@@ -140,7 +139,7 @@ The following assemblies are automatically added by the Azure Functions hosting 
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-In addition, the following assemblies are special cased and may be referenced by simplename (e.g. `#r "AssemblyName"`):
+En outre, les assemblys suivants ont une casse spécifique et peuvent être référencés par leur nom simple (par exemple, `#r "AssemblyName"`) :
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -148,11 +147,11 @@ In addition, the following assemblies are special cased and may be referenced by
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`). For information on how to upload files to your function folder, see the following section on package management.
+Si vous avez besoin de référencer un assembly privé, vous pouvez charger le fichier d’assembly dans un dossier `bin` relatif à votre fonction et le référencer à l’aide du nom de fichier (par exemple, `#r "MyAssembly.dll"`). Pour plus d’informations sur le téléchargement de fichiers vers votre conteneur de fonctions, consultez la section suivante sur la gestion des packages.
 
-## <a name="package-management"></a>Package management
+## Gestion des packages
 
-To use NuGet packages in a C# function, upload a *project.json* file to the the function's folder in the function app's file system. Here is an example *project.json* file that adds a reference to Microsoft.ProjectOxford.Face version 1.1.0:
+Pour utiliser des packages NuGet dans une fonction C#, chargez un fichier *project.json* dans le dossier de la fonction dans le système de fichiers du conteneur de fonctions. Voici un exemple de fichier *project.json* qui ajoute une référence à Microsoft.ProjectOxford.Face version 1.1.0 :
 
 ```json
 {
@@ -166,20 +165,20 @@ To use NuGet packages in a C# function, upload a *project.json* file to the the 
 }
 ```
 
-Only the .NET Framework 4.6 is supported, so make sure that your *project.json* file specifies `net46` as shown here.
+Seul .NET Framework 4.6 est pris en charge. Par conséquent, assurez-vous que votre fichier *project.json* spécifie `net46` comme indiqué ici.
 
-When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. Just add the required `using` statements to your *run.csx* file to use the types defined in the NuGet packages.
+Lorsque vous chargez un fichier *project.json*, le runtime récupère les packages et ajoute automatiquement des références aux assemblys de packages. Vous n’avez pas besoin d’ajouter de directives `#r "AssemblyName"`. Il vous suffit d’ajouter les instructions `using` requises à votre fichier *run.csx* pour utiliser les types définis dans les packages NuGet.
 
 
-### <a name="how-to-upload-a-project.json-file"></a>How to upload a project.json file
+### Comment charger un fichier project.json
 
-1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. 
+1. Commencez par vous assurer que votre conteneur de fonctions est en cours d’exécution. Ce que vous pouvez faire en ouvrant votre fonction dans le portail Azure.
 
-    This also gives access to the streaming logs where package installation output will be displayed. 
+	Il donne également accès aux journaux de diffusion en continu où le résultat de l’installation du package s’affiche.
 
-2. To upload a project.json file, use one of the methods described in the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
+2. Pour charger un fichier project.json, utilisez une des méthodes décrites dans la section **Comment mettre à jour les fichiers du conteneur de fonctions** de la rubrique [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md#fileupdate).
 
-3. After the *project.json* file is uploaded, you see output like the following example in your function's streaming log:
+3. Une fois le fichier *project.json* chargé, une sortie semblable à l’exemple ci-après s’affiche dans le journal de diffusion en continu de votre fonction :
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -198,9 +197,9 @@ When you upload a *project.json* file, the runtime gets the packages and automat
 2016-04-04T19:02:57.455 Packages restored.
 ```
 
-## <a name="environment-variables"></a>Environment variables
+## Variables d’environnement
 
-To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, as shown in the following code example:
+Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `System.Environment.GetEnvironmentVariable`, comme illustré dans l’exemple de code suivant :
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -217,11 +216,11 @@ public static string GetEnvironmentVariable(string name)
 }
 ```
 
-## <a name="reusing-.csx-code"></a>Reusing .csx code
+## Réutilisation du code .csx
 
-You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file, as shown in the following example.
+Vous pouvez utiliser des classes et des méthodes définies dans d’autres fichiers *.csx* au sein de votre fichier *run.csx*. Pour ce faire, utilisez les directives `#load` dans votre fichier *run.csx*, comme l’indique l’exemple suivant.
 
-Example *run.csx*:
+Exemple *run.csx* :
 
 ```csharp
 #load "mylogger.csx"
@@ -233,7 +232,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-Example *mylogger.csx*:
+Exemple *mylogger.csx* :
 
 ```csharp
 public static void MyLogger(TraceWriter log, string logtext)
@@ -242,28 +241,23 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-You can use a relative path with the `#load` directive:
+Vous pouvez utiliser un chemin d’accès relatif avec la directive `#load` :
 
-* `#load "mylogger.csx"` loads a file located in the function folder.
+* `#load "mylogger.csx"` charge un fichier situé dans le dossier de la fonction.
 
-* `#load "loadedfiles\mylogger.csx"` loads a file located in a folder in the function folder.
+* `#load "loadedfiles\mylogger.csx"` charge un fichier situé dans un dossier du dossier de la fonction.
 
-* `#load "..\shared\mylogger.csx"` loads a file located in a folder at the same level as the function folder, that is, directly under *wwwroot*.
+* `#load "..\shared\mylogger.csx"` charge un fichier situé dans un dossier situé au même niveau que le dossier de la fonction, c’est-à-dire directement sous *wwwroot*.
  
-The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files. 
+La directive `#load` ne fonctionne qu’avec des fichiers *.csx* (script C#) et non avec des fichiers *.cs*.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-For more information, see the following resources:
+Pour plus d’informations, consultez les ressources suivantes :
 
-* [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions NodeJS developer reference](functions-reference-fsharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
+* [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-fsharp.md)
+* [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
+* [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

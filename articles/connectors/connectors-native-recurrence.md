@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add the recurrence trigger in logic apps | Microsoft Azure"
-    description="Overview of the recurrence trigger, and how to use it with an Azure logic app."
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Ajout du déclencheur de périodicité dans des applications logiques | Microsoft Azure"
+	description="Vue d’ensemble du déclencheur de périodicité et de son utilisation avec une application logique Azure."
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,53 +17,47 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
+# Prise en main du déclencheur de périodicité
 
-# <a name="get-started-with-the-recurrence-trigger"></a>Get started with the recurrence trigger
+En utilisant le déclencheur de périodicité, vous pouvez créer des workflows puissants dans le cloud.
 
-By using the recurrence trigger, you can create powerful workflows in the cloud.
+Vous pouvez par exemple afficher :
 
-For example, you can:
+- Planifier un workflow pour l’exécution quotidienne d’une procédure SQL stockée.
+- Envoyer par e-mail un résumé de tous les tweets de la semaine écoulée sur la base d’un hashtag spécifique.
 
-- Schedule a workflow to run a SQL stored procedure every day.
-- Email a summary of all tweets within the last week about a certain hashtag.
+Pour commencer à utiliser le déclencheur de périodicité dans une application logique, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the recurrence trigger in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Utilisation d’un déclencheur de périodicité
 
-## <a name="use-a-recurrence-trigger"></a>Use a recurrence trigger
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](connectors-overview.md).
 
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+Voici un exemple de séquence de configuration d’un déclencheur de périodicité dans une application logique :
 
-Here’s an example sequence of how to set up a recurrence trigger in a logic app:
+1. Ajoutez le déclencheur **Périodicité** en tant que première étape dans une application logique.
+2. Renseignez les paramètres pour l’intervalle de périodicité.
 
-1. Add the **Recurrence** trigger as the first step in a logic app.
-2. Fill in the parameters for the recurrence interval.
+L’application logique est exécutée après l’écoulement de chaque intervalle de temps.
 
-The logic app now starts a run after each interval of time.
+![Déclencheur HTTP](./media/connectors-native-recurrence/using-trigger.png)
 
-![HTTP trigger](./media/connectors-native-recurrence/using-trigger.png)
+## Détails du déclencheur
 
-## <a name="trigger-details"></a>Trigger details
+Le déclencheur de périodicité a les propriétés suivantes qui peuvent être configurées.
 
-The recurrence trigger has the following properties that you can configure.
+Il déclenche une application logique après un intervalle de temps spécifié. A * désigne est un champ obligatoire.
 
-It fires a logic app after a specified time interval.
-A * means that it is a required field.
-
-|Display name|Property name|Description|
+|Nom complet|Nom de la propriété|Description|
 |---|---|---|
-|Frequency*|frequency|The unit of time: `Second`, `Minute`, `Hour`, `Day`, or `Year`.|
-|Interval*|interval|The interval of the given frequency for the recurrence.|
-|Time Zone|timeZone|If a start time is provided without a UTC offset, this time zone will be used.|
-|Start time|startTime|The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).|
+|Frequency (Fréquence)*|frequency|L’unité de temps : `Second`, `Minute`, `Hour`, `Day` ou `Year`.|
+|Interval (Intervalle)*|interval|L'intervalle de la fréquence donnée pour la récurrence.|
+|Time Zone (Fuseau horaire)|timeZone|Si une heure de début (startTime) est spécifiée sans décalage UTC, ce fuseau horaire est utilisé.|
+|Heure de début|startTime|L'heure de début au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).|
 <br>
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Essayez maintenant la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

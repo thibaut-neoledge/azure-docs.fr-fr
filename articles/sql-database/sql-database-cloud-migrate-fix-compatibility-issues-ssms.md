@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Fix SQL Server database compatibility issues using SQL Server Managment Studio before migration to SQL Database | Microsoft Azure"
-   description="Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard"
+   pageTitle="Résoudre les problèmes de compatibilité de base de données SQL Server à l’aide de SQL Server Management Studio avant la migration vers une base de données SQL | Microsoft Azure"
+   description="Base de données SQL Microsoft Azure, migration de base de données, compatibilité, assistant de migration SQL Azure"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,40 +16,35 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-
-# <a name="fix-sql-server-database-compatibility-issues-using-sql-server-management-studio-before-migration-to-sql-database"></a>Fix SQL Server database compatibility issues using SQL Server Management Studio before migration to SQL Database
+# Résoudre les problèmes de compatibilité de base de données SQL Server à l’aide de SQL Server Management Studio avant la migration vers Base de données SQL
 
 > [AZURE.SELECTOR]
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+- Utilisez l’[Assistant Migration SQL Azure](sql-database-cloud-migrate-fix-compatibility-issues.md)
+- Utilisez [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- Utilisez [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
 
-Advanced users can fix SQL Server database compatibility issues using SQL Server Management Studio before migration to Azure SQL Database.
-
-
-> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+Les utilisateurs expérimentés peuvent résoudre les problèmes de compatibilité de base de données SQL Server à l’aide de SQL Server Management Studio avant la migration vers Base de données SQL Azure.
 
 
-## <a name="using-sql-server-management-studio"></a>Using SQL Server Management Studio
-
-Use SQL Server Management Studio to fix compatibility issues using various Transact-SQL commands, such as **ALTER DATABASE**. This method is primarily for advanced users that are comfortable working Transact-SQL on a live database. Otherwise, it is recommended that you use SSDT. 
+> [AZURE.IMPORTANT] Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
+## Avec SQL Server Management Studio
 
-## <a name="next-steps"></a>Next steps
-
-- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
-
-## <a name="additional-resources"></a>Additional resources
-
-- [SQL Database V12](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+Servez-vous de SQL Server Management Studio pour résoudre les problèmes de compatibilité à l’aide de différentes commandes Transact-SQL, telles que **ALTER DATABASE**. Cette méthode est principalement destinée aux utilisateurs expérimentés qui sont à l’aise avec utilisation de Transact-SQL sur une base de données active. Dans le cas contraire, il est recommandé d’utiliser SSDT.
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Étapes suivantes
 
+- [Version la plus récente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Migrez une base de données SQL Server compatible vers une base de données SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
+## Ressources supplémentaires
+
+- [Base de données SQL V12](sql-database-v12-whats-new.md)
+- [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
+- [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0824_2016-->

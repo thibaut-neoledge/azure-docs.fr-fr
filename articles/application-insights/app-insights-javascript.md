@@ -1,87 +1,86 @@
 <properties
-    pageTitle="Application Insights for JavaScript web apps | Microsoft Azure"
-    description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages."
-    services="application-insights"
+	pageTitle="Application Insights pour les applications Web JavaScript | Microsoft Azure"
+	description="Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript."
+	services="application-insights"
     documentationCenter=""
-    authors="alancameronwills"
-    manager="douge"/>
+	authors="alancameronwills"
+	manager="douge"/>
 
 <tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="awills"/>
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="awills"/>
 
-
-# <a name="application-insights-for-web-pages"></a>Application Insights for web pages
+# Application Insights pour les pages web
 
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Find out about the performance and usage of your web page or app. If you add Visual Studio Application Insights to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can also set alerts on failure counts or slow page loading.
+Apprenez-en plus sur les performances et l’utilisation de votre page web ou de votre application. Ajoutez Visual Studio Application Insights à votre script de page pour obtenir le minutage des chargements de page et des appels AJAX, le nombre d’exceptions du navigateur et d’échecs d’AJAX et leurs détails, ainsi que le nombre d’utilisateurs et de sessions. Toutes ces données peuvent être segmentées par page, par version de système d’exploitation ou de navigateur client, par emplacement géographique et en fonction d’autres aspects. Vous pouvez également définir des alertes en cas de dépassement d’un certain nombre d’échecs ou de ralentissement du chargement des pages.
 
-You can use Application Insights with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md), you can integrate telemetry from your server and clients.
+Vous pouvez utiliser Application Insights avec toutes les pages web ; il vous suffit pour cela d’ajouter un court extrait de code JavaScript. Si votre service web est [Java](app-insights-java-get-started.md) ou [ASP.NET](app-insights-asp-net.md), vous pouvez intégrer les données de télémétrie de votre serveur et de vos clients.
 
-You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it. There's a free pricing tier, so development and small-scale use won't cost anything.
-
-
-## <a name="set-up-application-insights-for-your-web-page"></a>Set up Application Insights for your web page
-
-First, do you need to add Application Insights to your web pages? You might already have done so. If you chose to add Application Insights to your web app in the New Project dialog in Visual Studio, the script was added then. In that case, you don't need to do any more.
-
-Otherwise, you need to add a snippet of code your web pages, as follows.
-
-### <a name="open-an-application-insights-resource"></a>Open an Application Insights resource
-
-The Application Insights resource is where data about your page's performance and usage is displayed. 
-
-Sign into [Azure portal](https://portal.azure.com).
-
-If you already set up monitoring for the server side of your app, you already have a resource:
-
-![Choose Browse, Developer Services, Application Insights.](./media/app-insights-javascript/01-find.png)
-
-If you don't have one, create it:
-
-![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/01-create.png)
+Vous devrez vous abonner à [Microsoft Azure](https://azure.com). Si votre équipe dispose d’un abonnement d’organisation, demandez à son propriétaire d’y ajouter votre compte Microsoft. Il existe un niveau de tarification gratuit, ce qui fait que le développement et l’utilisation à petite échelle ne coûtent rien.
 
 
-*Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
+## Configurer Application Insights pour votre page web
+
+Tout d’abord, devez-vous ajouter Application Insights à vos pages web ? Il se peut que vous l’ayez déjà fait. SI vous avez décidé d’ajouter Application Insights à votre application web, dans la boîte de dialogue Nouveau projet de Visual Studio, le script a été ajouté à ce moment-là. Dans ce cas, aucune autre action n’est requise.
+
+Si ce n’est pas le cas, vous devez ajouter un extrait de code à vos pages web en procédant comme suit.
+
+### Ouverture d’une ressource Application Insights
+
+La ressource Application Insights est l’endroit où les données de performance et d’utilisation de votre page s’affichent.
+
+Connectez-vous au [portail Azure](https://portal.azure.com).
+
+Si vous avez déjà défini la surveillance pour le côté serveur de votre application, vous aurez déjà une ressource :
+
+![Cliquez sur Parcourir, Services de développement, Application Insights.](./media/app-insights-javascript/01-find.png)
+
+Si vous n'en avez pas, créez-la.
+
+![Cliquez sur Nouveau, Services de développement, Application Insights.](./media/app-insights-javascript/01-create.png)
 
 
-### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Add the SDK script to your app or web pages
-
-In Quick Start, get the script for web pages:
-
-![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-Insert the script just before the `</head>` tag of every page you want to track. If your website has a master page, you can put the script there. For example:
-
-* In an ASP.NET MVC project, you'd put it in `View\Shared\_Layout.cshtml`
-* In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
-
-The script contains the instrumentation key that directs the data to your Application Insights resource. 
-
-([Deeper explanation of the script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
-
-*(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
+*Vous avez déjà des questions ?* [Plus d’informations sur la création d’une ressource](app-insights-create-new-resource.md).
 
 
-## <a name="detailed-configuration"></a>Detailed configuration
+### Ajoutez le script du Kit de développement logiciel (SDK) à votre application ou vos pages web
 
-There are several [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) you can set, though in most cases, you shouldn't need to. For example, you can disable or limit the number of Ajax calls reported per page view (to reduce traffic). Or you can set debug mode to have telemetry move rapidly through the pipeline without being batched.
+Dans Démarrage rapide, récupérez le script pour les pages Web :
 
-To set these parameters, look for this line in the code snippet, and add more comma-separated items after it:
+![Dans le panneau de vue d’ensemble de l’application, cliquez sur Démarrage rapide, Obtenir le code pour analyser mes pages web. Copiez le script](./media/app-insights-javascript/02-monitor-web-page.png)
+
+Insérez-le juste avant la balise `</head>` de chaque page que vous voulez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple :
+
+* Dans un projet ASP.NET MVC, vous devez placer le script dans `View\Shared\_Layout.cshtml`.
+* Dans un site SharePoint, dans le panneau de configuration, ouvrez [Paramètres du site/Page maître](app-insights-sharepoint.md).
+
+Le script contient la clé d’instrumentation qui dirige les données vers votre ressource Application Insights.
+
+([Explication approfondie du script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+
+*(Si vous utilisez une infrastructure de page web connue, cherchez des adaptateurs Application Insights. Par exemple, il existe [un module AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
+
+
+## Configuration détaillée
+
+Bien que vous puissiez définir plusieurs [paramètres](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config), vous ne devriez pas avoir besoin de le faire dans la plupart des cas. Par exemple, vous pouvez désactiver ou limiter le nombre d’appels Ajax signalés par page vue (afin de réduire le trafic). Sinon, vous pouvez définir le mode de débogage pour que les données de télémétrie transitent rapidement à travers le pipeline sans être traitées par lot.
+
+Pour définir ces paramètres, recherchez cette ligne dans l’extrait de code et ajoutez des éléments séparés par des virgules à la suite de celle-ci :
 
     })({
       instrumentationKey: "..."
       // Insert here
     });
 
-The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) include:
+Les [paramètres disponibles](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) incluent :
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -106,154 +105,148 @@ The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/b
 
 
 
-## <a name="<a-name="run"></a>run-your-app"></a><a name="run"></a>Run your app
+## <a name="run"></a>Exécution de votre application
 
-Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it using the **F5** key on your development machine, or publish it and let users play with it.
+Exécutez votre application web, utilisez-la un certain temps pour générer de la télémétrie et attendez quelques secondes. Vous pouvez l’exécuter en appuyant sur la touche **F5** de votre machine de développement, ou la publier et laisser les utilisateurs s’en servir.
 
-If you want to check the telemetry that a web app is sending to Application Insights, use your browser's debugging tools (**F12** on many browsers). Data is sent to dc.services.visualstudio.com.
+Si vous souhaitez vérifier la télémétrie qu’une application web envoie à Application Insights, utilisez les outils de débogage de votre navigateur (**F12** sur de nombreux navigateurs). Les données sont envoyées à dc.services.visualstudio.com.
 
-## <a name="explore-your-browser-performance-data"></a>Explore your browser performance data
+## Exploration de vos données de performances dans les navigateurs
 
-Open the Browsers blade to show aggregated performance data from your users' browsers.
+Ouvrez le panneau Navigateurs pour afficher la synthèse des données de performances issues des navigateurs des utilisateurs.
 
-![In portal.azure.com, open your app's resource and click Settings, Browser](./media/app-insights-javascript/03.png)
+![Dans portal.azure.com, ouvrez les ressources de votre application, puis cliquez sur Paramètres, Navigateur.](./media/app-insights-javascript/03.png)
 
 
-*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
+*Pas de données pour le moment ? Cliquez sur **Actualiser** en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).*
 
-The Browsers blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
+Le panneau Navigateurs est un [panneau Metrics Explorer](app-insights-metrics-explorer.md) présentant des filtres et des graphiques prédéfinis. Si vous le souhaitez, vous pouvez modifier l’intervalle de temps, les filtres et la configuration des graphiques, puis enregistrer le résultat en tant que favori. Cliquez sur **Paramètres par défaut** pour revenir à la configuration d’origine du panneau.
 
-## <a name="page-load-performance"></a>Page load performance
+## Performances de chargement des pages
 
-At the top is a segmented chart of page load times. The total height of the chart represents the average time to load and display pages from your app in your users' browsers. The time is measured from when the browser sends the initial HTTP request until all synchronous load events have been processed, including layout and running scripts. It doesn't include asynchronous tasks such as loading web parts from AJAX calls.
+Dans la partie supérieure se trouve un graphique segmenté illustrant le temps de chargement des pages. La hauteur totale du graphique représente la durée moyenne nécessaire pour charger et afficher les pages de votre application dans les navigateurs de vos utilisateurs. La durée est mesurée entre le moment où le navigateur envoie la requête HTTP initiale et le moment où tous les événements de chargement synchrones ont été traités, y compris la mise en page et l’exécution des scripts. Elle n’inclut pas les tâches asynchrones telles que le chargement des composants web à partir des appels AJAX.
 
-The chart segments the total page load time into the [standard timings defined by W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
+Le graphique segmente le temps de chargement total des pages suivant les [durées standard définies par le consortium W3C](http://www.w3.org/TR/navigation-timing/#processing-model).
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
-Note that the *network connect* time is often lower than you might expect, because it's an average over all requests from the browser to the server. Many individual requests have a connect time of 0 because there is already an active connection to the server.
+Notez que la durée de *connexion réseau* est souvent plus faible que prévue, car il s’agit d’une moyenne de toutes les demandes du navigateur au serveur. De nombreuses requêtes individuelles ont un temps de connexion de 0, car il existe déjà une connexion active au serveur.
 
-### <a name="slow-loading?"></a>Slow loading?
+### Le chargement est lent ?
 
-Slow page loads are a major source of dissatisfaction for your users. If the chart indicates slow page loads, it's easy to do some diagnostic research.
+Les pages qui mettent du temps à se charger constituent une source de mécontentement majeure pour vos utilisateurs. Si le graphique indique des chargements de page lents, il est facile de faire des recherches pour diagnostiquer le problème.
 
-The chart shows the average of all page loads in your app. To see if the problem is confined to particular pages, look further down the blade, where there's a grid segmented by page URL:
+Le graphique illustre la moyenne de tous les chargements de page dans votre application. Pour voir si le problème est limité à certaines pages, regardez plus bas dans le panneau, où vous trouverez une grille segmentée par URL de page :
 
 ![](./media/app-insights-javascript/09-page-perf.png)
 
-Notice the page view count and standard deviation. If the page count is very low, then the issue isn't affecting users much. A high standard deviation (comparable to the average itself) indicates a lot of variation between individual measurements.
+Observez le nombre d’affichages de page et l’écart type. Si le nombre de pages est très faible, alors le problème n’a pas un impact important sur les utilisateurs. Un écart type élevé (comparable à la moyenne elle-même) indique une variation considérable entre les mesures individuelles.
 
-**Zoom in on one URL and one page view.** Click any page name to see a blade of browser charts filtered just to that URL; and then on an instance of a page view.
+**Zoomez sur une URL et un affichage de page.** Cliquez sur n’importe quel nom de page pour afficher un panneau de graphiques de navigateur filtrés en fonction de cette URL, puis sur une instance d’un affichage de page.
 
 ![](./media/app-insights-javascript/35.png)
 
-Click `...` for a full list of properties for that event, or inspect the Ajax calls and related events. Slow Ajax calls affect the overall page load time if they are synchronous. Related events include server requests for the same URL (if you've set up Application Insights on your web server).
+Cliquez sur `...` pour obtenir une liste complète des propriétés de cet événement ou examinez les appels Ajax et les événements associés. S’ils sont synchrones, les appels Ajax lents ont un impact sur le temps de chargement de l’ensemble de la page. Les événements associés incluent les requêtes de serveur pour la même URL (si vous avez configuré Application Insights sur votre serveur web).
 
 
-**Page performance over time.** Back at the Browsers blade, change the Page View Load Time grid into a line chart to see if there were peaks at particular times:
+**Historique des performances de la page.** Dans le panneau Navigateurs, convertissez la grille Temps de chargement de la page consultée en graphique en courbes pour voir s’il y a des pics à des moments spécifiques :
 
-![Click the head of the grid and select a new chart type](./media/app-insights-javascript/10-page-perf-area.png)
+![Cliquez sur l’en-tête de la grille et sélectionnez un nouveau type de graphique.](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Segment by other dimensions.** Maybe your pages are slower to load on a particular browser, client OS, or user locality? Add a new chart and experiment with the **Group-by** dimension.
+**Segmentation en fonction d’autres aspects.** Vos pages mettent peut-être plus de temps à se charger sur un navigateur ou un système d’exploitation spécifiques, ou encore selon l’emplacement géographique de l’utilisateur ? Ajoutez un nouveau graphique et faites des essais avec l’option **Grouper par**.
 
 ![](./media/app-insights-javascript/21.png)
 
 
-## <a name="ajax-performance"></a>AJAX Performance
+## Performances AJAX
 
-Make sure any AJAX calls in your web pages are performing well. They are often used to fill parts of your page asynchronously. Although the overall page might load promptly, your users could be frustrated by staring at blank web parts, waiting for data to appear in them.
+Assurez-vous que tous les appels AJAX dans vos pages web fonctionnent correctement. Ils sont souvent utilisés pour remplir des parties de votre page de façon asynchrone. Même si l’ensemble de la page se charge rapidement, vos utilisateurs pourraient être frustrés d’avoir à attendre que les données apparaissent dans des parties vides de la page.
 
-AJAX calls made from your web page are shown on the Browsers blade as dependencies.
+Les appels AJAX effectués à partir de votre page web sont affichés dans le panneau Navigateurs en tant que dépendances.
 
-There are summary charts in the upper part of the blade:
+Vous trouverez des graphiques récapitulatifs dans la partie supérieure du panneau :
 
 ![](./media/app-insights-javascript/31.png)
 
-and detailed grids lower down:
+et des grilles détaillées plus bas :
 
 ![](./media/app-insights-javascript/33.png)
 
-Click any row for specific details.
+Cliquez sur n’importe quelle ligne pour obtenir des détails spécifiques.
 
 
-> [AZURE.NOTE] If you delete the Browsers filter on the blade, both server and AJAX dependencies are included in these charts. Click Restore Defaults to reconfigure the filter.
+> [AZURE.NOTE] Si vous supprimez le filtre Navigateurs du panneau, les dépendances de serveur et AJAX figureront dans ces graphiques. Cliquez sur Paramètres par défaut pour reconfigurer le filtre.
 
-**To drill into failed Ajax calls** scroll down to the Dependency failures grid, and then click a row to see specific instances.
+**Pour explorer les appels Ajax ayant échoué**, faites défiler l’écran jusqu’à la grille Échecs de dépendance, puis cliquez sur une ligne afin d’afficher des instances spécifiques.
 
 ![](./media/app-insights-javascript/37.png)
 
-Click `...` for the full telemetry for an Ajax call.
+Cliquez sur `...` pour obtenir les données de télémétrie complètes d’un appel Ajax.
 
-### <a name="no-ajax-calls-reported?"></a>No Ajax calls reported?
+### Aucun appel Ajax n’est signalé ?
 
-Ajax calls include any HTTP calls made from the script of your web page. If you don't see them reported, check that the code snippet doesn't set the `disableAjaxTracking` or `maxAjaxCallsPerView` [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Les appels AJAX incluent tous les appels HTTP effectués à partir du script de votre page web. S’ils ne sont pas signalés, vérifiez que l’extrait de code ne définit pas les [paramètres](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` ou `maxAjaxCallsPerView`.
 
-## <a name="browser-exceptions"></a>Browser exceptions
+## Exceptions du navigateur
 
-On the Browsers blade, there's an exceptions summary chart, and a grid of exception types further down the blade.
+Le panneau Navigateurs présente un graphique récapitulatif des exceptions, ainsi qu’une grille des types d’exception plus bas.
 
 ![](./media/app-insights-javascript/39.png)
 
-If you don't see browser exceptions reported, check that the code snippet doesn't set the `disableExceptionTracking` [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Si les exceptions de navigateur ne sont pas signalées, vérifiez que l’extrait de code ne définit pas le [paramètre](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
 
-## <a name="inspect-individual-page-view-events"></a>Inspect individual page view events
+## Inspection des événements d’affichage de page individuels
 
-Usually page view telemetry is analyzed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can also look at individual page view events.
+La télémétrie de l'affichage de page est généralement analysée par Application Insights, et vous ne consultez que des rapports cumulés, avec une moyenne entre tous les utilisateurs. Toutefois, à des fins de débogage, vous pouvez également consulter des événements d'affichage de page individuels.
 
-In the Diagnostic Search blade, set Filters to Page View.
+Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Select any event to see more detail. In the details page, click "..." to see even more detail.
+Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la page des détails, cliquez sur «... » pour voir davantage de détails.
 
-> [AZURE.NOTE] If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
+> [AZURE.NOTE] Si vous utilisez [Rechercher](app-insights-diagnostic-search.md), notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos ».
 
-You can also use the powerful [Analytics query language](app-insights-analytics-tour.md) to search page views.
+Vous pouvez également utiliser le puissant [langage des requêtes Analytics](app-insights-analytics-tour.md) pour effectuer des recherches dans les vues de pages.
 
-### <a name="page-view-properties"></a>Page view properties
+### Propriétés d'affichage de la page
 
-* **Page view duration** 
+* **Durée d’affichage de la page**
 
- * By default, the time it takes to load the page, from client request to full load (including auxiliary files but excluding asynchronous tasks such as Ajax calls). 
- * If you set `overridePageViewDuration` in the [page configuration](#detailed-configuration), the interval between client request to execution of the first `trackPageView`. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value.
- * If `overridePageViewDuration` is set and a duration argument is provided in the `trackPageView()` call, then the argument value is used instead. 
+ * Par défaut, le temps nécessaire au chargement de la page, depuis la requête du client jusqu’à son chargement complet (y compris les fichiers auxiliaires, mais à l’exception des tâches asynchrones telles que les appels Ajax).
+ * Si vous définissez `overridePageViewDuration` dans la [configuration de la page](#detailed-configuration), il s’agit de l’intervalle entre la requête du client et l’exécution du premier `trackPageView`. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur.
+ * Si `overridePageViewDuration` est défini et qu’un argument Duration est fourni dans l’appel `trackPageView()`, la valeur d’argument sera utilisée à la place.
 
 
-## <a name="custom-page-counts"></a>Custom page counts
+## Compteurs de page personnalisés
 
-By default, a page count occurs each time a new page loads into the client browser.  But you might want to count additional page views. For example, a page might display its content in tabs and you want to count a page when the user switches tabs. Or JavaScript code in the page might load new content without changing the browser's URL.
+Par défaut, un compteur de page est activé chaque fois qu'une nouvelle page est chargée dans le navigateur client. Mais vous pouvez vouloir consulter d'autres affichages de page. Par exemple, si une page affiche son contenu dans des onglets, il se peut que vous désiriez compter une page lorsque l'utilisateur passe d'un onglet à l'autre. Ou il se peut que le code JavaScript dans une page charge du nouveau contenu sans modifier l'URL du navigateur.
 
-Insert a JavaScript call like this at the appropriate point in your client code:
+Insérez par exemple l'appel JavaScript suivant à l'emplacement approprié dans votre code client :
 
     appInsights.trackPageView(myPageName);
 
-The page name can contain the same characters as a URL, but anything after "#" or "?" is ignored.
+Le nom d'une page peut contenir les mêmes caractères qu'une URL, mais tout ce qui se trouve après « # » ou « ? » sera ignoré.
 
 
 
-## <a name="usage-tracking"></a>Usage tracking
+## Suivi de l’utilisation
 
 
-Want to find out what your users do with your app?
+Vous souhaitez savoir ce que vos utilisateurs font avec votre application ?
 
-* [Learn about usage tracking](app-insights-web-track-usage.md)
-* [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
+* [En savoir plus sur le suivi de l’utilisation](app-insights-web-track-usage.md)
+* [En savoir plus sur les événements personnalisés et les API de métriques](app-insights-api-custom-events-metrics.md).
 
 
-#### <a name="<a-name="video"></a>-video:-tracking-usage"></a><a name="video"></a> Video: Tracking Usage
+#### <a name="video"></a> Vidéo : suivi de l’utilisation
 
 > [AZURE.VIDEO tracking-usage-with-application-insights]
 
-## <a name="<a-name="next"></a>-next-steps"></a><a name="next"></a> Next steps
+## <a name="next"></a>Étapes suivantes
 
-* [Track usage](app-insights-web-track-usage.md)
-* [Custom events and metrics](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-overview-usage.md)
+* [Suivi de l'utilisation](app-insights-web-track-usage.md)
+* [Mesures et événements personnalisés](app-insights-api-custom-events-metrics.md)
+* [Développer-mesurer-apprendre](app-insights-overview-usage.md)
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

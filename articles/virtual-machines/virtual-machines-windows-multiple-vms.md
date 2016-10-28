@@ -1,55 +1,50 @@
 <properties
-    pageTitle="Create multiple virtual machines | Microsoft Azure"
-    description="Options for creating multiple virtual machines on Windows"
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Création de plusieurs machines virtuelles | Microsoft Azure"
+	description="Options de création de plusieurs machines virtuelles sous Windows"
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="gbowerman"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/02/2016"
-    ms.author="guybo"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/02/2016"
+	ms.author="guybo"/>
 
+# Création de plusieurs machines virtuelles Azure
 
-# <a name="create-multiple-azure-virtual-machines"></a>Create multiple Azure virtual machines
+Il existe de nombreux cas de figure où vous devez créer un grand nombre de machines virtuelles similaires. C’est le cas notamment pour le calcul hautes performances (HPC), l’analyse des données à grande échelle, les serveurs intermédiaires ou principaux évolutifs et souvent sans état (comme les serveurs Web) ainsi que les bases de données distribuées.
 
-There are many scenarios where you need to create a large number of similar virtual machines (VMs). Some examples include high-performance computing (HPC), large-scale data analysis, scalable and often stateless middle-tier or backend servers (such as webservers), and distributed databases.
+Cet article présente les options permettant de créer plusieurs machines virtuelles dans Azure. Ces options vont bien au-delà des cas simples où vous créez manuellement une série de machines virtuelles. Si vous devez créer beaucoup de machines virtuelles, les processus que vous utilisez le plus souvent ne sont pas adaptés.
 
-This article discusses the available options to create multiple VMs in Azure. These options go beyond the simple cases where you manually create a series of VMs. To create many VMs, the processes that you typically use don't scale well if you need to create more than a handful of VMs.
+Pour créer de nombreuses machines virtuelles similaires, une solution consiste à utiliser la construction Azure Resource Manager des _boucles de ressources_.
 
-One way to create many similar VMs is to use the Azure Resource Manager construct of _resource loops_.
+## Boucles de ressources
 
-## <a name="resource-loops"></a>Resource loops
+Les boucles de ressources sont un raccourci syntaxique dans les modèles Azure Resource Manager. Elles peuvent créer un ensemble de ressources à la configuration similaire dans une boucle. Vous pouvez utiliser des boucles de ressources pour créer plusieurs comptes de stockage, interfaces réseau ou machines virtuelles. Pour plus d’informations sur les boucles de ressources, consultez [Création de machines virtuelles dans des groupes à haute disponibilité à l’aide de boucles de ressources](https://azure.microsoft.com/documentation/templates/201-vm-copy-index-loops/).
 
-Resource loops are a syntactical shorthand in Azure Resource Manager templates. Resource loops can create a set of similarly configured resources in a loop. You can use resource loops to create multiple storage accounts, network interfaces, or virtual machines. For more information about resource loops, refer to [Create VMs in availability sets using resource loops](https://azure.microsoft.com/documentation/templates/201-vm-copy-index-loops/).
+## Les problèmes de la mise à l’échelle
 
-## <a name="challenges-of-scale"></a>Challenges of scale
+Bien que les boucles de ressources facilitent la création d’une infrastructure cloud à l’échelle et produisent des modèles plus concis, elles posent certains problèmes. Par exemple, si vous utilisez une boucle de ressources pour créer 100 machines virtuelles, vous devez mettre en corrélation des cartes réseau (NIC) avec les machines virtuelles et les comptes de stockage correspondants. Comme le nombre de machines virtuelles peut ne pas être identique au nombre de comptes de stockage, vous devez également gérer des boucles de ressources de taille différente. Ces problèmes peuvent être résolus, mais la complexité augmente considérablement avec la mise à l’échelle.
 
-Although resource loops make it easier to build out a cloud infrastructure at scale and produce more concise templates, certain challenges remain. For example, if you use a resource loop to create 100 virtual machines, you need to correlate network interface controllers (NICs) with corresponding VMs and storage accounts. Because the number of VMs is likely to be different from the number of storage accounts, you'll have to deal with different resource loop sizes, too. These are solvable problems, but the complexity increases significantly with scale.
+La mise en place d’une infrastructure évolutive et souple est un autre problème. Par exemple, vous souhaitez une infrastructure qui augmente ou diminue automatiquement le nombre de machines virtuelles en fonction de la charge de travail. Les machines virtuelles ne disposent pas d’un mécanisme intégré permettant de modifier leur nombre (augmentation ou diminution). Si vous effectuez une mise à l’échelle par suppression de machines virtuelles, il est difficile de garantir une haute disponibilité et la répartition des machines virtuelles entre différents domaines de mise à jour et d’erreur.
 
-Another challenge occurs when you need an infrastructure that scales elastically. For example, you might want an autoscale infrastructure that automatically increases or decreases the number of VMs in response to workload. VMs don't provide an integrated mechanism to vary in number (scale out and scale in). If you scale in by removing VMs, it's difficult to guarantee high availability by making sure that VMs are balanced across update and fault domains.
+Enfin, lorsque vous utilisez une boucle de ressources, plusieurs appels de création de ressources sont envoyés à l’infrastructure sous-jacente. Lorsque plusieurs appels créent des ressources similaires, Azure peut améliorer implicitement cette conception et optimiser la fiabilité et les performances du déploiement. C’est ici qu’interviennent les _jeux de mise à l’échelle de machine virtuelle_.
 
-Finally, when you use a resource loop, multiple calls to create resources go to the underlying fabric. When multiple calls create similar resources, Azure has an implicit opportunity to improve upon this design and optimize deployment reliability and performance. This is where _virtual machine scale sets_ come in.
+## Jeux de mise à l’échelle de machine virtuelle
 
-## <a name="virtual-machine-scale-sets"></a>Virtual machine scale sets
+Les jeux de mise à l’échelle de machine virtuelle sont une ressource Azure Cloud Services permettant de déployer et gérer un jeu de machines virtuelles identiques. Avec toutes les machines virtuelles configurées à l’identique, les jeux de mise à l’échelle de machine virtuelle sont faciles à ajuster. Il vous suffit de modifier le nombre de machines virtuelles dans le jeu. Vous pouvez également configurer la mise à l’échelle automatique des ensembles de mise à l’échelle de machine virtuelle en fonction des exigences de la charge de travail.
 
-Virtual machine scale sets are an Azure Cloud Services resource to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are easy to scale in and scale out. You simply change the number of VMs in the set. You can also configure VM scale sets to autoscale based on the demands of the workload.
+Pour les applications nécessitant une mise à l’échelle des ressources de calcul internes et externes, les opérations de mise à l’échelle sont équilibrées de façon implicite sur plusieurs domaines d’erreur et de mise à jour.
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains.
+Au lieu d’effectuer la mise en corrélation de plusieurs ressources telles que des cartes réseau et des machines virtuelles, un jeu de mise à l’échelle comprend un réseau, un stockage, une machine virtuelle et des propriétés d’extension que vous pouvez configurer de manière centralisée.
 
-Instead of correlating multiple resources such as NICs and VMs, a VM scale set has network, storage, virtual machine, and extension properties that you can configure centrally.
+Pour une présentation des jeux de mise à l’échelle de machine virtuelle, consultez la page [Jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/). Pour plus d’informations, consultez la [documentation Jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/).
 
-For an introduction to VM scale sets, refer to the [Virtual machine scale sets product page](https://azure.microsoft.com/services/virtual-machine-scale-sets/). For more detailed information, go to the [Virtual machines scale sets documentation](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

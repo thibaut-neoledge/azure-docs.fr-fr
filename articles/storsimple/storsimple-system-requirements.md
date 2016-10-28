@@ -1,6 +1,6 @@
 <properties
-   pageTitle="StorSimple system requirements | Microsoft Azure"
-   description="Describes software, networking, and high availability requirements and best practices for a Microsoft Azure StorSimple solution."
+   pageTitle="Configuration requise du système StorSimple | Microsoft Azure"
+   description="Décrit la configuration requise et les meilleures pratiques en matière de logiciel, de mise en réseau et de haute disponibilité pour une solution Microsoft Azure StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,285 +16,279 @@
    ms.date="08/31/2016"
    ms.author="alkohli"/>
 
+# Configuration requise logicielle, de haute disponibilité et de réseau StorSimple
 
-# <a name="storsimple-software,-high-availability,-and-networking-requirements"></a>StorSimple software, high availability, and networking requirements
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Bienvenue dans Microsoft Azure StorSimple. Cet article décrit les configurations système requises et les meilleures pratiques pour votre appareil StorSimple et pour les clients de stockage accédant à l’appareil. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
-Welcome to Microsoft Azure StorSimple. This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
+Les conditions requises sont les suivantes :
 
-The system requirements include:
-
-- **Software requirements for storage clients** - describes the supported operating systems and any additional requirements for those operating systems.
-- **Networking requirements for the StorSimple device** - provides information about the ports that need to be open in your firewall to allow for iSCSI, cloud, or management traffic.
-- **High availability requirements for StorSimple** - describes high availability requirements and best practices for your StorSimple device and host computer. 
+- **Configuration logicielle requise pour les clients de stockage** : décrit les systèmes d’exploitation pris en charge et les conditions supplémentaires requises pour ces systèmes d’exploitation.
+- **Conditions requises de mise en réseau pour l’appareil StorSimple** : fournit des informations sur les ports qui doivent être ouverts dans votre pare-feu pour autoriser iSCSI, le cloud ou le trafic de gestion.
+- **Conditions requises de haute disponibilité pour StorSimple** : décrit les exigences de haute disponibilité et les meilleures pratiques pour votre ordinateur hôte et votre appareil StorSimple.
 
 
-## <a name="software-requirements-for-storage-clients"></a>Software requirements for storage clients
+## Configuration logicielle requise pour les clients de stockage
 
-The following software requirements are for the storage clients that access your StorSimple device.
+La configuration logicielle suivante est requise pour les clients de stockage qui accèdent à votre appareil StorSimple.
 
-| Supported operating systems | Version required | Additional requirements/notes |
+| Systèmes d’exploitation pris en charge | Version requise | Conditions/remarques supplémentaires |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Windows Server 2012 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components).|
-| VMWare ESX | 5.5 and 6.0 | Supported with VMWare vSphere as iSCSI client. VAAI-block feature is supported with VMware vSphere on StorSimple devices.
-| Linux RHEL/CentOS | 5, 6, and 7 | Support for Linux iSCSI clients with open-iSCSI initiator versions 5, 6, and 7. |
+| Windows Server | 2008 R2 SP1, 2012, 2012 R2 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume Simple sur disque de base</li><li>Volume simple et mis en miroir sur disque dynamique</li></ul>L’allocation dynamique et les fonctionnalités ODX sous Windows Server 2012 sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple permet de créer des volumes alloués de manière dynamique et complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270), sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components).|
+| VMWare ESX | 5\.5 et 6.0 | Pris en charge avec VMware vSphere en tant que client iSCSI. La fonctionnalité VAAI-block est prise en charge avec VMware vSphere sur les appareils StorSimple.
+| Linux RHEL/CentOS | 5, 6 et 7 | Prise en charge des clients Linux iSCSI avec initiateur Open-iSCSI versions 5, 6 et 7. |
 | Linux | SUSE Linux 11 | |
- > [AZURE.NOTE] IBM AIX is currently not supported with StorSimple.
+ > [AZURE.NOTE] IBM AIX n’est actuellement pas pris en charge avec StorSimple.
 
-## <a name="software-requirements-for-optional-components"></a>Software requirements for optional components
+## Configuration logicielle requise pour les composants facultatifs
 
-The following software requirements are for the optional StorSimple components (StorSimple Snapshot Manager and StorSimple Adapter for SharePoint).
+La configuration logicielle requise suivante concerne les composants StorSimple facultatifs (Gestionnaire d’instantanés StorSimple et adaptateur StorSimple pour SharePoint).
 
-| Component | Host platform | Additional requirements/notes |
+| Composant | Plateforme hôte | Conditions/remarques supplémentaires |
 | --------------------------- | ---------------- | ------------- |
-| StorSimple Snapshot Manager | Windows Server 2008R2 SP1, 2012, 2012R2 | Use of StorSimple Snapshot Manager on Windows Server is required for backup/restore of mirrored dynamic disks and for any application-consistent backups.<br> StorSimple Snapshot Manager is supported only on Windows Server 2008 R2 SP1 (64-bit), Windows 2012 R2, and Windows Server 2012.<ul><li>If you are using Window Server 2012, you must install .NET 3.5–4.5 before you install StorSimple Snapshot Manager.</li><li>If you are using Windows Server 2008 R2 SP1, you must install Windows Management Framework 3.0 before you install StorSimple Snapshot Manager.</li></ul> |
-| StorSimple Adapter for SharePoint | Windows Server 2008R2 SP1, 2012, 2012R2 |<ul><li>StorSimple Adapter for SharePoint is only supported on SharePoint 2010 and SharePoint 2013.</li><li>RBS requires SQL Server Enterprise Edition, version 2008 R2 or 2012.</li></ul>|
+| StorSimple Snapshot Manager | Windows Server 2008 R2 SP1, 2012, 2012R2 | L’utilisation du Gestionnaire d’instantanés StorSimple sur Windows Server est requise pour la sauvegarde/restauration des disques dynamiques en miroir et pour les sauvegardes cohérentes avec les applications.<br> Le Gestionnaire d’instantanés StorSimple est pris en charge uniquement sous Windows Server 2008 R2 SP1 (64 bits), Windows 2012 R2 et Windows Server 2012<ul><li>Si vous utilisez Windows Server 2012, vous devez installer .NET 3.5-4.5 avant d’installer le Gestionnaire d’instantanés StorSimple.</li><li>Si vous utilisez Windows Server 2008 R2 SP1, vous devez installer Windows Management Framework 3.0 avant d’installer le Gestionnaire d’instantanés StorSimple.</li></ul> |
+| StorSimple Adapter for SharePoint | Windows Server 2008 R2 SP1, 2012, 2012R2 |<ul><li>L’adaptateur StorSimple pour SharePoint est uniquement pris en charge sur SharePoint 2010 et SharePoint 2013.</li><li>RBS requiert SQL Server Enterprise Edition, version 2008 R2 ou 2012.</li></ul>|
 
-## <a name="networking-requirements-for-your-storsimple-device"></a>Networking requirements for your StorSimple device
+## Configuration réseau requise pour votre appareil StorSimple
 
-Your StorSimple device is a locked-down device. However, ports need to be opened in your firewall to allow for iSCSI, cloud, and management traffic. The following table lists the ports that need to be opened in your firewall. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
+Votre appareil StorSimple est un appareil verrouillé. Toutefois, les ports doivent être ouverts dans votre pare-feu pour autoriser le trafic iSCSI, cloud et de gestion. Le tableau suivant répertorie les ports devant être ouverts dans votre pare-feu. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les demandes client entrantes accèdent à votre appareil. *Sortant* ou *Sortie* représente la direction vers laquelle votre appareil StorSimple envoie des données de façon externe, au delà du déploiement : par exemple, sortant vers Internet.
 
-| Port No.<sup>1,2</sup> | In or out | Port scope | Required | Notes |
+| Numéro de port <sup>1,2</sup> | Entrant ou sortant | Étendue de ports | Requis | Remarques |
 |------------------------|-----------|------------|----------|-------|
-|TCP 80 (HTTP)<sup>3</sup>|  Out |  WAN | No |<ul><li>Outbound port is used for Internet access to retrieve updates.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li></ul> |
-|TCP 443 (HTTPS)<sup>3</sup>| Out | WAN | Yes |<ul><li>Outbound port is used for accessing data in the cloud.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li><li>This port is also used on both the controllers for garbage collection.</li></ul>|
-|UDP 53 (DNS) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based DNS server. |
-| UDP 123 (NTP) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based NTP server. |
-| TCP 9354 | Out | WAN | Yes |The outbound port is used by the StorSimple device to communicate with the StorSimple Manager service. |
-| 3260 (iSCSI) | In | LAN | No | This port is used to access data over iSCSI.|
-| 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP. |
-| 5986 | In | LAN | No | This port is used when you remotely connect to Windows PowerShell for StorSimple over HTTPS. |
+|TCP 80 (HTTP)<sup>3</sup>| Sortie | WAN | Non |<ul><li>Le port de sortie est utilisé pour accéder à Internet pour récupérer les mises à jour.</li><li>L’utilisateur peut configurer le proxy web sortant.</li><li>Pour autoriser les mises à jour du système, ce port doit également être ouvert pour les adresses IP fixes du contrôleur.</li></ul> |
+|TCP 443 (HTTPS)<sup>3</sup>| Sortie | WAN | Oui |<ul><li>Le port de sortie est utilisé pour accéder aux données dans le cloud.</li><li>L’utilisateur peut configurer le proxy web sortant.</li><li>Pour autoriser les mises à jour du système, ce port doit également être ouvert pour les adresses IP fixes du contrôleur.</li><li>Ce port est aussi utilisé sur les deux contrôleurs pour le garbage collection.</li></ul>|
+|UDP 53 (DNS) | Sortie | WAN | Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur DNS Internet. |
+| UDP 123 (NTP) | Sortie | WAN | Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur NTP Internet. |
+| TCP 9354 | Sortie | WAN | Oui |Le port de sortie est utilisé par l’appareil StorSimple Manager pour communiquer avec le service StorSimple Manager. |
+| 3260 (iSCSI) | Dans | LAN | Non | Ce port est utilisé pour accéder aux données via iSCSI.|
+| 5985 | Dans | LAN | Non | Le port entrant est utilisé par le gestionnaire d’instantanés StorSimple pour communiquer avec l’appareil StorSimple.<br>Ce port est également utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTP. |
+| 5986 | Dans | LAN | Non | Ce port est utilisé lorsque vous vous connectez à distance à Windows PowerShell pour StorSimple via HTTPS. |
 
-<sup>1</sup> No inbound ports need to be opened on the public Internet.
+<sup>1</sup> Aucun port entrant ne doit être ouvert sur l’Internet public.
 
-<sup>2</sup> If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined based on the port routing order described in [Port routing](#routing-metric), below.
+<sup>2</sup> Si plusieurs ports comportent une configuration de passerelle, l’ordre du trafic routé sortant est déterminé par l’ordre de routage des ports décrit dans la section [Routage de port](#routing-metric) ci-dessous.
 
-<sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
+<sup>3</sup> Les adresses IP fixes du contrôleur sur votre appareil StorSimple doivent être routables et pouvoir se connecter à Internet. Les adresses IP fixes sont utilisées pour traiter les mises à jour apportées à l’appareil. Si les contrôleurs ne peuvent pas se connecter à Internet via les adresses IP fixes, vous ne pouvez pas mettre à jour votre appareil StorSimple.
 
-> [AZURE.IMPORTANT] Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> [AZURE.IMPORTANT] Assurez-vous que le pare-feu ne modifie ou ne déchiffre pas le trafic SSL entre l’appareil StorSimple et Azure.
 
-### <a name="url-patterns-for-firewall-rules"></a>URL patterns for firewall rules
+### Modèles d’URL pour règles de pare-feu
 
-Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your StorSimple device and the StorSimple Manager service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. This in turn will require the network administrator to monitor and update firewall rules for your StorSimple as and when needed.
+Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre appareil StorSimple et le service StorSimple Manager dépendent d’autres applications Microsoft telles qu’Azure Service Bus, Azure Active Directory Access Control, des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. L’administrateur réseau doit alors surveiller et mettre à jour les règles de pare-feu pour votre appareil StorSimple si nécessaire.
 
-We recommend that you set your firewall rules for outbound traffic, based on StorSimple fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
+Dans la plupart des cas, nous vous recommandons de définir librement les règles de pare-feu pour le trafic sortant en fonction des ADresses IP fixes StorSimple. Toutefois, vous pouvez utiliser les informations ci-dessous pour définir les règles de pare-feu avancées qui sont nécessaires à la création d’environnements sécurisés.
 
-> [AZURE.NOTE] The device (source) IPs should always be set to all the enabled network interfaces. The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> [AZURE.NOTE] Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées. Les adresses IP de destination doivent être définies sur les [plages d’adresses IP Azure Datacenter](https://www.microsoft.com/fr-FR/download/confirmation.aspx?id=41653).
 
-#### <a name="url-patterns-for-azure-portal"></a>URL patterns for Azure portal
-| URL pattern                                                      | Component/Functionality                                           | Device IPs                           |
+#### Modèles d’URL pour le portail Azure
+| Modèle d’URL | Composant/Fonctionnalité | Adresses IP d’appareil |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`   | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus| Cloud-enabled network interfaces        |
-|`https://*.backup.windowsazure.com`|Device registration| DATA 0 only|
-|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Certificate revocation |Cloud-enabled network interfaces |
-| `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure storage accounts and monitoring | Cloud-enabled network interfaces        |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update servers<br>                             | Controller fixed IPs only               |
-| `http://*.deploy.akamaitechnologies.com`                         |Akamai CDN |Controller fixed IPs only   |
-| `https://*.partners.extranet.microsoft.com/*`                    | Support package                                                  | Cloud-enabled network interfaces        |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Service StorSimple Manager<br>Access Control Service<br>Azure Service Bus| Interfaces réseau activées pour le cloud |
+|`https://*.backup.windowsazure.com`|Enregistrement de l’appareil| DATA 0 uniquement|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Révocation de certificat |Interfaces réseau activées pour le cloud |
+| `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Comptes de stockage Azure et surveillance | Interfaces réseau activées pour le cloud |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Serveurs Microsoft Update<br> | Adresses IP fixes du contrôleur uniquement |
+| `http://*.deploy.akamaitechnologies.com` |CDN Akamai |Adresses IP fixes du contrôleur uniquement |
+| `https://*.partners.extranet.microsoft.com/*` | Package de prise en charge | Interfaces réseau activées pour le cloud |
 
-#### <a name="url-patterns-for-azure-government-portal"></a>URL patterns for Azure Government portal
-| URL pattern                                                      | Component/Functionality                                           | Device IPs                           |
+#### Modèles d’URL pour le portail Azure Government
+| Modèle d’URL | Composant/Fonctionnalité | Adresses IP d’appareil |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`   | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus| Cloud-enabled network interfaces        |
-|`https://*.backup.windowsazure.us`|Device registration| DATA 0 only|
-|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Certificate revocation |Cloud-enabled network interfaces |
-| `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Azure storage accounts and monitoring | Cloud-enabled network interfaces        |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update servers<br>                             | Controller fixed IPs only               |
-| `http://*.deploy.akamaitechnologies.com`                         |Akamai CDN |Controller fixed IPs only   |
-| `https://*.partners.extranet.microsoft.com/*`                    | Support package                                                  | Cloud-enabled network interfaces        |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` | Service StorSimple Manager<br>Access Control Service<br>Azure Service Bus| Interfaces réseau activées pour le cloud |
+|`https://*.backup.windowsazure.us`|Enregistrement de l’appareil| DATA 0 uniquement|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Révocation de certificat |Interfaces réseau activées pour le cloud |
+| `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Comptes de stockage Azure et surveillance | Interfaces réseau activées pour le cloud |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Serveurs Microsoft Update<br> | Adresses IP fixes du contrôleur uniquement |
+| `http://*.deploy.akamaitechnologies.com` |CDN Akamai |Adresses IP fixes du contrôleur uniquement |
+| `https://*.partners.extranet.microsoft.com/*` | Package de prise en charge | Interfaces réseau activées pour le cloud |
 
-### <a name="routing-metric"></a>Routing metric
+### Métrique de routage
 
-A routing metric is associated with the interfaces and the gateway that route the data to the specified networks. Routing metric is used by the routing protocol to calculate the best path to a given destination, if it learns multiple paths exist to the same destination. The lower the routing metric, the higher the preference.
+Une métrique de routage est associée aux interfaces et à la passerelle qui acheminent les données vers les réseaux spécifiés. La métrique de routage est utilisée par le protocole de routage pour calculer le meilleur chemin vers une destination donnée, si plusieurs chemins existent pour la même destination. La métrique de routage est inversement proportionnelle à la préférence.
 
-In the context of StorSimple, if multiple network interfaces and gateways are configured to channel traffic, the routing metrics will come into play to determine the relative order in which the interfaces will get used. The routing metrics cannot be changed by the user. You can however use the `Get-HcsRoutingTable` cmdlet to print out the routing table (and metrics) on your StorSimple device. More information on Get-HcsRoutingTable cmdlet in [Troubleshooting StorSimple deployment](storsimple-troubleshoot-deployment.md).
+Dans le contexte de StorSimple, si plusieurs interfaces et passerelles de réseau sont configurées pour canaliser le trafic, les métriques de routage entrent en jeu afin de déterminer l’ordre relatif dans lequel les interfaces seront utilisées. Les métriques de routage ne peuvent pas être modifiées par l’utilisateur. Toutefois, vous pouvez utiliser l’applet de commande `Get-HcsRoutingTable` pour imprimer la table de routage (et les métriques de routage) sur votre appareil StorSimple. Pour plus d’informations sur l’applet de commande Get-HcsRoutingTable, consultez le [dépannage du déploiement StorSimple](storsimple-troubleshoot-deployment.md).
 
-The routing metric algorithms are different depending on the software version running on your StorSimple device.
+Les algorithmes de routage sont différents selon la version logicielle s’exécutant sur votre appareil StorSimple.
 
-**Releases prior to Update 1**
+**Versions antérieures à Update 1**
 
-This includes software versions prior to Update 1 such as the GA, 0.1, 0.2, or 0.3 release. The order based on routing metrics is as follows:
+Cela comprend les versions logicielles antérieures à Update 1 telles que la version mise à la disponibilité générale, 0.1, 0.2 ou 0.3. L'ordre basé sur les métriques de routage est le suivant :
 
-   *Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface*
+   *Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet*
 
 
-**Releases starting from Update 1 and prior to Update 2**
+**Versions comprises entre Update 1 et Update 2**
 
-This includes software versions such as 1, 1.1, or 1.2. The order based on routing metrics is decided as follows:
+Cela comprend les versions logicielles telles que 1, 1.1 ou 1.2. L'ordre basé sur les métriques de routage est défini comme suit :
 
-   *DATA 0 > Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface*
+   *DATA 0 > Dernière configuration interface réseau 10 GbE > Autre interface réseau 10 GbE > Dernière configuration interface réseau 1 Gigabit Ethernet > Autre interface réseau 1 Gigabit Ethernet*
 
-   In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0. Make a note of this if there are more than one cloud-enabled network interface on your StorSimple device.
+   Dans Update 1, le métrique de routage de DATA 0 est effectué au plus bas ; par conséquent, tout le trafic cloud est acheminé via DATA 0. Prenez-en note au cas où il existerait plusieurs interfaces réseau compatibles cloud sur votre appareil StorSimple.
 
 
-**Releases starting from Update 2**
+**Versions ultérieures à Update 2**
 
-Update 2 has several networking-related improvements and the routing metrics has changed. The behavior can be explained as follows.
+Update 2 présente plusieurs améliorations en matière de réseau et les métriques de routage ont changé. Le comportement peut être expliqué comme suit.
 
-- A set of predetermined values have been assigned to network interfaces.   
+- Un ensemble de valeurs prédéterminées ont été attribuées aux interfaces réseau.
 
-- Consider an example table shown below with values assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway. Note the values assigned here are example values only.
+- Examinez la table d'exemple ci-dessous et les valeurs attribuées aux différentes interfaces réseau lorsqu'elles sont activées ou désactivées pour le cloud, mais avec une passerelle configurée. Notez que les valeurs attribuées ici ne sont fournies qu’à titre d’exemple.
 
 
-  	| Network interface | Cloud-enabled | Cloud-disabled with gateway |
-  	|-----|---------------|---------------------------|
-  	| Data 0  | 1            | -                        |
-  	| Data 1  | 2            | 20                       |
-  	| Data 2  | 3            | 30                       |
-  	| Data 3  | 4            | 40                       |
-  	| Data 4  | 5            | 50                       |
-  	| Data 5  | 6            | 60                       |
+	| Interface réseau | Activée pour le cloud | Désactivée pour le cloud avec passerelle |
+	|-----|---------------|---------------------------|
+	| Data 0 | 1 | - | 
+	| Data 1 | 2 | 20 |
+	| Data 2 | 3 | 30 |
+	| Data 3 | 4 | 40 |
+	| Data 4 | 5 | 50 |
+	| Data 5 | 6 | 60 |
 
 
-- The order in which the cloud traffic will be routed through the network interfaces is:
+- L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :
 
-    *Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
+	*Data 0 > Data 1 > Data 2 > Data 3 > Data 4 > Data 5*
 
-    This can be explained by the following example.
+	Cela peut s’expliquer par l’exemple suivant.
 
-    Consider a StorSimple device with two cloud-enabled network interfaces, Data 0 and Data 5. Data 1 through Data 4 are cloud-disabled but have a configured gateway. The order in which traffic will be routed for this device will be:
+	Prenez l’exemple d’un appareil StorSimple avec deux interfaces réseau activées pour le cloud, Data 0 et Data 5. Data 1 à Data 4 sont désactivées pour le cloud mais disposent d’une passerelle configurée. L’ordre dans lequel le trafic sera acheminé pour cet appareil est le suivant :
 
-    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+	*Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
 
-    *where the numbers in parentheses indicate the respective routing metrics.*
+	*où les nombres entre parenthèses indiquent les métriques de routage respectives.*
 
-    If Data 0 fails, the cloud traffic will get routed through Data 5. Given that a gateway is configured on all other network, if both Data 0 and Data 5 were to fail, the cloud traffic will go through Data 1.
+	En cas d’échec de Data 0, le trafic cloud sera acheminé via Data 5. Étant donné qu'une passerelle est configurée sur tous les autres réseaux, si Data 0 et Data 5 échouaient, le trafic cloud serait acheminé via Data 1.
 
 
-- If a cloud-enabled network interface fails, then are 3 retries with a 30 second delay to connect to the interface. If all the retries fail, the traffic is routed to the next available cloud-enabled interface as determined by the routing table. If all the cloud-enabled network interfaces fail, then the device will fail over to the other controller (no reboot in this case).
+- En cas d'échec d’une interface réseau activée pour le cloud, 3 tentatives de connexion à l’interface sont effectuées à une intervalle de 30 secondes. Si toutes les tentatives échouent, le trafic est acheminé vers l’interface activée pour le cloud disponible suivante selon la table de routage. Si toutes les interfaces activées pour le cloud échouent, l’appareil basculera vers l’autre contrôleur (pas de redémarrage dans ce cas).
 
-- If there is a VIP failure for an iSCSI-enabled network interface, there will be 3 retries with a 2 seconds delay. This behavior has stayed the same from the previous releases. If all the iSCSI network interfaces fail, then a controller failover will occur (accompanied by a reboot).
+- En cas d’échec de l’adresse IP virtuelle pour une interface réseau compatible iSCSI, 3 tentatives seront effectuées à une intervalle de 2 secondes. Ce comportement est le même que dans les versions précédentes. Si toutes les interfaces réseau iSCSI échouent, un basculement de contrôleur se produit (accompagné d'un redémarrage).
 
 
-- An alert is also raised on your StorSimple device when there is a VIP failure. For more information, go to [alert quick reference](storsimple-manage-alerts.md).
+- Une alerte est également émise sur votre appareil StorSimple en cas d’échec de l’adresse IP virtuelle. Pour plus d'informations, consultez la page [alerte aide-mémoire](storsimple-manage-alerts.md).
 
-- In terms of retries, iSCSI will take precedence over cloud.
+- En ce qui concerne les nouvelles tentatives, iSCSI a priorité sur le cloud.
 
-    Consider the following example: A StorSimple device has two network interfaces enabled, Data 0 and Data 1. Data 0 is cloud-enabled whereas Data 1 is both cloud and iSCSI-enabled. No other network interfaces on this device are enabled for cloud or iSCSI.
+	Prenez l'exemple suivant : un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
 
-    If Data 1 fails, given it is the last iSCSI network interface, this will result in a controller failover to Data 1 on the other controller.
+	Si Data 1 échoue, étant donné qu'il s’agit de la dernière interface réseau iSCSI, cela entraîne un basculement de contrôleur vers Data 1 sur l'autre contrôleur.
 
 
-### <a name="networking-best-practices"></a>Networking best practices
+### Meilleures pratiques de mise en réseau
 
-In addition to the above networking requirements, for the optimal performance of your StorSimple solution, please adhere to the following best practices:
+Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances optimales pour votre solution StorSimple, veuillez respecter les meilleures pratiques suivantes :
 
-- Ensure that your StorSimple device has a dedicated 40 Mbps bandwidth (or more) available at all times. This bandwidth should not be shared (or allocation should be guaranteed through the use of QoS policies) with any other applications.
+- Assurez-vous que votre appareil StorSimple a une bande passante dédiée de 40 Mbits/s (ou plus) disponible à tout moment. Cette bande passante ne doit pas être partagée (ou l’allocation doit être garantie par le biais de l’utilisation de stratégies QoS) avec d’autres applications.
 
-- Ensure network connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices, including no Internet connectivity whatsoever, will result in an unsupported configuration.
+- Vérifiez que la connectivité réseau à Internet est disponible en permanence. Les connexions Internet sporadiques ou non fiables aux appareils, y compris aucune connectivité Internet quelle qu’elle soit, se traduisent par l’absence de prise en charge de la configuration.
 
-- Isolate the iSCSI and cloud traffic by having dedicated network interfaces on your device for iSCSI and cloud access. For more information, see how to [modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces) on your StorSimple device.
+- Isolez le trafic iSCSI et le trafic cloud en dédiant les interfaces réseau de votre appareil pour l’accès iSCSI et cloud. Pour plus d’informations, consultez la section relative à la [modification des interfaces réseau](storsimple-modify-device-config.md#modify-network-interfaces) sur votre appareil StorSimple.
 
-- Do not use a Link Aggregation Control Protocol (LACP) configuration for your network interfaces. This is an unsupported configuration.
+- N’utilisez pas une configuration Link Aggregation Control Protocol (LACP) pour vos interfaces réseau. Cette configuration n’est pas prise en charge.
 
 
-## <a name="high-availability-requirements-for-storsimple"></a>High availability requirements for StorSimple
+## Configuration requise pour la haute disponibilité de StorSimple
 
-The hardware platform that is included with the StorSimple solution has availability and reliability features that provide a foundation for a highly available, fault-tolerant storage infrastructure in your datacenter. However, there are requirements and best practices that you should comply with to help ensure the availability of your StorSimple solution. Before you deploy StorSimple, carefully review the following requirements and best practices for the StorSimple device and connected host computers.
+La plateforme matérielle fournie avec la solution StorSimple offre des fonctionnalités de disponibilité et de fiabilité qui constituent la base d’une infrastructure de stockage à tolérance de panne et à haute disponibilité dans votre centre de données. Cependant, vous devez vous conformer aux meilleures pratiques et conditions requises pour garantir la disponibilité de votre solution StorSimple. Avant de déployer StorSimple, examinez attentivement les conditions requises et meilleures pratiques suivantes pour l’appareil StorSimple et les ordinateurs hôtes connectés.
 
-For more information about monitoring and maintaining the hardware components of your StorSimple device, go to [Use the StorSimple Manager service to monitor hardware components and status](storsimple-monitor-hardware-status.md) and [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+Pour plus d’informations sur la surveillance et la maintenance des composants matériels de votre appareil StorSimple, consultez [Utilisation du service StorSimple Manager pour surveiller les composants et l’état du matériel](storsimple-monitor-hardware-status.md) et [Remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-### <a name="high-availability-requirements-and-procedures-for-your-storsimple-device"></a>High availability requirements and procedures for your StorSimple device
+### Configuration requise pour la haute disponibilité et procédures pour votre appareil StorSimple
 
-Review the following information carefully to ensure the high availability of your StorSimple device.
+Lisez attentivement les informations suivantes pour garantir la haute disponibilité de votre appareil StorSimple.
 
-#### <a name="pcms"></a>PCMs
+#### Modules PCM
 
-StorSimple devices include redundant, hot-swappable power and cooling modules (PCMs). Each PCM has enough capacity to provide service for the entire chassis. To ensure high availability, both PCMs must be installed.
+Les appareils StorSimple incluent des modules d’alimentation et de refroidissement redondants et échangeables à chaud (PCM). Chaque module PCM est doté d’une capacité suffisante pour prendre en charge l’ensemble du châssis. Les deux modules PCM doivent être installés pour assurer un haut niveau de disponibilité.
 
-- Connect your PCMs to different power sources to provide availability if a power source fails.
-- If a PCM fails, request a replacement immediately.
-- Remove a failed PCM only when you have the replacement and are ready to install it.
-- Do not remove both PCMs concurrently. The PCM module includes the backup battery module. Removing both of the PCMs will result in a shutdown without battery protection, and the device state will not be saved. For more information about the battery, go to [Maintain the backup battery module](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
+- Connectez vos modules PCM à différentes sources d’alimentation pour assurer la disponibilité en cas de panne d’une source d’alimentation.
+- Si un module PCM tombe en panne, demandez immédiatement son remplacement.
+- Ne retirez un module PCM en panne que si vous disposez d’un module de rechange et êtes prêt à l’installer.
+- Ne supprimez pas les deux modules PCM en même temps. Le module PCM inclut le module de batterie de secours. La suppression des deux modules PCM entraîne un arrêt sans protection de la batterie ; dans ce cas, l’état de l’appareil ne sera pas sauvegardé. Pour plus d’informations sur la batterie, consultez [Entretien du module de batterie de secours](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
 
-#### <a name="controller-modules"></a>Controller modules
+#### Modules de contrôleur
 
-StorSimple devices include redundant, hot-swappable controller modules. The controller modules operate in an active/passive manner. At any given time, one controller module is active and is providing service, while the other controller module is passive. The passive controller module is powered on and becomes operational if the active controller module fails or is removed. Each controller module has enough capacity to provide service for the entire chassis. Both controller modules must be installed to ensure high availability.
+Les appareils StorSimple incluent des modules de contrôleur redondants et échangeables à chaud. Les modules de contrôleur fonctionnent en mode actif/passif. À tout moment, un module de contrôleur est actif et fournit un service, tandis que l’autre est passif. Le module de contrôleur passif est sous tension et devient opérationnel en cas de panne ou de retrait du module de contrôleur actif. Chaque module de contrôleur est doté d’une capacité suffisante pour prendre en charge l’ensemble du châssis. Les deux modules de contrôleur doivent être installés pour assurer un haut niveau de disponibilité.
 
-- Make sure that both controller modules are installed at all times.
+- Assurez-vous que les deux modules de contrôleur sont installés en permanence.
 
-- If a controller module fails, request a replacement immediately.
+- En cas de panne d’un module de contrôleur, demandez immédiatement son remplacement.
 
-- Remove a failed controller module only when you have the replacement and are ready to install it. Removing a module for extended periods will affect the airflow and hence the cooling of the system.
+- Ne retirez un module de contrôleur défaillant que si vous disposez d’un module de rechange et êtes prêt à l’installer. La suppression d’un module pendant des périodes étendues affectera la ventilation et, par conséquent, le refroidissement du système.
 
-- Make sure that the network connections to both controller modules are identical, and the connected network interfaces have an identical network configuration.
+- Assurez-vous que les connexions réseau aux deux modules de contrôleur sont identiques, et que les interfaces réseau connectées ont une configuration réseau identique.
 
-- If a controller module fails or needs replacement, make sure that the other controller module is in an active state before replacing the failed controller module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+- Si un module de contrôleur tombe en panne ou doit être remplacé, assurez-vous que l’autre module de contrôleur est dans un état actif avant de procéder au remplacement du module défaillant. Pour vérifier si un contrôleur est actif, consultez [Identification du contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- Do not remove both controller modules at the same time. If a controller failover is in progress, do not shut down the standby controller module or remove it from the chassis.
+- Ne supprimez pas les deux modules de contrôleur en même temps. Si un contrôleur est en cours de basculement, n’arrêtez pas le module de contrôleur de secours, et ne le retirez pas du châssis.
 
-- After a controller failover, wait at least five minutes before removing either controller module.
+- Après un basculement de contrôleur, attendez au moins cinq minutes avant de retirer l’un des deux modules de contrôleur.
 
-#### <a name="network-interfaces"></a>Network interfaces
+#### Interfaces réseau
 
-StorSimple device controller modules each have four 1 Gigabit and two 10 Gigabit Ethernet network interfaces.
+Les modules de contrôleur d’un appareil StorSimple possèdent chacun quatre interfaces réseau 1 Gigabit et deux interfaces réseau 10 Gigabit Ethernet.
 
-- Make sure that the network connections to both controller modules are identical, and the network interfaces that the controller module interfaces are connected to have an identical network configuration.
+- Assurez-vous que les connexions réseau aux deux modules de contrôleur sont identiques, et que les interfaces réseau auxquelles les interfaces des modules de contrôleur sont connectées ont une configuration réseau identique.
 
-- When possible, deploy network connections across different switches to ensure service availability in the event of a network device failure.
+- Si possible, déployez les connexions réseau sur différents commutateurs pour assurer la disponibilité du service en cas de panne d’appareil réseau.
 
-- When unplugging the only or the last remaining iSCSI-enabled interface (with IPs assigned), disable the interface first and then unplug the cables. If the interface is unplugged first, then it will cause the active controller to fail over to the passive controller. If the passive controller also has its corresponding interfaces unplugged, then both the controllers will reboot multiple times before settling on one controller.
+- Lorsque vous déconnectez la seule ou la dernière interface compatible iSCSI restante (avec affectation des adresses IP), désactivez tout d’abord l’interface, puis débranchez les câbles. Si l’interface est débranchée en premier, il s’ensuit un basculement du contrôleur actif vers le contrôleur passif. Si les interface correspondantes du contrôleur passif sont également débranchées, les deux contrôleurs redémarrent plusieurs fois avant qu’un seul contrôleur. ne soit choisi.
 
-- Connect at least two DATA interfaces to the network from each controller module.
+- Connectez au moins deux interfaces DATA au réseau à partir de chaque module de contrôleur.
 
-- If you have enabled the two 10 GbE interfaces, deploy those across different switches.
+- Si vous avez activé les deux interfaces de 10 GbE, déployez-les entre les différents commutateurs.
 
-- When possible, use MPIO on servers to ensure that the servers can tolerate a link, network, or interface failure.
+- Si possible, utilisez MPIO sur les serveurs pour vous assurer qu’ils peuvent tolérer une panne de liaison, de réseau ou d’interface.
 
-For more information about networking your device for high availability and performance, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+Pour plus d’informations sur la mise en réseau de votre appareil pour la haute disponibilité et les performances, consultez [Installation de votre appareil StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Installation de votre appareil StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
-#### <a name="ssds-and-hdds"></a>SSDs and HDDs
+#### Disques SSD et disques durs
 
-StorSimple devices include solid state disks (SSDs) and hard disk drives (HDDs) that are protected using mirrored spaces. Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more SSDs or HDDs.
+Un appareil StorSimple comprend des disques SSD et des disques durs qui sont protégés au moyen d'espaces en miroir. Grâce aux espaces en miroir, un appareil est capable de tolérer une panne d’un ou plusieurs disques SSD ou disques durs.
 
-- Make sure that all SSD and HDD modules are installed.
+- Assurez-vous que tous les disques SSD et disques durs sont en place.
 
-- If an SSD or HDD fails, request a replacement immediately.
+- Si un disque SSD ou un disque dur tombe en panne, demandez immédiatement son remplacement.
 
-- If an SSD or HDD fails or requires replacement, make sure that you remove only the SSD or HDD that requires replacement.
+- Si un disque SSD ou un disque dur doit être remplacé, veillez à retirer uniquement le disque défectueux.
 
-- Do not remove more than one SSD or HDD from the system at any point in time.
-A failure of 2 or more disks of certain type (HDD, SSD) or consecutive failure within a short time frame may result in system malfunction and potential data loss. If this occurs, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
+- Ne retirez pas plusieurs disques SSD ou disques durs du système en même temps. Si au moins deux disques d’un même type (disque dur ou disque SSD) tombent en panne ou que plusieurs pannes consécutives surviennent en peu de temps, un dysfonctionnement du système et une perte potentielle de données risquent de se produire. Si cela se produit, [contactez le support Microsoft](storsimple-contact-microsoft-support.md).
 
-- During replacement, monitor the **Hardware Status** in the **Maintenance** page for the drives in the SSDs and HDDs. A green check status indicates that the disks are healthy or OK, whereas a red exclamation point indicates a failed SSD or HDD.
+- Durant le remplacement, surveillez l’**État du matériel** dans la page **Maintenance** des disques SSD et des disques durs. Une coche verte indique que les disques sont en bon état, tandis qu’un point d’exclamation rouge indique un disque SSD ou dur défectueux.
 
-- We recommend that you configure cloud snapshots for all volumes that you need to protect in case of a system failure.
+- Nous vous recommandons de configurer des instantanés cloud pour tous les volumes à protéger en cas de panne du système.
 
-#### <a name="ebod-enclosure"></a>EBOD enclosure
+#### Boîtier EBOD
 
-StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosure in addition to the primary enclosure. An EBOD contains EBOD controllers and hard disk drives (HDDs) that are protected using mirrored spaces. Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more HDDs. The EBOD enclosure is connected to the primary enclosure through redundant SAS cables.
+L’appareil StorSimple (modèle 8600) est équipé d’un boîtier EBOD (Extended Bunch of Disks) en plus du boîtier principal. Un boîtier EBOD se compose de contrôleurs EBOD et de disques durs qui sont protégés à l’aide d’espaces en miroir. Grâce aux espaces en miroir, un appareil est capable de tolérer une panne d’un ou de plusieurs disques durs. Le boîtier EBOD est connecté au boîtier principal avec de câbles SAS redondants.
 
-- Make sure that both EBOD enclosure controller modules, both SAS cables, and all the hard disk drives are installed at all times.
+- Assurez-vous que les deux modules de contrôleur du boîtier EBOD, les câbles SAS et tous les disques durs sont installés en permanence.
 
-- If an EBOD enclosure controller module fails, request a replacement immediately.
+- Si un module de contrôleur de boîtier EBOD tombe en panne, demandez immédiatement son remplacement.
 
-- If an EBOD enclosure controller module fails, make sure that the other controller module is active before you replace the failed module. To verify that a controller is active, go to [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+- Si un module de contrôleur de boîtier EBOD tombe en panne, avant de remplacer le module défectueux, assurez-vous que l’autre module de contrôleur est actif. Pour vérifier si un contrôleur est actif, consultez [Identification du contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- During an EBOD controller module replacement, continuously monitor the status of the component in the StorSimple Manager service by accessing **Maintenance** > **Hardware status**.
+- Lors du remplacement d’un module de contrôleur EBOD, surveillez en permanence l’état du composant dans le service StorSimple Manager. Pour cela, accédez à **Maintenance** > **Statut du matériel**.
 
-- If an SAS cable fails or requires replacement (Microsoft Support should be involved to make such a determination), make sure that you remove only the SAS cable that requires replacement.
+- Si un câble SAS est défectueux ou doit être remplacé (cette décision doit être prise après consultation du support technique Microsoft), veillez à retirer uniquement le câble à remplacer.
 
-- Do not concurrently remove both SAS cables from the system at any point in time.
+- Ne retirez pas les deux câbles SAS du système en même temps.
 
-### <a name="high-availability-recommendations-for-your-host-computers"></a>High availability recommendations for your host computers
+### Recommandations relatives à la haute disponibilité de vos ordinateurs hôtes
 
-Carefully review these best practices to ensure the high availability of hosts connected to your StorSimple device.
+Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute disponibilité des hôtes connectés à votre appareil StorSimple.
 
-- Configure StorSimple with [two-node file server cluster configurations][1]. By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.
+- Configurez StorSimple avec des [configurations de cluster de serveur de fichiers à deux nœuds][1]. En supprimant les points de défaillance uniques et en assurant la redondance côté hôte, l’ensemble de la solution devient hautement disponible.
 
-- Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers. For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this [video demo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
+- Utilisez des partages disponibles en continu avec Windows Server 2012 (SMB 3.0) pour bénéficier d’un haut niveau de disponibilité lors du basculement des contrôleurs de stockage. Pour plus d’informations sur la configuration de clusters de serveurs de fichiers et de partages disponibles en continu avec Windows Server 2012, consultez cette [vidéo de démonstration](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- [Learn about StorSimple system limits](storsimple-limits.md).
-- [Learn how to deploy your StorSimple solution](storsimple-deployment-walkthrough-u2.md).
+- [En savoir plus sur les limites du système StorSimple](storsimple-limits.md).
+- [Découvrez comment déployer votre solution StorSimple](storsimple-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

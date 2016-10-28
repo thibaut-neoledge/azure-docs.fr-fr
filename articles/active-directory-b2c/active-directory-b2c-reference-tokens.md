@@ -1,46 +1,45 @@
 <properties
-    pageTitle="Azure Active Directory B2C | Microsoft Azure"
-    description="The types of tokens issued in the Azure Active Directory B2C."
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Azure Active Directory B2C | Microsoft Azure"
+	description="Types de jetons émis dans Azure Active Directory B2C."
+	services="active-directory-b2c"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/22/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2016"
+	ms.author="dastrock"/>
 
 
+# Azure AD B2C: références sur les jetons
 
-# <a name="azure-ad-b2c:-token-reference"></a>Azure AD B2C: Token reference
+Azure Active Directory (Azure AD) B2C émet plusieurs types de jetons de sécurité lors du traitement de chaque [flux d’authentification](active-directory-b2c-apps.md). Ce document décrit le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.
 
-Azure Active Directory (Azure AD) B2C emits several types of security tokens as it processes each [authentication flow](active-directory-b2c-apps.md). This document describes the format, security characteristics, and contents of each type of token.
+## Types de jetons
 
-## <a name="types-of-tokens"></a>Types of tokens
+Azure AD B2C prend en charge le [protocole d’autorisation OAuth 2.0](active-directory-b2c-reference-protocols.md) qui utilise à la fois les jetons d’accès et les jetons d’actualisation. Il prend également en charge l’authentification et la connexion via [OpenID Connect](active-directory-b2c-reference-protocols.md), ce qui introduit un troisième type de jeton : le jeton d’ID. Chacun de ces jetons est représenté en tant que jeton du porteur.
 
-Azure AD B2C supports the [OAuth 2.0 authorization protocol](active-directory-b2c-reference-protocols.md), which makes use of both access tokens and refresh tokens. It also supports authentication and sign-in via [OpenID Connect](active-directory-b2c-reference-protocols.md), which introduces a third type of token: the ID token. Each of these tokens is represented as a bearer token.
+Un jeton du porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le porteur désigne toute partie qui peut présenter le jeton. Une partie doit d’abord s’authentifier auprès d’Azure AD pour recevoir un jeton du porteur, mais si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons du porteur n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS).
 
-A bearer token is a lightweight security token that grants the "bearer" access to a protected resource. The bearer is any party that can present the token. Azure AD must first authenticate a party before it can receive a bearer token. But if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. Some security tokens have a built-in mechanism for preventing unauthorized parties from using them, but bearer tokens do not have this mechanism. They must be transported in a secure channel, such as transport layer security (HTTPS).
+Si un jeton du porteur est transmis en dehors d’un canal sécurisé, une partie malveillante peut utiliser une attaque d’intercepteur afin de s’approprier le jeton et de l’utiliser pour accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons du porteur pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée.
 
-If a bearer token is transmitted outside a secure channel, a malicious party can use a man-in-the-middle attack to acquire the token and use it to gain unauthorized access to a protected resource. The same security principles apply when bearer tokens are stored or cached for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner.
+Pour en savoir plus sur les aspects de sécurité des jetons du porteur, consultez [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-For additional security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
+La plupart des jetons émis par Azure AD B2C sont implémentés en tant que jetons web JSON (JWT). Un jeton JWT constitue un moyen compact et sécurisé pour les URL de transférer des informations entre deux parties. Les jetons JWT contiennent des informations appelées revendications. Il s’agit des assertions d’informations concernant le porteur et le sujet du jeton. Les revendications dans les jetons JWT sont des objets JSON codés et sérialisés pour la transmission. Étant donné que les jetons JWT émis par Azure AD B2C sont signés, mais pas chiffrés, vous pouvez facilement inspecter le contenu d’un jeton JWT à des fins de débogage. Pour ce faire, plusieurs outils sont à votre disposition, y compris [calebb.net](http://calebb.net). Pour plus d’informations sur les jetons JWT, consultez les [spécifications des jetons JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-Many of the tokens that Azure AD B2C issues are implemented as JSON web tokens (JWTs). A JWT is a compact, URL-safe means of transferring information between two parties. JWTs contain information known as claims. These are assertions of information about the bearer and the subject of the token. The claims in JWTs are JSON objects that are encoded and serialized for transmission. Because the JWTs issued by Azure AD B2C are signed but not encrypted, you can easily inspect the contents of a JWT to debug it. Several tools are available that can do this, including [calebb.net](http://calebb.net). For more information about JWTs, refer to [JWT specifications](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+### Jetons d’ID
 
-### <a name="id-tokens"></a>ID tokens
+Les jetons d’ID constituent une forme de jeton de sécurité que votre application reçoit des points de terminaison `authorize` et `token` d’Azure AD B2C. Ils sont représentés en tant que [jetons JWT](#types-of-tokens) et contiennent des revendications que vous pouvez utiliser pour identifier l’utilisateur dans votre application. Lorsqu’ils sont acquis à partir du point de terminaison `authorize`, ils sont souvent utilisés pour connecter les utilisateurs à des applications web. Lorsqu’ils sont acquis à partir du point de terminaison `token`, ils peuvent être envoyés dans les demandes HTTP lors de la communication entre deux composants de la même application ou du même service. Vous pouvez utiliser les revendications dans un jeton d’ID comme vous le souhaitez. Ils sont souvent utilisés pour afficher les informations de compte ou pour prendre des décisions de contrôle d’accès dans une application.
 
-An ID token is a form of security token that your app receives from the Azure AD B2C `authorize` and `token` endpoints. ID tokens are represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify users in your app. When ID tokens are acquired from the `authorize` endpoint, they are often used to sign in users to web applications. When ID tokens are acquired from the `token` endpoint, they can be sent in HTTP requests during communication between two components of the same application or service. You can use the claims in an ID token as you see fit. They are commonly used to display account information or to make access control decisions in an app.  
+Les jetons d’ID sont signés, mais ils ne sont pas chiffrés pour l’instant. Lorsque votre application ou votre API reçoit un jeton d’ID, elle doit [valider la signature](#token-validation) pour prouver que le jeton est authentique. Votre application ou votre API doit également valider certaines revendications du jeton pour prouver qu’il est valide. Les revendications validées par une application varient selon les spécifications du scénario, mais il existe certaines [validations de revendication communes](#token-validation) auxquelles votre application doit procéder dans chaque scénario.
 
-ID tokens are signed, but they are not encrypted at this time. When your app or API receives an ID token, it must [validate the signature](#token-validation) to prove that the token is authentic. Your app or API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an app can vary, but your app must perform some [common claim validations](#token-validation) in every scenario.
-
-#### <a name="sample-id-token"></a>Sample ID token
+#### Exemple de jeton d’ID
 ```
 // Line breaks for display purposes only
 
@@ -58,109 +57,105 @@ CQhoFA
 
 ```
 
-### <a name="access-tokens"></a>Access tokens
+### Jetons d’accès
 
-An access token is also a form of security token that your app receives from the Azure AD B2C `authorize` and `token` endpoints. Access tokens are also represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify users in your web services & APIs.
+Les jetons d’accès constituent également une forme de jeton de sécurité que votre application reçoit des points de terminaison `authorize` et `token` d’Azure AD B2C. Ils sont également représentés en tant que [jetons JWT](#types-of-tokens) et contiennent des revendications que vous pouvez utiliser pour identifier les utilisateurs dans vos API et services web.
 
-Access tokens are signed, but they are not encrypted at this time - and very similar to id tokens.  Access tokens should be used to provide access to web services & APIs and to identify & authenticate the user in those services.  However, they do not provide any assertion of authorization at those services.  That is to say that the `scp` claim in access tokens does not limit or otherwise represent the access that the subject of the token has been granted.
+Les jetons d’accès sont signés, mais ils ne sont pas chiffrés pour l’instant. En outre, ils ressemblent beaucoup aux jetons d’ID. Les jetons d’accès doivent être utilisés pour accéder aux API et services web et pour identifier et authentifier l’utilisateur dans ces services. Toutefois, ils ne fournissent pas une assertion d’autorisation à ces services. Cela signifie que la revendication `scp` dans les jetons d’accès ne limite pas ou ne représente pas l’accès que l’objet du jeton a accordé.
 
-When your API receives an access token, it must [validate the signature](#token-validation) to prove that the token is authentic. Your API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an app can vary, but your app must perform some [common claim validations](#token-validation) in every scenario.
+Lorsque votre API reçoit un jeton d’accès, elle doit [valider la signature](#token-validation) pour prouver que le jeton est authentique. Votre API doit également valider certaines revendications du jeton pour prouver qu’il est valide. Les revendications validées par une application varient selon les spécifications du scénario, mais il existe certaines [validations de revendication communes](#token-validation) auxquelles votre application doit procéder dans chaque scénario.
 
-### <a name="claims-in-id-&-access-tokens"></a>Claims in ID & Access Tokens
+### Revendications dans des jetons d’accès et d’ID
 
-When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [policies](active-directory-b2c-reference-policies.md) to send certain sets of user data in claims that your app requires for its operations. These claims can include standard properties such as the user's `displayName` and `emailAddress`. They can also include [custom user attributes](active-directory-b2c-reference-custom-attr.md) that you can define in your B2C directory. Every ID & access token that you receive will contain a certain set of security-related claims. Your applications can use these claims to securely authenticate users and requests.
+Lorsque vous utilisez Azure AD B2C, vous disposez d’un contrôle affiné du contenu de vos jetons. Vous pouvez configurer des [stratégies](active-directory-b2c-reference-policies.md) pour envoyer certains ensembles de données utilisateur dans les revendications dont votre application a besoin pour ses opérations. Ces revendications peuvent inclure des propriétés standard telles que `displayName` et `emailAddress` de l’utilisateur. Elles peuvent également inclure des [attributs d’utilisateur personnalisés](active-directory-b2c-reference-custom-attr.md) que vous pouvez définir dans votre répertoire B2C. Chaque jeton d’ID et d’accès que vous recevez contient un ensemble de revendications relatives à la sécurité. Vos applications peuvent utiliser ces revendications pour authentifier de manière sécurisée les utilisateurs et les demandes.
 
-Note that the claims in ID tokens are not returned in any particular order. In addition, new claims can be introduced in ID tokens at any time. Your app should not break as new claims are introduced. Here are the claims that you expect to exist in ID & access tokens issued by Azure AD B2C. Any additional claims will be determined by policies. For practice, try inspecting the claims in the sample ID token by pasting it into [calebb.net](http://calebb.net). Further details can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
+Les revendications dans les jetons d’ID ne sont pas retournées dans un ordre particulier. En outre, de nouvelles revendications peuvent être introduites dans les jetons d’ID à tout moment. Votre application ne doit pas s’arrêter lors de l’ajout de nouvelles revendications. Voici les revendications devant exister dans chaque jeton d’ID et d’accès émis par Azure AD B2C. Toute revendication supplémentaire sera déterminée par les stratégies. Pour vous entraîner, essayez d’inspecter les revendications dans l’exemple de jeton d’ID en le collant dans [calebb.net](http://calebb.net). Vous trouverez des informations supplémentaires dans les [spécifications OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
-| Name | Claim | Example value | Description |
+| Nom | Revendication | Exemple de valeur | Description |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
-| Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | An audience claim identifies the intended recipient of the token. For Azure AD B2C, the audience is your app's Application ID, as assigned to your app in the app registration portal. Your app should validate this value and reject the token if it does not match. |
-| Issuer | `iss` | `https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | This claim identifies the security token service (STS) that constructs and returns the token. It also identifies the Azure AD directory in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint. |
-| Issued at | `iat` | `1438535543` | This claim is the time at which the token was issued, represented in epoch time. |
-| Expiration time | `exp` | `1438539443` | The expiration time claim is the time at which the token becomes invalid, represented in epoch time. Your app should use this claim to verify the validity of the token lifetime.  |
-| Not before | `nbf` | `1438535543` | This claim is the time at which the token becomes valid, represented in epoch time. This is usually the same as the time the token was issued. Your app should use this claim to verify the validity of the token lifetime.  |
-| Version | `ver` | `1.0` | This is the version of the ID token, as defined by Azure AD. |
-| Code hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | A code hash is included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
-| Access token hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | An access token hash is included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
-| Nonce | `nonce` | `12345` | A nonce is a strategy used to mitigate token replay attacks. Your app can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request will be emitted unmodified in the `nonce` claim of an ID token only. This allows your app to verify the value against the value it specified on the request, which associates the app's session with a given ID token. Your app should perform this validation during the ID token validation process. |
-| Subject | `sub` | `Not supported currently. Use oid claim.` | This is a principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. However, the subject claim is not yet implemented in the Azure AD B2C. You should configure your policies to include the object ID `oid` claim and use its value to identify users, rather than use the subject claim for authorization. |
-| Authentication context class reference | `acr` | `b2c_1_sign_in` | This is the name of the policy that was used to acquire the ID token.  |
-| Authentication time | `auth_time` | `1438535543` | This claim is the time at which a user last entered credentials, represented in epoch time. |
+| Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Une revendication d’audience identifie le destinataire du jeton. Dans Azure AD B2C, l’audience est l’ID attribué à votre application dans le portail d’inscription de l’application. Votre application doit valider cette valeur et rejeter le jeton s’il ne correspond pas. |
+| Émetteur | `iss` | `https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | La revendication identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Elle identifie également le répertoire Azure AD dans lequel l’utilisateur a été authentifié. Votre application doit valider la revendication de l’émetteur de manière à s’assurer que le jeton provient bien du point de terminaison v2.0. |
+| Émis à | `iat` | `1438535543` | Cette revendication est l’heure à laquelle le jeton a été émis, représentée en heure epoch. |
+| Heure d’expiration | `exp` | `1438539443` | Cette revendication d’heure d’expiration est l’heure à laquelle le jeton n’est plus valide, représentée en heure epoch. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. |
+| Pas avant | `nbf` | `1438535543` | Cette revendication est l’heure à laquelle le jeton devient valide, représentée en heure epoch. Cela correspond généralement à l’heure à laquelle le jeton a été émis. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. |
+| Version | `ver` | `1.0` | Version du jeton d’ID, telle que définie par Azure AD. |
+| Hachage de code | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Le hachage de code n’est inclus dans un jeton d’ID que si ce dernier est émis en même temps qu’un code d’autorisation OAuth 2.0. Il peut servir à valider l’authenticité d’un code d’autorisation. Pour plus d’informations sur l’exécution de cette validation, consultez la [spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
+| Hachage de jeton d’accès | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Le hachage de jeton d’accès n’est inclus dans un jeton d’ID que si ce dernier est émis en même temps qu’un jeton d’accès OAuth 2.0. Un hachage de jeton d’accès peut servir à valider l’authenticité d’un jeton d’accès. Pour plus d’informations sur l’exécution de cette validation, consultez les [spécifications OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
+| Valeur à usage unique | `nonce` | `12345` | La valeur à usage unique est une stratégie d’atténuation des attaques par relecture de jetons. Votre application peut spécifier une valeur à usage unique dans une demande d’autorisation à l’aide du paramètre de requête `nonce`. La valeur que vous fournissez dans la demande est émise sans aucune modification dans la revendication `nonce` du jeton d’ID. Cela permet à votre application de comparer la valeur à celle spécifiée dans la demande et d’associer la session de l’application à un jeton d’ID donné. Votre application doit effectuer cette validation au cours du processus de validation du jeton d’ID. |
+| Objet | `sub` | `Not supported currently. Use oid claim.` | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Toutefois, la revendication de l’objet n’est pas encore implémentée dans Azure AD B2C. Au lieu d’utiliser la revendication de l’objet pour l’autorisation, configurez vos stratégies pour inclure la revendication `oid` d’ID objet et utiliser sa valeur pour identifier les utilisateurs. |
+| Référence de classe du contexte d’authentification | `acr` | `b2c_1_sign_in` | Nom de la stratégie utilisée pour acquérir le jeton d’ID. |
+| Moment de l’authentification | `auth_time` | `1438535543` | Cette revendication est l’heure à laquelle l’utilisateur a entré ses informations d’identification pour la dernière fois, représentée en heure epoch. |
 
 
-### <a name="refresh-tokens"></a>Refresh tokens
+### Jetons d’actualisation
 
-Refresh tokens are security tokens that your app can use to acquire new ID tokens and access tokens in an OAuth 2.0 flow. They provide your app with long-term access to resources on behalf of users without requiring interaction with those users.
+Les jetons d’actualisation sont des jetons de sécurité que votre application peut utiliser pour acquérir de nouveaux jetons d’ID et d’accès dans un flux OAuth 2.0. Ils permettent à votre application d’obtenir un accès à long terme à des ressources au nom d’un utilisateur, et ce sans nécessiter l’intervention de l’utilisateur.
 
-To receive a refresh token in a token response, your app must request the `offline_acesss` scope. To learn more about the `offline_access` scope, refer to the [Azure AD B2C protocol reference](active-directory-b2c-reference-protocols.md).
+Pour recevoir un jeton d’actualisation dans une réponse de jeton, votre application doit demander l’étendue `offline_acesss`. Pour en savoir plus sur les étendues `offline_access`, reportez-vous à la [référence du protocole Azure AD B2C](active-directory-b2c-reference-protocols.md).
 
-Refresh tokens are, and will always be, completely opaque to your app. They are issued by Azure AD and can be inspected and interpreted only by Azure AD. They are long-lived, but your app should not be written with the expectation that a refresh token will last for a specific period of time. Refresh tokens can be invalidated at any moment for a variety of reasons. The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD.
+Les jetons d’actualisation sont, et seront toujours, entièrement opaques pour votre application. Ils sont émis par Azure AD et ne peuvent être inspectés et interprétés que par Azure AD. Les jetons d’actualisation sont de longue durée. Toutefois, quand vous écrivez votre application, faites en sorte qu’elle n’attende pas un jeton d’actualisation d’une durée particulière. Les jetons d’actualisation peuvent être rendus non valides à tout moment, et ce pour diverses raisons. Pour savoir si un jeton d'actualisation est valide, votre application doit tenter de l'échanger en faisant une demande de jeton auprès d'Azure AD. C'est la seule façon de faire.
 
-When you redeem a refresh token for a new token (and if your app has been granted the `offline_access` scope), you will receive a new refresh token in the token response. You should save the newly issued refresh token. It should replace the refresh token you previously used in the request. This helps guarantee that your refresh tokens remain valid for as long as possible.
+Quand vous échangez un jeton d’actualisation contre un nouveau jeton (et si l’étendue `offline_access` a été accordée à votre application), vous recevez un nouveau jeton d’actualisation dans la réponse du jeton. Vous devez enregistrer le jeton d’actualisation qui vient d’être émis. Il doit remplacer le jeton d’actualisation utilisé précédemment dans la demande. Vous avez ainsi la garantie que vos jetons d’actualisation resteront valides le plus longtemps possible.
 
-## <a name="token-validation"></a>Token validation
+## Validation du jeton
 
-To validate a token, your app should check both the signature and claims of the token.
+Pour valider un jeton, votre application doit valider la signature et les revendications de ce jeton.
 
-Many open source libraries are available for validating JWTs, depending on your preferred language. We recommend that you explore those options rather than implement your own validation logic. The information in this guide can help you learn how to properly use those libraries.
+Il existe de nombreuses bibliothèques open source pour valider les jetons JWT en fonction de votre langage préféré. Nous vous recommandons d’explorer ces options plutôt que d’implémenter votre propre logique de validation. Les informations contenues dans ce guide peuvent vous apprendre à utiliser correctement ces bibliothèques.
 
-### <a name="validate-the-signature"></a>Validate the signature
-A JWT contains three segments, separated by the `.` character. The first segment is the **header**, the second is the **body**, and the third is the **signature**. The signature segment can be used to validate the authenticity of the token so that it can be trusted by your app.
+### Valider la signature
+Un jeton JWT contient trois segments séparés par le caractère `.`. Le premier segment est appelé **l’en-tête**, le deuxième le **corps** et le troisième la **signature**. Le segment de signature peut être utilisé pour valider l’authenticité du jeton afin qu’il soit approuvé par votre application.
 
-Azure AD B2C tokens are signed by using industry-standard asymmetric encryption algorithms, such as RSA 256. The header of the token contains information about the key and encryption method used to sign the token:
+Les jetons Azure AD B2C sont signés à l’aide d’algorithmes de chiffrement asymétrique standard, tels que RSA 256. L’en-tête du jeton contient des informations sur la clé et la méthode de chiffrement utilisées pour signer le jeton :
 
 ```
 {
-        "typ": "JWT",
-        "alg": "RS256",
-        "kid": "GvnPApfWMdLRi8PDmisFn7bprKg"
+		"typ": "JWT",
+		"alg": "RS256",
+		"kid": "GvnPApfWMdLRi8PDmisFn7bprKg"
 }
 ```
 
-The `alg` claim indicates the algorithm that was used to sign the token. The `kid` claim indicates the particular public key that was used to sign the token.
+La revendication `alg` indique l’algorithme utilisé pour signer le jeton. La revendication `kid` indique la clé publique utilisée pour signer le jeton.
 
-At any given time, Azure AD may sign a token by using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys periodically, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
+À tout moment, Azure AD peut signer un jeton à l’aide de l’un des ensembles de paires de clés publique-privée. Étant donné qu’Azure AD alterne le jeu de clés possible de façon périodique, votre application doit être écrite de manière à gérer automatiquement ces changements de clés. Pour vérifier les mises à jour apportées aux clés publiques utilisées par Azure AD, spécifiez une fréquence raisonnable d’environ 24 heures.
 
-Azure AD B2C has an OpenID Connect metadata endpoint. This allows apps to fetch information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. Your B2C directory contains a JSON metadata document for each policy. For example, the metadata document for the `b2c_1_sign_in` policy in the `fabrikamb2c.onmicrosoft.com` is located at:
+Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. Cela permet aux applications d’extraire des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Votre répertoire B2C contient un document de métadonnées JSON pour chaque stratégie. Par exemple, le document de métadonnées pour la stratégie `b2c_1_sign_in` dans `fabrikamb2c.onmicrosoft.com` se trouve à l’emplacement suivant :
 
 ```
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-`fabrikamb2c.onmicrosoft.com` is the B2C directory used to authenticate the user, and `b2c_1_sign_in` is the policy used to acquire the token. To determine which policy was used to sign a token (and where to go to fetch the metadata), you have two options. First, the policy name is included in the `acr` claim in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `acr` claim will be the name of the policy that was used to issue the token.  Your other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
+où `fabrikamb2c.onmicrosoft.com` est le répertoire B2C utilisé pour authentifier l’utilisateur et `b2c_1_sign_in` est la stratégie utilisée pour acquérir le jeton. Afin de déterminer la stratégie utilisée pour signer un jeton (et l’emplacement à partir duquel extraire les métadonnées), deux options sont possibles. Tout d’abord, le nom de la stratégie est inclus dans la revendication `acr` du jeton. Vous pouvez analyser les revendications contenues dans le corps du jeton JWT par le biais d’un décodage base-64 du corps et la désérialisation de la chaîne JSON résultante. La revendication `acr` sera le nom de la stratégie qui a été utilisée pour émettre le jeton. L'autre option consiste à coder la stratégie dans la valeur du paramètre `state` lors de l'émission de la requête, puis à la décoder pour déterminer la stratégie qui a été utilisée. Les 2 méthodes sont valides.
 
-The metadata document is a JSON object that contains several useful pieces of information. These include the location of the endpoints required to perform OpenID Connect authentication. They also include `jwks_uri`, which gives the location of the set of public keys that are used to sign tokens. That location is provided here, but it is best to fetch the location dynamically by using the metadata document and parsing out `jwks_uri`:
+Le document de métadonnées est un objet JSON qui contient plusieurs informations utiles. Celles-ci incluent l’emplacement des points de terminaison requis pour effectuer l’authentification OpenID Connect. Elles comprennent également un `jwks_uri` qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. Cet emplacement est fourni ici, mais il est préférable d’extraire cet emplacement de manière dynamique à l’aide du document de métadonnées et d’analyser `jwks_uri` :
 
 ```
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
-The JSON document located at this URL contains all of the public key information in use at a particular moment. Your app can use the `kid` claim in the JWT header to select the public key in the JSON document that is used to sign a particular token. It can then perform signature validation by using the correct public key and the indicated algorithm.
+Le document JSON situé à cette URL contient toutes les informations sur les clés publiques utilisées à cet instant donné. Votre application peut utiliser les revendications `kid` dans l’en-tête JWT pour sélectionner la clé publique utilisée dans le document JSON pour signer un jeton donné. Elle peut ensuite procéder à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
 
-A description of how to perform signature validation is outside the scope of this document. Many open source libraries are available to help you with this if you need it.
+Ce document ne contient pas la description de la procédure de validation de la signature. De nombreuses bibliothèques open source sont disponibles pour vous aider à ce sujet si vous en avez besoin.
 
-### <a name="validate-the-claims"></a>Validate the claims
-When your app or API receives an ID token, it should also perform several checks against the claims in the ID token. These include, but are not limited to:
+### Valider les revendications
+Quand votre application ou API reçoit un jeton d’ID, elle doit également procéder à plusieurs vérifications sur les revendications dans le jeton d’ID. Ces vérifications portent notamment sur les revendications suivantes :
 
-- The **audience** claim: This verifies that the ID token was intended to be given to your app.
-- The **not before** and **expiration time** claims: These verify that the ID token has not expired.
-- The **issuer** claim: This verifies that the token was issued to your app by Azure AD.
-- The **nonce**: This is a strategy for token replay attack mitigation.
+- Revendication **Audience** : vérifie que le jeton d’ID était bien destiné à votre application.
+- Revendications **Pas avant** et **Heure d’expiration** : vérifient que le jeton d’ID n’est pas arrivé à expiration.
+- Revendication **Émetteur** : vérifie que le jeton a effectivement été émis à votre application par Azure AD.
+- **Valeur à usage unique** : stratégie d’atténuation des attaques par relecture de jetons.
 
-For a full list of validations your app should perform, please refer to the [OpenID Connect specification](https://openid.net). Details of the expected values for these claims are included in the preceding [token section](#types-of-tokens).  
+Pour obtenir une liste complète des revendications que votre application doit valider, reportez-vous aux [spécifications OpenID Connect](https://openid.net). Les valeurs attendues pour ces revendications sont détaillées dans la [section Jetons](#types-of-tokens) ci-dessus.
 
-## <a name="token-lifetimes"></a>Token lifetimes
+## Durées de vie des jetons
 
-The following token lifetimes are provided to further your knowledge. They can help you when you develop and debug apps. Note that your apps should not be written to expect any of these lifetimes to remain constant. They can and will change.  You can read more about the customization of token lifetimes in Azure AD B2C [here](active-directory-b2c-token-session-sso.md).
+Les durées de vie du jeton suivantes sont fournies afin d’approfondir vos connaissances. Elles peuvent vous être utiles lorsque vous développez et déboguez des applications. Quand vous écrivez vos applications, faites en sorte qu’elles n’attendent pas des durées de vie constantes, car celles-ci sont amenées à changer à un moment donné. Vous trouverez plus d’informations sur la personnalisation des durées de vie des jetons dans Azure AD B2C [ici](active-directory-b2c-token-session-sso.md).
 
-| Token | Lifetime | Description |
+| Jeton | Durée de vie | Description |
 | ----------------------- | ------------------------------- | ------------ |
-| ID tokens | One hour | ID tokens are typically valid for an hour. Your web app can use this lifetime to maintain its own sessions with users (recommended). You can also choose a different session lifetime. If your app needs to get a new ID token, it simply needs to make a new sign-in request to Azure AD. If a user has a valid browser session with Azure AD, that user may not be required to enter credentials again. |
-| Refresh tokens | Up to 14 days | A single refresh token is valid for a maximum of 14 days. However, a refresh token may become invalid at any time for any number of reasons. Your app should continue to try to use a refresh token until the request fails, or until your app replaces the refresh token with a new one.  A refresh token also can become invalid if 90 days has passed since the user last entered credentials. |
-| Authorization codes | Five minutes | Authorization codes are intentionally short-lived. They should be redeemed immediately for access tokens, ID tokens, or refresh tokens when they are received. |
+| Jetons d’ID | 1 heure | Les jetons d’ID sont généralement valides 1 heure. Votre application web peut utiliser cette durée de vie pour conserver ses propres sessions avec les utilisateurs (recommandé). Vous pouvez également choisir une durée de vie de session différente. Si votre application a besoin d’obtenir un nouveau jeton d’ID, elle doit simplement faire une nouvelle demande de connexion auprès d’Azure AD. Si l’utilisateur dispose d’une session de navigateur valide avec Azure AD, il se peut qu’il ne soit pas obligé de retaper ses informations d’identification. |
+| Jetons d’actualisation | Jusqu’à 14 jours | Un jeton d’actualisation est valide pendant 14 jours au maximum. Toutefois, un jeton d’actualisation peut devenir non valide à tout moment pour différentes raisons. Votre application doit continuer à essayer d’utiliser un jeton d’actualisation jusqu’à ce que la demande échoue, ou jusqu’à ce que votre application remplace le jeton d’actualisation par un autre. Un jeton d’actualisation peut devenir non valide si 90 jours se sont écoulés depuis que l’utilisateur a entré ses informations d’identification pour la dernière fois. |
+| Codes d’autorisation | 5 minutes | La durée de vie des codes d’autorisation est intentionnellement limitée. Ils doivent être utilisés immédiatement après réception pour les jetons d’accès, les jetons d’ID ou les jetons d’actualisation. |
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

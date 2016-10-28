@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a custom probe for an application gateway by using the portal | Microsoft Azure"
-   description="Learn how to create a custom probe for Application Gateway by using the portal"
+   pageTitle="Créer une sonde personnalisée pour la plateforme d’application à l’aide du portail | Microsoft Azure"
+   description="Découvrez comment créer une sonde personnalisée pour Application Gateway à l’aide du portail"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -14,80 +14,77 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/24/2016"
+   ms.date="08/09/2016"
    ms.author="gwallace" />
 
-
-# <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Create a custom probe for Application Gateway by using the portal
+# Créer une sonde personnalisée pour Application Gateway à l’aide du portail
 
 > [AZURE.SELECTOR]
-- [Azure portal](application-gateway-create-probe-portal.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+- [Portail Azure](application-gateway-create-probe-portal.md)
+- [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
 - [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 <BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-## <a name="scenario"></a>Scenario
+## Scénario
 
-The following scenario goes through creating a custom health probe in an existing application gateway.
-The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
+Le scénario suivant passe par la création d’une sonde d’intégrité personnalisée sur une passerelle d’application existante. Le scénario suppose que vous avez déjà suivi la procédure de [Création d’une passerelle Application Gateway](application-gateway-create-gateway-portal.md).
 
-## <a name="<a-name="createprobe"></a>create-the-probe"></a><a name="createprobe"></a>Create the probe
+## <a name="createprobe"></a>Créer la sonde
 
-Probes are configured in a two-step process through the portal. The first step is to create the probe, next you add the probe to the backend http settings of the application gateway.
+Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à créer la sonde, puis à l’ajouter aux paramètres http principaux de la passerelle d’application.
 
-### <a name="step-1"></a>Step 1
+### Étape 1 :
 
-Navigate to http://portal.azure.com and select an existing application gateway.
+Accédez au http://portal.azure.com et sélectionnez une passerelle d’application existante.
 
-![Application Gateway overview][1]
+![Vue d’ensemble d’Application Gateway][1]
 
-### <a name="step-2"></a>Step 2
+### Étape 2 :
 
-Click **Probes** and click the **Add** button to add a new probe.
+Cliquez sur **Sondes** et cliquez sur le bouton **Ajouter** pour ajouter une nouvelle sonde.
 
-![Add Probe blade with information filled out][2]
+![Ajouter un panneau Sonde contenant toutes les informations][2]
 
-### <a name="step-3"></a>Step 3
+### Étape 3
 
-Fill out the required information for the probe and when complete click **OK**.
+Remplissez les informations requises pour la sonde et lorsque vous avez terminé, cliquez sur **OK**.
 
-- **Name** - This is a friendly name to the probe that is accessible in the portal.
-- **Host** - This is the host name that is used for the probe.
-- **Path** - The remainder of the full url for the custom probe.
-- **Interval (secs)** - How often the probe is run to check for health.
-- **Timeout (secs)** - The amount of time the probe waits before timing out.
-- **Unhealthy threshold** - Number of failed attempts to be considered unhealthy.
+- **Nom** - nom convivial de la sonde accessible via le portail.
+- **Hôte** - nom d’hôte utilisé pour la sonde.
+- **Chemin d’accès** - reste de l’URL complète de la sonde personnalisée.
+- **Intervalle (secondes)** - fréquence d’exécution de la sonde pour vérifier l’intégrité.
+- **Délai d’expiration (secondes)** - intervalle de temps précédant l’expiration de la sonde.
+- **Seuil de défaillance sur le plan de l’intégrité** - nombre d’échecs nécessaires pour marquer l’instance comme défaillante.
 
-> [AZURE.IMPORTANT] the host name is not the server name. This is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
+> [AZURE.IMPORTANT] le nom d’hôte n’est pas le nom du serveur. Il s’agit du nom de l’hôte virtuel en cours d’exécution sur le serveur d’application. La sonde est envoyée à http://(host name):(port from httpsetting)/urlPath
 
-![probe configuration settings][3]
+![paramètres de configuration de sonde][3]
 
-## <a name="add-probe-to-the-gateway"></a>Add probe to the gateway
+## Ajouter une sonde à la passerelle
 
-Now that the probe has been created, it is time to add it to the gateway. Probe settings are set on the backend http settings of the application gateway.
+Maintenant que la sonde a été créée, il est temps de l’ajouter à la passerelle. Les paramètres de la sonde sont définis sur les paramètres http principaux de la passerelle d’application.
 
-### <a name="step-1"></a>Step 1
+### Étape 1 :
 
-Click the **HTTP settings** of the application gateway, and then click the current backend http settings in the window to bring up the configuration blade.
+Cliquez sur les **paramètres HTTP** de la passerelle d’application, puis cliquez sur les paramètres http principaux actuels dans la fenêtre pour afficher le panneau de configuration.
 
-![https settings window][4]
+![fenêtre de paramètres https][4]
 
-### <a name="step-2"></a>Step 2
+### Étape 2 :
 
-On the **appGatewayBackEndHttp** settings blade, click **Use custom probe** and choose the probe created in the [Create the probe](#createprobe) section.
-When complete, click **OK** and the settings are applied.
+Dans le panneau Paramètres **appGatewayBackEndHttp**, cliquez sur **Utiliser la sonde personnalisée** et choisissez la sonde créée à la section [Créer la sonde](#createprobe). Lorsque vous avez terminé, cliquez sur **OK** pour appliquer les paramètres.
 
-![appgatewaybackend settings blade][5]
+![panneau de paramètres appgatewaybackend][5]
 
-The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend selected. Based on the criteria that was defined, the application gateway checks the file specified in the probe. If the call to host:Port/path does not return an Http 200 OK status response, the server is taken out of rotation, after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
+La sonde par défaut vérifie l’accès par défaut à l’application web. Maintenant qu’une sonde personnalisée a été créée, la passerelle d’application utilise le chemin d’accès personnalisé défini pour surveiller l’intégrité pour le serveur principal sélectionné. Selon les critères définis, la passerelle d’application vérifie le fichier spécifié dans la sonde. Si l’appel à host:Port/path ne renvoie pas de réponse d’état Http 200 OK, le serveur est mis hors service après avoir atteint le seuil de fonctionnement anormal. La détection continue sur l’instance défaillante pour déterminer quand elle sera rétablie. Une fois l’instance ajoutée au pool de serveurs intègre, le trafic recommence à circuler vers elle et la détection de l’instance continue comme d’habitude en fonction des intervalles définis par l’utilisateur.
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](application-gateway-ssl-portal.md)
+Pour découvrir comment configurer le déchargement SSL avec la passerelle Azure Application Gateway, consultez [Configuration du déchargement SSL](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
@@ -95,7 +92,4 @@ To learn how to configure SSL Offloading with Azure Application Gateway see [Con
 [4]: ./media/application-gateway-create-probe-portal/figure4.png
 [5]: ./media/application-gateway-create-probe-portal/figure5.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

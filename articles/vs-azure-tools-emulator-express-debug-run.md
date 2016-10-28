@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using Emulator Express to run and debug a cloud service on a local machine | Microsoft Azure"
-   description="Using Emulator Express to run and debug a cloud service on a local machine"
+   pageTitle="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale | Microsoft Azure"
+   description="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale"
    services="visual-studio-online"
    documentationCenter="n/a"
    authors="TomArcher"
@@ -16,47 +16,42 @@
    ms.author="tarcher" />
 
 
+# Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale
 
-# <a name="using-emulator-express-to-run-and-debug-a-cloud-service-on-a-local-machine"></a>Using Emulator Express to run and debug a cloud service on a local machine
+Avec l’émulateur express, vous testez et déboguez un service cloud sans avoir à exécuter Visual Studio en tant qu’administrateur. Vous pouvez définir les paramètres du projet pour utiliser l’émulateur express ou l’émulateur complet selon la configuration requise de votre service cloud. Pour plus d’informations sur l’émulateur complet, consultez [Exécuter une application Azure dans l’émulateur de calcul](./storage/storage-use-emulator.md). L’émulateur express a été introduit dans le Kit de développement logiciel (SDK) Azure 2.1 et, depuis le Kit de développement logiciel (SDK) Azure 2.3, il s’agit de l’émulateur par défaut.
 
-By using Emulator Express, you can test and debug a cloud service without running Visual Studio as an administrator. You can set your project settings to use either Emulator Express or the full emulator, depending on the requirements of your cloud service. For more information about the full emulator, see [Run an Azure Application in the Compute Emulator](./storage/storage-use-emulator.md). Emulator Express was first included in Azure SDK 2.1, and as of Azure SDK 2.3, it is the default emulator.
+## Utilisation de l’émulateur express dans l’IDE Visual Studio
 
-## <a name="using-emulator-express-in-the-visual-studio-ide"></a>Using Emulator Express in the Visual Studio IDE
+Quand vous créez un projet dans le Kit de développement logiciel (SDK) Azure 2.3 ou une version ultérieure, l’émulateur express est déjà sélectionné. Pour les projets existants créés à l’aide d’une version antérieure du kit de développement logiciel (SDK), suivez ces étapes pour sélectionner l’émulateur express.
 
-When you create a new project in Azure SDK 2.3 or later, Emulator Express is already selected. For existing projects that were created with an earlier version of the SDK, follow these steps to select Emulator Express.
+### Pour configurer un projet pour utiliser l’émulateur express
 
-### <a name="to-configure-a-project-to-use-emulator-express"></a>To configure a project to use Emulator Express
+1. Dans le menu contextuel du projet Azure, choisissez **Propriétés**, puis l’onglet **Web**.
 
-1. On the shortcut menu for the Azure project, choose **Properties**, and then choose the **Web** tab.
+1. Sous **Serveur de développement local**, choisissez la case d’option **Utiliser IIS Express**. L’émulateur express n’est pas compatible avec le serveur web IIS.
 
-1. Under **Local Development Server**, choose the **Use IIS Express option** button. Emulator Express isn't compatible with IIS Web Server.
+1. Sous **Émulateur**, choisissez la case d’option **Utiliser l’émulateur express**.
 
-1. Under **Emulator**, choose the **Use Emulator Express** option button.
+    ![Émulateur express](./media/vs-azure-tools-emulator-express-debug-run/IC673363.gif)
 
-    ![Emulator Express](./media/vs-azure-tools-emulator-express-debug-run/IC673363.gif)
+## Démarrage de l’émulateur express à partir d’une invite de commande
 
-## <a name="launching-emulator-express-at-a-command-prompt"></a>Launching Emulator Express at a command prompt
+À partir d’une invite de commande, exécutez la version express de l’émulateur de calcul Azure (csrun.exe) avec l’option /useemulatorexpress.
 
-At a command prompt, you can launch the express version of the Azure Compute Emulator, csrun.exe, by using the /useemulatorexpress option.
+## Limitations
 
-## <a name="limitations"></a>Limitations
+Avant d’utiliser l’émulateur express, prenez connaissance des limitations ci-dessous :
 
-Before you use Emulator Express, you should be aware of some limitations:
+- L’émulateur express n’est pas compatible avec le serveur web IIS.
 
-- Emulator Express isn't compatible with IIS Web Server.
+- Votre service cloud peut contenir plusieurs rôles, mais chaque rôle est limité à une seule instance.
 
-- Your cloud service can contain multiple roles, but each role is limited to one instance.
+- Vous n’avez pas accès aux numéros de port inférieurs à 1 000. Par exemple, si vous faites appel à un fournisseur d’authentification qui utilise habituellement un numéro de port inférieur à 1 000, vous devrez peut-être remplacer cette valeur par un numéro de port supérieur à 1 000.
 
-- You can't access port numbers below 1000. For example, if you use an authentication provider that normally uses a port below 1000, you might need to change this value to a port number that's above 1000.
+- Les limitations qui s’appliquent à l’émulateur de calcul Azure s’appliquent aussi à l’émulateur express. Par exemple, il ne peut pas y avoir plus de 50 instances de rôle par déploiement. Consultez [Exécuter une application Azure dans l’émulateur de calcul](http://go.microsoft.com/fwlink/p/?LinkId=623050).
 
-- Any limitations that apply to the Azure Compute Emulator also apply to Emulator Express. For example, you can't have more than 50 role instances per deployment. See [Run an Azure Application in the Compute Emulator](http://go.microsoft.com/fwlink/p/?LinkId=623050)
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+[Débogage de Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-[Debugging Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

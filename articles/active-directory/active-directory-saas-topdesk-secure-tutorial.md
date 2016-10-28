@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with TOPdesk - Secure | Microsoft Azure"
-    description="Learn how to use TOPdesk - Secure with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    pageTitle="Didacticiel : Intégration d’Azure AD à TOPdesk - Secure | Microsoft Azure"
+    description="Découvrez comment utiliser TOPdesk - Secure avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,196 +14,192 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Azure Active Directory integration with TOPdesk - Secure
+#Didacticiel : Intégration d’Azure AD à TOPdesk - Secure
   
-The objective of this tutorial is to show the integration of Azure and TOPdesk - Secure.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et TOPdesk - Secure.  
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
--   A valid Azure subscription
--   A TOPdesk - Secure single sign-on enabled subscription
+-   Un abonnement Azure valide
+-   Un abonnement TOPdesk - Secure pour lequel l’authentification unique est activée
   
-After completing this tutorial, the Azure AD users you have assigned to TOPdesk - Secure will be able to single sign into the application at your TOPdesk - Secure company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à TOPdesk - Secure pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise TOPdesk - Secure (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1.  Enabling the application integration for TOPdesk - Secure
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Activation de l’intégration d’applications pour TOPdesk - Secure
+2.  Configuration de l'authentification unique
+3.  Configuration de l'approvisionnement des utilisateurs
+4.  Affectation d’utilisateurs
 
-![Scenario](./media/active-directory-saas-topdesk-secure-tutorial/IC790596.png "Scenario")
+![Scénario](./media/active-directory-saas-topdesk-secure-tutorial/IC790596.png "Scénario")
 
-##<a name="enabling-the-application-integration-for-topdesk---secure"></a>Enabling the application integration for TOPdesk - Secure
+##Activation de l’intégration d’applications pour TOPdesk - Secure
   
-The objective of this section is to outline how to enable the application integration for TOPdesk - Secure.
+Cette section décrit l’activation de l’intégration d’applications pour TOPdesk - Secure.
 
-###<a name="to-enable-the-application-integration-for-topdesk---secure,-perform-the-following-steps:"></a>To enable the application integration for TOPdesk - Secure, perform the following steps:
+###Pour activer l’intégration d’applications pour TOPdesk - Secure, procédez comme suit :
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "Applications")
 
-4.  Click **Add** at the bottom of the page.
+4.  Cliquez sur **Ajouter** en bas de la page.
 
-    ![Add application](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "Add application")
+    ![Ajouter l’application](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "Ajouter l’application")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  In the **search box**, type **TOPdesk - Secure**.
+6.  Dans la **zone de recherche**, entrez **TOPdesk - Secure**.
 
-    ![Application Gallery](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "Galerie d’applications")
 
-7.  In the results pane, select **TOPdesk - Secure**, and then click **Complete** to add the application.
+7.  Dans le volet des résultats, sélectionnez **TOPdesk - Secure**, puis cliquez sur **Terminer** pour ajouter l’application.
 
     ![TOPdesk - Secure](./media/active-directory-saas-topdesk-secure-tutorial/IC791933.png "TOPdesk - Secure")
 
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuration de l'authentification unique
   
-The objective of this section is to outline how to enable users to authenticate to TOPdesk - Secure with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for TOPdesk - Secure requires you to upload a logo icon file. To get the icon file, contact the TOPdesk support team.
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur TOPdesk - Secure avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+La configuration de l’authentification unique pour TOPdesk - Secure vous oblige à télécharger le fichier d’une icône. Pour obtenir ce fichier d’icône, contactez l’équipe de support TOPdesk.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Sign on to your **TOPdesk - Secure** company site as an administrator.
+1.  Connectez-vous à votre site d’entreprise **TOPdesk - Secure** en tant qu’administrateur.
 
-2.  In the **TOPdesk** menu, click **Settings**.
+2.  Dans le menu **TOPdesk**, cliquez sur **Settings**.
 
-    ![Settings](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Settings")
+    ![Paramètres](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Paramètres")
 
-3.  Click **Login Settings**.
+3.  Cliquez sur **Login Settings**.
 
     ![Login Settings](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "Login Settings")
 
-4.  Expand the **Login Settings** menu, and then click **General**.
+4.  Développez le menu **Login Settings**, puis cliquez sur **General**.
 
-    ![General](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "General")
+    ![Généralités](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "Généralités")
 
-5.  In the **Secure** section of the **SAML login** configuration section, perform the following steps:
+5.  Dans la section **Secure** de la section de configuration **SAML login**, procédez comme suit :
 
     ![Technical Settings](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "Technical Settings")
 
-    1.  Click **Download** to download the public metadata file, and then save it locally on your computer.
-    2.  Open the metadata file, and then locate the **AssertionConsumerService** node.
+    1.  Cliquez sur **Download** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
+    2.  Ouvrez le fichier de métadonnées et recherchez le nœud **AssertionConsumerService**.
         ![Assertion Consumer Service](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Assertion Consumer Service")
-    3.  Copy the **AssertionConsumerService** value.  
+    3.  Copiez la valeur de **AssertionConsumerService**.  
 
-        >[AZURE.NOTE] You will need the value in the **Configure App URL** section later in this tutorial.
+        >[AZURE.NOTE] Vous en aurez besoin dans la section **Configurer l’URL de l’application** plus loin dans ce didacticiel.
 
-6.  In a different web browser window, log into your **Azure classic portal** as an administrator.
+6.  Dans une autre fenêtre de navigateur web, connectez-vous à votre **portail Azure Classic** en tant qu’administrateur.
 
-7.  On the **TOPdesk - Secure** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+7.  Dans la page d’intégration d’applications **TOPdesk - Secure**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Configurer l’authentification unique")
 
-8.  On the **How would you like users to sign on to TOPdesk - Secure** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+8.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à TOPdesk - Secure**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-topdesk-secure-tutorial/IC790603.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-topdesk-secure-tutorial/IC790603.png "Configurer l’authentification unique")
 
-9.  On the **Configure App URL** page, perform the following steps:
+9.  Dans la page **Configurer l’URL de l’application**, procédez comme suit :
 
-    ![Configure App URL](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configurer l’URL de l’application")
 
-    1.  In the **TOPdesk - Secure Sign On URL** textbox, type the URL used by your users to sign into your TOPdesk - Secure application (e.g.: "*https://qssolutions.topdesk.net*").
-    2.  In the **TOPdesk – Public Reply URL** textbox, paste the **TOPdesk - Secure AssertionConsumerService URL** (e.g.: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
-    3.  Click **Next**.
+    1.  Dans la zone de texte **URL d’authentification de TOPdesk - Secure**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TOPdesk - Secure (par exemple : "*https://qssolutions.topdesk.net*").
+    2.  Dans la zone de texte **URL de réponse TOPdesk - Secure**, collez l’**URL d’AssertionConsumerService TOPdesk - Secure** (par exemple : "*https://qssolutions.topdesk.net/tas/public/login/saml*").
+    3.  Cliquez sur **Suivant**.
 
-10. On the **Configure single sign-on at TOPdesk - Secure** page, to download your metadata file, click **Download metadata**, and then save the file locally on your computer.
+10. Dans la page **Configurer l’authentification unique sur TOPdesk - Secure**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier en local sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-topdesk-secure-tutorial/IC790605.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-topdesk-secure-tutorial/IC790605.png "Configurer l’authentification unique")
 
-11. To create a certificate file, perform the following steps:
+11. Pour créer un fichier de certificat, procédez comme suit :
 
-    ![Certificate](./media/active-directory-saas-topdesk-secure-tutorial/IC790606.png "Certificate")
+    ![Certificat](./media/active-directory-saas-topdesk-secure-tutorial/IC790606.png "Certificat")
 
-    1.  Open the downloaded metadata file.
-    2.  Expand the **RoleDescriptor** node that has a **xsi:type** of **fed:ApplicationServiceType**.
-    3.  Copy the value of the **X509Certificate** node.
-    4.  Save the copied **X509Certificate** value locally on your computer in a file.
+    1.  Ouvrez le fichier de métadonnées téléchargé.
+    2.  Développez le nœud **RoleDescriptor** dont le **xsi:type** est **fed:ApplicationServiceType**.
+    3.  Copiez la valeur du nœud **X509Certificate**.
+    4.  Enregistrez la valeur de **X509Certificate** copiée, dans un fichier local sur votre ordinateur.
 
-12. On your TOPdesk - Secure company site, in the **TOPdesk** menu, click **Settings**.
+12. Dans le menu **TOPdesk** de votre site d’entreprise TOPdesk - Secure, cliquez sur **Settings**.
 
-    ![Settings](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Settings")
+    ![Paramètres](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Paramètres")
 
-13. Click **Login Settings**.
+13. Cliquez sur **Login Settings**.
 
     ![Login Settings](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "Login Settings")
 
-14. Expand the **Login Settings** menu, and then click **General**.
+14. Développez le menu **Login Settings**, puis cliquez sur **General**.
 
-    ![General](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "General")
+    ![Généralités](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "Généralités")
 
-15. In the **Public** section, click **Add**.
+15. Dans la section **Public**, cliquez sur **Add**.
 
-    ![Add](./media/active-directory-saas-topdesk-secure-tutorial/IC790607.png "Add")
+    ![Ajouter](./media/active-directory-saas-topdesk-secure-tutorial/IC790607.png "Ajouter")
 
-16. On the **SAML configuration assistant** dialog page, perform the following steps:
+16. Dans la boîte de dialogue **SAML configuration assistant**, procédez comme suit :
 
     ![SAML Configuration Assistant](./media/active-directory-saas-topdesk-secure-tutorial/IC790608.png "SAML Configuration Assistant")
 
-    1.  To upload your downloaded metadata file, under **Federation Metadata**, click **Browse**.
-    2.  To upload your certificate file, under **Certificate (RSA)**, click **Browse**.
-    3.  To upload the logo file you got from the TOPdesk support team, under **Logo icon**, click **Browse**.
-    4.  In the **User name attribute** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    5.  In the **Display name** textbox, type a name for your configuration.
-    6.  Click **Save**.
+    1.  Pour charger votre fichier de métadonnées téléchargé, dans **Federation Metadata**, cliquez sur **Browse**.
+    2.  Pour charger votre fichier de certificat, sous **Certificate (RSA)**, cliquez sur **Browse**.
+    3.  Pour charger le fichier de logo que vous avez obtenu de l’équipe de support TOPdesk, sous **Logo icon**, cliquez sur **Browse**.
+    4.  Dans la zone de texte **User name attribute**, entrez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    5.  Dans la zone de texte **Display name**, indiquez le nom de votre configuration.
+    6.  Cliquez sur **Save**.
 
-17. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+17. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "Configurer l’authentification unique")
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##Configuration de l'approvisionnement des utilisateurs
   
-In order to enable Azure AD users to log into TOPdesk - Secure, they must be provisioned into TOPdesk - Secure.  
-In the case of TOPdesk - Secure, provisioning is a manual task.
+Pour se connecter à TOPdesk - Secure, les utilisateurs d’Azure AD doivent être approvisionnés dans TOPdesk - Secure.  
+Dans le cas de TOPdesk - Secure, l’approvisionnement est une tâche manuelle.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1.  Sign on to your **TOPdesk - Secure** company site as administrator.
+1.  Connectez-vous à votre site d’entreprise **TOPdesk - Secure** en tant qu’administrateur.
 
-2.  In the menu on the top, click **TOPdesk \> New \> Support Files \> Operator**.
+2.  Dans le menu en haut, cliquez sur **TOPdesk > New > Support Files > Operator**.
 
-    ![Operator](./media/active-directory-saas-topdesk-secure-tutorial/IC790610.png "Operator")
+    ![Opérateur](./media/active-directory-saas-topdesk-secure-tutorial/IC790610.png "Opérateur")
 
-3.  On the **New Operator** dialog, perform the following steps:
+3.  Dans la boîte de dialogue **New Operator**, procédez comme suit :
 
     ![New Operator](./media/active-directory-saas-topdesk-secure-tutorial/IC790611.png "New Operator")
 
-    1.  Click the General tab.
-    2.  In the **Surname** textbox of the **General** section, type the last name of a valid Azure Active Directory account you want to provision.
-    3.  Select a **Site** for the account in the **Location** section.
-    4.  In the **Login Name** textbox of the **TOPdesk Login** section, type a login name for your user.
-    5.  Click **Save**.
+    1.  Cliquez sur l’onglet General.
+    2.  Dans la zone de texte **Surname** de la section **General**, indiquez le nom du compte Azure Active Directory valide que vous souhaitez approvisionner.
+    3.  Sélectionnez un **Site** pour le compte dans la section **Emplacement**.
+    4.  Dans la zone de texte **Login Name** de la section **TOPdesk Login**, indiquez le nom de connexion de votre utilisateur.
+    5.  Cliquez sur **Save**.
 
->[AZURE.NOTE] You can use any other TOPdesk - Secure user account creation tools or APIs provided by TOPdesk - Secure to provision AAD user accounts.
+>[AZURE.NOTE] Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par TOPdesk - Secure, pour approvisionner des comptes d’utilisateur AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Affectation d’utilisateurs
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###<a name="to-assign-users-to-topdesk---secure,-perform-the-following-steps:"></a>To assign users to TOPdesk - Secure, perform the following steps:
+###Pour affecter des utilisateurs à TOPdesk - Secure, procédez comme suit :
 
-1.  In the Azure classic portal, create a test account.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  On the **TOPdesk - Secure **application integration page, click **Assign users**.
+2.  Dans la page d’intégration d’applications **TOPdesk - Secure**, cliquez sur **Affecter des utilisateurs**.
 
-    ![Assign Users](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Affecter des utilisateurs")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
-    ![Yes](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Oui")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

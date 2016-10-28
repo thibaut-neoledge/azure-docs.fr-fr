@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Adding Mobile Services by using Connected Services in Visual Studio | Microsoft Azure"
-   description="Add Mobile Services by using the Visual Studio Add Connected Services dialog box"
+   pageTitle="Ajout de Mobile Services à l’aide des services connectés dans Visual Studio | Microsoft Azure"
+   description="Ajouter Mobile Services à partir de la boîte de dialogue Ajouter des services connectés dans Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
    authors="mlhoop"
@@ -15,88 +15,80 @@
    ms.date="12/16/2015"
    ms.author="mlearned" />
 
+# Ajout de Mobile Services à l’aide des services connectés de Visual Studio
 
-# <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Adding Mobile Services by using Visual Studio Connected Services
+Avec Visual Studio 2015, vous pouvez vous connecter à Azure Mobile Services à partir de la boîte de dialogue **Ajouter un service connecté**. Vous pouvez établir une connexion de n’importe quelle application cliente C#, application JavaScript ou application interplateforme Cordova. Une fois connecté, vous pouvez créer et utiliser des données, créer des API personnalisées et des tâches planifiées, et ajouter la prise en charge des notifications Push. Les services connectés ajoutent toutes les références et le code de connexion appropriés. Vous pouvez également tirer parti de la prise en charge intégrée de l’authentification avec de nombreux schémas d’identité courants, par exemple les comptes Azure AD, Facebook, Twitter et Microsoft.
 
-With Visual Studio 2015, you can connect to Azure Mobile Services using the **Add Connected Service** dialog. You can connect from any C# client app, any JavaScript app, or cross-platform Cordova app. Once you connect, you can create and access data, create custom APIs and scheduled jobs, or add support for push notifications.  The connected services operation adds all appropriate references and connection code. You can also take advantage of built-in support for authentication with a variety of popular identity schemes, such as Azure AD, Facebook, Twitter, and Microsoft Accounts.
+## Types de projet pris en charge
 
-## <a name="supported-project-types"></a>Supported Project Types
+>[AZURE.NOTE] Dans Visual Studio 2015, vous ne pouvez pas ajouter Azure Mobile Services à des projets Windows Universal (Windows 10) à partir de la boîte de dialogue Ajouter des services connectés. Vous pouvez le faire en installant les packages appropriés à l’aide du gestionnaire de package NuGet pour votre projet.
 
->[AZURE.NOTE] In Visual Studio 2015, adding Azure Mobile Services to a Windows Universal (Windows 10) projects by using the Add Connected Services dialog is not supported. You can add Azure Mobile Services by installing the appropriate packages using the NuGet Package Manager for your project.
+L’utilisation de la boîte de dialogue Services connectés vous permet de vous connecter à Azure Mobile Services pour les types de projet suivants.
 
-You can use the Connected Services dialog to connect to Azure Mobile Services in the following project types.
+- Projets d’applications Store, Phone et universelles Windows 8.1 .NET
 
-- .NET Windows 8.1 Store, Phone, and Universal App projects
+- Projets d’applications Store, Phone et universelles Windows 8.1 JavaScript
 
-- JavaScript Windows 8.1 Store, Phone, and Universal App projects
-
-- Projects created using Visual Studio Tools for Apache Cordova
+- Projets créés à l’aide de Visual Studio Tools pour Apache Cordova
 
 
-## <a name="connect-to-azure-mobile-services-using-the-add-connected-services-dialog"></a>Connect to Azure Mobile Services using the Add Connected Services dialog
+## Connexion à Azure Mobile Services à partir de la boîte de dialogue Ajouter des services connectés
 
-1. Make sure you have an Azure account. If you don't have an Azure account, you can sign up for a [free trial](http://go.microsoft.com/fwlink/?LinkId=518146).
+1. Assurez-vous que vous disposez d’un compte Azure. Si vous n’en avez pas, vous pouvez demander un [essai gratuit](http://go.microsoft.com/fwlink/?LinkId=518146).
 
-1. Open the **Add Connected Services** dialog box.
- - For .NET apps, open your project in Visual Studio, open the context menu for the **References** node in Solution Explorer, and then choose **Add Connected Service**
+1. Ouvrez la boîte de dialogue **Ajouter des services connectés**.
+ - Pour les applications .NET, ouvrez votre projet dans Visual Studio, ouvrez le menu contextuel du nœud **Références** dans l’Explorateur de solutions, puis choisissez **Ajouter un service connecté**.
  
         ![Connecting to Azure Mobile Service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797635.png)
 
- - For Apache Cordova app projects, open your project in Visual Studio, open the context menu for the project node in Solution Explorer, and then choose **Add Connected Service**.
+ - Pour les projets d’application Apache Cordova, ouvrez votre projet dans Visual Studio, ouvrez le menu contextuel du nœud du projet dans l’Explorateur de solutions, puis choisissez **Ajouter un service connecté**.
 
-1. In the **Add Connected Service** dialog box, choose **Azure Mobile Services**, and then choose the **Configure** button. You may be prompted to log into Azure if you haven't already done so.
+1. Dans la boîte de dialogue **Ajouter un service connecté**, choisissez **Azure Mobile Services**, puis choisissez le bouton **Configurer**. Si vous n’êtes pas encore connecté à Azure, vous serez invité à le faire.
 
-    ![Adding an Azure Mobile Service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797636.png)
+    ![Ajout d’un service Azure Mobile Service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797636.png)
 
-1. In the **Azure Mobile Services** dialog box, choose an existing mobile service if you have one. If you need to create a new Azure mobile service, follow the procedure below to do so. Otherwise, skip to the next step.
+1. Dans la boîte de dialogue **Azure Mobile Services**, choisissez un service mobile existant. Si vous devez créer un service mobile Azure, suivez la procédure ci-dessous. Sinon, passez à l’étape suivante.
 
-    To create a new mobile service account:
-    1. choose the **Create Service **link at the bottom of the dialog box.
-        ![Add new mobile connected service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
-
-
+    Pour créer un compte de service mobile :
+    1. Choisissez le lien **Créer un service** en bas de la boîte de dialogue.
+        ![Ajouter un nouveau service connecté mobile](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
-    2. On the **Create Mobile Service** dialog box, you can choose a JavaScript backend mobile service, or a .NET backend mobile service from the **Runtime** drop-down list. 
+
+
+    2. Dans la boîte de dialogue **Créer un service mobile**, choisissez un service mobile principal JavaScript ou .NET dans la liste déroulante **Runtime**. 
   
-        ![Creating a mobile service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797638.png)
+        ![Création d’un service mobile](./media/vs-azure-tools-connected-services-add-mobile-services/IC797638.png)
 
-        A JavaScript backend service is simple and powerful. If you create a JavaScript backend mobile service, the server-side JavaScript code is stored in the cloud, but you can edit server scripts by using Server Explorer, or the Azure management portal. 
+        Le service principal JavaScript est simple et puissant. Si vous créez un service mobile principal JavaScript, le code JavaScript côté serveur est stocké dans le cloud, mais vous pouvez modifier les scripts serveur dans l’Explorateur de serveurs ou sur le portail de gestion Azure.
 
-        A .NET backend mobile service gives you the full power and flexibility of Web API and Entity Framework. If you create a .NET backend mobile service, a project is created for you and added to your solution. 
+        Le service mobile principal .NET vous offre la puissance et la flexibilité de l’API web et d’Entity Framework. Si vous créez un service mobile principal .NET, un projet est automatiquement créé et ajouté à votre solution.
 
-    1. Choose the **Region** where you want the mobile service, and then enter a user name and password for the server.
+    1. Choisissez la **région** où vous souhaitez créer le service mobile, puis entrez un nom d’utilisateur et un mot de passe pour le serveur.
  
-    1. After you've entered all the required information, choose the **Create** button to create the mobile service.
-    2. The new mobile service should appear in the service list on the **Azure Mobile Services** dialog box. Choose the new mobile service in the list and then choose the **Add** button to add the service to your project.
+    1. Quand vous avez entré toutes les informations nécessaires, choisissez le bouton **Créer** pour créer le service mobile.
+    2. Le nouveau service mobile doit d’afficher dans la liste des services de la boîte de dialogue **Azure Mobile Services**. Choisissez le nouveau service mobile dans la liste, puis choisissez le bouton **Ajouter** pour ajouter le service à votre projet.
     
 
-1. Review the getting started page that appears and find out how your project was modified. A Getting Started page appears in your browser whenever you add a connected service. You can review the suggested next steps and code examples, or switch to the What Happened page to see what references were added to your project, and how your code and configuration files were modified.
+1. Dans la page Prise en main qui s’affiche, examinez de quelle manière votre projet a été modifié. Cette page s’affiche dans votre navigateur quand vous ajoutez un service connecté. Vous pouvez parcourir les étapes suggérées et les exemples de code fournis, ou bien afficher la page Qu’est-il arrivé à mon projet pour voir quelles références ont été ajoutées à votre projet et quelles modifications ont été apportées à vos fichiers de code et de configuration.
 
-1. Using the code samples as a guide, start writing code to access your mobile service!
+1. En vous aidant des exemples de code fournis, commencez à écrire le code d’accès à votre service mobile.
 
-## <a name="how-your-project-is-modified"></a>How your project is modified
+## Modifications apportées à votre projet
 
-How Visual Studio modifies your project depends on the project type. For C# client apps, see [What happend – C# projects](http://go.microsoft.com/fwlink/p/?LinkId=513119). For JavaScript client apps, see [What happened – JavaScript projects](http://go.microsoft.com/fwlink/p/?LinkId=513120). For Cordova apps, see [What happend – Cordova projects](http://go.microsoft.com/fwlink/p/?LinkId=513116).
-
-
-##<a name="next-steps"></a>Next steps
-
-Ask questions and get help: 
-
- - [MSDN Forum: Azure Mobile Services](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-
- - [Azure Mobile Services at the Microsoft Azure Team Blog](https://azure.microsoft.com/blog/topics/mobile/)
-
- - [Azure Mobile Services at azure.microsoft.com](https://azure.microsoft.com/services/mobile-services/)
-
- - [Azure Mobile Services Documentation at azure.microsoft.com](https://azure.microsoft.com/documentation/services/mobile-services/)
+Visual Studio modifie votre projet différemment selon le type du projet. Pour les applications clientes C#, consultez [Qu’est-il arrivé à mon projet (C#)](http://go.microsoft.com/fwlink/p/?LinkId=513119). Pour les applications clientes JavaScript, consultez [Qu’est-il arrivé à mon projet (JavaScript)](http://go.microsoft.com/fwlink/p/?LinkId=513120). Pour les applications Cordova, consultez [Qu’est-il arrivé à mon projet (Cordova)](http://go.microsoft.com/fwlink/p/?LinkId=513116).
 
 
+##Étapes suivantes
 
+Posez des questions et obtenez de l’aide :
 
+ - [Forum MSDN : Azure Mobile Services](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 
+ - [Azure Mobile Services sur le blog de l’équipe Microsoft Azure](https://azure.microsoft.com/blog/topics/mobile/)
 
-<!--HONumber=Oct16_HO2-->
+ - [Azure Mobile Services sur azure.microsoft.com](https://azure.microsoft.com/services/mobile-services/)
 
+ - [Documentation Azure Mobile Services sur azure.microsoft.com](https://azure.microsoft.com/documentation/services/mobile-services/)
 
+<!---HONumber=AcomDC_0128_2016-->

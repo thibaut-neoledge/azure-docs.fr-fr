@@ -1,10 +1,10 @@
 
 
-## <a name="azure-cli"></a>Azure CLI
+## Interface de ligne de commande Azure
 
-> [AZURE.NOTE] This article describes how to navigate and select virtual machine images, using a recent installation of either the Azure CLI or Azure PowerShell. As a prerequisite, you would need to change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. 
+> [AZURE.NOTE] Cet article explique comment parcourir et sélectionner des images de machine virtuelle, à l’aide d’une installation récente d’Azure PowerShell ou de l’interface de ligne de commande Azure. Vous devez au préalable passer en mode Resource Manager. Avec l'interface CLI Azure, entrez ce mode en tapant `azure config mode arm`.
 
-The easiest and quickest way to locate an image to use either with `azure vm quick-create` or to create a resource group template file is to call the `azure vm image list` command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer. For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.
+La façon la plus simple et la plus rapide de rechercher une image à utiliser avec `azure vm quick-create` ou de créer un fichier de modèle de groupe de ressources consiste à appeler la commande `azure vm image list` et de passer l'emplacement, le nom de l'éditeur (qui ne respecte pas la casse) et une offre (si vous connaissez l'offre). La liste suivante en est un petit exemple (de nombreuses listes sont assez longues) si vous savez que « Canonical » est un éditeur pour l'offre « UbuntuServer ».
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -22,9 +22,9 @@ The easiest and quickest way to locate an image to use either with `azure vm qui
     data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607230  westus    canonical:ubuntuserver:16.10-DAILY:16.10.201607230
     data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607240  westus    canonical:ubuntuserver:16.10-DAILY:16.10.201607240
 
-The **Urn** column will be the form you pass to `azure vm quick-create`.
+La colonne **Urn** aura le même format que celui que vous passez à `azure vm quick-create`.
 
-Often, however, you don't yet know what is available. In this case, you can navigate images by discovering publishers first by using `azure vm image list-publishers` and responding to the location prompt with a data center location you expect to use for your resource group. For example, the following lists all image publishers in the West US location (pass the location argument by lowercasing and removing spaces from the standard locations)
+Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans ce cas, vous pouvez parcourir les images en recherchant d’abord les éditeurs à l’aide de la commande `azure vm image list-publishers` et en répondant à l’invite de localisation avec l’emplacement de centre de données que vous envisagez d’utiliser pour votre groupe de ressources. Par exemple, la liste suivante répertorie tous les éditeurs d'images présents dans l'emplacement « West US » (passez l'argument location en utilisant des minuscules et en supprimant les espaces des emplacements standard).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -38,7 +38,7 @@ Often, however, you don't yet know what is available. In this case, you can navi
     data:    AlertLogic.Extension                            westus  
 
 
-These lists can be quite long, so the example list above is just a snippet. Let's say that I noticed that Canonical is, indeed, an image publisher in the West US location. You can now find their offers by calling `azure vm image list-offers` and pass the location and the publisher at the prompts, like the following example:
+Ces listes peuvent être assez longues. C’est pourquoi l’exemple de liste ci-dessus est simplement un extrait de code. Supposons que vous ayez remarqué que « Canonical » est, en fait, un éditeur d'image présent dans l'emplacement « West US ». Vous pouvez maintenant rechercher ses offres en appelant `azure vm image list-offers` et en indiquant l’emplacement et l’éditeur aux invites, comme dans l’exemple suivant :
 
     azure vm image list-offers
     info:    Executing command vm image list-offers
@@ -55,7 +55,7 @@ These lists can be quite long, so the example list above is just a snippet. Let'
     data:    canonical  Ubuntu_Snappy_Core_Docker  westus
     info:    vm image list-offers command OK
 
-Now we know that in the West US region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those, you call `azure vm image list-skus` and respond to the prompt with the location, publisher, and offer that you have discovered.
+Nous savons maintenant que dans la région « West US », « Canonical »publie l'offre **UbuntuServer** sur Azure. Mais quelles sont les références SKU ? Pour les obtenir, vous appelez `azure vm image list-skus` et répondez à l’invite en indiquant l’emplacement, l’éditeur et l’offre que vous avez détectée.
 
     azure vm image list-skus
     info:    Executing command vm image list-skus
@@ -97,7 +97,7 @@ Now we know that in the West US region, Canonical publishes the **UbuntuServer**
     data:    canonical  ubuntuserver  16.10-DAILY        westus
     info:    vm image list-skus command OK
 
-With this information, you can now find exactly the image you want by calling the original call at the top.
+Avec ces informations, vous pouvez maintenant trouver exactement l’image souhaitée en effectuant l’appel initial affiché en haut.
 
     azure vm image list westus canonical ubuntuserver 16.04.0-LTS
     info:    Executing command vm image list
@@ -112,51 +112,51 @@ With this information, you can now find exactly the image you want by calling th
     data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201608150  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201608150
     info:    vm image list command OK
 
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
+Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. Pour créer rapidement une machine virtuelle en utilisant les informations d’URN que vous venez de trouver, ou pour utiliser un modèle avec ces informations d’URN, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](../articles/xplat-cli-azure-resource-manager.md).
 
-## <a name="powershell"></a>PowerShell
+## PowerShell
 
-> [AZURE.NOTE] Install and configure the [latest Azure PowerShell](../articles/powershell-install-configure.md). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
+> [AZURE.NOTE] Installez et configurez la [dernière version d’Azure PowerShell](../articles/powershell-install-configure.md). Si vous utilisez des modules Azure PowerShell antérieurs à la version 1.0, vous vous servez des commandes suivantes, mais devez d’abord `Switch-AzureMode AzureResourceManager`.
 
-When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:
+Lorsque vous créez une machine virtuelle avec le gestionnaire des ressources Azure, vous devez, dans certains cas, spécifier une image en combinant les propriétés d'image suivantes :
 
-- Publisher
+- Éditeur
 - Offer
 - SKU
 
-For example, these values are needed for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.
+Par exemple, ces valeurs sont nécessaires pour l’applet de commande PowerShell `Set-AzureRMVMSourceImage` ou avec un fichier de modèle de groupe de ressources dans lequel vous devez spécifier le type de machine virtuelle à créer.
 
-If you need to determine these values, you can navigate the images to determine these values:
+Si vous devez déterminer ces valeurs, vous pouvez parcourir les images à cette fin en procédant ainsi :
 
-1. List the image publishers.
-2. For a given publisher, list their offers.
-3. For a given offer, list their SKUs.
+1. en répertoriant les éditeurs d’images ;
+2. pour un éditeur donné, en répertoriant ses offres ;
+3. pour une offre donnée, en répertoriant ses références SKU.
 
 
-First, list the publishers with the following commands:
+Tout d’abord, répertoriez les serveurs de publication avec les commandes suivantes :
 
 ```powershell
 $locName="<Azure location, such as West US>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
-Fill in your chosen publisher name and run the following commands:
+Indiquez le nom d’éditeur de publication choisi et exécutez les commandes suivantes :
 
 ```powershell
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
-Fill in your chosen offer name and run the following commands:
+Indiquez le nom de l’offre choisi et exécutez les commandes suivantes :
 
 ```powershell
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-From the display of the `Get-AzureRMVMImageSku` command, you have all the information you need to specify the image for a new virtual machine.
+L’affichage de la commande `Get-AzureRMVMImageSku` comprend toutes les informations dont vous avez besoin pour spécifier l’image pour une nouvelle machine virtuelle.
 
-The following shows a full example:
+Vous trouverez ci-dessous un exemple complet :
 
 ```powershell
 PS C:\> $locName="West US"
@@ -177,7 +177,7 @@ Canonical
 ...
 ```
 
-For the "MicrosoftWindowsServer" publisher:
+Pour l'éditeur « MicrosoftWindowsServer » :
 
 ```powershell
 PS C:\> $pubName="MicrosoftWindowsServer"
@@ -188,7 +188,7 @@ Offer
 WindowsServer
 ```
 
-For the "WindowsServer" offer:
+Pour l'offre « WindowsServer » :
 
 ```powershell
 PS C:\> $offerName="WindowsServer"
@@ -204,7 +204,7 @@ Skus
 Windows-Server-Technical-Preview
 ```
 
-From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or for a resource group template.
+Dans cette liste, copiez le nom de référence SKU choisi. Vous disposez de toutes les informations pour l’applet de commande PowerShell `Set-AzureRMVMSourceImage` ou pour un modèle de groupe de ressources.
 
 
 <!--Image references-->
@@ -215,9 +215,7 @@ From this list, copy the chosen SKU name, and you have all the information for t
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [gog]: http://google.com/
-[yah]: http://search.yahoo.com/  
+[yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

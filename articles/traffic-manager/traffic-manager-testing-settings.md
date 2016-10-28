@@ -1,84 +1,75 @@
-<properties
-    pageTitle="Testing Traffic Manager Settings | Microsoft Azure"
-    description="This article will help you test Traffic Manager settings"
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
-<tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+<properties 
+   pageTitle="Test des paramètres de Traffic Manager | Microsoft Azure"
+   description="Cet article vous aidera à tester les paramètres de Traffic Manager."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="tysonn" />
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="03/17/2016"
+   ms.author="sewhee" />
 
+# Tester vos paramètres de Traffic Manager
 
-# <a name="test-your-traffic-manager-settings"></a>Test your Traffic Manager settings
+La meilleure façon de tester les paramètres de Traffic Manager consiste à configurer des clients, puis à mettre hors fonction un à un les services cloud et sites web de votre profil. Voici quelques conseils relatifs au test de votre profil Traffic Manager :
 
-To test your Traffic Manager settings, you need to have multiple clients, in various locations, from which you can run your tests. Then, bring the endpoints in your Traffic Manager profile down one at a time.
+## Étapes de test de base
 
-* Set the DNS TTL value low so that changes propagate quickly (for example, 30 seconds).
-* Know the IP addresses of your Azure cloud services and websites in the profile you are testing.
-* Use tools that let you resolve a DNS name to an IP address and display that address.
+- **Définissez une durée de vie DNS très courte**, afin que les modifications se répercutent rapidement, en 30 secondes, par exemple.
+- **Veillez à connaître l’adresse IP de tous vos services cloud et sites Web Microsoft Azure** contenus dans le profil que vous testez.
+- **Utilisez des outils permettant de résoudre un nom DNS en adresse IP** et d'afficher cette adresse. Vous devez vérifier que votre nom de domaine d’entreprise est résolu en adresses IP des points de terminaison de votre profil. Ils doivent être résolus de manière cohérente avec la méthode de routage du trafic utilisée pour votre profil Traffic Manager. Si vous possédez un ordinateur exécutant Windows, vous pouvez utiliser l’outil Nslookup.exe à partir d’une commande ou d’une invite de commandes Windows PowerShell. D’autres outils publics permettant d’obtenir les adresses IP sont également disponibles sur Internet.
 
-You are checking to see that the DNS names resolve to IP addresses of the endpoints in your profile. The names should resolve in a manner consistent with the traffic routing method defined in the Traffic Manager profile. You can use the tools like **nslookup** or **dig** to resolve DNS names.
+### Contrôle d’un profil Traffic Manager à l’aide de nslookup
 
-The following examples help you test your Traffic Manager profile.
+1. Ouvrez une commande ou une invite de commandes Windows PowerShell en tant qu’administrateur.
+2. Entrez `ipconfig /flushdns` pour vider le cache de résolution DNS.
+3. Saisissez `nslookup <your Traffic Manager domain name>`. Par exemple, la commande suivante vérifie le nom de domaine présentant le préfixe *myapp.contoso*: nslookup myapp.contoso.trafficmanager.net. Généralement, le résultat se présente comme suit :
+   - le nom DNS et l’adresse IP du serveur DNS utilisé pour résoudre le nom de domaine Traffic Manager ;
+   - le nom de domaine Traffic Manager saisi dans la ligne de commande après « nslookup » et l’adresse IP correspondant au domaine Traffic Manager. La deuxième adresse IP est celle à vérifier. Elle doit correspondre à l’adresse IP virtuelle (VIP) publique de l’un des services cloud ou sites web du profil Traffic Manager testé.
 
-### <a name="check-traffic-manager-profile-using-nslookup-and-ipconfig-in-windows"></a>Check Traffic Manager profile using nslookup and ipconfig in Windows
+## Test des méthodes de routage du trafic
 
-1. Open a command or Windows PowerShell prompt as an administrator.
-2. Type `ipconfig /flushdns` to flush the DNS resolver cache.
-3. Type `nslookup <your Traffic Manager domain name>`. For example, the following command checks the domain name with the prefix *myapp.contoso*
+### Pour tester une méthode de routage du trafic par basculement
 
-        nslookup myapp.contoso.trafficmanager.net
+1. Laissez tous les points de terminaison en fonction.
+2. Utilisez un client unique.
+3. Exécutez une requête de résolution DNS pour votre nom de domaine d’entreprise à l’aide de l’outil Nslookup.exe ou d’un utilitaire similaire.
+4. Vérifiez que l’adresse IP résolue correspond à votre point de terminaison principal.
+5. Mettez votre point de terminaison principal hors fonction ou supprimez le fichier de surveillance afin que Traffic Manager pense qu’il l’est.
+6. Patientez pendant une période correspondant à la durée de vie (TTL, Time-to-Live) du profil Traffic Manager plus 2 minutes. Par exemple, si la TTL de votre DNS est de 300 secondes (5 minutes), vous devez attendre 7 minutes.
+7. Videz le cache de client DNS et exécutez une requête de résolution DNS. Dans Windows, vous pouvez vider votre cache DNS en exécutant la commande ipconfig /flushdns à partir d’une commande ou d’une invite de commandes Windows PowerShell.
+8. Vérifiez que l’adresse IP obtenue correspond à votre deuxième point de terminaison.
+9. Répétez le processus, en mettant le deuxième point de terminaison hors fonction, puis le troisième, etc. Assurez-vous chaque fois que la résolution DNS renvoie l’adresse IP du point de terminaison suivant dans la liste. Une fois tous les points de terminaison hors fonction, vous devez obtenir à nouveau l’adresse IP du point de terminaison principal.
 
-    A typical result shows the following information:
+### Pour tester une méthode de routage du trafic en tourniquet (round robin)
 
-    * The DNS name and IP address of the DNS server being accessed to resolve this Traffic Manager domain name.
-    * The Traffic Manager domain name you typed on the command line after "nslookup" and the IP address to which the Traffic Manager domain resolves. The second IP address is the important one to check. It should match a public virtual IP (VIP) address for one of the cloud services or websites in the Traffic Manager profile you are testing.
+1. Laissez tous les points de terminaison en fonction.
+2. Utilisez un client unique.
+3. Exécutez une requête de résolution DNS pour votre domaine d’entreprise à l’aide de l’outil Nslookup.exe ou d’un utilitaire similaire.
+4. Vérifiez que l’adresse IP obtenue figure bien dans votre liste.
+5. Videz votre cache de client DNS et répétez les étapes 3 et 4 plusieurs fois. Vous devriez alors obtenir différentes adresses IP pour chacun de vos points de terminaison. Ensuite, le processus se répète.
 
-## <a name="how-to-test-the-failover-traffic-routing-method"></a>How to test the failover traffic routing method
+### Pour tester une méthode de routage du trafic basé sur les performances
 
-1. Leave all endpoints up.
-2. Using a single client, request DNS resolution for your company domain name using nslookup or a similar utility.
-3. Ensure that the resolved IP address matches the primary endpoint.
-4. Bring down your primary endpoint or remove the monitoring file so that Traffic Manager thinks that the application is down.
-5. Wait for the DNS Time-to-Live (TTL) of the Traffic Manager profile plus an additional two minutes. For example, if your DNS TTL is 300 seconds (5 minutes), you must wait for seven minutes.
-6. Flush your DNS client cache and request DNS resolution using nslookup. In Windows, you can flush your DNS cache with the ipconfig /flushdns command.
-7. Ensure that the resolved IP address matches your secondary endpoint.
-8. Repeat the process, bringing down each endpoint in turn. Verify that the DNS returns the IP address of the next endpoint in the list. When all endpoints are down, you should obtain the IP address of the primary endpoint again.
+Pour tester efficacement une méthode de routage du trafic basé sur les performances, vous devez disposer de plusieurs clients répartis en différents emplacements dans le monde. Vous pouvez en créer dans Azure, afin qu’ils tentent d’appeler vos services via votre nom de domaine d’entreprise. Si votre entreprise est implantée à l’international, vous pouvez également vous connecter à distance à des clients dans d’autres régions du monde et procéder au test depuis ces clients.
 
-## <a name="how-to-test-the-weighted-traffic-routing-method"></a>How to test the weighted traffic routing method
+Vous trouverez différents services de recherche et d’obtention de DNS gratuits sur Internet. Certains d’entre eux permettent de contrôler la résolution de noms DNS à partir de différents emplacements. Faites une recherche sur « Recherche DNS » pour obtenir des exemples. Vous pouvez également utiliser une solution tierce, telle que Gomez ou Keynote, pour vérifier que vos profils répartissent le trafic comme prévu.
 
-1. Leave all endpoints up.
-2. Using a single client, request DNS resolution for your company domain name using nslookup or a similar utility.
-3. Ensure that the resolved IP address matches one of your endpoints.
-4. Flush your DNS client cache and repeat steps 2 and 3 for each endpoint. You should see different IP addresses returned for each of your endpoints.
+## Étapes suivantes
 
-## <a name="how-to-test-the-performance-traffic-routing-method"></a>How to test the performance traffic routing method
+[Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 
-To effectively test a performance traffic routing method, you must have clients located in different parts of the world. You can create clients in different Azure regions that can be used to test your services. If you have a global network, you can remotely sign in to clients in other parts of the world and run your tests from there.
-
-Alternatively, there are free web-based DNS lookup and dig services available. Some of these tools give you the ability to check DNS name resolution from various locations around the world. Do a search on "DNS lookup" for examples. Third-party services like Gomez or Keynote can be used to confirm that your profiles are distributing traffic as expected.
-
-## <a name="next-steps"></a>Next steps
-
-* [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
-* [Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
-* [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+[Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 
 
 
+ 
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

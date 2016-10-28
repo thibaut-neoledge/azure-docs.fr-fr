@@ -1,140 +1,135 @@
 <properties 
-    pageTitle="Configure LVM on a virtual machine running Linux | Microsoft Azure" 
-    description="Learn how to configure LVM on Linux in Azure." 
-    services="virtual-machines-linux" 
-    documentationCenter="na" 
-    authors="szarkos"  
-    manager="timlt" 
-    editor="tysonn"
-    tag="azure-service-management,azure-resource-manager" />
+	pageTitle="Configurer LVM sur une machine virtuelle exécutant Linux | Microsoft Azure" 
+	description="Apprenez à configurer LVM sur Linux dans Azure." 
+	services="virtual-machines-linux" 
+	documentationCenter="na" 
+	authors="szarkos"  
+	manager="timlt" 
+	editor="tysonn"
+	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
-    ms.service="virtual-machines-linux" 
-    ms.workload="infrastructure-services" 
-    ms.tgt_pltfrm="vm-linux" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/24/2016" 
-    ms.author="szark"/>
+	ms.service="virtual-machines-linux" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2016" 
+	ms.author="szark"/>
 
 
+# Configurer LVM sur une machine virtuelle Linux dans Azure
 
-# <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configure LVM on a Linux VM in Azure
-
-This document will discuss how to configure Logical Volume Manager (LVM) in your Azure virtual machine. While it is feasible to configure LVM on any disk attached to the virtual machine, by default most cloud images will not have LVM configured on the OS disk. This is to prevent problems with duplicate volume groups if the OS disk is ever attached to another VM of the same distribution and type, i.e. during a recovery scenario. Therefore it is recommended only to use LVM on the data disks.
-
-
-## <a name="linear-vs.-striped-logical-volumes"></a>Linear vs. striped logical volumes
-
-LVM can be used to combine a number of physical disks into a single storage volume. By default LVM will usually create linear logical volumes, which means that the physical storage is concatenated together. In this case read/write operations will typically only be sent to a single disk. In contrast, we can also create striped logical volumes where reads and writes are distributed to multiple disks contained in the volume group (i.e. similar to RAID0). For performance reasons it is likely you will want to stripe your logical volumes so that reads and writes utilize all your attached data disks.
-
-This document will describe how to combine several data disks into a single volume group, and then create a striped logical volume. The steps below are somewhat generalized to work with most distributions. In most cases the utilities and workflows for managing LVM on Azure are not fundamentally different than other environments. As usual, please also consult your Linux vendor for documentation and best practices for using LVM with your particular distribution.
+Ce document vous explique comment configurer le gestionnaire de volume logique (LVM) sur votre machine virtuelle Azure. Bien qu’il soit possible de configurer LVM sur tout disque connecté à la machine virtuelle, par défaut la plupart des images cloud n’auront pas LVM configuré sur le disque du système d’exploitation. Cela vise à éviter les problèmes liés aux groupes de volumes en double si le disque du système d’exploitation est joint à une autre machine virtuelle de la distribution et du même type, par exemple lors d’un scénario de récupération. Par conséquent, il est recommandé de n’utiliser LVM que sur les disques de données.
 
 
-## <a name="attaching-data-disks"></a>Attaching data disks
-One will usually want to start with two or more empty data disks when using LVM. Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article will not go into detail on how to provision and attach data disks to a Linux virtual machine. Please see the Microsoft Azure article [attach a disk](virtual-machines-linux-add-disk.md) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
+## Volumes logiques linéaires et agrégé par bandes
 
-## <a name="install-the-lvm-utilities"></a>Install the LVM utilities
+LVM peut être utilisé pour combiner plusieurs disques physiques en un seul volume de stockage. Par défaut, LVM crée généralement des volumes logiques linéaires, ce qui signifie que le stockage physique est concaténé. Dans ce cas les opérations de lecture/d’écriture sont généralement envoyées à un seul disque. En revanche, nous pouvons également créer des volumes logiques agrégés par bandes où les lectures et écritures sont distribuées à plusieurs disques contenus dans le groupe de volumes (par exemple, similaire à RAID 0). Pour obtenir des performances optimales, il est recommandé d’agréger les volumes logiques afin que les lectures et écritures utilisent tous les disques de données joints.
+
+Ce document décrit comment combiner plusieurs disques de données dans un seul groupe de volumes, puis créer un volume logique agrégé par bandes. Les étapes ci-dessous sont généralisées de manière à fonctionner avec la plupart des distributions. Dans la plupart des cas les utilitaires et les workflows de gestion LVM sur Azure ne sont pas fondamentalement différents des autres environnements. Comme d’habitude, veuillez également consulter votre fournisseur Linux pour obtenir la documentation et les meilleures pratiques pour utiliser LVM avec votre distribution spécifique.
+
+
+## Disques de données attachés
+Il est généralement recommandé de commencer avec au moins deux disques de données pour utiliser LVM. En fonction de vos besoins d’E/S, vous pouvez choisir d’attacher des disques qui sont stockés dans notre stockage Standard, avec un maximum de 500 opérations d’E/S par disque ou dans notre stockage Premium avec un maximum de 5 000 opérations d’E/S par disque. Cet article n’aborde pas en détail la marche à suivre pour approvisionner et attacher des disques de données sur une machine virtuelle Linux. Consultez l’article Microsoft Azure [Attacher un disque](virtual-machines-linux-add-disk.md) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux dans Azure.
+
+## Installer les utilitaires LVM
 
 - **Ubuntu**
 
-        # sudo apt-get update
-        # sudo apt-get install lvm2
+		# sudo apt-get update
+		# sudo apt-get install lvm2
 
-- **RHEL, CentOS & Oracle Linux**
+- **RHEL, CentOS et Oracle Linux**
 
-        # sudo yum install lvm2
+		# sudo yum install lvm2
 
-- **SLES 12 and openSUSE**
+- **SLES 12 et openSUSE**
 
-        # sudo zypper install lvm2
+		# sudo zypper install lvm2
 
-- **SLES 11**
+- **SLES 11**
 
-        # sudo zypper install lvm2
+		# sudo zypper install lvm2
 
-    On SLES11 you must also edit /etc/sysconfig/lvm and set `LVM_ACTIVATED_ON_DISCOVERED` to "enable":
+	Sur SLES 11, vous devez également modifier /etc/sysconfig/lvm et définir `LVM_ACTIVATED_ON_DISCOVERED` sur « activer » :
 
-        LVM_ACTIVATED_ON_DISCOVERED="enable" 
-
-
-## <a name="configure-lvm"></a>Configure LVM
-In this guide we will assume you have attached three data disks, which we'll refer to as `/dev/sdc`, `/dev/sdd` and `/dev/sde`. Note that these may not always be the same path names in your VM. You can run '`sudo fdisk -l`' or similar command to list your available disks.
-
-1. Prepare the physical volumes:
-
-        # sudo pvcreate /dev/sd[cde]
-          Physical volume "/dev/sdc" successfully created
-          Physical volume "/dev/sdd" successfully created
-          Physical volume "/dev/sde" successfully created
+		LVM_ACTIVATED_ON_DISCOVERED="enable" 
 
 
-2.  Create a volume group. In this example we are calling the volume group "data-vg01":
+## Configurer LVM
+Dans ce guide, nous supposons que vous avez connecté trois disques de données, nommés `/dev/sdc`, `/dev/sdd` et `/dev/sde`. Notez que les chemins peuvent être différents dans votre machine virtuelle. Vous pouvez exécuter ’`sudo fdisk -l`’ ou une commande semblable pour répertorier vos disques disponibles.
 
-        # sudo vgcreate data-vg01 /dev/sd[cde]
-          Volume group "data-vg01" successfully created
+1. Préparer les volumes physiques :
 
-
-3. Create the logical volume(s). The command below we will create a single logical volume called "data-lv01" to span the entire volume group, but note that it is also feasible to create multiple logical volumes in the volume group.
-
-        # sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
-          Logical volume "data-lv01" created.
-
-
-4. Format the logical volume
-
-        # sudo mkfs -t ext4 /dev/data-vg01/data-lv01
-
-  >[AZURE.NOTE] With SLES11 use "-t ext3" instead of ext4. SLES11 only supports read-only access to ext4 filesystems.
+		# sudo pvcreate /dev/sd[cde]
+		  Physical volume "/dev/sdc" successfully created
+		  Physical volume "/dev/sdd" successfully created
+		  Physical volume "/dev/sde" successfully created
 
 
-## <a name="add-the-new-file-system-to-/etc/fstab"></a>Add the new file system to /etc/fstab
+2.  Créez un groupe de volumes. Dans cet exemple, nous appelons le groupe de volumes « data-vg01 » :
 
-**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
-
-1. Create the desired mount point for your new file system, for example:
-
-        # sudo mkdir /data
+		# sudo vgcreate data-vg01 /dev/sd[cde]
+		  Volume group "data-vg01" successfully created
 
 
-2. Locate the logical volume path
+3. Créez le ou les volumes logiques. La commande ci-dessous crée un volume logique appelé « data-lv01 » pour couvrir le groupe de volumes entier. Notez qu’il est également possible de créer plusieurs volumes logiques dans le groupe de volumes.
 
-        # lvdisplay
-        --- Logical volume ---
-        LV Path                /dev/data-vg01/data-lv01
-        ....
+		# sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
+		  Logical volume "data-lv01" created.
 
 
-3. Open /etc/fstab in a text editor and add an entry for the new file system, for example:
+4. Formater le volume logique
 
-        /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
+		# sudo mkfs -t ext4 /dev/data-vg01/data-lv01
 
-    Then, save and close /etc/fstab.
-
-
-4. Test that the /etc/fstab entry is correct:
-
-        # sudo mount -a
-
-    If this command results in an error message please check the syntax in the /etc/fstab file.
-
-    Next run the `mount` command to ensure the file system is mounted:
-
-        # mount
-        ......
-        /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
+  >[AZURE.NOTE] Avec SLES 11, utilisez « -t ext3 » plutôt qu’ext4. SLES 11 prend uniquement en charge l’accès en lecture seule aux systèmes de fichiers ext4.
 
 
-5. (Optional) Failsafe boot parameters in /etc/fstab
+## Ajout du nouveau système de fichiers à /etc/fstab
 
-    Many distributions include either the `nobootwait` or `nofail` mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Please refer to your distribution's documentation for more information on these parameters.
+**Attention** : si vous ne modifiez pas correctement le fichier /etc/fstab, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
 
-    Example (Ubuntu):
+1. Créez le point de montage désiré pour le nouveau système de fichiers. Par exemple :
 
-        /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
-
-
-
-<!--HONumber=Oct16_HO2-->
+		# sudo mkdir /data
 
 
+2. Trouver le chemin du volume logique
+
+		# lvdisplay
+		--- Logical volume ---
+		LV Path                /dev/data-vg01/data-lv01
+		....
+
+
+3. Ouvrez /etc/fstab dans un éditeur de texte, puis ajoutez une entrée pour le nouveau système de fichiers, par exemple :
+
+		/dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
+
+	Ensuite, enregistrez et fermez /etc/fstab.
+
+
+4. Vérifiez si l'entrée /etc/fstab est correcte :
+
+		# sudo mount -a
+
+	Si cette commande génère un message d'erreur, vérifiez que la syntaxe utilisée dans le fichier /etc/fstab est correcte.
+
+	Ensuite, exécutez la commande `mount` pour vérifier que le système de fichiers est monté :
+
+		# mount
+		......
+		/dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
+
+
+5. (Facultatif) Paramètres de démarrage fiables dans /etc/fsta
+
+	De nombreuses distributions comprennent les paramètres de montage `nobootwait` ou `nofail` pouvant être ajoutés au fichier /etc/fstab. Ces paramètres autorisent les échecs lors du montage d'un système de fichiers donné et permettent au système Linux de continuer à démarrer même s'il n'a pas été en mesure de monter le système de fichiers RAID. Pour plus d'informations sur ces paramètres, reportez-vous à la documentation de votre distribution.
+
+	Exemple (Ubuntu) :
+
+		/dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
+
+<!---HONumber=AcomDC_0831_2016-->

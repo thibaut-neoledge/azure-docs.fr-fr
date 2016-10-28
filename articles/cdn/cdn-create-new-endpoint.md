@@ -1,105 +1,100 @@
 <properties
-     pageTitle="Using Azure CDN | Microsoft Azure"
-     description="This topic shows how to enable the Content Delivery Network (CDN) for Azure. The tutorial walks through the creation of a new CDN profile and endpoint."
-     services="cdn"
-     documentationCenter=""
-     authors="camsoper"
-     manager="erikre"
-     editor=""/>
+	 pageTitle="Utilisation d’Azure CDN | Microsoft Azure"
+	 description="Cette rubrique montre comment activer le réseau de distribution de contenu (CDN) pour Azure. Ce didacticiel décrit la création d'un profil CDN et d’un point de terminaison."
+	 services="cdn"
+	 documentationCenter=""
+	 authors="camsoper"
+	 manager="erikre"
+	 editor=""/>
 <tags
-     ms.service="cdn"
-     ms.workload="media"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="07/28/2016" 
-     ms.author="casoper"/>
+	 ms.service="cdn"
+	 ms.workload="media"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="get-started-article"
+	 ms.date="07/28/2016" 
+	 ms.author="casoper"/>
 
+# Utilisation d’Azure CDN  
 
-# <a name="using-azure-cdn"></a>Using Azure CDN  
+Cette rubrique décrit l’activation d’Azure CDN en créant un nouveau profil CDN et un point de terminaison.
 
-This topic walks through enabling Azure CDN by creating a new CDN profile and endpoint.
+>[AZURE.IMPORTANT] Pour une présentation du fonctionnement de CDN, ainsi qu’une liste de fonctionnalités, consultez la [Vue d’ensemble de CDN](./cdn-overview.md).
 
->[AZURE.IMPORTANT] For an introduction to how CDN works, as well as a list of features, see the [CDN Overview](./cdn-overview.md).
+## Créer un profil CDN
 
-## <a name="create-a-new-cdn-profile"></a>Create a new CDN profile
+Un profil CDN est une collection de points de terminaison CDN. Chaque profil contient un ou plusieurs points de terminaison CDN. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d'autres critères.
 
-A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
-
-> [AZURE.NOTE] By default, a single Azure subscription is limited to eight CDN profiles. Each CDN profile is limited to ten CDN endpoints.
+> [AZURE.NOTE] Par défaut, un abonnement Azure unique est limité à huit profils CDN. Chaque profil CDN est limité à dix points de terminaison CDN.
 >
-> CDN pricing is applied at the CDN profile level. If you wish to use a mix of Azure CDN pricing tiers, you will need multiple CDN profiles.
+> La tarification CDN est appliquée au niveau du profil CDN. Si vous souhaitez utiliser une combinaison de niveaux de tarification Azure CDN, vous aurez besoin de plusieurs profils CDN.
 
 [AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## <a name="create-a-new-cdn-endpoint"></a>Create a new CDN endpoint
+## Créer un point de terminaison CDN
 
-**To create a new CDN endpoint**
+**Pour créer un point de terminaison CDN**
 
-1. In the [Azure Portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN. Vous l'avez peut-être épinglé au tableau de bord à l'étape précédente. Dans le cas contraire, vous le trouverez en cliquant sur **Parcourir**, puis **Profils CDN** et en cliquant sur le profil auquel vous voulez ajouter le point de terminaison.
 
-    The CDN profile blade appears.
+    Le panneau du profil CDN s'affiche.
 
-    ![CDN profile][cdn-profile-settings]
+    ![Profil CDN][cdn-profile-settings]
 
-2. Click the **Add Endpoint** button.
+2. Cliquez sur le bouton **Ajouter un point de terminaison**.
 
-    ![Add endpoint button][cdn-new-endpoint-button]
+    ![Bouton Ajouter un point de terminaison][cdn-new-endpoint-button]
 
-    The **Add an endpoint** blade appears.
+    Le panneau **Ajouter un point de terminaison** s’affiche.
 
-    ![Add endpoint blade][cdn-add-endpoint]
+    ![Panneau Ajouter un point de terminaison][cdn-add-endpoint]
 
-3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net`.
+3. Entrez un **nom** pour ce point de terminaison CDN. Ce nom servira à accéder à vos ressources en cache au niveau du domaine `<endpointname>.azureedge.net`.
 
-4. In the **Origin type** dropdown, select your origin type.  Select **Storage** for an Azure Storage account, **Cloud service** for an Azure Cloud Service, **Web App** for an Azure Web App, or **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere).
+4. Dans la liste déroulante **Type d’origine**, sélectionnez votre type d’origine. Sélectionnez **Stockage** pour un compte Azure Storage, **Service cloud** pour un service Azure Cloud, **Application web** pour une application web Azure ou **Origine personnalisée** pour toute autre origine de serveur web accessible publiquement (hébergé dans Azure ou ailleurs).
 
-    ![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-        
-5. In the **Origin hostname** dropdown, select or type your origin domain.  The dropdown will list all available origins of the type you specified in step 4.  If you selected *Custom origin* as your **Origin type**, you will type in the domain of your custom origin.
+	![Type d'origine CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
+		
+5. Dans la liste déroulante **Nom d’hôte d’origine**, sélectionnez ou tapez votre domaine d’origine. La liste déroulante répertorie toutes les origines disponibles du type spécifié à l'étape 4. Si vous avez sélectionné *Origine personnalisée* comme **type d’origine**, tapez le domaine de votre origine personnalisée.
 
-6. In the **Origin path** text box, enter the path to the resources you want to cache, or leave blank to allow cache any resource at the domain you specified in step 5.
+6. Dans la zone de texte **Chemin d’accès d’origine**, entrez le chemin d’accès aux ressources que vous souhaitez mettre en cache ou laissez cette zone vide pour autoriser la mise en cache de n’importe quelle ressource au niveau du domaine spécifié à l’étape 5.
 
-7. In the **Origin host header**, enter the host header you want the CDN to send with each request, or leave the default.
+7. Dans **En-tête de l’hôte d’origine**, entrez l’en-tête de l’hôte que le CDN doit envoyer avec chaque requête ou conservez la valeur par défaut.
 
-    > [AZURE.WARNING] Some types of origins, such as Azure Storage and Web Apps, require the host header to match the domain of the origin. Unless you have an origin that requires a host header different from its domain, you should leave the default value.
+	> [AZURE.WARNING] Certains types d’origine, tels que Azure Storage et Web Apps, nécessitent l’en-tête de l’hôte pour correspondre au domaine de l’origine. À moins d’avoir une origine nécessitant un en-tête d’hôte différent de son domaine, vous devriez laisser la valeur par défaut.
 
-8. For **Protocol** and **Origin port**, specify the protocols and ports used to access your resources at the origin.  At least one protocol (HTTP or HTTPS) must be selected.
-    
-    > [AZURE.NOTE] The **Origin port** only affects what port the endpoint uses to retrieve information from the origin.  The endpoint itself will only be available to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port**.  
-    >
-    > **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
-    >
-    > Accessing CDN content using HTTPS has the following constraints:
-    > 
-    > - You must use the SSL certificate provided by the CDN. Third party certificates are not supported.
-    > - You must use the CDN-provided domain (`<endpointname>.azureedge.net`) to access HTTPS content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
+8. Pour **Protocole** et **Port d’origine**, spécifiez les protocoles et les ports utilisés pour accéder à vos ressources à l’origine. Vous devez sélectionner au moins un protocole (HTTP ou HTTPS).
+	
+	> [AZURE.NOTE] Le **port d’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir de l’origine. Le point de terminaison ne sera disponible pour les clients que sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit le **port d’origine**.
+	>
+	> Les points de terminaison d’**Azure CDN fourni par Akamai** n’autorisent pas la plage de ports TCP complète pour les origines. Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Ports d’origine autorisés du CDN Azure fourni par Akamai).
+	>
+	> L'accès à du contenu CDN à l'aide du protocole HTTPS présente les contraintes suivantes :
+	> 
+	> - Vous devez utiliser le certificat SSL fourni par le CDN. Les certificats tiers ne sont pas pris en charge.
+	> - Vous devez utiliser le domaine fourni par le CDN (`<endpointname>.azureedge.net`) pour accéder au contenu HTTPS. La prise en charge du protocole HTTPS n'est pas disponible pour les noms de domaines personnalisés (enregistrements CNAME), car le CDN ne prend pas en charge les certificats personnalisés pour l'instant.
 
-9. Click the **Add** button to create the new endpoint.
+9. Cliquez sur le bouton **Ajouter** pour créer le point de terminaison.
 
-10. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
+10. Une fois le point de terminaison créé, il s'affiche dans la liste des points de terminaison pour le profil. L’affichage sous forme de liste montre l’URL à utiliser pour accéder au contenu mis en cache et le domaine d’origine.
 
-    ![CDN endpoint][cdn-endpoint-success]
+    ![Point de terminaison CDN][cdn-endpoint-success]
 
-    > [AZURE.IMPORTANT] The endpoint will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Akamai</b> profiles, propagation will usually complete within one minute.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.
-    >    
-    > Users who try to use the CDN domain name before the endpoint configuration has propagated to the POPs will receive HTTP 404 response codes.  If it's been several hours since you created your endpoint and you're still receiving 404 responses, please see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
+    > [AZURE.IMPORTANT] Le point de terminaison ne sera pas disponible immédiatement, car la propagation de l’enregistrement dans le CDN peut prendre du temps. Pour les profils d’<b>Azure CDN fourni par Akamai</b>, la propagation s’effectue généralement dans un délai d’une minute. Pour les profils d’<b>Azure CDN fourni par Verizon</b>, la propagation s’effectue généralement dans un délai de 90 minutes, mais elle peut prendre plus de temps dans certains cas.
+	>	 
+	> Les utilisateurs qui tentent d’utiliser le nom de domaine CDN avant la propagation de la configuration du point de terminaison aux POP voient s’afficher des codes de réponse HTTP 404. Si plusieurs heures se sont écoulées depuis la création de votre point de terminaison et que vous recevez toujours des réponses 404, consultez [Dépannage des points de terminaison de CDN renvoyant des états 404](cdn-troubleshoot-endpoint.md).
 
 
-##<a name="see-also"></a>See Also
-- [Controlling caching behavior of requests with query strings](cdn-query-string.md)
-- [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
-- [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)
-- [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
-- [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md)
+##Voir aussi
+- [Contrôle du comportement de mise en cache des demandes avec des chaînes de requête](cdn-query-string.md)
+- [Mappage du contenu CDN à un domaine personnalisé](cdn-map-content-to-custom-domain.md)
+- [Préchargement d’éléments multimédias sur un point de terminaison CDN Azure](cdn-preload-endpoint.md)
+- [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
+- [Dépannage des points de terminaison de CDN renvoyant des états 404](cdn-troubleshoot-endpoint.md)
 
 [cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

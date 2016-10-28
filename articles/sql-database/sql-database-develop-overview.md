@@ -1,75 +1,70 @@
 <properties
-    pageTitle="SQL Database Develop Overview | Microsoft Azure"
-    description="Learn about available connectivity libraries and best practices for applications connecting to SQL Database."
-    services="sql-database"
-    documentationCenter=""
-    authors="annemill"
-    manager="jhubbard"
-    editor="genemi"/>
+	pageTitle="Vue d’ensemble du développement de base de données SQL | Microsoft Azure"
+	description="En savoir plus sur les bibliothèques de connectivité disponibles et les meilleures pratiques pour les applications qui utilisent une connexion à la base de données SQL."
+	services="sql-database"
+	documentationCenter=""
+	authors="annemill"
+	manager="jhubbard"
+	editor="genemi"/>
 
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/17/2016"
-    ms.author="annemill"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2016"
+	ms.author="annemill"/>
 
+# Vue d’ensemble du développement de base de données SQL
+Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture de code permettant d’établir une connexion à la base de données SQL Azure.
 
-# <a name="sql-database-development-overview"></a>SQL Database Development Overview
-This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
+## Langage et plateforme
+Plusieurs exemples de code sont à votre disposition pour divers langages et plateformes de programmation. Vous trouverez des liens vers des exemples de code dans les articles suivants :
 
-## <a name="language-and-platform"></a>Language and platform
-There are code samples available for various programming languages and platforms. You can find links to the code samples at: 
+* Pour en savoir plus, voir [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
-* More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
+## Limitations des ressources
+La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : la gouvernance des ressources et l’application de limites.
 
-## <a name="resource-limitations"></a>Resource limitations
-Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
+* Pour en savoir plus, voir [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
-* More Information: [Azure SQL Database resource limits](sql-database-resource-limits.md)
+## Sécurité
+La base de données SQL Azure fournit des ressources permettant de limiter l’accès, de protéger les données et de surveiller les activités sur une base de données SQL.
 
-## <a name="security"></a>Security
-Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.
+* Pour en savoir plus, voir [Sécurisation de votre base de données SQL](sql-database-security.md)
 
-* More Information: [Securing your SQL Database](sql-database-security.md)
+## Authentification
+* La base de données SQL Azure prend en charge les utilisateurs et les connexions de l’authentification SQL Server, ainsi que les utilisateurs et les connexions de [l’authentification Azure Active Directory](sql-database-aad-authentication.md).
+* Vous devez définir une base de données spécifique, au lieu de la base de données *MASTER* par défaut.
+* Vous ne pouvez pas utiliser l’instruction **USE myDatabaseName;** Transact-SQL sur une base de données SQL pour basculer vers une autre base de données.
+* Pour en savoir plus, consultez [Sécurité SQL Database : gérer la sécurité d’accès et de connexion aux bases de données](sql-database-manage-logins.md)
 
-## <a name="authentication"></a>Authentication
-* Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.
-* You need to specify a particular database, instead of defaulting to the *master* database.
-* You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database to switch to another database.
-* More information: [SQL Database security: Manage database access and login security](sql-database-manage-logins.md)
+## Résilience
+Lorsqu’une erreur temporaire se produit au moment de la connexion à la base de données SQL, votre code doit exécuter une nouvelle tentative d’appel. Nous vous recommandons d’utiliser une logique de nouvelle tentative basée sur une logique d’interruption, afin d’éviter que la base de données SQL ne soit inondée de tentatives simultanées de plusieurs clients.
 
-## <a name="resiliency"></a>Resiliency
-When a transient error occurs while connecting to SQL Database, your code should retry the call.  We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously.
+* Exemples de code : pour obtenir des exemples de code qui illustrent la logique de nouvelle tentative, consultez les exemples disponibles dans le langage de votre choix sur la page [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
+* Pour en savoir plus, consultez [Messages d’erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
-* Code samples:  For code samples that illustrate retry logic, see samples for the language of your choice at: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
-* More information: [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
+## Gestion des connexions
+* Dans votre logique de connexion client, définissez le délai d’expiration sur 30 secondes. La valeur par défaut de 15 secondes est trop courte pour les connexions qui reposent sur Internet.
+* Si vous utilisez un [pool de connexions](http://msdn.microsoft.com/library/8xx3tyca.aspx), veillez à fermer la connexion dès que votre programme ne l’utilise plus activement et qu’il ne se prépare pas à le réutiliser.
 
-## <a name="managing-connections"></a>Managing Connections
-* In your client connection logic, override the default timeout to be 30 seconds.  The default of 15 seconds is too short for connections that depend on the internet.
-* If you are using a [connection pool](http://msdn.microsoft.com/library/8xx3tyca.aspx), be sure to close the connection the instant your program is not actively using it, and is not preparing to reuse it.
+## Remarques relatives au réseau
+* Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433. Pour en savoir plus, consultez [Configurer un pare-feu sur une base de données SQL Azure à l’aide du portail Azure](sql-database-configure-firewall-settings.md)
+* Si votre programme client se connecte à la base de données SQL V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir certaines plages de ports sur la machine virtuelle. Pour en savoir plus, consultez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Parfois, les connexions clientes à Azure SQL Database V12 ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour en savoir plus, consultez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-## <a name="network-considerations"></a>Network Considerations
-* On the computer that hosts your client program, ensure the firewall allows outgoing TCP communication on port 1433.  More information: [Configure an Azure SQL Database firewall](sql-database-configure-firewall-settings.md)
-* If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open certain port ranges on the VM. More information: [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important. More information:  [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+## Partitionnement de données avec la mise à l’échelle élastique
+La mise à l’échelle élastique simplifie le processus d’évolutivité horizontale.
 
-## <a name="data-sharding-with-elastic-scale"></a>Data Sharding with Elastic Scale
-Elastic Scale simplifies the process of scaling out (and in). 
+* [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md)
+* [Prise en main de l'infrastructure élastique d’Azure SQL Database (version préliminaire)](sql-database-elastic-scale-get-started.md)
 
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
-* [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/).
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

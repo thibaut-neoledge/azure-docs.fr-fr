@@ -1,174 +1,171 @@
 <properties
-    pageTitle="Secure your app's custom domain with HTTPS | Microsoft Azure"
-    description="Learn how secure the custom domain name for your app in Azure App Service by configuring an SSL certificate binding. You will also learn how to get an SSL certificate from multiple tools."
-    services="app-service"
-    documentationCenter=".net"
-    authors="cephalin"
-    manager="wpickett"
-    editor="jimbe"
-    tags="top-support-issue"/>
+	pageTitle="Sécuriser le domaine personnalisé de votre application avec le protocole HTTPS | Microsoft Azure"
+	description="Découvrez comment sécuriser le nom de domaine personnalisé pour votre application dans Azure App Service en configurant une liaison de certificat SSL. Vous apprendrez également comment obtenir un certificat SSL à partir de plusieurs outils."
+	services="app-service"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
+	editor="jimbe"
+	tags="top-support-issue"/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/08/2016"
-    ms.author="cephalin"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/08/2016"
+	ms.author="cephalin"/>
 
-
-# <a name="secure-your-app's-custom-domain-with-https"></a>Secure your app's custom domain with HTTPS
+# Sécuriser le domaine personnalisé de votre application avec le protocole HTTPS
 
 
 > [AZURE.SELECTOR]
-- [Buy SSL cert in Azure](web-sites-purchase-ssl-web-site.md)
-- [Use SSL cert from elsewhere](web-sites-configure-ssl-certificate.md)
+- [Acheter un certificat SSL dans Azure](web-sites-purchase-ssl-web-site.md)
+- [Utiliser un certificat SSL depuis un autre emplacement](web-sites-configure-ssl-certificate.md)
 
 
-This article shows you how to enable HTTPS for a web app, a mobile app backend, or an API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md) that uses a custom domain name. It covers server-only authentication. If you need mutual authentication (including client authentication), see [How To Configure TLS Mutual Authentication for App Service](app-service-web-configure-tls-mutual-auth.md).
+Cet article vous indique comment activer HTTPS pour une application web, un backend d’application mobile ou une application API dans un [Azure App Service](../app-service/app-service-value-prop-what-is.md) utilisant un nom de domaine personnalisé. Seule l’authentification serveur est abordée. Si vous avez besoin de l’authentification mutuelle (y compris l’authentification client), consultez [Comment configurer l’authentification mutuelle TLS pour App Service](app-service-web-configure-tls-mutual-auth.md).
 
-To secure with HTTPS an app that has a custom domain name, you add a certificate for that domain name. By default, Azure secures the **\*.azurewebsites.net** wildcard domain with a single SSL certificate, so your clients can already access your app at **https://*&lt;appname>*.azurewebsites.net**. But if you want to use a custom domain, like **contoso.com**, **www.contoso.com**, and **\*.contoso.com**, the default certificate can't secure that. Furthermore, like all [wildcard certificates](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), the default certificate is not as secure as using a custom domain and a certificate for that custom domain.   
+Pour sécuriser une application disposant d’un nom de domaine personnalisé avec le protocole HTTPS, ajoutez un certificat pour ce nom de domaine. Azure sécurisant par défaut le domaine générique **\*.azurewebsites.net** avec un seul certificat SSL, vos clients peuvent donc déjà accéder à votre application via **https://*&lt;appname>*.azurewebsites.net**. Si vous souhaitez utiliser un domaine personnalisé, tel que **contoso.com**, **www.contoso.com** et **\*.contoso.com**, le certificat par défaut ne peut pas le sécuriser. En outre, comme tous les [certificats génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), le certificat par défaut n’offre pas la même sécurité qu’un domaine personnalisé et qu’un certificat pour ce domaine personnalisé.
 
->[AZURE.NOTE] You can get help from Azure experts anytime on the [Azure forums](https://azure.microsoft.com/support/forums/). For more personalized support, go to [Azure Support](https://azure.microsoft.com/support/options/) and click **Get Support**.
+>[AZURE.NOTE] Pour accéder à tout moment à l’aide des experts Azure, consultez les [forums Azure](https://azure.microsoft.com/support/forums/). Pour un support personnalisé, accédez à [Support Azure](https://azure.microsoft.com/support/options/) et cliquez sur **Obtenir de l’aide**.
 
 <a name="bkmk_domainname"></a>
-## <a name="what-you-need"></a>What you need
-To secure your custom domain name with HTTPS, you bind a custom SSL certificate to that custom domain in Azure. Before binding a custom certificate, you need to do the following:
+## Ce dont vous avez besoin
+Pour sécuriser votre nom de domaine personnalisé avec le protocole HTTPS, vous devez lier un certificat SSL personnalisé à ce domaine personnalisé dans Azure. Avant de lier un certificat personnalisé, vous devez effectuer les opérations suivantes :
 
-- **Configure the custom domain** - App Service only allows adding a certificate for a domain name that's already configured in your app. For instructions, see [Map a custom domain name to an Azure app](web-sites-custom-domain-name.md). 
-- **Scale up to Basic tier or higher** App Service plans in lower pricing tiers don't support custom SSL certificates. For instructions, see [Scale up an app in Azure](web-sites-scale.md). 
-- **Get an SSL certificate** - If you do not already have one, you need to get one from a trusted [certificate authority](http://en.wikipedia.org/wiki/Certificate_authority) (CA). The certificate must meet all the following requirements:
+- **Configurer le domaine personnalisé** - App Service autorise uniquement l’ajout d’un certificat pour un nom de domaine déjà configuré dans votre application. Pour obtenir des instructions, consultez [Mapper un nom de domaine personnalisé à une application Azure](web-sites-custom-domain-name.md).
+- **Monter en puissance vers le niveau De base ou version supérieure** Les plans App Service dans les niveaux de tarification inférieurs ne prennent pas en charge les certificats SSL personnalisés. Pour obtenir des instructions, consultez la page [Montée en puissance d’une application dans Azure](web-sites-scale.md).
+- **Obtenir un certificat SSL** - Si vous n’en avez pas déjà un, vous devez l’obtenir auprès d’une [autorité de certification](http://en.wikipedia.org/wiki/Certificate_authority) (CA) approuvée. Le certificat doit répondre à toutes les exigences suivantes :
 
-    - It is signed by a trusted CA (no private CA servers).
-    - It contains a private key.
-    - It is created for key exchange, and exported to a .PFX file.
-    - It uses a minimum of 2048-bit encryption.
-    - Its subject name matches the custom domain it needs to secure. To secure multiple domains with one certificate, you need to use a wildcard name (e.g. **\*.contoso.com**) or specify subjectAltName values.
-    - It is merged with all **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** used by your CA. Otherwise, you may run into irreproducible interoperability problems on some clients.
+	- Il est signé par une autorité de certification approuvée (pas de serveurs d’autorité de certification privés).
+	- Il contient une clé privée.
+	- Il est créé pour l’échange de clés et exporté vers un fichier PFX.
+	- Il utilise un chiffrement à 2 048 bits au minimum.
+	- Son nom d’objet correspond au domaine personnalisé qu’il doit sécuriser. Pour sécuriser plusieurs domaines avec un certificat, vous devez utiliser un nom générique (par exemple, ***.contoso.com**) ou spécifier des valeurs subjectAltName.
+	- Il est fusionné avec tous les **[certificats intermédiaires](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** utilisés par votre autorité de certification. Sinon, vous pouvez rencontrer des problèmes d’interopérabilité non reproductibles sur certains clients.
 
-        >[AZURE.NOTE] The easiest way to get an SSL certificate that meets all the requirements is to         [buy one in the Azure portal directly](web-sites-purchase-ssl-web-site.md). This article shows you how to do it manually and then bind it to your custom domain in App Service.
-        >   
-        > **Elliptic Curve Cryptography (ECC) certificates** can work with App Service, but outside the scope of this article. Work with your CA on the exact steps to create ECC certificates.
+		>[AZURE.NOTE] Le moyen le plus simple pour obtenir un certificat SSL répondant à toutes les exigences est [d’en acheter un directement dans le portail Azure](web-sites-purchase-ssl-web-site.md). Cet article vous montre comment le faire manuellement et comment le lier à votre domaine personnalisé dans App Service.
+		>	
+		> Les **certificats de chiffrement à courbe elliptique (ECC)** peuvent fonctionner avec App Service, mais ce sujet n’est pas abordé dans cet article. Consultez votre autorité de certification sur les étapes à suivre pour créer des certificats ECC.
 
 <a name="bkmk_getcert"></a>
-## <a name="step-1.-get-an-ssl-certificate"></a>Step 1. Get an SSL certificate
+## Étape 1. Obtention d'un certificat SSL
 
-Because CAs provide the various SSL certificate types at different price points, you should start by deciding what type of SSL certificate to buy. To secure a single domain name (**www.contoso.com**), you just need a basic certificate. To secure multiple domain names (**contoso.com** *and* **www.contoso.com** 
-*and* **mail.contoso.com**), you need either a [wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate) or a certificate with [Subject Alternate Name](http://en.wikipedia.org/wiki/SubjectAltName) (`subjectAltName`).
+Étant donné que les autorités de certification fournissent différents types de certificat SSL à différents prix, vous devez commencer par décider quel type de certificat SSL vous convient. Pour sécuriser un seul nom de domaine (**www.contoso.com**), un simple certificat de base suffit. Pour sécuriser plusieurs noms de domaine,(**contoso.com** *et* **www.contoso.com** *et* **mail.contoso.com**), vous devez obtenir un [certificat générique](http://en.wikipedia.org/wiki/Wildcard_certificate) ou un certificat avec un [autre nom d’objet](http://en.wikipedia.org/wiki/SubjectAltName) (`subjectAltName`).
 
-Once you know which SSL certificate to buy, you submit a Certificate Signing Request (CSR) to a CA. When you get requested certificate back from the CA, you then generate a .pfx file from the certificate. You can perform these steps using the tool of your choice. Here are instructions for the common tools:
+Une fois que vous savez quel certificat SSL acheter, vous devez envoyer une demande de signature de certificat (CSR) à une autorité de certification. Une fois le certificat demandé fourni par l’autorité de certification, vous devez ensuite générer un fichier .pfx à partir du certificat. Vous pouvez effectuer ces étapes à l’aide de l’outil de votre choix. Voici des instructions pour les outils courants :
 
-- [Certreq.exe steps](#bkmk_certreq) - the Windows utility for creating certificate requests. It has been part of Windows since Windows XP/Windows Server 2000.
-- [IIS Manager steps](#bkmk_iismgr) - The tool of choice if you're already familiar with it.
-- [OpenSSL steps](#bkmk_openssl) - an [open-source, cross-platform tool](https://www.openssl.org). Use it to help you get an SSL certificate from any platform.
-- [subjectAltName steps using OpenSSL](#bkmk_subjectaltname) - steps for getting `subjectAltName` certificates.
+- [Étapes Certreq.exe](#bkmk_certreq) - utilitaire Windows pour la création de demandes de certificat. Il fait partie de Windows depuis Windows XP/Windows Server 2000.
+- [Étapes du Gestionnaire des services IIS](#bkmk_iismgr) - outil de choix si vous êtes déjà familier avec celui-ci.
+- [Étapes OpenSSL](#bkmk_openssl) - [outil open source et multiplateforme](https://www.openssl.org). Utilisez-le pour obtenir un certificat SSL à partir de n’importe quelle plateforme.
+- [Étapes subjectAltName à l’aide d’OpenSSL](#bkmk_subjectaltname) - étapes d’obtention `subjectAltName` des certificats.
 
-If you want to test the setup in App Service before buying a certificate, you can generate a [self-signed certificate](https://en.wikipedia.org/wiki/Self-signed_certificate). This tutorial gives you two ways to generate it:
+Si vous souhaitez tester le programme d’installation dans App Service avant d’acheter un certificat, vous pouvez générer un [certificat auto-signé](https://en.wikipedia.org/wiki/Self-signed_certificate). Ce didacticiel vous propose de générer un certificat de deux façons :
 
-- [Self-signed certificate, Certreq.exe steps](#bkmk_sscertreq)
-- [Self-signed certificate, OpenSSL steps](#bkmk_ssopenssl)
+- [Certificat auto-signé, étapes Certreq.exe](#bkmk_sscertreq)
+- [Certificat auto-signé, étapes OpenSSL](#bkmk_ssopenssl)
 
 <a name="bkmk_certreq"></a>
-### <a name="get-a-certificate-using-certreq.exe"></a>Get a certificate using Certreq.exe
+### Obtention d’un certificat à l’aide de Certreq.exe
 
-1. Create a file (e.g. **myrequest.txt**), and copy into it the following text, and save it in a working directory. Replace the `<your-domain>` placeholder with the custom domain name of your app.
+1. Créez un fichier (par exemple, **myrequest.txt**) et copiez-y le texte suivant, puis enregistrez-le dans un répertoire de travail. Remplacez l’espace réservé `<your-domain>` par le nom de domaine personnalisé de votre application.
 
-        [NewRequest]
-        Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
-        Exportable = TRUE
-        KeyLength = 2048              ; Required minimum is 2048
-        KeySpec = 1
-        KeyUsage = 0xA0
-        MachineKeySet = True
-        ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
-        ProviderType = 12
-        HashAlgorithm = SHA256
+		[NewRequest]
+		Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
+		Exportable = TRUE
+		KeyLength = 2048              ; Required minimum is 2048
+		KeySpec = 1
+		KeyUsage = 0xA0
+		MachineKeySet = True
+		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+		ProviderType = 12
+		HashAlgorithm = SHA256
 
-        [EnhancedKeyUsageExtension]
-        OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
+		[EnhancedKeyUsageExtension]
+		OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
-    For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/library/dn296456.aspx).
+	Pour plus d’informations sur les options de la demande CSR, ainsi que sur les autres options disponibles, consultez la [documentation de référence Certreq](https://technet.microsoft.com/library/dn296456.aspx).
 
-4. In a command prompt, `CD` into your working directory and run the following command to create the CSR:
+4. Dans une invite de commandes, `CD` dans votre répertoire de travail et exécutez la commande suivante pour créer la demande CSR :
 
-        certreq -new myrequest.txt myrequest.csr
+		certreq -new myrequest.txt myrequest.csr
 
-    **myrequest.csr** is now created in your current working directory.
+	**myrequest.csr** est maintenant créée dans votre répertoire de travail actuel.
 
-5. Submit **myrequest.csr** to a CA to obtain an SSL certificate. You either upload the file, or copy its content from a text editor into a web form.
+5. Envoyez **myrequest.csr** à une autorité de certification pour obtenir un certificat SSL. Vous pouvez télécharger le fichier ou copier son contenu à partir d’un éditeur de texte dans un formulaire web.
 
-    For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
+	Pour obtenir la liste des autorités de certification approuvées par Microsoft, consultez [Programme de certification racine de confiance Microsoft : Participants][cas].
 
-6. Once the CA has responded to you with a certificate (.CER) file, save it in your working directory. Then, run the following command to complete the pending CSR.
+6. Une fois que l’autorité de certification vous a répondu avec un fichier de certificat (CER), enregistrez-le dans votre répertoire de travail. Ensuite, exécutez la commande suivante pour terminer la demande CSR en attente.
 
-        certreq -accept -user <certificate-name>.cer
+		certreq -accept -user <certificate-name>.cer
 
-    This command stores the finished certificate in the Windows certificate store.
+	Cette commande stocke le certificat final dans le magasin de certificats Windows.
 
-6. If your CA uses intermediate certificates, install them before you proceed. They usually come as a separate download from your CA, and in several formats for different web server types. Select the version for Microsoft IIS.
+6. Si votre autorité de certification utilise des certificats intermédiaires, installez-les avant de continuer. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs web. Sélectionnez la version fournie pour Microsoft IIS.
 
-    Once you have downloaded the certificates, right-click each of them in Windows Explorer and select  **Install certificate**. Use the default values in the **Certificate Import Wizard**, and continue selecting **Next** until the import has completed.
+	Une fois les certificats téléchargés, cliquez avec le bouton droit sur chacun d’entre eux dans l’explorateur, puis sélectionnez **Installer le certificat**. Utilisez les valeurs par défaut de l’**Assistant Importation de certificat**, puis sélectionnez **Suivant** jusqu’à ce que l’importation soit terminée.
 
-7. To export your SSL certificate from the certificate store, press `Win`+`R` and run **certmgr.msc** to launch Certificate Manager. Select **Personal** > **Certificates**. In the **Issued To** column, you should see an entry with your custom domain name, and the CA you used to generate the certificate in the **Issued By** column.
+7. Pour exporter votre certificat SSL à partir du magasin de certificats, appuyez sur `Win`+`R` et exécutez **certmgr.msc** pour lancer le Gestionnaire de certificats. Sélectionnez **Personnel** > **Certificats**. Dans la colonne **Délivré à**, vous devez voir une entrée portant le nom de votre domaine personnalisé et dans la colonne **Délivré par**, vous devez voir l’autorité de certification que vous avez utilisée pour générer le certificat.
 
-    ![insert image of cert manager here][certmgr]
+	![insérer l’image du gestionnaire de certificat ici][certmgr]
 
-9. Right-click the certificate and select **All Tasks** > **Export**. In the **Certificate Export Wizard**, click **Next**, then select **Yes, export the private key**, and then click **Next** again.
+9. Cliquez avec le bouton droit sur le certificat et sélectionnez **Toutes les tâches** > **Exporter**. Dans **l’Assistant Exportation de certificat**, cliquez sur **Suivant**, sélectionnez **Oui, exporter la clé privée**, puis cliquez de nouveau sur **Suivant**.
 
-    ![Export the private key][certwiz1]
+	![Exporter la clé privée][certwiz1]
 
-10. Select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and **Export all extended properties**. Then, click **Next**.
+10. Sélectionnez **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
 
-    ![include all certs and extended properties][certwiz2]
+	![inclure tous les certificats et les propriétés étendues][certwiz2]
 
-11. Select **Password**, and then enter and confirm the password. Click **Next**.
+11. Sélectionnez **Mot de passe**, puis entrez et confirmez le mot de passe. Cliquez sur **Next**.
 
-    ![specify a password][certwiz3]
+	![spécifier un mot de passe][certwiz3]
 
-12. Provide a path and filename for the exported certificate, with the extension **.pfx**. Click **Next** to finish.
+12. Indiquez le chemin d’accès et le nom de fichier pour le certificat exporté, avec l’extension **.pfx**. Cliquez sur **Suivant** pour terminer.
 
-    ![provide a file path][certwiz4]
+	![indiquer le chemin d’accès au fichier][certwiz4]
 
-You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
+Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Service. Consultez l’étape 2 [. Téléchargez et liez le certificat SSL personnalisé](#bkmk_configuressl).
 
 <a name="bkmk_iismgr"></a>
-### <a name="get-a-certificate-using-the-iis-manager"></a>Get a certificate using the IIS Manager
+### Obtention d'un certificat à l'aide du Gestionnaire des services IIS
 
-1. Generate a CSR with IIS Manager to send to the CA. For more information on generating a CSR, see [Request an Internet Server Certificate (IIS 7)][iiscsr].
+1. Générez une demande CSR avec le Gestionnaire des services IIS pour l’envoyer à l’autorité de certification. Pour plus d’informations sur la génération d’une demande de signature de certificat, consultez la page [Demander un certificat de serveur Internet (IIS 7)][iiscsr].
 
-3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
+3. Soumettez votre demande CSR à une autorité de certification pour obtenir un certificat SSL. Pour obtenir la liste des autorités de certification approuvées par Microsoft, consultez [Programme de certification racine de confiance Microsoft : Participants][cas].
 
 
-3. Complete the CSR with the certificate that the CA sends back to you. For more information on completing the CSR, see [Install an Internet Server Certificate (IIS 7)][installcertiis].
+3. Terminez la demande CSR avec le certificat renvoyé par l’autorité de certification. Pour plus d’informations sur la génération d’une demande de signature de certificat, consultez la page [Installer un certificat de serveur Internet (IIS 7)][installcertiis].
 
-4. If your CA uses intermediate certificates, install them before you proceed. They usually come as a separate download from your CA, and in several formats for different web server types. Select the version for Microsoft IIS.
+4. Si votre autorité de certification utilise des certificats intermédiaires, installez-les avant de continuer. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs web. Sélectionnez la version fournie pour Microsoft IIS.
 
-    Once you have downloaded the certificates, right-click each of them in Windows Explorer and select **Install certificate**. 
-    Use the default values in the **Certificate Import Wizard**, and continue selecting **Next** until the import has completed.
+	Une fois les certificats téléchargés, cliquez avec le bouton droit sur chacun d’entre eux dans l’explorateur, puis sélectionnez **Installer le certificat**. Utilisez les valeurs par défaut de l’**Assistant Importation de certificat**, puis sélectionnez **Suivant** jusqu’à ce que l’importation soit terminée.
 
-4. Export the SSL certificate from IIS Manager. For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. 
+4. Exportez le certificat SSL à partir du Gestionnaire des services IIS. Pour plus d’informations sur l’exportation du certificat, consultez la page [Exporter un certificat de serveur (IIS 7)][exportcertiis].
 
-    >[AZURE.IMPORTANT] In the **Certificate Export Wizard**, make sure that you select **Yes, export the private key**  
-    >
-    >![Export the private key][certwiz1]  
-    >
-    > and also select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and     **Export all extended properties**.
-    >
-    >![include all certs and extended properties][certwiz2]
+	>[AZURE.IMPORTANT] Dans **l’Assistant Exportation de certificat**, vérifiez que vous avez sélectionné **Oui, exporter la clé privée**
+	>
+	>![Exporter la clé privée][certwiz1]
+	>
+	> et sélectionnez également **Échange d’informations personnelles - PKCS #12 **, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**.
+	>
+	>![inclure tous les certificats et les propriétés étendues][certwiz2]
 
-You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
+Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Service. Consultez l’étape 2 [. Téléchargez et liez le certificat SSL personnalisé](#bkmk_configuressl).
 
 <a name="bkmk_openssl"></a>
-### <a name="get-a-certificate-using-openssl"></a>Get a certificate using OpenSSL
+### Obtention d’un certificat à l’aide d’OpenSSL
 
-1. In a command-line terminal, `CD` into a working directory generate a private key and CSR by running the following command:
+1. Dans un terminal de ligne de commande, `CD` dans un répertoire de travail génère une clé privée et une demande CSR lorsque la commande suivante est exécutée :
 
-        openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
+		openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
 
-2. When prompted, enter the appropriate information. For example:
+2. Lorsque vous y êtes invité, entrez les informations appropriées. Par exemple :
 
-        Country Name (2 letter code)
+ 		Country Name (2 letter code)
         State or Province Name (full name) []: Washington
         Locality Name (eg, city) []: Redmond
         Organization Name (eg, company) []: Microsoft
@@ -176,204 +173,201 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
         Common Name (eg, YOUR name) []: www.microsoft.com
         Email Address []:
 
-        Please enter the following 'extra' attributes to be sent with your certificate request
+		Please enter the following 'extra' attributes to be sent with your certificate request
 
-        A challenge password []:
+       	A challenge password []:
 
-    When finished, you should have two files in your working directory: **myserver.key** and **server.csr**. 
-    The **server.csr** contains the CSR, and you need **myserver.key** later.
+	Lorsque vous avez terminé, vous devez disposer de deux fichiers dans votre répertoire de travail : **myserver.key** et **server.csr**. Le fichier **server.csr** contient la signature, et vous aurez besoin de **myserver.key** ultérieurement.
 
-3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
+3. Soumettez votre demande CSR à une autorité de certification pour obtenir un certificat SSL. Pour obtenir la liste des autorités de certification approuvées par Microsoft, consultez [Programme de certification racine de confiance Microsoft : Participants][cas].
 
 
-4. Once the CA sends you the requested certificate, save it to a file named **myserver.crt** in your working directory. If your CA provides it in a text format, simply copy the content into **myserver.crt** in a text editor and save it. Your file should look like the following:
+4. Une fois que l’autorité de certification vous envoie le certificat demandé, enregistrez-le dans un fichier nommé **myserver.crt** dans votre répertoire de travail. Si votre autorité de certification fournit le fichier au format texte, copiez simplement le contenu dans **myserver.crt** dans un éditeur de texte et enregistrez-le. Le fichier doit ressembler à ceci :
 
-        -----BEGIN CERTIFICATE-----
-        MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
-        UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
-        c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
-        NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
-        ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
-        ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
-        enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
-        3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
-        xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
-        ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
-        Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
-        AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
-        Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
-        F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
-        7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
-        lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
-        A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
-        -----END CERTIFICATE-----
+		-----BEGIN CERTIFICATE-----
+		MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
+		UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
+		c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
+		NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
+		ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
+		ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
+		enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
+		3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
+		xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
+		ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
+		Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
+		AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
+		Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
+		F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
+		7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
+		lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
+		A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
+		-----END CERTIFICATE-----
 
-5. In the command-line terminal, run the following command to export **myserver.pfx** from **myserver.key** and **myserver.crt**:
+5. Dans le terminal de ligne de commande, exécutez la commande suivante pour exporter **myserver.pfx** depuis **myserver.key** et **myserver.crt** :
 
-        openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
-    When prompted, define a password to secure the .pfx file.
+	Lorsque vous y êtes invité, entrez un mot de passe pour sécuriser le fichier .pfx.
 
-    > [AZURE.NOTE] If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They usually come as a separate download from your CA, and in several formats for different web server types. Select the version with the `.pem` extension.
-    >
-    > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the intermediate certificates from the **intermediate-cets.pem** file:
-    >  
-    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+	> [AZURE.NOTE] Si votre autorité de certification utilise des certificats intermédiaires, vous devez les inclure avec le paramètre `-certfile`. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs web. Sélectionnez la version avec l’extension `.pem`.
+	>
+	> Votre commande `openssl -export` doit ressembler à l’exemple suivant, qui crée un fichier .pfx incluant les certificats intermédiaires à partir du fichier **intermediate-cets.PEM** :
+	>  
+	> `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
 
-You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
+Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Service. Consultez l’étape 2 [. Téléchargez et liez le certificat SSL personnalisé](#bkmk_configuressl).
 
 <a name="bkmk_subjectaltname"></a>
-### <a name="get-a-subjectaltname-certificate-using-openssl"></a>Get a SubjectAltName certificate using OpenSSL
+### Obtention d’un certificat SubjectAltName à l’aide d’OpenSSL
 
-1. Create a file named **sancert.cnf**, copy the following text into it, and save it in a working directory:
+1. Créez un fichier nommé **sancert.cnf** et copiez-y le texte suivant, puis enregistrez-le dans un répertoire de travail :
 
-        # -------------- BEGIN custom sancert.cnf -----
-        HOME = .
-        oid_section = new_oids
-        [ new_oids ]
-        [ req ]
-        default_days = 730
-        distinguished_name = req_distinguished_name
-        encrypt_key = no
-        string_mask = nombstr
-        req_extensions = v3_req # Extensions to add to certificate request
-        [ req_distinguished_name ]
-        countryName = Country Name (2 letter code)
-        countryName_default =
-        stateOrProvinceName = State or Province Name (full name)
-        stateOrProvinceName_default =
-        localityName = Locality Name (eg, city)
-        localityName_default =
-        organizationalUnitName  = Organizational Unit Name (eg, section)
-        organizationalUnitName_default  =
-        commonName              = Your common name (eg, domain name)
-        commonName_default      = www.mydomain.com
-        commonName_max = 64
-        [ v3_req ]
-        subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
-        # -------------- END custom sancert.cnf -----
+		# -------------- BEGIN custom sancert.cnf -----
+		HOME = .
+		oid_section = new_oids
+		[ new_oids ]
+		[ req ]
+		default_days = 730
+		distinguished_name = req_distinguished_name
+		encrypt_key = no
+		string_mask = nombstr
+		req_extensions = v3_req # Extensions to add to certificate request
+		[ req_distinguished_name ]
+		countryName = Country Name (2 letter code)
+		countryName_default =
+		stateOrProvinceName = State or Province Name (full name)
+		stateOrProvinceName_default =
+		localityName = Locality Name (eg, city)
+		localityName_default =
+		organizationalUnitName  = Organizational Unit Name (eg, section)
+		organizationalUnitName_default  =
+		commonName              = Your common name (eg, domain name)
+		commonName_default      = www.mydomain.com
+		commonName_max = 64
+		[ v3_req ]
+		subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
+		# -------------- END custom sancert.cnf -----
 
-    In the line that begins with `subjectAltName`, replace the value with all domain names you want to secure (in addition to  `commonName`). For example:
+	Dans la ligne qui commence par `subjectAltName`, remplacez la valeur avec tous les noms de domaine à sécuriser (en plus de `commonName`). Par exemple :
 
-        subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
+		subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
 
-    You do not need to change any other field, including `commonName`. You will be prompted to specify them in the next few steps.
+	Il est inutile de modifier d’autres champs, y compris `commonName`. Vous serez invité à les spécifier au cours des prochaines étapes.
 
-1. In a command-line terminal, `CD` into your working directory and run the following command:
+1. Dans un terminal de ligne de commande, `CD` dans votre répertoire de travail et exécutez la commande suivante :
 
-        openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048 -config sancert.cnf
+		openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048 -config sancert.cnf
 
-2. When prompted, enter the appropriate information. For example:
+2. Lorsque vous y êtes invité, entrez les informations appropriées. Par exemple :
 
-        Country Name (2 letter code) []: US
+ 		Country Name (2 letter code) []: US
         State or Province Name (full name) []: Washington
         Locality Name (eg, city) []: Redmond
         Organizational Unit Name (eg, section) []: Azure
         Your common name (eg, domain name) []: www.microsoft.com
 
-    Once finished, you should have two files in your working directory: **myserver.key** and **server.csr**. 
-    The **server.csr** contains the CSR, and you need **myserver.key** later.
+	Lorsque vous avez terminé, vous devez disposer de deux fichiers dans votre répertoire de travail : **myserver.key** et **server.csr**. Le fichier **server.csr** contient la signature, et vous aurez besoin de **myserver.key** ultérieurement.
 
-3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
+3. Soumettez votre demande CSR à une autorité de certification pour obtenir un certificat SSL. Pour obtenir la liste des autorités de certification approuvées par Microsoft, consultez [Programme de certification racine de confiance Microsoft : Participants][cas].
 
 
-4. Once the CA sends you the requested certificate, save it to a file named **myserver.crt**. If your CA provides it in a text format, simply copy the content into **myserver.crt** in a text editor and save it. The file should look like the following:
+4. Une fois que l’autorité de certification vous envoie le certificat demandé, enregistrez-le dans un fichier nommé **myserver.crt**. Si votre autorité de certification fournit le fichier au format texte, copiez simplement le contenu dans **myserver.crt** dans un éditeur de texte et enregistrez-le. Le fichier doit se présenter comme suit :
 
-        -----BEGIN CERTIFICATE-----
-        MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
-        UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
-        c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
-        NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
-        ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
-        ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
-        enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
-        3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
-        xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
-        ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
-        Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
-        AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
-        Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
-        F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
-        7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
-        lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
-        A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
-        -----END CERTIFICATE-----
+		-----BEGIN CERTIFICATE-----
+		MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
+		UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
+		c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
+		NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
+		ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
+		ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
+		enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
+		3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
+		xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
+		ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
+		Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
+		AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
+		Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
+		F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
+		7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
+		lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
+		A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
+		-----END CERTIFICATE-----
 
-5. In the command-line terminal, run the following command to export **myserver.pfx** from **myserver.key** and **myserver.crt**:
+5. Dans le terminal de ligne de commande, exécutez la commande suivante pour exporter **myserver.pfx** depuis **myserver.key** et **myserver.crt** :
 
-        openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
-    When prompted, define a password to secure the .pfx file.
+	Lorsque vous y êtes invité, entrez un mot de passe pour sécuriser le fichier .pfx.
 
-    > [AZURE.NOTE] If your CA uses intermediate certificates, you must include them with the `-certfile` parameter. They usually come as a separate download from your CA, and in several formats for different web server types. Select the version with the `.pem` extension).
-    >
-    > Your `openssl -export` command should look like the following example, which creates a .pfx file that includes the intermediate certificates from the **intermediate-cets.pem** file:
-    >  
-    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+	> [AZURE.NOTE] Si votre autorité de certification utilise des certificats intermédiaires, vous devez les inclure avec le paramètre `-certfile`. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs web. Sélectionnez la version avec l’extension `.pem`.
+	>
+	> Votre commande `openssl -export` doit ressembler à l’exemple suivant, qui crée un fichier .pfx incluant les certificats intermédiaires à partir du fichier **intermediate-cets.PEM** :
+	>  
+	> `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
 
-You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
+Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Service. Consultez l’étape 2 [. Téléchargez et liez le certificat SSL personnalisé](#bkmk_configuressl).
 
 <a name="bkmk_sscertreq"></a>
-### <a name="generate-a-self-signed-certificate-using-certreq.exe"></a>Generate a self-signed certificate using Certreq.exe ###
+### Génération d’un certificat auto-signé à l’aide de Certreq.exe ###
 
->[AZURE.IMPORTANT] Self-signed certificates are for test purposes only. Most browsers return errors when visiting a website that's secured by a self-signed certificate. Some browsers may even refuse to navigate to the site. 
+>[AZURE.IMPORTANT] Les certificats auto-signés sont uniquement destinés à des fins de test. La plupart des navigateurs renvoient une erreur lors de la visite d’un site web sécurisé par un certificat auto-signé. Il se peut même que certains navigateurs refusent l’accès au site.
 
-1. Create a text file (e.g. **mycert.txt**), copy into it the following text, and save the file in a working directory. Replace the `<your-domain>` placeholder with the custom domain name of your app.
+1. Créez un fichier texte (par exemple, **mycert.txt**) et copiez-y le texte suivant, puis enregistrez-le dans un répertoire de travail. Remplacez l’espace réservé `<your-domain>` par le nom de domaine personnalisé de votre application.
 
-        [NewRequest]
-        Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
-        Exportable = TRUE
-        KeyLength = 2048              ; KeyLength can be 2048, 4096, 8192, or 16384 (required minimum is 2048)
-        KeySpec = 1
-        KeyUsage = 0xA0
-        MachineKeySet = True
-        ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
-        ProviderType = 12
-        HashAlgorithm = SHA256
-        RequestType = Cert            ; Self-signed certificate
-        ValidityPeriod = Years
-        ValidityPeriodUnits = 1
+		[NewRequest]
+		Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
+		Exportable = TRUE
+		KeyLength = 2048              ; KeyLength can be 2048, 4096, 8192, or 16384 (required minimum is 2048)
+		KeySpec = 1
+		KeyUsage = 0xA0
+		MachineKeySet = True
+		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+		ProviderType = 12
+		HashAlgorithm = SHA256
+		RequestType = Cert            ; Self-signed certificate
+		ValidityPeriod = Years
+		ValidityPeriodUnits = 1
 
-        [EnhancedKeyUsageExtension]
-        OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
+		[EnhancedKeyUsageExtension]
+		OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
-    The important parameter is `RequestType = Cert`, which specifies a self-signed certificate. 
-    For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/library/dn296456.aspx).
+	Le paramètre important est `RequestType = Cert`, qui spécifie un certificat auto-signé. Pour plus d’informations sur les options de la demande CSR, ainsi que sur les autres options disponibles, consultez la [documentation de référence Certreq](https://technet.microsoft.com/library/dn296456.aspx).
 
-4. In the command prompt, `CD` to your working directory and run the following command:
+4. Dans l’invite de commandes, `CD` dans votre répertoire de travail et exécutez la commande suivante :
 
-        certreq -new mycert.txt mycert.crt
-    
-    Your new self-signed certificate is now installed in the certificate store.
+		certreq -new mycert.txt mycert.crt
+	
+	Votre nouveau certificat auto-signé est désormais installé dans le magasin de certificats.
 
-7. To export the certificate from the certificate store, press `Win`+`R` and run **certmgr.msc** to launch Certificate Manager. Select **Personal** > **Certificates**. In the **Issued To** column, you should see an entry with your custom domain name, and the CA you used to generate the certificate in the **Issued By** column.
+7. Pour exporter le certificat à partir du magasin de certificats, appuyez sur `Win`+`R` et exécutez **certmgr.msc** pour lancer le Gestionnaire de certificats. Sélectionnez **Personnel** > **Certificats**. Dans la colonne **Délivré à**, vous devez voir une entrée portant le nom de votre domaine personnalisé et dans la colonne **Délivré par**, vous devez voir l’autorité de certification que vous avez utilisée pour générer le certificat.
 
-    ![insert image of cert manager here][certmgr]
+	![insérer l’image du gestionnaire de certificat ici][certmgr]
 
-9. Right-click the certificate and select **All Tasks** > **Export**. In the **Certificate Export Wizard**, click **Next**, then select **Yes, export the private key**, and then click **Next** again.
+9. Cliquez avec le bouton droit sur le certificat et sélectionnez **Toutes les tâches** > **Exporter**. Dans **l’Assistant Exportation de certificat**, cliquez sur **Suivant**, sélectionnez **Oui, exporter la clé privée**, puis cliquez de nouveau sur **Suivant**.
 
-    ![Export the private key][certwiz1]
+	![Exporter la clé privée][certwiz1]
 
-10. Select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate path if possible**, and **Export all extended properties**. Then, click **Next**.
+10. Sélectionnez **Échange d’informations personnelles - PKCS #12**, **Inclure si possible tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Cliquez ensuite sur **Suivant**.
 
-    ![include all certs and extended properties][certwiz2]
+	![inclure tous les certificats et les propriétés étendues][certwiz2]
 
-11. Select **Password**, and then enter and confirm the password. Click **Next**.
+11. Sélectionnez **Mot de passe**, puis entrez et confirmez le mot de passe. Cliquez sur **Next**.
 
-    ![specify a password][certwiz3]
+	![spécifier un mot de passe][certwiz3]
 
-12. Provide a path and filename for the exported certificate, with the extension **.pfx**. Click **Next** to finish.
+12. Indiquez le chemin d’accès et le nom de fichier pour le certificat exporté, avec l’extension **.pfx**. Cliquez sur **Suivant** pour terminer.
 
-    ![provide a file path][certwiz4]
+	![indiquer le chemin d’accès au fichier][certwiz4]
 
-You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
+Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Service. Consultez l’étape 2 [. Téléchargez et liez le certificat SSL personnalisé](#bkmk_configuressl).
 
 <a name="bkmk_ssopenssl"></a>
-###<a name="generate-a-self-signed-certificate-using-openssl"></a>Generate a self-signed certificate using OpenSSL ###
+###Génération d’un certificat auto-signé à l’aide d'OpenSSL ###
 
->[AZURE.IMPORTANT] Self-signed certificates are for test purposes only. Most browsers return errors when visiting a website that's secured by a self-signed certificate. Some browsers may even refuse to navigate to the site. 
+>[AZURE.IMPORTANT] Les certificats auto-signés sont uniquement destinés à des fins de test. La plupart des navigateurs renvoient une erreur lors de la visite d’un site web sécurisé par un certificat auto-signé. Il se peut même que certains navigateurs refusent l’accès au site.
 
-1. Create a text file named **serverauth.cnf**, then copy the following content into it, and then save it in a working directory:
+1. Créez un fichier texte nommé **serverauth.cnf**, puis copiez-y le contenu suivant et enregistrez-le dans un répertoire de travail :
 
         [ req ]
         default_bits           = 2048
@@ -383,22 +377,22 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
         x509_extensions        = v3_ca
 
         [ req_distinguished_name ]
-        countryName         = Country Name (2 letter code)
-        countryName_min         = 2
-        countryName_max         = 2
-        stateOrProvinceName     = State or Province Name (full name)
-        localityName            = Locality Name (eg, city)
-        0.organizationName      = Organization Name (eg, company)
-        organizationalUnitName      = Organizational Unit Name (eg, section)
-        commonName          = Common Name (eg, your app's domain name)
-        commonName_max          = 64
-        emailAddress            = Email Address
-        emailAddress_max        = 40
+        countryName			= Country Name (2 letter code)
+        countryName_min			= 2
+        countryName_max			= 2
+        stateOrProvinceName		= State or Province Name (full name)
+        localityName			= Locality Name (eg, city)
+        0.organizationName		= Organization Name (eg, company)
+        organizationalUnitName		= Organizational Unit Name (eg, section)
+        commonName			= Common Name (eg, your app's domain name)
+        commonName_max			= 64
+        emailAddress			= Email Address
+        emailAddress_max		= 40
 
         [ req_attributes ]
-        challengePassword       = A challenge password
-        challengePassword_min       = 4
-        challengePassword_max       = 20
+        challengePassword		= A challenge password
+        challengePassword_min		= 4
+        challengePassword_max		= 20
 
         [ v3_ca ]
          subjectKeyIdentifier=hash
@@ -407,131 +401,129 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
          keyUsage=nonRepudiation, digitalSignature, keyEncipherment
          extendedKeyUsage = serverAuth
 
-2. In a command-line terminal, `CD` into your working directory and run the following command:
+2. Dans un terminal de ligne de commande, `CD` dans votre répertoire de travail et exécutez la commande suivante :
 
-        openssl req -sha256 -x509 -nodes -days 365 -newkey rsa:2048 -keyout myserver.key -out myserver.crt -config serverauth.cnf
+		openssl req -sha256 -x509 -nodes -days 365 -newkey rsa:2048 -keyout myserver.key -out myserver.crt -config serverauth.cnf
 
-    This command creates two files: **myserver.crt** (the self-signed certificate) and **myserver.key** (the private key), based on the settings in **serverauth.cnf**.
+	Cette commande crée deux fichiers : **myserver.crt** (certificat auto-signé) et **myserver.key** (clé privée), en fonction des paramètres du document **serverauth.cnf**.
 
-3. Export the certificate to a .pfx file by running the following command:
+3. Exécutez la commande suivante pour exporter le certificat en tant que fichier .pfx :
 
-        openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
-    When prompted, define a password to secure the .pfx file.
+	Lorsque vous y êtes invité, entrez un mot de passe pour sécuriser le fichier .pfx.
 
-You are now ready to upload the exported PFX file to App Service. See [Step 2. Upload and bind the custom SSL certificate](#bkmk_configuressl).
+Vous êtes maintenant prêt à télécharger le fichier PFX exporté vers App Service. Consultez l’étape 2 [. Téléchargez et liez le certificat SSL personnalisé](#bkmk_configuressl).
 
 <a name="bkmk_configuressl"></a>
-## <a name="step-2.-upload-and-bind-the-custom-ssl-certificate"></a>Step 2. Upload and bind the custom SSL certificate
+## Étape 2. Téléchargez et liez le certificat SSL personnalisé.
 
-Before you move on, review the [What you need](#bkmk_domainname) section and verify that:
+Avant de poursuivre, passez en revue la section [Ce dont vous avez besoin](#bkmk_domainname) et vérifiez les éléments suivants :
 
-- you have a custom domain that maps to your Azure app,
-- your app is running in **Basic** tier or higher, and
-- you have an SSL certificate for the custom domain from a CA.
+- Vous avez un domaine personnalisé qui correspond à votre application Azure.
+- Votre application s’exécute au niveau **De base** ou supérieur.
+- Vous disposez d’un certificat SSL issu par une autorité de certification pour le domaine personnalisé.
 
 
-1. In your browser, open the **[Azure Portal.](https://portal.azure.com/)**
-2.  Click the **App Service** option on the left side of the page.
-3.  Click the name of your app to which you want to assign this certificate. 
-4.  In the **Settings**, Click **SSL certificates**
-5.  Click **Upload Certificate**
-6.  Select the .pfx file that you exported in [Step 1](#bkmk_getcert) and specify the password that you create before. Then, click **Upload** to upload the certificate. You should now see your uploaded certificate back in the **SSL certificate** blade.
-7. In the **ssl bindings** section Click on **Add bindings**
-8. In the **Add SSL Binding** blade use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
+1. Dans votre navigateur, ouvrez le **[portail Azure.](https://portal.azure.com/)**
+2.	Cliquez sur l’option **App Service** sur le côté gauche de la page.
+3.	Cliquez sur le nom de votre application à laquelle vous voulez attribuer ce certificat.
+4.	Dans les **Paramètres**, cliquez sur **Certificats SSL**
+5.	Cliquez sur **Télécharger un certificat**
+6.	Sélectionnez le fichier .pfx que vous avez exporté à [l’étape 1](#bkmk_getcert) et le mot de passe que vous avez créé précédemment. Cliquez ensuite sur **Charger** pour charger le certificat. Vous devriez maintenant voir votre certificat téléchargé dans le panneau **Certificat SSL**.
+7. Dans la section **liaisons ssl**, cliquez sur **Ajouter des liaisons**
+8. Dans le panneau **Ajouter une liaison SSL**, utilisez les listes déroulantes pour sélectionner le nom de domaine à sécuriser à l’aide du protocole SSL, ainsi que le certificat à utiliser. Vous pouvez également indiquer si vous voulez utiliser **[l’indication du nom du serveur (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou le protocole SSL basé sur IP.
 
-    ![insert image of SSL Bindings](./media/web-sites-configure-ssl-certificate/sslbindings.png)
+    ![insérer une image de liaisons SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
 
-       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
-       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
+       • Le protocole SSL basé sur IP associe un certificat à un nom de domaine en mappant l’adresse IP publique dédiée du serveur au nom de domaine. Chaque nom de domaine (contoso.com, fabricam.com, etc.) associé à votre service doit donc posséder une adresse IP dédiée. Il s’agit de la méthode classique permettant d’associer des certificats SSL à un serveur Web. • Le protocole SSL basé sur SNI est une extension des protocoles SSL et **[TLS (Transport Layer Security)](http://en.wikipedia.org/wiki/Transport_Layer_Security)** qui permet à plusieurs domaines de partager la même adresse IP, avec des certificats de sécurité distincts pour chaque domaine. La plupart des navigateurs modernes (dont Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI. Il se peut toutefois que les navigateurs plus anciens ne proposent pas cette prise en charge. Pour plus d’informations sur SNI, consultez l’article **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** sur Wikipédia.
      
-9. Click **Add Binding** to save the changes and enable SSL.
+9. Cliquez sur **Ajouter une liaison** pour enregistrer les modifications et activer SSL.
 
-## <a name="step-3.-change-your-domain-name-mapping-(ip-based-ssl-only)"></a>Step 3. Change your domain name mapping (IP based SSL only)
+## Étape 3. Modifier votre mappage de nom de domaine (liaison SSL basée sur IP uniquement)
 
-If you use **SNI SSL** bindings only, skip this section. Multiple **SNI SSL** bindings can work together on the existing shared IP address assigned to your app. However, if you create an **IP based SSL** binding, App Service creates a dedicated IP address for the binding because the **IP based SSL** requires one. Only one dedicated IP address can be created, therefore only one **IP based SSL** binding may be added.
+Si vous utilisez uniquement des liaisons **SSL SNI**, vous pouvez ignorer cette section. Plusieurs liaisons **SSL SNI** peuvent fonctionner conjointement sur l’adresse IP partagée existante attribuée à votre application. Toutefois, si vous créez une liaison **SSL basée sur IP**, App Service crée une adresse IP dédiée pour la liaison, car la liaison **SSL basée sur IP** la requiert. Une seule adresse IP dédiée peut être créée, par conséquent une seule liaison **SSL basée sur IP** peut être ajoutée.
 
-Because of this dedicated IP address, you will need to configure your app further if:
+En raison de cette adresse IP dédiée, vous devez configurer votre application davantage dans les cas suivants :
 
-- You [used an A record to map your custom domain](web-sites-custom-domain-name.md#a) to your Azure app, and you just added an **IP based SSL** binding. In this scenario, you need to remap the existing A record to point to the dedicated IP address by following these steps:
+- Vous avez [utilisé un enregistrement A pour mapper votre domaine personnalisé](web-sites-custom-domain-name.md#a) à votre application Azure et vous venez d’ajouter une liaison **SSL basée sur IP**. Dans ce scénario, vous devez remapper l’enregistrement A existant pour pointer vers l’adresse IP dédiée en procédant comme suit :
 
-    1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
+	1. Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Vous trouverez cette adresse IP sur la page des **domaines personnalisés** sous les paramètres de votre application, juste au-dessus de la section **Noms d’hôtes**. Elle est répertoriée en tant qu’**Adresse IP externe**
     
-        ![Virtual IP address](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
+	    ![Adresse IP virtuelle](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
 
-    2. [Remap the A record for your custom domain name to this new IP address](web-sites-custom-domain-name.md#a).
+	2. [Remappez l’enregistrement A de votre nom de domaine personnalisé à cette nouvelle adresse IP](web-sites-custom-domain-name.md#a).
 
-- You already have one or more **SNI SSL** bindings in your app, and you just added an **IP based SSL** binding. Once the binding is complete, your *&lt;appname>*.azurewebsites.net domain name points to the new IP address. Therefore, any existing [CNAME mapping from the custom domain](web-sites-custom-domain-name.md#cname) to *&lt;appname>*.azurewebsites.net, including the ones that the **SNI SSL** secure, also receives traffic on the new address, which is created for the **IP based SSL** only. In this scenario, you need to send the **SNI SSL** traffic back to the original shared IP address by following these steps:
+- Vous disposez déjà d’une ou plusieurs liaisons **SSL SNI** dans votre application et vous venez d’ajouter une liaison **SSL basée sur IP**. Une fois la liaison terminée, votre nom de domaine *&lt;appname>*.azurewebsites.net pointe vers la nouvelle adresse IP. Par conséquent, tout mappage [CNAME existant du domaine personnalisé](web-sites-custom-domain-name.md#cname) vers *&lt;appname>*.azurewebsites.net, y compris ceux que la liaison **SSL SNI** sécurise, reçoit également le trafic sur la nouvelle adresse, créé pour la liaison **SSL basée sur IP** uniquement. Dans ce scénario, vous devez renvoyer le trafic **SSL SNI** vers l’adresse IP partagée d’origine en procédant comme suit :
 
-    1. Identify all [CNAME mappings of custom domains](web-sites-custom-domain-name.md#cname) to your app that has an **SNI SSL** binding.
+	1. Identifiez tous les mappages [CNAME de domaines personnalisés](web-sites-custom-domain-name.md#cname) vers votre application disposant d’une liaison **SSL SNI**.
 
-    2. Remap each CNAME record to **sni.**&lt;appname>.azurewebsites.net instead of &lt;appname>.azurewebsites.net.
+	2. Remappez chaque enregistrement CNAME vers **sni.**&lt;appname>.azurewebsites.net au lieu de &lt;appname>.azurewebsites.net.
 
-## <a name="step-4.-test-https-for-your-custom-domain"></a>Step 4. Test HTTPS for your custom domain
+## Étape 4. Tester HTTPS pour votre domaine personnalisé
 
-All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse to `https://<your.custom.domain>` to see that it serves up your app.
+Il ne reste plus maintenant qu’à vous assurer que HTTPS fonctionne pour votre domaine personnalisé. Dans différents navigateurs, accédez à `https://<your.custom.domain>` pour vérifier qu’il fournit votre application.
 
-- If your app gives you certificate validation errors, you're probably using a self-signed certificate.
+- Si votre application permet de voir les erreurs de validation de certificat, vous utilisez probablement un certificat auto-signé.
 
-- If that's not the case, you may have left out intermediate certificates when you export your .pfx certificate. Go back to [What you need](#bkmk_domainname) to verify that your CSR meets all the requirements by App Service.
+- Si ce n’est pas le cas, vous pouvez avoir oublié des certificats intermédiaires lorsque vous avez exporté votre certificat .pfx. Revenez à la section [Ce dont vous avez besoin](#bkmk_domainname) pour vérifier que votre demande CSR répond à toutes les exigences d’App Service.
 
 <a name="bkmk_enforce"></a>
-## <a name="enforce-https-on-your-app"></a>Enforce HTTPS on your app
+## Exécution de SSL sur votre application
 
-If you still want to allow HTTP access to your app, skip this step. App Service does *not* enforce HTTPS, so visitors can still access your app using HTTP. If you want to enforce HTTPS for your app, you can define a rewrite rule in the `web.config` file for your app. Every App Service app has this file, regardless of the language framework of your app.
+Si vous souhaitez toujours autoriser l’accès HTTP à votre application, ignorez cette étape. App Service n’appliquant *pas* le protocole HTTPS, les visiteurs peuvent donc toujours accéder à votre application à l’aide de HTTP. Si vous souhaitez appliquer le protocole HTTPS pour votre application, vous pouvez définir une règle de réécriture dans le fichier `web.config` pour votre application. Chaque application App Service contient ce fichier, quelle que soit l’infrastructure de langage de votre application.
 
-> [AZURE.NOTE] There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see [Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
+> [AZURE.NOTE] Certaines redirections de requête sont propres au langage. ASP.NET MVC peut utiliser le filtre [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) au lieu de la règle de réécriture dans `web.config` (voir [Déployer une application ASP.NET MVC 5 sécurisée vers une application web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 
-Follow these steps:
+Procédez comme suit :
 
-1. Navigate to the Kudu debug console for your app. Its address is `https://<appname>.scm.azurewebsites.net/DebugConsole`.
+1. Accédez à la console de débogage Kudu pour votre application. Son adresse est `https://<appname>.scm.azurewebsites.net/DebugConsole`.
 
-2. In the debug console, CD to `D:\home\site\wwwroot`.
+2. Dans la console de débogage, accédez à `D:\home\site\wwwroot`.
 
-3. Open `web.config` by clicking the pencil button.
+3. Ouvrez `web.config` en cliquant sur le bouton du crayon.
 
-    ![](./media/web-sites-configure-ssl-certificate/openwebconfig.png)
+	![](./media/web-sites-configure-ssl-certificate/openwebconfig.png)
 
-    If you deploy your app with Visual Studio or Git, App Service automatically generates the appropriate `web.config` for your .NET, PHP, Node.js, or Python app in the application root. 
-    If `web.config` doesn't exist, run `touch web.config` in the web-based command prompt to create it. Or, you can create it in your local project and redeploy your code.
+	Si vous déployez votre application avec Visual Studio ou Git, App Service génère automatiquement le `web.config` approprié pour votre application .NET, PHP, Node.js ou Python dans la racine de l’application. Si `web.config` n’existe pas, exécutez `touch web.config` dans l’invite de commandes web pour le créer. Vous pouvez également le créer dans votre projet local et redéployer votre code.
 
-4. If you had to create a `web.config`, copy the following code into it and save it. If you opened an existing web.config, then you just need to copy the entire `<rule>` tag into your `web.config`'s `configuration/system.webServer/rewrite/rules` element.
+4. Si vous avez dû créer un `web.config`, copiez-y le code suivant et enregistrez-le. Si vous avez ouvert un fichier web.config existant, il vous suffit de copier l’intégralité de la balise `<rule>` dans l’élément `configuration/system.webServer/rewrite/rules` de votre `web.config`.
 
-        <?xml version="1.0" encoding="UTF-8"?>
-        <configuration>
-          <system.webServer>
-            <rewrite>
-              <rules>
-                <!-- BEGIN rule TAG FOR HTTPS REDIRECT -->
-                <rule name="Force HTTPS" enabled="true">
-                  <match url="(.*)" ignoreCase="false" />
-                  <conditions>
-                    <add input="{HTTPS}" pattern="off" />
-                  </conditions>
-                  <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-                </rule>
-                <!-- END rule TAG FOR HTTPS REDIRECT -->
-              </rules>
-            </rewrite>
+		<?xml version="1.0" encoding="UTF-8"?>
+		<configuration>
+		  <system.webServer>
+		    <rewrite>
+		      <rules>
+			    <!-- BEGIN rule TAG FOR HTTPS REDIRECT -->
+		        <rule name="Force HTTPS" enabled="true">
+		          <match url="(.*)" ignoreCase="false" />
+		          <conditions>
+		            <add input="{HTTPS}" pattern="off" />
+		          </conditions>
+		          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
+		        </rule>
+				<!-- END rule TAG FOR HTTPS REDIRECT -->
+		      </rules>
+		    </rewrite>
           </system.webServer>
-        </configuration>
+		</configuration>
 
-    This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user requests a page using HTTP. It redirects from http://contoso.com to https://contoso.com.
+	Cette règle renvoie un HTTP 301 (redirection permanente) vers le protocole HTTPS chaque fois que l’utilisateur demande une page à l’aide de HTTP. Il redirige de http://contoso.com à https://contoso.com.
 
-    >[AZURE.IMPORTANT] If there are already other `<rule>` tags in your `web.config`, then place the copied `<rule>` tag before the other `<rule>` tags.
+	>[AZURE.IMPORTANT] S’il existe déjà d’autres balises `<rule>` dans votre `web.config`, placez la balise `<rule>` copiée avant les autres balises `<rule>`.
 
-4. Save the file in the Kudu debug console. It should take effect immediately redirect all requests to HTTPS.
+4. Enregistrez le fichier dans la console de débogage Kudu. Toutes les demandes doivent normalement être immédiatement redirigées vers HTTPS.
 
-For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.
+Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la documentation sur la [Réécriture d'URL](http://www.iis.net/downloads/microsoft/url-rewrite).
 
-## <a name="more-resources"></a>More Resources ##
-- [Microsoft Azure Trust Center](/support/trust-center/security/)
-- [Configuration options unlocked in Azure Web Sites](/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Enable diagnostic logging](web-sites-enable-diagnostic-log.md)
-- [Configure web apps in Azure App Service](web-sites-configure.md)
-- [Azure Management Portal](https://manage.windowsazure.com)
+## Autres ressources ##
+- [Centre de gestion de la confidentialité Microsoft Azure](/support/trust-center/security/)
+- [Options de configuration déverrouillées dans Sites Web Azure](/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+- [Activer la journalisation des diagnostics](web-sites-enable-diagnostic-log.md)
+- [Configurer des applications web dans Azure App Service](web-sites-configure.md)
+- [Portail de gestion Azure](https://manage.windowsazure.com)
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 [customdomain]: web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
@@ -557,10 +549,4 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

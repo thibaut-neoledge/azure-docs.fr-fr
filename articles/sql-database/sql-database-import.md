@@ -1,100 +1,98 @@
 <properties
-    pageTitle="Import a BACPAC file to create an Azure SQL database | Microsoft Azure"
-    description="Create an Azure SQL database by importing an existing BACPAC file."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Importer un fichier BACPAC pour créer une base de données SQL Azure | Microsoft Azure"
+	description="Créer une base de données SQL Azure en important un fichier BACPAC existant."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="08/31/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="08/31/2016"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"/>
 
 
+# Importer un fichier BACPAC pour créer une base de données SQL Azure
 
-# <a name="import-a-bacpac-file-to-create-an-azure-sql-database"></a>Import a BACPAC file to create an Azure SQL database
 
-
-**Single database**
+**Base de données unique**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-import.md)
+- [Portail Azure](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 
-This article provides directions for creating an Azure SQL database from a BACPAC file using the [Azure portal](https://portal.azure.com).
+Cet article fournit des instructions pour créer une base de données SQL Azure à partir d’un fichier BACPAC à l’aide du [portail Azure](https://portal.azure.com).
 
-A BACPAC is a .bacpac file that contains a database schema and data. The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-export.md).
-
-
-> [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+Un BACPAC est un fichier .bacpac qui contient un schéma de base de données et des données. La base de données est créée à partir d'un fichier BACPAC importé depuis un conteneur d'objets blob de stockage Azure. Si vous n’avez pas de fichier .bacpac dans le stockage Azure, vous pouvez en créer un en suivant la procédure décrite dans [Créer et exporter un fichier BACPAC à partir d’une base de données SQL Azure](sql-database-export.md).
 
 
-To import a SQL database from a .bacpac you need the following:
-
-- An Azure subscription. 
-- An Azure SQL Database V12 server. If you do not have a V12 server, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- A .bacpac file of the database you want to import in an [Azure Storage account (standard)](../storage/storage-create-storage-account.md) blob container.
-
-> [AZURE.IMPORTANT] When importing a BACPAC from Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
+> [AZURE.NOTE] La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur que vous pouvez restaurer, et en assure la maintenance. Pour plus d’informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
 
 
-## <a name="select-the-server-to-host-the-database"></a>Select the server to host the database
+Pour importer une base de données SQL à partir d'un fichier .bacpac, vous avez besoin des éléments suivants :
 
-Open the SQL Server blade:
+- Un abonnement Azure.
+- Un serveur V12 de base de données SQL Azure. Si vous n’avez pas de serveur V12, créez-en un en suivant les étapes figurant dans cet article : [Créer votre première base de données SQL Azure](sql-database-get-started.md).
+- Un fichier .bacpac de la base de données que vous souhaitez importer dans un conteneur d’objets blob de [compte Azure Storage (standard)](../storage/storage-create-storage-account.md).
 
-1.  Go to the [Azure portal](https://portal.azure.com).
-2.  Click **SQL servers**.
-3.  Click the server to restore the database into.
-4.  In the SQL Server blade click **Import database** to open the **Import database** blade:
+> [AZURE.IMPORTANT] Lorsque vous importez un fichier BACPAC à partir d’un stockage d’objets blob Azure, utilisez le stockage standard. L’importation d’un fichier BACPAC à partir de Premium Storage n’est pas prise en charge.
 
-    ![import database][1]
 
-1.  Click **Storage** and select your storage account, blob container, and .bacpac file and click **OK**.
+## Sélectionner le serveur pour héberger la base de données
 
-    ![configure storage options][2]
+Ouvrez le panneau SQL Server :
 
-1.  Select the pricing tier for the new database and click **Select**. Importing a database directly into an elastic pool is not supported, but you can first import into a single database and then move the database into a pool.
+1.	Accédez au [portail Azure](https://portal.azure.com).
+2.	Cliquez sur **Serveurs SQL**.
+3.	Cliquez sur le serveur dans lequel la base de données doit être restaurée.
+4.	Dans le panneau SQL Server, cliquez sur **Importer la base de données** pour ouvrir le panneau **Importer la base de données** :
 
-    ![select pricing tier][3]
+    ![importer une base de données][1]
 
-1.  Enter a **DATABASE NAME** for the database you are creating from the BACPAC file.
-2.  Choose the authentication type and then provide the authentication information for the server. 
-3.  Click **Create** to create the database from the BACPAC.
+1.  Cliquez sur **Stockage** et sélectionnez votre compte de stockage, le conteneur blob et le fichier .bacpac, puis cliquez sur **OK**.
 
-    ![create database][4]
+    ![configurer les options de stockage][2]
 
-Clicking **Create** submits an import database request to the service. Depending on the size of your database, the import operation may take some time to complete.
+1.  Sélectionnez le niveau de tarification de la nouvelle base de données et cliquez sur **Sélectionner**. L’importation d’une base de données directement dans un pool n’est pas prise en charge ; vous pouvez cependant effectuer l’importation dans une base de données unique, puis déplacer la base de données dans un pool.
 
-## <a name="monitor-the-progress-of-the-import-operation"></a>Monitor the progress of the import operation
+    ![sélectionner un niveau de tarification][3]
 
-1.  Click **SQL servers**.
-2.  Click the server you are restoring to.
-3.  In the SQL server blade, in the Operations area, click **Import/Export history**:
+1.  Entrez un **nom de base de données** pour la base de données que vous créez à partir du fichier BACPAC.
+2.  Choisissez le type d’authentification, puis saisissez les informations d’authentification pour le serveur.
+3.  Cliquez sur **Créer** pour créer la base de données à partir du fichier BACPAC.
 
-    ![import export history][5]
-    ![import export history][6]
+    ![créer une base de données][4]
 
+La commande **Créer** envoie une demande d’importation de la base de données au service. Selon la taille de votre base de données, l'opération d'importation peut prendre plus ou moins longtemps.
+
+## Surveillez la progression de l’opération d’importation
+
+1.	Cliquez sur **Serveurs SQL**.
+2.	Cliquez sur le serveur sur lequel vous effectuez la restauration.
+3.	Dans le panneau du serveur SQL, dans la zone Opérations, cliquez sur **Historique d’importation/exportation** :
+
+    ![historique d’import export][5] ![historique d’import export][6]
 
 
 
 
-## <a name="verify-the-database-is-live-on-the-server"></a>Verify the database is live on the server
 
-1.  Click **SQL databases** and verify the new database is **Online**.
+## Vérifiez que la base de données est en ligne sur le serveur
+
+1.	Cliquez sur **Bases de données SQL** et vérifiez que la nouvelle base de données est **En ligne**.
 
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
+- Pour vous connecter et interroger une base de données SQL importée, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
 
 
 <!--Image references-->
@@ -105,8 +103,4 @@ Clicking **Create** submits an import database request to the service. Depending
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

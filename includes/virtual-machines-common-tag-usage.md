@@ -1,27 +1,22 @@
 
 
 
-## <a name="viewing-your-tags-in-the-usage-details"></a>Viewing your tags in the usage details
+## Affichage de vos balises dans les détails d’utilisation
 
-Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
+Les balises placées sur des ressources de calcul, de réseau et de stockage dans le modèle de déploiement Azure Resource Manager apparaissent dans vos détails d’utilisation dans le [portail de facturation](https://account.windowsazure.com/).
 
-Click on **Download usage details** to view the usage details in your subscription.
+Cliquez sur **Télécharger les détails d'utilisation** pour afficher les détails d'utilisation dans votre abonnement.
 
-![Usage details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Détails d’utilisation dans le portail Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Select your billing statement and the **Version 2** usage details:
+Sélectionnez votre relevé de facturation et les détails d’utilisation **Version 2** :
 
-![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Détails d’utilisation dans la version préliminaire 2 du portail Azure](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-From the usage details, you can see all of the tags in the **Tags** column:
+Dans les détails d’utilisation, vous pouvez voir toutes les balises dans la colonne **Balises** :
 
-![Tags column in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![Colonne Balises dans le portail Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
+En analysant ces balises ainsi que leur utilisation, les organisations sont en mesure de mieux comprendre leurs données de consommation.
 
 

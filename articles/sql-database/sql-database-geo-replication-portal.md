@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Configure Geo-Replication for Azure SQL Database with the Azure portal | Microsoft Azure" 
-    description="Configure Geo-Replication for Azure SQL Database using the Azure portal" 
+    pageTitle="Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure | Microsoft Azure" 
+    description="Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,91 +16,89 @@
     ms.date="07/14/2016"
     ms.author="sstein"/>
 
-
-# <a name="configure-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configure Geo-Replication for Azure SQL Database with the Azure portal
+# Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure
 
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-geo-replication-overview.md)
-- [Azure Portal](sql-database-geo-replication-portal.md)
+- [Vue d'ensemble](sql-database-geo-replication-overview.md)
+- [Portail Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-This article shows you how to configure Active Geo-Replication for SQL Database with the [Azure portal](http://portal.azure.com).
+Cet article montre comment configurer la géoréplication active pour la Base de données SQL à l’aide du [portail Azure](http://portal.azure.com).
 
-To initiate failover with the Azure portal, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-failover-portal.md).
+Pour lancer un basculement avec le portail Azure, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure](sql-database-geo-replication-failover-portal.md).
 
->[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
+>[AZURE.NOTE] La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
 
-To configure Geo-Replication using the Azure portal, you need the following:
+Pour configurer la géoréplication à l’aide du portail Azure, vous devez disposer des éléments suivants :
 
-- An Azure subscription. 
-- An Azure SQL Database database - The primary database that you want to replicate to a different geographical region.
+- Un abonnement Azure.
+- Une base de données SQL Azure : base de données primaire que vous souhaitez répliquer vers une autre région géographique.
 
-## <a name="add-secondary-database"></a>Add secondary database
+## Ajout d'une base de données secondaire
 
-The following steps create a new secondary database in a Geo-Replication partnership.  
+Les étapes suivantes créent une nouvelle base de données secondaire dans un partenariat de géoréplication.
 
-To add a secondary you must be the subscription owner or co-owner. 
+Pour ajouter une base de données secondaire, vous devez être le propriétaire ou copropriétaire de l’abonnement.
 
-The secondary database will have the same name as the primary database and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic database. For more information, see [Service Tiers](sql-database-service-tiers.md).
-After the secondary is created and seeded, data will begin replicating from the primary database to the new secondary database. 
+La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service. La base de données secondaire peut être accessible en lecture ou non, et il peut s’agir d’une base de données unique ou d’une base de données élastique. Pour plus d’informations, consultez [Niveaux de service](sql-database-service-tiers.md). Une fois la base de données secondaire créée et amorcée, une réplication asynchrone des données de la base de données primaire vers la base de données secondaire commence.
 
-> [AZURE.NOTE] If the partner database already exists (for example - as a result of terminating a previous Geo-Replication relationship) the command will fail.
+> [AZURE.NOTE] Si la base de données partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géoréplication précédente), la commande échoue.
 
-### <a name="add-secondary"></a>Add secondary
+### Ajouter une base de données secondaire
 
-1. In the [Azure portal](http://portal.azure.com) browse to the database that you want to setup for Geo-Replication.
-2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
-3. Select the region to create the secondary database.
-
-
-    ![Add secondary][1]
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données que vous souhaitez configurer pour la géoréplication.
+2. Dans le panneau de la base de données SQL, sélectionnez **Tous les paramètres** > **Géo-réplication**.
+3. Sélectionnez la région pour créer la base de données secondaire.
 
 
-4. Configure the **Secondary type** (**Readable**, or **Non-readable**).
-5. Select or configure the server for the secondary database.
+    ![Ajouter une base de données secondaire][1]
 
-    ![Create Secondary][3]
 
-5. Optionally, you can add a secondary database to an elastic database pool:
+4. Configurez le **Type secondaire** (**Accessible en lecture** ou **Non accessible en lecture**).
+5. Sélectionnez ou configurer le serveur pour la base de données secondaire.
 
-       - Click **Elastic database pool** and select a pool on the target server to create the secondary database in. A pool must already exist on the target server as this workflow does not create a new pool.
+    ![Créer une base de données secondaire][3]
 
-6. Click **Create** to add the secondary.
+5. Si vous le souhaitez, vous pouvez ajouter une base de données secondaire à un pool de base de données élastique :
+
+       - Cliquez sur **pool de base de données élastique**, puis sélectionnez un pool sur le serveur cible dans lequel créer la base de données secondaire. Un pool doit déjà exister sur le serveur cible, car ce flux de travail ne crée pas un nouveau pool.
+
+6. Cliquez sur **créer** pour ajouter la base de données secondaire.
  
-6. The secondary database is created and the seeding process begins. 
+6. La base de données secondaire est créée et le processus d’amorçage commence.
  
-    ![seeding][6]
+    ![amorçage][6]
 
-7. When the seeding process is complete the secondary database displays its status (non-readable.
+7. Lorsque le processus d’amorçage est terminé, la base de données secondaire affiche son état (Non accessible en lecture).
 
-    ![secondary ready][9]
-
-
-
-## <a name="remove-secondary-database"></a>Remove secondary database
-
-The operation permanently terminates the replication to the secondary database and change the role of the secondary to a regular read-write database. If the connectivity to the secondary database is broken the command succeeds but the secondary will not become read-write until after connectivity is restored.  
-
-1. In the [Azure portal](http://portal.azure.com) browse to the primary database in the Geo-Replication partnership.
-2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
-3. In the **SECONDARIES** list select the database you want to remove from the Geo-Replication partnership.
-4. Click **Stop Replication**.
-
-    ![remove secondary][7]
+    ![base de données secondaire prête][9]
 
 
-5. Clicking **Stop Replication** opens a confirmation window so click **Yes** to remove the database from the Geo-Replication partnership (set it to a read-write database not part of any replication).
+
+## Suppression d’une base de données secondaire
+
+L’opération arrête définitivement la réplication vers la base de données secondaire et modifie le rôle de la base de données secondaire en une base de données normale accessible en lecture et en écriture. Si la connectivité à la base de données secondaire est interrompue, la commande aboutit, mais la base de données secondaire ne passe pas en mode lecture-écriture une fois la connectivité rétablie.
+
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géoréplication.
+2. Dans le panneau de la base de données SQL, sélectionnez **Tous les paramètres** > **Géo-réplication**.
+3. Dans la liste des bases de données **SECONDAIRES**, sélectionnez la base de données que vous souhaitez supprimer du partenariat de géoréplication.
+4. Cliquez sur **Arrêter la réplication**.
+
+    ![supprimer la base de données secondaire][7]
 
 
-    ![confirm removal][8]
+5. Un clic sur **Arrêter la réplication** ouvre une fenêtre de confirmation. Cliquer sur **Oui** pour supprimer la base de données du partenariat de géoréplication (définissez-la comme base de données en lecture-écriture ne faisant partie d’aucune réplication).
 
 
-## <a name="next-steps"></a>Next steps
+    ![confirmer la suppression][8]
 
-- To learn more about Active Geo-Replication, see - [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+
+## Étapes suivantes
+
+- Pour plus d’informations sur la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
+- Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
 
 <!--Image references-->
@@ -115,9 +113,4 @@ The operation permanently terminates the replication to the secondary database a
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,21 +1,18 @@
-### <a name="to-add-address-space"></a>To add address space
+### Pour ajouter un espace d’adressage
 
-1. To add additional address space, click **All settings** to open the **Settings** blade. 
+1. Pour ajouter un espace d’adressage supplémentaire, cliquez sur **Tous les paramètres** pour ouvrir le panneau **Paramètres**. 
 
-2. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+2. Dans le panneau **Paramètres**, cliquez sur **Espace d’adressage** pour ouvrir le panneau Espace d’adressage. Ajoutez l’espace d’adressage supplémentaire dans ce panneau, puis cliquez sur **Enregistrer** en haut du panneau.
 
-    ![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
+	![Ajouter un espace d’adressage](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### <a name="to-add-subnets"></a>To add subnets 
+### Pour ajouter des sous-réseaux 
 
-1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
+1. Pour ajouter des sous-réseaux supplémentaires à vos espaces d’adressage, dans le panneau **Paramètres**, cliquez sur **Sous-réseaux** pour ouvrir le panneau **Sous-réseaux**. 
 
-2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
-
-
-    ![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
+2. Dans le panneau Sous-réseaux, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un sous-réseau**. Nommez votre nouveau sous-réseau et spécifiez la plage d’adresses, puis cliquez sur **OK** en bas du panneau. Après avoir créé un sous-réseau, vous pouvez utiliser le panneau Sous-réseaux pour afficher tous vos sous-réseaux pour un réseau virtuel.
 
 
-<!--HONumber=Oct16_HO2-->
+	![Paramètres de sous-réseau](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)
 
-
+<!-------HONumber=AcomDC_0406_2016-->

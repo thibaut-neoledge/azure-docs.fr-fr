@@ -1,10 +1,10 @@
 <properties
- pageTitle="Scheduler Limits and Defaults"
- description="Scheduler Limits and Defaults"
+ pageTitle="Limites et valeurs par défaut de Scheduler"
+ description="Limites et valeurs par défaut de Scheduler"
  services="scheduler"
  documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,42 +13,37 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="deli"/>
+ ms.author="krisragh"/>
 
+# Limites et valeurs par défaut de Scheduler
 
-# <a name="scheduler-limits-and-defaults"></a>Scheduler Limits and Defaults
-
-## <a name="scheduler-quotas,-limits,-defaults,-and-throttles"></a>Scheduler Quotas, Limits, Defaults, and Throttles
+## Limitations, valeurs par défaut, limites et quotas de Scheduler
 
 [AZURE.INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>The x-ms-request-id Header
+## L'en-tête x-ms-request-id
 
-Every request made against the Scheduler service returns a response header named**x-ms-request-id**. This header contains an opaque value that uniquely identifies the request.
+Chaque requête adressée au service de Scheduler retourne un en-tête de réponse nommé **x-ms-request-id**. Cet en-tête contient une valeur opaque qui identifie de façon unique la requête.
 
-If a request is consistently failing and you have verified that the request is properly formulated, you may use this value to report the error to Microsoft. In your report, include the value of x-ms-request-id, the approximate time that the request was made, the identifier of the subscription, job collection, and/or job, and the type of operation that the request attempted.
+Si une requête échoue constamment et que vous avez vérifié qu'elle est formulée correctement, vous pouvez utiliser cette valeur pour signaler l'erreur à Microsoft. Dans votre rapport, incluez la valeur de x-ms-request-id, l’heure approximative de la requête, l’identificateur de l’abonnement, la collection de travaux et/ou la tâche et le type d’opération tenté par la requête.
 
-## <a name="see-also"></a>See Also
-
-
- [What is Scheduler?](scheduler-intro.md)
-
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
-
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
-
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
-
- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
-
- [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
-
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+## Voir aussi
 
 
+ [Présentation d'Azure Scheduler](scheduler-intro.md)
 
-<!--HONumber=Oct16_HO2-->
+ [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
 
+ [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
 
+ [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
+
+ [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
+
+ [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
+
+ [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
+
+ [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement Troubleshooting Guide - Analytics" 
-   description="Troubleshooting Analytics, Monitoring, Segmentation, and Dashboard issues in Azure Mobile Engagement" 
+   pageTitle="Guide de dépannage d’Azure Mobile Engagement - Analyse" 
+   description="Dépannage des problèmes d’analyse, de surveillance, de segmentation et de tableau de bord dans Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,58 +16,53 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
+# Guide de dépannage pour les problèmes d’analyse, de surveillance, de segmentation et de tableau de bord
 
-# <a name="troubleshooting-guide-for-analytics,-monitoring,-segmentation,-and-dashboard-issues"></a>Troubleshooting guide for Analytics, Monitoring, Segmentation, and Dashboard issues
+Les éléments suivants sont des problèmes potentiels liés à la façon dont Azure Mobile Engagement rassemble des informations sur vos applications, périphériques et utilisateurs.
 
-The following are possible issues you may encounter with how Azure Mobile Engagement gathers information about your applications, devices, and users.
+## Informations manquantes/retardées
 
-## <a name="missing/delayed-information"></a>Missing/Delayed information
+### Problème
+- Les informations sont retardées dans l'analyse, la segmentation ou le tableau de bord.
+- Il manque des informations de surveillance.
+- Il manque des informations d'analyse, de segmentation ou du tableau de bord.
+- Limites de segmentation atteinte.
 
-### <a name="issue"></a>Issue
-- Information is delayed in appearing in Analytics, Segmentation, or Dashboard.
-- Information is missing from Monitoring.
-- Information is missing from Analytics, Segmentation, or Dashboard.
-- Hitting segmentation limits.
+### Causes
 
-### <a name="causes"></a>Causes
+- Vous pouvez utiliser l'API Analytics, Monitor et Segments pour voir si des données manquantes dans l'IU sont visibles avec les API.
+- Si le Kit de développement logiciel (SDK) Azure Mobile Engagement n'est pas correctement intégrée dans votre application, vous ne serez pas en mesure de voir les informations dans Analyse, Segmentation, Surveillance ou Tableaux de bord.
+- Les segments ne peuvent pas être modifiée après avoir été créés, ils peuvent uniquement être « clonés » (copiés) ou « détruits » (supprimés). Les segments peuvent uniquement contenir 10 critères.
+- La meilleure façon de tester les informations manquantes de l'analyse consiste à configurer un périphérique de test, à désinstaller et/ou à réinstaller l'application sur le périphérique de test.
+- Les informations sont actualisées toutes les 24 heures pour l'analyse, la segmentation ou les tableaux de bord.
+- Les informations figurant dans les nouveaux segments ne peuvent pas être affichées au cours de 24 heures qui suivent leur création, même si le segment est basé sur des informations antérieures.
+- Le filtrage de vos données d’analyse, dans l’interface utilisateur, affiche tous les exemples de ce type, et ce, quelle que soit la version de votre application (par exemple les « Incidents » filtrés par nom s’afficheront depuis la version 1 et la version 2 de votre application).
+- La période de l'analyse est basée sur la date des paramètres des périphériques des utilisateurs ; ainsi, un utilisateur dont le téléphone a une date incorrecte pourrait s'afficher dans une période incorrecte.
+- Aucune donnée côté serveur n'est enregistrée lorsque vous utilisez le bouton pour « tester » les notifications Push. Les données sont enregistrées uniquement pour les vraies campagnes de notification Push.
 
-- You can use the Analytics API, Monitor API, and Segments API to see if any data you are missing from the UI is visible through the APIs.
-- If the Azure Mobile Engagement SDK is not correctly integrated into your app then you won't be able to see information in the Analytics, Segmentation, Monitoring, or Dashboards.
-- Segments can't be changed once they are created, segments can only be "cloned" (copied) or "destroyed" (deleted). Segments can only contain 10 criteria.
-- The best way to test missing information from monitoring is to setup a test device, uninstall and/or reinstall the app on the test device.
-- Information is refreshed every 24 hours for Analytics, Segmentation, or Dashboards.
-- Information in new segments may not be displayed until 24 hours after they are created even if the segment is based on previous information.
-- Filtering your analytics data in the UI will show all examples of this type regardless of the version of your app (e.g. "Crashes" filtered by name will show from version 1 and version 2 of your app).
-- The time period for Analytics is based on the date from the users' device settings, so a user whose phone has the date incorrectly set could show up in the wrong time period.
-- No server side data is logged when you use the button to "test" pushes, data is only logged for real push campaigns.
+## Impossible de trouver des éléments dans l'interface utilisateur
 
-## <a name="can't-locate-items-in-ui"></a>Can't locate items in UI
+### Problème
+- Impossible de créer des segments en fonction de certains critères de balise d'informations d'application intégrés ou personnalisés.
+- Impossible de trouver certains critères de balise d'informations d'application intégrés ou personnalisés dans l'analyse, la surveillance ou les tableaux de bord.
+- Impossible d'interpréter les données de l'analyse, de la surveillance, de la segmentation ou des tableaux de bord.
 
-### <a name="issue"></a>Issue
-- Can't create segments based on certain built in or custom app info tag criteria.
-- Can't find certain built in or custom app info tag criteria in Analytics, Monitoring, or Dashboards.
-- Can't interpret the data in Analytics, Monitoring, Segmentation, or Dashboards.
+### Causes
 
-### <a name="causes"></a>Causes
+- Certains éléments intégrés et certaines balises d'informations d'application sont uniquement disponibles en tant que critères push mais ne peuvent pas être ajoutés à un segment ou être visibles depuis l'analyse, la surveillance ou le tableau de bord.
+- Pour les éléments intégrés et les balises d'informations d'application qui ne peuvent pas être ajoutés à un segment, vous devrez configurer la liste des critères de ciblage dans chaque campagne pour effectuer la même fonction que le ciblage basé sur un segment.
+- Consultez les menus contextuels dans les sections Analyse, Surveillance, Segmentation et Tableaux de bord de l'interface utilisateur d'Azure Mobile Engagement pour obtenir de l'aide de l'aide et consignes.
 
-- Some built in items and app info tags are only available as push criteria but may not be added to a segment or visible from Analytics, Monitoring, or Dashboard. 
-- For built in items and app info tags that can't be added to a segment, you will need to setup list of targeting criteria in each campaign to perform the same function as targeting based on a segment.
-- See the context menus in the Analytics, Monitoring, Segmentation, and Dashboards sections of the Azure Mobile Engagement UI for more help and how to information.
+## Dépannage d'incident
 
-## <a name="crash-troubleshooting"></a>Crash troubleshooting
+### Problème
+- Incidents d'application apparaissant dans l'analyse, la surveillance ou le tableau de bord.
 
-### <a name="issue"></a>Issue
-- Application Crashes appearing in Analytics, Monitoring, or Dashboard.
+### Causes
 
-### <a name="causes"></a>Causes
-
-- To troubleshoot Application Crashes seen in Analytics, Monitoring, or Dashboard make sure to check the release notes for known issues with previous versions of the SDK.
-- To further troubleshoot application crashes perform an event from a test device with your application installed and look up your device ID in the “Monitor – Events” section of the Azure Mobile Engagement UI. Then perform the event that is causing your application to crash and look up additional information in the “Monitor – Crash” section of the Azure Mobile Engagement UI. 
+- Pour résoudre les problèmes d'incident d'application dans Analyse, Surveillance ou Tableau de bord, veillez à consulter les notes de publication pour les problèmes connus avec les versions précédentes du Kit de développement logiciel (SDK).
+- Pour mieux résoudre les incidents d'application, effectuez un événement à partir d'un périphérique de test avec votre application installée et recherchez l'ID de votre périphérique dans la section « Moniteur – Événements » de l'interface utilisateur d'Azure Mobile Engagement. Effectuez ensuite l'événement à l'origine de l'incident de votre application et cherchez des informations supplémentaires dans la section « Moniteur – Incident » de l'interface utilisateur d'Azure Mobile Engagement.
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

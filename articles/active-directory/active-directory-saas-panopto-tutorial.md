@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Panopto | Microsoft Azure" 
-    description="Learn how to use Panopto with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Panopto | Microsoft Azure" 
+    description="Apprenez à utiliser Panopto avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,140 +11,130 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-panopto"></a>Tutorial: Azure Active Directory integration with Panopto
+#Didacticiel : Intégration d’Azure Active Directory à Panopto
   
-The objective of this tutorial is to show the integration of Azure and Panopto.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Panopto. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
--   A valid Azure subscription
--   A Panopto tenant
+-   Un abonnement Azure valide
+-   Un locataire Panopto
   
-After completing this tutorial, the Azure AD users you have assigned to Panopto will be able to single sign into the application at your Panopto company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Panopto pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Panopto (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md)
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1.  Enabling the application integration for Panopto
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Activation de l’intégration d’application pour Panopto
+2.  Configuration de l'authentification unique
+3.  Configuration de l'approvisionnement des utilisateurs
+4.  Affectation d’utilisateurs
 
-![Scenario](./media/active-directory-saas-panopto-tutorial/IC777665.png "Scenario")
-##<a name="enabling-the-application-integration-for-panopto"></a>Enabling the application integration for Panopto
+![Scénario](./media/active-directory-saas-panopto-tutorial/IC777665.png "Scénario")
+##Activation de l’intégration d’application pour Panopto
   
-The objective of this section is to outline how to enable the application integration for Panopto.
+Cette section décrit l’activation de l’intégration d’application pour Panopto.
 
-###<a name="to-enable-the-application-integration-for-panopto,-perform-the-following-steps:"></a>To enable the application integration for Panopto, perform the following steps:
+###Pour activer l’intégration d’application pour Panopto, procédez comme suit :
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-panopto-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-panopto-tutorial/IC700994.png "Applications")
 
-4.  Click **Add** at the bottom of the page.
+4.  Cliquez sur **Ajouter** en bas de la page.
 
-    ![Add application](./media/active-directory-saas-panopto-tutorial/IC749321.png "Add application")
+    ![Ajouter l’application](./media/active-directory-saas-panopto-tutorial/IC749321.png "Ajouter l’application")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-panopto-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-panopto-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  In the **search box**, type **Panopto**.
+6.  Dans la **zone de recherche**, tapez **Panopto**.
 
-    ![Appkication Gallery](./media/active-directory-saas-panopto-tutorial/IC777666.png "Appkication Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-panopto-tutorial/IC777666.png "Galerie d’applications")
 
-7.  In the results pane, select **Panopto**, and then click **Complete** to add the application.
+7.  Dans le volet de résultats, sélectionnez **Panopto**, puis cliquez sur **Terminer** pour ajouter l’application.
 
     ![Panopto](./media/active-directory-saas-panopto-tutorial/IC782936.png "Panopto")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configuration de l'authentification unique
   
-The objective of this section is to outline how to enable users to authenticate to Panopto with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Panopto avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  In the Azure classic portal, on the **Panopto** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  Dans le portail Azure Classic, dans la page d’intégration d’application **Panopto**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure single sign-on](./media/active-directory-saas-panopto-tutorial/IC777667.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-panopto-tutorial/IC777667.png "Configurer l’authentification unique")
 
-2.  On the **How would you like users to sign on to Panopto** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Panopto**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Configure single sign-on](./media/active-directory-saas-panopto-tutorial/IC777668.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-panopto-tutorial/IC777668.png "Configurer l’authentification unique")
 
-3.  On the **Configure App URL** page, in the **Panopto Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>. Panopto.com*", and then click **Next**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Panopto**, tapez votre URL selon le modèle suivant « *https://\<nom-locataire>. Panopto.com* », puis cliquez sur **Suivant**.
 
-    ![Configure app URL](./media/active-directory-saas-panopto-tutorial/IC777528.png "Configure app URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-panopto-tutorial/IC777528.png "Configurer l’URL de l’application")
 
-4.  On the **Configure single sign-on at Panopto** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+4.  Dans la page **Configurer l’authentification unique sur Panopto**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
-    ![Configure single sign-on](./media/active-directory-saas-panopto-tutorial/IC777669.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-panopto-tutorial/IC777669.png "Configurer l’authentification unique")
 
-5.  In a different web browser window, log into your Panopto company site as an administrator.
+5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Panopto en tant qu’administrateur.
 
-6.  In the toolbar on the left, click **System**, and then click **Identity Providers**.
+6.  Dans la barre d’outils située sur la gauche, cliquez sur **System**, puis sur **Identity Providers**.
 
-    ![System](./media/active-directory-saas-panopto-tutorial/IC777670.png "System")
+    ![Système](./media/active-directory-saas-panopto-tutorial/IC777670.png "Système")
 
-7.  Click **Add Provider**.
+7.  Cliquez sur **Add Provider**.
 
-    ![Identity Providers](./media/active-directory-saas-panopto-tutorial/IC777671.png "Identity Providers")
+    ![Fournisseurs d’identité](./media/active-directory-saas-panopto-tutorial/IC777671.png "Fournisseurs d’identité")
 
-8.  In the SAML provider section, perform the following steps:
+8.  Dans la section du fournisseur SAML, procédez comme suit :
 
-    ![SaaS configuration](./media/active-directory-saas-panopto-tutorial/IC777672.png "SaaS configuration")
+    ![Configuration SaaS](./media/active-directory-saas-panopto-tutorial/IC777672.png "Configuration SaaS")
 
-    1.  From the **Provider Type** list, select **SAML20**
-    2.  In the **Instance Name** textbox, type a name for the instance.
-    3.  In the **Friendly Description** textbox, type a friendly description.
-    4.  In the Azure classic portal, on the **Configure single sign-on at Panopto** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
-    5.  In the Azure classic portal, on the **Configure single sign-on at Panopto** dialog page, copy the **SAML SSO URL** value, and then paste it into the **Bounce Page Url** textbox.
-    6.  Create a **base-64 encoded** file from your downloaded certificate.  
+    1.  Dans la liste **Provider Type**, sélectionnez **SAML20**.
+    2.  Dans la zone de texte **Instance Name**, attribuez un nom à votre instance.
+    3.  Dans la zone de texte **Friendly Description**, entrez une description conviviale.
+    4.  Sur la page **Configurer l’authentification unique sur Panopto** du portail Azure Classic, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Issuer**.
+    5.  Dans la page **Configurer l’authentification unique sur Panopto** du portail Azure Classic, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **Bounce Page Url**.
+    6.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.
 
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    7.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Public Key** textbox
-    8.  Click **Save**.
-        ![Save](./media/active-directory-saas-panopto-tutorial/IC777673.png "Save")
+    7.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Public Key**.
+    8.  Cliquez sur **Save**. ![Enregistrer](./media/active-directory-saas-panopto-tutorial/IC777673.png "Enregistrer")
 
-9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
-    ![Configure single sign-on](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configure single sign-on")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configurer l’authentification unique](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configurer l’authentification unique")
+##Configuration de l'approvisionnement des utilisateurs
   
-There is no action item for you to configure user provisioning to Panopto.  
-When an assigned user tries to log into Panopto using the access panel, Panopto checks whether the user exists.  
-If there is no user account available yet, it is automatically created by Panopto.
+Aucun élément d’action ne vous permet de configurer l’approvisionnement des utilisateurs dans Panopto. Lorsqu’un utilisateur tente de se connecter à Panopto à l’aide du panneau d’accès, Panopto vérifie si cet utilisateur existe. Si aucun compte d’utilisateur n’est disponible, Panopto le crée automatiquement.
 
->[AZURE.NOTE]You can use any other Panopto user account creation tools or APIs provided by Panopto to provision Azure AD user accounts.
+>[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par Panopto, pour approvisionner des comptes utilisateur AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Affectation d’utilisateurs
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-###<a name="to-assign-users-to-panopto,-perform-the-following-steps:"></a>To assign users to Panopto, perform the following steps:
+###Pour affecter des utilisateurs à Panopto, procédez comme suit :
 
-1.  In the Azure classic portal, create a test account.
+1.  Dans le portail Azure Classic, créez un compte de test.
 
-2.  On the **Panopto **application integration page, click **Assign users**.
+2.  Dans la page d’intégration d’application **Panopto**, cliquez sur **Affecter des utilisateurs**.
 
-    ![Assign users](./media/active-directory-saas-panopto-tutorial/IC777675.png "Assign users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-panopto-tutorial/IC777675.png "Affecter des utilisateurs")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
-    ![Yes](./media/active-directory-saas-panopto-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-panopto-tutorial/IC767830.png "Oui")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0713_2016-->

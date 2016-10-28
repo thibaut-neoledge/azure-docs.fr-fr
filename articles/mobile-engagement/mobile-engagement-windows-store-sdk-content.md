@@ -1,55 +1,50 @@
 <properties 
-    pageTitle="Windows Universal Apps SDK content" 
-    description="Learn about the contents of the Windows Universal Apps SDK for Azure Mobile Engagement"                    
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="dwrede" 
-    editor="" />
+	pageTitle="Contenu du Kit de développement logiciel (SDK) des applications Windows Universal" 
+	description="Découvrez le contenu du Kit de développement logiciel (SDK) des applications Windows Universal pour Azure Mobile Engagement" 					
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-windows-store" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
+#Contenu du Kit de développement logiciel (SDK) des applications Windows Universal
 
-#<a name="windows-universal-apps-sdk-content"></a>Windows Universal Apps SDK content
+Ce document répertorie et décrit le contenu déployé par le Kit de développement dans votre application.
 
-This document lists and describes the content deployed by the SDK in your application.
+##Le dossier `/Resources`
 
-##<a name="the-`/resources`-folder"></a>The `/Resources` folder
+Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous pouvez également les personnaliser pour les adapter à votre application.
 
-This folder contains all the resources that Mobile Engagement needs. You can also customize them to fit your app.
+- `EngagementConfiguration.xml` : fichier de configuration de Mobile Engagement. C'est dans ce fichier que vous pouvez personnaliser les paramètres de Mobile Engagement (chaîne de connexion Mobile Engagement, rapport sur les incidents, etc.).
 
-- `EngagementConfiguration.xml` : The Mobile Engagement's configuration file, this is where you can customize Mobile Engagement settings (Mobile Engagement connection string, report crash...).
+### Dossier /html
 
-### <a name="/html-folder"></a>/html folder
+- `EngagementNotification.html` : conception html de la vue web `Notification` pour les bannières dans l'application.
 
-- `EngagementNotification.html` : The `Notification` web view html design for in-app banners.
+- `EngagementAnnouncement.html` : conception html de la vue web `Announcement` pour les bannières dans les vues interstitielles.
 
-- `EngagementAnnouncement.html` : The `Announcement` web view html design for in-app interstitial views.
+### Dossier /images
 
-### <a name="/images-folder"></a>/images folder
+- `EngagementIconNotification.png` : l’icône de marque affichée à gauche d'une notification. Remplacez celle-ci par l'icône de votre marque.
 
-- `EngagementIconNotification.png` : The brand icon displayed at the left of a notification, replace this one by your brand icon.
+- `EngagementIconOk.png` : l’icône `Ok` des pages de contenu de Couverture pour le bouton d'action ou de validation.
 
-- `EngagementIconOk.png` : The `Ok` icon of the reach content pages for the action or validation button.
-
-- `EngagementIconNOK.png` : The `NOK` icon used when the validation button of the reach content pages is disabled.
+- `EngagementIconNOK.png` : l’icône `NOK` utilisée quand le bouton de validation des pages de contenu de Couverture est désactivé.
  
-- `EngagementIconClose.png` : The `Close` icon of the reach notifications and contents for the dismiss button.
+- `EngagementIconClose.png` : l’icône `Close` des notifications et du contenu de couverture pour le bouton Ignorer.
 
-### <a name="/overlay-folder"></a>/overlay folder
+### Dossier /overlay
 
-- `EngagementPageOverlay.cs` : The overlay page responsible for adding the Engagement reach in-app UI to its child.
+- `EngagementPageOverlay.cs` : page de superposition responsable de l'ajout de l'interface utilisateur Engagement Reach dans l'application à son enfant.
   
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

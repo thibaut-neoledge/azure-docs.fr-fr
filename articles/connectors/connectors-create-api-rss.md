@@ -1,10 +1,10 @@
 <properties
 pageTitle="RSS | Microsoft Azure"
-description="Create Logic apps with Azure App service. RSS connector allows the users to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Créez des applications logiques avec Azure App Service. Le connecteur RSS permet aux utilisateurs de publier et d’extraire des éléments de flux. Il permet également aux utilisateurs de déclencher des opérations lorsqu’un nouvel élément est publié dans le flux."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,116 +17,112 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Prise en main du connecteur RSS
+RSS est un format de syndication populaire web utilisé pour publier du contenu fréquemment mise à jour, tel que des entrées de blog et des titres d’actualité. De nombreux éditeurs de contenu fournissent un flux RSS pour permettre aux utilisateurs d’y souscrire. Le connecteur RSS permet de récupérer le flux d’informations et de déclencher des flux lorsque de nouveaux éléments sont publiés dans un flux RSS.
 
-# <a name="get-started-with-the-rss-connector"></a>Get started with the RSS connector
-RSS is a popular web syndication format used to publish frequently updated content – like blog entries and news headlines.  Many content publishers provide an RSS feed to allow users to subscribe to it.  Use the RSS connector to retrieve feed information and trigger flows when new items are published in an RSS feed.
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Déclencheurs et actions
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+Le connecteur RSS peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
-The RSS connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+ Le connecteur RSS met à votre disposition les actions et/ou les déclencheurs ci-après.
 
- The RSS connector has the following action(s) and/or trigger(s) available:
-
-### <a name="rss-actions"></a>RSS actions
-You can take these action(s):
+### Actions de RSS
+Vous pouvez effectuer les actions suivantes :
 
 |Action|Description|
 |--- | ---|
-|[ListFeedItems](connectors-create-api-rss.md#listfeeditems)|Get all RSS feed items.|
-### <a name="rss-triggers"></a>RSS triggers
-You can listen for these event(s):
+|[ListFeedItems](connectors-create-api-rss.md#listfeeditems)|Obtenir tous les éléments du flux RSS.|
+### Déclencheurs de RSS
+Vous pouvez écouter les événements suivants :
 
-|Trigger | Description|
+|Déclencheur | Description|
 |--- | ---|
-|When a new feed item published|Triggers a workflow when a new feed is published|
+|Quand un nouvel élément de flux est publié|Déclenche un flux de travail lors de la publication d’un nouveau flux|
 
 
-## <a name="create-a-connection-to-rss"></a>Create a connection to RSS
+## Créer une connexion à RSS
 
->[AZURE.INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
+>[AZURE.INCLUDE [Procédure de création d’une connexion à un flux RSS](../../includes/connectors-create-api-rss.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
-## <a name="reference-for-rss"></a>Reference for RSS
-Applies to version: 1.0
+## Référence pour RSS
+S’applique à la version 1.0.
 
-## <a name="onnewfeed"></a>OnNewFeed
-When a new feed item published: Triggers a workflow when a new feed is published 
+## OnNewFeed
+Quand un nouvel élément de flux est publié : déclenche un flux de travail lors de la publication d’un nouveau flux
 
-```GET: /OnNewFeed``` 
+```GET: /OnNewFeed```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|feedUrl|string|yes|query|none|Feed url|
+|feedUrl|string|yes|query|(aucun)|Feed url|
 
-#### <a name="response"></a>Response
+#### Réponse
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|202|Acceptée|
+|400|Demande incorrecte|
+|401|Non autorisé|
+|403|Interdit|
+|404|Introuvable|
+|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
+|default|L’opération a échoué.|
 
 
-## <a name="listfeeditems"></a>ListFeedItems
-List all RSS feed items.: Get all RSS feed items. 
+## ListFeedItems
+Obtenir tous les éléments du flux RSS : obtient tous les éléments du flux RSS
 
-```GET: /ListFeedItems``` 
+```GET: /ListFeedItems```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|feedUrl|string|yes|query|none|Feed url|
+|feedUrl|string|yes|query|(aucun)|Feed url|
 
-#### <a name="response"></a>Response
+#### Réponse
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|202|Acceptée|
+|400|Demande incorrecte|
+|401|Non autorisé|
+|403|Interdit|
+|404|Introuvable|
+|500|Erreur interne du serveur. Une erreur inconnue s’est produite.|
+|default|L’opération a échoué.|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## Définitions d’objet 
 
-### <a name="triggerbatchresponse[feeditem]"></a>TriggerBatchResponse[FeedItem]
+### TriggerBatchResponse[FeedItem]
 
 
-| Property Name | Data Type | Required |
+| Nom de la propriété | Type de données | Requis |
 |---|---|---|
-|value|array|No |
+|value|array|Non |
 
 
 
-### <a name="feeditem"></a>FeedItem
+### FeedItem
 
 
-| Property Name | Data Type | Required |
+| Nom de la propriété | Type de données | Requis |
 |---|---|---|
-|id|string|Yes |
-|title|string|Yes |
-|content|string|Yes |
-|links|array|No |
-|updatedOn|string|No |
+|id|string|Oui |
+|title|string|Oui |
+|Contenu|string|Oui |
+|links|array|Non |
+|updatedOn|string|Non |
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Étapes suivantes
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

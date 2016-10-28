@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach Campaign" 
-   description="Laern how to create and manage push notification campaigns using Azure Mobile Engagement" 
+   pageTitle="Interface utilisateur d'Azure Mobile Engagement - Campagne Reach" 
+   description="Découvrez comment créer et gérer les campagnes de notifications Push à l'aide d'Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -17,156 +17,154 @@
    ms.author="piyushjo"/>
 
 
+# Création et gestion des campagnes de notification Push
+Vous pouvez utiliser la section Reach de l'interface utilisateur pour créer une nouvelle campagne Push à l'aide d'une formule complexe en indiquant toutes les informations dont vous avez besoin pour envoyer une notification Push. Les options d'une campagne Push varient quelque peu selon les quatre types de campagne : Annonces, Sondages, Push de données et Vignettes (Windows Phone uniquement).
 
-# <a name="how-to-create-and-manage-push-notification-campaigns"></a>How to create and manage push notification campaigns
-You can use the Reach section of the UI to create a new Push campaign with a complex formula by providing all the information you need to send a push notification. The options of a Push campaign vary slightly depending on the four campaign types: Announcements, Polls, Data Pushes, and Tiles (Windows Phone only).
-
-### <a name="option-applies-to:"></a>Option Applies to:
-- Languages:    All (Announcements, Polls, Data Pushes, Tiles)
-- Campaign:    All (Announcements, Polls, Data Pushes, Tiles)
-- Notification:     Announcements, Polls
-- Content:    Unique for each campaign type
-- Audience:     All (Announcements, Polls, Data Pushes, Tiles)
-- Time frame:     Announcements, Polls, Tiles
-- Test:    All (Announcements, Polls, Data Pushes, Tiles)
+### L'option s'applique à :
+- Langues : toutes (Annonces, Sondages, Push de données et Vignettes)
+- Campagne : toutes (Annonces, Sondages, Push de données et Vignettes)
+- Notification : Annonces et Sondages
+- Contenu : unique pour chaque type de campagne
+- Audience : toutes (Annonces, Sondages, Push de données et Vignettes)
+- Délai d'exécution : Annonces, Sondages et Vignettes
+- Test : toutes (Annonces, Sondages, Push de données et Vignettes)
  
 ![Reach-Campaign1][20]
 
-## <a name="languages"></a>Languages
-You can use the Languages drop-down menu to send a different version of your Push to devices that are set to use different languages. By default, all devices will receive the same Push regardless of what language they are set to use. Users with their device set to a different language will receive the Default Language version of the Push. Many of the push campaign options allow you to specify alternate content for each of the additional languages you select. 
+## Langues
+Vous pouvez utiliser le menu déroulant Langues pour envoyer une version différente de votre notification Push vers des appareils configurés pour d'autres langues. Par défaut, tous les appareils reçoivent la même notification Push, quelle que soit la langue pour laquelle ils sont configurés. Les utilisateurs qui disposent d'un appareil configuré pour une autre langue recevront la version de la notification Push dans la langue par défaut. De nombreuses options de campagne Push vous permettent de spécifier un contenu différent pour chaque langue supplémentaire que vous sélectionnez.
  
 ![Reach-Campaign2][21]
 
-### <a name="language-differences-apply-to:"></a>Language differences apply to:
-- Languages:    Unique languages may be selected in addition to the default language
-- Campaign:    Same for all languages
-- Notification:    Unique for each language in addition to the default language
-- Content:    Unique for each language in addition to the default language
-- Audience:     May be filtered by a separate language criterion
-- Time frame:     Same for all languages
-- Test:    May be sent to each language at a time
+### Les différences linguistiques s'appliquent à :
+- Langues : des langues uniques peuvent être sélectionnées en complément de la langue par défaut
+- Campagne : identique pour toutes les langues
+- Notification : unique pour chaque langue ajoutée en complément de la langue par défaut
+- Contenu : unique pour chaque langue ajoutée en complément de la langue par défaut
+- Audience : peut être filtrée par un critère de langue distinct
+- Délai d'exécution : identique pour toutes les langues
+- Test : peut être envoyé pour chaque langue en même temps
  
-### <a name="supported-languages:"></a>Supported Languages:
-- Arabic (ar) 
-- Bulgarian (bg) 
-- Catalan (ca) 
-- Chinese (zh) 
-- Croatian (hr) 
-- Czech (cs) 
-- Danish (da) 
-- Dutch (nl) 
-- English (en) 
-- Finnish (fi) 
-- French (fr) 
-- German (de) 
-- Greek (el) 
-- Hebrew (he) 
-- Hindi (hi) 
-- Hungarian (hu) 
-- Indonesian (id) 
-- Italian (it) 
-- Japanese (ja) 
-- Korean (ko) 
-- Latvian (lv) 
-- Lithuanian (lt) 
-- Malay (macrolanguage) (ms) 
-- Norwegian Bokmål (nb) 
-- Polish (pl) 
-- Portuguese (pt) 
-- Romanian (ro) 
-- Russian (ru) 
-- Serbian (sr) 
-- Slovak (sk) 
-- Slovenian (sl) 
-- Spanish (es) 
-- Swedish (sv) 
-- Tagalog (tl) 
-- Thai (th) 
-- Turkish (tr) 
-- Ukrainian (uk) 
-- Vietnamese (vi) 
+### Langues prises en charge :
+- Arabe (ar)
+- Bulgare (bg)
+- Catalan (ca)
+- Chinois (zh)
+- Croate (hr)
+- Tchèque (cs)
+- Danois (da)
+- Néerlandais (nl)
+- Anglais (en)
+- Finnois (fi)
+- Français (fr)
+- Allemand (de)
+- Grec (el)
+- Hébreu (he)
+- Hindi (hi)
+- Hongrois (hu)
+- Indonésien (id)
+- Italien (it)
+- Japonais (ja)
+- Coréen (ko)
+- Letton (lv)
+- Lituanien (lt)
+- Malais (macro-langue) (ms)
+- Norvégien Bokmål (nb)
+- Polonais (pl)
+- Portugais (pt)
+- Roumain (ro)
+- Russe (ru)
+- Serbe (sr)
+- Slovaque (sk)
+- Slovène (sl)
+- Espagnol (es)
+- Suédois (sv)
+- Tagalog (tl)
+- Thaï (th)
+- Turc (tr)
+- Ukrainien (uk)
+- Vietnamien (vi)
  
-## <a name="campaign"></a>Campaign
-You can use the Campaign section to set the name and category of your campaign as well as if you plan to ignore the audience section of a Push campaign and send this campaign via the Reach API (and some elements with the low level Push API) instead. Categories can be used with a custom notification template to control in-app notifications based on predefined settings. You can get a list of your existing “Categories” via the Reach API.
+## Campagne
+Vous pouvez utiliser la section Campagne pour définir le nom et la catégorie de votre campagne et si vous envisagez d'ignorer la section Audience d'une campagne Push et d'envoyer cette campagne via l'API Reach (et certains éléments de l'API Push de bas niveau). Des catégories peuvent être utilisées avec un modèle de notification personnalisé pour contrôler les notifications dans l'application suivant des paramètres prédéfinis. Vous pouvez obtenir une liste de vos « Catégories » existantes via l'API Reach.
 
-> Warning: If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.
+> Avertissement : si vous utilisez l'option « Ignorer l'audience, la notification Push sera envoyée aux utilisateurs via l'API » dans la section « Campagne » de la campagne Reach, cette campagne ne sera pas automatiquement envoyée. Vous devrez l'envoyer manuellement via l'API Reach.
  
 ![Reach-Campaign3][22]
  
-### <a name="option-applies-to:"></a>Option Applies to:
-- Name:    All
-- Category:    Announcements, Polls
-- Ignore Audience, push will be sent to users via the API:    All
+### L'option s'applique à :
+- Nom : toutes
+- Catégorie : Annonces et Sondages
+- Ignorer l'audience, la notification Push sera envoyée aux utilisateurs via l'API : toutes
  
-## <a name="notification"></a>Notification
-You can use the Notification section to set basic settings for your push including: The title of the Push, the message, an in-app image, or if it is dismissible. Many notification settings are specific to the platform of your device. You can select whether your push will be sent "in app" or "out of app" or both. (Remember that users can "opt-in" or "opt-out" of "out of app" Pushes at the Operating System level on their devices, and Azure Mobile Engagement will not be able to override this setting. Also remember that the Reach API handles "in app" and "out of app" Pushes. The Push API can be used to handle "out of app" pushes too.) Pushes can be customized with pictures or HTML content, including deep links for linking outside of your App or to another location in your App (Android SDK 2.1.0 or later intent categories required). You can change the icon or iOS badge, and send either text or web content (a popup with html content, URL link to another location either inside or outside of the app). You can also make Android devices ring or vibrate with the Push. (Remember that you will need the correct SDK permissions in your Android manifest file to ring or vibrate a device.) There is currently no industry standard for Android "Big Picture" sizes, since screen sizes are different on every device, but 400x100 pictures work on almost any screen size.
+## Notification
+Utilisez la section Notification pour définir les paramètres de base pour votre notification Push, y compris : le titre de la notification Push, le message, une image dans l'application ou si elle peut être révocable. De nombreux paramètres de notification sont spécifiques à la plateforme de votre appareil. Vous pouvez choisir d'envoyer votre notification Push depuis l'application ou en dehors de l'application, ou les deux. (N'oubliez pas que les utilisateurs peuvent accepter ou refuser les notifications Push envoyées en dehors de l'application au niveau du système d'exploitation de leurs appareils. Azure Mobile Engagement ne peut pas remplacer ce paramètre. Rappelez-vous également que l'API Reach gère les notifications Push dans et en dehors de l'application L'API Push peut également être utilisée pour gérer les notifications Push envoyées en dehors de l'application.) Les notifications Push peuvent être personnalisées avec des images ou du contenu HTML, notamment des liens ciblés menant hors de votre application ou vers un autre emplacement dans votre application (Kit de développement logiciel (SDK) Android 2.1.0 ou catégories d'intention ultérieures requises). Vous pouvez modifier l'icône ou le badge iOS et envoyer du texte ou du contenu Web (une fenêtre contextuelle avec du contenu HTML, un lien URL vers un autre emplacement dans ou en dehors de l'application). Vous pouvez aussi faire sonner ou vibrer les appareils Android avec la notification Push. (Rappelez-vous que vous aurez besoin des bonnes autorisations du Kit de développement logiciel (SDK) dans votre fichier manifeste Android pour faire sonner ou vibrer un appareil.) Il n'y a actuellement aucune norme industrielle pour les tailles « Grand format » puisque la taille des écrans est différente pour chaque appareil. Toutefois, les images 400 x 100 fonctionnent sur presque toutes les tailles d'écran.
 
-### <a name="delivery-types:"></a>Delivery Types:
--    Out of app only: the notification will be delivered when the user does not use the application.
-- The out of app only notification requires a certificate from Apple or Google (APNS or GCM certificate).
-- In-app only: The notification appears only when the application is running.
-- The notification uses the Capptain delivery system to reach the user. You can fully customize the visual layout/display of your push.
-- Anytime: This option ensures that you send a notification either the application is running or not.
+### Types d'envoi :
+-    En dehors de l'application uniquement : la notification sera envoyée lorsque l'utilisateur n'utilisera pas son application.
+- Ce type de notification requiert un certificat d'Apple ou de Google (certificat APNs ou GCM).
+- Dans l'application uniquement : la notification apparaît uniquement lorsque l'application est exécutée.
+- Cette notification utilise le système de messagerie Capptain pour contacter l'utilisateur. Vous pouvez personnaliser entièrement l'affichage ou la disposition de votre notification Push.
+- À tout moment : cette option garantit l'envoi de votre notification, que l'application soit exécutée ou non.
 
  
 ![Reach-Campaign4][23]
 
-### <a name="option-applies-to:"></a>Option Applies to:
-- Notification:     Announcements, Polls
+### L'option s'applique à :
+- Notification : Annonces et Sondages
  
-## <a name="content"></a>Content
-You can use the Content section to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The Content setting of Push campaigns is specific to the type of campaign. 
+## Contenu
+Vous pouvez utiliser la section Contenu pour modifier le contenu de vos annonces, de vos sondages, de vos Push de données et de vos vignettes (Windows Phone uniquement). Le paramètre Contenu de vos campagnes Push est spécifique à chaque type de campagne.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - Push Content][Link 29]
+### Voir aussi
+- [Documentation de l'interface utilisateur - Reach - Contenu Push][Link 29]
  
 ![Reach-Campaign5][24]
 
-## <a name="audience"></a>Audience
-You can use the Audience section to define a standard list of items to limit your campaign or limits your campaign based on customized criteria. The standard set of options to Limit your Audience allows you to push to either new or old users or native push users only. You can also set a quota to limit the number of users who receive the push. You can manually Edit the expression for how your campaign is filtered to include one or more criterion to target users. You can manually type an audience expression. Such an expression must explicitly define the relation between criteria. A criterion is described by an identifier that must start with a capital letter and cannot contain spaces. The relation between the criteria can be described using 'and', 'or', 'not' operators as well as '(', ')'. Example: "Criterion1 or (Criterion1 and not Criterion2)".
+## Public ciblé
+Utilisez la section Audience pour définir une liste d'éléments standard pour limiter votre campagne ou pour définir les limites de votre campagne en fonction des critères personnalisés. L'ensemble des options standard pour limiter votre audience vous permet d'envoyer des notifications Push aux nouveaux ou aux anciens utilisateurs, ou aux utilisateurs des Push natifs uniquement. Vous pouvez également définir un quota pour limiter le nombre d'utilisateurs recevant la notification Push. Vous pouvez modifier manuellement l'expression pour définir la façon dont votre campagne est filtrée afin d'inclure un ou plusieurs critères pour les utilisateurs cibles. Vous pouvez taper manuellement une expression d'audience. Ce type d'expression doit définir explicitement la relation entre les critères. Un critère est décrit par un identificateur qui doit commencer par une majuscule et ne peut pas contenir d'espace. La relation entre les critères peut être décrite à l'aide des opérateurs and, or, not (et, ou, pas) ainsi que '(', ')'. Exemple : « Critère1 ou (Critère1 sans Critère2) ».
 
-> Note: With a large audience included in campaigns, the server side targeting scan can be slow, especially if you attempt to start multiple campaigns at the same time.
+> Remarque : si l'audience incluse dans les campagnes est importante, l'analyse de ciblage côté serveur peut être lente, en particulier si vous essayez de démarrer plusieurs campagnes en même temps.
 
-- If possible, only start one campaign at a time.
-- At the most, only start four campaigns at a time.
-- Push only to your active users (checkbox "Engage only users who can be reached using Native Push" and "Engage only active users") so that only your users who still have the app installed and use it will need to be scanned.
-Once your audience is defined, you can use the simulate button to find out how many users will receive this Push. This will compute the number of known users potentially targeted by this audience (this is an estimate based on a random sample of users). Be aware that users who have uninstalled the application are also part of this audience, but cannot be reached.
+- Si possible, ne démarrez qu'une campagne à la fois.
+- Tout au plus, ne démarrez que quatre campagnes en même temps.
+- Envoyez des notifications Push à vos utilisateurs actifs uniquement (case à cocher « Solliciter seulement les utilisateurs qui peuvent être contactés via un Push natif » et « Solliciter seulement les utilisateurs actifs ») de façon à ce que seuls les utilisateurs qui ont installé votre application et l'utilisent toujours doivent être analysés. Une fois votre audience définie, vous pouvez utiliser le bouton de simulation pour savoir combien d'utilisateurs recevront cette notification Push. Ce bouton calculera le nombre d'utilisateurs connus potentiellement ciblés par cette audience (il s'agit d'une estimation basée sur un échantillon aléatoire d'utilisateurs). Notez que les utilisateurs qui ont désinstallé l'application font également partie de l'audience mais ne peuvent pas être contactés.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+### Voir aussi
+- [Documentation sur l'interface utilisateur - Reach - Nouveau critère Push][Link 28]
 
 ![Reach-Campaign6][25]
 
-### <a name="edit-expression"></a>Edit expression
+### Modifier l'expression
 ![Reach-Campaign7][26]
  
-### <a name="limit-your-audience-option-applies-to:"></a>Limit your audience option applies to:
-- Engage only a subset of users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only old users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only new users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only idle users:    Announcements, Polls, Tiles
-- Engage only active users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only users who can be reached using Native Push:     Announcements, Polls
+### L'option de limitation de votre audience s'applique à :
+- Solliciter uniquement un sous-ensemble d'utilisateurs : toutes (Annonces, Sondages, Push de données et Vignettes)
+- Solliciter uniquement d'anciens utilisateurs : toutes (Annonces, Sondages, Push de données et Vignettes)
+- Solliciter uniquement de nouveaux utilisateurs : toutes (Annonces, Sondages, Push de données et Vignettes)
+- Solliciter uniquement des utilisateurs inactifs : Annonces, Sondages et Vignettes
+- Solliciter uniquement des utilisateurs actifs : toutes (Annonces, Sondages, Push de données et Vignettes)
+- Solliciter uniquement des utilisateurs qui peuvent être contactés via un Push natif : Annonces et Sondages
  
-## <a name="time-frame"></a>Time Frame
-You can use the Time Frame section to set when the push will be sent or you can leave the time frame blank to start the campaign immediately. Remember that using the end-users' time zone may start the campaign a day earlier than you expect for your end-users in Asia and send small batches of pushes at a time until all time zones in the world match the time frame set for your campaign. Using the end users' time zone can also cause delays in campaigns since it has to request the time from the phone before starting the push.
+## Délai d'exécution
+Vous pouvez utiliser la section Délai d'exécution pour définir à quel moment la notification Push sera envoyée ou vous pouvez laisser le champ Délai d'exécution vide pour démarrer immédiatement la campagne. Notez que l'utilisation du fuseau horaire de l'utilisateur final peut faire démarrer la campagne un jour plus tôt que prévu pour vos utilisateurs en Asie et envoyer des petits lots de notifications Push à une certaine heure jusqu'à ce que tous les fuseaux horaires du monde correspondent au délai d'exécution défini pour votre campagne. L'utilisation du fuseau horaire des utilisateurs finaux peut également entraîner des retards dans les campagnes puisque cela nécessite de connaître l'heure du téléphone avant de démarrer l'envoi des notifications Push.
 
-> Note: Campaigns without an end date can cache pushes locally and still display them after you manually complete campaigns. To avoid this behavior, specific an end time for campaigns.
+> Remarque : les campagnes qui n'ont pas de date de fin peuvent mettre en cache des notifications Push localement et continuer de les afficher une fois que vous avez terminé manuellement ces campagnes. Pour éviter cela, indiquer une date de fin pour ces campagnes.
 
-### <a name="see-also"></a>See also
-- [Reach - How Tos – Scheduling][Link 3] 
+### Voir aussi
+- [Reach - Procédures - Planification][Link 3]
  
 ![Reach-Campaign8][27]
 
-### <a name="settings-apply-to:"></a>Settings Apply to:
-- Time frame:     Announcements, Polls, Tiles
+### Les paramètres s'appliquent à :
+- Délai d'exécution : Annonces, Sondages et Vignettes
  
-## <a name="test"></a>Test
-You can use the Test section to send this push to your own test device before saving the campaign. If you have configured any custom languages for this campaign, you can test the push in each language. You can setup a test device from “My Account”.
-> Note: No server side data is logged when you use the button to "test" pushes, data is only logged for real push campaigns.
+## Test
+Vous pouvez utiliser la section Test pour envoyer cette notification Push à votre propre appareil de test avant d'enregistrer la campagne. Si vous avez configuré des langues personnalisées pour cette campagne, vous pouvez tester la notification Push pour ces langues. Vous pouvez configurer un appareil de test depuis « Mon compte ».
+> Remarque : aucune donnée côté serveur n'est enregistrée lorsque vous utilisez le bouton pour « tester » les notifications Push. Les données sont enregistrées uniquement pour les vraies campagnes de notification Push.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - My Account][Link 14]
+### Voir aussi
+- [Documentation sur l'interface utilisateur - Mon compte][Link 14]
  
 ![Reach-Campaign9][28]
 
@@ -262,8 +260,4 @@ You can use the Test section to send this push to your own test device before sa
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

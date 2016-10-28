@@ -1,125 +1,122 @@
-### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Open TCP ports in the Windows firewall for the default instance of the Database Engine
+### Ouverture de ports TCP dans le pare-feu Windows pour l'instance par défaut du moteur de base de données
 
-1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
+1. Connectez-vous à la machine virtuelle avec le Bureau à distance. Pour obtenir des instructions détaillées sur la connexion à la machine virtuelle, consultez [Ouvrir une machine virtuelle SQL avec le Bureau à distance](virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
 
-1. Once logged in, at the Start screen, type **WF.msc**, and then hit ENTER.
+1. Une fois connecté, sur l’écran d’accueil, tapez **WF.msc**, puis appuyez sur ENTRÉE.
 
-    ![Start the Firewall Program](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
+	![Démarrer le programme du pare-feu](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
 
-2. In the **Windows Firewall with Advanced Security**, in the left pane, right-click **Inbound Rules**, and then click **New Rule** in the action pane.
+2. Dans le **Pare-feu Windows avec fonctions avancées de sécurité**, dans le volet gauche, cliquez avec le bouton droit sur **Règles de trafic entrant**, puis sur **Nouvelle règle** dans le volet d'action.
 
-    ![New Rule](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
+	![Nouvelle règle](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
 
-3. In the **New Inbound Rule Wizard** dialog box, under **Rule Type**, select **Port**, and then click **Next**.
+3. Dans la boîte de dialogue de **Assistant Nouvelle règle de trafic entrant**, sous **Type de règle**, sélectionnez **Port**, puis cliquez sur **Suivant**.
 
-4. In the **Protocol and Ports** dialog, use the default **TCP**. In the **Specific local ports** box, then type the port number of the instance of the Database Engine (**1433** for the default instance or your choice for the private port in the endpoint step).
+4. Dans la boîte de dialogue **Protocole et ports**, utilisez le paramètre par défaut **TCP**. Dans la boîte de dialogue **Ports locaux spécifiques**, entrez le numéro de port de l’instance du moteur de base de données (**1433** pour l’instance par défaut, ou le numéro que vous avez choisi pour le port privé à l’étape du point de terminaison).
 
-    ![TCP Port 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
+	![Port TCP 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
 
-5. Click **Next**.
+5. Cliquez sur **Suivant**.
 
-6. In the **Action** dialog box, select **Allow the connection**, and then click **Next**.
+6. Dans la boîte de dialogue **Action**, sélectionnez **Autoriser la connexion**, puis cliquez sur **Suivant**.
 
-    **Security Note:** Selecting **Allow the connection if it is secure** can provide additional security. Select this option if you want to configure additional security options in your environment.
+	**Remarque relative à la sécurité** : la sélection de l’option **Autoriser la connexion si elle est sécurisée** peut renforcer la sécurité. Sélectionnez cette option si vous voulez configurer des options de sécurité supplémentaires dans votre environnement.
 
-    ![Allow Connections](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
+	![Autoriser les connexions](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 
-7. In the **Profile** dialog box, select **Public**, **Private**, and **Domain**. Then click **Next**.
+7. Dans la boîte de dialogue **Profil**, sélectionnez **Public**, **Privé** et **Domaine**. Cliquez ensuite sur **Suivant**.
 
-    **Security Note:**  Selecting **Public** allows access over the internet. Whenever possible, select a more restrictive profile.
+    **Remarque relative à la sécurité** : la sélection de l’option **Public** autorise l’accès via Internet. Lorsque cela est possible, sélectionnez un profil plus restrictif.
 
-    ![Public Profile](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
+	![Profil public](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 
-8. In the **Name** dialog box, type a name and description for this rule, and then click **Finish**.
+8. Dans la boîte de dialogue **Nom**, entrez un nom et une description pour cette règle, puis cliquez sur **Terminer**.
 
-    ![Rule Name](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
+	![Nom de la règle](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx).
+Le cas échéant, ouvrez des ports supplémentaires pour les autres composants. Pour plus d'informations, consultez la page [Configurer le Pare-feu Windows pour autoriser l'accès à SQL Server](http://msdn.microsoft.com/library/cc646023.aspx).
 
 
-### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Configure SQL Server to listen on the TCP protocol
+### Configuration de SQL Server pour écouter le protocole TCP
 
-1. While connected to the virtual machine, on the Start page, type **SQL Server Configuration Manager** and hit ENTER.
+1. Lorsque vous êtes connecté à la machine virtuelle, sur la page de démarrage, tapez **Gestionnaire de configuration SQL Server** et appuyez sur ENTRÉE.
 
-    ![Open SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
+	![Ouvrir le gestionnaire de configuration SQL Server](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
 
-2. In SQL Server Configuration Manager, in the console pane, expand **SQL Server Network Configuration**.
+2. Dans le Gestionnaire de configuration SQL Server, dans le volet de la console, développez **Configuration du réseau SQL Server**.
 
-3. In the console pane, click **Protocols for MSSQLSERVER** (he default instance name.) In the details pane, right-click **TCP** and click **Enable** if it is not already enabled.
+3. Dans le volet de la console, cliquez sur **Protocoles pour MSSQLSERVER** (le nom d’instance par défaut). Dans le volet Détails, faites un clic droit sur **TCP** et cliquez sur **Activer** s’il n’est pas déjà activé.
 
-    ![Enable TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
+	![Activer TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
 
-5. In the console pane, click **SQL Server Services**. In the details pane, right-click **SQL Server (_instance name_)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server.
+5. Dans le volet de la console, cliquez sur **Services SQL Server** Dans le volet d'informations, cliquez avec le bouton droit sur **SQL Server (_nom de l'instance_)** (l'instance par défaut est **SQL Server (MSSQLSERVER)**), puis cliquez sur **Redémarrer**, pour arrêter et redémarrer l'instance de SQL Server.
 
-    ![Restart Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
+	![Redémarrer le moteur de base de données](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 
-7. Close SQL Server Configuration Manager.
+7. Fermez le Gestionnaire de configuration de SQL Server.
 
-For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
+Pour plus d'informations sur l'activation des protocoles pour le moteur de base de données SQL Server, consultez la page [Activer ou désactiver un protocole réseau de serveur](http://msdn.microsoft.com/library/ms191294.aspx).
 
-### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Configure SQL Server for mixed mode authentication
+### Configuration de SQL Server pour l'authentification en mode mixte
 
-The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication.
+Le moteur de base de données de SQL Server ne peut pas utiliser l'authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l’authentification SQL Server et l’authentification Windows
 
->[AZURE.NOTE] Configuring mixed mode authentication might not be necessary if you have configured an Azure Virtual Network with a configured domain environment.
+>[AZURE.NOTE] il n’est pas nécessaire de configurer l’authentification en mode mixte si vous avez configuré un réseau virtuel Azure avec un environnement de domaine configuré.
 
-1. While connected to the virtual machine, on the Start page, type **SQL Server Management Studio** and click the selected icon.
+1. Lorsque vous êtes connecté à la machine virtuelle, sur la page de démarrage, tapez **SQL Server Management Studio** et cliquez sur l’icône sélectionnée.
 
-    The first time you open Management Studio it must create the users Management Studio environment. This may take a few moments.
+	Lorsque vous ouvrez Management Studio pour la première fois, il doit créer l’environnement Management Studio pour les utilisateurs. Cette opération peut prendre du temps.
 
-2. Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**). Select **Windows Authentication**, and leave **_your_VM_name_\your_local_administrator** in the **User name** box. Click **Connect**.
+2. Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, tapez le nom de la machine virtuelle pour vous connecter au moteur de base de données avec l’explorateur d’objets (au lieu du nom de machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point unique comme **nom du serveur**). Sélectionnez **Authentification Windows** et laissez **_your\_VM\_name_\\your\_local\_administrator** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
 
-    ![Connect to Server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
+	![Se connecter au serveur](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 
-3. In SQL Server Management Studio Object Explorer, right-click the name of the instance of SQL Server (the virtual machine name), and then click **Properties**.
+3. Dans SQL Server Management Studio Object Explorer, cliquez avec le bouton droit sur le nom de l'instance de SQL Server (le nom de la machine virtuelle), puis cliquez sur **Propriétés**.
 
-    ![Server Properties](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
+	![Propriétés de serveur](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
 
-4. On the **Security** page, under **Server authentication**, select **SQL Server and Windows Authentication mode**, and then click **OK**.
+4. Sur la page **Sécurité**, sous **Authentification du serveur**, sélectionnez **Mode d'authentification SQL Server et Windows**, puis cliquez sur **OK**.
 
-    ![Select Authentication Mode](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
+	![Sélectionner le mode d'authentification](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
 
-5. In the SQL Server Management Studio dialog box, click **OK** to acknowledge the requirement to restart SQL Server.
+5. Dans la boîte de dialogue SQL Server Management Studio, cliquez sur **OK** pour confirmer l'obligation de redémarrer SQL Server.
 
-6. In Object Explorer, right-click your server, and then click **Restart**. (If SQL Server Agent is running, it must also be restarted.)
+6. Dans Object Explorer, cliquez avec le bouton droit sur votre serveur, puis cliquez sur **Redémarrer** (si SQL Server Agent est exécuté, il doit également être redémarré).
 
-    ![Restart](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+	![Redémarrer](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 
-7. In the SQL Server Management Studio dialog box, click **Yes** to agree that you want to restart SQL Server.
+7. Dans la boîte de dialogue SQL Server Management Studio, cliquez sur **Oui** pour confirmer que vous voulez redémarrer SQL Server.
 
-### <a name="create-sql-server-authentication-logins"></a>Create SQL Server authentication logins
+### Création de connexions d'authentification SQL Server
 
-To connect to the Database Engine from another computer, you must create at least one SQL Server authentication login.
+Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, vous devez créer au moins une connexion d'authentification SQL Server.
 
-1. In SQL Server Management Studio Object Explorer, expand the folder of the server instance in which you want to create the new login.
+1. Dans SQL Server Management Studio Object Explorer, développez le dossier de l'instance de serveur dans laquelle vous voulez créer la connexion.
 
-2. Right-click the **Security** folder, point to **New**, and select **Login...**.
+2. Cliquez avec le bouton droit sur le dossier **Sécurité**, pointez sur **Nouveau**, puis sélectionnez **Connexion...**.
 
-    ![New Login](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
+	![Nouvelle connexion](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 
-3. In the **Login - New** dialog box, on the **General** page, enter the name of the new user in the **Login name** box.
+3. Dans la boîte de dialogue **Nouvelle connexion**, sur la page **Général**, entrez le nom du nouvel utilisateur dans la zone **Nom de connexion**.
 
-4. Select **SQL Server authentication**.
+4. Sélectionnez **Authentification SQL Server**.
 
-5. In the **Password** box, enter a password for the new user. Enter that password again into the **Confirm Password** box.
+5. Dans la zone **Mot de passe**, entrez un mot de passe pour le nouvel utilisateur. Entrez de nouveau ce mot de passe dans la zone **Confirmer le mot de passe**.
 
-6. Select the password enforcement options required (**Enforce password policy**, **Enforce password expiration**, and **User must change password at next login**). If you are using this login for yourself, you do not need to require a password change at the next login.
+6. Sélectionnez les options de mise en œuvre de mot de passe nécessaires (**Appliquer la stratégie de mot de passe**, **Appliquer l’expiration du mot de passe**, et **L’utilisateur doit changer de mot de passe à la prochaine connexion**). Si vous utilisez cette connexion pour vous-même, il est inutile d’exiger un mot de passe à la prochaine connexion.
 
-9. From the **Default database** list, select a default database for the login. **master** is the default for this option. If you have not yet created a user database, leave this set to **master**.
+9. Dans la liste **Base de données par défaut**, sélectionnez une base de données par défaut pour la connexion. Par défaut, cette option est réglée sur **principale**. Si vous n'avez pas encore créé de base de données d'utilisateur, gardez la valeur par défaut **master**.
 
-    ![Login Properties](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
+	![Propriétés de connexion](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
 
-11. If this is the first login you are creating, you may want to designate this login as a SQL Server administrator. If so, on the **Server Roles** page, check **sysadmin**.
+11. S’il s’agit de votre première connexion, vous pouvez désigner cette connexion en tant qu’administrateur SQL Server. Si cela est le cas, sur la page **Rôles du serveur**, activez la case à cocher **administrateur système**.
 
-    >[AZURE.NOTE] Members of the sysadmin fixed server role have complete control of the Database Engine. You should carefully restrict membership in this role.
+	>[AZURE.NOTE] les membres du rôle serveur administrateur système fixe contrôlent complètement le moteur de base de données. Vous devez limiter soigneusement l'appartenance à ce rôle.
 
-    ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
+	![administrateur système](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 
-12. Click OK.
+12. Cliquez sur OK.
 
-For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).
+Pour plus d'informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

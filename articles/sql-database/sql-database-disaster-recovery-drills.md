@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="SQL Database Disaster Recovery Drills | Microsoft Azure" 
-   description="Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills that will help keep your mission critical business applications resilient to failures and outages." 
+   pageTitle="Exercices de récupération d’urgence de bases de données SQL | Microsoft Azure" 
+   description="Découvrez des conseils et des meilleures pratiques en matière d'utilisation de la base de données Azure SQL pour effectuer des exercices de récupération d'urgence qui vous aideront à maintenir la résistance aux pannes de vos applications métier stratégiques en cas de défaillances." 
    services="sql-database" 
    documentationCenter="" 
    authors="mihaelablendea" 
@@ -16,63 +16,59 @@
    ms.date="07/31/2016"
    ms.author="mihaelab"/>
 
+#Exécution d'un exercice de récupération d'urgence
 
-#<a name="performing-disaster-recovery-drill"></a>Performing Disaster Recovery Drill
+Nous recommandons de valider régulièrement la préparation des applications à la récupération. La vérification du comportement de l'application et des implications en matière de pertes de données et/ou d'interruptions en cas basculement constitue une bonne pratique. Il s'agit également d'une exigence figurant dans la plupart des normes industrielles dans le cadre d'une certification de la continuité des activités.
 
-It is recommended that validation of application readiness for recovery workflow is performed periodically. Verifying the application behavior and implications of data loss and/or the disruption that failover involves is a good engineering practice. It is also a requirement by most industry standards as part of business continuity certification.
+L'exécution d'un exercice de récupération d'urgence comprend :
 
-Performing a disaster recovery drill consists of:
+- la simulation d'une défaillance des couches de données
+- la récupération
+- la validation de l'intégrité des applications après la récupération
 
-- Simulating data tier outage
-- Recovering 
-- Validate application integrity post recovery
+Le flux de travail à exécuter peut varier en fonction de la [conception de votre application pour la continuité des activités](sql-database-business-continuity.md). Ci-dessous, vous trouverez une description des meilleures pratiques en matière d'exécution d'un exercice de récupération d'urgence dans le contexte de bases de données Azure SQL.
 
-Depending on how you [designed your application for business continuity](sql-database-business-continuity.md), the workflow to execute the drill can vary. Below we describe the best practices conducting a disaster recovery drill in the context of Azure SQL Database. 
+##Restauration géographique
 
-##<a name="geo-restore"></a>Geo-Restore
-
-To prevent the potential data loss when conducting a disaster recovery drill, we recommend performing the drill using a test environment by creating a copy of the production environment and using it to verify the application’s failover workflow.
+Pour éviter une perte de données potentielle lors d'un exercice de récupération d'urgence, nous vous recommandons d'effectuer l'exercice à dans un environnement de test en créant une copie de l'environnement de production et en l'utilisant pour vérifier le flux de travail de basculement de l'application.
  
-####<a name="outage-simulation"></a>Outage simulation
+####Simulation d'une défaillance
 
-To simulate the outage you can delete or rename the source database. This will cause application connectivity failure. 
+Pour simuler la défaillance, vous pouvez supprimer ou renommer la base de données source. Cela entraîne l'échec de la connexion de l'application.
 
-####<a name="recovery"></a>Recovery
+####Récupérer
 
-- Perform the Geo-Restore of the database into a different server as described [here](sql-database-disaster-recovery.md). 
-- Change the application configuration to connect to the recovered database(s) and follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
+- Effectuez la restauration géographique de la base de données dans un autre serveur comme décrit [ici](sql-database-disaster-recovery.md).
+- Modifiez la configuration de l'application pour établir une connexion aux bases de données récupérées, puis suivez le guide [Configure a database after recovery](sql-database-disaster-recovery.md) pour terminer la récupération.
 
-####<a name="validation"></a>Validation
+####Validation
 
-- Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
+- Terminez l'exercice de récupération en vérifiant l'intégrité des applications après la récupération (chaînes de connexion, connexions, test des fonctionnalités de base ou autres validations faisant partie de procédures d'approbations d'applications standard).
 
-##<a name="geo-replication"></a>Geo-Replication
+##Utiliser la géo-réplication
 
-For a database that is protected using Geo-Replication the drill exercise will involve planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remains in sync when the roles are switched. Unlike the unplanned failover, this operation will not result in data loss, so the drill can be performed in the production environment. 
+Pour une base de données protégée à l'aide de la géo-réplication, l’exercice implique un basculement planifié vers la base de données secondaire. Le basculement planifié garantit que les bases de données principale et secondaire restent synchronisées lorsque les rôles sont permutés. À la différence du basculement non planifié, cette opération n'implique pas de perte de données, l'exercice peut donc être exécuté dans l'environnement de production.
 
-####<a name="outage-simulation"></a>Outage simulation
+####Simulation d'une défaillance
 
-To simulate the outage you can disable the web application or virtual machine connected to the database. This will result in the connectivity failures for the web clients.
+Pour simuler la défaillance, vous pouvez désactiver l'application Web ou un ordinateur virtuel connecté à la base de données. Cela entraîne un échec de connectivité pour les clients web.
 
-####<a name="recovery"></a>Recovery
+####Récupérer
 
-- Make sure the the application configuration in the DR region points to the former secondary which will become fully accessible new primary. 
-- Perform [planned failover](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) to make the secondary database a new primary
-- Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
+- Vérifiez que le la configuration de l'application dans la région de récupération d'urgence pointe vers le premier secondaire qui deviendra le nouveau principal entièrement accessible.
+- Exécutez un [basculement planifié](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) pour que la base de données secondaire devienne la nouvelle base de données primaire.
+- Suivez le guide [Configure a database after recovery](sql-database-disaster-recovery.md) pour effectuer la restauration.
 
-####<a name="validation"></a>Validation
+####Validation
 
-- Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
-
-
-## <a name="next-steps"></a>Next steps
-
-- To learn about business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- Terminez l'exercice de récupération en vérifiant l'intégrité des applications après la récupération (chaînes de connexion, connexions, test des fonctionnalités de base ou autres validations faisant partie de procédures d'approbations d'applications standard).
 
 
-<!--HONumber=Oct16_HO2-->
+## Étapes suivantes
 
+- Pour en savoir plus sur les scénarios de continuité d’activités, consultez [Scénarios de continuité des activités](sql-database-business-continuity.md)
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
+- Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 
+<!---HONumber=AcomDC_0803_2016-->

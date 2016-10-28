@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SQL Database Performance Insight | Microsoft Azure" 
-   description="The Azure SQL Database provides performance tools to help you identify areas that can improve current query performance." 
+   pageTitle="Analyse des performances d’une base de données SQL Azure | Microsoft Azure" 
+   description="La base de données SQL Azure fournit des outils de performances pour vous aider à identifier les zones susceptibles d’améliorer les performances actuelles des requêtes." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,60 +16,56 @@
    ms.date="07/19/2016"
    ms.author="sstein"/>
 
+# Informations sur les performances des bases de données SQL
 
-# <a name="sql-database-performance-insight"></a>SQL Database Performance Insight
+La base de données SQL Azure fournit des outils de performances pour vous aider à identifier et à améliorer les performances de vos bases de données en fournissant des recommandations et des actions de paramétrage intelligentes.
 
-Azure SQL Database provides performance tools to help you identify and improve the performance of your databases by providing intelligent tuning actions and recommendations. 
-
-1. Browse to your database in the [Azure Portal](http://portal.azure.com) and click **All settings** > **Performance ** > **Overview** to open the **Performance** page. 
-
-
-2. Click **Recommendations** to open the [SQL Database Advisor](#sql-database-advisor), and click **Queries** to open [Query Performance Insight](#query-performance-insight).
-
-    ![View Performance](./media/sql-database-performance/entries.png)
+1. Accédez à votre base de données dans le [portail Azure](http://portal.azure.com) et cliquez sur **Tous les paramètres** > **Performances** > **Vue d’ensemble** pour ouvrir la page **Performances**.
 
 
+2. Cliquez sur **Recommandations** pour ouvrir [SQL Database Advisor](#sql-database-advisor), puis cliquez sur **Requêtes** pour ouvrir [Query Performance Insight](#query-performance-insight).
 
-## <a name="performance-overview"></a>Performance Overview
-
-Clicking on **Overview** or on the **Performance** tile will take you to the performance dashboard for your database. This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
-
-![Performance](./media/sql-database-performance/performance.png)
-
-- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top 3 recommendations are shown if there are more). Clicking this tile takes you to **SQL Database Advisor**. 
-- The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
-- The **Auto-tuning** tile shows the auto-tuning configuration for your database (which tuning actions are configured to be automatically applied to your database). Clicking this tile opens the automation configuration dialog.
-- The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **Query Performance Insight**.
+    ![Afficher les performances](./media/sql-database-performance/entries.png)
 
 
 
-## <a name="sql-database-advisor"></a>SQL Database Advisor
+## Vue d'ensemble des performances
+
+En cliquant sur **Vue d’ensemble** ou sur la vignette **Performances**, vous accéderez au tableau de bord des performances de votre base de données. Cette vue fournit un résumé des performances de votre base de données et vous aide à optimiser les performances et à résoudre les problèmes.
+
+![Performances](./media/sql-database-performance/performance.png)
+
+- La vignette **Recommandations** fournit une décomposition des recommandations de paramétrage de votre base de données (les 3 premières recommandations sont affichées s’il en existe plus). Cette vignette vous amène à **SQL Database Advisor**.
+- La vignette **Activité de paramétrage** fournit un résumé des actions de paramétrage en cours et terminées pour votre base de données, ce qui vous donne un aperçu rapide de l’historique des activités de paramétrage. Cliquez sur cette vignette pour afficher l'historique de paramétrage complet de votre base de données.
+- La vignette **Paramétrage automatique** affiche la configuration de paramétrage automatique de votre base de données (les actions de paramétrage sont configurées pour être automatiquement appliquées à votre base de données). Cliquez sur cette vignette pour ouvrir la boîte de dialogue de configuration de l'automatisation.
+- La vignette **Requêtes de base de données** affiche le résumé des performances de requête de votre base de données (utilisation DTU globale et requêtes les plus consommatrices de ressources). Cette vignette vous amène à **Query Performance Insight**.
 
 
-[SQL Database Advisor](sql-database-advisor.md) provides intelligent tuning recommendations that can help improve your database's performance. 
 
-- Recommendations on which indexes to create or drop (and an option to apply index recommendations automatically without any user interaction and automatically rolling back recommendations that have a negative impact on performance).
-- Recommendations when schema issues are identified in the database.
-- Recommendations when queries can benefit from parameterized queries.
+## SQL Database Advisor
 
 
+[SQL Database Advisor](sql-database-advisor.md) fournit des recommandations de paramétrage intelligent qui peuvent aider à améliorer les performances de votre base de données.
+
+- Recommandations sur les index à créer ou supprimer (et une option pour appliquer automatiquement les recommandations d'index, sans intervention de l'utilisateur, et annuler automatiquement les recommandations qui ont un impact négatif sur les performances).
+- Recommandations en cas de problèmes de schéma dans la base de données.
+- Recommandations quand les requêtes peuvent tirer parti des requêtes paramétrables.
 
 
-## <a name="query-performance-insight"></a>Query Performance Insight
-
-[Query Performance Insight](sql-database-query-performance.md) allows you to spend less time troubleshooting database performance by providing:
-
-- Deeper insight into your databases resource (DTU) consumption. 
-- The top CPU consuming queries, which can potentially be tuned for improved performance. 
-- The ability to drill down into the details of a query. 
 
 
-## <a name="additional-resources"></a>Additional resources
+## Query Performance Insight
 
-- [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md)
-- [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
+[Query Performance Insight](sql-database-query-performance.md) vous permet de passer moins de temps à résoudre les problèmes de performances des bases de données en fournissant :
+
+- Une meilleure compréhension de la consommation des ressources des bases de données (DTU).
+- Les requêtes principales consommatrices d’UC peuvent être réglées pour améliorer les performances.
+- La possibilité d’examiner les détails d’une requête.
 
 
-<!--HONumber=Oct16_HO2-->
+## Ressources supplémentaires
 
+- [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md)
+- [Quand utiliser un pool de base de données élastique ?](sql-database-elastic-pool-guidance.md)
 
+<!---HONumber=AcomDC_0720_2016-->

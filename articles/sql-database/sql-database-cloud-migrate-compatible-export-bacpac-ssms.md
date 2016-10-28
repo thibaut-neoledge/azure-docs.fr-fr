@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Export a SQL Server database to a BACPAC file using SQL Server Management Studio | Microsoft Azure"
-   description="Microsoft Azure SQL Database, database migration, export database, export BACPAC file, Export Data Tier Application wizard"
+   pageTitle="Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SQL Server Management Studio | Microsoft Azure"
+   description="Base de données SQL Microsoft Azure, migration de base de données, exportation de base de données, exportation de fichier BACPAC, Assistant d’exportation d’application de couche Données"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -17,52 +17,47 @@
    ms.date="08/16/2016"
    ms.author="carlrab"/>
 
-
-# <a name="export-a-sql-server-database-to-a-bacpac-file-using-sql-server-management-studio"></a>Export a SQL Server database to a BACPAC file using SQL Server Management Studio
+# Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SQL Server Management Studio
 
 > [AZURE.SELECTOR]
 - [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 
  
-This article shows how to export a SQL Server database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the Export Data Tier Application Wizard in SQL Server Management Studio. 
+Cet article explique la procédure d’exportation d’une base de données SQL Server vers un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) à l’aide de l’Assistant Exportation d’une Application de couche données dans SQL Server Management Studio.
 
-1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
+1. Assurez-vous de disposer de la dernière version de SQL Server Management Studio. Les nouvelles versions de Management Studio sont mises à jour tous les mois afin de refléter les mises à jour publiées sur le portail Azure.
 
-     > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+	 > [AZURE.IMPORTANT] Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour de Microsoft Azure et Base de données SQL. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Open Management Studio and connect to your source database in Object Explorer.
+2. Ouvrez Management Studio et connectez-vous à votre base de données source dans l’Explorateur d’objets.
 
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingBACPAC01.png)
+	![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/MigrateUsingBACPAC01.png)
 
-3. Right-click the source database in the Object Explorer, point to **Tasks**, and click **Export Data-Tier Application…**
+3. Dans l’Explorateur d’objets, cliquez avec le bouton droit de la souris sur la base de données source, pointez sur **Tâches**, puis cliquez sur **Exporter une application de couche Données…**
 
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
+	![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. In the export wizard, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. The exported BACPAC always includes the complete database schema and, by default, data from all the tables. Use the Advanced tab if you want to exclude data from some or all the tables. You might, for example, choose to export only the data for reference tables rather than from all tables.
+4. Dans l’Assistant Exportation, configurez l’exportation de manière à enregistrer le fichier BACPAC sur le disque local ou dans un objet blob Azure. Le fichier BACPAC exporté inclut toujours le schéma de base de données complet et, par défaut, les données de toutes les tables. Utilisez l’onglet Avancé si vous souhaitez exclure les données de toutes les tables ou de certaines d’entre elles uniquement. Vous pouvez, par exemple, choisir d’exporter uniquement les données des tables de référence au lieu d’exporter toutes les tables.
 
-***Important*** When exporting a BACPAC to Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
+***Important*** Lorsque vous exportez un fichier BACPAC dans Azure Blob Storage, utilisez le stockage standard. L’importation d’un fichier BACPAC à partir de Premium Storage n’est pas prise en charge.
 
-    ![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
-
-
-## <a name="next-steps"></a>Next steps
-
-- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Import a BACPAC to Azure SQL Database using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Import a BACPAC to Azure SQL Database SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Import a BACPAC to Azure SQL Database Azure portal](sql-database-import.md)
-- [Import a BACPAC to Azure SQL Database PowerShell](sql-database-import-powershell.md)
-
-## <a name="additional-resources"></a>Additional resources
-
-- [SQL Database V12](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
 
 
+## Étapes suivantes
 
-<!--HONumber=Oct16_HO2-->
+- [Version la plus récente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+- [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide du Portail Azure](sql-database-import.md)
+- [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de PowerShell](sql-database-import-powershell.md)
 
+## Ressources supplémentaires
 
+- [Base de données SQL V12](sql-database-v12-whats-new.md)
+- [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
+- [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0817_2016-->

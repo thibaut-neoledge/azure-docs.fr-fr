@@ -1,42 +1,37 @@
 <properties
-    pageTitle="Attach a data disk to a Linux VM | Microsoft Azure"
-    description="How to attach new or existing data disk to a Linux VM in the Azure portal using the Resource Manager deployment model."
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Attacher un disque de données à une machine virtuelle Linux | Microsoft Azure"
+	description="Découvrez comment attacher un disque de données nouveau ou existant à une machine virtuelle Linux dans le portail Azure à l’aide du modèle de déploiement Resource Manager."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/06/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2016"
+	ms.author="cynthn"/>
 
+# Attachement d’un disque de données à une machine virtuelle Linux dans le portail Azure
 
-# <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>How to attach a data disk to a Linux VM in the Azure portal
+Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le portail Azure](virtual-machines-windows-attach-disk-portal.md). Avant cela, passez en revue les conseils suivants :
 
-This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md). Before you do this, review these tips:
-
-- The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
-- To use Premium storage, you'll need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
-- Disks attached to virtual machines are actually .vhd files in an Azure storage account. For details, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
-- For a new disk, you don't need to create it first because Azure creates it when you attach it.
-- For an existing disk, the .vhd file must be available in an Azure storage account. You can use a .vhd that's already there, if it's not attached to another virtual machine, or upload your own .vhd file to the storage account.
+- La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](virtual-machines-linux-sizes.md).
+- Pour utiliser le stockage de Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques de comptes de stockage Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
+- Les disques attachés aux machines virtuelles sont en fait des fichiers .vhd dans un compte de stockage Azure. Pour en savoir plus, voir la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-linux-about-disks-vhds.md).
+- Pour un nouveau disque, vous n’avez pas besoin de le créer au préalable, car Azure le crée lorsque vous l’attachez.
+- Pour un disque existant, le fichier .vhd doit être disponible dans un compte de stockage Azure. Vous pouvez utiliser un fichier .vhd présent, s’il n’est attaché à aucune autre machine virtuelle, ou charger votre propre fichier .vhd sur le compte de stockage.
 
 
 [AZURE.INCLUDE [virtual-machines-common-attach-disk-portal](../../includes/virtual-machines-common-attach-disk-portal.md)]
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-After the disk is added, you need to prepare it for use. See in the virtual machine's operating system: "How to: Initialize a new data disk in Linux" in this [article](virtual-machines-linux-classic-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux).
+Une fois le disque ajouté, vous devez le préparer pour utilisation. Voir la section « Initialisation d’un nouveau disque de données dans Linux » dans cet [article](virtual-machines-linux-classic-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux) pour le système d’exploitation de la machine virtuelle.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

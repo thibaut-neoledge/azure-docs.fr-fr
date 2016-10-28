@@ -1,10 +1,10 @@
 <properties
-   pageTitle="How to expand the OS drive of a Virtual Machine in an Azure Resource Group | Microsoft Azure"
-   description="This article demonstrates an approach for expanding the size of OS drive of a virtual machine using Azure Resource Manager Powershell."
+   pageTitle="Extension du lecteur de système d’exploitation d’une machine virtuelle dans un groupe de ressources Azure | Microsoft Azure"
+   description="Cet article présente une approche pour l’extension de la taille du lecteur de système d’exploitation d’une machine virtuelle à l’aide de Powershell et Azure Resource Manager."
    services="virtual-machines-windows"
    documentationCenter=""
    authors="kirpasingh"
-   manager="roshar"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,16 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
+   ms.date="06/21/2016"
    ms.author="kirpas"/>
 
-
-# <a name="how-to-expand-the-os-drive-of-a-virtual-machine-in-an-azure-resource-group"></a>How to expand the OS drive of a Virtual Machine in an Azure Resource Group
+# Extension du lecteur de système d’exploitation d’une machine virtuelle dans un groupe de ressources Azure
 
 [AZURE.INCLUDE [virtual-machine-common-expand-os-disk](../../includes/virtual-machines-common-expand-os-disk.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

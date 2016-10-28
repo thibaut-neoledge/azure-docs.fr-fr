@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Export a SQL Server database to a BACPAC file using SqlPackage | Microsoft Azure"
-   description="Microsoft Azure SQL Database, database migration, export database, export BACPAC file, sqlpackage"
+   pageTitle="Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage | Microsoft Azure"
+   description="Base de données SQL Microsoft Azure, migration de base de données, exporter une base de données, exporter un fichier BACPAC, sqlPackage"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,45 +16,40 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-
-# <a name="export-a-sql-server-database-to-a-bacpac-file-using-sqlpackage"></a>Export a SQL Server database to a BACPAC file using SqlPackage
+# Exporter une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage
 
 > [AZURE.SELECTOR]
 - [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 
-This article shows how to export a SQL Server database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility. This utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/en-us/download/details.aspx?id=53876) directly from the Microsoft download center.
+Cet article explique comment exporter une base de données SQL Server à partir d’un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) à l’aide de l’utilitaire de ligne de commande [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Cet utilitaire est fourni avec les dernières versions de [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) et de [SQL Server Data Tools pour Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Vous pouvez également télécharger la dernière version de [SqlPackage](https://www.microsoft.com/fr-FR/download/details.aspx?id=53876) directement à partir du Centre de téléchargement Microsoft.
 
-1. Open a command prompt and change a directory containing the sqlpackage.exe command-line utility - this utility ships with both Visual Studio and SQL Server. Use search on your computer to find the path in your environment.
-2. Execute the following sqlpackage.exe command with the following arguments for your environment:
+1. Ouvrez une invite de commandes et modifiez un répertoire contenant l’utilitaire de ligne de commande sqlpackage.exe. Cet utilitaire est fourni avec Visual Studio et SQL Server. Utilisez la fonction de recherche de votre ordinateur pour rechercher le chemin d’accès dans votre environnement.
+2. Exécutez la commande sqlpackage.exe suivante avec les arguments ci-dessous pour votre environnement :
 
-    'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+	'sqlpackage.exe /Action:Export /ssn:< nom\_serveur > /sdn:< nom\_base\_de\_données > /tf:< fichier\_cible >
 
-  	| Argument  | Description  |
-  	|---|---|
-  	| < server_name >  | source server name  |
-  	| < database_name >  | source database name  |
-  	| < target_file >  | file name and location for BACPAC file  |
+	| Argument | Description |
+	|---|---|
+	| < nom\_serveur > | nom du serveur source |
+	| < nom\_base\_de\_données > | nom de la base de données source |
+	| < fichier\_cible > | nom de fichier et emplacement du fichier BACPAC |
 
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
+	![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Import a BACPAC to Azure SQL Database using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Import a BACPAC to Azure SQL Database SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Import a BACPAC to Azure SQL Database Azure portal](sql-database-import.md)
-- [Import a BACPAC to Azure SQL Database PowerShell](sql-database-import-powershell.md)
+- [Version la plus récente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Version la plus récente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+- [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide du Portail Azure](sql-database-import.md)
+- [Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de PowerShell](sql-database-import-powershell.md)
 
-## <a name="additional-resources"></a>Additional resources
+## Ressources supplémentaires
 
-- [SQL Database V12](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+- [Base de données SQL V12](sql-database-v12-whats-new.md)
+- [Fonctions partiellement ou non prises en charge de Transact-SQL](sql-database-transact-sql-information.md)
+- [Migration de bases de données non-SQL Server avec l’Assistant Migration SQL Server](http://blogs.msdn.com/b/ssma/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

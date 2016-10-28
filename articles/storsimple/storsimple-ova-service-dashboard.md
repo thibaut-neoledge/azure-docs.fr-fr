@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Manager service dashboard - Virtual Array | Microsoft Azure"
-   description="Describes the StorSimple Manager service dashboard and explains how to use it to monitor the health of your StorSimple Virtual Array."
+   pageTitle="Tableau de bord du service StorSimple Manager - Virtual Array | Microsoft Azure"
+   description="Décrit le tableau de bord du service StorSimple Manager et explique comment l’utiliser pour surveiller l’état de votre StorSimple Virtual Array."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,55 +15,51 @@
    ms.date="04/07/2016"
    ms.author="alkohli" />
 
+# Utiliser le tableau de bord du service StorSimple Manager pour StorSimple Virtual Array
 
-# <a name="use-the-storsimple-manager-service-dashboard-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service dashboard for the StorSimple Virtual Array
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+La page de tableau de bord du service StorSimple Manager fournit un résumé des StorSimple Virtual Arrays (également appelés appareils virtuels ou appareils virtuels locaux StorSimple) qui sont connectés au service StorSimple Manager, mettant en surbrillance ceux qui requièrent l’attention particulière d’un administrateur système. Ce didacticiel présente la page du tableau de bord, explique le contenu du tableau de bord et ses fonctions, et décrit les tâches que vous pouvez effectuer à partir de cette page.
 
-The StorSimple Manager service dashboard page provides a summary view of the StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or virtual devices) that are connected to the StorSimple Manager service, highlighting those that need a system administrator's attention. This tutorial introduces the dashboard page, explains the dashboard content and function, and describes the tasks that you can perform from this page.
+![Tableau de bord du service](./media/storsimple-ova-service-dashboard/dashboard1.png)
 
-![Service dashboard](./media/storsimple-ova-service-dashboard/dashboard1.png)
+Le tableau de bord du service StorSimple Manager affiche les informations suivantes :
 
-The StorSimple Manager service dashboard displays the following information:
+- La zone de **graphique** en haut de la page présente les métriques appropriées pour vos appareils virtuels. Vous pouvez afficher le stockage principal utilisé sur tous les appareils virtuels, ainsi que le stockage de cloud utilisé par les appareils virtuels sur une période donnée. Utilisez les commandes dans le coin supérieur droit du graphique pour définir une utilisation relative ou absolue et pour afficher une échelle de temps d’une semaine, d’un mois, de 3 mois ou d’un an. Utilisez le contrôle d’actualisation ![contrôle de l’actualisation](./media/storsimple-ova-service-dashboard/refresh-control.png) pour actualiser le graphique.
 
-- In the **chart** area at the top of the page, you can see the relevant metrics for your virtual devices. You can view the primary storage used across all virtual devices, as well as the cloud storage consumed by virtual devices over a period of time. Use the controls in the top-right corner of the chart to specify relative or absolute usage and to see a 1-week, 1-month, 3-month, or 1-year time scale. Use the refresh control ![refresh-control](./media/storsimple-ova-service-dashboard/refresh-control.png) to refresh the chart.
+- L’**aperçu de l’utilisation** montre le stockage principal approvisionné et utilisé par tous les appareils virtuels par rapport au stockage total disponible sur tous les appareils virtuels. **Approvisionné** fait référence à la quantité de stockage préparée et allouée à l’utilisation, **Utilisé** fait référence à l’utilisation des partages et volumes, tel qu’affiché par les initiateurs connectés aux appareils virtuels, tandis que **Capacité max.** indique la capacité maximale de tous les appareils virtuels.
 
-- The **usage overview** shows the primary storage that is provisioned and consumed by all virtual devices relative to the total storage available across all virtual devices. **Provisioned** refers to the amount of storage that is prepared and allocated for use, **Used** refers to usage of shares or volumes as viewed by the initiators that are connected to the virtual devices, and **Max. capacity** shows the maximum capacity of all virtual devices.
+- La zone d’**alertes** fournit un instantané de toutes les alertes actives sur tous les appareils virtuels, groupées par gravité. Cliquez sur le niveau de gravité pour ouvrir la pages des **alertes**, dédiée à l’affichage de ces alertes. Sur la page **Alertes**, vous pouvez cliquer sur une alerte individuelle pour afficher des détails supplémentaires sur cette alerte, y compris les actions recommandées. Vous pouvez également effacer l'alerte si le problème a été résolu.
 
-- The **alerts** area provides a snapshot of all the active alerts across all virtual devices, grouped by alert severity. Clicking the severity level opens the **Alerts** page, scoped to show those alerts. On the **Alerts** page, you can click an individual alert to view additional details about that alert, including any recommended actions. You can also clear the alert if the issue has been resolved.
+- La zone **Tâches** fournit un instantané des tâches récentes de tous les appareils connectés à votre service. Il y a des liens que vous pouvez utiliser pour examiner les tâches en cours et celles qui ont réussi ou échoué au cours des 24 dernières heures.
 
-- The **jobs** area provides a snapshot of recent jobs across all virtual devices that are connected to your service. There are links that you can use to look at jobs that are currently in progress and those that succeeded or failed in the last 24 hours. 
+- La zone **Aperçu rapide** à droite de la page fournit des informations utiles telles que l’état du service, le nombre total d’appareils connectés au service, l’emplacement du service et des détails sur l’abonnement associé au service. Il y a également un lien vers le journal des opérations. Cliquez sur le lien pour afficher la liste de toutes les opérations de service StorSimple Manager terminées.
 
-- The **quick glance** area on the right of the page provides useful information such as service status, total number of virtual devices connected to the service, location of the service, and details of the subscription that is associated with the service. There is also a link to the operations log. Click the link to see a list of all completed StorSimple Manager service operations. 
+Vous pouvez utiliser la page du tableau de bord du service StorSimple Manager pour effectuer les tâches suivantes :
 
-You can use the StorSimple Manager service dashboard page to initiate the following tasks:
+- obtention de la clé d’inscription.
+- Afficher les journaux des opérations
 
-- Get the service registration key.
-- View the operation logs.
+## Obtenir la clé d’inscription du service
 
-## <a name="get-the-service-registration-key"></a>Get the service registration key
+La clé d’inscription auprès du service permet d’enregistrer un appareil virtuel StorSimple à l’aide du service StorSimple Manager, de manière à ce que l’appareil apparaisse sur le portail Azure Classic pour des actions de gestion futures. La clé est créée sur le premier appareil virtuel et partagée avec les autres appareils virtuels.
 
-The service registration key is used to register a StorSimple virtual device with the StorSimple Manager service, so that the device appears in the Azure classic portal for further management actions. The key is created on the first virtual device and shared with the remaining virtual devices. 
+Le fait de cliquer sur la **clé d’enregistrement** (au bas de la page) ouvre la boîte de dialogue **Clé d’enregistrement auprès du service**, à partir de laquelle vous pouvez soit copier la clé d’enregistrement dans le presse-papier, soit la régénérer.
 
-Clicking **Registration Key** (at the bottom of the page) opens the **Service Registration Key** dialog box, where you can either copy the current service registration key to the clipboard or regenerate the service registration key.
+![clé d’enregistrement](./media/storsimple-ova-service-dashboard/service-dashboard3.png)
 
-![registration key](./media/storsimple-ova-service-dashboard/service-dashboard3.png)
+La régénération de la clé n’affecte pas les appareils virtuels déjà enregistrés : elle affecte uniquement les appareils virtuels enregistrés auprès du service après la régénération.
 
-Regenerating the key does not affect previously registered virtual devices: it affects only the virtual devices that are registered with the service after the key is regenerated.
+Pour plus d’informations sur l’obtention de la clé d’enregistrement auprès du service, consultez la page [Obtenir la clé d’inscription](storsimple-ova-manage-service.md#get-the-service-registration-key).
 
-For more information about getting the service registration key, go to [Get the service registration key](storsimple-ova-manage-service.md#get-the-service-registration-key).
+## Affichage des journaux des opérations
 
-## <a name="view-the-operations-logs"></a>View the operations logs
+Vous pouvez afficher les journaux des opérations en cliquant sur le lien des journaux disponible dans le volet **Aperçu rapide** du tableau de bord. Ceci vous dirigera vers la page des services de gestion, où vous pouvez filtrer et consulter les journaux propres à votre service StorSimple Manager.
 
-You can view the operation logs by clicking the operation logs link available in the **quick glance** pane of the dashboard. This will take you to the management services page, where you can filter and see the logs specific to your StorSimple Manager service.
+![Journal des opérations](./media/storsimple-ova-service-dashboard/ops-log.png)
 
-![Operations log](./media/storsimple-ova-service-dashboard/ops-log.png)
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+Découvrez comment [utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-Learn how to [use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

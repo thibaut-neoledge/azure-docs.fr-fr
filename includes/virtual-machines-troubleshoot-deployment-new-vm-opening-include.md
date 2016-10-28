@@ -1,9 +1,4 @@
-When you try to create a new Azure Virtual Machine (VM), the common errors you encounter are provisioning failures or allocation failures.
+Lorsque vous essayez de créer une machine virtuelle Azure, les erreurs courantes que vous rencontrez sont les échecs de configuration ou d’allocation.
 
-- A provisioning failure happens when the OS image fails to load either due to incorrect preparatory steps or because of selecting the wrong settings during the image capture from the portal.
-- An allocation failure results when the cluster or region either does not have resources available or cannot support the requested VM size.
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+- Un échec de configuration se produit lorsque l’image du système d’exploitation ne parvient pas à se charger en raison d’étapes préparatoires incorrectes ou de la mauvaise sélection des paramètres pendant la capture d’image à partir du portail.
+- Un échec d’allocation se produit lorsque le cluster ou la région n’a pas de ressources disponibles ou ne prend pas en charge la taille de machine virtuelle requise.

@@ -1,49 +1,48 @@
 <properties
-    pageTitle="Use Hadoop Sqoop in HDInsight | Microsoft Azure"
-    description="Learn how to use HDInsight .NET SDK to run Sqoop import and export between an Hadoop cluster and an Azure SQL database."
-    editor="cgronlun"
-    manager="jhubbard"
-    services="hdinsight"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="mumian"/>
+	pageTitle="Utilisation de Hadoop Sqoop dans HDInsight | Microsoft Azure"
+	description="Découvrez comment utiliser le Kit de développement logiciel (SDK) .NET HDInsight pour exécuter l’exportation et l’importation Sqoop entre un cluster Hadoop et une base de données SQL Azure."
+	editor="cgronlun"
+	manager="jhubbard"
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
    ms.date="09/14/2016"
-    ms.author="jgao"/>
+	ms.author="jgao"/>
 
-
-#<a name="run-sqoop-jobs-using-.net-sdk-for-hadoop-in-hdinsight"></a>Run Sqoop jobs using .NET SDK for Hadoop in HDInsight
+#Exécuter des tâches Sqoop à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use HDInsight .NET SDK to run Sqoop jobs in HDInsight to import and export between HDInsight cluster and Azure SQL database or SQL Server database.
+Découvrez comment utiliser le Kit de développement logiciel (SDK) .NET HDInsight pour exécuter des tâches Sqoop dans HDInsight afin d’effectuer des opérations d’importation et d’exportation entre un cluster HDInsight et une base de données SQL Azure ou SQL Server.
 
-> [AZURE.NOTE] The steps in this article can be used with either a Windows-based or Linux-based HDInsight cluster; however, these steps will only work from a Windows client. Use the tab selector on the top of this article to choose other methods.
+> [AZURE.NOTE] Les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight Windows ou Linux. Toutefois, ces étapes fonctionnent uniquement à partir d’un client Windows. Utilisez le sélecteur d’onglet en haut de cet article pour choisir d’autres méthodes.
 
-###<a name="prerequisites"></a>Prerequisites
+###Composants requis
 
-Before you begin this tutorial, you must have the following:
+Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **A Hadoop cluster in HDInsight**. See [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+- **Cluster Hadoop dans HDInsight**. Consultez [Création du cluster et de la base de données SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## <a name="run-sqoop-using-.net-sdk"></a>Run Sqoop using .NET SDK
+## Exécuter Sqoop à l’aide du Kit de développement logiciel (SDK) .NET
 
-The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. In this section, you will create a C# console application to export the hivesampletable to the SQL Database table you created earlier in this tutorials.
+Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. Dans cette section, vous allez créer une application console C# pour exporter la table hivesampletable vers la table de base de données SQL créée précédemment dans ce didacticiel.
 
-**To submit a Sqoop job**
+**Pour envoyer une tâche Sqoop**
 
-1. Create a C# console application in Visual Studio.
-2. From the Visual Studio Package Manager Console, run the following Nuget command to import the package.
+1. Créez une application console C# dans Visual Studio.
+2. Dans la console du gestionnaire de package Visual Studio, exécutez la commande Nuget suivante pour importer le package.
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
         
-3. Use the following code in the Program.cs file:
+3. Utilisez le code suivant dans le fichier Program.cs :
 
         using System.Collections.Generic;
         using Microsoft.Azure.Management.HDInsight.Job;
@@ -107,26 +106,20 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
             }
         }
         
-4. Press **F5** to run the program. 
+4. Appuyez sur **F5** pour exécuter le programme.
 
-##<a name="limitations"></a>Limitations
+##Limitations
 
-* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
+* Exportation en bloc : avec HDInsight sous Linux, le connecteur Sqoop utilisé pour exporter des données vers Microsoft SQL Server ou la base de données SQL Azure ne prend pas en charge les insertions en bloc.
 
-* Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop will perform multiple inserts instead of batching the insert operations.
+* Traitement par lots : avec HDInsight sous Linux, lorsque vous utilisez le commutateur `-batch` pour effectuer des insertions, Sqoop effectue plusieurs insertions plutôt qu’un traitement par lots des opérations d’insertion.
 
-##<a name="next-steps"></a>Next steps
+##Étapes suivantes
 
-Now you have learned how to use Sqoop. To learn more, see:
+Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, consultez les rubriques suivantes :
 
-- [Use Oozie with HDInsight](hdinsight-use-oozie.md): Use Sqoop action in an Oozie workflow.
-- [Analyze flight delay data using HDInsight](hdinsight-analyze-flight-delay-data.md): Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
-- [Upload data to HDInsight](hdinsight-upload-data.md): Find other methods for uploading data to HDInsight/Azure Blob storage.
+- [Utilisation d'Oozie avec HDInsight](hdinsight-use-oozie.md) : utilisez l’action Sqoop dans un flux de travail Oozie.
+- [Analyse des données sur les retards de vol avec HDInsight](hdinsight-analyze-flight-delay-data.md) : utilisez Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
+- [Téléchargement de données vers HDInsight](hdinsight-upload-data.md) : découvrez d'autres méthodes pour télécharger des données vers HDInsight ou le stockage d'objets blob Azure.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

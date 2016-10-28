@@ -1,23 +1,19 @@
-.NET applications can use the **StackExchange.Redis** cache client, which can be configured in Visual Studio using a NuGet package that simplifies the configuration of cache client applications. 
+Les applications .NET peuvent utiliser le client de cache **StackExchange.Redis**, qui peut être configuré dans Visual Studio à l’aide d’un package NuGet simplifiant la configuration des applications clientes de cache.
 
->[AZURE.NOTE] For more information, see the [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) github page and  the [StackExchange.Redis cache client documentation](http://github.com/StackExchange/StackExchange.Redis#documentation).
+>[AZURE.NOTE] Pour plus d’informations, consultez la page github [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) et la [documentation du client de cache StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis#documentation).
 
-To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
+Pour configurer une application cliente dans Visual Studio avec le package NuGet StackExchange.Redis, cliquez avec le bouton droit sur le projet dans l'**Explorateur de solutions** et choisissez **Gérer les packages NuGet**.
 
 ![Manage NuGet packages](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
-Type **StackExchange.Redis** or **StackExchange.Redis.StrongName** into the search text box, select the desired version from the results, and click **Install**.
+Tapez **StackExchange.Redis** ou **StackExchange.Redis.StrongName** dans la zone de texte de recherche, sélectionnez la version souhaitée dans la liste des résultats, puis cliquez sur **Installer**.
 
->[AZURE.NOTE] If you prefer to use a strong-named version of the **StackExchange.Redis** client library, choose **StackExchange.Redis.StrongName**; otherwise choose **StackExchange.Redis**.
+>[AZURE.NOTE] Si vous préférez utiliser une version avec nom fort de la bibliothèque du client **StackExchange.Redis**, choisissez **StackExchange.Redis.StrongName**. Sinon, choisissez **StackExchange.Redis**.
 
 ![StackExchange.Redis NuGet package](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
-The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client.
+Le package NuGet télécharge et ajoute les références d'assembly nécessaires pour que votre application cliente puisse accéder à Cache Redis Azure avec le client du cache StackExchange.Redis.
 
->[AZURE.NOTE] If you have previously configured your project to use StackExchange.Redis, you can check for updates to the package from the **NuGet Package Manager**. To check for and install updated versions of the StackExchange.Redis NuGet package, click **Updates** in the the **NuGet Package Manager** window. If an update to the StackExchange.Redis NuGet package is available, you can update your project to use the updated version.
+>[AZURE.NOTE] Si vous avez déjà configuré votre projet pour utiliser StackExchange.Redis, vous pouvez vérifier les mises à jour du package à partir du **gestionnaire de package NuGet**. Pour rechercher et installer les versions mises à jour du package NuGet StackExchange.Redis, cliquez sur **Mises à jour** dans la fenêtre du **gestionnaire de package NuGet**. Si une mise à jour du package StackExchange.Redis NuGet est disponible, vous pouvez mettre à jour votre projet afin d’utiliser cette version mise à jour.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

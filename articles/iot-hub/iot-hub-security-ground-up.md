@@ -1,6 +1,6 @@
 <properties
- pageTitle="Secure your IoT solution from the ground up | Microsoft Azure"
- description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
+ pageTitle="Sécuriser votre solution IoT de bout en bout | Microsoft Azure"
+ description="Cet article décrit les fonctionnalités de sécurité intégrées de Microsoft Azure IoT Suite"
  services="iot-hub"
  documentationCenter=""
  authors="YuriDio"
@@ -16,28 +16,30 @@
  ms.date="08/16/2016"
  ms.author="yurid"/>
 
-
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-To learn more about securing your IoT solution, see:
+Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
 
-- [IoT Security Best Practices][lnk-security-best-practices]
-- [IoT Security Architecture][lnk-security-architecture]
-- [Secure your IoT deployment][lnk-security-deployment]
+- [Meilleures pratiques relatives à la sécurité IoT][lnk-security-best-practices]
+- [Architecture de la sécurité IoT][lnk-security-architecture]
+- [Sécuriser votre déploiement IoT][lnk-security-deployment]
 
-To further explore the capabilities of IoT Hub, see:
+Pour explorer davantage les capacités de IoT Hub, consultez :
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Conception de votre solution][lnk-design]
+- [Exploration de la gestion des appareils à l’aide de l’exemple d’interface utilisateur][lnk-dmui]
+- [Simulation d’un appareil avec le Kit de développement logiciel (SDK) Gateway][lnk-gateway]
+- [Utilisation du portail Azure pour gérer IoT Hub][lnk-portal]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

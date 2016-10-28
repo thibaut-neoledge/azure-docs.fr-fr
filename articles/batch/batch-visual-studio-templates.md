@@ -1,149 +1,148 @@
 <properties
-    pageTitle="Visual Studio templates for Azure Batch | Microsoft Azure"
-    description="Learn how these Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch"
-    services="batch"
-    documentationCenter=".net"
-    authors="fayora"
-    manager="timlt"
-    editor="" />
+	pageTitle="Modèles Visual Studio pour Azure Batch | Microsoft Azure"
+	description="Découvrez comment ces modèles de projet Visual Studio peuvent vous aider à implémenter et à exécuter vos charges de travail nécessitant beaucoup de ressources sur Azure Batch"
+	services="batch"
+	documentationCenter=".net"
+	authors="fayora"
+	manager="timlt"
+	editor="" />
 
 <tags
-    ms.service="batch"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="big-compute"
-    ms.date="09/07/2016"
-    ms.author="marsma" />
+	ms.service="batch"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="09/07/2016"
+	ms.author="marsma" />
 
+# Modèles de projet Visual Studio pour Azure Batch
 
-# <a name="visual-studio-project-templates-for-azure-batch"></a>Visual Studio project templates for Azure Batch
+Les **modèles Visual Studio du gestionnaire de travaux** et du **processeur de tâches** pour Batch fournissent le code vous permettant d’implémenter et d’exécuter sans effort vos charges de travail nécessitant beaucoup de ressources sur Batch. Ce document décrit ces modèles et fournit des conseils pour leur utilisation.
 
-The **Job Manager** and **Task Processor Visual Studio templates** for Batch provide code to help you to implement and run your compute-intensive workloads on Batch with the least amount of effort. This document describes these templates and provides guidance for how to use them.
+>[AZURE.IMPORTANT] Cet article traite uniquement les informations relatives à ces deux modèles et suppose que vous maîtrisez le service Batch ainsi que les concepts clés qui y sont liés : pools, nœuds de calcul, travaux et tâches, tâches du gestionnaire de travaux, variables d’environnement et autres informations pertinentes. Pour plus d’informations, consultez [Notions de base d’Azure Batch](batch-technical-overview.md), [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md), et [Prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md).
 
->[AZURE.IMPORTANT] This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](batch-technical-overview.md), [Batch feature overview for developers](batch-api-basics.md), and [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md).
+## Vue d’ensemble globale
 
-## <a name="high-level-overview"></a>High-level overview
+Les modèles du gestionnaire de travaux et du processeur de tâches peuvent être utilisés pour créer deux composants utiles :
 
-The Job Manager and Task Processor templates can be used to create two useful components:
+* Une tâche du gestionnaire de travaux qui permet de fractionner un travail afin de le découper en plusieurs tâches pouvant être exécutées indépendamment, en parallèle.
 
-* A job manager task that implements a job splitter that can break a job down into multiple tasks that can run independently, in parallel.
+* Un processeur de tâches qui peut être utilisé pour effectuer le prétraitement et le post-traitement d’une ligne de commande d’application.
 
-* A task processor that can be used to perform pre-processing and post-processing around an application command line.
+Par exemple, dans un scénario de rendu vidéo, l’outil de fractionnement du travail diviserait le travail vidéo en plusieurs centaines voire milliers de tâches distinctes qui traiteraient chaque image séparément. En conséquence, le processeur de tâches appellerait l’application de rendu ainsi que tous les processus dépendants nécessaires au rendu de chaque image, et effectuerait des actions supplémentaires (par exemple, la copie de l’image rendue sur un emplacement de stockage).
 
-For example, in a movie rendering scenario, the job splitter would turn a single movie job into hundreds or thousands of separate tasks that would process individual frames separately. Correspondingly, the task processor would invoke the rendering application and all dependent processes that are needed to render each frame, as well as perform any additional actions (for example, copying the rendered frame to a storage location).
+>[AZURE.NOTE] Les modèles du gestionnaire de travaux et du processeur de tâches étant indépendants l’un de l’autre, vous pouvez choisir d’utiliser les deux ou un seul, en fonction des besoins de votre travail de calcul et de vos préférences.
 
->[AZURE.NOTE] The Job Manager and Task Processor templates are independent of each other, so you can choose to use both, or only one of them, depending on the requirements of your compute job and on your preferences.
+Comme indiqué dans le diagramme ci-dessous, un travail de calcul qui utilise ces modèles passe par trois étapes :
 
-As shown in the diagram below, a compute job that uses these templates will go through three stages:
+1. Le code client (par exemple, application, service web, etc.) soumet un travail au service Batch sur Azure, spécifiant le programme du gestionnaire de travaux en tant que tâche de son gestionnaire de travaux.
 
-1. The client code (e.g., application, web service, etc.) submits a job to the Batch service on Azure, specifying as its job manager task the job manager program.
+2. Le service Batch exécute la tâche du gestionnaire de travaux sur un nœud de calcul, et l’outil de fractionnement du travail lance le nombre spécifié de tâches du processeur de tâches sur autant de nœuds de calcul que nécessaire, en fonction des paramètres et des spécifications indiqués dans son code.
 
-2. The Batch service runs the job manager task on a compute node and the job splitter launches the specified number of task processor tasks, on as many compute nodes as required, based on the parameters and specifications in the job splitter code.
+3. Les tâches du processeur de tâches sont exécutées de manière indépendante, en parallèle, pour traiter les données d’entrée et générer les données de sortie.
 
-3. The task processor tasks run independently, in parallel, to process the input data and generate the output data.
+![Diagramme montrant comment le code client interagit avec le service Batch][diagram01]
 
-![Diagram showing how client code interacts with the Batch service][diagram01]
+## Composants requis
 
-## <a name="prerequisites"></a>Prerequisites
+Voici les composants requis pour utiliser les modèles Batch :
 
-To use the Batch templates, you will need the following:
+* Un ordinateur disposant de Visual Studio 2015 ou d’une version plus récente.
 
-* A computer with Visual Studio 2015, or newer, already installed on it.
+* Les modèles Batch, qui sont disponibles dans la [galerie Visual Studio][vs_gallery] en tant qu’extensions Visual Studio. Il existe deux façons de se procurer les modèles :
 
-* The Batch templates, which are available from the [Visual Studio Gallery][vs_gallery] as Visual Studio extensions. There are two ways to get the templates:
+  * Les installer à l’aide de la boîte de dialogue **Extensions et mises à jour** dans Visual Studio (pour plus d’informations, consultez [Recherche et utilisation des extensions Visual Studio][vs_find_use_ext]). Dans la boîte de dialogue **Extensions et mises à jour**, recherchez et téléchargez les deux extensions suivantes :
 
-  * Install the templates using the **Extensions and Updates** dialog box in Visual Studio (for more information, see [Finding and Using Visual Studio Extensions][vs_find_use_ext]). In the **Extensions and Updates** dialog box, search and download the following two extensions:
+    * Le gestionnaire de travaux Azure Batch avec l’outil de fractionnement du travail
+    * Le processeur de tâches Azure Batch
 
-    * Azure Batch Job Manager with Job Splitter
-    * Azure Batch Task Processor
+  * Les télécharger à partir de la galerie en ligne pour Visual Studio : [Modèles de projet Microsoft Azure Batch][vs_gallery_templates]
 
-  * Download the templates from the online gallery for Visual Studio: [Microsoft Azure Batch Project Templates][vs_gallery_templates]
+* Si vous prévoyez d’utiliser la fonctionnalité [Packages d’applications](batch-application-packages.md) pour déployer le gestionnaire de travaux et le processeur de tâches sur les nœuds de calcul Batch, vous devez lier un compte de stockage à votre compte Batch.
 
-* If you plan to use the [Application Packages](batch-application-packages.md) feature to deploy the job manager and task processor to the Batch compute nodes, you need to link a storage account to your Batch account.
+## Préparation
 
-## <a name="preparation"></a>Preparation
+Nous vous recommandons de créer une solution pouvant contenir à la fois votre gestionnaire de travaux et votre processeur de tâches, afin de faciliter le partage du code entre leurs programmes. Pour créer cette solution, procédez comme suit :
 
-We recommend creating a solution that can contain your job manager as well as your task processor, because this can make it easier to share code between your job manager and task processor programs. To create this solution, follow these steps:
+1. Ouvrez Visual Studio 2015 et sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
-1. Open Visual Studio 2015 and select **File** > **New** > **Project**.
+2. Sous **Modèles**, développez **Autres Types de projets**, cliquez sur **Solutions Visual Studio**, puis sélectionnez **Nouvelle Solution**.
 
-2. Under **Templates**, expand **Other Project Types**, click **Visual Studio Solutions**, and then select **Blank Solution**.
+3. Entrez un nom décrivant votre application et l’objectif de cette solution (par exemple, « ProgrammesTâchesBatchLitware »).
 
-3. Type a name that describes your application and the purpose of this solution (e.g., "LitwareBatchTaskPrograms").
+4. Cliquez sur **OK** pour créer la solution.
 
-4. To create the new solution, click **OK**.
+## Modèle du gestionnaire de travaux
 
-## <a name="job-manager-template"></a>Job Manager template
+Le modèle du gestionnaire de travaux vous permet d’implémenter une tâche du gestionnaire de travaux pouvant effectuer les actions suivantes :
 
-The Job Manager template helps you to implement a job manager task that can perform the following actions:
+* Fractionner un travail en plusieurs tâches.
+* Soumettre ces tâches pour les exécuter dans Batch.
 
-* Split a job into multiple tasks.
-* Submit those tasks to run on Batch.
+>[AZURE.NOTE] Pour plus d’informations sur le gestionnaire de travaux, consultez [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md#job-manager-task).
 
->[AZURE.NOTE] For more information about job manager tasks, see [Batch feature overview for developers](batch-api-basics.md#job-manager-task).
+### Créer un gestionnaire de travaux à l’aide du modèle
 
-### <a name="create-a-job-manager-using-the-template"></a>Create a Job Manager using the template
+Pour ajouter un gestionnaire de travaux à la solution que vous avez créée précédemment, procédez comme suit :
 
-To add a job manager to the solution that you created earlier, follow these steps:
+1. Ouvrez votre solution existante dans Visual Studio 2015.
 
-1. Open your existing solution in Visual Studio 2015.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis sur **Ajouter** > **Nouveau projet**.
 
-2. In Solution Explorer, right-click the solution, click **Add** > **New Project**.
+3. Sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Batch Job Manager with Job Splitter** (Gestionnaire de travaux Azure Batch avec outil de fractionnement du travail).
 
-3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Job Manager with Job Splitter**.
+4. Entrez un nom décrivant votre application et identifiant ce projet en tant que le gestionnaire de travaux (par exemple, « GestionnaireTravauxLitware »).
 
-4. Type a name that describes your application and identifies this project as the job manager (e.g. "LitwareJobManager").
+5. Cliquez sur **OK** pour créer le projet.
 
-5. To create the project, click **OK**.
+6. Pour finir, générez le projet pour forcer Visual Studio à charger tous les packages NuGet référencés et vérifier que le projet est valide avant de commencer à le modifier.
 
-6. Finally, build the project to force Visual Studio to load all referenced NuGet packages and to verify that the project is valid before you start modifying it.
+### Les fichiers du modèle du gestionnaire de travaux et leur objectif
 
-### <a name="job-manager-template-files-and-their-purpose"></a>Job Manager template files and their purpose
+Lorsque vous créez un projet à l’aide du modèle du gestionnaire de travaux, il génère trois groupes de fichiers de code :
 
-When you create a project using the Job Manager template, it generates three groups of code files:
+* Le fichier de programme principal (Program.cs). Il contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur. Vous n’avez normalement pas besoin de modifier cette configuration.
 
-* The main program file (Program.cs). This contains the program entry point and top-level exception handling. You shouldn't normally need to modify this.
+* Le répertoire Framework. Il contient les fichiers responsables du travail « boilerplate » (réutilisable) effectué par le programme du gestionnaire de travaux – décompression de paramètres, ajout de tâches au travail Batch, etc. Vous n’avez normalement pas besoin de modifier ces fichiers.
 
-* The Framework directory. This contains the files responsible for the 'boilerplate' work done by the job manager program – unpacking parameters, adding tasks to the Batch job, etc. You shouldn't normally need to modify these files.
+* Le fichier de fractionnement du travail (JobSplitter.cs). C’est là que vous allez placer la logique spécifique à votre application pour le fractionnement d’un travail en tâches.
 
-* The job splitter file (JobSplitter.cs). This is where you will put your application-specific logic for splitting a job into tasks.
+Bien sûr, vous pouvez si besoin ajouter des fichiers supplémentaires pour prendre en charge le code de fractionnement de votre travail, en fonction de la complexité de la logique de fractionnement du travail.
 
-Of course you can add additional files as required to support your job splitter code, depending on the complexity of the job splitting logic.
+Le modèle génère également des fichiers de projet .NET standard comme des fichiers .csproj, app.config, packages.config, etc.
 
-The template also generates standard .NET project files such as a .csproj file, app.config, packages.config, etc.
+Le reste de cette section décrit les différents fichiers et leur structure de code, et explique ce que fait chaque classe.
 
-The rest of this section describes the different files and their code structure, and explains what each class does.
+![Explorateur de solutions Visual Studio affichant la solution du modèle du gestionnaire de travaux][solution_explorer01]
 
-![Visual Studio Solution Explorer showing the Job Manager template solution][solution_explorer01]
+**Fichiers Framework**
 
-**Framework files**
+* `Configuration.cs` : Encapsule le chargement des données de configuration du travail, telles que les détails du compte Batch, les informations d’identification du compte de stockage lié, les informations relatives aux travaux et aux tâches, et les paramètres du travail. Il donne également accès aux variables d’environnement définies par Batch (voir les paramètres d’environnement des tâches, dans la documentation Batch) via la classe Configuration.EnvironmentVariable.
 
-* `Configuration.cs`: Encapsulates the loading of job configuration data such as Batch account details, linked storage account credentials, job and task information, and job parameters. It also provides access to Batch-defined environment variables (see Environment settings for tasks, in the Batch documentation) via the Configuration.EnvironmentVariable class.
+* `IConfiguration.cs` : Résume l’implémentation de la classe de configuration, afin que vous puissiez soumettre votre outil de fractionnement du travail à un test unitaire, à l’aide d’un objet de configuration fictif ou simulé.
 
-* `IConfiguration.cs`: Abstracts the implementation of the Configuration class, so that you can unit test your job splitter using a fake or mock configuration object.
+* `JobManager.cs` : Orchestre les composants du programme de gestionnaire de travaux. Il est responsable de l’initialisation et de l’appel de l’outil de fractionnement du travail, et de la distribution des tâches retournées par l’outil de fractionnement du travail à l’émetteur de la tâche.
 
-* `JobManager.cs`: Orchestrates the components of the job manager program. It is responsible for the initializing the job splitter, invoking the job splitter, and dispatching the tasks returned by the job splitter to the task submitter.
+* `JobManagerException.cs` : Représente une erreur nécessitant l’arrêt du gestionnaire de travaux. L’exception JobManagerException est utilisée pour encapsuler des erreurs « attendues » lorsque des informations de diagnostic spécifiques peuvent être fournies dans le cadre de l’arrêt.
 
-* `JobManagerException.cs`: Represents an error that requires the job manager to terminate. JobManagerException is used to wrap 'expected' errors where specific diagnostic information can be provided as part of termination.
+* `TaskSubmitter.cs` : Cette classe est chargée d’ajouter au travail Batch les tâches retournées par l’outil de fractionnement du travail. La classe JobManager agrège la séquence de tâches en lots pour les ajouter au travail de manière efficace et opportune, puis appelle TaskSubmitter.SubmitTasks sur un thread d’arrière-plan pour chaque lot.
 
-* `TaskSubmitter.cs`: This class is responsible to adding tasks returned by the job splitter to the Batch job. The JobManager class aggregates the sequence of tasks into batches for efficient but timely addition to the job, then calls TaskSubmitter.SubmitTasks on a background thread for each batch.
+**Outil de fractionnement du travail**
 
-**Job Splitter**
+`JobSplitter.cs` : Cette classe contient la logique spécifique à l’application pour fractionner le travail en tâches. L’infrastructure appelle la méthode JobSplitter.Split pour obtenir une séquence de tâches, qu’elle ajoute au travail à mesure que la méthode les retourne. C’est la classe où vous injecterez la logique de votre travail. Implémentez la méthode Split pour retourner une séquence d’instances CloudTask représentant les tâches dans lesquelles vous souhaitez partitionner le travail.
 
-`JobSplitter.cs`: This class contains application-specific logic for splitting the job into tasks. The framework invokes the JobSplitter.Split method to obtain a sequence of tasks, which it adds to the job as the method returns them. This is the class where you will inject the logic of your job. Implement the Split method to return a sequence of CloudTask instances representing the tasks into which you want to partition the job.
+**Fichiers de projet de ligne de commande .NET standard**
 
-**Standard .NET command line project files**
+* `App.config` : Fichier de configuration d’application .NET standard.
 
-* `App.config`: Standard .NET application configuration file.
+* `Packages.config`: Fichier de dépendance de package NuGet standard.
 
-* `Packages.config`: Standard NuGet package dependency file.
+* `Program.cs` : Contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur.
 
-* `Program.cs`: Contains the program entry point and top-level exception handling.
+### Implémenter l’outil de fractionnement du travail
 
-### <a name="implementing-the-job-splitter"></a>Implementing the job splitter
-
-When you open the Job Manager template project, the project will have the JobSplitter.cs file open by default. You can implement the split logic for the tasks in your workload by using the Split() method show below:
+Lorsque vous ouvrez le projet de modèle du gestionnaire de travaux, il ouvre le fichier JobSplitter.cs par défaut. Vous pouvez implémenter la logique de fractionnement pour les tâches de votre charge de travail à l’aide de la méthode Split() présentée ci-dessous :
 
 ```csharp
 /// <summary>
@@ -171,59 +170,59 @@ public IEnumerable<CloudTask> Split()
 }
 ```
 
->[AZURE.NOTE] The annotated section in the `Split()` method is the only section of the Job Manager template code that is intended for you to modify by adding the logic to split your jobs into different tasks. If you want to modify a different section of the template, please ensure you are familiarized with how Batch works, and try out a few of the [Batch code samples][github_samples].
+>[AZURE.NOTE] La section annotée dans la méthode `Split()` est la seule section de code du modèle du gestionnaire de travaux que vous êtes censé modifier en ajoutant la logique de fractionnement de vos travaux en différentes tâches. Si vous souhaitez modifier une autre section du modèle, assurez-vous de maîtriser le fonctionnement de Batch et essayez quelques-uns des [exemples de code Batch][github_samples].
 
-Your Split() implementation has access to:
+Votre implémentation Split() a accès :
 
-* The job parameters, via the `_parameters` field.
-* The CloudJob object representing the job, via the `_job` field.
-* The CloudTask object representing the job manager task, via the `_jobManagerTask` field.
+* Aux paramètres du travail, via le champ `_parameters`.
+* À l’objet CloudJob représentant le travail, via le champ `_job`.
+* À l’objet CloudTask représentant la tâche du gestionnaire de travaux, via le champ `_jobManagerTask`.
 
-Your `Split()` implementation does not need to add tasks to the job directly. Instead, your code should return a sequence of CloudTask objects, and these will be added to the job automatically by the framework classes that invoke the job splitter. It's common to use C#'s iterator (`yield return`) feature to implement job splitters as this allows the tasks to start running as soon as possible rather than waiting for all tasks to be calculated.
+Il n’est pas nécessaire que votre implémentation `Split()` ajoute directement des tâches au travail. Au lieu de cela, votre code doit retourner une séquence d’objets CloudTask, qui seront automatiquement ajoutés au travail par les classes de l’infrastructure appelant l’outil de fractionnement du travail. Il est courant d’utiliser la fonctionnalité de l’itérateur C# (`yield return`) pour implémenter des outils de fractionnement du travail, car elle permet de lancer les tâches dès que possible plutôt que d’attendre qu’elles soient toutes calculées.
 
-**Job splitter failure**
+**Échec du fractionnement du travail**
 
-If your job splitter encounters an error, it should either:
+Si votre outil de fractionnement du travail rencontre une erreur, il doit soit :
 
-* Terminate the sequence using the C# `yield break` statement, in which case the job manager will be treated as successful; or
+* Terminer la séquence à l’aide de l’instruction C# `yield break`, auquel cas le gestionnaire de travaux sera considéré comme ayant réussi ; ou
 
-* Throw an exception, in which case the job manager will be treated as failed and may be retried depending on how the client has configured it).
+* Lever une exception, auquel cas le gestionnaire de travaux sera traité comme s’il avait échoué et pourra être relancé, selon la façon dont le client l’a configuré.
 
-In both cases, any tasks already returned by the job splitter and added to the Batch job will be eligible to run. If you don't want this to happen, then you could:
+Dans les deux cas, toutes les tâches déjà retournées par l’outil de fractionnement du travail et ajoutées au travail Batch seront autorisées à être exécutées. Si vous souhaitez éviter cette situation, vous pouvez :
 
-* Terminate the job before returning from the job splitter
+* Arrêter le travail avant qu’il ne soit retourné par l’outil de fractionnement du travail
 
-* Formulate the entire task collection before returning it (that is, return an `ICollection<CloudTask>` or `IList<CloudTask>` instead of implementing your job splitter using a C# iterator)
+* Formuler toute la collection de tâches avant de la retourner (autrement dit, retourner `ICollection<CloudTask>` ou `IList<CloudTask>` au lieu d’implémenter votre outil de fractionnement du travail à l’aide d’un itérateur C#)
 
-* Use task dependencies to make all tasks depend on the successful completion of the job manager
+* Utiliser les dépendances entre tâches pour rendre toutes les tâches dépendantes de la réussite du gestionnaire de travaux
 
-**Job manager retries**
+**Nouvelles tentatives du gestionnaire de travaux**
 
-If the job manager fails, it may be retried by the Batch service depending on the client retry settings. In general, this is safe, because when the framework adds tasks to the job, it ignores any tasks that already exist. However, if calculating tasks is expensive, you may not wish to incur the cost of recalculating tasks that have already been added to the job; conversely, if the re-run is not guaranteed to generate the same task IDs then the 'ignore duplicates' behavior will not kick in. In these cases you should design your job splitter to detect the work that has already been done and not repeat it, for example by performing a CloudJob.ListTasks before starting to yield tasks.
+Si le gestionnaire de travaux échoue, il peut être relancé par le service Batch en fonction des paramètres de nouvelles tentatives du client. En général, il n’y a aucun risque, car lorsque l’infrastructure ajoute des tâches au travail, elle ignore toutes les tâches qui existent déjà. Toutefois, si le calcul des tâches est coûteux, vous pouvez choisir de ne pas encourir les frais de recalcul des tâches qui ont déjà été ajoutées au projet. À l’inverse, s’il n’est pas garanti que la réexécution génère les mêmes ID de tâches, le comportement « ignorer les doublons » n’intervient pas. Dans ce cas, vous devez concevoir votre outil de fractionnement du travail de manière à ce qu’il détecte le travail déjà effectué et ne le répète pas, par exemple en effectuant CloudJob.ListTasks avant de commencer à générer des tâches.
 
-### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Exit codes and exceptions in the Job Manager template
+### Codes de sortie et exceptions dans le modèle du gestionnaire de travaux
 
-Exit codes and exceptions provide a mechanism to determine the outcome of running a program, and they can help to identify any problems with the execution of the program. The Job Manager template implements the exit codes and exceptions described in this section.
+Les codes de sortie et les exceptions fournissent un mécanisme permettant de déterminer le résultat de l’exécution d’un programme, et peuvent aider à identifier les problèmes rencontrés lors de l’exécution du programme. Le modèle du gestionnaire de travaux implémente les codes de sortie et les exceptions décrites dans cette section.
 
-A job manager task that is implemented with the Job Manager template can return three possible exit codes:
+Une tâche du gestionnaire de travaux implémentée avec le modèle du gestionnaire de travaux peut retourner trois codes de sortie possibles :
 
 | Code | Description |
 |------|-------------|
-| 0    | The job manager completed successfully. Your job splitter code ran to completion, and all tasks were added to the job. |
-| 1    | The job manager task failed with an exception in an 'expected' part of the program. The exception was translated to a JobManagerException with diagnostic information and, where possible, suggestions for resolving the failure. |
-| 2    | The job manager task failed with an 'unexpected' exception. The exception was logged to standard output, but the job manager was unable to add any additional diagnostic or remediation information. |
+| 0 | Le gestionnaire de travaux s’est terminé avec succès. Le code de votre outil de fractionnement du travail a été exécuté entièrement, et toutes les tâches ont été ajoutées au travail. |
+| 1 | La tâche du gestionnaire de travaux a échoué avec une exception rencontrée dans une section « attendue » du programme. L’exception a été convertie en une JobManagerException avec des informations de diagnostic et, si possible, des suggestions pour résoudre l’échec. |
+| 2 | La tâche du gestionnaire de travaux a échoué avec une exception « inattendue ». L’exception a été enregistrée dans la sortie standard, mais le gestionnaire de travaux n’a pas pu ajouter d’informations de diagnostic ou de correction supplémentaires. |
 
-In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See "Job Splitter Failure" above for discussion of this code path.
+En cas d’échec de la tâche du gestionnaire de travaux, il est possible que certaines tâches aient tout de même été ajoutées au service avant que l’erreur ne se soit produite. Ces tâches s’exécutent normalement. Pour plus d’informations sur ce chemin de code, consultez la rubrique « Échec du fractionnement du travail » ci-dessus.
 
-All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](batch-api-basics.md#error-handling).
+Toutes les informations retournées par des exceptions sont écrites dans des fichiers stdout.txt et stderr.txt. Pour plus d’informations, consultez la rubrique [Gestion des erreurs](batch-api-basics.md#error-handling).
 
-### <a name="client-considerations"></a>Client considerations
+### Considérations du client
 
-This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](#pass-environment-settings) for details on passing parameters and environment settings.
+Cette section présente certaines exigences d’implémentation du client lors de l’appel d’un gestionnaire de travaux basé sur ce modèle. Pour plus d’informations, consultez la section expliquant [comment transmettre des paramètres et des paramètres d’environnement à partir du code client](#pass-environment-settings).
 
-**Mandatory credentials**
+**Informations d’identification obligatoires**
 
-In order to add tasks to the Azure Batch job, the job manager task requires your Azure Batch account URL and key. You must pass these in environment variables named YOUR_BATCH_URL and YOUR_BATCH_KEY. You can set these in the Job Manager task environment settings. For example, in a C# client:
+Pour ajouter des tâches au travail Azure Batch, la tâche du gestionnaire de travaux requiert la clé et l’URL de votre compte Azure Batch. Vous devez les transmettre en tant que variables d’environnement appelées YOUR\_BATCH\_URL et YOUR\_BATCH\_KEY. Vous pouvez les définir dans les paramètres d’environnement de tâche du gestionnaire de travaux. Par exemple, dans un client C# :
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -231,9 +230,9 @@ job.JobManagerTask.EnvironmentSettings = new [] {
     new EnvironmentSetting("YOUR_BATCH_KEY", "{your_base64_encoded_account_key}"),
 };
 ```
-**Storage credentials**
+**Informations d’identification de stockage**
 
-Typically, the client does not need to provide the linked storage account credentials to the job manager task because (a) most job managers do not need to explicitly access the linked storage account and (b) the linked storage account is often provided to all tasks as a common environment setting for the job. If you are not providing the linked storage account via the common environment settings, and the job manager requires access to linked storage, then you should supply the linked storage credentials as follows:
+En règle générale, le client n’a pas besoin de fournir les informations d’identification du compte de stockage lié à la tâche du gestionnaire de travaux, car (a) la plupart des gestionnaires de travaux n’ont pas besoin d’accéder explicitement au compte de stockage lié et (b) le compte de stockage lié est souvent fourni pour toutes les tâches en tant que paramètre d’environnement commun du travail. Si vous ne fournissez pas le compte de stockage lié via les paramètres d’environnement commun, et si le gestionnaire de travaux a besoin d’accéder au compte de stockage lié, vous devez fournir les informations d’identification de stockage comme suit :
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -243,96 +242,96 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 };
 ```
 
-**Job manager task settings**
+**Paramètres de tâche du gestionnaire de travaux**
 
-The client should set the job manager *killJobOnCompletion* flag to **false**.
+Le client doit définir l’indicateur *killJobOnCompletion* du gestionnaire de travaux sur **false**.
 
-It is usually safe for the client to set *runExclusive* to **false**.
+Généralement, le client peut définir *runExclusive* sur **false** en toute sécurité.
 
-The client should use the *resourceFiles* or *applicationPackageReferences* collection to have the job manager executable (and its required DLLs) deployed to the compute node.
+Le client doit utiliser la collection *resourceFiles* ou *applicationPackageReferences* pour que l’exécutable du gestionnaire de travaux (et ses fichiers DLL requis) soit déployé sur le nœud de calcul.
 
-By default, the job manager will not be retried if it fails. Depending on your job manager logic, the client may want to enable retries via *constraints*/*maxTaskRetryCount*.
+Par défaut, le gestionnaire de travaux ne sera pas relancé en cas d’échec. Selon la logique de votre gestionnaire de travaux, il est possible que le client souhaite autoriser les nouvelles tentatives via *constraints*/*maxTaskRetryCount*.
 
-**Job settings**
+**Paramètres du travail**
 
-If the job splitter emits tasks with dependencies, the client must set the job's usesTaskDependencies to true.
+Si l’outil de fractionnement du travail émet des tâches avec des dépendances, le client doit définir la propriété usesTaskDependencies du travail sur true.
 
-In the job splitter model, it is unusual for clients to wish to add tasks to jobs over and above what the job splitter creates. The client should therefore normally set the job's *onAllTasksComplete* to **terminatejob**.
+Dans le modèle de fractionnement du travail, il est rare que les clients souhaitent ajouter à des travaux davantage de tâches que celles que crée l’outil de fractionnement du travail. Le client doit donc définir normalement la propriété *onAllTasksComplete* du travail sur **terminatejob**.
 
-## <a name="task-processor-template"></a>Task Processor template
+## Modèle du processeur de tâches
 
-A Task Processor template helps you to implement a task processor that can perform the following actions:
+Le modèle du processeur de tâches vous permet d’implémenter une tâche du processeur de tâches pouvant effectuer les actions suivantes :
 
-* Set up the information required by each Batch task to run.
-* Run all actions required by each Batch task.
-* Save task outputs to persistent storage.
+* Définir les informations requises par chaque tâche Batch à exécuter.
+* Exécuter toutes les actions requises par chaque tâche Batch.
+* Enregistrer les sorties de tâche dans un emplacement de stockage permanent.
 
-Although a task processor is not required to run tasks on Batch, the key advantage of using a task processor is that it provides a wrapper to implement all task execution actions in one location. For example, if you need to run several applications in the context of each task, or if you need to copy data to persistent storage after completing each task.
+Bien qu’un processeur de tâches ne soit pas nécessaire pour exécuter des tâches dans Batch, le principal avantage à utiliser un processeur de tâches est qu’il fournit un wrapper pour implémenter toutes les actions d’exécution de tâches à un seul emplacement. Par exemple, si vous devez exécuter plusieurs applications dans le contexte de chaque tâche, ou si vous devez copier des données vers un emplacement de stockage permanent après la fin de chaque tâche.
 
-The actions performed by the task processor can be as simple or complex, and as many or as few, as required by your workload. Additionally, by implementing all task actions into one task processor, you can readily update or add actions based on changes to applications or workload requirements. However, in some cases a task processor might not be the optimal solution for your implementation as it can add unnecessary complexity, for example when running jobs that can be quickly started from a simple command line.
+Les actions effectuées par le processeur de tâches peuvent être simples ou complexes, nombreuses ou peu nombreuses, en fonction des besoins de votre charge de travail. En outre, en mettant en œuvre toutes les actions de tâches dans un processeur de tâches, vous pouvez facilement mettre à jour ou ajouter des actions en fonction des modifications apportées aux besoins des applications ou des charges de travail. Toutefois, dans certains cas, le processeur de tâches n’est pas forcément la solution optimale pour votre implémentation puisqu’il peut engendrer une complexité inutile, par exemple si vous exécutez des travaux pouvant être démarrés rapidement à l’aide d’une simple ligne de commande.
 
-### <a name="create-a-task-processor-using-the-template"></a>Create a Task Processor using the template
+### Créer un processeur de tâches à l’aide du modèle
 
-To add a task processor to the solution that you created earlier, follow these steps:
+Pour ajouter un processeur de tâches à la solution que vous avez créée précédemment, procédez comme suit :
 
-1. Open your existing solution in Visual Studio 2015.
+1. Ouvrez votre solution existante dans Visual Studio 2015.
 
-2. In Solution Explorer, right-click the solution, click **Add**, and then click **New Project**.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, cliquez sur **Ajouter**, puis sur **Nouveau projet**.
 
-3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Task Processor**.
+3. Sous **Visual C#**, cliquez sur **Cloud**, puis sur **Azure Batch Task Processor** (Processeur de tâches Azure Batch).
 
-4. Type a name that describes your application and identifies this project as the task processor (e.g. "LitwareTaskProcessor").
+4. Entrez un nom décrivant votre application et identifiant ce projet en tant que le processeur de tâches (par exemple, « ProcesseurLitwareTask »).
 
-5. To create the project, click **OK**.
+5. Cliquez sur **OK** pour créer le projet.
 
-6. Finally, build the project to force Visual Studio to load all referenced NuGet packages and to verify that the project is valid before you start modifying it.
+6. Pour finir, générez le projet pour forcer Visual Studio à charger tous les packages NuGet référencés et vérifier que le projet est valide avant de commencer à le modifier.
 
-### <a name="task-processor-template-files-and-their-purpose"></a>Task Processor template files and their purpose
+### Les fichiers du modèle du processeur de tâches et leur objectif
 
-When you create a project using the task processor template, it generates three groups of code files:
+Lorsque vous créez un projet à l’aide du modèle du processeur de tâches, il génère trois groupes de fichiers de code :
 
-* The main program file (Program.cs). This contains the program entry point and top-level exception handling. You shouldn't normally need to modify this.
+* Le fichier de programme principal (Program.cs). Il contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur. Vous n’avez normalement pas besoin de modifier cette configuration.
 
-* The Framework directory. This contains the files responsible for the 'boilerplate' work done by the job manager program – unpacking parameters, adding tasks to the Batch job, etc. You shouldn't normally need to modify these files.
+* Le répertoire Framework. Il contient les fichiers responsables du travail « boilerplate » (réutilisable) effectué par le programme du gestionnaire de travaux – décompression de paramètres, ajout de tâches au travail Batch, etc. Vous n’avez normalement pas besoin de modifier ces fichiers.
 
-* The task processor file (TaskProcessor.cs). This is where you will put your application-specific logic for executing a task (typically by calling out to an existing executable). Pre- and post-processing code, such as downloading additional data or uploading result files, also goes here.
+* Le fichier du processeur de tâches (TaskProcessor.cs). C’est là que vous allez placer la logique spécifique à votre application pour l’exécution d’une tâche (généralement en appelant un exécutable existant). C’est aussi là que se trouve le code de pré et de post-traitement, tel que le téléchargement de données supplémentaires ou de fichiers de résultats.
 
-Of course you can add additional files as required to support your task processor code, depending on the complexity of the job splitting logic.
+Bien sûr, vous pouvez si besoin ajouter des fichiers supplémentaires pour prendre en charge le code de votre processeur de tâches, en fonction de la complexité de la logique de fractionnement du travail.
 
-The template also generates standard .NET project files such as a .csproj file, app.config, packages.config, etc.
+Le modèle génère également des fichiers de projet .NET standard comme des fichiers .csproj, app.config, packages.config, etc.
 
-The rest of this section describes the different files and their code structure, and explains what each class does.
+Le reste de cette section décrit les différents fichiers et leur structure de code, et explique ce que fait chaque classe.
 
-![Visual Studio Solution Explorer showing the Task Processor template solution][solution_explorer02]
+![Explorateur de solutions Visual Studio affichant la solution du modèle du processeur de tâches][solution_explorer02]
 
-**Framework files**
+**Fichiers Framework**
 
-* `Configuration.cs`: Encapsulates the loading of job configuration data such as Batch account details, linked storage account credentials, job and task information, and job parameters. It also provides access to Batch-defined environment variables (see Environment settings for tasks, in the Batch documentation) via the Configuration.EnvironmentVariable class.
+* `Configuration.cs` : Encapsule le chargement des données de configuration du travail, telles que les détails du compte Batch, les informations d’identification du compte de stockage lié, les informations relatives aux travaux et aux tâches, et les paramètres du travail. Il donne également accès aux variables d’environnement définies par Batch (voir les paramètres d’environnement des tâches, dans la documentation Batch) via la classe Configuration.EnvironmentVariable.
 
-* `IConfiguration.cs`: Abstracts the implementation of the Configuration class, so that you can unit test your job splitter using a fake or mock configuration object.
+* `IConfiguration.cs` : Résume l’implémentation de la classe de configuration, afin que vous puissiez soumettre votre outil de fractionnement du travail à un test unitaire, à l’aide d’un objet de configuration fictif ou simulé.
 
-* `TaskProcessorException.cs`: Represents an error that requires the job manager to terminate. TaskProcessorException is used to wrap 'expected' errors where specific diagnostic information can be provided as part of termination.
+* `TaskProcessorException.cs` : Représente une erreur nécessitant l’arrêt du gestionnaire de travaux. TaskProcessorException est utilisé pour encapsuler des erreurs « attendues » lorsque des informations de diagnostic spécifiques peuvent être fournies dans le cadre de l’arrêt.
 
-**Task Processor**
+**Processeur de tâches**
 
-* `TaskProcessor.cs`: Runs the task. The framework invokes the TaskProcessor.Run method. This is the class where you will inject the application-specific logic of your task. Implement the Run method to:
-  * Parse and validate any task parameters
-  * Compose the command line for any external program you want to invoke
-  * Log any diagnostic information you may require for debugging purposes
-  * Start a process using that command line
-  * Wait for the process to exit
-  * Capture the exit code of the process to determine if it succeeded or failed
-  * Save any output files you want to keep to persistent storage
+* `TaskProcessor.cs`: Exécute la tâche. L’infrastructure appelle la méthode TaskProcessor.Run. C’est la classe où vous injecterez la logique spécifique à l’application de votre tâche. Implémentez la méthode Run pour :
+  * Analyser et valider les paramètres de n’importe quelle tâche
+  * Composer la ligne de commande pour tout programme externe que vous souhaitez appeler
+  * Enregistrer des informations de diagnostic qui peuvent vous être utiles pour le débogage
+  * Démarrer un processus à l’aide de cette ligne de commande
+  * Attendre que le processus s’arrête
+  * Capturer le code de sortie du processus pour déterminer s’il a réussi ou échoué
+  * Enregistrer tous les fichiers de sortie que vous souhaitez conserver dans un emplacement de stockage permanent
 
-**Standard .NET command line project files**
+**Fichiers de projet de ligne de commande .NET standard**
 
-* `App.config`: Standard .NET application configuration file.
-* `Packages.config`: Standard NuGet package dependency file.
-* `Program.cs`: Contains the program entry point and top-level exception handling.
+* `App.config` : Fichier de configuration d’application .NET standard.
+* `Packages.config`: Fichier de dépendance de package NuGet standard.
+* `Program.cs` : Contient le point d’entrée du programme et la gestion des exceptions de niveau supérieur.
 
-## <a name="implementing-the-task-processor"></a>Implementing the task processor
+## Implémenter le processeur de tâches
 
-When you open the Task Processor template project, the project will have the TaskProcessor.cs file open by default. You can implement the run logic for the tasks in your workload by using the Run() method shown below:
+Lorsque vous ouvrez le projet de modèle du processeur de tâches, il ouvre le fichier TaskProcessor.cs par défaut. Vous pouvez implémenter la logique d’exécution pour les tâches de votre charge de travail à l’aide de la méthode Run() présentée ci-dessous :
 
 ```csharp
 /// <summary>
@@ -377,41 +376,41 @@ public async Task<int> Run()
     }
 }
 ```
->[AZURE.NOTE] The annotated section in the Run() method is the only section of the Task Processor template code that is intended for you to modify by adding the run logic for the tasks in your workload. If you want to modify a different section of the template, please first familiarize yourself with how Batch works by reviewing the Batch documentation and trying out a few of the Batch code samples.
+>[AZURE.NOTE] La section annotée dans la méthode Run() est la seule section de code du modèle du processeur de tâches que vous êtes censé modifier en ajoutant la logique d’exécution des tâches de votre charge de travail. Si vous souhaitez modifier une autre section du modèle, familiarisez-vous d’abord avec le fonctionnement de Batch en consultant la documentation Batch et en essayant quelques-uns des exemples de code Batch.
 
-The Run() method is responsible for launching the command line, starting one or more processes, waiting for all process to complete, saving the results, and finally returning with an exit code. The Run() method is where you implement the processing logic for your tasks. The task processor framework invokes the Run() method for you; you do not need to call it yourself.
+La méthode Run() est chargée de lancer de la ligne de commande, de démarrer un ou plusieurs processus, d’attendre que tous les processus se terminent, d’enregistrer les résultats, et de retourner un code de sortie. C’est dans la méthode Run() que vous implémentez la logique de traitement de vos tâches. C’est l’infrastructure du processeur de tâches qui appelle la méthode Run() ; il est inutile de l’appeler vous-même.
 
-Your Run() implementation has access to:
+Votre implémentation Run() a accès :
 
-* The task parameters, via the `_parameters` field.
-* The job and task ids, via the `_jobId` and `_taskId` fields.
-* The task configuration, via the `_configuration` field.
+* Aux paramètres de la tâche, via le champ `_parameters`.
+* Aux ID du travail et de la tâche, via les champs `_jobId` et `_taskId`.
+* À la configuration de la tâche, via le champ `_configuration`.
 
-**Task failure**
+**Échec de la tâche**
 
-In case of failure, you can exit the Run() method by throwing an exception, but this leaves the top level exception handler in control of the task exit code. If you need to control the exit code so that you can distinguish different types of failure, for example for diagnostic purposes or because some failure modes should terminate the job and others should not, then you should exit the Run() method by returning a non-zero exit code. This becomes the task exit code.
+En cas d’échec, vous pouvez quitter la méthode Run() en levant une exception, mais le contrôle du code de sortie de la tâche est alors confié au gestionnaire d’exceptions de niveau supérieur. Si vous avez besoin de contrôler le code de sortie afin de pouvoir distinguer les différents types d’échec, par exemple à des fins de diagnostic ou parce que certains modes d’échec doivent arrêter le travail et d’autres non, vous devez quitter la méthode Run() en retournant un code de sortie différent de zéro. Ce code devient le code de sortie de la tâche.
 
-### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Exit codes and exceptions in the Task Processor template
+### Codes de sortie et exceptions dans le modèle du processeur de tâches
 
-Exit codes and exceptions provide a mechanism to determine the outcome of running a program, and they can help identify any problems with the execution of the program. The Task Processor template implements the exit codes and exceptions described in this section.
+Les codes de sortie et les exceptions fournissent un mécanisme permettant de déterminer le résultat de l’exécution d’un programme, et peuvent aider à identifier les problèmes rencontrés lors de l’exécution du programme. Le modèle du processeur de tâches implémente les codes de sortie et les exceptions décrites dans cette section.
 
-A task processor task that is implemented with the Task Processor template can return three possible exit codes:
+Une tâche du processeur de tâches implémentée avec le modèle du processeur de tâches peut retourner trois codes de sortie possibles :
 
 | Code | Description |
 |------|-------------|
-|  [Process.ExitCode][process_exitcode] | The task processor ran to completion. Note that this does not imply that the program you invoked was successful – only that the task processor invoked it successfully and performed any post-processing without exceptions. The meaning of the exit code depends on the invoked program – typically exit code 0 means the program succeeded and any other exit code means the program failed. |
-| 1    | The task processor failed with an exception in an 'expected' part of the program. The exception was translated to a `TaskProcessorException` with diagnostic information and, where possible, suggestions for resolving the failure. |
-| 2    | The task processor failed with an 'unexpected' exception. The exception was logged to standard output, but the task processor was unable to add any additional diagnostic or remediation information. |
+| [Process.ExitCode][process_exitcode] | Le processeur de tâches s’est terminé. Notez que cela ne signifie pas que le programme que vous avez appelé a réussi, uniquement que le processeur de tâches l’a appelé avec succès et a exécuté le post-traitement sans exceptions. La signification du code de sortie dépend du programme appelé – le code de sortie 0 signifie généralement que le programme a réussi et tous les autres codes de sortie signifient qu’il a échoué. |
+| 1 | La tâche du processeur de tâches a échoué avec une exception rencontrée dans une section « attendue » du programme. L’exception a été convertie en une `TaskProcessorException` avec des informations de diagnostic et, si possible, des suggestions pour résoudre l’échec. |
+| 2 | Le processeur de tâches a échoué avec une exception « inattendue ». L’exception a été enregistrée dans la sortie standard, mais le processeur de tâches n’a pas pu ajouter d’informations de diagnostic ou de correction supplémentaires. |
 
->[AZURE.NOTE] If the program you invoke uses exit codes 1 and 2 to indicate specific failure modes, then using exit codes 1 and 2 for task processor errors is ambiguous. You can change these task processor error codes to distinctive exit codes by editing the exception cases in the Program.cs file.
+>[AZURE.NOTE] Si le programme que vous appelez utilise des codes de sortie 1 et 2 pour désigner des modes d’échec spécifiques, il serait ambigu d’utiliser ces mêmes codes de sortie pour les erreurs du processeur de tâches. Vous pouvez remplacer ces codes d’erreur du processeur de tâches par d’autres codes de sortie en modifiant les cas d’exceptions dans le fichier Program.cs.
 
-All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see Error Handling, in the Batch documentation.
+Toutes les informations retournées par des exceptions sont écrites dans des fichiers stdout.txt et stderr.txt. Pour plus d’informations, consultez la rubrique Gestion des erreurs de la documentation Batch.
 
-### <a name="client-considerations"></a>Client considerations
+### Considérations du client
 
-**Storage credentials**
+**Informations d’identification de stockage**
 
-If your task processor uses Azure blob storage to persist outputs, for example using the file conventions helper library, then it needs access to *either* the cloud storage account credentials *or* a blob container URL that includes a shared access signature (SAS). The template includes support for providing credentials via common environment variables. Your client can pass the storage credentials as follows:
+Si votre processeur de tâches utilise le stockage blob Azure pour conserver les sorties, par exemple à l’aide de la bibliothèque d’assistance de conventions de fichier, il a besoin d’accéder *soit* aux informations d’identification du compte de stockage cloud *ou* à une URL de conteneur d’objets blob incluant une signature d’accès partagé (SAP). Le modèle inclut une prise en charge pour fournir des informations d’identification via des variables d’environnement commun. Votre client peut transmettre les informations d’identification de stockage comme suit :
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -420,57 +419,57 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-The storage account is then available in the TaskProcessor class via the `_configuration.StorageAccount` property.
+Le compte de stockage est ensuite disponible dans la classe TaskProcessor via la propriété `_configuration.StorageAccount`.
 
-If you prefer to use a container URL with SAS, you can also pass this via an job common environment setting, but the task processor template does not currently include built-in support for this.
+Si vous préférez utiliser une URL de conteneur avec SAP, vous pouvez également la transmettre via un paramètre d’environnement commun de travail, mais le modèle de processeur de tâches n’inclut pas la prise en charge intégrée de cette solution pour l’instant.
 
-**Storage setup**
+**Paramétrage du stockage**
 
-It is recommended that the client or job manager task create any containers required by tasks before adding the tasks to the job. This is mandatory if you use a container URL with SAS, as such a URL does not include permission to create the container. It is recommended even if you pass storage account credentials, as it saves every task having to call CloudBlobContainer.CreateIfNotExistsAsync on the container.
+Il est recommandé que le client ou la tâche du gestionnaire de travaux crée tous les conteneurs requis par les tâches avant de les ajouter au travail. Cette étape est obligatoire si vous utilisez une URL de conteneur avec SAP, puisque ce type d’URL n’inclut pas l’autorisation de créer le conteneur. Elle est recommandée même si vous transmettez des informations d’identification de compte de stockage, car elle enregistre toutes les tâches devant appeler CloudBlobContainer.CreateIfNotExistsAsync sur le conteneur.
 
-## <a name="pass-parameters-and-environment-variables"></a>Pass parameters and environment variables
+## Transmettre des paramètres et des variables d’environnement
 
-### <a name="pass-environment-settings"></a>Pass environment settings
+### Transmettre des paramètres d’environnement
 
-A client can pass information to the job manager task in the form of environment settings. This information can then be used by the job manager task when generating the task processor tasks that will run as part of the compute job. Examples of the information that you can pass as environment settings are:
+Un client peut transmettre des informations à la tâche du gestionnaire de travaux sous la forme de paramètres d’environnement. Ces informations peuvent ensuite être utilisées par la tâche du gestionnaire de travaux lors de la génération des tâches du processeur de tâches qui seront exécutées dans le cadre de travail de calcul. Les informations que vous pouvez transmettre en tant que paramètres d’environnement sont les suivantes :
 
-* Storage account name and account keys
-* Batch account URL
-* Batch account key
+* Clés d’accès et nom du compte de stockage
+* URL du compte Batch
+* Clé du compte Batch
 
-The Batch service has a simple mechanism to pass environment settings to a job manager task by using the `EnvironmentSettings` property in [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+Le service Batch dispose d’un mécanisme simple pour transmettre des paramètres d’environnement à un gestionnaire de travaux, à l’aide de la propriété `EnvironmentSettings` [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
 
-For example, to get the `BatchClient` instance for a Batch account, you can pass as environment variables from the client code the URL and shared key credentials for the Batch account. Likewise, to access the storage account that is linked to the Batch account, you can pass the storage account name and the storage account key as environment variables.
+Par exemple, pour obtenir l’instance `BatchClient` pour un compte Batch, vous pouvez transmettre les variables d’environnement à partir de l’URL du code client ainsi que les informations d’identification de la clé partagée du compte Batch. De même, pour accéder au compte de stockage lié au compte Batch, vous pouvez transmettre le nom et la clé du compte de stockage en tant que variables d’environnement.
 
-### <a name="pass-parameters-to-the-job-manager-template"></a>Pass parameters to the Job Manager template
+### Transmettre des paramètres au modèle du gestionnaire de travaux
 
-In many cases, it's useful to pass per-job parameters to the job manager task, either to control the job splitting process or to configure the tasks for the job. You can do this by uploading a JSON file named parameters.json as a resource file for the job manager task. The parameters can then become available in the `JobSplitter._parameters` field in the Job Manager template.
+Dans de nombreux cas, il est utile de transmettre à la tâche du gestionnaire de travaux les paramètres de chaque travail, soit pour contrôler le processus de fractionnement du travail ou pour configurer les tâches du travail. Vous pouvez le faire en téléchargeant un fichier JSON nommé parameters.json en tant fichier de ressources pour la tâche du gestionnaire de travaux. Les paramètres sont ensuite accessibles dans le champ `JobSplitter._parameters` du modèle du gestionnaire de travaux.
 
->[AZURE.NOTE] The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the job splitter, or modify the framework's `Configuration.GetJobParameters` method.
+>[AZURE.NOTE] Le gestionnaire de paramètres intégré prend en charge uniquement les dictionnaires string-to-string (de chaîne en chaîne). Si vous souhaitez transmettre des valeurs JSON complexes en tant que valeurs de paramètre, vous devez les transmettre sous forme de chaînes et les analyser dans l’outil de fractionnement du travail ou modifier la méthode `Configuration.GetJobParameters` de l’infrastructure.
 
-### <a name="pass-parameters-to-the-task-processor-template"></a>Pass parameters to the Task Processor template
+### Transmettre des paramètres au modèle du processeur de tâches
 
-You can also pass parameters to individual tasks implemented using the Task Processor template. Just as with the job manager template, the task processor template looks for a resource file named
+Vous pouvez également transmettre des paramètres à des tâches individuelles implémentées à l’aide du modèle du processeur de tâches. Tout comme le modèle du gestionnaire de travaux, celui du processeur de tâches recherche un fichier de ressources nommé
 
-parameters.json, and if found it loads it as the parameters dictionary. There are a couple of options for how to pass parameters to the task processor tasks:
+parameters.json et, s’il le trouve, le charge en tant que dictionnaire de paramètres. Il existe deux options pour transmettre des paramètres aux tâches du processeur de tâches :
 
-* Reuse the job parameters JSON. This works well if the only parameters are job-wide ones (for example, a render height and width). To do this, when creating a CloudTask in the job splitter, add a reference to the parameters.json resource file object from the job manager task's ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) to the CloudTask's ResourceFiles collection.
+* Réutiliser le fichier JSON des paramètres du travail. Cette option est efficace si les paramètres concernent l’ensemble du travail (par exemple, un rendu hauteur et largeur). Pour ce faire, lorsque vous créez un objet CloudTask dans l’outil de fractionnement du travail, ajoutez une référence à l’objet de fichier de ressources parameters.json depuis la collection ResourceFiles de la tâche du gestionnaire de travaux (`JobSplitter._jobManagerTask.ResourceFiles`) vers la collection ResourceFiles de l’objet CloudTask.
 
-* Generate and upload a task-specific parameters.json document as part of job splitter execution, and reference that blob in the task's resource files collection. This is necessary if different tasks have different parameters. An example might be a 3D rendering scenario where the frame index is passed to the task as a parameter.
+* Générer et télécharger un document parameters.json spécifique à une tâche dans le cadre de l’exécution de l’outil de fractionnement du travail, et référencer cet objet blob dans la collection de fichiers de ressources de la tâche. Cela est nécessaire si des tâches différentes ont des paramètres différents. Par exemple, un scénario de rendu 3D dans lequel l’index de l’image est transmis à la tâche en tant que paramètre.
 
->[AZURE.NOTE] The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the task processor, or modify the framework's `Configuration.GetTaskParameters` method.
+>[AZURE.NOTE] Le gestionnaire de paramètres intégré prend en charge uniquement les dictionnaires string-to-string (de chaîne en chaîne). Si vous souhaitez transmettre des valeurs JSON complexes en tant que valeurs de paramètre, vous devez les transmettre sous forme de chaînes et les analyser dans le processeur de tâches ou modifier la méthode `Configuration.GetTaskParameters` de l’infrastructure.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-### <a name="persist-job-and-task-output-to-azure-storage"></a>Persist job and task output to Azure Storage
+### Conserver la sortie d’un travail et d’une tâche dans le stockage Azure
 
-Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](batch-task-output.md) contains a full discussion of the library and its usage.
+Les [conventions de fichiers Azure Batch][nuget_package] sont également utiles au développement de solutions Batch. Utilisez cette bibliothèque de classes .NET (actuellement en version préliminaire) dans vos applications .NET Batch pour stocker et récupérer facilement les sorties des tâches vers et depuis le stockage Azure. L’article [Persist Azure Batch job and task output](batch-task-output.md) (Conserver une sortie de tâche et de travail Azure Batch) fait une description complète de la bibliothèque et de son utilisation.
 
-### <a name="batch-forum"></a>Batch Forum
+### Forum Azure Batch
 
-The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful "sticky" posts, and post your questions as they arise while you build your Batch solutions.
+Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de Batch et poser des questions sur le service. Consultez le forum pour obtenir des publications « permanentes » utiles et publiez les questions que vous vous posez pendant la création de vos solutions Batch.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+[forum]: https://social.msdn.microsoft.com/forums/azure/fr-FR/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
@@ -483,8 +482,4 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

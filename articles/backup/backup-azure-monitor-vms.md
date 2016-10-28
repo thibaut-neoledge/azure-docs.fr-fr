@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Monitor Resource Manager-deployed virtual machine backups | Microsoft Azure"
-   description="Monitor events and alerts from Resource Manager-deployed virtual machine backups. Send email based on alerts."
+   pageTitle="Surveillance des sauvegardes de machines virtuelles déployées via Resource Manager | Microsoft Azure"
+   description="Suivre les événements et les alertes des sauvegardes d’une machine virtuelle déployée via Resource Manager. Envoyer un e-mail en fonction des alertes."
    services="backup"
    documentationCenter="dev-center-name"
    authors="markgalioto"
@@ -16,179 +16,178 @@ ms.topic="article"
 ms.date="08/25/2016"
 ms.author="trinadhk; giridham;"/>
 
+# Suivez les alertes des sauvegardes de machines virtuelles Azure
 
-# <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitor alerts for Azure virtual machine backups
+Les alertes sont des indications du service indiquant qu’un seuil d’événement a été atteint ou dépassé. Le fait de prendre connaissance d’un problème dès qu’il se produit peut être indispensable pour limiter les dépenses. Les alertes ne sont généralement pas planifiées. Il est donc utile de savoir aussi tôt possible lorsque des alertes sont générées. Par exemple, lorsqu’un travail de sauvegarde ou de restauration échoue, une alerte se produit dans les cinq minutes suivant l’échec. Dans le tableau de bord du coffre, la vignette Alertes de sauvegarde affiche des événements de niveaux Critique et Avertissement. Dans les paramètres des alertes de sauvegarde, vous pouvez afficher tous les événements. Mais que faire si une alerte se produit lorsque vous travaillez sur un autre problème ? Si vous ne savez pas quand l’alerte se produit, il peut s’agir d’un désagrément mineur, ou d’un problème entraînant des pertes de données. Pour vous assurer que les bonnes personnes sont prévenues en cas d’alerte, configurez le service de manière à envoyer des notifications d’alerte par e-mail. Pour plus d’informations sur la configuration des notifications par e-mail, consultez [Configurer les notifications](backup-azure-monitor-vms.md#configure-notifications).
 
-Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know as soon as possible after alerts occur. For example, when a backup or restore job fails, an alert occurs within five minutes of the failure. In the vault dashboard, the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - when it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
+## Comment puis-je trouver des informations sur les alertes ?
 
-## <a name="how-do-i-find-information-about-the-alerts?"></a>How do I find information about the alerts?
+Pour afficher des informations sur l’événement qui a généré l’alerte, vous devez ouvrir le panneau Alertes de sauvegarde. Il existe deux manières d’ouvrir le panneau Alertes de sauvegarde : soit à partir de la vignette Alertes de sauvegarde dans le tableau de bord du coffre, soit à partir du panneau Alertes et événements.
 
-To view information about the event that threw an alert, you must open the Backup Alerts blade. There are two ways to open the Backup Alerts blade: either from the Backup Alerts tile in the vault dashboard, or from the Alerts and Events blade.
+Pour ouvrir le panneau Alertes de sauvegarde à partir de la vignette Alertes de sauvegarde :
 
-To open the Backup Alerts blade from Backup Alerts tile:
+- Sur la vignette **Alertes de sauvegarde** dans le tableau de bord du coffre, cliquez sur **Critique** ou **Avertissement** pour afficher les événements opérationnels pour ce niveau de gravité.
 
-- On the **Backup Alerts** tile on the vault dashboard, click **Critical** or **Warning** to view the operational events for that severity level.
-
-    ![Backup Alerts tile](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
+    ![Vignette Alertes de sauvegarde](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
 
 
-To open the Backup Alerts blade from the Alerts and Events blade:
+Pour ouvrir le panneau Alertes de sauvegarde à partir du panneau Alertes et événements :
 
-1. From the vault dashboard, click **All Settings**. ![All Settings button](./media/backup-azure-monitor-vms/all-settings-button.png)
+1. À partir du tableau de bord du coffre, cliquez sur **Tous les paramètres**. ![Bouton Tous les paramètres](./media/backup-azure-monitor-vms/all-settings-button.png)
 
-2. On the **Settings** blade, click **Alerts and Events**. ![Alerts and Events button](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
+2. Dans le panneau **Paramètres**, cliquez sur **Alertes et événements**. ![Bouton Alertes et événements](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
 
-3. On the **Alerts and Events** blade, click **Backup Alerts**. ![Backup Alerts button](./media/backup-azure-monitor-vms/backup-alerts.png)
+3. Sur le panneau **Alertes et événements**, cliquez sur **Alertes de sauvegarde**. ![Bouton Alertes de sauvegarde](./media/backup-azure-monitor-vms/backup-alerts.png)
 
-    The **Backup Alerts** blade opens and displays the filtered alerts.
+    Le panneau **Alertes de sauvegarde** s’ouvre et affiche les alertes filtrées.
 
-    ![Backup Alerts tile](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
+    ![Vignette Alertes de sauvegarde](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
 
-4. To view detailed information about a particular alert, from the list of events, click the alert to open its **Details** blade.
+4. Pour afficher des informations détaillées sur une alerte spécifique, cliquez sur l’alerte de votre choix dans la liste des événements pour ouvrir son panneau **Détails**.
 
-    ![Event Detail](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
+    ![Détail sur l’événement](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
-    To customize the attributes displayed in the list, see [View additional event attributes](backup-azure-monitor-vms.md#view-additional-event-attributes)
+    Pour personnaliser les attributs affichés dans la liste, consultez [Afficher les attributs d’événement supplémentaires](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
-## <a name="configure-notifications"></a>Configure notifications
+## Configurer les notifications
 
- You can configure the service to send email notifications for the alerts that occurred over the past hour, or when particular types of events occur.
+ Vous pouvez configurer le service de manière à envoyer des notifications par e-mail pour les alertes qui se sont produites au cours de la dernière heure, ou lorsque des événements particuliers se produisent.
 
-To set up email notifications for alerts
+Pour configurer des notifications par e-mail pour les alertes
 
-1. On the Backup Alerts menu, click **Configure notifications**
+1. Dans le menu Alertes de sauvegarde, cliquez sur **Configurer des notifications**.
 
-    ![Backup Alerts menu](./media/backup-azure-monitor-vms/backup-alerts-menu.png)
+    ![Menu Alertes de sauvegarde](./media/backup-azure-monitor-vms/backup-alerts-menu.png)
 
-    The Configure notifications blade opens.
+    Le panneau Configurer les notifications s’ouvre.
 
-    ![Configure notifications blade](./media/backup-azure-monitor-vms/configure-notifications.png)
+    ![Panneau Configurer les notifications](./media/backup-azure-monitor-vms/configure-notifications.png)
 
-2. On the Configure notifications blade, for Email notifications, click **On**.
+2. Dans le panneau Configurer les notifications, pour les notifications par e-mail, cliquez sur **Activé**.
 
-    The Recipients and Severity dialogs have a star next to them because that information is required. Provide at least one email address, and select at least one Severity.
+    Les boîtes de dialogue Destinataires et Gravité comportent une étoile, car ces informations sont requises. Fournissez au moins une adresse e-mail et sélectionnez au moins un niveau de gravité.
 
-3. In the **Recipients (Email)** dialog, type the email addresses for who receive the notifications. Use the format: username@domainname.com. Separate multiple email addresses with a semicolon (;).
+3. Dans la boîte de dialogue **Destinataires (e-mail)**, saisissez les adresses e-mail des personnes devant recevoir les notifications. Utilisez le format : username@domainname.com. Séparez les adresses e-mail par des point-virgule (;).
 
-4. In the **Notify** area, choose **Per Alert** to send notification when the specified alert occurs, or **Hourly Digest** to send a summary for the past hour.
+4. Dans la zone **Notification**, choisissez **Par alerte** pour envoyer une notification lorsque l’alerte indiquée se produit, ou **Synthèse horaire** pour envoyer un résumé de la dernière heure.
 
-5. In the **Severity** dialog, choose one or more levels that you want to trigger email notification.
+5. Dans la boîte de dialogue **Gravité**, sélectionnez un ou plusieurs niveaux pour lesquels vous voulez envoyer des notifications par e-mail.
 
-6. Click **Save**.
-### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup?"></a>What alert types are available for Azure IaaS VM backup?
-| Alert Level  | Alerts sent |
+6. Cliquez sur **Save**.
+### Quels sont les types d’alertes disponibles pour la sauvegarde des machines virtuelles Azure IaaS ?
+| Niveau d’alerte | Alertes envoyées |
 | ------------- | ------------- |
-| Critical | Backup failure, recovery failure  |
-| Warning  | None |
-| Informational  | None  | 
+| Critique | Échec de sauvegarde, échec de récupération |
+| Avertissement | Aucun |
+| Informations | Aucun | 
 
-### <a name="are-there-situations-where-email-isn't-sent-even-if-notifications-are-configured?"></a>Are there situations where email isn't sent even if notifications are configured?
+### Existe-t-il des situations lors desquelles un e-mail n’est pas envoyé même si les notifications sont configurées ?
 
-There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent to avoid alert noise:
+Il existe des situations lors desquelles une alerte n’est pas envoyée, même si les notifications ont été correctement configurées, afin de réduire le nombre d’alertes. Ces situations sont les suivantes :
 
-- If notifications are configured to Hourly Digest, and an alert is raised and resolved within the hour.
-- The job is canceled.
-- A backup job is triggered and then fails, and another backup job is in progress.
-- A scheduled backup job for a Resource Manager-enabled VM starts, but the VM no longer exists.
+- Si les notifications sont configurées sur une base horaire et qu’une alerte est déclenchée et résolue dans l’heure.
+- Si le travail est annulé.
+- Si un travail de sauvegarde est déclenché et échoue, et si un autre travail de sauvegarde est en cours.
+- Si un travail de sauvegarde planifiée pour une machine virtuelle Resource Manager démarre, mais que celle-ci n’existe plus.
 
-## <a name="customize-your-view-of-events"></a>Customize your view of events
+## Personnaliser l’affichage des événements
 
-The **Audit logs** setting comes with a pre-defined set of filters and columns showing operational event information. You can customize the view so that when the **Events** blade opens, it shows you the information you want.
+Le paramètre **Journaux d’audit** est fourni avec un ensemble prédéfini de filtres et de colonnes affichant des informations sur les événements opérationnels. Vous pouvez personnaliser l’affichage, afin que lorsque le panneau **Événements** s’ouvre, il affiche les informations souhaitées.
 
-1. In the [vault dashboard](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
+1. Dans le [tableau de bord du coffre](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), recherchez **Journaux d’audit** et cliquez dessus pour ouvrir le panneau **Événements**.
 
-    ![Audit Logs](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+    ![Journaux d’audit](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
 
-    The **Events** blade opens to the operational events filtered just for the current vault.
+    Le panneau **Événements** s’ouvre sur les événements opérationnels filtrés pour le coffre actif.
 
-    ![Audit Logs Filter](./media/backup-azure-monitor-vms/audit-logs-filter.png)
+    ![Filtre des journaux d’audit](./media/backup-azure-monitor-vms/audit-logs-filter.png)
 
-    The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The time span is a default value set in the **Filter**. The **Events** blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, in the **Events** menu, click **Hide chart** to toggle off the chart. The default view of Events shows Operation, Level, Status, Resource, and Time information. For information about exposing additional Event attributes, see the section [expanding Event information](backup-azure-monitor-vms.md#view-additional-event-attributes).
+    Le panneau affiche la liste des événements critiques, erreurs, avertissements et informations qui se sont produits au cours de la semaine passée. L’intervalle de temps est une valeur par défaut définie dans **Filtre**. Le panneau **Événements** affiche également un graphique à barres qui retrace le déroulement des événements. Si vous ne souhaitez pas voir ce graphique, accédez au menu **Événements** et cliquez sur **Masquer le graphique** pour désactiver le graphique. L’affichage par défaut des événements affiche les informations opération, niveau, état, ressources et heure. Pour plus d’informations sur l’affichage d’attributs d’événement supplémentaires, consultez la section [Développer les informations sur les événements](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
-2. For additional information on an operational event, in the **Operation** column, click an operational event to open its blade. The blade contains detailed information about the events. Events are grouped by their correlation ID and a list of the events that occurred in the Time span.
+2. Pour obtenir plus d’informations sur un événement opérationnel, dans la colonne **Opération**, cliquez sur un événement opérationnel pour ouvrir son panneau. Le panneau contient des informations détaillées sur les événements. Les événements sont regroupés par leur identifiant de corrélation et une liste des événements qui se sont produits dans l’intervalle de temps.
 
-    ![Operation Details](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
+    ![Détails de l'opération](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
 
-3. To view detailed information about a particular event, from the list of events, click the event to open its **Details** blade.
+3. Pour afficher des informations détaillées sur un événement particulier, cliquez sur l’événement de votre choix dans la liste des événements pour ouvrir le panneau **Détails** correspondant.
 
-    ![Event Detail](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
+    ![Détail sur l’événement](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
 
-    The Event-level information is as detailed as the information gets. If you prefer seeing this much information about each event, and would like to add this much detail to the **Events** blade, see the section [expanding Event information](backup-azure-monitor-vms.md#view-additional-event-attributes).
-
-
-## <a name="customize-the-event-filter"></a>Customize the event filter
-Use the **Filter** to adjust or choose the information that appears in a particular blade. To filter the event information:
-
-1. In the [vault dashboard](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
-
-    ![Audit Logs](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
-
-    The **Events** blade opens to the operational events filtered just for the current vault.
-
-    ![Audit Logs Filter](./media/backup-azure-monitor-vms/audit-logs-filter.png)
-
-2. On the **Events** menu, click **Filter** to open that blade.
-
-    ![open filter blade](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
-
-3. On the **Filter** blade, adjust the **Level**, **Time span**, and **Caller** filters. The other filters are not available since they were set to provide the current information for the Recovery Services vault.
-
-    ![Audit Logs-query details](./media/backup-azure-monitor-vms/filter-blade.png)
-
-    You can specify the **Level** of event: Critical, Error, Warning, or Informational. You can choose any combination of event Levels, but you must have at least one Level selected. Toggle the Level on or off. The **Time span** filter allows you to specify the length of time for capturing events. If you use a custom Time span, you can set the start and end times.
-
-4. Once you are ready to query the operations logs using your filter, click **Update**. The results display in the **Events** blade.
-
-    ![Operation Details](./media/backup-azure-monitor-vms/edited-list-of-events.png)
+    Les informations au niveau de l’événement sont répertoriées au fur et à mesure de leur disponibilité. Si vous préférez afficher autant d’informations sur chaque événement et que vous voulez ajouter ce niveau de détail au panneau **Événements**, consultez la section [Développer les informations sur les événements](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
 
-### <a name="view-additional-event-attributes"></a>View additional event attributes
-Using the **Columns** button, you can enable additional event attributes to appear in the list on the **Events** blade. The default list of events displays information for Operation, Level, Status, Resource, and Time. To enable additional attributes:
+## Personnaliser le filtre d’événements
+Utilisez **Filtre** pour ajuster ou choisir les informations qui apparaissent dans un panneau spécifique. Pour filtrer les informations sur l’événement :
 
-1. On the **Events** blade, click **Columns**.
+1. Dans le [tableau de bord du coffre](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), recherchez **Journaux d’audit** et cliquez dessus pour ouvrir le panneau **Événements**.
 
-    ![Open Columns](./media/backup-azure-monitor-vms/audi-logs-column-button.png)
+    ![Journaux d’audit](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
 
-    The **Choose columns** blade opens.
+    Le panneau **Événements** s’ouvre sur les événements opérationnels filtrés pour le coffre actif.
 
-    ![Columns blade](./media/backup-azure-monitor-vms/columns-blade.png)
+    ![Filtre des journaux d’audit](./media/backup-azure-monitor-vms/audit-logs-filter.png)
 
-2. To select the attribute, click the checkbox. The attribute checkbox toggles on and off.
+2. Dans le menu **Événements**, cliquez sur **Filtre** pour ouvrir ce panneau.
 
-3. Click **Reset** to reset the list of attributes in the **Events** blade. After adding or removing attributes from the list, use **Reset** to view the new list of Event attributes.
+    ![ouvrir le panneau Filtre](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
 
-4. Click **Update** to update the data in the Event attributes. The following table provides information about each attribute.
+3. Dans le panneau **Filtre**, ajustez les filtres **Niveau**, **Intervalle de temps** et **Appelant**. Les autres filtres ne sont pas disponibles dans la mesure où ils ont été définis pour fournir des informations actuelles concernant le coffre Recovery Services.
 
-| Column name      |Description|
+    ![Détails de la requête de journaux d’audit](./media/backup-azure-monitor-vms/filter-blade.png)
+
+    Vous pouvez spécifier le **Niveau** de l’événement : critique, erreur, avertissement ou information. Vous pouvez combiner plusieurs niveaux d’événements, mais vous devez sélectionner au moins un niveau. Activez ou désactivez le niveau. Le filtre **Intervalle de temps** vous permet de spécifier la durée de collecte des événements. Si vous utilisez un intervalle de temps personnalisé, vous pouvez définir les heures de début et de fin.
+
+4. Une fois que vous êtes prêt à interroger les journaux d’opérations à l’aide de votre filtre, cliquez sur **Mettre à jour**. Les résultats s’affichent dans le panneau **Événements**.
+
+    ![Détails de l'opération](./media/backup-azure-monitor-vms/edited-list-of-events.png)
+
+
+### Afficher des attributs d’événements supplémentaires
+À l’aide du bouton **Colonnes**, vous pouvez activer des attributs d’événement supplémentaires à afficher dans la liste sur le panneau **Événements**. La liste par défaut des événements affiche les informations opération, niveau, état, ressources et heure. Pour activer des attributs supplémentaires :
+
+1. Sur le panneau **Événements**, cliquez sur **Colonnes**.
+
+    ![Colonnes ouvertes](./media/backup-azure-monitor-vms/audi-logs-column-button.png)
+
+    Le panneau **Choisir les colonnes** s’ouvre.
+
+    ![Panneau Colonnes](./media/backup-azure-monitor-vms/columns-blade.png)
+
+2. Pour sélectionner l’attribut, cliquez sur sa case à cocher. La case à cocher se coche et se décoche.
+
+3. Cliquez sur **Réinitialiser** pour réinitialiser la liste des attributs dans le panneau **Événements**. Après avoir ajouté ou supprimé des attributs de la liste, utilisez **Réinitialiser** pour afficher la nouvelle liste des attributs de l’événement.
+
+4. Cliquez sur **Mettre à jour** pour mettre à jour les données des attributs de l’événement. Le tableau suivant fournit des informations sur chaque attribut.
+
+| Nom de la colonne |Description|
 | -----------------|-----------|
-| Operation|The name of the operation|
-| Level|The level of the operation, values can be: Informational, Warning, Error, or Critical|
-|Status|Descriptive state of the operation|
-|Resource|URL that identifies the resource; also known as the resource ID|
-|Time|Time, measured from the current time, when the event occurred|
-|Caller|Who or what called or triggered the event; can be the system, or a user|
-|Timestamp|The time when the event was triggered|
-|Resource Group|The associated resource group|
-|Resource Type|The internal resource type used by Resource Manager|
-|Subscription ID|The associated subscription ID|
-|Category|Category of the event|
-|Correlation ID|Common ID for related events|
+| Opération|Nom de l’opération|
+| Niveau|Le niveau de l’opération, dont les valeurs peuvent être : information, avertissement, erreur ou critique|
+|État|État descriptif de l’opération|
+|Ressource|URL qui identifie la ressource ; également connu sous le nom d’identifiant de ressource|
+|Time|Heure, mesurée à partir de l’heure actuelle, à laquelle l’événement s’est produit|
+|Appelant|Élément ou personne ayant déclenché l’événement ; il peut s’agir du système ou d’un utilisateur|
+|Timestamp|L’heure à laquelle l’événement a été déclenché|
+|Groupe de ressources|Le groupe de ressources associé|
+|Type de ressource|Le type de ressource interne utilisé par Resource Manager|
+|Identifiant d’abonnement|L’identifiant d’abonnement associé|
+|Catégorie|Catégorie de l’événement|
+|ID de corrélation :|Identifiant courant des événements connexes|
 
 
 
-## <a name="use-powershell-to-customize-alerts"></a>Use PowerShell to customize alerts
-You can get custom alert notifications for the jobs in the portal. To get these jobs, define PowerShell-based alert rules on the operational logs events. Use *PowerShell version 1.3.0 or later*.
+## Utiliser PowerShell pour personnaliser les alertes
+Vous pouvez obtenir des notifications d’alerte personnalisées pour les travaux du portail. Pour cela, définissez des règles d’alerte basées sur PowerShell sur les événements de journaux des opérations. Utilisez *PowerShell version 1.3.0 ou ultérieure*.
 
-To define a custom notification to alert for backup failures, use a command like the following script:
+Pour définir des notifications personnalisées pour signaler les échecs de sauvegarde, utilisez une commande ressemblant au script suivant :
 
 ```
 PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/RecoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/RecoveryServicesVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId** : You can get ResourceId from the Audit logs. The ResourceId is a URL provided in the Resource column of the Operation logs.
+**ResourceId** : vous pouvez obtenir le ResourceId à partir des journaux d’audit. L’élément ResourceId est une URL fournie dans la colonne Ressource des journaux d’opérations.
 
-**OperationName** : OperationName is in the format "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*" where *EventName* can be:<br/>
+**OperationName** : OperationName est au format « Microsoft.RecoveryServices/recoveryServicesVault/*EventName* » où *EventName* peut être :<br/>
 - Register <br/>
 - Unregister <br/>
 - ConfigureProtection <br/>
@@ -200,46 +199,42 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 - DeleteProtectionPolicy <br/>
 - UpdateProtectionPolicy <br/>
 
-**Status** : Supported values are Started, Succeeded, or Failed.
+**État** : les valeurs prises en charge sont Démarré, Réussi ou Échec.
 
-**ResourceGroup** : This is the Resource Group to which the resource belongs. You can add the Resource Group column to the generated logs. Resource Group is one of the available types of event information.
+**ResourceGroup** : groupe de ressources auquel appartient la ressource. Vous pouvez ajouter la colonne Groupe de ressources aux journaux générés. Le groupe de ressources représente l’un des types d’informations disponibles sur les événements.
 
-**Name** : Name of the Alert Rule.
+**Nom** : nom de la règle d’alerte.
 
-**CustomEmail** : Specify the custom email address to which you want to send an alert notification
+**CustomEmail** : spécifiez l’adresse e-mail personnalisée à laquelle vous voulez envoyer une notification d’alerte
 
-**SendToServiceOwners** : This option sends alert notifications to all administrators and co-administrators of the subscription. It can be used in **New-AzureRmAlertRuleEmail** cmdlet
+**SendToServiceOwners** : cette option envoie des notifications d’alerte à tous les administrateurs et coadministrateurs de l’abonnement. Elle peut être utilisée dans l’applet de commande **New-AzureRmAlertRuleEmail**.
 
-### <a name="limitations-on-alerts"></a>Limitations on Alerts
-Event-based alerts are subject to the following limitations:
+### Limitations sur les alertes
+Les alertes basées sur des événements sont soumises aux limitations suivantes :
 
-1. Alerts are triggered on all virtual machines in the Recovery Services vault. You cannot customize the alert for a subset of virtual machines in a Recovery Services vault.
-2. This feature is in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
-3. Alerts are sent from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
+1. Des alertes sont déclenchées sur toutes les machines virtuelles du coffre Recovery Services. Vous ne pouvez pas personnaliser l’alerte pour un sous-ensemble de machines virtuelles à l’intérieur d’un coffre Recovery Services.
+2. Cette fonctionnalité est en version préliminaire. [En savoir plus](../azure-portal/insights-powershell-samples.md#create-alert-rules)
+3. Les alertes sont envoyées à partir de l’adresse « alerts-noreply@mail.windowsazure.com ». Actuellement, vous ne pouvez pas modifier l’expéditeur de courrier électronique.
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-Event logs enable great post-mortem and audit support for the backup operations. The following operations are logged:
+Les journaux d’événements activent l’assistance post mortem et d’audit des opérations de sauvegarde. Les opérations suivantes sont consignées :
 
-- Register
-- Unregister
-- Configure protection
-- Backup (Both scheduled as well as on-demand backup)
-- Restore
-- Stop protection
-- Delete backup data
+- S’inscrire
+- Annuler l’inscription
+- Configurer la protection
+- Sauvegarde (sauvegarde planifiée et à la demande)
+- Restauration
+- Arrêter la protection
+- Supprimer les données de sauvegarde
 - Add policy
-- Delete policy
-- Update policy
-- Cancel job
+- Supprimer la stratégie
+- Mettre à jour la stratégie
+- Annuler le travail
 
-For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
+Pour une explication générale des événements, des opérations et des journaux d’audit dans les services Azure, consultez l’article [Afficher les événements et les journaux d’audit](../azure-portal/insights-debugging-with-events.md).
 
-For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). Learn about the management tasks for VM backups in the article, [Manage Azure virtual machine backups](backup-azure-manage-vms.md).
+Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles dans Azure](backup-azure-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). Apprenez-en plus sur les tâches de gestion pour les sauvegardes de machines virtuelles dans l’article [Gérer les sauvegardes des machines virtuelles Azure](backup-azure-manage-vms.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

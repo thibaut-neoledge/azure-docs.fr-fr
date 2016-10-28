@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using SAP on Windows virtual machines | Microsoft Azure"
-   description="Lear about using SAP on Windows virtual machines (VMs) in Microsoft Azure"
+   pageTitle="Utilisation de SAP sur des machines virtuelles Windows| Microsoft Azure"
+   description="En savoir plus sur l’utilisation de SAP sur des machines virtuelles Windows dans Microsoft Azure"
    services="virtual-machines-windows,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
@@ -14,30 +14,25 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="10/04/2016"
+   ms.date="07/20/2016"
    ms.author="sedusch"/>
 
+# Utilisation de SAP sur des machines virtuelles Windows dans Azure
 
-# <a name="using-sap-on-windows-virtual-machines-in-azure"></a>Using SAP on Windows virtual machines in Azure
+Cloud Computing est un terme largement utilisé et il l’est de plus en plus dans le secteur de l’informatique, des petites entreprises jusqu’aux grandes multinationales. Microsoft Azure est la plateforme de Cloud Services de Microsoft qui offre un large éventail de nouvelles possibilités. Désormais, les clients peuvent configurer et annuler rapidement des applications dans Cloud-Services, en échappant ainsi aux éventuelles restrictions techniques ou budgétaires. Au lieu de consacrer du temps et de l’argent à l’infrastructure matérielle, les entreprises peuvent se concentrer sur l’application, les processus de travail et leurs avantages pour les clients et les utilisateurs.
 
-Cloud Computing is a widely used term which is gaining more and more importance within the IT industry, from small companies up to large and multinational corporations. Microsoft Azure is the Cloud Services Platform from Microsoft which offers a wide spectrum of new possibilities. Now customers are able to rapidly provision and de-provision applications as Cloud-Services, so they are not limited to technical or budgeting restrictions. Instead of investing time and budget into hardware infrastructure, companies can focus on the application, business processes and its benefits for customers and users.
-
-With Microsoft Azure virtual machines, Microsoft offers a comprehensive Infrastructure as a Service (IaaS) platform. SAP NetWeaver based applications are supported on Azure Virtual Machines (IaaS). The whitepapers below describe how to plan and implement SAP NetWeaver based applications on Windows virtual machines in Azure. You can also implement SAP NetWeaver based applications on [Linux virtual machines](virtual-machines-linux-classic-sap-get-started.md).
+Avec Microsoft Azure Virtual Machines, Microsoft propose une plateforme IaaS (Infrastructure as a Service) complète. Les applications basées sur SAP NetWeaver sont prises en charge sur Azure Virtual Machines (IaaS). Les livres blancs ci-dessous décrivent comment planifier et mettre en œuvre des applications basées sur SAP NetWeaver sur des machines virtuelles Linux dans Azure. Vous pouvez également implémenter des applications basées sur SAP NetWeaver sur des [machines virtuelles Linux](virtual-machines-linux-classic-sap-get-started.md).
 
 [AZURE.INCLUDE [virtual-machines-common-classic-sap-get-started](../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
-## <a name="sap-netweaver-on-azure---ha"></a>SAP NetWeaver on Azure - HA
+## SAP NetWeaver sur Azure : haute disponibilité
 
-Title: SAP NetWeaver on Azure - Clustering SAP ASCS/SCS Instances using Windows Server Failover Cluster on Azure with SIOS DataKeeper
+Titre : SAP NetWeaver sur Azure – clustering d’instances ASCS/SCS SAP utilisant un Cluster de basculement Windows Server sur Azure avec SIOS DataKeeper
 
-Summary: 'This document describes how to use SIOS DataKeeper to set up a highly available SAP ASCS/SCS configuration on Azure. SAP protects their single point of failure components like SAP ASCS/SCS or Enqueue Replication Services with Windows Server Failover Cluster configurations that require shared disks. These SAP components are essential for the functionality of a SAP system. Therefore high-availability functionality needs to be put in place to make sure that those components can sustain a failure of a server or a VM as done with Windows Cluster configurations for bare-metal and Hyper-V environments. As of August 2015 Azure on itself cannot provide shared disks that would be required for the Windows based highly available configurations required for these critical SAP components. However with the help of the product DataKeeper by SIOS, Windows Server Failover Cluster configurations as needed for SAP ASCS/SCS can be built on the Azure IaaS platform. This paper describes in a step-to-step approach how to install a Windows Server Failover Cluster configuration with shared disk provided by SIOS Datakeeper in Azure. The paper will explain details in configurations on the Azure, Windows and SAP side which make the high availability configuration work in an optimal manner. The paper complements the SAP Installation Documentation and SAP Notes which represent the primary resources for installations and deployments of SAP software on given platforms.
+Résumé : ce document explique comment utiliser SIOS DataKeeper pour définir une configuration à haute disponibilité SAP ASCS/SCS sur Azure. SAP protège les composants à point unique de défaillance tels que SAP ASCS/SCS ou les services de réplication de file d’attente avec des configurations de cluster de basculement Windows Server qui nécessitent des disques partagés. Ces composants SAP sont essentiels pour le fonctionnement d’un système SAP. Par conséquent des fonctionnalités de haute disponibilité doivent donc être mises en place pour s’assurer que ces composants peuvent supporter une défaillance de serveur ou de machine virtuelle, comme le font les configurations de cluster Windows pour les environnements complets et Hyper-V. Depuis août 2015, Azure seul ne peut pas fournir les disques partagés qui seraient nécessaires pour les configurations Windows hautement disponibles requises pour ces composants SAP critiques. Toutefois, des configurations de cluster de basculement Windows Server nécessaires à SAP ASCS/SCS peuvent être créées sur la plateforme Azure IaaS à l’aide du produit DataKeeper de SIOS. Ce document décrit étape par étape la procédure d’installation d’une configuration de Cluster de basculement Windows Server avec disque partagé fourni par SIOS Datakeeper dans Azure. Il détaille les configurations pour Azure d’une part et Windows et SAP d’autre part qui font fonctionner de manière optimale la configuration à haute disponibilité. Ce document vient compléter la documentation sur l’installation SAP et des notes SAP, qui représentent les ressources incontournables en matière d’installation et de déploiement de logiciels SAP sur des plateformes données.
 
-Updated: August 2015
+Mise à jour : août 2015
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=613056)
+[Télécharger ce guide maintenant](http://go.microsoft.com/fwlink/?LinkId=613056)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

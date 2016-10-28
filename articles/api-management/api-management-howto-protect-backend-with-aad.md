@@ -1,89 +1,88 @@
 <properties
-    pageTitle="How to protect a Web API backend with Azure Active Directory and API Management"
-    description="Learn how to protect a Web API backend with Azure Active Directory and API Management." 
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API"
+	description="Découvrez comment protéger un serveur principal d’API web avec Azure Active Directory et Gestion des API." 
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/25/2016"
-    ms.author="sdanie"/>
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/09/2016"
+	ms.author="sdanie"/>
 
+# Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
 
-# <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>How to protect a Web API backend with Azure Active Directory and API Management
+La vidéo suivante montre comment générer un serveur principal d’API web et le protéger à l’aide du protocole OAuth 2.0 avec Azure Active Directory et Gestion des API. Cet article fournit une vue d’ensemble et des informations supplémentaires pour les étapes mentionnées dans la vidéo. Cette vidéo 24 minutes vous montre comment faire pour :
 
-The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
-
--   Build a Web API backend and secure it with AAD - starting at 1:30
--   Import the API into API Management - starting at 7:10
--   Configure the Developer portal to call the API - starting at 9:09
--   Configure a desktop application to call the API - starting at 18:08
--   Configure a JWT validation policy to pre-authorize requests - starting at 20:47
+-	générer un serveur principal d’API Web et le protéger avec AAD (début à 1:30) ;
+-	importer l’API dans Gestion des API (début à 7:10) ;
+-	configurer le portail des développeurs pour l’appel de l’API (début à 9:09) ;
+-	configurer une application de bureau pour l’appel de l’API (début à 18:08) ;
+-	configurer une stratégie de validation JWT pour l’autorisation préalable des demandes (début à 20:47).
 
 >[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
-## <a name="create-an-azure-ad-directory"></a>Create an Azure AD directory
+## Création d’un répertoire Azure AD
 
-To secure your Web API backed using Azure Active Directory you must first have a an AAD tenant. In this video a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
+Pour protéger votre API web sauvegardée à l’aide d’Azure Active Directory, vous devez disposer d’un client AAD. Dans cette vidéo, on utilise un client nommé **APIMDemo**. Pour créer un client AAD, ouvrez une session dans le [portail Azure Classic](https://manage.windowsazure.com), puis cliquez sur **Nouveau** -> **App Services** -> **Active Directory** -> **Répertoire** -> **Création personnalisée**.
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-In this example a directory named **APIMDemo** is created with a default domain named **DemoAPIM.onmicrosoft.com**. This directory is used throughout the video.
+Dans cet exemple, on crée un répertoire nommé **APIMDemo** avec un domaine par défaut nommé **DemoAPIM.onmicrosoft.com**. Ce répertoire est utilisé tout au long de la vidéo.
 
 ![Azure Active Directory][api-management-create-aad]
 
-## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Create a Web API service secured by Azure Active Directory
+## Création d’un service API web protégé par Azure Active Directory
 
-In this step, a Web API backend is created using Visual Studio 2013. This step of the video starts at 1:30. To create Web API backend project in Visual Studio click **File**->**New**->**Project**, and choose **ASP.NET Web Application** from the **Web** templates list. In this video the project is named **APIMAADDemo**. Click **OK** to create the project. 
+Dans cette étape, un serveur principal d’API web est créé à l’aide de Visual Studio 2013. Cette étape de la vidéo démarre à 1’30’’. Pour créer un projet d’API web dans Visual Studio, cliquez sur **Fichier** -> **Nouveau** -> **Projet**, puis choisissez **Application web ASP.NET** à partir de la liste **web** de modèles. Dans cette vidéo, le projet est nommé **APIMAADDemo**. Cliquez sur **OK** pour créer le projet.
 
-![Visual Studio][api-management-new-web-app]
+![Visual Studio][api-management-new-web-app]
 
-Click **Web API** from the **Select a template list** to create a Web API project. To configure Azure Directory Authentication click **Change Authentication**.
+Cliquez sur **API web** à partir de **Sélectionner un modèle** pour créer un projet d’API web. Pour configurer Azure Active Authentication, cliquez sur **Modifier l’authentification**.
 
-![New project][api-management-new-project]
+![Nouveau projet][api-management-new-project]
 
-Click **Organizational Accounts**, and specify the **Domain** of your AAD tenant. In this example the domain is **DemoAPIM.onmicrosoft.com**. The domain of your directory can be obtained from the **Domains** tab of your directory.
+Cliquez sur **Comptes professionnels** et spécifiez le **domaine** de votre client AAD. Dans cet exemple, le domaine est **DemoAPIM.onmicrosoft.com**. Le domaine de votre répertoire peut être obtenu à partir de l’onglet **Domaines** de votre répertoire.
 
-![Domains][api-management-aad-domains]
+![Domaines][api-management-aad-domains]
 
-Configure the desired settings in the **Change Authentication** dialog box and click **OK**.
+Configurez les paramètres souhaités dans la boîte de dialogue **Modifier l’authentification** et cliquez sur **OK**.
 
-![Change authentication][api-management-change-authentication]
+![Modifier l’authentification][api-management-change-authentication]
 
-When you click **OK** Visual Studio will attempt to register your application with your Azure AD directory and you may be prompted to sign in by Visual Studio. Sign in using an administrative account for your directory.
+Lorsque vous cliquerez sur **OK**, Visual Studio tentera d’inscrire votre application à votre répertoire Azure AD et vous pourrez être invité à vous connecter via Visual Studio. Connectez-vous à l’aide d’un compte administrateur de votre répertoire.
 
-![Sign in to Visual Studio][api-management-sign-in-vidual-studio]
+![Connexion à Visual Studio][api-management-sign-in-vidual-studio]
 
-To configure this project as an Azure Web API check the box for **Host in the cloud** and then click **OK**.
+Pour configurer ce projet comme une API web d’Azure, cochez la case **Hôte sur le cloud** puis cliquez sur **OK**.
 
-![New project][api-management-new-project-cloud]
+![Nouveau projet][api-management-new-project-cloud]
 
-You may be prompted to sign in to Azure, and then you can configure the Web App.
+Vous pouvez être invité à vous connecter à Azure, et vous pouvez ensuite configurer l’application web.
 
-![Configure][api-management-configure-web-app]
+![Configuration][api-management-configure-web-app]
 
-In this example a new **App Service plan** named **APIMAADDemo** is specified.
+Dans cet exemple, on spécifie un nouveau **Plan App Service** nommé **APIMAADDemo**.
 
-Click **OK** to configure the Web App and create the project.
+Cliquez sur **OK** pour configurer l’application web et créer le projet.
 
-## <a name="add-the-code-to-the-web-api-project"></a>Add the code to the Web API project
+## Ajout d’un code au projet d’API web
 
-The next step in the video adds the code to the Web API project. This step starts at 4:35.
+L’étape suivante de la vidéo explique comment ajouter un code au projet d’API web. Cette étape démarre à 4’35’’.
 
-The Web API in this example implements a basic calculator service using a model and a controller. To add the model for the service, right-click **Models** in **Solution Explorer** and choose **Add**, **Class**. Name the class `CalcInput` and click **Add**.
+Dans cet exemple, l’API web implémente un service de calcul de base à l’aide d’un modèle et d’un contrôleur. Pour ajouter le modèle de service, cliquez avec le bouton droit sur **Modèles** dans l’**Explorateur de solutions** et choisissez **Ajouter** puis **Classe**. Nommez la classe `CalcInput`, puis cliquez sur **Ajouter**.
 
-Add the following `using` statement to the top of the `CalcInput.cs` file.
+Ajoutez l’instruction suivante `using` au début du fichier `CalcInput.cs`.
 
-    using Newtonsoft.Json;
+	using Newtonsoft.Json;
 
- Replace the generated class with the following code.
+ Remplacez la classe générée par le code suivant.
 
     public class CalcInput
     {
@@ -94,17 +93,17 @@ Add the following `using` statement to the top of the `CalcInput.cs` file.
         public int b;
     }
 
-Right-click **Controllers** in **Solution Explorer** and choose **Add**->**Controller**. Choose **Web API 2 Controller - Empty** and click **Add**. Type **CalcController** for the Controller name and click **Add**.
+Cliquez droit sur **Contrôleurs** dans l’**Explorateur de solutions** et choisissez **Ajouter** -> **Contrôleur**. Choisissez **Contrôleur API 2 web - Vide**, puis cliquez sur **Ajouter**. Saisissez **CalcController** pour le contrôleur de nom, puis cliquez sur **Ajouter**.
 
-![Add Controller][api-management-add-controller]
+![Ajouter un contrôleur][api-management-add-controller]
 
-Add the following `using` statement to the top of the `CalcController.cs` file.
+Ajoutez l’instruction suivante `using` au début du fichier `CalcController.cs`.
 
     using System.IO;
     using System.Web;
     using APIMAADDemo.Models;
 
-Replace the generated controller class with the following code. This code implements the `Add`, `Subtract`, `Multiply`, and `Divide` operations of the Basic Calculator API.
+Remplacez la classe de contrôleur générée par le code suivant. Ce code implémente les opérations `Add`, `Subtract`, `Multiply` et `Divide` de l’API de calcul de base.
 
     [Authorize]
     public class CalcController : ApiController
@@ -144,214 +143,214 @@ Replace the generated controller class with the following code. This code implem
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
+    	    HttpResponseMessage response = Request.CreateResponse();
+    	    response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+    	    return response;
+    	}
     }
 
-Press **F6** to build and verify the solution.
+Appuyez sur **F6** pour générer et vérifier la solution.
 
-## <a name="publish-the-project-to-azure"></a>Publish the project to Azure
+## Publication du projet sur Azure
 
-In this step the Visual Studio project is published to Azure. This step of the video starts at 5:45.
+Dans cette étape, un projet Visual Studio est publié sur Azure. Cette étape de la vidéo démarre à 5’45’’.
 
-To publish the project to Azure, right-click the **APIMAADDemo** project in Visual Studio and choose **Publish**. Keep the default settings in the **Publish Web** dialog box and click **Publish**.
+Pour publier le projet sur Azure, cliquez droit sur le projet **APIMAADDemo** dans Visual Studio et choisissez **Publier**. Conservez les paramètres par défaut dans la boîte de dialogue **Publier le site Web** et cliquez sur **Publier**.
 
-![Web Publish][api-management-web-publish]
+![Publier un site web][api-management-web-publish]
 
-## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Grant permissions to the Azure AD backend service application
+## Accord d’autorisations à l’application de service du serveur principal Azure AD
 
-A new application for the backend service is created in your Azure AD directory as part of the configuring and publishing process of your Web API project. In this step of the video, starting at 6:13, permissions are granted to the Web API backend.
+Une nouvelle application pour le service principal est créée dans votre répertoire Azure AD dans le cadre du processus de configuration et de publication de votre projet d’API web. Dans cette étape de la vidéo, qui commence à 6’13’’, des autorisations sont accordées au serveur principal d’API web.
 
 ![Application][api-management-aad-backend-app]
 
-Click the name of the application to configure the required permissions. Navigate to the **Configure** tab and scroll down to the **permissions to other applications** section. Click the **Application Permissions** drop-down beside **Windows** **Azure Active Directory**, check the box for **Read directory data**, and click **Save**.
+Cliquez sur le nom de l’application pour configurer les autorisations requises. Accédez à l’onglet **Configurer** et faites défiler la page jusqu’à la section **Autorisations pour d’autres applications**. Cliquez sur la liste déroulante **Autorisations d’application** en regard de **Windows** **Azure Active Directory**, cochez la case **Lire des données d’annuaire**, puis cliquez sur **Enregistrer**.
 
-![Add permissions][api-management-aad-add-permissions]
+![Ajout d’autorisations][api-management-aad-add-permissions]
 
->[AZURE.NOTE] If **Windows** **Azure Active Directory** is not listed under permissions to other applications, click **Add application** and add it from the list.
+>[AZURE.NOTE] Si **Windows** **Azure Active Directory** n’est pas répertorié sous les autorisations d’autres applications, cliquez sur **Ajouter une application** et ajoutez-le à partir de la liste.
 
-Make a note of the **App Id URI** for use in a subsequent step when an Azure AD application is configured for the API Management developer portal.
+Prenez note de l’**URI ID d’application**, dont vous aurez besoin pour configurer une application Azure AD pour le portail des développeurs Gestion des API lors d’une étape ultérieure.
 
-![App Id URI][api-management-aad-sso-uri]
+![URI ID d’application][api-management-aad-sso-uri]
 
-## <a name="import-the-web-api-into-api-management"></a>Import the Web API into API Management
+## Importation de l’API dans Gestion des API
 
-APIs are configured from the API publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API][] tutorial.
+Les API peuvent être configurées à partir du portail de publication accessible via le portail Azure Classic. Pour accéder au portail de publication, cliquez sur **Gérer** dans le portail Azure Classic de votre service Gestion des API. Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d’une instance de service Gestion des API][] dans le didacticiel [Gérer votre première API][].
 
-![Publisher portal][api-management-management-console]
+![Portail des éditeurs][api-management-management-console]
 
-Operations can be [added to APIs manually](api-management-howto-add-operations.md), or they can be imported. In this video, operations are imported in Swagger format starting at 6:40.
+Il est possible d’[ajouter manuellement des opérations aux API](api-management-howto-add-operations.md), ou bien de les importer. Dans cette vidéo, à partir de 6’40’’, les opérations sont importées au format Swagger.
 
-Create a file named `calcapi.json` with following contents and save it to your computer. Ensure that the `host` attribute points to your Web API backend. In this example `"host": "apimaaddemo.azurewebsites.net"` is used.
+Créez un fichier nommé `calcapi.json` avec le contenu suivant et enregistrez-le sur votre ordinateur. Vérifiez que l’attribut `host` pointe vers le serveur principal de votre API web. Dans cet exemple, on utilise `"host": "apimaaddemo.azurewebsites.net"`.
 
 { "swagger": "2.0", "info": { "title": "Calculator", "description": "Arithmetics over HTTP!", "version": "1.0" }, "host": "apimaaddemo.azurewebsites.net", "basePath": "/api", "schemes": [ "http" ], "paths": { "/add?a={a}&b={b}": { "get": { "description": "Responds with a sum of two numbers.", "operationId": "Add two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>51</code>.", "required": true, "default": "51", "enum": [ "51" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>49</code>.", "required": true, "default": "49", "enum": [ "49" ] } ], "responses": {} } }, "/sub?a={a}&b={b}": { "get": { "description": "Responds with a difference between two numbers.", "operationId": "Subtract two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>50</code>.", "required": true, "default": "50", "enum": [ "50" ] } ], "responses": {} } }, "/div?a={a}&b={b}": { "get": { "description": "Responds with a quotient of two numbers.", "operationId": "Divide two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] } ], "responses": {} } }, "/mul?a={a}&b={b}": { "get": { "description": "Responds with a product of two numbers.", "operationId": "Multiply two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. Default value is <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] }, { "name": "b", "in": "query", "description": "Second operand. Default value is <code>5</code>.", "required": true, "default": "5", "enum": [ "5" ] } ], "responses": {} } } } }
 
-To import the calculator API, click **APIs** from the **API Management** menu on the left, and then click **Import API**.
+Pour importer l’API de calculatrice, cliquez sur **API** dans le menu **Gestion des API** à gauche, puis sur **Importer l’API**.
 
-![Import API button][api-management-import-api]
+![Bouton Importer l’API][api-management-import-api]
 
-Perform the following steps to configure the calculator API.
+Procédez comme suit pour configurer l’API de calculatrice.
 
-1. Click **From file**, browse to the `calculator.json` file you saved, and click the **Swagger** radio button.
-2. Type **calc** into the **Web API URL suffix** textbox.
-3. Click in the **Products (optional)** box and choose **Starter**.
-4. Click **Save** to import the API.
+1. Cliquez sur **À partir du fichier**, accédez au fichier `calculator.json` que vous avez enregistré, puis cliquez sur la case d’option **Swagger**.
+2. Entrez **calc** dans la zone de texte **Suffixe de l’URL d’API web**.
+3. Cliquez dans la zone **Produits (facultatif)** et choisissez **Starter**.
+4. Cliquez sur **Enregistrer** pour importer l’API.
 
 ![Add new API][api-management-import-new-api]
 
-Once the API is imported, the summary page for the API is displayed in the publisher portal.
+Une fois l’API importée, la page Résumé de l’API s’affiche dans le portail des éditeurs.
 
-## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>Call the API unsuccessfully from the developer portal
+## Appel de l’API sans succès à partir du portail de développement
 
-At this point, the API has been imported into API Management, but cannot yet be called successfully from the developer portal because the backend service is protected with Azure AD authentication. This is demonstrated in the video starting at 7:40 using the following steps.
+À ce stade, l’API a été importée dans Gestion des API, mais ne peut pas encore être appelée avec succès là partir du portail des développeurs, car le service du serveur principal est protégé par l’authentification Azure AD. Cela est démontré dans la vidéo à partir de 7’40’’ en procédant comme suit.
 
-Click **Developer portal** from the top-right side of the publisher portal.
+Cliquez sur **Portail des développeurs** en haut à droite du portail de publication.
 
-![Developer portal][api-management-developer-portal-menu]
+![Portail des développeurs][api-management-developer-portal-menu]
 
-Click **APIs** and click the **Calculator** API.
+Cliquez sur **API**, puis sur l’API **Calculatrice**.
 
-![Developer portal][api-management-dev-portal-apis]
+![Portail des développeurs][api-management-dev-portal-apis]
 
-Click **Try it**.
+Cliquez sur **Essayer**.
 
-![Try it][api-management-dev-portal-try-it]
+![Essayer][api-management-dev-portal-try-it]
 
-Click **Send** and note the response status of **401 Unauthorized**.
+Cliquez sur **Envoyer** et observez l’état de réponse obtenu, à savoir **401 Non autorisé**.
 
-![Send][api-management-dev-portal-send-401]
+![Envoyer][api-management-dev-portal-send-401]
 
-The request is unauthorized because the backend API is protected by Azure Active Directory. Before successfully calling the API the developer portal must be configured to authorize developers using OAuth 2.0. This process is described in the following sections.
+La demande n’est pas autorisée, car l’API du serveur principal est protégée par Azure Active Directory. Avant d’appeler correctement l’API, le portail des développeurs doit être configuré afin d’autoriser les développeurs utilisant OAuth 2.0. Ce processus est décrit dans les sections suivantes.
 
-## <a name="register-the-developer-portal-as-an-aad-application"></a>Register the developer portal as an AAD application
+## Inscription du portail des développeurs en tant qu’application AAD
 
-The first step in configuring the developer portal to authorize developers using OAuth 2.0 is to register the developer portal as an AAD application. This is demonstrated starting at 8:27 in the video.
+La première étape de la configuration du portail des développeurs pour autoriser les développeurs utilisant OAuth 2.0 consiste à inscrire le portail des développeurs en tant qu’application AAD. Cela est expliqué à partir de 8’27’’ dans la vidéo.
 
-Navigate to the Azure AD tenant from the first step of this video, in this example **APIMDemo** and navigate to the **Applications** tab.
+Accédez au client Azure AD créé à la première étape de cette vidéo (dans cet exemple, **APIMDemo**) et accédez à l’onglet **Applications**.
 
-![New application][api-management-aad-new-application-devportal]
+![Nouvelle application][api-management-aad-new-application-devportal]
 
-Click the **Add** button to create a new Azure Active Directory application, and choose **Add an application my organization is developing**.
+Cliquez sur le bouton **Ajouter** pour créer une application Azure Active Directory, puis choisissez **Ajouter une application développée par mon organisation**.
 
-![New application][api-management-new-aad-application-menu]
+![Nouvelle application][api-management-new-aad-application-menu]
 
-Choose **Web application and/or Web API**, enter a name, and click the next arrow. In this example **APIMDeveloperPortal** is used.
+Choisissez **Application web et/ou API web**, saisissez un nom, puis cliquez sur la flèche Suivant. Dans cet exemple, on utilise **APIMDeveloperPortal**.
 
-![New application][api-management-aad-new-application-devportal-1]
+![Nouvelle application][api-management-aad-new-application-devportal-1]
 
-For **Sign-on URL** enter the URL of your API Management service and append `/signin`. In this example **https://contoso5.portal.azure-api.net/signin **is used.
+Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise **https://contoso5.portal.azure-api.net/signin **.
 
-For **App Id URL** enter the URL of your API Management service and append some unique characters. These can be any desired characters and in this example **https://contoso5.portal.azure-api.net/dp** is used. When the  desired **App properties** are configured, click the check mark to create the application.
+Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix ; dans cet exemple, on utilise **https://contoso5.portal.azure-api.net/dp**. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
 
-![New application][api-management-aad-new-application-devportal-2]
+![Nouvelle application][api-management-aad-new-application-devportal-2]
 
-## <a name="configure-an-api-management-oauth-2.0-authorization-server"></a>Configure an API Management OAuth 2.0 authorization server
+## Configuration du serveur d’autorisation OAuth 2.0 dans Gestion des API
 
-The next step is to configure an OAuth 2.0 authorization server in API Management. This step is demonstrated in the video starting at 9:43.
+La prochaine étape consiste à configurer le serveur d’autorisation OAuth 2.0 dans Gestion des API Cette étape est illustrée dans la vidéo à partir de 9’43’’.
 
-Click **Security** from the API Management menu on the left, click **OAuth 2.0**, and then click **Add authorization** server.
+Cliquez sur **Sécurité** dans le menu Gestion des API situé à gauche, cliquez sur **OAuth 2.0**, puis sur **Ajouter au serveur d’autorisation**.
 
-![Add authorization server][api-management-add-authorization-server]
+![Ajouter un serveur d’autorisation][api-management-add-authorization-server]
 
-Enter a name and an optional description in the **Name** and **Description** fields. These fields are used to identify the OAuth 2.0 authorization server within the API Management service instance. In this example **Authorization server demo** is used. Later when you specify an OAuth 2.0 server to be used for authentication for an API, you will select this name.
+Entrez un nom et une description (facultatif) dans les champs **Nom** et **Description**. Ces champs sont utilisés pour identifier le serveur d’autorisation OAuth 2.0 dans l’instance de service Gestion des API. Dans cet exemple, on utilise **Démonstration de serveur d’autorisation**. Ensuite, lorsque vous spécifierez un serveur OAuth 2.0 à utiliser pour l’authentification pour une API, vous allez sélectionner ce nom.
 
-For the **Client registration page URL** enter a placeholder value such as `http://localhost`.  The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support user management of accounts. In this example users do not create and configure their own accounts so a placeholder is used.
+Pour l’**URL de la page d’enregistrement client**, saisissez une valeur d’espace réservé telle que `http://localhost`. L’**URL de la page d’enregistrement client** pointe vers la page que les utilisateurs peuvent utiliser pour créer et configurer leurs propres comptes pour les fournisseurs OAuth 2.0 qui prennent en charge la gestion des comptes utilisateur. Dans cet exemple, les utilisateurs ne peuvent pas créer et configurer leurs propres comptes. Ainsi, on utilise un espace réservé.
 
-![Add authorization server][api-management-add-authorization-server-1]
+![Ajouter un serveur d’autorisation][api-management-add-authorization-server-1]
 
-Next, specify **Authorization endpoint URL** and **Token endpoint URL**.
+Ensuite, spécifiez l’**URL de point de terminaison d’autorisation** et l’**URL de point de terminaison de jeton**.
 
-![Authorization server][api-management-add-authorization-server-1a]
+![Serveur d’autorisation][api-management-add-authorization-server-1a]
 
-These values can be retrieved from the **App Endpoints** page of the AAD application you created for the developer portal. To access the endpoints navigate to the **Configure** tab for the AAD application and click **View endpoints**.
+Ces valeurs peuvent être récupérées à partir de la page **Points de terminaison d’app** de l’application AAD que vous avez créée pour le portail des développeurs. Pour accéder aux points de terminaison, accédez à l’onglet **Configurer** pour l’application AAD et cliquez sur **Afficher les points de terminaison**.
 
 ![Application][api-management-aad-devportal-application]
 
-![View endpoints][api-management-aad-view-endpoints]
+![Afficher les points de terminaison][api-management-aad-view-endpoints]
 
-Copy the **OAuth 2.0 authorization endpoint** and paste it into the **Authorization endpoint URL** textbox.
+Copiez la valeur de **Point de terminaison d’autorisation OAuth 2.0** et collez-la dans la zone de texte **URL de point de terminaison d’autorisation**.
 
-![Add authorization server][api-management-add-authorization-server-2]
+![Ajouter un serveur d’autorisation][api-management-add-authorization-server-2]
 
-Copy the **OAuth 2.0 token endpoint** and paste it into the **Token endpoint URL** textbox.
+Copiez la valeur de **Point de terminaison de jeton OAuth 2.0** et collez-la dans la zone de texte **URL de point de terminaison de jeton**.
 
-![Add authorization server][api-management-add-authorization-server-2a]
+![Ajouter un serveur d’autorisation][api-management-add-authorization-server-2a]
 
-In addition to pasting in the token endpoint, add an additional body parameter named **resource** and for the value use the **App Id URI** from the AAD application for the backend service that was created when the Visual Studio project was published.
+En plus d’effectuer un collage dans le point de terminaison de jeton, ajoutez un paramètre de corps supplémentaire nommé **ressource** et pour la valeur, utilisez l’**URI ID d’application** de l’application AAD pour le service principal qui a été créé lors de la publication du projet Visual Studio.
 
-![App Id URI][api-management-aad-sso-uri]
+![URI ID d’application][api-management-aad-sso-uri]
 
-Next, specify the client credentials. These are the credentials for the resource you want to access, in this case the backend service.
+Ensuite, spécifiez les informations d’identification du client. Ce sont les informations d’identification pour la ressource à laquelle vous voulez accéder, dans ce cas le service du serveur principal.
 
-![Client credentials][api-management-client-credentials]
+![Informations d'identification du client][api-management-client-credentials]
 
-To get the **Client Id**, navigate to the **Configure** tab of the AAD application for the backend service and copy the **Client Id**.
+Pour obtenir l’**ID client**, accédez à l’onglet **Configurer** de l’application AAD pour le service principal et copiez l’**ID client**.
 
-To get the **Client Secret** click the **Select duration** drop-down in the **Keys** section and specify an interval. In this example 1 year is used.
+Pour obtenir la **Clé secrète client**, cliquez sur la liste déroulante **Sélectionner une durée** dans la section **Clés** et spécifiez un intervalle. Dans cet exemple, on utilise la valeur 1 an.
 
-![Client ID][api-management-aad-client-id]
+![ID client][api-management-aad-client-id]
 
-Click **Save** to save the configuration and display the key. 
+Cliquez sur **Enregistrer** pour enregistrer la configuration et afficher la clé.
 
->[AZURE.IMPORTANT] Make a note of this key. Once you close the Azure Active Directory configuration window, the key cannot be displayed again.
+>[AZURE.IMPORTANT] Notez sa valeur. Une fois que vous fermez la fenêtre de configuration Azure Active Directory, la clé ne peut plus être affichée.
 
-Copy the key to the clipboard, switch back to the publisher portal, paste the key into the **Client Secret** textbox, and click **Save**.
+Copiez la clé dans le presse-papiers, revenez au portail de publication, collez la clé dans la zone de texte **Clé secrète client**, puis cliquez sur **Enregistrer**.
 
-![Add authorization server][api-management-add-authorization-server-3]
+![Ajouter un serveur d’autorisation][api-management-add-authorization-server-3]
 
-Immediately following the client credentials is an authorization code grant. Copy this authorization code and switch back to your Azure AD developer portal application configure page, and paste the authorization grant into the **Reply URL** field, and click **Save** again.
+Immédiatement après les informations d’identification du client, un code d’autorisation s’affiche. Copiez ce code d’autorisation, revenez à la page de configuration d’application du portail des développeurs Azure AD et collez le code d’autorisation dans le champ **URL de réponse**, puis cliquez de nouveau sur**Enregistrer**.
 
-![Reply URL][api-management-aad-reply-url]
+![URL de réponse][api-management-aad-reply-url]
 
-The next step is to configure the permissions for the developer portal AAD application. Click **Application Permissions** and check the box for **Read directory data**. Click **Save** to save this change, and then click **Add application**.
+L’étape suivante consiste à configurer les autorisations pour le portail des développeurs AAD. Cliquez sur **Autorisations d’application** et cochez la case **Lire les données du répertoire**. Cliquez sur **Enregistrer** pour enregistrer cette modification, puis cliquez sur **Ajouter l’application**.
 
-![Add permissions][api-management-add-devportal-permissions]
+![Ajout d’autorisations][api-management-add-devportal-permissions]
 
-Click the search icon, type **APIM** into the Starting with box, select **APIMAADDemo**, and click the check mark to save.
+Cliquez sur l’icône de recherche, saisissez **APIM** dans le champ Commençant par, sélectionnez **APIMAADDemo**, puis cliquez sur la coche pour enregistrer.
 
-![Add permissions][api-management-aad-add-app-permissions]
+![Ajout d’autorisations][api-management-aad-add-app-permissions]
 
-Click **Delegated Permissions** for **APIMAADDemo** and check the box for **Access APIMAADDemo**, and click **Save**. This allows the developer portal application to access the backend service.
+Cliquez sur **Autorisations déléguées** pour **APIMAADDemo**, cochez la case **Accès à APIMAADDemo**, puis cliquez sur **Enregistrer**. Cela permet à l’application du portail des développeurs d’accéder au service du serveur principal.
 
-![Add permissions][api-management-aad-add-delegated-permissions]
+![Ajout d’autorisations][api-management-aad-add-delegated-permissions]
 
-## <a name="enable-oauth-2.0-user-authorization-for-the-calculator-api"></a>Enable OAuth 2.0 user authorization for the Calculator API
+## Activation de l’autorisation de l’utilisateur OAuth 2.0 pour l’API de calcul
 
-Now that the OAuth 2.0 server is configured, you can specify it in the security settings for your API. This step is demonstrated in the video starting at 14:30.
+Maintenant que le serveur OAuth 2.0 est configuré, vous pouvez le spécifier dans les paramètres de sécurité pour votre API. Cette étape est illustrée dans la vidéo à partir de 14’30’’.
 
-Click **APIs** in the left menu, and click  **Calculator** to view and configure its settings.
+Cliquez sur **API** dans le menu situé à gauche et cliquez sur **Calculatrice** pour afficher et configurer ses paramètres.
 
-![Calculator API][api-management-calc-api]
+![API de calcul][api-management-calc-api]
 
-Navigate to the **Security** tab, check the **OAuth 2.0** checkbox, select the desired authorization server from the **Authorization server** drop-down, and click **Save**.
+Accédez à l’onglet **Sécurité**, activez la case à cocher **OAuth 2.0**, sélectionnez le serveur d’autorisation souhaité dans la liste déroulante **Serveur d’autorisation**, puis cliquez sur **Enregistrer**.
 
-![Calculator API][api-management-enable-aad-calculator]
+![API de calcul][api-management-enable-aad-calculator]
 
-## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>Successfully call the Calculator API from the developer portal
+## Appel réussi de l’API de calcul à partir du portail des développeurs
 
-Now that the OAuth 2.0 authorization is configured on the API, its operations can be successfully called from the developer center. THis step is demonstrated in the video starting at 15:00.
+Maintenant que l’autorisation OAuth 2.0 est configurée sur l’API, ses opérations peuvent être appelées avec succès à partir du portail des développeurs. Cette étape est illustrée dans la vidéo à partir de 15’00’’.
 
-Navigate back to the **Add two integers** operation of the calculator service in the developer portal and click **Try it**. Note the new item in the **Authorization** section corresponding to the authorization server you just added.
+Revenez à l’opération **Ajouter deux entiers** du service de calculatrice dans le portail des développeurs et cliquez sur **Essayer**. Observez le nouvel élément dans la section **Autorisation** correspondant au serveur d’autorisation que vous venez d’ajouter.
 
-![Calculator API][api-management-calc-authorization-server]
+![API de calcul][api-management-calc-authorization-server]
 
-Select **Authorization code** from the authorization drop-down list and enter the credentials of the account to use. If you are already signed in with the account you may not be prompted.
+Sélectionnez **Code d’autorisation** dans la liste déroulante d’autorisations et saisissez les informations d’identification du compte à utiliser. Si vous êtes déjà connecté avec ce compte, vous ne serez pas invité.
 
-![Calculator API][api-management-devportal-authorization-code]
+![API de calcul][api-management-devportal-authorization-code]
 
-Click **Send** and note the **Response status** of **200 OK** and the results of the operation in the response content.
+Cliquez sur **Envoyer** et observez l’**État de la réponse** obtenu, à savoir **200 OK**, et les résultats de l’opération dans le contenu de la réponse.
 
-![Calculator API][api-management-devportal-response]
+![API de calcul][api-management-devportal-response]
 
-## <a name="configure-a-desktop-application-to-call-the-api"></a>Configure a desktop application to call the API
+## Configuration d’une application de bureau pour appeler l’API
 
-The next procedure in the video starts at 16:30 and configures a simple desktop application to call the API. The first step is to register the desktop application in Azure AD and give it access to the directory and to the backend service. At 18:25 there is a demonstration of the desktop application calling an operation on the calculator API.
+La procédure suivante dans la vidéo commence à 16’30’’ et illustre la configuration d’une application de bureau simple pour appeler l’API. La première étape consiste à enregistrer l’application de bureau dans Azure AD et à lui donner accès au répertoire et au service du serveur principal. À 18’25’’, vous pouvez voir une démonstration de l’application de bureau appelant une opération sur l’API de calcul.
 
-## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configure a JWT validation policy to pre-authorize requests
+## Configuration d’une stratégie de validation JWT pour autoriser des demandes
 
-The final procedure in the video starts at 20:48 and shows you how to use the [Validate JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) policy to pre-authorize requests by validating the access tokens of each incoming request. If the request is not validated by the Validate JWT policy, the request is blocked by API Management and is not passed along to the backend.
+La procédure finale de la vidéo commence à 20’48’’ et vous montre comment utiliser la stratégie [Valider un JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) pour autoriser des demandes en validant les jetons d’accès de chaque demande entrante. Si la demande n’est pas validée par la stratégie Valider un JWT, la demande est bloquée par Gestion des API et n’est pas transmise au serveur principal.
 
     <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
         <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
@@ -362,11 +361,11 @@ The final procedure in the video starts at 20:48 and shows you how to use the [V
         </required-claims>
     </validate-jwt>
 
-For another demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 13:50. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.
+Pour une autre démonstration de la configuration et l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Plus de fonctionnalités de Gestion des API) et rendez-vous directement à 13’50’’. Rendez-vous directement à 15’00’’ pour afficher les stratégies configurées dans l’éditeur de stratégies, puis à 18’50’’ pour une démonstration de l’appel d’une opération à partir du portail des développeurs avec et sans le jeton d’autorisation requis.
 
-## <a name="next-steps"></a>Next steps
--   Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
--   For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md) and [Connect via VPN or ExpressRoute](api-management-howto-setup-vpn.md).
+## Étapes suivantes
+-	Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.
+-	Pour les autres méthodes permettant de sécuriser votre service principal, consultez [Authentification avec certificats mutuels](api-management-howto-mutual-certificates.md) et [Connexion via VPN ou ExpressRoute](api-management-howto-setup-vpn.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -414,11 +413,7 @@ For another demonstration of configuring and using this policy, see [Cloud Cover
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Manage your first API]: api-management-get-started.md
+[Création d’une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
+[Gérer votre première API]: api-management-get-started.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

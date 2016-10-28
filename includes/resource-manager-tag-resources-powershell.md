@@ -1,28 +1,28 @@
-### <a name="tag-cmdlet-changes-in-latest-powershell-version"></a>Tag cmdlet changes in latest PowerShell version
+### Modifications d’applet de commande de balise dans la dernière version de PowerShell
 
-The August 2016 release of [Azure PowerShell 2.0][powershell] includes significant changes in how you work with tags. Before proceeding, check the version of your AzureRm.Resources module.
+La version d’août 2016 [d’Azure PowerShell 2.0][powershell] inclut des modifications importantes pour l’utilisation des balises. Avant de continuer, vérifiez la version de votre module AzureRm.Resources.
 
     Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
-If you last updated your Azure PowerShell before August 2016, your results should show a version less than 3.0.
+Si vous avez mis à jour Azure PowerShell pour la dernière fois avant août 2016, la version indiquée dans les résultats doit être inférieure à 3.0.
 
     Version
     -------
     2.0.2
 
-If you have updated Azure PowerShell since August 2016, your results should show a version of 3.0.
+Si vous avez mis à jour Azure PowerShell après août 2016, les résultats doivent indiquer la version 3.0.
 
     Version
     -------
     3.0.1
     
-If your version of the module is 3.0.1 or later, you have the most recent cmdlets for working with tags. This version of the Azure Resources module installs automatically when you install or upgrade Azure PowerShell by using PowerShell Gallery, PowerShellGet, or Web Platform Installer.  If your version is earlier than 3.0.1, you can continue using that version, but you might consider updating to the latest version. The latest version includes changes that make it easier to work with tags. Both approaches are shown in this topic.
+Si votre version du module est 3.0.1 ou ultérieur, vous disposez des applets de commande les plus récentes pour utiliser des balises. Cette version du module de ressources Azure s’installe automatiquement lorsque vous installez ou mettez à niveau Azure PowerShell à l’aide de PowerShell Gallery, PowerShellGet ou Web Platform Installer. Si votre version est antérieure à 3.0.1, vous pouvez continuer à utiliser cette version, mais vous pouvez envisager une mise à jour vers la version la plus récente. La dernière version inclut des modifications qui facilitent l’utilisation des balises. Les deux approches sont présentées dans cette rubrique.
 
-### <a name="updating-your-script-for-changes-in-latest-version"></a>Updating your script for changes in latest version 
+### Mise à jour de votre script pour prendre en compte les modifications apportées dans la version la plus récente 
 
-In the latest release, the **Tags** parameter name changed to **Tag**, and the type changed from  **Hashtable[]**  to **Hashtable**. You no longer need to provide **Name** and **Value** for each entry. Instead you provide key-value pairings in the format **Key = "Value"**.
+Dans la dernière version, le nom de paramètre **Tags** est devenu **Tag**, tandis que le nom de type **Hashtable** et devenu **Hashtable**. Vous n’avez plus besoin de fournir **Name** et **Value** pour chaque entrée. Au lieu de cela, vous indiquez des paires clé-valeur selon le format **Clé = "Valeur"**.
 
-To update existing script, change the **Tags** parameter to **Tag**, and change the tag format as shown in the following example.
+Pour mettre à jour un script existant, remplacez le paramètre **Tags** par **Tag** et modifiez le format de balise, comme illustré dans l’exemple suivant.
 
     # Old
     New-AzureRmResourceGroup -Tags @{ Name = "testtag"; Value = "testval" } -Name $resourceGroupName -Location $location
@@ -30,17 +30,17 @@ To update existing script, change the **Tags** parameter to **Tag**, and change 
     # New
     New-AzureRmResourceGroup -Tag @{ testtag = "testval" } -Name $resourceGroupName -Location $location 
 
-However, you should note that resource groups and resources still return a **Tags** property in their metadata. This property is not changed.
+Notez cependant que les groupes de ressources et les ressources retournent toujours une propriété **Tags** dans leurs métadonnées. Cette propriété n’est pas modifiée.
 
-### <a name="version-3.0.1-or-later"></a>Version 3.0.1 or later
+### Version 3.0.1 ou ultérieure
 
-Tags exist directly on resources and resource groups. To see the existing tags, view a resource with **Get-AzureRmResource** or a resource group with **Get-AzureRmResourceGroup**. 
+Les balises se trouvent directement dans les ressources et les groupes de ressources. Pour afficher les balises existantes, affichez une ressource avec **Get-AzureRmResource** ou un groupe de ressources avec **Get-AzureRmResourceGroup**.
 
-Let's start with a resource group.
+Commençons par un groupe de ressources.
 
     Get-AzureRmResourceGroup -Name testrg1
 
-This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any.
+Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressources, notamment les balises déjà appliquées, le cas échéant.
 
     ResourceGroupName : testrg1
     Location          : westus
@@ -51,11 +51,11 @@ This cmdlet returns several bits of metadata on the resource group including wha
                     Dept         Finance
                     Environment  Production
 
-To retrieve the resource metadata including tags, use the following example.
+Pour récupérer les métadonnées de ressources incluant des balises, utilisez l’exemple suivant.
 
     Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
 
-You see the tag names in the results.
+Les noms des balises apparaissent dans les résultats.
 
     Name              : tfsqlserver
     ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
@@ -67,32 +67,32 @@ You see the tag names in the results.
     SubscriptionId    : {guid}
     Tags              : {Dept, Environment}
 
-Use the **Tags** property to get tag names and values.
+Utilisez la propriété **Tags** pour obtenir les noms et les valeurs des balises.
 
     (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1).Tags
 
-Which returns the following results:
+Cette dernière renvoie les résultats suivants :
 
     Name                   Value
     ----                   -----
     Dept                   Finance
     Environment            Production
 
-Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
+Plutôt que d’afficher les balises d’une ressource ou d’un groupe de ressources en particulier, vous souhaitez sans doute récupérer toutes les ressources ou tous les groupes de ressources qui ont une valeur et une balise spécifiques. Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l’applet de commande **Find-AzureRmResourceGroup** avec le paramètre **-Tag**.
 
-To retrieve resource groups with a tag value, use the following format.
+Pour récupérer des groupes de ressources comportant une valeur de balise, utilisez le format suivant.
 
     (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
 
-To get all the resources with a particular tag and value, use the **Find-AzureRmResource** cmdlet.
+Pour obtenir toutes les ressources contenant une balise et une valeur spécifiques, utilisez l’applet de commande **Find-AzureRmResource**.
 
     (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
     
-To add a tag to a resource group that has no existing tags, use the **Set-AzureRmResourceGroup** command and specify a tag object.
+Pour ajouter une balise à un groupe de ressources qui n’en comporte pas, utilisez la commande **Set-AzureRmResourceGroup**, puis spécifiez l’objet de la balise.
 
     Set-AzureRmResourceGroup -Name test-group -Tag @{ Dept="IT"; Environment="Test" }
 
-Which returns the resource group with its new tag values.
+Ce qui renvoie le groupe de ressources avec ses nouvelles valeurs de balise.
 
     ResourceGroupName : test-group
     Location          : southcentralus
@@ -103,44 +103,44 @@ Which returns the resource group with its new tag values.
                     Dept          IT
                     Environment   Test
                     
-You can add tags to a resource that has no existing tags by using the **Set-AzureRmResource** command 
+Vous pouvez ajouter des balises à une ressource qui n’en comporte pas à l’aide de la commande **Set-AzureRmResource**
 
     Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
-Tags are updated as a whole. To add one tag to a resource that has other tags, use an array with all the tags you want to keep. First, select the existing tags, add one to that set, and reapply all the tags.
+Les balises sont mises à jour en tant qu'ensemble. Pour ajouter une balise à une ressource comportant d’autres balises, utilisez un tableau avec toutes les balises que vous souhaitez conserver. Sélectionnez d'abord les balises existantes, ajoutez une balise à cet ensemble puis réappliquez toutes les balises.
 
     $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     $tags += @{Status="approved"}
     Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
-To remove one or more tags, simply save the array without the ones you want to remove.
+Pour supprimer une ou plusieurs balises, enregistrez simplement le tableau sans les balises que vous souhaitez supprimer.
 
-The process is the same for resources except you use the **Get-AzureRmResource** and **Set-AzureRmResource** cmdlets. 
+Le processus est le même pour les ressources, sauf que vous utilisez les applets de commande **Get-AzureRmResource** et **Set-AzureRmResource**.
 
-To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** cmdlet.
+Pour obtenir une liste de toutes les balises d’un abonnement à l’aide de PowerShell, utilisez l’applet de commande **Get-AzureRmTag**.
 
     Get-AzureRmTag
     
-Which returns tag names and a count of the number of resources and resource groups with the tag
+Cette dernière retourne des noms de balise et le nombre de ressources et de groupes de ressources avec la balise.
 
     Name                      Count
     ----                      ------
     Dept                       8
     Environment                8
 
-You may see tags that start with "hidden-" and "link:". These tags are internal tags, which you should ignore and avoid changing.
+Vous pouvez consulter les balises commençant par « masqué-» et « lien: ». Il s'agit de balises internes, que vous devez ignorer et éviter de modifier.
 
-Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags are included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy.
+Pour ajouter des balises à la taxonomie, utilisez l’applet de commande **New-AzureRmTag**. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l’applet de commande **Remove-AzureRmTag** pour la supprimer de la taxonomie.
 
-### <a name="versions-earlier-than-3.0.1"></a>Versions earlier than 3.0.1
+### Versions antérieures à 3.0.1
 
-Tags exist directly on resources and resource groups. To see the existing tags, view a resource with **Get-AzureRmResource** or a resource group with **Get-AzureRmResourceGroup**. 
+Les balises se trouvent directement dans les ressources et les groupes de ressources. Pour afficher les balises existantes, affichez une ressource avec **Get-AzureRmResource** ou un groupe de ressources avec **Get-AzureRmResourceGroup**.
 
-Let's start with a resource group.
+Commençons par un groupe de ressources.
 
     Get-AzureRmResourceGroup -Name testrg1
 
-This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any.
+Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressources, notamment les balises déjà appliquées, le cas échéant.
 
     ResourceGroupName : testrg1
     Location          : westus
@@ -151,11 +151,11 @@ This cmdlet returns several bits of metadata on the resource group including wha
                     Dept         Finance
                     Environment  Production
                     
-To retrieve the resource metadata, use the following example. The resource metadata does not directly display tags. 
+Pour récupérer les métadonnées de ressources, utilisez l’exemple suivant. Les métadonnées de ressources n’affichent pas directement les balises.
 
     Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
 
-You see in the results that the tags are only displayed as Hashtable object.
+Les résultats indiquent que les balises s’affichent uniquement en tant qu’objet de table de hachage.
 
     Name              : tfsqlserver
     ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
@@ -167,30 +167,30 @@ You see in the results that the tags are only displayed as Hashtable object.
     SubscriptionId    : {guid}
     Tags              : {System.Collections.Hashtable}
 
-You can view the actual tags by retrieving the **Tags** property.
+Vous pouvez afficher les balises réelles en récupérant la propriété **Tags**.
 
     (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
    
-Which returns formatted results:
+Ce qui renvoie les résultats mis en forme :
     
     Dept: Finance
     Environment: Production
     
-Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
+Plutôt que d’afficher les balises d’une ressource ou d’un groupe de ressources en particulier, vous souhaitez sans doute récupérer toutes les ressources ou tous les groupes de ressources qui ont une valeur et une balise spécifiques. Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l’applet de commande **Find-AzureRmResourceGroup** avec le paramètre **-Tag**.
 
-To retrieve resource groups with a tag value, use the following format.
+Pour récupérer des groupes de ressources comportant une valeur de balise, utilisez le format suivant.
 
     Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
     
-To get all the resources with a particular tag and value, use the Find-AzureRmResource cmdlet.
+Pour obtenir toutes les ressources contenant une balise et une valeur spécifiques, utilisez l’applet de commande Find-AzureRmResource.
 
     Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
 
-To add a tag to a resource group that has no existing tags, simply use the Set-AzureRmResourceGroup command and specify a tag object.
+Pour ajouter une balise à un groupe de ressources qui n’en comporte pas, utilisez simplement la commande Set-AzureRmResourceGroup, puis spécifiez l’objet de la balise.
 
     Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
     
-Which returns the resource group with its new tag values.
+Ce qui renvoie le groupe de ressources avec ses nouvelles valeurs de balise.
 
     ResourceGroupName : test-group
     Location          : southcentralus
@@ -201,39 +201,36 @@ Which returns the resource group with its new tag values.
                 Dept          IT
                 Environment   Test
 
-You can add tags to a resource that has no existing tags by using the Set-AzureRmResource command.
+Vous pouvez ajouter des balises à une ressource qui n’en comporte pas à l’aide de la commande Set-AzureRmResource.
 
     Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
-Tags are updated as a whole. To add one tag to a resource that has other tags, use an array with all the tags you want to keep. First, select the existing tags, add one to that set, and reapply all the tags.
+Les balises sont mises à jour en tant qu'ensemble. Pour ajouter une balise à une ressource comportant d’autres balises, utilisez un tableau avec toutes les balises que vous souhaitez conserver. Sélectionnez d'abord les balises existantes, ajoutez une balise à cet ensemble puis réappliquez toutes les balises.
 
     $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     $tags += @{Name="status";Value="approved"}
     Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
-To remove one or more tags, simply save the array without the ones you want to remove.
+Pour supprimer une ou plusieurs balises, enregistrez simplement le tableau sans les balises que vous souhaitez supprimer.
 
-The process is the same for resources except you use the Get-AzureRmResource and Set-AzureRmResource cmdlets. 
+Le processus est le même pour les ressources, sauf que vous utilisez les applets de commande Get-AzureRmResource et Set-AzureRmResource.
 
-To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** cmdlet.
+Pour obtenir une liste de toutes les balises d’un abonnement à l’aide de PowerShell, utilisez l’applet de commande **Get-AzureRmTag**.
 
     Get-AzureRmTag
     
-Which returns tag names and a count of the number of resources and resource groups with the tag
+Cette dernière retourne des noms de balise et le nombre de ressources et de groupes de ressources avec la balise.
 
     Name                      Count
     ----                      ------
     Dept                       8
     Environment                8
 
-You may see tags that start with "hidden-" and "link:". These tags are internal tags, which you should ignore and avoid changing.
+Vous pouvez consulter les balises commençant par « masqué-» et « lien: ». Il s'agit de balises internes, que vous devez ignorer et éviter de modifier.
 
-Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags are included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy.
+Pour ajouter des balises à la taxonomie, utilisez l’applet de commande **New-AzureRmTag**. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l’applet de commande **Remove-AzureRmTag** pour la supprimer de la taxonomie.
 
 
 [powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

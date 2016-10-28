@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Virtual Network (VNet) Plan and Design Guide | Microsoft Azure"
-   description="Learn how to plan and design virtual networks in Azure based on your isolation, connectivity, and location requirements."
+   pageTitle="Guide de planification et de conception de réseau virtuel Azure | Microsoft Azure"
+   description="Découvrez comment planifier et concevoir des réseaux virtuels dans Azure selon vos besoins en isolement, connectivité et emplacements."
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,259 +15,254 @@
    ms.date="02/08/2016"
    ms.author="jdial" />
 
+# Planifier et concevoir des réseaux virtuels Azure
 
-# <a name="plan-and-design-azure-virtual-networks"></a>Plan and design Azure Virtual Networks
+La création d’un réseau virtuel à titre d’essai est assez facile, mais vous risquez de déployer plusieurs réseaux virtuels au fil du temps pour prendre en charge les besoins en production de votre organisation. La planification et la conception vous permettent de déployer des réseaux virtuels et de vous connecter aux ressources dont vous avez besoin plus efficacement. Si vous n’êtes pas familiarisé avec les réseaux virtuels, il est recommandé de [découvrir les réseaux virtuels](virtual-networks-overview.md) et d’apprendre [comment en déployer](virtual-networks-create-vnet-arm-pportal.md) un avant de continuer.
 
-Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](virtual-networks-create-vnet-arm-pportal.md) one before proceeding. 
+## Planification
 
-## <a name="plan"></a>Plan
+Une bonne compréhension des abonnements Azure, des régions et des ressources réseau est essentielle pour réussir. Vous pouvez utiliser la liste des éléments à prendre en compte ci-dessous comme point de départ. Une fois que vous avez compris ces éléments, vous pouvez définir les conditions requises pour la conception de votre réseau.
 
-A thorough understanding of Azure subscriptions, regions, and network resources is critical for success. You can use the list of considerations below as a starting point. Once you understand those considerations, you can define the requirements for your network design.
+### Considérations
 
-### <a name="considerations"></a>Considerations
+Avant de répondre aux questions de planification ci-dessous, tenez compte des éléments suivants :
 
-Before answering the planning questions below, consider the following:
+- Tout ce que vous créez dans Azure se compose d’une ou de plusieurs ressources. Une machine virtuelle est une ressource, l’interface de carte réseau utilisée par une machine virtuelle est une ressource, l’adresse IP publique utilisée par une interface de carte réseau est une ressource, le réseau virtuel auquel l’interface de carte réseau est connectée est une ressource.
+- Vous créez des ressources au sein d’une [région Azure](https://azure.microsoft.com/regions/#services) et d’un abonnement. En outre, les ressources peuvent uniquement être connectées à un réseau virtuel qui existe dans les mêmes région et abonnement.
+- Vous pouvez connecter des réseaux virtuels entre eux à l’aide d’une [passerelle VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) Azure. Vous pouvez également connecter des réseaux virtuels entre des régions et des abonnements de cette façon.
+- Vous pouvez connecter des réseaux virtuels à votre réseau local à l’aide de l’une des [options de connectivité](../vpn-gateway/vpn-gateway-cross-premises-options.md) disponibles dans Azure.
+- Différentes ressources peuvent être regroupées dans des [groupes de ressources](../resource-group-overview.md#resource-groups), ce qui facilite la gestion de la ressource en tant qu’unité. Un groupe de ressources peut contenir des ressources provenant de plusieurs régions, tant que les ressources appartiennent au même abonnement.
 
-- Everything you create in Azure is composed of one or more resources. A virtual machine (VM) is a resource, the network adapter interface (NIC) used by a VM is a resource, the public IP address used by a NIC is a resource, the VNet the NIC is connected to is a resource.
-- You create resources within an [Azure region](https://azure.microsoft.com/regions/#services) and subscription. And resources can only be connected to a VNet that exists in the same region and subscription they are in. 
-- You can connect VNets to each other by using an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). You can also connect VNets across regions and subscriptions this way.
-- You can connect VNets to your on-premises network by using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) available in Azure. 
-- Different resources can be grouped together in [resource groups](../resource-group-overview.md#resource-groups), making it easier to manage the resource as a unit. A resource group can contain resources from multiple regions, as long as the resources belong to the same subscription.
+### Définir les conditions requises
 
-### <a name="define-requirements"></a>Define requirements
+Utilisez les questions ci-dessous comme point de départ pour la conception de votre réseau Azure.
 
-Use the questions below as a starting point for your Azure network design.  
+1. Quels emplacements Azure allez-vous utiliser pour héberger des réseaux virtuels ?
+2. Devez-vous assurer la communication entre ces emplacements Azure ?
+3. Devez-vous assurer la communication entre vos réseaux virtuels Azure et vos centres de données locaux ?
+4. Combien de machines virtuelles IaaS (Infrastructure as a Service), de rôles de services cloud et d’applications web sont nécessaires pour votre solution ?
+5. Devez-vous isoler le trafic en fonction des groupes de machines virtuelles (autrement dit, serveurs web frontaux et serveurs de base de données principaux) ?
+6. Devez-vous contrôler le flux du trafic à l’aide d’équipements virtuels ?
+7. Est-ce que les utilisateurs ont besoin de différents jeux d’autorisations pour différentes ressources Azure ?
 
-1. What Azure locations will you use to host VNets?
-2. Do you need to provide communication between these Azure locations?
-3. Do you need to provide communication between your Azure VNet(s) and your on-premises datacenter(s)?
-4. How many Infrastructure as a Service (IaaS) VMs, cloud services roles, and web apps do you need for your solution?
-5. Do you need to isolate traffic based on groups of VMs (i.e. front end web servers and back end database servers)?
-6. Do you need to control traffic flow using virtual appliances?
-7. Do users need different sets of permissions to different Azure resources?
+### Découvrir les propriétés des réseaux virtuels et sous-réseaux
 
-### <a name="understand-vnet-and-subnet-properties"></a>Understand VNet and subnet properties
+Les ressources de réseaux virtuels et de sous-réseaux permettent de définir une limite de sécurité pour les charges de travail s’exécutant dans Azure. Un réseau virtuel est caractérisé par une collection d’espaces d’adressage, appelés blocs CIDR.
 
-VNet and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
+>[AZURE.NOTE] Les administrateurs réseau sont familiarisés avec la notation CIDR. Si vous n’êtes pas familiarisé avec CIDR, [obtenez davantage d’informations](http://whatismyipaddress.com/cidr).
 
->[AZURE.NOTE] Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
+Les réseaux virtuels contiennent les propriétés suivantes.
 
-VNets contain the following properties.
-
-|Property|Description|Constraints|
+|Propriété|Description|Contraintes|
 |---|---|---|
-|**name**|VNet name|String of up to 80 characters. May contain letters, numbers, underscore, periods, or hyphens. Must start with a letter or number. Must end with a letter, number, or underscore. Can contains upper or lower case letters.|  
-|**location**|Azure location (also referred to as region).|Must be one of the valid Azure locations.|
-|**addressSpace**|Collection of address prefixes that make up the VNet in CIDR notation.|Must be an array of valid CIDR address blocks, including public IP address ranges.|
-|**subnets**|Collection of subnets that make up the VNet|see the subnet properties table below.||
-|**dhcpOptions**|Object that contains a single required property named **dnsServers**.||
-|**dnsServers**|Array of DNS servers used by the VNet. If no server is specified, Azure internal name resolution is used.|Must be an array of up to 10 DNS servers, by IP address.| 
+|**name**|Nom du réseau virtuel|Chaîne de 80 caractères au maximum. Peut contenir des lettres, des chiffres, un trait de soulignement, des points ou des traits d’union. Doit commencer par une lettre ou un chiffre. Doit se terminer par une lettre, un chiffre ou un trait de soulignement. Peut contenir des majuscules ou minuscules.|  
+|**emplacement**|Emplacement Azure (également appelé région).|Doit être l’un des emplacements Azure valides.|
+|**addressSpace**|Collection de préfixes d’adresses qui composent le réseau virtuel dans la notation CIDR.|Doit être un tableau de blocs d’adresses CIDR valides, y compris des plages d’adresses IP publiques.|
+|**Sous-réseaux**|Collection des sous-réseaux qui composent le réseau virtuel|consultez le tableau de propriétés des sous-réseaux ci-dessous.||
+|**dhcpOptions**|Objet qui contient une seule propriété obligatoire nommée **dnsServers**.||
+|**dnsServers**|Tableau des serveurs DNS utilisés par le réseau virtuel. Si aucun serveur n’est spécifié, la résolution de noms interne Azure est utilisée.|Doit être un tableau de 10 serveurs DNS au maximum, par adresse IP.| 
 
-A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
+Un sous-réseau est une ressource enfant d’un réseau virtuel, et permet de définir des segments d’espaces d’adressage dans un bloc CIDR, à l’aide de préfixes d’adresses IP. Les cartes d’interface réseau (NIC) peuvent être ajoutées aux sous-réseaux et connectées aux machines virtuelles, ce qui fournit une connectivité pour différentes charges de travail.
 
-Subnets contain the following properties. 
+Les sous-réseaux contiennent les propriétés suivantes.
 
-|Property|Description|Constraints|
+|Propriété|Description|Contraintes|
 |---|---|---|
-|**name**|Subnet name|String of up to 80 characters. May contain letters, numbers, underscore, periods, or hyphens. Must start with a letter or number. Must end with a letter, number, or underscore. Can contains upper or lower case letters.|
-|**location**|Azure location (also referred to as region).|Must be one of the valid Azure locations.|
-|**addressPrefix**|Single address prefix that make up the subnet in CIDR notation|Must be a single CIDR block that is part of one of the VNet's address spaces.|
-|**networkSecurityGroup**|NSG applied to the subnet|see [NSGs](resource-groups-networking.md#Network-Security-Group)|
-|**routeTable**|Route table applied to the subnet|see [UDR](resource-groups-networking.md#Route-table)|
-|**ipConfigurations**|Collection of IP configuration objects used by NICs connected to the subnet|see [IP configuration](../resource-groups-networking.md#IP-configurations)|
+|**name**|Nom du sous-réseau|Chaîne de 80 caractères au maximum. Peut contenir des lettres, des chiffres, un trait de soulignement, des points ou des traits d’union. Doit commencer par une lettre ou un chiffre. Doit se terminer par une lettre, un chiffre ou un trait de soulignement. Peut contenir des majuscules ou minuscules.|
+|**emplacement**|Emplacement Azure (également appelé région).|Doit être l’un des emplacements Azure valides.|
+|**addressPrefix**|Préfixe d’adresse unique qui constitue le sous-réseau dans la notation CIDR|Doit être un bloc CIDR unique qui fait partie de l’un des espaces d’adressage du réseau virtuel.|
+|**networkSecurityGroup**|NSG appliquée au sous-réseau|voir [Groupes de sécurité réseau](resource-groups-networking.md#Network-Security-Group)|
+|**routeTable**|Table de routage appliquée au sous-réseau|voir [itinéraires définis par l’utilisateur](resource-groups-networking.md#Route-table)|
+|**ipConfigurations**|Collection d’objets de configuration IP utilisée par la carte réseau connectée au sous-réseau|consultez [Configuration IP](../resource-groups-networking.md#IP-configurations)|
 
-### <a name="name-resolution"></a>Name resolution
+### Résolution de noms
 
-By default, your VNet uses [Azure-provided name resolution.](virtual-networks-name-resolution-for-vms-and-role-instances.md#Azure-provided-name-resolution) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#Name-resolution-using-your-own-DNS-server) to resolve names between your networks.  
+Par défaut, votre réseau virtuel utilise la [résolution de noms fournie par Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#Azure-provided-name-resolution) pour résoudre les noms à l’intérieur du réseau virtuel et sur l’Internet public. Toutefois, si vous connectez vos réseaux virtuels à vos centres de données locaux, vous devez fournir [votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#Name-resolution-using-your-own-DNS-server) pour résoudre les noms entre les réseaux.
 
-### <a name="limits"></a>Limits
+### Limites
 
-Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits.md#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
+Assurez-vous que vous pouvez afficher toutes les [limites liées aux services de mise en réseau dans Azure](../azure-subscription-service-limits.md#networking-limits) avant de concevoir votre solution. Il est possible d’augmenter certaines limites par le biais d’un ticket d’assistance.
 
-### <a name="role-based-access-control-(rbac)"></a>Role-Based Access Control (RBAC)
+### Contrôle d’accès en fonction du rôle
 
-You can use [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) to control the level of access different users may have to different resources in Azure. That way you can segregate the work done by your team based on their needs. 
+Vous pouvez utiliser le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-built-in-roles.md) pour contrôler le niveau d'accès de différents utilisateurs à différentes ressources dans Azure. De cette façon, vous pouvez isoler le travail effectué par votre équipe en fonction de leurs besoins.
 
-As far as virtual networks are concerned, users in the **Network Contributor** role have full control over Azure Resource Manager virtual network resources. Similarly, users in the **Classic Network Contributor** role have full control over classic virtual network resources.
+En ce qui concerne les réseaux virtuels, les utilisateurs dans le rôle **Collaborateur de réseau** ont un contrôle total sur les ressources du réseau virtuel Azure Resource Manager. De même, les utilisateurs dans le rôle **Collaborateur de réseau classique** ont un contrôle total sur les ressources du réseau virtuel classique.
 
->[AZURE.NOTE] You can also [create your own roles](../active-directory/role-based-access-control-configure.md) to separate your administrative needs.
+>[AZURE.NOTE] Vous pouvez également [créer vos propres rôles](../active-directory/role-based-access-control-configure.md) pour séparer les besoins administratifs.
 
-## <a name="design"></a>Design
+## Conception
 
-Once you know the answers to the questions in the [Plan](#Plan) section, review the following before defining your VNets.
+Une fois que vous connaissez les réponses aux questions dans la section [Planifier](#Plan), consultez les rubriques suivantes avant de définir vos réseaux virtuels.
 
-### <a name="number-of-subscriptions-and-vnets"></a>Number of subscriptions and VNets
+### Nombre d’abonnements et de réseaux virtuels
 
-You should consider creating multiple VNets in the following scenarios:
+Vous devez envisager de créer plusieurs réseaux virtuels dans les scénarios suivants :
 
-- **VMs that need to be placed in different Azure locations**. VNets in Azure are regional. They cannot span locations. Therefore you need at least one VNet for each Azure location you want to host VMs in.
-- **Workloads that need to be completely isolated from one another**. You can create separate VNets, that even use the same IP address spaces, to isolate different workloads from one another. 
-- **Avoid platform limits**. As seen in the [limits](#Limits) section, you cannot have more than 2048 VMs in a single VNet. 
+- **Machines virtuelles qui doivent être placées à différents emplacements Azure**. Les réseaux virtuels dans Azure sont régionaux. Ils ne peuvent pas couvrir des emplacements. Par conséquent, vous avez besoin d’au moins un réseau virtuel pour chaque emplacement Azure dans lequel vous voulez héberger des machines virtuelles.
+- **Charges de travail qui doivent être totalement isolées les unes des autres**. Vous pouvez créer des réseaux virtuels distincts, qui utilisent même des espaces d’adressage IP identiques, pour isoler différentes charges de travail les unes des autres.
+- **Pour éviter les limites de plateforme**. Comme nous l’avons vu dans la section [Limites](#Limits), vous ne pouvez pas avoir plus de 2 048 machines virtuelles dans un même réseau virtuel.
 
-Keep in mind that the limits you see above are per region, per subscription. That means you can use multiple subscriptions to increase the limit of resources you can maintain in Azure. You can use a site-to-site VPN, or an ExpressRoute circuit, to connect VNets in different subscriptions.
+Gardez à l’esprit que les limites affichées ci-dessus sont définies par région, par abonnement. Cela signifie que vous pouvez utiliser plusieurs abonnements pour augmenter la limite des ressources que vous pouvez gérer dans Azure. Vous pouvez utiliser un réseau VPN de site à site, ou un circuit ExpressRoute, pour connecter les réseaux virtuels dans différents abonnements.
 
-### <a name="subscription-and-vnet-design-patterns"></a>Subscription and VNet design patterns
+### Modèles de conception des abonnements et réseaux virtuels
 
-The table below shows some common design patterns for using subscriptions and VNets.
+Le tableau ci-dessous présente quelques modèles de conception courants pour l’utilisation des abonnements et réseaux virtuels.
 
-|Scenario|Diagram|Pros|Cons|
+|Scénario|Diagramme|Avantages|Inconvénients|
 |---|---|---|---|
-|Single subscription, two VNets per app|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure1.png)|Only one subscription to manage.|Maximum of 25 apps per Azure region. You need more subscriptions after that.|
-|One subscription per app, two VNets per app|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure2.png)|Uses only two VNets per subscription.|Harder to manage when there are too many apps.|
-|One subscription per business unit, two VNets per app.|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure3.png)|Balance between number of subscriptions and VNets.|Maximum of 25 apps per business unit (subscription).|
-|One subscription per business unit, two VNets per group of apps.|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure4.png)|Balance between number of subscriptions and VNets.|Apps must be isolated by using subnets and NSGs.|
+|Abonnement unique, deux réseaux virtuels par application|![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure1.png)|Un seul abonnement à gérer.|Maximum de 25 applications par région Azure. Vous avez besoin d’abonnements supplémentaires après cela.|
+|Un abonnement par application, deux réseaux virtuels par application|![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure2.png)|Utilise uniquement deux réseaux virtuels par abonnement.|Gestion plus difficile quand il existe un trop grand nombre d’applications.|
+|Un abonnement par division, deux réseaux virtuels par application.|![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure3.png)|Équilibre entre le nombre d’abonnements et de réseaux virtuels.|Maximum de 25 applications par division (abonnement).|
+|Un abonnement par division, deux réseaux virtuels par groupe d’applications.|![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure4.png)|Équilibre entre le nombre d’abonnements et de réseaux virtuels.|Les applications doivent être isolées à l’aide de sous-réseaux et de groupes de sécurité réseau.|
 
 
-### <a name="number-of-subnets"></a>Number of subnets
+### Nombre de sous-réseaux
 
-You should consider multiple subnets in a VNet in the following scenarios:
+Vous devez envisager d’utiliser plusieurs sous-réseaux dans un réseau virtuel dans les scénarios suivants :
 
-- **Not enough private IP addresses for all NICs in a subnet**. If your subnet address space does not contain enough IP addresses for the number of NICs in the subnet, you need to create multiple subnets. Keep in mind that Azure reserves 5 private IP addresses from each subnet that cannot be used: the first and last addresses of the address space (for the subnet address, and multicast) and 3 addresses to be used internally (for DHCP and DNS purposes). 
-- **Security**. You can use subnets to separate groups of VMs from one another for workloads that have a multi-layer structure, and apply different [network security groups (NSGs)](virtual-networks-nsg.md#subnets) for those subnets.
-- **Hybrid connectivity**. You can use VPN gateways and ExpressRoute circuits to [connect](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) your VNets to one another, and to your on-premises data center(s). VPN gateways and ExpressRoute circuits require a subnet of their own to be created.
-- **Virtual appliances**. You can use a virtual appliance, such as a firewall, WAN accelerator, or VPN gateway in an Azure VNet. When you do so, you need to [route traffic](virtual-networks-udr-overview.md) to those appliances and isolate them in their own subnet.
+- **Pas suffisamment d’adresses IP privées pour toutes les cartes réseau dans un sous-réseau**. Si l’espace d’adressage de votre sous-réseau ne contient pas suffisamment d’adresses IP pour le nombre de cartes réseau dans le sous-réseau, vous devez créer plusieurs sous-réseaux. Gardez à l’esprit qu’Azure réserve 5 adresses IP privées de chaque sous-réseau qui ne peuvent pas être utilisées : les première et dernière adresses de l’espace d’adressage (pour l’adresse de sous-réseau et la multidiffusion) et 3 adresses à utiliser en interne (pour DHCP et DNS).
+- **Sécurité**. Vous pouvez utiliser des sous-réseaux pour séparer les groupes de machines virtuelles les uns des autres pour les charges de travail qui ont une structure multicouche, et appliquer différents [groupes de sécurité réseau](virtual-networks-nsg.md#subnets) pour ces sous-réseaux.
+- **Connectivité hybride**. Vous pouvez utiliser des passerelles VPN et circuits ExpressRoute pour [connecter](../vpn-gateway/vpn-gateway-cross-premises-options.md) vos réseaux virtuels entre eux et à vos centres de données locaux. Les passerelles VPN et les circuits ExpressRoute nécessitent la création d’un sous-réseau qui leur est propre.
+- **Équipements virtuels**. Vous pouvez utiliser un équipement virtuel, comme un pare-feu, un accélérateur WAN ou une passerelle VPN, dans un réseau virtuel Azure. Quand vous procédez ainsi, vous devez [acheminer le trafic](virtual-networks-udr-overview.md) vers ces équipements et les isoler dans leur propre sous-réseau.
 
-### <a name="subnet-and-nsg-design-patterns"></a>Subnet and NSG design patterns
+### Modèles de conception des sous-réseaux et groupes de sécurité réseau
 
-The table below shows some common design patterns for using subnets.
+Le tableau ci-dessous présente quelques modèles de conception courants pour l’utilisation des sous-réseaux.
 
-|Scenario|Diagram|Pros|Cons|
+|Scénario|Diagramme|Avantages|Inconvénients|
 |---|---|---|---|
-|Single subnet, NSGs per application layer, per app|![Single subnet](./media/virtual-network-vnet-plan-design-arm/figure5.png)|Only one subnet to manage.|Multiple NSGs necessary to isolate each application.|
-|One subnet per app, NSGs per application layer|![Subnet per app](./media/virtual-network-vnet-plan-design-arm/figure6.png)|Fewer NSGs to manage.|Multiple subnets to manage.|
-|One subnet per application layer, NSGs per app.|![Subnet per layer](./media/virtual-network-vnet-plan-design-arm/figure7.png)|Balance between number of subnets and NSGs.|Maximum of 100 NSGs. 50 apps if each apps requires 2 distinct NSGs.|
-|One subnet per application layer, per app, NSGs per subnet|![Subnet per layer per app](./media/virtual-network-vnet-plan-design-arm/figure8.png)|Possibly smaller number of NSGs.|Multiple subnets to manage.|
+|Sous-réseau unique, groupes de sécurité réseau par couche d’application, par application|![Sous-réseau unique](./media/virtual-network-vnet-plan-design-arm/figure5.png)|Un seul sous-réseau à gérer.|Plusieurs groupes de sécurité réseau nécessaires pour isoler chaque application.|
+|Un sous-réseau par application, groupes de sécurité réseau par couche d’application|![Sous-réseau par application](./media/virtual-network-vnet-plan-design-arm/figure6.png)|Moins de groupes de sécurité réseau à gérer.|Plusieurs sous-réseaux à gérer.|
+|Un sous-réseau par couche d’application, groupes de sécurité réseau par application|![Sous-réseau par couche](./media/virtual-network-vnet-plan-design-arm/figure7.png)|Équilibre entre le nombre de sous-réseaux et de groupes de sécurité réseau.|Maximum de 100 groupes de sécurité réseau. 50 applications si chaque application requiert 2 groupes de sécurité réseau distincts.|
+|Un sous-réseau par couche d’application, par application, groupes de sécurité réseau par sous-réseau|![Sous-réseau par couche et par application](./media/virtual-network-vnet-plan-design-arm/figure8.png)|Nombre éventuellement inférieur de groupes de sécurité réseau.|Plusieurs sous-réseaux à gérer.|
 
-## <a name="sample-design"></a>Sample design
+## Exemple de conception
 
-To illustrate the application of the information in this article, consider the following scenario.
+Pour illustrer l’application des informations de cet article, envisagez le scénario suivant.
 
-You work for a company that has 2 data centers in North America, and two data centers Europe. You identified 6 different customer facing applications maintained by 2 different business units that you want to migrate to Azure as a pilot. The basic architecture for the applications are as follows:
+Vous travaillez pour une société qui possède 2 centres de données en Amérique du Nord et deux centres de données en Europe. Vous avez identifié 6 applications clientes différentes gérées par 2 divisions différentes que vous souhaitez migrer vers Azure comme projet pilote. L’architecture de base pour les applications est la suivante :
 
-- App1, App2, App3, and App4 are web applications hosted on Linux servers running Ubuntu. Each application connects to a separate application server that hosts RESTful services on Linux servers. The RESTful services connect to a back end MySQL database.
-- App5 and App6 are web applications hosted on Windows servers running Windows Server 2012 R2. Each application connects to a back end SQL Server database.
-- All apps are currently hosted in one of the company's data centers in North America.
-- The on-premises data centers use the 10.0.0.0/8 address space.
+- App1, App2, App3 et App4 sont des applications web hébergées sur des serveurs Linux exécutant Ubuntu. Chaque application se connecte à un serveur d’applications distinct qui héberge les services RESTful sur des serveurs Linux. Les services RESTful se connectent à une base de données MySQL principale.
+- App5 et App6 sont des applications web hébergées sur des serveurs Windows exécutant Windows Server 2012 R2. Chaque application se connecte à une base de données SQL Server principale.
+- Toutes les applications sont actuellement hébergées dans l’un des centres de données de la société en Amérique du Nord.
+- Les centres de données locaux utilisent l’espace d’adressage 10.0.0.0/8.
 
-You need to design a virtual network solution that meets the following requirements:
+Vous devez concevoir une solution de réseau virtuel qui remplit les conditions suivantes :
 
-- Each business unit should not be affected by resource consumption of other business units.
-- You should minimize the amount of VNets and subnets to make management easier.
-- Each business unit should have a single test/development VNet used for all applications.
-- Each application is hosted in 2 different Azure data centers per continent (North America and Europe).
-- Each application is completely isolated from each other.
-- Each application can be accessed by customers over the Internet using HTTP.
-- Each application can be accessed by users connected to the on-premises data centers by using an encrypted tunnel.
-- Connection to on-premises data centers should use existing VPN devices.
-- The company's networking group should have full control over the VNet configuration.
-- Developers in each business unit should only be able to deploy VMs to existing subnets.
-- All applications will be migrated as they are to Azure (lift-and-shift).
-- The databases in each location should replicate to other Azure locations once a day.
-- Each application should use 5 front end web servers, 2 application servers (when necessary), and 2 database servers.
+- Aucune division ne doit être affectée par la consommation de ressources d’autres divisions.
+- Vous devez réduire la quantité de réseaux virtuels et sous-réseaux pour faciliter la gestion.
+- Pour chaque division, un seul réseau virtuel de test/développement doit être utilisé pour toutes les applications.
+- Chaque application est hébergée dans 2 centres de données Azure différents par continent (Amérique du Nord et Europe).
+- Chaque application est totalement isolée des autres.
+- Chaque application est accessible aux clients sur Internet via HTTP.
+- Chaque application est accessible aux utilisateurs connectés aux centres de données locaux à l’aide d’un tunnel chiffré.
+- La connexion aux centres de données locaux doit utiliser des appareils VPN existants.
+- Le groupe réseau de la société doit avoir un contrôle total sur la configuration de réseau virtuel.
+- Les développeurs dans chaque division doivent uniquement pouvoir déployer des machines virtuelles vers des sous-réseaux existants.
+- Toutes les applications sont migrées telles quelles vers Azure (modèle « lift-and-shift »).
+- Les bases de données dans chaque emplacement doivent être répliquées vers d’autres emplacements Azure une fois par jour.
+- Chaque application doit utiliser 5 serveurs web frontaux, 2 serveurs d’applications (si nécessaire) et 2 serveurs de base de données.
 
-### <a name="plan"></a>Plan
+### Planification
 
-You should start your design planning by answering the question in the [Define requirements](#Define-requirements) section as shown below.
+Vous devez commencer la planification de votre conception en répondant à la question dans la section [Définir les conditions requises](#Define-requirements) comme indiqué ci-dessous.
 
-1. What Azure locations will you use to host VNets?
+1. Quels emplacements Azure allez-vous utiliser pour héberger des réseaux virtuels ?
 
-    2 locations in North America, and 2 locations in Europe. You should pick those based on the physical location of your existing on-premises data centers. That way your connection from your physical locations to Azure will have a better latency.
+	2 emplacements en Amérique du Nord et 2 emplacements en Europe. Vous devez les choisir selon l’emplacement physique de vos centres de données locaux existants. Votre connexion depuis vos emplacements physiques vers Azure aura ainsi une meilleure latence.
 
-2. Do you need to provide communication between these Azure locations?
+2. Devez-vous assurer la communication entre ces emplacements Azure ?
 
-    Yes. Since the databases must be replicated to all locations.
+	Oui. Étant donné que les bases de données doivent être répliquées sur tous les emplacements.
 
-3. Do you need to provide communication between your Azure VNet(s) and your on-premises data center(s)?
+3. Devez-vous assurer la communication entre vos réseaux virtuels Azure et vos centres de données locaux ?
 
-    Yes. Since users connected to the on-premises data centers must be able to access the applications through an encrypted tunnel.
+	Oui. Étant donné que les utilisateurs connectés aux centres de données locaux doivent être en mesure d’accéder aux applications via un tunnel chiffré.
  
-4. How many IaaS VMs do you need for your solution?
+4. Combien de machines virtuelles IaaS sont nécessaires pour votre solution ?
 
-    200 IaaS VMs. App1, App2 and App3 require 5 web servers each, 2 applications servers each, and 2 database servers each. That's a total of 9 IaaS VMs per application, or 36 IaaS VMs. App5 and App6 require 5 web servers and 2 database servers each. That's a total of 7 IaaS VMs per application, or 14 IaaS VMs. Therefore, you need 50 IaaS VMs for all applications in each Azure region. Since we need to use 4 regions, there will be 200 IaaS VMs.
+	200 machines virtuelles IaaS. App1, App2 et App3 nécessitent 5 serveurs web chacun, 2 serveurs d’applications chacun et 2 serveurs de base de données chacun. Ce qui fait un total de 9 machines virtuelles IaaS par application ou 36 machines virtuelles IaaS. App5 et App6 nécessitent 5 serveurs web et 2 serveurs de base de données chacun. Ce qui fait un total de 7 machines virtuelles IaaS par application ou 14 machines virtuelles IaaS. Par conséquent, vous avez besoin de 50 machines virtuelles IaaS pour toutes les applications dans chaque région Azure. Étant donné que nous devons utiliser 4 régions, 200 machines virtuelles IaaS sont nécessaires.
 
-    You will also need to provide DNS servers in each VNet, or in your on-premises data centers to resolve name between your Azure IaaS VMs and your on-premises network. 
+	Vous devez également fournir des serveurs DNS dans chaque réseau virtuel ou dans vos centres de données locaux pour résoudre le nom entre les machines virtuelles IaaS Azure et le réseau local.
 
-5. Do you need to isolate traffic based on groups of VMs (i.e. front end web servers and back end database servers)?
+5. Devez-vous isoler le trafic en fonction des groupes de machines virtuelles (autrement dit, serveurs web frontaux et serveurs de base de données principaux) ?
 
-    Yes. Each application should be completely isolated from each other, and each application layer should also be isolated. 
+	Oui. Chaque application doit être totalement isolée des autres, et chaque couche d’application doit également être isolée.
 
-6. Do you need to control traffic flow using virtual appliances?
+6. Devez-vous contrôler le flux du trafic à l’aide d’équipements virtuels ?
 
-    No. Virtual appliances can be used to provide more control over traffic flow, including more detailed data plane logging. 
+	Non. Les équipements virtuels permettent de mieux contrôler le flux du trafic, notamment une consignation de plan de données plus détaillée.
 
-7. Do users need different sets of permissions to different Azure resources?
+7. Est-ce que les utilisateurs ont besoin de différents jeux d’autorisations pour différentes ressources Azure ?
 
-    Yes. The networking team needs full control on the virtual networking settings, while developers should only be able to deploy their VMs to pre-existing subnets. 
+	Oui. L’équipe réseau a besoin d’un contrôle total sur les paramètres de réseau virtuel, tandis que les développeurs doivent uniquement pouvoir déployer des machines virtuelles vers des sous-réseaux préexistants.
 
-### <a name="design"></a>Design
+### Conception
 
-You should follow the design specifying subscriptions, VNets, subnets, and NSGs. We will discuss NSGs here, but you should learn more about [NSGs](virtual-networks-nsg.md) before finishing your design.
+Vous devez suivre la conception spécifiant les abonnements, les réseaux virtuels, les sous-réseaux et les groupes de sécurité réseau. Nous abordons le sujet ici, mais vous devez en savoir plus sur les [groupes de sécurité réseau](virtual-networks-nsg.md) avant de terminer votre conception.
 
-**Number of subscriptions and VNets**
+**Nombre d’abonnements et de réseaux virtuels**
 
-The following requirements are related to subscriptions and VNets:
+Les conditions requises suivantes sont associées aux abonnements et réseaux virtuels :
 
-- Each business unit should not be affected by resource consumption of other business units.
-- You should minimize the amount of VNets and subnets.
-- Each business unit should have a single test/development VNet used for all applications.
-- Each application is hosted in 2 different Azure data centers per continent (North America and Europe).
+- Aucune division ne doit être affectée par la consommation de ressources d’autres divisions.
+- Vous devez réduire la quantité de réseaux virtuels et sous-réseaux.
+- Pour chaque division, un seul réseau virtuel de test/développement doit être utilisé pour toutes les applications.
+- Chaque application est hébergée dans 2 centres de données Azure différents par continent (Amérique du Nord et Europe).
 
-Based on those requirements, you need a subscription for each business unit. That way, consumption of resources from a business unit will not count towards limits for other business units. And since you want to minimize the number of VNets, you should consider using the **one subscription per business unit, two VNets per group of apps** pattern as seen below.
+En fonction de ces conditions requises, vous avez besoin d’un abonnement pour chaque division. De cette façon, la consommation des ressources d’une division n’est pas prise en compte pour déterminer les limites d’autres divisions. En outre, comme vous souhaitez réduire le nombre de réseaux virtuels, vous devez envisager d’utiliser le modèle **un abonnement par division, deux réseaux virtuels par groupe d’applications** comme indiqué ci-dessous.
 
-![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+![Abonnement unique](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
-You also need to specify the address space for each VNet. Since you need connectivity between the on-premises data centers and the Azure regions, the address space used for Azure VNets cannot clash with the on-premises network, and the address space used by each VNet should not clash with other existing VNets. You could use the address spaces in the table below to satisfy these requirements.  
+Vous devez également spécifier l’espace d’adressage pour chaque réseau virtuel. Étant donné que vous avez besoin de connectivité entre les centres de données locaux et les régions Azure, l’espace d’adressage utilisé pour les réseaux virtuels Azure ne peut pas entrer en conflit avec le réseau local, et l’espace d’adressage utilisé par chaque réseau virtuel ne doit pas entrer en conflit avec d’autres réseaux virtuels existants. Vous pouvez utiliser les espaces d’adressage dans le tableau ci-dessous pour remplir ces conditions requises.
 
-|**Subscription**|**VNet**|**Azure region**|**Address space**|
+|**Abonnement**|**Réseau virtuel**|**Région Azure**|**Espace d’adressage**|
 |---|---|---|---|
-|BU1|ProdBU1US1|West US|172.16.0.0/16|
-|BU1|ProdBU1US2|East US|172.17.0.0/16|
-|BU1|ProdBU1EU1|North Europe|172.18.0.0/16|
-|BU1|ProdBU1EU2|West Europe|172.19.0.0/16|
-|BU1|TestDevBU1|West US|172.20.0.0/16|
-|BU2|TestDevBU2|West US|172.21.0.0/16|
-|BU2|ProdBU2US1|West US|172.22.0.0/16|
-|BU2|ProdBU2US2|East US|172.23.0.0/16|
-|BU2|ProdBU2EU1|North Europe|172.24.0.0/16|
-|BU2|ProdBU2EU2|West Europe|172.25.0.0/16|
+|BU1|ProdBU1US1|Ouest des États-Unis|172\.16.0.0/16|
+|BU1|ProdBU1US2|Est des États-Unis|172\.17.0.0/16|
+|BU1|ProdBU1EU1|Europe du Nord|172\.18.0.0/16|
+|BU1|ProdBU1EU2|Europe de l'Ouest|172\.19.0.0/16|
+|BU1|TestDevBU1|Ouest des États-Unis|172\.20.0.0/16|
+|BU2|TestDevBU2|Ouest des États-Unis|172\.21.0.0/16|
+|BU2|ProdBU2US1|Ouest des États-Unis|172\.22.0.0/16|
+|BU2|ProdBU2US2|Est des États-Unis|172\.23.0.0/16|
+|BU2|ProdBU2EU1|Europe du Nord|172\.24.0.0/16|
+|BU2|ProdBU2EU2|Europe de l'Ouest|172\.25.0.0/16|
 
-**Number of subnets and NSGs**
+**Nombre de sous-réseaux et de groupes de sécurité réseau**
 
-The following requirements are related to subnets and NSGs:
+Les conditions requises suivantes sont associées aux sous-réseaux et groupes de sécurité réseau :
 
-- You should minimize the amount of VNets and subnets.
-- Each application is completely isolated from each other.
-- Each application can be accessed by customers over the Internet using HTTP.
-- Each application can be accessed by users connected to the on-premises data centers by using an encrypted tunnel.
-- Connection to on-premises data centers should use existing VPN devices.
-- The databases in each location should replicate to other Azure locations once a day.
+- Vous devez réduire la quantité de réseaux virtuels et sous-réseaux.
+- Chaque application est totalement isolée des autres.
+- Chaque application est accessible aux clients sur Internet via HTTP.
+- Chaque application est accessible aux utilisateurs connectés aux centres de données locaux à l’aide d’un tunnel chiffré.
+- La connexion aux centres de données locaux doit utiliser des appareils VPN existants.
+- Les bases de données dans chaque emplacement doivent être répliquées vers d’autres emplacements Azure une fois par jour.
 
-Based on those requirements, you could use one subnet per application layer, and use NSGs to filter traffic per application. That way, you only have 3 subnets in each VNet (front end, application layer, and data layer) and one NSG per application per subnet. In this case, you should consider using the **one subnet per application layer, NSGs per app** design pattern. The figure below shows the use of the design pattern representing the **ProdBU1US1** VNet.
+En fonction de ces conditions requises, vous pouvez utiliser un seul sous-réseau par couche d’application et utiliser des groupes de sécurité réseau pour filtrer le trafic par application. De cette façon, vous avez uniquement 3 sous-réseaux dans chaque réseau virtuel (frontal, couche d’application et couche de données) et un groupe de sécurité réseau par application et par sous-réseau. Dans ce cas, vous devez envisager d’utiliser le modèle de conception **un sous-réseau par couche d’application, groupes de sécurité réseau par application**. La figure ci-dessous illustre l’utilisation du modèle de conception représentant le réseau virtuel **ProdBU1US1**.
 
-![One subnet per layer, one NSG per application per layer](./media/virtual-network-vnet-plan-design-arm/figure11.png)
+![Un sous-réseau par couche, un groupe de sécurité réseau par application et par couche](./media/virtual-network-vnet-plan-design-arm/figure11.png)
 
-However, you also need to create an extra subnet for the VPN connectivity between the VNets, and your on-premises data centers. And you need to specify the address space for each subnet. The figure below shows a sample solution for **ProdBU1US1** VNet. You would replicate this scenario for each VNet. Each color represents a different application.
+Toutefois, vous devez également créer un sous-réseau supplémentaire pour la connectivité VPN entre les réseaux virtuels et centres de données locaux. Vous devez également spécifier l’espace d’adressage pour chaque sous-réseau. La figure ci-dessous illustre un exemple de solution pour le réseau virtuel **ProdBU1US1**. Vous pouvez répliquer ce scénario pour chaque réseau virtuel. Chaque couleur représente une application différente.
 
-![Sample VNet](./media/virtual-network-vnet-plan-design-arm/figure10.png)
+![Exemple de réseau virtuel](./media/virtual-network-vnet-plan-design-arm/figure10.png)
 
-**Access Control**
+**Contrôle d’accès**
 
-The following requirements are related to access control:
+Les conditions requises suivantes sont associées au contrôle d’accès :
 
-- The company's networking group should have full control over the VNet configuration.
-- Developers in each business unit should only be able to deploy VMs to existing subnets.
+- Le groupe réseau de la société doit avoir un contrôle total sur la configuration de réseau virtuel.
+- Les développeurs dans chaque division doivent uniquement pouvoir déployer des machines virtuelles vers des sous-réseaux existants.
 
-Based on those requirements, you could add users from the networking team to the built-in **Network Contributor** role in each subscription; and create a custom role for the application developers in each subscription giving them rights to add VMs to existing subnets.
+En fonction de ces conditions requises, vous pouvez ajouter des utilisateurs de l’équipe réseau au rôle intégré **Collaborateur de réseau** dans chaque abonnement et créer un rôle personnalisé pour les développeurs d’applications dans chaque abonnement en leur donnant les droits d’ajouter des machines virtuelles aux sous-réseaux existants.
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- [Deploy a virtual network](virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
-- Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
-- Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
-- Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site).
+- [Déployer un réseau virtuel](virtual-networks-create-vnet-arm-template-click.md) selon un scénario.
+- Découvrir comment [équilibrer la charge](../load-balancer/load-balancer-overview.md) des machines virtuelles IaaS et [gérer le routage entre plusieurs régions Azure](../traffic-manager/traffic-manager-overview.md).
+- En savoir plus sur les [groupes de sécurité réseau et comment planifier et concevoir](virtual-networks-nsg.md) une solution de groupe de sécurité réseau.
+- En savoir plus sur vos [options de connectivité de réseau virtuel et entre locaux](../vpn-gateway/vpn-gateway-cross-premises-options.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

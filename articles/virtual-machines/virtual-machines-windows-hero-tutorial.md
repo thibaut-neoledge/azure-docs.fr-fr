@@ -1,125 +1,120 @@
 <properties
-    pageTitle="Create your first Windows VM | Microsoft Azure"
-    description="Learn how to create your first Windows virtual machine by using the Azure portal."
-    keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Créer votre première machine virtuelle Windows | Microsoft Azure"
+	description="Découvrez comment créer votre première machine virtuelle Windows à l’aide du portail Azure."
+	keywords="machine virtuelle Windows,créer une machine virtuelle,ordinateur virtuel,configuration d’une machine virtuelle"
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="09/06/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="09/06/2016"
+	ms.author="cynthn"/>
+
+# Créer votre première machine virtuelle Windows dans le portail Azure
+
+Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Windows en quelques minutes à l’aide du portail Azure.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+## Choisir l’image de machine virtuelle à partir de Marketplace
+
+Nous allons utiliser une image Windows Server 2012 R2 Datacenter comme exemple, mais il s’agit simplement d’un des nombreux types d’images proposés par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, certaines images de bureau sont disponibles pour les [abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+
+2. Dans le menu Hub, cliquez sur **Nouveau** > **Machines virtuelles** > **Windows Server 2012 R2 Datacenter**.
+
+	![Capture d’écran affichant les images de machines virtuelles Azure disponibles dans le portail](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 
 
-# <a name="create-your-first-windows-virtual-machine-in-the-azure-portal"></a>Create your first Windows virtual machine in the Azure portal
+3. Dans le panneau **Windows Server 2012 R2 Datacenter**, dans **Sélectionner un modèle de déploiement**, vérifiez que **Resource Manager** est sélectionné. Cliquez sur **Create**.
 
-This tutorial shows you how easy it is to create a Windows virtual machine (VM) in just a few minutes, by using the Azure portal.  
+	![Capture d’écran affichant le modèle de déploiement à sélectionner pour la machine virtuelle](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+## Créer la machine virtuelle Windows
 
-## <a name="choose-the-vm-image-from-the-marketplace"></a>Choose the VM image from the marketplace
+Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par défaut pour créer rapidement la machine virtuelle.
 
-We use a Windows Server 2012 R2 Datacenter image as an example, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, some desktop images are available to [MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+1. Dans le panneau **De base**, entrez un **nom** pour la machine virtuelle. Le nom doit comporter 1 à 15 caractères et il ne peut pas contenir de caractères spéciaux.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Entrez un **Nom d’utilisateur** et un **Mot de passe** fort qui serviront à créer un compte local sur la machine virtuelle. Le compte local est utilisé pour se connecter à la machine virtuelle et la gérer.
 
-2. On the hub menu, click **New** > **Virtual Machines** > **Windows Server 2012 R2 Datacenter**.
-
-    ![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
+	Le mot de passe doit compter 8 à 123 caractères et répondre à trois des quatre conditions suivantes : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 
-3. On the **Windows Server 2012 R2 Datacenter** blade, in **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
+3. Sélectionnez un [groupe de ressources](../resource-group-overview.md#resource-groups) existant ou tapez le nom d’un nouveau groupe. Tapez un **emplacement** de centre de données Azure, comme **États-Unis de l’Ouest**.
 
-    ![Screenshot that shows the deployment model to select for the VM](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
+4. Lorsque vous avez terminé, cliquez sur **OK** pour passer à la section suivante.
 
-## <a name="create-the-windows-virtual-machine"></a>Create the Windows virtual machine
+	![Capture d’écran affichant les paramètres dans le panneau **De base** pour la configuration d’une machine virtuelle Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
 
-After you select the image, you can use the default settings and quickly create the virtual machine.
+	
+5. Choisissez une [taille](virtual-machines-windows-sizes.md) de machine virtuelle, puis cliquez sur **Sélectionner** pour continuer.
 
-1. On the **Basics** blade, enter a **Name** for the virtual machine. The name must be 1-15 characters long and it cannot contain special characters.
+	![Capture d’écran du panneau Taille affichant les tailles de machine virtuelle Azure que vous pouvez sélectionner](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
-2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to sign in to and manage the VM. 
+6. Dans le panneau **Paramètres**, vous pouvez modifier les options de stockage et de réseau. Pour ce didacticiel, acceptez les paramètres par défaut. Si vous avez sélectionné une taille de machine virtuelle qui le prend en charge, vous pouvez essayer Azure Premium Storage en sélectionnant **Premium (SSD)** sous **Type de disque**. Une fois les modifications terminées, cliquez sur **OK**.
 
-    The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+	![Capture d’écran du panneau Paramètres où vous pouvez configurer les fonctionnalités facultatives d’une machine virtuelle Azure](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
+7. Cliquez sur **Résumé** pour passer en revue vos options. Lorsque le message **Validation réussie** apparaît, cliquez sur **OK**.
 
-3. Select an existing [Resource group](../resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
+	![Capture d’écran de la page Synthèse affichant les options de configuration choisies pour la machine virtuelle Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 
-4. When you are done, click **OK** to continue to the next section. 
-
-    ![Screenshot that shows the settings on the **Basics** blade for configuring an Azure VM](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-
-    
-5. Choose a VM [size](virtual-machines-windows-sizes.md), and then click **Select** to continue. 
-
-    ![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
-
-6. On the **Settings** blade, you can change the storage and network options. For this tutorial, accept the default settings. If you selected a virtual machine size that supports it, you can try Azure Premium Storage by selecting **Premium (SSD)** in **Disk type**. When you're done making changes, click **OK**.
-
-    ![Screenshot of the Settings blade where you can configure optional features for an Azure VM](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
-
-7. Click **Summary** to review your choices. When you see the **Validation passed** message, click **OK**.
-
-    ![Screenshot of the Summary page that shows the configuration choices made for the Azure VM](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
-
-8. While Azure creates the virtual machine, you can track the progress in **Virtual Machines** on the hub menu. 
+8. Pendant qu’Azure crée la machine virtuelle, vous pouvez suivre la progression de cette opération dans le menu Hub, sous **Machines virtuelles**.
 
 
-## <a name="connect-to-the-virtual-machine-and-sign-on"></a>Connect to the virtual machine and sign on
+## Se connecter à la machine virtuelle et ouvrir une session
 
-1.  On the hub menu, click **Virtual Machines**.
+1.	Dans le menu Hub, cliquez sur **Machines virtuelles**.
 
-2.  Select the virtual machine from the list.
+2.	Sélectionnez la machine virtuelle dans la liste.
 
-3. On the blade for the virtual machine, click **Connect**. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. You might want to save the file to your desktop for easy access. **Open** this file to connect to your VM.
+3. Dans le panneau de la machine virtuelle, cliquez sur **Se connecter**. Cette opération crée et télécharge un fichier .rdp (Remote Desktop Protocol) qui s’apparente à un raccourci de connexion à votre ordinateur. Si vous le souhaitez, vous pouvez enregistrer le fichier sur votre bureau pour y accéder facilement. **Ouvrez** ce fichier pour vous connecter à votre machine virtuelle.
 
-    ![Screenshot of the Azure portal showing how to connect to your VM](./media/virtual-machines-windows-hero-tutorial/connect.png)
+	![Capture d'écran du portail Azure montrant comment se connecter à votre machine virtuelle](./media/virtual-machines-windows-hero-tutorial/connect.png)
 
-4. You get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
+4. Un message vous avertit que le fichier .rdp provient d’un éditeur inconnu. C’est normal. Dans la fenêtre Bureau à distance, cliquez sur **Connecter** pour continuer.
 
-    ![Screenshot of a warning about an unknown publisher](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
+	![Capture d’écran d’un avertissement relatif à un éditeur inconnu](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
 
-5. In the Windows Security window, type the username and password for the local account that you created when you created the VM. The username is entered as *vmname*&#92;*username*, then click **OK**.
+5. Dans la fenêtre Sécurité de Windows, tapez le nom d’utilisateur et le mot de passe du compte local que vous avez créé lorsque vous avez créé la machine virtuelle. Le nom d’utilisateur est entré en tant que *vmname*&#92;*username*. Cliquez ensuite sur **OK**.
 
-    ![Screenshot of entering the VM name, user name and password](./media/virtual-machines-windows-hero-tutorial/credentials.png)
-    
-6.  You get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
+	![Capture d’écran de la saisie du nom de la machine virtuelle, du nom d’utilisateur et du mot de passe](./media/virtual-machines-windows-hero-tutorial/credentials.png)
+ 	
+6.	Vous êtes alors averti que le certificat ne peut pas être vérifié. C’est normal. Cliquez sur **Oui** pour vérifier l’identité de la machine virtuelle et terminer la connexion.
 
-    ![Screenshot showing a message abut verifying the identity of the VM](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
-
-
-If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
-
-You can now work with the virtual machine as you would with any other server.
+	![Capture d'écran montrant un message relatif à la vérification de l'identité de la machine virtuelle](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
 
+En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
-## <a name="optional:-stop-the-vm"></a>Optional: Stop the VM
-
-It is a good idea to stop the VM so you don't incur charges when you aren't actually using it. Just click **Stop** and then click **Yes**.
-
-![Screenshot showing the button to stop a VM](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
-    
-Click the **Start** button to restart the VM when you're ready to use it again.
-
-
-## <a name="next-steps"></a>Next steps
-
-- You can experiment with your new VM by [installing IIS](virtual-machines-windows-hero-role.md). This tutorial also shows how to open port 80 to incoming web traffic using a network security group (NSG). 
-
-- You can also [create a Windows VM by using PowerShell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) by using the Azure CLI.
-
-- If you're interested in automating deployments, see [Create a Windows virtual machine by using a Resource Manager template](virtual-machines-windows-ps-template.md).
+Vous pouvez désormais utiliser la machine virtuelle comme n’importe quel autre serveur.
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Facultatif : Arrêter la machine virtuelle
+
+Il est judicieux d’arrêter la machine virtuelle pour éviter les frais lorsque vous ne l’utilisez pas. Cliquez simplement sur **Arrêter**, puis sur **Oui**.
+
+![Capture d’écran affichant le bouton d’arrêt d’une machine virtuelle](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
+	
+Cliquez sur le bouton **Démarrer** pour redémarrer la machine virtuelle lorsque vous êtes prêt à l’utiliser à nouveau.
 
 
+## Étapes suivantes
+
+- Vous pouvez tester votre nouvelle machine virtuelle en [installant IIS](virtual-machines-windows-hero-role.md). Ce didacticiel montre également comment ouvrir le port 80 pour le trafic web entrant à l’aide d’un groupe de sécurité réseau (NSG).
+
+- Vous pouvez également [créer une machine virtuelle Windows à l’aide de Powershell](virtual-machines-windows-ps-create.md) ou [créer une machine virtuelle Linux](virtual-machines-linux-quick-create-cli.md) à l’aide de l’interface de ligne de commande Azure.
+
+- Si vous souhaitez automatiser les déploiements, consultez [Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources](virtual-machines-windows-ps-template.md).
+
+<!------HONumber=AcomDC_0912_2016-->

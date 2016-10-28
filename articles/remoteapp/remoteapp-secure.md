@@ -1,9 +1,9 @@
 
 <properties
-    pageTitle="Secure apps and resources in Azure RemoteApp | Microsoft Azure"
-    description="Learn how to lock down apps and resources in Azure RemoteApp"
+    pageTitle="Sécuriser des applications et des ressources dans Azure RemoteApp | Microsoft Azure"
+    description="Apprendre à verrouiller des applications et des ressources dans Azure RemoteApp"
     services="remoteapp"
-    documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -18,40 +18,35 @@
 
 
 
-
-# <a name="secure-apps-and-resources-in-azure-remoteapp"></a>Secure apps and resources in Azure RemoteApp
+# Sécurisation des applications et des ressources dans Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Azure RemoteApp n’est plus disponible. Pour plus d’informations, lisez [l’annonce](https://go.microsoft.com/fwlink/?linkid=821148).
 
-Azure RemoteApp provides users access to centrally-managed Windows apps, which lets you control what your users can and can't do.  This is particularly useful when the user is connecting from an unmanaged device (like their personal Macbook) and you want to control the user access or experience.
+Azure RemoteApp fournit aux utilisateurs un accès aux applications Windows gérées de manière centralisée, ce qui vous permet de contrôler ce que peuvent faire les utilisateurs. Cela est particulièrement utile lorsque l'utilisateur se connecte à partir d'un appareil non géré (comme leur MacBook personnel) et que vous souhaitez contrôler l'accès ou l’expérience de l'utilisateur.
 
-For example, if you are using Active Directory for user authentication and you want to prevent your users from copying data out of an app, you can configure a Remote Desktop Group Policy to block users from copying data.
+Par exemple, si vous utilisez Active Directory pour l'authentification des utilisateurs et que vous souhaitez empêcher les utilisateurs de copier des données d'une application, vous pouvez configurer une stratégie de groupe Bureau à distance pour empêcher les utilisateurs de copier des données.
 
-Another example is if you want to block internet access for a particular app in your collection. You can create a Windows Firewall rule that blocks the access when you create the image for your collection.
+Autre exemple : Si vous souhaitez bloquer l'accès à Internet pour une application particulière de votre collection. Vous pouvez créer une règle de pare-feu Windows qui bloque l'accès lorsque vous créez l'image pour votre collection.
 
-## <a name="implementation-options"></a>Implementation options
+## Options d’implémentation
 
-  Here are the key implementation options, which can be used individually or in tandem as needed:
+  Voici les principales options d'implémentation qui peuvent être utilisées individuellement ou en tandem en fonction des besoins :
 
-1.  If your RemoteApp collection is domain joined you can enforce any [Group Policy](https://technet.microsoft.com/library/cc725828.aspx) (with the exception of the Idle and Disconnect timeout policies described [here](../azure-subscription-service-limits.md)).
-2.  As an alternative to Group Policy (if your collection is not domain joined or you don't have the right privileges in AD), you can configure [Local Polices](https://technet.microsoft.com/library/cc775702.aspx) into your template image.  Note that group polices trump local policies when there is a conflict.
-3.  Some OS/app settings are not configurable via policy, but can be via registry key using the [RegEdit tool](./remoteapp-hybridtrouble.md) while configuring your template image.
-4.  You can use [Windows Firewall](http://windows.microsoft.com/en-US/windows-8/Windows-Firewall-from-start-to-finish) to control network access to and from the machine where the app is running. Just make sure you don't block the URLs and ports defined here.
-5.  You can use [AppLocker](https://technet.microsoft.com/library/hh831440.aspx) to control which applications and files users can run. For example, savvy users can figure out how to run applications that you did not publish but that are available in the image you used to create the collection - AppLocker can block this.
+1.	Si votre collection RemoteApp est jointe au domaine, vous pouvez appliquer n’importe quelle [stratégie de groupe](https://technet.microsoft.com/library/cc725828.aspx) (à l’exception des stratégies d'expiration d’inactivité et de déconnexion décrites [ici](../azure-subscription-service-limits.md)).
+2.	Comme alternative à la stratégie de groupe (si votre collection n'est pas jointe au domaine ou que vous n'avez pas les autorisations appropriées dans Active Directory), vous pouvez configurer des [stratégies locales](https://technet.microsoft.com/library/cc775702.aspx) dans votre image de modèle. Notez que ce groupe de stratégies prévaut sur les stratégies locales en cas de conflit.
+3.	Certains paramètres du système d'exploitation/de l’application ne sont pas configurables via la stratégie, mais peuvent l’être via la clé de registre en utilisant l’[outil RegEdit](./remoteapp-hybridtrouble.md) lors de la configuration de votre image de modèle.
+4.	Vous pouvez utiliser le [pare-feu Windows](http://windows.microsoft.com/fr-FR/windows-8/Windows-Firewall-from-start-to-finish) pour contrôler l'accès réseau vers et depuis l'ordinateur sur lequel l'application est exécutée. Assurez-vous que vous ne bloquez pas les URL et les ports définis ici.
+5.	Vous pouvez utiliser [AppLocker](https://technet.microsoft.com/library/hh831440.aspx) pour contrôler les applications et les fichiers que les utilisateurs peuvent exécuter. Par exemple, les utilisateurs expérimentés peuvent déterminer comment exécuter les applications que vous n'avez pas publiées mais qui sont disponibles dans l'image que vous avez utilisée pour créer la collection - AppLocker peut bloquer ce processus.
 
-## <a name="detailed-information"></a>Detailed information
+## Informations détaillées
 
-- The following RDS policies are likely to be most useful:
-    - [Device and Resource Redirection](https://technet.microsoft.com/library/ee791794.aspx)
-    - [Printer Redirection](https://technet.microsoft.com/library/ee791784.aspx)
-    - [Profiles](https://technet.microsoft.com/library/ee791865.aspx).
-- Note that configuring redirections via the RemoteApp PowerShell module (as seen [here](./remoteapp-redirection.md)) relies on the client machine to enforce the policy, so if security is the primary objective you'll want to enforce the policy via the template image local policy or via group policy.
-- [Windows Server 2012 R2 policies](https://technet.microsoft.com/library/hh831791.aspx).
-- [Office 2013 polices](https://technet.microsoft.com/library/cc178969.aspx) (including [how to customize the Office toolbar](https://technet.microsoft.com/library/cc179143.aspx)).
+- Les stratégies RDS suivantes seront sans doute plus utiles :
+	- [Redirection d’appareils et de ressources](https://technet.microsoft.com/library/ee791794.aspx)
+	- [Redirection d’imprimantes](https://technet.microsoft.com/library/ee791784.aspx)
+	- [Profils](https://technet.microsoft.com/library/ee791865.aspx).
+- Notez que la configuration des redirections via le module PowerShell pour RemoteApp (comme indiqué [ici](./remoteapp-redirection.md)) s'appuie sur l'ordinateur client pour appliquer la stratégie. Si la sécurité est votre principal objectif, vous souhaiterez appliquer la stratégie via la stratégie locale de l’image de modèle ou via la stratégie de groupe.
+- [Stratégies Windows Server 2012 R2](https://technet.microsoft.com/library/hh831791.aspx).
+- [Stratégies Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (y compris [la personnalisation de la barre d'outils Office](https://technet.microsoft.com/library/cc179143.aspx)).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

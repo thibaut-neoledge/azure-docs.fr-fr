@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for a secret in a key vault | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying key vault secrets through a template."
+   pageTitle="Modèle Resource Manager pour une clé secrète dans un coffre de clés | Microsoft Azure"
+   description="Affiche le schéma Resource Manager pour le déploiement de clés secrètes de coffres de clés par le biais d'un modèle."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,14 +16,13 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
+# Schéma d’un modèle de clé secrète de coffre de clés
 
-# <a name="key-vault-secret-template-schema"></a>Key vault secret template schema
+Crée une clé secrète stockée dans un coffre de clés. Ce type de ressource est souvent déployé comme ressource enfant d’un [coffre de clés](resource-manager-template-keyvault.md).
 
-Creates a secret that is stored in a key vault. This resource type is frequently deployed as a child resource of [key vault](resource-manager-template-keyvault.md).
+## Format de schéma
 
-## <a name="schema-format"></a>Schema format
-
-To create a key vault secret, add the following schema to your template. The secret can be defined as either a child resource of a key vault or as top-level resource. You can define it as a child resource when the key vault is deployed in the same template. You will need to define the secret as a top-level resource when the key vault is not deployed in the same template, or when you need to create multiple secrets by looping on the resource type. 
+Pour créer une clé secrète de coffre de clés, ajoutez le schéma suivant à votre modèle. La clé secrète peut être définie comme une ressource enfant d'un coffre de clés ou comme une ressource de niveau supérieur. Vous pouvez la définir comme une ressource enfant lorsque le coffre de clés est déployé dans le même modèle. Vous devez définir la clé secrète comme une ressource de niveau supérieur lorsque le coffre de clés n'est pas déployé dans le même modèle, ou lorsque vous créez plusieurs clés secrètes en effectuant une boucle sur le type de ressource.
 
     {
         "type": enum,
@@ -35,29 +34,29 @@ To create a key vault secret, add the following schema to your template. The sec
         "dependsOn": [ array values ]
     }
 
-## <a name="values"></a>Values
+## Valeurs
 
-The following tables describe the values you need to set in the schema.
+Les tableaux suivants décrivent les valeurs que vous devez définir dans le schéma.
 
-| Name | Value |
+| Nom | Valeur |
 | ---- | ---- | 
-| type | Enum<br />Required<br />**secrets** (when deployed as a child resource of key vault) or<br /> **Microsoft.KeyVault/vaults/secrets** (when deployed as a top-level resource)<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />A single word when deployed as a child resource of a key vault, or in the format **{key-vault-name}/{secret-name}** when deployed as a top-level resource to be added to an existing key vault.<br /><br />The name of the secret to create. |
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the value of the secret to create. |
-| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
+| type | Enum<br />Requis<br />**secrets** (si déployé comme une ressource enfant d’un coffre de clés) ou<br /> **Microsoft.KeyVault/vaults/secrets** (si déployé comme une ressource de niveau supérieur)<br /><br />Type de ressource à créer. |
+| version\_api | Enum<br />Requis<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />Version de l’API à utiliser pour la création de la ressource. | 
+| name | String<br />Requis<br />Mot unique si déployé comme une ressource enfant d’un coffre de clés, ou au format **{key-vault-name}/{secret-name}** si déployé comme une ressource de niveau supérieur à ajouter à un coffre de clés existant.<br /><br />Nom de la clé secrète à créer. |
+| properties | Object<br />Requis<br />[Objet properties](#properties)<br /><br />Objet qui spécifie la valeur de la clé secrète à créer. |
+| dependsOn | Array<br />Facultatif<br />Liste de noms de ressource ou d’identificateurs de ressource uniques séparés par des virgules.<br /><br />Collection de ressources dont dépend ce lien. Si le coffre de clés pour la clé secrète est déployé dans le même modèle, ajoutez le nom du coffre de clés à cet élément pour vous assurer qu'il est d'abord déployé. |
 
 <a id="properties" />
-### <a name="properties-object"></a>properties object
+### objet propriétés
 
-| Name | Value |
+| Nom | Valeur |
 | ---- | ---- | 
-| value | String<br />Required<br /><br />The secret value to store in the key vault. When passing in a value for this property, use a parameter of type **securestring**.  |
+| value | String<br />Requis<br /><br />Valeur de clé secrète à stocker dans le coffre de clés. Lors du passage d'une valeur pour cette propriété, utilisez un paramètre de type **securestring**. |
 
-    
-## <a name="examples"></a>Examples
+	
+## Exemples
 
-The first example deploys a secret as a child resource of a key vault.
+Le premier exemple déploie une clé secrète comme une ressource enfant d'un coffre de clés.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -183,7 +182,7 @@ The first example deploys a secret as a child resource of a key vault.
         }]
     }
 
-The second example deploys the secret as a top-level resource that is stored in an existing key vault.
+Le deuxième exemple déploie la clé secrète comme une ressource de niveau supérieur stockée dans un coffre de clés existant.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -223,15 +222,9 @@ The second example deploys the secret as a top-level resource that is stored in 
     }
 
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+- Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main du coffre de clés Azure](./key-vault/key-vault-get-started.md).
+- Pour obtenir un exemple de référencement d'une clé secrète de coffre de clés lors du déploiement, consultez [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md).
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

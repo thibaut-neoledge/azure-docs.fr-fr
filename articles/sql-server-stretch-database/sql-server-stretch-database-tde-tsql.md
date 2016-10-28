@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL | Microsoft Azure"
-   description="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL"
+   pageTitle="Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure TSQL | Microsoft Azure"
+   description="Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure TSQL"
    services="sql-server-stretch-database"
    documentationCenter=""
    authors="douglaslMS"
@@ -16,66 +16,61 @@
    ms.date="06/14/2016"
    ms.author="douglaslMS"/>
 
-
-# <a name="enable-transparent-data-encryption-(tde)-for-stretch-database-on-azure-(transact-sql)"></a>Enable Transparent Data Encryption (TDE) for Stretch Database on Azure (Transact-SQL)
+# Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure (Transact-SQL)
 > [AZURE.SELECTOR]
-- [Azure portal](sql-server-stretch-database-encryption-tde.md)
+- [Portail Azure](sql-server-stretch-database-encryption-tde.md)
 - [TSQL](sql-server-stretch-database-tde-tsql.md)
 
-Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
+Le chiffrement transparent des données (Transparent Data Encryption, TDE) protège le système contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions au repos, sans qu’il soit nécessaire de modifier l’application.
 
-TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. The database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each Azure server. Microsoft automatically rotates these certificates at least every 90 days. For a general description of TDE, see [Transparent Data Encryption (TDE)].
+Le chiffrement transparent des données chiffre le stockage d’une base de données entière à l’aide d’une clé symétrique appelée clé de chiffrement de base de données. La clé de chiffrement de base de données est protégée par un certificat de serveur intégré. Le certificat de serveur intégré est unique pour chaque serveur Azure. Microsoft alterne automatiquement ces certificats au moins tous les 90 jours. Pour obtenir une description générale du chiffrement transparent des données, consultez [Chiffrement transparent des données (TDE)].
 
-##<a name="enabling-encryption"></a>Enabling Encryption
+##Activation du chiffrement
 
-To enable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
+Pour activer le chiffrement transparent des données pour une base de données Azure qui stocke les données migrées à partir d’une base de données SQL Server compatible avec Stretch, procédez comme suit :
 
-1. Connect to the *master* database on the Azure server hosting the database using a login that is an administrator or a member of the **dbmanager** role in the master database
-2. Execute the following statement to encrypt the database.
+1. Connectez-vous à la base de données *master* sur le serveur Azure hébergeant la base de données à l’aide d’identifiants de connexion administrateurs ou membres du rôle **dbmanager** dans la base de données master
+2. Exécutez l'instruction suivante pour chiffrer la base de données.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION ON;
 ```
 
-##<a name="disabling-encryption"></a>Disabling Encryption
+##Désactivation du chiffrement
 
-To disable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
+Pour désactiver le chiffrement transparent des données pour une base de données Azure qui stocke les données migrées à partir d’une base de données SQL Server compatible avec Stretch, procédez comme suit :
 
-1. Connect to the *master* database using a login that is an administrator or a member of the **dbmanager** role in the master database
-2. Execute the following statement to encrypt the database.
+1. Connectez-vous à la base de données *master* à l'aide d'identifiants de connexion administrateurs ou membres du rôle **dbmanager** dans la base de données master
+2. Exécutez l'instruction suivante pour chiffrer la base de données.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ```
 
-##<a name="verifying-encryption"></a>Verifying Encryption
+##Vérification de chiffrement
 
-To verify encryption status for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
+Pour vérifier l’état de chiffrement d’une base de données Azure qui stocke les données migrées à partir d’une base de données SQL Server compatible avec Stretch, procédez comme suit :
 
-1. Connect to the *master* or instance database using a login that is an administrator or a member of the **dbmanager** role in the master database
-2. Execute the following statement to encrypt the database.
+1. Connectez-vous à la base de données *master* ou d’instance à l'aide d'identifiants de connexion administrateurs ou membres du rôle **dbmanager** dans la base de données master
+2. Exécutez l'instruction suivante pour chiffrer la base de données.
 
 ```sql
 SELECT
-    [name],
-    [is_encrypted]
+	[name],
+	[is_encrypted]
 FROM
-    sys.databases;
+	sys.databases;
 ```
 
-A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.
+Un résultat de ```1``` indique une base de données chiffrée, ```0``` indique une base de données non chiffrée.
 
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Chiffrement transparent des données (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
 
 <!--Link references-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

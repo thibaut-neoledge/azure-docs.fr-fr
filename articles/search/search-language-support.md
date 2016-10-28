@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create an index for documents in multiple languages in Azure Search | Microsoft Azure | Hosted cloud search service"
-   description=" Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft."
+   pageTitle="Création d’un index de documents dans plusieurs langues dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
+   description=" Azure Search prend en charge 56 langages, tirant parti des analyseurs de langue de la technologie Lucene et Natural Language Processing de Microsoft."
    services="search"
    documentationCenter=""
    authors="yahnoosh"
@@ -16,57 +16,53 @@
    ms.date="07/14/2016"
    ms.author="jlembicz"/>
 
-
-# <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Create an index for documents in multiple languages in Azure Search
+# Création d’un index de documents dans plusieurs langues dans Azure Search
 > [AZURE.SELECTOR]
-- [Portal](search-language-support.md)
+- [Portail](search-language-support.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
 - [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
 
-Unleashing the power of language analyzers is as easy as setting one property on a searchable field in the index definition. Now you can do this step in the portal.
+Décupler les performances des analyseurs de langue est aussi facile que de définir une propriété sur un champ de recherche dans la définition d'index. Maintenant, vous pouvez effectuer cette étape dans le portail.
 
-Below are screenshots of the Azure Portal blades for Azure Search that allow users to define an index schema. From this blade, users can create all of the fields and set the analyzer property for each of them.
+Voici les captures d'écran des panneaux du portail Azure pour Azure Search qui permettent aux utilisateurs de définir un schéma d'index. À partir de ce panneau, les utilisateurs peuvent créer tous les champs et définir la propriété de l'analyseur pour chacun d'eux.
 
-> [AZURE.IMPORTANT] You can only set a language analyzer during field definition, as in when creating a new index from the ground up, or when adding a new field to an existing index. Make sure you fully specify all attributes, including the analyzer, while creating the field. You won't be able to edit the attributes or change the analyzer type once you save your changes.
+> [AZURE.IMPORTANT] Vous pouvez uniquement définir un analyseur de langage lors de la définition du champ, comme lors de la création d'un nouvel index ou lorsque vous ajoutez un nouveau champ à un index existant. Veillez à spécifier entièrement tous les attributs, y compris l'analyseur, lors de la création du champ. Vous ne pourrez pas modifier les attributs ou modifier le type d'analyseur une fois vos modifications enregistrées.
 
-## <a name="define-a-new-field-definition"></a>Define a new field definition
+## Définir une nouvelle définition de champ
 
-1. Sign in to the [Azure Portal](https://portal.azure.com) and open the service blade of your search service.
-2. Click **Add index** in the command bar at the top of the service dashboard to start a new index, or open an existing index to set an analyzer on new fields you're adding to an existing index.
-3. The Fields blade appears, giving you options for defining the schema of the index, including the Analyzer tab used for choosing a language analyzer.
-4. In Fields, start a field definition by providing a name, choosing the data type, and setting  attributes to mark the field as full text searchable, retrievable in search results, usable in facet navigation structures, sortable, and so forth. 
-5. Before moving on to the next field, open the **Analyzer** tab. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez le panneau de votre service de recherche.
+2. Cliquez sur **Ajouter un index** dans la barre de commandes en haut du tableau de bord de service pour démarrer un nouvel index ou ouvrez un index existant pour définir un analyseur sur des nouveaux champs que vous ajoutez à un index existant.
+3. Le panneau Champs s'affiche. Il vous propose des options pour définir le schéma de l'index, y compris l'onglet Analyseur utilisé pour le choix d'un analyseur de langage.
+4. Dans le panneau Champs, démarrez une définition de champ en fournissant un nom, le choix du type de données et la définition des attributs pour marquer le champ en tant que texte intégral consultable, récupérables dans les résultats de recherche, utilisable dans des structures de navigation de facette, pouvant être trié, et ainsi de suite.
+5. Avant de passer au champ suivant, ouvrez l'onglet **Analyseur**.
 
    
-![][1]
-*To select an analyzer, click the Analyzer tab on the Fields blade*
+![][1] *Pour sélectionner un analyseur, cliquez sur l'onglet Analyseur du panneau Champs*
 
-## <a name="choose-an-analyzer"></a>Choose an analyzer
+## Choisir un analyseur
 
-6. Scroll to find the field you are defining. 
-7. If you haven't marked the field as searchable, click the checkbox now to mark it as **Searchable**.
-8. Click the Analyzer area to display the list of available analyzers.
-9. Choose the analyzer you want to use.
+6. Faites défiler pour rechercher le champ que vous définissez.
+7. Si vous n'avez pas activé le champ de recherche, cliquez sur la case à cocher pour indiquer qu'il peut **faire l'objet d'une recherche**.
+8. Cliquez sur la zone Analyseur pour afficher la liste des analyseurs disponibles.
+9. Cliquez sur l'analyseur à utiliser.
 
-![][2]
-*Select one of the supported analyzers for each field*
+![][2] *Sélectionnez un des analyseurs pris en charge pour chaque champ*
 
-By default, all searchable fields use the [Standard Lucene analyzer](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which is language agnostic. To view the full list of supported analyzers, see [Language Support in Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Par défaut, tous les champs pouvant faire l'objet d'une recherche utilisent l'[analyseur Lucene Standard](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) qui est indépendant du langage. Pour afficher la liste complète des analyseurs pris en charge, consultez [Prise en charge linguistique dans Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
-Once the language analyzer is selected for a field, it will be used with each indexing and search request for that field. When a query is issued against multiple fields using different analyzers, the query will be processed independently by the right analyzers for each field.
+Une fois que l'analyseur de langage est sélectionné pour un champ, il sera utilisé à chaque demande de recherche et d'indexation pour ce champ. Lorsqu'une requête est émise sur plusieurs champs à l'aide de différents analyseurs, elle sera traitée indépendamment par les analyseurs corrects pour chaque champ.
 
-Many web and mobile applications serve users around the globe using different languages. It’s possible to define an index for a scenario like this by creating a field for each language supported.
+Plusieurs applications web et mobiles servent les utilisateurs dans le monde entier à l'aide de différentes langues. Il est possible de définir un index pour un scénario comme celui-ci en créant un champ pour chaque langue prise en charge.
 
-![][3]
-*Index definition with a description field for each language supported*
+![][3] *Définition d'index avec un champ de description pour chaque langue prise en charge*
 
-If the language of the agent issuing a query is known, a search request can be scoped to a specific field using the **searchFields** query parameter. The following query will be issued only against the description in Polish:
+Si la langue de l'agent d'émission d'une requête est connue, une demande de recherche peut être étendue à un champ spécifique à l'aide du paramètre de requête **searchFields**. La requête suivante sera émise uniquement sur la description en polonais :
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2015-02-28`
 
-You can query your index from the portal, using **Search explorer** to paste in a query similar to the one shown above. Search explorer is available from the command bar in the service blade. See [Query your Azure Search index in the portal](search-explorer.md) for details.
+Vous pouvez interroger votre index à partir du portail en utilisant l**’Explorateur de recherche** pour coller une requête similaire à celle présentée ci-dessus. L’Explorateur de recherche est disponible dans la barre de commandes du panneau de service. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search dans le portail](search-explorer.md).
 
-Sometimes the language of the agent issuing a query is not known, in which case the query can be issued against all fields simultaneously. If needed, preference for results in a certain language can be defined using [scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx). In the example below, matches found in the description in English will be scored higher relative to matches in Polish and French:
+Parfois, la langue de l'agent d'émission d'une requête n'est pas connue, auquel cas la requête peut être exécutée simultanément sur tous les champs. Si nécessaire, la préférence de résultats dans une langue donnée peut être définie à l'aide des [profils de score](https://msdn.microsoft.com/library/azure/dn798928.aspx). Dans l'exemple ci-dessous, les correspondances trouvées dans la description en anglais auront un score supérieur par rapport aux correspondances en polonais et en français :
 
     "scoringProfiles": [
       {
@@ -79,15 +75,11 @@ Sometimes the language of the agent issuing a query is not known, in which case 
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2015-02-28`
 
-If you're a .NET developer, note that you can configure language analyzers using the [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search). The latest release includes support for the Microsoft language analyzers as well.
+Si vous êtes un développeur .NET, notez que vous pouvez configurer les analyseurs de langage à l'aide du [Kit de développement logiciel (SDK) Azure Search .NET](http://www.nuget.org/packages/Microsoft.Azure.Search). La dernière version prend également en charge les analyseurs de langage Microsoft.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

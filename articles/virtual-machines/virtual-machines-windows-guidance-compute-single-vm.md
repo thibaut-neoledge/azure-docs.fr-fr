@@ -1,6 +1,6 @@
 <properties
- pageTitle="Best practices for Windows VMs | Microsoft Azure"
- description="Provides best practice information for running Windows virtual machines in Azure."
+ pageTitle="Meilleures pratiques pour les machines virtuelles Windows | Microsoft Azure"
+ description="Fournit des recommandations pour l’exécution de machines virtuelles Windows dans Azure."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="mikewasson"
@@ -19,16 +19,10 @@ ms.service="virtual-machines-windows"
  
 
 
-
-# <a name="best-practices-for-running-a-windows-vm-on-azure"></a>Best Practices for running a Windows VM on Azure
+# Meilleures pratiques pour l’exécution d’une machine virtuelle Windows sur Azure
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 [AZURE.INCLUDE [gudiance-comput-single-vm-windows](../../includes/guidance-compute-single-vm-windows.md)]
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

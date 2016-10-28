@@ -1,10 +1,10 @@
 <properties
-pageTitle="OneDrive for Business | Microsoft Azure"
-description="Create Logic apps with Azure App service. Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+pageTitle="OneDrive Entreprise | Microsoft Azure"
+description="Créez des applications logiques avec Azure App Service. Connectez-vous à OneDrive Entreprise pour gérer vos fichiers. Vous pouvez effectuer diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,351 +17,347 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Prise en main du connecteur OneDrive Entreprise
 
-# <a name="get-started-with-the-onedrive-for-business-connector"></a>Get started with the OneDrive for Business connector
+Connectez-vous à OneDrive Entreprise pour gérer vos fichiers. Vous pouvez effectuer diverses actions, comme charger, mettre à jour, obtenir et supprimer des fichiers.
 
-Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files.
+>[AZURE.NOTE] Cette version de l'article s'applique à la version de schéma 2015-08-01-preview des applications logiques.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Déclencheurs et actions
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+Le connecteur OneDrive Entreprise peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML.
 
-The OneDrive for Business connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+ Le connecteur OneDrive Entreprise met à votre disposition les actions et/ou les déclencheurs ci-après.
 
- The OneDrive for Business connector has the following action(s) and/or trigger(s) available:
-
-### <a name="onedrive-for-business-actions"></a>OneDrive for Business actions
-You can take these action(s):
+### Actions de OneDrive Entreprise
+Vous pouvez effectuer les actions suivantes :
 
 |Action|Description|
 |--- | ---|
-|[GetFileMetadata](connectors-create-api-onedriveforbusiness.md#getfilemetadata)|Retrieves metadata of a file in OneDrive for Business using id|
-|[UpdateFile](connectors-create-api-onedriveforbusiness.md#updatefile)|Updates a file in OneDrive for Business|
-|[DeleteFile](connectors-create-api-onedriveforbusiness.md#deletefile)|Deletes a file from OneDrive for Business|
-|[GetFileMetadataByPath](connectors-create-api-onedriveforbusiness.md#getfilemetadatabypath)|Retrieves metadata of a file in OneDrive for Business using path|
-|[GetFileContentByPath](connectors-create-api-onedriveforbusiness.md#getfilecontentbypath)|Retrieves contents of a file in OneDrive for Business using path|
-|[GetFileContent](connectors-create-api-onedriveforbusiness.md#getfilecontent)|Retrieves contents of a file in OneDrive for Business using id|
-|[CreateFile](connectors-create-api-onedriveforbusiness.md#createfile)|Uploads a file to OneDrive for Business|
-|[CopyFile](connectors-create-api-onedriveforbusiness.md#copyfile)|Copies a file to OneDrive for Business|
-|[ListFolder](connectors-create-api-onedriveforbusiness.md#listfolder)|Lists files in a OneDrive for Business folder|
-|[ListRootFolder](connectors-create-api-onedriveforbusiness.md#listrootfolder)|Lists files in the OneDrive for Business root folder|
-|[ExtractFolderV2](connectors-create-api-onedriveforbusiness.md#extractfolderv2)|Extracts a folder to OneDrive for Business|
-### <a name="onedrive-for-business-triggers"></a>OneDrive for Business triggers
-You can listen for these event(s):
+|[GetFileMetadata](connectors-create-api-onedriveforbusiness.md#getfilemetadata)|Récupère les métadonnées d’un fichier dans OneDrive Entreprise à l’aide de l’identifiant|
+|[UpdateFile](connectors-create-api-onedriveforbusiness.md#updatefile)|Met à jour un fichier dans OneDrive Entreprise|
+|[DeleteFile](connectors-create-api-onedriveforbusiness.md#deletefile)|Supprime un fichier de OneDrive Entreprise|
+|[GetFileMetadataByPath](connectors-create-api-onedriveforbusiness.md#getfilemetadatabypath)|Récupère les métadonnées d’un fichier dans OneDrive Entreprise à l’aide du chemin d’accès|
+|[GetFileContentByPath](connectors-create-api-onedriveforbusiness.md#getfilecontentbypath)|Récupère le contenu d’un fichier dans OneDrive Entreprise à l’aide du chemin d’accès|
+|[GetFileContent](connectors-create-api-onedriveforbusiness.md#getfilecontent)|Récupère le contenu d’un fichier dans OneDrive Entreprise à l’aide de l’identifiant|
+|[CreateFile](connectors-create-api-onedriveforbusiness.md#createfile)|Charge un fichier sur OneDrive Entreprise|
+|[CopyFile](connectors-create-api-onedriveforbusiness.md#copyfile)|Copie un fichier dans OneDrive Entreprise|
+|[ListFolder](connectors-create-api-onedriveforbusiness.md#listfolder)|Répertorie les fichiers dans un dossier OneDrive Entreprise|
+|[ListRootFolder](connectors-create-api-onedriveforbusiness.md#listrootfolder)|Répertorie les fichiers dans le dossier racine OneDrive Entreprise|
+|[ExtractFolderV2](connectors-create-api-onedriveforbusiness.md#extractfolderv2)|Extrait un dossier dans OneDrive Entreprise|
+### Déclencheurs de OneDrive Entreprise
+Vous pouvez écouter les événements suivants :
 
-|Trigger | Description|
+|Déclencheur | Description|
 |--- | ---|
-|When a file is created|Triggers a flow when a new file is created in a OneDrive for Business folder|
-|When a file is modified|Triggers a flow when a file is modified in a OneDrive for Business folder|
+|Quand un fichier est créé|Déclenche un flux quand un fichier est créé dans un dossier OneDrive Entreprise|
+|Quand un fichier est modifié|Déclenche un flux quand un fichier est modifié dans un dossier OneDrive Entreprise|
 
 
-## <a name="create-a-connection-to-onedrive-for-business"></a>Create a connection to OneDrive for Business
-To create Logic apps with OneDrive for Business, you must first create a **connection** then provide the details for the following properties: 
+## Créer une connexion à OneDrive Entreprise
+Pour créer des applications logiques avec OneDrive Entreprise, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
 
-|Property| Required|Description|
+|Propriété| Requis|Description|
 | ---|---|---|
-|Token|Yes|Provide OneDrive for Business Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+|Jeton|Oui|Fournir des informations d’identification pour OneDrive Entreprise|
+Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
 
->[AZURE.INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
+>[AZURE.INCLUDE [Procédure de création d’une connexion à OneDrive Entreprise](../../includes/connectors-create-api-onedriveforbusiness.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] Vous pouvez utiliser cette connexion dans d’autres applications logiques.
 
-## <a name="reference-for-onedrive-for-business"></a>Reference for OneDrive for Business
-Applies to version: 1.0
+## Référence pour OneDrive Entreprise
+S’applique à la version 1.0.
 
-## <a name="getfilemetadata"></a>GetFileMetadata
-Get file metadata using id: Retrieves metadata of a file in OneDrive for Business using id 
+## GetFileMetadata
+Obtenir les métadonnées d’un fichier à l’aide de l’identifiant : récupère les métadonnées d’un fichier dans OneDrive Entreprise à l’aide de l’identifiant
 
-```GET: /datasets/default/files/{id}``` 
+```GET: /datasets/default/files/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the file|
+|id|string|yes|path|(aucun)|Spécifier le fichier|
 
-#### <a name="response"></a>Response
+#### Réponse
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="updatefile"></a>UpdateFile
-Update file: Updates a file in OneDrive for Business 
+## UpdateFile
+Mettre à jour le fichier : met à jour un fichier dans OneDrive Entreprise
 
-```PUT: /datasets/default/files/{id}``` 
+```PUT: /datasets/default/files/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the file to update|
-|body| |yes|body|none|Content of the file to update in OneDrive for Business|
+|id|string|yes|path|(aucun)|Spécifier le fichier à mettre à jour|
+|body| |yes|body|(aucun)|Contenu du fichier à mettre à jour dans OneDrive Entreprise|
 
-#### <a name="response"></a>Response
+#### Réponse
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="deletefile"></a>DeleteFile
-Delete file: Deletes a file from OneDrive for Business 
+## DeleteFile
+Supprimer un fichier : supprime un fichier de OneDrive Entreprise
 
-```DELETE: /datasets/default/files/{id}``` 
+```DELETE: /datasets/default/files/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the file to delete|
+|id|string|yes|path|(aucun)|Spécifier le fichier à supprimer|
 
-#### <a name="response"></a>Response
+#### Réponse
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="getfilemetadatabypath"></a>GetFileMetadataByPath
-Get file metadata using path: Retrieves metadata of a file in OneDrive for Business using path 
+## GetFileMetadataByPath
+Obtenir les métadonnées d’un fichier à l’aide du chemin : récupère les métadonnées d’un fichier dans OneDrive Entreprise à l’aide du chemin
 
-```GET: /datasets/default/GetFileByPath``` 
+```GET: /datasets/default/GetFileByPath```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|path|string|yes|query|none|Unique path to the file in OneDrive for Business|
+|path|string|yes|query|(aucun)|Chemin unique du fichier dans OneDrive Entreprise|
 
-#### <a name="response"></a>Response
+#### Réponse
 
 |Name|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="getfilecontentbypath"></a>GetFileContentByPath
-Get file content using path: Retrieves contents of a file in OneDrive for Business using path 
+## GetFileContentByPath
+Obtenir le contenu d’un fichier à l’aide du chemin : récupère le contenu d’un fichier dans OneDrive Entreprise à l’aide du chemin
 
-```GET: /datasets/default/GetFileContentByPath``` 
+```GET: /datasets/default/GetFileContentByPath```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|path|string|yes|query|none|Unique path to the file in OneDrive for Business|
+|path|string|yes|query|(aucun)|Chemin unique du fichier dans OneDrive Entreprise|
 
-#### <a name="response"></a>Response
+#### Réponse
 
 |Name|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="getfilecontent"></a>GetFileContent
-Get file content using id: Retrieves contents of a file in OneDrive for Business using id 
+## GetFileContent
+Obtenir le contenu d’un fichier à l’aide de l’identifiant : récupère le contenu d’un fichier dans OneDrive Entreprise à l’aide de l’identifiant
 
-```GET: /datasets/default/files/{id}/content``` 
+```GET: /datasets/default/files/{id}/content```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the file|
+|id|string|yes|path|(aucun)|Spécifier le fichier|
 
-#### <a name="response"></a>Response
+#### Réponse
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="createfile"></a>CreateFile
-Create file: Uploads a file to OneDrive for Business 
+## CreateFile
+Créer un fichier : charge un fichier sur OneDrive Entreprise
 
-```POST: /datasets/default/files``` 
+```POST: /datasets/default/files```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|folderPath|string|yes|query|none|Folder path to upload the file to OneDrive for Business|
-|name|string|yes|query|none|Name of the file to create in OneDrive for Business|
-|body| |yes|body|none|Content of the file to upload to OneDrive for Business|
+|folderPath|string|yes|query|(aucun)|Chemin du dossier OneDrive Entreprise sur lequel charger le fichier|
+|name|string|yes|query|(aucun)|Nom du fichier à créer dans OneDrive Entreprise|
+|body| |yes|body|(aucun)|Contenu du fichier à charger sur OneDrive Entreprise|
 
-#### <a name="response"></a>Response
+#### Réponse
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="copyfile"></a>CopyFile
-Copy file: Copies a file to OneDrive for Business 
+## CopyFile
+Copier un fichier : copie un fichier dans OneDrive Entreprise
 
-```POST: /datasets/default/copyFile``` 
+```POST: /datasets/default/copyFile```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|source|string|yes|query|none|Url to source file|
-|destination|string|yes|query|none|Destination file path in OneDrive for Business, including target filename|
-|overwrite|boolean|no|query|false|Overwrites the destination file if set to 'true'|
+|source|string|yes|query|(aucun)|URL du fichier source|
+|destination|string|yes|query|(aucun)|Chemin de destination du fichier dans OneDrive Entreprise, y compris le nom de fichier cible|
+|overwrite|booléenne|no|query|false|Remplace le fichier de destination si la valeur est « true »|
 
-#### <a name="response"></a>Response
+#### Réponse
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="onnewfile"></a>OnNewFile
-When a file is created: Triggers a flow when a new file is created in a OneDrive for Business folder 
+## OnNewFile
+Quand un fichier est créé : déclenche un flux quand un fichier est créé dans un dossier OneDrive Entreprise
 
-```GET: /datasets/default/triggers/onnewfile``` 
+```GET: /datasets/default/triggers/onnewfile```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|folderId|string|yes|query|none|Specify a folder|
+|folderId|string|yes|query|(aucun)|Spécifier un dossier|
 
-#### <a name="response"></a>Response
+#### Réponse
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="onupdatedfile"></a>OnUpdatedFile
-When a file is modified: Triggers a flow when a file is modified in a OneDrive for Business folder 
+## OnUpdatedFile
+Quand un fichier est modifié : déclenche un flux quand un fichier est modifié dans un dossier OneDrive Entreprise
 
-```GET: /datasets/default/triggers/onupdatedfile``` 
+```GET: /datasets/default/triggers/onupdatedfile```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|folderId|string|yes|query|none|Specify a folder|
+|folderId|string|yes|query|(aucun)|Spécifier un dossier|
 
-#### <a name="response"></a>Response
+#### Réponse
 
 |Name|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="listfolder"></a>ListFolder
-List files in folder: Lists files in a OneDrive for Business folder 
+## ListFolder
+Répertorier les fichiers dans un dossier : répertorie les fichiers dans un dossier OneDrive Entreprise
 
-```GET: /datasets/default/folders/{id}``` 
+```GET: /datasets/default/folders/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nom| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the folder|
+|id|string|yes|path|(aucun)|Spécifier le dossier|
 
-#### <a name="response"></a>Response
+#### Réponse
+
+|Nom|Description|
+|---|---|
+|200|OK|
+|default|L’opération a échoué.|
+
+
+## ListRootFolder
+Répertorier le dossier racine : répertorie les fichiers dans le dossier racine OneDrive Entreprise
+
+```GET: /datasets/default/folders```
+
+Il n’existe aucun paramètre pour cet appel
+#### Réponse
 
 |Name|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="listrootfolder"></a>ListRootFolder
-List root folder: Lists files in the OneDrive for Business root folder 
+## ExtractFolderV2
+Extraire un dossier : extrait un dossier dans OneDrive Entreprise
 
-```GET: /datasets/default/folders``` 
+```POST: /datasets/default/extractFolderV2```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-## <a name="extractfolderv2"></a>ExtractFolderV2
-Extract folder: Extracts a folder to OneDrive for Business 
-
-```POST: /datasets/default/extractFolderV2``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name| Type de données|Requis|Emplacement|Valeur par défaut|Description|
 | ---|---|---|---|---|---|
-|source|string|yes|query|none|Path to the archive file|
-|destination|string|yes|query|none|Path in OneDrive for Business to extract the archive contents|
-|overwrite|boolean|no|query|false|Overwrites the destination files if set to 'true'|
+|source|string|yes|query|(aucun)|Chemin du fichier d'archive|
+|destination|string|yes|query|(aucun)|Chemin dans OneDrive Entreprise indiquant où extraire le contenu de l’archive|
+|overwrite|booléenne|no|query|false|Remplace les fichiers de destination si la valeur est « true »|
 
-#### <a name="response"></a>Response
+#### Réponse
 
 |Name|Description|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|default|L’opération a échoué.|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## Définitions d’objet 
 
-### <a name="datasetsmetadata"></a>DataSetsMetadata
+### DataSetsMetadata
 
 
-| Property Name | Data Type | Required |
+| Nom de la propriété | Type de données | Requis |
 |---|---|---|
-|tabular|not defined|No |
-|blob|not defined|No |
+|tabular|non défini|Non |
+|objet blob|non défini|Non |
 
 
 
-### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
+### TabularDataSetsMetadata
 
 
-| Property Name | Data Type | Required |
+| Nom de la propriété | Type de données | Requis |
 |---|---|---|
-|source|string|No |
-|displayName|string|No |
-|urlEncoding|string|No |
-|tableDisplayName|string|No |
-|tablePluralName|string|No |
+|source|string|Non |
+|displayName|string|Non |
+|urlEncoding|string|Non |
+|tableDisplayName|string|Non |
+|tablePluralName|string|Non |
 
 
 
-### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
+### BlobDataSetsMetadata
 
 
-| Property Name | Data Type | Required |
+| Nom de la propriété | Type de données | Requis |
 |---|---|---|
-|source|string|No |
-|displayName|string|No |
-|urlEncoding|string|No |
+|source|string|Non |
+|displayName|string|Non |
+|urlEncoding|string|Non |
 
 
 
-### <a name="blobmetadata"></a>BlobMetadata
+### BlobMetadata
 
 
-| Property Name | Data Type | Required |
+| Nom de la propriété | Type de données | Requis |
 |---|---|---|
-|Id|string|No |
-|Name|string|No |
-|DisplayName|string|No |
-|Path|string|No |
-|LastModified|string|No |
-|Size|integer|No |
-|MediaType|string|No |
-|IsFolder|boolean|No |
-|ETag|string|No |
-|FileLocator|string|No |
+|ID|string|Non |
+|Nom|string|Non |
+|DisplayName|string|Non |
+|Chemin|string|Non |
+|LastModified|string|Non |
+|Taille|integer|Non |
+|MediaType|string|Non |
+|IsFolder|booléenne|Non |
+|ETag|string|Non |
+|FileLocator|string|Non |
 
 
 
-### <a name="object"></a>Object
+### Object
 
 
-| Property Name | Data Type | Required |
+| Nom de la propriété | Type de données | Requis |
 |---|---|---|
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Étapes suivantes
+[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

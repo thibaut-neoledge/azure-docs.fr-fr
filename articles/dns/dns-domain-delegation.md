@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Delegate your domain to Azure DNS | Microsoft Azure"
-   description="Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting."
+   pageTitle="Délégation de votre domaine à Azure DNS | Microsoft Azure"
+   description="Découvrez comment modifier la délégation de domaine et les serveurs de noms Azure DNS pour fournir l’hébergement d’un domaine."
    services="dns"
    documentationCenter="na"
    authors="sdwheeler"
@@ -17,198 +17,192 @@
    ms.author="sewhee"/>
 
 
+# Délégation de domaine à Azure DNS
 
-# <a name="delegate-a-domain-to-azure-dns"></a>Delegate a domain to Azure DNS
-
-Azure DNS allows you to host a DNS zone and manage the DNS records for a domain in Azure. In order for DNS queries for a domain to reach Azure DNS, the domain has to be delegated to Azure DNS from the parent domain. Keep in mind Azure DNS is not the domain registrar. This article explains how domain delegation works and how to delegate domains to Azure DNS.
-
+Azure DNS vous permet d’héberger une zone DNS et de gérer les enregistrements DNS pour un domaine dans Azure. Pour que les requêtes DNS d’un domaine atteignent Azure DNS, le domaine doit être délégué à Azure DNS à partir du domaine parent. GardeN’oubliez pas qu’Azure DNS n’est pas le bureau d’enregistrement de domaines. Cet article explique le fonctionnement de la délégation de domaine et indique comment déléguer des domaines à Azure DNS.
 
 
 
-## <a name="how-dns-delegation-works"></a>How DNS delegation works
 
-### <a name="domains-and-zones"></a>Domains and zones
+## Fonctionnement de la délégation DNS
 
-The Domain Name System is a hierarchy of domains. The hierarchy starts from the ‘root’ domain, whose name is simply ‘**.**’.  Below this come top-level domains, such as ‘com’, ‘net’, ‘org’, ‘uk’ or ‘jp’.  Below these are second-level domains, such as ‘org.uk’ or ‘co.jp’.  And so on. The domains in the DNS hierarchy are hosted using separate DNS zones. These zones are globally distributed, hosted by DNS name servers around the world.
+### Zones et domaines
 
-**DNS zone**
+DNS est une hiérarchie de domaines. Celle-ci démarre à partir du domaine « racine », dont le nom est simplement « **.** ». Puis viennent les domaines de niveau supérieur, tels que « com », « net », « org », « uk » ou « jp ». Vous trouvez ensuite les domaines de second niveau, comme « org.uk » ou « co.jp ». Et ainsi de suite. Les domaines de la hiérarchie DNS sont hébergés à l’aide de zones DNS distinctes. Ces zones sont globalement distribuées, et hébergées par des serveurs DNS dans le monde entier.
 
-A domain is a unique name in the Domain Name System, for example ‘contoso.com’. A DNS zone is used to host the DNS records for a particular domain. For example, the domain ‘contoso.com’ may contain a number of DNS records such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website).
+**Zone DNS**
 
-**Domain registrar**
+Un domaine est un nom unique dans le système DNS, par exemple, « contoso.com ». Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Par exemple, le domaine « contoso.com » peut contenir un certain nombre d’enregistrements DNS, tels que « mail.contoso.com » (pour un serveur de messagerie) et « www.contoso.com » (pour un site web).
 
-A domain registrar is a company who can provide Internet domain names. They will verify if the Internet domain you want to use is available and allow you to purchase it. Once the domain name is registered, you will be the legal owner for the domain name. If you already have an Internet domain, you will use the current domain registrar to delegate to Azure DNS.
+**Bureau d’enregistrement de domaines**
 
->[AZURE.NOTE] To find out more information on who owns a given domain name, or for information on how to buy a domain, see [Internet domain management in Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
+Un bureau d’enregistrement de domaines est une société qui peut fournir des noms de domaine Internet. Il vérifie si le domaine Internet que vous souhaitez utiliser est disponible et vous pouvez ensuite l’acheter. Une fois que le nom de domaine est enregistré, vous en êtes le propriétaire légal. Si vous disposez déjà d’un domaine Internet, vous allez utiliser le bureau d’enregistrement de domaines actuel pour la délégation à Azure DNS.
 
-### <a name="resolution-and-delegation"></a>Resolution and delegation
+>[AZURE.NOTE] Pour plus d'informations sur le propriétaire d'un nom de domaine donné ou sur l'achat d'un domaine, consultez la page [Gestion des domaines Internet dans Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
 
-There are two types of DNS servers:
+### Résolution et délégation
 
-- An _authoritative_ DNS server hosts DNS zones. It answers DNS queries for records in those zones only.
-- A _recursive_ DNS server does not host DNS zones. It answers all DNS queries by calling authoritative DNS servers to gather the data it needs.
+Deux types de serveur DNS sont disponibles :
 
->[AZURE.NOTE] Azure DNS provides an authoritative DNS service.  It does not provide a recursive DNS service.
+- Un serveur DNS _faisant autorité_ héberge les zones DNS. Il répond aux requêtes DNS pour les enregistrements de ces zones uniquement.
+- Un serveur DNS _récursif_ n’héberge pas de zones DNS. Il répond à toutes les requêtes DNS, en appelant des serveurs DNS faisant autorité pour rassembler les données dont il a besoin.
 
-> Cloud Services and VMs in Azure are automatically configured to use a recursive DNS services that is provided separately as part of Azure's infrastructure.  For information on how to change these DNS settings, please see [Name Resolution in Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+>[AZURE.NOTE] Azure DNS fournit un service DNS faisant autorité. Il ne fournit pas un service DNS récursif.
 
-DNS clients in PCs or mobile devices typically call a recursive DNS server to perform any DNS queries the client applications need.
+> Les services cloud et machines virtuelles contenus dans Azure sont configurés automatiquement pour utiliser un service DNS récursif fourni séparément dans le cadre de l’infrastructure Azure. Pour plus d’informations sur la façon de modifier ces paramètres DNS, consultez [Name Resolution in Azure (Résolution de noms dans Azure)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
-When a recursive DNS server receives a query for a DNS record such as ‘www.contoso.com’, it first needs to find the name server hosting the zone for the ‘contoso.com’ domain. To do this, it starts at the root name servers, and from there finds the name servers hosting the ‘com’ zone. It then queries the ‘com’ name servers to find the name servers hosting the ‘contoso.com’ zone.  Finally, it is able to query these name servers for ‘www.contoso.com’.
+Les clients DNS des PC ou appareils mobiles appellent généralement un serveur DNS récursif pour effectuer les requêtes DNS dont les applications clientes ont besoin.
 
-This is called resolving the DNS name. Strictly speaking, DNS resolution includes additional steps such as following CNAMEs, but that’s not important to understanding how DNS delegation works.
+Lorsqu’un serveur DNS récursif reçoit une requête pour un enregistrement DNS tel que « www.contoso.com », il doit d’abord rechercher le serveur de noms qui héberge la zone pour le domaine « contoso.com ». Pour ce faire, il commence par les serveurs de noms racines, et à partir de là, il recherche les serveurs de noms hébergeant la zone « com ». Il interroge ensuite les serveurs de noms « com » pour trouver les serveurs de noms hébergeant la zone « contoso.com ». Enfin, il est en mesure de rechercher « www.contoso.com » parmi ces serveurs de noms.
 
-How does a parent zone ‘point’ to the name servers for a child zone? It does this using a special type of DNS record called an NS record (NS stands for ‘name server’). For example, the root zone contains NS records for 'com' and shows the name servers for the ‘com’ zone. In turn, the ‘com’ zone contains NS records for ‘contoso.com’, which shows the name servers for the ‘contoso.com’ zone. Setting up the NS records for a child zone in a parent zone is called delegating the domain.
+On parle dans ce cas de résolution de noms DNS. À strictement parler, la résolution DNS inclut toutefois des étapes supplémentaires, telles que le suivi des enregistrements CNAME, mais ce n’est pas important pour comprendre le fonctionnement de la délégation DNS.
+
+Comment une zone parente « pointe-t-elle » vers les serveurs de noms d’une zone enfant ? Elle utilise pour cela un type spécial d’enregistrement DNS appelé enregistrement NS (pour « serveur de noms »). Par exemple, la zone racine contient les enregistrements NS pour « com » et affiche les serveurs de noms pour la zone « com ». La zone « com », quant à elle, contient les enregistrements NS pour « contoso.com » et affiche les serveurs de noms pour la zone « contoso.com ». La configuration d’enregistrements NS pour une zone enfant dans une zone parente est appelée « délégation de domaine ».
 
 
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
-Each delegation actually has two copies of the NS records; one in the parent zone pointing to the child, and another in the child zone itself. The ‘contoso.com’ zone contains the NS records for ‘contoso.com’ (in addition to the NS records in ‘com’). These are called authoritative NS records and they sit at the apex of the child zone.
+Chaque délégation a en fait deux copies des enregistrements NS : une dans la zone parent qui pointe vers la zone enfant et l’autre dans la zone enfant elle-même. La zone « contoso.com » contient les enregistrements NS pour « contoso.com » (en plus des enregistrements NS dans « com »). Il s’agit d’enregistrements NS faisant autorité qui se trouvent au sommet de la zone enfant.
 
 
-## <a name="delegating-a-domain-to-azure-dns"></a>Delegating a domain to Azure DNS
+## Délégation d’un domaine à Azure DNS
 
-Once you create your DNS zone in Azure DNS, you need to set up NS records in the parent zone to make Azure DNS the authoritative source for name resolution for your zone. For domains purchased from a registrar, your registrar will offer the option to set up these NS records.
+Une fois que vous avez créé votre zone DNS dans Azure DNS, vous devez configurer les enregistrements NS de la zone parente pour qu’Azure DNS deviennent la source faisant autorité pour la résolution de noms pour votre zone. Pour les domaines achetés auprès d’un bureau d’enregistrement de domaines, ce dernier offre la possibilité de définir ces enregistrements NS.
 
->[AZURE.NOTE] You do not have to own a domain in order to create a DNS zone with that domain name in Azure DNS. However, you do need to own the domain to set up the delegation to Azure DNS with the registrar.
+>[AZURE.NOTE] Il est inutile de posséder un domaine pour créer une zone DNS avec ce domaine dans Azure DNS. Toutefois, vous avez besoin de posséder le domaine pour configurer la délégation à Azure DNS dans le bureau d’enregistrement de domaines.
 
-For example, suppose you purchase the domain ‘contoso.com’ and create a zone with the name ‘contoso.com’ in Azure DNS. As the owner of the domain, your registrar will offer you the option to configure the name server addresses (that is, the NS records) for your domain. The registrar will store these NS records in the parent domain, in this case ‘.com’. Clients around the world will then be directed to your domain in Azure DNS zone when trying to resolve DNS records in ‘contoso.com’.
+Par exemple, supposons que vous achetez le domaine « contoso.com » et que vous créez une zone avec le nom « contoso.com » dans Azure DNS. En tant que propriétaire du domaine, votre bureau d’enregistrement vous permet de configurer les adresses de serveur de noms (par exemple, les enregistrements NS) pour votre domaine. Le bureau d’enregistrement stocke ces enregistrements NS dans le domaine parent, dans ce cas « .com ». Les clients du monde entier sont ensuite redirigés vers votre domaine dans la zone Azure DNS lors de la tentative de résolution des enregistrements DNS dans « contoso.com ».
 
-### <a name="finding-the-name-server-names"></a>Finding the name server names
+### Recherche de noms de serveur de noms
 
-Before you can delegate your DNS zone to Azure DNS, you first need to know the name server names for your zone. Azure DNS allocates name servers from a pool each time a zone is created.
+Avant de pouvoir déléguer votre zone DNS à Azure DNS, vous devez d’abord connaître les noms de serveur de noms correspondant à votre zone. Azure DNS alloue des serveurs de noms à partir d’un pool chaque fois qu’une zone est créée.
 
-The easiest way to see the name servers assigned to your zone is via the Azure portal.  In this example, the zone ‘contoso.net’ has been assigned name servers ‘ns1-01.azure-dns.com’, ‘ns2-01.azure-dns.net’, ‘ns3-01.azure-dns.org’, and ‘ns4-01.azure-dns.info’:
+Le moyen le plus simple d’afficher les serveurs de noms attribués à votre zone consiste à utiliser le portail Azure. Dans cet exemple, la zone « contoso.net » a été attribuée aux serveurs de noms « ns1-01.azure-dns.com », « ns2-01.azure-dns.net », « ns3-01.azure-dns.org » et « ns4-01.azure-dns.info » :
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
-Azure DNS automatically creates authoritative NS records in your zone containing the assigned name servers.  To see the name server names via Azure PowerShell or Azure CLI, you simply need to retrieve these records.
+Azure DNS crée automatiquement des enregistrements NS faisant autorité dans une zone qui contient les serveurs de noms attribués. Pour afficher les noms de serveur de noms via Azure PowerShell ou l’interface de ligne de commande Azure, vous devez simplement récupérer ces enregistrements.
 
-Using Azure PowerShell, the authoritative NS records can be retrieved as follows. Note that the record name “@” is used to refer to records at the apex of the zone.
+À l’aide d’Azure PowerShell, les enregistrements NS faisant autorité peuvent être récupérés comme suit. Notez que le nom de l’enregistrement « @ » est utilisé pour faire référence à des enregistrements au sommet de la zone.
 
-    PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
-    PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
+	PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
-    Name              : @
-    ZoneName          : contoso.net
-    ResourceGroupName : MyResourceGroup
-    Ttl               : 3600
-    Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
-    RecordType        : NS
-    Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
+	Name              : @
+	ZoneName          : contoso.net
+	ResourceGroupName : MyResourceGroup
+	Ttl               : 3600
+	Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
+	RecordType        : NS
+	Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
                         ns4-01.azure-dns.info}
-    Tags              : {}
+	Tags              : {}
 
-You can also use the cross-platform Azure CLI to retrieve the authoritative NS records and hence discover the name servers assigned to your zone:
+Vous pouvez également utiliser cette interface de ligne de commande Azure multiplateforme pour récupérer les enregistrements NS faisant autorité et découvrir ainsi les serveurs de noms attribués à votre zone :
 
-    C:\> azure network dns record-set show MyResourceGroup contoso.net @ NS
-    info:    Executing command network dns record-set show
-        + Looking up the DNS Record Set "@" of type "NS"
-    data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
-    data:    Name                            : @
-    data:    Type                            : Microsoft.Network/dnszones/NS
-    data:    Location                        : global
-    data:    TTL                             : 172800
-    data:    NS records
-    data:        Name server domain name     : ns1-01.azure-dns.com.
-    data:        Name server domain name     : ns2-01.azure-dns.net.
-    data:        Name server domain name     : ns3-01.azure-dns.org.
-    data:        Name server domain name     : ns4-01.azure-dns.info.
-    data:
-    info:    network dns record-set show command OK
+	C:\> azure network dns record-set show MyResourceGroup contoso.net @ NS
+	info:    Executing command network dns record-set show
+		+ Looking up the DNS Record Set "@" of type "NS"
+	data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
+	data:    Name                            : @
+	data:    Type                            : Microsoft.Network/dnszones/NS
+	data:    Location                        : global
+	data:    TTL                             : 172800
+	data:    NS records
+	data:        Name server domain name     : ns1-01.azure-dns.com.
+	data:        Name server domain name     : ns2-01.azure-dns.net.
+	data:        Name server domain name     : ns3-01.azure-dns.org.
+	data:        Name server domain name     : ns4-01.azure-dns.info.
+	data:
+	info:    network dns record-set show command OK
 
-### <a name="to-set-up-delegation"></a>To set up delegation
+### Configuration de la délégation
 
-Each registrar has their own DNS management tools to change the name server records for a domain. In the registrar’s DNS management page, edit the NS records and replace the NS records with the ones Azure DNS created.
+Chaque bureau d’enregistrement a ses propres outils de gestion DNS pour modifier les enregistrements de serveur de noms pour un domaine. Dans la page de gestion du bureau d’enregistrement DNS, modifiez les enregistrements NS et remplacez-les par ceux créés par Azure DNS.
 
-When delegating a domain to Azure DNS, you must use the name server names provided by Azure DNS.  You should always use all 4 name server names, regardless of the name of your domain.  Domain delegation does not require the name server name to use the same top-level domain as your domain.
+Lors de la délégation d’un domaine à Azure DNS, vous devez utiliser les noms de serveur de noms fournis par Azure DNS. Vous devez toujours utiliser les 4 noms de serveur de noms, quel que soit le nom de votre domaine. La délégation de domaine ne requiert pas que le nom du serveur de noms utilise le même domaine de premier niveau que votre domaine.
 
-You should not use 'glue records' to point to the Azure DNS name server IP addresses, since these IP addresses may change in future. Delegations using name server names in your own zone, sometimes called 'vanity name servers', are not currently supported in Azure DNS.
+Vous ne devez pas utiliser d’enregistrements de type glue pour pointer vers les adresses IP de serveur de noms Azure DNS, car ces adresses IP peuvent changer ultérieurement. Les délégations utilisant les noms de serveurs de noms dans votre propre zone (parfois appelés « serveurs de noms de redirection vers un microsite ») ne sont actuellement pas prises en charge dans Azure DNS.
 
-### <a name="to-verify-name-resolution-is-working"></a>To verify name resolution is working
+### Comment vérifier que la résolution de noms fonctionne correctement
 
-After completing the delegation, you can verify that name resolution is working by using a tool such as ‘nslookup’ to query the SOA record for your zone (which is also automatically created when the zone is created).
+Une fois la délégation effectuée, vous pouvez vérifier que la résolution de noms fonctionne à l’aide d’un outil tel que « nslookup » pour interroger l’enregistrement SOA de votre zone (qui est créé automatiquement en même temps que la zone).
 
-Note that you do not have to specify the Azure DNS name servers, since the normal DNS resolution process will find the name servers automatically if the delegation has been set up correctly.
+Notez que vous n’avez pas à spécifier les serveurs de noms Azure DNS, dans la mesure où le processus de résolution DNS normal trouve les serveurs de noms automatiquement si la délégation a été correctement configurée.
 
-    nslookup –type=SOA contoso.com
+	nslookup –type=SOA contoso.com
 
-    Server: ns1-04.azure-dns.com
-    Address: 208.76.47.4
+	Server: ns1-04.azure-dns.com
+	Address: 208.76.47.4
 
-    contoso.com
-    primary name server = ns1-04.azure-dns.com
-    responsible mail addr = msnhst.microsoft.com
-    serial = 1
-    refresh = 900 (15 mins)
-    retry = 300 (5 mins)
-    expire = 604800 (7 days)
-    default TTL = 300 (5 mins)
+	contoso.com
+	primary name server = ns1-04.azure-dns.com
+	responsible mail addr = msnhst.microsoft.com
+	serial = 1
+	refresh = 900 (15 mins)
+	retry = 300 (5 mins)
+	expire = 604800 (7 days)
+	default TTL = 300 (5 mins)
 
-## <a name="delegating-sub-domains-in-azure-dns"></a>Delegating sub-domains in Azure DNS
+## Délégation de sous-domaines dans Azure DNS
 
-If you want to set up a separate child zone, you can delegate a sub-domain in Azure DNS. For example, having set up and delegated ‘contoso.com’ in Azure DNS, suppose you would like to set up a separate child zone, ‘partners.contoso.com’.
+Si vous souhaitez configurer une zone enfant distincte, vous pouvez déléguer un sous-domaine dans Azure DNS. Par exemple, vous avez configuré et délégué « contoso.com » dans Azure DNS. Supposez que vous voulez configurer une zone enfant distincte, « partners.contoso.com ».
 
-Setting up a sub-domain follows a similar process as a normal delegation. The only difference is that in step 3 the NS records must be created in the parent zone ‘contoso.com’ in Azure DNS, rather than being set up via a domain registrar.
-
-
-1. Create the child zone ‘partners.contoso.com’ in Azure DNS.
-2. Look up the authoritative NS records in the child zone to obtain the name servers hosting the child zone in Azure DNS.
-3. Delegate the child zone by configuring NS records in the parent zone pointing to the child zone.
+La configuration d’un sous-domaine suit un processus similaire à celui d’une délégation normale. La seule différence est qu'à l'étape 3, les enregistrements NS doivent être créés dans la zone parente « contoso.com » dans Azure DNS, au lieu d'être configurés via un bureau d'enregistrement de domaines.
 
 
-### <a name="to-delegate-a-sub-domain"></a>To delegate a sub-domain
-
-The following PowerShell example demonstrates how this works. The same steps can be executed via the Azure Portal, or via the cross-platform Azure CLI.
-
-#### <a name="step-1.-create-the-parent-and-child-zones"></a>Step 1. Create the parent and child zones
-
-First, we create the parent and child zones. These can be in same resource group or different resource groups.
-
-    $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
-    $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
-
-#### <a name="step-2.-retrieve-ns-records"></a>Step 2. Retrieve NS records
-
-Next, we retrieve the authoritative NS records from child zone as shown in the next example.  This contains the name servers assigned to the child zone.
-
-    $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
-
-#### <a name="step-3.-delegate-the-child-zone"></a>Step 3. Delegate the child zone
-
-Create corresponding NS record set in the parent zone to complete the delegation. Note that the record set name in the parent zone matches the child zone name, in this case "partners".
-
-    $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-    $parent_ns_recordset.Records = $child_ns_recordset.Records
-    Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
-
-### <a name="to-verify-name-resolution-is-working"></a>To verify name resolution is working
-
-You can verify that everything is set up correctly by looking up the SOA record of the child zone.
-
-    nslookup –type=SOA partners.contoso.com
-
-    Server: ns1-08.azure-dns.com
-    Address: 208.76.47.8
-
-    partners.contoso.com
-        primary name server = ns1-08.azure-dns.com
-        responsible mail addr = msnhst.microsoft.com
-        serial = 1
-        refresh = 900 (15 mins)
-        retry = 300 (5 mins)
-        expire = 604800 (7 days)
-        default TTL = 300 (5 mins)
-
-## <a name="next-steps"></a>Next steps
-
-[Manage DNS zones](dns-operations-dnszones.md)
-
-[Manage DNS records](dns-operations-recordsets.md)
+1. Créez la zone enfant « partners.contoso.com » dans Azure DNS.
+2. Recherchez les enregistrements NS faisant autorité dans la zone enfant pour obtenir les serveurs de noms qui hébergent la zone enfant dans Azure DNS.
+3. Déléguez la zone enfant en configurant les enregistrements NS de la zone parent pour qu'ils pointent vers la zone enfant.
 
 
+### Délégation d’un sous-domaine
 
+L’exemple PowerShell suivant illustre cette procédure. Vous pouvez exécuter les mêmes étapes à l’aide du portail Azure ou de l’interface de ligne de commande interplateforme.
 
-<!--HONumber=Oct16_HO2-->
+#### Étape 1. Création des zones parent et enfant
 
+Commencez par créer les zones parent et enfant. Ces zones peuvent se trouver dans le même groupe de ressources ou dans des groupes de ressources différents.
 
+	$parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
+	$child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+
+#### Étape 2. Récupération des enregistrements NS
+
+Ensuite, nous récupérons les enregistrements NS faisant autorité dans la zone enfant, comme indiqué dans le prochain exemple. Ces enregistrements contiennent les serveurs de noms attribués à la zone enfant.
+
+	$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
+
+#### Étape 3. Délégation de la zone enfant
+
+Créez un jeu d’enregistrements NS correspondant dans la zone parent pour effectuer la délégation. Notez que le nom du jeu d’enregistrements se trouvant dans la zone parent correspond au nom de la zone enfant (dans ce cas « partenaires »).
+
+	$parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	$parent_ns_recordset.Records = $child_ns_recordset.Records
+	Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
+
+### Comment vérifier que la résolution de noms fonctionne correctement
+
+Vous pouvez vérifier que tout est correctement configuré en recherchant l’enregistrement SOA de la zone enfant.
+
+	nslookup –type=SOA partners.contoso.com
+
+	Server: ns1-08.azure-dns.com
+	Address: 208.76.47.8
+
+	partners.contoso.com
+		primary name server = ns1-08.azure-dns.com
+		responsible mail addr = msnhst.microsoft.com
+		serial = 1
+		refresh = 900 (15 mins)
+		retry = 300 (5 mins)
+		expire = 604800 (7 days)
+		default TTL = 300 (5 mins)
+
+## Étapes suivantes
+
+[Gestion des zones DNS](dns-operations-dnszones.md)
+
+[Gestion des enregistrements DNS](dns-operations-recordsets.md)
+
+<!---HONumber=AcomDC_1005_2016-->

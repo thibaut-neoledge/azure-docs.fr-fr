@@ -1,101 +1,96 @@
 <properties 
-    pageTitle="Playback your content  | Microsoft Azure" 
-    description="This topic lists existing players that you can use to playback your content." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Lecture du contenu | Microsoft Azure" 
+	description="Cette rubrique répertorie les lecteurs existants que vous pouvez utiliser pour lire votre contenu." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/12/2016" 
-    ms.author="juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/19/2016" 
+	ms.author="juliako"/>
 
 
+#Lecture de votre contenu à l’aide des lecteurs existants
 
-#<a name="playing-your-content-with-existing-players"></a>Playing your content with existing players
+Azure Media Services prend en charge de nombreux formats de diffusion en continu populaires, tels que la diffusion en continu lisse, la diffusion en continu HTTP et MPEG-Dash. Cette rubrique vous oriente vers les lecteurs existants que vous pouvez utiliser pour tester votre flux de données.
 
-Azure Media Services supports many popular streaming formats, such as Smooth Streaming, HTTP Live Streaming, and MPEG-Dash. This topic points you to existing players that you can use to test your streams.
+>[AZURE.NOTE]Pour lire du contenu empaqueté ou chiffré dynamiquement, veillez à obtenir au moins une unité de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de remettre votre contenu. Pour plus d’informations sur la mise à l’échelle des unités de diffusion en continu, voir : [Mise à l’échelle des unités de diffusion en continu](media-services-portal-manage-streaming-endpoints.md).
 
->[AZURE.NOTE]To play dynamically packaged or dynamically encrypted content, make sure to get at least one streaming unit for the streaming endpoint from which you plan to deliver your content. For information about scaling streaming units, see: [How to scale streaming units](media-services-portal-manage-streaming-endpoints.md).
+###Lecteur de contenu Media Services sur le portail Azure Classic
 
-### <a name="the-azure-portal-media-services-content-player"></a>The Azure portal Media Services content player
+Le **portail Azure** propose un lecteur de contenu que vous pouvez utiliser pour tester votre vidéo.
 
-The **Azure** portal provides a content player that you can use to test your video.
+Cliquez sur la vidéo de votre choix (assurez-vous qu’elle a été [publiée](media-services-portal-publish.md)), puis sur le bouton **Lire** situé en bas du portail.
 
-Click on the desired video (make sure it was [published](media-services-portal-publish.md)) and click the **Play** button at the bottom of the portal.
+Certaines considérations s’appliquent :
 
-Some considerations apply:
-
-- The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+- Le **lecteur de contenu de Media Services** assure la lecture depuis le point de terminaison de diffusion en continu par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de diffusion en continu que celui par défaut, utilisez un autre lecteur, Par exemple, le [Lecteur multimédia Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 
 ![AMSPlayer][AMSPlayer]
 
-###<a name="azure-media-player"></a>Azure Media Player
+###Azure Media Player
 
-Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) to playback your content (clear or protected) in any of the following formats:
+Utilisez le [Lecteur multimédia Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) pour lire votre contenu (protégé ou non) dans l'un des formats suivants :
 
 - Smooth Streaming
 - MPEG DASH
 - HLS
-- Progressive MP4
+- MP4 progressif
 
 
-###<a name="flash-player"></a>Flash Player
+###Flash Player
 
-####<a name="aes-encrypted-with-token"></a>AES-encrypted with Token
+####Chiffrement AES avec jeton
 
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
-###<a name="silverlight-players"></a>Silverlight Players
+###Lecteurs Silverlight
 
-####<a name="monitoring"></a>Monitoring
+####Analyse
 
 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
-####<a name="playready-with-token"></a>PlayReady with Token
+####PlayReady avec jeton
 
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
 
-### <a name="dash-players"></a>DASH Players
+### Lecteurs DASH
 
 [http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
 
 [http://dashif.org](http://dashif.org)
 
-###<a name="other"></a>Other
+###Autres
 
-To test HLS URLs you can also use:
+Pour tester les URL HLS, vous pouvez également utiliser :
 
-- **Safari** on an iOS device or
-- **3ivx HLS Player** on Windows.
+- **Safari** sur un appareil iOS ou
+- **3ivx HLS Player** sous Windows.
 
-##<a name="developing-video-players"></a>Developing video players
+##Développement de lecteurs vidéo
 
-For information about how to develop your own players, see [Developing video players](media-services-develop-video-players.md)
-
-
+Pour plus d’informations sur le développement de vos propres lecteurs, consultez la page [Développement de lecteurs vidéo](media-services-develop-video-players.md)
 
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+
+
+##Parcours d’apprentissage de Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Fournir des commentaires
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

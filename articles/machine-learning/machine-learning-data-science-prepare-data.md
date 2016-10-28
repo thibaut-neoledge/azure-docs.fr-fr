@@ -1,117 +1,112 @@
 <properties
-    pageTitle="Tasks to prepare data for enhanced machine learning | Microsoft Azure"
-    description="Pre-process and clean data to prepare it for machine learning."
-    services="machine-learning"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun" />
+	pageTitle="Tâches de préparation des données pour l'apprentissage automatique amélioré | Microsoft Azure"
+	description="Prétraitez et nettoyez les données afin de les préparer pour l'apprentissage automatique."
+	services="machine-learning"
+	documentationCenter=""
+	authors="bradsev"
+	manager="jhubbard"
+	editor="cgronlun" />
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016" 
-    ms.author="bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/19/2016" 
+	ms.author="bradsev" />
 
 
+# Tâches de préparation des données pour l'apprentissage automatique amélioré
 
-# <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tasks to prepare data for enhanced machine learning
+Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Ces tâches font partie du processus TDSP (Team Data Science Process) et suivent généralement l'exploration initiale d'un jeu de données utilisé pour découvrir et planifier le traitement préliminaire requis. Pour plus d'instructions sur le processus TDSP, consultez les étapes décrites dans le [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Team Data Science Process (TDSP) and typically follow an initial exploration of a dataset used to discover and plan the pre-processing required. For more detailed instructions on the TDSP process, see the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Les tâches de traitement préalable et de nettoyage, comme la tâche d'exploration de données, peuvent être exécutées dans une grande variété d'environnements, tels que SQL ou Hive ou Azure Machine Learning Studio et avec différents outils et langages, tels que R ou Python, en fonction de l'emplacement de stockage de vos données et leur mise en forme. Étant donné que le processus TDSP est itératif par nature, ces tâches peuvent avoir lieu à diverses étapes du flux de travail du processus.
 
-Pre-processing and cleaning tasks, like the data exploration task, can be carried out in a wide variety of environments, such as SQL or Hive or Azure Machine Learning Studio, and with various tools and languages, such as R or Python, depending where your data is stored and how it is formatted. Since TDSP is iterative in nature, these tasks can take place at various steps in the  workflow of the process.
+Cet article présente différents concepts et tâches de prétraitement des données, à effectuer avant ou après l'intégration de ces données dans Azure Machine Learning.
 
-This article introduces various data processing concepts and tasks that can be undertaken either before or after ingesting data into Azure Machine Learning.
-
-For an example of data exploration and pre-processing done inside Azure Machine Learning studio, see the [Pre-processing data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
-
-
-## <a name="why-pre-process-and-clean-data?"></a>Why pre-process and clean data?
-
-Real world data is gathered from various sources and processes and it may contain irregularities or corrupt data compromising the quality of the dataset. The typical data quality issues that arise are:
-
-* **Incomplete**: Data lacks attributes or containing missing values.
-* **Noisy**: Data contains erroneous records or outliers.
-* **Inconsistent**: Data contains conflicting records or discrepancies.
-
-Quality data is a prerequisite for quality predictive models. To avoid "garbage in, garbage out" and improve data quality and therefore model performance, it is imperative to conduct a data health screen to spot data issues early and decide on the corresponding data processing and cleaning steps.
-
-## <a name="what-are-some-typical-data-health-screens-that-are-employed?"></a>What are some typical data health screens that are employed?
-
-We can check the general quality of data by checking:
-
-* The number of **records**.
-* The number of **attributes** (or **features**).
-* The attribute **data types** (nominal, ordinal, or continuous).
-* The number of **missing values**.
-* **Well-formedness** of the data.
-    * If the data is in TSV or CSV, check that the column separators and line separators always correctly separate columns and lines.
-    * If the data is in HTML or XML format, check whether the data is well formed based on their respective standards.
-    * Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.
-* **Inconsistent data records**. Check the range of values are allowed. e.g. If the data contains student GPA, check if the GPA is in the designated range, say 0~4.
-
-When you find issues with data, **processing steps** are necessary which often involves cleaning missing values, data normalization, discretization, text processing to remove and/or replace embedded characters which may affect data alignment, mixed data types in common fields, and others.
-
-**Azure Machine Learning consumes well-formed tabular data**.  If the data is already in tabular form, data pre-processing can be performed directly with Azure Machine Learning in the Machine Learning Studio.  If data is not in tabular form, say it is in XML, parsing may be required in order to convert the data to tabular form.  
-
-## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing?"></a>What are some of the major tasks in data pre-processing?
-
-* **Data cleaning**:  Fill in or missing values, detect and remove noisy data and outliers.
-* **Data transformation**:  Normalize data to reduce dimensions and noise.
-* **Data reduction**:  Sample data records or attributes for easier data handling.
-* **Data discretization**:  Convert continuous attributes to categorical attributes for ease of use with certain machine learning methods.
-* **Text cleaning**: remove embedded characters which may cause data misalignment, for e.g., embedded tabs in a tab-separated data file, embedded new lines which may break records, etc.
-
-The sections below detail some of these data processing steps.
-
-## <a name="how-to-deal-with-missing-values?"></a>How to deal with missing values?
-
-To deal with missing values, it is best to first identify the reason for the missing values to better handle the problem. Typical missing value handling methods are:
-
-* **Deletion**: Remove records with missing values
-* **Dummy substitution**: Replace missing values with a dummy value: e.g, _unknown_ for categorical or 0 for numerical values.
-* **Mean substitution**: If the missing data is numerical, replace the missing values with the mean.
-* **Frequent substitution**: If the missing data is categorical, replace the missing values with the most frequent item
-* **Regression substitution**: Use a regression method to replace missing values with regressed values.  
-
-## <a name="how-to-normalize-data?"></a>How to normalize data?
-
-Data normalization re-scales numerical values to a specified range. Popular data normalization methods include:
-
-* **Min-Max Normalization**: Linearly transform the data to a range, say between 0 and 1, where the min value is scaled to 0 and max value to 1.
-* **Z-score Normalization**: Scale data based on mean and standard deviation: divide the difference between the data and the mean by the standard deviation.
-* **Decimal scaling**: Scale the data by moving the decimal point of the attribute value.  
-
-## <a name="how-to-discretize-data?"></a>How to discretize data?
-
-Data can be discretized by converting continuous values to nominal attributes or intervals. Some ways of doing this are:
-
-* **Equal-Width Binning**: Divide the range of all possible values of an attribute into N groups of the same size, and assign the values that fall in a bin with the bin number.
-* **Equal-Height Binning**: Divide the range of all possible values of an attribute into N groups, each containing the same number of instances, then assign the values that fall in a bin with the bin number.  
-
-## <a name="how-to-reduce-data?"></a>How to reduce data?
-
-There are various methods to reduce data size for easier data handling. Depending on data size and the domain, the following methods can be applied:
-
-* **Record Sampling**: Sample the data records and only choose the representative subset from the data.
-* **Attribute Sampling**: Select only a subset of the most important attributes from the data.  
-* **Aggregation**: Divide the data into groups and store the numbers for each group. For example, the daily revenue numbers of a restaurant chain over the past 20 years can be aggregated to monthly revenue to reduce the size of the data.  
-
-## <a name="how-to-clean-text-data?"></a>How to clean text data?
-
-**Text fields in tabular data** may include characters which affect columns alignment and/or record boundaries. For e.g., embedded tabs in a tab-separated file cause column misalignment, and embedded new line characters break record lines. Improper text encoding handling while writing/reading text leads to information loss, inadvertent introduction of unreadable characters, e.g., nulls, and may also affect text parsing. Careful parsing and editing may be required in order to clean text fields for proper alignment and/or to extract structured data from unstructured or semi-structured text data.
-
-**Data exploration** offers an early view into the data. A number of data issues can be uncovered during this step and  corresponding methods can be applied to address those issues.  It is important to ask questions such as what is the source of the issue and how the issue may have been introduced. This also helps you decide on the data processing steps that need to be taken to resolve them. The kind of insights one intends to derive from the data can also be used to prioritize the data processing effort.
-
-## <a name="references"></a>References
-
->*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
+Pour obtenir un exemple d'exploration de données et de prétraitement effectués dans Azure Machine Learning Studio, consultez la vidéo [Prétraitement des données dans Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 
+## Pourquoi prétraiter et nettoyer les données ?
 
-<!--HONumber=Oct16_HO2-->
+Dans le monde réel, les données proviennent de plusieurs sources et processus. Elles peuvent contenir des anomalies ou des valeurs incorrectes qui compromettent la qualité du jeu de données. Les problèmes de qualité les plus fréquents sont les suivants :
 
+* **Caractère incomplet :** des valeurs ou des attributs sont manquants.
+* **Bruit :** les données contiennent des enregistrements erronés ou des aberrations.
+* **Incohérence :** les données contiennent des enregistrements en conflit ou des contradictions.
 
+La qualité des données est essentielle pour obtenir des modèles prédictifs performants. Pour éviter de traiter des données erronées et améliorer la performance du modèle, il faut impérativement analyser les données, détecter les anomalies le plus tôt possible et déterminer les étapes de prétraitement et de nettoyage appropriées.
+
+## Quels sont les critères d’intégrité des données généralement employés ?
+
+Il est possible d’évaluer la qualité globale des données en vérifiant les éléments suivants :
+
+* Le nombre d'**enregistrements**.
+* Le nombre d'**attributs** (ou de **fonctionnalités**).
+* Le **type de données** des attributs (nominal, ordinal ou continu).
+* Le nombre de **valeurs manquantes**.
+* La **qualité de formation** des données.
+	* Si les données sont au format TSV ou CSV, vérifiez que les séparateurs de colonne et de ligne séparent correctement et systématiquement les colonnes et les lignes.
+	* Si les données sont au format HTML ou XML, vérifiez qu'elles sont conformes à leur standard respectif.
+	* Une analyse peut également se révéler nécessaire pour obtenir des informations structurées à partir de données non ou semi-structurées.
+* **Enregistrements de données incohérents**. Vérifiez la plage des valeurs autorisées. Par exemple, si les données sont des notes moyennes d'étudiant, vérifiez qu'elles sont comprises dans la fourchette correcte.
+
+Lorsque vous détectez des problèmes dans les données, des **étapes de traitement** s'imposent : nettoyage des valeurs manquantes, normalisation des données, discrétisation, traitement de texte pour supprimer et/ou remplacer des caractères susceptibles de perturber l'alignement des données, types de données mixtes dans les champs communs, etc.
+
+**Azure Machine Learning n'exploite que les données tabulaires bien formées**. Si les données sont déjà au format tabulaire, Azure Machine Learning peut les prétraiter directement dans Machine Learning Studio. Si elles ne sont pas au format tabulaire, comme le format XML, une analyse peut être nécessaire pour les convertir.
+
+## Quelles sont les principales opérations effectuées lors du prétraitement des données ?
+
+* **Nettoyage des données :** compléter les valeurs manquantes, détecter et supprimer les données bruyantes et les aberrations.
+* **Transformation des données :** normaliser les données pour réduire le volume et le bruit.
+* **Réduction des données :** échantillonner les enregistrements de données ou les attributs pour faciliter la manipulation des données.
+* **Discrétisation des données :** convertir des attributs continus en attributs catégoriels pour simplifier l’exploitation des données dans certains outils d’apprentissage automatique.
+* **Nettoyage du texte :** supprimer les caractères intégrés pouvant perturber l’alignement des données (comme les tabulations dans un fichier TSV), les nouvelles lignes qui peuvent interrompre des enregistrements, etc.
+
+Les sections suivantes décrivent certaines de ces étapes de traitement des données.
+
+## Comment gérer les valeurs manquantes ?
+
+Si vous avez des valeurs manquantes, la première chose à faire est d’en identifier l’origine. Les méthodes les plus courantes de traitement des valeurs manquantes sont les suivantes :
+
+* **Suppression :** supprimer les enregistrements ayant des valeurs manquantes.
+* **Remplacement par une valeur factice :** remplacer des valeurs manquantes par une valeur factice : par exemple, _inconnu_ pour les valeurs catégorielles ou 0 pour les valeurs numériques.
+* **Remplacement par la moyenne :** si les données manquantes sont numériques, remplacez-les par la valeur moyenne.
+* **Remplacement par l’élément le plus fréquent :** si les données manquantes sont catégorielles, remplacer les valeurs manquantes par l’élément le plus fréquent.
+* **Remplacement par la valeur de régression :** remplacer les valeurs manquantes par des valeurs de régression.
+
+## Comment normaliser les données ?
+
+La normalisation des données restreint les valeurs numériques à une plage spécifiée. Les méthodes de normalisation les plus courantes sont les suivantes :
+
+* **Normalisation min-max** : adapter linéairement les données à une plage comprise, par exemple, entre 0 et 1. La valeur minimale est 0 et la valeur maximale est 1.
+* **Normalisation par le test Z** : mettre les données à l’échelle en fonction de la moyenne et de l’écart standard : diviser la différence entre les données et la moyenne par l’écart standard.
+* **Mise à l'échelle décimale** : mettre les données à l’échelle en déplaçant le séparateur décimal de la valeur de l’attribut.
+
+## Comment discrétiser les données ?
+
+Pour discrétiser les données, il faut convertir les valeurs continues en attributs ou intervalles nominaux. Plusieurs méthodes permettent d’effectuer cette opération :
+
+* **Compartimentage à largeur identique** : diviser la plage de toutes les valeurs possibles d’un attribut en N groupes de même taille et attribuer aux valeurs le numéro de compartiment qui leur correspond.
+* **Compartimentage à hauteur identique :** diviser la plage de toutes les valeurs possibles d’un attribut en N groupes contenant le même nombre d’instances, puis attribuer à aux valeurs le numéro de compartiment qui leur correspond.
+
+## Comment réduire les données ?
+
+Plusieurs méthodes permettent de réduire la taille des données pour en faciliter la manipulation. Selon la taille et le domaine, les méthodes applicables sont les suivantes :
+
+* **Échantillonnage des enregistrements** : échantillonner les enregistrements de données et ne choisir que le sous-ensemble représentatif.
+* **Échantillonnage des attributs** : ne sélectionner que les attributs importants dans les données.
+* **Agrégation **: diviser les données en groupes et stocker les nombres de chaque groupe. Par exemple, le chiffre d’affaires quotidien d’une chaîne de restaurants sur les 20 dernières années peut être agrégé en un chiffre d’affaires mensuel pour réduire la taille des données.
+
+## Comment nettoyer les données textuelles ?
+
+**Les champs de texte au format tabulaire** peuvent contenir des caractères qui perturbent l’alignement des données et/ou les limites des enregistrements. Par exemple, des tabulations intégrées dans un fichier TSV peuvent décaler les colonnes, et des caractères de nouvelle ligne peuvent déstructurer des enregistrements. Une manipulation inappropriée de l’encodage pendant l’écriture ou la lecture de texte provoque une perte d’informations ou l’ajout intempestif de caractères illisibles, pouvant empêcher une analyse correcte du texte. Soyez prudent lorsque vous analysez et modifiez des champs de texte pour corriger l’alignement et/ou extraire des données structurées de données non ou semi-structurées.
+
+**L’exploration des données** permet d’obtenir une vue sur l’état des données. Plusieurs problèmes peuvent être détectés pendant cette étape et les méthodes de correction correspondantes, appliquées. Il est important de s’interroger sur l’origine du problème et la manière dont il a été introduit dans les données. Cela permet de déterminer les étapes de traitement à effectuer pour résoudre ces problèmes. Les conclusions que l’on peut tirer de l’analyse des données permettent également de hiérarchiser le travail de traitement des données.
+
+## Références
+
+>*Data Mining : Concepts et Techniques*, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei
+
+<!---HONumber=AcomDC_0921_2016-->

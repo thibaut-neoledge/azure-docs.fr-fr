@@ -1,50 +1,45 @@
 <properties
-    pageTitle="Azure Mobile Engagement iOS SDK Content"
-    description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="MehrdadMzfr"
-    manager="dwrede"
-    editor="" />
+	pageTitle="Contenu du Kit de développement logiciel (SDK) Azure Mobile Engagement pour iOS"
+	description="Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-ios"
-    ms.devlang="objective-c"
-    ms.topic="article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />
 
+#Contenu du Kit de développement logiciel (SDK)
 
-#<a name="sdk-content"></a>SDK Content
+Ce document répertorie et décrit le contenu de l'archive du SDK.
 
-This document lists and describes the content of the SDK archive.
-
-##<a name="engagement-sdk"></a>Engagement SDK
+##Kit de développement logiciel (SDK) Engagement
 
 `EngagementSDK`
 
-> The core Engagement SDK containing headers, library and an additional class provided as a source code to enable/disable IDFA collection.
+> Le Kit de développement logiciel (SDK) Engagement principal contenant les en-têtes, la bibliothèque et une classe supplémentaire fournis sous forme de code source afin d'activer ou de désactiver la collection IDFA.
 
-##<a name="engagement-reach-sdk"></a>Engagement Reach SDK
+##Kit de développement logiciel (SDK) Engagement Reach
 
 `EngagementReach`
 
-> Engagement Reach SDK containing headers, library and associated resources.
+> Le Kit de développement logiciel Engagement Reach contenant les en-têtes, la bibliothèque et des ressources associées.
 
-##<a name="additional-files"></a>Additional files
+##Fichiers supplémentaires
 
-`doc/index.html` (in `doc` folder)
+`doc/index.html` (dans le dossier `doc`)
 
-> Engagement SDK and Reach SDK Objective-C documentation.
+> Documentation Objective-C du Kit de développement logiciel (SDK) Engagement et du Kit de développement logiciel (SDK) Reach.
 
-`src` folder
+Dossier `src`
 
-> Engagement view controllers and Reach SDK's source code (for power users who want to adapt Engagement classes to their needs).
+> Contrôleurs d'affichage Engagement et code source du Kit de développement logiciel (SDK) Reach (pour les utilisateurs avec pouvoir qui veulent adapter les classes Engagement à leurs besoins).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Chaos and failover tests | Microsoft Azure"
-   description="Using the Service Fabric chaos test and failover test scenarios to induce faults and verify the reliability of your services."
+   pageTitle="Tests chaos et de basculement | Microsoft Azure"
+   description="Utilisation des scénarios de test chaos et de test de basculement Service Fabric pour induire des erreurs et vérifier la fiabilité de vos services."
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
@@ -16,40 +16,39 @@
    ms.date="07/08/2016"
    ms.author="motanv"/>
 
+# Scénarios de testabilité
+Les grands systèmes distribués, comme les infrastructures cloud, sont par définition peu fiables. Grâce à Azure Service Fabric, les développeurs sont en mesure d’écrire des services s’exécutant sur ces infrastructures. Pour écrire des services de haute qualité, les développeurs doivent pouvoir introduire de tels défauts de fiabilité, et ainsi tester la fiabilité des solutions qu’ils conçoivent.
 
-# <a name="testability-scenarios"></a>Testability scenarios
-Large distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric gives developers the ability to write services to run on top of unreliable infrastructures. In order to write high-quality services, developers need to be able to induce such unreliable infrastructure to test the stability of their services.
+Le service d’analyse des erreurs permet aux développeurs de provoquer des actions erronées afin de tester les services en présence de défaillances. Toutefois, les erreurs simulées ciblées présentent une efficacité limitée. Grâce aux scénarios de test prédéfinis de Service Fabric, vous pouvez réaliser un test de chaos et un test de basculement. Au sein du cluster, ces scénarios simulent des erreurs entrelacées en continu, avec et sans perte de données, sur des périodes prolongées. Une fois qu’un test est configuré avec la fréquence et le type des erreurs, il peut être démarré à l’aide des API C# ou de PowerShell pour générer des erreurs au sein du cluster et de votre service.
 
-The Fault Analysis Service gives developers the ability to induce fault actions to test services in the presence of failures. However, targeted simulated faults will get you only so far. To take the testing further, you can use the test scenarios in Service Fabric: a chaos test and a failover test. These scenarios simulate continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once a test is configured with the rate and kind of faults, it can be started through either C# APIs or PowerShell, to generate faults in the cluster and your service.
+>[AZURE.WARNING] ChaosTestScenario est remplacé par un chaos plus robuste, basé sur le service. Pour plus d’informations, consultez le nouvel article [Chaos contrôlé](service-fabric-controlled-chaos.md).
 
->[AZURE.WARNING] ChaosTestScenario is being replaced by a more resilient, service-based Chaos. Please refer to the new article [Controlled Chaos](service-fabric-controlled-chaos.md) for more details.
+## Test chaos
+Le scénario chaos génère des erreurs dans l’ensemble du cluster Service Fabric. Le scénario compresse les erreurs habituellement étalées sur plusieurs mois voire années en quelques heures. L’utilisation d’erreurs entrelacées avec un taux élevé d’erreurs permet d’identifier des dysfonctionnements qui n’auraient pu être isolés autrement. Il en résulte une amélioration significative de la qualité du code du service.
 
-## <a name="chaos-test"></a>Chaos test
-The chaos scenario generates faults across the entire Service Fabric cluster. The scenario compresses faults generally seen in months or years to a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. This leads to a significant improvement in the code quality of the service.
+### Erreurs simulées dans le test chaos
+ - Redémarrer un nœud
+ - Redémarrer un package de code déployé
+ - Supprimer un réplica
+ - Redémarrer un réplica
+ - Déplacer un réplica principal (principal)
+ - Déplacer un réplica secondaire (facultatif)
 
-### <a name="faults-simulated-in-the-chaos-test"></a>Faults simulated in the chaos test
- - Restart a node
- - Restart a deployed code package
- - Remove a replica
- - Restart a replica
- - Move a primary replica (optional)
- - Move a secondary replica (optional)
+Le test chaos exécute de multiples itérations des validations de cluster et des erreurs pendant la période considérée. Les délais de stabilisation du cluster et de validation sont également configurables. Le scénario échoue à la première défaillance d’une validation de cluster.
 
-The chaos test runs multiple iterations of faults and cluster validations for the specified period of time. The time spent for the cluster to stabilize and for validation to succeed is also configurable. The scenario fails when you hit a single failure in cluster validation.
+Par exemple, supposons qu’un test soit défini pour s’exécuter une heure, avec un maximum de trois erreurs simultanées. Le test introduira trois erreurs, puis validera l’intégrité du cluster. Le test itérera l’étape précédente jusqu’à ce que le cluster présente un défaut d’intégrité ou après une heure. Si le cluster présente un défaut d’intégrité dans une des itérations, auquel cas il n’est pas stabilisé dans le délai configuré, le test échoue avec une exception. Cette exception indique qu’une erreur est survenue et qu’un examen approfondi est nécessaire.
 
-For example, consider a test set to run for one hour with a maximum of three concurrent faults. The test will induce three faults, and then validate the cluster health. The test will iterate through the previous step till the cluster becomes unhealthy or one hour passes. If the cluster becomes unhealthy in any iteration, i.e. it does not stabilize within a configured time, the test will fail with an exception. This exception indicates that something has gone wrong and needs further investigation.
+Dans sa forme actuelle, le moteur de génération d’erreurs du test chaos introduit uniquement des erreurs non critiques. Cela signifie qu’en l’absence d’erreurs externes, aucune perte de données ni de quorum ne survient.
 
-In its current form, the fault generation engine in the chaos test induces only safe faults. This means that in the absence of external faults, a quorum or data loss will never occur.
+### Options de configuration importantes
+ - **TimeToRun** : durée totale du test jusqu’à sa réussite. Si la validation échoue, le test se termine plus tôt.
+ - **MaxClusterStabilizationTimeout** : délai maximal nécessaire à la restauration de l’intégrité du cluster, préalablement à l’échec du test. Les contrôles consistent à vérifier que l’intégrité du cluster est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
+ - **MaxConcurrentFaults** : nombre maximal d’erreurs introduites simultanément dans chaque itération. Plus le nombre est élevé, plus le test est efficace. Vous obtiendrez des combinaisons plus complexes de basculement et de transition. Le test garantit qu’aucune perte de quorum ou de données ne sera à déplorer en l’absence d’erreurs externes, quel que soit le niveau de la configuration.
+ - **EnableMoveReplicaFaults** : active ou désactive les erreurs provoquant le déplacement des réplicas primaires ou secondaires. Ces erreurs sont désactivées par défaut.
+ - **WaitTimeBetweenIterations** : délai d’attente entre les itérations, c’est-à-dire après une séquence d’erreurs et la validation correspondante.
 
-### <a name="important-configuration-options"></a>Important configuration options
- - **TimeToRun**: Total time that the test will run before finishing with success. The test can finish earlier in lieu of a validation failure.
- - **MaxClusterStabilizationTimeout**: Maximum amount of time to wait for the cluster to become healthy before failing the test. The checks performed are whether cluster health is OK, service health is OK, the target replica set size is achieved for the service partition, and no InBuild replicas exist.
- - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number, the more aggressive the test, hence resulting in more complex failovers and transition combinations. The test guarantees that in absence of external faults there will not be a quorum or data loss, irrespective of how high this configuration is.
- - **EnableMoveReplicaFaults**: Enables or disables the faults that are causing the move of the primary or secondary replicas. These faults are disabled by default.
- - **WaitTimeBetweenIterations**: Amount of time to wait between iterations, i.e. after a round of faults and corresponding validation.
-
-### <a name="how-to-run-the-chaos-test"></a>How to run the chaos test
-C# sample
+### Procédure d’exécution du test chaos
+Exemple de code C#
 
 ```csharp
 using System;
@@ -139,27 +138,27 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 ```
 
 
-## <a name="failover-test"></a>Failover test
+## Test de basculement
 
-The failover test scenario is a version of the chaos test scenario that targets a specific service partition. It tests the effect of failover on a specific service partition while leaving the other services unaffected. Once it's configured with the target partition information and other parameters, it runs as a client-side tool that uses either C# APIs or PowerShell to generate faults for a service partition. The scenario iterates through a sequence of simulated faults and service validation while your business logic runs on the side to provide a workload. A failure in service validation indicates an issue that needs further investigation.
+Le scénario de test de basculement est une version du test chaos qui cible une partition de service spécifique. Il évalue l’effet du basculement sur une partition spécifique de service, sans affecter les autres services. Une fois configuré avec les informations de partition cible et d’autres paramètres, il s’exécute en tant qu’outil côté client à l’aide des API C# ou de PowerShell pour générer des erreurs associées à une partition de service. Le scénario effectue une itération dans une séquence d’erreurs simulées et de validation de service, tandis que votre logique métier s’exécute sur le côté pour fournir une charge de travail. Un échec de validation de service indique une erreur nécessitant un examen approfondi.
 
-### <a name="faults-simulated-in-the-failover-test"></a>Faults simulated in the failover test
-- Restart a deployed code package where the partition is hosted
-- Remove a primary/secondary replica or stateless instance
-- Restart a primary secondary replica (if a persisted service)
-- Move a primary replica
-- Move a secondary replica
-- Restart the partition
+### Erreurs simulées dans le test de basculement
+- Redémarrez un package de code déployé à l’emplacement d’hébergement de la partition
+- Supprimez une instance sans état ou un réplica principal/secondaire
+- Redémarrez un réplica principal/secondaire (en cas de service persistant)
+- Déplacez un réplica principal
+- Déplacez un réplica secondaire
+- Redémarrez la partition
 
-The failover test induces a chosen fault and then runs validation on the service to ensure its stability. The failover test induces only one fault at a time, as opposed to possible multiple faults in the chaos test. If the service partition does not stabilize within the configured timeout after each fault, the test fails. The test induces only safe faults. This means that in absence of external failures, a quorum or data loss will not occur.
+Le test de basculement introduit une erreur déterminée, avant d’exécuter une validation du service afin d’évaluer sa stabilité. Le test de basculement incorpore une erreur à la fois, contrairement au test chaos, qui en introduit plusieurs simultanément. Si la partition ne se stabilise pas dans le délai configuré après chacune des erreurs, le test est considéré comme échoué. Le test introduit uniquement des erreurs non critiques. Cela signifie qu’en l’absence de défaillances externes, aucune perte de données ni de quorum ne survient.
 
-### <a name="important-configuration-options"></a>Important configuration options
- - **PartitionSelector**: Selector object that specifies the partition that needs to be targeted.
- - **TimeToRun**: Total time that the test will run before finishing.
- - **MaxServiceStabilizationTimeout**: Maximum amount of time to wait for the cluster to become healthy before failing the test. The checks performed are whether service health is OK, the target replica set size is achieved for all partitions, and no InBuild replicas exist.
- - **WaitTimeBetweenFaults**: Amount of time to wait between every fault and validation cycle.
+### Options de configuration importantes
+ - **PartitionSelector** : objet de sélecteur qui spécifie la partition à cibler.
+ - **TimeToRun** : durée totale d’exécution du test.
+ - **MaxServiceStabilizationTimeout** : délai maximal nécessaire à la restauration de l’intégrité du cluster, préalablement à l’échec du test. Les contrôles consistent à vérifier que l’intégrité du service est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
+ - **WaitTimeBetweenFaults** : délai d’attente avant chaque erreur et cycle de validation.
 
-### <a name="how-to-run-the-failover-test"></a>How to run the failover test
+### Procédure d’exécution du test de basculement
 
 **C#**
 
@@ -250,8 +249,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

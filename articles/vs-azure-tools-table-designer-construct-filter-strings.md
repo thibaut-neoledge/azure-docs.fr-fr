@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Constructing filter strings for the table designer | Microsoft Azure"
-   description="Constructing filter strings for the table designer"
+   pageTitle="Construction de chaînes de filtrage pour le Concepteur de tables | Microsoft Azure"
+   description="Construction de chaînes de filtrage pour le Concepteur de tables"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,93 +15,88 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Construction de chaînes de filtrage pour le Concepteur de tables
 
-# <a name="constructing-filter-strings-for-the-table-designer"></a>Constructing Filter Strings for the Table Designer
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Pour filtrer les données d’une table Azure affichée dans le **Concepteur de tables** Visual Studio, vous devez créer une chaîne de filtrage, puis entrer celle-ci dans le champ de filtre. La syntaxe de la chaîne de filtrage est définie par les services de données WCF et est similaire à une clause SQL WHERE. Cependant, elle est envoyée au service de Table via une demande HTTP. Le **Concepteur de tables** est chargé de l’encodage. Si vous voulez filtrer les données à l’aide d’une valeur de propriété, il vous suffit donc de taper dans le champ de filtrage le nom de la propriété, l’opérateur de comparaison, la valeur des critères et éventuellement, l’opérateur booléen. Il n’est pas nécessaire d’inclure l’option de requête $filter comme vous le feriez pour créer une URL dans le but d’interroger la table via les [informations de référence de l’API REST Storage Services](http://go.microsoft.com/fwlink/p/?LinkId=400447).
 
-To filter data in an Azure table that is displayed in the Visual Studio **Table Designer**, you construct a filter string and enter it into the filter field. The filter string syntax is defined by the WCF Data Services and is similar to a SQL WHERE clause, but is sent to the Table service via an HTTP request. The **Table Designer** handles the proper encoding for you, so to filter on a desired property value, you need only enter the property name, comparison operator, criteria value, and optionally, Boolean operator in the filter field. You do not need to include the $filter query option as you would if you were constructing a URL to query the table via the [Storage Services REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=400447).
+Les services de données WCF sont basés sur le protocole OData ([Open Data Protocol](http://go.microsoft.com/fwlink/p/?LinkId=214805)). Pour plus d’informations sur l’option de requête du système de filtrage (**$filter**), consultez les [spécifications des conventions d’URI OData](http://go.microsoft.com/fwlink/p/?LinkId=214806).
 
-The WCF Data Services are based on the [Open Data Protocol](http://go.microsoft.com/fwlink/p/?LinkId=214805) (OData). For details on the filter system query option (**$filter**), see the [OData URI Conventions specification](http://go.microsoft.com/fwlink/p/?LinkId=214806).
+## Opérateurs de comparaison
 
-## <a name="comparison-operators"></a>Comparison Operators
+Les opérateurs logiques suivants sont pris en charge par tous les types de propriétés :
 
-The following logical operators are supported for all property types:
-
-|Logical operator|Description|Example filter string|
+|Opérateur logique|Description|Exemple de chaîne de filtrage|
 |---|---|---|
-|eq|Equal|City eq 'Redmond'|
-|gt|Greater than|Price gt 20|
-|ge|Greater than or equal to|Price ge 10|
-|lt|Less than|Price lt 20|
-|le|Less than or equal|Price le 100|
-|ne|Not equal|City ne 'London'|
-|and|And|Price le 200 and Price gt 3.5|
-|or|Or|Price le 3.5 or Price gt 200|
-|not|Not|not isAvailable|
+|eq|Égal à|Ville eq 'Redmond'|
+|gt|Supérieur à|Prix gt 20|
+|ge|Supérieur ou égal à|Prix ge 10|
+|lt|Inférieur à|Prix lt 20|
+|le|Inférieur ou égal à|Prix le 100|
+|ne|Non égal à|Ville ne 'Londres'|
+|and|Et|Prix le 200 and prix gt 3,5|
+|ou|Ou|Prix le 3,5 or prix gt 200|
+|not|Différent de|not isAvailable|
 
-When constructing a filter string, the following rules are important:
+Quand vous créez une chaîne de filtrage, il est important de suivre les règles suivantes :
 
-- Use the logical operators to compare a property to a value. Note that it is not possible to compare a property to a dynamic value; one side of the expression must be a constant.
+- Utilisez les opérateurs logiques pour comparer une propriété à une valeur. Notez qu’il n’est pas possible de comparer une propriété à une valeur dynamique, car l’une des parties de l’expression doit avoir une valeur constante.
 
-- All parts of the filter string are case-sensitive.
+- Toutes les parties de la chaîne de filtrage respectent la casse.
 
-- The constant value must be of the same data type as the property in order for the filter to return valid results. For more information about supported property types, see [Understanding the Table Service Data Model](http://go.microsoft.com/fwlink/p/?LinkId=400448).
+- Pour que le filtre retourne des résultats valides, la valeur constante doit être du même type de données que la propriété. Pour plus d’informations sur les types de propriétés pris en charge, consultez [Présentation du modèle de données du service de Table](http://go.microsoft.com/fwlink/p/?LinkId=400448).
 
-## <a name="filtering-on-string-properties"></a>Filtering on String Properties
+## Filtrage par propriété de chaîne
 
-When you filter on string properties, enclose the string constant in single quotation marks.
+Quand vous filtrez des données selon des propriétés de chaîne, placez la constante de chaîne entre guillemets simples.
 
-The following example filters on the **PartitionKey** and **RowKey** properties; additional non-key properties could also be added to the filter string:
+L’exemple suivant filtre les données selon les propriétés **PartitionKey** et **RowKey**. D’autres propriétés non-clés peuvent également être ajoutées à la chaîne de filtrage :
 
     PartitionKey eq 'Partition1' and RowKey eq '00001'
 
-You can enclose each filter expression in parentheses, although it is not required:
+Vous pouvez placer chaque expression de filtrage entre parenthèses, même si cela n’est pas obligatoire :
 
     (PartitionKey eq 'Partition1') and (RowKey eq '00001')
 
-Note that the Table service does not support wildcard queries, and they are not supported in the Table Designer either. However, you can perform prefix matching by using comparison operators on the desired prefix. The following example returns entities with a LastName property beginning with the letter 'A':
+Notez que le service de Table et le Concepteur de tables ne prennent pas en charge les requêtes génériques. Toutefois, vous pouvez lancer une correspondance de préfixe à l’aide d’opérateurs de comparaison sur le préfixe de votre choix. L’exemple suivant retourne des entités avec une propriété LastName commençant par la lettre « A » :
 
     LastName ge 'A' and LastName lt 'B'
 
-## <a name="filtering-on-numeric-properties"></a>Filtering on Numeric Properties
+## Filtrage par propriété numérique
 
-To filter on an integer or floating-point number, specify the number without quotation marks.
+Pour filtrer les données selon un nombre entier ou un nombre à virgule flottante, spécifiez le nombre sans utiliser de guillemets.
 
-This example returns all entities with an Age property whose value is greater than 30:
+Cet exemple retourne toutes les entités dont la propriété Age a une valeur supérieure à 30 :
 
     Age gt 30
 
-This example returns all entities with an AmountDue property whose value is less than or equal to 100.25:
+Cet exemple retourne toutes les entités dont la propriété AmountDue a une valeur inférieure ou égale à 100,25 :
 
     AmountDue le 100.25
 
-## <a name="filtering-on-boolean-properties"></a>Filtering on Boolean Properties
+## Filtrage par propriété booléenne
 
-To filter on a Boolean value, specify **true** or **false** without quotation marks.
+Pour filtrer les données à l’aide d’une valeur booléenne, spécifiez **true** ou **false** sans guillemets.
 
-The following example returns all entities where the IsActive property is set to **true**:
+L’exemple suivant retourne toutes les entités dont la propriété IsActive a la valeur **true** :
 
     IsActive eq true
 
-You can also write this filter expression without the logical operator. In the following example, the Table service will also return all entities where IsActive is **true**:
+Vous pouvez également écrire cette expression de filtre sans opérateur logique. Dans l’exemple suivant, le service de Table retournera également toutes les entités dont la propriété IsActive a la valeur **true** :
 
     IsActive
 
-To return all entities where IsActive is false, you can use the not operator:
+Pour retourner toutes les entités dont la propriété IsActive a la valeur false, vous pouvez utiliser l’opérateur not :
 
     not IsActive
 
-## <a name="filtering-on-datetime-properties"></a>Filtering on DateTime Properties
+## Filtrage par propriété DateTime
 
-To filter on a DateTime value, specify the **datetime** keyword, followed by the date/time constant in single quotation marks. The date/time constant must be in combined UTC format, as described in [Formatting DateTime Property Values](http://go.microsoft.com/fwlink/p/?LinkId=400449).
+Pour filtrer les données à l’aide d’une valeur DateTime, spécifiez le mot clé **datetime**, suivi de la constante Date/Heure entre guillemets simples. La constante Date/Heure doit être au format UTC combiné, comme décrit dans [Mise en forme des valeurs de propriété DateTime](http://go.microsoft.com/fwlink/p/?LinkId=400449).
 
-The following example returns entities where the CustomerSince property is equal to July 10, 2008:
+L’exemple suivant retourne les entités dont la propriété CustomerSince a la valeur « 10 juillet 2008 » :
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

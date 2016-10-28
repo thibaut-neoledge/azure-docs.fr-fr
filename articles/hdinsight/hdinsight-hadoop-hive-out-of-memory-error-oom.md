@@ -1,130 +1,125 @@
 <properties
-    pageTitle="Out of memory error (OOM) - Hive settings | Microsoft Azure"
-    description="Fix an out of memory error (OOM) from a Hive query in Hadoop in HDInsight. The customer scenario is a query across many large tables."
-    keywords="out of memory error, OOM, Hive settings"
-    services="hdinsight"
-    documentationCenter=""
-    authors="rashimg"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Erreur de mémoire insuffisante - Paramètres Hive | Microsoft Azure"
+	description="Corrigez une erreur de mémoire insuffisante à partir d’une requête Hive dans Hadoop sous HDInsight. Le scénario client implique une requête sur de nombreuses tables de grande taille."
+	keywords="erreur de mémoire insuffisante, OOM, paramètres Hive"
+	services="hdinsight"
+	documentationCenter=""
+	authors="rashimg"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="09/02/2016"
-    ms.author="rashimg;jgao"/>
+	ms.service="hdinsight"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="09/02/2016"
+	ms.author="rashimg;jgao"/>
 
+# Corriger une erreur de mémoire insuffisante avec les paramètres de mémoire Hive dans Hadoop sous Azure HDInsight
 
-# <a name="fix-an-out-of-memory-(oom)-error-with-hive-memory-settings-in-hadoop-in-azure-hdinsight"></a>Fix an Out of Memory (OOM) error with Hive memory settings in Hadoop in Azure HDInsight
+La réception d’une erreur de mémoire insuffisante lors de l’utilisation de Hive est un des problèmes courants rencontrés par nos clients. Cet article décrit un scénario client et les paramètres Hive recommandés pour la résolution du problème.
 
-One of the common problems our customers face is getting an Out of Memory (OOM) error when using Hive. This article describes a customer scenario and the Hive settings we recommended to fix the issue.
+## Scénario : requête Hive dans des tables de grande taille
 
-## <a name="scenario:-hive-query-across-large-tables"></a>Scenario: Hive query across large tables
+Un client a exécuté la requête ci-dessous à l’aide de Hive.
 
-A customer ran the query below using Hive.
+	SELECT
+		COUNT (T1.COLUMN1) as DisplayColumn1,
+		…
+		…
+		….
+	FROM
+		TABLE1 T1,
+		TABLE2 T2,
+		TABLE3 T3,
+		TABLE5 T4,
+		TABLE6 T5,
+		TABLE7 T6
+	where (T1.KEY1 = T2.KEY1….
+		…
+		…
 
-    SELECT
-        COUNT (T1.COLUMN1) as DisplayColumn1,
-        …
-        …
-        ….
-    FROM
-        TABLE1 T1,
-        TABLE2 T2,
-        TABLE3 T3,
-        TABLE5 T4,
-        TABLE6 T5,
-        TABLE7 T6
-    where (T1.KEY1 = T2.KEY1….
-        …
-        …
+Voici quelques caractéristiques de cette requête :
 
-Some nuances of this query:
+* T1 est un alias correspondant à une très grande table nommée TABLE1 qui comporte de nombreux types de colonne au format de chaîne.
+* Les autres tables ne sont pas si volumineuses, mais elles ont un grand nombre de colonnes.
+* Toutes les tables sont associées les unes aux autres, parfois avec plusieurs colonnes dans TABLE1 et d’autres tables.
 
-* T1 is an alias to a big table, TABLE1, which has lots of STRING column types.
-* Other tables are not that big but do have a large number of columns.
-* All tables are joining each other, in some cases with multiple columns in TABLE1 and others.
+Lorsque le client a exécuté la requête à l’aide de Hive sur MapReduce sur un cluster A3 doté de 24 nœuds, la requête a été exécutée en environ 26 minutes. Le client a remarqué les messages d’avertissement suivants lorsque la requête a été exécutée à l’aide de Hive sur MapReduce :
 
-When the customer ran the query using Hive on MapReduce on a 24 node A3 cluster, the query ran in about 26 minutes. The customer noticed the following warning messages when the query was run using Hive on MapReduce:
+	Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
+	Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-    Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
-    Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
+Étant donné que la requête s’est achevée au bout d’environ 26 minutes, le client a ignoré ces avertissements et a ensuite cherché à améliorer ses performances.
 
-Because the query finished executing in about 26 minutes, the customer ignored these warnings and instead started to focus on how to improve the this query’s performance further.
+Le client a consulté la page [Optimisation des requêtes Hive pour Hadoop dans HDInsight](hdinsight-hadoop-optimize-hive-query.md) et a décidé d’utiliser le moteur d’exécution Tez. Une fois cette même requête exécutée avec le paramètre Tez, elle a fonctionné pendant 15 minutes puis a renvoyé l’erreur suivante :
 
-The customer consulted [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md), and decided to use Tez execution engine. Once the same query was run with the Tez setting enabled the query ran for 15 minutes, and then threw the following error:
-
-    Status: Failed
-    Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
+	Status: Failed
+	Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
         at
-    org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:172)
+	org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:172)
         at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.run(TezProcessor.java:138)
         at
-    org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:324)
+	org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:324)
         at
-    org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:176)
+	org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:176)
         at
-    org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:168)
+	org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:168)
         at java.security.AccessController.doPrivileged(Native Method)
         at javax.security.auth.Subject.doAs(Subject.java:415)
         at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1628)
         at
-    org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.call(TezTaskRunner.java:168)
+	org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.call(TezTaskRunner.java:168)
         at
-    org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.call(TezTaskRunner.java:163)
+	org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.call(TezTaskRunner.java:163)
         at java.util.concurrent.FutureTask.run(FutureTask.java:262)
         at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
         at java.lang.Thread.run(Thread.java:745)
-    Caused by: java.lang.OutOfMemoryError: Java heap space
+	Caused by: java.lang.OutOfMemoryError: Java heap space
 
-The customer then decided to use a bigger VM (i.e. D12) thinking a bigger VM would have more heap space. Even then, the customer continued to see the error. The customer reached out to the HDInsight team for help in debugging this issue.
+Le client a ensuite décidé d’utiliser une plus grande machine virtuelle (par exemple, D12) en pensant que celle-ci aurait davantage d’espace de tas. Mais le client a rencontré la même erreur. Le client a contacté l’équipe HDInsight pour que celle-ci l’aide à résoudre ce problème.
 
-## <a name="debug-the-out-of-memory-(oom)-error"></a>Debug the Out of Memory (OOM) error
+## Déboguer l’erreur de mémoire insuffisante
 
-Our support and engineering teams together found one of the issues causing the Out of Memory (OOM) error was a [known issue described in the Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306). From the description in the JIRA:
+Nos équipes d’ingénierie et de support technique ont trouvé qu’un des problèmes à l’origine de l’erreur de mémoire insuffisante était [décrit dans Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306). À partir de la description disponible dans JIRA :
 
-    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
+	When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
-We confirmed that **hive.auto.convert.join.noconditionaltask** was indeed set to **true** by looking under hive-site.xml file:
+En consultant le fichier hive-site.xml, nous avons confirmé que **hive.auto.convert.join.noconditionaltask** a en effet la valeur **true** :
 
-    <property>
-        <name>hive.auto.convert.join.noconditionaltask</name>
-        <value>true</value>
-        <description>
-            Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
-            If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
-            specified size, the join is directly converted to a mapjoin (there is no conditional task).
-        </description>
-    </property>
+	<property>
+    	<name>hive.auto.convert.join.noconditionaltask</name>
+    	<value>true</value>
+    	<description>
+      		Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
+      		If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
+      		specified size, the join is directly converted to a mapjoin (there is no conditional task).
+    	</description>
+  	</property>
 
-Based on the warning and the JIRA, our hypothesis was Map Join was the cause of the Java Heap Space OOM error. So we dug deeper into this issue.
+En nous basant sur l’avertissement et JIRA, notre hypothèse était que la commande Map Join était la cause de l’erreur de mémoire insuffisante d’espace de tas Java. Nous avons donc approfondi notre examen du problème.
 
-As explained in the blog post [Hadoop Yarn memory settings in HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), when Tez execution engine is used the heap space used actually belongs to the Tez container. See the image below describing the Tez container memory.
+Comme expliqué dans le billet de blog [Hadoop Yarn memory settings in HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), lorsque le moteur d’exécution Tez est utilisé, l’espace de tas utilisé appartient en fait au conteneur Tez. Voir l’image ci-dessous décrivant la mémoire de conteneur Tez.
 
-![Tez container memory diagram: Hive out of memory error  OOM](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
-
-
-As the blog post suggests, the following two memory settings define the container memory for the heap: **hive.tez.container.size** and **hive.tez.java.opts**. From our experience, the OOM exception does not mean the container size is too small. It means the Java heap size (hive.tez.java.opts) is too small. So whenever you see OOM, you can try to increase **hive.tez.java.opts**. If needed you might have to increase **hive.tez.container.size**. The **java.opts** setting should be around 80% of **container.size**.
-
-> [AZURE.NOTE]  The setting **hive.tez.java.opts** must always be smaller than **hive.tez.container.size**.
-
-Since a D12 machine has 28GB memory, we decided to use a container size of 10GB (10240MB) and assign 80% to java.opts. This was done on the Hive console using the setting below:
-
-    SET hive.tez.container.size=10240
-    SET hive.tez.java.opts=-Xmx8192m
-
-Based on these settings, the query successfully ran in under ten minutes.
-
-## <a name="conclusion:-oom-errors-and-container-size"></a>Conclusion: OOM errors and container size
-
-Getting an OOM error doesn't necessarily mean the container size is too small. Instead, you should configure the memory settings so that the heap size is increased and is at least 80% of the container memory size.
+![Diagramme de la mémoire du conteneur Tez : erreur de mémoire insuffisante dans Hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
 
+Comme le suggère le billet de blog, les deux paramètres de mémoire suivants définissent la mémoire de conteneur du tas : **hive.tez.container.size** et **hive.tez.java.opts**. D’après notre expérience, l’exception relative à une mémoire insuffisante ne signifie pas que la taille du conteneur est trop petite. Elle signifie que la taille du tas Java (hive.tez.java.opts) est trop petite. Par conséquent, lorsque vous voyez une erreur de mémoire insuffisante, vous pouvez essayer d’augmenter la valeur de **hive.tez.java.opts**. Si nécessaire, vous pouvez augmenter **hive.tez.container.size**. Le paramètre **java.opts** doit correspondre à environ 80 % de la taille de conteneur (**container.size**).
 
-<!--HONumber=Oct16_HO2-->
+> [AZURE.NOTE]  Le paramètre **hive.tez.java.opts** doit toujours être inférieur à **hive.tez.container.size**.
 
+Comme un ordinateur D12 a une mémoire de 28 Go, nous avons décidé d’utiliser une taille de conteneur de 10 Go (10 240 Mo) et d’affecter la valeur 80 % à java.opts. Cette opération a été effectuée sur la console Hive à l’aide du paramètre ci-dessous :
 
+	SET hive.tez.container.size=10240
+	SET hive.tez.java.opts=-Xmx8192m
+
+Avec ces paramètres, la requête s’est correctement exécutée en moins de dix minutes.
+
+## Conclusion : erreurs de mémoire insuffisante et taille de conteneur
+
+L’obtention d’une erreur de mémoire insuffisante ne signifie pas nécessairement que la taille du conteneur est insuffisante. Vous devez plutôt configurer les paramètres de mémoire afin que la taille du tas soit augmentée et qu’elle représente au moins 80 % de la taille de la mémoire du conteneur.
+
+<!---HONumber=AcomDC_0914_2016-->

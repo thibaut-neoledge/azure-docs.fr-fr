@@ -1,125 +1,119 @@
 <properties
-    pageTitle="Enable offline sync for your Azure Mobile App (Android)"
-    description="Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application"
-    documentationCenter="android"
-    authors="yuaxu"
-    manager="erikre"
-    services="app-service\mobile"/>
+	pageTitle="Activation de la synchronisation hors connexion pour votre application Azure Mobile App (Android)"
+	description="Découvrez comment utiliser Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Android"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="erikre"
+	services="app-service\mobile"/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="yuaxu"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="07/21/2016"
+	ms.author="ricksal"/>
 
-
-# <a name="enable-offline-sync-for-your-android-mobile-app"></a>Enable offline sync for your Android mobile app
+# Activation de la synchronisation hors connexion pour votre application mobile Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Overview
+## Vue d'ensemble
 
-This tutorial covers the offline sync feature of Azure Mobile Apps for Android. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
+Ce didacticiel traite de la fonctionnalité de synchronisation hors connexion d’Azure Mobile Apps pour Android. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale. Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le backend distant.
 
-If this is your first experience with Azure Mobile Apps, you should first complete the tutorial [Create an Android App]. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Si vous n’avez aucune expérience d’Azure Mobile Apps, vous devez commencer par suivre le didacticiel [Création d’une application Android]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
+Pour plus d’informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
-## <a name="update-the-app-to-support-offline-sync"></a>Update the app to support offline sync
+## Mettre à jour l’application pour prendre en charge la synchronisation hors connexion
 
-With offline sync you read to and write from a *sync table* (using the *IMobileServiceSyncTable* interface), which is part of a **SQLite** database on your device.
+Avec la synchronisation hors connexion, vous disposez d’un accès en lecture et en écriture à partir d’une *table de synchronisation* (à l’aide de l’interface *IMobileServiceSyncTable*), qui fait partie d’une base de données **SQLite** sur votre appareil.
 
-To push and pull changes between the device and Azure Mobile Services, you use a *synchronization context* (*MobileServiceClient.SyncContext*), which you initialize with the local database that you use to store data locally.
+Pour envoyer et extraire des modifications entre l’appareil et Azure Mobile Services, vous utilisez un *contexte de synchronisation* (*MobileServiceClient.SyncContext*), que vous initialisez avec la base de données locale utilisée pour stocker des données localement.
 
-1. In `TodoActivity.java`, comment out the existing definition of `mToDoTable` and uncomment the sync table version:
+1. Dans `TodoActivity.java`, commentez la définition existante de `mToDoTable` et supprimez les marques de commentaires de la version de table de synchronisation :
 
-        private MobileServiceSyncTable<ToDoItem> mToDoTable;
+	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
-2. In the `onCreate` method, comment out the existing initialization of `mToDoTable` and uncomment this definition:
+2. Dans la méthode `onCreate`, commentez l’initialisation existante de `mToDoTable` et supprimez les marques de commentaires de cette définition :
 
         mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 
-3. In `refreshItemsFromTable` comment out the definition of `results` and uncomment this definition:
+3. Dans `refreshItemsFromTable` commentez la définition de `results` et supprimez les marque de commentaires de cette définition :
 
-        // Offline Sync
-        final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+		// Offline Sync
+		final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
 
-4. Comment out the definition of `refreshItemsFromMobileServiceTable`.
+4. Commentez la définition de `refreshItemsFromMobileServiceTable`.
 
-5. Uncomment the definition of `refreshItemsFromMobileServiceTableSyncTable`:
+5. Supprimez les marques de commentaires de la définition de `refreshItemsFromMobileServiceTableSyncTable` :
 
-        private List<ToDoItem> refreshItemsFromMobileServiceTableSyncTable() throws ExecutionException, InterruptedException {
-            //sync the data
-            sync().get();
-            Query query = QueryOperations.field("complete").
-                    eq(val(false));
-            return mToDoTable.read(query).get();
-        }
+	    private List<ToDoItem> refreshItemsFromMobileServiceTableSyncTable() throws ExecutionException, InterruptedException {
+	        //sync the data
+	        sync().get();
+	        Query query = QueryOperations.field("complete").
+	                eq(val(false));
+	        return mToDoTable.read(query).get();
+	    }
 
-6. Uncomment the definition of `sync`:
+6. Supprimez les marques de commentaires de la définition de `sync` :
 
-        private AsyncTask<Void, Void, Void> sync() {
-            AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
-                @Override
-                protected Void doInBackground(Void... params) {
-                    try {
-                        MobileServiceSyncContext syncContext = mClient.getSyncContext();
-                        syncContext.push().get();
-                        mToDoTable.pull(null).get();
-                    } catch (final Exception e) {
-                        createAndShowDialogFromTask(e, "Error");
-                    }
-                    return null;
-                }
-            };
-            return runAsyncTask(task);
-        }
+	    private AsyncTask<Void, Void, Void> sync() {
+	        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+	            @Override
+	            protected Void doInBackground(Void... params) {
+	                try {
+	                    MobileServiceSyncContext syncContext = mClient.getSyncContext();
+	                    syncContext.push().get();
+	                    mToDoTable.pull(null).get();
+	                } catch (final Exception e) {
+	                    createAndShowDialogFromTask(e, "Error");
+	                }
+	                return null;
+	            }
+	        };
+	        return runAsyncTask(task);
+	    }
 
-## <a name="test-the-app"></a>Test the app
+## Test de l'application
 
-In this section, you will test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.
+Dans cette section, vous testez le comportement de l’application avec le Wi-Fi activé, puis vous désactivez le Wi-Fi pour créer un scénario hors connexion.
 
-When you add data items, they are held in the local SQLite store, but not synced to the mobile service until you press the **Refresh** button. Other apps may have different requirements regarding when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.
+Lorsque vous ajoutez des éléments de données, ils sont stockés dans le magasin local SQLite, mais ils ne sont synchronisés avec le service mobile que si vous appuyez sur le bouton **Actualiser**. D’autres applications peuvent avoir des besoins différents concernant la fréquence de synchronisation des données, mais à des fins de démonstration, l’utilisateur doit en faire explicitement la requête dans le cadre de ce didacticiel.
 
-When you press that button, a new background task starts, and first pushes all the changes made to the local store, by using the synchronization context, and then pulls all changed data from Azure to the local table.
+Lorsque vous appuyez sur ce bouton, une nouvelle tâche démarre en arrière-plan, et toutes les modifications apportées sont d’abord envoyées dans le magasin local, via le contexte de synchronisation. Ensuite, toutes les données modifiées sont extraites d’Azure vers la table locale.
 
-### <a name="offline-testing"></a>Offline testing
+### Test hors connexion
 
-1. Place the device or simulator in *Airplane Mode*. This creates an offline scenario.
+1. Mettez l’appareil ou le simulateur en *Mode avion*. Cela crée un scénario hors connexion.
 
-2. Add some *ToDo* items, or mark some items as complete. Quit the device or simulator (or forcibly close the app) and restart. Verify that your changes have been persisted on the device because they are held in the local SQLite store.
+2. Ajoutez des *tâches*, ou marquez-en certaines comme terminées. Quittez l’appareil ou le simulateur (ou forcez la fermeture de l’application) et redémarrez. Vérifiez que vos modifications persistent sur l’appareil, car elles sont stockées dans le magasin SQLite local.
 
-3. View the contents of the Azure *TodoItem* table either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*. Verify that the new items have _not_ been synced to the server
+3. Affichez le contenu de la table *TodoItem* d’Azure avec un outil SQL, par exemple *SQL Server Management Studio* ou un client REST, comme *Fiddler* ou *Postman*. Vérifiez que les nouveaux éléments n’ont _pas_ été synchronisés avec le serveur
 
-    + For a Node.js backend, go to the [Azure portal](https://portal.azure.com/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
-    + For a .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.
+   	+ Pour un backend Node.js, accédez au [portail Azure](https://portal.azure.com/), puis dans votre backend d’application mobile, cliquez sur **Tables faciles** > **TodoItem** pour afficher le contenu de la table `TodoItem`.
+   	+ Pour un backend .NET, affichez le contenu de la table avec un outil SQL, par exemple *SQL Server Management Studio* ou un client REST, comme *Fiddler* ou *Postman*.
 
-4. Turn on WiFi in the device or simulator. Next, press the **Refresh** button.
+4. Activez le Wi-Fi sur le simulateur ou l’appareil. Appuyez ensuite sur le bouton **Actualiser**.
 
-5. View the TodoItem data again in the Azure portal. The new and changed TodoItems should now appear.
+5. Affichez à nouveau les données TodoItem sur le portail Azure. Les nouveaux éléments TodoItems et ceux modifiés doivent maintenant s'afficher.
 
-## <a name="additional-resources"></a>Additional Resources
+## Ressources supplémentaires
 
-* [Offline Data Sync in Azure Mobile Apps]
+* [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover: Offline Sync in Azure Mobile Services] \(note: the video is on Mobile Services, but offline sync works in a similar way in Azure Mobile Apps\)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 
 <!-- URLs. -->
 
-[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[Synchronisation des données hors connexion dans Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
 
-[Create an Android App]: app-service-mobile-android-get-started.md
+[Création d’une application Android]: ../app-service-mobile-android-get-started.md
 
-[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

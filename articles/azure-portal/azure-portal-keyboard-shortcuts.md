@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
-   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
+   pageTitle="Raccourcis clavier du portail Azure | Microsoft Azure"
+   description="Cet article, qui sera actualisé régulièrement, énumère les raccourcis clavier qui peuvent être utilisés sur le portail Azure. Les services individuels peuvent bénéficier de leurs propres raccourcis clavier spécialisés."
    services="azure-portal"
    documentationCenter=""
    authors="flanakin"
@@ -16,39 +16,33 @@
    ms.date="02/07/2016"
    ms.author="micflan"/>
 
+# Raccourcis clavier du portail Azure
 
-# <a name="azure-portal-keyboard-shortcuts"></a>Azure portal keyboard shortcuts
+## Ouvrir les concentrateurs
 
-## <a name="open-hubs"></a>Open hubs
-
-| Shortcut | Action |
+| Raccourci | Action |
 |--------|----------|
 | N | Notifications |
-| / | Browse services |
-| A | Active sessions |
-| B | Billing |
-| C | Create |
+| / | Parcourir les services |
+| A | Sessions actives |
+| B | Facturation |
+| C | Créer |
 
-## <a name="navigation"></a>Navigation
+## Navigation
 
-| Shortcut | Action |
+| Raccourci | Action |
 |--------|----------|
-| H | Azure Start dashboard |
-| F | First open blade |
-| J | Previous open blade |
-| K | Next open blade |
-| L | Last open blade |
-| - | Minimize blade or restore from maximized |
-| + | Maximize blade or restore from minimized |
-| # | Close current blade |
-| ¦ | Close all blades |
-| , | Move focus to command bar |
-| . | Move focus to navigation bar |
-| ? | View keyboard shortcuts |
+| H | Tableau de bord de début Azure |
+| F | Premier panneau ouvert |
+| J | Panneau ouvert précédemment |
+| K | Panneau suivant ouvert |
+| L | Dernier panneau ouvert |
+| - | Réduire le panneau ou le restaurer depuis la version optimale |
+| + | Optimiser le panneau ou restaurer depuis la version minimale |
+| # | Fermer panneau actuel |
+| ¦ | Fermer tous les panneaux |
+| , | Déplacer le focus sur la barre de commandes |
+| . | Déplacer le focus sur la barre de navigation |
+| ? | Afficher les raccourcis clavier |
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

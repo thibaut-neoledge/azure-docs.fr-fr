@@ -1,6 +1,6 @@
 <properties
-   pageTitle="API versions of Azure Search | Microsoft Azure | Search API"
-   description="Version policy for Azure Search REST APIs and the client library in the .NET SDK."
+   pageTitle="Versions d’API Azure Search | Microsoft Azure | API Search"
+   description="Stratégie de version pour les API REST Azure Search et la bibliothèque cliente dans le Kit de développement logiciel (SDK) .NET."
    services="search"
    documentationCenter=""
    authors="brjohnstmsft"
@@ -16,64 +16,58 @@
    ms.date="08/16/2016"
    ms.author="brjohnst"/>
 
+# Versions d’API dans Azure Search
 
-# <a name="api-versions-in-azure-search"></a>API versions in Azure Search
+Azure Search déploie régulièrement des mises à jour de fonctionnalités. Parfois, ces mises à jour nous obligent à publier une nouvelle version de notre API pour maintenir la compatibilité descendante. La publication d’une nouvelle version vous permet de contrôler quand et comment intégrer les mises à jour du service de recherche dans votre code.
 
-Azure Search rolls out feature updates on a regular basis. Sometimes, but not always, these updates require us to publish a new version of our API in order to preserve backward compatibility. Publishing a new version allows you to control when and how you integrate search service updates in your code.
+En règle générale, nous tentons de publier de nouvelles versions uniquement lorsque cela est nécessaire, car certains efforts peuvent être requis pour mettre à niveau votre code afin d’utiliser une nouvelle version de l’API. Nous publions uniquement une nouvelle version si nous devons modifier certains aspects de l’API d’une manière qui interrompt la compatibilité descendante. Cela peut se produire en raison de correctifs de fonctionnalités existantes ou en raison de nouvelles fonctionnalités qui modifient la surface d’exposition des API existantes.
 
-As a rule, we try to publish new versions only when necessary, since it can involve some effort to upgrade your code to use a new API version. We will only publish a new version if we need to change some aspect of the API in a way that breaks backward compatibility. This can happen because of fixes to existing features, or because of new features that change existing API surface area.
+Nous suivons la même règle pour les mises à jour du Kit de développement logiciel (SDK). Le Kit de développement logiciel (SDK) Azure Search suit les règles de [contrôle de version sémantique](http://semver.org/), ce qui signifie que sa version comprend trois parties : majeure, mineure et numéro de version (par exemple, 1.1.0). Nous publions une nouvelle version du Kit de développement logiciel (SDK) uniquement en cas de modifications qui interrompent la compatibilité descendante. Pour les mises à jour de fonctionnalités sans rupture, nous incrémenterons la version mineure. Pour corriger les bogues, nous augmentons uniquement le numéro de version.
 
-We follow the same rule for SDK updates. The Azure Search SDK follows the [semantic versioning](http://semver.org/) rules, which means that its version has three parts: major, minor, and build number (for example, 1.1.0). We will release a new major version of the SDK only in case of changes that break backward compatibility. For non-breaking feature updates, we will increment the minor version, and for bug fixes we will only increase the build version.
+##Instantané des versions actuelles 
 
-##<a name="snapshot-of-current-versions"></a>Snapshot of current versions 
+Vous trouverez ci-dessous un instantané des versions actuelles de toutes les interfaces de programmation d’Azure Search. Les sections suivantes de ce document incluent un calendrier et d’autres informations.
 
-Below is a snapshot of the current versions of all programming interfaces to Azure Search. Roadmaps and other details can be found in subsequent sections of this document.
-
-Interfaces|Most recent major version|Status
+Interfaces|Version majeure la plus récente|État
 ----------|-------------------------|------
-[.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1.1|Generally Available, released February 2016
-[.NET SDK Preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)|2.0-preview|Preview, released August 2016
-[Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)|2015-02-28|Generally Available
-[Service REST API Preview](search-api-2015-02-28-preview.md)|2015-02-28-Preview|Preview
-[Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Generally Available
+[KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1\.1|Mise à la disposition générale en février 2016
+[Version préliminaire du Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)|2\.0-preview|Version préliminaire, publiée en août 2016
+[API REST du service](https://msdn.microsoft.com/library/azure/dn798935.aspx)|2015-02-28|Mise à la disposition générale
+[Version préliminaire de l’API REST Service](search-api-2015-02-28-preview.md)|2015-02-28-Preview|VERSION PRÉLIMINAIRE
+[l’API REST de gestion ;](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Mise à la disposition générale
 
-For the REST APIs, including the `api-version` on each call is required. This makes it easy to target a specific version, such as a preview API. The following example illustrates how the `api-version` parameter is specified:
+Pour les API REST, il est nécessaire d’inclure la version d’API (`api-version`) sur chaque appel. Cela permet de cibler facilement une version spécifique, par exemple une API en version préliminaire. L’exemple suivant montre la manière dont le paramètre `api-version` est spécifié :
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2015-02-28
 
-> [AZURE.NOTE] Although each request has an `api-version`, we recommend that you use the same version for all API requests. This is especially true when new API versions introduce attributes or operations that are not recognized by previous versions. Mixing API versions can have unintended consequences and should be avoided.
+> [AZURE.NOTE] Bien que chaque demande ait une version d’API (`api-version`), nous vous recommandons d’utiliser la même version pour toutes les demandes d’API. Cela est particulièrement vrai lorsque de nouvelles versions d’API introduisent des attributs ou des opérations qui ne sont pas reconnus par les versions précédentes. La combinaison de versions d’API peut avoir des conséquences inattendues et doit être évitée.
 > 
-The Service REST API and Management REST API are versioned independently of each other. Any similarity in version numbers is co-incidental.
+L’API REST Service et l’API REST Gestion sont contrôlées indépendamment l’une de l’autre. Toute ressemblance dans les numéros de version est une coïncidence.
 
-Generally available (or GA) APIs can be used in production and are subject to Azure service level agreements. Preview versions have experimental features that are not always migrated to a GA version. **We strongly advise against using preview APIs in production applications.**
+Les API mises à la disposition générale peuvent être utilisées en production et sont soumises aux contrats SLA Azure. Les versions préliminaires offrent les fonctionnalités expérimentales qui ne sont pas toujours migrées vers la version mise à la disposition générale. **Nous vous conseillons vivement d’utiliser des API en version préliminaire dans les applications de production.**
 
-##<a name="sdk-version-roadmap"></a>SDK version roadmap
+##Calendrier des versions du Kit de développement logiciel (SDK)
 
-Each version of the .NET SDK targets a particular version of the Service REST API. Features are rolled out in the REST API first, and then implemented in the SDK.
+Chaque version du Kit de développement logiciel (SDK) .NET cible une version particulière de l’API REST Service. Les fonctionnalités sont transférées dans l’API REST, puis implémentées dans le Kit de développement logiciel (SDK).
 
-The .NET SDK is now generally available and work is already underway on the next version. The following table looks ahead to future versions of the SDK so that you have an idea of what’s coming up next.
+Le Kit de développement logiciel (SDK) .NET est désormais mis à la disposition générale et nous travaillons déjà sur la prochaine version. Le tableau suivant présente les futures versions du Kit de développement logiciel (SDK) afin que vous ayez une idée de ce que nous allons bientôt vous proposer.
 
-.NET SDK version|REST API version|Features|ETA
+Version du Kit de développement logiciel (SDK) .NET|Version de l’API REST|Caractéristiques|ETA
 ----------------|----------------|--------|---
-1.1|2015-02-28|Lucene query syntax|February 2016
-2.0-preview|2015-02-28-Preview|Custom analyzers, Azure Blob and Table indexers, Field mappings, ETags|August 2016
-2.x|New GA API version|Same as 2.0-preview|Early Q4 2016
+1\.1|2015-02-28|Syntaxe de requête Lucene|Février 2016
+2\.0-preview|2015-02-28-Preview|Analyseurs personnalisés, indexeurs de tables et d’objets blob Azure, mappages de champs, ETags|Août 2016
+2\.x|Nouvelle version de l’API mise à la disposition générale|Les mêmes que 2.0-preview|Début du 4e trimestre 2016
 
-##<a name="about-preview-and-generally-available-versions"></a>About Preview and Generally Available versions
+##À propos des versions préliminaires et mises à la disposition générale
 
-Azure Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK.
+Azure Search publie toujours les fonctionnalités expérimentales par le biais de l’API REST, puis par le biais des versions préliminaires du Kit de développement logiciel (SDK) .NET.
 
-Preview features are not guaranteed to be migrated to a GA release. Whereas features in a GA version are considered stable and unlikely to change with the exception of small backward-compatible fixes and enhancements, preview features are available for testing and experimentation, with the goal of gathering feedback on feature design and implementation. 
+Il se peut que les fonctionnalités en version préliminaire ne soient pas migrées vers une version mise à la disposition générale. Alors que les fonctionnalités d’une version mise à la disposition générale sont considérées comme stables et peu susceptibles de changer (à l’exception de légères améliorations et de petits correctifs avec une compatibilité descendante), les fonctionnalités en version préliminaire sont disponibles pour les tests et l’expérimentation, le but étant de recueillir des commentaires sur la conception et l’implémentation.
 
-However, because preview features are subject to change, we recommend against writing production code that takes a dependency on preview versions. If you are using an older preview version, we recommend migrating to the generally available (GA) version. 
+Toutefois, comme les fonctionnalités en version préliminaire sont susceptibles d’être modifiées, nous vous recommandons de ne pas écrire un code de production dépendant de ces versions. Si vous utilisez une version préliminaire antérieure, nous vous recommandons de migrer vers la version mise à la disposition générale.
 
-For the .NET SDK: Guidance for code migration can be found at [Upgrade the .NET SDK](search-dotnet-sdk-migration.md).
+Pour le Kit de développement logiciel (SDK) .NET, des conseils sur la migration du code sont disponibles à la page [Mise à niveau du Kit de développement logiciel (SDK) .NET](search-dotnet-sdk-migration.md).
 
-General availability means that Azure Search is now under the service level agreement (SLA). The SLA can be found at [Azure Search Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+La mise à la disposition générale signifie qu’Azure Search est désormais associé à un contrat SLA. Ce contrat SLA est disponible à la page sur les [contrats SLA Azure Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

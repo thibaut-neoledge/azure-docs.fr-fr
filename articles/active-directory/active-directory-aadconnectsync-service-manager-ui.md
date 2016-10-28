@@ -1,44 +1,38 @@
 <properties
-    pageTitle="Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Azure"
-    description="Understand Synchronization Service Manager for Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+	pageTitle="Synchronisation d’Azure AD Connect : Interface utilisateur de Synchronization Service Manager | Microsoft Azure"
+	description="Comprendre Synchronization Service Manager pour Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/07/2016"
-    ms.author="billmath"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2016"
+	ms.author="andkjell"/>
 
 
+# Synchronisation d’Azure AD Connect : Synchronization Service Manager
 
-# <a name="azure-ad-connect-sync:-synchronization-service-manager"></a>Azure AD Connect sync: Synchronization Service Manager
-
-[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+[Operations](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Concepteur de métaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Recherche de métaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
 --- | --- | --- | ---
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 
-The **Synchronization Service Manager** UI is used to configure more advanced aspects of the sync engine and to see the operational aspects of the service.
+L’interface utilisateur de **Synchronization Service Manager** est utilisée pour configurer des aspects plus complexes du moteur de synchronisation et pour constater les aspects opérationnels du service.
 
-You start the **Synchronization Service Manager** UI from the start menu. It is named **Synchronization Service** and can be found in the **Azure AD Connect** group.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
+Vous démarrez l’interface utilisateur de **Synchronization Service Manager** à partir du menu Démarrer. Elle se nomme **Synchronization Service** et se trouve dans le groupe **Azure Connect AD**. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
 
-Click the links at the top of this topic to learn more about the different tabs in the UI.
+Cliquez sur les liens en haut de cette rubrique pour en savoir plus sur les différents onglets de l’interface utilisateur.
 
-## <a name="next-steps"></a>Next steps
-Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
+## Étapes suivantes
+En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l’[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

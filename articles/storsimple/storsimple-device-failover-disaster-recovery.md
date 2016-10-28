@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple failover and disaster recovery | Microsoft Azure"
-   description="Learn how to fail over your StorSimple device to itself, another physical device, or a virtual device."
+   pageTitle="Basculement et récupération d’urgence StorSimple | Microsoft Azure"
+   description="Découvrez comment basculer votre appareil StorSimple vers lui-même, un autre appareil physique ou un appareil virtuel."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,213 +15,207 @@
    ms.date="09/16/2016"
    ms.author="alkohli" />
 
+# Basculement et récupération d’urgence pour votre appareil StorSimple
 
-# <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Failover and disaster recovery for your StorSimple device
+## Vue d'ensemble
 
-## <a name="overview"></a>Overview
+Ce didacticiel décrit les étapes nécessaires pour basculer un appareil StorSimple en cas d’urgence. Un basculement vous permet de migrer vos données à partir d’un appareil source dans le centre de données vers un autre appareil physique ou virtuel situé à un emplacement géographique identique ou différent.
 
-This tutorial describes the steps required to fail over a StorSimple device in the event of a disaster. A failover will allow you to migrate your data from a source device in the datacenter to another physical or even a virtual device located in the same or a different geographical location. 
+La récupération d’urgence est orchestrée par la fonctionnalité de basculement de l’appareil et se lance à partir de la page **Appareils**. Cette page répertorie tous les appareils StorSimple connectés à votre service StorSimple Manager. Pour chaque appareil, le nom convivial, le statut, la capacité maximale et d’approvisionnement, le type et le modèle s’affichent.
 
-Disaster recovery (DR) is orchestrated via the device failover feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type and model are displayed.
+![Page Appareils](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
-![Devices page](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
-
-The guidance in this tutorial applies to StorSimple physical and virtual devices across all software versions.
-
+Les instructions de ce didacticiel concerne les appareils physiques et virtuels StorSimple pour toutes les versions du logiciel.
 
 
-## <a name="disaster-recovery-(dr)-and-device-failover"></a>Disaster recovery (DR) and device failover
 
-In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. You can select one or more volume containers to migrate to the target device. This process is referred to as the *failover*. 
+## Récupération d’urgence et basculement d’appareil
 
-During the failover, the volume containers from the source device change ownership and are transferred to the target device. Once the volume containers change ownership, these are deleted from the source device. After the deletion is complete, the target device can then be failed back.
+Dans un scénario de récupération d’urgence, l’appareil principal cesse de fonctionner. Dans ce cas, vous pouvez déplacer les données de cloud associées à l’appareil défaillant vers un autre appareil en utilisant l’appareil principal en tant que *source* et en spécifiant un autre appareil en tant que *cible*. Vous pouvez sélectionner un ou plusieurs conteneurs de volume à migrer vers l’appareil cible. Ce processus est appelé le *basculement*.
 
-Typically following a DR, the most recent backup is used to restore the data to the target device. However, if there are multiple backup policies for the same volume, then the backup policy with the largest number of volumes gets picked and the most recent backup from that policy is used to restore the data on the target device.
+Pendant le basculement, la propriété des conteneurs de volume de l’appareil source change et ceux-ci sont transférés vers l’appareil cible. Une fois la propriété des conteneurs de volumes modifiée, ceux-ci sont supprimés de l’appareil source. La suppression effectuée, l’appareil cible peut être restauré.
 
-As an example, if there are two backup policies (one default and one custom) *defaultPol*, *customPol* with the following details:
+En général, après une récupération d’urgence, la sauvegarde la plus récente est utilisée pour restaurer les données sur l’appareil cible. Toutefois, s’il existe plusieurs stratégies de sauvegarde pour le même volume, la stratégie de sauvegarde associée au plus grand nombre de volumes est choisie et la sauvegarde la plus récente de cette stratégie est utilisée pour restaurer les données sur l’appareil cible.
 
-- *defaultPol* : One volume, *vol1*, runs daily starting at 10:30 PM.
-- *customPol* : Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
+Par exemple, s’il existe deux stratégies de sauvegarde (une par défaut et une personnalisée), *defaultPol* et *customPol*, avec les caractéristiques suivantes :
 
-In this case, *customPol* will be used as it has more volumes and we prioritize for crash-consistency. The most recent backup from this policy is used to restore data.
+- *defaultPol* : un seul volume, *vol1*, s’exécute tous les jours à 22 h 30.
+- *customPol* : quatre volumes, *vol1*, *vol2*, *vol3* et *vol4*, s’exécute tous les jours à 22 h 00.
+
+Dans ce cas, *customPol* sera utilisée, car elle a plus de volumes et nous lui donnons la priorité pour des raisons de cohérence en cas d’incident. La sauvegarde la plus récente de cette stratégie est utilisée pour restaurer les données.
 
 
-## <a name="considerations-for-device-failover"></a>Considerations for device failover
+## Considérations relatives au basculement d’appareil
 
-In the event of a disaster, you may choose to fail over your StorSimple device:
+En cas de sinistre, vous pouvez choisir de basculer votre appareil StorSimple :
 
-- To a physical device 
-- To itself
-- To a virtual device
+- vers un appareil physique ;
+- vers lui-même ;
+- vers un appareil virtuel.
 
-For any device failover, keep in mind the following:
+Pour tout basculement d’appareil, tenez compte des éléments suivants :
 
-- The prerequisites for DR are that all the volumes within the volume containers are offline and the volume containers have an associated cloud snapshot. 
-- The available target devices for DR are devices that have sufficient space to accommodate the selected volume containers. 
-- The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
-- Following a DR, for a limited duration, the data access performance can be affected significantly, as the device will need to access the data from the cloud and store it locally.
+- Pour la récupération d’urgence, tous les volumes dans les conteneurs de volume doivent être hors connexion et les conteneurs de volume doivent être associés à un instantané de cloud.
+- Les appareils cibles disponibles pour la récupération d’urgence possèdent un espace suffisant pour accueillir les conteneurs de volume sélectionnés.
+- Les appareils connectés à votre service mais ne répondant pas aux critères d’espace ne seront pas disponibles en tant qu’appareils cibles.
+- Après une récupération d’urgence, pour une durée limitée, les performances d’accès aux données peuvent être affectées de manière significative car l’appareil doit accéder aux données à partir du cloud et les stocker localement.
 
-#### <a name="device-failover-across-software-versions"></a>Device failover across software versions
+#### Basculement de l'appareil entre les versions du logiciel
 
-A StorSimple Manager service in a deployment may have multiple devices, both physical and virtual, all running different software versions. Depending upon the software version, the volume types on the devices may also be different. For instance, a device running Update 2 or higher would have locally pinned and tiered volumes (with archival being a subset of tiered). A pre-Update 2 device on the other hand may have tiered and archival volumes. 
+Un service StorSimple Manager dans un déploiement peut avoir plusieurs appareils physiques et virtuels, exécutant tous des versions différentes du logiciel. Selon la version du logiciel, les types de volumes sur les appareils peuvent également être différents. Par exemple, un appareil exécutant Update 2 ou une version ultérieure aurait des volumes épinglés localement à plusieurs niveaux (l’archivage étant un sous-ensemble des niveaux). Un appareil pré-Update 2 en revanche peut avoir des volumes à plusieurs niveaux et d'archivage.
 
-Use the following table to determine if you can fail over to another device running a different software version and the behavior of volume types during DR.
+Utilisez le tableau suivant pour déterminer si vous pouvez basculer vers un autre appareil exécutant une autre version logicielle et le comportement des types de volumes pendant la récupération d'urgence.
 
-| Fail over from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
+| Basculer à partir de | Autorisé pour un appareil physique | Autorisé pour un appareil virtuel |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| Update 2 to pre-Update 1 (Release, 0.1, 0.2, 0.3) | No                                                                                                                                                                               | No                                                    |
-| Update 2 to Update 1 (1, 1.1, 1.2)                 | Yes <br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as tiered.                  | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
-| Update 2 to Update 2 (later version)                               | Yes<br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as the starting volume type; tiered as tiered and locally pinned as locally pinned. | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
+| Update 2 à pré-Update 1 (version 0.1, 0.2, 0.3) | Non | Non |
+| Update 2 à Update 1 (1, 1.1, 1.2) | Oui <br></br>En cas d'utilisation de volumes épinglés localement ou à plusieurs niveaux ou un mélange des deux, les volumes sont toujours basculés sous la forme à plusieurs niveaux. | Oui <br></br>En cas d'utilisation de volumes épinglés localement, ceux-ci sont basculés sous la forme à plusieurs niveaux. |
+| Update 2 à Update 2 (version ultérieure) | Oui <br></br>En cas d'utilisation de volumes épinglés localement ou à plusieurs niveaux ou un mélange des deux, les volumes sont toujours basculés sous le type de volume de départ ; à plusieurs niveaux pour à plusieurs niveaux et épinglés localement pour épinglés localement. | Oui <br></br>En cas d'utilisation de volumes épinglés localement, ceux-ci sont basculés sous la forme à plusieurs niveaux. |
 
 
-#### <a name="partial-failover-across-software-versions"></a>Partial failover across software versions
+#### Basculement partiel entre les versions du logiciel
 
-Follow this guidance if you intend to perform a partial failover using a StorSimple source device running pre-Update 1 to a target running Update 1 or later. 
+Suivez ces instructions si vous envisagez d’effectuer un basculement partiel à l’aide d’un appareil source StorSimple exécutant la Mise à jour préliminaire 1 vers une cible exécutant la Mise à jour 1 ou une version ultérieure.
 
 
-| Partial failover from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
+| Basculement partiel à partir de | Autorisé pour un appareil physique | Autorisé pour un appareil virtuel |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-|Pre-Update 1 (Release, 0.1, 0.2, 0.3) to Update 1 or later  | Yes, see below for the best practice tip.                                                                                                                                                                               | Yes, see below for the best practice tip.                                                    |
+|Mise à jour préliminaire 1 (Version 0.1, 0.2, 0.3) à la Mise à jour 1 ou version ultérieure | Oui, voici le meilleur conseil pratique. | Oui, voici le meilleur conseil pratique. |
 
 
->[AZURE.TIP] There was a cloud metadata and data format change in Update 1 and later versions. Hence, we do not recommend a partial failover from pre-Update 1 to Update 1 or later versions. If you need to perform a partial failover, we recommend that you first apply Update 1 or later on both the devices (source and target) and then proceed with the failover. 
+>[AZURE.TIP] Une modification des métadonnées du cloud et du format des données dans la Mise à jour 1 et les versions ultérieures. Par conséquent, nous ne recommandons pas un basculement partiel de la Mise à jour préliminaire 1 à la Mise à jour 1 ou à une version ultérieure. Si vous devez effectuer un basculement partiel, nous vous recommandons de commencer par appliquer la Mise à jour 1 ou une version ultérieure sur les deux les appareils (source et cible), puis effectuez le basculement.
 
-## <a name="fail-over-to-another-physical-device"></a>Fail over to another physical device
+## Basculement vers un autre appareil physique
 
-Perform the following steps to restore your device to a target physical device.
+Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
-1. Verify that the volume container you want to fail over has associated cloud snapshots.
+1. Vérifiez que le conteneur de volume que vous souhaitez basculer est associé à des instantanés de cloud.
 
-1. On the **Devices** page, click the **Volume Containers** tab.
+1. Sur la page **Appareils**, cliquez sur l’onglet **Conteneurs de volume**.
 
-1. Select a volume container that you would like to fail over to another device. Click the volume container to display the list of volumes within this container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
+1. Sélectionnez un conteneur de volume que vous souhaitez basculer vers un autre appareil. Cliquez sur le conteneur de volume pour afficher la liste des volumes dans ce conteneur. Sélectionnez un volume et cliquez sur **Déconnecter** pour mettre le volume hors connexion. Répétez ce processus pour tous les volumes dans le conteneur de volume.
 
-1. Repeat the previous step for all the volume containers you would like to fail over to another device.
+1. Répétez l’étape précédente pour tous les conteneurs de volume que vous souhaitez basculer vers un autre appareil.
 
-1. On the **Devices** page, click **Failover**.
+1. Sur la page **Appareils**, cliquez sur **Basculement**.
 
-1. In the wizard that opens up, under **Choose volume container to fail over**:
+1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
 
-    1. In the list of volume containers, select the volume containers you would like to fail over.
-    **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer. **Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
 
-    1. Under **Choose a target device** for the volumes in the selected containers, select a target device from the drop-down list of available devices. Only the devices that have the available capacity are displayed in the drop-down list.
+	1. Sous **Choisir un appareil cible** pour les volumes dans les conteneurs sélectionnés, sélectionnez un appareil cible dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité disponible sont affichés dans la liste déroulante.
 
-    1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+	1. Enfin, passez en revue tous les paramètres de basculement sous **Confirmer le basculement**. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. A failover job is created that can be monitored via the **Jobs** page. If the volume container that you failed over has local volumes, then you will see individual restore jobs for each local volume (not for tiered volumes) in the container. These restore jobs may take quite some time to complete. It is likely that the failover job may complete earlier. Note that these volumes will have local guarantees only after the restore jobs are complete. After the failover is completed, go to the **Devices** page.                                            
+1. Un travail de basculement est créé, qui peut être contrôlé par le biais de la page **Travaux**. Si le conteneur de volumes sur lequel vous avez basculé possède des volumes locaux, vous verrez les travaux de restauration individuels pour chaque volume local (et non pour les volumes à plusieurs niveaux) dans le conteneur. Ces tâches de restauration peuvent prendre un certain temps. Il est probable que le travail de basculement se termine plus tôt. Notez que ces volumes auront des garanties locales uniquement une fois les travaux de restauration terminés. Une fois le basculement terminé, accédez à la page **Appareils**.
 
-    1. Select the device that was used as the target device for the failover process.
+	1. Sélectionnez l’appareil qui a été utilisé en tant qu’appareil cible pour le processus de basculement.
 
-    1. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device, should be listed.
+	1. Accédez à la page **Conteneurs de volumes**. Tous les conteneurs de volume, ainsi que les volumes de l’ancien appareil, doivent être répertoriés.
 
-## <a name="failover-using-a-single-device"></a>Failover using a single device
+## Basculement à l’aide d’un seul appareil
 
-Perform the following steps if you only have a single device and need to perform a failover.
+Procédez comme suit si vous disposez d’un seul appareil et devez effectuer un basculement.
 
-1. Take cloud snapshots of all the volumes in your device.
+1. Prenez des instantanés de cloud de tous les volumes de votre appareil.
 
-1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+1. Réinitialisez votre appareil aux valeurs par défaut. Suivez les instructions détaillées dans la section [Rétablissement des paramètres par défaut de l’appareil](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-1. Configure your device and register it again with your StorSimple Manager service.
+1. Configurez votre appareil et réenregistrez-le avec votre service StorSimple Manager.
 
-1. On the **Devices** page, the old device should show as **Offline**. The newly registered device should show as **Online**.
+1. Sur la page **Appareils**, l’ancien appareil doit s’afficher en **Hors connexion**. L’appareil récemment enregistré doit s’afficher en tant que **En ligne**.
 
-1. For the new device, complete the minimum configuration of the device first. 
-                                                
-    >[AZURE.IMPORTANT] **If the minimum configuration is not completed first, your DR will fail as a result of a bug in the current implementation. This behavior will be fixed in a later release.**
+1. Effectuez tout d’abord la configuration minimale du nouvel appareil.
+												
+	>[AZURE.IMPORTANT] **Si vous n’effectuez pas cette action en premier, la récupération d’urgence échoue en raison d’un bogue dans l’implémentation actuelle. Ce problème sera résolu dans une version ultérieure.**
 
-1. Select the old device (status offline) and click **Failover**. In the wizard that is presented, fail over this device and specify the target device as the newly registered device. For detailed instructions, refer to [Fail over to another physical device](#fail-over-to-another-physical-device).
+1. Sélectionnez l’ancien appareil (état hors connexion) et cliquez sur **Basculement**. Dans l’Assistant qui s’affiche, basculez cet appareil et spécifiez l’appareil cible en tant qu’appareil nouvellement inscrit. Pour obtenir des instructions détaillées, reportez-vous à la section [Basculer vers un autre appareil physique](#fail-over-to-another-physical-device).
 
-1. A device restore job will be created that you can monitor from the **Jobs** page.
+1. Un travail de restauration de l’appareil sera créé ; vous pouvez le surveiller à partir de la page **Travaux**.
 
-1. After the job has successfully completed, access the new device and navigate to the **Volume Containers** page. All the volume containers from the old device should now be migrated to the new device.
+1. Une fois la tâche terminée, accédez au nouvel appareil et à la page **Conteneurs de volume**. Tous les conteneurs de volume de l’ancien appareil doivent désormais être migrés vers le nouvel appareil.
 
-## <a name="fail-over-to-a-storsimple-virtual-device"></a>Fail over to a StorSimple virtual device
+## Basculement vers un appareil virtuel StorSimple
 
-You must have a StorSimple virtual device created and configured prior to running this procedure. If running Update 2, consider using an 8020 virtual device for the DR that has 64 TB and uses Premium Storage. 
+Vous devez avoir créé et configuré un appareil virtuel StorSimple avant d’exécuter cette procédure. En cas d'exécution d'Update 2, pensez à utiliser un appareil virtuel 8020 pour la récupération d'urgence avec 64 To et le stockage Premium.
  
-Perform the following steps to restore the device to a target StorSimple virtual device.
+Procédez comme suit pour restaurer votre appareil vers un appareil virtuel StorSimple cible.
 
-1. Verify that the volume container you want to fail over has associated cloud snapshots.
+1. Vérifiez que le conteneur de volume que vous souhaitez basculer est associé à des instantanés de cloud.
 
-1. On the **Devices** page, click the **Volume Containers** tab.
+1. Sur la page **Appareils**, cliquez sur l’onglet **Conteneurs de volume**.
 
-1. Select a volume container that you would like to fail over to another device. Click the volume container to display the list of volumes within this container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
+1. Sélectionnez un conteneur de volume que vous souhaitez basculer vers un autre appareil. Cliquez sur le conteneur de volume pour afficher la liste des volumes dans ce conteneur. Sélectionnez un volume et cliquez sur **Déconnecter** pour mettre le volume hors connexion. Répétez ce processus pour tous les volumes dans le conteneur de volume.
 
-1. Repeat the previous step for all the volume containers you would like to fail over to another device.
+1. Répétez l’étape précédente pour tous les conteneurs de volume que vous souhaitez basculer vers un autre appareil.
 
-1. On the **Devices** page, click **Failover**.
+1. Sur la page **Appareils**, cliquez sur **Basculement**.
 
-1. In the wizard that opens up, under **Choose volume container to failover**, complete the following:
-                                                    
-    a. In the list of volume containers, select the volume containers you would like to fail over.
+1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement**, procédez comme suit :
+													
+	a. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
-    **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	**Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
 
-    b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. **Only the devices that have sufficient capacity are displayed in the drop-down list.**  
-    
+	b. Sous **Choisir un périphérique cible pour les volumes dans les conteneurs sélectionnés**, sélectionnez un appareil virtuel StorSimple dans la liste déroulante des appareils disponibles. **Seuls les appareils possédant la capacité suffisante sont affichés dans la liste déroulante.**
+	
 
-1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+1. Enfin, passez en revue tous les paramètres de basculement sous **Confirmer le basculement**. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. After the failover is completed, go to the **Devices** page.
-                                                    
-    a. Select the StorSimple virtual device that was used as the target device for the failover process.
-    
-    b. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
+1. Une fois le basculement terminé, accédez à la page **Appareils**.
+													
+	a. Sélectionnez l’appareil virtuel StorSimple qui a été utilisé en tant qu’appareil cible pour le processus de basculement.
+	
+	b. Accédez à la page **Conteneurs de volumes**. Tous les conteneurs de volume, ainsi que les volumes de l’ancien appareil, doivent désormais être répertoriés.
 
-![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
+![Vidéo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vidéo disponible**
 
-To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
-
-
-## <a name="failback"></a>Failback
-
-For Update 3 and later versions, StorSimple also supports failback. After the failover is complete, the following actions occur:
-
-- The volume containers that are failed over are cleaned from the source device.
-
-- A background job per volume container (failed over) is initiated on the source device. If you attempt to failback while the job is in progress, you will recieve a notification to that effect. You will need to wait until the job is complete to start the failback. 
-
-    The time to complete the deletion of volume containers is dependent on various factors such as amount of data, age of the data, number of backups, and the network bandwidth available for the operation. If you are planning test failovers/failbacks, we recommend that you test volume containers with less data (Gbs). In most cases, you can start the failback 24 hours after the failover is complete. 
+Pour visionner une vidéo expliquant comment restaurer un appareil physique basculé vers un appareil virtuel dans le cloud, cliquez [ici](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 
+## Restauration automatique
+
+Pour Update 3 et les versions ultérieures, StorSimple prend également en charge la restauration automatique. À la fin du basculement, l’action suivante se produit :
+
+- Les conteneurs de volumes basculés sont nettoyés de l’appareil source.
+
+- Un travail en arrière-plan par conteneur de volumes (basculé) est lancé sur l’appareil source. Si vous tentez d’effectuer une restauration automatique lorsque le travail est en cours, vous recevrez une notification à cet effet. Vous devrez attendre la fin du travail pour démarrer la restauration automatique.
+
+	Le temps nécessaire à la suppression des conteneurs de volumes dépend de divers facteurs tels que la quantité de données, l’ancienneté des données, le nombre de sauvegardes et la bande passante réseau disponible pour l’opération. Si vous envisagez de tester les basculements / restaurations, nous vous recommandons de tester des conteneurs de volumes comprenant moins de données (Go). Dans la plupart des cas, vous pouvez démarrer la restauration automatique 24 heures après la fin du basculement.
 
 
-## <a name="frequently-asked-questions"></a>Frequently asked questions
-
-Q. **What happens if the DR fails or has partial success?**
-
-A. If the DR fails, we recommend that you try agian. The second time around, DR knows what all was done and when the process stalled the first time. The DR process starts from that point onwards. 
-
-Q. **Can I delete a device while the device failover is in progress?**
-
-A. You cannot delete a device while a DR is in progress. You can only delete your device after the DR is complete.
-
-Q.  **When does the garbage collection start on the source device so that the local data on source device is deleted?**
-
-A. Garbage collection will be enabled on the source device only after the device is completely cleaned up. The cleanup includes cleaning up objects that have failed over from the source device such as volumes, backup objects (not data), volume containers, and policies.
-
-Q. **What happens if the delete job associated with the volume containers in the source device fails?**
-
-A.  If the delete job fails, then you will need to manually trigger the deletion of the volume containers. In the **Devices** page, select your source device and click **Volume containers**. Select the volume containers that you failed over and in the bottom of the page, click **Delete**. Once you have deleted all the failed over volume containers on the source device, you can start the failback.
-
-## <a name="business-continuity-disaster-recovery-(bcdr)"></a>Business continuity disaster recovery (BCDR)
-
-A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Manager service and the associated StorSimple devices.
-
-If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to undergo a factory reset. After the disaster, the StorSimple device will be shown as offline. The StorSimple device must be deleted from the portal, and a factory reset should be done, followed by a fresh registration.
 
 
-## <a name="next-steps"></a>Next steps
+## Forum Aux Questions
 
-- After you have performed a failover, you may need to [deactivate or delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
+Q : **Que se passe-t-il si la récupération d’urgence échoue ou réussit partiellement ?**
 
-- For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+A. Si la récupération d’urgence échoue, nous vous recommandons d’essayer à nouveau. La deuxième fois, la récupération d’urgence sait ce qui a été effectué et à quel moment le processus s’est bloqué la première fois. Le processus de récupération d’urgence démarre à partir de ce point.
+
+Q : **Puis-je supprimer un appareil pendant son basculement ?**
+
+A. Vous ne pouvez pas supprimer un appareil lorsqu’une récupération d’urgence est en cours. Vous ne pourrez le faire qu’après la récupération d’urgence.
+
+Q : **Quand commence le garbage collection sur l’appareil source pour en supprimer les données locales ?**
+
+A. Le garbage collection ne sera activé sur l’appareil source qu’une fois l’appareil entièrement nettoyé. Le nettoyage inclut le nettoyage des objets qui ont échoué sur l’appareil source, notamment les volumes, objets de sauvegarde (et non les données), conteneurs de volumes et stratégies.
+
+Q : **Que se passe-t-il en cas d’échec du travail de suppression associé aux conteneurs de volumes dans l’appareil source ?**
+
+A. Si le travail de suppression échoue, vous devez déclencher manuellement la suppression des conteneurs de volumes. Sur la page **Appareils**, sélectionnez votre appareil source, puis cliquez sur **Conteneurs de volumes**. Sélectionnez les conteneurs de volumes que vous avez basculés et, en bas de la page, cliquez sur **Supprimer**. Une fois que vous avez supprimé tous les conteneurs de volumes basculés sur l’appareil source, vous pouvez démarrer la restauration automatique.
+
+## Continuité d’activité et récupération d’urgence (Business Continuity Disaster Recovery - BCDR)
+
+Un scénario de continuité d’activité et récupération d’urgence (BCDR) se produit lorsque l’ensemble du centre de données Azure cesse de fonctionner. Cela peut affecter votre service StorSimple Manager et les appareils StorSimple associés.
+
+S’il existe des appareils StorSimple inscrits juste avant un incident, ces périphériques StorSimple devront peut-être subir une réinitialisation des paramètres. Après l’incident, le périphérique StorSimple s’affichera comme étant hors connexion. Le périphérique StorSimple doit être supprimé à partir du portail, et une réinitialisation des paramètres doit être effectuée, suivie d’une nouvelle inscription.
+
+
+## Étapes suivantes
+
+- Après avoir effectué un basculement, vous devrez peut-être [désactiver ou supprimer votre appareil StorSimple](storsimple-deactivate-and-delete-device.md).
+
+- Pour plus d’informations sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,191 +1,189 @@
 <properties 
-    pageTitle="Get started with Azure Search Management REST API | Microsoft Azure | Hosted cloud search service" 
-    description="Administer your hosted cloud Azure Search service using a Management REST API" 
-    services="search" 
-    documentationCenter="" 
-    authors="HeidiSteen" 
-    manager="jhubbard" 
-    editor=""/>
+	pageTitle="Prise en main de l’API REST de gestion Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
+	description="Gérez votre service cloud Azure Search hébergé à l'aide d'une API REST de gestion" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="jhubbard" 
+	editor=""/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="rest-api" 
-    ms.workload="search" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="08/08/2016" 
-    ms.author="heidist"/>
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="08/08/2016" 
+	ms.author="heidist"/>
 
-
-# <a name="get-started-with-azure-search-management-rest-api"></a>Get started with Azure Search Management REST API
+# Prise en main de l'API REST de gestion Azure Search
 > [AZURE.SELECTOR]
-- [Portal](search-manage.md)
+- [Portail](search-manage.md)
 - [PowerShell](search-manage-powershell.md)
-- [REST API](search-get-started-management-api.md)
+- [API REST](search-get-started-management-api.md)
 
-The Azure Search REST management API is a programmatic alternative to performing administrative tasks in the portal. Service management operations include creating or deleting the service, scaling the service, and managing keys. This tutorial comes with a sample client application that demonstrates the service management API. It also includes configuration steps required to run the sample in your local development environment.
+L'API REST de gestion Azure Search est une autre solution de programmation permettant d'effectuer des tâches d'administration dans le portail. Les opérations de gestion de service incluent la création ou la suppression du service, la mise à l'échelle du service et la gestion des clés. Ce didacticiel est fourni avec un exemple d'application cliente qui montre l'API de gestion des services. Il inclut également les étapes de configuration nécessaires pour exécuter l'exemple dans votre environnement de développement local.
 
-To complete this tutorial, you will need:
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- Visual Studio 2012 or 2013
-- the sample  client application download
+- Visual Studio 2012 ou 2013
+- Téléchargement de l'exemple d'application cliente
 
-In the course of completing the tutorial, two services will be provisioned: Azure Search and Azure Active Directory (AD). Additionally, you will create an AD application that establishes trust between your client application and the resource manager endpoint in Azure.
+Avec ce didacticiel, vous allez approvisionner deux services : Azure Search et Azure Active Directory (AD). De plus, vous allez créer une application AD qui établit la relation d'approbation entre votre application cliente et le point de terminaison du gestionnaire de ressources dans Azure.
 
-You will need an Azure account to complete this tutorial.
-
-
-##<a name="download-the-sample-application"></a>Download the sample application
-
-This tutorial is based on a Windows console application written in C#, which you can edit and run in either Visual Studio 2012 or 2013
-
-You can find the client application on Github at [Azure Search .NET Management API Demo](https://github.com/Azure-Samples/search-dotnet-management-api/).
+Pour suivre ce didacticiel, vous aurez besoin d'un compte Azure.
 
 
-##<a name="configure-the-application"></a>Configure the application
+##Téléchargement de l'exemple d'application
 
-Before you can run the sample application, you must enable authentication so that requests sent from the client application to the resource manager endpoint can be accepted. The authentication requirement originates with the [Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790568.aspx), which is the basis for all portal-related operations requested via an API, including those related to Search service management. The service management API for Azure Search is simply an extension of the Azure Resource Manager, and thus inherits its dependencies.  
+Ce didacticiel est basé sur une application console Windows écrite en C#, que vous pouvez modifier et exécuter dans Visual Studio 2012 ou 2013
 
-Azure Resource Manager requires Azure Active Directory service as its identity provider. 
+Vous pouvez trouver l’application cliente sur Github à la page [Démonstration de l’API de gestion .NET Azure Search](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
-To obtain an access token that will allow requests to reach the resource manager, the client application includes a code segment that calls Active Directory. The code segment, plus the prerequisite steps to using the code segment, were borrowed from this article: [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
-You can follow the instructions in the above link, or use the steps in this document if you prefer to go through the tutorial step by step.
+##Configuration de l'application
 
-In this section, you will perform the following tasks:
+Avant de pouvoir exécuter l'exemple d'application, vous devez activer l'authentification pour que les demandes envoyées de l'application cliente vers le point de terminaison du gestionnaire de ressources puissent être acceptées. Cette nécessité d'authentification provient du [gestionnaire de ressources Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx), qui est au centre de toutes les opérations liées au portail demandées via une API, y compris celles qui sont associées à la gestion du service Search. L'API de gestion des services pour Azure Search est simplement une extension du gestionnaire de ressources Azure. Elle hérite donc de ses dépendances.
 
-1. Create an AD service
-1. Create an AD application
-1. Configure the AD application by registering details about the sample client application you downloaded
-1. Load the sample client application with values it will use to gain authorization for its requests
+Le gestionnaire de ressources Azure nécessite le service Azure Active Directory en tant que fournisseur d'identité.
 
-> [AZURE.NOTE] These links provide background on using Azure Active Directory for authenticating client requests to the resource manager: [Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx), and [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
+Pour obtenir un jeton d'accès qui permet aux demandes d'atteindre le gestionnaire de ressources, l'application cliente inclut un segment de code qui appelle Active Directory. Le segment de code et les étapes préalables à son utilisation proviennent de cet article : [Demandes d'authentification Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
-###<a name="create-an-active-directory-service"></a>Create an Active Directory Service
+Vous pouvez suivre les instructions fournies dans le lien ci-dessus ou les étapes de ce document si vous préférez parcourir le didacticiel étape par étape.
 
-1. Sign in to the [Azure Portal](https://manage.windowsazure.com).
+Dans cette section, vous allez effectuer les tâches suivantes :
 
-2. Scroll down the left navigation pane and click **Active Directory**.
+1. Création d'un service Active Directory
+1. Création d'une application Active Directory
+1. Configuration de l'application AD en enregistrant des informations détaillées sur l'exemple d'application cliente téléchargé
+1. Téléchargement de l'exemple d'application cliente avec les valeurs qu'il utilisera pour obtenir l'autorisation pour ses demandes
 
-4. Click **NEW** to open **App Services** | **Active Directory**. In this step, you are creating a new Active Directory service. This service will host the AD application that you'll define a few steps from now. Creating a new service helps isolate the tutorial from other applications you might already be hosting in Azure.
+> [AZURE.NOTE] Ces liens fournissent le contexte d'utilisation d'Azure Active Directory pour l'authentification des demandes du client au gestionnaire de ressources : [Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Demandes d'authentification Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx) et [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
 
-5. Click **Directory** | **Custom Create**.
+###Création d'un service Active Directory
 
-6. Enter a service name, domain, and  geo-location. The domain must be unique. Click the check mark to create the service.
+1. Connectez-vous au [portail Azure](https://manage.windowsazure.com).
+
+2. Faites défiler le volet de navigation gauche, puis cliquez sur **Active Directory**.
+
+4. Cliquez sur **NOUVEAU** pour ouvrir **Services d'application** | **Active Directory**. Dans cette étape, vous créez un service Active Directory. Celui-ci va héberger l'application Active Directory que vous allez définir dans quelques étapes. La création d'un service permet d'isoler le didacticiel d'autres applications qui sont déjà hébergées dans Azure.
+
+5. Cliquez sur **Répertoire** | **Création personnalisée**.
+
+6. Entrez le nom du service, le domaine et l'emplacement géographique. Le domaine doit être unique. Cochez la case pour créer le service.
 
      ![][5]
 
-###<a name="create-a-new-ad-application-for-this-service"></a>Create a new AD application for this service
+###Création d'une application Active Directory pour ce service
 
-1. Select the "SearchTutorial" Active Directory service you just created.
+1. Sélectionnez le service Active Directory « SearchTutorial » que vous venez de créer.
 
-2. On the top menu, click **Applications**. 
+2. Dans le menu supérieur, cliquez sur **Applications**.
  
-3. Click **Add an Application**. An AD application stores information about the client applications that will be using it as an identity provider.  
+3. Cliquez sur **Ajouter une application**. Une application Active Directory stocke des informations sur les applications clientes qui l'utiliseront comme fournisseur d'identité.
  
-4. Choose **Add an application my organization is developing**. This option provides registration settings for applications that are not published to the application gallery. Since the client application is not part of the application gallery, this is the right choice for this tutorial.
+4. Choisissez **Ajouter une application développée par mon organisation**. Cette option fournit les paramètres d'inscription pour les applications qui ne sont pas publiées dans la galerie d'applications. L'application cliente ne faisant pas partie de la galerie d'applications, ceci est le bon choix pour ce didacticiel.
 
      ![][6]
  
-5. Enter a name, such as "Azure-Search-Manager".
+5. Entrez un nom, comme « Azure-Search-Manager ».
 
-6. Choose **Native client application** for application type. This is correct for the sample application; it happens to be a Windows client (console) application, not a web application.
+6. Choisissez **Application cliente native** comme type d'application. Cette valeur correspond à l'exemple d'application. Il s'agit d'une application cliente (console) Windows, pas une application web.
 
      ![][7]
  
-7. In Redirect URI, enter "http://localhost/Azure-Search-Manager-App". This a URI to which Azure Active Directory will redirect the user-agent in response to an OAuth 2.0 authorization request. The value does not need to be a physical endpoint, but must be a valid URI. 
+7. Dans l'URI de redirection, entrez « http://localhost/Azure-Search-Manager-App ». C'est l'URI vers lequel Azure Active Directory va rediriger l'agent utilisateur en réponse à une demande d'autorisation OAuth 2.0. La valeur n’a pas besoin d’être un point de terminaison physique, mais doit être un URI valide.
 
-    For the purposes of this tutorial, the value can be anything, but whatever you enter becomes a required input for the administrative connection in the sample application. 
+    Dans ce didacticiel, la valeur peut être quelconque, mais la valeur que vous entrez devient une entrée obligatoire pour la connexion d'administration dans l'exemple d'application.
  
-7. Click the check mark to create the Active Directory application. You should see "Azure-Search-Manager-App" in the left navigation pane.
+7. Cochez la case pour créer l'application Active Directory. Vous devez voir « Azure-Search-Manager-App » dans le volet de navigation gauche.
 
-###<a name="configure-the-ad-application"></a>Configure the AD application
+###Configuration de l'application Active Directory
  
-9. Click the AD application, "Azure-Search-Manager-App", that you just created. You should see it listed in the left navigation pane.
+9. Cliquez sur l'application Active Directory, « Azure-Search-Manager-App », que vous venez de créer. Elle doit être affichée dans le volet de navigation gauche.
 
-10. Click **Configure** in the top menu.
+10. Cliquez sur **Configurer** dans le menu supérieur.
  
-11. Scroll down to Permissions and select **Azure Management API**. In this step, you specify the API (in this case, the Azure Resource Manager API) that the client application needs access to, along with the level of access it needs.
+11. Faites défiler jusqu'à Autorisations et sélectionnez **API de gestion Microsoft Azure**. Dans cette étape, vous spécifiez l'API (dans ce cas, l'API du gestionnaire de ressources Azure) à laquelle l'application cliente doit accéder, ainsi que le niveau d'accès nécessaire.
 
-12. In Delegated Permissions, click the drop down list and select **Access Azure Service Management (Preview**).
+12. Dans Autorisations déléguées, cliquez sur la liste déroulante et sélectionnez **Accéder à la gestion du service Azure (version préliminaire)**.
  
      ![][8]
  
-13. Save the changes. 
+13. Enregistrez les modifications.
 
-Keep the application configuration page open. In the next step, you will copy values from this page and enter them into the sample application.
+Ne fermez pas la page de configuration d'application. Dans l'étape suivante, vous allez copier les valeurs à partir de cette page pour les entrer dans l'exemple d'application.
 
-###<a name="load-the-sample-application-program-with-registration-and-subscription-values"></a>Load the sample application program with registration and subscription values
+###Chargement de l’exemple de programme d’application avec des valeurs d’inscription et d’abonnement
 
-In this section, you'll edit the solution in Visual Studio, substituting valid values obtained from the portal.
-The values that you will be adding appear near the top of Program.cs:
+Dans cette section, vous allez modifier la solution dans Visual Studio, en remplaçant les valeurs valides obtenues dans le portail. Les valeurs que vous ajoutez apparaissent en haut du fichier Program.cs :
 
         private const string TenantId = "<your tenant id>";
         private const string ClientId = "<your client id>";
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-If you have not yet [downloaded the sample application from Github](https://github.com/Azure-Samples/search-dotnet-management-api/), you will need it for this step.
+Si vous n’avez pas encore [téléchargé l’exemple d’application à partir de Github](https://github.com/Azure-Samples/search-dotnet-management-api/), vous en aurez besoin pour cette étape.
 
-1. Open the **ManagementAPI.sln** in Visual Studio.
+1. Ouvrez **ManagementAPI.sln** dans Visual Studio.
 
-2. Open Program.cs.
+2. Ouvrez le fichier Program.cs.
 
-3. Provide `ClientId`. From the AD application configuration page left open from the previous step, copy the Client ID from the AD application configuration page in the portal and paste it into Program.cs.
+3. Spécifiez `ClientId`. À partir de la page de configuration de l'application AD ouverte depuis l'étape précédente, copiez l'ID client de la page de configuration d'application AD du portail et collez-le dans Program.cs.
 
-4. Provide `RedirectUrl`. Copy Redirect URI from the same portal page, and paste it into Program.cs.
+4. Spécifiez `RedirectUrl`. Copiez l'URI de redirection de la même page de portail et collez-le dans le fichier Program.cs.
 
-    ![][9]
+	![][9]
 
-5. Provide `TenantID.` 
-    - Go back to Active Directory | SearchTutorial (service). 
-    - Click **Applications** from the top bar. 
-    - Click **View Endpoints** at the bottom of the page. 
-    - Copy the OAUTH 2.0 Authorization Endpoint at the bottom of the list. 
-    - Paste the endpoint into TenantID, trimming the value of all URI parameters except the tenant ID.
+5. Spécifiez `TenantID.`
+	- Revenez à Active Directory | SearchTutorial (service).
+	- Cliquez sur **Applications** dans la barre supérieure.
+	- Cliquez sur **Afficher les points de terminaison** au bas de la page.
+	- Copiez le point de terminaison d'autorisation OAUTH 2.0 au bas de la liste.
+	- Collez le point de terminaison dans TenantID, en ajustant la valeur de tous les paramètres d'URI à l'exception de l'ID de client.
 
-    Given "https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0", delete everything except "55e324c7-1656-4afe-8dc3-43efcd4ffa50".
+    Étant donné « https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0 », supprimez tout sauf « 55e324c7-1656-4afe-8dc3-43efcd4ffa50 ».
 
-    ![][10]
+	![][10]
 
-6. Provide `SubscriptionID`.
-    - Go to the main portal page.
-    - Click **Settings** at the bottom of the left navigation pane.
-    - From the Subscriptions tab, copy the subscription ID and paste it into Program.cs.
+6. Spécifiez `SubscriptionID`.
+	- Accédez à la page principale du portail.
+	- Cliquez sur **Paramètres** au bas du volet de navigation gauche.
+	- Sous l’onglet Abonnements, copiez l’ID d’abonnement et collez-le dans Program.cs.
 
-7. Save and then build the solution.
+7. Enregistrez et générez la solution.
 
 
-##<a name="explore-the-application"></a>Explore the application
+##Exploration de l'application
 
-Add a breakpoint at the first method call so that you can step through the program. Press **F5** to run the application, and then press **F11** to step through the code.
+Ajoutez un point d'arrêt au premier appel de méthode pour parcourir le programme. Appuyez sur **F5** pour exécuter l'application et sur **F11** pour parcourir le code.
 
-The sample application creates a free Azure Search service for an existing Azure subscription. If a free service already exists for your subscription, the sample application will fail. Only one free Search service per subscription is allowed.
+L’exemple d’application crée un service Azure Search gratuit pour un abonnement Azure existant. Si un service gratuit existe déjà pour votre abonnement, l’exemple d’application échoue. Un seul service Search est autorisé par abonnement.
 
-1. Open Program.cs from the Solution Explorer and go to the Main(string[] void) function. 
+1. Ouvrez Program.cs à partir de l'Explorateur de solutions et accédez à la fonction Main(string void).
  
-3. Notice that **ExecuteArmRequest** is used to execute requests against the Azure Resource Manager endpoint, `https://management.azure.com/subscriptions` for a specified `subscriptionID`. This method is used throughout the program to perform operations using the Azure Resource Manager API or Search management API.
+3. Notez qu'**ExecuteArmRequest** est utilisé pour exécuter des demandes sur le point de terminaison du gestionnaire de ressources Azure, `https://management.azure.com/subscriptions` pour un `subscriptionID` spécifié. Cette méthode est utilisée dans tout le programme pour effectuer des opérations à l'aide de l'API du gestionnaire de ressources Azure ou de l'API de gestion Search.
 
-3. Requests to Azure Resource Manager must be authenticated and authorized. This is accomplished using the **GetAuthorizationHeader** method, called by the **ExecuteArmRequest**  method, borrowed from [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx). Notice that **GetAuthorizationHeader** calls `https://management.core.windows.net` to get an access token.
+3. Les demandes effectuées au gestionnaire de ressources Azure doivent être authentifiées et autorisées, par le biais de la méthode **GetAuthorizationHeader**, appelée par la méthode **ExecuteArmRequest**, empruntée aux [demandes d'authentification du gestionnaire de ressources Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx). Notez que **GetAuthorizationHeader** appelle `https://management.core.windows.net` pour obtenir un jeton d'accès.
 
-4. You are prompted to sign in with a user name and password that is valid for your subscription.
+4. Vous êtes invité à vous connecter avec un nom d’utilisateur et un mot de passe valides pour votre abonnement.
 
-5. Next, a new Azure Search service is registered with the Azure Resource Manager provider. Again, this is the **ExecuteArmRequest** method, used this time to create the Search service on Azure for your subscription via `providers/Microsoft.Search/register`. 
+5. Ensuite, un nouveau service Azure Search est inscrit auprès du fournisseur du gestionnaire de ressources Azure. Là encore, c’est la méthode **ExecuteArmRequest**, utilisée cette fois pour créer le service Search sur Azure pour votre abonnement via `providers/Microsoft.Search/register`.
 
-6. The remainder of the program uses the [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx). Notice that the `api-version` for this API is different from the Azure Resource Manager api-version. For example, `/listAdminKeys?api-version=2014-07-31-Preview` shows the `api-version` of the Azure Search Management REST API.
+6. Le reste du programme utilise l'[API REST de gestion Azure Search](http://msdn.microsoft.com/library/dn832684.aspx). Notez que l'`api-version` de cette API est différent de l'« api-version » du gestionnaire de ressources Azure. Par exemple, `/listAdminKeys?api-version=2014-07-31-Preview` affiche l’`api-version` de l’API REST de gestion d’Azure Search.
 
-    The next series of operations retrieve the service definition you just created, the admin api-keys, regenerates and retrieves keys, changes the replica and parition, and finally deletes the service.
+	La prochaine série d'opérations récupère la définition de service que vous venez de créer, les api-keys d'administration, régénère et récupère les clés, modifie le réplica et la partition, et enfin supprime le service.
 
-    When changing the service replica or partition count, it is expected that this action will fail if you are using the free edition. Only the standard edition can make use of additional partitions and replicas.
+	Quand vous modifiez le nombre de réplicas ou de partitions de service, cette action échoue si vous utilisez l'édition gratuite. Seule l'édition standard peut utiliser des partitions et des réplicas supplémentaires.
 
-    Deleting the service is the last operation.
+	La suppression du service est la dernière opération.
 
-##<a name="next-steps"></a>Next steps
+##Étapes suivantes
 
-After having completed this tutorial, you might want to learn more about service management or authentication with Active Directory service:
+Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus sur la gestion des services ou l'authentification avec le service Active Directory :
 
-- Learn more about integrating a client application with Active Directory. See [Integrating Applications in Azure Active Directory](http://msdn.microsoft.com/library/azure/dn151122.aspx).
-- Learn about other service management operations in Azure. See [Managing Your Services](http://msdn.microsoft.com/library/azure/dn578292.aspx).
+- Découvrez plus en détail l'intégration d'une application cliente avec Active Directory. Consultez la rubrique [Intégration d'applications dans Azure Active Directory](http://msdn.microsoft.com/library/azure/dn151122.aspx).
+- Découvrez les autres opérations de gestion des services dans Azure. Consultez la rubrique [Gestion de vos services](http://msdn.microsoft.com/library/azure/dn578292.aspx).
 
 <!--Anchors-->
 [Download the sample application]: #Download
@@ -210,8 +208,4 @@ After having completed this tutorial, you might want to learn more about service
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Learns and Adapts"
-   description="Learn how SQL Database learns and adapts"
+   pageTitle="Le service Base de données SQL Azure apprend et s’adapte"
+   description="Découvrez comment le service Base de données SQL Azure apprend et s’adapte"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -14,55 +14,49 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/13/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
+# Le service Base de données SQL Azure apprend et s’adapte
 
-# <a name="azure-sql-database-learns-&amp;-adapts"></a>Azure SQL Database Learns &amp; Adapts
 
+## Comment le service Base de données SQL Azure apprend, s’adapte et se développe avec votre application
 
-## <a name="how-azure-sql-database-learns,-adapts,-and-grows-with-your-application"></a>How Azure SQL Database learns, adapts, and grows with your application
-
-Azure SQL Database manages billions of transactions and millions of databases per day. And one of its key features is that SQL Database is always learning and adapting with your app. That way you can dynamically maximize performance, reliability, and data security&mdash;with little effort on your part.
+Le service Base de données SQL Azure gère chaque jour des milliards de transactions et des millions de bases de données. L’une de ses caractéristiques clés est qu’il apprend et s’adapte à votre application en permanence. De cette manière, vous pouvez optimiser dynamiquement les performances, la fiabilité et la sécurité des données sans effort.
 
 ![learn-and-adapt](./media/sql-database-learn-and-adapt/sql-database-learn-and-adapt.png)
 
-## <a name="threat-detection-and-alerts"></a>Threat detection and alerts  
-With threat and anomaly detection, SQL Database has built-in behavioral analysis, real-time alerts, a configurable threat policy, an audit log, and intelligent ways to detect and fix unusual patterns.
+## Détection des menaces et alertes  
+Avec la détection des anomalies et des menaces, le service Base de données SQL offre une analyse comportementale intégrée, des alertes en temps réel, une stratégie en matière de menaces configurable, un journal d’audit, ainsi que des moyens intelligents de détecter et résoudre les schémas inhabituels.
 
-[Read the documentation](sql-database-threat-detection-get-started.md)
+[Lire la documentation](sql-database-threat-detection-get-started.md)
 
-## <a name="automatic-tuning"></a>Automatic tuning
-SQL Database is equipped to make your app run at its best performance. By continuously learning your app’s patterns, adaptively self-tuning its performance, and automatically refining without you doing anything&mdash;because we know you don’t want to anyway.
+## Réglage automatique
+Le service Base de données SQL est conçu pour optimiser le fonctionnement de votre application en apprenant continuellement son comportement, en ajustant de manière adaptative ses performances et en affinant automatiquement les réglages, sans la moindre action de votre part – nous savons que vous avez mieux à faire.
 
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787566)
+[Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787566)
 
-## <a name="insights-when-you-need-them"></a>Insights when you need them
-SQL Database is able to track each query and its duration, frequency, and resource utilization. Based on this telemetry, automatic algorithms optimally tune your databases exactly to your queries. Additionally, SQL Database provides insights to help minimize time tuning queries and troubleshooting performance issues. That means you gain direct insight into resource consumption, top performing queries, and the ability to drill down for more details.
+## Des données quand vous en avez besoin
+Le service Base de données SQL est capable de suivre chaque requête et la durée, la fréquence et l’utilisation des ressources de celle-ci. En fonction de ces données de télémétrie, des algorithmes automatiques adaptent précisément les réglages de vos bases de données à vos requêtes. En outre, le service Base de données SQL fournit des données qui minimisent le temps passé à ajuster les requêtes et à résoudre les problèmes de performances. Vous bénéficiez ainsi d’une visibilité directe sur la consommation des ressources et les requêtes les plus performantes, avec un accès à des informations plus détaillées.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787567)
+[Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787567)
 
-## <a name="no-administration-required"></a>No administration required
-SQL Database provides the automatic administration and data protection your app needs so you can go back to doing what you do best&mdash;coding. You automatically get back-ups, disaster recovery failover, infrastructure maintenance, security and software patches, and feature updates. You’ll not only save money and time as SQL Database works behind the scenes, but you’ll also never have to worry about that dreaded app downtime.
+## Aucune administration requise
+Le service Base de données SQL offre l’administration et la protection des données automatiques dont votre application a besoin pour vous permettre de vous concentrer sur ce que vous faites le mieux : coder. Vous bénéficiez automatiquement de sauvegardes, d’un basculement de récupération d’urgence, d’une maintenance de l’infrastructure, de correctifs de sécurité et logiciels, ainsi que de mises à jour des fonctionnalités. Avec le service Base de données SQL exécuté en arrière-plan, vous réaliserez des économies et gagnerez du temps, mais surtout, vous n’aurez plus à vous soucier de ces interruptions d’application tant redoutées.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787568)
+[Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787568)
 
-Go to the homepage to see what else SQL Database has to offer.
-[Check it out](https://azure.microsoft.com/services/sql-database/) 
+Accédez à la page d’accueil pour voir les autres avantages du service Base de données SQL. [Voyez par vous-même](https://azure.microsoft.com/services/sql-database/)
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+Demandez un [abonnement Azure gratuit](https://azure.microsoft.com/get-started/) et [créez votre première base de données SQL Azure](sql-database-get-started.md).
 
-## <a name="additional-resources"></a>Additional resources
+## Ressources supplémentaires
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/).
  
-Review the [technical overview of SQL Database](sql-database-technical-overview.md).
+Consultez la [présentation technique de la base de données SQL](sql-database-technical-overview.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

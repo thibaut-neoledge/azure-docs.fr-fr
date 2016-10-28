@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Connect sync: Prevent accidental deletes | Microsoft Azure"
-   description="This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect."
+   pageTitle="Azure AD Connect sync : prévention des suppressions accidentelles | Microsoft Azure"
+   description="Cette rubrique décrit la fonctionnalité Prévention des suppressions accidentelles dans Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
@@ -14,57 +14,50 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/01/2016"
-   ms.author="billmath"/>
+   ms.author="andkjell"/>
 
+# Azure AD Connect Sync : Prévention des suppressions accidentelles
+Cette rubrique décrit la fonctionnalité Prévention des suppressions accidentelles dans Azure AD Connect.
 
-# <a name="azure-ad-connect-sync:-prevent-accidental-deletes"></a>Azure AD Connect sync: Prevent accidental deletes
-This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.
+Lors de l’installation d’Azure AD Connect, la fonctionnalité de prévention des suppressions accidentelles est activée par défaut et configurée de manière à interdire une exportation de plus de 500 suppressions. Cette fonctionnalité est conçue pour vous protéger contre les modifications accidentelles de la configuration et contre les modifications apportées à votre répertoire local qui auraient une incidence sur de nombreux utilisateurs et d’autres objets.
 
-When installing Azure AD Connect, prevent accidental deletes is enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and other objects.
+Voici quelques scénarios courants de nombreuses suppressions :
 
-Common scenarios when you see many deletes include:
+- Modifications apportées au [filtrage](active-directory-aadconnectsync-configure-filtering.md) lorsque l'intégralité d'une [unité organisationnelle](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) ou d’un [domaine](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) est désélectionnée.
+- Tous les objets d’une unité d'organisation sont supprimés.
+- Une unité d'organisation est renommée et tous les objets qu'elle contient sont considérés comme hors de portée pour la synchronisation.
 
-- Changes to [filtering](active-directory-aadconnectsync-configure-filtering.md) where an entire [OU](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) or [domain](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) is unselected.
-- All objects in an OU are deleted.
-- An OU is renamed so all objects in it are considered to be out of scope for synchronization.
+La valeur par défaut de 500 objets peut être modifiée dans PowerShell à l'aide de `Enable-ADSyncExportDeletionThreshold`. Vous devez configurer cette valeur de manière à l’ajuster à la taille de votre organisation. Étant donné que le Planificateur de synchronisation est exécuté toutes les 30 minutes, la valeur est le nombre de suppressions détectées dans les 30 minutes.
 
-The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`. You should configure this value to fit the size of your organization. Since the sync scheduler runs every 30 minutes, the value is the number of deletes seen within 30 minutes.
+L’exportation s’arrête si le nombre de suppressions vers Azure AD est trop important et vous recevez un courrier électronique similaire à celui-ci :
 
-If there are too many deletes staged to be exported to Azure AD, then the export stops and you receive an email like this:
+![E-mail de prévention des suppressions accidentelles](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
-![Prevent Accidental deletes email](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
+> *Bonjour (contact technique). Au (moment) où le service de synchronisation d’identité a détecté que le nombre de suppressions avait dépassé le seuil de suppression configuré pour (nom de l’organisation). En tout, (nombre) objets ont été envoyés pour suppression au cours de ce cycle de synchronisation des identités. La valeur configurée de (nombre) objets pour le seuil de suppression a été atteinte ou dépassée. Avant que nous puissions continuer, vous devez confirmer que ces suppressions doivent être traitées. Consultez la rubrique Éviter les suppressions accidentelles pour plus d’informations concernant l’erreur indiquée dans ce message électronique.*
 
-> *Hello (technical contact). At (time) the Identity synchronization service detected that the number of deletions exceeded the configured deletion threshold for (organization name). A total of (number) objects were sent for deletion in this Identity synchronization run. This met or exceeded the configured deletion threshold value of (number) objects. We need you to provide confirmation that these deletions should be processed before we will proceed. Please see the preventing accidental deletions for more information about the error listed in this email message.*
+Vous pouvez également consulter l’état `stopped-deletion-threshold-exceeded` lorsque vous recherchez le profil d’exportation dans l’interface utilisateur **Synchronization Service Manager**. ![Interface utilisateur Sync Service Manager de prévention des suppressions accidentelles](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
-You can also see the status `stopped-deletion-threshold-exceeded` when you look in the **Synchronization Service Manager** UI for the Export profile.
-![Prevent Accidental deletes Sync Service Manager UI](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
+Si l'événement n'était pas prévu, examinez la situation et corrigez-la si nécessaire. Pour voir les objets devant être supprimés, procédez comme suit :
 
-If this was unexpected, then investigate and take corrective actions. To see which objects are about to be deleted, do the following:
+1. Démarrez le **Service de synchronisation** depuis le menu Démarrer.
+2. Accédez à **Connecteurs**.
+3. Sélectionnez le connecteur de type **Azure Active Directory**.
+4. Sous **Actions**, à droite, sélectionnez **Espace de connecteur de recherche**.
+5. Dans la fenêtre contextuelle, sous **Étendue**, sélectionnez **Déconnecté depuis**, puis choisissez une heure dans le passé. Cliquez sur **Rechercher**. Cette page affiche tous les objets sur le point d’être supprimés. En cliquant sur chaque élément, vous pouvez obtenir des informations supplémentaires sur l’objet. Vous pouvez également cliquer sur **Paramètre de colonne** pour ajouter des attributs supplémentaires dans la grille.
 
-1. Start **Synchronization Service** from the Start Menu.
-2. Go to **Connectors**.
-3. Select the Connector with type **Azure Active Directory**.
-4. Under **Actions** to the right, select **Search Connector Space**.
-5. In the pop-up under **Scope**, select **Disconnected Since** and pick a time in the past. Click **Search**. This page provides a view of all objects about to be deleted. By clicking each item, you can get additional information about the object. You can also click **Column Setting** to add additional attributes to be visible in the grid.
+![Espace de connecteur de recherche](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/searchcs.png)
 
-![Search Connector Space](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/searchcs.png)
+Si vous souhaitez que tous les éléments soient supprimés, procédez comme suit :
 
-If all the deletes are desired, then do the following:
+1. Pour désactiver temporairement cette protection et procéder à ces suppressions exécutez l’applet de commande PowerShell `Disable-ADSyncExportDeletionThreshold`. Indiquez un compte et un mot de passe d’administrateur général Azure AD. ![Informations d'identification](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
+2. Tout en maintenant le connecteur Azure Active Directory sélectionné, sélectionnez l’action **Exécuter**, puis **Exporter**.
+3. Pour réactiver la protection, exécutez l’applet de commande PowerShell `Enable-ADSyncExportDeletionThreshold`.
 
-1. To temporarily disable this protection and let those deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password.
-![Credentials](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
-2. With the Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
-3. To re-enable the protection, run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`.
+## Étapes suivantes
 
-## <a name="next-steps"></a>Next steps
+**Rubriques de présentation**
 
-**Overview topics**
+- [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
+- [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

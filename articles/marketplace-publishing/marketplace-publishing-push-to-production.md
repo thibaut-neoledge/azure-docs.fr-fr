@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy your offer to the Azure Marketplace | Microsoft Azure"
-   description="Learn about and walk through the instructions to deploy your offer--virtual machine image, developer service, data service, etc.--to the Azure Marketplace."
+   pageTitle="Déploiement de votre offre sur Azure Marketplace | Microsoft Azure"
+   description="Lisez et suivez les instructions pour déployer votre offre (une image de machine virtuelle, un service de développement, des services de données, etc.) dans Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,79 +16,74 @@
    ms.date="08/02/2016"
    ms.author="hascipio" />
 
+# Déploiement de votre offre sur Azure Marketplace
+Lorsque vous avez finalisé votre offre (avec des scénarios clients testés, du contenu marketing, etc.) et êtes prêt à la lancer, cliquez sur **Push to Production** dans l'onglet **Publish**.
 
-# <a name="deploy-your-offer-to-the-azure-marketplace"></a>Deploy your offer to the Azure Marketplace
-When you are satisfied with your offer (that is, you have tested customer scenarios, marketing content, etc.) and you are ready to launch, request **Push to production** on the **Publish** tab.  
-
-1. The four steps under the WALKTHROUGH page in the Publishing portal should be completed and green. For Virtual Machine offers, ensure that the following guidelines are followed.
+1. Les quatre étapes de la page PROCÉDURE PAS À PAS du portail de publication doivent être terminées et s’afficher en vert. Pour les offres de machines virtuelles, vérifiez que les instructions suivantes sont respectées.
 
     ![drawing][img-pubportal-walkthru-checked]
 
-2. Select the **Publish** tab from the list on the left side.
+2. Sélectionnez l'onglet **Publish** dans la liste située à gauche.
 
-    ![drawing][img-pubportal-menu-publish]
+    ![dessin][img-pubportal-menu-publish]
 
-3. Click the button **Request approval to push to production**. Once the request is made, the approval team executes a final review, and then your offer will be available in the Azure Marketplace.
+3. Cliquez sur le bouton **Request approval to push to production (Demander une approbation pour lancer la production)**. Une fois la demande effectuée, l’équipe d’approbation exécute une vérification finale. Votre offre sera ensuite disponible sur Azure Marketplace.
 
-    ![drawing][img-pubportal-publish-pushproduction]
+    ![dessin][img-pubportal-publish-pushproduction]
 
->[AZURE.IMPORTANT] In case of Virtual Machines, when you click on the button Request approval to push to production, the following steps are performed behind the scene. You will be able to view the progress of each step under the PUBLISH tab in the Publishing portal. You must check this page at regular interval (until the status shows "Listed") for any failure information which need correction from your end.
+>[AZURE.IMPORTANT] Dans le cas d’ordinateurs virtuels, lorsque vous cliquez sur le bouton Demander une approbation pour lancer la production, les étapes suivantes sont effectuées en arrière-plan. Vous pourrez voir la progression de chaque étape sous l’onglet PUBLIER du portail de publication. Vous devez vérifier cette page à intervalles réguliers (jusqu’à ce que l’état affiche « Répertorié ») en cas d’apparition d’informations d’échec nécessitant une correction de votre part.
 
-> - At first your production request goes to the certification team who validate the vhd. However, if you are updating your already listed offer and the request has got only marketing change, then the certification step is skipped.
-> - At the next step, the request come to the content validation team who verify the marketing content of the offer.
-> - If the above steps are successful, then the offer is approved in production. At this time, the status become "Listed" in the publishing portal. However, this “Listed” status does not imply that the process is complete. The following steps need to be complete before the offer is available in the Azure Marketplace.
-> - Once the offer is approved in production in the step above, replication of the offer start across all the Azure datacenters. It generally takes 24-48hours for the replication to complete but may take up to a week depending on the size of the vhd. However, if you are updating your already listed offer and it has got only marketing change, then the replication is faster.
-> - When the replication is complete, then the offer will be available in the Azure Marketplace.
+> - Dans un premier temps, votre demande de lancement de production est transmise à l’équipe de certification, qui valide le disque dur virtuel. Toutefois, si vous mettez à jour votre offre déjà répertoriée et que la demande ne contient que des modifications d’ordre marketing, l’étape de certification est ignorée.
+> - À l’étape suivante, la demande est transmise à l’équipe de validation du contenu, chargée de vérifier le contenu marketing de l’offre.
+> - Si les étapes ci-dessus sont terminées avec succès, l’offre est approuvée pour production. À ce stade, l’état devient « Répertorié » dans le portail de publication. Toutefois, cet état « Répertorié » n’implique pas que le processus est terminé. Les étapes suivantes doivent être terminées avant que l’offre soit disponible dans Azure Marketplace.
+> - Une fois que l’offre est approuvée pour production à l’étape précédente, la réplication de l’offre commence sur tous les centres de données Azure. En règle générale, il faut 24 à 48 heures pour que la réplication soit complète, mais elle peut prendre jusqu’à une semaine selon la taille du disque dur virtuel. Toutefois, si vous mettez à jour votre offre déjà répertoriée et que la demande ne contient que des modifications d’ordre marketing, la réplication est plus rapide.
+> - Une fois la réplication terminée, l’offre sera répertoriée dans Azure Marketplace.
 
-> You can always delete the offer while it is in a **Draft** status (i.e., never **Push to staging** or **Push to production**). On the **History** tab, click the **Discard draft** button at the bottom of the page to delete a draft.
-
-
-## <a name="production-checklist-for-all-virtual-machine-offers"></a>Production checklist for all Virtual Machine offers
-
-- Ensure that you are a Microsoft Azure Certified partner
-- Under the SKUs tab, the option "Hide this SKU from the Marketplace because it should always be bought via a solution template" should be marked as YES only if the SKU is a part of a Solution Template. In all the other cases, this option should always be marked as NO.
-- Remember: You should not change the SKU visibility setting once the SKU is listed. We do not support this functionality.
-- Ensure that the logos adhere to the Azure Marketplace logo guidelines given below.
-- Offer and SKU description shouldn’t be same.
-- SKU’s Title and Offer Long summary shouldn’t be same.
-- SKU Title and Offer Summary shouldn’t be same.
-- SKU Titles should not be identical for an offer with multiple SKUs.
-
-**Azure Marketplace logo guidelines**
-
-- The Azure design has a simple color palette. Keep the number of primary and secondary colors on your logo low.
-- The theme colors of the Azure portal are white and black. Hence avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the Azure portal. We recommend simple primary colors. If you are using transparent background, then make sure that the logo/text is not white or black.
-- Do not use a gradient background on the logo.
-- Avoid placing text, even your company or brand name, on the logo.
-- The look and feel of your logo should be 'flat' and should avoid gradients.
-- The logo should not be stretched.
-
-**Additional guidelines for the Hero logo:**
-
-- The Hero logo is optional. The publisher can choose not to upload a Hero logo. **However once uploaded the hero icon cannot be deleted from the Publishing portal. At that time, the partner must follow the Azure Marketplace guidelines for Hero icons else the offer will not be approved to production.**
-- The Publisher Display Name, SKU title and the offer long summary are displayed in white font color. Hence you should avoid keeping any light color in the background of the Hero Icon. Black, white and transparent background is not allowed for Hero icons.
-- The publisher display name, SKU title, the offer long summary and the create button are embedded programmatically inside the Hero logo once the offer goes listed. So you should not enter any text while you are designing the Hero logo. Just leave empty space on the right because the text (i.e. publisher display name, SKU title, the offer long summary) will be included programmatically by us over there. The empty space for the text should be 415x100 on the right (and it is offset by 370px from the left).
+> Vous pouvez toujours supprimer l'offre si elle a le statut **Draft** (c'est-à-dire jamais **Push to staging** ni **Push to production**). Dans l'onglet **History**, cliquez sur le bouton **Discard draft** au bas de la page pour supprimer un brouillon.
 
 
-## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Additional production checklist for already listed Virtual Machine offers
+## Liste de contrôle de production pour toutes les offres de machines virtuelles
 
-- Check if there is already an offer with the same offer name from your company. If yes, then you should add a new version of the SKU in the existing offer instead of creating a new duplicate offer.
-- Data disk should not change between two versions of the same SKU.
-- The Azure Marketplace does not support pricing change of the listed SKUS as it impacts the billing of the existing customers. Ensure that you do not change the pricing of the listed SKUs in the regions where the SKU is available. However, you can add new SKUs or add new regions to an existing SKU.
+- Assurez-vous que vous avez le statut de partenaire Microsoft Azure Certified
+- Sous l’onglet SKU, l’option « Masquer cette référence (SKU) à partir du Marketplace, car elle doit toujours être achetée via un modèle de solution » doit être marquée comme « OUI » uniquement si le SKU fait partie d’un modèle de solution. Dans tous les autres cas, cette option doit toujours être marquée comme « NON ».
+- Rappel : vous ne devez pas modifier le paramètre de visibilité de la référence lorsque cette dernière est répertoriée. Nous ne prenons pas en charge cette fonctionnalité.
+- Vérifiez que les logos suivent les instructions relatives aux logos Azure Marketplace données ci-dessous.
+- La description de l’offre et celle de la référence ne peuvent pas être les mêmes.
+- Le titre de la référence et le résumé long de l’offre ne peuvent pas être les mêmes.
+- Le titre de la référence et le résumé de l’offre ne peuvent pas être les mêmes.
+- Les titres de référence ne peuvent pas être les mêmes pour une offre avec plusieurs références.
+
+**Instructions relatives aux logos Azure Marketplace**
+
+- Le design Azure a une palette de couleurs simple. Limitez le nombre de couleurs primaires et secondaires sur votre logo.
+- Les couleurs de thème du portail Azure sont le blanc et le noir. Par conséquent, évitez d’utiliser ces couleurs comme couleur d’arrière-plan pour vos logos. Utilisez des couleurs qui mettent vos logos en évidence dans le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples. Si vous utilisez un arrière-plan transparent, assurez-vous que le logo/texte n’est pas blanc ou noir.
+- N'utilisez pas d’arrière-plan dégradé sur le logo.
+- Évitez de placer du texte, même s’il s’agit du nom votre société ou de votre marque, sur le logo.
+- L'apparence de votre logo doit être « plate » et éviter les dégradés.
+- Le logo ne doit pas être étiré.
+
+**Recommandations supplémentaires pour la bannière :**
+
+- La bannière est facultative. L’éditeur peut choisir de ne pas télécharger de bannière. **Toutefois l’icône ne peut pas être supprimée du portail de publication une fois téléchargée. À ce moment, le partenaire doit suivre les instructions d’Azure Marketplace pour les icônes, sans quoi l’offre ne sera pas approuvée en production.**
+- Le nom d’affichage de l’éditeur, le titre de la référence et le résumé long de l’offre s’affichent en couleur de police blanche. Par conséquent, vous devez éviter de conserver toute couleur claire dans l’arrière-plan l’icône. Les arrière-plans noirs, blancs et transparents ne sont pas autorisés pour les icônes.
+- Le nom d’affichage de l’éditeur, le titre de la référence, le résumé long de l’offre et le bouton Créer sont incorporés programmatiquement à la bannière une fois l’offre répertoriée. Vous ne devez par conséquent pas saisir de texte lorsque vous concevez la bannière. Laissez simplement un espace vide sur la droite, car le texte (à savoir le nom d’affichage de l’éditeur, le titre de la référence et le résumé long de l’offre) sera inclus automatiquement de notre côté. L’espace vide pour le texte doit être de 415 x 100 sur la droite (décalé de 370px à partir de la gauche).
 
 
-## <a name="next-steps"></a>Next steps
-Once the offer goes live, test the customer scenarios to validate that all the contracts and functionality work properly in the production environment as tested and validated in the staging environment.
+## Liste de contrôle de production supplémentaire pour les offres de machines virtuelles déjà répertoriées
 
-## <a name="see-also"></a>See also
-- [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-
-[img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
-[img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
-[img-pubportal-publish-pushproduction]:media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
+- Vérifiez s’il existe déjà une offre de votre entreprise portant le même nom. Si Oui, vous devez ajouter une nouvelle version de la référence à l’offre existante au lieu de créer une offre en double.
+- Le disque de données ne doit pas changer entre deux versions de la même référence.
+- Azure Marketplace ne gère pas le changement de tarification des références répertoriées, car cela a un impact sur la facturation des clients existants. Assurez-vous que vous ne modifiez pas la tarification des références répertoriées dans les régions où la référence est disponible. Toutefois, vous pouvez ajouter de nouvelles références ou ajouter de nouvelles régions à une référence existante.
 
 
+## Étapes suivantes
+Une fois l'offre publiée, testez les scénarios de clients pour valider le fonctionnement correct de tous les contrats et de toutes les fonctionnalités dans l'environnement de production de la même manière qu'ils ont été testés et validés dans l'environnement intermédiaire.
 
-<!--HONumber=Oct16_HO2-->
+## Voir aussi
+- [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
+[img-pubportal-walkthru-checked]: media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
+[img-pubportal-menu-publish]: media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
+[img-pubportal-publish-pushproduction]: media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
 
+<!---HONumber=AcomDC_0803_2016-->

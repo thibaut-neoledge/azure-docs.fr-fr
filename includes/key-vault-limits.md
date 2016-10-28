@@ -1,15 +1,12 @@
 
-| Transactions Type | Max transactions allowed in 10 seconds, per vault per region
+| Type de transaction | Transactions maximales autorisées dans les 10 secondes, par coffre par région
 --- | ---
-| HSM- CREATE KEY | 5
-| HSM- other transactions | 1000
-| Soft-key CREATE KEY | 10
-| Soft-key other transactions | 1500
-| All secrets, vault related transactions | 2000
+| HSM - CRÉER UNE CLÉ | 5
+| HSM - autres transactions | 1 000
+| Touche programmable CRÉER UNE CLÉ | 10
+| Touche programmable autres transactions | 1 500
+| Tous les secrets, transactions associées au coffre | 2000
  
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

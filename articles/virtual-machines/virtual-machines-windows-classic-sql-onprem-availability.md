@@ -1,111 +1,106 @@
 <properties
-    pageTitle="Extend on-premises Always On Availability Groups to Azure | Microsoft Azure"
-    description="This tutorial uses resources created with the classic deployment model, and describes how to use the Add Replica wizard in SQL Server Management Studio (SSMS) to add an Always On Availability Group replica in Azure."
-    services="virtual-machines-windows"
-    documentationCenter="na"
-    authors="MikeRayMSFT"
-    manager="jhubbard"
-    editor=""
-    tags="azure-service-management"/>
+	pageTitle="Étendre des groupes de disponibilité Always On locaux à Azure | Microsoft Azure"
+	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement Classic, et explique comment utiliser l’Assistant Ajout d’un réplica dans SQL Server Management Studio (SSMS) pour ajouter un réplica de groupe de disponibilité Always On dans Azure."
+	services="virtual-machines-windows"
+	documentationCenter="na"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows-sql-server"
-    ms.workload="infrastructure-services"
-    ms.date="07/12/2016"
-    ms.author="MikeRayMSFT" />
+	ms.service="virtual-machines-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="07/12/2016"
+	ms.author="MikeRayMSFT" />
 
+# Étendre des groupes de disponibilité Always On locaux à Azure
 
-# <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Extend on-premises Always On Availability Groups to Azure
+Les groupes de disponibilité Always On fournissent une haute disponibilité pour les groupes de bases de données en ajoutant des réplicas secondaires. Ces réplicas autorisent le basculement des bases de données en cas de défaillance. Ils permettent en outre de décharger les charges de travail de lecture ou les tâches de sauvegarde.
 
-Always On Availability Groups provide high availability for groups of database by adding secondary replicas. These replicas allow failing over databases in case of a failure. In addition they can be used to offload read workloads or backup tasks.
+Pour étendre les groupes de disponibilité locaux à Microsoft Azure, vous pouvez approvisionner une ou plusieurs machines virtuelles Azure avec SQL Server et les ajouter en tant que réplicas à vos groupes de disponibilité locaux.
 
-You can extend on-premises Availability Groups to Microsoft Azure by provisioning one or more Azure VMs with SQL Server and then adding them as replicas to your on-premises Availability Groups.
+Ce didacticiel part du principe que vous disposez des éléments suivants :
 
-This tutorial assumes you have the following:
+- Un abonnement Azure actif. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-- An active Azure subscription. You can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/).
+- Un groupe de disponibilité Always On local existant. Pour plus d’informations sur les groupes de disponibilité, voir [Groupes de disponibilité Always On](https://msdn.microsoft.com/library/hh510230.aspx).
 
-- An existing Always On Availability Group on-premises. For more information on Availability Groups, see [Always On Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx).
-
-- Connectivity between the on-premises network and your Azure virtual network. For more information about creating this virtual network, see [Configure a Site-to-Site VPN in the Azure classic portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+- Connectivité entre le réseau local et votre réseau virtuel Azure. Pour plus d’informations sur la création de ce réseau virtuel, consultez la page [Configurer un VPN de site à site en utilisant le portail Azure Classic](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-## <a name="add-azure-replica-wizard"></a>Add Azure Replica Wizard
+## assistant Add Azure Replica
 
-This section shows you how to use the **Add Azure Replica Wizard** to extend your Always On Availability Group solution to include Azure replicas.
+Cette section vous indique comment utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre votre solution de groupe de disponibilité Always On de manière à inclure des réplicas Azure.
 
-1. From within SQL Server Management Studio, expand **Always On High Availability** > **Availability Groups** > **[Name of your Availability Group]**.
+1. Dans SQL Server Management Studio, développez **Haute disponibilité Always On** > **Groupes de disponibilité** > **[Nom de votre groupe de disponibilité]**.
 
-1. Right-click **Availability Replicas**, then click **Add Replica**.
+1. Cliquez avec le bouton droit sur **Réplicas de disponibilité**, puis sélectionnez **Ajouter un réplica**.
 
-1. By default, the **Add Replica to Availability Group Wizard** is displayed. Click **Next**.  If you have selected the **Do not show this page again** option at the bottom of the page during a previous launch of this wizard, this screen will not be displayed.
+1. Par défaut, l’**Assistant Ajout d’un réplica à un groupe de disponibilité** s’affiche. Cliquez sur **Next**. Si vous avez sélectionné l’option **Ne plus afficher cette page** en bas de la page au précédent démarrage de l’Assistant, cet écran ne s’affiche pas.
 
-    ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
+	![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 
-1. You will be required to connect to all existing secondary replicas. You can click on **Connect…** beside each replica or you can click **Connect All…** at the bottom of the screen. After authentication, click **Next** to advance to the next screen.
+1. Vous devrez vous connecter à tous les réplicas secondaires existants. Vous pouvez cliquer sur **Connecter...** en regard de chaque réplica ou sur **Connecter tout...** en bas de l’écran. Une fois authentifié, cliquez sur **Suivant** pour accéder à l’écran suivant.
 
-1. On the **Specify Replicas** page, multiple tabs are listed across the top: **Replicas**, **Endpoints**, **Backup Preferences**, and **Listener**. From the **Replicas** tab, click **Add Azure Replica…** to launch the Add Azure Replica Wizard.
+1. Sur la page **Spécifier les réplicas**, plusieurs onglets apparaissent dans la partie supérieure : **Réplicas**, **Points de terminaison**, **Préférences de sauvegarde** et **Écouteur**. Sous l’onglet **Réplicas**, cliquez sur **Ajouter un réplica Azure…** pour démarrer l’Assistant Ajout d’un réplica Azure.
 
-    ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
+	![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
 
-1. Select an existing Azure Management Certificate from the local Windows certificate store if you have installed one before. Select or enter the id of an Azure subscription if you have used one before. You can click Download to download and install an Azure Management Certificate and download the list of subscriptions using an Azure account.
+1. Sélectionnez un certificat de gestion Azure existant dans le magasin de certificats Windows local si vous en avez déjà installé un. Sélectionnez ou entrez l’ID d’un abonnement Azure si vous en avez utilisé un précédemment. Vous pouvez cliquer sur Télécharger pour télécharger et installer un certificat de gestion Azure et télécharger la liste des abonnements à l’aide d’un compte Azure.
 
-    ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
+	![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 
-1. You will populate each field on the page with values that will be used to create the Azure Virtual Machine (VM) that will host the replica.
+1. Renseignez les champs de la page avec les valeurs qui seront utilisées pour créer la machine virtuelle Azure qui hébergera le réplica.
 
-  	|Setting|Description|
+	|Paramètre|Description|
 |---|---|
-|**Image**|Select the desired combination of OS and SQL Server|
-|**VM Size**|Select the size of VM that best suits your business needs|
-|**VM Name**|Specify a unique name for the new VM. The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.|
-|**VM Username**|Specify a user name that will become the administrator account on the VM|
-|**VM Administrator Password**|Specify a password for the new account|
-|**Confirm Password**|Confirm the password of the new account|
-|**Virtual Network**|Specify the Azure virtual network that the new VM should use. For more information on virtual networks, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).|
-|**Virtual Network Subnet**|Specify the virtual network subnet that the new VM should use|
-|**Domain**|Confirm the pre-populated value for the domain is correct|
-|**Domain User Name**|Specify an account that is in the local administrators group on the local cluster nodes|
-|**Password**|Specify the password for the domain user name|
+|**Image**|Sélectionnez la combinaison système d’exploitation- SQL Server souhaitée|
+|**Taille de la machine virtuelle**|Sélectionnez la taille de machine virtuelle qui correspond le mieux à vos besoins|
+|**Nom de la machine virtuelle**|Spécifiez un nom unique pour la nouvelle machine virtuelle. Le nom doit contenir entre 3 et 15 caractères, peut contenir uniquement des lettres, des chiffres et des traits d’union, et doit commencer par une lettre et se terminer par une lettre ou un chiffre.|
+|**Nom d’utilisateur de la machine virtuelle**|Spécifiez un nom d’utilisateur qui deviendra le compte d’administrateur sur la machine virtuelle|
+|**Mot de passe administrateur de la machine virtuelle**|Indiquez un mot de passe pour le nouveau compte|
+|**Confirmer le mot de passe**|Confirmez le mot de passe du nouveau compte|
+|**Réseau virtuel**|Indiquez le réseau virtuel Azure que la nouvelle machine virtuelle doit utiliser. Pour plus d’informations sur les réseaux virtuels, voir [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).|
+|**Sous-réseau de réseau virtuel**|Indiquez le sous-réseau de réseau virtuel que la nouvelle machine virtuelle doit utiliser|
+|**Domaine**|Confirmez que la valeur par défaut indiquée pour le domaine est correcte|
+|**Nom d’utilisateur de domaine**|Spécifiez un compte qui se trouve dans le groupe d’administrateurs local sur les nœuds du cluster local|
+|**Mot de passe**|Spécifiez le mot de passe du nom d’utilisateur du domaine|
 
-1. Click **OK** to validate the deployment settings.
+1. Cliquez sur **OK** pour valider les paramètres de déploiement.
 
-1. Legal terms are displayed next. Read and click **OK** if you agree to these terms.
+1. Les mentions légales s’affichent. Lisez-les et cliquez sur **OK** si vous les acceptez.
 
-1. The **Specify Replicas** page is displayed again. Verify the settings for the new Azure replica on the **Replicas**, **Endpoints**, and **Backup Preferences** tabs. Modify settings to meet your business requirements.  For more information on the parameters contained on these tabs, see [Specify Replicas Page (New Availability Group Wizard/Add Replica Wizard)](https://msdn.microsoft.com/library/hh213088.aspx).Note that listeners cannot be created using the Listener tab for Availability Groups that contain Azure replicas. In addition, if a listener has already been created prior to launching the Wizard, you will receive a message indicating that it is not supported in Azure. We will look at how to create listeners in the **Create an Availability Group Listener** section.
+1. La page **Spécifier les réplicas** apparaît de nouveau. Vérifiez les paramètres du nouveau réplica Azure sous les onglets **Réplicas**, **Points de terminaison** et **Préférences de sauvegarde**. Modifiez les paramètres pour les adapter aux besoins de votre entreprise. Pour plus d’informations sur les paramètres figurant sous ces onglets, voir [Page Spécifier les réplicas (Assistant Nouveau groupe de disponibilité/Assistant Ajout d’un réplica)](https://msdn.microsoft.com/library/hh213088.aspx).Notez que les écouteurs ne peuvent pas être créés à l’aide de l’onglet Écouteur pour les groupes de disponibilité contenant des réplicas Azure. Par ailleurs, si un écouteur a déjà été créé avant le démarrage de l’Assistant, vous recevrez un message indiquant qu’il n’est pas pris en charge dans Azure. Nous allons voir comment créer des écouteurs dans la section **Créer un écouteur de groupe de disponibilité**.
 
-    ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742865.png)
+	![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742865.png)
 
-1. Click **Next**.
+1. Cliquez sur **Next**.
 
-1. Select the data synchronization method you want to use on the **Select Initial Data Synchronization** page and click **Next**. For most scenarios, select **Full Data Synchronization**. For more information on data synchronization methods, see [Select Initial Data Synchronization Page (Always On Availability Group Wizards)](https://msdn.microsoft.com/library/hh231021.aspx).
+1. Sélectionnez la méthode de synchronisation de données à utiliser sur la page **Sélectionner la synchronisation de données initiale** et cliquez sur **Suivant**. Pour la plupart des scénarios, sélectionnez **Synchronisation complète des données**. Pour plus d’informations sur les méthodes de synchronisation de données, voir [Page Sélectionner la synchronisation de données initiale (assistants de groupe de disponibilité AlwaysOn)](https://msdn.microsoft.com/library/hh231021.aspx).
 
-1. Review the results on the **Validation** page. Correct outstanding issues and re-run the validation if necessary. Click **Next**.
+1. Passez en revue les résultats sur la page **Validation**. Corrigez les problèmes et réexécutez la validation si nécessaire. Cliquez sur **Next**.
 
-    ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742866.png)
+	![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742866.png)
 
-1. Review the settings on the **Summary** page, then click **Finish**.
+1. Vérifiez les paramètres sur la page **Synthèse**, puis cliquez sur **Terminer**.
 
-1. The provisioning process begins. When the wizard completes successfully, click **Close** to exit out of the wizard.
+1. Le processus d’approvisionnement commence. Lorsque l’Assistant a terminé, cliquez sur **Fermer** pour quitter l’Assistant.
 
->[AZURE.NOTE] The Add Azure Replica Wizard creates a log file in Users\User Name\AppData\Local\SQL Server\AddReplicaWizard. This log file can be used to troubleshoot failed Azure replica deployments. If the Wizard fails executing any action, all previous operations are rolled back, including deleting the provisioned VM.
+>[AZURE.NOTE] L’Assistant Ajout d’un réplica Azure crée un fichier journal dans Users\\nom\_utilisateur\\AppData\\Local\\SQL Server\\AddReplicaWizard. Ce fichier journal peut servir à résoudre les déploiements de réplica Azure ayant échoué. Si l’Assistant ne parvient pas à exécuter une action, toutes les opérations précédentes sont annulées, y compris la suppression de la machine virtuelle approvisionnée.
 
-## <a name="create-an-availability-group-listener"></a>Create an availability group listener
+## Créer un écouteur de groupe de disponibilité
 
-After the availability group has been created, you should create a listener for clients to connect to the replicas. Listeners direct incoming connections to either the primary or a read-only secondary replica. For more information on listeners, see [Configure an ILB listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Après avoir créé le groupe de disponibilité, vous devez créer un écouteur pour que les clients puissent se connecter aux réplicas. Les écouteurs dirigent les connexions entrantes vers le réplica principal ou un réplica secondaire en lecture seule. Pour plus d’informations sur les écouteurs, voir [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
-## <a name="next-steps"></a>Next steps
+## Étapes suivantes
 
-In addition to using the **Add Azure Replica Wizard** to extend your Always On Availability Group to Azure, you might also move some SQL Server workloads completely to Azure. To get started, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
+En plus d’utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre votre groupe de disponibilité Always On dans Azure, vous pouvez également déplacer entièrement des charges de travail SQL Server vers Azure. Pour commencer, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

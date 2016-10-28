@@ -1,163 +1,140 @@
 <properties 
-    pageTitle="Add functionality to your first web app" 
-    description="Add cool features to your first web app in a few minutes." 
-    services="app-service\web"
-    documentationCenter=""
-    authors="cephalin" 
-    manager="wpickett" 
-    editor="" 
+	pageTitle="Ajouter des fonctionnalités à votre première application web" 
+	description="Ajouter des fonctionnalités intéressantes à votre application web en quelques minutes." 
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="" 
 />
 
 <tags 
-    ms.service="app-service-web" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="hero-article"
-    ms.date="05/12/2016" 
-    ms.author="cephalin"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="hero-article"
+	ms.date="05/12/2016" 
+	ms.author="cephalin"
 />
 
+# Ajouter des fonctionnalités à votre première application web
 
-# <a name="add-functionality-to-your-first-web-app"></a>Add functionality to your first web app
+Dans [Prise en main des applications web dans Azure App Service](app-service-web-get-started.md), vous avez déployé un exemple d’application web vers [Azure App Service](../app-service/app-service-value-prop-what-is.md). Cet article vous montrera comment ajouter des fonctionnalités exceptionnelles à votre application web déployée. En quelques minutes, vous allez :
 
-In [Deploy a web app to Azure in 5 minutes](app-service-web-get-started.md), you deployed a sample web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md). In this article, you'll quickly add some great functionalities to your deployed web app. In a few minutes, you will:
+- appliquer l’authentification aux utilisateurs ;
+- mettre automatiquement à l’échelle votre application ;
+- recevoir des alertes sur les performances de votre application.
 
-- enforce authentication for your users
-- scale your app automatically
-- receive alerts on the performance of your app
+Vous pouvez suivre les étapes du tutoriel qui suivent, quel que soit l’exemple d’application que vous avez déployé dans l’article précédent.
 
-Regardless of which sample app you deployed in the previous article, you can follow along in the tutorial.
+Les trois activités dans ce didacticiel ne sont que quelques exemples des nombreuses fonctionnalités utiles dont vous tirez profit lorsque vous déployez votre application web vers App Service. La plupart des fonctionnalités sont disponibles dans le niveau **Gratuit** (dans lequel s’exécute votre première application). Vous pouvez utiliser vos crédits d’évaluation gratuite afin d’essayer les fonctionnalités nécessitant des niveaux tarifaires plus élevés. Soyez assuré que votre application web restera dans le niveau **Gratuit** tant que vous ne changez pas explicitement son niveau tarifaire.
 
-The three activities in this tutorial are only a few examples of the many useful features you get when you put your web app in App Service. Many of the features are available in the **Free** tier (which is what your first web app is running on), and you can use your trial credits to try out features that require higher pricing tiers. Rest assured that your web app remains in **Free** tier unless you explicitly changes it to a different pricing tier.
+>[AZURE.NOTE] L’application web que vous avez créée avec l’interface CLI Azure s’exécute dans le niveau **Gratuit**, ce qui permet uniquement l’exécution d’une seule machine virtuelle partagée avec des quotas de ressources. Pour plus d’informations sur ce que vous pouvez obtenir avec le niveau **Gratuit**, consultez la section [Limites App Service](../azure-subscription-service-limits.md#app-service-limits).
 
->[AZURE.NOTE] The web app you created with Azure CLI runs in **Free** tier, which only allows one shared VM instance with resource quotas. For more information on what you get with **Free** tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
+## Authentifiez vos utilisateurs
 
-## <a name="authenticate-your-users"></a>Authenticate your users
+À présent, découvrez la facilité avec laquelle vous pouvez ajouter des authentifications à votre application. Pour plus d’informations, consultez [Expanding App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/) (Étendre l’authentification/autorisation App Service).
 
-Now, let's see how easy it is to add authentication to your app (further reading at [App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)).
-
-1. In the portal blade for your app, which you just opened, click **Settings** > **Authentication / Authorization**.  
-    ![Authenticate - settings blade](./media/app-service-web-get-started/aad-login-settings.png)
+1. Dans le panneau du portail de l’application que vous venez d’ouvrir, cliquez sur **Paramètres** > **Authentification/Autorisation**. ![Authentification - panneau Paramètres](./media/app-service-web-get-started/aad-login-settings.png)
     
-2. Click **On** to turn on authentication.  
+2. Cliquez sur **Activé** pour activer l’authentification.
     
-4. In **Authentication Providers**, click **Azure Active Directory**.  
-    ![Authenticate - select Azure AD](./media/app-service-web-get-started/aad-login-config.png)
+4. Sous **Fournisseurs d’authentification**, cliquez sur **Azure Active Directory**. ![Authentification - sélectionner Azure AD](./media/app-service-web-get-started/aad-login-config.png)
 
-5. In the **Azure Active Directory Settings** blade, click **Express**, then click **OK**. The default settings create a new Azure AD application in your default directory.  
- ![Authenticate - express configuration](./media/app-service-web-get-started/aad-login-express.png)
+5. Dans le panneau **Paramètres Azure Active Directory**, cliquez sur **Express**, puis sur **OK**. Les paramètres par défaut créent une nouvelle application Azure AD dans votre répertoire par défaut. ![Authentification - configuration express](./media/app-service-web-get-started/aad-login-express.png)
 
-6. Click **Save**.  
-    ![Authenticate - save configuration](./media/app-service-web-get-started/aad-login-save.png)
+6. Cliquez sur **Save**. ![Authentification - enregistrer la configuration](./media/app-service-web-get-started/aad-login-save.png)
 
-    Once the change is successful, you'll see the notification bell turn green, along with a friendly message.
+    Une fois que la modification a réussi, la cloche de notification devient verte, et un message positif s’affiche.
 
-7. Back in the portal blade of your app, click the **URL** link (or **Browse** in the menu bar). The link is an HTTP address.  
-    ![Authenticate - browse to URL](./media/app-service-web-get-started/aad-login-browse-click.png)  
-    But once it opens the app in a new tab, the URL box redirects several times and finishes on your app with an HTTPS address. What you're seeing is that you're already logged in to your Azure subscription, and you're automatically authenticated in the app.  
-    ![Authenticate - logged in](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
-    So if you now open an unauthenticated session in a different browser, you'll see a login screen when you navigate to the same URL.  
+7. Revenez au panneau du portail de votre application, puis cliquez sur le lien **URL** (ou sur **Parcourir** dans la barre de menus). Le lien est une adresse HTTP. ![Authentification - accéder à l’URL](./media/app-service-web-get-started/aad-login-browse-click.png) Lorsque celle-ci ouvre l’application dans un nouvel onglet, la zone URL effectue plusieurs redirections avant d’ouvrir votre application avec une adresse HTTPS. Vous pouvez voir que vous êtes déjà connecté à votre abonnement Azure, et automatiquement authentifié dans l’application. ![Authentification - connecté](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Par conséquent, si vous ouvrez une session non authentifiée dans un autre navigateur, un écran de connexion s’affiche lorsque vous accédez à la même URL.
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
-    If you've never done anything with Azure Active Directory, your default directory might not have any Azure AD users. In that case, probably the only account in there is the Microsoft account with your Azure subscription. That's why you were automatically logged in to the app in the same browser earlier. You can use that same Microsoft account to log in on this login page as well.
+    Si vous n’avez jamais utilisé Azure Active Directory, le répertoire par défaut peut ne pas contenir d’utilisateurs Azure AD. Dans ce cas, le seul compte ici est probablement le compte Microsoft avec votre abonnement Azure. C’est pour cette raison que vous avez été automatiquement connecté à l’application dans le même navigateur plus tôt. Vous pouvez utiliser ce même compte Microsoft pour vous connecter sur cette page de connexion.
 
-Congratulations, you are authenticating all traffic to your web app.
+Félicitations, vous authentifiez désormais tout le trafic vers votre application web.
 
-You may have noticed in the **Authentication / Authorization** blade that you can do a lot more, such as:
+Vous avez peut-être remarqué que vous pouvez en faire beaucoup plus dans le panneau **Authentification / Autorisation**, c’est-à-dire :
 
-- Enable social login
-- Enable multiple login options
-- Change the default behavior when people first navigate to your app
+- activer la connexion à partir de réseaux sociaux ;
+- activer plusieurs options de connexion ;
+- modifier le comportement par défaut lorsque les utilisateurs accèdent à votre application pour la première fois.
 
-App Service provides a turn-key solution for some of the common authentication needs so you don't need to provide the authentication logic yourself. For more information, see [App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
+App Service propose une solution clé en main pour une partie des besoins d’authentification les plus courants. Vous n’avez donc pas besoin de fournir la logique d’authentification vous-même. Pour plus d’informations, consultez [Expanding App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/) (Étendre l’authentification/autorisation App Service).
 
-## <a name="scale-your-app-automatically-based-on-demand"></a>Scale your app automatically based on demand
+## Mettez automatiquement à l’échelle votre application en fonction de la demande
 
-Next, let's autoscale your app so that it will automatically adjust it capacity to respond to user demand (further reading at [Scale up your app in Azure](web-sites-scale.md) and [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md)). 
+Ensuite, nous allons effectuer la mise à l’échelle automatique de votre application pour que celle-ci ajuste automatiquement sa capacité pour répondre à la demande. Pour plus d’informations, voir [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md) et [Mise à l’échelle manuelle ou automatique du nombre d’instances](../azure-portal/insights-how-to-scale.md).
 
-Briefly, you scale your web app in two ways:
+En bref, vous pouvez adapter la taille de votre application web de deux manières :
 
-- [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features like dedicated VMs, custom domains and certificates, staging slots, autoscaling, and more. You scale out by changing the pricing tier of the App Service plan your app belongs to.
-- [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increasing the number VM instances that run your app.
-You can scale out to as many as 50 instances, depending on your pricing tier.
+- [Montée en puissance](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : vous offre plus de capacité d’UC, de mémoire et d’espace disque. Obtenez également davantage de fonctionnalités, telles que des machines virtuelles dédiées, des domaines et des certificats personnalisés, des emplacements intermédiaires, la mise à l’échelle automatique et bien plus encore. Pour augmenter la taille des instances, changez le niveau tarifaire du plan App Service auquel appartient votre application.
+- [Augmentation de la taille des instances](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : augmente le nombre d’instances de machine virtuelle exécutant votre application. Ce nombre peut atteindre 50 instances, en fonction de votre niveau tarifaire.
 
-Without further ado, let's set up autoscaling.
+Sans plus attendre, préparons à présent la mise à l’échelle automatique.
 
-1. First, let's scale up to enable autoscaling. In the portal blade of your app, click **Settings** > **Scale Up (App Service Plan)**.  
-    ![Scale up - settings blade](./media/app-service-web-get-started/scale-up-settings.png)
+1. Nous allons tout d’abord procéder à la montée en puissance pour activer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > ** Mettre à l’échelle, (Plan App Service)**. ![Monter en puissance - panneau Paramètres](./media/app-service-web-get-started/scale-up-settings.png)
 
-2. Scroll and select the **S1 Standard** tier, the lowest tier that supports autoscaling (circled in screenshot), then click **Select**.  
-    ![Scale up - choose tier](./media/app-service-web-get-started/scale-up-select.png)
+2. Faites défiler la page, puis sélectionnez le niveau **S1 Standard** (le plus bas niveau prenant en charge la mise à l’échelle automatique, encerclé dans la capture d’écran), puis cliquez sur **Sélectionner**. ![Monter en puissance - choisir un niveau](./media/app-service-web-get-started/scale-up-select.png)
 
-    You're done scaling up.
+    Vous avez terminé la montée en puissance.
     
-    >[AZURE.IMPORTANT] This tier expends your free trial credits. If you have a pay-per-use account, it incurs charges to your account.
+    >[AZURE.IMPORTANT] Ce niveau épuise votre crédit d’essai gratuit. Si vous avez un compte de paiement à l’utilisation, il occasionne des frais pour votre compte.
     
-3. Next, let's configure autoscaling. In the portal blade of your app, click **Settings** > **Scale Out (App Service Plan)**.  
-    ![Scale out - settings blade](./media/app-service-web-get-started/scale-out-settings.png)
+3. Ensuite, nous allons configurer la mise à l’échelle automatique. Dans le panneau de portail de votre application, cliquez sur **Paramètres** > ** Mettre à l’échelle (Plan App Service)**. ![Augmenter la taille des instances - panneau Paramètres](./media/app-service-web-get-started/scale-out-settings.png)
 
-4. Change **Scale by** to **CPU Percentage**. The sliders underneath the dropdown update accordingly. Then, define an **Instances** range between **1** and **2** and a **Target range** between **40** and **80**. Do it by typing in the boxes or by moving the sliders.  
- ![Scale out - configure autoscaling](./media/app-service-web-get-started/scale-out-configure.png)
+4. Changez **Mettre à l’échelle selon** sur **Pourcentage UC**. Les curseurs sous la liste déroulante se mettent à jour en conséquence. Ensuite, définissez une plage d’**Instances** comprise entre **1** et **2** et une **Plage cible** entre **40** et **80**. Pour ce faire, effectuez une saisie dans les zones ou déplacez les curseurs. ![Augmenter la taille des instances - configurer la mise à l’échelle automatique](./media/app-service-web-get-started/scale-out-configure.png)
     
-    Based on this configuration, your app automatically scales out when CPU utilization is above 80% and scales in when CPU utilization is below 40%. 
+    Selon cette configuration, votre application se met à l’échelle automatiquement lorsque l’utilisation de l’UC est supérieure à 80 % (augmentation de la taille des instances) et inférieure à 40 % (diminution de la taille des instances).
     
-5. Click **Save** in the menu bar.
+5. Cliquez sur **Enregistrer** dans la barre des tâches.
 
-Congratulations, your app is autoscaling.
+Félicitations, votre application se met à l’échelle automatiquement.
 
-You may have noticed in the **Scale Settings** blade that you can do a lot more, such as:
+Vous avez peut-être remarqué que vous pouvez en faire beaucoup plus dans le panneau **Paramètres de mise à l’échelle**, et notamment :
 
-- Scale to a specific number of instances manually
-- Scale by other performance metrics, such as memory percentage or disk queue
-- Customize scaling behavior when a performance rule is triggered
-- Autoscale on a schedule
-- Set autoscaling behavior for a future event
+- l’augmentation manuelle de la taille des instances à un certain nombre d’instances ;
+- la mise à l’échelle selon d’autres mesures de performance, telles que le pourcentage de mémoire ou la longueur de la file d’attente de disque ;
+- la personnalisation du comportement de mise à l’échelle lorsqu’une règle de performance est déclenchée ;
+- la mise à l’échelle automatique selon un calendrier prévu ;
+- le réglage du comportement de mise à l’échelle automatique pour un événement ultérieur.
 
-For more information on scaling up your app, see [Scale up your app in Azure](../app-service-web/web-sites-scale.md). For more information on scaling out, see [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md).
+Pour plus d’informations sur la mise à l’échelle de votre application, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](../app-service-web/web-sites-scale.md). Pour plus d’informations sur l’augmentation de la taille des instances, consultez [Mise à l’échelle manuelle ou automatique du nombre d’instances](../azure-portal/insights-how-to-scale.md).
 
-## <a name="receive-alerts-for-your-app"></a>Receive alerts for your app
+## Recevoir des alertes pour votre application
 
-Now that your app is autoscaling, what happens when it reaches the maximum instance count (2) and CPU is above desired utilization (80%)? You can set up an alert (further reading at [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md)) to inform you of this situation so you can further scale up/out your app, for example. Let's quickly set up an alert for this scenario.
+Maintenant que votre application est mise à l’échelle, que se passe-t-il lorsqu’il atteint le nombre maximal d’instances (2) et lorsque l’utilisation du processeur est supérieure à l’utilisation souhaitée (80 %) ? Vous pouvez configurer une alerte pour vous informer de cette situation afin de faire davantage monter en puissance/augmenter la taille des instances de votre application, par exemple. Pour plus d’informations, voir [Réception de notifications d’alerte](../azure-portal/insights-receive-alert-notifications.md). Nous allons rapidement configurer une alerte pour ce scénario.
 
-1. In the portal blade of your app, click **Tools** > **Alerts**.  
-    ![Alerts - settings blade](./media/app-service-web-get-started/alert-settings.png)
+1. Dans le panneau du portail de votre application, cliquez sur **Outils** > **Alertes**. ![Alertes - panneau Paramètres](./media/app-service-web-get-started/alert-settings.png)
 
-2. Click **Add alert**. Then, in the **Resource** box, select the resource that ends with **(serverfarms)**. That's your App Service plan.  
-    ![Alerts - add alert for App Service plan](./media/app-service-web-get-started/alert-add.png)
+2. Cliquez sur **Ajouter une alerte**. Ensuite, dans la zone **Ressources**, sélectionnez la ressource qui se termine par **(serverfarms)**. C’est votre plan App Service. ![Alertes - ajouter une alerte pour un plan App Service](./media/app-service-web-get-started/alert-add.png)
 
-3. Specify **Name** as `CPU Maxed`, **Metric** as **CPU Percentage**, and **Threshold** as `90`, then select **Email owners, contributors, and readers**, and then click **OK**.   
- ![Alerts - configure alert](./media/app-service-web-get-started/alert-configure.png)
+3. Définissez **Nom** sur `CPU Maxed`, **Métrique** sur **Pourcentage UC**, et **Seuil** sur `90`, puis sélectionnez **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs** et cliquez sur **OK**. ![Alertes - configurer une alerte](./media/app-service-web-get-started/alert-configure.png)
     
-    When Azure finishes creating the alert, you'll see it in the **Alerts** blade.  
-    ![Alerts - finished view](./media/app-service-web-get-started/alert-done.png)
+    Après la création de l’alerte par Azure, vous la verrez dans le panneau **Alertes**. ![Alertes - vue finale](./media/app-service-web-get-started/alert-done.png)
 
-Congratulations, you're now getting alerts. 
+Félicitations, vous recevez désormais des alertes.
 
-This alert setting checks CPU utilization every five minutes. If that number goes above 90%, you'll receive an email alert, along with anyone who is authorized. To see everyone who is authorized to receive the alerts, go back to the portal blade of your app and click the **Access** button.  
-![See who gets alerts](./media/app-service-web-get-started/alert-rbac.png)
+Ce paramètre d’alerte vérifie l’utilisation de l’UC toutes les cinq minutes. Si celle-ci dépasse 90 %, vous (ainsi que toute personne autorisée) recevrez un message d’alerte. Pour afficher tous les utilisateurs autorisés à recevoir les alertes, revenez au panneau du portail de votre application et cliquez sur le bouton **Accès**. ![Afficher qui reçoit des alertes](./media/app-service-web-get-started/alert-rbac.png)
 
-You should see that **Subscription admins** are already the **Owner** of the app. This group would include you if you're the account administrator of your Azure subscription (e.g. your trial subscription). For more information on Azure role-based access control, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
+Vous verrez que les **Administrateurs des abonnements** sont déjà les **Propriétaires** de l’application. Ce groupe vous inclut si vous êtes l’administrateur du compte de votre abonnement Azure (par exemple, votre abonnement d’évaluation). Pour plus d’informations sur le contrôle d’accès en fonction du rôle Azure, consultez [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 
-> [AZURE.NOTE] Alert rules is an Azure feature. For more information, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md). 
+> [AZURE.NOTE] Règles d’alerte est une fonctionnalité Azure. Pour plus d’informations, consultez la page [Réception de notifications d’alerte](../azure-portal/insights-receive-alert-notifications.md).
 
-## <a name="next-steps"></a>Next Steps
+## Étapes suivantes
 
-On your way to configure the alert, you may have noticed a rich set of tools in the **Tools** blade. Here, you can troubleshoot issues, monitor performance, test for vulnerabilities, manage resources, interact with the VM console, and add useful extensions. We invite you to click on each one of these tools to discover the simple yet powerful tools at your finger tips. 
+Pendant la configuration de l’alerte, vous avez peut-être remarqué un important ensemble d’outils dans le panneau **Outils**. Ici, vous pouvez résoudre les problèmes, analyser des performances, détecter les failles, gérer les ressources, interagir avec la console de machine virtuelle et ajouter des extensions utiles. Nous vous invitons à cliquer sur chacun d’entre eux pour découvrir les outils simples mais puissants à votre disposition.
 
-Find out how to do more with your deployed app. Here's only a partial list:
+En outre, découvrez comment en faire plus avec l’application déployée. Voici une liste partielle :
 
-- [Buy and configure a custom domain name](custom-dns-web-site-buydomains-web-app.md) - Buy an attractive domain for your web app instead of the *.azurewebsites.net domain. Or use a domain that you already have.
-- [Set up staging environments](web-sites-staged-publishing.md) - Deploy your app to a staging URL before putting it into production. Update your live web app with confidence. Set up an elaborate DevOps solution with multiple deployment slots. 
-- [Set up continuous deployment](app-service-continuous-deployment.md) - Integrate app deployment into your source control system. Deploy to Azure with every commit.
-- [Access on-premises resources](web-sites-hybrid-connection-get-started.md) - Access an existing on-premises database or CRM system.
-- [Back up your app](web-sites-backup.md) - Set up back up and restore for your web app. Prepare for unexpected failures and recover from them.
-- [Enable diagnostic logs](web-sites-enable-diagnostic-log.md) - Read the IIS logs from Azure or application traces. Read them in a stream, download them, or port them into [Application Insights](../application-insights/app-insights-overview.md) for turn-key analysis.
-- [Scan your app for vulnerabilities](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
-Scan your web app against modern threats using service provided by [Tinfoil Security](https://www.tinfoilsecurity.com/).
-- [Run background jobs](../azure-functions/functions-overview.md) - Run jobs for data processing, reporting, etc.
-- [Learn how App Service works](../app-service/app-service-how-works-readme.md) 
+- [Acheter et configurer un nom de domaine personnalisé](custom-dns-web-site-buydomains-web-app.md) : achetez un domaine attrayant pour votre application web à la place du domaine *.azurewebsites.net. Ou utilisez un domaine que vous possédez déjà.
+- [Configurer des environnements intermédiaires](web-sites-staged-publishing.md) : déployez votre application vers une URL intermédiaire avant de la mettre en production. Mettez à jour votre application web en ligne en toute confiance. Configurez une solution DevOps élaborée avec plusieurs emplacements de déploiement.
+- [Configurer le déploiement continu](app-service-continuous-deployment.md) : intégrez le déploiement d’applications à votre système de contrôle de code source. Effectuez le déploiement vers Azure avec chaque validation.
+- [Accéder à des ressources locales](web-sites-hybrid-connection-get-started.md) : accédez à une base de données locale ou un système CRM existants.
+- [Sauvegarder votre application](web-sites-backup.md) : définissez la sauvegarde et la restauration de votre application web. Anticipez les défaillances inattendues et récupérez vos données après leur survenue.
+- [Activer les journalisation des données](web-sites-enable-diagnostic-log.md) : consultez les journaux IIS dans Azure ou dans les traces de votre application. Lisez-les dans un flux, téléchargez-les ou déplacez-les dans [Application Insights](../application-insights/app-insights-overview.md) pour une analyse clé en main.
+- [Analyser votre application à la recherche de vulnérabilités](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) : analysez votre application pour la protéger contre les menaces modernes à l’aide du service fourni par [Tinfoil Security](https://www.tinfoilsecurity.com/).
+- [Exécuter des travaux en arrière-plan](../azure-functions/functions-overview.md) : exécutez des tâches pour le traitement de données, la création de rapports, etc.
+- [Découvrir le fonctionnement d’App Service](../app-service/app-service-how-works-readme.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->
