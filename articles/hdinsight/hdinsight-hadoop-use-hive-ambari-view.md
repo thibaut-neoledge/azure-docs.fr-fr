@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Utiliser les vues Ambari pour travailler avec Hive sur HDInsight (Hadoop) | Microsoft Azure"
-   description="Découvrez comment utiliser la vue Hive à partir de votre navigateur web pour envoyer des requêtes Hive. La vue Hive fait partie de l’interface utilisateur web Ambari fournie avec votre cluster HDInsight sous Linux."
+   pageTitle="Use Ambari Views to work with Hive on HDInsight (Hadoop) | Microsoft Azure"
+   description="Learn how to use the Hive View from your web browser to submit Hive queries. The Hive View is part of the Ambari Web UI provided with your Linux-based HDInsight cluster."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,189 +14,194 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/09/2016"
+   ms.date="10/28/2016"
    ms.author="larryfr"/>
 
-#Utilisez la vue Hive avec Hadoop dans HDInsight
+
+#<a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>Use the Hive View with Hadoop in HDInsight
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Ambari est un utilitaire de gestion et de surveillance fourni avec les clusters HDInsight sous Linux. L’une des fonctionnalités offertes par Ambari est une interface utilisateur web qui peut être utilisée pour exécuter des requêtes Hive. Il s’agit de la __vue Hive__, qui fait partie des vues Ambari fournies avec votre cluster HDInsight.
+Ambari is a management and monitoring utility provided with Linux-based HDInsight clusters. One of the features provided through Ambari is a Web UI that can be used to run Hive queries. This is the __Hive View__, part of the Ambari Views provided with your HDInsight cluster.
 
-> [AZURE.NOTE] Ambari offre de nombreuses fonctionnalités qui ne seront pas traitées dans ce document. Pour plus d’informations, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.NOTE] Ambari has a lot of capabilities that won't be discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
-##Composants requis
+##<a name="prerequisites"></a>Prerequisites
 
-- Un cluster HDInsight sous Linux Pour plus d’informations sur la création d’un cluster, consultez [Prise en main de HDInsight sous Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
+- A Linux-based HDInsight cluster. For information on creating a new cluster, see [Get started with Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-##Ouvrir la vue Hive
+##<a name="open-the-hive-view"></a>Open the Hive view
 
-Pour accéder à Ambari Views à partir du portail Azure, sélectionnez votre cluster HDInsight, puis sélectionnez __Vues Ambari__ dans la section __Liens rapides__.
+You can Ambari Views from the Azure Portal; select your HDInsight cluster and then select __Ambari Views__ from the __Quick Links__ section.
 
-![section liens rapides](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
+![quick links section](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
-Vous pouvez également accéder directement à Ambari en accédant à https://CLUSTERNAME.azurehdinsight.net dans un navigateur web (où __CLUSTERNAME__ est le nom de votre cluster HDInsight), puis sélectionner l’ensemble de carrés dans le menu de la page (en regard du lien __Admin__ et du bouton à gauche de la page) pour dresser la liste des vues disponibles. Sélectionnez la __vue Hive__.
+You can also navigate directly to Ambari by going to https://CLUSTERNAME.azurehdinsight.net in a web browser (where __CLUSTERNAME__ is the name of your HDInsight cluster,) and then select the set of squares from the page menu (next to the __Admin__ link and button on the left of the page,) to list available views. Select the __Hive view__.
 
-![Sélection des vues ambari](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png).
+![Selecting ambari views](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png).
 
-> [AZURE.NOTE] En accédant à Ambari, vous êtes invité à vous authentifier sur le site : Saisissez l’administrateur (`admin` par défaut), le nom du compte et le mot de passe que vous avez utilisés lors de la création du cluster.
+> [AZURE.NOTE] When accessing Ambari, you will be prompted to authenticate to the site. Enter the admin (default `admin`,) account name and password you used when creating the cluster.
 
-Une page similaire à celle ci-dessous doit s'afficher :
+You should see a page similar to the following:
 
-![Image de la page de vue hive, contenant une section de l’éditeur de requête](./media/hdinsight-hadoop-use-hive-ambari-view/hiveview.png)
+![Image of the hive view page, containing a query editor section](./media/hdinsight-hadoop-use-hive-ambari-view/hiveview.png)
 
-##Afficher les tables
+##<a name="view-tables"></a>View tables
 
-Dans la section __Explorateur de bases de données__ de la page, sélectionnez l’entrée __par défaut__ dans l’onglet __Bases de données__. Cette opération affiche une liste de tables dans la base de données par défaut. Pour un nouveau cluster HDInsight, une seule table doit exister : __hivesampletable__.
+In the __Database Explorer__ section of the page, select the __default__ entry on the __Databases__ tab. This will display a list of tables in the default database. For a new HDInsight cluster, only one table should exist; __hivesampletable__.
 
-![explorateur de base de données avec la base de données par défaut étendue](./media/hdinsight-hadoop-use-hive-ambari-view/databaseexplorer.png)
+![database explorer with the default database expanded](./media/hdinsight-hadoop-use-hive-ambari-view/databaseexplorer.png)
 
-Étant donné que les nouvelles tables sont ajoutées à travers la procédure décrite dans ce document, vous pouvez utiliser l’icône Actualiser dans l’angle supérieur droit de l’Explorateur de base de données pour actualiser la liste des tables disponibles.
+As new tables are added through the steps in this document, you can use the refresh icon in the upper right corner of the Database Explorer to refresh the list of available tables.
 
-##<a name="hivequery"></a>Éditeur de requête
+##<a name="<a-name="hivequery"></a>query-editor"></a><a name="hivequery"></a>Query editor
 
-Pour exécuter une requête Hive sur les données incluses avec le cluster, suivez la procédure décrite ci-dessous à partir de la vue Hive.
+Use the following steps from the Hive view to run a Hive query against data included with the cluster.
 
-1. Dans la section __Éditeur de requête__ de la page, collez les instructions HiveQL suivantes dans la feuille de calcul :
+1. In the __Query Editor__ section of the page, paste the following HiveQL statements into the worksheet:
 
-		DROP TABLE log4jLogs;
-		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-		STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
-		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+        DROP TABLE log4jLogs;
+        CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+        ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
-	Ces instructions effectuent les opérations suivantes :
+    These statements perform the following actions:
 
-	- **DROP TABLE** : supprime la table et le fichier de données, au cas où la table existe déjà.
-	- **CREATE EXTERNAL TABLE** : crée une nouvelle table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent dans l'emplacement d'origine.
-	- **ROW FORMAT** : indique à Hive comment les données mises en forme. Dans ce cas, les champs de chaque journal sont séparés par un espace.
-	- **STORED AS TEXTFILE LOCATION** : indique à Hive où sont stockées les données (répertoire example/data) et qu'elles sont stockées sous forme de texte.
-	- **SELECT** : sélectionne toutes les lignes dont la colonne t4 contient la valeur [ERROR].
+    - **DROP TABLE** - Deletes the table and the data file, in case the table already exists.
+    - **CREATE EXTERNAL TABLE** - Creates a new "external" table in Hive. External tables store only the table definition in Hive; the data is left in the original location.
+    - **ROW FORMAT** - Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
+    - **STORED AS TEXTFILE LOCATION** - Tells Hive where the data is stored (the example/data directory), and that it is stored as text.
+    - **SELECT** - Selects a count of all rows where column t4 contains the value [ERROR].
 
-	>[AZURE.NOTE] Les tables externes doivent être utilisées lorsque les données sous-jacentes sont censées être mises à jour par une source externe (comme, par exemple, dans le cas d’un processus de téléchargement automatique des données) ou par une autre opération MapReduce, mais vous souhaitez toujours que les requêtes Hive utilisent les données les plus récentes. La suppression d'une table externe ne supprime *pas* les données, mais seulement la définition de table.
+    >[AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but you always want Hive queries to use the latest data. Dropping an external table does *not* delete the data, only the table definition.
 
-2. Utilisez le bouton __Exécuter__ au bas de l’éditeur de requête pour démarrer la requête. Le bouton doit s’afficher en orange et indiquer le libellé __Arrêter l’exécution__. Une section __Résultats du processus de requête__ doit apparaître en dessous de l’éditeur de requête et afficher des informations sur la tâche.
+2. Use the __Execute__ button at the bottom of the Query Editor to start the query. It should turn orange and the text will change to __Stop execution__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job.
 
-    > [AZURE.IMPORTANT] Certains navigateurs peuvent ne pas actualiser correctement le fichier journal ou les informations de résultats. Si vous exécutez une tâche et que celle-ci semble s’exécuter indéfiniment sans mettre à jour le journal ou renvoyer des résultats, essayez d’utiliser Mozilla FireFox ou Google Chrome.
+    > [AZURE.IMPORTANT] Some browsers may not correctly refresh the log or results information. If you run a job and it appears to run forever without updating the log or returning results, try using Mozilla FireFox or Google Chrome instead.
 
-3. Une fois la requête terminée, la section __Résultats du processus de requête__ affiche les résultats de l’opération. Le bouton __Arrêter l’exécution__ s’affichera de nouveau en vert avec le libellé __Exécuter__. Les informations suivantes devraient s’afficher dans l’onglet __Résultats__ :
+3. Once the query has finished, The __Query Process Results__ section will display the results of the operation. The __Stop execution__ button will also change back to a green __Execute__ button. The __Results__ tab should contain the following information:
 
         sev       cnt
         [ERROR]   3
 
-    L’onglet __Journaux__ peut être utilisé pour afficher les informations de journalisation créées par la tâche. Vous pouvez les utiliser pour résoudre des problèmes sur une requête.
+    The __Logs__ tab can be used to view the logging information created by the job. You can use this for troubleshooting if there are problems with a query.
 
-    > [AZURE.TIP] Notez la présence de la boîte de dialogue déroulante __Enregistrer les résultats__ en haut à gauche de la section __Résultats du processus de requête__ ; vous pouvez utiliser ce menu pour télécharger les résultats ou pour les enregistrer dans un stockage HDInsight sous la forme d’un fichier CSV.
+    > [AZURE.TIP] Note the __Save results__ drop-down dialog in the upper left of the __Query Process Results__ section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
 
-3. Sélectionnez les quatre premières lignes de cette requête, puis sélectionnez __Exécuter__. Notez qu’aucun résultat n’est renvoyé à la fin de la tâche. En effet, si vous utilisez le bouton __Exécuter__ alors que vous avez sélectionné une partie de la requête, seules les instructions sélectionnées seront exécutées. Dans ce cas, la sélection n’inclut pas l’instruction finale qui consiste à extraire des lignes de la table. Si vous sélectionnez uniquement cette ligne et que vous utilisez le bouton __Exécuter__, vous devriez obtenir les résultats attendus.
+3. Select the first four lines of this query, then select __Execute__. Notice that there are no results when the job completes. This is because using the __Execute__ button when part of the query is selected will only run the selected statements. In this case, the selection didn't include the final statement that retrieves rows from the table. If you select just that line and use __Execute__, you should see the expected results.
 
-3. Utilisez le bouton __Nouvelle feuille de calcul__ au bas de l’__Éditeur de requête__ pour créer une feuille de calcul. Dans la nouvelle feuille de calcul, entrez les instructions HiveQL suivantes :
+3. Use the __New Worksheet__ button at the bottom of the __Query Editor__ to create a new worksheet. In the new worksheet, enter the following HiveQL statements:
 
-		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+        CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+        INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-	Ces instructions effectuent les opérations suivantes :
+    These statements perform the following actions:
 
-	- **CREATE TABLE IF NOT EXISTS** : crée une table, si elle n'existe pas déjà. Le mot-clé **EXTERNAL** n’étant pas utilisé, il s’agit d’une table interne, stockée dans l’entrepôt de données Hive et gérée intégralement par Hive. Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
-	- **STORED AS ORC** : stocke les données dans un format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
-	- **INSERT OVERWRITE ... SELECT** : sélectionne les lignes de la table **log4jLogs** qui contiennent [ERROR], puis insère les données dans la table **errorLogs**.
+    - **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table will delete the underlying data as well.
+    - **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
+    - **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
 
-    Utilisez le bouton __Exécuter__ pour exécuter cette requête. L’onglet __Résultats__ ne contiendra aucune information puisque cette requête ne renvoie aucune ligne. En revanche, l’état __OPÉRATION RÉUSSIE__ devrait s’afficher.
+    Use the __Execute__ button to run this query. The __Results__ tab will not contain any information as no rows are returned by this query, but the status should show as __SUCCEEDED__.
 
-###Paramètres Hive
+###<a name="hive-settings"></a>Hive settings
 
-Sélectionnez l’icône __Paramètres__ à droite de l’éditeur.
+Select the __Settings__ icon to the right of the editor.
 
-![icônes](./media/hdinsight-hadoop-use-hive-ambari-view/settings.png)
+![icons](./media/hdinsight-hadoop-use-hive-ambari-view/settings.png)
 
-Les paramètres peuvent être utilisés pour modifier différents paramètres Hive, par exemple, passer du moteur d’exécution Tez (par défaut) à MapReduce pour Hive.
+Settings can be used to change various Hive settings, such as changing the execution engine for Hive from Tez (the default,) to MapReduce.
 
-###Visual Explain
+###<a name="visual-explain"></a>Visual explain
 
-Sélectionnez l’icône __Visual Explain__ à droite de l’éditeur.
+Select the __Visual Explain__ icon to the right of the editor.
 
-![icônes](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
+![icons](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
 
-Il s’agit de la vue __Visual Explain__ de la requête, qui peut être utile pour comprendre le déroulement de requêtes complexes. Vous pouvez afficher un équivalent textuel de cette vue à l’aide du bouton __Expliquer__ de l’éditeur de requête.
+This is the __Visual Explain__ view of the query, which can be helpful in understanding the flow of complex queries. You can view a textual equivalent of this view by using the __Explain__ button in the Query Editor.
 
-![image de visual explain](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
+![visual explain image](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
 
-###Tez
+###<a name="tez"></a>Tez
 
-Sélectionnez l'icône __Tez__ à droite de l'éditeur.
+Select the __Tez__ icon to the right of the editor.
 
-![icônes](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
+![icons](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
-Cette opération affiche le graphe orienté acyclique (DAG) utilisé par Tez pour cette requête, s’il est disponible. Si vous souhaitez afficher le DAG pour les requêtes que vous avez exécutées par le passé ou déboguer le processus Tez, utilisez plutôt la [vue Tez](hdinsight-debug-ambari-tez-view.md).
+This will display the Directed Acyclic Graph (DAG) used by Tez for this query, if one is available. If you want to view the DAG for queries you've ran in the past, or debug the Tez process, use the [Tez View](hdinsight-debug-ambari-tez-view.md) instead.
 
-###Notifications
+###<a name="notifications"></a>Notifications
 
-Sélectionnez l’icône __Notifications__ à droite de l’éditeur.
+Select the __Notifications__ icon to the right of the editor.
 
-![icônes](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
+![icons](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
 
-Les notifications sont des messages qui sont générés lors de l’exécution des requêtes. Par exemple, vous recevez une notification lorsqu’une requête est soumise, ou lorsqu’une erreur se produit.
+Notifications are messages that are generated when running queries. For example, you will receive a notification when a query is submitted, or when an error occurs.
 
-##Requêtes enregistrées
+##<a name="saved-queries"></a>Saved queries
 
-1. À partir de l’éditeur de requête, créez une feuille de calcul et entrez la requête suivante :
+1. From the Query Editor, create a new worksheet and enter the following query:
 
         SELECT * from errorLogs;
 
-    Exécutez la requête pour vérifier qu’elle fonctionne. Vous obtenez les résultats suivants :
+    Execute the query to verify that it works. The results will be as follows:
 
-        errorlogs.t1 	errorlogs.t2 	errorlogs.t3 	errorlogs.t4 	errorlogs.t5 	errorlogs.t6 	errorlogs.t7
-        2012-02-03 	18:35:34 	SampleClass0 	[ERROR] 	incorrect 	id 	
-        2012-02-03 	18:55:54 	SampleClass1 	[ERROR] 	incorrect 	id 	
-        2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
+        errorlogs.t1    errorlogs.t2    errorlogs.t3    errorlogs.t4    errorlogs.t5    errorlogs.t6    errorlogs.t7
+        2012-02-03  18:35:34    SampleClass0    [ERROR]     incorrect   id  
+        2012-02-03  18:55:54    SampleClass1    [ERROR]     incorrect   id  
+        2012-02-03  19:25:27    SampleClass4    [ERROR]     incorrect   id
 
-2. Cliquez sur le bouton __Enregistrer sous__ au bas de l’éditeur. Nommez cette requête __Errorlogs__ et sélectionnez __OK__. Notez que la feuille de calcul prend le nom __Errorlogs__.
+2. Use the __Save as__ button at the bottom of the editor. Name this query __Errorlogs__ and select __OK__. Note that the name of the worksheet changes to __Errorlogs__.
 
-3. Sélectionnez l’onglet __Requêtes enregistrées__ en haut de la page Vue Hive. Notez que la requête __Errorlogs__ est désormais répertoriée comme une requête enregistrée. Elle restera dans la liste jusqu’à ce que vous la supprimiez. Sélectionnez le nom pour ouvrir la requête dans l’éditeur de requête.
+3. Select the __Saved Queries__ tab at the top of the Hive View page. Note that __Errorlogs__ is now listed as a saved query. It will remain in this list until you remove it. Selecting the name will open the query in the Query Editor.
 
-##Historique des requêtes
+##<a name="query-history"></a>Query history
 
-Le bouton __Historique__ en haut de la vue Hive vous permet d’afficher les requêtes que vous avez exécutées précédemment. Utilisez-le maintenant et sélectionnez certaines des requêtes que vous avez exécutées précédemment. Lorsque vous sélectionnez une requête, elle s’ouvre dans l’éditeur de requête.
+The __History__ button at the top of the Hive View allows you to view queries you have ran previously. Use it now and select some of the queries you have ran previously. When you select a query, it opens it in the Query Editor.
 
-##Fonctions définies par l’utilisateur (UDF)
+##<a name="user-defined-functions-(udf)"></a>User Defined Functions (UDF)
 
-Hive peut également être étendu via des **fonctions définies par l'utilisateur (UDF)**. Une fonction UDF vous permet d'implémenter une fonctionnalité ou une logique qui n'est pas facilement modelée en HiveQL.
+Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL.
 
-Lorsque vous ajoutez une fonction UDF dans le cadre des instructions HiveQL dans votre requête, l’onglet UDF en haut de la vue Hive vous permet de déclarer et d’enregistrer un ensemble d’UDF qui peuvent être utilisées avec l’__éditeur de requête__.
+While you can add a UDF as part of the HiveQL statements in your query, the UDF tab at the top of the Hive View allows you to declare and save a set of UDFs that can be used with the __Query Editor__.
 
-Une fois que vous avez ajouté une fonction UDF à la vue Hive, un bouton __Insérer des fonctions UDF__ s’affiche en bas de l’__éditeur de requête__. La sélection de ce bouton affiche une liste déroulante des UDF définies dans la vue Hive. La sélection d’une fonction UDF ajoute des instructions HiveQL à votre requête pour activer l’UDF.
+Once you have added a UDF to the Hive View, an __Insert udfs__ button will appear at the bottom of the __Query Editor__. Selecting this will display a drop-down list of the UDFs defined in the Hive View. Selecting a UDF will add HiveQL statements to your query to enable the UDF.
 
-Par exemple, si vous avez défini une fonction UDF avec les propriétés suivantes :
+For example, if you have defined a UDF with the following properties:
 
-* Nom de ressource : myudfs
-* Chemin d’accès à la ressource : wasbs:///myudfs.jar
-* Nom de la fonction UDF : myawesomeudf
-* Nom de la classe UDF : com.myudfs.Awesome
+* Resource name: myudfs
+* Resource path: wasbs:///myudfs.jar
+* UDF name: myawesomeudf
+* UDF class name: com.myudfs.Awesome
 
-L’utilisation du bouton __Insérer des fonctions UDF__ va afficher une entrée nommée __myudfs__, avec une autre liste déroulante pour chaque fonction UDF définie pour cette ressource. Dans le cas présent, __myawesomeudf__. La sélection de cette entrée va ajouter le code suivant au début de la requête :
+Using the __Insert udfs__ button will display an entry named __myudfs__, with another drop-down for each UDF defined for that resource. In this case, __myawesomeudf__. Selecting this entry will add the following to the beginning of the query:
 
     add jar wasbs:///myudfs.jar;
 
     create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
-Vous pouvez ensuite utiliser la fonction UDF dans votre requête. Par exemple, `SELECT myawesomeudf(name) FROM people;`.
+You can then use the UDF in your query. For example, `SELECT myawesomeudf(name) FROM people;`.
 
-Pour plus d’informations sur l’utilisation des fonctions UDF avec Hive sur HDInsight, consultez les articles suivants :
+For more information on using UDFs with Hive on HDInsight, see the following:
 
-* [Utilisation de Python avec Hive et Pig dans HDInsight](hdinsight-python.md)
+* [Using Python with Hive and Pig in HDInsight](hdinsight-python.md)
 
-* [Comment ajouter une UDF personnalisée Hive à HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-##<a id="nextsteps"></a>Étapes suivantes
+##<a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Next steps
 
-Pour obtenir des informations générales sur Hive dans HDInsight.
+For general information on Hive in HDInsight:
 
-* [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
+For information on other ways you can work with Hadoop on HDInsight:
 
-* [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

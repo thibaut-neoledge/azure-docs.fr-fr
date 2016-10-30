@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Liste des tâches d'administration et de développement dans BizTalk Services | Microsoft Azure" 
+    pageTitle="Liste des tâches d'administration et de développement dans BizTalk Services | Microsoft Azure"
     description="Documentation de travail et de planification pour le déploiement d'Azure BizTalk Services."
     services="biztalk-services"
     documentationCenter=""
@@ -24,7 +24,7 @@ Lorsque vous utilisez Microsoft Azure BizTalk Services, il existe plusieurs comp
 
 |Étape|Qui est responsable|Task|Liens connexes|
 |----|----|----|----|
-1.|Administrateur|Créer l’abonnement Microsoft Azure à l’aide d’un compte Microsoft ou d’un compte professionnel|[Portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885)|
+|1.|Administrateur|Créer l’abonnement Microsoft Azure à l’aide d’un compte Microsoft ou d’un compte professionnel|[Portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885)|
 |2.|Administrateur|Créer ou approvisionner un BizTalk Service.|[Créer un BizTalk Service à l'aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)|
 |3.|Administrateur|Enregistrer votre déploiement ou le déploiement de votre entreprise de BizTalk Services|[Enregistrement et mise à niveau d'un déploiement de service BizTalk sur le portail BizTalk Services](https://msdn.microsoft.com/library/azure/hh689837.aspx)|
 |4.|Administrateur|S’applique si l’application utilise BizTalk Adapter Service pour se connecter à un système métier (LOB) local ou utilise une file d’attente ou une destination de rubrique.  Créer l'espace de noms Azure Service Bus Donner les valeurs espace de noms, nom de l'émetteur Service Bus et clé de l'émetteur Service Bus au développeur.|[Procédure : Créer ou modifier un espace de noms du service Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) et [Obtenir les valeurs nom et clé de l’émetteur](biztalk-issuer-name-issuer-key.md)|

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Guide de création d’un service de données pour le Marketplace | Microsoft Azure"
-   description="Instructions détaillées pour créer, certifier et déployer un service de données que d’autres peuvent acheter sur Azure Marketplace."
+   pageTitle="Guide to creating a Data Service for the  Marketplace | Microsoft Azure"
+   description="Detailed instructions of how to create, certify and deploy a Data Service for purchase on the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
-   manager=""
+   manager="hascipio"
    editor=""/>
 
    <tags
@@ -16,136 +16,141 @@
       ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
-# Guide de publication d’un service de données pour Azure Marketplace
 
->[AZURE.IMPORTANT] **À ce stade, nous n’intégrons plus de nouveaux éditeurs de services de données. Le listing de nouveaux services de données ne sera pas approuvé.** Si vous avez une application SaaS professionnelle à publier sur AppSource, vous trouverez plus d’informations [ici](https://appsource.microsoft.com/partners). Si vous avez une application IaaS ou un service de développement à publier sur Azure Marketplace, vous trouverez plus d’informations [ici](https://azure.microsoft.com/marketplace/programs/certified/).
+# <a name="data-service-publishing-guide-for-the-azure-marketplace"></a>Data Service Publishing Guide for the Azure Marketplace
 
-Après avoir effectué l’étape 1, [Création et inscription d’un compte](marketplace-publishing-accounts-creation-registration.md), nous vous avons guidé dans les [exigences générales non techniques](marketplace-publishing-pre-requisites.md) et les [exigences techniques](marketplace-publishing-data-service-creation-prerequisites.md) d’une offre de service de données sur Azure Marketplace. À présent, nous allons vous guider dans la procédure de création d’une offre de service de données sur le [portail de publication][link-pubportal] pour Azure Marketplace.
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
 
-## 1\. Connectez-vous au portail de publication.
+After completing the step 1, [Account Creation and Registration](marketplace-publishing-accounts-creation-registration.md), we guided you through the [General Non-Technical](marketplace-publishing-pre-requisites.md) and [Technical Requirements](marketplace-publishing-data-service-creation-prerequisites.md) of a Data Service offer on Azure Marketplace. Now we will walk you through the steps for creating a Data Service offer on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
 
-Accédez à [https://publish.windowsazure.com](https://publish.windowsazure.com.).
+## <a name="1.-login-to-the-publishing-portal."></a>1.   Login to the Publishing Portal.
 
-**Pour votre première connexion au portail de publication, utilisez le même compte que celui avec lequel le profil de vendeur de votre entreprise a été inscrit dans le Centre de développement.** (Plus tard, vous pourrez ajouter des employés de votre entreprise comme coadministrateurs dans le portail de publication.)
+Go to [https://publish.windowsazure.com](https://publish.windowsazure.com. )
 
-Cliquez sur la mosaïque **Publier un service de données** s’il s’agit de votre première connexion au portail de publication.
+**For first time login to Publishing Portal, use the same account with which your company’s Seller Profile was registered in Developer Center.**  (Later you can add any employee of your company as a co-admin in the Publishing Portal).
 
-## 2\. Choisissez **Data Services** dans le menu de navigation situé à gauche.
+Click on the **Publish a Data Services** tile if this is the first login into the publishing portal.
 
-  ![dessin](media/marketplace-publishing-data-service-creation/pubportal-main-nav.png)
+## <a name="2.-choose-**data-services**-in-the-navigation-menu-on-the-left-side."></a>2.   Choose **Data Services** in the navigation menu on the left side.
 
-## 3\. Créez un service de données.
+  ![drawing](media/marketplace-publishing-data-service-creation/pubportal-main-nav.png)
 
-Remplissez le titre de votre nouvelle offre de service de données, puis cliquez sur le signe « + » affiché à droite.
+## <a name="3.-create-a-new-data-service"></a>3.   Create a New Data Service
 
-  ![dessin](media/marketplace-publishing-data-service-creation/step-3.png)
+Fill in the title for your new Data Service Offer and click on “+” on the right.
 
-## 4\. Consultez le sous-menu sous le service de données nouvellement créé dans le menu de navigation.
+  ![drawing](media/marketplace-publishing-data-service-creation/step-3.png)
 
-Cliquez sur l’onglet **Procédure pas à pas** et passez en revue toutes les étapes nécessaires pour publier correctement le service de données sur Azure Marketplace.
+## <a name="4.-review-the-sub-menu-under-the-newly-created-data-service-in-the-navigation-menu."></a>4.   Review the sub-menu under the newly created Data Service in the navigation menu.
 
-> [AZURE.TIP] Vous pouvez toujours cliquer sur les liens affichés dans la page « Procédure pas à pas » ou utiliser les onglets du sous-menu de l’offre de service de données situé à gauche.
+Click on the **Walkthrough** tab and review all necessary steps needed to publish properly the Data Service on the Azure Marketplace.
 
-## 5\. Créez un plan.
+> [AZURE.TIP] You always can click on the links in the “Walkthrough” page or use tabs on the Data Service offer’s sub-menu on the left side.
 
-### Offres, plans, transactions.
+## <a name="5.-create-a-new-plan."></a>5.   Create a new Plan.
 
-Chaque offre peut avoir plusieurs plans, mais doit en avoir au moins un (1). Lorsque les utilisateurs finaux s’abonnent à votre offre, ils s’abonnent à l’un des plans de l’offre. Chaque plan définit la façon dont les utilisateurs finaux pourront utiliser votre service.
+### <a name="offers,-plans,-transactions."></a>Offers, Plans, transactions.
 
-Actuellement, Azure Marketplace prend uniquement en charge le modèle d’abonnement mensuel basé les transactions pour Data Services. Autrement dit, les utilisateurs finaux payeront des frais mensuels en fonction du prix du plan spécifique auquel ils sont abonnés et pourront consommer chaque mois le nombre de transactions défini par le plan.
+Each Offer can have multiple Plans, but must have at least one (1) Plan. When end-users subscribe to your offer they subscribe for one of the offer’s Plan. Each plan defines how end-users will be able to use your service.
 
-Chaque transaction est généralement définie sous la forme d’un nombre d’enregistrements que votre service de données renverra en fonction de la requête envoyée au service. La valeur par défaut est 100. Le nombre de transactions renvoyées à chaque requête correspond au nombre d’enregistrements divisé par 100 et arrondi à l’entier le plus proche.
+Currently Azure Marketplace support only Monthly Subscription Transaction Based model for Data Services, i.e. end-users will pay monthly fee according to the price of the specific plan they subscribed to and will be able to consume each month number of transaction defined by the plan.
 
-Il incombe à la couche de service d’Azure Marketplace pour surveiller (compter) le nombre de transactions utilisées par chaque requête.
+Each Transaction usually defined as number of records your Data Service will return based on the query sent to the Service. The default is 100. Number of transactions returned to each query will be number of records divided by 100 and rounded up to the closest integer.
 
-> [AZURE.IMPORTANT] Les utilisateurs finaux ayant atteint la limite de transactions au cours du mois ne peuvent pas continuer à utiliser le service jusqu’à la fin de leur cycle d’abonnement mensuel.
+It’s Azure Marketplace Service layer responsibility to monitor (meter) number of transactions consumed by each query.
 
-> Le plan ou l’un des plans peut (mais ne doit pas nécessairement) inclure un nombre illimité de transactions.
+> [AZURE.IMPORTANT] End-Users which reached the transaction limit during the month will be blocked from continuing to use the service until end of their monthly subscription cycle.
 
-### Créez un plan.
-1. Cliquez sur le signe **« + »** en regard de « Ajouter un nouveau plan ».
+> The plan or one of the plans can (but not must) include unlimited number of transactions.
 
-2. Choisissez l’une des options : utilisation **Illimitée** ou **Limitée** pour ce plan. Si vous choisissez Limitée, indiquez le nombre de transactions que le plan autorise à utiliser en un mois.
+### <a name="create-a-plan."></a>Create a plan.
+1. Click on **“+”** next to the “Add a new plan”.
 
-    ![dessin](media/marketplace-publishing-data-service-creation/step-5.1.png)
+2. Choose one of the options: **Unlimited** or **Limited** usage for this plan.  If Limited then provide the number of transaction the plan will allow to consume in a month.
 
-    Le portail de publication suggère également un « identificateur de plan ». Cet identificateur sera utilisé pour communiquer aux utilisateurs finaux le nom du plan dans l’interface utilisateur. Il sera également utilisé par le service Marketplace pour identifier le plan. Vous pouvez modifier l’« identificateur de plan », si vous le souhaitez.
+    ![drawing](media/marketplace-publishing-data-service-creation/step-5.1.png)  
 
-    > [AZURE.NOTE] L’« identificateur de plan » doit être unique dans l’étendue de chaque offre. Comme de nombreux autres identificateurs utilisés dans l’identificateur de plan du portail de publication seront verrouillés après la première publication en production, vous ne pourrez pas modifier cet identificateur.
+    Publishing Portal will also suggest “Plan Identifier”, which will be used to communicate to the end-users the name of the plan in the UI and also used by the Market Place Service to identify the Plan. You can change the “Plan Identifier” if you want.
 
-3. Cliquez pour valider votre choix.
+    > [AZURE.NOTE] The “Plan Identifier” must be unique within the scope of each offer. As many other Identifiers used in the Publishing Portal Plan identifier will be locked after the first publishing to production and you will not be able to change this identifier.
 
-4. Vous êtes ensuite invité à répondre à quelques questions supplémentaires concernant votre plan nouvellement créé.
+3. Click to accept your choice.
 
-    ![dessin](media/marketplace-publishing-data-service-creation/step-5.2.png)
+4. Then you will be asked few additional questions regarding your newly created Plan.
+
+    ![drawing](media/marketplace-publishing-data-service-creation/step-5.2.png)
 
 
-|Question|Signification|
+|Question|Significance|
 |----|----|
-|**Ce plan est gratuit et disponible dans le monde entier**|Vous pouvez créer un plan entièrement gratuit. Si c’est le seul plan de cette offre, cela signifie que vous publiez une « Offre gratuite » dans Marketplace. Si c’est applicable à un seul plan (parmi plusieurs), cela vous permet de proposer aux utilisateurs finaux d’en savoir plus sur votre service avec un nombre assez restreint de transactions par mois. Si la réponse est « Oui », vous n’aurez à répondre à aucune autre question.|
+|**This Plan is free and available world-wide?**|You can create a completely free-of-charge plan. If it’s the only plan for this offer – it means that you are publishing “Free Offer” in the Marketplace. If it’s only for one (of few) Plan, the it gives you an option to offer end-users to learn more about your service with a relatively small number of transactions per month.  If the answer is "Yes," then no further questions will be asked.|
 
-> [AZURE.NOTE] Les utilisateurs finaux peuvent toujours effectuer une mise à niveau vers les plans payants.
+> [AZURE.NOTE] End users can always upgrade to the paid plans.
 
-|Question|Signification|
+|Question|Significance|
 |----|----|
-|**Existe-t-il un essai gratuit ?**|Vous pouvez choisir entre absolument « Aucune version d’évaluation » ou proposer une option pour utiliser votre plan pendant « Un mois ». Les éditeurs aiment utiliser cette option pour permettre aux utilisateurs finaux de comprendre gratuitement les avantages de l’offre gratuite pendant un mois.|
+|**Is free trial available?**|You can choose between “No Trial” at all or give an option to use your Plan for “One Month”. Publishers like to use this option to provide end-users the possibility to understand the benefits of the offer for free for one month.|
 
-> [AZURE.IMPORTANT] Les utilisateurs finaux ne pourront acheter un essai gratuit que s’ils disposent d’un moyen de paiement reconnus, tel qu’une carte de crédit ou un contrat d’entreprise.
+> [AZURE.IMPORTANT] End-users will only be able to purchase a free trial if they have established payment instrument e.g. credit card, enterprise agreement.
 
-> Après un mois d’essai gratuit, Azure Marketplace commence à faire payer le prix aux clients à compter de la date de l’abonnement, sauf si le client a entamé l’annulation de l’abonnement. Aucune notification spéciale n’est fournie aux utilisateurs finaux.
+> After one month of the free trial, Azure Marketplace will start charging customers the price as of the date of the subscription, unless the customer initiated the subscription cancellation. No special notification will be provided to the end-users.
 
-|Question|Signification|
+|Question|Significance|
 |----|----|
-|**L’achat de ce plan nécessite un code de promotion**| Les éditeurs ont la possibilité de limiter l’accès à leurs plans de service en fournissant un code spécial, appelé « Code promo » pour des clients spécifiques. Seuls les utilisateurs finaux disposant de ce Code promo peuvent s’abonner au plan. Si vous choisissez « Non », vous reconnaissez que toutes les personnes de la région où l’offre est disponible (pour plus de détails, consultez le [Guide du contenu marketing d’Azure Marketplace](marketplace-publishing-push-to-staging.md)) pourront s’abonner à ce plan. Vous n’aurez à répondre à aucune autre question.|
-|**Également masquer ce plan pour toute personne ne disposant pas d’un code promotionnel valide ?**|Si la réponse à la question précédente est « Oui », l’éditeur a la possibilité de supprimer complètement l’affichage de ce plan dans l’interface utilisateur de Marketplace. Cela signifie que les clients ne verront pas ce plan dans la page des détails de l’offre. Les utilisateurs finaux qui recevront un code promotionnel pour l’achat pourront l’utiliser pour s’y abonner.|
+|**This plan requires a promotion code to purchase?**| Publishers have an option to limit access to their Service Plans by providing a special code, called “A Promocode” to specific customers. Only end-users which will have this Promocode will be able to subscribe to the Plan. If you choose “No”, then you agree that everyone from the region where the offer is available (See [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) for more details) will be able to subscribe to this plan. No further questions will be asked.|
+|**Also hide this plan from anyone who doesn’t have a valid promotion code?**|If the answer to the previous question is “Yes” the Publisher has an option to completely remove this plan from appearing in the UI of the Marketplace. It means, customers will not see this plan in the Offer’s details page. End-users which will receive a promocode to purchase it, will be able to subscribe to it using this promocode.|
 
-## 6\. Créez votre contenu marketing pour Marketplace.
-Pour savoir comment fournir les informations nécessaires les onglets **Marketing, Tarification, Support et Catégories**, consultez le [Guide du contenu marketing d’Azure Marketplace](marketplace-publishing-push-to-staging.md) qui est commun à tous les artefacts publiées dans Azure Marketplace.
+## <a name="6.-create-your-marketplace-marketing-content"></a>6.   Create your Marketplace marketing content
+For How to provide information required in **Marketing, Pricing, Support and Categories** tabs please visit [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) which is common to all artifacts published in the Azure Marketplace.  
 
-## 7\. Connectez votre offre à votre service (basé sur SQL Azure ou sur un service web).
+## <a name="7.-connect-your-offer-to-your-service-(sql-azure-based-or-web-service-based)."></a>7.   Connect your offer to your Service (SQL Azure based or Web Service based).
 
-Cliquez sur le sous-menu **Data Services**.
+Click on the **Data Services** sub-menu.
 
-Dans la partie supérieure de la page, vous devez fournir l’**espace de noms** de l’offre.
+On the upper half of the page you’ll be asked to provide the offer’s **Namespace**.  
 
-  ![dessin](media/marketplace-publishing-data-service-creation/step-7.png)
+  ![drawing](media/marketplace-publishing-data-service-creation/step-7.png)
 
-La question ci-dessous définit la façon dont l’éditeur va exposer l’offre nouvellement créée dans Azure Marketplace. (Pour plus d’informations, consultez le [guide des conditions techniques préalables de Data Services](marketplace-publishing-data-service-creation-prerequisites.md)).
+The below question will define how the Publisher is going to expose newly created offer to Azure Marketplace. (For more details see the [Data Services Technical Prerequisite Guide](marketplace-publishing-data-service-creation-prerequisites.md)).
 
-  ![dessin](media/marketplace-publishing-data-service-creation/step-7.2.png)
+  ![drawing](media/marketplace-publishing-data-service-creation/step-7.2.png)
 
-**Publication du service basée sur une base de données**
+**Publishing the Database based service**
 
-Cliquez sur **Base de données**. La page suivante s’affiche :
+Click on **Database**. The following page will appear:
 
-  ![dessin](media/marketplace-publishing-data-service-creation/step-7.3.png)
+  ![drawing](media/marketplace-publishing-data-service-creation/step-7.3.png)
 
-Pour créer un mappage CSDL pour le jeu de données basé sur la base de données SQL Azure :
+To create a CSDL mapping for the Dataset based on the SQL Azure DB:
 
-  ![dessin](media/marketplace-publishing-data-service-creation/step-7.4.png)
+  ![drawing](media/marketplace-publishing-data-service-creation/step-7.4.png)
 
-Puis pour chaque table
+And then for each table
 
-  ![dessin](media/marketplace-publishing-data-service-creation/step-7.5.png)
+  ![drawing](media/marketplace-publishing-data-service-creation/step-7.5.png)
 
-  ![dessin](media/marketplace-publishing-data-service-creation/step-7.6.png)
+  ![drawing](media/marketplace-publishing-data-service-creation/step-7.6.png)
 
-Dans le cas d’un service web
+If Web Service
 
-  ![dessin](media/marketplace-publishing-data-service-creation/step-7.7.png)
+  ![drawing](media/marketplace-publishing-data-service-creation/step-7.7.png)
 
-> [AZURE.IMPORTANT] Pour obtenir des instructions détaillées et des exemples sur la création d’un service web CSDL, lisez [Mappage d’un service web existant à OData via le langage CSDL](marketplace-publishing-data-service-creation-odata-mapping.md).
+> [AZURE.IMPORTANT] Read [Mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping.md) for detailed instructions and examples for creating a CSDL Web Service.
 
-## Étapes suivantes
-Maintenant que vous avez créé votre offre de service de données, assurez-vous de suivre les instructions du [Guide du contenu marketing d’Azure Marketplace](marketplace-publishing-push-to-staging.md) avant de passer au [test de votre service de données dans un environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md).
+## <a name="next-steps"></a>Next Steps
+Now that you've created your Data Service offer, please ensure that you complete the instructions in the [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) before you move forward to [Testing your Data Service in Staging](marketplace-publishing-data-service-test-in-staging.md).
 
-## Voir aussi
-- [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
-- Si vous souhaitez comprendre le processus de mappage OData global et son rôle, lisez l’article [Mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping.md) pour passer en revue des définitions, des structures et des instructions.
-- Si vous souhaitez découvrir et comprendre les nœuds spécifiques et leurs paramètres, lisez l’article [Nœuds de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) pour obtenir des définitions et des explications, des exemples, ainsi qu’un contexte de cas d’utilisation.
-- Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code, ainsi que pour comprendre la syntaxe et le contexte du code.
+## <a name="see-also"></a>See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+- If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
+- If you are interested in learning and understanding the specific nodes and their parameters, read this article [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) for definitions and explanations, examples, and use case context.
+- If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
 
 
-[link-pubportal]: https://publish.windowsazure.com
+[link-pubportal]:https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -3,7 +3,7 @@
     description="Utilisation du kit de développement logiciel (SDK) Android pour Azure Mobile Apps"
     services="app-service\mobile"
     documentationCenter="android"
-    authors="yuaxu"
+    authors="ysxu"
     manager="erikre"
     editor=""/>
 
