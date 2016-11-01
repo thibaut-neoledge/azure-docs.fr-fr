@@ -3,7 +3,7 @@
     description="Décrit les utilisateurs et les contacts dans Azure AD Connect Sync."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -18,7 +18,7 @@
 
 
 
-# <a name="azure-ad-connect-sync:-understanding-users-and-contacts"></a>Azure AD Connect Sync : Présentation des utilisateurs et des contacts
+# <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect Sync : Présentation des utilisateurs et des contacts
 
 Il existe plusieurs raisons pour lesquelles vous pouvez avoir plusieurs forêts Active Directory et il existe plusieurs topologies de déploiement différentes. Parmi les modèles courants, citons les déploiements de ressources de comptes et les forêts avec liste d’adresses globale synchronisées après fusion et acquisition. Mais même s’il existe des modèles pures, les modèles hybrides sont également courants. La configuration par défaut du service de synchronisation Azure AD Connect ne suppose pas l’existence d’un modèle particulier, mais des comportements différents peuvent être observés en fonction de la façon dont la correspondance utilisateur a été sélectionnée dans le guide d’installation.
 

@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="byham"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/24/2016"
-   ms.author="rickbyh;barbkess;sonyama"/>
+   ms.author="rickbyh;barbkess"/>
 
 
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Authentification sur Azure SQL Data Warehouse
@@ -46,7 +46,7 @@ Par défaut, votre connexion se connecte à la base de données *MASTER* et non 
 
 > [AZURE.NOTE] L’instruction Transact-SQL **USE MyDatabase;** n’est pas prise en charge pour la modification de la base de données pour une connexion. Pour obtenir des conseils en matière de connexion à SQL Data Warehouse avec SSDT, consultez l’article [Envoyer des requêtes avec Visual Studio][] .
 
-## <a name="azure-active-directory-(aad)-authentication"></a>Authentification Azure Active Directory (AAD)
+## <a name="azure-active-directory-aad-authentication"></a>Authentification Azure Active Directory (AAD)
 
 L’authentification [Azure Active Directory][Qu’est-ce qu’Azure Active Directory ?] est un mécanisme de connexion à Microsoft Azure SQL Data Warehouse en utilisant des identités d’Azure Active Directory (Azure AD). Avec l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs SQL Data Warehouse et elle simplifie la gestion des autorisations. 
 

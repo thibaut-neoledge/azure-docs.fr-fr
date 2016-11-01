@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -37,7 +37,7 @@ Cette section vous fournit les étapes requises pour simuler des types d’évé
 Les autres événements à risque ne peuvent pas être simulés de manière sécurisée.
 
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>Connexions depuis des adresses IP anonymes
+### <a name="signins-from-anonymous-ip-addresses"></a>Connexions depuis des adresses IP anonymes
 
 Ce type d’événement à risque signale les utilisateurs qui se sont connectés depuis une adresse IP ayant été identifiée comme l’adresse IP d’un proxy anonyme. Ces proxys sont utilisés par des individus souhaitant masquer l’adresse IP de leur appareil et peuvent être utilisés dans un but malveillant.
 
@@ -50,7 +50,7 @@ Ce type d’événement à risque signale les utilisateurs qui se sont connecté
 La connexion s’affiche dans le tableau de bord d’Identity Protection dans un délai de 5 minutes. 
 
 
-###<a name="sign-ins-from-unfamiliar-locations"></a>Connexions depuis des emplacements non connus
+###<a name="signins-from-unfamiliar-locations"></a>Connexions depuis des emplacements non connus
 
 Le risque lié aux emplacements non connus est déterminé à l’aide d’un mécanisme d’évaluation de connexion en temps réel qui prend en compte les emplacements de connexion passés (IP, latitude/longitude et NSA) pour déterminer les emplacements non connus/nouveaux. Le système stocke les adresses IP, la latitude/longitude et les NSA précédents d’un utilisateur et considère ces emplacements comme connus. Un emplacement de connexion est considéré comme non connu si l’emplacement de connexion ne correspond à aucun emplacement connu existant.
 
@@ -138,7 +138,7 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 <br>
 
  
-##<a name="sign-in-risk"></a>Risque à la connexion
+##<a name="signin-risk"></a>Risque à la connexion
 
  
 **Pour tester le risque à la connexion, procédez comme suit :**

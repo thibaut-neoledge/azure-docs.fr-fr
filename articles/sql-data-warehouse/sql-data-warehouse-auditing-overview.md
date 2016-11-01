@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016" 
+   ms.author="rortloff;barbkess"/>
 
 
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Audit dans Azure SQL Data Warehouse
@@ -31,7 +31,7 @@ Les outils d'audit permettent et facilitent le respect des normes liées à la c
 + [Configuration de l'audit pour votre base de données]
 + [Analyse des journaux et des rapports d’audit]
 
-##<a name="<a-id="subheading-1"></a>azure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Principes fondamentaux de l’audit de base de données Azure SQL Data Warehouse
+##<a name="a-idsubheading1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Principes fondamentaux de l’audit de base de données Azure SQL Data Warehouse
 
 
 Éléments rendus possibles par l’audit de bases de données SQL Data Warehouse :
@@ -61,7 +61,7 @@ Une stratégie d'audit peut être définie pour une base de données spécifique
 Avant de configurer l'audit, assurez-vous que vous utilisez bien un [« Client de bas niveau »](sql-data-warehouse-auditing-downlevel-clients.md).
 
 
-##<a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configuration de l’audit pour votre base de données
+##<a name="a-idsubheading2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configuration de l’audit pour votre base de données
 
 1. Ouvrez le <a href="https://portal.azure.com" target="_blank">portail Azure</a>.
 
@@ -92,7 +92,7 @@ Avant de configurer l'audit, assurez-vous que vous utilisez bien un [« Client 
 9. Cliquez sur **OK**.
 
 
-##<a name="<a-id="subheading-3">analyze-audit-logs-and-reports</a>"></a><a id="subheading-3">Analyse des journaux et des rapports d’audit</a>
+##<a name="a-idsubheading3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">Analyse des journaux et des rapports d’audit</a>
 
 Les journaux d’audit sont agrégés dans une collection de tables de stockage avec un préfixe **SQLDBAuditLogs** au sein du compte de stockage Azure que vous avez choisi lors de la configuration. Vous pouvez afficher les fichiers journaux à l'aide d'un outil tel que l'<a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Explorateur de stockage Azure</a>.
 
@@ -105,11 +105,11 @@ Pour des instructions plus détaillées sur la façon de travailler avec le mod�
 ![][5]
 
 
-##<a name="<a-id="subheading-4">practices-for-usage-in-production</a>"></a><a id="subheading-4">Pratiques d’utilisation dans un environnement de production</a>
+##<a name="a-idsubheading4practices-for-usage-in-productiona"></a><a id="subheading-4">Pratiques d’utilisation dans un environnement de production</a>
 La description fournie dans cette section fait référence aux captures d’écran précédentes. Vous pouvez utiliser le <a href="https://portal.azure.com" target="_blank">portail Azure</a> ou le <a href= "https://manage.windowsazure.com/" target="_bank">portail Azure Classic</a>.
 
 
-##<a name="<a-id="subheading-5"></a>storage-key-regeneration"></a><a id="subheading-5"></a>Régénération des clés de stockage
+##<a name="a-idsubheading5astorage-key-regeneration"></a><a id="subheading-5"></a>Régénération des clés de stockage
 
 Dans un environnement de production, vous êtes susceptible d'actualiser de temps en temps vos clés de stockage. Au moment d'actualiser vos clés, vous devez réenregistrer la stratégie. Pour ce faire, procédez comme suit :
 
@@ -122,7 +122,7 @@ Dans un environnement de production, vous êtes susceptible d'actualiser de temp
 
 4. Retournez dans l'interface utilisateur de stockage, puis **régénérez** la *clé d'accès secondaire* (en vue du prochain cycle d'actualisation des clés).
 
-##<a name="<a-id="subheading-6"></a>automation"></a><a id="subheading-6"></a>Automatisation
+##<a name="a-idsubheading6aautomation"></a><a id="subheading-6"></a>Automatisation
 Il existe plusieurs cmdlets PowerShell que vous pouvez utiliser pour configurer l’audit dans la base de données SQL Azure. Pour accéder aux cmdlets d’audit, vous devez exécuter PowerShell en mode Azure Resource Manager.
 
 > [AZURE.NOTE] Le module [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) est actuellement en préversion. Il peut ne pas fournir les mêmes fonctionnalités de gestion que le module Azure.

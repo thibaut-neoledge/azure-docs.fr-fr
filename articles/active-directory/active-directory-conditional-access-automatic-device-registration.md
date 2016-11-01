@@ -3,7 +3,7 @@
     description="Les administrateurs peuvent choisir de faire inscrire automatiquement et en mode silencieux les appareils joints à un domaine Windows auprès d’Azure Active Directory (Azure AD)."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -17,7 +17,7 @@
     ms.author="markvi"/>
 
 
-# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
+# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domainjoined-devices"></a>Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
 
 En tant qu’administrateur, vous pouvez choisir d’inscrire automatiquement et en mode silencieux des appareils joints à votre domaine Windows auprès d’Azure Active Directory (Azure AD). Ceci peut être utile si vous avez configuré des stratégies d’accès conditionnel basées sur les appareils à des applications Office 365 ou à des applications gérées localement par AD FS. Vous pouvez en savoir plus sur les scénarios d’inscription d’appareils en lisant la [Présentation de l’inscription d’appareils auprès d’Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
 
@@ -82,7 +82,7 @@ Par exemple, si vous utilisez deux suffixes UPN dans votre organisation nommés 
 | enterpriseregistration.contoso.com        | CNAME | enterpriseregistration.windows.net |
 | enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
-##<a name="configure-automatic-device-registration-for-windows-7-and-windows-8.1-domain-joined-devices"></a>Configurer l’inscription automatique des appareils pour les appareils joints à des domaines Windows 7 et Windows 8.1
+##<a name="configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices"></a>Configurer l’inscription automatique des appareils pour les appareils joints à des domaines Windows 7 et Windows 8.1
 
 Configurez l’inscription automatique des appareils pour les appareils joints à vos domaines Windows 7 et Windows 8.1 en utilisant les liens suivants. Assurez-vous d’avoir satisfait aux conditions requises avant de continuer.
 

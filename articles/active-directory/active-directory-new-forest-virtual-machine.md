@@ -4,7 +4,7 @@
     services="active-directory, virtual-network"
     keywords="machine virtuelle active directory, installer une forêt active directory, vidéos azure active directory  "
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     tags=""/>
 
@@ -34,7 +34,7 @@ Les rubriques suivantes peuvent également vous intéresser :
 Dans ce scénario, des utilisateurs externes doivent accéder à des applications qui s'exécutent sur des serveurs appartenant à un domaine. Les machines virtuelles qui exécutent les serveurs d'applications et les machines virtuelles qui exécutent des contrôleurs de domaine sont installées dans leur propre service cloud dans un réseau virtuel Azure. Elles sont également incluses dans un groupe à haute disponibilité pour une meilleure tolérance de panne.
 
 ![Forêt Active Directory sur une machine virtuelle dans Azure Virtual Network][1] 7
-## <a name="how-does-this-differ-from-on-premises?"></a>Quelles sont les différences par rapport à une installation locale ?
+## <a name="how-does-this-differ-from-onpremises"></a>Quelles sont les différences par rapport à une installation locale ?
 
 Les différences entre l'installation d'un contrôleur de domaine dans Azure ou localement sont minimes. Le tableau suivant répertorie les principales différences.
 

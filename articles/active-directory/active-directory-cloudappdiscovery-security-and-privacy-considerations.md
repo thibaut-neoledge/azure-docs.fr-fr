@@ -3,7 +3,7 @@
     description="Cette rubrique décrit les considérations de sécurité et de confidentialité liées à Cloud App Discovery."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -147,7 +147,7 @@ Notre objectif est de fournir aux administrateurs les outils nécessaires pour d
 L’agent de point de terminaison Cloud App Discovery recueille uniquement les informations décrites dans la section ci-dessus, **Données recueillies par l’agent** .
 
 
-### <a name="intercepting-data-from-encrypted-connections-(deep-inspection)"></a>Interception des données à partir de connexions chiffrées (inspection approfondie)
+### <a name="intercepting-data-from-encrypted-connections-deep-inspection"></a>Interception des données à partir de connexions chiffrées (inspection approfondie)
 Comme indiqué précédemment, les administrateurs peuvent configurer l'agent pour qu’il analyse les données à partir de connexions chiffrées (« inspection approfondie »). TLS ([Transport Layer Security](https://msdn.microsoft.com/library/windows/desktop/aa380516%28v=vs.85%29.aspx)) est l’un des protocoles les plus courants parmi ceux utilisés aujourd’hui sur Internet. En chiffrant les communications avec TLS, un client peut établir un canal de communication sécurisé et privé avec un serveur web ; TLS offre une protection essentielle permettant de passer des informations d’authentification et empêcher la divulgation d’informations confidentielles.
 
 Bien que le canal chiffré et sécurisé de bout en bout fourni par TLS offre une protection importante de la confidentialité et de la sécurité, le protocole est fréquemment utilisé à des fins malveillantes ou mal intentionnées. En fait, le protocole TLS est souvent appelé « protocole de contournement de pare-feu universel ». Le problème vient du fait que la plupart des pare-feu ne peuvent pas inspecter les communications TLS, car les données de la couche Application sont chiffrées avec SSL. Sachant cela, les pirates exploitent fréquemment TLS pour fournir des charges utiles malveillantes à un utilisateur. Ils sont en effet convaincus que même les pare-feu de la couche Application les plus intelligents sont complètement aveugles sur TLS et doivent simplement relayer les communications TLS entre les hôtes. Il est fréquent que les utilisateurs finaux exploitent TLS pour contourner les contrôles d’accès appliqués par leur pare-feu d’entreprise et les serveurs proxy. Ils s’en servent pour se connecter aux proxys publics et pour le tunneling de protocoles non TLS via le pare-feu qui pourraient autrement être bloqués par la stratégie.

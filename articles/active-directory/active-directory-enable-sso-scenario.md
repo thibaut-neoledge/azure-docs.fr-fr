@@ -3,7 +3,7 @@
     description="Cet article présente les avantages de l’intégration d’Azure Active Directory avec vos applications locales, cloud et SaaS."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -116,7 +116,7 @@ Certaines applications fournissent des interfaces d’automatisation pour la cr�
 
 Grâce à Azure AD, vous pouvez gérer l’accès aux applications à l’aide d’affectations individuelles ou pilotées par des règles. Vous pouvez également déléguer la gestion de l’accès aux bonnes personnes dans l’entreprise, assurant ainsi une meilleure supervision et réduisant la charge du support technique.
 
-## <a name="on-premises-applications"></a>Applications locales
+## <a name="onpremises-applications"></a>Applications locales
 
 Le proxy d’application intégré vous permet de publier vos applications locales auprès de vos utilisateurs, assurant ainsi une expérience d’accès cohérente avec les applications cloud modernes, tout en offrant les fonctionnalités de surveillance, de création de rapports et de sécurité d’Azure AD.
 

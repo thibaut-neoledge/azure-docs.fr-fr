@@ -3,7 +3,7 @@
     description="L’accès conditionnel dans Azure AD vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. "
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -32,7 +32,7 @@ Ces fonctionnalités sont disponibles pour les clients qui ont acheté une licen
 
 * Les clients fédérés nécessitent l’activation de l’authentification multifacteur.
 
-## <a name="configure-per-application-access-rules"></a>Configurer des règles d’accès par application
+## <a name="configure-perapplication-access-rules"></a>Configurer des règles d’accès par application
 
 Cette section décrit comment configurer des règles d’accès par application.
 
@@ -78,7 +78,7 @@ L’état des règles d’accès permet l’activation ou la désactivation des 
 
 Les règles d’accès sont évaluées lorsqu’un utilisateur accède à une application fédérée qui utilise OAuth 2.0, OpenID Connect, SAML ou WS-Federation. En outre, les règles d’accès sont évaluées quand un jeton d’actualisation est utilisé pour acquérir un jeton d’accès avec OAuth 2.0 et OpenID Connect. Si l’évaluation de la stratégie échoue quand un jeton d’actualisation est utilisé, l’erreur **invalid_grant** est renvoyée, indiquant que l’utilisateur doit s’authentifier de nouveau auprès du client.
 
-###<a name="configure-federation-services-to-provide-multi-factor-authentication"></a>Configurer les services de fédération pour fournir l’authentification multifacteur
+###<a name="configure-federation-services-to-provide-multifactor-authentication"></a>Configurer les services de fédération pour fournir l’authentification multifacteur
 
 Pour les clients fédérés, l’authentification multifacteur (MFA) peut être exécutée par Azure Active Directory ou par le serveur local AD FS.
 

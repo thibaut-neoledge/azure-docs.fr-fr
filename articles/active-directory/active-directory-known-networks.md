@@ -3,7 +3,7 @@
     description="En configurant les réseaux connus, vous pouvez éviter que des adresses IP appartenant à votre organisation ne soient incluses dans les rapports Connexions depuis plusieurs zones géographiques et Connexions à partir d’adresses IP affichant une activité suspecte." 
     services="active-directory" 
     documentationCenter="" 
-    authors="markusvi" 
+    authors="MarkusVi" 
     manager="femila"  
     editor=""/>
 
@@ -33,7 +33,7 @@ Cela peut, par exemple, se produire dans les cas suivants :
 Pour empêcher ces cas de générer des rapports de sécurité incorrects, vous devez ajouter des plages d'adresses IP connues à la liste d'adresses IP publiques de votre organisation.    
 
 
-###<a name="to-add-your-organization’s-public-ip-address-ranges,-perform-the-following-steps:"></a>Pour ajouter les plages d'adresses IP publiques de votre organisation, procédez comme suit : 
+###<a name="to-add-your-organizations-public-ip-address-ranges-perform-the-following-steps"></a>Pour ajouter les plages d'adresses IP publiques de votre organisation, procédez comme suit : 
 
 1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 

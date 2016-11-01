@@ -3,7 +3,7 @@
     description="Découvrez comment utiliser les différentes versions du volet d’accès (navigateur web, application Android, iPhone et iPad) pour accéder aux applications SaaS qui vous ont été affectées."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -150,13 +150,13 @@ Si une organisation utilise des applications Office 365 et que l’utilisateur 
 
 Quand un utilisateur clique sur la vignette d’une application Office 365, il est redirigé vers cette application et connecté automatiquement.
 
-### <a name="microsoft-and-third-party-applications-configured-with-federation-based-sso"></a>Applications Microsoft et tierces configurées avec l’authentification unique basée sur la fédération
+### <a name="microsoft-and-thirdparty-applications-configured-with-federationbased-sso"></a>Applications Microsoft et tierces configurées avec l’authentification unique basée sur la fédération
 
 Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur «*Authentification unique avec Microsoft Azure AD*». Un utilisateur voit ces applications uniquement si l’accès lui a été accordé explicitement par l’administrateur.
 
 Quand un utilisateur clique sur la vignette de l’une de ces applications, il est redirigé vers cette application et connecté automatiquement.
 
-### <a name="password-based-sso-without-identity-provisioning"></a>Authentification unique avec mot de passe sans approvisionnement d’identité
+### <a name="passwordbased-sso-without-identity-provisioning"></a>Authentification unique avec mot de passe sans approvisionnement d’identité
 
 Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur «*Authentification unique avec mot de passe*». <br>  Tous les utilisateurs de l’annuaire voient toutes les applications qui ont été configurées dans ce mode.
 
@@ -166,7 +166,7 @@ La prochaine fois qu’un utilisateur clique sur la vignette de l’application,
 
 Si les informations d’identification d’un utilisateur ont changé dans l’application tierce cible, l’utilisateur doit aussi mettre à jour ses informations d’identification stockées dans Azure AD. Pour cela, l’utilisateur doit choisir l’icône dans l’angle inférieur droit de la vignette de l’application et sélectionner « Mettre à jour les informations d’identification » pour réentrer le nom d’utilisateur et le mot de passe correspondant à cette application.
 
-### <a name="password-based-sso-with-identity-provisioning"></a>Authentification unique avec mot de passe avec approvisionnement d’identité
+### <a name="passwordbased-sso-with-identity-provisioning"></a>Authentification unique avec mot de passe avec approvisionnement d’identité
 
 Il s’agit d’applications que l’administrateur a ajoutées à la section Active Directory du portail de gestion Azure avec le mode d’authentification unique défini sur «*Authentification unique avec mot de passe*» ainsi que l’approvisionnement d’identité.
 

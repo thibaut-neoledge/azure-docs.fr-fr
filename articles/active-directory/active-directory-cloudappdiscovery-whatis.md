@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="détection d'applications cloud, gestion d'applications"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     keywords="configurer le déploiement Microsoft Passport, Microsoft Windows Hello Entreprise"
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""
     tags="azure-classic-portal"/>

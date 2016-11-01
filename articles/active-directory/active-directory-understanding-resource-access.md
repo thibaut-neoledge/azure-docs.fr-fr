@@ -3,7 +3,7 @@
     description="Cette rubrique explique les concepts relatifs à l'utilisation des administrateurs des abonnements pour contrôler l'accès aux ressources dans l’ensemble du portail Azure."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

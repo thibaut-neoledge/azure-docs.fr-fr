@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags="azure-sql-data-warehouse"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -50,7 +50,7 @@ Avant de commencer ce didacticiel, vous devez disposer des ressources suivantes 
 
    + **AZCopy**: vous avez besoin d’AZCopy pour copier les exemples de données de votre client local sur votre objet blob Azure Storage. Pour obtenir des instructions d’installation, consultez la [documentation d’AZCopy][].
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>Étape 1 : copier des exemples de données sur l’objet blob Azure Storage
+## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Étape 1 : copier des exemples de données sur l’objet blob Azure Storage
 
 Une fois que tous les éléments sont prêts, vous pouvez copier les exemples de données sur votre objet blob Azure Storage.
 
@@ -63,13 +63,13 @@ Une fois que tous les éléments sont prêts, vous pouvez copier les exemples de
     ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>Étape 2 : connecter des ressources à Azure Data Factory
+## <a name="step-2-connect-resources-to-azure-data-factory"></a>Étape 2 : connecter des ressources à Azure Data Factory
 
 Maintenant que les données sont en place, vous pouvez créer le pipeline Azure Data Factory pour déplacer les données entre le stockage d’objets blob Azure et l’entrepôt SQL Data Warehouse.
 
 Pour commencer, ouvrez le [portail Azure][] , puis sélectionnez votre fabrique de données dans le menu de gauche.
 
-### <a name="step-2.1:-create-linked-service"></a>Étape 2.1 : créer un service lié
+### <a name="step-21-create-linked-service"></a>Étape 2.1 : créer un service lié
 
 Liez votre compte de stockage Azure et SQL Data Warehouse à votre fabrique de données.  
 
@@ -90,7 +90,7 @@ Liez votre compte de stockage Azure et SQL Data Warehouse à votre fabrique de d
     }
     ```
 
-### <a name="step-2.2:-define-the-dataset"></a>Étape 2.2 : définir le jeu de données
+### <a name="step-22-define-the-dataset"></a>Étape 2.2 : définir le jeu de données
 
 Après avoir créé les services liés, nous devrons définir les jeux de données.  Ici, cela signifie que nous devons définir la structure des données déplacées de votre espace de stockage vers votre entrepôt de données.  Vous pouvez en savoir plus sur la création
 
@@ -148,7 +148,7 @@ Après avoir créé les services liés, nous devrons définir les jeux de donné
     }
     ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>Étape 3 : créer et exécuter le pipeline
+## <a name="step-3-create-and-run-your-pipeline"></a>Étape 3 : créer et exécuter le pipeline
 
 Enfin, nous allons configurer et exécuter le pipeline dans Azure Data Factory.  Il s’agit de l’opération qui achève le déplacement effectif des données.  Vous trouverez une présentation complète des opérations que vous pouvez réaliser avec SQL Data Warehouse et Azure Data Factory [ici][Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory].
 

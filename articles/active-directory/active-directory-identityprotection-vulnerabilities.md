@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -27,7 +27,7 @@ Les vulnérabilités sont des points faibles exploitables par un cybercriminel a
 
 Les sections suivantes fournissent une vue d’ensemble des vulnérabilités signalées par Identity Protection.
 
-## <a name="multi-factor-authentication-registration-not-configured"></a>Inscription à l’authentification multifacteur non configurée 
+## <a name="multifactor-authentication-registration-not-configured"></a>Inscription à l’authentification multifacteur non configurée 
 
 Cette vulnérabilité vous permet de contrôler le déploiement d’Azure Multi-Factor Authentication, service d’authentification multifacteur d’Azure, dans votre organisation. 
 
