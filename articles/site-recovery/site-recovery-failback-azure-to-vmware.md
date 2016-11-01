@@ -39,7 +39,7 @@ Utilisez cette architecture lorsque le serveur de processus est local et que vou
 
 Utilisez cette architecture lorsque le serveur de processus est sur Azure et que vous disposez d’une connexion VPN ou ExpressRoute.
 
-![Diagramme d’architecture pour VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![Diagramme d’architecture pour VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Pour afficher la liste complète des ports et le diagramme de l’architecture de restauration automatique, reportez-vous à l’image ci-dessous.
 

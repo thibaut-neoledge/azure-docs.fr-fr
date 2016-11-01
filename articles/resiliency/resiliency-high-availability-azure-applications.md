@@ -41,7 +41,7 @@ Les domaines de mise à niveau, qui présentent une fonctionnalité similaire à
 
 En plus des fonctionnalités de plateforme qui prennent en charge une haute disponibilité de calcul, Azure intègre des fonctionnalités de haute disponibilité dans ses autres services. Par exemple, Azure Storage conserve trois réplicas de l’ensemble des données d’objets blob, de tables et de files d’attente. La solution prend également en charge l’option de géoréplication pour stocker des sauvegardes d’objets blob et de tables dans une région secondaire. Le réseau de distribution de contenu Azure permet la mise en cache d’objets blob dans le monde entier, à des fins de redondance et d’extensibilité. Azure SQL Database gère également plusieurs réplicas.
 
-En plus de la série d’articles [Guide technique de la résilience Azure](https://aka.ms/bctechguide), consultez le document [Best Practices for Designing Large-Scale Services on Windows Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/). Ces références approfondissent la thématique sur les fonctionnalités de disponibilité de la plateforme Azure.
+En plus de la série d’articles [Guide technique de la résilience Azure](https://aka.ms/bctechguide), consultez le document [Best Practices for Designing Large-Scale Services on Microsoft Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/). Ces références approfondissent la thématique sur les fonctionnalités de disponibilité de la plateforme Azure.
 
 Bien qu’Azure offre de nombreuses fonctionnalités qui prennent en charge la haute disponibilité, il est important de comprendre leurs limitations :
 

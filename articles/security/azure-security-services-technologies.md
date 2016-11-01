@@ -24,7 +24,7 @@ Nous sommes conscients que lorsque vous évaluez les options techniques des four
 
 Ce document fournit une première version de cette liste. Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. La liste est classée par catégories, et la liste des catégories évoluera également au fil du temps. Veillez à consulter cette page régulièrement pour vous tenir au courant de l’évolution de nos technologies et services liés à la sécurité.
 
-## Sécurité de Windows Azure – Généralités
+## Sécurité de Microsoft Azure – Généralités
 - [Centre de sécurité Azure](https://azure.microsoft.com/documentation/services/security-center/)
 - [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)
 - [Azure Disk Encryption](azure-security-disk-encryption.md)

@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines-linux"
-   ms.topic="support-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
    ms.date="09/20/2016"

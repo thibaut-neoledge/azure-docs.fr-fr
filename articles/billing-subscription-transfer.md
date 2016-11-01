@@ -53,9 +53,9 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 
 6.  Le destinataire clique sur le lien et suit les instructions, notamment pour la saisie des informations de paiement.
 
-    ![Page web de transfert du premier abonnement](./media/billing-subscription-transfer/image4.png)
+    ![Page web de transfert du premier abonnement](./media/billing-subscription-transfer/image4.PNG)
 
-    ![Page web de transfert du deuxième abonnement](./media/billing-subscription-transfer/image5.png)
+    ![Page web de transfert du deuxième abonnement](./media/billing-subscription-transfer/image5.PNG)
 
 7. Vous avez réussi ! L’abonnement est à présent transféré.
 
