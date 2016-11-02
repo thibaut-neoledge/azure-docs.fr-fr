@@ -1,127 +1,133 @@
 <properties
-	pageTitle="Prise en main d’Azure Mobile Engagement pour les applications web | Microsoft Azure"
-	description="Découvrez comment utiliser Azure Mobile Engagement avec les fonctions d’analyse et les notifications Push pour les applications web."
-	services="mobile-engagement"
-	documentationCenter="Mobile"
-	authors="piyushjo"
-	manager=""
-	editor="" />
+    pageTitle="Get started with Azure Mobile Engagement for Web Apps | Microsoft Azure"
+    description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Web Apps."
+    services="mobile-engagement"
+    documentationCenter="Mobile"
+    authors="piyushjo"
+    manager="erikre"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="js"
-	ms.topic="hero-article"
-	ms.date="06/01/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="js"
+    ms.topic="hero-article"
+    ms.date="06/01/2016"
+    ms.author="piyushjo" />
 
-# Prise en main d’Azure Mobile Engagement pour les applications web
 
-[AZURE.INCLUDE [Sélecteur de didacticiel Hero](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Get started with Azure Mobile Engagement for Web Apps
 
-Cette rubrique vous indique comment tirer parti d’Azure Mobile Engagement pour comprendre l’utilisation de votre application web.
+[AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Ce didacticiel requiert les éléments suivants :
+This topic shows you how to use Azure Mobile Engagement to understand your Web App usage.
 
-+ Visual Studio 2015 ou tout autre éditeur de votre choix
-+ [Kit de développement logiciel (SDK) web](http://aka.ms/P7b453) 
+This tutorial requires the following:
 
-Ce Kit de développement logiciel (SDK) web existe en version préliminaire et prend uniquement en charge les fonctions d’analyse pour l’instant ; il ne gère pas encore l’envoi de notifications Push de navigateur ou dans l’application.
++ Visual Studio 2015 or any other editor of your choice
++ [Web SDK](http://aka.ms/P7b453) 
 
-> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
+This Web SDK is in Preview and only supports Analytics at the moment and doesn't support sending browser or in-app push notifications yet. 
 
-##Configuration de Mobile Engagement pour votre application web
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
 
-[AZURE.INCLUDE [Création d’application Mobile Engagement dans le portail](../../includes/mobile-engagement-create-app-in-portal-new.md)]
+##<a name="setup-mobile-engagement-for-your-web-app"></a>Setup Mobile Engagement for your Web app
 
-##<a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-Ce didacticiel présente une intégration de base qui correspond aux éléments minimaux requis pour la collecte de données.
+##<a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
-Afin d’illustrer cette intégration, nous allons créer une application web de base avec Visual Studio, bien que vous puissiez également suivre cette procédure avec toute application web créée en dehors de Visual Studio.
+This tutorial presents a "basic integration," which is the minimal set required to collect data.
 
-###Créer une application web
+We will create a basic web app with Visual Studio to demonstrate the integration though you can follow the steps with any web application created outside of Visual Studio also. 
 
-Les étapes suivantes supposent l’utilisation de Visual Studio 2015, même si elles sont similaires dans les versions antérieures de Visual Studio.
+###<a name="create-a-new-web-app"></a>Create a new Web App
 
-1. Démarrez Visual Studio, puis, dans l’écran **Accueil**, sélectionnez **Nouveau projet**.
+The following steps assume the use of Visual Studio 2015 though the steps are similar in earlier versions of Visual Studio. 
 
-2. Dans le menu contextuel, sélectionnez **Web** -> **Application web ASP.Net**. Renseignez les champs **Nom**, **Emplacement** et **Nom de la solution**, puis cliquez sur **OK**.
+1. Start Visual Studio, and in the **Home** screen, select **New Project**.
 
-3. Dans le menu contextuel **Sélectionner un modèle**, sélectionnez **Vide** sous **ASP.Net 4.5 Templates** (Modèles ASP.Net 4.5 Templates), puis cliquez sur **OK**.
+2. In the pop-up, select **Web** -> **ASP.Net Web Application**. Fill in the app **Name**, **Location** and  **Solution name**, and then click **OK**.
 
-Vous avez à présent créé un projet d’application web vide dans lequel nous allons intégrer le SDK web Azure Mobile Engagement.
+3. In the **Select a template** popup, select **Empty** under **ASP.Net 4.5 Templates** and click **OK**. 
 
-###Connectez votre application au serveur principal Mobile Engagement
+You have now created a new blank Web App project into which we will integrate the Azure Mobile Engagement Web SDK.
 
-1. Créez un dossier appelé **javascript** dans votre solution et ajoutez-y le fichier JS du SDK web **azure-engagement.js**. 
+###<a name="connect-your-app-to-mobile-engagement-backend"></a>Connect your app to Mobile Engagement backend
 
-2. Ajoutez un nouveau fichier appelé **main.js** dans ce dossier javascript avec le code suivant. Veillez à mettre à jour la chaîne de connexion. Cet objet `azureEngagement` permettra d’accéder aux méthodes du SDK web.
+1. Create a new folder called **javascript** in your solution and add the Web SDK JS file **azure-engagement.js** into it. 
 
-		var azureEngagement = {
-		    debug: true,
-		    connectionString: 'xxxxx'
-		};
+2. Add a new file called **main.js** in this javascript folder with the following code. Make sure to update the connection string. This `azureEngagement` object will be used to access Web SDK methods. 
 
-	![Visual Studio avec des fichiers js][1]
+        var azureEngagement = {
+            debug: true,
+            connectionString: 'xxxxx'
+        };
 
-##Activer la surveillance en temps réel
+    ![Visual Studio with js files][1]
 
-Pour commencer à envoyer des données et vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins une activité au serveur principal Mobile Engagement. Dans le contexte d’une application web, une activité est une page web.
+##<a name="enable-real-time-monitoring"></a>Enable real-time monitoring
 
-1. Créez une page appelée **home.html** dans votre solution et définissez-la comme page de démarrage de votre application web. 
-2. Incluez dans cette page les deux fichiers JavaScript que nous avons ajoutés précédemment en insérant le code ci-après dans la balise body. 
+In order to start sending data and ensuring that the users are active, you must send at least one Activity to the Mobile Engagement backend. An activity in the context of a web app is a web page. 
 
-	    <script type="text/javascript" src="javascript/main.js"></script>
-	    <script type="text/javascript" src="javascript/azure-engagement.js"></script>
+1. Create a new page called **home.html** in your solution and set it as the starting page for your web app. 
+2. Include the two javascripts we added earlier in this page by adding the following within the body tag. 
 
-3. Mettez à jour la balise body pour appeler la méthode `startActivity` d’EngagementAgent.
-		
-		<body onload="engagement.agent.startActivity('Home')">
+        <script type="text/javascript" src="javascript/main.js"></script>
+        <script type="text/javascript" src="javascript/azure-engagement.js"></script>
 
-4. Voici à quoi ressemblera le code de votre page **home.html**.
-		
-		<html>
-		<head>
-			...
-		</head>
-		<body onload="engagement.agent.startActivity('Home')">
-		    <script type="text/javascript" src="javascript/main.js"></script>
-		    <script type="text/javascript" src="javascript/azure-engagement.js"></script>
-		</body>
-		</html>
+3. Update the body tag to call EngagementAgent's `startActivity` method
+        
+        <body onload="engagement.agent.startActivity('Home')">
 
-##Connexion d’application avec l’analyse en temps réel
+4. Here is what your **home.html** will look like
+        
+        <html>
+        <head>
+            ...
+        </head>
+        <body onload="engagement.agent.startActivity('Home')">
+            <script type="text/javascript" src="javascript/main.js"></script>
+            <script type="text/javascript" src="javascript/azure-engagement.js"></script>
+        </body>
+        </html>
 
-[AZURE.INCLUDE [Connexion d’application avec l’analyse en temps réel](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+##<a name="connect-app-with-real-time-monitoring"></a>Connect app with real-time monitoring
+
+[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ![][2]
 
-##Étendre l’analyse
+##<a name="extend-analytics"></a>Extend analytics
 
-Voici toutes les méthodes actuellement disponibles avec le SDK web que vous pouvez utiliser pour l’analyse :
+Here are all the methods currently available with Web SDK that you can use for analytics:
 
-1. Activités/pages web :
+1. Activities/Web pages:
 
-		engagement.agent.startActivity(name);
-		engagement.agent.endActivity();
+        engagement.agent.startActivity(name);
+        engagement.agent.endActivity();
 
-2. Événements
-		
-		engagement.agent.sendEvent(name, extras);
+2. Events
+        
+        engagement.agent.sendEvent(name, extras);
 
-3. Erreurs
+3. Errors
 
-		engagement.agent.sendError(name, extras);
+        engagement.agent.sendError(name, extras);
 
-4. Travaux
+4. Jobs
 
-		engagement.agent.startJob(name);
-		engagement.agent.endJob(name);
+        engagement.agent.startJob(name);
+        engagement.agent.endJob(name);
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
 
-<!----HONumber=AcomDC_0615_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

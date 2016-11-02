@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Guide d'utilisation de PolyBase dans SQL Data Warehouse | Microsoft Azure"
-   description="Instructions et recommandations relatives à l'utilisation de PolyBase dans les scénarios SQL Data Warehouse."
+   pageTitle="Guide for using PolyBase in SQL Data Warehouse | Microsoft Azure"
+   description="Guidelines and recommendations for using PolyBase in SQL Data Warehouse scenarios."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="ckarst"
@@ -13,37 +13,38 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
-# Guide d'utilisation de PolyBase dans SQL Data Warehouse
 
-Ce guide fournit des informations pratiques pour l'utilisation de PolyBase dans SQL Data Warehouse.
+# <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guide for using PolyBase in SQL Data Warehouse
 
-Pour commencer, suivez le didacticiel [Charger des données avec PolyBase][].
+This guide gives practical information for using PolyBase in SQL Data Warehouse.
+
+To get started, see the [Load data with PolyBase][] tutorial.
 
 
-## Rotation des clés de stockage
+## <a name="rotating-storage-keys"></a>Rotating storage keys
 
-De temps à autre, vous devez modifier la clé d'accès à votre stockage d'objets blob pour des raisons de sécurité.
+From time to time you will want to change the access key to your blob storage for security reasons.
 
-La façon la plus élégante d’effectuer cette tâche consiste à suivre un processus appelé « rotation des clés ». Vous avez peut-être remarqué que vous disposez de deux clés de stockage pour votre compte de stockage d'objets blob. Cela permet une transition.
+The most elegant way to perform this task is to follow a process known as "rotating the keys". You may have noticed that you have two storage keys for your blob storage account. This is so that you can transition
 
-La rotation de vos clés de compte de stockage Azure est un processus simple en trois étapes.
+Rotating your Azure storage account keys is a simple three step process
 
-1. Créez le deuxième fichier d’informations d’identification de niveau base de données en fonction de la clé d'accès de stockage secondaire.
-2. Créez la deuxième source de données externe en fonction de ces nouvelles informations d'identification.
-3. Supprimez et créez la ou les tables externes pointant vers la nouvelle source de données externes.
+1. Create second database scoped credential based on the secondary storage access key
+2. Create second external data source based off this new credential
+3. Drop and create the external table(s) pointing to the new external data source
 
-Lorsque vous avez migré toutes vos tables externes vers la nouvelle source de données externes, vous pouvez effectuer les tâches de nettoyage :
+When you have migrated all your external tables to the new external data source then you can perform the clean up tasks:
 
-1. suppression de la première source de données externe ;
-2. suppression du premier fichier d’informations d’identification de niveau base de données en fonction de la clé d'accès de stockage secondaire ;
-3. connexion à Azure et régénération de la clé d'accès primaire, pour la prochaine fois.
+1. Drop first external data source
+2. Drop first database scoped credential based on the primary storage access key
+3. Log into Azure and regenerate the primary access key ready for the next time
 
-## Interroger des données de l’espace de stockage d’objets Blob Microsoft Azure
-Les requêtes dirigées vers les tables externes utilisent le nom de table, comme s’il s’agissait d’une table relationnelle.
+## <a name="query-azure-blob-storage-data"></a>Query Azure blob storage data
+Queries against external tables simply use the table name as though it was a relational table.
 
 ```sql
 -- Query Azure storage resident data via external table.
@@ -51,17 +52,17 @@ SELECT * FROM [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE] Une requête sur une table externe peut échouer avec l’erreur *« Requête abandonnée--le seuil de rejet maximal a été atteint lors de la lecture à partir d’une source externe »*. Cela indique que vos données externes contiennent des enregistrements *à l’intégrité compromise*. Un enregistrement de données est considéré comme « compromis » si les types de données / le nombre de colonnes réels ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié. Pour résoudre ce problème, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d'enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans le DDL CREATE EXTERNAL TABLE.
+> [AZURE.NOTE] A query on an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
 
 
-## Charger des données à partir d’objets Blob Microsoft Azure Storage
-Dans cet exemple, les données des objets Blob Microsoft Azure Storage sont chargées dans la base de données SQL Data Warehouse.
+## <a name="load-data-from-azure-blob-storage"></a>Load data from Azure blob storage
+This example loads data from Azure blob storage to SQL Data Warehouse database.
 
-En stockant directement les données, vous éliminez l’intervalle de transfert de données associé aux requêtes. Le stockage des données avec un index columnstore multiplie jusqu’à dix fois les performances des requêtes d’analyse.
+Storing data directly removes the data transfer time for queries. Storing data with a columnstore index improves query performance for analysis queries by up to 10x.
 
-Dans cet exemple, l’instruction CREATE TABLE AS SELECT est utilisée pour charger des données. La nouvelle table hérite des colonnes désignées dans la requête. Elle hérite des types de données de ces colonnes à partir de la définition de table externe.
+This example uses the CREATE TABLE AS SELECT statement to load data. The new table inherits the columns named in the query. It inherits the data types of those columns from the external table definition.
 
-CREATE TABLE AS SELECT est une instruction Transact-SQL très performante qui charge les données en parallèle sur tous les nœuds de calcul de votre entrepôt SQL Data Warehouse. Initialement développée pour le moteur de traitement massivement parallèle d’Analytics Platform System, elle est désormais disponible dans SQL Data Warehouse.
+CREATE TABLE AS SELECT is a highly performant Transact-SQL statement that loads the data in parallel to all the compute nodes of your SQL Data Warehouse.  It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.
 
 ```sql
 -- Load data from Azure blob storage to SQL Data Warehouse
@@ -70,7 +71,7 @@ CREATE TABLE [dbo].[Customer_Speed]
 WITH
 (   
     CLUSTERED COLUMNSTORE INDEX
-,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
+,   DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
 AS
 SELECT *
@@ -78,11 +79,11 @@ FROM   [ext].[CarSensor_Data]
 ;
 ```
 
-Voir [CREATE TABLE AS SELECT (Transact-SQL)][].
+See [CREATE TABLE AS SELECT (Transact-SQL)][].
 
-## Créer des statistiques sur des données nouvellement chargées
+## <a name="create-statistics-on-newly-loaded-data"></a>Create Statistics on newly loaded data
 
-Azure SQL Data Warehouse ne prend pas encore en charge les statistiques à création ou mise à jour automatique. Pour optimiser les performances de vos requêtes, il est important de créer les statistiques sur toutes les colonnes de toutes les tables après le premier chargement ou après toute modification substantielle dans les données. Pour une explication détaillée des statistiques, consultez la rubrique [Statistiques][] dans le groupe de rubriques sur le développement. Voici un exemple rapide de la création de statistiques sur le tableau chargé dans cet exemple.
+Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -92,10 +93,10 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## Exportation de données vers le stockage d’objets blob Azure
-Cette section montre comment exporter les données de SQL Data Warehouse vers le stockage d’objets blob Azure. Cet exemple utilise CREATE EXTERNAL TABLE AS SELECT, une instruction Transact-SQL très performante, pour exporter les données en parallèle à partir de tous les nœuds de calcul.
+## <a name="export-data-to-azure-blob-storage"></a>Export data to Azure blob storage
+This section shows how to export data from SQL Data Warehouse to Azure blob storage. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes.
 
-L’exemple suivant crée une table externe Weblogs2014 à l’aide des définitions de colonne et des données de la table dbo.Weblogs. La définition de la table externe est stockée dans SQL Data Warehouse et les résultats de l’instruction SELECT sont exportés vers le répertoire « /archive/log2014 » sous le conteneur d’objets blob spécifié par la source de données. Les données sont exportées au format de fichier texte spécifié.
+The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in the specified text file format.
 
 ```sql
 CREATE EXTERNAL TABLE Weblogs2014 WITH
@@ -117,26 +118,26 @@ WHERE
 ```
 
 
-## Contournement de la nécessité du codage UTF-8 de PolyBase
-À présent PolyBase prend en charge le chargement des fichiers de données encodés en UTF-8. Étant donné que UTF-8 utilise le même codage de caractères que ASCII, PolyBase prend également en charge le chargement de données encodées en ASCII. Toutefois, PolyBase ne gère pas d’autre encodage de caractères, comme UTF-16/Unicode ou les caractères ASCII étendus. ASCII étendu inclut les caractères accentués tels que le umlaut, courant en allemand.
+## <a name="working-around-the-polybase-utf8-requirement"></a>Working around the PolyBase UTF-8 requirement
+At present PolyBase supports loading data files that have been UTF-8 encoded. As UTF-8 uses the same character encoding as ASCII PolyBase will also support loading data that is ASCII encoded. However, PolyBase does not support other character encoding such as UTF-16 / Unicode or extended ASCII characters. Extended ASCII includes characters with accents such as the umlaut which is common in German.
 
-Pour contourner cette exigence, la meilleure solution consiste à réécrire au format UTF-8.
+To work around this requirement the best answer is to re-write to UTF-8 encoding.
 
-Il existe plusieurs façons de le faire. Voici deux méthodes utilisant Powershell :
+There are several ways to do this. Below are two approaches using Powershell:
 
-### Exemple simple pour les petits fichiers
+### <a name="simple-example-for-small-files"></a>Simple example for small files
 
-Voici un script Powershell simple d'une ligne qui crée le fichier.
+Below is a simple one line Powershell script that creates the file.
 
 ```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
-Toutefois, si c'est un moyen simple de ré-encoder les données, ce n'est en aucun cas le plus efficace. L'exemple de diffusion en continu d'E/S ci-dessous est beaucoup plus rapide et donne le même résultat.
+However, whilst this is a simple way to re-encode the data it is by no means the most efficient. The io streaming example below is much, much faster and achieves the same result.
 
-### Exemple de diffusion d’E/S pour les plus gros fichiers
+### <a name="io-streaming-example-for-larger-files"></a>IO Streaming example for larger files
 
-L'exemple de code ci-dessous est plus complexe, mais il est beaucoup plus efficace, car il diffuse les lignes de données de la source à la cible. Utilisez cette approche pour les fichiers plus volumineux.
+The code sample below is more complex but as it streams the rows of data from source to target it is much more efficient. Use this approach for larger files.
 
 ```PowerShell
 #Static variables
@@ -147,13 +148,13 @@ $ansi = [System.Text.Encoding]::Default
 $append = $False
 
 #Set source file path and file name
-$src = [System.IO.Path]::Combine("C:\input_file_path","input_file_name.txt")
+$src = [System.IO.Path]::Combine("C:\input_file_path\","input_file_name.txt")
 
 #Set source file encoding (using list above)
 $src_enc = $ansi
 
 #Set target file path and file name
-$tgt = [System.IO.Path]::Combine("C:\output_file_path","output_file_name.txt")
+$tgt = [System.IO.Path]::Combine("C:\output_file_path\","output_file_name.txt")
 
 #Set target file encoding (using list above)
 $tgt_enc = $utf8
@@ -172,16 +173,16 @@ $write.Close()
 $write.Dispose()
 ```
 
-## Étapes suivantes
-Pour plus d'informations sur le déplacement de données vers SQL Data Warehouse, consultez la [vue d'ensemble sur la migration des données][].
+## <a name="next-steps"></a>Next steps
+To learn more about moving data to SQL Data Warehouse, see the [data migration overview][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Charger des données avec PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Statistiques]: ./sql-data-warehouse-tables-statistics.md
-[vue d'ensemble sur la migration des données]: ./sql-data-warehouse-overview-migrate.md
+[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[data migration overview]: ./sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -190,8 +191,7 @@ Pour plus d'informations sur le déplacement de données vers SQL Data Warehouse
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026).aspx
-[CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026).aspx [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspxx
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
 [DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
@@ -206,4 +206,8 @@ Pour plus d'informations sur le déplacement de données vers SQL Data Warehouse
 
 <!-- External Links -->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

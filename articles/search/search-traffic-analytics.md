@@ -1,29 +1,30 @@
 <properties 
-	pageTitle="Fonctionnalité Rechercher l’analyse du trafic pour Azure Search | Microsoft Azure" 
-	description="Activez la recherche de l’analyse du trafic pour Azure Search, un service de recherche hébergé dans le cloud sur Microsoft Azure pour dévoiler des informations sur vos utilisateurs et vos données." 
-	services="search" 
-	documentationCenter="" 
-	authors="bernitorres" 
-	manager="pablocas" 
-	editor=""
+    pageTitle="Fonctionnalité Rechercher l’analyse du trafic pour Azure Search | Microsoft Azure" 
+    description="Activez la recherche de l’analyse du trafic pour Azure Search, un service de recherche hébergé dans le cloud sur Microsoft Azure pour dévoiler des informations sur vos utilisateurs et vos données." 
+    services="search" 
+    documentationCenter="" 
+    authors="bernitorres" 
+    manager="pablocas" 
+    editor=""
 />
 
 <tags 
-	ms.service="search" 
-	ms.devlang="multiple" 
-	ms.workload="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="09/23/2016" 
-	ms.author="betorres"
+    ms.service="search" 
+    ms.devlang="multiple" 
+    ms.workload="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="09/23/2016" 
+    ms.author="betorres"
 />
 
 
-# Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic
+
+# <a name="enabling-and-using-search-traffic-analytics"></a>Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic
 
 La fonctionnalité Rechercher l’analyse du trafic disponible dans Azure Search vous permet de gagner en visibilité dans votre service de recherche et de dévoiler des informations sur les utilisateurs et leur comportement. Lorsque vous activez cette fonctionnalité, vos données de service de recherche sont copiées vers le compte de stockage de votre choix. Ces données incluent vos journaux du service de recherche et les mesures opérationnelles agrégées que vous pouvez traiter et manipuler pour une analyse plus poussée.
 
-## Activation de la fonctionnalité Rechercher l’analyse du trafic
+## <a name="how-to-enable-search-traffic-analytics"></a>Activation de la fonctionnalité Rechercher l’analyse du trafic
 
 Vous aurez besoin d’un compte de stockage situé dans la même région et le même abonnement que votre service de recherche.
 
@@ -35,8 +36,8 @@ Vous pouvez activer la recherche de l’analyse du trafic sur le portail ou via 
     insights-metrics-pt1m: aggregated metrics
 
 
-### A. Utiliser le portail
-Ouvrez votre service de recherche Azure dans le [portail Azure](http://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres.
+### <a name="a.-using-the-portal"></a>A. Utiliser le portail
+Ouvrez votre service de recherche Azure dans le [portail Azure](http://portal.azure.com). L’option Rechercher l’analyse du trafic est disponible sous Paramètres. 
 
 ![][1]
 
@@ -44,7 +45,7 @@ Définissez l’état sur **Activé**, sélectionnez le compte Azure Storage à 
 
 ![][2]
 
-### B. Utiliser PowerShell
+### <a name="b.-using-powershell"></a>B. Utiliser PowerShell
 
 Tout d’abord, assurez-vous que les derniers [applets de commande Azure PowerShell](https://github.com/Azure/azure-powershell/releases) sont installés.
 
@@ -59,7 +60,7 @@ $StorageAccountResourceId = "Your Storage account resource id"
 Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccountId $StorageAccountResourceId -Enabled $true
 ```
 
-## Vue d’ensemble des données
+## <a name="understanding-the-data"></a>Vue d’ensemble des données
 
 Les données sont stockées dans des objets blob Azure Storage au format JSON.
 
@@ -67,16 +68,18 @@ Il y a un seul objet blob par heure et par conteneur.
   
 Exemple de chemin d’accès : `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
-### Journaux
+### <a name="logs"></a>Journaux
 
-Les objets blob de journaux contiennent les journaux du trafic de votre service de recherche. Chaque objet blob a un objet racine appelé **enregistrements** qui contient un tableau d’objets du journal. Chaque objet blob comporte des enregistrements relatifs à l’ensemble de l’opération qui s’est déroulée au cours de la même heure.
+Les objets blob de journaux contiennent les journaux du trafic de votre service de recherche.
+Chaque objet blob a un objet racine appelé **enregistrements** qui contient un tableau d’objets du journal.
+Chaque objet blob comporte des enregistrements relatifs à l’ensemble de l’opération qui s’est déroulée au cours de la même heure.
 
-####Schéma du journal
+####<a name="log-schema"></a>Schéma du journal
 
 Nom |Type |Exemple |Remarques 
 ------|-----|----|-----
 time |datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération
-resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource
+resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource
 operationName |string |« Query.Search » |Nom de l’opération
 operationVersion |string |« 2015-02-28 »|Version d’API utilisée
 category |string |« OperationLogs » |constant 
@@ -85,7 +88,7 @@ resultSignature |int |200 |Code de résultat HTTP
 durationMS |int |50 |Durée de l’opération en millisecondes 
 properties |objet |consultez le tableau suivant |Objet contenant des données propres à l’opération
 
-####Schéma de propriétés
+####<a name="properties-schema"></a>Schéma de propriétés
 
 |Nom |Type |Exemple |Remarques|
 |------|-----|----|-----|
@@ -94,9 +97,9 @@ properties |objet |consultez le tableau suivant |Objet contenant des données pr
 |Documents |int |42 |Nombre de documents traités|
 |IndexName |string |« testindex »|Nom de l’index associé à l’opération |
 
-### Mesures
+### <a name="metrics"></a>Mesures
 
-Les objets blob de mesures contiennent des valeurs agrégées pour votre service de recherche. Chaque fichier a un seul objet racine appelé **records** qui contient un tableau d’objets de mesure. Cet objet racine contient les mesures de chaque minute pendant laquelle les données étaient disponibles.
+Les objets blob de mesures contiennent des valeurs agrégées pour votre service de recherche. Chaque fichier a un seul objet racine appelé **records** qui contient un tableau d’objets de mesure. Cet objet racine contient les mesures de chaque minute pendant laquelle les données étaient disponibles. 
 
 Mesures disponibles :
 
@@ -106,11 +109,11 @@ Mesures disponibles :
 
 > [AZURE.IMPORTANT] La limitation se produit lorsque trop de requêtes sont envoyées, épuisant ainsi la capacité de ressource configurée du service. Vous pouvez ajouter d’autres réplicas à votre service.
 
-####Schéma de mesures
+####<a name="metrics-schema"></a>Schéma de mesures
 
 |Nom |Type |Exemple |Remarques|
 |------|-----|----|-----|
-|resourceId |string |« /SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+|resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE »  |Votre ID de ressource |
 |metricName |string |« Latency » |Nom de la mesure |
 |time|datetime |« 2015-12-07T00:00:43.6872559Z » |Horodatage de l’opération |
 |average |int |64|Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
@@ -126,97 +129,97 @@ Dans le cas de la mesure SearchQueriesPerSecond, la valeur minimale correspondra
 
 Pour ThrottledSearchQueriesPercentage, les valeurs minimales, maximales, moyennes et totales seront identiques : il s’agit du pourcentage de requêtes de recherche qui ont été limitées, en fonction du nombre total de requêtes de recherche pendant une minute.
 
-## Analyse de vos données
+## <a name="analyzing-your-data"></a>Analyse de vos données
 
 Les données sont situées dans votre propre compte de stockage et nous vous encourageons à les explorer de la manière qui vous convient le mieux.
 
-Comme point de départ, nous vous recommandons d’utiliser [Power BI](https://powerbi.microsoft.com) pour explorer et visualiser vos données. Vous pouvez facilement vous connecter à votre compte Azure Storage et rapidement commencer à analyser vos données.
+Comme point de départ, nous vous recommandons d’utiliser [Power BI](https://powerbi.microsoft.com) pour explorer et visualiser vos données. Vous pouvez facilement vous connecter à votre compte Azure Storage et rapidement commencer à analyser vos données. 
 
-#### Power BI en ligne
+#### <a name="power-bi-online"></a>Power BI en ligne
 
-[Pack de contenu Power BI](https://app.powerbi.com/getdata/services/azure-search) : créez un tableau de bord Power BI et un ensemble de rapports Power BI qui affichent automatiquement vos données et fournissent un éclairage visuel sur votre service de recherche. Consultez la [page d’aide du pack de contenu](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-azure-search/).
+[Pack de contenu Power BI](https://app.powerbi.com/getdata/services/azure-search): créez un tableau de bord Power BI et un ensemble de rapports Power BI qui affichent automatiquement vos données et fournissent un éclairage visuel sur votre service de recherche. Consultez la [page d’aide du pack de contenu](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-search/).
 
 ![][4]
 
-#### Power BI Desktop
+#### <a name="power-bi-desktop"></a>Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/fr-FR/desktop) : explorez vos données et créez vos propres visualisations pour vos données. Consultez la requête de démarrage dans la section suivante :
+[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop) : explorez vos données et créez vos propres visualisations pour vos données. Consultez la requête de démarrage dans la section suivante :
 
 1. Ouvrez un nouveau rapport Power BI Desktop.
 2. Sélectionnez Obtention des données -> Plus...
 
-	![][5]
+    ![][5]
 
 3. Sélectionnez Stockage d’objets blob Microsoft Azure et Se connecter.
 
-	![][6]
+    ![][6]
 
 4. Entrez le nom et la clé de votre compte de stockage.
 5. Sélectionnez « insight-journaux-operationlogs » et « insights-metrics-pt1m », puis cliquez sur Modifier
 6. L’éditeur de requête s’ouvre, vérifiez que « insight-logs-operationlogs » est sélectionnée sur la gauche. Ouvrez maintenant l’éditeur avancé en sélectionnant Afficher -> Éditeur avancé
 
-	![][7]
+    ![][7]
 
 7. Conservez les deux premières lignes et remplacez le reste par la requête suivante :
 
-	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
-	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
-	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
-	>     #"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
-	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
-	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
-	>     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
-	>     #"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}, {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}),
-	>     #"Expanded properties" = Table.ExpandRecordColumn(#"Expanded records1", "properties", {"Description", "Query", "IndexName", "Documents"}, {"Description", "Query", "IndexName", "Documents"}),
-	>     #"Renamed Columns" = Table.RenameColumns(#"Expanded properties",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"operationName", "OperationName"}, {"operationVersion", "OperationVersion"}, {"category", "Category"}, {"resultType", "ResultType"}, {"resultSignature", "ResultSignature"}, {"durationMS", "Duration"}}),
-	>     #"Added Custom2" = Table.AddColumn(#"Renamed Columns", "QueryParameters", each Uri.Parts("http://tmp" & [Query])),
-	>     #"Expanded QueryParameters" = Table.ExpandRecordColumn(#"Added Custom2", "QueryParameters", {"Query"}, {"Query.1"}),
-	>     #"Expanded Query.1" = Table.ExpandRecordColumn(#"Expanded QueryParameters", "Query.1", {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}, {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}),
-	>     #"Removed Columns1" = Table.RemoveColumns(#"Expanded Query.1",{"OperationVersion"}),
-	>     #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns1",{{"Datetime", type datetimezone}, {"ResourceId", type text}, {"OperationName", type text}, {"Category", type text}, {"ResultType", type text}, {"ResultSignature", type text}, {"Duration", Int64.Type}, {"Description", type text}, {"Query", type text}, {"IndexName", type text}, {"Documents", Int64.Type}, {"search", type text}, {"$skip", Int64.Type}, {"$top", Int64.Type}, {"$count", type logical}, {"api-version", type text}, {"searchMode", type text}, {"$filter", type text}}),
-	>     #"Inserted Date" = Table.AddColumn(#"Changed Type", "Date", each DateTime.Date([Datetime]), type date),
-	>     #"Duplicated Column" = Table.DuplicateColumn(#"Inserted Date", "ResourceId", "Copy of ResourceId"),
-	>     #"Split Column by Delimiter" = Table.SplitColumn(#"Duplicated Column","Copy of ResourceId",Splitter.SplitTextByEachDelimiter({"/"}, null, true),{"Copy of ResourceId.1", "Copy of ResourceId.2"}),
-	>     #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Copy of ResourceId.1", type text}, {"Copy of ResourceId.2", type text}}),
-	>     #"Removed Columns2" = Table.RemoveColumns(#"Changed Type1",{"Copy of ResourceId.1"}),
-	>     #"Renamed Columns1" = Table.RenameColumns(#"Removed Columns2",{{"Copy of ResourceId.2", "ServiceName"}}),
-	>     #"Lowercased Text" = Table.TransformColumns(#"Renamed Columns1",{{"ServiceName", Text.Lower}}),
-	>     #"Added Custom" = Table.AddColumn(#"Lowercased Text", "DaysFromToday", each Duration.Days(DateTimeZone.UtcNow() - [Datetime])),
-	>     #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"DaysFromToday", Int64.Type}})
-	>     in
-	>     #"Changed Type2"
+    >     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
+    >     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
+    >     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
+    >     #"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+    >     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
+    >     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
+    >     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
+    >     #"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}, {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}),
+    >     #"Expanded properties" = Table.ExpandRecordColumn(#"Expanded records1", "properties", {"Description", "Query", "IndexName", "Documents"}, {"Description", "Query", "IndexName", "Documents"}),
+    >     #"Renamed Columns" = Table.RenameColumns(#"Expanded properties",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"operationName", "OperationName"}, {"operationVersion", "OperationVersion"}, {"category", "Category"}, {"resultType", "ResultType"}, {"resultSignature", "ResultSignature"}, {"durationMS", "Duration"}}),
+    >     #"Added Custom2" = Table.AddColumn(#"Renamed Columns", "QueryParameters", each Uri.Parts("http://tmp" & [Query])),
+    >     #"Expanded QueryParameters" = Table.ExpandRecordColumn(#"Added Custom2", "QueryParameters", {"Query"}, {"Query.1"}),
+    >     #"Expanded Query.1" = Table.ExpandRecordColumn(#"Expanded QueryParameters", "Query.1", {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}, {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}),
+    >     #"Removed Columns1" = Table.RemoveColumns(#"Expanded Query.1",{"OperationVersion"}),
+    >     #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns1",{{"Datetime", type datetimezone}, {"ResourceId", type text}, {"OperationName", type text}, {"Category", type text}, {"ResultType", type text}, {"ResultSignature", type text}, {"Duration", Int64.Type}, {"Description", type text}, {"Query", type text}, {"IndexName", type text}, {"Documents", Int64.Type}, {"search", type text}, {"$skip", Int64.Type}, {"$top", Int64.Type}, {"$count", type logical}, {"api-version", type text}, {"searchMode", type text}, {"$filter", type text}}),
+    >     #"Inserted Date" = Table.AddColumn(#"Changed Type", "Date", each DateTime.Date([Datetime]), type date),
+    >     #"Duplicated Column" = Table.DuplicateColumn(#"Inserted Date", "ResourceId", "Copy of ResourceId"),
+    >     #"Split Column by Delimiter" = Table.SplitColumn(#"Duplicated Column","Copy of ResourceId",Splitter.SplitTextByEachDelimiter({"/"}, null, true),{"Copy of ResourceId.1", "Copy of ResourceId.2"}),
+    >     #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Copy of ResourceId.1", type text}, {"Copy of ResourceId.2", type text}}),
+    >     #"Removed Columns2" = Table.RemoveColumns(#"Changed Type1",{"Copy of ResourceId.1"}),
+    >     #"Renamed Columns1" = Table.RenameColumns(#"Removed Columns2",{{"Copy of ResourceId.2", "ServiceName"}}),
+    >     #"Lowercased Text" = Table.TransformColumns(#"Renamed Columns1",{{"ServiceName", Text.Lower}}),
+    >     #"Added Custom" = Table.AddColumn(#"Lowercased Text", "DaysFromToday", each Duration.Days(DateTimeZone.UtcNow() - [Datetime])),
+    >     #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"DaysFromToday", Int64.Type}})
+    >     in
+    >     #"Changed Type2"
 
 8. Cliquez sur Terminé.
 
-9. Sélectionnez maintenant « insights-metrics-pt1m » dans la liste de requêtes sur la gauche, puis ouvrez à nouveau l’éditeur avancé. Conservez les deux premières lignes et remplacez le reste par la requête suivante :
+9. Sélectionnez maintenant « insights-metrics-pt1m » dans la liste de requêtes sur la gauche, puis ouvrez à nouveau l’éditeur avancé. Conservez les deux premières lignes et remplacez le reste par la requête suivante : 
 
-	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
-	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
-	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
-    	#"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
-	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
-	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
-	>     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
-	>     #"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
-	>     #"Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
-	>     #"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
-	>     #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
-	>     #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
-	>         Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
-	>     #"Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
-	>     #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
-	>     in
-    	#"Inserted Date"
+    >     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
+    >     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
+    >     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
+        #"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+    >     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
+    >     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
+    >     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
+    >     #"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
+    >     #"Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
+    >     #"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
+    >     #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
+    >     #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
+    >         Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
+    >     #"Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
+    >     #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
+    >     in
+        #"Inserted Date"
 
 10. Cliquez sur Terminé, puis sélectionnez Fermer et appliquer dans l’onglet Accueil.
 
-11. Vos données pour les 30 derniers jours sont maintenant prêtes à être consommées. Continuez et créez quelques [visualisations](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-report-view/).
+11. Vos données pour les 30 derniers jours sont maintenant prêtes à être consommées. Continuez et créez quelques [visualisations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez plus en détail la syntaxe de recherche et les paramètres de requête. Pour plus d’informations, consultez la rubrique [Recherche de documents (API REST Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+Découvrez plus en détail la syntaxe de recherche et les paramètres de requête. Pour plus d’informations, consultez la rubrique [Recherche de documents (API REST Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx) .
 
-En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, consultez la rubrique [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-desktop-getting-started/)
+En savoir plus sur la création de rapports exceptionnels. Pour plus d’informations, consultez [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/).
 
 <!--Image references-->
 
@@ -228,4 +231,9 @@ En savoir plus sur la création de rapports exceptionnels. Pour en savoir plus, 
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

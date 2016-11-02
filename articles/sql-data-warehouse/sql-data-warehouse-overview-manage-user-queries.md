@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Surveillance des requêtes d’utilisateur dans Azure SQL Data Warehouse | Microsoft Azure"
-   description="Vue d’ensemble des considérations, meilleures pratiques et tâches de surveillance des requêtes d’utilisation dans Azure SQL Data Warehouse."
+   pageTitle="Monitor user queries in Azure SQL Data Warehouse | Microsoft Azure"
+   description="Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,39 +13,44 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/17/2016"
-   ms.author="jrj;barbkess;sonyama"/>
-
-# Surveillance des requêtes d’utilisateur dans Azure SQL Data Warehouse
-
-Vue d’ensemble des considérations, meilleures pratiques et tâches de surveillance des requêtes d’utilisation dans SQL Data Warehouse.
+   ms.date="10/31/2016"
+   ms.author="jrj;barbkess"/>
 
 
+# <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Monitor user queries in Azure SQL Data Warehouse
 
-| Catégorie | Tâche ou considération | Description |
+Overview of the considerations, best practices, and tasks for monitoring user queries in SQL Data Warehouse.
+
+
+
+| Category                | Task or consideration                           | Description  |
 | :-----------------------| :---------------------------------------------- | :----------- |
-| Performances lentes | Rechercher une longue requête d’utilisateur | [Recherche de requêtes longues][] |
-| Accès concurrentiel | Affecter des ressources simultanées aux requêtes d’utilisateur | [Gestion de la concurrence et des charges de travail][] |
+| Slow performance        | Find a long-running user query                  | [Find long-running queries][] |
+| Concurrency             | Assign concurrent resources to user queries     | [Concurrency and workload management][] |
 
 
 
 
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Next steps
 
-Pour plus de conseils sur la gestion, voir [Vue d’ensemble de la gestion][].
+For more management tips, head over to the [Management overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Recherche de requêtes longues]: sql-data-warehouse-manage-monitor.md
-[Gestion de la concurrence et des charges de travail]: sql-data-warehouse-develop-concurrency.md
-[Vue d’ensemble de la gestion]: sql-data-warehouse-overview-manage.md
+[Find long-running queries]: sql-data-warehouse-manage-monitor.md
+[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
+[Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

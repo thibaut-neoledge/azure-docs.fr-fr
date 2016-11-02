@@ -1,25 +1,26 @@
 <properties
-	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de synchronisation de répertoire | Microsoft Azure"
-	description="Identifier les exigences nécessaires pour la synchronisation de tous les utilisateurs entre en local et cloud pour l'entreprise."
-	documentationCenter=""
-	services="active-directory"
-	authors="billmath"
-	manager="femila"
-	editor=""/>
+    pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de synchronisation de répertoire | Microsoft Azure"
+    description="Identifier les exigences nécessaires pour la synchronisation de tous les utilisateurs entre en local et cloud pour l'entreprise."
+    documentationCenter=""
+    services="active-directory"
+    authors="billmath"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
-	ms.author="billmath"/>
+    ms.date="08/08/2016"
+    ms.author="billmath"/>
 
-# Déterminer les exigences de synchronisation de répertoire
-La synchronisation consiste à fournir aux utilisateurs une identité dans le cloud basée sur leur identité locale. Qu'ils comptent utiliser le compte synchronisé pour l'authentification ou pour l'authentification fédérée, les utilisateurs doivent toujours avoir une identité dans le cloud. Cette identité devra être gérée et mise à jour de temps en temps. Les mises à jour peuvent prendre différentes formes, des modifications de titre aux modifications de mot de passe.
 
-Commencez par évaluer la solution d'identité locale des organisations et les exigences des utilisateurs. Cette évaluation est importante pour définir les exigences techniques quant à la manière dont les identités d'utilisateur seront créées et gérées dans le cloud. Pour la plupart des organisations, Active Directory est local et sera l'annuaire local à partir duquel les utilisateurs seront synchronisés, ce qui ne sera cependant pas toujours le cas.
+# <a name="determine-directory-synchronization-requirements"></a>Déterminer les exigences de synchronisation de répertoire
+La synchronisation consiste à fournir aux utilisateurs une identité dans le cloud basée sur leur identité locale. Qu'ils comptent utiliser le compte synchronisé pour l'authentification ou pour l'authentification fédérée, les utilisateurs doivent toujours avoir une identité dans le cloud.  Cette identité devra être gérée et mise à jour de temps en temps.  Les mises à jour peuvent prendre différentes formes, des modifications de titre aux modifications de mot de passe.  
+
+Commencez par évaluer la solution d'identité locale des organisations et les exigences des utilisateurs. Cette évaluation est importante pour définir les exigences techniques quant à la manière dont les identités d'utilisateur seront créées et gérées dans le cloud.  Pour la plupart des organisations, Active Directory est local et sera l'annuaire local à partir duquel les utilisateurs seront synchronisés, ce qui ne sera cependant pas toujours le cas.  
 
 Veillez à répondre aux questions suivantes :
 
@@ -34,12 +35,12 @@ Veillez à répondre aux questions suivantes :
   - Si oui, vos utilisateurs bénéficient-ils d'un annuaire/d'une intégration virtuels d'identités ?
 - Avez-vous un autre annuaire local que vous voulez synchroniser (par exemple, annuaire LDAP, base de données des ressources humaines, etc.) ?
   - Procéderez-vous à une synchronisation de la liste d’adresses globale (GALSync) ?
-  - Quel est l'état actuel des UPN dans votre organisation ?
+  - Quel est l'état actuel des UPN dans votre organisation ? 
   - Avez-vous un annuaire différent pour l'authentification des utilisateurs ?
   - Votre entreprise utilise-t-elle Microsoft Exchange ?
     - Le déploiement d'Exchange hybride est-il prévu ?
 
-Maintenant que vous avez une idée des conditions de synchronisation, vous devez déterminer quel outil est adapté à ces exigences. Microsoft propose plusieurs outils pour effectuer la synchronisation et l’intégration d’annuaire. Pour plus d’informations, consultez [Identité hybride : Comparaison des outils d’intégration d’annuaire](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
+Maintenant que vous avez une idée des conditions de synchronisation, vous devez déterminer quel outil est adapté à ces exigences.  Microsoft propose plusieurs outils pour effectuer la synchronisation et l’intégration d’annuaire.  Pour plus d’informations, consultez [Identité hybride : Comparaison des outils d’intégration d’annuaire](active-directory-hybrid-identity-design-considerations-tools-comparison.md) . 
    
 Maintenant que vous connaissez les exigences de synchronisation et l’outil requis, vous devez évaluer les applications qui utilisent ces services d’annuaire. Cette évaluation est importante pour définir les exigences techniques qui permettront d’intégrer ces applications dans le cloud. Veillez à répondre aux questions suivantes :
 
@@ -60,12 +61,16 @@ Vous devez également déterminer la synchronisation des annuaires d'exigences e
 - Si vous disposez d'une synchronisation à forêts multiples, le serveur de synchronisation est-il en mesure d'atteindre chaque forêt ?
  
 >[AZURE.NOTE]
-Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. La section [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) passe en revue les options disponibles. En répondant à chacune de ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
+Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) passe en revue les options disponibles. En répondant à chacune de ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déterminer les exigences d’authentification multifacteur](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

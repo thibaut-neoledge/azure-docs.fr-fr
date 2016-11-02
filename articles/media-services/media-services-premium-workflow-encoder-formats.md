@@ -1,42 +1,43 @@
 <properties 
-	pageTitle="Codecs et formats de Media Encoder Premium Workflow | Microsoft Azure" 
-	description="Cette rubrique offre une vue d’ensemble des codecs et formats de Media Encoder Premium Workflow" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erik43" 
-	editor=""/>
+    pageTitle="Codecs et formats de Media Encoder Premium Workflow | Microsoft Azure" 
+    description="Cette rubrique offre une vue d’ensemble des codecs et formats de Media Encoder Premium Workflow" 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erik43" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"    
-	ms.author="juliako;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016"    
+    ms.author="juliako;anilmur"/>
 
-#Codecs et formats de Media Encoder Premium Workflow
+
+#<a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs et formats de Media Encoder Premium Workflow
 
 
 >[AZURE.NOTE]Pour les questions relatives à Encoder Premium, envoyez un e-mail à mepd sur Microsoft.com.
 >
->Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine.
+>Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine. 
 
-Ce document contient la liste des codecs et formats de fichiers d’entrée et de sortie pris en charge par la version préliminaire publique de l’encodeur **Media Encoder Premium Workflow**.
+Ce document contient la liste des codecs et formats de fichiers d’entrée et de sortie pris en charge par la version préliminaire publique de l’encodeur **Media Encoder Premium Workflow** .
 
 [Codecs et formats d’entrée de Media Encoder Premium Workflow](#input_formats)
 
 [Codecs et formats de sortie de Media Encoder Premium Workflow](#output_formats)
 
-**Media Encoder Premium Workflow** prend en charge le sous-titrage décrit dans [cette](#closed_captioning) section
+**Media Encoder Premium Workflow** prend en charge le sous-titrage décrit dans [cette](#closed_captioning) section 
 
 
-##<a id="input_formats"></a>Codecs et formats d’entrée de Media Encoder Premium Workflow
+##<a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codecs et formats d’entrée de Media Encoder Premium Workflow
 
 La section suivante répertorie les codecs et les formats de fichiers que ce processeur multimédia prend en charge en entrée.
 
-###Formats de conteneurs/fichiers d’entrée
+###<a name="input-container/file-formats"></a>Formats de conteneurs/fichiers d’entrée
 
 - Adobe® Flash® F4V
 - MXF/SMPTE 377M
@@ -47,7 +48,7 @@ La section suivante répertorie les codecs et les formats de fichiers que ce pro
 - Windows Media/ASF
 - AVI (8 bits/10 bits non compressé)
 
-###Codecs vidéo d’entrée
+###<a name="input-video-codecs"></a>Codecs vidéo d’entrée
 
 - AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra
 - Avid DNxHD (dans MXF)
@@ -57,7 +58,7 @@ La section suivante répertorie les codecs et les formats de fichiers que ce pro
 - MPEG-1
 - Windows Media Video/VC-1
 
-###Codecs audio d’entrée
+###<a name="input-audio-codecs"></a>Codecs audio d’entrée
 
 - AES (SMPTE 331M et 302M, AES3-2003)
 - Dolby® E
@@ -68,11 +69,11 @@ La section suivante répertorie les codecs et les formats de fichiers que ce pro
 - Windows Media Audio
 - WAV/PCM
  
-##<a id="output_format"></a>Codecs et formats de sortie de Media Encoder Premium Workflow
+##<a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codecs et formats de sortie de Media Encoder Premium Workflow
 
 La section suivante répertorie les codecs et les formats de fichiers pris en charge en sortie avec ce processeur multimédia.
 
-###Formats de conteneurs/fichiers de sortie
+###<a name="output-container/file-formats"></a>Formats de conteneurs/fichiers de sortie
 
 - Adobe® Flash® F4V
 - MXF (OP1a, XDCAM et AS02)
@@ -82,10 +83,10 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 - Windows Media/ASF
 - AVI (8 bits/10 bits non compressé)
 - Format de fichier de diffusion en continu lisse (PIFF 1.3)
-- MPEG-TS
+- MPEG-TS 
 
 
-###Codecs vidéo de sortie
+###<a name="output-video-codecs"></a>Codecs vidéo de sortie
 
 - AVC (H.264 ; 8 bits ; jusqu'au profil High, niveau 5.2 ; Ultra HD 4K ; AVC Intra)
 - Avid DNxHD (dans MXF)
@@ -95,7 +96,7 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 - Windows Media Video/VC-1
 - Création de miniatures JPEG
 
-###Codecs audio de sortie
+###<a name="output-audio-codecs"></a>Codecs audio de sortie
 
 - AES (SMPTE 331M et 302M, AES3-2003)
 - Dolby® Digital (AC3)
@@ -105,7 +106,7 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 - MP3 (MPEG-1 Audio Layer 3)
 - Windows Media Audio
 
-##<a id="closed_captioning"></a>Prise en charge du sous-titrage
+##<a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>Prise en charge du sous-titrage
 
 En entrée, **Media Encoder Premium Workflow** prend en charge :
 
@@ -125,17 +126,21 @@ En sortie, les options suivantes sont disponibles :
 
 Remarque : tous les formats de sortie mentionnés ci-dessus ne sont pas pris en charge dans le cadre d'une remise diffusée en continu dans Azure Media Services.
 
-##Problèmes connus
+##<a name="known-issues"></a>Problèmes connus
 
-Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide.
+Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide. 
 
 
-##Parcours d’apprentissage de Media Services
+##<a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fournir des commentaires
+##<a name="provide-feedback"></a>Fournir des commentaires
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -6,6 +6,7 @@
     authors="sdwheeler"
     manager="carmonm"
     editor=""
+    keywords="IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -17,7 +18,8 @@
     ms.author="sewhee"
 />
 
-# Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
+
+# <a name="overview-of-ipv6-for-azure-load-balancer"></a>Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
 
 Des équilibrages de charge accessibles sur Internet peuvent être déployés avec une adresse IPv6. En plus d’une connectivité IPv4, les fonctionnalités suivantes sont activées :
 
@@ -30,7 +32,7 @@ L’image suivante illustre la fonctionnalité IPv6 pour Azure Load Balancer.
 
 Une fois déployé, un client Internet compatible IPv4 ou IPv6 peut communiquer avec les adresses (ou noms d’hôte) IPv4 ou IPv6 publiques de l’équilibrage de charge accessible sur Internet d’Azure. L’équilibrage de charge achemine les paquets IPv6 vers les adresses IPv6 privées des machines virtuelles à l’aide de la traduction d’adresses réseau (NAT). Le client Internet IPv6 ne peut pas communiquer directement avec l’adresse IPv6 des machines virtuelles.
 
-## Caractéristiques
+## <a name="features"></a>Caractéristiques
 
 Une prise en charge IPv6 native pour les machines virtuelles déployées via Azure Resource Manager fournit :
 
@@ -39,20 +41,20 @@ Une prise en charge IPv6 native pour les machines virtuelles déployées via Azu
 3. Des connexions IPv6 natives entrantes et sortantes
 4. Les protocoles pris en charge tels que TCP, UDP et HTTP(S) permettent de bénéficier d’un large éventail d’architectures de service
 
-## Avantages
+## <a name="benefits"></a>Avantages
 
 Cette fonctionnalité offre les avantages clés suivants :
 
 * Elle garantit le respect des réglementations gouvernementales exigeant que les nouvelles applications soient accessibles aux clients IPv6 uniquement
 * Elle permet aux développeurs mobiles et de l’Internet des objets (IoT) d’utiliser des machines virtuelles à double pile (IPv4 + IPv6) pour répondre à la demande des marchés croissants du mobile et de l’IoT
 
-## Détails et limitations
+## <a name="details-and-limitations"></a>Détails et limitations
 
 Détails
 
 * Le service Azure DNS contient les enregistrements de nom IPv4 A et IPv6 AAAA et répond avec les deux enregistrements pour l’équilibrage de charge. Le client choisit l’adresse (IPv4 ou IPv6) avec laquelle communiquer.
 * Lorsqu’une machine virtuelle amorce une connexion à un appareil IPv6 connecté à l’Internet public, le NAT fait correspondre l’adresse IPv6 source de la machine virtuelle à l’adresse IPv6 publique de l’équilibrage de charge.
-* Les machines virtuelles exécutant le système d’exploitation Linux doivent être configurées pour recevoir une adresse IP IPv6 via DHCP. Un grand nombre des images Linux disponibles dans la galerie Azure sont déjà configurées pour prendre en charge IPv6 sans modification. Pour plus d’informations, consultez [Configuration de DHCPv6 pour les machines virtuelles Linux](load-balancer-ipv6-for-linux.md).
+* Les machines virtuelles exécutant le système d’exploitation Linux doivent être configurées pour recevoir une adresse IP IPv6 via DHCP. Un grand nombre des images Linux disponibles dans la galerie Azure sont déjà configurées pour prendre en charge IPv6 sans modification. Pour plus d’informations, consultez [Configuration de DHCPv6 pour les machines virtuelles Linux](load-balancer-ipv6-for-linux.md)
 * Si vous choisissez d’utiliser une sonde d’intégrité avec votre équilibrage de charge, créez une sonde IPv4 et utilisez-la avec les points de terminaison IPv4 et IPv6. Si le service de votre machine virtuelle devient indisponible, les points de terminaison IPv4 et IPv6 sont mis hors service.
 
 Limitations
@@ -68,12 +70,17 @@ Limitations
 * Le point de terminaison IPv6 sur la machine virtuelle n’est pas exposé directement à Internet. Il se trouve derrière un équilibreur de charge. Seuls les ports spécifiés dans les règles d’équilibrage de charge sont accessibles via IPv6.
 * La modification du paramètre IdleTimeout pour IPv6 n’est **pas prise en charge pour le moment**. La valeur par défaut est de quatre minutes.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment déployer un équilibreur de charge avec IPv6.
 
+* [Disponibilité du protocole IPv6 par région](https://go.microsoft.com/fwlink/?linkid=828357)
 * [Déployer un équilibreur de charge avec IPv6 à l’aide d’un modèle](load-balancer-ipv6-internet-template.md)
 * [Déployer un équilibreur de charge avec IPv6 à l’aide d’Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Déployer un équilibreur de charge avec IPv6 à l’aide de l’interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -16,7 +16,8 @@ ms.service="virtual-machines-windows"
  ms.date="07/15/2016"
  ms.author="danlep"/>
 
-# Ajouter des nœuds d’extension sur demande à un cluster HPC Pack dans Azure
+
+# <a name="add-on-demand-"burst"-nodes-to-an-hpc-pack-cluster-in-azure"></a>Ajouter des nœuds d’extension sur demande à un cluster HPC Pack dans Azure
 
 
 
@@ -30,7 +31,7 @@ Les étapes décrites dans cet article vous aident à ajouter rapidement des nœ
 
 Pour obtenir des informations sur l’utilisation d’une taille d’instance de calcul intensif pour les nœuds d’extension, consultez [À propos des machines virtuelles de série H ou de calcul intensif de série A](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 
 * **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : vous pouvez utiliser une machine virtuelle à nœud principal autonome ou une machine virtuelle faisant partie d’un cluster plus grand. Pour créer un nœud principal autonome, consultez [Déployer un nœud principal HPC Pack dans une machine virtuelle Azure](virtual-machines-windows-hpcpack-cluster-headnode.md). Pour connaître les options de déploiement de cluster HPC Pack automatisé, consultez la page [Options pour la création et la gestion d’un cluster HPC Windows dans Azure avec Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
 
@@ -40,14 +41,14 @@ Pour obtenir des informations sur l’utilisation d’une taille d’instance de
 
 * **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds Azure avec des tailles multicœur. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 
-## Étape 1 : Créer un service cloud et un compte de stockage pour les nœuds Azure
+## <a name="step-1:-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Étape 1 : Créer un service cloud et un compte de stockage pour les nœuds Azure
 
 Utilisez le portail Azure Classic ou des outils équivalents pour configurer les ressources suivantes qui sont nécessaires pour déployer vos nœuds Azure :
 
 * Un nouveau service cloud Azure
 * Un nouveau compte de stockage Azure
 
->[AZURE.NOTE] Ne réutilisez pas un service cloud existant dans votre abonnement.
+>[AZURE.NOTE] Ne réutilisez pas un service cloud existant dans votre abonnement. 
 
 **Considérations**
 
@@ -58,19 +59,19 @@ Utilisez le portail Azure Classic ou des outils équivalents pour configurer les
 
 
 
-## Étape 2 : configurer un certificat de gestion Azure
+## <a name="step-2:-configure-an-azure-management-certificate"></a>Étape 2 : configurer un certificat de gestion Azure
 
 Pour ajouter des nœuds Azure en tant que ressources de calcul, vous devez disposer d’un certificat de gestion sur le nœud principal et charger un certificat correspondant vers l’abonnement Azure utilisé pour le déploiement.
 
-Pour ce scénario, vous pouvez choisir le **certificat de gestion Azure HPC par défaut** que HPC Pack installe et configure automatiquement sur le nœud principal. Ce certificat est utile à des fins de test et pour les déploiements pour validation technique. Pour utiliser ce certificat, chargez le fichier C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer de la machine virtuelle à nœud principal vers l’abonnement. Pour télécharger le certificat dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Paramètres** > **Certificats de gestion**.
+Pour ce scénario, vous pouvez choisir le **certificat de gestion Azure HPC par défaut** que HPC Pack installe et configure automatiquement sur le nœud principal. Ce certificat est utile à des fins de test et pour les déploiements pour validation technique. Pour utiliser ce certificat, chargez le fichier C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer de la machine virtuelle à nœud principal vers l’abonnement. Pour télécharger le certificat dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur **Paramètres** > **Certificats de gestion**.
 
 Pour obtenir des options supplémentaires pour configurer le certificat de gestion, consultez [Scénarios de configuration du certificat de gestion Azure pour les déploiements d’extension Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
-## Étape 3 : déployer les nœuds Azure sur le cluster
+## <a name="step-3:-deploy-azure-nodes-to-the-cluster"></a>Étape 3 : déployer les nœuds Azure sur le cluster
 
 
 
-Les étapes pour ajouter et démarrer les nœuds Azure dans ce scénario sont généralement les mêmes que celles utilisées avec un nœud principal local. Pour plus d’informations, consultez les sections suivantes dans [Steps to Deploy Azure Nodes with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx) :
+Les étapes pour ajouter et démarrer les nœuds Azure dans ce scénario sont généralement les mêmes que celles utilisées avec un nœud principal local. Pour plus d’informations, consultez les sections suivantes dans [Steps to Deploy Azure Nodes with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx):
 
 * Créer un modèle de nœud Azure
 
@@ -82,11 +83,15 @@ Après avoir ajouté et démarré les nœuds, vous pouvez les utiliser pour exé
 
 Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, consultez [Dépannage de problèmes liés aux déploiements de nœuds Azure avec Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour savoir comment augmenter ou réduire automatiquement les ressources de calcul Azure en fonction de la charge de travail sur le cluster, consultez [Agrandir et réduire automatiquement les ressources de calcul Azure dans un cluster HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

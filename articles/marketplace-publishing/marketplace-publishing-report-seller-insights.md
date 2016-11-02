@@ -16,7 +16,8 @@
    ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
-# Présentation des rapports Informations du vendeur
+
+# <a name="understand-your-seller-insights-report"></a>Présentation des rapports Informations du vendeur
 
 **En quoi consistent les informations du vendeur ?**
 
@@ -26,16 +27,16 @@ Tous les éditeurs de services de développement facturés à l’utilisation et
 
 - **E-mail de bienvenue :** en tant que nouvel éditeur, vous recevez un e-mail de bienvenue pour vous indiquer que vous allez commencer à recevoir les rapports mensuels contenant les informations du vendeur.
 
-- **Rapports de ventes mensuels :** si vos offres génèrent de l’utilisation, vous recevez un deuxième e-mail contenant vos rapports et des instructions sur la façon d’accéder à votre mot de passe
+- **Rapports de ventes mensuels :** si vos offres génèrent de l’utilisation, vous recevez un deuxième e-mail contenant vos rapports et des instructions sur la façon d’accéder à votre mot de passe :
 
     - Si vous proposez une référence de machine virtuelle ou de services de développement facturés à l’utilisation qui génèrent de l’utilisation, votre rapport mensuel contient les détails relatifs aux commandes, à l’utilisation, aux marchés et des informations sur les clients pour vos offres non-BYOL (apporter votre propre licence).
     - Les rapports sont verrouillés par un mot de passe que seuls vous et Microsoft connaissez et ce, afin de protéger les données de vos clients.
     - Microsoft n’envoie pas de rapport si aucune de vos offres ne génère d’utilisation au cours du mois.
 
-## Présentation des rapports Informations du vendeur
+## <a name="understand-your-seller-insights-report"></a>Présentation des rapports Informations du vendeur
 
 
-**Commandes par référence SKU et type de licence : onglet Commandes Marketplace**
+**Commandes par référence (SKU) et type de licence : onglet Commandes sur la place de marché**
 
 ![readingreportbyorders][2]
 
@@ -47,7 +48,7 @@ Tous les éditeurs de services de développement facturés à l’utilisation et
 - Un tableau indique le nombre total de commandes mensuelles par type de licence Marketplace, total par mois et total cumulé pour tous les mois.
 
 
-**Commandes par référence SKU et type de licence : onglet Utilisation Marketplace**
+**Commandes par référence (SKU) et type de licence : onglet Utilisation de la place de marché**
 
 ![readingreportbyusage][3]
 
@@ -70,7 +71,7 @@ Ces onglets vous fournissent les données détaillées ayant permis de générer
 
 
 
-**Utilisation par référence et type de licence : onglet Clients**
+**Utilisation par référence (SKU) et type de licence : onglet Clients**
 
 ![customerstab][6]
 
@@ -85,27 +86,31 @@ Ces onglets vous fournissent les données détaillées ayant permis de générer
 
 Lisez attentivement les clauses d’exclusion de responsabilité. Si vous avez des questions ou des commentaires, cliquez sur le lien en bas des clauses d’exclusion de responsabilité pour être redirigé vers la page de support du Marketplace.
 
-## Demander un rappel de mot de passe
+## <a name="request-a-password-reminder"></a>Demander un rappel de mot de passe
 
-Accédez à https://publish.windowsazure.com/ et connectez-vous avec les informations d’identification de votre compte Microsoft. ![passwordreminder][7]
+Accédez à https://publish.windowsazure.com/ et connectez-vous avec les informations d’identification de votre compte Microsoft.
+![passwordreminder][7]
 
-**Sélectionnez l’onglet Éditeurs**. ![selectpublisherstab][8]
+**Sélectionnez l’onglet Éditeurs** .
+![selectpublisherstab][8]
 
 
 Rechercher l’ID d’éditeur dans l’URL :
-- Utilisez cet ID comme mot de passe pour ouvrir votre fichier Excel Informations du vendeur. Il s’agit de votre mot de passe jusqu’à nouvel ordre.
-- Nous vous recommandons d’utiliser Microsoft Office 2013 avec Windows pour lire les classeurs. Certains utilisateurs ont signalé des problèmes liés à l’utilisation de Microsoft Office pour Mac.
+- Utilisez cet ID comme mot de passe pour ouvrir votre fichier Excel Informations du vendeur.
+Il s’agit de votre mot de passe jusqu’à nouvel ordre.
+- Nous vous recommandons d’utiliser Microsoft Office 2013 avec Windows pour lire les classeurs.  Certains utilisateurs ont signalé des problèmes liés à l’utilisation de Microsoft Office pour Mac.
 
 ![publisherid][9]
 
 
-## Étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes  
 Si vous avez des questions sur les rapports et les informations, contactez notre équipe de support :
 
-1. Accédez aux pages de support du site https://publish.windowsazure.com/.
+1. Accédez aux pages de support à l’adresse https://publish.windowsazure.com/.
 2. Dans la zone **Type de problème**, sélectionnez **Rapports et analyses**.
 3. Dans la zone **Catégorie**, sélectionnez **Questions relatives aux rapports**.
-4. Cliquez sur **Début de la requête**. ![sellerinsightsquestions][10]
+4. Cliquez sur **Envoyer une demande**.
+  ![sellerinsightsquestions][10]
 
 
 
@@ -120,4 +125,8 @@ Si vous avez des questions sur les rapports et les informations, contactez notre
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

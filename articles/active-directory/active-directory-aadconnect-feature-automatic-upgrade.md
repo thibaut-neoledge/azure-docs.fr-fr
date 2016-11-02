@@ -14,19 +14,20 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/24/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# Azure AD Connect : Mise à niveau automatique
+
+# <a name="azure-ad-connect:-automatic-upgrade"></a>Azure AD Connect : Mise à niveau automatique
 Cette fonctionnalité a été introduite avec la version 1.1.105.0 (publiée en février 2016).
 
-## Vue d'ensemble
-Grâce à la fonctionnalité de **mise à niveau automatique**, vous pouvez facilement vous assurer que votre installation Azure AD Connect est à jour. Cette fonctionnalité est activée par défaut pour les installations expresses et les mises à niveau de DirSync. Quand une nouvelle version est publiée, votre installation est mise à niveau automatiquement.
+## <a name="overview"></a>Vue d'ensemble
+Grâce à la fonctionnalité de **mise à niveau automatique** , vous pouvez facilement vous assurer que votre installation Azure AD Connect est à jour. Cette fonctionnalité est activée par défaut pour les installations expresses et les mises à niveau de DirSync. Quand une nouvelle version est publiée, votre installation est mise à niveau automatiquement.
 
 La mise à niveau automatique est activée par défaut pour les éléments suivants :
 
 - Installation de la configuration rapide et mises à niveau de DirSync.
 - SQL Express LocalDB, toujours utilisée par la configuration rapide. DirSync avec SQL Express utilise également LocalDB.
-- Le compte AD est le compte MSOL\_ par défaut créé par la configuration rapide et DirSync.
+- Le compte AD est le compte MSOL_ par défaut créé par la configuration rapide et DirSync.
 - Avoir moins de 100 000 objets dans le métaverse.
 
 L’état actuel de la mise à niveau automatique peut être affiché avec l’applet de commande PowerShell `Get-ADSyncAutoUpgrade`. Elle peut avoir les états suivants :
@@ -43,7 +44,7 @@ La mise à niveau automatique utilise Azure AD Connect Health pour l’infrastru
 
 Si l’interface utilisateur du **Synchronization Service Manager** est en cours d’exécution sur le serveur, la mise à niveau est suspendue jusqu’à la fermeture de l’interface utilisateur.
 
-## Résolution de problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 Si votre installation Connect ne se met pas elle-même à niveau comme prévu, procédez comme suit pour savoir d’où vient le problème.
 
 Tout d'abord, ne vous attendez pas à ce qu’il y ait déjà une tentative de mise à niveau automatique le jour du lancement d’une nouvelle version. Toute tentative de mise à niveau a un caractère aléatoire intentionnel. Ne vous inquiétez pas si votre installation n'est pas mise à niveau immédiatement.
@@ -52,9 +53,11 @@ Si vous pensez que quelque chose ne convient pas, commencez par exécuter `Get-A
 
 Assurez-vous ensuite que vous avez ouvert les URL requises dans votre proxy ou pare-feu. La mise à jour automatique utilise Azure AD Connect Health comme décrit dans la [présentation](#overview). Si vous utilisez un proxy, vérifiez que Health a été configuré pour utiliser un [serveur proxy](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Testez également la [connectivité de Health](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) à Azure AD.
 
-Une fois que vous avez vérifié la connectivité à Azure AD, passez aux journaux d’événements. Démarrez l’Observateur d’événements et consultez le journal des événements **Application**. Ajoutez un filtre de journal des événements pour la source **mise à niveau d’Azure AD Connect** et la plage d'ID d’événements **300-399**. ![Filtre de journal des événements pour la mise à niveau automatique](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)
+Une fois que vous avez vérifié la connectivité à Azure AD, passez aux journaux d’événements. Démarrez l’Observateur d’événements et consultez le journal des événements **Application** . Ajoutez un filtre de journal des événements pour la source **mise à niveau d’Azure AD Connect** et la plage d'ID d’événements **300-399**.  
+![Filtre de journal des événements pour la mise à niveau automatique](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)  
 
-Les journaux des événements associés à l’état de mise à niveau automatique s’affichent alors. ![Filtre de journal des événements pour la mise à niveau automatique](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)
+Les journaux des événements associés à l’état de mise à niveau automatique s’affichent alors.  
+![Filtre de journal des événements pour la mise à niveau automatique](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)  
 
 Le code de résultat a un préfixe avec une vue d’ensemble de l’état.
 
@@ -73,25 +76,29 @@ UpgradeAbortedCouldNotSetUpgradeMarker | Impossible d’écrire dans le Registre
 UpgradeAbortedInsufficientDatabasePermissions | Le groupe Administrateurs intégré ne dispose pas des autorisations d’accès à la base de données. Effectuez une mise à niveau manuelle vers la dernière version d’Azure AD Connect pour résoudre ce problème.
 UpgradeAbortedInsufficientDiskSpace | Il n'y a pas suffisamment d'espace disque pour prendre en charge une mise à niveau.
 UpgradeAbortedSecurityGroupsNotPresent | Impossible de trouver et de résoudre tous les groupes de sécurité utilisés par le moteur de synchronisation.
-UpgradeAbortedServiceCanNotBeStarted | Échec du démarrage du service NT **Microsoft Azure AD Sync**.
-UpgradeAbortedServiceCanNotBeStopped | Échec de l’arrêt du service NT **Microsoft Azure AD Sync**.
+UpgradeAbortedServiceCanNotBeStarted | Échec du démarrage du service NT **Microsoft Azure AD Sync** .
+UpgradeAbortedServiceCanNotBeStopped | Échec de l’arrêt du service NT **Microsoft Azure AD Sync** .
 UpgradeAbortedServiceIsNotRunning | Le service NT **Microsoft Azure AD Sync** n’est pas en cours d’exécution.
 UpgradeAbortedSyncCycleDisabled | L’option SyncCycle du [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) a été désactivée.
-UpgradeAbortedSyncExeInUse | L’[interface utilisateur du gestionnaire des services de synchronisation](active-directory-aadconnectsync-service-manager-ui.md) est ouverte sur le serveur.
+UpgradeAbortedSyncExeInUse | L’ [interface utilisateur du gestionnaire des services de synchronisation](active-directory-aadconnectsync-service-manager-ui.md) est ouverte sur le serveur.
 UpgradeAbortedSyncOrConfigurationInProgress | L'Assistant Installation est en cours d'exécution ou une synchronisation a été planifiée à l'extérieur du planificateur.
 **UpgradeNotSupported** |
 UpgradeNotSupportedCustomizedSyncRules | Vous avez ajouté vos propres règles de personnalisation à la configuration.
-UpgradeNotSupportedDeviceWritebackEnabled | Vous avez activé la fonctionnalité [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md).
-UpgradeNotSupportedGroupWritebackEnabled | Vous avez activé la fonctionnalité [Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback).
+UpgradeNotSupportedDeviceWritebackEnabled | Vous avez activé la fonctionnalité [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md) .
+UpgradeNotSupportedGroupWritebackEnabled | Vous avez activé la fonctionnalité [Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback) .
 UpgradeNotSupportedInvalidPersistedState | L’installation n’est pas une configuration rapide ou une mise à niveau DirSync.
 UpgradeNotSupportedMetaverseSizeExceeeded | Vous avez plus de 100 000 objets dans le métaverse.
 UpgradeNotSupportedMultiForestSetup | Vous vous connectez à plusieurs forêts. L’installation rapide se connecte à une seule forêt.
 UpgradeNotSupportedNonLocalDbInstall | Vous n’utilisez pas une base de données LocalDB SQL Server Express.
-UpgradeNotSupportedNonMsolAccount | Le [compte de connecteur AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) n’est plus le compte MSOL\_ par défaut.
+UpgradeNotSupportedNonMsolAccount | Le [compte de connecteur AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) n’est plus le compte MSOL_ par défaut.
 UpgradeNotSupportedStagingModeEnabled | Le serveur est défini pour être en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode).
-UpgradeNotSupportedUserWritebackEnabled | Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback).
+UpgradeNotSupportedUserWritebackEnabled | Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) .
 
-## Étapes suivantes
-En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
+## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

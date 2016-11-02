@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles Windows | Microsoft Azure"
-	description="Mettre à l’échelle automatiquement un jeu de mise à l’échelle de machine virtuelle Windows à l’aide d’Azure PowerShell"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Mettre à l’échelle automatiquement des jeux de mise à l’échelle de machines virtuelles Windows | Microsoft Azure"
+    description="Mettre à l’échelle automatiquement un jeu de mise à l’échelle de machine virtuelle Windows à l’aide d’Azure PowerShell"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles
+
+# <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles
 
 Les jeux de mise à l’échelle de machines virtuelles facilitent le déploiement et la gestion de machines virtuelles identiques en tant qu’ensemble. Les groupes à échelle identique fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour plus d’informations sur les jeux de mise à l’échelle, consultez [Jeux de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-overview.md).
 
@@ -37,20 +38,20 @@ Cet article décrit comment déployer les ressources et extensions suivantes :
 
 Pour plus d’informations sur les ressources de Resource Manager, consultez [Calcul, réseau et fournisseurs de stockage Azure sous Azure Resource Manager](../virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
-## Étape 1 : installer Azure PowerShell
+## <a name="step-1:-install-azure-powershell"></a>Étape 1 : installer Azure PowerShell
 
-Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell en sélectionnant votre abonnement et en vous connectant à Azure, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell en sélectionnant votre abonnement et en vous connectant à Azure, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) .
 
-## Étape 2 : créer un groupe de ressources et un compte de stockage
+## <a name="step-2:-create-a-resource-group-and-a-storage-account"></a>Étape 2 : créer un groupe de ressources et un compte de stockage
 
 1. **Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Utilisez [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx) pour créer un groupe de ressources nommé **vmsstestrg1**.
 
 2. **Créer un compte de stockage** : ce compte de stockage est l’emplacement dans lequel le modèle est stocké. Utilisez [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer un compte de stockage nommé **vmsstestsa**.
 
-## Étape 3 : créer le modèle
+## <a name="step-3:-create-the-template"></a>Étape 3 : créer le modèle
 Un modèle Azure Resource Manager permet de déployer et gérer des ressources Azure simultanément grâce à une description des ressources JSON et des paramètres de déploiement associés.
 
-1. Dans votre éditeur favori, créez le fichier C:\\VMSSTemplate.json et ajoutez la structure JSON initiale pour prendre en charge le modèle.
+1. Dans votre éditeur favori, créez le fichier C:\VMSSTemplate.json et ajoutez la structure JSON initiale pour prendre en charge le modèle.
 
         {
           "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
@@ -92,17 +93,17 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
         "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-	      "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
-        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="fr-FR"/></PerformanceCounterConfiguration></PerformanceCounters>",
-        "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
+          "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
+        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\% Processor Time\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"CPU utilization\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
+        "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-        "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
+        "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 
   - Noms DNS utilisés par les interfaces réseau.
-	- Les noms d’adresse IP et les préfixes destinés au réseau et aux sous-réseaux.
-	- Les noms et les identificateurs du réseau virtuel, de l’équilibreur de charge et des interfaces réseau.
-	- Les noms de compte de stockage pour les comptes associés aux machines du groupe à échelle identique.
-	- Paramètres de l’extension de diagnostic qui est installé sur les machines virtuelles. Pour plus d’informations sur l’extension de diagnostic, consultez [Créer une machine virtuelle Windows avec surveillance et diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md).
+    - Les noms d’adresse IP et les préfixes destinés au réseau et aux sous-réseaux.
+    - Les noms et les identificateurs du réseau virtuel, de l’équilibreur de charge et des interfaces réseau.
+    - Les noms de compte de stockage pour les comptes associés aux machines du groupe à échelle identique.
+    - Paramètres de l’extension de diagnostic qui est installé sur les machines virtuelles. Pour plus d’informations sur l’extension de diagnostic, consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
     
 4. Ajoutez la ressource de compte de stockage sous l’élément parent de ressources que vous avez ajouté au modèle. Ce modèle utilise une boucle pour créer les cinq comptes de stockage recommandés dans lesquels les disques de système d’exploitation et les données de diagnostic sont stockés. Cet ensemble de comptes peut prendre en charge jusqu’à 100 machines virtuelles dans un groupe à échelle identique, qui est la valeur maximale actuelle. Chaque compte de stockage est nommé avec un indicateur de lettre défini dans les variables, combiné au préfixe que vous fournissez dans les paramètres du modèle.
 
@@ -275,7 +276,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
           }
         },
 
-10.	Ajoutez la ressource de jeu de mise à l’échelle de machines virtuelles et spécifiez l’extension Diagnostics installée sur toutes les machines virtuelles du jeu de mise à l’échelle. La plupart des paramètres de cette ressource sont similaires à la ressource de machine virtuelle. Les principales différences sont l’élément capacity qui spécifie le nombre de machines virtuelles du jeu de mise à l’échelle et le paramètre upgradePolicy qui spécifie la manière dont les mises à jour sont appliquées aux machines virtuelles. Le jeu de mise à l’échelle n’est pas créé tant que tous les comptes de stockage ne sont pas créés, comme spécifié par l’élément dependsOn.
+10. Ajoutez la ressource de jeu de mise à l’échelle de machines virtuelles et spécifiez l’extension Diagnostics installée sur toutes les machines virtuelles du jeu de mise à l’échelle. La plupart des paramètres de cette ressource sont similaires à la ressource de machine virtuelle. Les principales différences sont l’élément capacity qui spécifie le nombre de machines virtuelles du jeu de mise à l’échelle et le paramètre upgradePolicy qui spécifie la manière dont les mises à jour sont appliquées aux machines virtuelles. Le jeu de mise à l’échelle n’est pas créé tant que tous les comptes de stockage ne sont pas créés, comme spécifié par l’élément dependsOn.
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -378,7 +379,7 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
               }
             },
 
-11.	Ajoutez la ressource autoscaleSettings qui définit comment le jeu de mise à l’échelle s’ajuste en fonction de l’utilisation du processeur sur les machines du jeu de mise à l’échelle.
+11. Ajoutez la ressource autoscaleSettings qui définit comment le jeu de mise à l’échelle s’ajuste en fonction de l’utilisation du processeur sur les machines du jeu de mise à l’échelle.
 
             {
               "type": "Microsoft.Insights/autoscaleSettings",
@@ -428,8 +429,8 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
 
     Pour ce didacticiel, les valeurs suivantes sont importantes :
 
-    - **metricName** : cette valeur est la même que celle du compteur de performances que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension Diagnostics relève le compteur **Processor(\_Total)\\% Processor Time**.
-	- **metricResourceUri** : cette valeur est l’identificateur de ressource du jeu de mise à l’échelle de machines virtuelles.
+    - **metricName** : cette valeur est la même que celle du compteur de performances que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension Diagnostics relève le compteur **Processor(_Total)\% Processor Time**.
+    - **metricResourceUri** : cette valeur est l’identificateur de ressource du jeu de mise à l’échelle de machines virtuelles.
     - **timeGrain** : cette valeur est la granularité des mesures collectées. Dans ce modèle, elle est définie sur une minute.
     - **statistic** : cette valeur détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, l’utilisation moyenne totale du processeur des machines virtuelles est collectée.
     - **timeWindow** : cette valeur est la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
@@ -441,38 +442,38 @@ Un modèle Azure Resource Manager permet de déployer et gérer des ressources
     - **value** : cette valeur est le nombre de machines virtuelles qui sont ajoutées ou supprimées dans le jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
     - **cooldown** : cette valeur est la durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action suivante se produise. Elle doit être comprise entre une minute et une semaine.
 
-12.	Enregistrez le fichier de modèle.
+12. Enregistrez le fichier de modèle.    
 
-## Étape 4 : charger le modèle dans le stockage
+## <a name="step-4:-upload-the-template-to-storage"></a>Étape 4 : charger le modèle dans le stockage
 
 Le modèle peut être chargé pour autant que vous connaissiez le nom et la clé primaire du compte de stockage que vous avez créé à l’étape 1.
 
-1.	Dans la fenêtre Microsoft Azure PowerShell, définissez une variable qui spécifie le nom du compte de stockage que vous avez créé à l’étape 1.
+1.  Dans la fenêtre Microsoft Azure PowerShell, définissez une variable qui spécifie le nom du compte de stockage que vous avez créé à l’étape 1.
 
             $storageAccountName = "vmstestsa"
 
-2.	Définissez une variable qui spécifie la clé primaire du compte de stockage.
+2.  Définissez une variable qui spécifie la clé primaire du compte de stockage.
 
             $storageAccountKey = "<primary-account-key>"
 
-	Vous pouvez obtenir cette clé en cliquant sur l’icône de clé lors de l’affichage de la ressource de compte de stockage dans le portail Azure.
+    Vous pouvez obtenir cette clé en cliquant sur l’icône de clé lors de l’affichage de la ressource de compte de stockage dans le portail Azure.
 
-3.	Créez l’objet de contexte de compte de stockage utilisé pour valider les opérations avec le compte de stockage.
+3.  Créez l’objet de contexte de compte de stockage utilisé pour valider les opérations avec le compte de stockage.
 
             $ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-4.	Créez le conteneur pour stocker le modèle.
+4.  Créez le conteneur pour stocker le modèle.
 
             $containerName = "templates"
             New-AzureStorageContainer -Name $containerName -Context $ctx  -Permission Blob
 
-5.	Chargez le fichier de modèle correspondant au nouveau conteneur.
+5.  Chargez le fichier de modèle correspondant au nouveau conteneur.
 
             $blobName = "VMSSTemplate.json"
-            $fileName = "C:" + $BlobName
+            $fileName = "C:\" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob  $blobName -Context $ctx
 
-## Étape 5 : déployer le modèle
+## <a name="step-5:-deploy-the-template"></a>Étape 5 : déployer le modèle
 
 Maintenant que vous avez créé le modèle, vous pouvez commencer à déployer les ressources. Utilisez cette commande pour démarrer le processus :
 
@@ -481,22 +482,22 @@ Maintenant que vous avez créé le modèle, vous pouvez commencer à déployer l
 Lorsque vous appuyez sur Entrée, vous êtes invité à fournir des valeurs pour les variables que vous avez affectées. Remplacez les valeurs suivantes :
 
     vmName: vmsstestvm1
-	  vmSSName: vmsstest1
-	  instanceCount: 5
-	  adminUserName: vmadmin1
-	  adminPassword: VMpass1
-	  resourcePrefix: vmsstest
+      vmSSName: vmsstest1
+      instanceCount: 5
+      adminUserName: vmadmin1
+      adminPassword: VMpass1
+      resourcePrefix: vmsstest
 
 Environ 15 minutes sont nécessaires pour le déploiement correct de toutes les ressources.
 
->[AZURE.NOTE] Vous pouvez également utiliser la capacité du portail à déployer les ressources. Utilisez le lien suivant : « https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template> »
+>[AZURE.NOTE] Vous pouvez également utiliser la capacité du portail à déployer les ressources. Utilisez le lien suivant : « https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>»
 
-## Étape 6 : surveiller les ressources
+## <a name="step-6:-monitor-resources"></a>Étape 6 : surveiller les ressources
 
 Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de machine virtuelle à l’aide des méthodes suivantes :
 
  - Le portail Azure : vous pouvez en obtenir une quantité limitée d’informations sur l’utilisation du portail.
- - [Explorateur de ressources Azure](https://resources.azure.com/) : cet outil est le meilleur qui soit pour déterminer l’état actuel de votre jeu de mise à l’échelle. Suivez ce chemin d’accès. Vous devriez voir la vue de l’instance du groupe à échelle identique que vous avez créée :
+ - [Explorateur de ressources Azure](https://resources.azure.com/) : cet outil est le meilleur qui soit pour déterminer l’état actuel de votre groupe identique. Suivez ce chemin d’accès. Vous devriez voir la vue de l’instance du groupe à échelle identique que vous avez créée :
 
         subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
@@ -512,22 +513,26 @@ Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de mac
 
 >[AZURE.NOTE] Vous trouverez une API REST complète permettant d’obtenir des informations sur les jeux de mise à l’échelle dans [Ensembles de mise à l’échelle de machine virtuelle](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Étape 7 : supprimer les ressources
+## <a name="step-7:-remove-the-resources"></a>Étape 7 : supprimer les ressources
 
 Étant donné que les ressources utilisées dans Microsoft Azure vous sont facturées, il est toujours conseillé de supprimer les ressources qui ne sont plus nécessaires. Vous n’avez pas besoin de supprimer séparément les ressources d’un groupe de ressources. Vous pouvez supprimer le groupe de ressources pour supprimer automatiquement toutes ses ressources.
 
-	Remove-AzureRmResourceGroup -Name vmsstestrg1
+    Remove-AzureRmResourceGroup -Name vmsstestrg1
 
 Si vous souhaitez conserver votre groupe de ressources, vous pouvez supprimer uniquement le jeu de mise à l’échelle.
 
-	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
     
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Gérez le jeu de mise à l’échelle que vous avez créé à l’aide des informations figurant dans [Gérer des machines dans un jeu de mise à l’échelle de machines virtuelles](virtual-machine-scale-sets-windows-manage.md).
 - En savoir plus sur la mise à l’échelle verticale en consultant l’article [Mise à l’échelle verticale avec des jeux de mise à l’échelle de machines virtuelles](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 - Découvrez des exemples de fonctionnalités de surveillance Azure Insights dans les [exemples de démarrage rapide d’Azure Insights PowerShell](../azure-portal/insights-powershell-samples.md)
-- Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md).
-- Découvrez comment [utiliser les journaux d’audit pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
+- Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) 
+- Découvrez comment [utiliser les journaux d’audit pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

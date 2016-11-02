@@ -1,27 +1,28 @@
 <properties
-	pageTitle="Métadonnées de fédération Azure AD | Microsoft Azure"
-	description="Cet article décrit le document de métadonnées de fédération publié par Azure Active Directory pour les services qui acceptent les jetons Azure Active Directory."
-	services="active-directory"
-	documentationCenter=".net"
-	authors="priyamohanram"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Métadonnées de fédération Azure AD | Microsoft Azure"
+    description="Cet article décrit le document de métadonnées de fédération publié par Azure Active Directory pour les services qui acceptent les jetons Azure Active Directory."
+    services="active-directory"
+    documentationCenter=".net"
+    authors="priyamohanram"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="priyamo"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="priyamo"/>
 
 
-# Métadonnées de fédération
+
+# <a name="federation-metadata"></a>Métadonnées de fédération
 
 Azure Active Directory (Azure AD) publie un document de métadonnées de fédération pour les services qui sont configurés pour accepter les jetons de sécurité émis par Azure AD. Le format de document des métadonnées de fédération est décrit dans la page [Web Services Federation Language (WS-Federation) Version 1.2 (Langage WS-Federation [Web Services Federation Language] version 1.2)](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), qui étend les [métadonnées pour la spécification SAML (Security Assertion Markup Language) OASIS v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
-## Points de terminaison de métadonnées spécifiques ou indépendants du client
+## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Points de terminaison de métadonnées spécifiques ou indépendants du client
 
 Azure AD publie des points de terminaison spécifiques et indépendants du client.
 
@@ -29,7 +30,7 @@ Les points de terminaison spécifiques du client sont conçus pour un client don
 
 Les points de terminaison indépendants du client fournissent des informations qui sont communes à tous les clients Azure AD. Ces informations s’appliquent aux clients hébergés sur *login.microsoftonline.com* et sont partagées entre les clients. Les points de terminaison indépendants du client sont recommandés pour les applications mutualisées, car ils ne sont pas associés à un client particulier.
 
-## Points de terminaison de métadonnées de fédération
+## <a name="federation-metadata-endpoints"></a>Points de terminaison de métadonnées de fédération
 
 Azure AD publie des métadonnées de fédération dans `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
 
@@ -42,11 +43,11 @@ Pour les **points de terminaison indépendants du client**, le `TenantDomainName
 
 Par exemple, un point de terminaison propre à un client peut être `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Le point de terminaison indépendant du client est [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Vous pouvez afficher le document de métadonnées de fédération en tapant cette URL dans un navigateur.
 
-## Contenu des métadonnées de fédération
+## <a name="contents-of-federation-metadata"></a>Contenu des métadonnées de fédération
 
 La section suivante fournit les informations nécessaires aux services qui utilisent des jetons émis par Azure AD.
 
-### L’ID d’entité
+### <a name="entity-id"></a>L’ID d’entité
 
 L’élément `EntityDescriptor` contient un attribut `EntityID`. La valeur de l’attribut `EntityID` représente l’émetteur, autrement dit, le service d’émission de jeton de sécurité (STS) qui a émis le jeton. Il est important de valider l’émetteur lorsque vous recevez un jeton.
 
@@ -69,9 +70,9 @@ ID="="_0e5bd9d0-49ef-4258-bc15-21ce143b61bd"
 entityID="https://sts.windows.net/{tenant}/">
 ```
 
-### Certificats de signature de jeton
+### <a name="token-signing-certificates"></a>Certificats de signature de jeton
 
-Lorsqu’un service reçoit un jeton émis par un client Azure AD, la signature du jeton doit être validée avec une clé de signature qui est publiée dans le document des métadonnées de fédération. Les métadonnées de fédération incluent la partie publique des certificats utilisés par les clients pour la signature de jetons. Les octets bruts du certificat s’affichent dans l’élément `KeyDescriptor`. Le certificat de signature de jetons est valide pour la signature uniquement si la valeur de l’attribut `use` est `signing`.
+Lorsqu’un service reçoit un jeton émis par un client Azure AD, la signature du jeton doit être validée avec une clé de signature qui est publiée dans le document des métadonnées de fédération. Les métadonnées de fédération incluent la partie publique des certificats utilisés par les clients pour la signature de jetons. Les octets bruts du certificat s’affichent dans l’élément `KeyDescriptor` . Le certificat de signature de jetons est valide pour la signature uniquement si la valeur de l’attribut `use` est `signing`.
 
 Un document des métadonnées de fédération publié par Azure AD peut avoir plusieurs clés de signature, par exemple lorsqu’Azure AD se prépare à mettre à jour le certificat de signature. Lorsqu’un document des métadonnées de fédération comprend plusieurs certificats, un service qui valide les jetons doit prendre en charge tous les certificats du document.
 
@@ -93,24 +94,24 @@ L’élément `KeyDescriptor` apparaît à deux emplacements du document des mé
 
 Dans la section WS-Federation, un lecteur de métadonnées WS-Federation lit les certificats d’un élément `RoleDescriptor` avec le type `SecurityTokenServiceType`.
 
-Les métadonnées suivantes montrent un exemple d’élément `RoleDescriptor`.
+Les métadonnées suivantes montrent un exemple d’élément `RoleDescriptor` .
 
 ```
 <RoleDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-Dans la section SAML, un lecteur de métadonnées WS-Federation lit les certificats d’un élément `IDPSSODescriptor`.
+Dans la section SAML, un lecteur de métadonnées WS-Federation lit les certificats d’un élément `IDPSSODescriptor` .
 
-Les métadonnées suivantes montrent un exemple d’élément `IDPSSODescriptor`.
+Les métadonnées suivantes montrent un exemple d’élément `IDPSSODescriptor` .
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
 Il n’existe aucune différence de format entre les certificats spécifiques du client et ceux indépendants du client.
 
-### URL de point de terminaison WS-Federation
+### <a name="ws-federation-endpoint-url"></a>URL de point de terminaison WS-Federation
 
-Les métadonnées de fédération incluent l’URL qu’utilise Azure AD pour la connexion et la déconnexion dans le protocole WS-Federation. Ce point de terminaison s’affiche dans l’élément `PassiveRequestorEndpoint`.
+Les métadonnées de fédération incluent l’URL qu’utilise Azure AD pour la connexion et la déconnexion dans le protocole WS-Federation. Ce point de terminaison s’affiche dans l’élément `PassiveRequestorEndpoint` .
 
 Les métadonnées suivantes montrent un exemple d’élément `PassiveRequestorEndpoint` pour un point de terminaison propre au client.
 
@@ -135,9 +136,9 @@ https://login.microsoftonline.com/common/wsfed
 </fed:PassiveRequestorEndpoint>
 ```
 
-### URL de point de terminaison de protocole SAML
+### <a name="saml-protocol-endpoint-url"></a>URL de point de terminaison de protocole SAML
 
-Les métadonnées de fédération incluent l’URL qu’utilise Azure AD pour la connexion et la déconnexion dans le protocole SAML 2.0. Ces points de terminaison s’affichent dans l’élément `IDPSSODescriptor`.
+Les métadonnées de fédération incluent l’URL qu’utilise Azure AD pour la connexion et la déconnexion dans le protocole SAML 2.0. Ces points de terminaison s’affichent dans l’élément `IDPSSODescriptor` .
 
 Les URL de connexion et de déconnexion s’affichent dans les éléments `SingleSignOnService` et `SingleLogoutService`.
 
@@ -161,4 +162,8 @@ De la même façon, les points de terminaison communs du protocole SAML 2.0 son
   </IDPSSODescriptor>
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

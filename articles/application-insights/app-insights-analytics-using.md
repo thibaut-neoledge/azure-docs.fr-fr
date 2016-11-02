@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="Utilisation d’Analytics, le puissant outil de recherche d’Application Insights | Microsoft Azure" 
-	description="Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights. " 
-	services="application-insights" 
+    pageTitle="Utilisation d’Analytics, le puissant outil de recherche d’Application Insights | Microsoft Azure" 
+    description="Utilisation d’Analytics, le puissant outil de recherche de diagnostic d’Application Insights. " 
+    services="application-insights" 
     documentationCenter=""
-	authors="danhadari" 
-	manager="douge"/>
+    authors="danhadari" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/06/2016" 
-	ms.author="danha"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/03/2016" 
+    ms.author="danha"/>
 
 
-# Utilisation d’Analytics dans Application Insights
+
+# <a name="using-analytics-in-application-insights"></a>Utilisation d’Analytics dans Application Insights
 
 
-[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 * **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
 
-## Ouverture de la fonctionnalité Analytics
+## <a name="open-analytics"></a>Ouverture de la fonctionnalité Analytics
 
 À partir de la ressource de base de votre application dans Application Insights, cliquez sur Analytics.
 
@@ -34,9 +35,9 @@ Le didacticiel en ligne vous donne quelques idées sur les possibilités qui vou
 
 Vous pouvez cependant consulter [ici une présentation approfondie](app-insights-analytics-tour.md).
 
-## Interrogation de votre télémétrie
+## <a name="query-your-telemetry"></a>Interrogation de votre télémétrie
 
-### Écrivez votre requête.
+### <a name="write-a-query"></a>Écrivez votre requête.
 
 ![Affichage du schéma](./media/app-insights-analytics-using/150.png)
 
@@ -44,7 +45,7 @@ Commencez par les noms des tables répertoriées sur la gauche (ou les opérateu
 
 Consultez la [vue d’ensemble du langage d’Analytics](app-insights-analytics-tour.md) et les [informations de référence sur le langage](app-insights-analytics-reference.md).
 
-### Exécution d’une requête
+### <a name="run-a-query"></a>Exécution d’une requête
 
 ![Exécution d’une requête](./media/app-insights-analytics-using/130.png)
 
@@ -53,7 +54,7 @@ Consultez la [vue d’ensemble du langage d’Analytics](app-insights-analytics-
 3. Cliquez sur Accéder pour exécuter la requête.
 4. N’insérez pas de lignes vides dans votre requête. Vous pouvez conserver plusieurs requêtes séparées dans un onglet de requête en les séparant par des lignes vides. Seule la requête pointée par le curseur est exécutée.
 
-### Enregistrement d’une requête
+### <a name="save-a-query"></a>Enregistrement d’une requête
 
 ![Enregistrement d’une requête](./media/app-insights-analytics-using/140.png)
 
@@ -62,7 +63,7 @@ Consultez la [vue d’ensemble du langage d’Analytics](app-insights-analytics-
 3. Créez un fichier de requête.
 
 
-## Voir des informations détaillées
+## <a name="see-the-details"></a>Voir des informations détaillées
 
 Développez des lignes dans les résultats pour afficher la liste complète de leurs propriétés. Vous pouvez développer davantage n’importe quelle propriété qui est une valeur structurée. Par exemple, des dimensions personnalisées ou la liste d’empilement dans une exception.
 
@@ -70,11 +71,11 @@ Développez des lignes dans les résultats pour afficher la liste complète de l
 
  
 
-## Réorganisation des résultats
+## <a name="arrange-the-results"></a>Réorganisation des résultats
 
 Vous pouvez trier, filtrer, paginer et regrouper les résultats retournés par votre requête.
 
-> [AZURE.NOTE] Le tri, le regroupement et le filtrage dans le navigateur ne réexécutent pas votre requête. Ils réorganisent uniquement les résultats retournés par votre dernière requête.
+> [AZURE.NOTE] Le tri, le regroupement et le filtrage dans le navigateur ne réexécutent pas votre requête. Ils réorganisent uniquement les résultats retournés par votre dernière requête. 
 > 
 > Pour exécuter ces tâches sur le serveur avant que les résultats ne soient retournés, écrivez votre requête avec les opérateurs [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) et [where](app-insights-analytics-reference.md#where-operator).
 
@@ -82,7 +83,7 @@ Choisissez les colonnes que vous souhaitez voir, faites glisser les en-têtes de
 
 ![Réorganisation de colonnes](./media/app-insights-analytics-using/030.png)
 
-### Tri et filtrage d’éléments
+### <a name="sort-and-filter-items"></a>Tri et filtrage d’éléments
 
 Triez les résultats en cliquant sur l’en-tête d’une colonne. Cliquez à nouveau pour trier dans l’ordre inverse, puis cliquez sur une troisième fois pour rétablir l’ordre d’origine retourné par la requête.
 
@@ -92,7 +93,7 @@ Utilisez l’icône de filtre pour affiner votre recherche.
 
 
 
-### Regroupement d’éléments
+### <a name="group-items"></a>Regroupement d’éléments
 
 Pour trier par plusieurs colonnes, utilisez le regroupement. Tout d’abord, activez le regroupement, puis faites glisser les en-têtes de colonne dans l’espace au-dessus de la table.
 
@@ -100,20 +101,20 @@ Pour trier par plusieurs colonnes, utilisez le regroupement. Tout d’abord, act
 
 
 
-### Certains résultats manquent ?
+### <a name="missing-some-results?"></a>Certains résultats manquent ?
 
-Il existe une limite d’environ 10 000 lignes pour les résultats retournés à partir du portail. Un avertissement s’affiche si vous dépassez la limite. Dans ce cas, le tri des résultats de la table ne vous indique pas toujours tous les premiers ou derniers résultats réels.
+Il existe une limite d’environ 10 000 lignes pour les résultats retournés à partir du portail. Un avertissement s’affiche si vous dépassez la limite. Dans ce cas, le tri des résultats de la table ne vous indique pas toujours tous les premiers ou derniers résultats réels. 
 
 Il est recommandé d’éviter d’atteindre la limite. Utilisez des opérateurs tels que :
 
 * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
-* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator)
+* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
 * [take 100](app-insights-analytics-reference.md#take-operator)
-* [summarize](app-insights-analytics-reference.md#summarize-operator)
+* [summarize ](app-insights-analytics-reference.md#summarize-operator) 
 
 
 
-## Diagrammes
+## <a name="diagrams"></a>Diagrammes
 
 Sélectionnez le type de diagramme de votre choix :
 
@@ -123,22 +124,22 @@ Si vous disposez de plusieurs colonnes de types appropriés, vous pouvez choisir
 
 Par défaut, les résultats sont initialement affichés sous forme de table. Vous pouvez ensuite sélectionner le diagramme manuellement. Mais vous pouvez également utiliser la [directive render](app-insights-analytics-reference.md#render-directive) à la fin d’une requête pour sélectionner un diagramme.
 
-## Épingler au tableau de bord
+## <a name="pin-to-dashboard"></a>Épingler au tableau de bord
 
-Vous pouvez épingler un diagramme ou une table à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. (Vous devrez peut-être [mettre à niveau le plan de tarification de votre application](app-insights-pricing.md) pour activer cette fonctionnalité.)
+Vous pouvez épingler un diagramme ou une table à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. (Vous devrez peut-être [mettre à niveau le plan de tarification de votre application](app-insights-pricing.md) pour activer cette fonctionnalité.) 
 
 ![Cliquez sur l’épingle](./media/app-insights-analytics-using/pin-01.png)
 
-Cela signifie que, lorsque vous créez un tableau de bord pour vous aider à surveiller les performances ou l’utilisation de vos services web, vous pouvez inclure des analyses très complexes en parallèle des autres mesures.
+Cela signifie que, lorsque vous créez un tableau de bord pour vous aider à surveiller les performances ou l’utilisation de vos services web, vous pouvez inclure des analyses très complexes en parallèle des autres mesures. 
 
 Vous pouvez épingler une table au tableau de bord, si elle comporte au maximum quatre colonnes. Seules les sept premières lignes sont affichées.
 
 
-#### Actualisation du tableau de bord
+#### <a name="dashboard-refresh"></a>Actualisation du tableau de bord
 
 Le graphique épinglé au tableau de bord est actualisé automatiquement lorsque vous réexécutez la requête environ toutes les demi-heures.
 
-#### Simplifications automatiques
+#### <a name="automatic-simplifications"></a>Simplifications automatiques
 
 Dans certains cas, des simplifications sont appliquées à un graphique lorsque vous l’épinglez à un tableau de bord.
 
@@ -159,11 +160,11 @@ mais lorsque vous l’épinglez à un tableau de bord, elle ressemble à ceci :
 
 
 
-## Exporter vers Excel
+## <a name="export-to-excel"></a>Exporter vers Excel
 
 Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. Cliquez sur **Exporter vers Excel**.
 
-## Exporter vers Power BI
+## <a name="export-to-power-bi"></a>Exporter vers Power BI
 
 1. Placez le curseur dans une requête et choisissez **Exporter vers Power BI**.
 
@@ -183,7 +184,11 @@ Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. C
 
 
 
-
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

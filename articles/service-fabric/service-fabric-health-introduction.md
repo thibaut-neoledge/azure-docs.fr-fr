@@ -16,24 +16,26 @@
    ms.date="09/28/2016"
    ms.author="oanapl"/>
 
-# Présentation du contrôle d’intégrité de Service Fabric
+
+# <a name="introduction-to-service-fabric-health-monitoring"></a>Présentation du contrôle d’intégrité de Service Fabric
 Azure Service Fabric introduit un modèle d’intégrité qui fournit une évaluation et des rapports d’intégrité riches, flexibles et extensibles. Ce modèle permet un contrôle quasiment en temps réel de l’état du cluster et des services qu’il exécute. Vous pouvez facilement obtenir les informations de contrôle d’intégrité et corriger les problèmes potentiels avant qu’ils ne s’enchaînent et ne provoquent des pannes massives. Dans le modèle standard, les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
 
 Les composants Service Fabric utilisent ce modèle d’intégrité enrichi pour signaler leur état actuel. Vous pouvez utiliser le même mécanisme pour établir des rapports sur l’intégrité de vos applications. Si vous investissez dans une fonction de création de rapports sur l’intégrité de qualité élevée, qui capture vos conditions personnalisées, vous pouvez plus facilement détecter et corriger les problèmes liés aux applications en cours d’exécution.
 
 > [AZURE.NOTE] Nous avons créé le sous-système d’intégrité pour répondre au besoin des mises à niveau surveillées. Service Fabric offre des mises à niveau pour le cluster et les applications sous surveillance, qui offrent une disponibilité totale, sans temps d’arrêt, ainsi qu’une intervention de l’utilisateur réduite, voire inexistante. À cette fin, la mise à niveau vérifie l’intégrité en fonction des stratégies de mise à niveau configurées et autorise une mise à niveau uniquement si l’intégrité respecte les seuils souhaités. Sinon, la mise à niveau est automatiquement annulée ou suspendue pour offrir aux administrateurs la possibilité de corriger les problèmes. Pour en savoir plus sur les mises à niveau d’application, consultez [cet article](service-fabric-application-upgrade.md).
 
-## Magasin d’intégrité
+## <a name="health-store"></a>Magasin d’intégrité
 Le magasin d’intégrité conserve des informations sur l’intégrité des entités du cluster pour faciliter la récupération et l’évaluation. Il est implémenté en tant que service Service Fabric persistant avec état pour garantir un haut niveau de disponibilité et d'extensibilité. Il fait partie de l’application **fabric:/System** et est disponible lorsque le cluster est opérationnel.
 
-## Entités d'intégrité et hiérarchie
+## <a name="health-entities-and-hierarchy"></a>Entités d'intégrité et hiérarchie
 Les entités d’intégrité sont organisées dans une hiérarchie logique qui capture les interactions et les dépendances entre les différentes entités. Les entités et la hiérarchie sont générées automatiquement par le magasin d’intégrité en fonction des rapports provenant des composants Service Fabric.
 
-Les entités d’intégrité reflètent les entités Service Fabric (par ex., l’**entité application d’intégrité** correspond à une instance d’application déployée dans le cluster, et l’**entité nœud d’intégrité** correspond à un nœud du cluster Service Fabric). La hiérarchie d’intégrité capture les interactions entre les entités système et constitue la base d’une évaluation avancée de l’intégrité. Vous pouvez découvrir les concepts clés de Service Fabric dans la [Vue d’ensemble technique de Service Fabric](service-fabric-technical-overview.md). Pour plus d’informations sur l’application, consultez [Modèle d’application Service Fabric](service-fabric-application-model.md).
+Les entités d’intégrité reflètent les entités Service Fabric (par ex., **l’entité application d’intégrité** correspond à une instance d’application déployée dans le cluster, et **l’entité nœud d’intégrité** correspond à un nœud du cluster Service Fabric). La hiérarchie d’intégrité capture les interactions entre les entités système et constitue la base d’une évaluation avancée de l’intégrité. Vous pouvez découvrir les concepts clés de Service Fabric dans l’article [Présentation technique de Service Fabric](service-fabric-technical-overview.md). Pour plus d’informations sur l’application, consultez [Modèle d’application Service Fabric](service-fabric-application-model.md).
 
 Les entités d’intégrité et la hiérarchie permettent un processus efficace de création de rapports, de débogage et d’analyse du cluster et des applications. Le modèle d’intégrité permet une représentation précise et *granulaire* de l’intégrité de nombreux éléments mobiles du cluster.
 
-![Entités d’intégrité.][1] Entités d’intégrité, organisées dans une hiérarchie basée sur les relations parent-enfant.
+![Entités d’intégrité.][1]
+ Entités d’intégrité, organisées dans une hiérarchie basée sur les relations parent-enfant.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -51,7 +53,7 @@ Les entités d'intégrité sont les suivantes :
 
 - **Réplica**. Représente l'intégrité d'un réplica de service avec état ou d'une instance de service sans état. Il s’agit de la plus petite unité sur laquelle les agents de surveillance et les composants système peuvent établir des rapports pour une application. Exemple : pour les services avec état, le réplica principal peut signaler qu’il ne peut pas répliquer des opérations sur les serveurs secondaires ou que la réplication n’est pas effectuée au rythme attendu. Une instance sans état peut également signaler qu’elle manque de ressources ou présente des problèmes de connectivité. L’entité de réplica est identifiée par l’ID de la partition (GUID) et l’ID de l’instance ou du réplica (long).
 
-- **Application déployée**. Représente l'intégrité d'une *application s'exécutant sur un nœud*. Les rapports d'intégrité d'application déployée décrivent les conditions propres à l'application sur le nœud. Ils ne peuvent pas être limités aux packages de service déployés sur le même nœud. Exemple : le package d’application ne peut pas être téléchargé sur le nœud ou un problème est rencontré lors de la configuration des principaux de sécurité de l’application sur le nœud. L’application déployée est identifiée par le nom de l’application (URI) et le nom du nœud (chaîne).
+- **DeployedApplication**. Représente l’intégrité d’une *application s’exécutant sur un nœud*. Les rapports d'intégrité d'application déployée décrivent les conditions propres à l'application sur le nœud. Ils ne peuvent pas être limités aux packages de service déployés sur le même nœud. Exemple : le package d’application ne peut pas être téléchargé sur le nœud ou un problème est rencontré lors de la configuration des principaux de sécurité de l’application sur le nœud. L’application déployée est identifiée par le nom de l’application (URI) et le nom du nœud (chaîne).
 
 - **Package de service déployé**. Représente l’intégrité d’un package de services s’exécutant sur un nœud du cluster. Il décrit les conditions propres à un package de service qui n'affectent pas les autres packages de service sur le même nœud pour la même application. Exemple : un package de code dans le package de service qui ne peut pas être démarré et un package de configuration qui ne peut pas être lu. Le package de service déployé est identifié par le nom de l’application (URI), le nom du nœud (chaîne) et le nom du manifeste de service (chaîne).
 
@@ -59,11 +61,12 @@ La granularité du modèle d'intégrité facilite la détection et la correction
 
 La hiérarchie d’intégrité est composée de relations parent-enfant. Un cluster est composé de nœuds et d’applications. Les applications contiennent des services et des applications déployées. Les applications déployées ont elles-mêmes déployé des packages de service. Les services contiennent des partitions, et chaque partition possède un ou plusieurs réplicas. Il existe une relation spéciale entre les nœuds et les entités déployées. Si un nœud est défectueux, comme indiqué par son composant système d’autorité (service Failover Manager), cela affecte les applications déployées, les packages de services et les réplicas déployés sur celui-ci.
 
-La hiérarchie d'intégrité représente le dernier état du système basé sur les derniers rapports d'intégrité, c'est-à-dire, des informations quasiment en temps réel. Les agents de surveillance internes et externes peuvent établir des rapports sur les mêmes entités en fonction de la logique spécifique de l’application ou des conditions personnalisées surveillées. Les rapports utilisateur coexistent avec les rapports système.
+La hiérarchie d'intégrité représente le dernier état du système basé sur les derniers rapports d'intégrité, c'est-à-dire, des informations quasiment en temps réel.
+Les agents de surveillance internes et externes peuvent établir des rapports sur les mêmes entités en fonction de la logique spécifique de l’application ou des conditions personnalisées surveillées. Les rapports utilisateur coexistent avec les rapports système.
 
 Nous vous encourageons à investir dans une fonction de création de rapports et de réponse aux problèmes d’intégrité lors de la conception d’un service cloud volumineux, afin de faciliter le débogage, la surveillance et l’utilisation du service.
 
-## États d'intégrité
+## <a name="health-states"></a>États d'intégrité
 Service Fabric utilise trois états d’intégrité pour décrire si une entité est intègre ou non : OK, Warning et Error. Tous les rapports envoyés au magasin d’intégrité doivent spécifier l’un de ces états. Le résultat de l'évaluation d'intégrité est l'un de ces états.
 
 Les [états d’intégrité](https://msdn.microsoft.com/library/azure/system.fabric.health.healthstate) possibles sont les suivants :
@@ -76,15 +79,16 @@ Les [états d’intégrité](https://msdn.microsoft.com/library/azure/system.fab
 
 - **Unknown**. L’entité n’existe pas dans le magasin d’intégrité. Ce résultat peut être obtenu à partir des requêtes distribuées qui fusionnent les résultats de plusieurs composants. Par exemple, une requête portant sur l’obtention d’une liste de nœuds accède à **FailoverManager** et à **HealthManager**, alors qu’une requête portant sur l’obtention d’une liste d’applications accède à **ClusterManager** et à **HealthManager**. Cette fusion de requêtes est le résultat de plusieurs composants système. Si un autre composant système renvoie une entité qui n’a pas encore atteint le magasin d’intégrité, ou a été nettoyée dans ce dernier, le résultat fusionné présente un état d’intégrité inconnu.
 
-## Stratégies d'intégrité
+## <a name="health-policies"></a>Stratégies d'intégrité
 Le magasin d’intégrité applique des stratégies d’intégrité pour déterminer si une entité est saine en fonction de ses rapports et de ses enfants.
 
 > [AZURE.NOTE] Les stratégies d’intégrité peuvent être spécifiées dans le manifeste de cluster (pour l’évaluation de l’intégrité des clusters et des nœuds) ou dans le manifeste d’application (pour l’évaluation de l’application et de tous ses enfants). Les demandes d’évaluation d’intégrité peuvent également transmettre des stratégies d’évaluation d’intégrité personnalisées, utilisées uniquement pour cette évaluation.
 
 Par défaut, Service Fabric applique des règles strictes (tous les éléments doivent être sains) pour la relation hiérarchique parent-enfant. Si au moins un des enfants comporte un événement défectueux, le parent est considéré comme défectueux.
 
-### Stratégie d’intégrité de cluster
-La [stratégie d’intégrité de cluster](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) est utilisée pour évaluer l’état d’intégrité du cluster et des nœuds. Elle peut être définie dans le manifeste de cluster. Si elle n’est pas spécifiée, la stratégie par défaut (aucun échec autorisé) est utilisée. La stratégie d’intégrité de cluster contient :
+### <a name="cluster-health-policy"></a>Stratégie d’intégrité de cluster
+La [stratégie d’intégrité de cluster](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) est utilisée pour évaluer l’état d’intégrité du cluster et des nœuds. Elle peut être définie dans le manifeste de cluster. Si elle n’est pas spécifiée, la stratégie par défaut (aucun échec autorisé) est utilisée.
+La stratégie d’intégrité de cluster contient :
 
 - [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.considerwarningaserror.aspx). Spécifie s’il faut traiter les rapports d’intégrité Warning comme des erreurs pendant l’évaluation de l’intégrité. Valeur par défaut : false.
 
@@ -92,7 +96,8 @@ La [stratégie d’intégrité de cluster](https://msdn.microsoft.com/library/az
 
 - [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). Spécifie le pourcentage maximum toléré de nœuds pouvant être défectueux avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Dans les clusters de grande taille, certains nœuds sont toujours inactifs ou en réparation. Ce pourcentage doit donc être configuré pour tolérer cette condition.
 
-- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). Le mappage de stratégie d’intégrité de type application peut être utilisé lors de l’évaluation de l’intégrité du cluster pour décrire les types d’applications particuliers. Par défaut, toutes les applications sont placées dans un pool et évaluées avec MaxPercentUnhealthyApplications. Si certains types d’application doivent être traités différemment, ils peuvent être retirés du pool global. Au lieu de cela, ils sont évalués par rapport aux pourcentages associés à leur nom de type d’application dans le mappage. Par exemple, un cluster contient des milliers d’applications de types différents et plusieurs instances d’application de contrôle d’un type d’application particulier. Les applications de contrôle ne doivent jamais être erronées. Vous pouvez spécifier le pourcentage global MaxPercentUnhealthyApplications sur 20 % pour tolérer certains échecs, mais dans le cas du type d’application « ControlApplicationType » la valeur MaxPercentUnhealthyApplications doit être définie sur 0. De cette façon, si certaines des nombreuses applications sont défectueuses, mais que leur nombre est inférieur au pourcentage défectueux global, le cluster est évalué avec le niveau Warning (avertissement). Un état d’avertissement pour l’intégrité n’affecte pas la mise à niveau du cluster, ni les autres analyse déclenchées par l’état Error (erreur). Toutefois, même si une seule application de contrôle rencontre une erreur, le cluster dans son ensemble est défectueux, ce qui déclenche la restauration ou interrompt la mise à niveau du cluster, selon la configuration de cette dernière. Pour les types d’applications définis dans le mappage, toutes les instances d’applications sont retirées du pool d’applications global. Elles sont évalués en fonction du nombre total d’applications du type d’application, à l’aide de la valeur MaxPercentUnhealthyApplications spécifique issue du mappage. Toutes les autres applications restent dans le pool global et sont évaluées avec MaxPercentUnhealthyApplications.
+- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). Le mappage de stratégie d’intégrité de type application peut être utilisé lors de l’évaluation de l’intégrité du cluster pour décrire les types d’applications particuliers. Par défaut, toutes les applications sont placées dans un pool et évaluées avec MaxPercentUnhealthyApplications. Si certains types d’application doivent être traités différemment, ils peuvent être retirés du pool global. Au lieu de cela, ils sont évalués par rapport aux pourcentages associés à leur nom de type d’application dans le mappage. Par exemple, un cluster contient des milliers d’applications de types différents et plusieurs instances d’application de contrôle d’un type d’application particulier. Les applications de contrôle ne doivent jamais être erronées. Vous pouvez spécifier le pourcentage global MaxPercentUnhealthyApplications sur 20 % pour tolérer certains échecs, mais dans le cas du type d’application « ControlApplicationType » la valeur MaxPercentUnhealthyApplications doit être définie sur 0. De cette façon, si certaines des nombreuses applications sont défectueuses, mais que leur nombre est inférieur au pourcentage défectueux global, le cluster est évalué avec le niveau Warning (avertissement). Un état d’avertissement pour l’intégrité n’affecte pas la mise à niveau du cluster, ni les autres analyse déclenchées par l’état Error (erreur). Toutefois, même si une seule application de contrôle rencontre une erreur, le cluster dans son ensemble est défectueux, ce qui déclenche la restauration ou interrompt la mise à niveau du cluster, selon la configuration de cette dernière.
+Pour les types d’applications définis dans le mappage, toutes les instances d’applications sont retirées du pool d’applications global. Elles sont évalués en fonction du nombre total d’applications du type d’application, à l’aide de la valeur MaxPercentUnhealthyApplications spécifique issue du mappage. Toutes les autres applications restent dans le pool global et sont évaluées avec MaxPercentUnhealthyApplications.
 
 Voici un extrait de manifeste de cluster. Pour définir des entrées dans le mappage du type d’application, ajoutez en préfixe « ApplicationTypeMaxPercentUnhealthyApplications-» au nom du paramètre, suivi du nom du type d’application.
 
@@ -107,8 +112,9 @@ Voici un extrait de manifeste de cluster. Pour définir des entrées dans le map
 </FabricSettings>
 ```
 
-### Stratégie d’intégrité d’application
-La [stratégie d’intégrité d’application](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) décrit la procédure d’évaluation des événements et une agrégation des états enfants est effectuée pour les applications et leurs enfants. Elle peut être définie dans le manifeste d’application, **ApplicationManifest.xml**, dans le package d’application. Si aucune stratégie n’est spécifiée, Service Fabric suppose que l’entité est défectueuse si elle (ou un de ses enfants) se trouve à l’état d’intégrité Warning ou Error. Les stratégies configurables sont les suivantes :
+### <a name="application-health-policy"></a>Stratégie d’intégrité d’application
+La [stratégie d’intégrité d’application](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) décrit la procédure d’évaluation des événements et une agrégation des états enfants est effectuée pour les applications et leurs enfants. Elle peut être définie dans le manifeste d’application, **ApplicationManifest.xml**, dans le package d’application. Si aucune stratégie n’est spécifiée, Service Fabric suppose que l’entité est défectueuse si elle (ou un de ses enfants) se trouve à l’état d’intégrité Warning ou Error.
+Les stratégies configurables sont les suivantes :
 
 - [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Spécifie s’il faut traiter les rapports d’intégrité Warning comme des erreurs pendant l’évaluation de l’intégrité. Valeur par défaut : false.
 
@@ -118,7 +124,7 @@ La [stratégie d’intégrité d’application](https://msdn.microsoft.com/libra
 
 - [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). Fournit une liste de stratégies d’intégrité de service par type de service. Ces stratégies remplacent les stratégies d’intégrité de type de service par défaut pour chaque type de service spécifié. Par exemple, si une application est associée à un type de service de passerelle sans état et à un type de service de moteur avec état, vous pouvez configurer différemment les stratégies de contrôle d’intégrité relatives à leur évaluation. La spécification d’une stratégie par type de service permet un contrôle plus précis de l’intégrité du service.
 
-### Stratégie d’intégrité de type de service
+### <a name="service-type-health-policy"></a>Stratégie d’intégrité de type de service
 La [stratégie d’intégrité de type de service](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx) spécifie comment évaluer et agréger les services et les enfants des services. La stratégie contient les éléments suivants :
 
 - [MaxPercentUnhealthyPartitionsPerService](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice.aspx). Spécifie le pourcentage maximum toléré de partitions défectueuses avant qu’un service ne soit considéré comme étant défectueux. Pourcentage par défaut : zéro.
@@ -149,10 +155,10 @@ Voici un extrait de manifeste d’application :
     </Policies>
 ```
 
-## Évaluation de l'intégrité
+## <a name="health-evaluation"></a>Évaluation de l'intégrité
 Les utilisateurs et les services automatisés peuvent évaluer l’intégrité de toutes les entités à tout moment. Pour évaluer l’intégrité d’une entité, le magasin d’intégrité regroupe tous les rapports d’intégrité sur l’entité et évalue tous ses enfants (le cas échéant). L’algorithme d’agrégation d’intégrité utilise des stratégies d’intégrité qui spécifient comment évaluer les rapports d’intégrité et comment agréger les états d’intégrité des enfants (le cas échéant).
 
-### Agrégation de rapports d’intégrité
+### <a name="health-report-aggregation"></a>Agrégation de rapports d’intégrité
 Une entité peut avoir plusieurs rapports d'intégrité envoyés par différents rapporteurs (composants système ou agents de surveillance) sur différentes propriétés. L’agrégation utilise les stratégies d’intégrité associées, en particulier le membre ConsiderWarningAsError de la stratégie d’intégrité d’application ou de cluster, qui spécifie la façon d’évaluer les avertissements.
 
 L'état d'intégrité agrégé est déclenché par les *pires* rapports d'intégrité sur l'entité. S’il existe au moins un rapport d’intégrité Error, l’état d’intégrité agrégé sera Error.
@@ -171,7 +177,7 @@ Agrégation de rapports d’intégrité avec un état Warning et une valeur Cons
 
 [3]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png
 
-### Agrégation d’intégrité des enfants
+### <a name="child-health-aggregation"></a>Agrégation d’intégrité des enfants
 L’état d’intégrité agrégé d’une entité reflète les états d’intégrité des enfants (le cas échéant). L’algorithme d’agrégation des états d’intégrité des enfants utilise les stratégies d’intégrité applicables selon le type d’entité.
 
 ![Agrégation d’intégrité des entités enfants.][4]
@@ -190,17 +196,17 @@ Une fois que le magasin d’intégrité a évalué tous les enfants, il agrège 
 
 - Si le nombre d’enfants à l’état Error ne dépasse pas le pourcentage maximum autorisé d’enfants défectueux, l’état d’intégrité agrégé sera Warning.
 
-## Rapports d'intégrité
+## <a name="health-reporting"></a>Rapports d'intégrité
 Les composants système, les applications System Fabric et les agents de surveillance internes/externes peuvent établir des rapports sur les entités Service Fabric. Les rapporteurs déterminent *localement* l’intégrité des entités analysées en fonction des conditions dans lesquelles elles sont contrôlées. Ils n’ont pas besoin d’examiner les données d’agrégation ou l’état global. Le comportement voulu consiste à disposer de rapporteurs simples, au lieu d’organismes complexes, qui doivent examiner de nombreux éléments pour en déduire les informations à envoyer.
 
 Pour envoyer des données d’intégrité au magasin d’intégrité, le rapporteur doit identifier l’entité affectée et créer un rapport d’intégrité. Le rapport peut ensuite être envoyé via l’API, à l’aide de [FabricClient.HealthClient.ReportHealth](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient_members.aspx), via Powershell ou via REST.
 
-### Rapports d'intégrité
+### <a name="health-reports"></a>Rapports d'intégrité
 Les [rapports d'intégrité](https://msdn.microsoft.com/library/azure/system.fabric.health.healthreport.aspx) de chaque entité du cluster contiennent les informations suivantes :
 
 - **SourceId**. Chaîne qui identifie de façon unique le rapporteur de l'événement d'intégrité.
 
-- **Entity identifier**. Identifie l’entité sur laquelle le rapport est appliqué. Il diffère selon le [type d'entité](service-fabric-health-introduction.md#health-entities-and-hierarchy) :
+- **Entity identifier**. Identifie l’entité sur laquelle le rapport est appliqué. Il diffère selon le [type d'entité](service-fabric-health-introduction.md#health-entities-and-hierarchy):
 
   - Cluster. Aucune.
 
@@ -230,10 +236,10 @@ Les [rapports d'intégrité](https://msdn.microsoft.com/library/azure/system.fab
 
 - **SequenceNumber**. Entier positif qui doit être croissant, car il représente l’ordre des rapports. Ce paramètre est utilisé par le magasin d’intégrité pour détecter les rapports obsolètes, qui ont été reçus tardivement en raison de délais sur le réseau ou d’autres problèmes. Un rapport est rejeté si le numéro de séquence est inférieur ou égal au dernier numéro appliqué aux mêmes entité, source et propriété. S’il n’est pas spécifié, le numéro de séquence est généré automatiquement. Il est nécessaire de le placer dans le numéro de séquence uniquement lors de la création de rapports sur les transitions d’état. Dans ce cas, la source doit mémoriser les rapports qu’elle a envoyés et conserver les informations de récupération en cas de basculement.
 
-Les informations SourceId, entity identifier, Property et HealthState sont requises pour tous les rapports d’intégrité. La chaîne SourceId ne doit pas commencer par le préfixe « **System.** », car il est réservé aux rapports système. Pour la même entité, un seul rapport couvre les mêmes source et propriété. Plusieurs rapports générés pour la même source et la même propriété se remplacent l’un l’autre, du côté du client d’intégrité (s’ils sont traités par lot) ou du côté du magasin d’intégrité. Le remplacement s’effectue en fonction du numéro de séquence : les rapports les plus récents (avec un numéro de séquence supérieur) remplacent les rapports les plus anciens.
+Les informations SourceId, entity identifier, Property et HealthState sont requises pour tous les rapports d’intégrité. La chaîne SourceId ne doit pas commencer par le préfixe «**System.**», car il est réservé aux rapports système. Pour la même entité, un seul rapport couvre les mêmes source et propriété. Plusieurs rapports générés pour la même source et la même propriété se remplacent l’un l’autre, du côté du client d’intégrité (s’ils sont traités par lot) ou du côté du magasin d’intégrité. Le remplacement s’effectue en fonction du numéro de séquence : les rapports les plus récents (avec un numéro de séquence supérieur) remplacent les rapports les plus anciens.
 
-### Événements d'intégrité
-En interne, le magasin d’intégrité conserve les [événements d’intégrité](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx), qui contiennent toutes les informations des rapports, ainsi que des métadonnées supplémentaires, lesquelles indiquent l’heure à laquelle le rapport a été remis au client d’intégrité et l’heure de sa modification côté serveur. Les événements d’intégrité sont retournés par des [requêtes d’intégrité](service-fabric-view-entities-aggregated-health.md#health-queries).
+### <a name="health-events"></a>Événements d'intégrité
+En interne, le magasin d’intégrité conserve les [événements d’intégrité](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx), qui contiennent toutes les informations des rapports, ainsi que d’autres métadonnées, lesquelles indiquent l’heure à laquelle le rapport a été remis au client d’intégrité et l’heure de sa modification côté serveur. Les événements d’intégrité sont retournés par des [requêtes d’intégrité](service-fabric-view-entities-aggregated-health.md#health-queries).
 
 Les métadonnées ajoutées sont notamment :
 
@@ -253,7 +259,7 @@ Les champs de transition d’état peuvent être utilisés pour des niveaux d’
 
 - Si une propriété oscille entre Warning et Error, détermine la durée pendant laquelle elle a été défectueuse (donc pas à l’état OK). Par exemple, une alerte indiquant que la propriété a été défectueuse pendant plus de 5 minutes peut être traduite en : (HealthState != Ok et Now - LastOkTransitionTime > 5 minutes).
 
-## Exemple : évaluer et établir un rapport sur l’intégrité de l’application
+## <a name="example:-report-and-evaluate-application-health"></a>Exemple : évaluer et établir un rapport sur l’intégrité de l’application
 L’exemple suivant envoie un rapport d’intégrité via PowerShell sur l’application **fabric:/WordCount** à partir de la source **MyWatchdog**. Le rapport d’intégrité contient des informations sur la « disponibilité » de la propriété d’intégrité dans un état d’intégrité Error avec une valeur TimeToLive infinie. Il interroge ensuite l’intégrité de l’application, qui retourne l’état d’intégrité agrégé Error et les événements d’état signalés dans la liste des événements d’intégrité.
 
 ```powershell
@@ -321,12 +327,13 @@ HealthEvents                    :
                                   Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-## Utilisation du modèle d'intégrité
-Le modèle d’intégrité permet aux services cloud et à la plateforme sous-jacente Service Fabric de monter en charge, car les déterminations de la surveillance et de l’intégrité sont réparties entre les différents moniteurs au sein du cluster. D’autres systèmes disposent d’un service centralisé unique au niveau du cluster, qui analyse toutes les informations *potentiellement* utiles émises par les services. Cette approche empêche leur évolutivité. Elle ne leur permet pas de collecter des informations très spécifiques pour aider à identifier les problèmes réels ou potentiels aussi près de la cause principale que possible.
+## <a name="health-model-usage"></a>Utilisation du modèle d'intégrité
+Le modèle d’intégrité permet aux services cloud et à la plateforme sous-jacente Service Fabric de monter en charge, car les déterminations de la surveillance et de l’intégrité sont réparties entre les différents moniteurs au sein du cluster.
+D’autres systèmes disposent d’un service centralisé unique au niveau du cluster, qui analyse toutes les informations *potentiellement* utiles émises par les services. Cette approche empêche leur évolutivité. Elle ne leur permet pas de collecter des informations très spécifiques pour aider à identifier les problèmes réels ou potentiels aussi près de la cause principale que possible.
 
 Le modèle d’intégrité est très utilisé pour la surveillance et le diagnostic, pour évaluer l’intégrité du cluster et des applications, et pour les mises à niveau surveillées. D’autres services utilisent les données d’intégrité pour effectuer des réparations automatiques, générer l’historique d’intégrité du cluster et émettre des alertes sous certaines conditions.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Affichage rapports d’intégrité de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Utilisation des rapports d’intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
@@ -339,4 +346,8 @@ Le modèle d’intégrité est très utilisé pour la surveillance et le diagnos
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

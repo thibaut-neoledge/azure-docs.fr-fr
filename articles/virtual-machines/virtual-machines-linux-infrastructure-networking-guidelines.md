@@ -95,7 +95,7 @@ Vous pouvez appliquer des règles de filtrage pour le trafic qui transite via vo
 
 
 ## Composants réseau supplémentaires
-Comme avec une infrastructure de réseau local physique, un réseau virtuel Windows Azure peut contenir plus que des sous-réseaux et des adresses IP. Lorsque vous concevez votre infrastructure d’application, vous souhaiterez incorporer certains de ces composants supplémentaires :
+Comme avec une infrastructure de réseau local physique, un réseau virtuel Microsoft Azure peut contenir plus que des sous-réseaux et des adresses IP. Lorsque vous concevez votre infrastructure d’application, vous souhaiterez incorporer certains de ces composants supplémentaires :
 
 - [Des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) - connectez des réseaux virtuels Azure à d’autres réseaux virtuels Azure, ou connectez des réseaux locaux via une connexion VPN de site à site. Implémentez des connexions Express Route dédiées et sécurisées. Vous pouvez également fournir aux utilisateurs un accès direct grâce à des connexions VPN de point à site.
 - [Un équilibreur de charge](../load-balancer/load-balancer-overview.md) - fournit l’équilibrage de la charge du trafic pour le trafic externe et interne de la façon dont vous le souhaitez.

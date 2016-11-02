@@ -17,7 +17,8 @@
    ms.date="09/14/2016"
    ms.author="annahar" />
 
-# Création d’un équilibrage de charge accessible sur Internet à l’aide du portail Azure
+
+# <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Création d’un équilibrage de charge accessible sur Internet à l’aide du portail Azure
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -29,7 +30,7 @@
 
 Nous allons aborder la séquence de tâches individuelles qui doivent être exécutées pour créer un équilibreur de charge et expliquer en détail ce qui est effectué pour atteindre cet objectif.
 
-## Ce qui est nécessaire pour créer un équilibrage de charge accessible sur Internet
+## <a name="what-is-required-to-create-an-internet-facing-load-balancer?"></a>Ce qui est nécessaire pour créer un équilibrage de charge accessible sur Internet
 
 Vous devez créer et configurer les objets suivants pour déployer un équilibreur de charge.
 
@@ -46,16 +47,16 @@ Vous devez créer et configurer les objets suivants pour déployer un équilibre
 Pour obtenir plus d’informations sur les composants de l’équilibreur de charge avec Azure Resource Manager, consultez la page [Support Azure Resource Manager pour l’équilibreur de charge](load-balancer-arm.md).
 
 
-## Configurer un équilibreur de charge dans le portail Azure
+## <a name="set-up-a-load-balancer-in-azure-portal"></a>Configurer un équilibreur de charge dans le portail Azure
 
-> [AZURE.IMPORTANT] Cet exemple suppose que vous disposez d’un réseau virtuel appelé **myVNet**. Pour effectuer cette opération, consultez [Créer un réseau virtuel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Il suppose également que vous disposez d’un sous-réseau dans **myVNet** appelé **LB-Subnet-BE** et de deux machines virtuelles appelées **web1** et **web2** respectivement dans le même groupe à haute disponibilité appelé **myAvailSet** dans **myVNet**. Pour créer les machines virtuelles, consultez [ce lien](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+> [AZURE.IMPORTANT] Cet exemple suppose que vous disposez d’un réseau virtuel appelé **myVNet**. Pour effectuer cette opération, consultez [Créer un réseau virtuel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) . Il suppose également que vous disposez d’un sous-réseau dans **myVNet** appelé **LB-Subnet-BE** et de deux machines virtuelles appelées **web1** et **web2** respectivement dans le même groupe à haute disponibilité appelé **myAvailSet** dans **myVNet**. Pour créer les machines virtuelles, consultez [ce lien](../virtual-machines/virtual-machines-windows-hero-tutorial.md) .
 
 
 1. Dans un navigateur, accédez au portail Azure : [http://portal.azure.com](http://portal.azure.com) et connectez-vous avec votre compte Azure.
 
-2. Dans l’angle supérieur gauche de l’écran, cliquez sur **Nouveau** > **Mise en réseau** > **Équilibreur de charge.**
+2. Dans l’angle supérieur gauche de l’écran, cliquez sur **Nouveau** > **Mise en réseau** > **Équilibreur de charge**.
 
-3. Dans le panneau **Créer un équilibreur de charge**, tapez le nom de votre équilibreur de charge. Ici, il s’appelle **myLoadBalancer**.
+3. Dans le panneau **Créer un équilibreur de charge** , tapez le nom de votre équilibreur de charge. Ici, il s’appelle **myLoadBalancer**.
 
 4. Sous **Type**, sélectionnez **Public**.
 
@@ -66,24 +67,25 @@ Pour obtenir plus d’informations sur les composants de l’équilibreur de cha
 ![Mise à jour du groupe de ressources de l’équilibreur de charge](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
 
-## Créer un pool d’adresses principal
+## <a name="create-a-back-end-address-pool"></a>Créer un pool d’adresses principal
 
 1. Une fois votre équilibreur de charge déployé avec succès, sélectionnez-le depuis vos ressources. Sous Paramètres, sélectionnez Pools principaux. Saisissez le nom de votre pool principal. Cliquez sur le bouton **Ajouter** en haut du panneau qui s’affiche.
 
-2. Cliquez sur **Ajouter une machine virtuelle** dans le panneau **Ajouter un pool principal**. Sélectionnez **Choisir un groupe à haute disponibilité** sous **Groupe à haute disponibilité**, puis choisissez **myAvailSet**. Sélectionnez **Choisir les machines virtuelles** dans la section Machines virtuelles du panneau, puis cliquez sur **web1** et **web2**, les deux machines virtuelles créées pour l’équilibrage de charge. Assurez-vous des coches bleues apparaissent à gauche de ces deux machines, comme le montre l’image ci-dessous. Cliquez ensuite sur **Sélectionner** dans ce panneau, sur OK dans le panneau **Choisir les machines virtuelles**, puis sur **OK** dans le panneau **Ajouter un pool principal**.
+2. Cliquez sur **Ajouter une machine virtuelle** dans le panneau **Ajouter un pool principal**.  Sélectionnez **Choisir un groupe à haute disponibilité** sous **Groupe à haute disponibilité**, puis choisissez **myAvailSet**. Sélectionnez **Choisir les machines virtuelles** dans la section Machines virtuelles du panneau, puis cliquez sur **web1** et **web2**, les deux machines virtuelles créées pour l’équilibrage de charge. Assurez-vous des coches bleues apparaissent à gauche de ces deux machines, comme le montre l’image ci-dessous. Cliquez ensuite sur **Sélectionner** dans ce panneau, sur OK dans le panneau **Choisir les machines virtuelles**, puis sur **OK** dans le panneau **Ajouter un pool principal**.
 
-    ![Ajout au pool d’adresses principal -](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
+    ![Ajout au pool d’adresses principal - ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 
 3. Vérifiez que la liste déroulante de vos notifications comporte une mise à jour concernant l’enregistrement du pool principal de l’équilibreur de charge en plus de la mise à jour de l’interface réseau pour les deux machines virtuelles **web1** et **web2**.
 
 
-## Créer une sonde, une règle d’équilibrage de charge et des règles NAT
+## <a name="create-a-probe,-lb-rule,-and-nat-rules"></a>Créer une sonde, une règle d’équilibrage de charge et des règles NAT
 
 1. Créer une sonde d’intégrité.
 
     Dans les paramètres de votre équilibreur de charge, sélectionnez Sondes. Cliquez ensuite sur **Ajouter** en haut du panneau.
 
-    Il existe deux façons de configurer une sonde : HTTP ou TCP. Cet exemple montre HTTP, mais TCP peut être configuré de la même manière. Mettez à jour les informations nécessaires. Comme indiqué, **myLoadBalancer** équilibrera le trafic sur le port 80. Le chemin d’accès sélectionné est HealthProbe.aspx, l’intervalle est de 15 secondes, et le seuil de défaillance est 2. Quand vous avez terminé, cliquez sur **OK** pour créer la sonde.
+    Il existe deux façons de configurer une sonde : HTTP ou TCP. Cet exemple montre HTTP, mais TCP peut être configuré de la même manière.
+    Mettez à jour les informations nécessaires. Comme indiqué, **myLoadBalancer** équilibrera le trafic sur le port 80. Le chemin d’accès sélectionné est HealthProbe.aspx, l’intervalle est de 15 secondes, et le seuil de défaillance est 2. Quand vous avez terminé, cliquez sur **OK** pour créer la sonde.
 
     Placez le pointeur sur l’icône « i » pour en savoir plus sur ces configurations individuelles et sur la façon de les modifier selon vos besoins.
 
@@ -103,11 +105,11 @@ Pour obtenir plus d’informations sur les composants de l’équilibreur de cha
 
     ![Ajout d’une règle NAT entrante](./media/load-balancer-get-started-internet-portal/6-load-balancer-inbound-nat-rules.png)
 
-## Supprimer un équilibreur de charge
+## <a name="remove-a-load-balancer"></a>Supprimer un équilibreur de charge
 
-Pour supprimer un équilibreur de charge, sélectionnez l’équilibreur de charge que vous souhaitez supprimer. Dans le *Équilibreur de charge*, cliquez sur **Supprimer** en fin de panneau. Puis sélectionnez **Oui** à l’invite.
+Pour supprimer un équilibreur de charge, sélectionnez l’équilibreur de charge que vous souhaitez supprimer. Dans le haut du panneau *Équilibreur de charge*, cliquez sur **Supprimer**. Puis sélectionnez **Oui** à l’invite.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-cli.md)
 
@@ -115,4 +117,8 @@ Pour supprimer un équilibreur de charge, sélectionnez l’équilibreur de char
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

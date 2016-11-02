@@ -1,31 +1,32 @@
 <properties
-	pageTitle="Mise en cache personnalisée dans Azure API Management"
-	description="Découvrez comment mettre en cache des éléments par clé dans le service Azure API Management"
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager=""
-	editor=""/>
+    pageTitle="Custom caching in Azure API Management"
+    description="Learn how to cache items by key in Azure API Management"
+    services="api-management"
+    documentationCenter=""
+    authors="darrelmiller"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/09/2016"
-	ms.author="darrmi"/>
+    ms.service="api-management"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="10/25/2016"
+    ms.author="darrmi"/>
 
-# Mise en cache personnalisée dans Azure API Management
-Le service Azure API Management prend en charge la [mise en cache de réponses HTTP](api-management-howto-cache.md) en utilisant l’URL de la ressource comme clé. La clé peut être modifiée par les en-têtes de requête à l’aide des propriétés `vary-by`. Si cette approche permet de mettre en cache l’ensemble des réponses HTTP (également appelées représentations), elle peut être aussi parfois utile pour la mise en cache d’une simple partie d’une représentation. Les nouvelles stratégies [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) et [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) permettent de stocker et récupérer des éléments de données arbitraires à partir des définitions de stratégie. Cette fonctionnalité apporte une valeur supplémentaire à la stratégie [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) présentée précédemment, puisqu’elle vous permet de mettre en cache les réponses à partir de services externes.
 
-## Architecture  
-Le service API Management utilise un cache de données partagé par client, afin que vous puissiez continuer à accéder aux mêmes données mises en cache lorsque vous déployez plusieurs unités. Lorsque vous gérez un déploiement dans plusieurs régions, chacune des régions comporte cependant des caches indépendants. C’est pourquoi il est important de ne pas traiter le cache sous la forme d’un magasin de données où il représente la seule source de certains éléments d’informations. Si vous procédez ainsi, et que vous décidez ensuite de tirer parti du déploiement dans plusieurs régions, les clients ayant des utilisateurs nomades risquent de perdre l’accès à ces données mises en cache.
+# <a name="custom-caching-in-azure-api-management"></a>Custom caching in Azure API Management
+Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (aka representations), but sometimes it is useful to just cache a portion of a representation. The new [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) and [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the previously introduced [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) policy because you can now cache responses from external services.
 
-## Mise en cache de fragments
-Il peut arriver que, dans les réponses renvoyées, une partie des données soit difficile à déterminer bien qu’elles restent à jour pendant un laps de temps raisonnable. Pensez, par exemple, à un service généré par une compagnie aérienne qui fournit des informations concernant les réservations de vol, l’état du vol, etc. Si l’utilisateur est membre du programme de points de fidélité de la compagnie aérienne, il obtiendrait également des informations relatives à l’état actuel de son adhésion et au nombre de miles cumulé. Ces informations relatives à l’utilisateur peuvent être stockées dans un autre système, mais il peut être souhaitable de les inclure dans les réponses renvoyées concernant les réservations et l’état du vol. Cette opération peut être effectuée à l’aide d’un processus appelé « mise en cache de fragments ». La représentation primaire peut être renvoyée par le serveur d’origine à l’aide d’un type de jeton pour indiquer l’emplacement où les informations relatives à l’utilisateur doivent être insérées.
+## <a name="architecture"></a>Architecture  
+API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you will still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. Due to this, it is important to not treat the cache as a data store, where it is the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
 
-Observez la réponse JSON suivante renvoyée par une API du serveur principal.
+## <a name="fragment-caching"></a>Fragment caching
+There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If the user is a member of the airlines points program, they would also have information relating to their current status and mileage accumulated. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
+
+Consider the following JSON response from a backend API.
 
 
     {
@@ -37,23 +38,23 @@ Observez la réponse JSON suivante renvoyée par une API du serveur principal.
       "userprofile" : "$userprofile$"
     }  
 
-Voici la ressource secondaire disponible à l’emplacement `/userprofile/{userid}` :
+And secondary resource at `/userprofile/{userid}` that looks like,
 
      { "username" : "Bob Smith", "Status" : "Gold" }
 
-Afin de déterminer les informations utilisateur qu’il convient d’inclure, nous devons identifier l’utilisateur final. Ce mécanisme dépend de l’implémentation. Par exemple, j’utilise la revendication `Subject` d’un jeton `JWT`.
+In order to determine the appropriate user information to include, we need to identify who the end user is. This mechanism is implementation dependent. As an example, I am using the `Subject` claim of a `JWT` token. 
 
     <set-variable
       name="enduserid"
       value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 
-Nous stockons cette valeur `enduserid` dans une variable de contexte en vue d’une utilisation ultérieure. L’étape suivante consiste à déterminer si une demande précédente a déjà permis d’extraire les informations de l’utilisateur et de les stocker dans le cache. Pour cela, nous utilisons la stratégie `cache-lookup-value`.
+We store this `enduserid` value in a context variable for later use. The next step is to determine if a previous request has already retrieved the user information and stored it in the cache. For this we use the `cache-lookup-value` policy.
 
-	  <cache-lookup-value
+      <cache-lookup-value
       key="@("userprofile-" + context.Variables["enduserid"])"
       variable-name="userprofile" />
 
-Si aucune entrée du cache ne correspond à la valeur de clé, aucune variable de contexte `userprofile` ne sera créée. Pour vérifier si la recherche a abouti, nous utilisons la stratégie de flux de contrôle `choose`.
+If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable will be created. We check the success of the lookup using the `choose` control flow policy.
 
     <choose>
         <when condition="@(!context.Variables.ContainsKey("userprofile"))">
@@ -62,9 +63,9 @@ Si aucune entrée du cache ne correspond à la valeur de clé, aucune variable d
     </choose>
 
 
-Si la variable de contexte `userprofile` n’existe pas, nous allons devoir exécuter une requête HTTP pour la récupérer.
+If the `userprofile` context variable doesn’t exist, then we are going to have to make an HTTP request to retrieve it.
 
-	<send-request
+    <send-request
       mode="new"
       response-variable-name="userprofileresponse"
       timeout="10"
@@ -75,174 +76,178 @@ Si la variable de contexte `userprofile` n’existe pas, nous allons devoir exé
           (string)context.Variables["enduserid"]).AbsoluteUri)
       </set-url>
       <set-method>GET</set-method>
-	</send-request>
+    </send-request>
 
-Nous utilisons le paramètre `enduserid` pour construire l’URL sur la ressource de profil utilisateur. Une fois la réponse obtenue, nous pouvons extraire le texte du corps de la réponse et le stocker dans une variable de contexte.
+We use the `enduserid` to construct the URL to the user profile resource. Once we have the response, we can pull the body text out of the response and store it back into a context variable.
 
     <set-variable
         name="userprofile"
         value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 
-Pour nous éviter d’avoir à réexécuter cette requête HTTP, lorsque l’utilisateur effectue une autre requête, nous pouvons stocker le profil utilisateur dans le cache.
+To avoid us having to make this HTTP request again, when the same user makes another request, we can store the user profile in the cache.
 
-	<cache-store-value
+    <cache-store-value
         key="@("userprofile-" + context.Variables["enduserid"])"
         value="@((string)context.Variables["userprofile"])" duration="100000" />
 
-Nous stockons la valeur dans le cache en utilisant la même clé que celle que nous avons initialement tenté de récupérer. La durée du stockage de la valeur doit dépendre de la fréquence à laquelle les informations sont modifiées et du degré de tolérance des utilisateurs face à des informations obsolètes.
+We store the value in the cache using the exact same key that we originally attempted to retrieve it with. The duration that we choose to store the value should be based on how often the information changes and how tolerant users are to out of date information. 
 
-Il est important de comprendre que la récupération de données du cache est une requête réseau hors processus et qu’elle peut potentiellement ajouter des dizaines de millisecondes à la requête. On peut y voir des avantages lorsqu’il faut plus de temps que prévu pour déterminer les informations de profil utilisateur si l’on doit exécuter des requêtes de base de données ou agréger des informations à partir de plusieurs serveurs principaux.
+It is important to realize that retrieving from the cache is still an out-of-process, network request and potentially can still add tens of milliseconds to the request. The benefits come when determining the user profile information takes significantly longer than that due to needing to do database queries or aggregate information from multiple back-ends.
 
-La dernière étape du processus consiste à mettre à jour la réponse renvoyée avec nos informations de profil utilisateur.
+The final step in the process is to update the returned response with our user profile information.
 
     <!—Update response body with user profile-->
     <find-and-replace
         from='"$userprofile$"'
         to="@((string)context.Variables["userprofile"])" />
 
-J’ai choisi d’inclure les guillemets dans le jeton de sorte que même si l’opération de remplacement ne se produit pas, la réponse renvoyée prenne toujours la forme d’un script JSON valide. L’idée était ici principalement de faciliter le débogage.
+I chose to include the quotation marks as part of the token so that even when the replace doesn’t occur, the response was still valid JSON. This was primarily to make debugging easier.
 
-Une fois que l’on combine toutes ces étapes, on obtient une stratégie semblable à ce qui suit.
+Once you combine all these steps together, the end result is a policy that looks like the following one.
 
      <policies>
-    	<inbound>
-    		<!-- How you determine user identity is application dependent -->
-    		<set-variable
+        <inbound>
+            <!-- How you determine user identity is application dependent -->
+            <set-variable
               name="enduserid"
               value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 
-    		<!--Look for userprofile for this user in the cache -->
-    		<cache-lookup-value
+            <!--Look for userprofile for this user in the cache -->
+            <cache-lookup-value
               key="@("userprofile-" + context.Variables["enduserid"])"
               variable-name="userprofile" />
 
-    		<!-- If we don’t find it in the cache, make a request for it and store it -->
-    		<choose>
-    			<when condition="@(!context.Variables.ContainsKey("userprofile"))">
-    				<!—Make HTTP request to get user profile -->
-    				<send-request
+            <!-- If we don’t find it in the cache, make a request for it and store it -->
+            <choose>
+                <when condition="@(!context.Variables.ContainsKey("userprofile"))">
+                    <!—Make HTTP request to get user profile -->
+                    <send-request
                       mode="new"
                       response-variable-name="userprofileresponse"
                       timeout="10"
                       ignore-error="true">
 
                        <!-- Build a URL that points to the profile for the current end-user -->
-    					<set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),(string)context.Variables["enduserid"]).AbsoluteUri)</set-url>
-    					<set-method>GET</set-method>
-    				</send-request>
+                        <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),(string)context.Variables["enduserid"]).AbsoluteUri)</set-url>
+                        <set-method>GET</set-method>
+                    </send-request>
 
-    				<!—Store response body in context variable -->
-    				<set-variable
+                    <!—Store response body in context variable -->
+                    <set-variable
                       name="userprofile"
                       value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 
-    				<!—Store result in cache -->
-    				<cache-store-value
+                    <!—Store result in cache -->
+                    <cache-store-value
                       key="@("userprofile-" + context.Variables["enduserid"])"
                       value="@((string)context.Variables["userprofile"])"
                       duration="100000" />
-    			</when>
-    		</choose>
-    		<base />
-    	</inbound>
-    	<outbound>
-    		<!—Update response body with user profile-->
-    		<find-and-replace
+                </when>
+            </choose>
+            <base />
+        </inbound>
+        <outbound>
+            <!—Update response body with user profile-->
+            <find-and-replace
                   from='"$userprofile$"'
                   to="@((string)context.Variables["userprofile"])" />
-    		<base />
-    	</outbound>
+            <base />
+        </outbound>
      </policies>
 
-Cette approche de mise en cache est principalement utilisée dans les sites web où le script HTML est composé côté serveur afin de pouvoir être restitué sur une seule page. Elle peut toutefois être également utile dans les API où les clients ne peuvent pas effectuer de mise en cache HTTP côté client, ou lorsqu’il est préférable de ne pas confier cette responsabilité au client.
+This caching approach is primarily used in web sites where HTML is composed on the server side so that it can be rendered as a single page. However, it can also be useful in APIs where clients cannot do client side HTTP caching or it is desirable not to put that responsibility on the client.
 
-Ce même type de mise en cache de fragments peut également être effectué sur les serveurs web principaux qui utilisent un serveur de mise en cache Redis ; il est cependant utile de s’appuyer sur le service API Management pour exécuter cette opération lorsque les fragments mis en cache proviennent de serveurs principaux différents de ceux des réponses principales.
+This same kind of fragment caching can also be done on the backend web servers using a Redis caching server, however, using the API Management service to perform this work is useful when the cached fragments are coming from different back-ends than the primary responses.
 
-## Contrôle de version transparent
-Il n’est pas rare que plusieurs versions différentes d’une implémentation d’une API soient prises en charge simultanément. Cette prise en charge simultanée permet, par exemple, de supporter des environnements différents (environnements de développement, de test, de production, etc.) ou bien de prendre en charge les versions antérieures de l’API pour laisser aux consommateurs de l’API le temps de migrer vers des versions plus récentes.
+## <a name="transparent-versioning"></a>Transparent versioning
+It is common practice for multiple different implementation versions of an API to be supported at any one time. This is perhaps to support different environments, like dev, test, production, etc, or it may be to support older versions of the API to give time for API consumers to migrate to newer versions. 
 
-Au lieu de demander aux développeurs client de modifier les URL de `/v1/customers` à `/v2/customers`, il est envisageable de stocker dans les données de profil du consommateur la version de l’API qu’il souhaite actuellement utiliser et d’appeler l’URL du serveur principal concerné. Afin de déterminer l’URL de serveur principal qu’il convient d’appeler pour un client particulier, il est nécessaire d’interroger des données de configuration. En mettant en cache ces données de configuration, nous pouvons limiter la perte de performances associée à ce processus de recherche.
+One approach to handling this instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. In order to determine the correct backend URL to call for a particular client, it is necessary to query some configuration data. By caching this configuration data, we can minimize the performance penalty of doing this lookup.
 
-La première étape consiste à déterminer l’identificateur utilisé pour configurer la version souhaitée. Dans cet exemple, j’ai choisi d’associer la version à la clé d’abonnement du produit.
+The first step is to determine the identifier used to configure the desired version. In this example, I chose to associate the version to the product subscription key. 
 
-		<set-variable name="clientid" value="@(context.Subscription.Key)" />
+        <set-variable name="clientid" value="@(context.Subscription.Key)" />
 
-Nous devons ensuite effectuer une recherche dans le cache pour vérifier si nous avons déjà récupéré la version client appropriée.
+We then do a cache lookup to see if we already have retrieved the desired client version.
 
-		<cache-lookup-value
+        <cache-lookup-value
         key="@("clientversion-" + context.Variables["clientid"])"
         variable-name="clientversion" />
 
-Puis nous vérifions si cette version a ou non été trouvée dans le cache.
+Then we check to see if we did not find it in the cache.
 
-	<choose>
-		<when condition="@(!context.Variables.ContainsKey("clientversion"))">
+    <choose>
+        <when condition="@(!context.Variables.ContainsKey("clientversion"))">
 
-Dans le cas contraire, il est alors possible de l’extraire.
+If we didn’t then we go and retrieve it.
 
-	<send-request
+    <send-request
         mode="new"
         response-variable-name="clientconfiguresponse"
         timeout="10"
         ignore-error="true">
-        		<set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
-        		<set-method>GET</set-method>
-	</send-request>
+                <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
+                <set-method>GET</set-method>
+    </send-request>
 
-Extrayez le texte du corps de réponse à partir de la réponse.
+Extract the response body text from the response.
 
     <set-variable
           name="clientversion"
           value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
 
-Stockez-le de nouveau dans le cache pour une utilisation ultérieure.
+Store it back in the cache for future use.
 
     <cache-store-value
           key="@("clientversion-" + context.Variables["clientid"])"
           value="@((string)context.Variables["clientversion"])"
           duration="100000" />
 
-Pour finir, mettez à jour l’URL du serveur principal pour sélectionner la version du service souhaitée par le client.
+And finally update the back-end URL to select the version of the service desired by the client.
 
-	<set-backend-service
+    <set-backend-service
           base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
 
-La stratégie complète se présente comme suit.
+The completely policy is as follows.
 
-	 <inbound>
-		<base />
-		<set-variable name="clientid" value="@(context.Subscription.Key)" />
-		<cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
+     <inbound>
+        <base />
+        <set-variable name="clientid" value="@(context.Subscription.Key)" />
+        <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
 
-		<!-- If we don’t find it in the cache, make a request for it and store it -->
-		<choose>
-			<when condition="@(!context.Variables.ContainsKey("clientversion"))">
-				<send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
-					<set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
-					<set-method>GET</set-method>
-				</send-request>
-				<!-- Store response body in context variable -->
-				<set-variable name="clientversion" value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
-				<!-- Store result in cache -->
-				<cache-store-value key="@("clientversion-" + context.Variables["clientid"])" value="@((string)context.Variables["clientversion"])" duration="100000" />
-			</when>
-		</choose>
-		<set-backend-service base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
-	</inbound>
+        <!-- If we don’t find it in the cache, make a request for it and store it -->
+        <choose>
+            <when condition="@(!context.Variables.ContainsKey("clientversion"))">
+                <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
+                    <set-url>@(new Uri(new Uri(context.Api.ServiceUrl.ToString() + "api/ClientConfig/"),(string)context.Variables["clientid"]).AbsoluteUri)</set-url>
+                    <set-method>GET</set-method>
+                </send-request>
+                <!-- Store response body in context variable -->
+                <set-variable name="clientversion" value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
+                <!-- Store result in cache -->
+                <cache-store-value key="@("clientversion-" + context.Variables["clientid"])" value="@((string)context.Variables["clientversion"])" duration="100000" />
+            </when>
+        </choose>
+        <set-backend-service base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
+    </inbound>
 
 
-En permettant aux consommateurs d’API de contrôler en toute transparence la version du serveur principal utilisée par les clients sans avoir à mettre à jour et redéployer les clients, nous proposons une solution pratique qui résout de nombreux problèmes liés au contrôle de version des API.
+Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients is a elegant solution that addresses many API versioning concerns.
 
-## Isolation des locataires
+## <a name="tenant-isolation"></a>Tenant Isolation
 
-Dans les déploiements mutualisés plus volumineux, certaines entreprises créent des groupes de locataires spécifiques sur des déploiements distincts de matériel du serveur principal. Cette approche contribue à réduire au minimum le nombre de clients affectés par un problème matériel sur le serveur principal. Elle permet également de déployer de nouvelles versions de logiciels de manière progressive. Dans l’idéal, cette architecture de serveur principal doit être transparente pour les consommateurs d’API. Cet objectif est réalisable en adoptant une approche similaire à celle du contrôle de version transparent, puisqu’il repose sur la même technique de manipulation de l’URL du serveur principal qui utilise un état de configuration par clé d’API.
+In larger, multi-tenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware. This minimizes the number of customers who are impacted by a hardware issue on the backend. It also enables new software versions to be rolled out in stages. Ideally this backend architecture should be transparent to API consumers. This can be achieved in a similar way to transparent versioning because it is based on the same technique of manipulating the backend URL using configuration state per API key.  
 
-Au lieu de renvoyer une version par défaut de l’API pour chaque clé d’abonnement, vous devez retourner un identificateur qui associe un locataire au groupe matériel attribué. Cet identificateur peut être utilisé pour construire l’URL du serveur principal approprié.
+Instead of returning a preferred version of the API for each subscription key, you would return an identifier that relates a tenant to the assigned hardware group. That identifier can be used to construct the appropriate backend URL.
 
-## Résumé
-L’utilisation du cache du service Azure API Management pour le stockage de n’importe quel type de données permet d’accéder efficacement aux données de configuration susceptibles d’affecter le mode de traitement d’une demande entrante. Cette mise en cache peut également être utilisée pour stocker des fragments de données pouvant augmenter les réponses retournées à partir d’une API du serveur principal.
+## <a name="summary"></a>Summary
+The freedom to use the Azure API management cache for storing any kind of data enables efficient access to configuration data that can affect the way an inbound request is processed. It can also be used to store data fragments that can augment responses, returned from a backend API.
 
-## Étapes suivantes
-Faites-nous part de vos commentaires dans le thread Disqus de cette rubrique si l’utilisation des stratégies décrites s’est révélée adaptée à d’autres scénarios, ou s’il existe des scénarios que vous souhaiteriez mettre en œuvre mais qu’il vous semble impossible de déployer actuellement.
+## <a name="next-steps"></a>Next steps
+Please give us your feedback in the Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like to achieve but do not feel are currently possible.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

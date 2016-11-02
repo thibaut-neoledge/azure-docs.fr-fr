@@ -16,15 +16,16 @@
    ms.date="08/18/2016"
    ms.author="aglick"/>
 
-#Haute disponibilité pour les applications développées sur Microsoft Azure
+
+#<a name="high-availability-for-applications-built-on-microsoft-azure"></a>Haute disponibilité pour les applications développées sur Microsoft Azure
 
 Une application hautement disponible absorbe les variations de disponibilité, de charge et les défaillances temporaires des services dépendants et du matériel. L’application continue à fonctionner correctement aux niveaux systémique et de l’utilisateur, tel que défini par les besoins de votre entreprise ou les contrats de niveau de service de l’application.
 
-##Fonctionnalités de haute disponibilité Azure
+##<a name="azure-high-availability-features"></a>Fonctionnalités de haute disponibilité Azure
 
 Azure dispose de nombreuses fonctionnalités intégrées de plateforme qui prennent en charge des applications hautement disponibles. Cette section décrit certaines de ces fonctionnalités clés. Pour une analyse plus complète de la plateforme, consultez la page [Guide technique de la résilience Azure](./resiliency-technical-guidance.md).
 
-###Contrôleur de structure
+###<a name="fabric-controller"></a>Contrôleur de structure
 
 Le contrôleur de structure Azure approvisionne et surveille l’état des instances de calcul Azure. Le contrôleur de structure vérifie l’état du matériel et des logiciels des instances hôtes et de la machine invitée. Lorsqu’il détecte une défaillance, il applique les contrats de niveau de service en déplaçant automatiquement les instances de machines virtuelles. Le concept de domaines d’erreur et de mise à niveau englobe en outre les contrats de niveau de service de calcul.
 
@@ -36,21 +37,21 @@ Le diagramme suivant représente les ressources Azure partagées qui sont déplo
 
 Les domaines de mise à niveau, qui présentent une fonctionnalité similaire à celle des domaines d’erreur, prennent en charge des mises à niveau, non des défaillances. Un domaine de mise à niveau est une unité logique de séparation d’instance qui détermine les instances d’un service spécifique à mettre à niveau à un point donné dans le temps. Par défaut, pour votre déploiement de service hébergé, cinq domaines de mise à niveau sont définis. Toutefois, vous pouvez modifier cette valeur dans le fichier de définition de service. Par exemple, imaginez que vous disposez de huit instances de votre rôle Web. Deux instances seront affectées à trois domaines de mise à niveau, et deux instances à un autre domaine de mise à niveau. Azure définit la séquence de mise à jour, qui est par ailleurs basée sur le nombre de domaines de mise à niveau. Pour plus d’informations sur les domaines de mise à niveau, consultez [Mettre à jour un service cloud](../cloud-services/cloud-services-update-azure-service.md).
 
-###Fonctionnalités dans d’autres services
+###<a name="features-in-other-services"></a>Fonctionnalités dans d’autres services
 
-En plus des fonctionnalités de plateforme qui prennent en charge une haute disponibilité de calcul, Azure intègre des fonctionnalités de haute disponibilité dans ses autres services. Par exemple, Azure Storage conserve trois réplicas de l’ensemble des données d’objets blob, de tables et de files d’attente. La solution prend également en charge l’option de géoréplication pour stocker des sauvegardes d’objets blob et de tables dans une région secondaire. Le réseau de distribution de contenu Azure permet la mise en cache d’objets blob dans le monde entier, à des fins de redondance et d’extensibilité. La Base de données SQL Azure gère également plusieurs réplicas.
+En plus des fonctionnalités de plateforme qui prennent en charge une haute disponibilité de calcul, Azure intègre des fonctionnalités de haute disponibilité dans ses autres services. Par exemple, Azure Storage conserve trois réplicas de l’ensemble des données d’objets blob, de tables et de files d’attente. La solution prend également en charge l’option de géoréplication pour stocker des sauvegardes d’objets blob et de tables dans une région secondaire. Le réseau de distribution de contenu Azure permet la mise en cache d’objets blob dans le monde entier, à des fins de redondance et d’extensibilité. Azure SQL Database gère également plusieurs réplicas.
 
-En plus de la série d’articles [Guide technique de la résilience Azure](https://aka.ms/bctechguide), consultez le document [Meilleures pratiques pour la création de services à grande échelle sur les services Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/). Ces références approfondissent la thématique sur les fonctionnalités de disponibilité de la plateforme Azure.
+En plus de la série d’articles [Guide technique de la résilience Azure](https://aka.ms/bctechguide), consultez le document [Best Practices for Designing Large-Scale Services on Microsoft Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/). Ces références approfondissent la thématique sur les fonctionnalités de disponibilité de la plateforme Azure.
 
 Bien qu’Azure offre de nombreuses fonctionnalités qui prennent en charge la haute disponibilité, il est important de comprendre leurs limitations :
 
 - Pour le calcul, Azure garantit que vos rôles sont disponibles et opérationnels, mais ne sait pas si votre application est exécutée ou surchargée.
-- Pour la Base de données SQL Azure, les données sont répliquées de manière synchrone au sein de la région. Vous pouvez choisir la géoréplication active, qui autorise jusqu’à quatre copies supplémentaires de base de données dans la même région (ou différentes régions). Ces réplicas de base de données ne sont pas des sauvegardes ponctuelles. Les bases de données SQL fournissent des fonctionnalités de sauvegarde ponctuelle. Pour en savoir plus sur les fonctionnalités de limite dans le temps de la Base de données SQL, consultez [ Azure SQL Database Point in Time Restore](https://azure.microsoft.com/blog/azure-sql-database-point-in-time-restore/) (Limite de restauration dans le temps de la Base de données SQL Azure).
+- Pour Azure SQL Database, les données sont répliquées de manière synchrone au sein de la région. Vous pouvez choisir la géoréplication active, qui autorise jusqu’à quatre copies supplémentaires de base de données dans la même région (ou différentes régions). Ces réplicas de base de données ne sont pas des sauvegardes ponctuelles. Les bases de données SQL fournissent des fonctionnalités de sauvegarde ponctuelle. Pour en savoir plus sur les fonctionnalités de limite dans le temps de la Base de données SQL, consultez [Azure SQL Database Point in Time Restore](https://azure.microsoft.com/blog/azure-sql-database-point-in-time-restore/)(Limite de restauration dans le temps dans Azure SQL Database).
 - Pour Azure Storage, les données de tables et des objets blob sont répliquées par défaut dans une autre région. Toutefois, vous ne pouvez pas accéder aux réplicas avant que Microsoft ne décide de basculer sur l’autre site. Un basculement de région se produit uniquement en cas d’interruption de service prolongée à l’échelle de la région, et il n’existe aucun contrat de niveau de service dédié au temps de basculement géographique. Il est également important de noter que les corruptions de données se propagent rapidement entre les réplicas.
 
 Pour ces raisons, vous devez compléter les fonctionnalités de disponibilité de plateforme par les fonctionnalités de disponibilité propres aux applications. Les fonctionnalités de disponibilité d’application incluent la fonction d’instantané d’objet blob pour créer des sauvegardes ponctuelles de données d’objets blob.
 
-###Groupes à haute disponibilité pour Azure Virtual Machines
+###<a name="availability-sets-for-azure-virtual-machines"></a>Groupes à haute disponibilité pour Azure Virtual Machines
 
 La majeure partie de cet article est axée sur les services cloud qui utilisent un modèle Platform as a Service (PaaS). Toutefois, il existe également des fonctions de disponibilité spécifiques pour Azure Virtual Machines qui utilisent un modèle Infrastructure as a Service (IaaS). Pour atteindre vos objectifs de haute disponibilité avec Virtual Machines, vous devez utiliser des groupes à haute disponibilité. Un groupe à haute disponibilité joue un rôle identique avec les domaines d’erreur et de mise à niveau. Au sein d’un groupe à haute disponibilité, Azure positionne les machines virtuelles de manière à ce que les défaillances matérielles localisées et les activités de maintenance ne provoquent pas la panne de l’ensemble des machines de ce groupe. Des groupes à haute disponibilité sont requis pour respecter les contrats de niveau de service dédiés à la disponibilité de Virtual Machines.
 
@@ -60,19 +61,19 @@ Le diagramme suivant propose une représentation de deux groupes à haute dispon
 
 >[AZURE.NOTE] Dans le diagramme précédent, SQL Server est installé et exécuté sur des machines virtuelles. Cette configuration est différente de la précédente description relative à la Base de données SQL Azure, dans laquelle la base de données est fournie en tant que service géré.
 
-##Stratégies d’application pour la haute disponibilité
+##<a name="application-strategies-for-high-availability"></a>Stratégies d’application pour la haute disponibilité
 
 La plupart des stratégies d’application dédiées à la haute disponibilité impliquent la redondance ou la suppression de dépendances rigides entre les composants applicatifs. La conception des applications doit prendre en charge la tolérance de panne durant les temps d’arrêt sporadiques des services Azure ou tiers. Les sections suivantes décrivent des modèles d’application dédiés à l’augmentation de la disponibilité de vos services cloud.
 
-###Communication asynchrone et files d’attente durables
+###<a name="asynchronous-communication-and-durable-queues"></a>Communication asynchrone et files d’attente durables
 
 Pensez à la communication asynchrone intervenant entre des services faiblement couplés pour augmenter la disponibilité dans les applications Azure. Dans ce modèle, vous rédigez des messages transmis vers des files d’attente de stockage ou des files d’attente Azure Service Bus, pour traitement ultérieur. Lorsque vous rédigez le message vers la file d’attente, le contrôle revient immédiatement à l’expéditeur du message. Un autre niveau de l’application gère le traitement du message, généralement implémenté en tant que rôle de travail. Si le rôle de travail tombe en panne, les messages s’accumulent dans la file d’attente, jusqu’à restauration du service de traitement. Tant que la file d’attente reste disponible, il n’existe aucune dépendance directe entre l’expéditeur frontal et le processeur de message. Cela élimine la nécessité des appels synchrones du service, qui peuvent constituer un goulot d’étranglement du débit dans les applications distribuées.
 
-Une variante de cette fonctionnalité utilise Azure Storage (objets blob, tables, files d’attente) ou les files d’attente Service Bus en tant qu’emplacements de basculement des appels échoués de la base de données. Par exemple, un appel synchrone au sein d’une application vers un autre service (comme la Base de données SQL Azure) échoue de façon répétée. Vous pouvez être en mesure de sérialiser ces données en instances de stockage durable. Ultérieurement, lors de la remise en ligne du service ou de la base de données, l’application peut de nouveau envoyer la requête à partir du stockage. Cependant, dans ce modèle, l’emplacement intermédiaire n’est pas une composante constante du workflow applicatif. Il est utilisé uniquement dans les scénarios de défaillance.
+Une variante de cette fonctionnalité utilise Azure Storage (objets blob, tables, files d’attente) ou les files d’attente Service Bus en tant qu’emplacements de basculement des appels échoués de la base de données. Par exemple, un appel synchrone au sein d’une application vers un autre service (comme Azure SQL Database) échoue de façon répétée. Vous pouvez être en mesure de sérialiser ces données en instances de stockage durable. Ultérieurement, lors de la remise en ligne du service ou de la base de données, l’application peut de nouveau envoyer la requête à partir du stockage. Cependant, dans ce modèle, l’emplacement intermédiaire n’est pas une composante constante du workflow applicatif. Il est utilisé uniquement dans les scénarios de défaillance.
 
 Dans les deux scénarios, une communication asynchrone et un stockage intermédiaire empêchent que la panne d’un service principal n’arrête l’intégralité de l’application. Les files d’attente font office d’intermédiaires logiques. Pour plus d’informations sur la sélection du service approprié de file d’attente, consultez [Files d’attente Azure et files d’attente Service Bus : comparaison et différences](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
-###Logique de détection des erreurs et de nouvelle tentative
+###<a name="fault-detection-and-retry-logic"></a>Logique de détection des erreurs et de nouvelle tentative
 
 L’un des composants clés dans la conception d’une application hautement disponible est la capacité à utiliser une logique de nouvelle tentative au sein du code pour faciliter le traitement d’un service temporairement en panne. Le [bloc applicatif de gestion des erreurs temporaires](https://msdn.microsoft.com/library/hh680934.aspx), développé par l’équipe Microsoft en charge des modèles et des pratiques, assiste les développeurs d’applications dans le cadre de ce processus. Le mot « temporaire » désigne un état non permanent, défini pour un intervalle de temps relativement court. Dans le cadre de cet article, le traitement des défaillances temporaires fait partie intégrante du développement d’une application hautement disponible. Parmi les états temporaires possibles, citons les erreurs intermittentes de réseaux, ou encore les pertes de connexions de bases de données.
 
@@ -89,7 +90,7 @@ Au sein de votre code, la stratégie de haut niveau se présente ainsi :
 
 Testez votre logique de nouvelle tentative sur les défaillances simulées pour vous assurer que les nouvelles tentatives sur des opérations successives n’entraînent pas un délai d’une longueur non anticipée. Effectuez cette action avant de décider de basculer l’intégralité de la tâche.
 
-###Modèle de données de référence pour la haute disponibilité
+###<a name="reference-data-pattern-for-high-availability"></a>Modèle de données de référence pour la haute disponibilité
 
 Les données de référence sont les données en lecture seule d’une application. Ces données fournissent le contexte professionnel au sein duquel l’application génère les données transactionnelles durant une opération commerciale. Les données transactionnelles sont une fonction ponctuelle des données de référence. Par conséquent, leur intégrité dépend de l’instantané des données de référence au moment de la transaction. Cette définition, imprécise, devrait s’avérer suffisante ici.
 
@@ -103,7 +104,7 @@ Pour augmenter la disponibilité, les rôles doivent également contenir un ense
 
 Un élément important à prendre en compte pour ce modèle est la vitesse de déploiement et de démarrage de vos rôles. Si vous déployez et téléchargez de gros volumes de données de référence au démarrage, cela peut augmenter le délai de lancement de nouveaux déploiements ou de nouvelles instances de rôle. Cela peut constituer un compromis acceptable, dans la mesure où les données de référence sont immédiatement disponibles à chaque rôle, sans plus dépendre des services de stockage externes.
 
-###Modèle de données transactionnel pour la haute disponibilité
+###<a name="transactional-data-pattern-for-high-availability"></a>Modèle de données transactionnel pour la haute disponibilité
 
 Les données transactionnelles sont les données générées par l’application dans un contexte professionnel. Les données transactionnelles sont une combinaison de l’ensemble de processus d’entreprise implémentés par l’application et des données de référence qui prennent en charge ces processus. Parmi les données transactionnelles, citons les commandes, les avis d’expédition anticipée, les factures et les opportunités de gestion des relations client (CRM, Customer Relationship Management). Les données transactionnelles générées ainsi sont transmises aux systèmes externes à des fins de consignation ou de traitement ultérieur.
 
@@ -135,12 +136,16 @@ Notez que le diagramme précédent représente une implémentation de cette appr
  * La destination finale peut être Azure Storage ou un fournisseur différent de base de données.
  * La fonctionnalité Azure Cache peut être utilisée au niveau de la couche Web pour prendre en charge les besoins immédiats de mise en cache après la transaction.
 
-###Modèles d’extensibilité
+###<a name="scalability-patterns"></a>Modèles d’extensibilité
 
-Il est important de noter que l’extensibilité du service cloud affecte directement la disponibilité. Si l’accroissement de la charge affecte la réactivité de votre service, l’utilisateur a le sentiment que l’application est en panne. Suivez les meilleures pratiques d’extensibilité en fonction des prévisions de charge de votre application et des besoins futurs. Une mise à l’échelle plus importante implique de nombreuses questions : devez-vous utiliser un ou plusieurs comptes de stockage ? Comment se déroule le partage entre plusieurs bases de données ? Quelles stratégies de mise en cache implémenter ? Pour une présentation approfondie de ces modèles, consultez [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) (Meilleures pratiques de conception de service à grande échelle sur Azure Cloud Services).
+Il est important de noter que l’extensibilité du service cloud affecte directement la disponibilité. Si l’accroissement de la charge affecte la réactivité de votre service, l’utilisateur a le sentiment que l’application est en panne. Suivez les meilleures pratiques d’extensibilité en fonction des prévisions de charge de votre application et des besoins futurs. Une mise à l’échelle plus importante implique de nombreuses questions : devez-vous utiliser un ou plusieurs comptes de stockage ? Comment se déroule le partage entre plusieurs bases de données ? Quelles stratégies de mise en cache implémenter ? Pour une présentation approfondie de ces modèles, consultez [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
 
-##Étapes suivantes
+##<a name="next-steps"></a>Étapes suivantes
 
 Cet article fait partie d’une série d’articles axés sur la [récupération d’urgence et la haute disponibilité des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). Le prochain article de cette série est [Récupération d’urgence des applications développées sur Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

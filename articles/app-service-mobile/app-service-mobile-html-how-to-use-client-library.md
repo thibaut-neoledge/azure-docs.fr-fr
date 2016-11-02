@@ -1,50 +1,51 @@
 <properties
-	pageTitle="Utilisation du Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps"
-	description="Utilisation de v pour Azure Mobile Apps"
-	services="app-service\mobile"
-	documentationCenter="javascript"
-	authors="adrianhall"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Utilisation du Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps"
+    description="Utilisation de v pour Azure Mobile Apps"
+    services="app-service\mobile"
+    documentationCenter="javascript"
+    authors="adrianhall"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="html"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="adrianha;ricksal"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="html"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Utilisation de la bibliothèque cliente JavaScript pour Azure Mobile Apps
+
+# <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente JavaScript pour Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend et créer une table. Dans ce guide, nous nous concentrons sur l’utilisation du backend mobile dans les applications web HTML/JavaScript.
 
-## Plateformes prises en charge
+## <a name="supported-platforms"></a>Plateformes prises en charge
 
-Nous limitons la prise en charge aux versions actuelles ainsi qu’aux dernières versions des principaux navigateurs : Google Chrome, Microsoft Edge, Microsoft Internet Explorer et Mozilla Firefox. Le Kit de développement logiciel (SDK) devrait fonctionner avec n’importe quel navigateur relativement récent.
+Nous limitons la prise en charge aux versions actuelles, ainsi qu’aux dernières versions des principaux navigateurs : Google Chrome, Microsoft Edge, Microsoft Internet Explorer et Mozilla Firefox.  Le Kit de développement logiciel (SDK) devrait fonctionner avec n’importe quel navigateur relativement récent.
 
 Le package est distribué comme un module JavaScript universel et prend donc en charge les format Globals, AMD et CommonJS.
 
-##<a name="Setup"></a>Configuration et conditions préalables
+##<a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Configuration et conditions préalables
 
 Ce guide part du principe que vous avez créé un serveur principal avec une table. Ce guide suppose que la table a le même schéma que les tables dans ces didacticiels.
 
-Installez le Kit de développement logiciel (SDK) JavaScript Azure Mobile Apps à partir de la commande `npm` :
+Installez le Kit de développement logiciel (SDK) JavaScript Azure Mobile Apps à partir de la commande `npm` :
 
 ```
 npm install azure-mobile-apps-client --save
 ```
 
-Une fois le Kit installé, la bibliothèque se trouve dans `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`. Copiez ce fichier vers votre espace web.
+Une fois le Kit installé, la bibliothèque se trouve dans `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`.  Copiez ce fichier vers votre espace web.
 
 ```
 <script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
-La bibliothèque peut également être utilisée en tant que module ES2015, au sein d'environnements CommonJS tels que Browserify et Webpack, et en tant que bibliothèque AMD. Par exemple :
+La bibliothèque peut également être utilisée en tant que module ES2015, au sein d'environnements CommonJS tels que Browserify et Webpack, et en tant que bibliothèque AMD.  Par exemple :
 
 ```
 # For ECMAScript 5.1 CommonJS
@@ -55,31 +56,31 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 [AZURE.INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-##<a name="auth"></a>Procédure : authentification des utilisateurs
+##<a name="<a-name="auth"></a>how-to:-authenticate-users"></a><a name="auth"></a>Procédure : authentification des utilisateurs
 
-Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs d’applications par le biais de divers fournisseurs d’identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification].
+Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs d’applications par le biais de divers fournisseurs d’identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification] .
 
-Deux flux d’authentification sont pris en charge : un flux serveur et un flux client. Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux fournisseurs.
+Deux flux d’authentification sont pris en charge : un flux serveur et un flux client.  Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux fournisseurs.
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-###<a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes
+###<a name="<a-name="configure-external-redirect-urls"></a>how-to:-configure-your-mobile-app-service-for-external-redirect-urls."></a><a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes
 
-Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth. Ces fonctionnalités sont les suivantes :
+Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth.  Ces fonctionnalités sont les suivantes :
 
 * Exécuter votre service en local
 * Utilisation de Live Reload avec l’infrastructure Ionic
-* Redirection vers le App Service pour authentification.
+* Redirection vers le App Service pour authentification. 
 
 L’exécution locale peut entraîner des problèmes car, par défaut, l’authentification d’App Service est uniquement configurée pour autoriser l’accès à partir du serveur principal de votre application mobile. Utilisez la procédure suivante pour modifier les paramètres d’App Service afin d’activer l’authentification lors de l’exécution locale du serveur :
 
-1. Connectez-vous au [portail Azure].
+1. Connectez-vous au [portail Azure]
 2. Accédez à votre backend d’application mobile.
 3. Sélectionnez **Explorateur de ressources** dans le menu **OUTILS DE DÉVELOPPEMENT**.
 4. Cliquez sur **Aller** pour ouvrir l’Explorateur de ressources pour votre application mobile principale dans une fenêtre ou un nouvel onglet.
 5. Développez le nœud **config** > **authsettings** pour votre application.
 6. Cliquez sur le bouton **Modifier** pour activer la modification de la ressource.
-7. Trouvez l’élément **allowedExternalRedirectUrls**, qui doit être null. Ajoutez vos URL dans un tableau :
+7. Trouvez l’élément **allowedExternalRedirectUrls** , qui doit être null. Ajoutez vos URL dans un tableau :
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -95,7 +96,7 @@ Vous devez aussi ajouter les mêmes URL de bouclage aux paramètres de la liste 
 1. Revenez au [portail Azure].
 2. Accédez à votre backend d’application mobile.
 3. Cliquez sur **CORS** dans le menu **API**.
-4. Saisissez chaque URL dans la zone de texte **Origines autorisées** vide. Une zone de texte est créée.
+4. Saisissez chaque URL dans la zone de texte **Origines autorisées** vide.  Une zone de texte est créée.
 5. Cliquez sur **ENREGISTRER**
     
 Après que le serveur principal sera mis à jour, vous serez en mesure d’utiliser les nouvelles URL de bouclage dans votre application.
@@ -103,10 +104,15 @@ Après que le serveur principal sera mis à jour, vous serez en mesure d’utili
 <!-- URLs. -->
 [Démarrage rapide d’Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Prise en main de l'authentification]: app-service-mobile-cordova-get-started-users.md
-[Ajout de l’authentification à votre application]: app-service-mobile-cordova-get-started-users.md
+[Ajout de l'authentification à votre application]: app-service-mobile-cordova-get-started-users.md
 
 [portail Azure]: https://portal.azure.com/
 [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
-[documentation de l’objet Query]: https://msdn.microsoft.com/fr-FR/library/azure/jj613353.aspx
+[Documentation sur l’objet de requête]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

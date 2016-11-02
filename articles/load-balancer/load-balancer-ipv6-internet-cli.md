@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Créer un équilibrage de charge accessible sur Internet avec IPv6 dans Azure Resource Manager, à l’aide de l’interface de ligne de commande Azure
+
+# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-the-azure-cli"></a>Créer un équilibrage de charge accessible sur Internet avec IPv6 dans Azure Resource Manager, à l’aide de l’interface de ligne de commande Azure
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-IPv6-internet-ps.md)
-- [Interface de ligne de commande Azure](load-balancer-IPv6-internet-cli.md)
-- [Modèle](load-balancer-IPv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Interface de ligne de commande Azure](./load-balancer-ipv6-internet-cli.md)
+- [Modèle](./load-balancer-ipv6-internet-template.md)
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 
-## Exemple de scénario de déploiement
+## <a name="example-deployment-scenario"></a>Exemple de scénario de déploiement
 
 Le diagramme suivant illustre la solution d’équilibrage de charge déployée à l’aide de l’exemple de modèle décrit dans cet article.
 
@@ -41,7 +43,7 @@ Dans ce scénario, vous allez créer les ressources Azure suivantes :
 - un groupe à haute disponibilité contenant les deux machines virtuelles ;
 - deux règles d’équilibrage de charge pour mapper les adresses IP virtuelles publiques sur les points de terminaison privés.
 
-## Déploiement de la solution à l’aide de l’interface de ligne de commande (CLI) Azure
+## <a name="deploying-the-solution-using-the-azure-cli"></a>Déploiement de la solution à l’aide de l’interface de ligne de commande (CLI) Azure
 
 Les étapes suivantes expliquent comment créer un équilibrage de charge accessible sur Internet à l'aide d'Azure Resource Manager avec CLI. Avec Azure Resource Manager, toutes les ressources sont créées et configurées individuellement, puis rassemblées pour en créer une unique.
 
@@ -55,7 +57,7 @@ Pour déployer un équilibrage de charge, vous devez créer et configurer les ob
 
 Pour plus d’informations, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](load-balancer-arm.md).
 
-## Configurer votre environnement d’interface de ligne de commande pour utiliser Azure Resource Manager
+## <a name="set-up-your-cli-environment-to-use-azure-resource-manager"></a>Configurer votre environnement d’interface de ligne de commande pour utiliser Azure Resource Manager
 
 Pour cet exemple, nous utilisons les outils d’interface de ligne de commande dans une fenêtre de commande PowerShell. Nous n’utilisons pas les applets de commande Microsoft Azure PowerShell mais utilisons les fonctionnalités de script PowerShell afin d’améliorer la lisibilité et la réutilisation.
 
@@ -95,7 +97,7 @@ Pour cet exemple, nous utilisons les outils d’interface de ligne de commande d
         $lbName = "myIPv4IPv6Lb"
         ```
 
-## Créer un groupe de ressources, un équilibrage de charge, un réseau virtuel et des sous-réseaux
+## <a name="create-a-resource-group,-a-load-balancer,-a-virtual-network,-and-subnets"></a>Créer un groupe de ressources, un équilibrage de charge, un réseau virtuel et des sous-réseaux
 
 1. Créer un groupe de ressources
 
@@ -114,7 +116,7 @@ Pour cet exemple, nous utilisons les outils d’interface de ligne de commande d
         $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
         $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
 
-## Créer des adresses IP publiques pour le pool frontal
+## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Créer des adresses IP publiques pour le pool frontal
 
 1. Configurer les variables PowerShell
 
@@ -126,9 +128,10 @@ Pour cet exemple, nous utilisons les outils d’interface de ligne de commande d
         $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
         $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
 
-    >[AZURE.IMPORTANT] L’équilibreur de charge utilise l’étiquette du domaine de l’adresse IP publique en tant que nom de domaine complet (FQDN). Cet usage diffère d’un déploiement classique qui utilise le service cloud en tant que nom de domaine complet de l’équilibrage de charge. Dans cet exemple, le nom de domaine complet est *contoso09152016.southcentralus.cloudapp.azure.com*.
+    >[AZURE.IMPORTANT]L’équilibreur de charge utilise l’étiquette du domaine de l’adresse IP publique en tant que nom de domaine complet (FQDN). Cet usage diffère d’un déploiement classique qui utilise le service cloud en tant que nom de domaine complet de l’équilibrage de charge.
+    >Dans cet exemple, le nom de domaine complet est *contoso09152016.southcentralus.cloudapp.azure.com*.
 
-## Créer ds pools frontaux et principaux
+## <a name="create-front-end-and-back-end-pools"></a>Créer ds pools frontaux et principaux
 
 Cet exemple crée le pool d’IP frontal qui reçoit le trafic réseau entrant pour l’équilibrage de charge et le pool d’IP principal où le pool frontal envoie le trafic de réseau équilibré.
 
@@ -146,7 +149,7 @@ Cet exemple crée le pool d’IP frontal qui reçoit le trafic réseau entrant p
         $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
         $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
 
-## Créer la sonde, les règles NAT et les règles LB
+## <a name="create-the-probe,-nat-rules,-and-lb-rules"></a>Créer la sonde, les règles NAT et les règles LB
 
 Cet exemple crée les éléments suivants :
 
@@ -226,7 +229,7 @@ Cet exemple crée les éléments suivants :
         info:    network lb show
 
 
-## Créer des cartes réseau
+## <a name="create-nics"></a>Créer des cartes réseau
 
 Créer des cartes réseau et associez-les à des règles NAT, des règles d’équilibrage de charge et des sondes.
 
@@ -249,9 +252,9 @@ Créer des cartes réseau et associez-les à des règles NAT, des règles d’é
         $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
         $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
 
-## Créer les ressources de machines virtuelles principales et associer chaque carte réseau
+## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Créer les ressources de machines virtuelles principales et associer chaque carte réseau
 
-Pour créer des machines virtuelles, vous devez disposer d’un compte de stockage. Pour l’équilibrage de charge, les machines virtuelles doivent être membres d’un groupe à haute disponibilité. Pour plus d’informations sur la création des machines virtuelles, consultez la section [Création d’une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md).
+Pour créer des machines virtuelles, vous devez disposer d’un compte de stockage. Pour l’équilibrage de charge, les machines virtuelles doivent être membres d’un groupe à haute disponibilité. Pour plus d’informations sur la création des machines virtuelles, consultez la section [Création d’une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
 1. Configurer les variables PowerShell
 
@@ -269,7 +272,7 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
         $vmUserName = "vmUser"
         $mySecurePassword = "PlainTextPassword*1"
 
-    >[AZURE.WARNING] Cet exemple utilise le nom d’utilisateur et le mot de passe pour les machines virtuelles, en texte clair. Prenez des précautions particulières lors de l’utilisation des informations d’identification en texte clair. Pour découvrir une méthode sécurisée de traitement des informations d’identification dans PowerShell, consultez l’applet de commande [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx).
+    >[AZURE.WARNING] Cet exemple utilise le nom d’utilisateur et le mot de passe pour les machines virtuelles, en texte clair. Prenez des précautions particulières lors de l’utilisation des informations d’identification en texte clair. Pour découvrir une méthode sécurisée de traitement des informations d’identification dans PowerShell, consultez l’applet de commande [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) .
 
 2. Créer le compte de stockage et le groupe à haute disponibilité
 
@@ -287,7 +290,7 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
 
         $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn  --storage-account-name $storageAccountName --disable-bginfo-extension
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-cli.md)
 
@@ -295,4 +298,8 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Configuration des paramètres de groupe avec les applets de commande Azure Active Directory | Microsoft Azure"
-	description="Comment gérer les paramètres des groupes à l’aide des applets de commande Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Configuration des paramètres de groupe avec les applets de commande Azure Active Directory | Microsoft Azure"
+    description="Comment gérer les paramètres des groupes à l’aide des applets de commande Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
 
-# Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
+
+# <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
 Dans votre répertoire, vous pouvez configurer les paramètres suivants des groupes unifiés :
 
@@ -31,92 +32,92 @@ Ces paramètres sont configurés à l’aide d’objets Settings (Paramètres) e
 
 Vous pouvez télécharger le module contenant les applets de commande utilisées pour ces opérations sur le [site Microsoft Connect](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).
 
-## Créer des paramètres au niveau du répertoire
+## <a name="create-settings-at-the-directory-level"></a>Créer des paramètres au niveau du répertoire
 
 Les étapes suivantes permettent de créer des paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
 
 1. Si vous ne savez pas quel objet SettingsTemplate utiliser, cette applet de commande renvoie la liste des modèles de paramètres :
 
-	`Get-MsolAllSettingTemplate`
+    `Get-MsolAllSettingTemplate`
 
-	![Liste des modèles de paramètres](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
+    ![Liste des modèles de paramètres](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
 
 2. Pour ajouter une URL d’instructions d’utilisation, vous devez d’abord obtenir l’objet SettingsTemplate qui définit la valeur de l’URL d’instructions d’utilisation ; autrement dit, le modèle Group.Unified :
 
-	`$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
+    `$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
 
 3. Ensuite, créez un nouvel objet Settings basé sur ce modèle :
 
-	`$setting = $template.CreateSettingsObject()`
+    `$setting = $template.CreateSettingsObject()`
 
 4. Puis mettez à jour la valeur des instructions d’utilisation :
 
-	`$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
+    `$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
 
 5. Enfin, appliquez les paramètres :
 
-	`New-MsolSettings –SettingsObject $setting`
+    `New-MsolSettings –SettingsObject $setting`
 
-	![Ajouter une URL d’instructions d’utilisation](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
+    ![Ajouter une URL d’instructions d’utilisation](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
 
 Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified.
 
- **Paramètre** | **Description**                                                                                             
+ **Paramètre**                          | **Description**                                                                                             
 --------------------------------------|-----------------------------------------------
- <ul><li>ClassificationList<li>Type : String<li>Valeur par défaut : “” | Liste des valeurs de classification valides séparées par des virgules pouvant être appliquées à des groupes unifiés.                
- <ul><li>EnableGroupCreation<li>Type : Boolean<li>Valeur par défaut : True | Indicateur spécifiant si la création de groupes unifiés est autorisée dans le répertoire.                               
- <ul><li>GroupCreationAllowedGroupId<li>Type : String<li>Valeur par défaut : “” | GUID du groupe de sécurité autorisé à créer des groupes unifiés même lorsque EnableGroupCreation == false.
- <ul><li>UsageGuidelinesUrl<li>Type : String<li>Valeur par défaut : “” | Lien vers les instructions d’utilisation du groupe.                                                                       
+ <ul><li>ClassificationList<li>Type : string<li>Valeur par défaut : “”                  | Liste des valeurs de classification valides séparées par des virgules pouvant être appliquées à des groupes unifiés.                
+ <ul><li>EnableGroupCreation<li>Type : booléen<li> Par défaut : True              | Indicateur spécifiant si la création de groupes unifiés est autorisée dans le répertoire.                               
+ <ul><li>GroupCreationAllowedGroupId<li>Type : string<li>Valeur par défaut : “”         | GUID du groupe de sécurité autorisé à créer des groupes unifiés même lorsque EnableGroupCreation == false.
+ <ul><li>UsageGuidelinesUrl<li>Type : string<li>Valeur par défaut : “”                  | Lien vers les instructions d’utilisation du groupe.                                                                       
 
-## Lire les paramètres au niveau du répertoire
+## <a name="read-settings-at-the-directory-level"></a>Lire les paramètres au niveau du répertoire
 
 Les étapes suivantes permettent de lire les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
 
 1. Lisez tous les paramètres du répertoire existant :
 
-	`Get-MsolAllSettings`
+    `Get-MsolAllSettings`
 
 2. Lisez tous les paramètres d’un groupe spécifique :
 
-	`Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
+    `Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
 
 3. Lisez les paramètres d’un répertoire spécifique, à l’aide du GUID SettingId :
 
-	`Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    `Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
-	![GUID de l’ID de paramètres](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
+    ![GUID de l’ID de paramètres](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
 
-## Mettre à jour des paramètres au niveau du répertoire
+## <a name="update-settings-at-the-directory-level"></a>Mettre à jour des paramètres au niveau du répertoire
 
 Les étapes suivantes permettent de mettre à jour les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
 
 1. Obtenez l’objet Settings existant :
 
-	`$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    `$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
 2. Obtenez la valeur que vous souhaitez mettre à jour :
 
-	`$value = $Setting.GetSettingsValue()`
+    `$value = $Setting.GetSettingsValue()`
 
 3. Mettez à jour la valeur :
 
-	`$value["AllowToAddGuests"] = "false"`
+    `$value["AllowToAddGuests"] = "false"`
 
 4. Mettez à jour le paramètre :
 
-	`Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
+    `Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
 
-## Supprimer des paramètres au niveau du répertoire
+## <a name="remove-settings-at-the-directory-level"></a>Supprimer des paramètres au niveau du répertoire
 
 Les étapes suivantes permettent de supprimer les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
 
-	`Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    `Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
-## Informations de référence sur la syntaxe des applets de commande
+## <a name="cmdlet-syntax-reference"></a>Informations de référence sur la syntaxe des applets de commande
 
 Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-## Référence d’objet SettingsTemplate (OBJE SettingsTemplate Group.Unified)
+## <a name="settingstemplate-object-reference-(group.unified-settingstemplate-object)"></a>Référence d’objet SettingsTemplate (OBJE SettingsTemplate Group.Unified)
 
 - "name": "EnableGroupCreation", "type": "System.Boolean", "defaultValue": "true", "description": "Indicateur booléen spécifiant si la fonctionnalité de création de groupes unifiés est activée."
 
@@ -126,21 +127,25 @@ Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans 
 
 - "name": "UsageGuidelinesUrl", "type": "System.String", "defaultValue": "", "description": "Lien vers les instructions d’utilisation du groupe."
 
-name | type | defaultValue | description
+name | type | defaultValue | Description
 ----------  | ----------  | ---------  | ----------
-"EnableGroupCreation" | "System.Boolean" | "true" | "Indicateur booléen spécifiant si la fonctionnalité de création de groupes unifiés est activée."
-"GroupCreationAllowedGroupId" | "System.Guid" | "" | "GUID du groupe de sécurité qui se trouve dans la liste approuvée pour créer des groupes unifiés."
-"ClassificationList" | "System.String" | "" | "Liste de valeurs de classification valides séparées par des virgules pouvant être appliquées à des groupes unifiés."
-"UsageGuidelinesUrl" | "System.String" | "" | "Lien vers les instructions d’utilisation du groupe."
+"EnableGroupCreation"  | "System.Boolean"  | "true"  | "Indicateur booléen spécifiant si la fonctionnalité de création de groupes unifiés est activée."
+"GroupCreationAllowedGroupId"  | "System.Guid"  | ""  | "GUID du groupe de sécurité qui se trouve dans la liste approuvée pour créer des groupes unifiés."
+"ClassificationList"  | "System.String"  | ""  | "Liste de valeurs de classification valides séparées par des virgules pouvant être appliquées à des groupes unifiés."
+"UsageGuidelinesUrl"  | "System.String"  | ""  | "Lien vers les instructions d’utilisation du groupe."
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-Pour des instructions supplémentaires fournies par le responsable de programme Microsoft Rob de Jong, consultez le site [Rob’s Groups Blog](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad) (Blog de Rob dédié aux groupes).
+Pour des instructions supplémentaires fournies par le responsable de programme Microsoft Rob de Jong, consultez le site [Rob’s Groups Blog](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad)(Blog de Rob dédié aux groupes).
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,10 +1,10 @@
 <properties
 pageTitle="Découvrez comment utiliser le connecteur Salesforce dans vos applications logiques | Microsoft Azure"
 description="Créez des applications logiques avec Azure App Service. Le connecteur Salesforce offre une API permettant de travailler avec des objets Salesforce."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -14,78 +14,79 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/22/2016"
+ms.date="10/05/2016"
 ms.author="deonhe"/>
 
-# Prise en main du connecteur Salesforce
+
+# <a name="get-started-with-the-salesforce-connector"></a>Prise en main du connecteur Salesforce
 
 Le connecteur Salesforce offre une API permettant de travailler avec des objets Salesforce.
 
 Pour utiliser [n’importe quel connecteur](./apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Se connecter au connecteur Salesforce
+## <a name="connect-to-salesforce-connector"></a>Se connecter au connecteur Salesforce
 
-Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une [connexion](./connectors-overview.md) permet d’assurer la connectivité entre une application logique et un autre service.
+Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une [connexion](./connectors-overview.md) permet d’assurer la connectivité entre une application logique et un autre service.  
 
-### Créer une connexion au connecteur Salesforce
+### <a name="create-a-connection-to-salesforce-connector"></a>Créer une connexion au connecteur Salesforce
 
->[AZURE.INCLUDE [Procédure de création d’une connexion au connecteur Salesforce](../../includes/connectors-create-api-salesforce.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
 
-## Utiliser un déclencheur du connecteur Salesforce
+## <a name="use-a-salesforce-connector-trigger"></a>Utiliser un déclencheur du connecteur Salesforce
 
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [Apprenez-en davantage sur les déclencheurs](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.INCLUDE [Procédure de création d’un déclencheur Salesforce](../../includes/connectors-create-api-salesforce-trigger.md)]
+>[AZURE.INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 
-## Ajouter une condition 
->[AZURE.INCLUDE [Procédure de création d’une condition Salesforce](../../includes/connectors-create-api-salesforce-condition.md)]
+## <a name="add-a-condition"></a>Ajouter une condition 
+>[AZURE.INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
 
-## Utiliser une action du connecteur Salesforce
+## <a name="use-a-salesforce-connector-action"></a>Utiliser une action du connecteur Salesforce
 
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [Apprenez-en davantage sur les actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.INCLUDE [Procédure de création d’une action Salesforce](../../includes/connectors-create-api-salesforce-action.md)]
+>[AZURE.INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 
-## Détails techniques
+## <a name="technical-details"></a>Détails techniques
 
 Voici les détails des déclencheurs, actions et réponses pris en charge par cette connexion :
 
-## Déclencheurs du connecteur Salesforce
+## <a name="salesforce-connector-triggers"></a>Déclencheurs du connecteur Salesforce
 
-Le connecteur Salesforce comporte les déclencheurs suivants :
+Le connecteur Salesforce comporte les déclencheurs suivants :  
 
 |Déclencheur | Description|
 |--- | ---|
-|[Quand un objet est créé](connectors-create-api-salesforceconnector.md#when-an-object-is-created)|Cette opération déclenche un flux lorsqu’un objet est créé.|
-|[Quand un objet est modifié](connectors-create-api-salesforceconnector.md#when-an-object-is-modified)|Cette opération déclenche un flux lorsqu’un objet est modifié.|
+|[Quand un objet est créé](connectors-create-api-salesforce.md#when-an-object-is-created)|Cette opération déclenche un flux lorsqu’un objet est créé.|
+|[Quand un objet est modifié](connectors-create-api-salesforce.md#when-an-object-is-modified)|Cette opération déclenche un flux lorsqu’un objet est modifié.|
 
 
-## Actions du connecteur Salesforce
+## <a name="salesforce-connector-actions"></a>Actions du connecteur Salesforce
 
 Le connecteur Salesforce comporte les actions suivantes :
 
 
 |Action|Description|
 |--- | ---|
-|[Get objects](connectors-create-api-salesforceconnector.md#get-objects) (Obtenir les objets)|Cette opération récupère les objets d’un certain type d’objet, tel que « Prospect ».|
-|[Créer un objet](connectors-create-api-salesforceconnector.md#create-object)|Cette opération crée un objet.|
-|[Obtenir un objet](connectors-create-api-salesforceconnector.md#get-object)|Cette opération récupère un objet.|
-|[Supprimer un objet](connectors-create-api-salesforceconnector.md#delete-object)|Cette opération supprime un objet.|
-|[Mettre à jour un objet](connectors-create-api-salesforceconnector.md#update-object)|Cette opération met à jour un objet.|
-|[Get object types](connectors-create-api-salesforceconnector.md#get-object-types) (Obtenir les types d’objets)|Cette opération répertorie les types d’objets disponibles.|
-### Détails de l’action
+|[Get objects](connectors-create-api-salesforce.md#get-objects) (Obtenir les objets)|Cette opération récupère les objets d’un certain type d’objet, tel que « Prospect ».|
+|[Create object](connectors-create-api-salesforce.md#create-object) (Créer un objet)|Cette opération crée un objet.|
+|[Get object](connectors-create-api-salesforce.md#get-object) (Obtenir un objet)|Cette opération récupère un objet.|
+|[Delete object](connectors-create-api-salesforce.md#delete-object) (Supprimer un objet)|Cette opération supprime un objet.|
+|[Update object](connectors-create-api-salesforce.md#update-object) (Mettre à jour un objet)|Cette opération met à jour un objet.|
+|[Get object types](connectors-create-api-salesforce.md#get-object-types) (Obtenir les types d’objets)|Cette opération répertorie les types d’objets disponibles.|
+### <a name="action-details"></a>Détails de l’action
 
 Voici les détails des actions et des déclencheurs de ce connecteur, ainsi que leurs réponses :
 
 
 
-### Get objects (Obtenir les objets)
-Cette opération récupère les objets d’un certain type d’objet, tel que « Prospect ».
+### <a name="get-objects"></a>Get objects (Obtenir les objets)
+Cette opération récupère les objets d’un certain type d’objet, tel que « Prospect ». 
 
 
 |Nom de la propriété| Display Name|Description|
 | ---|---|---|
-|table*|Type d’objet|Type d’objet Salesforce, tel que « Prospect »|
+|table*|Type d'objet|Type d’objet Salesforce, tel que « Prospect »|
 |$filter|Requête de filtre|Requête filter ODATA pour limiter le nombre d’entrées|
 |$orderby|Trier par|Requête orderBy ODATA pour spécifier l’ordre des entrées|
 |$skip|Nombre à ignorer|Nombre d’entrées à ignorer (valeur par défaut : 0)|
@@ -93,7 +94,7 @@ Cette opération récupère les objets d’un certain type d’objet, tel que «
 
 Le caractère * indique qu’une propriété est obligatoire.
 
-#### Détails des résultats
+#### <a name="output-details"></a>Détails des résultats
 
 ItemsList
 
@@ -105,8 +106,8 @@ ItemsList
 
 
 
-### Créer un objet
-Cette opération crée un objet.
+### <a name="create-object"></a>Créer un objet
+Cette opération crée un objet. 
 
 
 |Nom de la propriété| Display Name|Description|
@@ -116,9 +117,9 @@ Cette opération crée un objet.
 
 Le caractère * indique qu’une propriété est obligatoire.
 
-#### Détails des résultats
+#### <a name="output-details"></a>Détails des résultats
 
-Item
+Élément
 
 
 | Nom de la propriété | Type de données |
@@ -128,20 +129,20 @@ Item
 
 
 
-### Obtenir un objet
-Cette opération récupère un objet.
+### <a name="get-object"></a>Obtenir un objet
+Cette opération récupère un objet. 
 
 
 |Nom de la propriété| Display Name|Description|
 | ---|---|---|
-|table*|Type d’objet|Type d’objet Salesforce, tel que « Prospect »|
+|table*|Type d'objet|Type d’objet Salesforce, tel que « Prospect »|
 |id*|ID objet|Identificateur de l’objet à obtenir|
 
 Le caractère * indique qu’une propriété est obligatoire.
 
-#### Détails des résultats
+#### <a name="output-details"></a>Détails des résultats
 
-Item
+Élément
 
 
 | Nom de la propriété | Type de données |
@@ -151,8 +152,8 @@ Item
 
 
 
-### Supprimer un objet
-Cette opération supprime un objet.
+### <a name="delete-object"></a>Supprimer un objet
+Cette opération supprime un objet. 
 
 
 |Nom de la propriété| Display Name|Description|
@@ -165,8 +166,8 @@ Le caractère * indique qu’une propriété est obligatoire.
 
 
 
-### Mettre à jour un objet
-Cette opération met à jour un objet.
+### <a name="update-object"></a>Mettre à jour un objet
+Cette opération met à jour un objet. 
 
 
 |Nom de la propriété| Display Name|Description|
@@ -177,9 +178,9 @@ Cette opération met à jour un objet.
 
 Le caractère * indique qu’une propriété est obligatoire.
 
-#### Détails des résultats
+#### <a name="output-details"></a>Détails des résultats
 
-Item
+Élément
 
 
 | Nom de la propriété | Type de données |
@@ -189,8 +190,8 @@ Item
 
 
 
-### Quand un objet est créé
-Cette opération déclenche un flux lorsqu’un objet est créé.
+### <a name="when-an-object-is-created"></a>Quand un objet est créé
+Cette opération déclenche un flux lorsqu’un objet est créé. 
 
 
 |Nom de la propriété| Display Name|Description|
@@ -203,7 +204,7 @@ Cette opération déclenche un flux lorsqu’un objet est créé.
 
 Le caractère * indique qu’une propriété est obligatoire.
 
-#### Détails des résultats
+#### <a name="output-details"></a>Détails des résultats
 
 ItemsList
 
@@ -215,8 +216,8 @@ ItemsList
 
 
 
-### Quand un objet est modifié
-Cette opération déclenche un flux lorsqu’un objet est modifié.
+### <a name="when-an-object-is-modified"></a>Quand un objet est modifié
+Cette opération déclenche un flux lorsqu’un objet est modifié. 
 
 
 |Nom de la propriété| Display Name|Description|
@@ -229,7 +230,7 @@ Cette opération déclenche un flux lorsqu’un objet est modifié.
 
 Le caractère * indique qu’une propriété est obligatoire.
 
-#### Détails des résultats
+#### <a name="output-details"></a>Détails des résultats
 
 ItemsList
 
@@ -241,26 +242,26 @@ ItemsList
 
 
 
-### Get object types (Obtenir les types d’objets)
-Cette opération répertorie les types d’objets disponibles.
+### <a name="get-object-types"></a>Get object types (Obtenir les types d’objets)
+Cette opération répertorie les types d’objets disponibles. 
 
 
 Il n’existe aucun paramètre pour cet appel
 
-#### Détails des résultats
+#### <a name="output-details"></a>Détails des résultats
 
 TablesList
 
 
-| Nom de la propriété | Type de données | 
+| Nom de la propriété | Type de données |
 |---|---|
 |value|array|
 
 
 
-## Réponses HTTP
+## <a name="http-responses"></a>Réponses HTTP
 
-Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des codes d’état HTTP suivants :
+Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des codes d’état HTTP suivants : 
 
 |Nom|Description|
 |---|---|
@@ -278,7 +279,10 @@ Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des code
 
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!-----HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -18,7 +18,8 @@
   ms.author="sewhee"
 />
 
-# Utiliser Azure DNS avec d’autres services Azure
+
+# <a name="using-azure-dns-with-other-azure-services"></a>Utiliser Azure DNS avec d’autres services Azure
 
 Azure DNS est un service hébergé de gestion de DNS et de résolution de noms. Il vous permet de créer des noms DNS publics pour les autres applications et services que vous avez déployés dans Azure. La création d’un nom pour un service Azure dans votre domaine personnalisé est aussi simple que l’ajout d’un enregistrement du type correct pour votre service.
 
@@ -32,9 +33,13 @@ Le tableau suivant décrit les types d’enregistrement pris en charge qui peuve
 | Application Gateway | Adresse IP publique frontale | Vous pouvez créer un enregistrement DNS A ou CNAME. |
 | Load Balancer | Adresse IP publique frontale | Vous pouvez créer un enregistrement DNS A ou CNAME. L’équilibreur de charge peut disposer d’une adresse IP publique IPv6 affectée de manière dynamique. Par conséquent, vous devez créer un enregistrement CNAME pour une adresse IPv6. |
 | Traffic Manager | Nom public | Vous pouvez uniquement créer un CNAME qui mappe au nom trafficmanager.net affecté à votre profil Traffic Manager. Pour plus d’informations, consultez l’article [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-traffic-manager-works.md#traffic-manager-example). |
-| Service cloud | Adresse IP publique | Pour les adresses IP allouées de manière statique, vous pouvez créer un enregistrement DNS A. Pour les adresses IP allouées de manière dynamique, vous devez créer un enregistrement CNAME qui mappe au nom _cloudapp.net_. Cette règle s’applique aux machines virtuelles créées dans le portail classique, car elles sont déployées sous la forme d’un service cloud. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé dans Services cloud](../cloud-services/cloud-services-custom-domain-name-portal.md). |
+| Service cloud | Adresse IP publique | Pour les adresses IP allouées de manière statique, vous pouvez créer un enregistrement DNS A. Pour les adresses IP allouées de manière dynamique, vous devez créer un enregistrement CNAME qui mappe au nom _cloudapp.net_ . Cette règle s’applique aux machines virtuelles créées dans le portail classique, car elles sont déployées sous la forme d’un service cloud. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé dans Services cloud](../cloud-services/cloud-services-custom-domain-name-portal.md). |
 | App Service | Adresse IP externe | Pour les adresses IP externes, vous pouvez créer un enregistrement DNS A. Dans le cas contraire, vous devez créer un enregistrement CNAME qui mappe au nom azurewebsites.net. Pour plus d’informations, consultez [Mapper un nom de domaine personnalisé à une application Azure](../app-service-web/web-sites-custom-domain-name.md) |
 | Machines virtuelles Resource Manager | Adresse IP publique | Les machines virtuelles Resource Manager peuvent avoir des adresses IP publiques. Une machine virtuelle avec une adresse IP publique peut également être derrière un équilibreur de charge. Vous pouvez créer un enregistrement DNS A ou CNAME pour l’adresse publique. Ce nom personnalisé peut être utilisé pour contourner l’adresse IP virtuelle de l’équilibreur de charge. |
 | les machines virtuelles Classic, | Adresse IP publique | Les machines virtuelles classiques créées à l’aide de PowerShell ou de l’interface de ligne de commande peuvent être configurées avec une adresse virtuelle (réservée) dynamique ou statique. Vous pouvez créer un enregistrement DNS CNAME ou A, respectivement. |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

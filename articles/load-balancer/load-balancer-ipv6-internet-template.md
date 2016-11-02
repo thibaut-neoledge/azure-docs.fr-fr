@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Déployer une solution d’équilibrage de charge sur Internet avec IPv6, à l’aide d’un modèle
+
+# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Déployer une solution d’équilibrage de charge sur Internet avec IPv6, à l’aide d’un modèle
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-ipv6-internet-ps.md)
-- [Interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
-- [Modèle](load-balancer-ipv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Interface de ligne de commande Azure](./load-balancer-ipv6-internet-cli.md)
+- [Modèle](./load-balancer-ipv6-internet-template.md)
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 
-## Exemple de scénario de déploiement
+## <a name="example-deployment-scenario"></a>Exemple de scénario de déploiement
 
 Le diagramme suivant illustre la solution d’équilibrage de charge déployée à l’aide de l’exemple de modèle décrit dans cet article.
 
@@ -41,9 +43,9 @@ Dans ce scénario, vous allez créer les ressources Azure suivantes :
 - un groupe à haute disponibilité contenant les deux VM ;
 - deux machines virtuelles.
 
-## Déploiement du modèle à l’aide du portail Azure
+## <a name="deploying-the-template-using-the-azure-portal"></a>Déploiement du modèle à l’aide du portail Azure
 
-Cet article fait référence à un modèle publié dans la galerie [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/). Vous pouvez télécharger le modèle à partir de la galerie ou lancer le déploiement dans Azure directement à partir de la galerie. Cet article suppose que vous avez téléchargé le modèle sur votre ordinateur local.
+Cet article fait référence à un modèle publié dans la galerie [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/). Vous pouvez télécharger le modèle à partir de la galerie ou lancer le déploiement dans Azure directement à partir de la galerie. Cet article suppose que vous avez téléchargé le modèle sur votre ordinateur local.
 
 1. Ouvrez le portail Azure, et connectez-vous avec un compte disposant des autorisations pour créer les machines virtuelles et les ressources de réseau au sein d’un abonnement Azure. En outre, sauf si vous utilisez des ressources existantes, le compte requiert une autorisation pour créer un groupe de ressources et un compte de stockage.
 
@@ -69,7 +71,7 @@ Cet article fait référence à un modèle publié dans la galerie [Modèles de 
 
     ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
-    Pour plus d’informations sur ces paramètres, consultez la section [Paramètres et variables de modèle](#template-parameters-and-variables), plus loin dans cet article.
+    Pour plus d’informations sur ces paramètres, consultez la section [Paramètres et variables de modèle](#template-parameters-and-variables) , plus loin dans cet article.
 
 7. Pour consulter les ressources créées par le modèle, cliquez sur Parcourir, faites défiler la liste vers le bas jusqu’à ce que « Groupes de ressources » apparaisse, puis cliquez dessus.
 
@@ -85,7 +87,7 @@ Cet article fait référence à un modèle publié dans la galerie [Modèles de 
 
     ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
-## Valider la connectivité
+## <a name="validate-connectivity"></a>Valider la connectivité
 
 Une fois le modèle déployé, vous pouvez valider la connectivité en exécutant les tâches suivantes :
 
@@ -97,7 +99,7 @@ Une fois le modèle déployé, vous pouvez valider la connectivité en exécutan
 >[AZURE.NOTE]
 Le trafic ICMP des adresses IPv4 et IPv6 est bloqué par le réseau Azure. Par conséquent, les outils ICMP comme le test Ping sont toujours mis en échec. Pour tester la connectivité, utilisez une alternative TCP telle que TCPing ou l’applet de commande PowerShell Test-NetConnection. Notez que les adresses IP apparaissant dans le diagramme sont des exemples des valeurs pouvant apparaître. Dans la mesure où les adresses IPv6 sont affectées dynamiquement, les valeurs reçues diffèrent et varient en fonction des régions. En outre, il est courant que l’adresse IPv6 publique de l’équilibrage de charge commence par un préfixe différent des adresses IPv6 privées du pool principal.
 
-## Paramètres et variables de modèle
+## <a name="template-parameters-and-variables"></a>Paramètres et variables de modèle
 
 Un modèle Azure Resource Manager contient plusieurs variables et paramètres que vous pouvez personnaliser selon vos besoins. Les variables sont utilisées pour les valeurs fixes qui ne doivent pas être modifiées par les utilisateurs. Les paramètres sont utilisés pour les valeurs devant être fournies par les utilisateurs lors du déploiement du modèle. L’exemple de modèle est configuré pour le scénario décrit dans cet article. Vous pouvez le personnaliser en fonction des besoins de votre environnement.
 
@@ -128,4 +130,8 @@ L’exemple de modèle utilisé dans cet article comprend les variables et les p
 
 Les variables restantes du modèle contiennent des valeurs dérivées qui sont affectées lorsqu’Azure crée les ressources. Ne modifiez pas ces variables.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

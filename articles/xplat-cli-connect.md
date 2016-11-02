@@ -1,130 +1,118 @@
 <properties
-	pageTitle="Se connecter à Azure à partir de l'interface de ligne de commande | Microsoft Azure"
-	description="Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI) pour Mac, Linux et Windows"
-	editor="tysonn"
-	manager="timlt"
-	documentationCenter=""
-	authors="dlepow"
-	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Se connecter à Azure à partir de l'interface de ligne de commande | Microsoft Azure"
+    description="Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI) pour Mac, Linux et Windows"
+    editor="tysonn"
+    manager="timlt"
+    documentationCenter=""
+    authors="squillace"
+    services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/13/2016"
-	ms.author="danlep"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="rasquill"
+"/>
 
-# Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)
 
-L’interface Azure CLI offre un ensemble de commandes multiplateforme open-source pour l’utilisation de la plateforme Azure. Cet article décrit les méthodes permettant de fournir vos informations d’identification de compte Azure pour connecter l’interface de ligne de commande Azure à votre abonnement Azure. Si vous n'avez pas déjà installé l’interface de ligne de commande, consultez [Installer l’interface de ligne de commande Azure](xplat-cli-install.md). Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/free/) en quelques minutes.
+# <a name="log-in-to-azure-from-the-azure-cli"></a>Connectez-vous à Azure à partir de l’interface de ligne de commande (CLI) Azure
 
-Pour vous connecter à votre abonnement à partir de l’interface de ligne de commande Azure, vous pouvez au choix :
+La CLI Azure offre un ensemble de commandes multiplateforme open-source pour l’utilisation des ressources Azure. Cet article décrit les différentes méthodes permettant de fournir vos informations d’identification de compte Azure pour connecter l’interface de ligne de commande Azure à votre abonnement Azure :
 
-* **Vous connecter à Azure à l’aide d’un compte professionnel ou scolaire ou d’une identité de compte Microsoft** : utilisez la commande `azure login` avec l’un des types d’identité de compte pour l’authentification à l’aide d’Azure Active Directory. La plupart des clients créant des déploiements Azure doivent utiliser cette méthode. Pour certains comptes, la commande `azure login` vous oblige à vous connecter de manière interactive par le biais d’un portail web.
+* Exécutez la commande CLI `azure login` pour vous authentifier via Azure Active Directory. Cette méthode vous permet d’accéder aux commandes CLI dans les deux [modes de commande](#CLI-command-modes). Lorsque vous exécutez la commande sans options supplémentaires, `azure login` vous invite à poursuivre la procédure de connexion de manière interactive via un portail web. Pour plus d’options de commande `azure login`, consultez les scénarios décrits dans cet article, ou tapez `azure login --help`.
 
-    Utilisez également la commande `azure login` pour authentifier un principal du service pour une application Azure Active Directory, ce qui est utile pour l’exécution de services automatisés.
-    
-    Une fois connecté avec une identité de compte prise en charge, vous pouvez utiliser les commandes du mode Azure Resource Manager ou les commandes de l’interface de ligne de commande du mode Azure Service Management.
+* Si vous devez uniquement utiliser les commandes CLI en mode Azure Service Management (non recommandé pour la plupart des nouveaux déploiements), vous pouvez télécharger et installer un fichier de paramètres de publication sur votre ordinateur. 
 
-* **Télécharger et utiliser un fichier de paramètres de publication** : cette méthode installe sur votre ordinateur local un certificat qui vous permet d'exécuter les tâches de gestion pendant toute la durée de validité de l'abonnement et du certificat.
-
-    Cette méthode vous permet d’utiliser uniquement les commandes d’interface de ligne de commande du mode Azure Service Management.
-
->[AZURE.NOTE] Si vous utilisez une version de l’interface de ligne de commande Azure antérieure à la version 0.9.10, vous pouvez utiliser la commande `azure login` uniquement avec un compte professionnel ou scolaire. Les identités de comptes Microsoft ne fonctionnent pas. Toutefois, si vous le souhaitez, vous pouvez [créer un ID professionnel ou scolaire à partir de votre ID de compte Microsoft](virtual-machines/virtual-machines-windows-create-aad-work-id.md).
+Si vous n'avez pas déjà installé l’interface de ligne de commande, consultez [Installer l’interface de ligne de commande Azure](xplat-cli-install.md). Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/free/) en quelques minutes. 
 
 Pour obtenir des informations sur les différentes identités de comptes et des différents abonnements Azure, consultez la rubrique [Association des abonnements Azure avec Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-## Utiliser la commande azure login pour effectuer une authentification interactive
-
-Utilisez la commande `azure login` (sans arguments) pour vous identifier de manière interactive avec :
-
-- une identité de compte professionnel ou scolaire (également appelé *compte de société*) qui requiert une authentification multifacteur, ou
-- une identité de compte Microsoft pour accéder aux commandes du mode Resource Manager.
-
-> [AZURE.NOTE]  Dans les deux cas, l'authentification et l'autorisation sont effectuées à l'aide d'Azure Active Directory. Si vous utilisez une identité de compte Microsoft, le processus de connexion accède à votre domaine par défaut Azure Active Directory. (Si vous disposez d’un compte Azure gratuit, vous ne savez peut-être pas qu’Azure Active Directory a créé un domaine par défaut pour votre compte.)
-
-L'établissement d'une connexion interactive est simple : saisissez `azure login`, puis suivez les invites comme indiqué ci-dessous :
-
-	azure login                                                                                                                                                                                         
-	info:    Executing command login
-	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. 
-
-Copiez le code proposé ci-dessus et ouvrez un navigateur à l'adresse http://aka.ms/devicelogin (ou une autre page, le cas échéant). Entrez le code et vous serez invité à entrer le nom d'utilisateur et le mot de passe pour l'identité que vous souhaitez utiliser. Une fois le processus terminé, l'interface de commande termine le processus de connexion. Le résultat suivant peut s'afficher :
-
-	info:    Added subscription Visual Studio Ultimate with MSDN
-	info:    Added subscription Azure Free Trial
-	info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
-	+
-	info:    login command OK
-
-## Utiliser une connexion azure avec un nom d’utilisateur et un mot de passe
 
 
-Utilisez la commande `azure login` avec un paramètre de nom d’utilisateur ou bien avec un nom d’utilisateur et un mot de passe pour effectuer l’authentification quand vous voulez utiliser un compte professionnel ou scolaire ne nécessitant pas l’authentification multifacteur. L’exemple suivant passe le nom d’utilisateur d’un compte de société :
 
-	azure login -u ahmet@contoso.onmicrosoft.com
-	info:    Executing command login
-	Password: *********
-	|info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
 
-Entrez votre mot de passe lorsque vous y êtes invité.
+
+## <a name="scenario-1:-azure-login-with-interactive-login"></a>Scénario 1 : connexion à Azure avec une connexion interactive 
+
+Avec certains comptes, la CLI vous demande d’exécuter `azure login` puis de poursuivre le processus de connexion avec un navigateur web via un portail web. Il s’agit de ce que l’on appelle une *connexion interactive*. Ce processus est souvent utilisé avec un compte professionnel ou scolaire (également appelé *compte organisationnel*) qui est configuré pour exiger l’authentification multifacteur. Vous pouvez également utilisez la connexion interactive avec votre compte Microsoft lorsque vous souhaitez utiliser les commandes en mode Resource Manager.
+
+La connexion interactive est simple d’utilisation : il vous suffit de taper `azure login` sans aucune option, comme illustré dans l’exemple suivant :
+
+```
+azure login
+```                                                                                             
+
+La sortie doit ressembler à ceci :
+
+```         
+info:    Executing command login
+info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. 
+```
+Copiez le code proposé dans la sortie de commande et ouvrez un navigateur sur la page http://aka.ms/devicelogin ou une autre page, le cas échéant. (Vous pouvez ouvrir un navigateur sur le même ordinateur ou sur un autre ordinateur ou appareil.) Entrez le code et vous serez invité à entrer le nom d'utilisateur et le mot de passe pour l'identité que vous souhaitez utiliser. Une fois le processus terminé, l’interpréteur de commandes exécute le processus de connexion. Le résultat suivant peut s'afficher :
+
+    info:    Added subscription Visual Studio Ultimate with MSDN
+    info:    Added subscription Azure Free Trial
+    info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+    +
+    info:    login command OK
+    
+>[AZURE.NOTE]  Avec la connexion interactive, l’authentification et l’autorisation sont effectuées à l’aide d’Azure Active Directory. Si vous utilisez une identité de compte Microsoft, le processus de connexion accède à votre domaine par défaut Azure Active Directory. (Si vous disposez d’un compte Azure gratuit, Azure Active Directory a peut-être créé automatiquement un domaine par défaut pour votre compte.)
+
+## <a name="scenario-2:-azure-login-with-a-username-and-password"></a>Scénario 2 : connexion à azure avec un nom d’utilisateur et un mot de passe
+
+
+Utilisez la commande `azure login` avec un paramètre de nom d’utilisateur (`-u`) pour vous authentifier quand vous voulez utiliser un compte professionnel ou scolaire ne nécessitant pas l’authentification multifacteur. La ligne de commande vous invite à saisir le mot de passe (ou vous pouvez également passer le mot de passe en tant que paramètre supplémentaire de la commande `azure login`). L’exemple suivant passe le nom d’utilisateur d’un compte de société :
+
+    azure login -u myUserName@contoso.onmicrosoft.com
+    
+Vous êtes ensuite invité à saisir votre mot de passe :
+
+    info:    Executing command login
+    Password: *********
+    
+Le processus de connexion est terminé.
+
+    info:    Added subscription Visual Studio Ultimate with MSDN
+    +
+    info:    login command OK
 
 Si c’est la première fois que vous vous connectez avec ces informations d'identification, vous êtes invité à vérifier que vous souhaitez bien mettre en cache un jeton d'authentification. Ce message s’affiche également si vous avez préalablement utilisé la commande `azure logout` (décrite plus loin dans cet article). Si vous voulez ignorer cette invite pour les scénarios d’automatisation, exécutez `azure login` avec le paramètre `-q`.
 
    
 
-## Utiliser la commande azure login avec un principal du service
+## <a name="scenario-3:-azure-login-with-a-service-principal"></a>Scénario 3 : connexion à azure avec un principal du service
 
-Si vous avez créé un principal du service pour une application Active Directory, et que ce principal du service dispose d’autorisations sur votre abonnement, vous pouvez utiliser la commande `azure login` pour authentifier le principal du service. En fonction de votre scénario, vous pouvez fournir les informations d’identification du principal du service sous la forme de paramètres explicites de la commande `azure login` ou à l’aide d’un script d’interface de ligne de commande ou d’un code d’application. Vous pouvez également utiliser un certificat pour authentifier le principal du service de façon non interactive pour les scénarios d’automatisation. Pour obtenir plus d’informations et des exemples, consultez l’article [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
+Si vous créez un principal du service pour une application Active Directory, et que ce principal du service dispose d’autorisations sur votre abonnement, vous pouvez utiliser la commande `azure login` pour authentifier le principal du service. En fonction de votre scénario, vous pouvez fournir les informations d’identification du principal du service sous la forme de paramètres explicites de la commande `azure login`. Par exemple, la commande suivante transmet le nom du principal du service et l’identifiant de locataire Active Directory :
 
-## Utiliser un fichier de paramètres de publication
+    azure login -u https://www.contoso.org/example --service-principal --tenant myTenantID
 
-Si vous n’avez besoin d’utiliser que les commandes d’interface de ligne de commande du mode Azure Service Management (par exemple, pour déployer des machines virtuelles Azure dans le modèle de déploiement Classic), vous pouvez vous connecter à l’aide d’un fichier de paramètres de publication.
+Vous êtes ensuite invité à saisir votre mot de passe. Vous pouvez également fournir les informations d’identification via un script CLI ou un code d’application, ou utiliser un certificat pour authentifier le principal du service en mode non interactif pour les scénarios d’automatisation. Pour obtenir plus d’informations et des exemples, consultez l’article [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
 
-* **Pour télécharger le fichier de paramètres de publication** de votre compte, utilisez la commande suivante (disponible uniquement en mode Service Management) :
+## <a name="scenario-4:-use-a-publish-settings-file"></a>Scénario 4 : utilisation d’un fichier de paramètres de publication
 
-		azure account download
+Si vous n’avez besoin d’utiliser que les commandes d’interface de ligne de commande du mode Azure Service Management (par exemple, pour déployer des machines virtuelles Azure dans le modèle de déploiement Classic), vous pouvez vous connecter à l’aide d’un fichier de paramètres de publication. Cette méthode installe sur votre ordinateur local un certificat qui vous permet d’exécuter les tâches de gestion pendant toute la durée de validité de l’abonnement et du certificat. 
 
-    Cette commande ouvre votre navigateur par défaut et vous invite à vous connecter au [portail Azure Classic](https://manage.windowsazure.com). Une fois que vous êtes connecté, un fichier `.publishsettings` se télécharge. Prenez note de son emplacement.
+* **Pour télécharger le fichier de paramètres de publication** de votre compte, tapez `azure config mode asm` pour vérifiez que la CLI est en mode Service Management. Exécutez ensuite la commande suivante :
 
-    > [AZURE.NOTE] Si votre compte est associé à plusieurs clients Azure Active Directory, vous pouvez être invité à sélectionner l'annuaire Active Directory pour lequel vous voulez télécharger un fichier de paramètres de publication.
+        azure account download
 
-    Une fois l’annuaire Active Directory sélectionné à partir de la page de téléchargement ou par le biais du portail Azure Classic, il est utilisé par défaut par le portail Classic et par la page de téléchargement. Une fois qu'un paramètre par défaut a été défini, le texte « __cliquez ici pour revenir à la page de sélection__ » apparaît en haut de la page de téléchargement. Utilisez le lien affiché pour revenir à la page de sélection.
+Cette commande ouvre votre navigateur par défaut et vous invite à vous connecter au [portail Azure Classic](https://manage.windowsazure.com). Une fois que vous êtes connecté, un fichier `.publishsettings` se télécharge. Prenez note de son emplacement.
+
+>[AZURE.NOTE] Si votre compte est associé à plusieurs clients Azure Active Directory, vous pouvez être invité à sélectionner l'annuaire Active Directory pour lequel vous voulez télécharger un fichier de paramètres de publication.
+
+Une fois l’annuaire Active Directory sélectionné à partir de la page de téléchargement ou par le biais du portail Azure Classic, il est utilisé par défaut par le portail Classic et par la page de téléchargement. Une fois qu’un paramètre par défaut a été défini, le texte __« cliquez ici pour revenir à la page de sélection »__ apparaît en haut de la page de téléchargement. Utilisez le lien affiché pour revenir à la page de sélection.
 
 * Exécutez la commande suivante **pour importer le fichier de paramètres de publication** :
 
-		azure account import <path to your .publishsettings file>
+        azure account import <path to your .publishsettings file>
 
-	>[AZURE.IMPORTANT]Après avoir importé vos paramètres de publication, vous devez supprimer le fichier `.publishsettings`. Il n’est plus nécessaire à l’interface de ligne de commande Azure, et représente un risque pour la sécurité dans la mesure où il pourrait être utilisé pour accéder à votre abonnement.
+>[AZURE.IMPORTANT]Après avoir importé vos paramètres de publication, vous devez supprimer le fichier `.publishsettings`. Il n’est plus nécessaire à l’interface de ligne de commande Azure, et représente un risque pour la sécurité dans la mesure où il pourrait être utilisé pour accéder à votre abonnement.
 
-## Abonnements multiples
-
-Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accès à tous les abonnements associés à vos informations d’identification. Un abonnement spécifique est sélectionné comme abonnement par défaut et est utilisé par l’interface de ligne de commande Azure durant l’exécution des opérations. Vous pouvez afficher les abonnements et identifier l’abonnement par défaut à l’aide de la commande `azure account list`. Cette commande renvoie des informations similaires aux suivantes :
-
-	info:    Executing command account list
-	data:    Name              Id                                    Current
-	data:    ----------------  ------------------------------------  -------
-	data:    Azure-sub-1       ####################################  true
-	data:    Azure-sub-2       ####################################  false
-
-Dans la liste ci-dessus, la colonne **Current** indique que l’abonnement par défaut actuel est Azure-sub-1. Pour modifier l’abonnement par défaut, utilisez la commande `azure account set` et spécifiez l’abonnement à utiliser par défaut. Par exemple :
-
-	azure account set Azure-sub-2
-
-Cette commande sélectionne Azure-sub-2 comme abonnement par défaut.
-
-> [AZURE.NOTE] Le changement d’abonnement par défaut prend effet immédiatement et au niveau global. Les nouvelles commandes Azure CLI, qu’elles soient exécutées à partir de la même instance de ligne de commande ou d’une autre instance, utilisent le nouvel abonnement par défaut.
-
-Si vous souhaitez utiliser avec Azure CLI un abonnement autre que l’abonnement par défaut, mais sans changer ce dernier, vous pouvez utiliser l’option `--subscription` et fournir le nom de l’abonnement à utiliser pour l’opération.
-
-Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser les commandes de l’interface de ligne de commande Azure pour travailler avec les ressources Azure.
-
-## Modes des commandes de l’interface de ligne de commande
+## <a name="cli-command-modes"></a>Modes des commandes de l’interface de ligne de commande
 
 L’interface de ligne de commande Azure propose deux modes de commande pour l’utilisation des ressources Azure, avec divers jeux de commandes :
 
@@ -132,31 +120,61 @@ L’interface de ligne de commande Azure propose deux modes de commande pour l�
 
 * **Mode Service Management** : pour utiliser des ressources Azure dans le modèle de déploiement Classic. Pour définir ce mode, exécutez `azure config mode asm`.
 
-Lors de la première installation, l’interface de ligne de commande est en mode Service Management.
+Lors de la première installation, la version actuelle de l’interface CLI est en mode Resource Manager.
 
 >[AZURE.NOTE]Le mode Resource Manager et le mode Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
 
-## Stockage des paramètres de l'interface de ligne de commande
+## <a name="multiple-subscriptions"></a>Abonnements multiples
 
-Que vous vous connectiez avec la commande `azure login` ou que vous importiez des paramètres de publication, votre profil d’interface de ligne de commande et vos journaux sont stockés dans un répertoire `.azure` situé dans votre répertoire `user`. Le répertoire `user` est protégé par le système d’exploitation ; toutefois, il est recommandé de prendre des mesures supplémentaires pour chiffrer le répertoire `user`. Pour ce faire, procédez comme suit :
+Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accès à tous les abonnements associés à vos informations d’identification. Un abonnement spécifique est sélectionné comme abonnement par défaut et est utilisé par l’interface de ligne de commande Azure durant l’exécution des opérations. Vous pouvez afficher les abonnements, y compris l’abonnement par défaut actuel, à l’aide de la commande `azure account list`. Cette commande renvoie des informations similaires aux suivantes :
+
+    info:    Executing command account list
+    data:    Name              Id                                    Current
+    data:    ----------------  ------------------------------------  -------
+    data:    Azure-sub-1       ####################################  true
+    data:    Azure-sub-2       ####################################  false
+
+Dans la liste ci-dessus, la colonne **Current** indique que l’abonnement par défaut actuel est Azure-sub-1. Pour modifier l’abonnement par défaut, utilisez la commande `azure account set` et spécifiez l’abonnement à utiliser par défaut. Par exemple :
+
+    azure account set Azure-sub-2
+
+Cette commande sélectionne Azure-sub-2 comme abonnement par défaut.
+
+> [AZURE.NOTE] La modification de l’abonnement par défaut prend effet immédiatement à un niveau global ; les nouvelles commandes CLI Azure, que vous les exécutiez à partir de la même instance de ligne de commande ou d’une autre instance, utilisent le nouvel abonnement par défaut.
+
+Si vous souhaitez utiliser avec Azure CLI un abonnement autre que l’abonnement par défaut, mais sans changer ce dernier, vous pouvez utiliser l’option `--subscription` et fournir le nom de l’abonnement à utiliser pour l’opération.
+
+Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser les commandes de l’interface de ligne de commande Azure pour travailler avec les ressources Azure.
+
+
+
+## <a name="storage-of-cli-settings"></a>Stockage des paramètres de l'interface de ligne de commande
+
+Que vous vous connectiez avec la commande `azure login` ou que vous importiez des paramètres de publication, votre profil d’interface de ligne de commande et vos journaux sont stockés dans un répertoire `.azure` situé dans votre répertoire `user`. Votre répertoire `user` est protégé par votre système d’exploitation. Nous vous recommandons toutefois de prendre des mesures supplémentaires pour chiffrer votre répertoire `user`. Pour ce faire, procédez comme suit :
 
 * Sur Windows, modifiez les propriétés d'annuaire ou utilisez BitLocker.
 * Sur Mac, activez FileVault pour l'annuaire.
 * Sous Ubuntu, utilisez la fonctionnalité d’annuaire Encrypted Home. Les autres versions de Linux offrent des fonctionnalités similaires.
 
-## Déconnexion
+## <a name="logging-out"></a>Déconnexion
 
 Pour vous déconnecter, utilisez la commande suivante :
 
-	azure logout -u <username>
+    azure logout -u <username>
 
-Si les abonnements associés au compte étaient authentifiés uniquement avec Active Directory, la déconnexion supprime les informations d'abonnement du profil local. Toutefois, si un fichier de paramètres de publication avait également été importé pour les abonnements, la déconnexion supprime uniquement les informations Active Directory associées du profil local.
-## Étapes suivantes
+Si les abonnements associés au compte sont authentifiés uniquement avec Active Directory, la déconnexion supprime les informations d’abonnement du profil local. Toutefois, si un fichier de paramètres de publication a également été importé pour les abonnements, la déconnexion supprime uniquement les informations Active Directory associées du profil local.
+## <a name="next-steps"></a>Étapes suivantes
 
-* Pour utiliser les commandes de l’interface de ligne de commande Azure, consultez la rubrique [Commandes de l’interface de ligne de commande Azure en mode Resource Manager](./virtual-machines/azure-cli-arm-commands.md) et [Commandes de l’interface de ligne de commande Azure en mode Service Management ](virtual-machines-command-line-tools.md).
+* Pour utiliser les commandes de l’interface de ligne de commande Azure, consultez les pages [Commandes de l’interface de ligne de commande Azure en mode Resource Manager](./virtual-machines/azure-cli-arm-commands.md) et [Commandes de l’interface de ligne de commande Azure en mode Service Management](virtual-machines-command-line-tools.md).
 
-* Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli) (en anglais).
+* Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli)(en anglais).
 
-* Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=azurescripting).
+* Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

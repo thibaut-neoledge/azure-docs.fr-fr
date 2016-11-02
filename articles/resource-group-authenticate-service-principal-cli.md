@@ -107,7 +107,7 @@ Maintenant, vous devez vous connecter en tant qu’application pour effectuer de
      Résultat :
 
         info:    Executing command account show
-        data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+        data:    Name                        : Microsoft Azure MSDN - Visual Studio Ultimate
         data:    ID                          : {guid}
         data:    State                       : Enabled
         data:    Tenant ID                   : {guid}
@@ -190,7 +190,7 @@ Maintenant, vous devez vous connecter en tant qu’application pour effectuer de
      Résultat :
 
         info:    Executing command account show
-        data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+        data:    Name                        : Microsoft Azure MSDN - Visual Studio Ultimate
         data:    ID                          : {guid}
         data:    State                       : Enabled
         data:    Tenant ID                   : {guid}

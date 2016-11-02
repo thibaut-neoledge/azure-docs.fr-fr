@@ -1,50 +1,54 @@
 <properties
-	pageTitle="Sécurité des concentrateurs de notification"
-	description="Cette rubrique décrit la sécurité des hubs de notification Azure."
-	services="notification-hubs"
-	documentationCenter=".net"
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Security for Notification Hubs"
+    description="This topic explains security for Azure notification hubs."
+    services="notification-hubs"
+    documentationCenter=".net"
+    authors="ysxu"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="06/29/2016"
+    ms.author="yuaxu"/>
 
-#Sécurité
 
-##Vue d'ensemble
+#<a name="security"></a>Security
 
-Cette rubrique décrit le modèle de sécurité d'Azure Notification Hubs. Notification Hubs étant une entité Service Bus, elle implémente le même modèle de sécurité que Service Bus. Pour plus d'informations, consultez les rubriques [Authentification Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx).
+##<a name="overview"></a>Overview
 
-##Sécurité Signature d'accès partagé (SAP) 
+This topic describes the security model of Azure Notification Hubs. Because Notification Hubs are a Service Bus entity, they implement the same security model as Service Bus. For more information, see the [Service Bus Authentication](https://msdn.microsoft.com/library/azure/dn155925.aspx) topics.
 
-Notification Hubs implémente un modèle de sécurité de niveau entité appelé SAP (Signature d'accès partagé). Ce schéma permet aux entités de messagerie de déclarer dans leur description jusqu'à 12 règles d'autorisation accordant des droits sur cette entité.
+##<a name="shared-access-signature-security-(sas)"></a>Shared Access Signature Security (SAS) 
 
-Chaque règle contient un nom, une valeur clé (secret partagé) et un ensemble de droits, comme expliqué dans la section « Revendications de sécurité ». Lorsque vous créez un concentrateur de notification, deux règles sont automatiquement créées : une avec des droits d'écoute (utilisée par l'application cliente) et l'autre avec tous les droits (utilisé par le serveur principal d'application).
+Notification Hubs implements an entity-level security scheme called SAS (Shared Access Signature). This scheme enables messaging entities to declare up to 12 authorization rules in their description that grant rights on that entity.
 
-Lors de la gestion de l'inscription à partir d’applications clientes, si les informations envoyées via des notifications ne sont pas sensibles (par exemple, des mises à jour météorologiques), une méthode courante pour accéder à un concentrateur de notification consiste à attribuer la valeur clé de la règle d'accès en écoute uniquement à l'application cliente et à attribuer la valeur clé de la règle d’accès complet au serveur principal.
+Each rule contains a name, a key value (shared secret), and a set of rights, as explained in the section “Security Claims.” When creating a Notification Hub, two rules are automatically created: one with Listen rights (that the client app uses) and one with all rights (that the app backend uses).
 
-Il est déconseillé d'incorporer la valeur clé dans les applications clientes Windows Store. Pour éviter l'incorporation de la valeur clé, l'application cliente peut la récupérer à partir du serveur principal d'application au démarrage.
+When performing registration management from client apps, if the information sent via notifications is not sensitive (for example, weather updates), a common way to access a Notification Hub is to give the key value of the rule Listen-only access to the client app, and to give the key value of the rule full access to the app backend.
 
-Il est important de comprendre que la clé avec un accès en écoute permet à une application cliente de s’inscrire pour n’importe quelle balise. Si votre application doit limiter les inscriptions à des balises spécifiques pour des clients spécifiques (par exemple, lorsque les balises représentent des ID utilisateur), votre serveur principal d’application doit effectuer ces inscriptions. Pour plus d'informations, consultez Gestion des inscriptions. Notez que de cette façon, l'application cliente ne disposera pas d'un accès direct à Notification Hubs.
+It is not recommended that you embed the key value in Windows Store client apps. A way to avoid embedding the key value is to have the client app retrieve it from the app backend at startup.
 
-##Revendications de sécurité
+It is important to understand that the key with Listen access allows a client app to register for any tag. If your app must restrict registrations to specific tags to specific clients (for example, when tags represent user IDs), then your app backend must perform the registrations. For more information, see Registration Management. Note that in this way, the client app will not have direct access to Notification Hubs.
 
-Comme pour les autres entités, les opérations Notification Hubs sont autorisées pour trois revendications de sécurité : Écoute, Envoyer et Gérer.
+##<a name="security-claims"></a>Security claims
 
-| Revendication | Description | Opérations autorisées |
+Similar to other entities, Notification Hub operations are allowed for three security claims: Listen, Send, and Manage.
+
+| Claim | Description | Operations allowed |
 |-------|-------------|--------------------|
-| Écouter | Créer/mettre à jour, lire et supprimer des inscriptions uniques | Créer/mettre à jour une inscription<br><br>Lire une inscription<br><br>Lire toutes les inscriptions pour un handle<br><br>Supprimer une inscription |
-| Envoyer | Envoyer de messages au concentrateur de notification | Envoyer un message |
-| Gérer | Opérations CRUD sur Notification Hubs (y compris la mise à jour des informations d'identification PNS et les clés de sécurité) et lecture des inscriptions en fonction des balises | Créer/Mettre à jour/Lire/Supprimer des hubs de notification<br><br>Lire des inscriptions par balise |
+| Listen | Create/Update, Read, and Delete single registrations | Create/Update registration<br><br>Read registration<br><br>Read all registrations for a handle<br><br>Delete registration |
+| Send | Send messages to the notification hub | Send message |
+| Manage | CRUDs on Notification Hubs (including updating PNS credentials, and security keys), and read registrations based on tags | Create/Update/Read/Delete notification hubs<br><br>Read registrations by tag |
 
 
-Notification Hubs accepte les revendications accordées par les jetons de contrôle d'accès Microsoft Azure et les jetons de signature générés avec des clés partagées configurées directement sur le concentrateur de notification.
+Notification Hubs accept claims granted by Microsoft Azure Access Control tokens, and by signature tokens generated with shared keys configured directly on the Notification Hub.
 
-<!---HONumber=AcomDC_0706_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

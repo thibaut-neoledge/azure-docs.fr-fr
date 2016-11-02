@@ -1,7 +1,11 @@
-| | **Déploiement classique** | **Déploiement Resource Manager** |
-|----------------------------------------|--------------|------------------------|
-| **Portail Classic** | [Article](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | Non pris en charge |
-| **Portail Azure** | Pris en charge | Non pris en charge |
-| **PowerShell** | Pris en charge | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+|**Modèle/méthode de déploiement**|**Portail Azure**| **Portail Classic** | **PowerShell**|
+|-------------------------------------|-----------------|---------------------|---------------|
+|**Classique** |  [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)| [Article](../articles/vpn-gateway/point-to-site-create.md)  | Pris en charge |
+|**Gestionnaire de ressources** |Non pris en charge| Non pris en charge   | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)  |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

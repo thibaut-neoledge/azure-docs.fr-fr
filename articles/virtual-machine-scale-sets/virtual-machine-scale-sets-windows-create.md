@@ -1,45 +1,46 @@
 <properties
-	pageTitle="Création de jeux de mise à l’échelle de machine virtuelle | Microsoft Azure"
-	description="Création d’un groupe identique de machines virtuelles à l’aide de PowerShell"
-	services="virtual-machine-scale-sets"
+    pageTitle="Créer un jeu de mise à l’échelle de machine virtuelle Windows à l’aide d’Azure PowerShell | Microsoft Azure"
+    description="Création d’un groupe identique de machines virtuelles à l’aide de PowerShell"
+    services="virtual-machine-scale-sets"
     documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/25/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/10/2016"
+    ms.author="davidmu"/>
 
-# Créer un jeu de mise à l’échelle de machine virtuelle Windows à l’aide d’Azure PowerShell
 
-Ces étapes utilisent une méthode de cases à remplir pour créer un jeu de mise à l’échelle de machine virtuelle Azure. Consultez la rubrique [Vue d’ensemble des jeux de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-overview.md) pour en savoir plus sur les jeux de mise à l’échelle.
+# <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Créer un jeu de mise à l’échelle de machine virtuelle Windows à l’aide d’Azure PowerShell
+
+Ces étapes utilisent une méthode de cases à remplir pour créer un groupe identique de machine virtuelle Azure. Consultez la rubrique [Vue d’ensemble des jeux de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-overview.md) pour en savoir plus sur les jeux de mise à l’échelle.
 
 Il vous faudra environ 30 minutes pour effectuer les étapes décrites dans cet article.
 
-## Étape 1 : installer Azure PowerShell
+## <a name="step-1:-install-azure-powershell"></a>Étape 1 : installer Azure PowerShell
 
-Pour plus d’informations sur l’installation de la dernière version d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md). Sélectionnez l’abonnement à utiliser et connectez-vous à votre compte Azure.
+Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-## Étape 2 : Créer des ressources
+## <a name="step-2:-create-resources"></a>Étape 2 : Créer des ressources
 
-Créez les ressources nécessaires à votre nouveau jeu de mise à l'échelle de machine virtuelle.
+Créez les ressources nécessaires à votre nouveau jeu de mise à l'échelle.
 
-### Groupe de ressources
+### <a name="resource-group"></a>Groupe de ressources
 
 Un jeu de mise à l'échelle de machine virtuelle doit figurer dans un groupe de ressources.
 
-1.  Obtenez la liste des emplacements disponibles et des services pris en charge :
+1. Obtenez la liste des emplacements disponibles et des services pris en charge :
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
-    Le résultat suivant devrait s'afficher :
+    Un résultat comme l’exemple suivant devrait s’afficher :
 
         Name                AvailableServices
         ----                -----------------
@@ -66,7 +67,7 @@ Un jeu de mise à l'échelle de machine virtuelle doit figurer dans un groupe de
 
         $locName = "location name from the list, such as Central US"
 
-3. Remplacez la valeur de **$rgName** par le nom que vous souhaitez utiliser pour le nouveau groupe de ressources, puis créez la variable :
+3. Remplacez la valeur de **$rgName** par le nom que vous souhaitez utiliser pour le nouveau groupe de ressources, puis créez la variable : 
 
         $rgName = "resource group name"
         
@@ -74,7 +75,7 @@ Un jeu de mise à l'échelle de machine virtuelle doit figurer dans un groupe de
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-    Le résultat suivant devrait s'afficher :
+    Un résultat comme l’exemple suivant devrait s’afficher :
 
         ResourceGroupName : myrg1
         Location          : centralus
@@ -82,36 +83,33 @@ Un jeu de mise à l'échelle de machine virtuelle doit figurer dans un groupe de
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### Compte de stockage
+### <a name="storage-account"></a>Compte de stockage
 
-Un compte de stockage est utilisé par une machine virtuelle pour stocker le disque du système d’exploitation et les données de diagnostic utilisées pour la mise à l’échelle. Il est recommandé d’utiliser un compte de stockage pour 20 machines virtuelles créées dans un jeu de mise à l’échelle. Les jeux de mise à l’échelle étant conçus pour être facilement extensibles, créez le nombre de comptes de stockage nécessaires pour le nombre maximal de machines virtuelles que votre jeu de mise à l’échelle doit atteindre. L’exemple présenté dans cet article montre 3 comptes de stockage créés, ce qui permet au jeu de mise à l’échelle de croître confortablement jusqu’à 60 machines virtuelles.
+Un compte de stockage est utilisé par une machine virtuelle pour stocker le disque du système d’exploitation et les données de diagnostic utilisées pour la mise à l’échelle. Lorsque cela est possible, il est recommandé d’utiliser un compte de stockage pour chaque machine virtuelle créée dans un jeu identique. Dans le cas contraire, ne prévoyez pas plus de 20 machines virtuelles par compte de stockage. L’exemple présenté dans cet article montre 3 comptes de stockage créés pour 3 machines virtuelles.
 
-1. Remplacez la valeur de **saName** par le nom que vous souhaitez utiliser pour le compte de stockage, puis créez la variable :
+1. Remplacez la valeur de **$stName** par le nom du compte de stockage. Testez l’unicité du nom choisi. 
 
         $saName = "storage account name"
-        
-2. Vérifiez que le nom que vous avez sélectionné est unique :
-    
-        Test-AzureName -Storage $saName
+        Get-AzureRmStorageAccountNameAvailability $saName
 
-    Si la réponse est **False**, le nom proposé est unique.
+    Si la réponse est **True**, le nom proposé est unique.
 
-3. Remplacez la valeur de **$saType** par le type de compte de stockage, puis créez la variable :
+3. Remplacez la valeur de **$saType** par le type de compte de stockage, puis créez la variable :  
 
         $saType = "storage account type"
         
-    Les valeurs possibles sont : Standard\_LRS, Standard\_GRS, Standard\_RAGRS ou Premium\_LRS.
+    Les valeurs possibles sont : Standard_LRS, Standard_GRS, Standard_RAGRS ou Premium_LRS.
         
 4. Créez le compte :
     
         New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
 
-    Le résultat suivant devrait s'afficher :
+    Un résultat comme l’exemple suivant devrait s’afficher :
 
         ResourceGroupName   : myrg1
         StorageAccountName  : myst1
         Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-	                    	.Storage/storageAccounts/myst1
+                              .Storage/storageAccounts/myst1
         Location            : centralus
         AccountType         : StandardLRS
         CreationTime        : 3/15/2016 4:51:52 PM
@@ -129,21 +127,21 @@ Un compte de stockage est utilisé par une machine virtuelle pour stocker le dis
 
 5. Répétez les étapes 1 à 4 pour créer 3 comptes de stockage, par exemple myst1, myst2 et myst3.
 
-### Réseau virtuel
+### <a name="virtual-network"></a>réseau virtuel
 
 Un réseau virtuel est requis pour les machines virtuelles dans le jeu de mise à l'échelle.
 
-1. Remplacez la valeur de **$subName** par le nom que vous souhaitez utiliser pour le sous-réseau du réseau virtuel, puis créez la variable :
+1. Remplacez la valeur de **$subName** par le nom que vous souhaitez utiliser pour le sous-réseau du réseau virtuel, puis créez la variable : 
 
-        $subName = "subnet name"
+        $subnetName = "subnet name"
         
 2. Créez la configuration de sous-réseau :
     
-        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
     Le préfixe d’adresse peut être différent dans votre réseau virtuel.
 
-3. Remplacez la valeur de **$netName** par le nom que vous souhaitez utiliser pour le réseau virtuel, puis créez la variable :
+3. Remplacez la valeur de **$netName** par le nom que vous souhaitez utiliser pour le réseau virtuel, puis créez la variable : 
 
         $netName = "virtual network name"
         
@@ -151,11 +149,11 @@ Un réseau virtuel est requis pour les machines virtuelles dans le jeu de mise �
     
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-### Adresse IP publique
+### <a name="public-ip-address"></a>Adresse IP publique
 
 Avant de pouvoir créer une interface réseau, vous devez créer une adresse IP publique.
 
-1. Remplacez la valeur de **$domName** par l'étiquette du nom de domaine que vous souhaitez utiliser avec votre adresse IP publique, puis créez la variable :
+1. Remplacez la valeur de **$domName** par l'étiquette du nom de domaine que vous souhaitez utiliser avec votre adresse IP publique, puis créez la variable :  
 
         $domName = "domain name label"
         
@@ -167,7 +165,7 @@ Avant de pouvoir créer une interface réseau, vous devez créer une adresse IP 
 
     Si la réponse est **True**, le nom proposé est unique.
 
-3. Remplacez la valeur de **$pipName** par le nom que vous souhaitez utiliser pour l’adresse IP publique, puis créez la variable.
+3. Remplacez la valeur de **$pipName** par le nom que vous souhaitez utiliser pour l’adresse IP publique, puis créez la variable. 
 
         $pipName = "public ip address name"
         
@@ -175,11 +173,11 @@ Avant de pouvoir créer une interface réseau, vous devez créer une adresse IP 
     
         $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
 
-### Interface réseau
+### <a name="network-interface"></a>Interface réseau
 
 Maintenant que vous disposez de l'adresse IP publique, vous pouvez créer l'interface réseau.
 
-1. Remplacez la valeur de **$nicName** par le nom que vous souhaitez utiliser pour l’interface réseau, puis créez la variable :
+1. Remplacez la valeur de **$nicName** par le nom que vous souhaitez utiliser pour l’interface réseau, puis créez la variable : 
 
         $nicName = "network interface name"
         
@@ -187,11 +185,11 @@ Maintenant que vous disposez de l'adresse IP publique, vous pouvez créer l'inte
     
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
-### Configuration du jeu de mise à l’échelle
+### <a name="configuration-of-the-scale-set"></a>Configuration du jeu de mise à l’échelle
 
-Vous disposez de toutes les ressources dont vous avez besoin pour la configuration du jeu de mise à l’échelle. Nous allons donc le créer.
+Vous disposez de toutes les ressources dont vous avez besoin pour la configuration du jeu de mise à l’échelle. Nous allons donc le créer.  
 
-1. Remplacez la valeur de **$ipName** par le nom que vous souhaitez utiliser pour la configuration de l’adresse IP, puis créez la variable :
+1. Remplacez la valeur de **$ipName** par le nom que vous souhaitez utiliser pour la configuration de l’adresse IP, puis créez la variable : 
 
         $ipName = "IP configuration name"
         
@@ -199,21 +197,21 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
 
         $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Remplacez la valeur de **$vmssConfig** par le nom que vous souhaitez utiliser pour la configuration du groupe identique, puis créez la variable :
+2. Remplacez la valeur de **$vmssConfig** par le nom que vous souhaitez utiliser pour la configuration du groupe identique, puis créez la variable :   
 
         $vmssConfig = "Scale set configuration name"
         
 3. Créez la configuration pour votre jeu de mise à l’échelle :
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    Cet exemple montre la création d’un jeu de mise à l’échelle avec 3 machines virtuelles. Consultez la rubrique [Vue d’ensemble des groupes identiques dde machines virtuelles](virtual-machine-scale-sets-overview.md) pour en savoir plus sur la capacité des jeux de mise à l’échelle. Cette étape inclut également la définition de la taille (appelée SkuName) des machines virtuelles dans le jeu. Consultez la rubrique [Tailles des machines virtuelles](../virtual-machines/virtual-machines-windows-sizes.md) pour trouver une taille adaptée à vos besoins.
+    Cet exemple montre un jeu de mise à l’échelle créé avec 3 machines virtuelles. Consultez la rubrique [Vue d’ensemble des groupes identiques dde machines virtuelles](virtual-machine-scale-sets-overview.md) pour en savoir plus sur la capacité des jeux de mise à l’échelle. Cette étape inclut également la définition de la taille (appelée SkuName) des machines virtuelles dans le jeu. Consultez la rubrique [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md) pour trouver une taille adaptée à vos besoins.
     
 4. Ajoutez la configuration de l’interface réseau à la configuration du jeu de mise à l’échelle :
         
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
         
-    Le résultat suivant devrait s'afficher :
+    Un résultat comme l’exemple suivant devrait s’afficher :
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -226,9 +224,9 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
         Location              : Central US
         Tags                  :
 
-#### Profil de système d’exploitation
+#### <a name="operating-system-profile"></a>Profil de système d’exploitation
 
-1. Remplacez la valeur de **$computerName** par le préfixe de nom d’ordinateur que vous souhaitez utiliser, puis créez la variable :
+1. Remplacez la valeur de **$computerName** par le préfixe de nom d’ordinateur que vous souhaitez utiliser, puis créez la variable : 
 
         $computerName = "computer name prefix"
         
@@ -244,19 +242,19 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
 
         Set-AzureRmVmssOsProfile -VirtualMachineScaleSet $vmss -ComputerNamePrefix $computerName -AdminUsername $adminName -AdminPassword $adminPassword
 
-#### Profil de stockage
+#### <a name="storage-profile"></a>Profil de stockage
 
-1. Remplacez la valeur de **$storageProfile** par le nom que vous souhaitez utiliser pour le profil de stockage, puis créez la variable :
+1. Remplacez la valeur de **$storageProfile** par le nom que vous souhaitez utiliser pour le profil de stockage, puis créez la variable :  
 
         $storageProfile = "storage profile name"
         
-2. Créez les variables qui définissent l’image à utiliser :
+2. Créez les variables qui définissent l’image à utiliser :  
       
         $imagePublisher = "MicrosoftWindowsServer"
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Consultez la rubrique [Rechercher et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) pour identifier les informations sur d’autres images à utiliser.
+    Consultez [Parcourir et sélectionner des images de machines virtuelles Windows dans Azure avec l’interface CLI ou PowerShell](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) pour identifier les informations sur d’autres images à utiliser.
         
 3. Remplacez la valeur de **$vhdContainer** par le chemin d’accès dans lequel les disques durs virtuels sont stockés, tels que « https://mystorage.blob.core.windows.net/vhds », puis créez la variable :
        
@@ -266,7 +264,7 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
 
         Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
-### Jeu de mise à l’échelle de machine virtuelle
+### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
 
 Enfin, vous pouvez créer le jeu de la mise à l’échelle.
 
@@ -278,7 +276,7 @@ Enfin, vous pouvez créer le jeu de la mise à l’échelle.
 
         New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
-    Vous devriez voir quelque chose comme ce qui suit, indiquant que le déploiement a réussi :
+    Vous devriez obtenir quelque chose de similaire à cet exemple qui montre un déploiement réussi :
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -286,18 +284,18 @@ Enfin, vous pouvez créer le jeu de la mise à l’échelle.
         ProvisioningState     : Updating
         OverProvision         :
         Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
-                               ft.Compute/virtualMachineScaleSets/myvmss1
+                                ft.Compute/virtualMachineScaleSets/myvmss1
         Name                  : myvmss1
         Type                  : Microsoft.Compute/virtualMachineScaleSets
         Location              : centralus
         Tags                  :
 
-## Étape 3 : Explorer les ressources
+## <a name="step-3:-explore-resources"></a>Étape 3 : Explorer les ressources
 
-Utilisez ces ressources pour explorer le jeu de mise à l'échelle de machine virtuelle que vous venez de créer :
+Utilisez ces ressources pour explorer le jeu de mise à l’échelle de machine virtuelle que vous venez de créer :
 
 - Portail Azure : une quantité limitée d’informations est disponible via le portail.
-- [Azure Resource Explorer](https://resources.azure.com/) : il s’agit du meilleur outil pour déterminer l’état actuel de votre groupe identique.
+- [Explorateur de ressources Azure](https://resources.azure.com/) : cet outil est le meilleur pour déterminer l’état actuel de votre jeu de mise à l’échelle.
 - Azure PowerShell : utilisez cette commande pour obtenir des informations :
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
@@ -307,10 +305,14 @@ Utilisez ces ressources pour explorer le jeu de mise à l'échelle de machine vi
         Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Gérer le jeu de mise à l’échelle que vous avez créé à l’aide des informations figurant dans [Gérer des machines dans un groupe identique de machines virtuelles (en anglais)](virtual-machine-scale-sets-windows-manage.md)
 - Vous pouvez configurer la mise à l'échelle automatique de votre groupe identique à l'aide des informations fournies dans la rubrique [Mise à l’échelle automatique et groupes identiques de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md)
 - Pour en savoir plus sur la mise à l’échelle verticale, consultez l’article [Mise à l’échelle verticale avec des groupes identiques de machines virtuelles](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

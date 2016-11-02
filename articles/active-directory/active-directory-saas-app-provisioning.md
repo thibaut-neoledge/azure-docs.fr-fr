@@ -16,9 +16,10 @@
     ms.date="02/09/2016"
     ms.author="asmalser-msft"/>
 
-#Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory
 
-##Présentation de l’approvisionnement automatique des utilisateurs pour les applications SaaS
+#<a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory
+
+##<a name="what-is-automated-user-provisioning-for-saas-apps?"></a>Présentation de l’approvisionnement automatique des utilisateurs pour les applications SaaS
 
 Azure Active Directory (Azure AD) vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans les applications cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) comme Dropbox, Salesforce, ServiceNow et bien plus encore.
 
@@ -36,7 +37,7 @@ Azure Active Directory (Azure AD) vous permet d’automatiser la création, la m
 - Alertes par courrier électronique pour les erreurs d’approvisionnement
 - Création de rapports et journaux d’activité pour faciliter la surveillance et la résolution des problèmes
 
-##Pourquoi utiliser l’approvisionnement automatique ?
+##<a name="why-use-automated-provisioning?"></a>Pourquoi utiliser l’approvisionnement automatique ?
 
 Voici les principales raisons pour utiliser cette fonctionnalité :
 
@@ -45,7 +46,7 @@ Voici les principales raisons pour utiliser cette fonctionnalité :
 - Importation facile de nombreux utilisateurs en bloc dans une application SaaS précise
 - Exécution pratique de votre solution d’approvisionnement à partir des mêmes stratégies d’accès aux applications que celles définies pour l’authentification unique Azure AD
 
-##Forum Aux Questions (FAQ)
+##<a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 
 **À quelle fréquence Azure AD écrit-il les modifications d’annuaire dans l’application SaaS ?**
 
@@ -71,7 +72,7 @@ Pour la plupart des applications SaaS, l’approvisionnement s’effectue unique
 
 Veuillez nous contacter via le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-##Comment fonctionne l’approvisionnement automatique ?
+##<a name="how-does-automated-provisioning-work?"></a>Comment fonctionne l’approvisionnement automatique ?
 
 Azure AD approvisionne des utilisateurs pour les applications SaaS en se connectant aux points de terminaison d’approvisionnement fournis par chaque fournisseur de l’application. Ces points de terminaison permettent à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs par programmation. Voici une brève présentation des différentes étapes que suit Azure AD pour automatiser l’approvisionnement.
 
@@ -86,7 +87,7 @@ Azure AD approvisionne des utilisateurs pour les applications SaaS en se connect
 
 Pour plus d’informations sur la façon dont les attributs sont mappés entre Azure AD et votre application SaaS, consultez l’article [Personnalisation des mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md).
 
-##Liste des applications prenant en charge l’approvisionnement automatique des utilisateurs
+##<a name="list-of-apps-that-support-automated-user-provisioning"></a>Liste des applications prenant en charge l’approvisionnement automatique des utilisateurs
 
 Cliquez sur une application pour consulter un didacticiel expliquant comment la configurer pour l’approvisionnement automatique :
 
@@ -106,7 +107,7 @@ Pour qu’une application puisse prendre en charge l’approvisionnement automat
 
 Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, veuillez écrire un message sur le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-##Articles connexes
+##<a name="related-articles"></a>Articles connexes
 
 - [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 - [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
@@ -116,4 +117,8 @@ Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une pri
 - [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 - [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
