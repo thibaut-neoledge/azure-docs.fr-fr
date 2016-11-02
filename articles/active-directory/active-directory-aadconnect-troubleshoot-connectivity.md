@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="11/01/2016"
     ms.author="billmath"/>
 
 
@@ -167,13 +167,13 @@ L’authentification a réussi. Impossible de récupérer les informations de so
 ### <a name="retrievedomains"></a>RetrieveDomains
 L’authentification a réussi. Impossible de récupérer les informations de domaine à partir d’Azure AD.
 
-## <a name="troubleshooting-steps-for-previous-releases."></a>Étapes de dépannage pour les versions précédentes.
+## <a name="troubleshooting-steps-for-previous-releases"></a>Étapes de dépannage pour les versions précédentes.
 Dans les versions commençant par le numéro de build 1.1.105.0 (publiées en février 2016), l’assistant de connexion a été supprimé. Cette section et la configuration ne sont plus requises, mais sont conservées en tant que référence.
 
 Pour que l’Assistant de connexion unique fonctionne, winhttp doit être configuré. Pour ce faire, utilisez [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
-### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>L’Assistant de connexion n’a pas été configuré correctement
+### <a name="the-signin-assistant-has-not-been-correctly-configured"></a>L’Assistant de connexion n’a pas été configuré correctement
 Cette erreur apparaît quand l’Assistant de connexion ne peut pas accéder au proxy ou quand le proxy n’autorise pas la demande.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Proxy inverse de Service Fabric | Microsoft Azure"
-   description="Utilisez le proxy inverse de Service Fabric pour assurer les communications avec les microservices depuis l’intérieur et l’extérieur du cluster."
+   pageTitle="Service Fabric Reverse Proxy | Microsoft Azure"
+   description="Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster"
    services="service-fabric"
    documentationCenter=".net"
-   authors="BharatNarasimman,vturecek"
+   authors="BharatNarasimman"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,124 +13,126 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/26/2016"
+   ms.date="10/04/2016"
    ms.author="vturecek"/>
 
-# Proxy inverse de Service Fabric
 
-Le proxy inverse de Service Fabric est un proxy inverse intégré dans un Service Fabric, qui permet de gérer les microservices du cluster Service Fabric qui expose les points de terminaison HTTP.
+# <a name="service-fabric-reverse-proxy"></a>Service Fabric Reverse Proxy
 
-## Modèle de communication des microservices
+The Service Fabric Reverse proxy is a reverse proxy built-into service fabric that allows addressing microservices in the service fabric cluster that expose HTTP endpoints.
 
-Dans un Service Fabric, les microservices s’exécutent généralement sur un sous-ensemble de machines virtuelles au sein du cluster et peuvent passer d’une machine virtuelle à l’autre, pour des raisons diverses. Ainsi, les points de terminaison associés aux microservices peuvent changer de manière dynamique. Pour les communications avec le microservice, le modèle classique adopté est la boucle de résolution ci-dessous :
+## <a name="microservices-communication-model"></a>Microservices communication model
 
-1. Résolvez l’emplacement du service via le service de nommage initialement.
-2. Connectez-vous au service.
-3. Déterminez la cause des échecs de connexion et résolvez à nouveau l’emplacement du service, le cas échéant.
+Microservices in service fabric typically run on a subset of VM's in the cluster and can move from one VM to another for various reasons. So the endpoints for microservices can change dynamically. The typical pattern to communicate to the microservice is the resolve loop below,
 
-Ce processus implique généralement l’encapsulage des bibliothèques de communications côté client dans une boucle de nouvelle tentative, qui implémente les règles de nouvelle tentative et de résolution de service. Pour en savoir plus sur ce sujet, consultez [Communication avec les services](service-fabric-connect-and-communicate-with-services.md).
+1. Resolve the service location initially through the Naming Service.
+2. Connect to the service.
+3. Determine the cause of connection failures and re-resolve the service location when necessary.
 
-### Communication via un proxy inverse de Service Fabric
-Le proxy inversé Service Fabric s’exécute sur tous les nœuds du cluster. Il exécute l’ensemble du processus de résolution de service pour un client, puis transmet la requête du client. Par conséquent, les clients en cours d’exécution sur le cluster peuvent utiliser n’importe quelle bibliothèque de communications HTTP côté client pour interagir avec le service cible, via le proxy inversé Service Fabric exécuté en local sur le même nœud.
+This process generally involves wrapping client-side communication libraries in a retry loop that implements the service resolution and retry policies.
+For more information on this topic, see [communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
-![Communications internes][1]
+### <a name="communicating-via-sf-reverse-proxy"></a>Communicating via SF reverse proxy
+Service Fabric reverse proxy runs on all the nodes in the cluster. It performs the entire service resolution process on a client's behalf and then forwards the client request. So clients running on the cluster can just use any client-side HTTP communication libraries to talk to the target service via the SF reverse proxy running locally on the same node.
 
-## Atteindre les microservices depuis l’extérieur du cluster
-Le modèle de communication externe par défaut des microservices est l’option d’**abonnement**, dans laquelle chaque service par défaut n’est pas accessible directement depuis des clients externes. [Azure Load Balancer](../load-balancer/load-balancer-overview.md) représente une limite réseau située entre des microservices et des clients externes, qui effectue la traduction des adresses réseau et transfère les requêtes externes vers des points de terminaison **IP:port** internes. Pour que le point de terminaison d’un microservice soit accessible aux clients externes, Azure Load Balancer doit tout d’abord être configuré pour transférer le trafic vers chaque port utilisé par le service au sein du cluster. En outre, la plupart des microservices (notamment les microservices avec état) ne se trouvent pas sur tous les nœuds du cluster ; ils peuvent se déplacer d’un nœud à un autre lors d’un basculement. Dans ce cas, Azure Load Balancer ne peut pas déterminer efficacement l’emplacement du nœud cible des réplicas auxquels transférer le trafic.
+![Internal communication][1]
 
-### Atteindre les microservices via le proxy inverse Service Fabric depuis l’extérieur du cluster
+## <a name="reaching-microservices-from-outside-the-cluster"></a>Reaching Microservices from outside the cluster
+The default external communication model for microservices is **opt-in**  where each service by default cannot be accessed directly from external clients. The [Azure Load Balancer](../load-balancer/load-balancer-overview.md) is a network boundary between microservices and external clients, that performs network address translation and forwards external requests to internal **IP:port** endpoints. In order to make a microservice's endpoint directly accessible to external clients, the Azure Load Balancer must first be configured to forward traffic to each port used by the service in the cluster. Furthermore, most microservices(esp. stateful microservices) dont live on all the nodes of the cluster and they can move between nodes on failover, so in such cases, the Azure Load Balancer cannot effectively determine the target node of the replicas are located to forward the traffic to.
 
-Au lieu de configurer les ports de services individuels dans Azure Load Balancer, vous pouvez vous contenter de définir le port du proxy inverse Service Fabric dans Azure Load Balancer. Cela permet aux clients se trouvant en dehors du cluster d’atteindre les services à l’intérieur du cluster via le proxy inverse sans qu’une configuration supplémentaire soit nécessaire.
+### <a name="reaching-microservices-via-the-sf-reverse-proxy-from-outside-the-cluster"></a>Reaching Microservices via the SF reverse proxy from outside the cluster
 
-![Communications externes][0]
+Instead of configuring individual service's ports in the azure load balancer, just the SF Reverse proxy port can be configured in the Azure Load Balancer. This allows clients outside the cluster to reach services inside the cluster via the reverse proxy without an additional configurations.
 
->[AZURE.WARNING] La configuration du port du proxy inverse sur l’équilibreur de charge permet aux systèmes se trouvant à l’extérieur du cluster d’atteindre les microservices du cluster exposant le point de terminaison HTTP.
+![External communication][0]
+
+>[AZURE.WARNING] Configuring the reverse proxy's port on the load balancer, makes all the micro services in the cluster that expose a http endpoint, to be addressible from outside the cluster.
 
 
-## Format d’URI pour l’adressage des services via le proxy inverse
+## <a name="uri-format-for-addressing-services-via-the-reverse-proxy"></a>URI format for addressing services via the reverse proxy
 
-Le proxy inverse utilise un format d’URI spécifique pour identifier la partition de service vers laquelle une requête entrante doit être transférée :
+The Reverse proxy uses a specific URI format to identify which service partition the incoming request should be forwarded to :
 
 ```
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
 ```
 
- - **http(s) :** le proxy inverse peut être configuré pour accepter le trafic HTTP ou HTTPS. En cas de trafic HTTPS, une terminaison SSL se produit au niveau du proxy inverse. Les requêtes qui sont transférées par le proxy inverse aux services du cluster transitent via le protocole HTTP.
- - **Nom de domaine complet du cluster| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
- - **Port :** port spécifié pour le proxy inverse. Exemple : 19008.
- - **ServiceInstanceName :** nom complet de l’instance de service déployée associée au service que vous tentez d’atteindre sans le schéma "fabric:/". Par exemple, pour atteindre le service *fabric:/myapp/myservice/*, vous pouvez utiliser *myapp/myservice*.
- - **Chemin d’accès au suffixe :** chemin d’accès réel à l’URL associée au service auquel vous souhaitez vous connecter. Exemple : *myapi/values/add/3*
- - **PartitionKey :** pour un service partitionné, il s’agit de la clé calculée associée à la partition que vous souhaitez atteindre. Il ne s’agit *pas* du GUID d’ID de la partition. Ce paramètre n’est pas obligatoire pour les services utilisant le schéma de partition de singleton.
- - **PartitionKind :** schéma de partition de service. Il peut s’agir de Named ou Int64Range. Ce paramètre n’est pas obligatoire pour les services utilisant le schéma de partition de singleton.
- - **Timeout :** spécifie le délai d’attente de la requête HTTP créée par le proxy inverse pour le service, pour le compte de la requête du client. La valeur par défaut est de 60 minutes. Paramètre facultatif.
+ - **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. In case of HTTPS traffic, SSL termination occurs at the reverse proxy. Requests that are forwarded by the reverse proxy to services in the cluster are over http.
+ - **Cluster FQDN | internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
+ - **Port:** The port that has been specified for the reverse proxy. Eg: 19008.
+ - **ServiceInstanceName:** This is the fully-qualified deployed service instance name of the service you are trying to reach sans the "fabric:/" scheme. For example, to reach service *fabric:/myapp/myservice/*, you would use *myapp/myservice*.
+ - **Suffix path:** This is the actual URL path for the service that you want to connect to. For example, *myapi/values/add/3*
+ - **PartitionKey:** For a partitioned service, this is the computed partition key of the partition you want to reach. Note that this is *not* the partition ID GUID. This parameter is not required for services using the singleton partition scheme.
+ - **PartitionKind:** The service partition scheme. This can be 'Int64Range' or 'Named'. This parameter is not required for services using the singleton partition scheme.
+ - **Timeout:**  This specifies the timeout for the http request created by the reverse proxy to the service on behalf of the client request. The default value for this is 60 seconds. This is an optional parameter.
 
-### Exemple d’utilisation
+### <a name="example-usage"></a>Example usage
 
-Prenons l’exemple du service **fabric:/MyApp/MyService**, qui ouvre un écouteur HTTP sur l’URL suivante :
+As an example, let's take service **fabric:/MyApp/MyService** that opens an HTTP listener on the following URL:
 
 ```
-http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
+http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 ```
 
-Avec les ressources suivantes :
+With the following resources:
 
  - `/index.html`
  - `/api/users/<userId>`
 
-Si le service utilise le schéma de partitionnement de singleton, les paramètres de la chaîne de requête *PartitionKey* et *PartitionKind* ne sont pas requis ; le service est accessible via la passerelle en tant que :
+If the service uses the singleton partitioning scheme, the *PartitionKey* and *PartitionKind* query string parameters are not required, and the service can be reached via the gateway as:
 
- - En externe : `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService`
- - En interne : `http://localhost:19008/MyApp/MyService`
+ - Externally: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService`
+ - Internally: `http://localhost:19008/MyApp/MyService`
 
-Si le service utilise le schéma de partitionnement Int64 uniforme, les paramètres de chaîne de requête *PartitionKey* et *PartitionKind* doivent être utilisés pour atteindre une partition du service :
+If the service uses the Uniform Int64 partitioning scheme, the *PartitionKey* and *PartitionKind* query string parameters must be used to reach a partition of the service:
 
- - En externe : `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
- - En interne : `http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+ - Externally: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+ - Internally: `http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
-Pour atteindre les ressources exposées par le service, il vous suffit de placer le chemin d’accès à la ressource après le nom du service dans l’URL :
+To reach the resources exposed by the service, simply place the resource path after the service name in the URL:
 
- - En externe : `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
- - En interne : `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+ - Externally: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+ - Internally: `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
-La passerelle transmet ensuite ces requêtes à l’URL du service :
+The gateway will then forward these requests to the service's URL:
 
- - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html`
- - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
+ - `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html`
+ - `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
-## Traitement spécial des services de partage de port
+## <a name="special-handling-for-portsharing-services"></a>Special handling for port-sharing services
 
-Application Gateway tente de résoudre à nouveau une adresse de service, relançant la requête lorsqu’un service est inaccessible. Il s’agit là de l’un des principaux avantages de la passerelle, car le code client n’a pas besoin d’implémenter sa propre boucle de résolution et sa propre résolution de service.
+The Application Gateway attempts to re-resolve a service address and retry the request when a service cannot be reached. This is one of the major benefits of the gateway, as client code does not need to implement its own service resolution and resolve loop.
 
-En règle générale, lorsqu’un service est inaccessible, cela signifie que le réplica ou l’instance de service ont été déplacés vers un autre nœud dans le cadre de leur cycle de vie normal. Dans ce cas, la passerelle peut recevoir une erreur de connexion au réseau, qui indique qu’un point de terminaison n’est plus ouvert sur l’adresse résolue à l’origine.
+Generally when a service cannot be reached it means the service instance or replica has moved to a different node as part of its normal lifecycle. When this happens, the gateway may receive a network connection error indicating an endpoint is no longer open on the originally resolved address.
 
-Toutefois, les instances de service ou réplicas peuvent partager un processus hôte, voire un port, lorsqu’ils sont hébergés par un serveur web basé sur http.sys. Cela inclut :
+However, replicas or service instances can share a host process and may also share a port when hosted by an http.sys-based web server, including:
 
  - [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
  - [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
  - [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-Dans cette situation, le serveur web est disponible dans le processus hôte et répond aux requêtes, mais le réplica ou l’instance de service résolue ne sont plus accessibles sur l’hôte, très probablement. Dans ce cas, la passerelle reçoit une réponse HTTP 404 du serveur web. Par conséquent, une réponse HTTP 404 présente deux sens distincts :
+In this situation it is likely that the web server is available in the host process and responding to requests but the resolved service instance or replica is no longer available on the host. In this case, the gateway will receive an HTTP 404 response from the web server. As a result, an HTTP 404 has two distinct meanings:
 
- 1. L’adresse du service est correcte, mais la ressource demandée par l’utilisateur n’existe pas.
- 2. L’adresse du service est incorrecte, et la ressource demandée par l’utilisateur peut exister sur un autre nœud.
+ 1. The service address is correct, but the resource requested by the user does not exist.
+ 2. The service address is incorrect, and the resource requested by the user may actually exist on a different node.
 
-Dans le premier cas, il s’agit d’une erreur HTTP 404 normale, considérée comme une erreur de l’utilisateur. Toutefois, dans le deuxième cas, l’utilisateur a demandé une ressource qui n’existe pas, mais la passerelle n’a pas pu la localiser, car le service lui-même a été déplacé. Dans cette situation, la passerelle doit à nouveau résoudre l’adresse, puis réessayer.
+In the first case, this is a normal HTTP 404, which is considered a user error. However, in the second case, the user has requested a resource that does exist, but the gateway was unable to locate it because the service itself has moved, in which case the gateway needs to re-resolve the address and try again.
 
-La passerelle doit donc faire la distinction entre ces deux cas. Le serveur doit lui fournir une indication lui permettant d’y parvenir.
+The gateway thus needs a way to distinguish between these two cases. In order to make that distinction, a hint from the server is required.
 
- - Par défaut, Application Gateway part du principe qu’il s’agit du deuxième cas et tente à nouveau de résoudre le problème, puis de renvoyer la requête.
- - Pour indiquer à Application Gateway qu’il s’agit du premier cas, le service doit renvoyer l’en-tête de réponse HTTP suivant :
+ - By default, the Application Gateway assumes case #2 and attempts to re-resolve and re-issue the request.
+ - To indicate case #1 to the Application Gateway, the service should return the following HTTP response header:
 
 `X-ServiceFabric : ResourceNotFound`
 
-Cet en-tête indique une situation HTTP 404 normale, dans laquelle la ressource demandée n’existe pas, et la passerelle ne tente pas de résoudre à nouveau l’adresse du service.
+This HTTP response header indicates a normal HTTP 404 situation in which the requested resource does not exist, and the gateway will not attempt to re-resolve the service address.
 
-## Installation et configuration
-Le proxy inverse de Service Fabric peut être activé pour le cluster via le [modèle Azure Resource Manager](./service-fabric-cluster-creation-via-arm.md).
+## <a name="setup-and-configuration"></a>Setup and configuration
+The service fabric Reverse proxy can be enabled for the cluster via the [Azure Resource Manager template](./service-fabric-cluster-creation-via-arm.md).
 
-Une fois que vous disposez du modèle associé au cluster à déployer (à partir d’exemples de modèle ou via la création d’un modèle Resource Manager personnalisé), vous pouvez activer le proxy inverse dans le modèle, en procédant comme suit.
+Once you have the template for the cluster that you want to deploy(either from the sample templates or by creating a custom resource manager template) the Reverse proxy can be enabled in the template by the following steps.
 
-1. Définissez un port pour le proxy inverse, dans la [section des paramètres](../resource-group-authoring-templates.md) du modèle.
+1. Define a port for the reverse proxy in the [Parameters section](../resource-group-authoring-templates.md) of the template.
 
     ```json
     "SFReverseProxyPort": {
@@ -141,7 +143,9 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
         }
     },
     ```
-2. Spécifier le port de chaque objet nodetype dans la [section du type de ressource](../resource-group-authoring-templates.md) **Cluster**
+2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
+
+    For apiVersion's prior to '2016-09-01'  the port is identified by the parameter name ***httpApplicationGatewayEndpointPort***
 
     ```json
     {
@@ -161,7 +165,29 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
         ...
     }
     ```
-3. Pour contacter le proxy inverse à partir de l’extérieur du cluster Azure, configurez les **règles Azure Load Balancer** pour le port spécifié à l’étape 1.
+
+    For apiVersion's on or after '2016-09-01' the port is identified by the parameter name ***reverseProxyEndpointPort***
+
+    ```json
+    {
+        "apiVersion": "2016-09-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        ...
+       "nodeTypes": [
+          {
+           ...
+           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
+           ...
+          },
+        ...
+        ],
+        ...
+    }
+    ```
+
+3. To address the reverse proxy from outside the azure cluster, setup the **azure load balancer rules** for the port specified in step 1.
 
     ```json
     {
@@ -205,7 +231,9 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
         ]
     }
     ```
-4. Pour configurer des certificats SSL sur le port du proxy inverse, ajoutez le certificat à la propriété httpApplicationGatewayCertificate dans la [section de type de ressource](../resource-group-authoring-templates.md) du **Cluster**
+4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
+
+    For apiVersion's prior to '2016-09-01'  the certificate is identified by the parameter name ***httpApplicationGatewayCertificate***
 
     ```json
     {
@@ -227,18 +255,44 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
         }
     }
     ```
+    For apiVersion's on or after '2016-09-01'  the certificate is identified by the parameter name ***reverseProxyCertificate***
+    
+    ```json
+    {
+        "apiVersion": "2016-09-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        "dependsOn": [
+            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+        ],
+        "properties": {
+            ...
+            "reverseProxyCertificate": {
+                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
+            },
+            ...
+            "clusterState": "Default",
+        }
+    }
+    ```
 
-## Étapes suivantes
- - Pour obtenir un exemple de communication HTTP entre services, consultez cet [exemple de projet sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+## <a name="next-steps"></a>Next steps
+ - See an example of HTTP communication between services in a [sample project on GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
 
- - [Appels de procédure distante avec Reliable Services à distance](service-fabric-reliable-services-communication-remoting.md)
+ - [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 
- - [API Web qui utilise OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+ - [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
- - [Communication WCF à l’aide de Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+ - [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

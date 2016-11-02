@@ -1,59 +1,64 @@
 
 <properties
-	pageTitle="Utilisation d’un groupe pour gérer l’accès aux applications SaaS| Microsoft Azure"
-	description="Comment utiliser les groupes dans Azure Active Directory Premium ou Basic pour attribuer l’accès à des applications SaaS intégrées à Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Using a group to manage access to SaaS Applications | Microsoft Azure"
+    description="How to use groups in Azure Active Directory Premium or Basic to assign access to SaaS applications that are integrated with Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2016"
+    ms.author="curtand"/>
 
 
-# Utilisation d’un groupe pour gérer l’accès aux applications SaaS
 
-En utilisant Azure Active Directory (Azure AD) avec une licence Azure AD Premium ou Azure AD Basic, vous pouvez utiliser les groupes pour attribuer l’accès à une application SaaS intégrée à Azure AD. Par exemple, si vous souhaitez attribuer l’accès à différentes applications SaaS au service marketing, vous pouvez créer un groupe comportant les utilisateurs du service marketing, puis allouer ce groupe aux cinq applications SaaS dont il a besoin. De cette manière, vous pouvez gagner du temps en gérant de manière centralisée l’adhésion du service marketing. Ensuite, les utilisateurs sont affectés à l’application lorsqu’ils sont ajoutés en tant que membres du groupe marketing. Leurs attributions sont retirées de l’application lors de leur suppression du groupe marketing.
+# <a name="using-a-group-to-manage-access-to-saas-applications"></a>Using a group to manage access to SaaS applications
 
-Cette fonctionnalité peut être utilisée avec des centaines d’applications pouvant être ajoutées à partir de la galerie d’applications Azure AD.
+Using Azure Active Directory (Azure AD) with an Azure AD Premium or Azure AD Basic license, you can use groups to assign access to a SaaS application that's integrated with Azure AD. For example, if you want to assign access for the marketing department to use five different SaaS applications, you can create a group that contains the users in the marketing department, and then assign that group to these five SaaS applications that are needed by the marketing department. This way you can save time by managing the membership of the marketing department in one place. Users then are assigned to the application when they are added as members of the marketing group, and have their assignments removed from the application when they are removed from the marketing group.
 
-**Pour attribuer à un groupe l’accès à une application SaaS**
+This capability can be used with hundreds of applications that you can add from within the Azure AD Application Gallery.
 
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory** dans la barre de navigation à gauche.
+**To assign access for a group to a SaaS application**
 
-2. Sélectionnez l’onglet **Répertoire**, puis ouvrez le répertoire dans lequel vous souhaitez attribuer l’accès à un groupe à une application SaaS.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory** on the navigation bar on the left hand side.
 
-3. Sélectionnez l’onglet **Applications**. Sélectionnez une application ajoutée à partir de la galerie d’applications, puis cliquez sur l’onglet **Utilisateurs et groupes**.
+2. Select the **Directory** tab, and then open the directory in which you want to assign access for a group to a SaaS application.
 
-4. Sous l’onglet **Utilisateurs et groupes**, dans le champ **Commencer par**, saisissez le nom du groupe auquel vous souhaitez attribuer l’accès, puis cliquez sur la coche dans le coin supérieur droit. Il vous suffit de saisir le début du nom d’un groupe.
+3. Select the **Applications** tab. Select an application that you added from the Application Gallery, and then click  the **Users and Groups** tab.
 
-5. Sélectionnez le groupe, puis cliquez sur le bouton **Autoriser l’accès**. Sélectionnez **Oui** lorsque vous voyez le message de confirmation. Les appartenances à des groupes imbriquées ne sont pas prises en charge pour l’affectation basée sur le groupe à des applications à ce stade.
+4. On the **Users and Groups** tab, in the **Starting with** field, enter the name of the group to which you want to assign access, and then select the check mark in the upper right. You only need to type the first part of a group's name.
 
-6. Vous pouvez également voir quels utilisateurs sont affectés à l’application, soit directement ou en étudiant l’adhésion au sein d’un groupe. Pour ce faire, modifiez la définition de la **liste déroulante Affichage de Groupe** sur **Tous les utilisateurs**. La liste affiche les utilisateurs du répertoire et indique s’ils sont affectés ou non à l’application. Elle indique également si les utilisateurs sont affectés directement à l’application (type d’affectation direct) ou par le biais de l’adhésion à un groupe (type d’affectation hérité).
+5. Select the group, then then select the **Assign Access** button. Select **Yes** when you see the confirmation message. Nested group memberships are not supported for group-based assignment to applications at this time.
+
+6. You can also see which users are assigned to the application, either directly or by membership in a group. To do this, change the **Show dropdown from 'Groups'** to **'All Users'**. The list shows users in the directory and whether or not each user is assigned to the application. The list also shows whether the assigned users are assigned to the application directly (assignment type shown as 'Direct'), or by virtue of group membership (assignment type shown as 'Inherited.')
 
 
 > [AZURE.NOTE]
-L’onglet Utilisateurs et groupes ne s’affiche qu’une fois que vous avez activé Azure AD Premium ou Azure AD Basic.
+>You can see the Users and Groups tab only after you have enabled Azure AD Premium or Azure AD Basic.
 
-##Articles connexes
+##<a name="related-articles"></a>Related Articles
 
-Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
+These articles provide additional information on Azure Active Directory.
 
-* [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
-* [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
+* [What is Azure Active Directory?](active-directory-whatis.md)
 
-* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
