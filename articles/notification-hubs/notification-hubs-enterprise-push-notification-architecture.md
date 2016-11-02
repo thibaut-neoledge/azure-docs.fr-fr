@@ -1,71 +1,73 @@
 <properties
-	pageTitle="Notification Hubs - Architecture Push d’entreprise"
-	description="Aide sur l’utilisation d’Azure Notification Hubs dans un environnement d’entreprise"
-	services="notification-hubs"
-	documentationCenter=""
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Notification Hubs - Enterprise Push Architecture"
+    description="Guidance on using Azure Notification Hubs in an enterprise environment"
+    services="notification-hubs"
+    documentationCenter=""
+    authors="ysxu"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/29/2016" 
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="06/29/2016" 
+    ms.author="yuaxu"/>
 
-# Guide architectural des notifications Push d’entreprise
 
-Les entreprises se tournent aujourd’hui progressivement vers la création d’applications mobiles pour leurs clients (externes) ou leurs collaborateurs (internes). Ils disposent de systèmes principaux, qu’il s’agisse de grands systèmes ou de certaines applications métiers, qui doivent être intégrés à l’architecture de l’application mobile. Ce guide vous présente comment réussir au mieux cette intégration, en recommandant des solutions possibles pour les scénarios habituels.
+# <a name="enterprise-push-architectural-guidance"></a>Enterprise push architectural guidance
 
-Une exigence fréquente est l’envoi de notifications Push aux utilisateurs via leurs applications mobiles, lorsqu’un événement se produit dans les systèmes principaux. Par exemple, un client d’une banque disposant d’une application bancaire sur son iPhone souhaite être averti lorsque son compte est débité d’un montant supérieur à un seuil défini ou un scénario intranet dans lequel un employé du service financier disposant d’une application d’approbation du budget sur son téléphone Windows Phone souhaite être averti lorsqu’il reçoit une demande d’approbation.
+Enterprises today are gradually moving towards creating mobile applications for either their end users (external) or for the employees (internal). They have existing backend systems in place be it mainframes or some LoB applications which must be integrated into the mobile application architecture. This guide will talk about how best to do this integration recommending possible solution to common scenarios.
 
-Le traitement des comptes bancaires ou des approbations sont généralement effectués dans un système principal, qui doit envoyer une notification Push à l’utilisateur. Il peut y avoir plusieurs systèmes principaux qui doivent tous générer le même genre de logique afin d’implémenter une notification Push lorsqu’un événement la déclenche. Ici, la complexité réside dans l’intégration de plusieurs systèmes principaux avec un système Push unique où les utilisateurs peuvent être abonnés à différentes notifications et même peut-être à plusieurs applications mobiles, par exemple dans le cas d’applications mobiles intranet où une application mobile peut recevoir des notifications à partir de plusieurs systèmes principaux. Les systèmes principaux n’ont pas besoin de connaître une technologie ou une sémantique Push. Une solution courante a donc généralement été d’introduire un composant qui interroge les systèmes principaux pour tout événement vous intéressant et qui est chargé d’envoyer les messages Push au client. Nous présenterons ici une solution plus efficace utilisant Azure Service Bus : un modèle de rubrique/d’abonnement qui réduit la complexité tout en rendant la solution évolutive.
+A frequent requirement is for sending push notification to the users through their mobile application when an event of interest occurs in the backend systems. E.g. a bank customer who has the bank's banking app on her iPhone wants to be notified when a debit is made above a certain amount from her account or an intranet scenario where an employee from finance department who has a budget approval app on his Windows Phone wants to be notified when he gets an approval request.
 
-Voici l’architecture générale de la solution (généralisée pour plusieurs applications mobiles mais également applicable lorsqu’il n’y a qu’une seule application mobile)
+The bank account or approval processing is likely to be done in some backend system which must initiate a push to the user. There may be multiple such backend systems which must all build the same kind of logic to implement push when an event triggers a notification. The complexity here lies in integrating several backend systems together with a single push system where the end users may have subscribed to different notifications and there may even be multiple mobile applications e.g. in the case of intranet mobile apps where one mobile application may want to receive notifications from multiple such backend systems. The backend systems do not know or need to know of push semantics/technology so a common solution here traditionally has been to introduce a component which polls the backend systems for any events of interest and is responsible for sending the push messages to the client.
+Here we will talk about an even better solution using Azure Service Bus - Topic/Subscription model which will reduce the complexity while making the solution scalable.
 
-## Architecture
+Here is the general architecture of the solution (generalized with multiple mobile apps but equally applicable when there is only one mobile app)
+
+## <a name="architecture"></a>Architecture
 
 ![][1]
 
-L'élément clé de ce diagramme architectural est Azure Service Bus, qui fournit un modèle de programmation des rubriques/abonnements (la page [Programmation Service Bus Pub/Sub] apporte plus d'informations à ce sujet). Le récepteur, dans ce cas le serveur principal Mobile (généralement [Azure Mobile Service], qui initie une notification Push vers les applications mobiles), ne reçoit pas les messages directement à partir des systèmes principaux, mais au lieu de cela, il existe une couche d'abstraction intermédiaire fournie par [Azure Service Bus] qui permet au serveur mobile principal de recevoir des messages à partir d'un ou plusieurs systèmes principaux. Une rubrique Service Bus doit être créée pour chacun des systèmes principaux, par exemple Comptabilité, RH, Finance, qui sont essentiellement des « rubriques » d’intérêt qui génèrent des messages à envoyer en tant que notification Push. Les systèmes principaux envoient les messages à ces rubriques. Un service principal Mobile peut s’abonner à une ou plusieurs de ces rubriques en créant un abonnement Service Bus. Cela autorisera le serveur principal mobile à recevoir une notification du système principal correspondant. Le serveur principal mobile continue à écouter les messages sur ses abonnements et dès qu’un message arrive, il le reprend et l’envoie sous forme de notification à son hub de notification. Pour finir, les hubs de notification remettent ensuite le message à l’application mobile. Pour résumer, les composants clés sont donc :
+The key piece in this architectural diagram is Azure Service Bus which provides a topics/subscriptions programming model (more on it at [Service Bus Pub/Sub programming]). The receiver, which in this case, is the Mobile backend (typically [Azure Mobile Service], which will initiate a push to the mobile apps) does not receive messages directly from the backend systems but instead we have an intermediate abstraction layer provided by [Azure Service Bus] which enables mobile backend to receive messages from one or more backend systems. A Service Bus Topic needs to be created for each of the backend systems e.g. Account, HR, Finance which are basically "topics" of interest which will initiate messages to be sent as push notification. The backend systems will send messages to these topics. A Mobile Backend can subscribe to one or more such topics by creating a Service Bus subscription. This will entitle the mobile backend to receive a notification from the corresponding backend system. Mobile backend continues to listen for messages on their subscriptions and as soon as a message arrives, it turns back and sends it as notification to its notification hub. Notification hubs then eventually delivers the message to the mobile app. So to summarize the key components, we have:
 
-1. les systèmes principaux (systèmes métiers/hérités)
-	- Crée une rubrique Service Bus
-	- Envoie un message
-2. Serveur principal mobile
-	- Crée l’abonnement au service
-	- Reçoit le message (du système principal)
-	- Envoie une notification aux clients (via Azure Notification Hub)
-3. Application mobile
-	- Reçoit et affiche une notification
+1. Backend systems (LoB/Legacy systems)
+    - Creates Service Bus Topic
+    - Sends Message
+2. Mobile backend
+    - Creates Service Subscription
+    - Receives Message (from Backend system)
+    - Sends notification to clients (via Azure Notification Hub)
+3. Mobile Application
+    - Receives and display notification
 
-###Avantages :
+###<a name="benefits:"></a>Benefits:
 
-1. Le découplage entre l’expéditeur (les systèmes principaux) et le récepteur (application/service mobile via Notification Hub) permet à des systèmes principaux supplémentaires d’être intégrés, et ce avec un minimum de modifications.
-2. Cela permet également à plusieurs applications mobiles de recevoir des événements à partir d’un ou plusieurs systèmes principaux.
+1. The decoupling between the receiver (mobile app/service via Notification Hub) and sender (backend systems) enables additional backend systems being integrated with minimal change.
+2. This also makes the scenario of multiple mobile apps being able to receive events from one or more backend systems.  
 
-## Exemple :
+## <a name="sample:"></a>Sample:
 
-###Composants requis
-Vous devez suivre les didacticiels suivants pour vous familiariser avec les concepts et les étapes habituelles de création et de configuration :
+###<a name="prerequisites"></a>Prerequisites
+You should complete the following tutorials to familiarize with the concepts as well as common creation & configuration steps:
 
-1. [Programmation Service Bus Pub/Sub] : cette page présente l'utilisation des rubriques/abonnements Service Bus, la création d'un espace de noms pour contenir des rubriques/abonnements, ainsi que l'envoi et la réception de messages à partir de ceux-ci.
-2. [Notification Hubs : didacticiel Windows Universal] : cette rubrique explique comment configurer une application Windows Store et Notification Hubs pour vous inscrire et recevoir des notifications.
+1. [Service Bus Pub/Sub programming] - This explains the details of working with Service Bus Topics/Subscriptions, how to create a namespace to contain topics/subscriptions, how to send & receive messages from them.
+2. [Notification Hubs - Windows Universal tutorial] - This explains how to set up a Windows Store app and use Notification Hubs to register and then receive notifications.
 
-###Exemple de code
+###<a name="sample-code"></a>Sample code
 
-L'exemple de code complet est disponible dans la page [Exemples de Notification Hub]. Il est divisé en trois composants :
+The full sample code is available at [Notification Hub Samples]. It is split into three components:
 
 1. **EnterprisePushBackendSystem**
 
-	a. Ce projet utilise le package NuGet *WindowsAzure.ServiceBus*. Il repose sur la [programmation Service Bus Pub/Sub].
+    a. This project uses the *WindowsAzure.ServiceBus* Nuget package and is  based on [Service Bus Pub/Sub programming].
 
-	b. Il s’agit d’une console d’application C# simple pour simuler un système métier qui lance le message à remettre à l’application mobile.
+    b. This is a simple C# console app to simulate an LoB system which initiates the message to be delivered to the mobile app.
 
-		static void Main(string[] args)
+        static void Main(string[] args)
         {
             string connectionString =
                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -77,7 +79,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
             SendMessage(connectionString);
         }
 
-	c. `CreateTopic` permet de créer la rubrique Service Bus où nous enverrons les messages.
+    c. `CreateTopic` is used to create the Service Bus topic where we will send messages.
 
         public static void CreateTopic(string connectionString)
         {
@@ -92,7 +94,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
             }
         }
 
-	d. `SendMessage` est utilisé pour envoyer les messages à cette rubrique Service Bus. Dans le cadre de l’exemple, nous nous contentons d’envoyer périodiquement un ensemble de messages aléatoires à la rubrique. Normalement, un système principal envoie des messages lorsqu’un événement se produit.
+    d. `SendMessage` is used to send the messages to this Service Bus Topic. Here we are simply sending a set of random messages to the topic periodically for the purpose of the sample. Normally there will be a backend system which will send messages when an event occurs.
 
         public static void SendMessage(string connectionString)
         {
@@ -125,25 +127,25 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 
 2. **ReceiveAndSendNotification**
 
-	a. Ce projet utilise les packages NuGet *WindowsAzure.ServiceBus* et *Microsoft.Web.WebJobs.Publish*. Il repose sur la [programmation Service Bus Pub/Sub].
+    a. This project uses the *WindowsAzure.ServiceBus* and *Microsoft.Web.WebJobs.Publish* Nuget packages and is based on [Service Bus Pub/Sub programming].
 
-	b. Il s'agit d'une autre application de console C# qui s'exécutera comme une [tâche web Azure], étant donné qu'elle doit s'exécuter en continu pour écouter les messages des systèmes métiers/principaux. Cela fera partie de votre serveur principal Mobile.
+    b. This is another C# console app which we will run as an [Azure WebJob] since it has to run continuously to listen for messages from the LoB/backend systems. This will be part of your Mobile backend.
 
-	    static void Main(string[] args)
-	    {
-	        string connectionString =
-	                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+        static void Main(string[] args)
+        {
+            string connectionString =
+                     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-	        // Create the subscription which will receive messages
-	        CreateSubscription(connectionString);
+            // Create the subscription which will receive messages
+            CreateSubscription(connectionString);
 
-	        // Receive message
-	        ReceiveMessageAndSendNotification(connectionString);
-	    }
+            // Receive message
+            ReceiveMessageAndSendNotification(connectionString);
+        }
 
-	c. `CreateSubscription` permet de créer un abonnement Service Bus pour la rubrique où le système principal enverra les messages. Selon le scénario commercial, ce composant créera un ou plusieurs abonnements aux rubriques correspondantes (par exemple, certains peuvent recevoir les messages du système de RH, du système des Finances, etc.)
+    c. `CreateSubscription` is used to create a Service Bus subscription for the topic where the backend system will send messages. Depending on the business scenario, this component will create one or more subscriptions to corresponding topics (e.g. some may be receiving messages from HR system, some from Finance system, and so on)
 
-	    static void CreateSubscription(string connectionString)
+        static void CreateSubscription(string connectionString)
         {
             // Create the subscription if it does not exist already
             var namespaceManager =
@@ -155,9 +157,9 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
             }
         }
 
-	d. ReceiveMessageAndSendNotification est utilisée pour lire le message dans la rubrique en utilisant son abonnement et, si la lecture réussit, pour créer une notification (dans notre exemple, une notification toast native Windows) à envoyer à l’application mobile à l’aide d’Azure Notification Hubs.
+    d. ReceiveMessageAndSendNotification is used to read the message from the topic using its subscription and if the read is successful then craft a notification (in the sample scenario a Windows native toast notification) to be sent to the mobile application using Azure Notification Hubs.
 
-		static void ReceiveMessageAndSendNotification(string connectionString)
+        static void ReceiveMessageAndSendNotification(string connectionString)
         {
             // Initialize the Notification Hub
             string hubConnectionString = CloudConfigurationManager.GetSetting
@@ -205,26 +207,26 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
             await hub.SendWindowsNativeNotificationAsync(message);
         }
 
-	e. Pour publier ceci sous forme de **tâche web**, cliquez avec le bouton droit sur la solution dans Visual Studio et sélectionnez **Publier en tant que tâche web**
+    e. For publishing this as a **WebJob**, right click on the solution in Visual Studio and select **Publish as WebJob**
 
-	![][2]
+    ![][2]
 
-	f. Sélectionnez votre profil de publication et créez un site web Azure s'il n'existe pas déjà : il hébergera cette tâche web. Quand vous disposez du site web, utilisez **Publier**.
+    f. Select your publishing profile and create a new Azure WebSite if it doesnt exist already which will host this WebJob and once you have the WebSite then **Publish**.
 
-	![][3]
+    ![][3]
 
-	g. Configurez la tâche sur « Exécuter en continu ». Ainsi, quand vous vous connectez au [portail Azure Classic], vous devriez voir ce qui suit :
+    g. Configure the job to be "Run Continuously" so that when you log in to the [Azure Classic Portal] you should see something like the following:
 
-	![][4]
+    ![][4]
 
 
 3. **EnterprisePushMobileApp**
 
-	a. Il s’agit d’une application Windows Store qui reçoit des notifications toast du WebJob en cours d’exécution dans le cadre de votre serveur principal Mobile et les affiche. Elle repose sur [Notification Hubs : didacticiel Windows Universal].
+    a. This is a Windows Store application which will receive toast notifications from the WebJob running as part of your Mobile backend and display it. This is based on [Notification Hubs - Windows Universal tutorial].  
 
-	b. Assurez-vous que la réception des notifications toast est activée dans votre application.
+    b. Ensure that your application is enabled to receive toast notifications.
 
-	c. Assurez-vous que le code d'inscription suivant de Notification Hubs est appelé au démarrage de l'application (après avoir remplacé *HubName* et *DefaultListenSharedAccessSignature*) :
+    c. Ensure that the following Notification Hubs registration code is being called at the App start up (after replacing the *HubName* and *DefaultListenSharedAccessSignature*:
 
         private async void InitNotificationsAsync()
         {
@@ -242,17 +244,17 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
             }
         }
 
-### Exemple d’exécution :
+### <a name="running-sample:"></a>Running sample:
 
-1. Assurez-vous que votre WebJob est exécuté avec succès et planifié pour s’« Exécuter en continu ».
-2. Exécutez **EnterprisePushMobileApp**, qui lancera l'application Windows Store.
-3. Exécutez l'application console **EnterprisePushBackendSystem** qui simule le serveur principal métier et enverra des messages. Vous devez voir apparaître des notifications toast similaires à celles-ci :
+1. Ensure that your WebJob is running successfully and scheduled to "Run Continuously".
+2. Run the **EnterprisePushMobileApp** which will start the Windows Store app.
+3. Run the **EnterprisePushBackendSystem** console application which will simulate the LoB backend and will start sending messages and you should see toast notifications appearing like the following:
 
-	![][5]
+    ![][5]
 
-4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux WebJob pour confirmer le traitement quand vous accédez au lien Journaux dans le [portail Azure Classic] pour votre tâche Web :
+4. The messages were originally sent to Service Bus topics which was being monitored by Service Bus subscriptions in your Web Job. Once a message was received, a notification was created and sent to the mobile app. You can look through the WebJob logs to confirm the processing when you go to the Logs link in [Azure Classic Portal] for your Web Job:
 
-	![][6]
+    ![][6]
 
 <!-- Images -->
 [1]: ./media/notification-hubs-enterprise-push-architecture/architecture.png
@@ -263,12 +265,16 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 [6]: ./media/notification-hubs-enterprise-push-architecture/WebJobsLog.png
 
 <!-- Links -->
-[Exemples de Notification Hub]: https://github.com/Azure/azure-notificationhubs-samples
+[Notification Hub Samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Azure Mobile Service]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Programmation Service Bus Pub/Sub]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[tâche web Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
-[Notification Hubs : didacticiel Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[portail Azure Classic]: https://manage.windowsazure.com/
+[Service Bus Pub/Sub programming]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure WebJob]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
+[Notification Hubs - Windows Universal tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

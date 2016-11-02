@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Créer une application Android sur Azure App Service Mobile Apps | Microsoft Azure"
-    description="Suivez ce didacticiel pour commencer à utiliser des backends d’applications mobiles Azure pour le développement Android"
+    pageTitle="Create an Android app on Azure App Service Mobile Apps | Microsoft Azure"
+    description="Follow this tutorial to get started with using Azure mobile app backends for Android development"
     services="app-service\mobile"
     documentationCenter="android"
-    authors="yuaxu"
+    authors="ysxu"
     manager="erikre"
     editor=""/>
 
@@ -16,41 +16,43 @@
     ms.date="10/01/2016"
     ms.author="yuaxu"/>
 
-#Créer une application Android
+
+#<a name="create-an-android-app"></a>Create an Android app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Vue d'ensemble
+## <a name="overview"></a>Overview
 
-Ce didacticiel montre comment ajouter un backend cloud à une application mobile Android à l’aide d’un backend d’application mobile Azure. Vous allez créer un backend d’application mobile et une simple application Android _Todo list_ qui stocke les données d’application dans Azure.
+This tutorial shows you how to add a cloud-based backend service to an Android mobile app by using an Azure mobile app backend.  You will create both a new mobile app backend and a simple _Todo list_ Android app that stores app data in Azure.
 
-Le suivi de ce didacticiel est un prérequis pour tous les autres didacticiels Android sur l’utilisation de la fonctionnalité Mobile Apps dans Azure App Service.
+Completing this tutorial is a prerequisite for all other Android tutorials about using the Mobile Apps feature in Azure App Service.
 
-## Composants requis
+## <a name="prerequisites"></a>Prerequisites
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+To complete this tutorial, you need the following:
 
-* [Outils de développement Android](https://developer.android.com/sdk/index.html), qui incluent l’environnement de développement intégré Android Studio et la dernière plateforme Android.
-* Kit de développement logiciel (SDK) Azure Mobile Android, qui est automatiquement inclus dans le projet de démarrage rapide que vous téléchargez.
-* Un [compte Azure actif](https://azure.microsoft.com/pricing/free-trial/).
+* [Android Developer Tools](https://developer.android.com/sdk/index.html), which includes the Android Studio integrated development environment, and the latest Android platform.
+* Azure Mobile Android SDK, which is automatically referenced as part of the quickstart project you download.
+* An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
-## Créer un serveur principal d'applications mobiles Azure
+## <a name="create-a-new-azure-mobile-app-backend"></a>Create a new Azure mobile app backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Configurer le projet de serveur
+## <a name="configure-the-server-project"></a>Configure the server project
 
-[AZURE.INCLUDE [app-service-mobile-Configure-New-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Télécharger et exécuter l’application Android
+## <a name="download-and-run-the-android-app"></a>Download and run the Android app
 
 [AZURE.INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
-
-
-<!-- Images. -->
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

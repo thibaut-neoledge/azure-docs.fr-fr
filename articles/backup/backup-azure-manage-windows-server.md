@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Gérer les serveurs et les coffres Azure Recovery Services | Microsoft Azure"
-	description="Ce didacticiel vous apprend à gérer les serveurs et les coffres Azure Recovery Services."
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
-	editor="tysonn"/>
+    pageTitle="Gérer les serveurs et les coffres Azure Recovery Services | Microsoft Azure"
+    description="Ce didacticiel vous apprend à gérer les serveurs et les coffres Azure Recovery Services."
+    services="backup"
+    documentationCenter=""
+    authors="Jim-Parker"
+    manager="jwhit"
+    editor="tysonn"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="jimpark; markgal"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/19/2016"
+    ms.author="jimpark; markgal"/>
 
 
-# Surveiller et gérer les serveurs et les coffres Azure Recovery services pour les ordinateurs Windows
+
+# <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Surveiller et gérer les serveurs et les coffres Azure Recovery services pour les ordinateurs Windows
 
 > [AZURE.SELECTOR]
 - [Gestionnaire de ressources](backup-azure-manage-windows-server.md)
@@ -27,9 +28,9 @@ Cet article offre une vue d’ensemble des tâches de gestion des sauvegardes di
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] le modèle de déploiement classique.
 
-## Tâches du portail de gestion
+## <a name="management-portal-tasks"></a>Tâches du portail de gestion
 
-### Accéder à vos coffres Recovery Services
+### <a name="access-your-recovery-services-vaults"></a>Accéder à vos coffres Recovery Services
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de votre abonnement Azure.
 
@@ -41,7 +42,7 @@ Cet article offre une vue d’ensemble des tâches de gestion des sauvegardes di
 
     ![coffre recovery services tableau de bord](./media/backup-azure-manage-windows-server/rs-vault-dashboard.png) <br/>
 
-## Surveiller les travaux et les alertes
+## <a name="monitor-jobs-and-alerts"></a>Surveiller les travaux et les alertes
 Vous pouvez surveiller les travaux et les alertes à partir du tableau de bord du coffre Recovery Services dans lequel s’affichent :
 
 - Les détails des alertes de sauvegarde
@@ -60,13 +61,13 @@ De haut en bas dans le tableau de bord :
 - Panneau Supprimer : si un coffre Recovery Services n’est plus utilisé, vous pouvez le supprimer pour libérer de l’espace de stockage. L’option Supprimer est disponible uniquement une fois que tous les serveurs protégés ont été supprimés du coffre.
 
 ![Tâches du tableau de bord Backup](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
-## Alertes relatives aux sauvegardes à l’aide de l’agent de sauvegarde Azure :
-| Niveau d’alerte | Alertes envoyées |
+## <a name="alerts-for-backups-using-azure-backup-agent:"></a>Alertes relatives aux sauvegardes à l’aide de l’agent de sauvegarde Azure :
+| Niveau d’alerte  | Alertes envoyées |
 | ------------- | ------------- |
-| Critique | Échec de sauvegarde, échec de récupération |
-| Avertissement | Sauvegarde terminée avec des avertissements (lorsque moins de cent fichiers n’ont pas été sauvegardés du fait de problèmes d’altération et que plus d’un million de fichiers ont été correctement sauvegardés) |
-| Informations | Aucun |
-## Gérer les alertes de sauvegarde
+| Critique | Échec de sauvegarde, échec de récupération  |
+| Avertissement  | Sauvegarde terminée avec des avertissements (lorsque moins de cent fichiers n’ont pas été sauvegardés du fait de problèmes d’altération et que plus d’un million de fichiers ont été correctement sauvegardés)  |
+| Informations  | Aucun  |
+## <a name="manage-backup-alerts"></a>Gérer les alertes de sauvegarde
 Cliquez sur la mosaïque **Alertes de sauvegarde** pour ouvrir le panneau **Alertes de sauvegarde** et gérer les alertes.
 
 ![Alertes de sauvegarde](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
@@ -98,17 +99,17 @@ Si la fréquence de **notification** est définie sur **Synthèse horaire**, un 
 
 Des alertes peuvent être envoyées pour les niveaux de gravité suivants :
 
-- critique
-- avertissement
+- Critique
+- Avertissement
 - information
 
 Pour désactiver l’alerte, cliquez sur le bouton **Inactivate** (Désactiver) dans le panneau contenant les détails du travail. Lorsque vous cliquez sur Inactivate (Désactiver), vous pouvez ajouter des commentaires pour la résolution de l’alerte.
 
-Pour choisir les colonnes que vous souhaitez voir apparaître dans l’alerte, cliquez sur le bouton **Choisir les colonnes**.
+Pour choisir les colonnes que vous souhaitez voir apparaître dans l’alerte, cliquez sur le bouton **Choisir les colonnes** .
 
 >[AZURE.NOTE] Dans le panneau **Paramètres**, vous pouvez gérer les alertes de sauvegarde en sélectionnant **Monitoring and Reports (Surveillance et rapports) > Alertes et événements > Alertes de sauvegarde**, puis en cliquant sur **Filtrer** ou **Configurer les notifications**.
 
-## Gérer les éléments de sauvegarde
+## <a name="manage-backup-items"></a>Gérer les éléments de sauvegarde
 Vous pouvez désormais gérer les sauvegardes locales depuis le portail de gestion. Dans la section Sauvegarde du tableau de bord, la mosaïque **Éléments de sauvegarde** affiche le nombre d’éléments de sauvegarde protégés dans le coffre.
 
 Dans la mosaïque Éléments de sauvegarde, cliquez sur **File-Folders** (Dossiers de fichiers).
@@ -125,7 +126,7 @@ Cliquez sur un élément de sauvegarde spécifique dans la liste pour en affiche
 
 ![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
-## Gérer les travaux de sauvegarde
+## <a name="manage-backup-jobs"></a>Gérer les travaux de sauvegarde
 Les travaux de sauvegarde réalisés en local (lorsque le serveur local sauvegarde vers Azure) et dans Azure s’affichent dans le tableau de bord.
 
 Dans la section Sauvegarde du tableau de bord, la mosaïque Travail de sauvegarde indique le nombre de travaux :
@@ -145,23 +146,23 @@ Si vous ne voyez pas vos fichiers et dossiers sauvegardés, cliquez sur le bouto
 
 >[AZURE.NOTE] Dans le panneau **Paramètres**, vous pouvez gérer les travaux de sauvegarde en sélectionnant **Monitoring and Reports (Surveillance et rapports) > Travaux > Travaux de sauvegarde**, puis en sélectionnant **File-Folders** (Dossiers de fichiers) dans le menu déroulant.
 
-## Surveiller l’utilisation de la sauvegarde
+## <a name="monitor-backup-usage"></a>Surveiller l’utilisation de la sauvegarde
 Dans la section Sauvegarde du tableau de bord, la mosaïque Backup Usage (Utilisation de la sauvegarde) indique le stockage consommé dans Azure. Les données d’utilisation du stockage incluent :
 - L’utilisation du stockage cloud LRS associée au coffre
 - L’utilisation du stockage cloud GRS associée au coffre
 
-## Serveurs de production
+## <a name="production-servers"></a>Serveurs de production
 Pour gérer vos serveurs de production, cliquez sur **Paramètres**. Sous Gérer, cliquez sur **Infrastructure de sauvegarde > Serveurs de Production**.
 
 Le panneau Serveurs de Production affiche une liste de tous vos serveurs de production disponibles. Cliquez sur un serveur dans la liste pour afficher les détails correspondants.
 
 ![Éléments protégés](./media/backup-azure-manage-windows-server/production-server-list.png)
 
-## Tâches de l’agent Microsoft Azure Backup
+## <a name="microsoft-azure-backup-agent-tasks"></a>Tâches de l’agent Microsoft Azure Backup
 
-## Ouvrir l’agent Azure Backup
+## <a name="open-the-backup-agent"></a>Ouvrir l’agent Azure Backup
 
-Ouvrez **l’agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup* sur votre ordinateur).
+Ouvrez **l’agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup*sur votre ordinateur).
 
 ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
@@ -176,7 +177,7 @@ Dans les **Actions** disponibles à droite de la console de l’agent de sauvega
 
 >[AZURE.NOTE] Pour **Récupérer des données**, consultez [Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows](backup-azure-restore-windows-server.md).
 
-## Modifier une sauvegarde existante
+## <a name="modify-an-existing-backup"></a>Modifier une sauvegarde existante
 
 1. Dans l’agent Microsoft Azure Backup, cliquez sur **Planifier la sauvegarde**.
 
@@ -212,26 +213,26 @@ Dans les **Actions** disponibles à droite de la console de l’agent de sauvega
 
     Après la modification de la protection, vous pouvez confirmer le déclenchement correct des sauvegardes en accédant à l’onglet **Travaux** et en vérifiant que les modifications sont répercutées dans les tâches de sauvegarde.
 
-## Activation de la limitation du réseau  
-L’agent Azure Backup contient un onglet Limitation qui vous permet de contrôler l’utilisation de la bande passante réseau pendant le transfert de données. Cela peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation du transfert de données s’applique aux activités de sauvegarde et de restauration.
+## <a name="enable-network-throttling"></a>Activation de la limitation du réseau  
+L’agent Azure Backup contient un onglet Limitation qui vous permet de contrôler l’utilisation de la bande passante réseau pendant le transfert de données. Cela peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation du transfert de données s’applique aux activités de sauvegarde et de restauration.  
 
 Pour activer la limitation :
 
-1. Dans **l’agent Backup**, cliquez sur **Modifier les propriétés**.
+1. Dans **l’agent de Sauvegarde**, cliquez sur **Modifier les propriétés**.
 
-2. Cochez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**.
+2. Cochez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde** .
 
     ![Limitation du réseau](./media/backup-azure-manage-windows-server/throttling-dialog.png)
 
 3. Une fois que vous avez activé la limitation, spécifiez la bande passante autorisée pour le transfert des données de sauvegarde durant les **Heures de travail** et les **Heures chômées**.
 
-    Les valeurs de bande passante, qui démarrent à 512 kilo-octets par seconde, peuvent aller jusqu’à 1 023 mégaoctets par seconde. Vous pouvez également définir le début et la fin des **Heures de travail** et identifier les jours de la semaine considérés comme des jours de travail. Les intervalles de temps situés en dehors des heures de travail sont considérés comme des périodes (heures) chômées.
+    Les valeurs de bande passante, qui démarrent à 512 kilo-octets par seconde, peuvent aller jusqu’à 1 023 mégaoctets par seconde. Vous pouvez également définir le début et la fin des **Heures de travail**et identifier les jours de la semaine considérés comme des jours de travail. Les intervalles de temps situés en dehors des heures de travail sont considérés comme des périodes (heures) chômées.
 
 4. Cliquez sur **OK**.
 
-## Gérer les paramètres d’exclusion
+## <a name="manage-exclusion-settings"></a>Gérer les paramètres d’exclusion
 
-1. Ouvrez **l’agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup* sur votre ordinateur).
+1. Ouvrez **l’agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup*sur votre ordinateur).
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
@@ -255,7 +256,7 @@ Pour activer la limitation :
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/exclusion-location.png)
 
-7. Ajoutez l’extension de fichier dans le champ **Type de fichier**.
+7. Ajoutez l’extension de fichier dans le champ **Type de fichier** .
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/exclude-file-type.png)
 
@@ -273,7 +274,7 @@ Pour activer la limitation :
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
-## Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Forum Aux Questions
 **Q1. Le travail de sauvegarde est indiqué comme terminé dans l’agent de sauvegarde Azure, pourquoi cela ne s’affiche pas immédiatement dans le portail ?**
 
 R1. Un délai maximal de 15 minutes est nécessaire pour que l’état du travail de sauvegarde dans l’agent de sauvegarde Azure soit répercuté dans le portail Azure.
@@ -284,20 +285,27 @@ R2. Une alerte est générée dans les 20 minutes suivant l’échec de la sauve
 
 **Q3. Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?**
 
-R3 Voici les cas pour lesquels la notification ne sera pas envoyée afin de réduire le bruit des alertes :
+R3 Voici les cas pour lesquels la notification ne sera pas envoyée afin de réduire le bruit des alertes : 
 
    - Si les notifications sont configurées sur une base horaire et qu’une alerte est déclenchée et résolue dans l’heure.
    - Si le travail est annulé.
-   - Si le travail de sauvegarde secondaire a échoué, car un travail de sauvegarde d’origine est en cours.
+   - Si le travail de sauvegarde secondaire a échoué, car un travail de sauvegarde d’origine est en cours. 
 
-## Résolution des problèmes de surveillance<br>
-#### Problème : les travaux et les alertes de l’agent de sauvegarde Azure n’apparaissent pas sur le portail.
-##### Procédure de résolution :
-« OBRecoveryServicesManagementAgent » est utilisé pour envoyer les données des travaux et des alertes au service de sauvegarde Azure. Ouvrez le gestionnaire de tâches et vérifiez si le processus « OBRecoveryServicesManagementAgent » est en cours d’exécution. Il est possible que ce processus ait été bloqué ou arrêté. Si le processus n’est pas en cours d’exécution, parcourez la liste des services dans le Panneau de configuration, puis démarrez ou redémarrez « Agent de gestion Microsoft Azure Recovery Services ». Pour plus d’informations, recherchez les journaux dans : « dossier d’installation de l’agent de sauvegarde Azure »\\Agent Microsoft Azure Recovery Services\\Temp\\GatewayProvider*. <b>Par exemple :</b> C:\\Program Files\\Agent Microsoft Azure Recovery Services\\Temp\\GatewayProvider0.errlog
+## <a name="troubleshooting-monitoring-issues<br>"></a>Résolution des problèmes de surveillance<br>
+#### <a name="issue:-jobs-and-alerts-from-azure-backup-agent-does-not-appear-on-the-portal."></a>Problème : les travaux et les alertes de l’agent de sauvegarde Azure n’apparaissent pas sur le portail.
+##### <a name="troubleshooting-steps:"></a>Procédure de résolution :
+« OBRecoveryServicesManagementAgent » est utilisé pour envoyer les données des travaux et des alertes au service de sauvegarde Azure. Ouvrez le gestionnaire de tâches et vérifiez si le processus « OBRecoveryServicesManagementAgent » est en cours d’exécution.
+Il est possible que ce processus ait été bloqué ou arrêté. Si le processus n’est pas en cours d’exécution, parcourez la liste des services dans le Panneau de configuration, puis démarrez ou redémarrez « Agent de gestion Microsoft Azure Recovery Services ».
+Pour plus d’informations, recherchez les journaux dans : « dossier d’installation de l’agent de sauvegarde Azure »\Agent Microsoft Azure Recovery Services\Temp\GatewayProvider*.
+<b>Par exemple :</b> C:\Program Files\Agent Microsoft Azure Recovery Services\Temp\GatewayProvider0.errlog
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
-- Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md).
-- Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md)
+- Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

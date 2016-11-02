@@ -1,50 +1,51 @@
 <properties
-	pageTitle="Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager | Microsoft Azure"
-	description="Cet article décrit pas à pas la procédure de migration de ressources prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="mahthi"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager | Microsoft Azure"
+    description="Cet article décrit pas à pas la procédure de migration de ressources prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="singhkays"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="mahthi"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/22/2016"
+    ms.author="kasing"/>
 
-# Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager
 
-Cet article décrit la manière dont nous activons les ressources IaaS (infrastructure as a service) de l’environnement Classic pour les modèles de déploiement de Resource Manager. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../resource-group-overview.md). Nous décrivons en détail comment connecter des ressources dans les deux modèles de déploiement qui coexistent dans votre abonnement en utilisant des passerelles intersites de réseau virtuel.
+# <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager
 
-## Objectif de la migration
+Cet article décrit la manière dont nous activons les ressources IaaS (infrastructure as a service) de l’environnement Classic pour les modèles de déploiement de Resource Manager. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../resource-group-overview.md). Nous décrivons en détail comment connecter des ressources dans les deux modèles de déploiement qui coexistent dans votre abonnement en utilisant des passerelles intersites de réseau virtuel. 
+
+## <a name="goal-for-migration"></a>Objectif de la migration
 
 Resource Manager autorise le déploiement d’applications complexes à l’aide de modèles, configure les machines virtuelles au moyen d’extensions de machines virtuelles et intègre la gestion des accès et le balisage. Azure Resource Manager inclut un déploiement extensible, en parallèle, de machines virtuelles dans des groupes à haute disponibilité. Le nouveau modèle de déploiement assure également la gestion de façon indépendante du cycle de vie des services de calcul, de réseau et de stockage. Enfin, il applique la sécurité par défaut grâce à la mise en œuvre de machines virtuelles dans un réseau virtuel.
 
 Pratiquement toutes les fonctionnalités du modèle de déploiement Classic sont prises en charge pour le calcul, le réseau et le stockage dans Azure Resource Manager. Pour bénéficier des nouvelles fonctionnalités d’Azure Resource Manager, vous pouvez migrer des déploiements existants à partir du modèle de déploiement classique.
 
-## Modifications de vos services d’automatisation et de vos outils après la migration
+## <a name="changes-to-your-automation-and-tooling-after-migration"></a>Modifications de vos services d’automatisation et de vos outils après la migration
 
 Dans le cadre de la migration de vos ressources à partir du modèle de déploiement classique vers le modèle de déploiement Resource Manager, vous devez mettre à jour votre automatisation ou vos outils pour vous assurer qu’ils continueront de fonctionner après la migration.
 
-## Signification de la migration de ressources IaaS de l’environnement Classic vers Resource Manager
+## <a name="meaning-of-migration-of-iaas-resources-from-classic-to-resource-manager"></a>Signification de la migration de ressources IaaS de l’environnement Classic vers Resource Manager
 
 Avant d’entrer dans les détails, examinons le différence entre les opérations du plan de données et celles du plan de gestion pour les ressources IaaS.
 
-- Le *Plan de gestion* décrit l’ensemble des appels destinés au plan de gestion ou à l’API en vue de modifier les ressources. Par exemple, les opérations telles que la création d’une machine virtuelle, le redémarrage d’une machine virtuelle et la mise à jour d’un réseau virtuel avec un nouveau sous-réseau permettent de gérer les ressources en cours d’exécution. Elles n’affectent pas directement la connexion à des instances.
-- Le *Plan de données* (application) décrit le runtime de l’application proprement dite et implique une interaction avec les instances qui ne passent pas par l’API Azure. Par exemple, l’accès à votre site web ou l’extraction de données à partir d’une instance de serveur SQL ou d’un serveur MongoDB en cours d’exécution sont considérés comme des interactions d’application ou de plan de données. La copie d’un objet blob à partir d’un compte de stockage et l’accès à une adresse IP publique sur RDP ou SSH dans la machine virtuelle constituent également des opérations du plan de données. Ces opérations garantissent le fonctionnement continu de l’application dans l’ensemble des services de calcul, de mise en réseau et de stockage.
+- *Plan de gestion* décrit l’ensemble des appels destinés au plan de gestion ou à l’API en vue de modifier les ressources. Par exemple, les opérations telles que la création d’une machine virtuelle, le redémarrage d’une machine virtuelle et la mise à jour d’un réseau virtuel avec un nouveau sous-réseau permettent de gérer les ressources en cours d’exécution. Elles n’affectent pas directement la connexion à des instances.
+- *Plan de données* (application) décrit le runtime de l’application proprement dite et implique une interaction avec les instances qui ne passent pas par l’API Azure. Par exemple, l’accès à votre site web ou l’extraction de données à partir d’une instance de serveur SQL ou d’un serveur MongoDB en cours d’exécution sont considérés comme des interactions d’application ou de plan de données. La copie d’un objet blob à partir d’un compte de stockage et l’accès à une adresse IP publique sur RDP ou SSH dans la machine virtuelle constituent également des opérations du plan de données. Ces opérations garantissent le fonctionnement continu de l’application dans l’ensemble des services de calcul, de mise en réseau et de stockage.
 
 >[AZURE.NOTE] Dans certains scénarios de migration, la plateforme Azure arrête, désalloue, puis redémarre vos machines virtuelles. Cela entraîne un bref temps d’arrêt du forfait de données.
 
-## Étendues de migration prises en charge
+## <a name="supported-scopes-of-migration"></a>Étendues de migration prises en charge
 
-Il existe trois étendues de migration qui visent principalement les services de calcul, de réseau et de stockage.
+Il existe trois étendues de migration qui visent principalement les services de calcul, de réseau et de stockage. 
 
-### Migration de machines virtuelles (ne figurant pas dans un réseau virtuel)
+### <a name="migration-of-virtual-machines-(not-in-a-virtual-network)"></a>Migration de machines virtuelles (ne figurant pas dans un réseau virtuel)
 
 Dans le modèle de déploiement Resource Manager, nous appliquons par défaut la sécurité de vos applications. Toutes les machines virtuelles doivent donc figurer dans un réseau virtuel du modèle Resource Manager. La plateforme Azure redémarre (`Stop`, `Deallocate`, et `Start`) les machines virtuelles dans le cadre de la migration. Vous disposez de deux options pour les réseaux virtuels :
 
@@ -53,28 +54,28 @@ Dans le modèle de déploiement Resource Manager, nous appliquons par défaut la
 
 >[AZURE.NOTE] Dans cette étendue de migration, les opérations plan de gestion et du plan de données peuvent ne pas être autorisées pendant un certain laps de temps durant la migration.
 
-### Migration de machines virtuelles (dans un réseau virtuel)
+### <a name="migration-of-virtual-machines-(in-a-virtual-network)"></a>Migration de machines virtuelles (dans un réseau virtuel)
 
 Pour la plupart des configurations de machines virtuelles, seules les métadonnées sont migrées entre le modèle de déploiement classique et le modèle de déploiement Resource Manager. Les machines virtuelles sous-jacentes s’exécutent sur le même matériel, dans le même réseau et avec le même stockage. Il se peut que les opérations du plan de gestion ne soient pas autorisées pendant un certain laps de temps durant la migration. Toutefois, le plan de données continue à fonctionner. Cela signifie que vos applications s’exécutant par dessus les machines virtuelles (Classic) ne subissent aucun temps d’arrêt lors de la migration.
 
 Les configurations non prises en charge actuellement sont les suivantes. En cas de prise en charge à l’avenir, certaines machines virtuelles de cette configuration connaîtront peut-être un temps d’arrêt (avec exécution des opérations d’arrêt, de désallocation et de redémarrage des machines virtuelles).
 
--	Vous disposez de plus d’un groupe à haute disponibilité dans un seul service cloud.
--	Vous disposez d’un ou de plusieurs groupes à haute disponibilité et de machines virtuelles ne figurant pas dans un groupe à haute disponibilité dans un seul service cloud.
+-   Vous disposez de plus d’un groupe à haute disponibilité dans un seul service cloud.
+-   Vous disposez d’un ou de plusieurs groupes à haute disponibilité et de machines virtuelles ne figurant pas dans un groupe à haute disponibilité dans un seul service cloud.
 
 >[AZURE.NOTE] Dans cette étendue de migration, le plan de gestion peut ne pas être utilisable pendant un certain laps de temps lors de la migration. Certaines configurations décrites ci-dessus entraînent un temps d’arrêt du forfait de données.
 
-### Migration des comptes de stockage
+### <a name="storage-accounts-migration"></a>Migration des comptes de stockage
 
-Pour permettre une migration fluide, vous pouvez déployer des machines virtuelles Resource Manager dans un compte de stockage classique. Cette fonctionnalité permet d’effectuer la migration des ressources de calcul et de réseau indépendamment des comptes de stockage. Après avoir migré vos machines virtuelles et votre réseau virtuel, vous devrez migrer vos comptes de stockage pour achever le processus de migration.
+Pour permettre une migration fluide, vous pouvez déployer des machines virtuelles Resource Manager dans un compte de stockage classique. Cette fonctionnalité permet d’effectuer la migration des ressources de calcul et de réseau indépendamment des comptes de stockage. Après avoir migré vos machines virtuelles et votre réseau virtuel, vous devrez migrer vos comptes de stockage pour achever le processus de migration. 
 
->[AZURE.NOTE] Le modèle de déploiement Resource Manager n’intègre pas le concept d’images et de disques classiques. Une fois le compte de stockage migré, les images et disques classiques ne sont pas visibles dans la pile Resource Manager, mais les disques durs virtuels de secours restent dans le compte de stockage.
+>[AZURE.NOTE] Le modèle de déploiement Resource Manager n’intègre pas le concept d’images et de disques classiques. Une fois le compte de stockage migré, les images et disques classiques ne sont pas visibles dans la pile Resource Manager, mais les disques durs virtuels de secours restent dans le compte de stockage. 
 
-## Fonctionnalités et configurations non prises en charge
+## <a name="unsupported-features-and-configurations"></a>Fonctionnalités et configurations non prises en charge
 
 À ce stade, nous ne gérons pas encore certaines fonctionnalités et configurations. Les sections suivantes décrivent nos recommandations les concernant.
 
-### Fonctionnalités non prises en charge
+### <a name="unsupported-features"></a>Fonctionnalités non prises en charge
 
 Les fonctionnalités non prises en charge actuellement sont les suivantes. Si vous le souhaitez, vous pouvez supprimer ces paramètres, effectuer la migration des machines virtuelles, puis réactiver les paramètres dans le modèle de déploiement Resource Manager.
 
@@ -84,10 +85,10 @@ Calcul | Disques de machine virtuelle non associés.
 Calcul | Images de machine virtuelle.
 Réseau | Listes de contrôle d’accès de points de terminaison.
 Réseau | Passerelles de réseau virtuel (de site à site, Azure ExpressRoute, Application Gateway, de point à site).
-Réseau | Réseaux virtuels à l’aide de l’homologation de réseaux virtuels (VNet Peering). (Migrer de réseau virtuel vers ARM, puis l’homologue) En savoir plus sur [l’homologation de réseaux virtuels (VNet Peering)](../virtual-network/virtual-network-peering-overview.md).
+Réseau | Réseaux virtuels à l’aide de l’homologation de réseaux virtuels (VNet Peering). (Migrez le réseau virtuel vers ARM, puis procédez à l’homologation) En savoir plus sur [l’homologation du réseau virtuel] (../virtual-network/virtual-network-peering-overview.md).
 Réseau | Profils Traffic Manager.
 
-### Configurations non prises en charge
+### <a name="unsupported-configurations"></a>Configurations non prises en charge
 
 Les configurations non prises en charge actuellement sont les suivantes.
 
@@ -100,13 +101,13 @@ Calcul | Machines virtuelles dotées d’alertes et de stratégies de mise à l�
 Calcul | Extensions XML de machines virtuelles (BGInfo 1.*, débogueur Visual Studio, Web Deploy et débogage à distance) | Ce n’est pas pris en charge. Il est recommandé de supprimer ces extensions de la machine virtuelle pour continuer la migration ; sinon, elles seront automatiquement supprimées pendant le processus de migration.
 Calcul | Diagnostics de démarrage avec le stockage Premium | Désactivez la fonctionnalité Diagnostics de démarrage pour les machines virtuelles avant de poursuivre la migration. Vous pouvez réactiver les Diagnostics de démarrage dans la pile Resource Manager une fois la migration terminée. En outre, les objets Blob utilisés pour la capture d’écran et les journaux de série doivent être supprimés afin que vous ne soyez plus facturé pour ces objets Blob.
 Calcul | Services cloud contenant des rôles Web/de travail | Non pris en charge actuellement.
-Réseau | Réseaux virtuels contenant des machines virtuelles et des rôles Web/de travail | Non pris en charge actuellement.
+Réseau | Réseaux virtuels contenant des machines virtuelles et des rôles Web/de travail |  Non pris en charge actuellement.
 Azure App Service | Réseaux virtuels contenant des environnements App Service | Non pris en charge actuellement.
 Azure HDInsight | Réseaux virtuels contenant des services HDInsight | Non pris en charge actuellement.
 Services de cycle de vie Microsoft Dynamics | Réseaux virtuel contenant des machines virtuelles gérées par Dynamics Lifecycle Services | Non pris en charge actuellement.
 Calcul | Extensions Azure Security Center avec un réseau virtuel disposant d’une passerelle VPN ou d’une passerelle ER avec serveur DNS local | Azure Security Center installe automatiquement les extensions sur vos machines virtuelles pour contrôler leur sécurité et déclencher des alertes. Ces extensions sont généralement installées automatiquement si la stratégie d’Azure Security Center est activée sur l’abonnement. La migration d’une passerelle n’est actuellement pas prise en charge et la passerelle doit être supprimée avant de procéder à la validation de la migration ; l’accès Internet au compte de stockage de la machine virtuelle est perdu lorsque la passerelle est supprimée. La migration ne se produit pas dans ce cas, car l’objet blob d’état de l’agent invité ne peut pas être rempli. Il est recommandé de désactiver la stratégie d’Azure Security Center de l’abonnement 3 heures avant de procéder à la migration.
 
-## Expérience de migration
+## <a name="the-migration-experience"></a>Expérience de migration
 
 Avant de lancer la migration, nous vous recommandons de procéder comme suit :
 
@@ -123,7 +124,7 @@ Procédez comme suit pour la migration
 
 >[AZURE.NOTE] Toutes les opérations décrites dans les sections suivantes sont idempotentes. Si vous rencontrez un problème autre qu’une fonctionnalité non prise en charge ou qu’une erreur de configuration, nous vous recommandons de réexécuter la procédure de préparation, d’abandon ou de validation. La plateforme Azure réessaie d’exécuter l’action.
 
-### Valider
+### <a name="validate"></a>Valider
 
 L’opération de validation constitue la première étape du processus de migration. L’objectif de cette étape est d’analyser les données en arrière-plan pour les ressources dont vous souhaitez effectuer la migration et d’indiquer si ces ressources peuvent ou non faire l’objet d’une migration.
 
@@ -131,7 +132,7 @@ Vous sélectionnez le réseau virtuel ou le service hébergé (s’il ne s’agi
 
 * Si la migration d’une ressource est impossible, la plateforme Azure en indique les raisons.
 
-### Préparation
+### <a name="prepare"></a>Préparation
 
 L’opération de préparation constitue la deuxième étape du processus de migration. Le rôle de cette étape est de simuler la transformation des ressources IaaS Classic en ressources Resource Manager et de vous les présenter côte à côte pour que vous puissiez les visualiser.
 
@@ -146,7 +147,7 @@ Une fois l’opération de préparation terminée, vous avez la possibilité de 
 
 >[AZURE.NOTE] Lors de cette phase de migration, les machines virtuelles qui ne font pas partie d’un réseau virtuel Classic sont arrêtées et désallouées.
 
-### Vérification (manuelle ou sur la base d’un script)
+### <a name="check-(manual-or-scripted)"></a>Vérification (manuelle ou sur la base d’un script)
 
 Dans le cadre de cette étape de vérification, vous pouvez éventuellement utiliser la configuration que vous avez téléchargée précédemment pour vérifier que la migration semble correcte. Une autre possibilité consiste à se connecter au portail et à procéder à une vérification ponctuelle des propriétés et des ressources pour vous assurer que la migration des métadonnées s’est déroulée de manière adéquate.
 
@@ -158,19 +159,19 @@ Aucun délai maximum ne vous est imposé pour la validation de la migration. Vou
 
 Si vous constatez certains problèmes, vous pouvez toujours abandonner la migration et revenir au modèle de déploiement Classic. Après que vous êtes revenu en arrière, la plateforme Azure ouvre les opérations du plan de gestion sur les ressources pour vous permettre de reprendre les opérations normales sur ces machines virtuelles dans le modèle de déploiement classique.
 
-### Abandon
+### <a name="abort"></a>Abandon
 
 L’abandon est une étape facultative qui vous permet d’abandonner la migration en annulant vos modifications et en revenant au modèle de déploiement Classic.
 
->[AZURE.NOTE] Vous ne pouvez plus effectuer cette opération une fois que vous avez déclenché l’opération de validation.
+>[AZURE.NOTE] Vous ne pouvez plus effectuer cette opération une fois que vous avez déclenché l’opération de validation.  
 
-### Validation
+### <a name="commit"></a>Validation
 
 Après avoir terminé la validation, vous pouvez valider la migration. Les ressources n’apparaissent plus dans l’environnement Classic et sont disponibles uniquement dans le modèle de déploiement Resource Manager. Les ressources migrées peuvent être gérées uniquement dans le nouveau portail.
 
->[AZURE.NOTE] Il s’agit d’une opération idempotente. En cas d’échec, il est recommandé de retenter l’opération. Si le problème persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=WAVirtualMachinesforWindows).
+>[AZURE.NOTE] Il s’agit d’une opération idempotente. En cas d’échec, il est recommandé de retenter l’opération. Si le problème persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
 
-## Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Forum Aux Questions
 
 **Ce plan de migration affecte-t-il l’un de mes services ou applications existants qui s’exécutent sur des machines virtuelles Azure ?**
 
@@ -194,7 +195,7 @@ Vous pouvez abandonner la migration tant que vos ressources se trouvent à l’�
 
 **Puis-je restaurer ma migration en cas d’échec de l’opération de validation ?**
 
-Vous ne pouvez pas abandonner la migration si l’opération de validation échoue. Toutes les opérations de migration, notamment l’opération de validation, sont idempotentes. Nous vous recommandons donc de retenter l’opération après une courte période. Si l’erreur persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=WAVirtualMachinesforWindows).
+Vous ne pouvez pas abandonner la migration si l’opération de validation échoue. Toutes les opérations de migration, notamment l’opération de validation, sont idempotentes. Nous vous recommandons donc de retenter l’opération après une courte période. Si l’erreur persiste, créez un ticket de support ou publiez un billet avec la balise ClassicIaaSMigration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
 
 **Dois-je acheter un autre circuit ExpressRoute si je dois utiliser la ressource IaaS sous Resource Manager ?**
 
@@ -218,7 +219,7 @@ Nous vous recommandons d’abandonner votre migration et de créer ensuite une d
 
 **Comment signaler un problème ?**
 
-Publiez vos problèmes et questions concernant la migration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/fr-FR/home?forum=WAVirtualMachinesforWindows) en utilisant le mot clé ClassicIaaSMigration. Nous vous recommandons de poster toutes vos questions sur ce forum. Si vous disposez d’un contrat de support, vous pouvez également créer un ticket de support.
+Publiez vos problèmes et questions concernant la migration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)en utilisant le mot clé ClassicIaaSMigration. Nous vous recommandons de poster toutes vos questions sur ce forum. Si vous disposez d’un contrat de support, vous pouvez également créer un ticket de support.
 
 **Comment procéder si je n’apprécie pas les noms que la plateforme a choisis pour mes ressources lors de la migration ?**
 
@@ -229,7 +230,7 @@ Les noms de toutes les ressources que vous avez explicitement fournis dans le mo
 Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité sortante à Internet. L’agent de machine virtuelle utilise la connectivité sortante pour atteindre le compte de stockage Azure afin de mettre à jour l’état de l’agent toutes les 5 minutes.
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 À présent que vous savez en quoi consiste la migration des ressources IaaS Classic vers Resource Manager, vous pouvez commencer à effectuer la migration des ressources.
 
 - [Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -237,4 +238,8 @@ Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité 
 - [Faire migrer des ressources IaaS Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Cloner une machine virtuelle Classic vers Azure Resource Manager à l’aide de scripts PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configurer votre environnement de développement | Microsoft Azure"
-   description="Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois l’installation terminée, vous serez prêt à créer des applications."
+   pageTitle="Set up your development environment | Microsoft Azure"
+   description="Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -13,59 +13,64 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/13/2016"
+   ms.date="10/26/2016"
    ms.author="ryanwi"/>
 
-# Préparer votre environnement de développement
+
+# <a name="prepare-your-development-environment"></a>Prepare your development environment
 
 > [AZURE.SELECTOR]
 -[ Windows](service-fabric-get-started.md)
 - [Linux](service-fabric-get-started-linux.md)
 - [OSX](service-fabric-get-started-mac.md)
 
- Pour générer et exécuter des [applications Azure Service Fabric][1] sur votre ordinateur de développement, installez le runtime, le kit de développement logiciel et les outils. Vous devez également activer l’exécution des scripts Windows PowerShell inclus dans le Kit de développement logiciel (SDK).
+ To build and run [Azure Service Fabric applications][1] on your development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
 
-## Composants requis
-### Versions du système d’exploitation prises en charge
-Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
+## <a name="prerequisites"></a>Prerequisites
+### <a name="supported-operating-system-versions"></a>Supported operating system versions
+The following operating system versions are supported for development:
 
-- Windows 7
-- Windows 8 et Windows 8.1
-- Windows Server 2012 R2
-- Windows 10
+- Windows 7
+- Windows 8/Windows 8.1
+- Windows Server 2012 R2
+- Windows 10
 
->[AZURE.NOTE] Windows 7 inclut uniquement Windows PowerShell 2.0 par défaut. Les applets de commande PowerShell de Service Fabric nécessitent PowerShell 3.0 ou version ultérieure. Vous pouvez [télécharger Windows PowerShell 5.0][powershell5-download] depuis le Centre de téléchargement Microsoft.
+>[AZURE.NOTE] Windows 7 only includes Windows PowerShell 2.0 by default. Service Fabric PowerShell cmdlets requires PowerShell 3.0 or higher. You can [download Windows PowerShell 5.0][powershell5-download] from the Microsoft Download Center.
 
-## Installer le runtime, le SDK et les outils
+## <a name="install-the-runtime,-sdk,-and-tools"></a>Install the runtime, SDK, and tools
 
-Web Platform Installer offre deux configurations pour le développement de Service Fabric :
+The Web Platform Installer offers two configurations for Service Fabric development:
 
-- [Installation du runtime Service Fabric, du Kit de développement logiciel (SDK) et des outils pour Visual Studio 2015 (requiert Visual Studio 2015 Update 2 ou version ultérieure)][full-bundle-vs2015]
-- [Installation du runtime Service Fabric et du Kit de développement logiciel (SDK) uniquement (aucun outil Visual Studio)][core-sdk]
+- [Install the Service Fabric runtime, SDK, and tools for Visual Studio 2015 (Requires Visual Studio 2015 Update 2 or later)][full-bundle-vs2015]
+- [Install the Service Fabric runtime and SDK only (no Visual Studio tools)][core-sdk]
 
-## Activer l'exécution du script PowerShell
+## <a name="enable-powershell-script-execution"></a>Enable PowerShell script execution
 
-Service Fabric utilise des scripts Windows PowerShell pour créer un cluster de développement local et déployer des applications à partir de Visual Studio. Par défaut, Windows bloque l’exécution de ces scripts. Pour les activer, vous devez modifier votre stratégie d'exécution PowerShell. Ouvrez PowerShell en tant qu'administrateur et entrez la commande suivante :
+Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows blocks these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## Étapes suivantes
-Maintenant que vous avez fini de configurer votre environnement de développement, commencez à créer et à exécuter des applications.
+## <a name="next-steps"></a>Next steps
+Now that you've finished setting up your development environment, start building and running apps.
 
-- [Créer votre première application Service Fabric dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Découvrez comment déployer et gérer des applications sur votre cluster local](service-fabric-get-started-with-a-local-cluster.md)
-- [En savoir plus sur les modèles de programmation : acteurs fiables et services fiables](service-fabric-choose-framework.md)
-- [Consulter les exemples de code Service Fabric sur GitHub](https://aka.ms/servicefabricsamples)
-- [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-- [Suivre le parcours d’apprentissage Service Fabric pour une introduction générale à la plate-forme](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+- [Create your first Service Fabric application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Learn how to deploy and manage applications on your local cluster](service-fabric-get-started-with-a-local-cluster.md)
+- [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
+- [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
+- [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+- [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 
-[1]: http://azure.microsoft.com/campaigns/service-fabric/ "Page de campagne Service Fabric"
+[1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric campaign page"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Lien WebPI VS 2015"
-[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Lien WebP Dev15"
-[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Lien WebPI du Kit de développement logiciel principal"
-[powershell5-download]: https://www.microsoft.com/fr-FR/download/details.aspx?id=50395
+[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI link"
+[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI link"
+[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI link"
+[powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

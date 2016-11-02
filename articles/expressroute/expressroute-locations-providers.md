@@ -12,14 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="10/12/2016"
    ms.author="cherylmc" />
 
-# Partenaires ExpressRoute et emplacements d’homologation
+
+# <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
 Les tables de cet article offrent des informations sur les fournisseurs de connectivité ExpressRoute, la couverture géographique ExpressRoute, les services cloud Microsoft pris en charge via ExpressRoute et les intégrateurs système ExpressRoute.
 
-## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
+## <a name="<a-name="partners"></a>expressroute-connectivity-providers"></a><a name="partners"></a>Fournisseurs de connectivité ExpressRoute
 
 ExpressRoute est pris en charge dans tous les emplacements et régions Azure. La carte ci-dessous fournit une liste des régions Azure et des emplacements ExpressRoute. Les emplacements ExpressRoute se réfèrent à ceux où Microsoft s’associe à plusieurs fournisseurs de services.
 
@@ -45,22 +46,22 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 |---|---|---|---|
 |**Cloud du gouvernement des États-Unis**|Gouvernement américain - Iowa, Gouvernement américain - Virginie|Chicago, Dallas, New York, Washington DC|
 |**Chine**|Chine du Nord, Chine orientale|Beijing, Shanghai|
-|**Allemagne**|Allemagne centrale, Allemagne de l’est|Berlin+, Francfort|
+|**Allemagne**|Allemagne centrale, Allemagne de l’est|Berlin, Francfort|
 
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
 
 
-## Emplacements de fournisseur de connectivité
+## <a name="connectivity-provider-locations"></a>Emplacements de fournisseur de connectivité
 
 > [AZURE.SELECTOR]
-[Locations By Provider](expressroute-locations.md#connectivity-provider-locations)
-[Providers By Location](expressroute-locations-providers.md#connectivity-provider-locations)
+[Emplacements par fournisseur](expressroute-locations.md#connectivity-provider-locations)
+[Fournisseurs par emplacement](expressroute-locations-providers.md#connectivity-provider-locations)
 
-### Production Azure
-| **Emplacement** | **Fournisseurs de services** |
+### <a name="production-azure"></a>Production Azure
+| **Emplacement**  | **Fournisseurs de services** |
 |---------------|-----------------------|
-| **Amsterdam** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT+, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Amsterdam** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** | Equinix |
 | **Chennai** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
@@ -70,7 +71,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Londres** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Las Vegas** | Level 3 Communications+, Megaport
 | **Los Angeles** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
-| **Melbourne** | Equinix, Megaport, NEXTDC, Telstra Corporation |
+| **Melbourne** | AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** | Equinix, Megaport, Zayo Group |
 | **Montréal** | Cologix+ |
 | **Mumbai** | Tata Communications |
@@ -80,55 +81,55 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapour** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Sydney** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
+| **Sydney** | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** | Cologix, Equinix, Zayo Group |
 | **Washington DC** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** = bientôt disponible
 
-### Environnements de cloud national
+### <a name="national-cloud-environments"></a>Environnements de cloud national
 
-#### Cloud du gouvernement des États-Unis
+#### <a name="us-government-cloud"></a>Cloud du gouvernement des États-Unis
 
-| **Emplacement** |**Fournisseurs de services** |
+| **Emplacement**  |**Fournisseurs de services** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** | Equinix, Verizon+ |
+| **Dallas** |  Equinix, Verizon+ |
 | **New York** | Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### Chine
+#### <a name="china"></a>Chine
 
-| **Emplacement** | **Fournisseurs de services** |
+| **Emplacement**  | **Fournisseurs de services** |
 |---------------|-----------------------|
 | **Beijing** | China Telecom |
-| **Shanghai** | China Telecom |
-Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windowsazure.cn/home/features/expressroute/).
+| **Shanghai** |  China Telecom |
+Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windowsazure.cn/home/features/expressroute/)
 
-#### Allemagne
+#### <a name="germany"></a>Allemagne
 
-| **Emplacement** | **Fournisseurs de services** |
+| **Emplacement**  | **Fournisseurs de services** |
 |---------------|-----------------------|
-| **Berlin** | Colt+, e-shelter+ |
-| **Francfort** | Colt, Equinix+, Interxion |
+| **Berlin** | Colt, e-shelter |
+| **Francfort** | Colt, Equinix, Interxion |
 
-## <a name="nonpartners"></a>Connectivité via des fournisseurs de services non répertoriés
+## <a name="<a-name="nonpartners"></a>connectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Connectivité via des fournisseurs de services non répertoriés
 
 Si votre fournisseur de connectivité ne se trouve pas dans la liste des sections précédentes, vous pouvez quand même créer une connexion.
 
 - Vérifiez auprès de votre fournisseur de connectivité s’il est connecté à l’un des échanges dans le tableau ci-dessous. Vous pouvez consulter les liens ci-dessous pour recueillir des informations supplémentaires sur les services proposés par les fournisseurs d’échange. Plusieurs fournisseurs de connectivité sont déjà connectés à des échanges Ethernet.
 
-	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [InterXion](http://www.interxion.com/)
-	- [NextDC](http://www.nextdc.com/)
-	- [CoreSite](http://www.coresite.com/)
-	- [Cologix](http://www.cologix.com/)
+    - [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
+    - [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
+    - [InterXion](http://www.interxion.com/)
+    - [NextDC](http://www.nextdc.com/)
+    - [CoreSite](http://www.coresite.com/)
+    - [Cologix](http://www.cologix.com/)
 - Demandez à votre fournisseur de connectivité d’étendre votre réseau à l’emplacement d’homologation de votre choix.
-	- Vérifiez que votre fournisseur de connectivité étend votre connectivité avec une haute disponibilité pour éviter tout point de défaillance unique.
+    - Vérifiez que votre fournisseur de connectivité étend votre connectivité avec une haute disponibilité pour éviter tout point de défaillance unique.
 - Commandez un circuit ExpressRoute avec échange en tant que fournisseur de connectivité pour se connecter à Microsoft.
-	- Pour définir la connectivité, procédez de la manière décrite dans [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md).
+    - Pour définir la connectivité, procédez de la manière décrite dans [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md) .
 
 |**Emplacement**|**Microsoft Exchange**|**Fournisseurs de connectivité**|
 |-------------|------------|-------------------------|
@@ -138,7 +139,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 | **Singapour** | Equinix | 1CLOUDSTAR |
 | **Washington DC** | Equinix | Lightower |
 
-## Intégrateurs système ExpressRoute
+## <a name="expressroute-system-integrators"></a>Intégrateurs système ExpressRoute
 
 L’activation de la connectivité privée pour l’adapter à vos besoins peut s’avérer difficile selon l’échelle de votre réseau. Vous pouvez faire appel à l’un des intégrateurs système figurant dans le tableau ci-dessous pour vous aider à intégrer ExpressRoute.
 
@@ -148,12 +149,16 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 | **Europe** | Avanade Inc., Dotnet Solutions|
 | **États-Unis** | Avanade Inc., Equinix Professional Services, Perficient, Project Leadership|
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
 <!--Image References-->
-[0]: ./media/expressroute-locations/expressroute-locations-map.png "Carte géographique"
+[0]: ./media/expressroute-locations/expressroute-locations-map.png "Mise en correspondance des emplacements"
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

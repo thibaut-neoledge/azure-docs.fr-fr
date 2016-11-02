@@ -1,28 +1,29 @@
 <properties
-	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement"
-	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Intégration du SDK Android d'Azure Mobile Engagement"
+    description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="erikre"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="piyushjo" />
 
-#comment intégrer GCM à Mobile Engagement
+
+#<a name="how-to-integrate-gcm-with-mobile-engagement"></a>comment intégrer GCM à Mobile Engagement
 
 > [AZURE.IMPORTANT] Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
 >
 > Ce document est utile uniquement si vous avez intégré le module Reach et avez l’intention d’effectuer des transmissions de type Push vers des appareils Google Play. Pour intégrer les couvertures campagnes à votre application, lisez d'abord « Comment intégrer le module de couverture Engagement sur Android ».
 
-##Introduction
+##<a name="introduction"></a>Introduction
 
 L’intégration de GCM permet à votre application de recevoir des notifications Push.
 
@@ -30,15 +31,13 @@ Les charges GCM envoyées vers le Kit de développement logiciel (SDK) contienne
 
 > [AZURE.IMPORTANT] Seuls les appareils disposant d’Android 2.2 ou version ultérieure, de Google Play et d’une connexion d’arrière-plan à Google peuvent faire l’objet d’une notification Push à l’aide de GCM. Toutefois, vous pouvez intégrer ce code en toute sécurité sur les appareils non pris en charge (car il utilise uniquement des intentions).
 
-##Créer un projet Google Cloud Messaging avec une clé API
+##<a name="create-a-google-cloud-messaging-project-with-api-key"></a>Créer un projet Google Cloud Messaging avec une clé API
 
 [AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-> [AZURE.IMPORTANT] Le **Numéro de projet** ne doit pas être confondu avec l'**ID du projet**.
+##<a name="sdk-integration"></a>Intégration du SDK
 
-##Intégration du SDK
-
-### Gestion des inscriptions des appareils
+### <a name="managing-device-registrations"></a>Gestion des inscriptions des appareils
 
 Chaque appareil doit envoyer une commande d'inscription aux serveurs Google, sinon il ne pourra pas recevoir de campagnes.
 
@@ -48,38 +47,42 @@ Si vous n’utilisez pas [le Kit de développement logiciel (SDK) Google Play] o
 
 Pour cela, ajoutez le code suivant au fichier `AndroidManifest.xml`, à l'intérieur de la balise `<application/>` :
 
-			<!-- If only 1 sender, don't forget the \n, otherwise it will be parsed as a negative number... -->
-			<meta-data android:name="engagement:gcm:sender" android:value="<Your Google Project Number>\n" />
+            <!-- If only 1 sender, don't forget the \n, otherwise it will be parsed as a negative number... -->
+            <meta-data android:name="engagement:gcm:sender" android:value="<Your Google Project Number>\n" />
 
-### Communiquer l'ID d'inscription au service Push d'Engagement et recevoir des notifications
+### <a name="communicate-registration-id-to-the-engagement-push-service-and-receive-notifications"></a>Communiquer l'ID d'inscription au service Push d'Engagement et recevoir des notifications
 
 Pour communiquer l'ID d'inscription de l'appareil au service Push d'Engagement et recevoir ses notifications, ajoutez le code suivant au fichier `AndroidManifest.xml`, à l'intérieur de la balise `<application/>` (même si vous gérez vous-même les inscriptions d'appareil) :
 
-			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
-			  android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
-			  </intent-filter>
-			</receiver>
+            <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
+              android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
+              </intent-filter>
+            </receiver>
 
-			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-			  <intent-filter>
-			    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-			    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-			    <category android:name="<your_package_name>" />
-			  </intent-filter>
-			</receiver>
+            <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+              <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="<your_package_name>" />
+              </intent-filter>
+            </receiver>
 
 Assurez-vous de disposer des autorisations suivantes dans votre `AndroidManifest.xml` (après la balise `</application>`).
 
-			<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-			<uses-permission android:name="<your_package_name>.permission.C2D_MESSAGE" />
-			<permission android:name="<your_package_name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+            <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+            <uses-permission android:name="<your_package_name>.permission.C2D_MESSAGE" />
+            <permission android:name="<your_package_name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-##Accorder à Mobile Engagement l’accès à votre clé d’API GCM
+##<a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Accorder à Mobile Engagement l’accès à votre clé d’API GCM
 
 Suivez [ce guide](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) pour accorder à Mobile Engagement l’accès à votre clé API GCM
 
-[le Kit de développement logiciel (SDK) Google Play]: https://developers.google.com/cloud-messaging/android/start
+[SDK Google Play]:https://developers.google.com/cloud-messaging/android/start
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

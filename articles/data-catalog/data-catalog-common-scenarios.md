@@ -13,15 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/12/2016"
+   ms.date="10/03/2016"
    ms.author="maroche"/>
 
 
-# Scénarios courants avec Azure Data Catalog
+
+# <a name="azure-data-catalog-common-scenarios"></a>Scénarios courants avec Azure Data Catalog
 
 Cet article présente des scénarios courants dans lesquels Azure Data Catalog peut aider les organisations à mieux exploiter leurs sources de données existantes.
 
-## Scénario no1 : enregistrement des sources de données centrales
+## <a name="scenario-#1---registration-of-central-data-sources"></a>Scénario no1 : enregistrement des sources de données centrales
 
 Les organisations ont souvent de nombreuses sources de données de grande valeur. Celles-ci incluent les systèmes d’entreprise OLTP, les entrepôts de données et le décisionnel / les bases de données d’analyse. Souvent, le nombre de systèmes augmente et le chevauchement entre les systèmes s’accentue au fur et à mesure de l’évolution des besoins de l’entreprise ou de l’évolution de l’entreprise elle-même par le biais de fusions et d’acquisitions.
 
@@ -36,7 +37,7 @@ Dans ce scénario, Azure Data Catalog peut vous aider. Les sources de données 
 
 Ce scénario permet également d’annoter les sources de données à valeur élevée pour les rendre plus faciles à comprendre et plus faciles d’accès. Un aspect clé de cet effort consiste à inclure des informations sur la façon dont les utilisateurs peuvent demander l'accès à la source de données. L’Azure Data Catalog permet à des utilisateurs de fournir l'adresse électronique de l'équipe ou de l'utilisateur chargé de contrôler l'accès aux sources de données, les liens vers des outils existants ou une documentation, ou du texte libre qui décrit le processus de demande d'accès. Avec ces informations incluses dans le catalogue, les utilisateurs qui découvrent des sources de données enregistrées, mais qui n'ont pas encore les autorisations pour accéder aux données, peuvent facilement demander l'accès à l'aide de processus définis et contrôlés par les propriétaires des sources de données.
 
-## Scénario no2 : décisionnel libre-service
+## <a name="scenario-#2---self-service-business-intelligence"></a>Scénario no2 : décisionnel libre-service
 
 Bien que les solutions traditionnelles d’analyse décisionnelle des entreprises continuent d’être un élément important du paysage de données de nombreuses organisations, le décisionnel libre-service gagne chaque jour en importance du fait de l’intensification du rythme des opérations. Le décisionnel libre-service permet aux professionnels de l’information et aux analystes de créer leurs propres rapports, classeurs et tableaux de bord sans dépendre d’une équipe informatique centrale, et sans être limités par l’emploi du temps ou la disponibilité de l’équipe informatique.
 
@@ -50,7 +51,7 @@ Cette croissance organique du contenu du catalogue est un complément naturel de
 
 Il est également important de noter que, bien que ce scénario se concentre spécifiquement sur le décisionnel libre-service, les mêmes schémas et les mêmes défis s’appliquent également aux projets décisionnels d’entreprise de grande échelle. Tout effort impliquant un processus manuel de découverte de sources de données est un effort dont peut tirer profit l’entreprise grâce à l’utilisation d’Azure Data Catalog.
 
-## Scénario no3 : capturer les connaissances tribales
+## <a name="scenario-#3---capturing-tribal-knowledge"></a>Scénario no3 : capturer les connaissances tribales
 
 Comment savoir quelles données sont nécessaires pour effectuer votre travail et où les trouver ?
 
@@ -66,4 +67,8 @@ Parfois ces experts en données font l’effort de documenter leurs connaissance
 
 Azure Data Catalog agit comme une plateforme permettant de partager ces connaissances tribales et de les rendre facilement identifiables. Les experts en données peuvent annoter directement les ressources de données et même inclure des liens vers la documentation existante. Cela permet non seulement de capturer les connaissances, mais également d’inscrire l’accès aux connaissances dans le même processus que celui utilisé pour découvrir les sources de données. Ainsi, lorsqu’une personne utilise le catalogue pour découvrir une source de données, elle trouvera non seulement la source elle-même, mais également les connaissances de l’expert qui auparavant existaient uniquement dans la tête de ce dernier.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

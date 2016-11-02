@@ -17,7 +17,8 @@
    ms.author="subramar"/>
 
 
-# Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
+
+# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
 
 
 > [AZURE.SELECTOR]
@@ -27,13 +28,13 @@
 L’analyse, la détection, le diagnostic et la résolution des problèmes permettent aux services de fonctionner avec une interruption minimale de l’expérience utilisateur. L’analyse et le diagnostic sont essentiels dans un environnement de production réel déployé. L’adoption d’un modèle similaire pendant le développement de services garantit le fonctionnement du pipeline de diagnostic lors du passage à un environnement de production. Service Fabric facilite pour les développeurs de service l’implémentation de diagnostics qui peuvent fonctionner parfaitement aussi bien sur une configuration de développement d’ordinateur local unique que sur une configuration réelle de cluster de production.
 
 
-## Débogage des applications Java Service Fabric
+## <a name="debugging-service-fabric-java-applications"></a>Débogage des applications Java Service Fabric
 
-Pour les applications Java, [plusieurs frameworks de journalisation](http://en.wikipedia.org/wiki/Java_logging_framework) sont disponibles. Comme `java.util.logging` est l’option par défaut avec l’environnement JRE, elle est également utilisée pour les [exemples de code dans GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started). La suite de cette section explique comment configurer le framework `java.util.logging`.
+Pour les applications Java, [plusieurs frameworks de journalisation](http://en.wikipedia.org/wiki/Java_logging_framework) sont disponibles. Comme `java.util.logging` est l’option par défaut avec l’environnement JRE, elle est également utilisée pour les [exemples de code dans GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  La suite de cette section explique comment configurer le framework `java.util.logging` . 
  
-À l’aide de java.util.logging, vous pouvez rediriger vos journaux d’application vers la mémoire, des flux de sortie, des fichiers de console ou des sockets. Pour chacune de ces options, des gestionnaires par défaut sont déjà fournis dans le framework. Vous pouvez créer un fichier `app.properties` pour configurer le gestionnaire de fichiers de votre application de sorte qu’il redirige tous les journaux dans un fichier local.
+À l’aide de java.util.logging, vous pouvez rediriger vos journaux d’application vers la mémoire, des flux de sortie, des fichiers de console ou des sockets. Pour chacune de ces options, des gestionnaires par défaut sont déjà fournis dans le framework. Vous pouvez créer un fichier `app.properties` pour configurer le gestionnaire de fichiers de votre application de sorte qu’il redirige tous les journaux dans un fichier local. 
 
-L’extrait de code suivant contient un exemple de configuration :
+L’extrait de code suivant contient un exemple de configuration : 
 
 ```java 
 handlers = java.util.logging.FileHandler
@@ -52,14 +53,18 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
  
  
-Cette configuration se traduit par la collecte des journaux suivant une rotation dans `/tmp/servicefabric/logs/`. **%u** et **%g** permettent de créer des fichiers supplémentaires avec les noms de fichier mysfapp0.log, mysfapp1.log, etc., et avec les noms de fichier mysfapp1.log, mysfapplog0.log, etc. Si aucun gestionnaire n’est configuré explicitement, le gestionnaire de la console est inscrit. Les journaux sont accessible sous /var/log/syslog.
+Cette configuration se traduit par la collecte des journaux suivant une rotation dans `/tmp/servicefabric/logs/`. **%u** et **%g** permettent de créer des fichiers supplémentaires avec les noms de fichier mysfapp0.log, mysfapp1.log, etc. Si aucun gestionnaire n’est configuré explicitement, le gestionnaire de la console est inscrit. Les journaux sont accessible sous /var/log/syslog.
  
-Pour plus d’informations, consultez les [exemples de code dans GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).
+Pour plus d’informations, consultez les [exemples de code dans GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
 
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Le code de suivi ajouté à votre application fonctionne également pour le diagnostic de votre application sur un cluster Microsoft Azure. Consultez ces articles qui traitent des différentes options pour les outils et décrivent comment vous pouvez les configurer.
 * [Collecte des journaux avec Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

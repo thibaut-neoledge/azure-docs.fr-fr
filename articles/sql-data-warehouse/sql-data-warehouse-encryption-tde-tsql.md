@@ -13,10 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016"
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="rortloff;barbkess"/>
 
-# Prise en main du chiffrement transparent des données (TDE)
+
+# <a name="get-started-with-transparent-data-encryption-tde"></a>Prise en main du chiffrement transparent des données (TDE)
 
 
 > [AZURE.SELECTOR]
@@ -25,11 +26,11 @@
 - [Chiffrement (portail)](sql-data-warehouse-encryption-tde.md)
 - [Chiffrement (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-## Autorisations requises
+## <a name="required-permssions"></a>Autorisations requises
 
 Pour activer le chiffrement transparent des données (TDE), vous devez être un administrateur ou un membre du rôle dbmanager.
 
-## Activation du chiffrement
+## <a name="enabling-encryption"></a>Activation du chiffrement
 
 Pour activer le chiffrement transparent des données pour une instance SQL Data Warehouse, procédez comme suit :
 
@@ -40,7 +41,7 @@ Pour activer le chiffrement transparent des données pour une instance SQL Data 
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
-## Désactivation du chiffrement
+## <a name="disabling-encryption"></a>Désactivation du chiffrement
 
 Pour désactiver le chiffrement transparent des données pour une instance SQL Data Warehouse, procédez comme suit :
 
@@ -53,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 
 > [AZURE.NOTE] Une instance SQL Data Warehouse suspendue doit reprendre avant que des modifications ne puissent être apportées aux paramètres de chiffrement transparent des données.
 
-## Vérification de chiffrement
+## <a name="verifying-encryption"></a>Vérification de chiffrement
 
 Pour vérifier l’état du chiffrement pour SQL Data Warehouse, procédez comme suit :
 
@@ -62,27 +63,31 @@ Pour vérifier l’état du chiffrement pour SQL Data Warehouse, procédez comme
 
 ```sql
 SELECT
-	[name],
-	[is_encrypted]
+    [name],
+    [is_encrypted]
 FROM
-	sys.databases;
+    sys.databases;
 ```
 
 Un résultat de ```1``` indique une base de données chiffrée, ```0``` indique une base de données non chiffrée.
 
-## DMV de chiffrement  
+## <a name="encryption-dmvs"></a>DMV de chiffrement  
 
-- [sys.databases][]
-- [sys.dm\_pdw\_nodes\_database\_encryption\_keys][]
+- [sys.databases][] 
+- [sys.dm_pdw_nodes_database_encryption_keys][]
 
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
-[sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
+[Chiffrement transparent des données (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx  
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx  
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -118,7 +118,7 @@ Si votre application accède aux ressources pour le compte d’un utilisateur co
 
 1. Sélectionnez **Ajouter une application**.
 
-2. Dans la liste, sélectionnez l’**API de gestion des services Windows Azure**. Cliquez sur l’icône Terminer.
+2. Dans la liste, sélectionnez l’**API de gestion des services Microsoft Azure**. Cliquez sur l’icône Terminer.
 
       ![sélectionner une application](./media/resource-group-create-service-principal-portal/select-app.png)
 

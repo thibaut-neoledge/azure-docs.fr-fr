@@ -1,86 +1,92 @@
 <properties
-	pageTitle="Complément Excel pour les services web Machine Learning | Microsoft Azure"
-	description="Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code."
-	services="machine-learning"
-	documentationCenter=""
-	authors="tedway"
-	manager="jhubbard"
-	editor="cgronlun"
+    pageTitle="Complément Excel pour les services web Machine Learning | Microsoft Azure"
+    description="Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code."
+    services="machine-learning"
+    documentationCenter=""
+    authors="tedway"
+    manager="jhubbard"
+    editor="cgronlun"
     tags=""/>
 
 <tags
-	ms.service="machine-learning"
+    ms.service="machine-learning"
     ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="07/06/2016"
-	ms.author="tedway;garye" />
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-services"
+    ms.date="10/05/2016"
+    ms.author="tedway;garye" />
 
-# Complément Excel de services web Azure Machine Learning
 
-Excel permet d'appeler facilement des services web directement sans qu'il soit nécessaire d'écrire du code.
+# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Complément Excel pour les services web Machine Learning
 
-## Étapes pour utiliser un fichier de service web existant dans le classeur
+Excel permet d’appeler facilement des services web, directement sans écrire du code.
 
-1. Ouvrez l’[exemple de fichier Excel](http://aka.ms/amlexcel-sample-2), qui contient le complément Excel et les données concernant les passagers sur le Titanic.
-2. Choisissez le service web en cliquant dessus : « Titanic Survivor Predictor (exemple de complément Excel) [Score] » dans cet exemple.
+## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Procédure d’utilisation d’un service web existant dans un classeur
 
-    ![Sélectionner un site Web][01]
+1. Ouvrez l’ [exemple de fichier Excel](http://aka.ms/amlexcel-sample-2), qui contient le complément Excel et les données concernant les passagers sur le Titanic.
+2. Choisissez le service web en cliquant dessus. Dans cet exemple, nous allosn utiliser « Titanic Survivor Predictor (Excel Add-in Sample) [Score] ».
 
-3. Vous accéderez alors à la section **Prédire**. Ce classeur contient déjà des exemples de données mais, pour un classeur vide, vous pouvez également sélectionner une cellule dans Excel et cliquer sur **Utiliser les exemples de données**.
-4. Sélectionnez les données avec les en-têtes et cliquez sur l'icône de plage de données d'entrée. Assurez-vous que la case « Mes données ont des en-têtes » est activée.
-5. Sous **Sortie**, saisissez le numéro de la cellule dans laquelle vous souhaitez placer le résultat, par exemple « H1 » ici.
+    ![Sélectionner un service web][01]
+
+3. Vous accéderez alors à la section **Prédire** .  Ce classeur contient déjà des exemples de données mais, pour un classeur vide, vous pouvez également sélectionner une cellule dans Excel et cliquer sur **Utiliser les exemples de données**.
+4. Sélectionnez les données avec les en-têtes et cliquez sur l'icône de plage de données d'entrée.  Assurez-vous que la case « Mes données ont des en-têtes » est activée.
+5. Sous **Sortie**, entrez le numéro de la cellule dans laquelle vous souhaitez insérer le résultat, en l’occurrence, « H1 ».
 6. Cliquez sur **Prédire**.
 
-	![Section Prédire][02]
+    ![Section Prédire][02]
 
-## Opérations pour ajouter un nouveau Service Web
+## <a name="steps-to-add-a-new-web-service"></a>Procédure d’ajout d’un nouveau service web
 
-Publier un service web ([cette page](machine-learning-walkthrough-5-publish-web-service.md) explique comment le faire) ou utiliser un service web existant.
+Déployez un service web ou utilisez un service existant. Pour plus d’informations sur le déploiement d’un service web, voir [Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
 
-Obtenez la clé API de votre service web. L’endroit duquel vous la récupérez varie selon que vous avez publié un service web classique ou un nouveau service web.
+Obtenez la clé API de votre service web. L’emplacement à partir duquel vous l’obtenez diffère selon que vous avez publié un service web Machine Learning classique ou un nouveau service web Machine Learning.
 
-**Service web classique**
+**Utiliser un service web classique** 
 
-1. Dans Machine Learning Studio, cliquez sur la section **WEB SERVICES** située sur le volet de gauche, puis sélectionnez le service web.
+1. Dans Machine Learning Studio, cliquez sur la section **SERVICES WEB** dans le volet de gauche, puis sélectionnez le service web.
 
-	![Studio Sélectionner un site Web][04]
+    ![Studio - Sélectionner un service web][04]
 
 2. Copiez la clé API du service web.
 
-	![Studio clé API][05]
+    ![Studio clé API][05]
 
-3. Dans l'onglet **TABLEAU DE BORD** pour le service web, cliquez sur le lien **REQUÊTE-RÉPONSE**.
-4. Recherchez la section **URI de requête**. Copiez et enregistrez l’URL.
+3. Sous l’onglet **TABLEAU DE BORD** pour le service web, cliquez sur le lien **DEMANDE-RÉPONSE**.
+4. Recherchez la section **URI de requête** .  Copiez et enregistrez l’URL.
 
-**Nouveau service web**
+>[AZURE.NOTE] Il est désormais d’obtenir la clé API d’un service web Machine Learning classique via le portail [Services web Azure Machine Learning](https://services.azureml.net).
 
-1. Dans le portail Services web Azure Machine Learning, cliquez sur **Services web**, puis sélectionnez votre service web.
+**Utiliser un nouveau service web**
+
+1. Dans le portail [Services web Azure Machine Learning](https://services.azureml.net), cliquez sur **Services web**, puis sélectionnez votre service web. 
 2. Cliquez sur **Consommer**.
-3. Recherchez la section **des informations de base sur la consommation**. Copiez et enregistrez la **clé primaire** et l’URL **Demande-requête**.
+3. Recherchez la section **des informations de base sur la consommation** . Copiez et enregistrez la **Clé primaire** et l’URL de **Demande-réponse**.
 
 
-## Opérations pour ajouter un nouveau Service Web
+## <a name="steps-to-add-a-new-web-service"></a>Procédure d’ajout d’un nouveau service web
 
-1. Publier un service web ([cette page](machine-learning-walkthrough-5-publish-web-service.md) explique comment le faire) ou utiliser un service web existant.
+1. Déployez un service web ou utilisez un service existant. Pour plus d’informations sur le déploiement d’un service web, voir [Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
+2. Cliquez sur **Consommer**.
+3. Recherchez la section **des informations de base sur la consommation** . Copiez et enregistrez la **Clé primaire** et l’URL de **Demande-réponse**.
 2. Dans Excel, accédez à la section **Services web** (si vous vous trouvez dans la section **Prédire**, cliquez sur la flèche Précédent pour accéder à la liste des services web).
 
-	![Accéder à la sélection du service web][03]
+    ![Accéder à la sélection du service web][03]
+    
 3. Cliquez sur **Ajouter un service web**.
 4. Collez l’URL dans la zone de texte du complément Excel intitulée **URL**.
 5. Collez l’API/Clé primaire dans la zone de texte intitulée **Clé API**.
 6. Cliquez sur **Add**.
 
-	![URL et clé API d’un service web classique.][06]
+    ![URL et clé API pour un service web classique.][06]
 
-10.	Pour utiliser le service web, suivez les instructions ci-dessus, « Étapes pour utiliser un Service web existant ».
+10. Pour utiliser le service web, suivez les instructions de la section « Procédure d’utilisation d’un service web existant » ci-dessus.
 
-## Partage de votre classeur
+## <a name="sharing-your-workbook"></a>Partage de votre classeur
 
-Si vous enregistrez votre classeur, l'API/la clé primaire pour les services web que vous avez ajoutés seront également enregistrés. Cela signifie que vous devez uniquement partager le classeur avec des personnes de confiance.
+Si vous enregistrez votre classeur, la clé API/primaire pour les services web que vous avez ajoutés est également enregistrée. Cela signifie que vous devez uniquement partager le classeur avec des personnes de confiance.
 
-Posez des questions ci-dessous ou sur notre [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Posez les questions que vous voulez dans la section de commentaire suivante ou dans notre [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/machine-learning-excel-add-in-for-web-services/image1.png
 [02]: ./media/machine-learning-excel-add-in-for-web-services/image2.png
@@ -89,4 +95,8 @@ Posez des questions ci-dessous ou sur notre [forum](http://go.microsoft.com/fwli
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Création de clusters Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory | Microsoft Azure"
-   	description="Apprenez à créer des clusters HDInsight à la demande avec Azure Data Factory."
+    description="Apprenez à créer des clusters HDInsight à la demande avec Azure Data Factory."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -14,17 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/10/2016"
+   ms.date="10/06/2016"
    ms.author="jgao"/>
 
-# Création de clusters Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory
 
-[AZURE.INCLUDE [sélecteur](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Création de clusters Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory
+
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 [Azure Data Factory](../data-factory/data-factory-introduction.md) est un service d’intégration de données cloud qui gère et automatise le déplacement et la transformation des données. Dans cet article, vous allez apprendre comment utiliser Azure Data Factory pour créer un [service lié Azure HDInsight à la demande](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) et comment utiliser le cluster pour exécuter une tâche Hive. Voici le processus général :
 
 1. Créer un cluster HDInsight à la demande.
-2. Exécuter une tâche Hive pour lire les données brutes des journaux web à partir d’un compte de stockage d’objets blob source, transformer les données et écrire le résultat dans un compte de stockage d’objets blob de destination.
+2. Exécuter une tâche Hive pour lire les données brutes des journaux web à partir d’un compte de stockage d’objets blob source, transformer les données et écrire le résultat dans un compte de stockage d’objets blob de destination. 
 3. Supprimer le cluster en fonction du paramètre de durée de vie.
 
 L’activité Hive définie dans le pipeline de la fabrique de données appelle un script HiveQL prédéfini. Le script crée une table externe qui fait référence aux données brutes des journaux web stockées dans le stockage d’objets blob Azure, puis partitionne les données brutes par année et par mois.
@@ -45,20 +46,22 @@ Pour obtenir la liste des activités de transformation de données de Data Facto
 
 Il existe de nombreux avantages à l’utilisation de HDInsight avec Data Factory :
 
-- La facturation des clusters HDInsight s’effectue à la minute, que vous les utilisiez ou non. Avec Data Factory, les clusters sont créés à la demande. Et les clusters sont automatiquement supprimés lorsque les tâches sont terminées. Par conséquent, vous ne payez que pour le temps d’exécution de la tâche et la courte durée d’inactivité (time-to-live).
+- La facturation des clusters HDInsight s’effectue à la minute, que vous les utilisiez ou non. Avec Data Factory, les clusters sont créés à la demande. Et les clusters sont automatiquement supprimés lorsque les tâches sont terminées.  Par conséquent, vous ne payez que pour le temps d’exécution de la tâche et la courte durée d’inactivité (time-to-live).
 - Vous pouvez créer un flux de travail à l’aide du pipeline Data Factory.
-- Vous pouvez planifier des tâches récursives.
+- Vous pouvez planifier des tâches récursives.  
 
-##Configuration requise :
+> [AZURE.NOTE] Actuellement, vous ne pouvez créer qu’un cluster HDInsight sous Linux version 3.2 à partir d’Azure Data Factory.
+
+##<a name="prerequisites:"></a>Configuration requise :
 
 Avant de commencer à suivre les instructions de cet article, vous devez disposer des éléments suivants :
 
 - [Abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Interface de ligne de commande Azure ou Azure PowerShell.
+- Interface de ligne de commande Azure ou Azure PowerShell. 
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-##Préparer le compte de stockage
+##<a name="prepare-storage-account"></a>Préparer le compte de stockage
 
 Vous pouvez utiliser jusqu’à trois comptes de stockage dans ce scénario :
 
@@ -66,9 +69,9 @@ Vous pouvez utiliser jusqu’à trois comptes de stockage dans ce scénario :
 - le compte de stockage des données d’entrée
 - le compte de stockage des données de sortie
 
-Pour simplifier ce didacticiel, vous allez utiliser un seul compte de stockage pour ces trois fonctions. L’exemple de script d’interface de ligne de commande Azure et Azure PowerShell de cette section effectue les opérations suivantes :
+Pour simplifier ce didacticiel, vous utilisez un seul compte de stockage pour ces trois fonctions. L’exemple de script d’interface de ligne de commande Azure et Azure PowerShell de cette section effectue les tâches suivantes :
 
-1. Connexion à Azure.
+1. Connectez-vous à Azure.
 2. Création d’un groupe de ressources Azure.
 3. Création d’un compte Azure Storage.
 4. Création d’un conteneur d’objets blob dans le compte de stockage.
@@ -77,9 +80,9 @@ Pour simplifier ce didacticiel, vous allez utiliser un seul compte de stockage p
     - Fichier d’entrée : [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
     - Script HiveQL : [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
 
-    Les deux fichiers sont stockés dans un conteneur d’objets blob public.
+    Les deux fichiers sont stockés dans un conteneur d’objets blob public. 
 
->[AZURE.IMPORTANT] Notez le nom du groupe de ressources, le nom du compte de stockage et la clé du compte de stockage utilisés dans votre script. Vous en aurez besoin dans la prochaine section.
+>[AZURE.IMPORTANT] Notez le nom du groupe de ressources, le nom du compte de stockage et la clé du compte de stockage utilisés dans votre script.  Vous en aurez besoin dans la prochaine section.
 
 **Pour préparer le stockage et copier les fichiers à l’aide de l’interface de ligne de commande Azure**
 
@@ -97,7 +100,7 @@ Pour simplifier ce didacticiel, vous allez utiliser un seul compte de stockage p
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
 
-Le nom du conteneur est *adfgetstarted*. Gardez-le tel quel. Dans le cas contraire, vous devez mettre à jour le modèle Resource Manager.
+Le nom du conteneur est *adfgetstarted*.  Gardez-le tel quel. Dans le cas contraire, vous devez mettre à jour le modèle Resource Management.
 
 Si vous avez besoin d’aide avec ce script d’interface de ligne de commande, consultez [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](../storage/storage-azure-cli.md).
 
@@ -181,17 +184,17 @@ Si vous avez besoin d’aide avec ce script PowerShell, consultez [Utilisation d
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Groupes de ressources** dans le volet de gauche.
-3. Double-cliquez sur le nom du groupe de ressources que vous avez créé dans votre interface de ligne de commande ou votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue.
-4. Dans la mosaïque **Ressources**, vous devez voir une ressource, sauf si vous partagez le groupe de ressources avec d’autres projets. Il s’agit du compte de stockage avec le nom que vous avez spécifié précédemment. Cliquez sur le nom du compte de stockage.
-5. Cliquez sur la mosaïque **Objets Blob**.
-6. Cliquez sur le conteneur **adfgetstarted**. Vous voyez deux dossiers : **input data** et **script**.
+3. Double-cliquez sur le nom du groupe de ressources que vous avez créé dans votre interface de ligne de commande ou votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue. 
+4. Dans la mosaïque **Ressources** , vous devez voir une ressource, sauf si vous partagez le groupe de ressources avec d’autres projets. Cette ressource correspond au compte de stockage avec le nom que vous avez spécifié précédemment. Cliquez sur le nom du compte de stockage.
+5. Cliquez sur la mosaïque **Objets Blob** .
+6. Cliquez sur le conteneur **adfgetstarted** . Vous voyez deux dossiers : **input data** et **script**.
 7. Ouvrez le dossier et vérifiez les fichiers des deux dossiers.
  
-## Créer une fabrique de données
+## <a name="create-data-factory"></a>Créer une fabrique de données
 
-Avec le compte de stockage, les données d’entrée et le script HiveQL préparé, vous êtes prêt à créer une fabrique de données Azure. Il existe plusieurs méthodes pour créer la fabrique de données. Vous allez utiliser le portail Azure pour appeler un modèle Resource Manager personnalisé dans ce didacticiel. Vous pouvez également appeler le modèle Resource Manager depuis l’[interface de ligne de commande Azure](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) et [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Pour les autres méthodes de création de fabriques de données, consultez la page [Didacticiel : créer votre première fabrique de données](../data-factory/data-factory-build-your-first-pipeline.md).
+Avec le compte de stockage, les données d’entrée et le script HiveQL préparé, vous êtes prêt à créer une fabrique de données Azure. Il existe plusieurs méthodes pour créer la fabrique de données. Vous utilisez le portail Azure pour appeler un modèle Resource Management personnalisé dans ce didacticiel. Vous pouvez également appeler le modèle Resource Management depuis [l’interface de ligne de commande Azure](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) et [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Pour les autres méthodes de création de fabriques de données, consultez la page [Didacticiel : créer votre première fabrique de données](../data-factory/data-factory-build-your-first-pipeline.md).
 
-Le modèle Resource Manager de niveau supérieur contient :
+Le modèle Resource Management de niveau supérieur contient :
 
     {
         "contentVersion": "1.0.0.0",
@@ -216,11 +219,11 @@ Le modèle Resource Manager de niveau supérieur contient :
         ]
     }
 
-Une ressource de fabrique de données appelée *hdinsight-hive-on-demand* (le nom n’est pas affiché sur la capture d’écran). Data Factory est actuellement uniquement pris en charge dans les régions États-Unis de l’Ouest et Europe du Nord.
+Une ressource de fabrique de données appelée *hdinsight-hive-on-demand* (le nom n’est pas affiché sur la capture d’écran). Data Factory est actuellement uniquement pris en charge dans les régions États-Unis de l’Ouest et Europe du Nord. 
 
-La ressource *hdinsight-hive-on-demand* contient 4 ressources :
+La ressource *hdinsight-hive-on-demand* contient quatre ressources :
 
-- Un LinkedService au compte de stockage qui sera utilisé comme compte de stockage HDInsight par défaut, le stockage des données d’entrée et le stockage des données de résultat.
+- Un LinkedService au compte de stockage qui est utilisé comme compte de stockage HDInsight par défaut, le stockage des données d’entrée et le stockage des données de résultat.
 - Un LinkedService à la création du cluster HDInsight :
 
         {
@@ -244,7 +247,7 @@ La ressource *hdinsight-hive-on-demand* contient 4 ressources :
 
     Même si ce n’est pas spécifié, le cluster est créé dans la même région que le compte de stockage.
     
-    Notez le paramètre *timeToLive*. La fabrique de données supprime automatiquement le cluster quand celui-ci est inactif pendant 30 minutes.
+    Notez le paramètre *timeToLive* . La fabrique de données supprime automatiquement le cluster quand celui-ci est inactif pendant 30 minutes.
 - Un jeu de données pour les données d’entrée. Le nom du fichier et le nom du dossier sont définis ici :
 
         "fileName": "input.log",
@@ -282,9 +285,9 @@ La ressource *hdinsight-hive-on-demand* contient 4 ressources :
             }
         }
                 
-    Il contient une activité. Le *début* et la *fin* de l’activité ont une date passée, ce qui signifie qu’il n’y aura qu’une seule tranche. Si la fin est une date à venir, la fabrique de données crée une autre tranche en temps voulu. Pour plus d’informations, consultez [Planification et exécution avec Data Factory](../data-factory/data-factory-scheduling-and-execution.md).
+    Il contient une activité. Le *début* et la *fin* de l’activité ont une date passée, ce qui signifie qu’il n’y a qu’une seule tranche. Si la fin est une date à venir, la fabrique de données crée une autre tranche en temps voulu. Pour plus d’informations, consultez [Planification et exécution avec Data Factory](../data-factory/data-factory-scheduling-and-execution.md).
 
-    Voici la définition de l’activité :
+    Le script Json suivant est la définition de l’activité :
     
         "activities": [
             {
@@ -320,59 +323,59 @@ La ressource *hdinsight-hive-on-demand* contient 4 ressources :
     
 **Pour créer une fabrique de données**
 
-1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
+1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Management dans le portail Azure. Le modèle se trouve dans https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Entrez **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** et **STORAGEACCOUNTKEY** pour le compte créé dans la dernière section, puis cliquez sur **OK**. Le nom Data Factory doit être globalement unique.
 3. Dans **Groupe de ressources**, sélectionnez le même groupe de ressources que celui que vous avez utilisé dans la dernière section.
-4. Cliquez sur **Conditions juridiques**, puis sur **Créer**.
-5. Cliquez sur **Create**. La mosaïque **Déploiement du modèle de déploiement** apparaît sur le tableau de bord. Attendez que le texte de la mosaïque prenne le nom du groupe de ressources. La création d’un cluster HDInsight peut prendre environ 20 minutes.
+4. Cliquez sur **Conditions juridiques**, puis cliquez sur **Créer**.
+5. Cliquez sur **Create**. La vignette **Déploiement du modèle de déploiement** apparaît sur le tableau de bord. Attendez que le texte de la mosaïque prenne le nom du groupe de ressources. La création d’un cluster HDInsight peut prendre environ 20 minutes.
 6. Cliquez sur la mosaïque pour ouvrir le groupe de ressources. Vous devez maintenant voir une autre ressource de fabrique de données en plus de la ressource du compte de stockage.
 7. Cliquez sur **hdinsight-hive-on-demand**.
-8. Cliquez sur la mosaïque **Diagramme**. Le diagramme montre une activité avec un jeu de données d’entrée et un jeu de données de sortie :
+8. Cliquez sur la mosaïque **Diagramme** . Le diagramme montre une activité avec un jeu de données d’entrée et un jeu de données de sortie :
 
-    ![Diagramme du pipeline d’activité HDInsight à la demande avec Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
+    ![Diagramme du pipeline d’activité Hive à la demande HDInsight avec Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
     
-    Les noms sont définis dans le modèle Resource Manager.
+    Les noms sont définis dans le modèle Resource Management.
 9. Double-cliquez sur **AzureBlobOutput**.
 10. Dans **Tranches récemment mises à jour**, une tranche doit s’afficher. Si l’état est **En cours**, attendez jusqu’à ce qu’il passe à **Prêt**.
 
 **Pour vérifier le résultat de la fabrique de données**
 
-1. Utilisez la même procédure dans la dernière session pour vérifier le contenu du conteneur adfgetstarted. Il existe deux nouveaux conteneurs en plus de **adfgetsarted** :
+1. Utilisez la même procédure dans la dernière session pour vérifier les conteneurs du conteneur adfgetstarted. Il existe deux nouveaux conteneurs en plus de **adfgetsarted**:
 
-    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx : il s’agit du conteneur par défaut pour le cluster HDInsight. Le nom du conteneur par défaut suit le modèle : « adf>yourdatafactoryname>-linkedservicename-datetimestamp ».
+    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx : il s’agit du conteneur par défaut pour le cluster HDInsight. Le nom du conteneur par défaut suit le modèle :  « adf<yourdatafactoryname>-nomduservicelié-horodatage ». 
     - adfjobs : il s’agit du conteneur des journaux de tâche ADF.
     
-    Le résultat de la fabrique de données est stocké dans afgetstarted, que vous avez configuré dans le modèle Resource Manager.
+    Le résultat de la fabrique de données est stocké dans afgetstarted, que vous avez configuré dans le modèle Resource Management. 
 2. Cliquez sur **adfgetstarted**.
-3. Double-cliquez sur **partitioneddata**. Un dossier **year = 2014** s’affiche, car tous les journaux web datent de l’année 2014.
+3. Double-cliquez sur **partitioneddata**. Un dossier **year = 2014** s’affiche, car tous les journaux web datent de l’année 2014. 
 
-    ![Sortie du pipeline d’activité HDInsight à la demande avec Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
+    ![Sortie du pipeline d’activité Hive à la demande HDInsight avec Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
-    Si vous ouvrez la liste, vous devez voir 3 dossiers pour janvier, février et mars. Il y a un journal pour chaque mois.
+    Si vous ouvrez la liste, vous devez voir trois dossiers pour janvier, février et mars. Il y a un journal pour chaque mois.
 
-    ![Sortie du pipeline d’activité HDInsight à la demande avec Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
+    ![Sortie du pipeline d’activité Hive à la demande HDInsight avec Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 
-##Nettoyage du didacticiel
+##<a name="clean-up-the-tutorial"></a>Nettoyage du didacticiel
 
-Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il existe un cluster activé (timeToLive). Le cluster est supprimé une fois le traitement terminé. Pour chaque cluster, Azure Data Factory crée un stockage d’objets blob Azure, utilisé comme système de fichiers par défaut pour le cluster. Bien que le cluster HDInsight soit supprimé, le conteneur de stockage d’objets blob par défaut et le compte de stockage associé ne sont pas supprimés. C’est normal. Comme un nombre croissant de tranches sont traitées, vous verrez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « adfyourdatafactoryname-linkedservicename-datetimestamp ».
+Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il existe un cluster activé (timeToLive). Le cluster est supprimé une fois le traitement terminé. Pour chaque cluster, Azure Data Factory crée un stockage d’objets blob Azure, utilisé comme système de fichiers par défaut pour le cluster.  Bien que le cluster HDInsight soit supprimé, le conteneur de stockage d’objets blob par défaut et le compte de stockage associé ne sont pas supprimés. C’est normal. Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « nomdevotrefabriquededonnéesadf-nomduservicelié-horodatage ». 
 
-[Azure Resource Manager](../resource-group-overview.md) est utilisé pour déployer, gérer et surveiller votre solution en tant que groupe. La suppression du groupe de ressources supprime tous les composants à l’intérieur du groupe.
+[Azure Resource Manager](../resource-group-overview.md) est utilisé pour déployer, gérer et surveiller votre solution en tant que groupe.  La suppression du groupe de ressources supprime tous les composants à l’intérieur du groupe.  
 
 **Pour supprimer le groupe de ressources**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Groupes de ressources** dans le volet de gauche.
 3. Double-cliquez sur le nom du groupe de ressources que vous avez créé dans votre interface de ligne de commande ou votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue. Il ouvre le groupe de ressources dans un nouveau panneau.
-4. Dans la mosaïque **Ressources**, vous devez voir le compte de stockage par défaut et la fabrique de données, sauf si vous partagez le groupe de ressources avec d’autres projets.
-5. Cliquez sur **Supprimer** en haut du panneau. Ce faisant, vous supprimez également le compte de stockage et les données stockées dans celui-ci.
+4. Dans la mosaïque **Ressources** , vous devez voir le compte de stockage par défaut et la fabrique de données, sauf si vous partagez le groupe de ressources avec d’autres projets.
+5. Cliquez sur **Supprimer** dans la partie supérieure du panneau. Ce faisant, vous supprimez également le compte de stockage et les données stockées dans celui-ci.
 6. Entrez le nom du groupe de ressources, puis cliquez sur **Supprimer**.
 
-Au cas où vous ne souhaitez pas supprimer le compte de stockage en même temps que le groupe de ressources, vous pouvez envisager l’architecture suivante en séparant les données d’entreprise du compte de stockage par défaut. Dans ce cas, vous avez un groupe de ressources pour le compte de stockage avec les données d’entreprise et un autre groupe de ressources pour le compte de stockage par défaut et la fabrique de données. La suppression du deuxième groupe de ressources n’a aucune incidence sur le compte de stockage de données d’entreprise. Pour ce faire :
+Au cas où vous ne souhaitez pas supprimer le compte de stockage en même temps que le groupe de ressources, vous pouvez envisager l’architecture suivante en séparant les données d’entreprise du compte de stockage par défaut. Dans ce cas, vous avez un groupe de ressources pour le compte de stockage avec les données d’entreprise et un autre groupe de ressources pour le compte de stockage par défaut et la fabrique de données.  La suppression du deuxième groupe de ressources n’a aucune incidence sur le compte de stockage de données d’entreprise.  Pour ce faire : 
 
-- Ajoutez le code suivant au groupe de ressources de niveau supérieur avec la ressource Microsoft.DataFactory/datafactories dans votre modèle Resource Manager. Cette opération crée un compte de stockage :
+- Ajoutez le code suivant au groupe de ressources de niveau supérieur avec la ressource Microsoft.DataFactory/datafactories dans votre modèle Resource Management. Cela crée un nouveau compte de stockage :
 
         {
             "name": "[parameters('defaultStorageAccountName')]",
@@ -430,7 +433,7 @@ Au cas où vous ne souhaitez pas supprimer le compte de stockage en même temps 
             }
         },            
 
-##Étapes suivantes
+##<a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris comment utiliser Azure Data Factory pour créer un cluster HDInsight à la demande pour traiter des tâches Hive. En savoir plus :
 
 - [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
@@ -438,4 +441,9 @@ Dans cet article, vous avez appris comment utiliser Azure Data Factory pour cré
 - [Documentation HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Documentation Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

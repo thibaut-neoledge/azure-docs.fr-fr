@@ -12,7 +12,7 @@
 <tags 
 	ms.service="virtual-machines-linux" 
 	ms.devlang="na" 
-	ms.topic="support-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure" 
 	ms.date="09/19/2016" 

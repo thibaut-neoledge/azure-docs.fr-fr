@@ -15,7 +15,8 @@
     ms.date="08/16/2016"
     ms.author="sethm;clemensv" />
 
-# Présentation du modèle de sécurité et de l'authentification Event Hubs
+
+# <a name="event-hubs-authentication-and-security-model-overview"></a>Présentation du modèle de sécurité et de l'authentification Event Hubs
 
 Le modèle de sécurité Event Hubs remplit les conditions suivantes :
 
@@ -23,9 +24,9 @@ Le modèle de sécurité Event Hubs remplit les conditions suivantes :
 - Un appareil ne peut pas emprunter l'identité d'un autre appareil.
 - Il est possible d'empêcher un appareil non fiable d'envoyer des données à un hub d'événements.
 
-## Authentification des appareils
+## <a name="device-authentication"></a>Authentification des appareils
 
-Le modèle de sécurité du hub d’événements est basé sur une combinaison de jetons de [signature d’accès partagé (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) et d’*éditeurs d’événements.* Un éditeur d'événements définit un point de terminaison virtuel pour un hub d'événements. L'éditeur ne peut être utilisé que pour envoyer des messages à un hub d'événements. Il n'est pas possible de recevoir des messages à partir de l'éditeur.
+Le modèle de sécurité du hub d’événements est basé sur une combinaison de jetons de [signature d’accès partagé (SAS)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) et d’*éditeurs d’événements*. Un éditeur d'événements définit un point de terminaison virtuel pour un hub d'événements. L'éditeur ne peut être utilisé que pour envoyer des messages à un hub d'événements. Il n'est pas possible de recevoir des messages à partir de l'éditeur.
 
 En règle générale, un hub d'événements utilise un seul éditeur par appareil. Tous les messages qui sont envoyés à un éditeur d'un hub d'événements sont empilés dans celui-ci. Les éditeurs permettent un contrôle d’accès précis et une limitation.
 
@@ -35,7 +36,7 @@ Bien que cela soit déconseillé, il est possible d'équiper les appareils de je
 
 Tous les jetons sont signés avec une clé SAS. En règle générale, tous les jetons sont signés avec la même clé. Les appareils ne sont pas conscients de la clé. Cela empêche les appareils de fabriquer des jetons.
 
-### Créer la clé SAP
+### <a name="create-the-sas-key"></a>Créer la clé SAP
 
 Lorsque vous créez un espace de noms Event Hubs, Azure Event Hubs génère une clé SAS de 256 bits nommée **RootManageSharedAccessKey**. Cette clé accorde les droits d'envoi, d'écoute et de gestion pour l'espace de noms. Vous pouvez créer des clés supplémentaires. Nous vous recommandons de produire une clé qui accorde les droits d'envoi au hub d'événements spécifique. Pour le reste de cette rubrique, supposons que vous avez nommé cette clé `EventHubSendKey`.
 
@@ -59,9 +60,9 @@ ed.Authorization.Add(eventHubSendRule);
 nm.CreateEventHub(ed);
 ```
 
-### Générer des jetons
+### <a name="generate-tokens"></a>Générer des jetons
 
-Vous pouvez générer des jetons à l'aide de la clé SAS. Vous ne devez produire qu'un seul jeton par appareil. Les jetons peuvent ensuite être générés à l'aide de la méthode suivante. Tous les jetons sont générés à l'aide de la clé **EventHubSendKey**. Une URI unique est affectée à chaque jeton.
+Vous pouvez générer des jetons à l'aide de la clé SAS. Vous ne devez produire qu'un seul jeton par appareil. Les jetons peuvent ensuite être générés à l'aide de la méthode suivante. Tous les jetons sont générés à l'aide de la clé **EventHubSendKey** . Une URI unique est affectée à chaque jeton.
 
 ```
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
@@ -83,17 +84,17 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 En règle générale, les jetons ont une durée de vie équivalente ou supérieure à la durée de vie de l'appareil. Si l'appareil a la possibilité d'obtenir un nouveau jeton, il est possible d'utiliser des jetons avec une durée de vie plus courte.
 
-### Envoi de données par les appareils
+### <a name="devices-sending-data"></a>Envoi de données par les appareils
 
 Une fois que les jetons ont été créés, chaque appareil est configuré avec son propre jeton unique.
 
 Lorsque l'appareil envoie des données dans un hub d'événements, il balise son jeton avec la requête d'envoi. Pour empêcher un intrus de procéder à des écoutes clandestines et de voler le jeton, la communication entre l'appareil et le hub d'événements doit avoir lieu sur un canal chiffré.
 
-### Inscription des appareils sur liste noire
+### <a name="blacklisting-devices"></a>Inscription des appareils sur liste noire
 
 Si un jeton est volé par un intrus, celui-ci peut emprunter l'identité de l'appareil dont le jeton a été volé. L'inscription d'un appareil sur liste noire le rend inutilisable jusqu'à ce qu'il reçoive un nouveau jeton qui utilise un autre éditeur.
 
-## Authentification des applications principales
+## <a name="authentication-of-back-end-applications"></a>Authentification des applications principales
 
 Pour authentifier des applications principales qui consomment les données générées par les appareils, Event Hubs utilise un modèle de sécurité qui est similaire au modèle utilisé pour les rubriques Service Bus. Un groupe de consommateurs Event Hubs est équivalent à un abonnement à une rubrique Service Bus. Un client peut créer un groupe de consommateurs si la requête de création du groupe de consommateurs est accompagnée d'un jeton qui accorde des droits de gestion pour le hub d'événements ou pour l'espace de noms auquel appartient le hub d'événements. Un client est autorisé à consommer des données à partir d'un groupe de consommateurs si la requête de réception est accompagnée d'un jeton qui accorde des droits de réception pour ce groupe de consommateurs, le hub d'événements ou l'espace de noms auquel appartient le hub d'événements.
 
@@ -101,7 +102,7 @@ La version actuelle de Service Bus ne prend pas en charge les règles SAS pour l
 
 En l'absence d'authentification SAS pour les groupes de consommateurs individuels, vous pouvez utiliser des clés SAS pour sécuriser tous les groupes de consommateurs avec une clé commune. Cette approche permet à une application de consommer des données à partir de n'importe quel groupe de consommateurs d'un hub d'événements.
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 
@@ -111,7 +112,11 @@ Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 
 [Vue d’ensemble des hubs d’événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Solution de messages de file d’attente]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

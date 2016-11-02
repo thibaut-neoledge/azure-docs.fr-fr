@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Vue d'ensemble des divers portails nécessaires pour créer une offre sur Marketplace | Microsoft Azure"
-   description="Vue d'ensemble des divers portails nécessaires pour créer une offre sur Marketplace"
+   pageTitle="Overview of the various portals needed to create an offer for the Marketplace | Microsoft Azure"
+   description="Overview of the various portals needed to create an offer for the Marketplace"
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
-   manager=""
+   manager="hascipio"
    editor=""/>
 
 <tags
@@ -17,37 +17,42 @@
    ms.author="hascipio" />
 
 
-# Portails dont vous aurez besoin
-Avant le lancement du processus de publication d’une offre, nous allons vous présenter les différents portails dont vous aurez besoin. Vous trouverez ci-dessous un résumé des portails (Centre de développement, portail de publication Azure et portail Azure) avec lesquels vous pourrez interagir.
-## Centre de développement
+
+# <a name="portals-you-will-need"></a>Portals you will need
+Before you start the process of publishing an offer, let’s get you introduced to the various portals that you will need. Below is the short summary about the portals--Developer Center, Azure Publishing Portal, and Azure Portal--in the order that you will interact with them.                                                                            
+## <a name="developer-center"></a>Developer Center
 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
-### Description
-La création d’un compte auprès du Centre de développement Microsoft est une tâche ponctuelle. Assurez-vous que l’entreprise ne possède pas déjà de compte auprès du Centre de développement avant de tenter d’en créer un. Dans le cadre de ce processus, nous recueillons vos informations bancaires et fiscales, ainsi que l'adresse de votre entreprise.
+### <a name="description"></a>Description
+Creating your Microsoft Developer Center account is a one-time task. Make sure that the company does not already have a Developer Center account before you attempt to create one. During the process, we collect bank account information, tax information, and company address information.
 
-> [AZURE.NOTE] Si vous publiez des offres gratuites uniquement (ou offres BYOL (apportez votre propre licence)), nous n'avons pas besoin de vos informations bancaires et fiscales.
+> [AZURE.NOTE] If you are publishing only free offers (or bring-your-own-license offers), we do not require tax and bank information.
 
-### Identité/compte utilisé
-Dans l’idéal, une liste de distribution ou un groupe de sécurité (par exemple, azurepublishing@*entreprisepartenaire*.com). Cette liste de distribution ou ce groupe de sécurité **doit** être enregistré en tant que compte Microsoft.
+### <a name="identity/account-used"></a>Identity/account used
+Ideally, this is a distribution list or a security group (e.g., azurepublishing@*partnercompany*.com). The distribution list or security group **must** be registered as a Microsoft account.
 
-> [AZURE.TIP] Nous recommandons l'utilisation d'une liste de distribution ou d'un groupe de sécurité, car elle permet de supprimer la dépendance vis-à-vis de toute personne (même si un compte individuel peut également être utilisé).
+> [AZURE.TIP] We recommend using a distribution list or a security group because it removes the dependency on any individual, although an individual account can be used as well.
 
-## Portail de publication
+## <a name="publishing-portal"></a>Publishing portal
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
 
-### Description
-Ce portail vous permet de développer votre offre et de la publier (marketing, tarification, publication, certification, le cas échéant, etc.).
+### <a name="description"></a>Description
+This is the portal that you use to work on the offer and to publish it (marketing, pricing, publishing, certification if applicable, etc.).
 
-### Identité/compte utilisé
-Le groupe de sécurité ou la liste de distribution ci-dessus est nécessaire pour la première connexion au portail de publication. Par la suite, d’autres utilisateurs pourront être ajoutés en tant que co-administrateurs. Voici comment il est mappé aux données d’inscription du Centre de développement.
+### <a name="identity/account-used"></a>Identity/account used
+The above distribution list or security group must be used for the first time to sign in to the publishing portal. Later, other users can be added as co-admins. This is how it gets mapped to the Developer Center registration data.
 
-## Portail Azure
+## <a name="azure-portal"></a>Azure Portal
 [https://portal.azure.com](https://portal.azure.com)
-### Description
-Il s'agit du portail dans lequel vous pouvez afficher vos offres intermédiaires et publiées sur le Marketplace (applicable aux machines virtuelles, aux modèles de solution et aux services de développement basés sur ARM)
-### Identité/compte utilisé
-Un ID d’abonnement figurant dans la liste approuvée est nécessaire lors de la création d'une offre intermédiaire depuis le portail de publication. Le même abonnement (avec un nom d'utilisateur et un mot de passe associé) doit être utilisé lors de la connexion à ce portail pour tester l'offre intermédiaire.
+### <a name="description"></a>Description
+This is the portal where you can view your staged and published offers in the Azure Marketplace (applicable for VMs, solution templates, and Azure Resource Manager-based developer services).
+### <a name="identity/account-used"></a>Identity/account used
+While you're staging an offer from the publishing portal, a subscription ID needs to be whitelisted. The same subscription (there is a user name and password associated with it) needs to be used for signing in to this portal to test the staged offer.
 
-## Voir aussi
-- [Mise en route : publication d'une offre pour Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>See also
+- [Getting started: How to publish an offer for the Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

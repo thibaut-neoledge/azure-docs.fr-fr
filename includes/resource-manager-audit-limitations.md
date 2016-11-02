@@ -2,4 +2,7 @@ Le journal d’audit contient toutes les opérations d’écriture (PUT, POST, D
 
 Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interroger une plage quelconque de dates, pour autant que la date de début ne remonte pas à plus de 90 jours dans le passé.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

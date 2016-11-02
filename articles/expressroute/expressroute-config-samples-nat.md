@@ -12,22 +12,23 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
 
-# Exemples de configuration de routeur pour configurer et gérer des NAT
 
-Cette page fournit des exemples de configuration NAT pour les routeurs des séries Cisco ASA et Juniper SRX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau.
+# <a name="router-configuration-samples-to-setup-and-manage-nat"></a>Exemples de configuration de routeur pour configurer et gérer des NAT
+
+Cette page fournit des exemples de configuration NAT pour les routeurs des séries Cisco ASA et Juniper SRX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau. 
 
 >[AZURE.IMPORTANT] Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
 
-Les exemples de configuration de routeur ci-dessous s'appliquent aux homologations Azure Public et Microsoft. Vous ne devez pas configurer un système NAT pour l'homologation privée Azure. Consultez [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration NAT requise pour ExpressRoute](expressroute-nat.md) pour plus d'informations.
+Les exemples de configuration de routeur ci-dessous s'appliquent aux homologations Azure Public et Microsoft. Vous ne devez pas configurer un système NAT pour l'homologation privée Azure. Pour plus d’informations, voir [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration NAT requise pour ExpressRoute](expressroute-nat.md).
 
 **Remarque :** vous DEVEZ utiliser des pools IP NAT distincts pour la connectivité à Internet et ExpressRoute. L’utilisation du même pool IP NAT via internet et ExpressRoute entraîne un routage asymétrique et une perte de connectivité.
 
-## Pare-feu Cisco ASA
+## <a name="cisco-asa-firewalls"></a>Pare-feu Cisco ASA
 
-### Configuration PAT pour le trafic du réseau client à Microsoft
+### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Configuration PAT pour le trafic du réseau client à Microsoft
 
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
@@ -48,275 +49,279 @@ Les exemples de configuration de routeur ci-dessous s'appliquent aux homologatio
     
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### Configuration PAT pour le trafic de Microsoft au réseau client
+### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Configuration PAT pour le trafic de Microsoft au réseau client
 
-#### Interfaces et sens :
-	Source Interface (where the traffic enters the ASA): inside
-	Destination Interface (where the traffic exits the ASA): outside
+#### <a name="interfaces-and-direction:"></a>Interfaces et sens :
+    Source Interface (where the traffic enters the ASA): inside
+    Destination Interface (where the traffic exits the ASA): outside
 
-#### Configuration :
-Pool NAT :
+#### <a name="configuration:"></a>Configuration :
+Pool NAT :
 
-	object network outbound-PAT
-		host <NAT-IP>
+    object network outbound-PAT
+        host <NAT-IP>
 
-Serveur cible :
+Serveur cible :
 
-	object network Customer-Network
-		network-object <IP> <Subnet-Mask>
+    object network Customer-Network
+        network-object <IP> <Subnet-Mask>
 
-Groupe d’objets pour les adresses IP de clients
+Groupe d’objets pour les adresses IP de clients
 
-	object-group network MSFT-Network-1
-		network-object <MSFT-IP> <Subnet-Mask>
-	
-	object-group network MSFT-PAT-Networks
-		network-object object MSFT-Network-1
+    object-group network MSFT-Network-1
+        network-object <MSFT-IP> <Subnet-Mask>
+    
+    object-group network MSFT-PAT-Networks
+        network-object object MSFT-Network-1
 
-Commandes NAT :
+Commandes NAT :
 
-	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
-
-
-## Routeurs de la série Juniper SRX 
-
-### 1\. Création d’interfaces Ethernet redondantes pour le cluster
-
-	interfaces {
-	    reth0 {
-	        description "To Internal Network";
-	        vlan-tagging;
-	        redundant-ether-options {
-	            redundancy-group 1;
-	        }
-	        unit 100 {
-	            vlan-id 100;
-	            family inet {
-	                address <IP-Address/Subnet-mask>;
-	            }
-	        }
-	    }
-	    reth1 {
-	        description "To Microsoft via Edge Router";
-	        vlan-tagging;
-	        redundant-ether-options {
-	            redundancy-group 2;
-	        }
-	        unit 100 {
-	            description "To Microsoft via Edge Router";
-	            vlan-id 100;
-	            family inet {
-	                address <IP-Address/Subnet-mask>;
-	            }
-	        }
-	    }
-	}
+    nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-### 2\. Création de deux zones de sécurité
+## <a name="juniper-srx-series-routers"></a>Routeurs de la série Juniper SRX 
+
+### <a name="1.-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Création d’interfaces Ethernet redondantes pour le cluster
+
+    interfaces {
+        reth0 {
+            description "To Internal Network";
+            vlan-tagging;
+            redundant-ether-options {
+                redundancy-group 1;
+            }
+            unit 100 {
+                vlan-id 100;
+                family inet {
+                    address <IP-Address/Subnet-mask>;
+                }
+            }
+        }
+        reth1 {
+            description "To Microsoft via Edge Router";
+            vlan-tagging;
+            redundant-ether-options {
+                redundancy-group 2;
+            }
+            unit 100 {
+                description "To Microsoft via Edge Router";
+                vlan-id 100;
+                family inet {
+                    address <IP-Address/Subnet-mask>;
+                }
+            }
+        }
+    }
+
+
+### <a name="2.-create-two-security-zones"></a>2. Création de deux zones de sécurité
 
  - Zone approuvée pour le réseau interne et zone non approuvée pour les routeurs accessibles depuis le réseau externe
  - Affectation des interfaces appropriées aux zones
  - Autorisation des services sur les interfaces
 
 
-    security { zones { security-zone Trust { host-inbound-traffic { system-services { ping; } protocols { bgp; } } interfaces { reth0.100; } } security-zone Untrust { host-inbound-traffic { system-services { ping; } protocols { bgp; } } interfaces { reth1.100; } } } }
+    security {      zones {          security-zone Trust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth0.100;              }          }          security-zone Untrust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth1.100;              }          }      }  }
 
 
-### 3\. Création des stratégies de sécurité entre les zones
+### <a name="3.-create-security-policies-between-zones"></a>3. Création des stratégies de sécurité entre les zones
  
-	security {
-	    policies {
-	        from-zone Trust to-zone Untrust {
-	            policy allow-any {
-	                match {
-	                    source-address any;
-	                    destination-address any;
-	                    application any;
-	                }
-	                then {
-	                    permit;
-	                }
-	            }
-	        }
-	        from-zone Untrust to-zone Trust {
-	            policy allow-any {
-	                match {
-	                    source-address any;
-	                    destination-address any;
-	                    application any;
-	                }
-	                then {
-	                    permit;
-	                }
-	            }
-	        }
-	    }
-	}
+    security {
+        policies {
+            from-zone Trust to-zone Untrust {
+                policy allow-any {
+                    match {
+                        source-address any;
+                        destination-address any;
+                        application any;
+                    }
+                    then {
+                        permit;
+                    }
+                }
+            }
+            from-zone Untrust to-zone Trust {
+                policy allow-any {
+                    match {
+                        source-address any;
+                        destination-address any;
+                        application any;
+                    }
+                    then {
+                        permit;
+                    }
+                }
+            }
+        }
+    }
 
 
-### 4\. Configuration des stratégies NAT
+### <a name="4.-configure-nat-policies"></a>4. Configuration des stratégies NAT
  - Créez deux pools NAT. Un pool servira au trafic NAT sortant vers Microsoft et un autre au trafic de Microsoft vers le client.
  - Création des règles NAT pour le trafic respectif
 
-		security {
-		    nat {
-		        source {
-		            pool SNAT-To-ExpressRoute {
-		                routing-instance {
-		                    External-ExpressRoute;
-		                }
-		                address {
-		                    <NAT-IP-address/Subnet-mask>;
-		                }
-		            }
-		            pool SNAT-From-ExpressRoute {
-		                routing-instance {
-		                    Internal;
-		                }
-		                address {
-		                    <NAT-IP-address/Subnet-mask>;
-		                }
-		            }
-		            rule-set Outbound_NAT {
-		                from routing-instance Internal;
-		                to routing-instance External-ExpressRoute;
-		                rule SNAT-Out {
-		                    match {
-		                        source-address 0.0.0.0/0;
-		                    }
-		                    then {
-		                        source-nat {
-		                            pool {
-		                                SNAT-To-ExpressRoute;
-		                            }
-		                        }
-		                    }
-		                }
-		            }
-		            rule-set Inbound-NAT {
-		                from routing-instance External-ExpressRoute;
-		                to routing-instance Internal;
-		                rule SNAT-In {
-		                    match {
-		                        source-address 0.0.0.0/0;
-		                    }
-		                    then {
-		                        source-nat {
-		                            pool {
-		                                SNAT-From-ExpressRoute;
-		                            }
-		                        }
-		                    }
-		                }
-		            }
-		        }
-		    }
-		}
+        security {
+            nat {
+                source {
+                    pool SNAT-To-ExpressRoute {
+                        routing-instance {
+                            External-ExpressRoute;
+                        }
+                        address {
+                            <NAT-IP-address/Subnet-mask>;
+                        }
+                    }
+                    pool SNAT-From-ExpressRoute {
+                        routing-instance {
+                            Internal;
+                        }
+                        address {
+                            <NAT-IP-address/Subnet-mask>;
+                        }
+                    }
+                    rule-set Outbound_NAT {
+                        from routing-instance Internal;
+                        to routing-instance External-ExpressRoute;
+                        rule SNAT-Out {
+                            match {
+                                source-address 0.0.0.0/0;
+                            }
+                            then {
+                                source-nat {
+                                    pool {
+                                        SNAT-To-ExpressRoute;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    rule-set Inbound-NAT {
+                        from routing-instance External-ExpressRoute;
+                        to routing-instance Internal;
+                        rule SNAT-In {
+                            match {
+                                source-address 0.0.0.0/0;
+                            }
+                            then {
+                                source-nat {
+                                    pool {
+                                        SNAT-From-ExpressRoute;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
 
-### 5\. Configuration de BGP pour publier les préfixes sélectifs dans chaque direction
+### <a name="5.-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configuration de BGP pour publier les préfixes sélectifs dans chaque direction
 
-Consultez les exemples de la page [Exemples de configuration de routage](expressroute-config-samples-routing.md).
+Consultez les exemples de la page [Exemples de configuration de routage ](expressroute-config-samples-routing.md) .
 
-### 6\. Création des stratégies
+### <a name="6.-create-policies"></a>6. Création des stratégies
 
-	routing-options {
-	    	      autonomous-system <Customer-ASN>;
-	}
-	policy-options {
-	    prefix-list Microsoft-Prefixes {
-	        <IP-Address/Subnet-Mask;
-	        <IP-Address/Subnet-Mask;
-	    }
-	    prefix-list private-ranges {
-	        10.0.0.0/8;
-	        172.16.0.0/12;
-	        192.168.0.0/16;
-	        100.64.0.0/10;
-	    }
-	    policy-statement Advertise-NAT-Pools {
-	        from {
-	            protocol static;
-	            route-filter <NAT-Pool-Address/Subnet-mask> prefix-length-range /32-/32;
-	        }
-	        then accept;
-	    }
-	    policy-statement Accept-from-Microsoft {
-	        term 1 {
-	            from {
-	                instance External-ExpressRoute;
-	                prefix-list-filter Microsoft-Prefixes orlonger;
-	            }
-	            then accept;
-	        }
-	        term deny {
-	            then reject;
-	        }
-	    }
-	    policy-statement Accept-from-Internal {
-	        term no-private {
-	            from {
-	                instance Internal;
-	                prefix-list-filter private-ranges orlonger;
-	            }
-	            then reject;
-	        }
-	        term bgp {
-	            from {
-	                instance Internal;
-	                protocol bgp;
-	            }
-	            then accept;
-	        }
-	        term deny {
-	            then reject;
-	        }
-	    }
-	}
-	routing-instances {
-	    Internal {
-	        instance-type virtual-router;
-	        interface reth0.100;
-	        routing-options {
-	            static {
-	                route <NAT-Pool-IP-Address/Subnet-mask> discard;
-	            }
-	            instance-import Accept-from-Microsoft;
-	        }
-	        protocols {
-	            bgp {
-	                group customer {
-	                    export <Advertise-NAT-Pools>;
-	                    peer-as <Customer-ASN-1>;
-	                    neighbor <BGP-Neighbor-IP-Address>;
-	                }
-	            }
-	        }
-	    }
-	    External-ExpressRoute {
-	        instance-type virtual-router;
-	        interface reth1.100;
-	        routing-options {
-	            static {
-	                route <NAT-Pool-IP-Address/Subnet-mask> discard;
-	            }
-	            instance-import Accept-from-Internal;
-	        }
-	        protocols {
-	            bgp {
-	                group edge-router {
-	                    export <Advertise-NAT-Pools>;
-	                    peer-as <Customer-Public-ASN>;
-	                    neighbor <BGP-Neighbor-IP-Address>;
-	                }
-	            }
-	        }
-	    }
-	}
+    routing-options {
+                  autonomous-system <Customer-ASN>;
+    }
+    policy-options {
+        prefix-list Microsoft-Prefixes {
+            <IP-Address/Subnet-Mask;
+            <IP-Address/Subnet-Mask;
+        }
+        prefix-list private-ranges {
+            10.0.0.0/8;
+            172.16.0.0/12;
+            192.168.0.0/16;
+            100.64.0.0/10;
+        }
+        policy-statement Advertise-NAT-Pools {
+            from {
+                protocol static;
+                route-filter <NAT-Pool-Address/Subnet-mask> prefix-length-range /32-/32;
+            }
+            then accept;
+        }
+        policy-statement Accept-from-Microsoft {
+            term 1 {
+                from {
+                    instance External-ExpressRoute;
+                    prefix-list-filter Microsoft-Prefixes orlonger;
+                }
+                then accept;
+            }
+            term deny {
+                then reject;
+            }
+        }
+        policy-statement Accept-from-Internal {
+            term no-private {
+                from {
+                    instance Internal;
+                    prefix-list-filter private-ranges orlonger;
+                }
+                then reject;
+            }
+            term bgp {
+                from {
+                    instance Internal;
+                    protocol bgp;
+                }
+                then accept;
+            }
+            term deny {
+                then reject;
+            }
+        }
+    }
+    routing-instances {
+        Internal {
+            instance-type virtual-router;
+            interface reth0.100;
+            routing-options {
+                static {
+                    route <NAT-Pool-IP-Address/Subnet-mask> discard;
+                }
+                instance-import Accept-from-Microsoft;
+            }
+            protocols {
+                bgp {
+                    group customer {
+                        export <Advertise-NAT-Pools>;
+                        peer-as <Customer-ASN-1>;
+                        neighbor <BGP-Neighbor-IP-Address>;
+                    }
+                }
+            }
+        }
+        External-ExpressRoute {
+            instance-type virtual-router;
+            interface reth1.100;
+            routing-options {
+                static {
+                    route <NAT-Pool-IP-Address/Subnet-mask> discard;
+                }
+                instance-import Accept-from-Internal;
+            }
+            protocols {
+                bgp {
+                    group edge-router {
+                        export <Advertise-NAT-Pools>;
+                        peer-as <Customer-Public-ASN>;
+                        neighbor <BGP-Neighbor-IP-Address>;
+                    }
+                }
+            }
+        }
+    }
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md).
+Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md) .
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

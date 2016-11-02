@@ -1,26 +1,27 @@
 <properties 
-	pageTitle="Visite guidée d’Analytics dans Application Insights | Microsoft Azure" 
-	description="Courts exemples de toutes les requêtes principales dans Analytics, outil de recherche puissant d’Application Insights." 
-	services="application-insights" 
+    pageTitle="Visite guidée d’Analytics dans Application Insights | Microsoft Azure" 
+    description="Courts exemples de toutes les requêtes principales dans Analytics, outil de recherche puissant d’Application Insights." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2016" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/03/2016" 
+    ms.author="awills"/>
 
 
  
-# Visite guidée d’Analytics dans Application Insights
+
+# <a name="a-tour-of-analytics-in-application-insights"></a>Visite guidée d’Analytics dans Application Insights
 
 
-[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante d’[Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
 
 * **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
@@ -29,14 +30,14 @@
 
 Pour vous aider à démarrer, examinons certaines requêtes de base.
 
-## Connectez-vous à vos données Application Insights
+## <a name="connect-to-your-application-insights-data"></a>Connectez-vous à vos données Application Insights
 
 Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application dans Application Insights :
 
 ![Ouvrez portal.azure.com, ouvrez votre ressource Application Insights, puis cliquez sur Analyse.](./media/app-insights-analytics-tour/001.png)
 
-	
-## [Take](app-insights-analytics-reference.md#take-operator) : afficher n lignes
+    
+## <a name="[take](app-insights-analytics-reference.md#take-operator):-show-me-n-rows"></a>[Take](app-insights-analytics-reference.md#take-operator): afficher n lignes
 
 Les points de données qui consignent les opérations des utilisateurs (généralement des requêtes HTTP reçues par votre application web) sont stockés dans une table appelée `requests`. Chaque ligne est un point de données de télémétrie provenant du Kit de développement logiciel (SDK) Application Insights dans votre application.
 
@@ -56,9 +57,9 @@ Développez un élément pour afficher les détails :
  
 ![Choisissez la vue de table et utilisez Configurer les colonnes](./media/app-insights-analytics-tour/040.png)
 
-> [AZURE.NOTE] Cliquez sur l’en-tête d’une colonne pour trier à nouveau les résultats disponibles dans le navigateur web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. N’oubliez pas que cette méthode de tri n’affiche pas toujours réellement les éléments les plus grands ou les plus petits. Pour ce faire, vous devez utiliser l’opérateur `top` ou `sort`.
+> [AZURE.NOTE] Cliquez sur l’en-tête d’une colonne pour trier à nouveau les résultats disponibles dans le navigateur web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. N’oubliez pas que cette méthode de tri n’affiche pas toujours réellement les éléments les plus grands ou les plus petits. Pour ce faire, vous devez utiliser l’opérateur `top` ou `sort`. 
 
-## [Top](app-insights-analytics-reference.md#top-operator) et [sort](app-insights-analytics-reference.md#sort-operator)
+## <a name="[top](app-insights-analytics-reference.md#top-operator)-and-[sort](app-insights-analytics-reference.md#sort-operator)"></a>[Top](app-insights-analytics-reference.md#top-operator) et [sort](app-insights-analytics-reference.md#sort-operator)
 
 `take` est utile pour obtenir un exemple rapide d’un résultat, mais il n’affiche pas les lignes de la table dans un ordre particulier. Pour obtenir un affichage ordonné, utilisez `top` (pour un échantillon) ou `sort` (qui porte sur la table entière).
 
@@ -66,7 +67,7 @@ Afficher les n premières lignes, classées par une colonne particulière :
 
 ```AIQL
 
-	requests | top 10 by timestamp desc 
+    requests | top 10 by timestamp desc 
 ```
 
 * *Syntaxe :* la plupart des opérateurs ont des paramètres de mot clé comme `by`.
@@ -74,19 +75,19 @@ Afficher les n premières lignes, classées par une colonne particulière :
 
 ![](./media/app-insights-analytics-tour/260.png)
 
-`top...` est une façon plus performante d’exprimer `sort ... | take...`. Nous aurions pu écrire :
+`top...` est une manière plus performante d’exprimer `sort ... | take...`. Nous aurions pu écrire :
 
 ```AIQL
 
-	requests | sort by timestamp desc | take 10
+    requests | sort by timestamp desc | take 10
 ```
 
 Le résultat serait le même, mais l’exécution de la requête serait un peu plus lente. (Vous pouvez également écrire `order`, qui est un alias de `sort`.)
 
-Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement trier de nouveau les enregistrements que vous avez récupérés.
+Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais, bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement trier de nouveau les enregistrements que vous avez récupérés.
 
 
-## [Project](app-insights-analytics-reference.md#project-operator) : sélectionner, renommer et calculer des colonnes
+## <a name="[project](app-insights-analytics-reference.md#project-operator):-select,-rename-and-compute-columns"></a>[Project](app-insights-analytics-reference.md#project-operator): sélectionner, renommer et calculer des colonnes
 
 Utilisez [`project`](app-insights-analytics-reference.md#project-operator) pour choisir uniquement les colonnes qui vous intéressent :
 
@@ -104,8 +105,8 @@ Vous pouvez également renommer des colonnes et en définir de nouvelles :
 ```AIQL
 
     requests 
-    | top 10 by timestamp desc 
-    | project  
+  	| top 10 by timestamp desc 
+  	| project  
             name, 
             response = resultCode,
             timestamp, 
@@ -115,76 +116,31 @@ Vous pouvez également renommer des colonnes et en définir de nouvelles :
 ![result](./media/app-insights-analytics-tour/270.png)
 
 * Les [noms de colonne](app-insights-analytics-reference.md#names) peuvent contenir des espaces ou des symboles s’ils sont placés entre crochets comme suit : `['...']` ou `["..."]`
-* `%` est l’opérateur modulo habituel.
+* `%` est l’opérateur modulo habituel. 
 * `1d` (le chiffre un, suivi de la lettre d) est un littéral d’intervalle de temps qui signifie un jour. Voici d’autres littéraux d’intervalle de temps : `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrondit une valeur au multiple inférieur le plus proche de la valeur de base que vous fournissez. Ainsi, `floor(aTime, 1s)` arrondit une heure vers le bas à la seconde la plus proche.
 
-Les [expressions](app-insights-analytics-reference.md#scalars) peuvent inclure tous les opérateurs habituels (`+`, `-`, ...), et il existe une gamme de fonctions utiles.
+Les [expressions](app-insights-analytics-reference.md#scalars) peuvent inclure tous les opérateurs habituels (`+`, `-`, etc.), et il existe une gamme de fonctions utiles.
 
     
 
-## [Extend](app-insights-analytics-reference.md#extend-operator) : calculer des colonnes
+## <a name="[extend](app-insights-analytics-reference.md#extend-operator):-compute-columns"></a>[Extend](app-insights-analytics-reference.md#extend-operator): calculer des colonnes
 
-Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, utilisez [`extend`](app-insights-analytics-reference.md#extend-operator) :
+Si vous souhaitez simplement ajouter des colonnes à des colonnes existantes, utilisez [`extend`](app-insights-analytics-reference.md#extend-operator):
 
 ```AIQL
 
     requests 
-    | top 10 by timestamp desc
-    | extend timeOfDay = floor(timestamp % 1d, 1s)
+  	| top 10 by timestamp desc
+  	| extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
 Utiliser [`extend`](app-insights-analytics-reference.md#extend-operator) est plus concis que [`project`](app-insights-analytics-reference.md#project-operator) si vous souhaitez conserver toutes les colonnes existantes.
 
 
-## Accès à des objets imbriqués
+## <a name="[summarize](app-insights-analytics-reference.md#summarize-operator):-aggregate-groups-of-rows"></a>[Summarize](app-insights-analytics-reference.md#summarize-operator): agréger des groupes de lignes
 
-Les objets imbriqués sont faciles d’accès. Par exemple, dans le flux d’exceptions, vous verrez des objets structurés comme suit :
-
-![result](./media/app-insights-analytics-tour/520.png)
-
-Vous pouvez les aplatir en choisissant les propriétés qui vous intéressent :
-
-```AIQL
-
-    exceptions | take 10
-    | extend method1 = tostring(details[0].parsedStack[1].method)
-```
-
-Notez que vous devez utiliser une [conversion de type (transtypage)](app-insights-analytics-reference.md#casts) vers le type approprié.
-
-## Mesures et propriétés personnalisées
-
-Si votre application attache [des dimensions (propriétés) personnalisées et des mesures personnalisées](app-insights-api-custom-events-metrics.md#properties) à des événements, elles seront visibles dans les objets `customDimensions` et `customMeasurements`.
-
-
-Par exemple, si votre application inclut :
-
-```C#
-
-    var dimensions = new Dictionary<string, string> 
-                     {{"p1", "v1"},{"p2", "v2"}};
-    var measurements = new Dictionary<string, double>
-                     {{"m1", 42.0}, {"m2", 43.2}};
-	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
-```
-
-Pour extraire ces valeurs dans Analytics :
-
-```AIQL
-
-    customEvents
-    | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast to expected type
-
-``` 
-
-> [AZURE.NOTE] Dans [Metrics Explorer](app-insights-metrics-explorer.md), toutes les mesures personnalisées attachées à une télémétrie, quel que soit son type, apparaissent dans le panneau de métriques avec les métriques envoyées à l’aide de `TrackMetric()`. Dans Analytics, en revanche, les mesures personnalisées restent attachées au type de télémétrie d’origine, et les métriques apparaissent dans leur propre flux `metrics`.
-
-
-## [Summarize](app-insights-analytics-reference.md#summarize-operator) : agréger des groupes de lignes
-
-`Summarize` applique une *fonction d’agrégation* spécifiée sur des groupes de lignes.
+`Summarize` applique une *fonction d’agrégation* spécifiée sur des groupes de lignes. 
 
 Par exemple, le temps que met votre application web à répondre à une requête est reporté dans le champ `duration`. Observons le temps de réponse moyen pour toutes les demandes :
 
@@ -195,7 +151,7 @@ Nous pouvons également séparer les résultats en requêtes de noms différents
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` regroupe les points de données du flux que la clause `by` évalue équitablement. Chaque valeur de l’expression `by` (chaque nom d’opération dans l’exemple ci-dessus) génère une ligne dans la table des résultats.
+`Summarize` regroupe les points de données du flux que la clause `by` évalue équitablement. Chaque valeur de l’expression `by` (chaque nom d’opération dans l’exemple ci-dessus) génère une ligne dans la table des résultats. 
 
 Nous pouvons également regrouper les résultats par heure :
 
@@ -210,11 +166,11 @@ Nous pouvons utiliser la même technique pour réduire les plages de chaînes :
 
 Notez que vous pouvez utiliser `name=` pour définir le nom d’une colonne de résultat, dans les expressions d’agrégation ou dans la clause by.
 
-## Décompte des données échantillonnées
+## <a name="counting-sampled-data"></a>Décompte des données échantillonnées
 
-`sum(itemCount)` est l’agrégation recommandée pour le comptage des événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. En revanche, quand [l’échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights. Ainsi, pour chaque point de données que vous voyez, il existe `itemCount` événements.
+`sum(itemCount)` est l’agrégation recommandée pour le comptage des événements. Dans de nombreux cas, étant donné que itemCount==1, la fonction compte simplement le nombre de lignes dans le groupe. En revanche, quand [l’échantillonnage](app-insights-sampling.md) est en cours, seule une fraction des événements d’origine est conservée comme point de données dans Application Insights. Ainsi, pour chaque point de données que vous voyez, il existe `itemCount` événements. 
 
-Par exemple, si l’échantillonnage ignore 75 % des événements d’origine, itemCount == 4 dans les enregistrements conservés. Autrement dit, pour chaque enregistrement conservé, il existe quatre enregistrements d’origine.
+Par exemple, si l’échantillonnage ignore 75 % des événements d’origine, itemCount == 4 dans les enregistrements conservés. Autrement dit, pour chaque enregistrement conservé, il existe quatre enregistrements d’origine. 
 
 L’échantillonnage adaptatif rend la valeur itemCount supérieure lors des périodes pendant lesquelles votre application est utilisée de façon intensive.
 
@@ -229,7 +185,7 @@ Il existe également une agrégation `count()` (et une opération de comptage), 
 Il existe toute une gamme de [fonctions d’agrégation](app-insights-analytics-reference.md#aggregations).
 
 
-## Affichage des résultats dans un graphique
+## <a name="charting-the-results"></a>Affichage des résultats dans un graphique
 
 
 ```AIQL
@@ -251,7 +207,7 @@ Nous pouvons aller au-delà de la vue de table. Examinons les résultats dans la
 Bien que nous n’ayons pas trié les résultats par heure (comme le montre l’affichage de table), le graphique affiche toujours les dates dans l’ordre approprié.
 
 
-## [Where](app-insights-analytics-reference.md#where-operator) : filtrage sur une condition
+## <a name="[where](app-insights-analytics-reference.md#where-operator):-filtering-on-a-condition"></a>[Where](app-insights-analytics-reference.md#where-operator): filtrage sur une condition
 
 Si vous avez configuré la surveillance Application Insights pour les côtés [client](app-insights-javascript.md) et serveur de votre application, certaines données télémétriques de la base de données proviennent de navigateurs.
 
@@ -260,8 +216,8 @@ Examinons uniquement les exceptions signalées à partir des navigateurs :
 ```AIQL
 
     exceptions 
-    | where device_Id == "browser" 
-    |  summarize count() 
+  	| where device_Id == "browser" 
+  	|  summarize count() 
        by device_BrowserVersion, outerExceptionMessage 
 ```
 
@@ -275,29 +231,29 @@ L’opérateur `where` utilise une expression booléenne. Voici quelques points 
 
 Consultez l’ensemble des informations sur les [expressions scalaires](app-insights-analytics-reference.md#scalars).
 
-### Filtrage des événements
+### <a name="filtering-events"></a>Filtrage des événements
 
 Rechercher les requêtes ayant échoué :
 
 ```AIQL
 
     requests 
-    | where isnotempty(resultCode) and toint(resultCode) >= 400
+  	| where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` présente le type chaîne. Nous devons donc en [convertir le type](app-insights-analytics-reference.md#casts) pour effectuer une comparaison numérique.
+`responseCode` étant de type chaîne, nous devons [le convertir](app-insights-analytics-reference.md#casts) pour une comparaison numérique.
 
 Résumer les différentes réponses :
 
 ```AIQL
 
     requests
-    | where isnotempty(resultCode) and toint(resultCode) >= 400
-    | summarize count() 
+  	| where isnotempty(resultCode) and toint(resultCode) >= 400
+  	| summarize count() 
       by resultCode
 ```
 
-## Graphiques temporels
+## <a name="timecharts"></a>Graphiques temporels
 
 Afficher le nombre d’événements qui se produisent chaque jour :
 
@@ -312,9 +268,9 @@ Sélectionnez l’option d’affichage graphique :
 
 ![Graphique temporel](./media/app-insights-analytics-tour/080.png)
 
-L’axe des x des graphiques en courbes doit être de type DateTime.
+L’axe des x des graphiques en courbes doit être de type DateTime. 
 
-## Séries multiples 
+## <a name="multiple-series"></a>Séries multiples 
 
 Utilisez plusieurs valeurs dans une clause `summarize by` afin de créer une ligne distincte pour chaque combinaison de valeurs :
 
@@ -333,7 +289,7 @@ Pour afficher plusieurs lignes d’un graphique, cliquez sur **Répartir par** e
 
 
 
-## Cycle moyen quotidien
+## <a name="daily-average-cycle"></a>Cycle moyen quotidien
 
 Dans quelle mesure l’utilisation varie-t-elle dans un jour moyen ?
 
@@ -342,9 +298,9 @@ Compter les requêtes en prenant un jour comme modulo de temps et en fractionnan
 ```AIQL
 
     requests
-    | extend hour = floor(timestamp % 1d , 1h) 
+  	| extend hour = floor(timestamp % 1d , 1h) 
           + datetime("2016-01-01")
-    | summarize event_count=count() by hour
+  	| summarize event_count=count() by hour
 ```
 
 ![Graphique en courbes des heures dans une journée moyenne](./media/app-insights-analytics-tour/120.png)
@@ -352,7 +308,7 @@ Compter les requêtes en prenant un jour comme modulo de temps et en fractionnan
 >[AZURE.NOTE] Nous devons convertir les durées en dates pour afficher les résultats sur un graphique.
 
 
-## Comparer plusieurs séries quotidiennes
+## <a name="compare-multiple-daily-series"></a>Comparer plusieurs séries quotidiennes
 
 Dans quelle mesure l’utilisation varie-t-elle au fil de la journée dans différents États ?
 
@@ -366,23 +322,23 @@ Dans quelle mesure l’utilisation varie-t-elle au fil de la journée dans diff�
 
 Répartir le graphique par État :
 
-![Répartition par client\_StateOrProvince](./media/app-insights-analytics-tour/130.png)
+![Répartition par client_StateOrProvince](./media/app-insights-analytics-tour/130.png)
 
 
-## Tracer une distribution
+## <a name="plot-a-distribution"></a>Tracer une distribution
 
 Combien existe-t-il de sessions de différentes longueurs ?
 
 ```AIQL
 
     requests 
-    | where isnotnull(session_Id) and isnotempty(session_Id) 
-    | summarize min(timestamp), max(timestamp) 
+  	| where isnotnull(session_Id) and isnotempty(session_Id) 
+  	| summarize min(timestamp), max(timestamp) 
       by session_Id 
-    | extend sessionDuration = max_timestamp - min_timestamp 
-    | where sessionDuration > 1s and sessionDuration < 3m 
-    | summarize count() by floor(sessionDuration, 3s) 
-    | project d = sessionDuration + datetime("2016-01-01"), count_
+  	| extend sessionDuration = max_timestamp - min_timestamp 
+  	| where sessionDuration > 1s and sessionDuration < 3m 
+  	| summarize count() by floor(sessionDuration, 3s) 
+  	| project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
 La dernière ligne est nécessaire pour la conversion en valeurs datetime : actuellement, l’axe des x d’un graphique en courbes ne peut être que de type datetime.
@@ -394,7 +350,7 @@ La clause `where` exclut les sessions à déclenchement unique (sessionDuration=
 
 
 
-## [Centiles](app-insights-analytics-reference.md#percentiles)
+## <a name="[percentiles](app-insights-analytics-reference.md#percentiles)"></a>[Centiles](app-insights-analytics-reference.md#percentiles)
 
 Quelles sont les plages de durées qui couvrent différents pourcentages de sessions ?
 
@@ -403,13 +359,13 @@ Utilisez la requête ci-dessus, mais remplacez la dernière ligne :
 ```AIQL
 
     requests 
-    | where isnotnull(session_Id) and isnotempty(session_Id) 
-    | summarize min(timestamp), max(timestamp) 
+  	| where isnotnull(session_Id) and isnotempty(session_Id) 
+  	| summarize min(timestamp), max(timestamp) 
       by session_Id 
-    | extend sesh = max_timestamp - min_timestamp 
-    | where sesh > 1s
-    | summarize count() by floor(sesh, 3s) 
-    | summarize percentiles(sesh, 5, 20, 50, 80, 95)
+  	| extend sesh = max_timestamp - min_timestamp 
+  	| where sesh > 1s
+  	| summarize count() by floor(sesh, 3s) 
+  	| summarize percentiles(sesh, 5, 20, 50, 80, 95)
 ```
 
 Nous avons également supprimé la limite supérieure dans la clause where, afin d’obtenir des chiffres corrects englobant toutes les sessions avec plusieurs requêtes :
@@ -418,48 +374,49 @@ Nous avons également supprimé la limite supérieure dans la clause where, afin
 
 Nous pouvons voir que :
 
-* 5 % des sessions durent moins de 3 minutes 34 s ;
+* 5 % des sessions durent moins de 3 minutes 34 s ; 
 * 50 % des sessions durent moins de 36 minutes ;
 * 5 % des sessions durent plus de 7 jours.
 
-Pour obtenir une répartition distincte pour chaque pays, il suffit simplement d’intégrer la colonne client\_CountryOrRegion séparément par le biais des deux opérateurs summarize :
+Pour obtenir une répartition distincte pour chaque pays, il suffit simplement d’intégrer la colonne client_CountryOrRegion séparément par le biais des deux opérateurs summarize :
 
 ```AIQL
 
     requests 
-    | where isnotnull(session_Id) and isnotempty(session_Id) 
-    | summarize min(timestamp), max(timestamp) 
+  	| where isnotnull(session_Id) and isnotempty(session_Id) 
+  	| summarize min(timestamp), max(timestamp) 
       by session_Id, client_CountryOrRegion
-    | extend sesh = max_timestamp - min_timestamp 
-    | where sesh > 1s
-    | summarize count() by floor(sesh, 3s), client_CountryOrRegion
-    | summarize percentiles(sesh, 5, 20, 50, 80, 95)
-	  by client_CountryOrRegion
+  	| extend sesh = max_timestamp - min_timestamp 
+  	| where sesh > 1s
+  	| summarize count() by floor(sesh, 3s), client_CountryOrRegion
+  	| summarize percentiles(sesh, 5, 20, 50, 80, 95)
+      by client_CountryOrRegion
 ```
 
 ![](./media/app-insights-analytics-tour/190.png)
 
 
-## [Join](app-insights-analytics-reference.md#join)
+## <a name="[join](app-insights-analytics-reference.md#join)"></a>[Join](app-insights-analytics-reference.md#join)
 
 Nous avons accès à plusieurs tables, y compris les demandes et les exceptions.
 
-Pour rechercher les exceptions liées à une requête qui a renvoyé une réponse d’échec, nous pouvons joindre les tables sur `session_Id` :
+Pour rechercher les exceptions liées à une requête qui a renvoyé une réponse d’échec, nous pouvons joindre les tables sur `session_Id`:
 
 ```AIQL
 
     requests 
-    | where toint(responseCode) >= 500 
-    | join (exceptions) on operation_Id 
-    | take 30
+  	| where toint(responseCode) >= 500 
+  	| join (exceptions) on operation_Id 
+  	| take 30
 ```
 
 
-Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélectionner uniquement les colonnes dont nous avons besoin. Dans les mêmes clauses, nous renommons la colonne timestamp.
+Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélectionner uniquement les colonnes dont nous avons besoin.
+Dans les mêmes clauses, nous renommons la colonne timestamp.
 
 
 
-## [Let](app-insights-analytics-reference.md#let-clause) : affecter un résultat à une variable
+## <a name="[let](app-insights-analytics-reference.md#let-clause):-assign-a-result-to-a-variable"></a>[Let](app-insights-analytics-reference.md#let-clause): affecter un résultat à une variable
 
 Utilisez [let](./app-insights-analytics-reference.md#let-statements) pour séparer les parties de l’expression précédente. Les résultats sont identiques :
 
@@ -469,16 +426,166 @@ Utilisez [let](./app-insights-analytics-reference.md#let-statements) pour sépar
       requests
         | where  toint(resultCode) >= 500  ;
     bad_requests
-    | join (exceptions) on session_Id 
-    | take 30
+  	| join (exceptions) on session_Id 
+  	| take 30
 ```
 
 > Conseil : dans le client Analytics, ne placez pas de lignes vides entre les différentes parties de l’expression. Exécutez-la en totalité.
 
+
+## <a name="accessing-nested-objects"></a>Accès à des objets imbriqués
+
+Les objets imbriqués sont faciles d’accès. Par exemple, dans le flux d’exceptions, vous verrez des objets structurés comme suit :
+
+![result](./media/app-insights-analytics-tour/520.png)
+
+Vous pouvez les aplatir en choisissant les propriétés qui vous intéressent :
+
+```AIQL
+
+    exceptions | take 10
+  	| extend method1 = tostring(details[0].parsedStack[1].method)
+```
+
+Notez que vous devez utiliser une [conversion de type (transtypage)](app-insights-analytics-reference.md#casts) vers le type approprié.
+
+## <a name="custom-properties-and-measurements"></a>Mesures et propriétés personnalisées
+
+Si votre application attache [des dimensions (propriétés) personnalisées et des mesures personnalisées](app-insights-api-custom-events-metrics.md#properties) à des événements, elles seront visibles dans les objets `customDimensions` et `customMeasurements`.
+
+
+Par exemple, si votre application inclut :
+
+```C#
+
+    var dimensions = new Dictionary<string, string> 
+                     {{"p1", "v1"},{"p2", "v2"}};
+    var measurements = new Dictionary<string, double>
+                     {{"m1", 42.0}, {"m2", 43.2}};
+    telemetryClient.TrackEvent("myEvent", dimensions, measurements);
+```
+
+Pour extraire ces valeurs dans Analytics :
+
+```AIQL
+
+    customEvents
+  	| extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast to expected type
+
+``` 
+
+## <a name="tables"></a>Tables
+
+Le flux de données de télémétrie provenant de votre application est accessible par le biais de plusieurs tables. Le schéma des propriétés disponibles pour chaque table est visible à la gauche de la fenêtre.
+
+### <a name="requests-table"></a>Table de requêtes
+
+Compter le nombre de requêtes HTTP envoyées à votre application web et les segmenter par nom de page :
+
+![Compter les requêtes segmentées par nom](./media/app-insights-analytics-tour/analytics-count-requests.png)
+
+Rechercher les requêtes qui échouent le plus :
+
+![Compter les requêtes segmentées par nom](./media/app-insights-analytics-tour/analytics-failed-requests.png)
+
+### <a name="custom-events-table"></a>Table des événements personnalisés
+
+Si vous utilisez [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) pour envoyer vos propres événements, vous pouvez les lire depuis cette table. 
+
+Prenons un exemple dans lequel le code de votre application contient les lignes suivantes :
+
+```C#
+
+    telemetry.TrackEvent("Query", 
+       new Dictionary<string,string> {{"query", sqlCmd}},
+       new Dictionary<string,double> {
+           {"retry", retryCount},
+           {"querytime", totalTime}})
+```
+
+Afficher la fréquence de ces événements :
+ 
+![Afficher la fréquence des événements personnalisés](./media/app-insights-analytics-tour/analytics-custom-events-rate.png)
+
+Extraire des mesures et des dimensions de ces événements :
+
+![Afficher la fréquence des événements personnalisés](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
+
+### <a name="custom-metrics-table"></a>Table des mesures personnalisées
+
+Si vous utilisez [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) pour envoyer vos propres valeurs métriques, vous trouverez ses résultats dans le flux **customMetrics**. Par exemple :  
+
+![Mesures personnalisées dans Application Insights Analytics](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
+
+
+> [AZURE.NOTE] Dans [Metrics Explorer](app-insights-metrics-explorer.md), toutes les mesures personnalisées attachées à une télémétrie, quel que soit son type, apparaissent dans le panneau de métriques avec les métriques envoyées à l’aide de `TrackMetric()`. Dans Analytics, en revanche, les mesures personnalisées restent attachées à leur type de télémétrie d’origine (événements, requêtes, etc.) alors que les métriques envoyées par TrackMetric apparaissent dans leur propre flux.
+
+### <a name="performance-counters-table"></a>Table des compteurs de performances
+
+[Les compteurs de performances](app-insights-web-monitor-performance.md#system-performance-counters) vous indiquent les métriques système de base pour votre application, notamment le processeur, la mémoire et l’utilisation du réseau. Vous pouvez configurer le Kit de développement logiciel (SDK) pour l’envoi de compteurs supplémentaires, notamment vos propres compteurs personnalisés.
+
+Le schéma **compteur de performances** expose les noms `category`, `counter` et `instance` nom de chaque compteur de performance. Les noms d’instance de compteur sont uniquement applicables à certains compteurs de performance et indiquent généralement le nom du processus auquel le comptage se rapporte. Dans les données de télémétrie pour chaque application, vous ne verrez que les compteurs pour cette application. Par exemple, pour voir les compteurs disponibles : 
+
+![Compteurs de performances dans Application Insights Analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
+
+Pour obtenir un graphique présentant la mémoire disponible sur une période récente : 
+
+![Graphique temporel dans Application Insights Analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
+
+
+Comme les autres données de télémétrie, **performanceCounters** possède également une colonne `cloud_RoleInstance` qui indique l’identité de l’ordinateur hôte sur lequel votre application est en cours d’exécution. Par exemple, pour comparer les performances de votre application sur des ordinateurs différents : 
+
+
+![Performances segmentées par instances de rôle d’Application Insights Analytics](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
+
+### <a name="exceptions-table"></a>Table des exceptions
+
+[Les exceptions signalées par votre application](app-insights-asp-net-exceptions.md) sont disponibles dans cette table. 
+
+Pour rechercher la requête HTTP que votre application traitait lorsque l’exception a été levée, ajoutez l’operation_Id :
+
+![Ajoutez des exceptions avec des requêtes operation_Id](./media/app-insights-analytics-tour/analytics-exception-request.png)
+
+
+### <a name="browser-timings-table"></a>Table des délais de chargement dans le navigateur
+
+`browserTimings` affiche les données de chargement de pages collectées dans les navigateurs de vos utilisateurs.
+
+[Configurez votre application pour la télémétrie côté client](app-insights-javascript.md) afin de voir ces métriques. 
+
+Le schéma inclut [les métriques indiquant les longueurs des différentes étapes du processus de chargement de pages](app-insights-javascript.md#page-load-performance) (elles n’indiquent pas la durée de fois vos utilisateurs lisent une page).  
+
+Afficher les popularités de différentes pages et les délais de chargement pour chaque page :
+
+![Délai de chargement de page dans Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
+
+### <a name="availbility-results-table"></a>Tableau de résultats de la disponibilité
+
+`availabilityResults` affiche les résultats de votre [tests web](app-insights-monitor-web-app-availability.md). Chaque exécution de vos tests à partir de chaque emplacement est déclarée séparément. 
+
+
+![Délai de chargement de page dans Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
+
+### <a name="dependencies-table"></a>Table des dépendances
+
+Contient les résultats d’appels que votre application effectue vers des bases de données et des API REST et d’autres appels vers TrackDependency().
+
+### <a name="traces-table"></a>Table des traces
+
+Contient les données de télémétrie envoyées par votre application à l’aide de TrackTrace(),ou [d’autres frameworks de journalisation](app-insights-asp-net-trace-logs.md).
+
+## <a name="try-it!"></a>Essayez !
 
 * **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

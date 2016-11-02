@@ -17,13 +17,14 @@
    ms.date="09/26/2016"
    ms.author="amitsriva" />
 
-# Journalisation des diagnostics et métriques pour la passerelle Application Gateway
+
+# <a name="diagnostics-logging-and-metrics-for-application-gateway"></a>Journalisation des diagnostics et métriques pour la passerelle Application Gateway
 
 Azure permet de surveiller les ressources grâce à la journalisation et à des métriques
 
-[**Journalisation**](#enable-logging-with-powershell) - La journalisation permet d’enregistrer ou d’utiliser les performances, l’accès et d’autres journaux à partir d’une ressource à des fins de surveillance.
+[**Journalisation**](#enable-logging-with-powershell) - La journalisation permet d’enregistrer ou d’utiliser des journaux de performances, d’accès et d’autres journaux à partir d’une ressource à des fins de surveillance.
 
-[**Métriques**](#metrics) - La passerelle Application Gateway possède actuellement une métrique. Cette métrique mesure le débit de la passerelle d’application en octets par seconde.
+[**Mesures**](#metrics) - La passerelle Application Gateway possède actuellement une métrique. Cette métrique mesure le débit de la passerelle d’application en octets par seconde.
 
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Certains de ces journaux sont accessibles par le biais du portail et tous les journaux peuvent être extraits à partir d’un stockage blob Azure et affichés dans différents outils, notamment [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste suivante :
 
@@ -32,29 +33,29 @@ Vous pouvez utiliser différents types de journaux dans Azure pour gérer les pa
 - **Journaux de performances :** vous pouvez utiliser ce journal pour afficher les performances des instances de la passerelle Application Gateway. Ce journal capture des informations sur les performances par instance, notamment le nombre total de demandes traitées, le débit en octets, le nombre total de demandes présentées, le nombre de demandes ayant échoué, le nombre d’instances du serveur principal correctes et incorrectes. Le journal des performances est collecté toutes les 60 secondes.
 - **Journaux du pare-feu :** vous pouvez utiliser ce journal pour afficher les requêtes consignées via le mode de détection ou de prévention d’une passerelle d’application configuré avec un pare-feu d’applications web.
 
->[AZURE.WARNING] Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, reportez-vous à l’article [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
+>[AZURE.WARNING] Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, reportez-vous à l’article [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md) .
 
-## Activation de la journalisation avec PowerShell
+## <a name="enable-logging-with-powershell"></a>Activation de la journalisation avec PowerShell
 
-La journalisation d’audit est automatiquement activée pour chaque ressource Resource Manager. Vous devez activer la journalisation de l’accès et des performances pour commencer à collecter les données disponibles dans ces journaux. Pour activer la journalisation, consultez les étapes suivantes :
+La journalisation d’audit est automatiquement activée pour chaque ressource Resource Manager. Vous devez activer la journalisation de l’accès et des performances pour commencer à collecter les données disponibles dans ces journaux. Pour activer la journalisation, consultez les étapes suivantes : 
 
-1. Notez l’ID de ressource de votre compte de stockage, où les données de journalisation sont stockées. Il peut avoir la forme suivante : /subscriptions/<ID de l’abonnement>/resourceGroups/<nom du groupe de ressources>/providers/Microsoft.Storage/storageAccounts/<nom du compte de stockage>. Vous pouvez utiliser n’importe quel compte de stockage dans votre abonnement. Vous pouvez utiliser la version préliminaire du portail pour rechercher ces informations.
+1. Notez l’ID de ressource de votre compte de stockage, où les données de journalisation sont stockées. Il peut avoir le format suivant : /abonnements/\<subscriptionId\>/resourceGroups/\<nom du groupe de ressources\>/providers/Microsoft.Storage/storageAccounts/\<nom du compte de stockage\>. Vous pouvez utiliser n’importe quel compte de stockage dans votre abonnement. Vous pouvez utiliser la version préliminaire du portail pour rechercher ces informations.
 
-	![Portail en version préliminaire - Diagnostics Application Gateway](./media/application-gateway-diagnostics/diagnostics1.png)
+    ![Portail en version préliminaire - Diagnostics Application Gateway](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Notez l’ID de ressource de votre passerelle Application Gateway pour laquelle la journalisation doit être activée. Il peut avoir la forme suivante : /subscriptions/<ID de l’abonnement>/resourceGroups/<nom du groupe de ressources>/providers/Microsoft.Network/applicationGateways/<nom de la passerelle Application Gateway>. Vous pouvez utiliser la version préliminaire du portail pour rechercher ces informations.
+2. Notez l’ID de ressource de votre passerelle Application Gateway pour laquelle la journalisation doit être activée. Il peut avoir le format suivant : /abonnements/\<subscriptionId\>/resourceGroups/\<nom du groupe de ressources\>/providers/Microsoft.Network/applicationGateways/\<nom de la passerelle Application Gateway\>. Vous pouvez utiliser la version préliminaire du portail pour rechercher ces informations.
 
-	![Portail en version préliminaire - Diagnostics Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
+    ![Portail en version préliminaire - Diagnostics Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Activez la journalisation des diagnostics à l’aide de l’applet de commande PowerShell suivante :
 
-		Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true 	
+        Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true  
 
 >[AZURE.INFORMATION] Les journaux d’audit ne nécessitent pas de compte de stockage distinct. L’utilisation du stockage pour la journalisation de l’accès et des performances occasionne des frais de service.
 
-## Activation de la journalisation avec le portail Azure
+## <a name="enable-logging-with-azure-portal"></a>Activation de la journalisation avec le portail Azure
 
-### Étape 1 :
+### <a name="step-1"></a>Étape 1 :
 
 Accédez à votre ressource dans le portail Azure. Cliquez sur **Journaux de diagnostic**. S’il s’agit de la première configuration du diagnostic, le panneau ressemble à l’image suivante :
 
@@ -68,106 +69,106 @@ Cliquez sur **Activer les diagnostics** pour démarrer la collecte de données.
 
 ![panneau des paramètres de diagnostics][1]
 
-### Étape 2 :
+### <a name="step-2"></a>Étape 2 :
 
 Le panneau **Paramètres de diagnostic** contient les paramètres définissant les journaux de diagnostic. Dans cet exemple, Log Analytics sert à stocker les journaux. Cliquez sur **Configurer** sous **Log Analytics** pour configurer votre espace de travail. Vous pouvez également utiliser des concentrateurs d’événements et un compte de stockage pour enregistrer les journaux de diagnostic.
 
 ![panneau des diagnostics][2]
 
-### Étape 3
+### <a name="step-3"></a>Étape 3
 
 Sélectionnez ou créez un espace de travail OMS existant. Pour cet exemple, un espace existant est utilisé.
 
 ![espaces de travail OMS][3]
 
-### Étape 4
+### <a name="step-4"></a>Étape 4
 
 Lorsque vous avez terminé, confirmez les paramètres, puis cliquez sur **Enregistrer** pour enregistrer les paramètres.
 
 ![confirmer la sélection][4]
 
-## Journal d’audit
+## <a name="audit-log"></a>Journal d’audit
 
-Ce journal (anciennement appelé « journal des opérations ») est généré par Azure par défaut. Les journaux sont conservés pendant 90 jours dans la banque de journalisation des événements d’Azure. Pour en savoir plus sur ces journaux, lisez l’article [Affichage des événements et des journaux d’audit](../azure-portal/insights-debugging-with-events.md).
+Ce journal (anciennement appelé « journal des opérations ») est généré par Azure par défaut.  Les journaux sont conservés pendant 90 jours dans la banque de journalisation des événements d’Azure. Pour en savoir plus sur ces journaux, lisez l’article [Affichage des événements et des journaux d’audit](../azure-portal/insights-debugging-with-events.md) .
 
-## Journal d’accès
+## <a name="access-log"></a>Journal d’accès
 
 Ce journal n’est généré que si vous l’avez activé au niveau de chaque passerelle Application Gateway, comme détaillé dans les étapes précédentes. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Chaque accès à la passerelle Application Gateway est journalisé au format JSON, comme indiqué dans l’exemple suivant :
 
-	{
-		"resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
-		"operationName": "ApplicationGatewayAccess",
-		"time": "2016-04-11T04:24:37Z",
-		"category": "ApplicationGatewayAccessLog",
-		"properties": {
-			"instanceId":"ApplicationGatewayRole_IN_0",
-			"clientIP":"37.186.113.170",
-			"clientPort":"12345",
-			"httpMethod":"HEAD",
-			"requestUri":"/xyz/portal",
-			"requestQuery":"",
-			"userAgent":"-",
-			"httpStatus":"200",
-			"httpVersion":"HTTP/1.0",
-			"receivedBytes":"27",
-			"sentBytes":"202",
-			"timeTaken":"359",
-			"sslEnabled":"off"
-		}
-	}
+    {
+        "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+        "operationName": "ApplicationGatewayAccess",
+        "time": "2016-04-11T04:24:37Z",
+        "category": "ApplicationGatewayAccessLog",
+        "properties": {
+            "instanceId":"ApplicationGatewayRole_IN_0",
+            "clientIP":"37.186.113.170",
+            "clientPort":"12345",
+            "httpMethod":"HEAD",
+            "requestUri":"/xyz/portal",
+            "requestQuery":"",
+            "userAgent":"-",
+            "httpStatus":"200",
+            "httpVersion":"HTTP/1.0",
+            "receivedBytes":"27",
+            "sentBytes":"202",
+            "timeTaken":"359",
+            "sslEnabled":"off"
+        }
+    }
 
-## Journal des performances
+## <a name="performance-log"></a>Journal des performances
 
 Ce journal n’est généré que si vous l’avez activé au niveau de chaque passerelle Application Gateway, comme détaillé dans les étapes précédentes. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Les données suivantes sont enregistrées :
 
-	{
-		"resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
-		"operationName": "ApplicationGatewayPerformance",
-		"time": "2016-04-09T00:00:00Z",
-		"category": "ApplicationGatewayPerformanceLog",
-		"properties": 
-		{
-			"instanceId":"ApplicationGatewayRole_IN_1",
-			"healthyHostCount":"4",
-			"unHealthyHostCount":"0",
-			"requestCount":"185",
-			"latency":"0",
-			"failedRequestCount":"0",
-			"throughput":"119427"
-		}
-	}
+    {
+        "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+        "operationName": "ApplicationGatewayPerformance",
+        "time": "2016-04-09T00:00:00Z",
+        "category": "ApplicationGatewayPerformanceLog",
+        "properties": 
+        {
+            "instanceId":"ApplicationGatewayRole_IN_1",
+            "healthyHostCount":"4",
+            "unHealthyHostCount":"0",
+            "requestCount":"185",
+            "latency":"0",
+            "failedRequestCount":"0",
+            "throughput":"119427"
+        }
+    }
 
 
-## Journal du pare-feu
+## <a name="firewall-log"></a>Journal du pare-feu
 
 Ce journal n’est généré que si vous l’avez activé au niveau de chaque passerelle Application Gateway, comme détaillé dans les étapes précédentes. Ce fichier journal nécessite également que ce pare-feu d’applications web soit configuré sur une passerelle d’application. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Les données suivantes sont enregistrées :
 
-	{
-		"resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-		"operationName": "ApplicationGatewayFirewall",
-		"time": "2016-09-20T00:40:04.9138513Z",
-		"category": "ApplicationGatewayFirewallLog",
-		"properties":     {
-			"instanceId":"ApplicationGatewayRole_IN_0",
-			"clientIp":"108.41.16.164",
-			"clientPort":1815,
-			"requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-			"ruleId":"OWASP_973336",
-			"message":"XSS Filter - Category 1: Script Tag Vector",
-			"action":"Logged",
-			"site":"Global",
-			"message":"XSS Filter - Category 1: Script Tag Vector",
-			"details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-	}
+    {
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+        "operationName": "ApplicationGatewayFirewall",
+        "time": "2016-09-20T00:40:04.9138513Z",
+        "category": "ApplicationGatewayFirewallLog",
+        "properties":     {
+            "instanceId":"ApplicationGatewayRole_IN_0",
+            "clientIp":"108.41.16.164",
+            "clientPort":1815,
+            "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+            "ruleId":"OWASP_973336",
+            "message":"XSS Filter - Category 1: Script Tag Vector",
+            "action":"Logged",
+            "site":"Global",
+            "message":"XSS Filter - Category 1: Script Tag Vector",
+            "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+    }
 
-## Afficher et analyser le journal d’audit
+## <a name="view-and-analyze-the-audit-log"></a>Afficher et analyser le journal d’audit
 
 Vous pouvez afficher et analyser les données du journal d’audit en utilisant l’une des méthodes suivantes :
 
-- **Outils Azure :** récupérez les informations à partir des journaux via Azure PowerShell, l’interface de ligne de commande Azure, l’API REST Azure ou le portail Azure en version préliminaire. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
-- **Power BI :** si vous n’avez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing), vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’audit Azure pour Power BI](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-azure-audit-logs/), vous pouvez analyser vos données avec des tableaux de bord préconfigurés à utiliser en l’état ou à personnaliser.
+- **Outils Azure :** récupérez les informations à partir des journaux via Azure PowerShell, l’interface de ligne de commande Azure, l’API REST Azure ou le portail Azure en version préliminaire.  Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../resource-group-audit.md) .
+- **Power BI :** si vous n’avez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing) , vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’audit Azure pour Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), vous pouvez analyser vos données avec des tableaux de bord préconfigurés à utiliser en l’état ou à personnaliser.
 
-## Affichage et analyse du journal d’accès, des performances et du pare-feu
+## <a name="view-and-analyze-the-access,-performance-and-firewall-log"></a>Affichage et analyse du journal d’accès, des performances et du pare-feu
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) peut collecter le compteur et les fichiers de journal des événements à partir de votre compte de stockage d’objets Blob et inclut des visualisations et de puissantes fonctionnalités de recherche pour analyser vos journaux.
 
@@ -175,27 +176,27 @@ Vous pouvez également vous connecter à votre compte de stockage et récupérer
 
 >[AZURE.TIP] Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans Github.
 
-## Mesures
+## <a name="metrics"></a>Mesures
 
-Les mesures représentent une fonctionnalité de certaines ressources Azure, vous permettant d’afficher les compteurs de performances dans le portail. Pour la passerelle Application Gateway, une mesure est disponible au moment de la rédaction de cet article. Cette mesure, le débit, peut être affichée dans le portail. Accédez à une passerelle d’application et cliquez sur **Mesures**. Sélectionnez Débit dans la section **Mesures disponibles** pour afficher les valeurs. L’image suivante montre un exemple avec les filtres qui peuvent servir à afficher les données dans différentes périodes.
+Les mesures représentent une fonctionnalité de certaines ressources Azure, vous permettant d’afficher les compteurs de performances dans le portail. Pour la passerelle Application Gateway, une mesure est disponible au moment de la rédaction de cet article. Cette mesure, le débit, peut être affichée dans le portail. Accédez à une passerelle d’application et cliquez sur **Mesures**.  Sélectionnez Débit dans la section **Mesures disponibles** pour afficher les valeurs. L’image suivante montre un exemple avec les filtres qui peuvent servir à afficher les données dans différentes périodes.
 
 Pour afficher la liste des mesures actuellement prises en charge, visitez [Mesures prises en charge avec Azure Monitor](../azure-portal/monitoring-supported-metrics.md)
 
 ![affichage des métriques][5]
 
-## Règles d'alerte
+## <a name="alert-rules"></a>Règles d'alerte
 
 Des règles d’alerte peuvent être démarrées en fonction des mesures d’une ressource. Cela signifie que pour la passerelle d’application, une alerte peut appeler un webhook ou envoyer un e-mail à un administrateur si le débit de la passerelle d’application est au-dessus ou en dessous d’un seuil pour une période spécifiée.
 
 L’exemple suivant vous guidera dans la création d’une règle d’alerte qui envoie un e-mail à un administrateur lorsqu’un seuil de débit a été dépassé.
 
-### Étape 1 :
+### <a name="step-1"></a>Étape 1 :
 
 Cliquez sur **Ajouter une alerte de mesure** pour commencer. Ce panneau est également accessible à partir du panneau Mesures.
 
 ![panneau Règles d’alerte][6]
 
-### Étape 2 :
+### <a name="step-2"></a>Étape 2
 
 Dans le panneau **Ajouter une règle**, remplissez les sections Nom, Condition et Notifier, puis cliquez sur **OK** lorsque vous avez terminé.
 
@@ -203,7 +204,7 @@ Le sélecteur **Condition** comporte 4 valeurs : **Supérieur à**, **Supérieur
 
 Le sélecteur **Période** permet de définir une période allant de 5 minutes à 6 heures.
 
-En sélectionnant **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs**, l’e-mail peut être dynamiquement basé sur les utilisateurs qui ont accès à cette ressource. Dans le cas contraire, une liste d’utilisateurs séparée par des virgules peut être spécifiée dans la zone de texte **Adresse(s) de messagerie d’administrateur(s) supplémentaire(s)**.
+En sélectionnant **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs** , l’e-mail peut être dynamiquement basé sur les utilisateurs qui ont accès à cette ressource. Dans le cas contraire, une liste d’utilisateurs séparée par des virgules peut être spécifiée dans la zone de texte **Adresse(s) de messagerie d’administrateur(s) supplémentaire(s)** .
 
 ![panneau Ajouter une règle][7]
 
@@ -219,11 +220,11 @@ Pour en savoir plus sur les notifications d’alerte, consultez [Réception de n
 
 Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des alertes, consultez [Configurer un webhook sur une alerte de métrique Azure](../azure-portal/insights-webhooks-alerts.md)
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-- Visualisation du compteur et des journaux des événements avec [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
-- Billet de blog [Visualiser vos journaux d’audit Azure avec Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
-- Billet de blog [Afficher et analyser les journaux d’audit Azure dans Power BI et bien plus encore](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
+- Visualisation du compteur et des journaux des événements avec [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) 
+- [Visualiser vos journaux d’audit Azure avec Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) .
+- [Afficher et analyser les journaux d’audit Azure dans Power BI et bien plus encore](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) .
 
 [1]: ./media/application-gateway-diagnostics/figure1.png
 [2]: ./media/application-gateway-diagnostics/figure2.png
@@ -235,4 +236,7 @@ Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des a
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

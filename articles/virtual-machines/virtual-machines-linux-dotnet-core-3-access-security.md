@@ -17,18 +17,19 @@
    ms.date="09/21/2016"
    ms.author="nepeters"/>
 
-# Accès et sécurité dans les modèles Azure Resource Manager
 
-Les applications hébergées dans Azure doivent probablement être accessibles via Internet ou un réseau privé virtuel (VPN)/une connexion ExpressRoute avec Azure. Avec l’exemple d’application du Store musique, le site web est accessible sur Internet avec une adresse IP publique. Avec un accès établi, les connexions à l’application et l’accès aux ressources de machine virtuelle doivent être sécurisés. Cette sécurité d’accès est assurée à l’aide d’un groupe de sécurité réseau.
+# <a name="access-and-security-in-azure-resource-manager-templates"></a>Accès et sécurité dans les modèles Azure Resource Manager
+
+Les applications hébergées dans Azure doivent probablement être accessibles via Internet ou un réseau privé virtuel (VPN)/une connexion ExpressRoute avec Azure. Avec l’exemple d’application du Store musique, le site web est accessible sur Internet avec une adresse IP publique. Avec un accès établi, les connexions à l’application et l’accès aux ressources de machine virtuelle doivent être sécurisés. Cette sécurité d’accès est assurée à l’aide d’un groupe de sécurité réseau. 
 
 Ce document décrit en détail comment l’application du Store musique est sécurisée dans l’exemple de modèle Azure Resource Manager. Toutes les dépendances et configurations uniques sont en surbrillance. Pour optimiser l’expérience, prédéployez une instance de la solution sur votre abonnement Azure et travaillez avec le modèle Azure Resource Manager. Pour le modèle complet, consultez [Déploiement du Store musique sur Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 
-## Adresse IP publique
+## <a name="public-ip-address"></a>Adresse IP publique
 
-Pour fournir un accès public à une ressource Azure, vous pouvez utiliser une ressource d’adresse IP publique. Une adresse IP publique peut être configurée avec une adresse IP statique ou dynamique. Si une adresse dynamique est utilisée, et que la machine virtuelle est arrêtée et désallouée, l’adresse est supprimée. Lorsque la machine redémarre, une autre adresse IP publique peut lui être attribuée. Pour empêcher la modification d’une adresse IP, une adresse IP réservée peut être utilisée.
+Pour fournir un accès public à une ressource Azure, vous pouvez utiliser une ressource d’adresse IP publique. Une adresse IP publique peut être configurée avec une adresse IP statique ou dynamique. Si une adresse dynamique est utilisée, et que la machine virtuelle est arrêtée et désallouée, l’adresse est supprimée. Lorsque la machine redémarre, une autre adresse IP publique peut lui être attribuée. Pour empêcher la modification d’une adresse IP, une adresse IP réservée peut être utilisée. 
 
-Il est possible d’ajouter une adresse IP publique à un modèle Azure Resource Manager à l’aide de l’Assistant Ajouter une nouvelle ressource de Visual Studio, ou d’insérer un JSON valide dans un modèle.
+Il est possible d’ajouter une adresse IP publique à un modèle Azure Resource Manager à l’aide de l’Assistant Ajouter une nouvelle ressource de Visual Studio, ou d’insérer un JSON valide dans un modèle. 
 
 Pour voir l’exemple JSON dans le modèle Resource Manager, suivez ce lien : [Adresse IP publique](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L121).
 
@@ -48,7 +49,7 @@ Pour voir l’exemple JSON dans le modèle Resource Manager, suivez ce lien : [
       "domainNameLabel": "[parameters('publicipaddressDnsName')]"
     }
   }
-},
+}
 ```
 
 Une adresse IP publique peut être associée à une carte réseau virtuelle ou à un équilibreur de charge. Dans cet exemple, étant donné que la charge du site web du Store musique est équilibrée entre plusieurs machines virtuelles, l’adresse IP publique est attachée à l’équilibreur de charge.
@@ -65,7 +66,7 @@ Pour voir l’exemple JSON dans le modèle Resource Manager, suivez ce lien : [
     },
     "name": "LoadBalancerFrontend"
   }
-],
+]
 ```
 
 Adresse IP publique dans le portail Azure. Notez que l’adresse IP publique est associée à un équilibreur de charge et non à une machine virtuelle. Les équilibreurs de charge réseau sont détaillés dans le document suivant de cette série.
@@ -74,7 +75,7 @@ Adresse IP publique dans le portail Azure. Notez que l’adresse IP publique est
 
 Pour plus d’informations sur les adresses IP publiques Azure, consultez [Adresses IP dans Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
-## Groupe de sécurité réseau
+## <a name="network-security-group"></a>Groupe de sécurité réseau
 
 Une fois l’accès aux ressources Azure établi, cet accès doit être limité. Pour des machines virtuelles Azure, la sécurisation de l’accès s’effectue à l’aide d’un groupe de sécurité réseau. Dans l’exemple d’application du Store musique, tout accès à la machine virtuelle est limité, sauf via le port 80 pour l’accès HTTP et le port 22 pour l’accès SSH. Il est possible d’ajouter un groupe de sécurité réseau à un modèle Azure Resource Manager à l’aide de l’Assistant Ajouter une nouvelle ressource de Visual Studio, ou d’insérer un JSON valide dans un modèle.
 
@@ -108,10 +109,10 @@ Pour voir l’exemple JSON dans le modèle Resource Manager, suivez ce lien : [
       ........<truncated> 
     ]
   }
-},
+}
 ```
 
-Dans cet exemple, le groupe de sécurité réseau est associé à l’objet sous-réseau déclaré dans la ressource de réseau virtuel.
+Dans cet exemple, le groupe de sécurité réseau est associé à l’objet sous-réseau déclaré dans la ressource de réseau virtuel. 
 
 Pour voir l’exemple JSON dans le modèle Resource Manager, suivez ce lien : [Association d’un groupe de sécurité réseau avec un réseau virtuel](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L158).
 
@@ -133,12 +134,16 @@ Voici à quoi ressemble le groupe de sécurité réseau dans le portail Azure. N
 
 ![Groupe de sécurité réseau](./media/virtual-machines-linux-dotnet-core/nsg.png)
 
-Pour plus d’informations sur les groupes de sécurité réseau, consultez [Présentation du groupe de sécurité réseau](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/).
+Pour plus d’informations sur les groupes de sécurité réseau, consultez [Présentation du groupe de sécurité réseau]( https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/).
 
-## Étape suivante
+## <a name="next-step"></a>Étape suivante
 
 <hr>
 
 [Étape 3 : disponibilité et mise à l’échelle dans les modèles Azure Resource Manager](./virtual-machines-linux-dotnet-core-4-avalibility-scale.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

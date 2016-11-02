@@ -1,27 +1,28 @@
 <properties 
     pageTitle="Files d’attente, rubriques et abonnements Service Bus | Microsoft Azure"
     description="Présentation des entités de messagerie Service Bus"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/20/2016"
+    ms.date="10/14/2016"
     ms.author="sethm" />
 
-# Files d’attente, rubriques et abonnements Service Bus
+
+# <a name="service-bus-queues,-topics,-and-subscriptions"></a>Files d’attente, rubriques et abonnements Service Bus
 
 Microsoft Azure Service Bus prend en charge un ensemble de technologies Cloud orientées messages de milieu de gamme, notamment la mise en file d’attente de messages fiable et la messagerie de publication/abonnement durable. Ces fonctionnalités de messagerie répartie peuvent être considérées comme des fonctions de découplage de messages prenant en charge le découplage temporel de publication-souscription, l’abonnement de messagerie temporel découplage, les scénarios d’infrastructure d’équilibrage de charge à l’aide de la structure de messagerie Service Bus. La communication découplée présente de nombreux avantages ; par exemple, les clients et les serveurs peuvent se connecter en fonction des besoins et exécuter leurs opérations de manière asynchrone.
 
-Les entités de messagerie qui constituent l’essentiel des fonctionnalités de messagerie répartie dans Service Bus sont les files d’attente, les rubriques et abonnements, les règles et les actions et les concentrateurs d’événements.
+Les entités de messagerie qui constituent l’essentiel des fonctionnalités de messagerie répartie dans Service Bus sont les files d’attente, les rubriques et abonnements, les règles et les actions.
 
-## Files d’attente
+## <a name="queues"></a>Files d’attente
 
 Les files d’attente permettent la remise de messages à un ou plusieurs destinataires concurrents sur le principe du premier entré, premier sorti (FIFO). En d’autres termes, les messages sont généralement prévus pour être reçus et traités par les récepteurs dans l’ordre dans lesquels ils ont été ajoutés à la file d’attente, et chaque message est reçue et traitée par un seul consommateur de message. Un des principaux avantages de l’utilisation des files d’attente consiste à réaliser le « découplage temporel » des composants d’application. En d’autres termes, les producteurs (expéditeurs) et les consommateurs (récepteurs) ne sont pas forcés d’envoyer et de recevoir des messages simultanément, car les messages sont stockés durablement dans la file d’attente. En outre, le producteur n’a pas à attendre de réponse du destinataire pour continuer de traiter et d’envoyer d’autres messages.
 
@@ -29,7 +30,7 @@ Un des avantages associés est le nivellement de charge, qui permet aux producte
 
 L’utilisation de files d’attente comme intermédiaire entre les producteurs et les consommateurs de message fournit un couplage souple inhérent entre les composants. Producteurs et consommateurs étant indépendants les uns des autres, il est possible de mettre à niveau un consommateur sans que cela affecte le producteur.
 
-La création d’une file d’attente est un processus en plusieurs étapes. Les opérations de gestion d’entités (à la fois des files d’attente et des rubriques) de messagerie Service Bus s’exécutent via la classe [Microsoft.ServiceBus.NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) générée à l’aide de l’adresse de base de l’espace des noms Service Bus et les informations d’identification de l’utilisateur. La classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) fournit des méthodes pour créer, énumérer et supprimer des entités de messagerie. Après avoir créé un objet [Microsoft.ServiceBus.TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) du nom et de la clé SAS, et un objet de gestion de d’espaces de noms de service, vous pouvez utiliser la méthode [Microsoft.ServiceBus.NamespaceManager.CreateQueue](https://msdn.microsoft.com/library/azure/hh293157.aspx) permettant de créer la file d’attente. Par exemple :
+La création d’une file d’attente est un processus en plusieurs étapes. Les opérations de gestion d’entités (à la fois des files d’attente et des rubriques) de messagerie Service Bus s’exécutent via la classe [Microsoft.ServiceBus.NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) générée à l’aide de l’adresse de base de l’espace des noms Service Bus et des informations d’identification de l’utilisateur. La classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) fournit des méthodes pour créer, énumérer et supprimer des entités de messagerie. Après avoir créé un objet [Microsoft.ServiceBus.TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) du nom et de la clé SAP, et un objet de gestion d’espaces de noms de service, vous pouvez utiliser la méthode [Microsoft.ServiceBus.NamespaceManager.CreateQueue](https://msdn.microsoft.com/library/azure/hh293157.aspx) pour créer la file d’attente. Par exemple :
 
 ```
 // Create management credentials
@@ -71,19 +72,19 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
     }
 ```
 
-En mode [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), l’opération est exécutée une seule fois, en d’autres termes, lorsque Service Bus reçoit la demande, elle marque ce message comme étant consommé et le renvoie à l’application. Le mode [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d’un message en cas d’échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Service Bus ayant marqué le message comme étant consommé, lorsque l’application redémarre et recommence à traiter des messages, elle ignore le message consommé avant l’incident.
+En mode [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), l’opération est exécutée une seule fois, en d’autres termes, lorsque Service Bus reçoit la demande, il marque ce message comme étant consommé et le renvoie à l’application. Le mode [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d’un message en cas d’échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Service Bus ayant marqué le message comme étant consommé, lorsque l’application redémarre et recommence à traiter des messages, elle ignore le message consommé avant l’incident.
 
-En mode [PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas se permettre de manquer des messages. Lorsque Service Bus reçoit la demande, il recherche le message suivant à consommer, le verrouille pour empêcher d’autres consommateurs de le recevoir, puis le renvoie à l’application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) pour le message reçu. Lorsque Service Bus obtient l’appel [Complet](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), il marque le message comme étant consommé.
+En mode [PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas se permettre de manquer des messages. Lorsque Service Bus reçoit la demande, il recherche le message suivant à consommer, le verrouille pour empêcher d’autres consommateurs de le recevoir, puis le renvoie à l’application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) pour le message reçu. Lorsque Service Bus obtient l’appel [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), il marque le message comme étant consommé.
 
-Si une application est dans l’impossibilité de traiter un message pour une raison quelconque, elle peut appeler la méthode [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) pour le message reçu (au lieu de la méthode [Complet](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Cela permet à Service Bus de déverrouiller le message et le met à disposition pour être à nouveau reçu, soit par le même consommateur, soit par un consommateur concurrent. De même, il faut savoir qu’un message verrouillé dans une file d’attente est assorti d’un délai d’expiration et que si l’application ne parvient pas à traiter le message dans le temps imparti (par exemple, en cas d’incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception (essentiellement en effectuant une opération [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) par défaut).
+Si l’application est dans l’impossibilité de traiter un message pour une raison quelconque, elle peut appeler la méthode [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) pour le message reçu (au lieu de la méthode [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Cela permet à Service Bus de déverrouiller le message et le met à disposition pour être à nouveau reçu, soit par le même consommateur, soit par un consommateur concurrent. De même, il faut savoir qu’un message verrouillé dans une file d’attente est assorti d’un délai d’expiration et que si l’application ne parvient pas à traiter le message dans le temps imparti (par exemple, en cas d’incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception (essentiellement en effectuant une opération [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) par défaut).
 
-Notez que si l’application se bloque après le traitement du message, mais avant l’envoi de la demande [Complète](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), le message est à nouveau remis à l’application lorsqu’elle redémarre. Cette opération est souvent appelée *Au moins une fois*. Chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer un traitement dupliqué, une logique supplémentaire est nécessaire dans l’application pour détecter les doublons susceptibles d’être obtenus à partir de la propriété **MessageId** du message, qui demeure constante entre les tentatives de remise. Cette opération est connue sous le nom de traitement *seulement une fois*.
+Notez que si l’application subit un incident après le traitement du message, mais avant l’envoi de la demande [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), le message est à nouveau remis à l’application lorsqu’elle redémarre. Cette opération est souvent appelée *Au moins une fois*. Chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer un traitement dupliqué, une logique supplémentaire est nécessaire dans l’application pour détecter les doublons susceptibles d’être obtenus à partir de la propriété **MessageId** du message, qui demeure constante entre les tentatives de remise. Cette opération est connue sous le nom de traitement *seulement une fois*.
 
-Pour obtenir plus d’informations et un exemple de la façon de créer et d’envoyer des messages vers et depuis les files d’attente, consultez le [didacticiel de messagerie répartie .NET Service Bus](service-bus-brokered-tutorial-dotnet.md).
+Pour obtenir plus d’informations et un exemple sur la création et l’envoi des messages vers et depuis les files d’attente, consultez le [didacticiel .NET sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-dotnet.md).
 
-## Rubriques et abonnements
+## <a name="topics-and-subscriptions"></a>Rubriques et abonnements
 
-Contrairement aux files d’attente, où chaque message est traité par un seul consommateur, les *rubriques* et les *abonnements* fournissent une forme de communication « un-à-plusieurs », à l’aide d’un modèle de *publication et d’abonnement*. Utile en cas d’évolution vers un très grand nombre de destinataires, chaque message publié est mis à disposition de tous les abonnements inscrits auprès de la rubrique. Les messages sont envoyés à une rubrique et remis à un ou plusieurs abonnements associés, en fonction des règles de filtrage qui peuvent être définies sur une base par abonnement. Les abonnements peuvent utiliser des filtres supplémentaires pour restreindre les messages qu’ils souhaitent recevoir. Les messages sont envoyés à une rubrique de la même façon qu’ils sont envoyés à une file d’attente, mais les messages ne sont pas reçus directement de la rubrique. Ils sont envoyés depuis les abonnements. Un abonnement à une rubrique ressemble à une file d’attente virtuelle recevant des copies des messages envoyés à la rubrique. Les messages sont reçus d’un abonnement identique de la même façon que ceux qui sont reçus de la file d’attente.
+Contrairement aux files d’attente, où chaque message est traité par un seul consommateur, les *rubriques* et les *abonnements* fournissent une forme de communication « un à plusieurs », à l’aide d’un modèle de *publication et d’abonnement*. Utile en cas d’évolution vers un très grand nombre de destinataires, chaque message publié est mis à disposition de tous les abonnements inscrits auprès de la rubrique. Les messages sont envoyés à une rubrique et remis à un ou plusieurs abonnements associés, en fonction des règles de filtrage qui peuvent être définies sur une base par abonnement. Les abonnements peuvent utiliser des filtres supplémentaires pour restreindre les messages qu’ils souhaitent recevoir. Les messages sont envoyés à une rubrique de la même façon qu’ils sont envoyés à une file d’attente, mais les messages ne sont pas reçus directement de la rubrique. Ils sont envoyés depuis les abonnements. Un abonnement à une rubrique ressemble à une file d’attente virtuelle recevant des copies des messages envoyés à la rubrique. Les messages sont reçus d’un abonnement identique de la même façon que ceux qui sont reçus de la file d’attente.
 
 Par comparaison, la fonctionnalité d’envoi de messages d’une file d’attente mappe directement sur une rubrique et sa fonctionnalité de réception de messages est mappé sur un abonnement. Cela signifie, entre autres, que les abonnements prennent en charge des modèles similaires à ceux décrits plus haut dans cette section concernant les files d’attente : consommateurs simultanés, découplage temporel, nivellement et équilibrage de charge.
 
@@ -118,7 +119,7 @@ foreach (BrokeredMessage message in messageList)
 }
 ```
 
-Au même titre que les files d’attente, les messages sont reçus d’un abonnement à l’aide d’un objet [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) et non d’un [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Créez le client d’abonnement, en transférant le nom du sujet, le nom de l’abonnement et (éventuellement) le mode de réception en tant que paramètres. Par exemple, avec l’abonnement **inventaire** :
+À l’instar des files d’attente, les messages sont reçus d’un abonnement à l’aide d’un objet [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) et non d’un objet [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Créez le client d’abonnement, en transférant le nom du sujet, le nom de l’abonnement et (éventuellement) le mode de réception en tant que paramètres. Par exemple, avec l’abonnement **Inventaire** :
 
 ```
 // Create the subscription client
@@ -142,11 +143,11 @@ while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 }
 ```
 
-### Règles et actions
+### <a name="rules-and-actions"></a>Règles et actions
 
-Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiques doivent être traités différemment. Pour ce faire, vous pouvez configurer des abonnements pour rechercher les messages présentant les propriétés souhaitées, puis apporter certaines modifications à ces propriétés. Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. Pour ce faire, il faut utiliser des filtres d’abonnement. Ces modifications sont appelées *actions de filtrage*. Lorsqu’un abonnement est créé, vous pouvez fournir une expression de filtre fonctionnant sur les propriétés du message, aussi bien les propriétés du système (par exemple, **étiquette**) et les propriétés personnalisées (par exemple, **StoreName**.) L’expression de filtre SQL est facultative dans ce cas ; sans expression de filtre SQL, toute action de filtre définie sur un abonnement sera effectuée sur tous les messages de cet abonnement.
+Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiques doivent être traités différemment. Pour ce faire, vous pouvez configurer des abonnements pour rechercher les messages présentant les propriétés souhaitées, puis apporter certaines modifications à ces propriétés. Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. Pour ce faire, il faut utiliser des filtres d’abonnement. Ces modifications sont appelées *actions de filtrage*. Lorsqu’un abonnement est créé, vous pouvez fournir une expression de filtre fonctionnant sur les propriétés du message, aussi bien les propriétés du système (par exemple, **Label**) et les propriétés personnalisées de l’application (par exemple, **StoreName**.) L’expression de filtre SQL est facultative dans ce cas ; sans expression de filtre SQL, toute action de filtre définie sur un abonnement sera effectuée sur tous les messages de cet abonnement.
 
-Avec l’exemple précédent, pour filtrer les messages provenant uniquement de **Store1**, vous devez créer l’abonnement au tableau de bord comme suit :
+Avec l’exemple précédent, pour filtrer les messages provenant uniquement de **Store1**, vous devez créer l’abonnement Tableau de bord comme suit :
 
 ```
 namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
@@ -154,24 +155,21 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Avec ce filtre d’abonnement en place, seuls les messages dont la propriété `StoreName` est définie sur `Store1` sont copiés vers la file d’attente virtuelle de l’abonnement `Dashboard`.
 
-Pour plus d’informations sur les valeurs de filtre possibles, consultez la documentation des classes [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) et [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Voir également les exemples [Messagerie répartie : Filtres avancés](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) et [Filtres de rubrique](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters).
+Pour plus d’informations sur les valeurs de filtre possibles, consultez la documentation des classes [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) et [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Consultez également les exemples [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Messagerie répartie : Filtres avancés) et [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Filtres de rubrique).
 
-## Event Hubs
-
-[Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un service de traitement des événements utilisé pour fournir des entrées d’événements et de télémétrie dans Azure à grande échelle, avec faible latence et fiabilité élevée. Ce service, lorsqu’il est utilisé avec d’autres services en aval, est particulièrement utile pour l’instrumentation de l’application, le traitement du workflow ou de l’expérience utilisateur, et les scénarios de l’[Internet des Objets (IoT)](https://azure.microsoft.com/services/iot-hub/).
-
-Les concentrateurs d’événements sont une construction de diffusion de message, et bien qu’ils ressemblent aux files d’attente et aux rubriques, leurs caractéristiques sont très différentes. Par exemple, les concentrateurs d’événements ne fournissent pas de message TTL, de lettres mortes, de transactions ou d’accusés de réception comme ils le sont pour les fonctions de messagerie répartie traditionnelle sans diffusion en continu. Les concentrateurs d’événements fournissent d’autres fonctionnalités de flux de données telles que le partitionnement, conservation de l’ordre et relecture du flux de données.
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez la rubrique avancée suivante pour obtenir d’autres informations et des exemples d’utilisation des entités de messagerie répartie Service Bus.
 
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
 - [Didacticiel .NET sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-dotnet.md)
 - [Didacticiel REST sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-rest.md)
-- [Documentation Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
-- [Guide du développeur pour les concentrateurs d'événements](../event-hubs/event-hubs-programming-guide.md)
-- [Exemple de filtres de rubrique](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
-- [Messagerie répartie : exemples de filtres avancés](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
+- [Topic Filters sample ](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Exemple de filtres de rubrique)
+- [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Messagerie répartie : exemples de filtres avancés)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

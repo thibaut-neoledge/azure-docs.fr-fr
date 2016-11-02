@@ -15,10 +15,14 @@
     ms.date="09/27/2016"
     ms.author="sethm" />
 
-# Quotas Event Hubs
+
+# <a name="event-hubs-quotas"></a>Quotas Event Hubs
 
 Cette section répertorie les quotas et les limites de base de Microsoft Azure Event Hubs.
 
-[AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)]
+[AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)] 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

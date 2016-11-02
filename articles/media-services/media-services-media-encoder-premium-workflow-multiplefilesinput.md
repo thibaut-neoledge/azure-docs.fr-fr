@@ -1,35 +1,36 @@
 <properties
-	pageTitle="Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder | Microsoft Azure"
-	description="Cette rubrique explique comment utiliser setRuntimeProperties pour plusieurs fichiers d’entrée et transmettre des données personnalisées au processeur multimédia de flux de travail Media Encoder Premium."
-	services="media-services"
-	documentationCenter=""
-	authors="xpouyat"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder | Microsoft Azure"
+    description="Cette rubrique explique comment utiliser setRuntimeProperties pour plusieurs fichiers d’entrée et transmettre des données personnalisées au processeur multimédia de flux de travail Media Encoder Premium."
+    services="media-services"
+    documentationCenter=""
+    authors="xpouyat"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"  
-	ms.author="xpouyat;anilmur;juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"  
+    ms.author="xpouyat;anilmur;juliako"/>
 
-# Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder
 
-## Vue d'ensemble
+# <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder
 
-Il existe des scénarios dans lesquels vous devrez peut-être personnaliser les propriétés du composant, spécifier le contenu du fichier XML de liste de séquences ou envoyer plusieurs fichiers d’entrée lorsque vous soumettez une tâche avec le processeur multimédia **Media Encoder Premium Workflow**. Voici quelques exemples :
+## <a name="overview"></a>Vue d'ensemble
+
+Il existe des scénarios dans lesquels vous devrez peut-être personnaliser les propriétés du composant, spécifier le contenu du fichier XML de liste de séquences ou envoyer plusieurs fichiers d’entrée lorsque vous soumettez une tâche avec le processeur multimédia **Media Encoder Premium Workflow** . Voici quelques exemples :
 
 - Superposition de texte sur la vidéo et définition de la valeur du texte (par exemple, la date actuelle) au moment de l’exécution pour chaque vidéo d’entrée.
 - Personnalisation du fichier XML de liste de séquences (pour spécifier un ou plusieurs fichiers source, avec ou sans découpage, etc.).
 - Superposition d’une image de logo sur l’entrée vidéo pendant l’encodage de la vidéo.
 
-Pour faire savoir à **Media Encoder Premium Workflow** que vous modifiez certaines propriétés dans le flux de travail lorsque vous créez la tâche ou envoyez plusieurs fichiers d’entrée, vous devez utiliser une chaîne de configuration qui contient **setRuntimeProperties** et/ou **transcodeSource**. Cette rubrique explique comment les utiliser.
+Pour faire savoir à **Media Encoder Premium Workflow** que vous modifiez certaines propriétés dans le flux de travail quand vous créez la tâche ou envoyez plusieurs fichiers d’entrée, vous devez utiliser une chaîne de configuration qui contient **setRuntimeProperties** et/ou **transcodeSource**. Cette rubrique explique comment les utiliser.
 
 
-## Syntaxe de chaîne de configuration
+## <a name="configuration-string-syntax"></a>Syntaxe de chaîne de configuration
 
 La chaîne de configuration à définir dans la tâche d’encodage utilise un document XML qui ressemble au document suivant :
 
@@ -54,9 +55,9 @@ Voici le code C# qui lit la configuration XML d’un fichier et la transmet à l
                                                   AssetCreationOptions.None);
 
 
-## Personnalisation des propriétés du composant  
+## <a name="customizing-component-properties"></a>Personnalisation des propriétés du composant  
 
-### Propriété avec une valeur simple
+### <a name="property-with-a-simple-value"></a>Propriété avec une valeur simple
 Dans certains cas, il peut être utile de personnaliser une propriété du composant avec le fichier de flux de travail qui doit être exécuté par Media Encoder Premium Workflow.
 
 Supposons que vous ayez conçu un flux de travail qui superpose du texte sur vos vidéos et que ce texte (par exemple, la date actuelle) doive être défini au moment de l’exécution. Pour cela, vous pouvez envoyer le texte à définir comme nouvelle valeur de la propriété de texte du composant Overlay à partir de la tâche d’encodage. Vous pouvez utiliser ce mécanisme pour modifier d’autres propriétés d’un composant du flux de travail (par exemple, la position ou la couleur de la superposition, la vitesse de transmission de l’encodeur AVC, etc.).
@@ -76,7 +77,7 @@ Exemple :
     </transcodeRequest>
 
 
-### Propriété avec une valeur XML
+### <a name="property-with-an-xml-value"></a>Propriété avec une valeur XML
 
 Pour définir une propriété qui attend une valeur XML, encapsulez à l’aide de `<![CDATA[ and ]]>`.
 
@@ -112,9 +113,10 @@ Exemple :
 >[AZURE.NOTE]Assurez-vous de ne pas mettre de retour chariot juste après `<![CDATA[`.
 
 
-### Valeur propertyPath
+### <a name="propertypath-value"></a>Valeur propertyPath
 
-Dans les exemples précédents, la valeur propertyPath était « /Media File Input/filename », « /inactiveTimeout » ou « clipListXml ». Il s’agit en général du nom du composant, puis du nom de la propriété. Le chemin d’accès peut avoir un nombre de niveaux différent, comme « / primarySourceFile » (étant donné que la propriété est à la racine du flux de travail) ou « /Video Processing/Graphic Overlay/Opacity » (car la propriété Overlay est dans un groupe).
+Dans les exemples précédents, la valeur propertyPath était « /Media File Input/filename », « /inactiveTimeout » ou « clipListXml ».
+Il s’agit en général du nom du composant, puis du nom de la propriété. Le chemin d’accès peut avoir un nombre de niveaux différent, comme « / primarySourceFile » (étant donné que la propriété est à la racine du flux de travail) ou « /Video Processing/Graphic Overlay/Opacity » (car la propriété Overlay est dans un groupe).    
 
 Pour vérifier le nom du chemin et de la propriété, utilisez le bouton d’action en regard de chaque propriété. Vous pouvez cliquer sur ce bouton d’action et sélectionner **Modifier**. Cette commande affiche le nom réel de la propriété et, juste au-dessus, l’espace de noms.
 
@@ -122,18 +124,18 @@ Pour vérifier le nom du chemin et de la propriété, utilisez le bouton d’act
 
 ![Propriété](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
-## Fichiers d’entrée multiples
+## <a name="multiple-input-files"></a>Fichiers d’entrée multiples
 
 Chaque tâche que vous envoyez au **Media Encoder Premium Workflow** nécessite deux éléments :
 
 - Une *Ressource de flux de travail* qui contient un fichier de flux de travail. pouvant être créé à l’aide du [Concepteur de flux de travail](media-services-workflow-designer.md).
 - Un *Élément multimédia* qui contient le(s) fichier(s) multimédia(s) que vous souhaitez encoder.
 
-Lorsque vous envoyez plusieurs fichiers multimédias à l’encodeur **Media Encoder Premium Workflow**, les contraintes suivantes s’appliquent :
+Lorsque vous envoyez plusieurs fichiers multimédias à l’encodeur **Media Encoder Premium Workflow** , les contraintes suivantes s’appliquent :
 
 - Tous les fichiers multimédias doivent être dans le même *Élément multimédia*. L’utilisation de plusieurs éléments multimédias n’est pas prise en charge.
 - Vous devez définir le fichier principal dans cet élément multimédia (dans l’idéal, il s’agit du fichier vidéo principal que l’encodeur doit traiter).
-- Il est nécessaire de transmettre les données de configuration qui incluent l’élément **setRuntimeProperties** et/ou **transcodeSource** au processeur.
+- Il est nécessaire de passer les données de configuration qui incluent l’élément **setRuntimeProperties** et/ou **transcodeSource** au processeur.
   - **setRuntimeProperties** est utilisé pour remplacer la propriété Nom de fichier ou une autre propriété dans les composants du flux de travail.
   - **transcodeSource** est utilisé pour spécifier le contenu du fichier XML de liste de séquences.
 
@@ -151,7 +153,7 @@ Connexions dans le flux de travail :
 *Vous pouvez connecter le fichier XML de liste de séquences à Media Source et utiliser transcodeSource.*
 
 
-### Personnalisation du fichier XML de liste de séquences
+### <a name="clip-list-xml-customization"></a>Personnalisation du fichier XML de liste de séquences
 Vous pouvez spécifier le fichier XML de liste de séquences dans le flux de travail, lors de l’exécution, à l’aide de **transcodeSource** dans la chaîne de configuration XML. Cela nécessite que la broche du fichier XML de liste de séquences soit connectée au composant Media Source dans le flux de travail.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -245,7 +247,7 @@ Avec découpage précis de la trame supplémentaire :
       </transcodeRequest>
 
 
-## Exemple
+## <a name="example"></a>Exemple
 
 Prenons un exemple dans lequel vous voulez superposer une image de logo sur la vidéo d’entrée pendant l’encodage de la vidéo. Dans cet exemple, la vidéo d’entrée est nommée « MyInputVideo.mp4 » et le logo est nommé « MyLogo.png ». Vous devez effectuer les étapes suivantes :
 
@@ -270,17 +272,17 @@ Dans l’exemple ci-dessus, le nom du fichier vidéo est envoyé au composant Me
 >[AZURE.NOTE]Le nom du fichier vidéo est envoyé à la propriété primarySourceFile. L’objectif est d’utiliser cette propriété dans le flux de travail pour générer le nom de fichier de sortie correct à l’aide d’Expressions, par exemple.
 
 
-### Création étape par étape du flux de travail pour superposer un logo sur la vidéo     
+### <a name="step-by-step-workflow-creation-that-overlays-a-logo-on-top-of-the-video"></a>Création étape par étape du flux de travail pour superposer un logo sur la vidéo     
 
 Voici les étapes pour créer un flux de travail prenant deux fichiers en entrée : une vidéo et une image. Ce flux de travail superpose l’image sur la vidéo.
 
-Ouvrez le **Concepteur de flux de travail** et sélectionnez **Fichier** > **Nouvel espace de travail** > **Plan de transcodage**.
+Ouvrez **Concepteur de flux de travail** et sélectionnez **Fichier** > **Nouvel espace de travail** > **Plan de transcodage**.
 
 Le nouveau flux de travail affiche trois éléments :
 
 - Fichier source principal
 - Fichier XML de liste de séquences
-- Fichier/élément multimédia de sortie
+- Fichier/élément multimédia de sortie  
 
 ![Nouveau workflow d’encodage](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
 
@@ -296,7 +298,7 @@ Ensuite, ajoutez le fichier vidéo à utiliser pour la conception de votre flux 
 *Primary Source File*
 
 
-Ensuite, spécifiez le fichier vidéo dans le composant Media File Input.
+Ensuite, spécifiez le fichier vidéo dans le composant Media File Input.   
 
 ![Source Media File Input](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
 
@@ -307,7 +309,7 @@ Une fois cette opération effectuée, le composant Media File Input inspectera l
 
 L’étape suivante consiste à ajouter un composant «Video Data Type Updater » pour spécifier l’espace colorimétrique sur Rec.709. Ajoutez un composant « Video Format Converter » défini sur Disposition des données/Type de disposition = Planaire configurable. Cela convertit le flux vidéo en un format pouvant être considéré comme une source du composant de superposition.
 
-![video Data Type Updater et Format Converter](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
+![Video Data Type Updater et Format Converter](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
 *Video Data Type Updater et Format Converter*
 
@@ -331,7 +333,8 @@ Si vous souhaitez modifier la position du logo sur la vidéo (vous voulez par ex
 *Position de superposition*
 
 
-Pour encoder le flux vidéo en H.264, ajoutez les composants AVC Video Encoder et AAC encoder à l’aire du concepteur. Connectez les broches. Configurez le composant AAC encoder et sélectionnez Conversion du format audio/Présélection : 2.0 (G, D).
+Pour encoder le flux vidéo en H.264, ajoutez les composants AVC Video Encoder et AAC encoder à l’aire du concepteur. Connectez les broches.
+Configurez le composant AAC encoder et sélectionnez Conversion du format audio/Présélection : 2.0 (G, D).
 
 ![Encodeurs audio et vidéo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -361,7 +364,7 @@ Préparez tout d’abord un élément multimédia dans Azure Media Services avec
 
 Ce didacticiel vous montre comment gérer des éléments multimédias avec AMSE. Il existe deux façons d’ajouter des fichiers à un élément multimédia :
 
-- Créez un dossier local, copiez-y les deux fichiers et glissez-déplacez le dossier vers l’onglet **Élément multimédia**.
+- Créez un dossier local, copiez-y les deux fichiers et glissez-déplacez le dossier vers l’onglet **Élément multimédia** .
 - Téléchargez le fichier vidéo en tant qu’élément multimédia, affichez les informations de l’élément, accédez à l’onglet Fichier, puis téléchargez un fichier supplémentaire (logo).
 
 >[AZURE.NOTE]Veillez à définir un fichier principal dans l’élément multimédia (le fichier vidéo principal).
@@ -410,7 +413,7 @@ Une fois la tâche effectuée, le fichier MP4 dans l’élément de sortie affic
 Vous pouvez télécharger l’exemple de flux de travail sur [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 
 - [Présentation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
@@ -424,12 +427,16 @@ Vous pouvez télécharger l’exemple de flux de travail sur [GitHub](https://gi
 
 - [Outil Azure Media Services Explorer](http://aka.ms/amse)
 
-## Parcours d’apprentissage de Media Services
+## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fournir des commentaires
+## <a name="provide-feedback"></a>Fournir des commentaires
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -16,10 +16,11 @@
    ms.date="09/22/2016"
    ms.author="mfussell"/>
 
-# Vue d'ensemble de Service Fabric
+
+# <a name="overview-of-service-fabric"></a>Vue d'ensemble de Service Fabric
 Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices extensibles et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications cloud. Les développeurs et administrateurs n’ont plus à résoudre les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques exigeantes, sachant qu’elles sont évolutives, fiables et faciles à gérer. Service Fabric représente la plateforme middleware de nouvelle génération pour la création et la gestion de ces applications d’entreprise de niveau 1 à l’échelle du cloud.
 
-## Applications composées de microservices
+## <a name="applications-composed-of-microservices"></a>Applications composées de microservices
 Service Fabric vous permet de créer et gérer des applications évolutives et fiables, composées de microservices s’exécutant à très haute densité sur un pool partagé d’ordinateurs (appelé cluster). Il fournit un runtime sophistiqué pour générer des microservices avec et sans état distribués et évolutifs. Il fournit également des fonctionnalités complètes de gestion d’application pour la configuration, le déploiement, l’analyse, la mise à niveau/mise à jour corrective et la suppression d’applications déployées.
 
 Pourquoi est-il important d’adopter une approche microservices ? Voici les deux principales raisons :
@@ -38,14 +39,14 @@ Service Fabric fournit des fonctionnalités complètes de gestion du runtime et 
 
 Pour plus d’informations sur l’approche microservices, consultez [Pourquoi adopter une approche microservices de la création d’applications ?](service-fabric-overview-microservices.md)
 
-## Créer des clusters Service Fabric n'importe où
+## <a name="create-service-fabric-clusters-anywhere"></a>Créer des clusters Service Fabric n'importe où
 Vous pouvez créer des clusters Service Fabric dans de nombreux environnements, notamment Azure ou locaux, sous Windows Server ou sous Linux. En outre, l’environnement de développement dans le Kit de développement logiciel (SDK) est identique à l’environnement de production, sans aucun émulateur impliqué. En d’autres termes, s’il s’exécute sur votre cluster de développement local, il se déploie sur le même cluster dans d’autres environnements.
 
 Pour en savoir plus sur la création de clusters en local, voir [Création d’un cluster sous Windows Server ou Linux](service-fabric-deploy-anywhere.md) ou, pour créer un cluster Azure par l’intermédiaire du portail Azure, voir [cette rubrique](service-fabric-cluster-creation-via-portal.md).
 
 ![Plateforme Service Fabric][Image1]
 
-## Microservices Service Fabric avec et sans état
+## <a name="stateless-and-stateful-service-fabric-microservices"></a>Microservices Service Fabric avec et sans état
 
 Service Fabric vous permet de créer des applications composées de microservices. Les microservices sans état (par exemple, les passerelles de protocole, les proxys web, etc.) ne conservent pas un état mutable en dehors des demandes du service et de leur réponse. Les rôles de travail Azure Cloud Services sont un exemple de service sans état. Les microservices avec état (par exemple, les comptes d’utilisateur, les bases de données, les appareils, les paniers d’achat, les files d’attente, etc.) conservent un état mutable faisant autorité au-delà de la demande et la réponse. Actuellement, les applications Internet sont constituées d’une combinaison de microservices avec et sans état.
 
@@ -57,7 +58,7 @@ Pourquoi utiliser des microservices avec état et sans état ? Voici les deux pr
 
 Pour plus d’informations sur les modèles d’application avec Service Fabric, consultez [Scénarios d’application](service-fabric-application-scenarios.md) et [Choix d’une infrastructure de modèle de programmation](service-fabric-choose-framework.md) pour votre service.
 
-## Gestion du cycle de vie des applications
+## <a name="application-lifecycle-management"></a>Gestion du cycle de vie des applications
 Service Fabric offre une excellente prise en charge de la gestion du cycle de vie complet des applications cloud : du développement au retrait éventuel, en passant par le déploiement, la gestion quotidienne et la maintenance.
 
 Les fonctionnalités Service Fabric de gestion du cycle de vie des applications permettent aux administrateurs d'application / opérateurs informatiques d'utiliser des flux de travail simples et automatisés pour configurer, déployer, corriger et surveiller les applications. Ces flux de travail intégrés réduisent considérablement la charge pesant sur les opérateurs informatiques pour que vos applications soient disponibles en permanence.
@@ -66,7 +67,7 @@ La plupart des applications sont constituées d’une combinaison de microservic
 
 Pour plus d’informations sur la gestion du cycle de vie des applications, consultez [Cycle de vie des applications](service-fabric-application-lifecycle.md), et sur le déploiement de n’importe quel code, consultez [Déployer un exécutable invité](service-fabric-deploy-existing-app.md)
 
-## Fonctionnalités clés
+## <a name="key-capabilities"></a>Fonctionnalités clés
 Service Fabric vous permet d'effectuer les opérations suivantes :
 
 - Développer des applications hautement évolutives avec réparation spontanée.
@@ -100,14 +101,18 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 - Observer l’équilibreur de ressources à auto-adaptation orchestrer la redistribution des applications au sein du cluster. Service Fabric récupère après des défaillances et optimise la distribution de la charge en fonction des ressources disponibles.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d'informations :
     * [Pourquoi une approche de microservices pour la conception d’applications ?](service-fabric-overview-microservices.md)
     * [Vue d'ensemble de la terminologie](service-fabric-technical-overview.md)
-* Configuration de votre [environnement de développement](service-fabric-get-started.md) Service Fabric
-* Choix d’une [infrastructure de modèle de programmation](service-fabric-choose-framework.md) pour votre service
+* Configuration de votre [environnement de développement](service-fabric-get-started.md)  
+* [Choix d’une infrastructure de modèle de programmation](service-fabric-choose-framework.md) pour votre service.
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Outils clients d’Azure Storage | Microsoft Azure"
-	description="Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage."
-	services="storage"
-	documentationCenter=""
-	authors="micurd"
-	manager="jahogg"
-	editor="tysonn"/>
+    pageTitle="Outils clients d’Azure Storage | Microsoft Azure"
+    description="Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage."
+    services="storage"
+    documentationCenter=""
+    authors="micurd"
+    manager="jahogg"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="micurd;tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="micurd"/>
 
-# Outils clients d’Azure Storage
+
+# <a name="azure-storage-client-tools"></a>Outils clients d’Azure Storage
 
 Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction de données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
 
@@ -40,7 +41,7 @@ Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces o
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
     <td><a href="https://azure.microsoft.com/features/azure-portal/">Portail Microsoft Azure</a></td>
@@ -106,7 +107,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
     <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
@@ -151,7 +152,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure&#160;Storage&#160;Explorer</a></td>
+    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -250,4 +251,8 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

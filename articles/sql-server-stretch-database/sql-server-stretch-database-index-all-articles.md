@@ -1,30 +1,31 @@
 <properties
-	pageTitle="Toutes les rubriques pour le service SQL Server Stretch Database | Microsoft Azure"
-	description="Tableau de toutes les rubriques du service Azure nommé SQL Server Stretch Database qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="DouglasL"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Toutes les rubriques pour le service SQL Server Stretch Database | Microsoft Azure"
+    description="Tableau de toutes les rubriques du service Azure nommé SQL Server Stretch Database qui existent sur http://azure.microsoft.com/documentation/articles/, titre et description."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="DouglasL"
+    manager="jhubbard"
+    editor="MightyPen"/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="sql-server-stretch-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2016"
-	ms.author="DouglasL"/>
-
-
-# Toutes les rubriques pour le service Azure SQL Server Stretch Database
-
-Cette rubrique répertorie toutes les rubriques qui s’appliquent directement au service **Azure SQL Server Stretch Database**. Pour trouver les rubriques qui vous intéressent, vous pouvez rechercher des mots clés sur cette page web à l'aide de la combinaison de touches **Ctrl+F**.
+    ms.service="sql-server-stretch-database"
+    ms.workload="sql-server-stretch-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/05/2016"
+    ms.author="DouglasL"/>
 
 
 
+# <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Toutes les rubriques pour le service Azure SQL Server Stretch Database
 
-## Prise en main
+Cette rubrique répertorie toutes les rubriques qui s’appliquent directement au service **Azure SQL Server Stretch Database** . Pour trouver les rubriques qui vous intéressent, vous pouvez rechercher des mots clés sur cette page web à l'aide de la combinaison de touches **Ctrl+F**.
+
+
+
+
+## <a name="get-started"></a>Prise en main
 
 | &nbsp; | Intitulé | Description |
 | --: | :-- | :-- |
@@ -35,7 +36,7 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 
 
 
-## Activer
+## <a name="enable"></a>Activer
 
 | &nbsp; | Intitulé | Description |
 | --: | :-- | :-- |
@@ -45,7 +46,7 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 
 
 
-## Gérer
+## <a name="manage"></a>Gérer
 
 | &nbsp; | Intitulé | Description |
 | --: | :-- | :-- |
@@ -56,20 +57,25 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 
 
 
-## Sécurité
+## <a name="security"></a>Sécurité
 
 | &nbsp; | Intitulé | Description |
 | --: | :-- | :-- |
 | 12 | [Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure](sql-server-stretch-database-encryption-tde.md) | Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure |
-| 13\. | [Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) | Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure TSQL |
+| 13. | [Activer le chiffrement transparent des données (TDE) pour Stretch Database sur Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) | Activer le chiffrement transparent des données (TDE) pour SQL Server Stretch Database sur Azure TSQL |
 
 
 
-## Sauvegarde et récupération
+## <a name="backup-and-recovery"></a>Sauvegarde et récupération
 
 | &nbsp; | Intitulé | Description |
 | --: | :-- | :-- |
 | 14 | [Sauvegarder des bases de données Stretch](sql-server-stretch-database-backup.md) | Découvrez comment sauvegarder des bases de données Stretch. |
 | 15 | [Restaurer des bases de données Stretch](sql-server-stretch-database-restore.md) | Découvrez comment restaurer des bases de données Stretch. |
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
