@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resolve endpoint protection health alerts in Azure Security Center| Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendation **Resolve Endpoint Protection health alerts**."
+   pageTitle="Résoudre les alertes d’intégrité Endpoint Protection dans le Centre de sécurité Azure | Microsoft Azure"
+   description="Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Résoudre les alertes d’intégrité Endpoint Protection**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,39 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/01/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Résoudre les alertes d’intégrité Endpoint Protection dans le Centre de sécurité Azure
 
-# <a name="resolve-endpoint-protection-health-alerts-in-azure-security-center"></a>Resolve endpoint protection health alerts in Azure Security Center
+Le Centre de sécurité Azure recommande de résoudre les alertes d’intégrité Endpoint Protection. Le Centre de sécurité vous permet d’identifier les machines virtuelles qui rencontrent des défaillances Endpoint Protection et d’afficher le nombre de ces défaillances.
 
-Azure Security Center will recommend that you resolve detected endpoint protection health alerts.  Security Center enables you to see which virtual machines (VMs) have endpoint protection failures and how many failures.
+> [AZURE.NOTE] Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
+## Implémenter la recommandation
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. Dans le panneau **Recommandations**, sélectionnez **Résoudre les alertes d’intégrité Endpoint Protection**. ![Résoudre les alertes d’intégrité Endpoint Protection][1]
 
-1. In the **Recommendations blade**, select **Resolve Endpoint Protection health alerts**.
-![Resolve endpoint protection health alerts][1]
+2. Cette opération ouvre le panneau **Échec de la protection de point de terminaison**, qui répertorie les machines virtuelles défaillantes ainsi que le nombre de défaillances pour chaque machine virtuelle. Sélectionnez une machine virtuelle dans la liste. ![Échec de la protection du point de terminaison][2]
 
-2. This opens the blade **Endpoint Protection failure** which lists VMs with failures and the number of failures for each VM. Select a VM from the list.
-![Endpoint protection failure][2]
+3. Un panneau **Liste des échecs** affiche la liste des défaillances pour la machine virtuelle sélectionnée. Sélectionnez une défaillance dans la liste pour en savoir plus. Un panneau s’ouvre et affiche les informations sur la défaillance sélectionnée. ![Liste des échecs][3] ![Événement d’échec][4]
 
-3. A **Failures List** blade opens for the selected VM, displaying a list of failures. Select a failure from the list to learn more. This opens a blade with information about the selected failure.
-![Failures list][3]
-  ![Failure event][4]
+## Voir aussi
 
-## <a name="see-also"></a>See also
+Pour plus d’informations sur Security Center, consultez :
 
-To learn more about Security Center, see the following:
-
-- [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
+- [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+- [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
+- [Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+- [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
+- [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
+- [FAQ du Centre de sécurité Azure](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-resolve-endpoint-protection/resolve-endpoint-protection.png
@@ -53,8 +48,4 @@ To learn more about Security Center, see the following:
 [3]: ./media/security-center-resolve-endpoint-protection/failure-list.png
 [4]: ./media/security-center-resolve-endpoint-protection/failure-event.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->
