@@ -576,7 +576,7 @@ Oui. Mais n’oubliez pas d’ajouter l’URL de Service Fabric Explorer à votr
 
 #### <a name="answer"></a>Réponse
 
-FabricClient et FabricGateway effectuent une authentification mutuelle. En cas d’authentification AAD, l’intégration AAD fournit l’identité du client au serveur et le certificat de serveur est utilisé pour vérifier l’identité du serveur. Pour plus d’informations sur le fonctionnement du certificat dans Service Fabric, consultez [Certificats X.509 et Service Fabric][x509-certificats-and-service-fabric]
+FabricClient et FabricGateway effectuent une authentification mutuelle. En cas d’authentification AAD, l’intégration AAD fournit l’identité du client au serveur et le certificat de serveur est utilisé pour vérifier l’identité du serveur. Pour plus d’informations sur le fonctionnement du certificat dans Service Fabric, consultez [Certificats X.509 et Service Fabric][x509-certificates-and-service-fabric]
 
 <!-- Links -->
 [azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
@@ -604,6 +604,6 @@ FabricClient et FabricGateway effectuent une authentification mutuelle. En cas d
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO2--->
 
 

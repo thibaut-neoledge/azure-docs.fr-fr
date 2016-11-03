@@ -148,7 +148,7 @@ Pour utiliser la classe [EventProcessorHost] , vous devez disposer d’un compte
 
 > [AZURE.NOTE] Lorsque vous copiez et collez la chaîne de connexion du compte de stockage, assurez-vous que la chaîne de connexion ne contient aucun espace.
 
-Vous avez également besoin d’une file d’attente Service Bus pour permettre un traitement fiable des messages interactifs. Vous pouvez créer une file d’attente par programmation avec une fenêtre de déduplication de 1 heure, comme expliqué dans [Prise en main des files d’attente Service Bus][file d’attente Azure Service Bus]. Vous pouvez également utiliser le [portail Azure Classic][lnk-classic-portal], en procédant comme suit :
+Vous avez également besoin d’une file d’attente Service Bus pour permettre un traitement fiable des messages interactifs. Vous pouvez créer une file d’attente par programmation avec une fenêtre de déduplication de 1 heure, comme expliqué dans [Prise en main des files d’attente Service Bus][file d’attente Azure Service Bus]. Vous pouvez également utiliser le [portail Azure Classic][portail classique d’un lien], en procédant comme suit :
 
 1. Cliquez sur **Nouveau** dans l’angle inférieur gauche. Cliquez ensuite sur **App Services** > **Service Bus** > **File d’attente** > **Création personnalisée**. Entrez le nom **d2ctutorial**, sélectionnez une région et utilisez un espace de noms existant ou créez-en un. Prenez note du nom de l’espace de noms, vous en aurez besoin plus loin dans ce didacticiel. Dans la page suivante, sélectionnez **Activer la détection des doublons**, puis définissez la **fenêtre d’heures de l’historique des détections dupliquées** sur une heure. Cliquez ensuite sur la coche dans l’angle inférieur droit pour enregistrer la configuration de votre file d’attente.
 
@@ -760,6 +760,6 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [lnk-create-an-iot-hub]: iot-hub-java-java-getstarted.md#create-an-iot-hub
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

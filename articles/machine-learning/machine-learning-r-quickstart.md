@@ -39,7 +39,7 @@ Les données chronologiques sont des données dont les valeurs ont un index chro
 
 Dans ce guide de démarrage rapide, nous allons utiliser les données de production et de tarification des produits laitiers en Californie. Ces données comportent des informations mensuelles sur la production de plusieurs produits laitiers, ainsi que le prix de la matière grasse du lait, produit de base de référence.
 
-Vous pouvez télécharger les données utilisées dans cet article ainsi que les scripts R [ici][download]. À l'origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l'Université du Wisconsin à l'adresse http://future.aae.wisc.edu/tab/production.html.
+Vous pouvez télécharger les données utilisées dans cet article ainsi que les scripts R [ici][télécharger]. À l'origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l'Université du Wisconsin à l'adresse http://future.aae.wisc.edu/tab/production.html.
 
 ### <a name="organization"></a>Organisation
 
@@ -145,7 +145,7 @@ Si vous débutez avec RStudio, téléchargez et installez la version pour ordina
 
 Un didacticiel de présentation de RStudio est disponible à l’adresse https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
-Vous trouverez des informations complémentaires sur l’utilisation de RStudio dans l’[Annexe A][appendixa].  
+Vous trouverez des informations complémentaires sur l’utilisation de RStudio dans l’[Annexe A][annexe a].  
 
 ##<a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obtention de données dans et hors du module d'exécution de script R
 
@@ -1361,6 +1361,6 @@ Quelques ressources Internet particulièrement utiles :
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

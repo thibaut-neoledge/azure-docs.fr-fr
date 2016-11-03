@@ -48,7 +48,7 @@ Vous pouvez accorder des [autorisations](#iot-hub-permissions) de différentes m
     - **registryReadWrite**: stratégie jouissant des autorisations RegistryRead et RegistryWrite.
 
 
-* **Informations d’identification de sécurité par appareil**. Chaque IoT Hub contient un [registre des identités des appareils][lnk-identity-Registry]. Pour chaque appareil figurant dans ce registre, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
+* **Informations d’identification de sécurité par appareil**. Chaque IoT Hub contient un [registre des identités des appareils][lnk-identity-registry]. Pour chaque appareil figurant dans ce registre, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
 
 Par exemple, dans une solution IoT classique :
 - Le composant de gestion des appareils utilise la stratégie *registryReadWrite* .
@@ -358,7 +358,7 @@ Pour qu’un appareil se connecte à votre hub, vous devez l’ajouter au Regist
 
 ### <a name="comparison-with-a-custom-gateway"></a>Comparaison avec une passerelle personnalisée
 
-Le modèle de service de jeton est la méthode recommandée pour implémenter un schéma de registre d’identité/d’authentification avec IoT Hub. Il est recommandé, car il laisse IoT Hub gérer la plus grande partie du trafic de la solution. Cependant, il existe des cas où le schéma d’authentification personnalisé est si étroitement couplé au protocole qu’un service traitant l’ensemble du trafic (*passerelle personnalisée*) est requis. Le [protocole TLS (Transport Layer Security) et les clés prépartagées (PSK)][lnk-tls-psk] en sont un exemple. Pour plus d’informations, voir [passerelle de protocole][lnk-protocoles].
+Le modèle de service de jeton est la méthode recommandée pour implémenter un schéma de registre d’identité/d’authentification avec IoT Hub. Il est recommandé, car il laisse IoT Hub gérer la plus grande partie du trafic de la solution. Cependant, il existe des cas où le schéma d’authentification personnalisé est si étroitement couplé au protocole qu’un service traitant l’ensemble du trafic (*passerelle personnalisée*) est requis. Le [protocole TLS (Transport Layer Security) et les clés prépartagées (PSK)][lnk-tls-psk] en sont un exemple. Pour plus d’informations, voir [passerelle de protocole][lnk-protocols].
 
 ## <a name="reference"></a>Référence
 
@@ -436,6 +436,6 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

@@ -21,7 +21,7 @@
 
 ## <a name="overview"></a>Vue d'ensemble
 
-IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [représentations d’appareil][lnk-jumeaux] et les [travaux][lnk-jobs]. Cet article présente les éléments suivants :
+IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [représentations d’appareil][lnk-twins] et les [travaux][lnk-jobs]. Cet article présente les éléments suivants :
 
 * une introduction aux principales fonctionnalités du langage de requête d’IoT Hub ;
 * la description détaillée du langage.
@@ -369,6 +369,6 @@ Découvrez comment exécuter des requêtes dans vos applications à l’aide des
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

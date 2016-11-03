@@ -31,7 +31,7 @@ Ce didacticiel s’appuie sur l’article [Prise en main d’Azure IoT Hub]. Cet
 - Recevez des messages cloud-à-appareil sur un appareil.
 - À partir du back end de votre application, demandez l’accusé de réception (*commentaires*) pour les messages envoyés à un appareil depuis IoT Hub.
 
-Vous trouverez des informations supplémentaires sur les messages cloud-à-appareil dans le [Guide du développeur d’IoT Hub][Guide du développeur d’IoT Hub - C2D].
+Vous trouverez des informations supplémentaires sur les messages cloud-à-appareil dans le [Guide du développeur d’IoT Hub][[Guide du développeur d’IoT Hub - CD2].
 
 À la fin de ce didacticiel, vous exécuterez deux applications de console Node.js :
 
@@ -76,7 +76,7 @@ Dans cette section, vous modifiez l’application de l’appareil simulé que vo
     };
     ```
 
-    > [AZURE.NOTE] Si vous utilisez HTTP/1 au lieu d’AMQP ou de MQTT pour le transport, l’instance **DeviceClient** vérifie les messages à partir d’IoT Hub peu fréquemment (moins de toutes les 25 minutes). Pour plus d’informations sur les différences entre la prise en charge d’AMQP, de MQTT et de HTTP/1, ainsi que la limitation d’IoT Hub, voir le [Guide du développeur d’IoT Hub][Guide du développeur d’IoT Hub - C2D].
+    > [AZURE.NOTE] Si vous utilisez HTTP/1 au lieu d’AMQP ou de MQTT pour le transport, l’instance **DeviceClient** vérifie les messages à partir d’IoT Hub peu fréquemment (moins de toutes les 25 minutes). Pour plus d’informations sur les différences entre la prise en charge d’AMQP, de MQTT et de HTTP/1, ainsi que la limitation d’IoT Hub, voir le [Guide du développeur d’IoT Hub][Guide du développeur d’IoT Hub - CD2].
 
 ## <a name="send-a-cloudtodevice-message"></a>Envoi d’un message cloud vers appareil
 
@@ -203,6 +203,6 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

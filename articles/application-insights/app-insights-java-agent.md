@@ -30,7 +30,7 @@ Si vous avez [instrumenté votre application web Java avec Application Insights
 * **Exceptions interceptées** : données concernant les exceptions gérées par votre code.
 * **Temps d’exécution de la méthode** : données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
 
-Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK)][Java] Application Insights.
+Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK)][java] Application Insights.
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installer l’agent Application Insights pour Java
 
@@ -95,7 +95,7 @@ Par défaut, `reportExecutionTime` est défini sur true, et `reportCaughtExcepti
 
 ## <a name="view-the-data"></a>Visualiser les données
 
-Dans la ressource Application Insights, les temps des dépendances distantes agrégées et d’exécution de la méthode apparaissent [dans la vignette Performances][métriques]. 
+Dans la ressource Application Insights, les temps des dépendances distantes agrégées et d’exécution de la méthode apparaissent [dans la vignette Performances][metrics]. 
 
 Pour rechercher des instances individuelles de rapports sur les dépendances, les exceptions et les méthodes, ouvrez [Rechercher][diagnostic]. 
 
@@ -126,6 +126,6 @@ Pour rechercher des instances individuelles de rapports sur les dépendances, le
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
