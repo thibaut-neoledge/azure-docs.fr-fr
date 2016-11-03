@@ -336,7 +336,7 @@ Les termes suivants seront utilisés dans le document :
 
 > [AZURE.NOTE] Les déploiements cloud uniquement dans ce document sont définis comme des paysages SAP complets, exécutés exclusivement dans Azure sans extension du répertoire Active Directory/OpenLDAP ou résolution de noms du site local au cloud public. Les configurations cloud uniquement ne sont pas prises en charge pour les configurations ou systèmes SAP de production dans lesquels des ressources SAP STMS ou d’autres ressources locales doivent être utilisées entre les systèmes SAP hébergés sur Azure et les ressources en local.
 
-* Intersite : décrit un scénario dans lequel les machines virtuelles sont déployées vers un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. La connexion a pour but d’étendre les domaines locaux, le répertoire Active Directory/OpenLDAP local et le DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. C’est le scénario que nous prévoyons pour le déploiement de la plupart des ressources SAP.  Pour en savoir plus, consultez [cet][vpn-gateway-cross-local-options] article et [ceci][vpn-gateway-site-to-site-create].
+* Intersite : décrit un scénario dans lequel les machines virtuelles sont déployées vers un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. La connexion a pour but d’étendre les domaines locaux, le répertoire Active Directory/OpenLDAP local et le DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. C’est le scénario que nous prévoyons pour le déploiement de la plupart des ressources SAP.  Pour en savoir plus, consultez [cet][vpn-gateway-cross-premises-options] article et [ceci][vpn-gateway-site-to-site-create].
 
 > [AZURE.NOTE] Les déploiements intersites de systèmes SAP dans lesquels des machines virtuelles Azure exécutant des systèmes SAP font partie d’un domaine local sont pris en charge pour les systèmes SAP de production. Les configurations intersites sont prises en charge pour le déploiement d’éléments ou de l’intégralité des paysages SAP dans Azure. Ces machines virtuelles doivent faire partie du domaine et du répertoire ADS/OpenLDAP locaux même lorsque l’intégralité du paysage SAP est exécutée dans Azure. Dans les versions précédentes de la documentation, nous avons parlé des scénarios hybrides, où le terme « hybride » tient au fait qu’il existe une connectivité intersite entre les sites locaux et Azure. Ici, « hybride » signifie également que les machines virtuelles dans Azure font partie du répertoire Active Directory/OpenLDAP local.
 
@@ -972,7 +972,7 @@ __Modèle__
 #### <a name="deployment-of-a-vm-image"></a>Déploiement d’une image de machine virtuelle
 Pour charger une machine virtuelle ou un disque dur virtuel à partir du réseau local afin de l’utiliser comme une image de machine virtuelle Azure, celle-ci ou celui-ci doit satisfaire aux exigences indiquées dans le chapitre [Préparation du déploiement d’une machine virtuelle avec une image spécifique du client pour SAP][planning-guide-5.2.2] dans ce document.
 
-* Utilisez _sysprep_ sous Windows ou _waagent -deprovision_ sous Linux afin de généraliser votre machine virtuelle - consultez [Comment capturer une machine virtuelle Windows dans le modèle de déploiement Resource Manager][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][virtual-machines-linux-capture-image-capture]
+* Utilisez _sysprep_ sous Windows ou _waagent -deprovision_ sous Linux afin de généraliser votre machine virtuelle - consultez [Comment capturer une machine virtuelle Windows dans le modèle de déploiement Resource Manager][Virtual-machines-Windows-capture-image-Prepare-the-VM-for-image-capture] ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][virtual-machines-linux-capture-image-capture]
 * Connectez-vous à votre abonnement en entrant _Login-AzureRmAccount_
 * Définissez l’abonnement de votre contexte en entrant _Set-AzureRmContext_ et le paramètre SubscriptionId ou SubscriptionName - consultez <https://msdn.microsoft.com/library/mt619263.aspx>
 * Chargez le disque dur virtuel avec _Add-AzureRmVhd_ dans un compte Azure Storage - consultez <https://msdn.microsoft.com/library/mt603554.aspx>
@@ -981,7 +981,7 @@ Pour charger une machine virtuelle ou un disque dur virtuel à partir du réseau
 
 __Interface de ligne de commande Azure__
 
-* Utilisez _sysprep_ sous Windows ou _waagent -deprovision_ sous Linux afin de généraliser votre machine virtuelle - consultez [Comment capturer une machine virtuelle Windows dans le modèle de déploiement Resource Manager][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][virtual-machines-linux-capture-image-capture] pour Linux
+* Utilisez _sysprep_ sous Windows ou _waagent -deprovision_ sous Linux afin de généraliser votre machine virtuelle - consultez [Comment capturer une machine virtuelle Windows dans le modèle de déploiement Resource Manager][Virtual-machines-Windows-capture-image-Prepare-the-VM-for-image-capture] ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][virtual-machines-linux-capture-image-capture] pour Linux
 * Basculez en mode Azure Resource Manager en entrant _azure config mode arm_
 * Connectez-vous à votre abonnement en entrant _azure login_
 * Sélectionnez votre abonnement en entrant _azure account set `<subscription name or id`>_
@@ -990,7 +990,7 @@ __Interface de ligne de commande Azure__
 
 __Modèle__
 
-* Utilisez _sysprep_ sous Windows ou _waagent -deprovision_ sous Linux afin de généraliser votre machine virtuelle - consultez [Comment capturer une machine virtuelle Windows dans le modèle de déploiement Resource Manager][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][virtual-machines-linux-capture-image-capture] pour Linux
+* Utilisez _sysprep_ sous Windows ou _waagent -deprovision_ sous Linux afin de généraliser votre machine virtuelle - consultez [Comment capturer une machine virtuelle Windows dans le modèle de déploiement Resource Manager][Virtual-machines-Windows-capture-image-Prepare-the-VM-for-image-capture] ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][virtual-machines-linux-capture-image-capture] pour Linux
 * Chargez le disque dur virtuel avec Powershell ou l’interface de ligne de commande Azure
 * Déployez la machine virtuelle avec un modèle JSON référençant l’image du disque dur virtuel, comme indiqué dans [cet exemple de modèle JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
 
@@ -1968,6 +1968,6 @@ Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 
 
 
-<!---HONumber=Oct16_HO2-->
+<!----HONumber=Oct16_HO2-->
 
 

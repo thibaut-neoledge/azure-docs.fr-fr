@@ -31,7 +31,7 @@ Ce didacticiel s’appuie sur l’article [Prise en main d’Azure IoT Hub]. Cet
 - Recevez des messages cloud-à-appareil sur un appareil.
 - À partir du back end de votre application, demandez l’accusé de réception (*commentaires*) pour les messages envoyés à un appareil depuis IoT Hub.
 
-Vous trouverez des informations supplémentaires sur les messages cloud-à-appareil dans le [Guide du développeur d’IoT Hub][[Guide du développeur d’IoT Hub - CD2].
+Vous trouverez des informations supplémentaires sur les messages cloud-à-appareil dans le [Guide du développeur d’IoT Hub][Guide du développeur d’IoT Hub - CD2].
 
 À la fin de ce didacticiel, vous exécuterez deux applications de console Node.js :
 
@@ -203,6 +203,6 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
 
-<!---HONumber=Oct16_HO2-->
+<!----HONumber=Oct16_HO2-->
 
 

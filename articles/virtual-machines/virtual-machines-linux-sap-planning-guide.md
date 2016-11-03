@@ -336,7 +336,7 @@ Les termes suivants seront utilisés dans le document :
 
 > [AZURE.NOTE] Les déploiements cloud uniquement dans ce document sont définis comme des paysages SAP complets, exécutés exclusivement dans Azure sans extension du répertoire Active Directory/OpenLDAP ou résolution de noms du site local au cloud public. Les configurations cloud uniquement ne sont pas prises en charge pour les configurations ou systèmes SAP de production dans lesquels des ressources SAP STMS ou d’autres ressources locales doivent être utilisées entre les systèmes SAP hébergés sur Azure et les ressources en local.
 
-* Intersite : décrit un scénario dans lequel les machines virtuelles sont déployées vers un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. La connexion a pour but d’étendre les domaines locaux, le répertoire Active Directory/OpenLDAP local et le DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. C’est le scénario que nous prévoyons pour le déploiement de la plupart des ressources SAP.  Pour en savoir plus, consultez [cet][vpn-gateway-cross-local-options] article et [ceci][vpn-gateway-site-to-site-create].
+* Intersite : décrit un scénario dans lequel les machines virtuelles sont déployées vers un abonnement Azure qui dispose d’une connectivité de site à site, multisite ou ExpressRoute entre les centres de données locaux et Azure. Dans la documentation Azure courante, ces types de déploiements sont également décrits comme des scénarios intersites. La connexion a pour but d’étendre les domaines locaux, le répertoire Active Directory/OpenLDAP local et le DNS local à Azure. Le paysage local est étendu aux ressources Azure de l’abonnement. Grâce à cette extension, les machines virtuelles peuvent faire partie du domaine local. Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. C’est le scénario que nous prévoyons pour le déploiement de la plupart des ressources SAP.  Pour en savoir plus, consultez [cet][vpn-gateway-cross-premises-options] article et [ceci][vpn-gateway-site-to-site-create].
 
 > [AZURE.NOTE] Les déploiements intersites de systèmes SAP dans lesquels des machines virtuelles Azure exécutant des systèmes SAP font partie d’un domaine local sont pris en charge pour les systèmes SAP de production. Les configurations intersites sont prises en charge pour le déploiement d’éléments ou de l’intégralité des paysages SAP dans Azure. Ces machines virtuelles doivent faire partie du domaine et du répertoire ADS/OpenLDAP locaux même lorsque l’intégralité du paysage SAP est exécutée dans Azure. Dans les versions précédentes de la documentation, nous avons parlé des scénarios hybrides, où le terme « hybride » tient au fait qu’il existe une connectivité intersite entre les sites locaux et Azure. Ici, « hybride » signifie également que les machines virtuelles dans Azure font partie du répertoire Active Directory/OpenLDAP local.
 
@@ -1199,7 +1199,7 @@ ___
 
 > ![ Windows][Logo_Windows] Windows
 >
-> [How to attach a data disk to a Linux VM in the Azure portal (Attachement d’un disque de données à une machine virtuelle Windows dans le portail Azure)][virtual-machines-windows-attach-disk-portal]
+> [How to attach a data disk to a Linux VM in the Azure portal (Attachement d’un disque de données à une machine virtuelle Windows dans le portail Azure)][virtual-machines-windows-tutorial]
 >
 > Si les disques sont attachés, vous devez vous connecter à la machine virtuelle pour ouvrir le Gestionnaire de disque Windows. Si le montage automatique n’est pas activé comme indiqué dans le chapitre [Paramétrage du montage automatique pour les disques attachés][planning-guide-5.5.3], le nouveau volume attaché doit être mis en ligne et initialisé.
 >
@@ -1967,6 +1967,6 @@ Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 
 
 
-<!---HONumber=Oct16_HO2-->
+<!----HONumber=Oct16_HO2-->
 
 
