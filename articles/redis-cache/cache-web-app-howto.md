@@ -51,7 +51,7 @@ Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez :
 * [Ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Même après que les crédits sont épuisés, vous pouvez conserver le compte et utiliser les services et fonctionnalités Azure gratuits.
 * [Activez les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-.net"></a>Visual Studio 2015 avec le Kit de développement logiciel (SDK) Azure pour .NET
+### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 avec le Kit de développement logiciel (SDK) Azure pour .NET
 
 Ce didacticiel a été rédigé pour Visual Studio 2015 avec le [Kit de développement logiciel (SDK) Azure pour .NET](../dotnet-sdk.md) version 2.8.2 ou ultérieure. [Cliquez ici pour télécharger la dernière version du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio est automatiquement installé avec le SDK si vous n’en disposez pas déjà.
 
@@ -73,7 +73,7 @@ Si vous utilisez Visual Studio 2013, vous pouvez [télécharger la dernière ver
 
 4. Cliquez sur **OK** pour créer le projet.
 
-## <a name="create-the-asp.net-mvc-application"></a>Créer l’application ASP.NET MVC
+## <a name="create-the-aspnet-mvc-application"></a>Créer l’application ASP.NET MVC
 
 Dans cette section du didacticiel, vous allez créer l’application de base qui lit et affiche les statistiques d’équipe à partir d’une base de données.
 
@@ -267,7 +267,7 @@ Dans cette section du didacticiel, vous allez configurer l’exemple d’applica
 -   [Mettre à jour la vue Teams Index pour utiliser le cache](#update-the-teams-index-view-to-work-with-the-cache)
 
 
-### <a name="configure-the-application-to-use-stackexchange.redis"></a>Configurer l’application pour utiliser StackExchange.Redis
+### <a name="configure-the-application-to-use-stackexchangeredis"></a>Configurer l’application pour utiliser StackExchange.Redis
 
 1. Pour configurer une application cliente dans Visual Studio avec le package NuGet StackExchange.Redis, cliquez avec le bouton droit sur le projet dans l’**Explorateur de solutions** et choisissez **Gérer les packages NuGet**. 
 
@@ -551,7 +551,7 @@ Dans cet exemple, les statistiques d’équipe peuvent être récupérées à pa
         }
 
 
-### <a name="update-the-create,-edit,-and-delete-methods-to-work-with-the-cache"></a>Mettre à jour les méthodes Create, Edit et Delete pour utiliser le cache
+### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Mettre à jour les méthodes Create, Edit et Delete pour utiliser le cache
 
 Le code de génération de modèles automatique qui a été généré dans le cadre de cet exemple inclut des méthodes permettant d’ajouter, modifier et supprimer des équipes. Chaque fois qu’une équipe est ajoutée, modifiée ou supprimée, les données dans le cache deviennent obsolètes. Dans cette section, vous allez modifier ces trois méthodes pour effacer les équipes en cache, de sorte que le cache ne soit pas désynchronisé avec la base de données.
 
@@ -853,6 +853,6 @@ Une fois que vous avez sélectionné ou créé le cache à utiliser, accédez au
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO1-->
 
 

@@ -45,7 +45,7 @@ Ce module est le point de départ pour transférer des données depuis des péri
 
 > [AZURE.NOTE] Le module appelé **Protocol X ingestion** dans le diagramme ci-dessus est appelé **Simulated device** dans le code source.
 
-### <a name="mac-&lt;-&gt;-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID module
+### <a name="mac-ltgt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID module
 
 Ce module recherche les messages qui incluent une propriété contenant l'adresse MAC, ajoutée par le module d'ingestion de protocole, de l’appareil simulé. Si le module détecte une telle propriété, il ajoute une autre propriété avec une clé d’appareil IoT Hub au message, puis rend le message disponible au module suivant dans la chaîne. Voici comment l'exemple associe les identités des appareils IoT Hub aux appareils simulés. Le développeur configure manuellement le mappage entre les adresses MAC et les identités IoT Hub dans le cadre de la configuration du module. 
 

@@ -123,7 +123,7 @@ Si vous avez un coffre de clés existant, vous pouvez l’activer pour le déplo
 
 Les certificats sont utilisés dans Service Fabric à des fins d’authentification et de chiffrement pour sécuriser les divers aspects d’un cluster et de ses applications. Pour plus d’informations sur l’utilisation de certificats dans Service Fabric, consultez l’article [Scénarios de sécurité d’un cluster Service Fabric][service-fabric-cluster-security].
 
-### <a name="cluster-and-server-certificate-(required)"></a>Certificat de cluster et de serveur (obligatoire) 
+### <a name="cluster-and-server-certificate-required"></a>Certificat de cluster et de serveur (obligatoire) 
 
 Ce certificat est nécessaire pour sécuriser un cluster et empêcher un accès non autorisé à ce dernier. Il assure la sécurité du cluster de différentes manières :
  
@@ -136,7 +136,7 @@ Pour cela, le certificat doit répondre aux exigences suivantes :
  - Le certificat doit être créé pour l'échange de clés et pouvoir faire l'objet d'un export au format Personal Information Exchange (.pfx).
  - Le nom d'objet du certificat doit correspondre au domaine servant à accéder au cluster Service Fabric. Cela est nécessaire pour la fourniture de SSL pour les points de terminaison de gestion HTTPS du cluster et Service Fabric Explorer. Vous ne pouvez pas obtenir de certificat SSL auprès d'une autorité de certification pour le domaine `.cloudapp.azure.com` . Vous devez obtenir un nom de domaine personnalisé pour votre cluster. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom d’objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour votre cluster.
 
-### <a name="application-certificates-(optional)"></a>Certificats d’application (facultatif)
+### <a name="application-certificates-optional"></a>Certificats d’application (facultatif)
 
 Un nombre quelconque de certificats supplémentaires peut être installé sur un cluster pour sécuriser une application. Avant de créer votre cluster, examinez les scénarios de sécurité d’application qui nécessitent l’installation d’un certificat sur les nœuds, notamment :
 
@@ -288,7 +288,7 @@ Chaque certificat qui doit être installé dans le cluster doit être configuré
 
 Le certificat d’authentification de cluster doit également être configuré dans la ressource de cluster Service Fabric (Microsoft.ServiceFabric/clusters) et l’extension de Service Fabric pour VMSS dans la ressource VMSS. Cela permet au fournisseur de ressources de Service Fabric de le configurer pour l’authentification du cluster et l’authentification du serveur pour les points de terminaison de gestion.
 
-##### <a name="vmss-resource:"></a>Ressource VMSS :
+##### <a name="vmss-resource"></a>Ressource VMSS :
 
 ```json
 {
@@ -321,7 +321,7 @@ Le certificat d’authentification de cluster doit également être configuré d
 }
 ```
 
-##### <a name="service-fabric-resource:"></a>Ressource Service Fabric :
+##### <a name="service-fabric-resource"></a>Ressource Service Fabric :
 
 ```json
 {
@@ -368,7 +368,7 @@ La configuration AAD créée précédemment peut être insérée directement dan
 }
 ```
 
-### <a name="<a-"configure-arm"-></a>configure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Configuration des paramètres de modèle Resource Manager
+### <a name="a-configurearm-aconfigure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Configuration des paramètres de modèle Resource Manager
 
 Enfin, utilisez les valeurs de sortie du coffre de clés et les commandes PowerShell AAD pour renseigner le fichier de paramètres :
 
@@ -538,7 +538,7 @@ Aucun rôle n’a été affecté à l’utilisateur dans l’application AAD en 
 
 Suivez les instructions de configuration d’AAD et attribuez des rôles utilisateur. Nous recommandons d’activer l’option « AFFECTATION DE L’UTILISATEUR REQUISE POUR ACCÉDER À L’APPLICATION », comme sur `SetupApplications.ps1`.
 
-### <a name="connect-with-powershell-fails-with-error:-the-specified-credentials-are-invalid"></a>La connexion avec PowerShell échoue avec une erreur indiquant que les informations d’identification spécifiées ne sont pas valides
+### <a name="connect-with-powershell-fails-with-error-the-specified-credentials-are-invalid"></a>La connexion avec PowerShell échoue avec une erreur indiquant que les informations d’identification spécifiées ne sont pas valides
 
 #### <a name="problem"></a>Problème
 
@@ -548,7 +548,7 @@ Lorsque vous utilisez PowerShell pour vous connecter au cluster à l’aide du m
 
 Identique à ce qui précède.
 
-### <a name="service-fabric-explorer-signing-in-return-failure:-aadsts50011"></a>Échec de la connexion à Service Fabric Explorer : AADSTS50011
+### <a name="service-fabric-explorer-signing-in-return-failure-aadsts50011"></a>Échec de la connexion à Service Fabric Explorer : AADSTS50011
 
 #### <a name="problem"></a>Problème
 
@@ -566,17 +566,17 @@ Ajoutez l’URL de Service Fabric Explorer à la liste « REPLY URL » dans l’
 
 ![URL de réponse d’application web][web-application-reply-url]
 
-### <a name="can-i-reuse-the-same-aad-tenant-for-multiple-clusters?"></a>Puis-je utiliser le même client AAD pour plusieurs clusters ?
+### <a name="can-i-reuse-the-same-aad-tenant-for-multiple-clusters"></a>Puis-je utiliser le même client AAD pour plusieurs clusters ?
 
 #### <a name="answer"></a>Réponse
 
 Oui. Mais n’oubliez pas d’ajouter l’URL de Service Fabric Explorer à votre application cluster (web). Dans le cas contraire, Service Fabric Explorer ne fonctionnera pas.
 
-### <a name="why-do-i-still-need-server-certificate-while-aad-enabled?"></a>Pourquoi dois-je disposer d’un certificat de serveur lorsqu’AAD est activé ?
+### <a name="why-do-i-still-need-server-certificate-while-aad-enabled"></a>Pourquoi dois-je disposer d’un certificat de serveur lorsqu’AAD est activé ?
 
 #### <a name="answer"></a>Réponse
 
-FabricClient et FabricGateway effectuent une authentification mutuelle. En cas d’authentification AAD, l’intégration AAD fournit l’identité du client au serveur et le certificat de serveur est utilisé pour vérifier l’identité du serveur. Pour plus d’informations sur le fonctionnement du certificat dans Service Fabric, consultez [Certificats X.509 et Service Fabric][x509-certificats-and-service-fabric]
+FabricClient et FabricGateway effectuent une authentification mutuelle. En cas d’authentification AAD, l’intégration AAD fournit l’identité du client au serveur et le certificat de serveur est utilisé pour vérifier l’identité du serveur. Pour plus d’informations sur le fonctionnement du certificat dans Service Fabric, consultez [Certificats X.509 et Service Fabric][x509-certificates-and-service-fabric]
 
 <!-- Links -->
 [azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
@@ -604,6 +604,6 @@ FabricClient et FabricGateway effectuent une authentification mutuelle. En cas d
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO2--->
 
 

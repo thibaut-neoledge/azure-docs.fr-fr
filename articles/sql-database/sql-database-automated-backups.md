@@ -18,21 +18,8 @@
 
 
 
-
-<!-- # H1 Title
-
- H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
--->
-
 # <a name="learn-about-sql-database-backups"></a>Découvrir les sauvegardes SQL Database
 
-<!-- Introduction
-
-1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
-2. Sentence #2 explains the key capability or selling point of the feature.
-3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
-
--->
 
 SQL Database crée une sauvegarde de base de données locale toutes les cinq minutes et utilise le stockage géoredondant avec accès en lecture (RA-GRS) d’Azure pour copier certaines des sauvegardes de base de données dans une autre région géographique. Ces sauvegardes se font **automatiquement et sans frais supplémentaires**. Utilisez les sauvegardes de base de données locales pour [restaurer une base de données à une version antérieure](sql-database-point-in-time-restore-portal.md) sur le même serveur. Utilisez des sauvegardes géoredondantes pour [restaurer la base de données dans une autre région géographique](sql-database-geo-restore-portal.md).  
 
@@ -101,6 +88,6 @@ Les sauvegardes de base de données sont une partie essentielle de toute straté
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

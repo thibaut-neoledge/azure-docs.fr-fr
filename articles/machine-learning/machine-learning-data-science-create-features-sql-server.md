@@ -23,7 +23,8 @@
 
 Ce document montre comment générer des fonctionnalités pour des données stockées dans une machine virtuelle SQL Server sur Azure qui aident les algorithmes à apprendre efficacement à partir des données. Vous pouvez utiliser SQL ou un langage de programmation comme Python, les deux approches étant illustrées ici.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 > [AZURE.NOTE] Pour découvrir un exemple pratique, vous pouvez consulter le [jeu de données NYC Taxi](http://www.andresmh.com/nyctaxitrips/) et vous reporter au bloc-notes IPython intitulé [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Retraitement des données de New-York City à l’aide de Notebook IPython et de SQL Server) pour connaître la procédure pas à pas.
 
@@ -35,7 +36,7 @@ Cet article suppose que vous avez :
 * Stocké vos données dans SQL Server. Si ce n’est pas le cas, consultez [Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) pour obtenir des instructions sur la façon d’y déplacer des données.
 
 
-## <a name="<a-name="sql-featuregen"></a>feature-generation-with-sql"></a><a name="sql-featuregen"></a>Génération de fonctionnalités avec SQL
+## <a name="a-namesqlfeaturegenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>Génération de fonctionnalités avec SQL
 
 Dans cette section, nous décrivons plusieurs manières de générer des fonctionnalités via SQL :  
 
@@ -46,7 +47,7 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 
 > [AZURE.NOTE] Une fois que vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous forme de colonnes à la table existante, soit créer une autre table avec les fonctionnalités supplémentaires et la clé primaire que vous pouvez joindre à la table d’origine.
 
-### <a name="<a-name="sql-countfeature"></a>count-based-feature-generation"></a><a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
+### <a name="a-namesqlcountfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
 
 Ce document décrit deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces dernières à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
 
@@ -55,14 +56,14 @@ Ce document décrit deux manières de générer des fonctionnalités utilisant d
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="<a-name="sql-binningfeature"></a>binning-feature-generation"></a><a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
+### <a name="a-namesqlbinningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
 
 L’exemple ci-dessous illustre comment générer des fonctionnalités compartimentées en divisant (à l’aide de 5 emplacements) une colonne numérique qui peut être plutôt utilisée sous la forme d’une fonctionnalité :
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="<a-name="sql-featurerollout"></a>rolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
+### <a name="a-namesqlfeaturerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
 
 Dans cette section, nous décrivons comment déployer une seule colonne dans une table afin de générer des fonctionnalités supplémentaires. Cet exemple présuppose l’existence d’une colonne de latitude ou de longitude dans la table à partir de laquelle vous essayez de générer des fonctionnalités.
 
@@ -98,13 +99,13 @@ Vous pouvez en outre exploiter les fonctionnalités ci-dessus basées sur l’em
 > [AZURE.TIP] Vous pouvez insérer les enregistrements par programme en utilisant la langue de votre choix. Vous pouvez avoir besoin d’insérer les données dans des blocs afin d’améliorer l’efficacité des écritures [Pour consulter l’exemple décrivant la procédure à suivre, cliquez ici](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 Une autre solution consiste à insérer les données dans la base de données à l’aide de l’ [utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 
-### <a name="<a-name="sql-aml"></a>connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connexion à Azure Machine Learning
+### <a name="a-namesqlamlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connexion à Azure Machine Learning
 
 La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) dans Azure Machine Learning comme expliqué ci-dessous :
 
 ![lecteurs azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="<a-name="python"></a>using-a-programming-language-like-python"></a><a name="python"></a>Utilisation d’un langage de programmation tel que Python
+## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Utilisation d’un langage de programmation tel que Python
 
 L’utilisation de Python pour générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python comme expliqué dans [Traiter les données Azure Blob dans votre environnement de science des données](machine-learning-data-science-process-data-blob.md). Les données doivent être chargées à partir de la base de données dans une trame de données pandas, puis faire l’objet d’un traitement complémentaire. Nous décrivons dans cette section le processus de connexion à la base de données et de chargement des données dans la trame de données.
 
@@ -123,6 +124,6 @@ Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

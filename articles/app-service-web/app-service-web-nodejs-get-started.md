@@ -17,7 +17,7 @@
     ms.author="cephalin"/>
 
 
-# <a name="get-started-with-node.js-web-apps-in-azure-app-service"></a>Prise en main des applications web Node.js dans Azure App Service
+# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Prise en main des applications web Node.js dans Azure App Service
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -35,7 +35,7 @@ Ce didacticiel explique comment créer une application [Node.js] simple et la d�
 - [Interface de ligne de commande Azure]
 - Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit] ou [activer les avantages de votre abonnement Visual Studio].
 
-## <a name="create-and-deploy-a-simple-node.js-web-app"></a>Création et déploiement d’une application Node.js simple
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Création et déploiement d’une application Node.js simple
 
 1. Ouvrez le terminal de ligne de commande de votre choix et installez le [générateur Express pour Yeoman].
 
@@ -108,11 +108,11 @@ Ce didacticiel explique comment créer une application [Node.js] simple et la d�
     
     ![Exemple d’accès à l’application déployée.][deployed-express-app]
 
-## <a name="update-your-node.js-web-app"></a>Mise à jour de votre application web Node.js
+## <a name="update-your-nodejs-web-app"></a>Mise à jour de votre application web Node.js
 
 Pour mettre à jour votre application web Node.js dans App Service, il vous suffit d’exécuter `git add`, `git commit` et `git push` comme vous l’avez fait lors du premier déploiement de votre application web.
      
-## <a name="how-app-service-deploys-your-node.js-app"></a>Comment le App Service déploie votre application Node.js
+## <a name="how-app-service-deploys-your-nodejs-app"></a>Comment le App Service déploie votre application Node.js
 
 Azure App Service utilise [iisnode] pour exécuter les applications Node.js. L’interface de ligne de commande (CLI) d’Azure et le moteur Kudu (déploiement Git) fonctionnent en parallèle afin de simplifier votre travail de développement et de déploiement d’applications Node.js à partir de la ligne de commande. 
 
@@ -123,7 +123,7 @@ Azure App Service utilise [iisnode] pour exécuter les applications Node.js. L�
     - Générez un fichier Web.config pour iisnode, qui pointe vers votre script de démarrage dans le fichier package.json (par exemple, server.js ou app.js).
     - Personnalisez le fichier Web.config pour préparer votre application au débogage avec Node Inspector.
     
-## <a name="use-a-node.js-framework"></a>Utilisation d’une infrastructure Node.js
+## <a name="use-a-nodejs-framework"></a>Utilisation d’une infrastructure Node.js
 
 Si vous utilisez une infrastructure Node.js répandue, telle que [Sails.js][SAILSJS] ou [MEAN.js][MEANJS] pour développer des applications, vous pouvez les déployer dans App Service. Les infrastructures Node.js les plus populaires ont des particularités bien spécifiques et leurs dépendances de package sont constamment mises à jour. Avec App Service, cependant, les journaux stdout et stderr sont mis à votre disposition afin que vous sachiez exactement ce qui se passe au niveau de votre application et que vous puissiez apporter les modifications nécessaires. Pour plus d’informations, consultez [Obtenir des journaux stdout et stderr à partir d’iisnode](#iisnodelog).
 
@@ -134,7 +134,7 @@ Consultez les didacticiels suivant pour savoir comment utiliser une infrastructu
 - [Utilisation de io.js avec Azure App Service Web Apps]
 
 <a name="version"></a>
-## <a name="use-a-specific-node.js-engine"></a>Utilisation d’un moteur Node.js spécifique
+## <a name="use-a-specific-nodejs-engine"></a>Utilisation d’un moteur Node.js spécifique
 
 Dans votre flux de travail classique, vous demandez à App Service d’utiliser un moteur Node.js spécifique de la même manière que dans le fichier package.json.
 Par exemple :
@@ -193,7 +193,7 @@ Pour lire les journaux iisnode, suivez les étapes ci-après.
     
     ![Examen d’un fichier journal iisnode.][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-node-inspector"></a>Débogage de votre application avec Node-Inspector
+## <a name="debug-your-app-with-nodeinspector"></a>Débogage de votre application avec Node-Inspector
 
 Si vous utilisez Node-Inspector pour déboguer vos applications Node.js, vous pouvez l’utiliser pour votre application App Service active. Node-Inspector est préinstallé avec l’installation d’iisnode pour App Service. Si vous utilisez Git pour le déploiement, le fichier Web.config généré automatiquement à partir de Kudu contient déjà toute la configuration dont vous avez besoin pour activer Node-Inspector.
 
@@ -258,6 +258,6 @@ Pour activer Node-Inspector, procédez comme suit :
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO1-->
 
 

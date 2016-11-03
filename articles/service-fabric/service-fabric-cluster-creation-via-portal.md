@@ -125,7 +125,7 @@ Si vous avez un coffre de clés existant, vous pouvez l’activer pour le déplo
 
 Les certificats sont utilisés dans Service Fabric à des fins d’authentification et de chiffrement pour sécuriser les divers aspects d’un cluster et de ses applications. Pour plus d’informations sur l’utilisation de certificats dans Service Fabric, consultez l’article [Scénarios de sécurité d’un cluster Service Fabric][service-fabric-cluster-security].
 
-### <a name="cluster-and-server-certificate-(required)"></a>Certificat de cluster et de serveur (obligatoire) 
+### <a name="cluster-and-server-certificate-required"></a>Certificat de cluster et de serveur (obligatoire) 
 
 Ce certificat est nécessaire pour sécuriser un cluster et empêcher un accès non autorisé à ce dernier. Il assure la sécurité du cluster de différentes manières :
  
@@ -146,7 +146,7 @@ Vous n’avez pas besoin de charger les certificats d’authentification client 
 
 >[AZURE.NOTE] Azure Active Directory est la méthode recommandée pour authentifier les clients pour des opérations de gestion de cluster. Pour utiliser Azure Active Directory, vous devez [créer un cluster à l’aide d’Azure Resource Manager][create-cluster-arm].
 
-### <a name="application-certificates-(optional)"></a>Certificats d’application (facultatif)
+### <a name="application-certificates-optional"></a>Certificats d’application (facultatif)
 
 Un nombre quelconque de certificats supplémentaires peut être installé sur un cluster pour sécuriser une application. Avant de créer votre cluster, examinez les scénarios de sécurité d’application qui nécessitent l’installation d’un certificat sur les nœuds, notamment :
 
@@ -215,7 +215,7 @@ Il s’agit de toutes les conditions préalables de Key Vault pour la configurat
 
  5. Le panneau **Créer un cluster Service Fabric** inclut les quatre étapes suivantes.
 
-#### <a name="1.-basics"></a>1. Concepts de base
+#### <a name="1-basics"></a>1. Concepts de base
 
 ![Capture d’écran de la création d’un groupe de ressources.][CreateRG]
 
@@ -233,7 +233,7 @@ Dans le volet De base, vous devez fournir les informations de base de votre clus
 
  5. Sélectionnez la **région** dans laquelle vous souhaitez créer le cluster. Vous devez utiliser la région de votre coffre de clés.
 
-#### <a name="2.-cluster-configuration"></a>2. Configuration de clusters
+#### <a name="2-cluster-configuration"></a>2. Configuration de clusters
 
 ![Création d’un type de nœud][CreateNodeType]
 
@@ -260,7 +260,7 @@ Configurez vos nœuds de cluster. Les types de nœuds définissent les tailles d
 >[AZURE.NOTE] Nous prenons uniquement en charge les clusters qui exécutent des versions prises en charge de Service Fabric. Si vous sélectionnez le mode **Manuel** , vous êtes responsable de la mise à niveau de votre cluster vers une version prise en charge. Pour en savoir plus sur le mode de mise à niveau de Service Fabric, consultez le document [service-fabric-cluster-upgrade][service-fabric-cluster-upgrade].
 
 
-#### <a name="3.-security"></a>3. Sécurité
+#### <a name="3-security"></a>3. Sécurité
 
 ![Capture d’écran des configurations de sécurité sur le portail Azure.][SecurityConfigs]
 
@@ -283,7 +283,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 - Activez la case **Configurer les paramètres avancés** pour saisir les certificats clients pour le **Client d’administration** et le **Client en lecture seule**. Dans ces champs, saisissez l’empreinte de votre certificat de client d’administration et l’empreinte de votre certificat de client en lecture seule, le cas échéant. Lorsque les administrateurs tentent de se connecter au cluster, ils se voient attribuer l’accès uniquement s’ils disposent d’un certificat avec une empreinte qui correspond aux valeurs entrées ici.  
 
 
-#### <a name="4.-summary"></a>4. Résumé
+#### <a name="4-summary"></a>4. Résumé
 
 ![Capture d’écran du Tableau d’accueil affichant « Déploiement du cluster Service Fabric ». ][Notifications]
 

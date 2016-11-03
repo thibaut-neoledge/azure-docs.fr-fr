@@ -17,11 +17,11 @@
  ms.author="elioda"/>
 
 
-# <a name="reference---query-language-for-twins-and-jobs"></a>Référence - Langage de requête pour les représentations et les travaux
+# <a name="reference-query-language-for-twins-and-jobs"></a>Référence - Langage de requête pour les représentations et les travaux
 
 ## <a name="overview"></a>Vue d'ensemble
 
-IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [représentations d’appareil][lnk-jumeaux] et les [travaux][lnk-jobs]. Cet article présente les éléments suivants :
+IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [représentations d’appareil][lnk-twins] et les [travaux][lnk-jobs]. Cet article présente les éléments suivants :
 
 * une introduction aux principales fonctionnalités du langage de requête d’IoT Hub ;
 * la description détaillée du langage.
@@ -120,7 +120,7 @@ retourne le nombre d’appareils dans chaque état de configuration de télémé
 
 L’exemple ci-dessus illustre une situation où trois appareils ont signalé une configuration réussie, deux d’entre eux appliquant toujours la configuration et le troisième ayant signalé une erreur.
 
-### <a name="c#-example"></a>Exemple en code C#
+### <a name="c-example"></a>Exemple en code C#
 
 La fonctionnalité de requête est exposée par le [Kit de développement logiciel (SDK)du service C#][lnk-hub-sdks] dans la classe **RegistryManager**.
 Voici un exemple de requête simple :
@@ -369,6 +369,6 @@ Découvrez comment exécuter des requêtes dans vos applications à l’aide des
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

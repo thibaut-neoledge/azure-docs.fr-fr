@@ -17,7 +17,7 @@
      ms.author="dobett"/>
 
 
-# <a name="tutorial:-how-to-process-iot-hub-device-to-cloud-messages-using-.net"></a>Didacticiel : traiter les messages des appareils vers le cloud IoT Hub à l’aide de .Net
+# <a name="tutorial-how-to-process-iot-hub-devicetocloud-messages-using-net"></a>Didacticiel : traiter les messages des appareils vers le cloud IoT Hub à l’aide de .Net
 
 [AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -96,7 +96,7 @@ Dans cette section, vous modifiez l’application de l’appareil simulé que vo
 
     > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling](Gestion des erreurs temporaires).
 
-## <a name="process-device-to-cloud-messages"></a>Traitement des messages appareil-à-cloud
+## <a name="process-devicetocloud-messages"></a>Traitement des messages appareil-à-cloud
 
 Dans cette section, vous créez une application de console Windows qui traite les messages appareil-à-cloud à partir d’IoT Hub. IoT Hub expose un point de terminaison compatible avec [Event Hubs]pour permettre à une application de lire les messages appareil-à-cloud. Ce didacticiel utilise la classe [EventProcessorHost] pour traiter ces messages dans une application de console. Pour plus d’informations sur la façon de traiter les messages à partir des concentrateurs d’événements, reportez-vous au didacticiel [Prise en main des concentrateurs d’événements] .
 
@@ -119,7 +119,7 @@ Pour utiliser la classe [EventProcessorHost] , vous devez disposer d’un compte
 
 > [AZURE.NOTE] Lorsque vous copiez et collez la chaîne de connexion du compte de stockage, assurez-vous que la chaîne de connexion ne contient aucun espace.
 
-Vous avez également besoin d’une file d’attente Service Bus pour permettre un traitement fiable des messages interactifs. Vous pouvez créer une file d’attente par programmation avec une fenêtre de déduplication de 1 heure, comme expliqué dans [Prise en main des files d’attente Service Bus][file d’attente Azure Service Bus]. Vous pouvez également utiliser le [portail Azure Classic][lnk-classic-portal], en procédant comme suit :
+Vous avez également besoin d’une file d’attente Service Bus pour permettre un traitement fiable des messages interactifs. Vous pouvez créer une file d’attente par programmation avec une fenêtre de déduplication de 1 heure, comme expliqué dans [Prise en main des files d’attente Service Bus][file d’attente Azure Service Bus]. Vous pouvez également utiliser le [portail Azure Classic][portail classique d’un lien], en procédant comme suit :
 
 1. Cliquez sur **Nouveau** dans l’angle inférieur gauche. Cliquez ensuite sur **App Services** > **Service Bus** > **File d’attente** > **Création personnalisée**. Entrez le nom **d2ctutorial**, sélectionnez une région et utilisez un espace de noms existant ou créez-en un. Dans la page suivante, sélectionnez **Activer la détection des doublons**, puis définissez la **fenêtre d’heures de l’historique des détections dupliquées** sur une heure. Cliquez ensuite sur la coche dans l’angle inférieur droit pour enregistrer la configuration de votre file d’attente.
 
@@ -451,6 +451,6 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!----HONumber=Oct16_HO2-->
 
 

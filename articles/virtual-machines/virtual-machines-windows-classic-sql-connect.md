@@ -16,7 +16,7 @@
     ms.author="jroth" />
 
 
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-(classic-deployment)"></a>Connexion à une machine virtuelle SQL Server dans Azure (déploiement classique)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Connexion à une machine virtuelle SQL Server dans Azure (déploiement classique)
 
 > [AZURE.SELECTOR]
 - [Gestionnaire de ressources](virtual-machines-windows-sql-connect.md)

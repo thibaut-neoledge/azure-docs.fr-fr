@@ -38,7 +38,7 @@ La messagerie est une capacité fondamentale d’IoT Hub. Utilisez-la chaque foi
 
 Pour une comparaison des services IoT Hub et Event Hubs, voir [Comparaison entre IoT Hub et Event Hubs][lnk-compare].
 
-## <a name="device-to-cloud-messages"></a>Messages Appareil vers cloud
+## <a name="devicetocloud-messages"></a>Messages Appareil vers cloud
 
 Vous envoyez des messages appareil-à-cloud via un point de terminaison côté appareil (**/devices/{deviceId}/messages/events**). Votre service principal reçoit des messages appareil-à-cloud via un point de terminaison côté service web (**/messages/events**) qui est compatible avec [Event Hubs][lnk-event-hubs]. Par conséquent, vous pouvez utiliser une [intégration et des Kits de développement logiciel (SDK) Event Hubs][lnk-compatible-endpoint] standard pour recevoir des messages appareil-à-cloud.
 
@@ -64,13 +64,13 @@ Pour plus d’informations sur la façon d’utiliser la messagerie appareil-à-
 
 > [AZURE.NOTE] Si vous utilisez HTTP pour envoyer des messages appareil vers cloud, les valeurs et les noms de propriétés ne peuvent contenir que des caractères alphanumériques ASCII plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
-### <a name="non-telemetry-traffic"></a>Trafic autre que la télémétrie
+### <a name="nontelemetry-traffic"></a>Trafic autre que la télémétrie
 
 Souvent, outre les points de données de télémétrie, les appareils envoient également des messages et demandes qui nécessitent une exécution et une gestion au niveau de la couche de logique métier d’application. Il s’agit, par exemple, des alertes critiques qui doivent déclencher une action spécifique au niveau du serveur principal, ou encore des réponses de l’appareil aux commandes envoyées par le serveur principal.
 
 Pour plus d’informations sur la meilleure façon de traiter ce type de message, voir [Didacticiel : traiter les messages des appareils vers le cloud IoT Hub][lnk-d2c-tutorial].
 
-### <a name="device-to-cloud-configuration-options"></a>Options de configuration appareil-à-cloud
+### <a name="devicetocloud-configuration-options"></a>Options de configuration appareil-à-cloud
 
 Un hub IoT expose les propriétés suivantes pour vous permettre de contrôler les messages appareil-à-cloud.
 
@@ -81,7 +81,7 @@ Un hub IoT expose les propriétés suivantes pour vous permettre de contrôler 
 
 Toutes les propriétés ci-dessus peuvent être modifiées par programme via [Azure IoT Hub - API de fournisseur de ressources][lnk-resource-provider-apis], ou via le [portail Azure][lnk-management-portal].
 
-### <a name="anti-spoofing-properties"></a>Propriétés de détection d’usurpation d’identité
+### <a name="antispoofing-properties"></a>Propriétés de détection d’usurpation d’identité
 
 Pour éviter l’usurpation d’appareil dans les messages appareil-à-cloud, IoT Hub marque tous les messages avec les propriétés suivantes :
 
@@ -101,7 +101,7 @@ La propriété **ConnectionAuthMethod** contient un objet sérialisé JSON avec 
 }
 ```
 
-## <a name="cloud-to-device-messages"></a>Messages Cloud vers appareil
+## <a name="cloudtodevice-messages"></a>Messages Cloud vers appareil
 
 Vous envoyez les messages cloud-à-appareil via un point de terminaison côté service (**/messages/devicebound**). Un appareil les reçoit via un point de terminaison spécifique de l’appareil (**/devices/{deviceId}/messages/devicebound**).
 
@@ -134,7 +134,7 @@ Pour accéder à des instructions sur les messages cloud-à-appareil, voir [Dida
 
 > [AZURE.NOTE] Généralement, les messages cloud-à-appareil sont achevés à chaque fois que la perte du message n’affecte pas la logique d’application. Par exemple, le contenu du message a bien été conservé dans le stockage local ou une opération a été exécutée avec succès. Le message peut également transporter des informations temporaires, dont la perte n’aurait aucun impact sur les fonctionnalités de l’application. Parfois, pour les tâches longues, vous pouvez terminer le message cloud vers appareil après la conservation de la description de la tâche dans le stockage local. Vous pouvez ensuite notifier le serveur principal d’applications à l’aide d’un ou de plusieurs messages appareil vers cloud à différents stades de la progression de la tâche.
 
-### <a name="message-expiration-(time-to-live)"></a>Expiration du message (durée de vie)
+### <a name="message-expiration-time-to-live"></a>Expiration du message (durée de vie)
 
 Chaque message cloud-à-appareil est doté d’un délai d’expiration. Cette durée est définie soit par le service (dans la propriété **ExpiryTimeUtc** ), soit par IoT Hub avec la *durée de vie* par défaut spécifiée en tant que propriété IoT Hub. Voir [Options de configuration cloud-à-appareil ][lnk-c2d-configuration].
 
@@ -191,7 +191,7 @@ L’exemple suivant montre le corps d’un message de commentaire.
 ]
 ```
 
-### <a name="cloud-to-device-configuration-options"></a>Options de configuration cloud-à-appareil
+### <a name="cloudtodevice-configuration-options"></a>Options de configuration cloud-à-appareil
 
 Chaque IoT Hub expose les options de configuration suivantes pour la messagerie Cloud vers appareil.
 
@@ -204,7 +204,7 @@ Chaque IoT Hub expose les options de configuration suivantes pour la messagerie 
 
 Pour plus d’informations, voir [créer des IoT Hubs][lnk-portal].
 
-## <a name="read-device-to-cloud-messages"></a>Lires les messages appareil-à-cloud
+## <a name="read-devicetocloud-messages"></a>Lires les messages appareil-à-cloud
 
 IoT Hub expose un point de terminaison pour permettre aux services de votre serveur principal de lire les messages appareil-à-cloud que reçoit votre concentrateur. Le point de terminaison est compatible avec Event Hubs, ce qui vous permet d’utiliser tout mécanisme pris en charge par le service Event Hubs pour la lecture des messages.
 

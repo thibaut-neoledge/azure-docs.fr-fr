@@ -21,7 +21,8 @@
 
 Ce document montre comment créer des fonctionnalités pour les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/) . Après avoir décrit le chargement des données dans une trame de données Pandas, il montre comment générer des fonctionnalités catégorielles à l’aide de scripts Python avec des valeurs d’indicateur et des caractéristiques de compartimentage.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] 
+Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## <a name="prerequisites"></a>Composants requis
@@ -58,11 +59,11 @@ Pour explorer et manipuler un jeu de données, celui-ci doit être téléchargé
 
 Vous êtes maintenant prêt à explorer les données et à générer des fonctionnalités sur cet ensemble de données.
 
-##<a name="<a-name="blob-featuregen"></a>feature-generation"></a><a name="blob-featuregen"></a>Génération de fonctionnalités
+##<a name="a-nameblobfeaturegenafeature-generation"></a><a name="blob-featuregen"></a>Génération de fonctionnalités
 
 Les deux sections suivantes indiquent comment générer des fonctionnalités catégorielles avec des valeurs d’indicateur et des caractéristiques de compartimentage à l’aide de scripts Python.
 
-###<a name="<a-name="blob-countfeature"></a>indicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Génération de caractéristiques à partir de valeurs d’indicateur
+###<a name="a-nameblobcountfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Génération de caractéristiques à partir de valeurs d’indicateur
 
 Pour créer des caractéristiques de catégorie, procédez comme suit :
 
@@ -85,7 +86,7 @@ Pour créer des caractéristiques de catégorie, procédez comme suit :
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-###<a name="<a-name="blob-binningfeature"></a>binning-feature-generation"></a><a name="blob-binningfeature"></a>Génération de caractéristiques de compartimentage
+###<a name="a-nameblobbinningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Génération de caractéristiques de compartimentage
 
 Pour générer des fonctionnalités compartimentées, procédez comme suit :
 
@@ -102,7 +103,7 @@ Pour générer des fonctionnalités compartimentées, procédez comme suit :
 
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-##<a name="<a-name="sql-featuregen"></a>writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
+##<a name="a-namesqlfeaturegenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
 
 Après avoir exploré les données et créé les fonctionnalités nécessaires, vous pouvez charger les données (exemples ou caractéristiques) dans un objet blob Azure et les exploiter dans Azure Machine Learning en procédant comme suit : notez qu’il est également possible de créer d’autres fonctionnalités dans Azure Machine Learning Studio.
 1. Écrivez le bloc de données dans le fichier local.
@@ -137,6 +138,6 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
