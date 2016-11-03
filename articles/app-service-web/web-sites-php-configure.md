@@ -4,7 +4,7 @@
     services="app-service"
     documentationCenter="php"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="PHP"
     ms.topic="article"
-    ms.date="08/11/2016"
+    ms.date="11/01/2016"
     ms.author="robmcm"/>
 
 
@@ -25,7 +25,7 @@ Ce guide vous explique comment configurer le runtime PHP intégré pour Web Apps
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to:-change-the-built-in-php-version"></a>Modification de la version intégrée de PHP
+## <a name="how-to-change-the-builtin-php-version"></a>Modification de la version intégrée de PHP
 Par défaut, PHP 5.4 est installé et immédiatement utilisable lorsque vous créez une application web App Service. Pour afficher la révision de version disponible, sa configuration par défaut et les extensions activées, la méthode idéale consiste à déployer un script qui appelle la fonction [phpinfo()] .
 
 Les versions PHP 5.5 et PHP 5.6 sont également disponibles, mais ne sont pas activées par défaut. Pour mettre à jour la version de PHP, procédez au choix comme suit :
@@ -44,7 +44,7 @@ Les versions PHP 5.5 et PHP 5.6 sont également disponibles, mais ne sont pas 
 
     ![Enregistrer les paramètres de configuration][save-button]
 
-### <a name="azure-powershell-(windows)"></a>Azure PowerShell (Windows)
+### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
 1. Ouvrez Azure PowerShell, et connectez-vous à votre compte.
 
@@ -58,7 +58,7 @@ Les versions PHP 5.5 et PHP 5.6 sont également disponibles, mais ne sont pas 
 
         PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
-### <a name="azure-command-line-interface-(linux,-mac,-windows)"></a>Interface en ligne de commande Azure (Linux, Mac et Windows)
+### <a name="azure-commandline-interface-linux-mac-windows"></a>Interface en ligne de commande Azure (Linux, Mac et Windows)
 
 L’interface de ligne de commande Azure nécessite l’installation de **Node.js** sur votre ordinateur.
 
@@ -75,11 +75,11 @@ L’interface de ligne de commande Azure nécessite l’installation de **Node.j
         azure site show {site-name}
 
 
-## <a name="how-to:-change-the-built-in-php-configurations"></a>Modification des configurations PHP intégrées
+## <a name="how-to-change-the-builtin-php-configurations"></a>Modification des configurations PHP intégrées
 
 Quel que soit le runtime PHP intégré, vous pouvez modifier toute option de configuration en procédant comme indiqué ci-dessous. (Pour plus d’informations sur les directives de php.ini, consultez la page [Liste des directives de php.ini].)
 
-### <a name="changing-php\_ini\_user,-php\_ini\_perdir,-php\_ini\_all-configuration-settings"></a>Modification des paramètres de configuration PHP\_INI\_USER, PHP\_INI\_PERDIR et PHP\_INI\_ALL
+### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>Modification des paramètres de configuration PHP\_INI\_USER, PHP\_INI\_PERDIR et PHP\_INI\_ALL
 
 1. Ajoutez un fichier [.user.ini] à votre répertoire racine.
 2. Ajoutez des paramètres de configuration au fichier `.user.ini` en utilisant la même syntaxe que pour le fichier `php.ini`. Par exemple, si vous souhaitez activer le paramètre `display_errors` et régler le paramètre `upload_max_filesize` sur 10M, votre fichier `.user.ini` doit contenir le texte suivant :
@@ -96,7 +96,7 @@ Quel que soit le runtime PHP intégré, vous pouvez modifier toute option de con
 
 Au lieu d’un fichier `.user.ini`, vous pouvez utiliser la fonction [ini_set()] dans des scripts pour définir les options de configuration qui ne sont pas des directives de niveau système.
 
-### <a name="changing-php\_ini\_system-configuration-settings"></a>Modification des paramètres de configuration PHP\_INI\_SYSTEM
+### <a name="changing-phpinisystem-configuration-settings"></a>Modification des paramètres de configuration PHP\_INI\_SYSTEM
 
 1. Ajoutez un paramètre d’application à votre application web avec la clé `PHP_INI_SCAN_DIR` et valeur `d:\home\site\ini`.
 2. Créez un fichier `settings.ini` à l’aide de la Console Kudu (http://&lt;nom-site&gt;.scm.azurewebsite.net) dans le répertoire `d:\home\site\ini`.
@@ -107,7 +107,7 @@ Au lieu d’un fichier `.user.ini`, vous pouvez utiliser la fonction [ini_set()]
         wincache.maxfilesize=512
 4. Redémarrez votre application Web pour charger les modifications.
 
-## <a name="how-to:-enable-extensions-in-the-default-php-runtime"></a>Activation d’extensions dans le runtime PHP par défaut
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Activation d’extensions dans le runtime PHP par défaut
 Comme indiqué dans la section précédente, la méthode idéale pour afficher la version PHP par défaut, sa configuration par défaut et les extensions activées consiste à déployer un script qui appelle [phpinfo()]. Pour activer des extensions supplémentaires, procédez comme suit :
 
 ### <a name="configure-via-ini-settings"></a>Configuration par des paramètres ini
@@ -144,7 +144,7 @@ Comme indiqué dans la section précédente, la méthode idéale pour afficher l
 Les extensions Zend sont également prises en charge à l’aide d’une clé **PHP_ZENDEXTENSIONS**. Pour activer plusieurs extensions, insérez une liste de fichiers `.dll` séparés par des virgules pour la valeur de paramètre d’application.
 
 
-## <a name="how-to:-use-a-custom-php-runtime"></a>Utilisation d’un runtime PHP personnalisé
+## <a name="how-to-use-a-custom-php-runtime"></a>Utilisation d’un runtime PHP personnalisé
 Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runtime PHP que vous fournissez pour exécuter des scripts PHP. Le runtime en question peut être configuré par un fichier `php.ini` que vous avez également déclaré. Pour utiliser un runtime PHP personnalisé avec Web Apps, suivez la procédure ci-après.
 
 1. Obtenez une version de PHP pour Windows, compatible avec NTS (Non-Thread-Safe), VC9 ou VC11. Les versions récentes de PHP pour Windows sont disponibles à l’adresse suivante : [http://windows.php.net/download/]. Les versions précédentes se trouvent dans l’archive disponible ici : [http://windows.php.net/downloads/releases/archives/].
@@ -165,7 +165,7 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
     ![Enregistrer les paramètres de configuration][save-button]
 
 <a name="composer" />
-## <a name="how-to:-enable-composer-automation-in-azure"></a>Activation de l’automatisation du Compositeur dans Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Activation de l’automatisation du Compositeur dans Azure
 
 Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dans votre projet PHP. Si vous utilisez le [déploiement Git](app-service-web-php-get-started.md), vous pouvez activer le traitement de composer.json pendant `git push` en activant l’extension du Compositeur.
 

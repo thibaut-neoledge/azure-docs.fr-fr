@@ -18,7 +18,7 @@
 
 
 
-# <a name="iot-gateway-sdk-(beta)-–-send-device-to-cloud-messages-with-a-real-device-using-linux"></a>Kit de développement logiciel (SDK) de passerelle IoT (version bêta) : envoyer des messages appareil vers cloud avec un appareil réel à l’aide de Linux
+# <a name="iot-gateway-sdk-beta-send-devicetocloud-messages-with-a-real-device-using-linux"></a>Kit de développement logiciel (SDK) de passerelle IoT (version bêta) : envoyer des messages appareil vers cloud avec un appareil réel à l’aide de Linux
 
 Cette procédure pas à pas sur l’[exemple à faible consommation d’énergie Bluetooth][lnk-ble-samplecode] vous montre comment utiliser le [Kit de développement logiciel (SDK) de passerelle IoT Microsoft Azure][lnk-sdk] pour transférer des données de télémétrie appareil-à-cloud vers IoT Hub à partir d’un appareil physique et comment acheminer des commandes à partir d’IoT Hub vers un appareil physique.
 
@@ -360,7 +360,7 @@ Vous devrez peut-être appuyer sur le petit bouton situé sur l’appareil Senso
 
 Lorsque vous exécutez l’exemple, vous pouvez exécuter l’outil [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour surveiller les messages que la passerelle transmet à partir de l’appareil SensorTag.
 
-## <a name="send-cloud-to-device-messages"></a>Envoi de messages cloud vers appareil
+## <a name="send-cloudtodevice-messages"></a>Envoi de messages cloud vers appareil
 
 Le module BLE prend également en charge l’envoi d’instructions à partir d’IoT Hub Azure vers l’appareil. Vous pouvez utiliser l’[Explorateur d’appareils Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou l’[Explorateur IoT Hub](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) pour envoyer des messages JSON que le module de passerelle BLE transmet à l’appareil BLE. Par exemple, si vous utilisez l’appareil Texas Instruments SensorTag, vous pouvez envoyer les messages JSON suivants à l’appareil à partir d’IoT Hub.
 

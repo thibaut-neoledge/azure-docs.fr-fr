@@ -17,13 +17,13 @@
     ms.author="marsma" />
 
 
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-(mpi)-applications-in-azure-batch"></a>Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch
+# <a name="use-multiinstance-tasks-to-run-message-passing-interface-mpi-applications-in-azure-batch"></a>Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch
 
 Les tâches multi-instances vous permettent d’exécuter une tâche Azure Batch sur plusieurs nœuds de calcul simultanément. Ces tâches permettent de mettre en œuvre des scénarios de calcul haute performance tels que les applications MPI (Message Passing Interface) dans Batch. Dans cet article, vous découvrez comment exécuter des tâches multi-instances à l’aide de la bibliothèque [api_net] [Batch.NET].
 
 >[AZURE.NOTE] Bien que les exemples de cet article portent sur Batch .NET, MS-MPI et les nœuds de calcul Windows, les concepts de tâches multi-instances présentés ici s’appliquent à d’autres plateformes et technologies (Python et Intel MPI sur des nœuds Linux, par exemple).
 
-## <a name="multi-instance-task-overview"></a>Présentation des tâches multi-instances
+## <a name="multiinstance-task-overview"></a>Présentation des tâches multi-instances
 
 Dans Azure Batch, chaque tâche est normalement exécutée sur un nœud de calcul unique : vous soumettez plusieurs tâches à un travail, et le service Azure Batch planifie l’exécution de chacune d’entre elles sur un nœud. Toutefois, en configurant les **paramètres multi-instances**d’une tâche, vous pouvez ordonner à Azure Batch de fractionner cette tâche en tâches subordonnées pour une exécution sur plusieurs nœuds.
 
@@ -39,7 +39,7 @@ Lorsque vous envoyez à un travail une tâche dotée de paramètres multi-instan
 
 > [AZURE.NOTE] Même si elle est différente d’un point de vue fonctionnel, la « tâche multi-instances » n’est pas un type de tâche unique comme [StartTask][net_starttask] ou [JobPreparationTask][net_jobprep]. La tâche multi-instances est simplement une tâche Batch standard ([CloudTask][net_task] dans Batch .NET) dont les paramètres multi-instances ont été configurés. Dans cet article, nous parlons de **tâche multi-instances**.
 
-## <a name="requirements-for-multi-instance-tasks"></a>Configuration requise pour les tâches multi-instances
+## <a name="requirements-for-multiinstance-tasks"></a>Configuration requise pour les tâches multi-instances
 
 Les tâches multi-instances nécessitent un pool avec **communication entre les nœuds activée** et **exécution de tâches simultanées désactivée**. Si vous essayez d’exécuter une tâche multi-instances dans un pool dont la communication entre les nœuds a été désactivée ou avec une valeur *maxTasksPerNode* supérieure à 1, la tâche ne sera jamais planifiée et restera indéfiniment à l’état « actif ». Cet extrait de code illustre la création d’un tel pool à l’aide de la bibliothèque Batch.NET.
 
@@ -84,7 +84,7 @@ await myCloudPool.CommitAsync();
 
 > [AZURE.NOTE] Lors de l’implémentation d’une solution MPI avec des tâches multi-instances dans Azure Batch, vous n’êtes pas limité à l’utilisation de MS-MPI. Vous pouvez utiliser n’importe quelle implémentation standard de l’application MPI, dès lors qu’elle est compatible avec le système d’exploitation indiqué pour les nœuds de calcul du pool.
 
-## <a name="create-a-multi-instance-task-with-batch-.net"></a>Créer une tâche multi-instances avec Batch.NET
+## <a name="create-a-multiinstance-task-with-batch-net"></a>Créer une tâche multi-instances avec Batch.NET
 
 Maintenant que nous avons abordé les exigences du pool et l’installation du package MPI, nous allons créer la tâche multi-instances. Dans cet extrait de code, nous créons une tâche standard [CloudTask][net_task], puis nous configurons sa propriété [MultiInstanceSettings][net_multiinstance_prop]. Comme mentionné ci-dessus, la tâche multi-instances n’est pas un type de tâche distinct, mais une tâche Batch standard configurée avec des paramètres multi-instances.
 

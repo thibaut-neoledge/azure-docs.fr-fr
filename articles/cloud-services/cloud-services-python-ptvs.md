@@ -31,7 +31,7 @@ Cet article fournit une vue d’ensemble de l’utilisation des rôles Web et d
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="what-are-python-web-and-worker-roles?"></a>Présentation des rôles web et de travail Python
+## <a name="what-are-python-web-and-worker-roles"></a>Présentation des rôles web et de travail Python
 
 Azure propose trois modèles de calcul pour l’exécution d’applications : [fonctionnalité Web Apps dans Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] et [Azure Cloud Services][execution model-cloud services]. Ils prennent tous les trois en charge Python. Azure Cloud Services, qui inclut les rôles Web et de travail, fournit la fonctionnalité *PaaS (Platform as a Service)*. Au sein d'un service cloud, un rôle web fournit un serveur web IIS (Internet Information Services) dédié permettant d'héberger des applications web frontales, tandis qu'un rôle de travail peut exécuter des tâches asynchrones, de longue durée ou perpétuelles indépendamment des interactions ou saisies des utilisateurs.
 
@@ -113,7 +113,7 @@ Les variables **PYTHON2** et **PYPATH** doivent être ajoutées à la tâche de 
 </Runtime>
 ```
 
-#### <a name="sample-servicedefinition.csdef"></a>Exemple de fichier ServiceDefinition.csdef
+#### <a name="sample-servicedefinitioncsdef"></a>Exemple de fichier ServiceDefinition.csdef
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,7 +165,7 @@ Les variables **PYTHON2** et **PYPATH** doivent être ajoutées à la tâche de 
 
 Ensuite, créez les fichiers **PrepPython.ps1** et **PipInstaller.ps1** dans le dossier **./bin** de votre rôle.
 
-#### <a name="preppython.ps1"></a>PrepPython.ps1
+#### <a name="preppythonps1"></a>PrepPython.ps1
 
 Ce script installe Python. Si la variable d’environnement **PYTHON2** est définie sur **on**, Python 2.7 est installé. Dans le cas contraire, le script installe Python 3.5.
 
@@ -212,7 +212,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
+#### <a name="pipinstallerps1"></a>PipInstaller.ps1
 
 Ce script appelle les paramètres d’initialisation de programme et installe toutes les dépendances dans le fichier **requirements.txt**. Si la variable d’environnement **PYTHON2** est définie sur **on**, Python 2.7 est utilisé. Dans le cas contraire, c’est Python 3.5 qui est utilisé.
 
@@ -241,7 +241,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="modify-launchworker.ps1"></a>Modifier LaunchWorker.ps1
+#### <a name="modify-launchworkerps1"></a>Modifier LaunchWorker.ps1
 
 >[AZURE.NOTE] Dans le cas d’un projet de **rôle de travail**, le fichier **LauncherWorker.ps1** est requis pour exécuter le fichier de démarrage. Dans un projet de **rôle Web**, le fichier de démarrage est quant à lui défini dans les propriétés du projet.
 
@@ -284,7 +284,7 @@ else
 }
 ```
 
-#### <a name="ps.cmd"></a>ps.cmd
+#### <a name="pscmd"></a>ps.cmd
 
 Les modèles Visual Studio doivent avoir créé un fichier **ps.cmd** dans le dossier **./bin**. Ce script shell appelle les scripts de wrapper PowerShell ci-dessus et assure la journalisation en fonction du nom du wrapper PowerShell appelé. Si ce fichier n’a pas été créé, voici ce qu’il doit contenir. 
 

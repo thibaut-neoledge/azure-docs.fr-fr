@@ -75,7 +75,7 @@ PagerDuty, la principale solution de gestion des incidents, propose une excellen
 
 [Consultez la documentation.][pagerduty-doc]
 
-## <a name="splunk-add-on-for-microsoft-azure"></a>Module complémentaire Splunk pour Microsoft Azure
+## <a name="splunk-addon-for-microsoft-azure"></a>Module complémentaire Splunk pour Microsoft Azure
 Le module complémentaire Splunk pour Microsoft Azure collecte des données de diagnostic, de performances, d’audit et de sécurité importantes pour votre infrastructure et les sites web s’exécutant dans Microsoft Azure. 
 
 Les informations de diagnostic et de performances sont collectées à partir de tables de stockage Azure et d’objets Blob de stockage Azure. Les données d’audit sont collectées à partir de l’API d’événements Azure Insights. Les données de groupe de sécurité réseau sont collectées à partir d’objets Blob du stockage Azure. Plusieurs panneaux prédéfinis sont inclus dans ce module complémentaire. 

@@ -29,7 +29,7 @@ Les dépendances de tâches Batch vous permettent de créer des tâches planifi�
 
 Vous pouvez créer des tâches qui dépendent d’autres tâches dans une relation un-à-un ou un-à-plusieurs. Vous pouvez même créer une dépendance de plage dans laquelle une tâche dépend de la bonne exécution d’un groupe de tâches au sein d’une plage d’ID de tâches spécifique. Vous pouvez combiner ces trois scénarios de base pour créer des relations plusieurs-à-plusieurs.
 
-## <a name="task-dependencies-with-batch-.net"></a>Dépendances de tâches avec Batch.NET
+## <a name="task-dependencies-with-batch-net"></a>Dépendances de tâches avec Batch.NET
 
 Cet article explique comment configurer les dépendances de tâches à l’aide de la bibliothèque [Batch .NET][net_msdn]. Nous allons tout d’abord vous montrer comment [activer la dépendance de tâches](#enable-task-dependencies) dans vos travaux, puis vous expliquer comment [configurer une tâche avec des dépendances](#create-dependent-tasks). Pour finir, nous passerons en revue les [scénarios de dépendance](#dependency-scenarios) pris en charge par Batch.
 
@@ -76,7 +76,7 @@ Vous pouvez utiliser trois scénarios de dépendance de tâches de base dans Azu
 
 >[AZURE.TIP] Vous pouvez créer des relations **plusieurs-à-plusieurs** où, par exemple, les tâches C, D, E et F dépendent toutes des tâches A et B. Cela est utile, par exemple, dans les scénarios de prétraitement parallélisés où vos tâches en aval dépendent de la sortie de plusieurs tâches en amont.
 
-### <a name="one-to-one"></a>Un-à-un
+### <a name="onetoone"></a>Un-à-un
 
 Pour créer une tâche dépendant de l’exécution d’une autre tâche, vous devez spécifier un ID de tâche unique à la méthode statique [TaskDependencies][net_taskdependencies].[OnId][net_onid] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
@@ -91,7 +91,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 },
 ```
 
-### <a name="one-to-many"></a>Un-à-plusieurs
+### <a name="onetomany"></a>Un-à-plusieurs
 
 Pour créer une tâche dépendant de l’exécution de plusieurs tâches, vous devez spécifier un ensemble d’ID de tâche à la méthode statique [TaskDependencies][net_taskdependencies].[OnIds][net_onids] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 

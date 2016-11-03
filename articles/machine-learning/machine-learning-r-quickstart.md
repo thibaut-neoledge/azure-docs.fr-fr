@@ -39,7 +39,7 @@ Les données chronologiques sont des données dont les valeurs ont un index chro
 
 Dans ce guide de démarrage rapide, nous allons utiliser les données de production et de tarification des produits laitiers en Californie. Ces données comportent des informations mensuelles sur la production de plusieurs produits laitiers, ainsi que le prix de la matière grasse du lait, produit de base de référence.
 
-Vous pouvez télécharger les données utilisées dans cet article ainsi que les scripts R [ici][download]. À l'origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l'Université du Wisconsin à l'adresse http://future.aae.wisc.edu/tab/production.html.
+Vous pouvez télécharger les données utilisées dans cet article ainsi que les scripts R [ici][télécharger]. À l'origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l'Université du Wisconsin à l'adresse http://future.aae.wisc.edu/tab/production.html.
 
 ### <a name="organization"></a>Organisation
 
@@ -55,7 +55,7 @@ Vous pouvez télécharger les données utilisées dans cet article ainsi que les
 
 * Enfin, nous créerons un modèle de prévision chronologique saisonnier pour la production de lait.
 
-##<a name="<a-id="mlstudio"></a>interact-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>Interaction avec le langage R dans Machine Learning Studio
+##<a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>Interaction avec le langage R dans Machine Learning Studio
 
 Cette section vous fait découvrir certains concepts de base de l'interaction avec le langage de programmation R dans l'environnement Machine Learning Studio. Le langage R offre un outil efficace pour créer des modules d’analyse et de manipulation de données personnalisés au sein de l’environnement Azure Machine Learning.
 
@@ -145,9 +145,9 @@ Si vous débutez avec RStudio, téléchargez et installez la version pour ordina
 
 Un didacticiel de présentation de RStudio est disponible à l’adresse https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
-Vous trouverez des informations complémentaires sur l’utilisation de RStudio dans l’[Annexe A][appendixa].  
+Vous trouverez des informations complémentaires sur l’utilisation de RStudio dans l’[Annexe A][annexe a].  
 
-##<a name="<a-id="scriptmodule"></a>get-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obtention de données dans et hors du module d'exécution de script R
+##<a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obtention de données dans et hors du module d'exécution de script R
 
 Dans cette section, nous allons voir comment obtenir des données dans et hors du module [Exécuter un script R][execute-r-script]. Nous allons examiner comment gérer les différents types de données lus dans et hors du module [Exécuter un script R][execute-r-script].
 
@@ -155,7 +155,7 @@ Le code complet de cette section se trouve dans le fichier zip téléchargé pr�
 
 ###<a name="load-and-check-data-in-machine-learning-studio"></a>Chargement et vérification des données dans Machine Learning Studio
 
-####<a name="<a-id="loading"></a>load-the-dataset"></a><a id="loading"></a>Chargement du jeu de données
+####<a name="a-idloadingaload-the-dataset"></a><a id="loading"></a>Chargement du jeu de données
 
 Nous allons commencer par charger le fichier **csdairydata.csv** dans Azure Machine Learning Studio.
 
@@ -355,7 +355,7 @@ En faisant défiler l'écran vers le bas, nous voyons la sortie graphique de not
 
 *Figure 8 : sortie graphique du port d’appareil R.*  
 
-##<a name="<a-id="filtering"></a>data-filtering-and-transformation"></a><a id="filtering"></a>Filtrage et transformation des données
+##<a name="a-idfilteringadata-filtering-and-transformation"></a><a id="filtering"></a>Filtrage et transformation des données
 
 Dans cette section, nous allons effectuer certaines opérations de filtrage et de transformation de données de base sur les données du secteur laitier californien. À la fin de cette section, les données seront dans un format idoine pour générer un modèle d'analyse.  
 
@@ -646,7 +646,7 @@ Comme nous pouvons le constater, les valeurs ont été transformées. À présen
 
 À ce stade, nos données sont nettoyées et nous sommes prêts à procéder à une modélisation. Au vu de l’aperçu de visualisation de la sortie du jeu de données de résultat du module [Exécuter un script R][execute-r-script], vous pouvez constater que la colonne « Month » est de type « catégorique » et qu’elle contient 12 valeurs uniques, là encore comme prévu.
 
-##<a name="<a-id="timeseries"></a>time-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Objets de série chronologique et analyse des corrélations
+##<a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Objets de série chronologique et analyse des corrélations
 
 Dans cette section, nous allons explorer quelques objets de série chronologique R de base et analyser les corrélations entre certaines variables. Notre objectif est ici de sortir un tableau de données contenant les informations de corrélation par paire à plusieurs décalages.
 
@@ -937,7 +937,7 @@ L’exécution du code génère la sortie présentée dans la figure 19 après 
 
 *Figure 19 : résultats générés par l’analyse des corrélations.*
 
-##<a name="<a-id="seasonalforecasting"></a>time-series-example:-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Exemple de série chronologique : prévision saisonnière
+##<a name="a-idseasonalforecastingatime-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Exemple de série chronologique : prévision saisonnière
 
 Les données se trouvent maintenant dans un format adapté à l’analyse et nous avons déterminé qu’il n’y avait pas de corrélations significatives entre les variables. Continuons et créons un modèle de prévision chronologique. Nous nous servirons de ce modèle pour établir des prévisions concernant la production de lait californienne au cours des 12 mois de 2013.
 
@@ -1273,7 +1273,7 @@ L'exécution de ce code génère la sortie présentée dans la figure 27 au niv
 
 Ces résultats nous montrent que l’ajout des facteurs saisonniers au modèle a pour effet de réduire sensiblement l’erreur RMS. Fort logiquement, l'erreur RMS au niveau des données d'apprentissage est plus limitée qu'au niveau de la prévision.
 
-##<a name="<a-id="appendixa"></a>appendix-a:-guide-to-rstudio"></a><a id="appendixa"></a>ANNEXE A : guide de RStudio
+##<a name="a-idappendixaaappendix-a-guide-to-rstudio"></a><a id="appendixa"></a>ANNEXE A : guide de RStudio
 
 RStudio étant très bien documenté, vous trouverez dans cette annexe des liens vers les principales sections de la documentation RStudio, qui vous aideront dans la prise en main du produit.
 
@@ -1293,7 +1293,7 @@ RStudio étant très bien documenté, vous trouverez dans cette annexe des liens
 
     Les fonctionnalités de résolution des problèmes de point d’arrêt sont documentées à l’adresse https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-##<a name="<a-id="appendixb"></a>appendix-b:-further-reading"></a><a id="appendixb"></a>ANNEXE B : informations supplémentaires
+##<a name="a-idappendixbaappendix-b-further-reading"></a><a id="appendixb"></a>ANNEXE B : informations supplémentaires
 
 Ce didacticiel sur la programmation R couvre les concepts de base de ce qu'il vous faut pour utiliser le langage R avec Azure Machine Learning Studio. Si vous ne connaissez pas le langage R, deux présentations sont disponibles sur le site CRAN :
 
@@ -1361,6 +1361,6 @@ Quelques ressources Internet particulièrement utiles :
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

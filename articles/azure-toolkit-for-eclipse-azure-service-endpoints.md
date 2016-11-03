@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Points de terminaison de service Azure"
-    description="Décrit les paramètres de point de terminaison de Service Azure dans la boîte à outils Azure pour Eclipse."
+    pageTitle="Azure Service Endpoints"
+    description="Describes the Azure Service Endpoint settings in the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,53 +13,58 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
 
-# Points de terminaison de service Azure #
+# <a name="azure-service-endpoints"></a>Azure Service Endpoints
 
-Les points de terminaison de service Azure déterminent si votre application est déployée et gérée par la plateforme globale Azure, si elle fonctionne sur Azure géré par 21Vianet en Chine ou sur une plateforme Azure privée. La boîte de dialogue **Points de terminaison de service** vous permet de spécifier les points de terminaison du service à utiliser. Pour ouvrir la boîte de dialogue **Points de terminaison de service** dans Eclipse, cliquez sur **Fenêtre**, sur **Préférences**, développez **Azure**, puis cliquez sur **Points de terminaison de Service**. La définition du champ **Ensemble actif** détermine les points de terminaison de service Azure qui seront utilisés pour les projets Azure dans votre espace de travail actuel.
+Azure service endpoints determine whether your application is deployed to and managed by the global Azure platform, Azure operated by 21Vianet in China, or a private Azure platform. The **Service Endpoints** dialog allows you to specify which service endpoints you want to use. To open the **Service Endpoints** dialog, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Service Endpoints**. Setting the **Active Set** field determines which Azure service endpoints will be used for the Azure projects in your current workspace.
 
-Le schéma qui suit représente la boîte de dialogue **Points de terminaison de Service**.
+The following shows the **Service Endpoints** dialog.
 
 ![][ic719493]
 
-## Pour définir les points de terminaison de service Azure ##
+## <a name="to-set-the-service-endpoints"></a>To set the service endpoints
 
-Dans la boîte de dialogue **Points de terminaison de service**, effectuez l’une des actions suivantes :
+In the **Service Endpoints** dialog, take one of the following actions:
 
-* Si vous souhaitez utiliser la plateforme Azure globale, à partir de la liste déroulante **Ensemble actif**, sélectionnez **windowsazure.com**, puis cliquez sur **OK**.
-* Si vous souhaitez utiliser Azure sous 21Vianet en Chine, dans la liste déroulante **Ensemble actif**, sélectionnez **windowsazure.cn** (Chine), puis cliquez sur **OK**.
-* Si vous souhaitez utiliser une plateforme Azure privée :
-    1. Cliquez sur **Modifier**.
-    2. Une boîte de dialogue s’ouvre, vous informant que la boîte de dialogue **Points de terminaison de service** va être fermée et le fichier d’ensemble de préférences s’ouvre. Cliquez sur **OK**.
-    3. Dans le fichier preferencesets.xml, créez un nouvel élément `preferenceset`. Pour ce nouvel élément, créez les attributs `name`, `blob`, `management`, `portalURL` et `publishsettings`, puis ajoutez à ces dernières des valeurs qui correspondent à votre plateforme Azure privée. Vous pouvez utiliser les valeurs fournies pour les éléments `preferenceset` existants en tant que modèles. **Remarque** : la valeur utilisée pour l’attribut `blob`doit contenir le texte « blob » dans l’URL.
-    4. Enregistrez et fermez preferencesets.xml.
-    5. Rouvrez la boîte de dialogue **Points de terminaison de service**.
-    6. À partir de la liste déroulante d’**ensembles d’actifs**, sélectionnez l’ensemble actif que vous avez créé, cliquez sur **OK**.
-    7. Une fois que vous avez créé votre élément de plateforme Azure privée `preferenceset`, vous pouvez modifier les valeurs qui lui sont affectées en cliquant sur le bouton **Modifier** situé dans la boîte de dialogue **Point de terminaison des services**. Vous pouvez également créer plusieurs éléments de plateforme Azure privée `preferenceset` si vous le souhaitez.
+* If you want to use the global Azure platform, from the **Active Set** dropdown list, select **windowsazure.com** and click **OK**.
+* If you want to use Azure operated by 21Vianet in China, from the **Active Set** dropdown list, select **windowsazure.cn (China)** and click **OK**.
+* If you want to use a private Azure platform:
+    1. Click **Edit**.
+    2. A dialog box opens, informing you that the **Service Endpoints** dialog will be closed, and the preference sets file will be opened. Click **OK**.
+    3. In the preferencesets.xml file, create a new `preferenceset` element. For this new element, create `name`, `blob`, `management`, `portalURL` and `publishsettings` attributes, and add values for them that correspond to your private Azure platform. You can use the values provided for the existing `preferenceset` elements as templates. **Note**: The value used for the `blob` attribute must contain the text "blob" in the URL.
+    4. Save and close preferencesets.xml.
+    5. Reopen the **Service Endpoints** dialog.
+    6. From the **Active Set** dropdown list, select the active set that you created and click **OK**.
+    7. Once you've created your private Azure platform `preferenceset` element, you can change the values assigned to it by clicking the **Edit** button in the **Services Endpoint** dialog. You can also create multiple private Azure platform `preferenceset` elements, if you desire.
 
-## Voir aussi ##
+## <a name="see-also"></a>See Also
 
-[Kit de ressources Azure pour Eclipse][]
+[Azure Toolkit for Eclipse][]
 
-[Installation du kit de ressources Azure pour Eclipse][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-[Création d'une application Hello World pour Azure dans Eclipse][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-Pour plus d'informations sur l'utilisation d'Azure avec Java, consultez le [Centre de développement Java][].
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Centre de développement Java]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

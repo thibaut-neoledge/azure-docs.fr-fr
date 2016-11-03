@@ -17,11 +17,11 @@
  ms.author="nberdy"/>
 
 
-# <a name="tutorial:-use-direct-methods"></a>Didacticiel : Utiliser des méthodes directes
+# <a name="tutorial-use-direct-methods"></a>Didacticiel : Utiliser des méthodes directes
 
 ## <a name="introduction"></a>Introduction
 
-Azure IoT Hub est un service entièrement géré qui autorise des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur d’applications principal. Les didacticiels précédents ([Prise en main d’IoT Hub] et [Envoi de messages cloud-à-appareil avec IoT Hub]) illustre les fonctionnalités de base de messagerie appareil-à-cloud et cloud-à-appareil offertes par IoT Hub. IoT Hub permet également d’appeler des méthodes non durables sur des appareils à partir du cloud. Les méthodes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur) pour permettre à l’utilisateur de connaître l’état de l’appel. [Appeler une méthode directe sur un appareil][lnk-devguide-méthodes] décrit plus en détail les méthodes, et indique quand utiliser des méthodes plutôt que des messages cloud-à-appareil.
+Azure IoT Hub est un service entièrement géré qui autorise des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur d’applications principal. Les didacticiels précédents ([Prise en main d’IoT Hub] et [Envoi de messages cloud-à-appareil avec IoT Hub]) illustre les fonctionnalités de base de messagerie appareil-à-cloud et cloud-à-appareil offertes par IoT Hub. IoT Hub permet également d’appeler des méthodes non durables sur des appareils à partir du cloud. Les méthodes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur) pour permettre à l’utilisateur de connaître l’état de l’appel. [Appeler une méthode directe sur un appareil][lnk-devguide-methods] décrit plus en détail les méthodes, et indique quand utiliser des méthodes plutôt que des messages cloud-à-appareil.
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -234,6 +234,6 @@ Pour savoir comment étendre votre solution IoT et planifier des appels de méth
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

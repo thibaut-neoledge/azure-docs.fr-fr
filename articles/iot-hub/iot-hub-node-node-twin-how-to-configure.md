@@ -17,7 +17,7 @@
      ms.author="elioda"/>
 
 
-# <a name="tutorial:-use-desired-properties-to-configure-devices-(preview)"></a>Didacticiel : Utiliser des propriétés souhaitées pour configurer des appareils (version préliminaire)
+# <a name="tutorial-use-desired-properties-to-configure-devices-preview"></a>Didacticiel : Utiliser des propriétés souhaitées pour configurer des appareils (version préliminaire)
 
 [AZURE.INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 

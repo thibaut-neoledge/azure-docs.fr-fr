@@ -733,7 +733,7 @@ T
     ['where'] = client_City // rename, using a keyword as a column name
 ```
 
-### <a name="project-away-operator"></a>opérateur project-away
+### <a name="projectaway-operator"></a>opérateur project-away
 
     T | project-away column1, column2, ...
 
@@ -951,7 +951,7 @@ Retourne les *N* premiers enregistrements triés d’après les colonnes spécif
 
 `top 5 by name` équivaut approximativement à `sort by name | take 5`. Toutefois, cet opérateur s’exécute plus rapidement et retourne toujours des résultats triés, contrairement à `take` .
 
-### <a name="top-nested-operator"></a>Opérateur top-nested
+### <a name="topnested-operator"></a>Opérateur top-nested
 
     requests 
   	| top-nested 5 of name by count()  
@@ -1076,7 +1076,7 @@ Enregistrements datant de moins de 1 heure et provenant de la source nommée «�
 Notez que nous plaçons la comparaison entre deux colonnes à la fin, car elle ne peut pas utiliser l’index et force une analyse.
 
 
-### <a name="where-in-operator"></a>Opérateur where-in
+### <a name="wherein-operator"></a>Opérateur where-in
 
     requests | where resultCode !in (200, 201)
 
@@ -1123,7 +1123,7 @@ traces
 
 <a name="argmin"></a>
 <a name="argmax"></a>
-### <a name="argmin,-argmax"></a>argmin, argmax
+### <a name="argmin-argmax"></a>argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
@@ -1335,7 +1335,7 @@ Retourne un tableau (JSON) `dynamic` du jeu de valeurs distinctes prises par *Ex
 Consultez aussi [`mvexpand`](#mvexpand-operator) pour la fonction inverse.
 
 
-### <a name="max,-min"></a>max, min
+### <a name="max-min"></a>max, min
 
     max(Expr)
 
@@ -1352,7 +1352,7 @@ Calcule la valeur minimale de *Expr*.
 <a name="percentiles"></a>
 <a name="percentilew"></a>
 <a name="percentilesw"></a>
-### <a name="percentile,-percentiles,-percentilew,-percentilesw"></a>percentile, percentiles, percentilew, percentilesw
+### <a name="percentile-percentiles-percentilew-percentilesw"></a>percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
@@ -1595,7 +1595,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 <a name="isnull"/></a>
 <a name="isnotnull"/></a>
 <a name="notnull"/></a>
-### <a name="isnull,-isnotnull,-notnull"></a>isnull, isnotnull, notnull
+### <a name="isnull-isnotnull-notnull"></a>isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
 
@@ -1720,7 +1720,7 @@ Argument évalué. Si l’argument est une table, retourne la première colonne 
     iff(x>0, x, -x)
 
 <a name="bin"></a><a name="floor"></a>
-### <a name="bin,-floor"></a>bin, floor
+### <a name="bin-floor"></a>bin, floor
 
 Arrondit les valeurs à l’entier inférieur multiple d’une taille bin donnée. Très utilisé dans la requête [`summarize by`](#summarize-operator) . Si vous avez un ensemble de valeurs dispersées, elles seront regroupées dans un plus petit ensemble de valeurs spécifiques.
 
@@ -2016,7 +2016,7 @@ Numéro ordinal du jour de l’année.
 * `a_date` : une `datetime`.
 
 <a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
-### <a name="endofday,-endofweek,-endofmonth,-endofyear"></a>endofday, endofweek, endofmonth, endofyear
+### <a name="endofday-endofweek-endofmonth-endofyear"></a>endofday, endofweek, endofmonth, endofyear
 
     dt = datetime("2016-05-23 12:34")
 
@@ -2076,7 +2076,7 @@ T | where ... | extend Elapsed=now() - timestamp
 ```
 
 <a name="startofday"></a><a name="startofweek"></a><a name="startofmonth"></a><a name="startofyear"></a>
-### <a name="startofday,-startofweek,-startofmonth,-startofyear"></a>startofday, startofweek, startofmonth, startofyear
+### <a name="startofday-startofweek-startofmonth-startofyear"></a>startofday, startofweek, startofmonth, startofyear
 
     date=datetime("2016-05-23 12:34:56")
 
@@ -2263,7 +2263,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
-### <a name="isempty,-isnotempty,-notempty"></a>isempty, isnotempty, notempty
+### <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notempty
 
     isempty("") == true
 
@@ -2435,7 +2435,7 @@ Convertit une chaîne en majuscules.
     guid(00000000-1111-2222-3333-055567f333de)
 
 
-## <a name="arrays,-objects-and-dynamic"></a>Tableaux, objets et dynamique
+## <a name="arrays-objects-and-dynamic"></a>Tableaux, objets et dynamique
 
 [littéraux](#dynamic-literals) | [conversion](#casting-dynamic-objects) | [opérateurs](#operators) | [clauses let](#dynamic-objects-in-let-clauses)
 <br/>

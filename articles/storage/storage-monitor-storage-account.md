@@ -32,7 +32,7 @@ Vous pouvez surveiller votre compte de stockage à partir du [portail Azure](htt
 > Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'analyser, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 
-## <a name="how-to:-configure-monitoring-for-a-storage-account"></a>Configuration de la surveillance d’un compte de stockage
+## <a name="how-to-configure-monitoring-for-a-storage-account"></a>Configuration de la surveillance d’un compte de stockage
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
@@ -63,7 +63,7 @@ Après avoir défini les niveaux de surveillance et les stratégies de rétentio
 Les mesures sont stockées dans le compte de stockage dans quatre tables nommées $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d’informations, voir la page [À propos des mesures Storage Analytics](http://msdn.microsoft.com/library/azure/hh343258.aspx).
 
 
-## <a name="how-to:-customize-the-dashboard-for-monitoring"></a>Personnalisation du tableau de bord à des fins de surveillance
+## <a name="how-to-customize-the-dashboard-for-monitoring"></a>Personnalisation du tableau de bord à des fins de surveillance
 
 Sur le tableau de bord, vous pouvez choisir jusqu’à six mesures sur les neuf disponibles pour les représenter sur le graphique de mesures. Pour chaque service (Blob, Table et File d’attente), les mesures Availability, Success Percentage et Total Requests sont disponibles. Les mesures disponibles sur le tableau de bord sont les mêmes, quel que soit le type de surveillance (minimale ou détaillée).
 
@@ -82,7 +82,7 @@ Sur le tableau de bord, vous pouvez choisir jusqu’à six mesures sur les neuf 
 4. Pour modifier la plage horaire des mesures affichées dans le graphique, sélectionnez 6 heures, 24 heures ou 7 jours en haut du graphique.
 
 
-## <a name="how-to:-customize-the-monitor-page"></a>Personnalisation de la page Monitor
+## <a name="how-to-customize-the-monitor-page"></a>Personnalisation de la page Monitor
 
 Sur la page **Monitor** , vous pouvez afficher le jeu complet de mesures associé à votre compte de stockage.
 
@@ -92,7 +92,7 @@ Sur la page **Monitor** , vous pouvez afficher le jeu complet de mesures associ�
 
 Utilisez les procédures suivantes pour choisir les mesures de stockage à afficher dans les graphiques et le tableau des mesures figurant sur la page **Monitor** . Ces paramètres n’ont aucune incidence sur la collecte, l’agrégation et le stockage de données de surveillance dans le compte de stockage.
 
-## <a name="how-to:-add-metrics-to-the-metrics-table"></a>Ajout de mesures au tableau des mesures
+## <a name="how-to-add-metrics-to-the-metrics-table"></a>Ajout de mesures au tableau des mesures
 
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
@@ -129,7 +129,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
     ![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
-## <a name="how-to:-customize-the-metrics-chart-on-the-monitor-page"></a>Personnalisation du graphique de mesures de la page Monitor
+## <a name="how-to-customize-the-metrics-chart-on-the-monitor-page"></a>Personnalisation du graphique de mesures de la page Monitor
 
 1. Sur la page **Monitor** du compte de stockage, dans le tableau des mesures, sélectionnez les mesures (six au maximum) à représenter sur le graphique de mesures. Pour sélectionner une mesure, cliquez sur la case à cocher à sa gauche. Pour supprimer une mesure du graphique, désactivez la case à cocher.
 
@@ -139,7 +139,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 
 
-## <a name="how-to:-configure-logging"></a>Configuration de la journalisation
+## <a name="how-to-configure-logging"></a>Configuration de la journalisation
 
 Pour chaque service de stockage accessible à votre compte de stockage (Blob, Table et File d’attente), vous pouvez enregistrer des journaux de diagnostic pour les demandes de lecture, d’écriture et/ou de suppression. De même, vous pouvez définir la stratégie de rétention de données de chaque service.
 
