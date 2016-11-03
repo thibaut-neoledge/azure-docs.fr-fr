@@ -17,7 +17,7 @@
      ms.author="dobett"/>
 
 
-# <a name="tutorial:-how-to-process-iot-hub-device-to-cloud-messages-using-.net"></a>Didacticiel : traiter les messages des appareils vers le cloud IoT Hub à l’aide de .Net
+# <a name="tutorial-how-to-process-iot-hub-devicetocloud-messages-using-net"></a>Didacticiel : traiter les messages des appareils vers le cloud IoT Hub à l’aide de .Net
 
 [AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -96,7 +96,7 @@ Dans cette section, vous modifiez l’application de l’appareil simulé que vo
 
     > [AZURE.NOTE] Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling](Gestion des erreurs temporaires).
 
-## <a name="process-device-to-cloud-messages"></a>Traitement des messages appareil-à-cloud
+## <a name="process-devicetocloud-messages"></a>Traitement des messages appareil-à-cloud
 
 Dans cette section, vous créez une application de console Windows qui traite les messages appareil-à-cloud à partir d’IoT Hub. IoT Hub expose un point de terminaison compatible avec [Event Hubs]pour permettre à une application de lire les messages appareil-à-cloud. Ce didacticiel utilise la classe [EventProcessorHost] pour traiter ces messages dans une application de console. Pour plus d’informations sur la façon de traiter les messages à partir des concentrateurs d’événements, reportez-vous au didacticiel [Prise en main des concentrateurs d’événements] .
 

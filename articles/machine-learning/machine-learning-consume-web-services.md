@@ -42,7 +42,7 @@ For more information on how to manage Azure Machine Learning Web service endpoin
 
 Pour plus d’informations sur la création et le déploiement d’un service web Azure Machine Learning, voir [Déploiement d’un service web Azure Machine Learning][publish]. Pour une procédure pas à pas de création d’une expérience Machine Learning et son déploiement, voir [Développement d’une solution prédictive avec Azure Machine Learning][walkthrough].
 
-## <a name="request-response-service-(rrs)"></a>Service de requête-réponse (RRS, Request-Response Service)
+## <a name="requestresponse-service-rrs"></a>Service de requête-réponse (RRS, Request-Response Service)
 
 Un service de requête-réponse (RRS) est un service web hautement évolutif, qui présente une latence faible et propose une interface pour les modèles sans état qui ont été créés et déployés à partir d’une expérience Azure Machine Learning Studio. Il permet de mettre en place des scénarios où l’application attend une réponse en temps réel.
 
@@ -51,7 +51,7 @@ RRS accepte une seule ligne ou plusieurs lignes de paramètres d'entrée et prod
 La fonction de validation de l’authenticité d’une application est un exemple de RSS. Des centaines, voire des millions d’installations d’une application sont alors attendues. Lorsque l’application démarre, elle appelle le service RRS avec l’entrée pertinente. L’application reçoit une réponse de validation du service du service, qui autorise ou bloque l’exécution de l’application.
 
 
-## <a name="batch-execution-service-(bes)"></a>Service d'exécution de lots (BES, Batch Execution Service)
+## <a name="batch-execution-service-bes"></a>Service d'exécution de lots (BES, Batch Execution Service)
 
 Un service d’exécution de lots (BES) est un service qui gère la notation asynchrone, portant sur des volumes élevés, d’un lot d’enregistrements de données. L’entrée du service BES contient un lot d’enregistrements provenant de diverses sources, telles que des objets blob, des tables dans Microsoft Azure, SQL Azure, HDInsight (résultats d’une requête Hive, par exemple) et des sources HTTP. La sortie du service BES contient les résultats de la notation. Les résultats sont envoyés vers un fichier dans Azure Blob Storage tandis que les données du point de terminaison de stockage sont renvoyées dans la réponse.
 
@@ -85,7 +85,7 @@ Les informations figurent sur les pages suivantes :
 * L’**URI de demande** figure dans la page **Utiliser**. 
 * Les **en-têtes de demande**, **en-têtes de réponse** et **corps** d’API attendus sont disponibles dans la page **API Swagger**.
 
-### <a name="information-locations-in-machine-learning-studio-(classic-web-service-only)"></a>Emplacements des informations dans Machine Learning Studio (service web classique uniquement)
+### <a name="information-locations-in-machine-learning-studio-classic-web-service-only"></a>Emplacements des informations dans Machine Learning Studio (service web classique uniquement)
 
 Vous pouvez trouver les informations nécessaires à partir de deux emplacements : Machine Learning Studio ou le portail des services web Azure Machine Learning.
 
@@ -408,7 +408,7 @@ Les expériences Azure Machine Learning déployées en tant que services web peu
 
 L’exemple de code suivant montre comment soumettre et surveiller un traitement par lots sur un service Microsoft Azure Machine Learning à l’aide du Kit de développement logiciel BES. Les commentaires contiennent des détails sur les paramètres et les appels.
 
-#### <a name="**sample-code**"></a>**Exemple de Code**
+#### <a name="sample-code"></a>**Exemple de Code**
 
     // This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
     // Instructions for doing this in Visual Studio:

@@ -17,7 +17,7 @@
  ms.author="elioda"/>
 
 
-# <a name="understand-device-twins---preview"></a>Comprendre les représentations d’appareil - version préliminaire
+# <a name="understand-device-twins-preview"></a>Comprendre les représentations d’appareil - version préliminaire
 
 ## <a name="overview"></a>Vue d'ensemble
 

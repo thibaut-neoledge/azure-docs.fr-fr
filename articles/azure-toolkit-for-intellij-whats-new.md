@@ -4,7 +4,7 @@
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/26/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm;asirveda;martinsawicki"/>
 
 
-# <a name="what's-new-in-the-azure-toolkit-for-intellij"></a>Nouveautés du Kit de ressources Azure pour IntelliJ
+# <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>Nouveautés du Kit de ressources Azure pour IntelliJ
 
 ## <a name="azure-toolkit-for-intellij-releases"></a>Versions du kit de ressources Azure pour IntelliJ
 
@@ -25,7 +25,7 @@ Cet article contient des informations sur les différentes versions et les derni
 
 > [AZURE.NOTE] Il existe également une boîte à outils Azure pour l’environnement de développement Eclipse. Pour plus d’informations, consultez [Kit de ressources Azure pour Eclipse].
 
-### <a name="august-26,-2016"></a>26 août 2016
+### <a name="august-26-2016"></a>26 août 2016
 
 La version d’août 2016 du kit de ressources Azure pour IntelliJ inclut les améliorations suivantes :
 
@@ -37,7 +37,7 @@ La version d’août 2016 du kit de ressources Azure pour IntelliJ inclut les am
   - Prise en charge de la gestion d’objets blob des comptes de stockage à l’aide d’Azure Resource Manager, qui complète les fonctionnalités existantes de gestion des comptes de stockage « Classic ».
 * **Microsoft JDBC Driver 6.0 pour SQL Server**. Cette mise à jour inclut le dernier pilote JDBC de Microsoft SQL Server (version 6.0), qui est maintenant inclus en tant que bibliothèque facile à ajouter à vos projets Java, en remplacement de l’ancienne version.
 
-### <a name="june-29,-2016"></a>29 juin 2016
+### <a name="june-29-2016"></a>29 juin 2016
 
 La version de juin 2016 du kit de ressources Azure pour IntelliJ inclut les améliorations suivantes :
 
@@ -48,7 +48,7 @@ La version de juin 2016 du kit de ressources Azure pour IntelliJ inclut les amé
 * **Intégration d’outils HDInsight**. Les outils HDInsight d’Azure sont désormais fournis avec le kit de ressources Azure pour IntelliJ. Pour plus d’informations, consultez [Plug-in Outils HDInsight pour IntelliJ].
 * **Débogage à distance des applications web Java**. Le kit de ressources Azure pour IntelliJ prend désormais en charge le débogage à distance des applications web sur Azure App Service.
 
-### <a name="april-12,-2016"></a>12 avril 2016
+### <a name="april-12-2016"></a>12 avril 2016
 
 La version d’avril 2016 du kit de ressources Azure pour IntelliJ inclut les améliorations suivantes :
 

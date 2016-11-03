@@ -17,7 +17,7 @@
      ms.author="dobett"/>
 
 
-# <a name="tutorial:-how-to-process-iot-hub-device-to-cloud-messages-using-java"></a>Didacticiel : traiter les messages des appareils vers le cloud IoT Hub à l’aide de Java
+# <a name="tutorial-how-to-process-iot-hub-devicetocloud-messages-using-java"></a>Didacticiel : traiter les messages des appareils vers le cloud IoT Hub à l’aide de Java
 
 [AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -124,7 +124,7 @@ Dans cette section, vous modifiez l’application de l’appareil simulé que vo
     mvn clean package -DskipTests
     ```
 
-## <a name="process-device-to-cloud-messages"></a>Traitement des messages appareil-à-cloud
+## <a name="process-devicetocloud-messages"></a>Traitement des messages appareil-à-cloud
 
 Dans cette section, vous allez créer une application de console Java qui traite les messages des appareils vers le cloud dans IoT Hub. IoT Hub expose un point de terminaison compatible avec [Event Hubs]pour permettre à une application de lire les messages appareil-à-cloud. Ce didacticiel utilise la classe [EventProcessorHost] pour traiter ces messages dans une application de console. Pour plus d’informations sur la façon de traiter les messages à partir des concentrateurs d’événements, reportez-vous au didacticiel [Prise en main des concentrateurs d’événements] .
 

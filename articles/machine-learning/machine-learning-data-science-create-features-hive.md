@@ -38,7 +38,7 @@ Cet article suppose que vous avez :
 * Activé l’accès à distance au cluster. Si vous avez besoin d'aide, consultez [Accéder au nœud principal du cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
 
-##<a name="<a-name="hive-featureengineering"></a>feature-generation"></a><a name="hive-featureengineering"></a>Génération de fonctionnalités
+##<a name="a-namehivefeatureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Génération de fonctionnalités
 
 Dans cette section, plusieurs exemples de création de fonctionnalités à l'aide de requêtes Hive sont décrits. Lorsque vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec les fonctionnalités supplémentaires et la clé principale, sur lesquelles vous pouvez créer une jointure à la table d’origine. Voici les exemples présentés :
 
@@ -48,7 +48,7 @@ Dans cette section, plusieurs exemples de création de fonctionnalités à l'aid
 4. [Extraction de fonctionnalités à partir de champs de texte](#hive-textfeatures)
 5. [Calcul de la distance entre des coordonnées GPS](#hive-gpsdistance)
 
-###<a name="<a-name="hive-frequencyfeature"></a>frequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Génération de fonctionnalités basées sur la fréquence
+###<a name="a-namehivefrequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Génération de fonctionnalités basées sur la fréquence
 
 Parfois, il est intéressant de calculer les fréquences des niveaux d’une variable catégorielle ou des niveaux combinés de plusieurs variables catégorielles. Les utilisateurs peuvent utiliser les scripts suivants pour calculer ces fréquences :
 
@@ -63,7 +63,7 @@ Parfois, il est intéressant de calculer les fréquences des niveaux d’une var
         order by frequency desc;
 
 
-###<a name="<a-name="hive-riskfeature"></a>risks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Risques de variables catégorielles en classification binaire
+###<a name="a-namehiveriskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Risques de variables catégorielles en classification binaire
 
 En classification binaire, il faut convertir des variables catégorielles non numériques en fonctionnalités numériques, lorsque les modèles utilisés n’acceptent que les fonctionnalités numériques. Pour ce faire, chaque niveau non numérique est remplacé par un risque numérique. Cette section présente certaines requêtes Hive génériques qui calculent les valeurs de risque (« log odds ») d’une variable catégorielle.
 
@@ -90,7 +90,7 @@ Dans cet exemple, les variables `smooth_param1` et `smooth_param2` sont configur
 
 Une fois la table de risque calculée, les utilisateurs peuvent attribuer les valeurs de risque à une table en créant une jointure à la table de risque. La requête de jointure Hive est fournie dans la section précédente.
 
-###<a name="<a-name="hive-datefeatures"></a>extract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extraction de fonctionnalités à partir de champs d'horodatage
+###<a name="a-namehivedatefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extraction de fonctionnalités à partir de champs d'horodatage
 
 Hive est livré avec un ensemble de FDU pour traiter des champs d’horodatage. Dans Hive, le format d’horodatage par défaut est « aaaa-MM-jj 00:00:00 » (comme « 1970-01-01 12:21:32 »). Cette section montre comment extraire le jour du mois et le mois d’un champ d’horodatage, ainsi que des exemples qui convertissent une chaîne d’horodatage d’un format autre que par défaut en une chaîne d’horodatage au format par défaut.
 
@@ -112,14 +112,14 @@ Dans cette requête, si le *&#60;champ DateHeure>* suit le modèle *03/26/2015 1
 Dans cette requête, la table *hivesampletable* est installée par défaut sur tous les clusters Hadoop Azure HDInsight lors de leur approvisionnement.
 
 
-###<a name="<a-name="hive-textfeatures"></a>extract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extraction de fonctionnalités à partir de champs de texte
+###<a name="a-namehivetextfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extraction de fonctionnalités à partir de champs de texte
 
 Lorsque la table Hive a un champ de texte qui contient plusieurs mots séparés par un espace, la requête suivante extrait la longueur de la chaîne et le nombre de mots de celle-ci.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-###<a name="<a-name="hive-gpsdistance"></a>calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcul de la distance entre des coordonnées GPS
+###<a name="a-namehivegpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcul de la distance entre des coordonnées GPS
 
 La requête fournie dans cette section peut être directement appliquée aux données du jeu « NYC Taxi Trip ». Cette requête montre comment appliquer une fonction mathématique intégrée dans Hive pour générer des fonctionnalités.
 
@@ -147,7 +147,7 @@ Les équations mathématiques calculant la distance entre deux coordonnées GPS
 
 La liste complète des FDU Hive intégrées est disponible dans la section **Fonctions intégrées** du <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki Apache Hive</a>.  
 
-## <a name="<a-name="tuning"></a>-advanced-topics:-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
+## <a name="a-nametuninga-advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
 
 Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requêtes Hive et aux données qu’elles traitent. Cette section présente certains paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive. Les requêtes d’ajustement des paramètres doivent précéder les requêtes de traitement des données.
 

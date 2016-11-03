@@ -27,7 +27,7 @@ Apprenez à utiliser la bibliothèque à apprentissage automatique [Apache Mahou
 > [AZURE.NOTE] Les étapes décrites dans ce document nécessitent un client Windows et un cluster HDInsight Windows. Pour plus d'informations sur l'utilisation de Mahout avec un client Unix, Linux ou OS X ou avec un cluster HDInsight Linux, consultez [Générer des recommandations de film à l'aide d'Apache Mahout avec un Hadoop Linux dans HDInsight](hdinsight-hadoop-mahout-linux-mac.md)
 
 
-##<a name="<a-name="learn"></a>what-you-will-learn"></a><a name="learn"></a>Contenu
+##<a name="a-namelearnawhat-you-will-learn"></a><a name="learn"></a>Contenu
 
 Mahout est une bibliothèque à [apprentissage automatique][ml] pour Apache Hadoop. Mahout contient des algorithmes pour le traitement des données, tel que le filtrage, la classification et le clustering. Dans cet article, vous utiliserez un moteur de recommandation pour générer des recommandations en fonction des films vus par vos amis. Vous apprendrez également à effectuer des classifications avec une forêt d’arbres décisionnels. Vous aborderez les éléments ci-après :
 
@@ -47,7 +47,7 @@ Mahout est une bibliothèque à [apprentissage automatique][ml] pour Apache Hado
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
-##<a name="<a-name="recommendations"></a>generate-recommendations-by-using-windows-powershell"></a><a name="recommendations"></a>Génération de recommandations avec Windows PowerShell
+##<a name="a-namerecommendationsagenerate-recommendations-by-using-windows-powershell"></a><a name="recommendations"></a>Génération de recommandations avec Windows PowerShell
 
 > [AZURE.NOTE] Bien que la tâche utilisée dans cette section fonctionne avec Windows PowerShell, nombre des classes fournies avec Mahout ne fonctionnent pas actuellement avec Windows PowerShell et doivent être exécutées à partir de la ligne de commande Hadoop. Pour obtenir une liste des classes qui ne fonctionnent pas avec Windows PowerShell, consultez la section [Résolution des problèmes](#troubleshooting) .
 >
@@ -318,7 +318,7 @@ Le résultat doit ressembler à ce qui suit :
     Donnie Brasco (1997)                     4.6792455
     Lone Star (1996)                         4.7099237  
 
-##<a name="<a-name="classify"></a>classify-data-by-using-the-hadoop-command-line"></a><a name="classify"></a>Classification de données avec la ligne de commande Hadoop
+##<a name="a-nameclassifyaclassify-data-by-using-the-hadoop-command-line"></a><a name="classify"></a>Classification de données avec la ligne de commande Hadoop
 
 L’une des méthodes de classification disponibles avec Mahout est la construction d’une [forêt aléatoire][forest]. Il s’agit d’un processus en plusieurs étapes qui implique l’utilisation de données de formation afin de générer des arbres de décision, qui sont ensuite utilisés pour classer des données. Il utilise la classe __org.apache.mahout.classifier.df.tools.Describe__ fournie par Mahout. Il doit être actuellement exécuté à l’aide de la ligne de commande Hadoop.
 
@@ -411,9 +411,9 @@ L’une des méthodes de classification disponibles avec Mahout est la construct
 
 > [AZURE.NOTE] Les tâches Mahout ne remplacent pas les fichiers. Si vous souhaitez réexécuter ces tâches, vous devez supprimer les fichiers créés par les tâches précédentes.
 
-##<a name="<a-name="troubleshooting"></a>troubleshooting"></a><a name="troubleshooting"></a>Résolution des problèmes
+##<a name="a-nametroubleshootingatroubleshooting"></a><a name="troubleshooting"></a>Résolution des problèmes
 
-###<a name="<a-name="install"></a>install-mahout"></a><a name="install"></a>Installation de Mahout
+###<a name="a-nameinstallainstall-mahout"></a><a name="install"></a>Installation de Mahout
 
 Mahout est installé sur les clusters HDInsight 3.1 et peut être installé manuellement sur les clusters HDInsight 3.0 ou 2.1 en suivant les étapes ci-dessous.
 
@@ -479,7 +479,7 @@ Les clusters HDInsight 3.1 incluent Mahout. Le chemin d’accès et le nom de fi
             -DefaultStorageAccountKey $storageAccountKey `
             -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
 
-###<a name="<a-name="nopowershell"></a>classes-that-do-not-work-with-windows-powershell"></a><a name="nopowershell"></a>Classes ne fonctionnant pas avec Windows PowerShell
+###<a name="a-namenopowershellaclasses-that-do-not-work-with-windows-powershell"></a><a name="nopowershell"></a>Classes ne fonctionnant pas avec Windows PowerShell
 
 Les tâches Mahout qui utilisent les classes suivantes renvoient divers messages d’erreur si elles sont utilisées à partir de Windows PowerShell :
 

@@ -18,7 +18,7 @@
     ms.author="jroth"/>
 
 
-# <a name="sql-server-agent-extension-for-sql-server-vms-(classic)"></a>Extension Agent SQL Server pour machines virtuelles SQL Server (Classic)
+# <a name="sql-server-agent-extension-for-sql-server-vms-classic"></a>Extension Agent SQL Server pour machines virtuelles SQL Server (Classic)
 
 > [AZURE.SELECTOR]
 - [Gestionnaire de ressources](virtual-machines-windows-sql-server-agent-extension.md)
@@ -42,18 +42,18 @@ L’extension Agent IaaS SQL Server prend en charge les tâches d’administrati
 
 Configuration requise pour utiliser l’extension Agent IaaS SQL Server sur votre machine virtuelle :
 
-### <a name="operating-system:"></a>Système d’exploitation :
+### <a name="operating-system"></a>Système d’exploitation :
 
 - Windows Server 2012
 - Windows Server 2012 R2
 
-### <a name="sql-server-versions:"></a>Versions de SQL Server :
+### <a name="sql-server-versions"></a>Versions de SQL Server :
 
 - SQL Server 2012
 - SQL Server 2014
 - SQL Server 2016
 
-### <a name="azure-powershell:"></a>Azure PowerShell :
+### <a name="azure-powershell"></a>Azure PowerShell :
 
 [Télécharger et configurer les commandes de la version la plus récente d’Azure PowerShell](../powershell-install-configure.md).
 

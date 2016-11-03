@@ -17,7 +17,7 @@
  ms.author="elioda"/>
 
 
-# <a name="reference---query-language-for-twins-and-jobs"></a>Référence - Langage de requête pour les représentations et les travaux
+# <a name="reference-query-language-for-twins-and-jobs"></a>Référence - Langage de requête pour les représentations et les travaux
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -120,7 +120,7 @@ retourne le nombre d’appareils dans chaque état de configuration de télémé
 
 L’exemple ci-dessus illustre une situation où trois appareils ont signalé une configuration réussie, deux d’entre eux appliquant toujours la configuration et le troisième ayant signalé une erreur.
 
-### <a name="c#-example"></a>Exemple en code C#
+### <a name="c-example"></a>Exemple en code C#
 
 La fonctionnalité de requête est exposée par le [Kit de développement logiciel (SDK)du service C#][lnk-hub-sdks] dans la classe **RegistryManager**.
 Voici un exemple de requête simple :

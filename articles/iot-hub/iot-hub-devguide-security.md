@@ -100,7 +100,7 @@ Lorsque vous utilisez SASL PLAIN avec AMQP, un client qui se connecte à un IoT 
 *  Les passerelles se connectent généralement au nom de nombreux appareils. Lorsque vous utilisez SASL PLAIN, elles doivent créer une connexion TCP distincte pour chaque appareil se connectant à un IoT Hub. Ce scénario augmente considérablement la consommation des ressources d’alimentation et de mise en réseau, ainsi que la latence de chaque connexion d’appareil.
 * Les appareils avec des contraintes de ressources sont affectés par l’utilisation accrue des ressources pour se reconnecter après chaque expiration du jeton.
 
-## <a name="scope-hub-level-credentials"></a>Étendue des informations d’identification au niveau du hub
+## <a name="scope-hublevel-credentials"></a>Étendue des informations d’identification au niveau du hub
 
 Vous pouvez étendre les stratégies de sécurité au niveau du hub en créant des jetons avec un URI de ressource restreint. Par exemple, le point de terminaison pour l’envoi de messages appareil-à-cloud est **/devices/{deviceId}/messages/events**. Vous pouvez également utiliser une stratégie d’accès partagé au niveau du concentrateur avec des autorisations **DeviceConnect** pour signer un jeton dont l’URI de ressource est **/devices/{deviceId}**. Cette approche crée un jeton utilisable uniquement pour envoyer des messages au nom de l’appareil **deviceId**.
 
@@ -280,7 +280,7 @@ Le résultat, qui revient à accorder l’accès en lecture à toutes les identi
 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead
 
-## <a name="supported-x.509-certificates"></a>Certificats X.509 pris en charge
+## <a name="supported-x509-certificates"></a>Certificats X.509 pris en charge
 
 Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appareil sur IoT Hub. notamment :
 
@@ -292,11 +292,11 @@ Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appa
 
 Un appareil peut utiliser un certificat X.509 ou un jeton de sécurité pour l’authentification, mais pas les deux.
 
-### <a name="register-an-x.509-client-certificate-for-a-device"></a>Inscrire un certificat de client X.509 pour un appareil
+### <a name="register-an-x509-client-certificate-for-a-device"></a>Inscrire un certificat de client X.509 pour un appareil
 
 Le [Kit de développement logiciel (SDK) de service Azure IoT pour Java][lnk-service-sdk] (version 1.0.8+) prend en charge l’inscription d’un appareil utilisant un certificat client X.509 pour s’authentifier. D’autres API telles que l’importation/exportation d’appareils prennent également en charge les certificats clients X.509.
 
-### <a name="c\#-support"></a>Prise en charge de C\#
+### <a name="c-support"></a>Prise en charge de C\#
 
 La classe **RegistryManager** offre un moyen d’inscrire un appareil dans le cadre d’un programme. Les méthodes **AddDeviceAsync** et **UpdateDeviceAsync** permettent en particulier à un utilisateur d’inscrire et de mettre à jour un appareil dans le registre des identité des appareils Iot Hub. Ces deux méthodes utilisent une instance **Device** comme entrée. La classe **Device** inclut une propriété **Authentication** qui permet à l’utilisateur de spécifier les empreintes de certificats X.509 primaires et secondaires. L’empreinte numérique représente un hachage SHA-1 du certificat X.509 (stocké à l’aide d’un codage DER binaire). Les utilisateurs ont la possibilité de spécifier une empreinte numérique principale et/ou une empreinte numérique secondaire. Les empreintes numériques principales et secondaires sont prises en charge pour la gestion des scénarios de substitution de certificat.
 
@@ -319,11 +319,11 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString(dev
 await registryManager.AddDeviceAsync(device);
 ```
 
-### <a name="use-an-x.509-client-certificate-during-runtime-operations"></a>Utiliser un certificat client X.509 pendant les opérations d’exécution
+### <a name="use-an-x509-client-certificate-during-runtime-operations"></a>Utiliser un certificat client X.509 pendant les opérations d’exécution
 
 Le [Kit de développement logiciel (SDK) d’appareil Azure IoT pour .NET][lnk-client-sdk] (version 1.0.11+) prend en charge l’utilisation de certificats clients X.509.
 
-### <a name="c\#-support"></a>Prise en charge de C\#
+### <a name="c-support"></a>Prise en charge de C\#
 
 La classe **DeviceAuthenticationWithX509Certificate** prend en charge la création d’instances  **DeviceClient** à l’aide d’un certificat client X.509.
 

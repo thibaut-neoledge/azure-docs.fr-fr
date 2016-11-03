@@ -17,7 +17,7 @@
  ms.author="nberdy"/>
 
 
-# <a name="invoke-a-direct-method-on-a-device-(preview)"></a>Appeler une méthode directe sur un appareil (version préliminaire)
+# <a name="invoke-a-direct-method-on-a-device-preview"></a>Appeler une méthode directe sur un appareil (version préliminaire)
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -54,7 +54,7 @@ Les appels de méthode d’appareil sont exclusivement HTTP côté cloud et excl
 
 ## <a name="reference"></a>Référence
 
-### <a name="service-facing"></a>Côté service
+### <a name="servicefacing"></a>Côté service
 
 #### <a name="method-invocation"></a>Appel de méthode
 
@@ -95,7 +95,7 @@ Le serveur principal reçoit une réponse qui comprend les éléments suivants 
   
    Les propriétés `status` et `body` sont fournies par l’appareil et permettent de répondre avec le code d’état et/ou la description spécifiques de l’appareil.
 
-### <a name="device-facing"></a>Côté appareil
+### <a name="devicefacing"></a>Côté appareil
 
 #### <a name="method-invocation"></a>Appel de méthode
 

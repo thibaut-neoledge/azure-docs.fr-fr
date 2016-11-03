@@ -17,7 +17,7 @@
  ms.author="juanpere"/>
 
 
-# <a name="tutorial:-how-to-do-a-firmware-update-(preview)"></a>Didacticiel : Mettre à jour un microprogramme (version préliminaire)
+# <a name="tutorial-how-to-do-a-firmware-update-preview"></a>Didacticiel : Mettre à jour un microprogramme (version préliminaire)
 
 ## <a name="introduction"></a>Introduction
 Dans le didacticiel [Prise en main de la gestion d’appareils][lnk-dm-getstarted], vous avez vu comment utiliser la [représentation d’appareil][lnk-devtwin] et les primitives des [méthodes cloud-à-appareil (C2D)][lnk-c2dmethod] pour redémarrer un appareil à distance. Ce didacticiel utilise les mêmes primitives IoT Hub, fournit des conseils, et montre comment effectuer une mise à jour du microprogramme simulée de bout en bout.  Ce modèle est utilisé dans l’implémentation de la mise à jour du microprogramme de l’exemple d’appareil Intel Edison.

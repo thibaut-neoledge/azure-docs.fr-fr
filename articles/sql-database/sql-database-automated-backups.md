@@ -44,7 +44,7 @@ Dans le diagramme suivant, SQL Database est en cours d’exécution dans la rég
 
 <!--## What is <feature>?" -->
 
-## <a name="what-is-a-sql-database-backup?"></a>Qu’est-ce qu’une sauvegarde SQL Database ?  
+## <a name="what-is-a-sql-database-backup"></a>Qu’est-ce qu’une sauvegarde SQL Database ?  
 
 <!-- 
 First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
@@ -68,15 +68,15 @@ SQL Database utilise la [réplication Stockage Azure](../storage/storage-redunda
 >[AZURE.NOTE] Dans le stockage Azure, le terme *réplication* fait référence à la copie de fichier d’un emplacement à un autre. La *réplication de base de données* de SQL fait référence à la gestion de la synchronisation de plusieurs bases de données secondaires avec une base de données primaire. 
 
 
-## <a name="how-much-backup-storage-is-included-at-no-cost?"></a>Quelle est la quantité de stockage de sauvegarde incluse sans frais ?
+## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Quelle est la quantité de stockage de sauvegarde incluse sans frais ?
 
 SQL Database fournit jusqu’à 200 % du stockage de base de données maximal configuré pour le stockage de sauvegarde sans coût supplémentaire. Par exemple, si vous avez une instance de base de données Standard configurée à une taille de 250 Go, vous bénéficiez de 500 Go d’espace de stockage de sauvegarde sans coût supplémentaire. Si votre base de données dépassé la capacité fournie de stockage de sauvegarde, vous pouvez décider de réduire la période de rétention, en contactant le support Azure. Vous pouvez également décider de payer le stockage de sauvegarde supplémentaire, qui est facturé au taux standard de stockage redondant avec accès en lecture. 
 
-## <a name="how-often-do-backups-happen?"></a>À quelle fréquence les sauvegardes se produisent-elles ?
+## <a name="how-often-do-backups-happen"></a>À quelle fréquence les sauvegardes se produisent-elles ?
 
 Les sauvegardes complètes de base de données sont effectuées chaque semaine, les sauvegardes différentielles de base de données sont effectuées toutes les heures, et les sauvegardes du journal des transactions sont effectuées toutes les 5 minutes. La première sauvegarde complète est planifiée immédiatement après la création d’une base de données. Elle s’exécute généralement en 30 minutes, mais elle peut nécessiter davantage de temps s’il s’agit d’une base de données de taille considérable. Par exemple, la sauvegarde initiale peut prendre davantage de temps sur une base de données restaurée ou une copie de base de donnée. Après la première sauvegarde complète, toutes les sauvegardes sont planifiées automatiquement et gérées en mode silencieux en arrière-plan. La durée exacte des sauvegardes complètes et [différentielles](https://msdn.microsoft.com/library/ms175526.aspx) des base de données est déterminée en fonction de l’équilibrage de la charge de travail globale du système. 
 
-## <a name="how-long-do-you-keep-my-backups?"></a>Combien de temps conservez-vous mes sauvegardes ?
+## <a name="how-long-do-you-keep-my-backups"></a>Combien de temps conservez-vous mes sauvegardes ?
 
 Chaque sauvegarde SQL Database a une période de rétention qui est basée sur le [-niveau de service](sql-database-service-tiers.md) de la base de données. Les périodes de rétention pour une base de données sont les suivantes :
 

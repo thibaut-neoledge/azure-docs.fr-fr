@@ -84,7 +84,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer]
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="how-to:-create-a-queue"></a>Création d’une file d’attente
+## <a name="how-to-create-a-queue"></a>Création d’une file d’attente
 
 Vous pouvez effectuer des opérations de gestion pour les files d’attente Service Bus via la classe **ServiceBusRestProxy**. Un objet **ServiceBusRestProxy** est construit via la méthode de fabrique **ServicesBuilder::createServiceBusService** avec une chaîne de connexion appropriée qui encapsule les autorisations de jeton pour le gérer.
 
@@ -118,7 +118,7 @@ catch(ServiceException $e){
 
 > [AZURE.NOTE] vous pouvez utiliser la méthode `listQueues` sur les objets `ServiceBusRestProxy` pour vérifier s’il existe déjà une file d’attente d’un nom déterminé dans un espace de noms.
 
-## <a name="how-to:-send-messages-to-a-queue"></a>Envoi de messages à une file d’attente
+## <a name="how-to-send-messages-to-a-queue"></a>Envoi de messages à une file d’attente
 
 Pour envoyer un message à une file d’attente Service Bus, votre application appelle la méthode **ServiceBusRestProxy->sendQueueMessage**. Le code suivant montre comment envoyer un message à la file d’attente `myqueue` créée plus haut dans l’espace de noms de service `MySBNamespace`.
 
@@ -202,7 +202,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="how-to:-handle-application-crashes-and-unreadable-messages"></a>Gestion des blocages d’application et des messages illisibles
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Gestion des blocages d’application et des messages illisibles
 
 Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d’erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode **unlockMessage** pour le message reçu (au lieu de la méthode **deleteMessage**). Service Bus déverrouille alors le message dans la file d’attente et le rend à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
 

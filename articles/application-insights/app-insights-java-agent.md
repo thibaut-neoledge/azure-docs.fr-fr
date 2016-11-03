@@ -16,7 +16,7 @@
     ms.author="awills"/>
  
 
-# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
+# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
 
 *Application Insights est à l'état de version préliminaire.*
 
@@ -103,7 +103,7 @@ Pour rechercher des instances individuelles de rapports sur les dépendances, le
 
 
 
-## <a name="questions?-problems?"></a>Des questions ? Des problèmes ?
+## <a name="questions-problems"></a>Des questions ? Des problèmes ?
 
 * Pas de données ? [Définir les exceptions de pare-feu](app-insights-ip-addresses.md)
 * [Résolution des problèmes Java](app-insights-java-troubleshoot.md)

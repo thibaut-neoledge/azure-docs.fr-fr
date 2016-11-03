@@ -46,7 +46,7 @@ Ce scénario suppose que vous avez un groupe de ressources appelé *RG1* contena
 
 [Cet article](./virtual-machines/virtual-machines-windows-ps-create.md ) explique comment créer les ressources mentionnées ci-dessus, si ce n’est déjà fait.
 
-## <a name="<a-name-=-"create"></a>create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
+## <a name="a-name-createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
 
 1. Ouvrez une invite de commandes PowerShell et effectuez les étapes restantes de cette section dans une même session PowerShell. Si vous n’avez pas installé, ni configuré PowerShell, effectuez les étapes de l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) .
 
@@ -229,7 +229,7 @@ Ce scénario suppose que vous avez un groupe de ressources appelé *RG1* contena
 
     Vous devez voir l’adresse IP que vous avez ajoutée à la liste, dans le cas présent *eth0:0*.
 
-## <a name="<a-name="add"></a>add-ip-addresses-to-an-existing-vm"></a><a name="add"></a>Ajouter des adresses IP à une machine virtuelle existante
+## <a name="a-nameaddaadd-ip-addresses-to-an-existing-vm"></a><a name="add"></a>Ajouter des adresses IP à une machine virtuelle existante
 
 Pour ajouter des adresses IP supplémentaires à une interface réseau, procédez comme suit :
 
